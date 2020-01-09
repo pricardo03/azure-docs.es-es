@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 1b9d943f540a0132abc6a70eba888aa5f8f46093
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d167a157935c6d51c025d2fbb11586343a2ef3f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225218"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453523"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: Equilibrio de la carga de tráfico interno con un equilibrador de carga básico en Azure Portal
 
@@ -42,7 +42,7 @@ Primero cree una red virtual (VNet). En la red virtual, cree dos máquinas virtu
    
 1. En el panel **Crear red virtual**, escriba o seleccione estos valores:
    
-   - **Nombre**: escriba *MyVNet*.
+   - **Name**: escriba *MyVNet*.
    - **ResourceGroup**: seleccione **Crear nuevo**, a continuación, escriba *MyResourceGroupLB* y seleccione **Aceptar**. 
    - **Subred** > **Nombre**: escriba *MyBackendSubnet*.
    
@@ -71,7 +71,7 @@ Primero cree una red virtual (VNet). En la red virtual, cree dos máquinas virtu
    1. Seleccione **Advanced** (Avanzadas). 
    1. En la lista desplegable **Configurar el grupo de seguridad de red** seleccione **Ninguno**. 
    
-1. Seleccione la pestaña **Administración**, o bien **Siguiente** > **Administración**. En **Supervisión**, establezca **Diagnósticos de arranque** en **Desactivado**.
+1. Seleccione la pestaña **Administración** o seleccione **Siguiente** > **Administración**. En **Supervisión**, establezca **Diagnósticos de arranque** en **Desactivado**.
    
 1. Seleccione **Revisar + crear**.
    
@@ -89,13 +89,13 @@ Cree un equilibrador de carga interno Básico mediante el portal. El nombre y di
    
 2. En la pestaña **Datos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información, acepte los valores predeterminados del resto de la configuración y, luego, seleccione **Revisar y crear**:
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba *MyResourceGroupLB* en el cuadro de texto.|
-    | NOMBRE                   | *myLoadBalancer*                                   |
-    | Region         | Seleccione **Europa Occidental**.                                        |
-    | type          | seleccione **Interno**.                                        |
+    | Nombre                   | *myLoadBalancer*                                   |
+    | Region         | Seleccione **Este de EE. UU. 2**.                                        |
+    | Tipo          | seleccione **Interno**.                                        |
     | SKU           | Seleccione **Básica**.                          |
     | Virtual network           | Seleccione *MyVNet*.                          |    
     | Asignación de dirección IP              | Seleccione **Estática**.   |
@@ -120,7 +120,7 @@ Para distribuir el tráfico a las máquinas virtuales, el equilibrador de carga 
    
 1. En la página **Agregar un grupo back-end**, escriba o seleccione los siguientes valores:
    
-   - **Nombre**: escriba *MyBackendPool*.
+   - **Name**: escriba *MyBackendPool*.
    - **Asociado a**: En la lista desplegable seleccione **Conjunto de disponibilidad**.
    - **Conjunto de disponibilidad**: seleccione **MyAvailabilitySet**.
    
@@ -149,7 +149,7 @@ Para permitir que el equilibrador de carga supervise el mantenimiento de la máq
    
 1. En la página **Agregar sondeo de mantenimiento**, escriba o seleccione los siguientes valores:
    
-   - **Nombre**: escriba *MyHealthProbe*.
+   - **Name**: escriba *MyHealthProbe*.
    - **Protocolo**: en la lista desplegable, seleccione **HTTP**. 
    - **Puerto**: escriba *80*. 
    - **Ruta de acceso**: acepte */* para el identificador URI predeterminado. Puede reemplazar este valor por cualquier otro identificador URI. 
@@ -174,7 +174,7 @@ La regla del equilibrador de carga llamada **MyLoadBalancerRule** escucha en el 
    
 1. En la página **Agregar regla de equilibrio de carga**, escriba o seleccione los valores siguientes, si todavía no están presentes:
    
-   - **Nombre**: escriba *MyLoadBalancerRule*.
+   - **Name**: escriba *MyLoadBalancerRule*.
    - **Dirección IP de front-end**: escriba *LoadBalancerFrontEnd* si no está ya presente.
    - **Protocolo**: seleccione **TCP**.
    - **Puerto**: escriba *80*.

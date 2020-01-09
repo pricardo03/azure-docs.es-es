@@ -2,8 +2,7 @@
 documentType: LandingData
 title: 'Azure SQL Database: Base de datos única'
 metadata:
-  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: 'Documentación: Base de datos única'
+  title: 'Documentación: base de datos única'
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
   requires-business-manager-approval: false
@@ -75,7 +74,7 @@ sections:
             title: Portal de Azure
           - image:
               src: media/index/cli.svg
-            title: CLI de Azure
+            title: Azure CLI
           - image:
               src: media/index/logo_powershell.svg
             title: PowerShell

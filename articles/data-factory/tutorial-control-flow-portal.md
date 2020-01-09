@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 08f9310c2ffdb2e7b8d4249495c2ee90b522d694
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 609b1c4500e1602c38f3383df6cbe176a3333bff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926776"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439551"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 
@@ -38,7 +38,7 @@ En este tutorial, realizará los siguientes pasos:
 
 En este tutorial se usa Azure Portal. Puede usar otros mecanismos para interactuar con Azure Data Factory. Consulte "Inicios rápidos" en la tabla de contenido.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * **Cuenta de Azure Storage**. Blob Storage se puede usar como almacén de datos de **origen**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación.
@@ -135,7 +135,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
       
      ![Página New data factory (Nueva factoría de datos)](./media/tutorial-control-flow-portal/new-azure-data-factory.png)
  
-   El nombre de Azure Data Factory debe ser **único de forma global**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
+   El nombre de la instancia de Azure Data Factory debe ser **único de forma global**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
   
        `Data factory name “ADFTutorialDataFactory” is not available`
 3. Seleccione la **suscripción** de Azure donde desea crear la factoría de datos. 
@@ -144,11 +144,11 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
       - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable. 
       - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
          
-        Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
+        Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
 4. Seleccione **V2** para la **versión**.
 5. Seleccione la **ubicación** de Data Factory. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 6. Seleccione **Anclar al panel**.     
-7. Haga clic en **Create**(Crear).      
+7. Haga clic en **Crear**.      
 8. En el panel, verá el icono siguiente con el estado: **Deploying data factory** (Implementación de la factoría de datos). 
 
     ![icono implementando factoría de datos](media/tutorial-control-flow-portal/deploying-data-factory.png)

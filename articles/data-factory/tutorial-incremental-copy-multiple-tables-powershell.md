@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 46e0815ea341b732e20ebe7ffa9af355e1f35e87
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f9d426562f4403776e3926564857b4cdbf0d4390
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926471"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439228"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carga incremental de datos de varias tablas de SQL Server a una base de datos de Azure SQL
 
@@ -63,7 +63,7 @@ Estos son los pasos importantes para crear esta solución:
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * **SQL Server**. En este tutorial, usará una base de datos local SQL Server como almacén de datos de origen. 
 * **Azure SQL Database**. Usará una base de datos SQL como almacén de datos receptor. Si no tiene ninguna, consulte [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación. 
 
@@ -230,7 +230,7 @@ END
 Instale los módulos más recientes de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
-1. Defina una variable para el nombre del grupo de recursos que usa en los comandos de PowerShell más adelante. Copie el texto del comando siguiente en PowerShell, especifique el nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) entre comillas dobles y ejecute el comando. Un ejemplo es `"adfrg"`. 
+1. Defina una variable para el nombre del grupo de recursos que usa en los comandos de PowerShell más adelante. Copie el texto del comando siguiente en PowerShell, especifique el nombre del [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) entre comillas dobles y ejecute el comando. Un ejemplo es `"adfrg"`. 
    
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
@@ -795,7 +795,7 @@ La canalización toma una lista de tablas como un parámetro. La **actividad For
 
 ## <a name="monitor-the-pipeline"></a>Supervisar la canalización
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Haga clic en **Todos los servicios**, busque con la palabra clave *Factorías de datos* y seleccione **Factorías de datos**. 
 

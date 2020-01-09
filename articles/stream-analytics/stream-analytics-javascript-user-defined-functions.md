@@ -1,7 +1,6 @@
 ---
 title: Funciones definidas por el usuario en JavaScript para Azure Stream Analytics
 description: En este tutorial se realizan mecánicas de consultas avanzadas con funciones definidas por el usuario en JavaScript
-services: stream-analytics
 author: rodrigoamicrosoft
 ms.author: rodrigoa
 ms.service: stream-analytics
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: 9ddf8a2a11cb863a0016726074c5279bfde96959
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f82add78eef418e3644a5961d984708d3721a8dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990235"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426059"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: Funciones definidas por el usuario en JavaScript para Azure Stream Analytics
  
@@ -105,7 +104,7 @@ Stream Analytics | JavaScript
 bigint | Number (JavaScript solamente puede representar enteros hasta 2^53 con precisión)
 DateTime | Date (JavaScript solo admite milisegundos)
 double | Number
-nvarchar(MAX) | Cadena
+nvarchar(MAX) | String
 Registro | Object
 Array | Array
 NULL | Null
@@ -118,7 +117,7 @@ JavaScript | Stream Analytics
 --- | ---
 Number | Bigint (si el número es round y entre long.MinValue y long.MaxValue, double en caso contrario)
 Date | DateTime
-Cadena | nvarchar(MAX)
+String | nvarchar(MAX)
 Object | Registro
 Array | Array
 Null, sin definir | NULL
@@ -126,7 +125,7 @@ Cualquier otro tipo (por ejemplo, una función o un error) | No admitido (da lug
 
 El lenguaje JavaScript distingue mayúsculas de minúsculas y las mayúsculas y minúsculas de los campos de objetos del código JavaScript deben coincidir con las mayúsculas y minúsculas de los campos de los datos de entrada. Tenga en cuenta que los trabajos con un nivel de compatibilidad de 1.0 convertirán los campos de la instrucción SELECT de SQL en minúsculas. En el nivel de compatibilidad 1.1 y superior, los campos de la instrucción SELECT tendrán la misma convención de mayúsculas y minúsculas que la especificada en la consulta SQL.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 Los errores en tiempo de ejecución de JavaScript se consideran graves y se presentan en el registro de actividad. Para recuperar el registro, en Azure Portal, vaya al trabajo y seleccione **Registro de actividad**.
 
 ## <a name="other-javascript-user-defined-function-patterns"></a>Otros patrones de función definida por el usuario de JavaScript
@@ -162,7 +161,7 @@ Cuando no los necesite, elimine el grupo de recursos, el trabajo de streaming y 
 1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó.  
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
 
-## <a name="get-help"></a>Obtención de ayuda
+## <a name="get-help"></a>Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes

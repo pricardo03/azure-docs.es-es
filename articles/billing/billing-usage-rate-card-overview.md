@@ -16,12 +16,12 @@ ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: a8e189e8070de0fccf9428e26337e1091ba7f7b4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 34fcaef5416fe976c051317c0273d245f1ff8358
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225620"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449126"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Use las API de facturación de Azure para obtener información mediante programación sobre cómo usa Azure
 Use las API de facturación de Azure para extraer datos de uso y de recursos e incorporarlos en las herramientas de análisis de datos de su preferencia. Las API de RateCard y de uso de recursos de Azure pueden ayudarlo a predecir y administrar los costos de forma precisa. Las API se implementan como proveedor de recursos, como parte de la familia de API expuesta por Azure Resource Manager.  
@@ -71,4 +71,4 @@ Use la [API de RateCard de recursos de Azure](/previous-versions/azure/reference
 
   * [Ejemplo de código de API de RateCard](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
-* Para más información sobre Azure Resource Manager, vea [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+* Para más información sobre Azure Resource Manager, vea [Información general de Azure Resource Manager](../azure-resource-manager/management/overview.md).

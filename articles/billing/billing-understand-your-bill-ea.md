@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: banders
-ms.openlocfilehash: cc4b552143917f5a9ca66ad402cca79956186d08
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 112bcf7f5cb33fec56cdc36c5fe8cfe92145705a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841276"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644501"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Descripción de la factura de Azure Enterprise
 
@@ -105,7 +105,7 @@ Compare el importe total por uso en Enterprise Portal en **Informes** > **Resume
 
 La tabla siguiente enumera los términos y las descripciones que se muestran en la factura y en el **Resumen de uso** de Enterprise Portal:
 
-|Término de facturación|Término de Resumen de uso|DESCRIPCIÓN|
+|Término de facturación|Término de Resumen de uso|Descripción|
 |---|---|---|
 |Importe total extendido|Uso total|El gasto por uso total antes de impuestos durante el período específico anterior a la aplicación del crédito.|
 |Uso de compromiso|Uso de compromiso|El crédito que se aplica durante ese período específico.|

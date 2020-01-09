@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 12/08/2019
 ms.author: alehall
-ms.openlocfilehash: 6af0881049e52cbead5cca9719d4c9b06be29491
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 9cf1a7a1b9c6d0f35bf3cc9151e30141fd432a54
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951554"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410857"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Tutorial: Streaming de datos a Azure Databricks con Event Hubs
 
@@ -44,7 +44,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 > Este tutorial no puede llevarse a cabo mediante una **suscripción de evaluación gratuita de Azure**.
 > Si tiene una cuenta gratuita, vaya a su perfil y cambiar la suscripción a **pago por uso**. Para más información consulte el sitio de [cuentas gratuitas de Azure](https://azure.microsoft.com/free/). Después, [quite el límite de gasto](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) y [solicite un aumento de la cuota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para las vCPU de su región. Cuando crea su área de trabajo de Azure Databricks, puede seleccionar el plan de tarifa de la **Trial (Premium - 14-Days Free DBUs)** para que el área de trabajo acceda a las DBU Premium de Azure Databricks gratis durante 14 días.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar este tutorial, asegúrese de que se cumplen los requisitos siguientes:
 - Un espacio de nombres de Azure Event Hubs.
@@ -56,7 +56,7 @@ Puede cumplir estos requisitos siguiendo los pasos descritos en el artículo [Cr
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Creación de un área de trabajo de Azure Databricks
 
@@ -76,7 +76,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
     |---------|---------|
     |**Workspace name** (Nombre del área de trabajo)     | Proporcione un nombre para el área de trabajo de Databricks        |
     |**Suscripción**     | En el cuadro desplegable, seleccione la suscripción de Azure.        |
-    |**Grupos de recursos**     | Especifique si desea crear un nuevo grupo de recursos o utilizar uno existente. Un grupo de recursos es un contenedor que almacena los recursos relacionados con una solución de Azure. Para más información, consulte [Información general del grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md). |
+    |**Grupos de recursos**     | Especifique si desea crear un nuevo grupo de recursos o utilizar uno existente. Un grupo de recursos es un contenedor que almacena los recursos relacionados con una solución de Azure. Para más información, consulte [Información general del grupo de recursos de Azure](../azure-resource-manager/management/overview.md). |
     |**Ubicación**     | Seleccione **Este de EE. UU. 2**. Para otras regiones disponibles, consulte [Productos disponibles por región](https://azure.microsoft.com/regions/services/).        |
     |**Plan de tarifa**     |  Elija entre **Standard** o **Premium**. Para más información sobre estos planes, consulte la [página de precios de Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
@@ -409,7 +409,7 @@ Cuando haya terminado de ejecutar el tutorial, puede finalizar el clúster. Para
 Si no finaliza manualmente el clúster, este se detendrá automáticamente si seleccionó la casilla **Terminate after \_\_ minutes of inactivity** (Finalizar después de \_\_ minutos de inactividad) al crear el clúster. En tal caso, el clúster se detendrá automáticamente si ha estado inactivo durante el tiempo especificado.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Creación de un área de trabajo de Azure Databricks

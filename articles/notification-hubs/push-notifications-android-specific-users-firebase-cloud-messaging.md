@@ -1,5 +1,5 @@
 ---
-title: Envío de notificaciones push a aplicaciones de Android concretas mediante Azure Notification Hubs | Microsoft Docs
+title: Envío de notificaciones push a aplicaciones de Android mediante Azure Notification Hubs
 description: Aprenda a enviar notificaciones push a usuarios concretos mediante Azure Notification Hubs.
 documentationcenter: android
 services: notification-hubs
@@ -17,18 +17,18 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 5bd709236667dd43e623047ad995b0a7b981e9cb
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c2d3789082130cbbc42021a0706249dd3966b9ef
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387418"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531129"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a aplicaciones de Android mediante Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivo concreto. Se usa un back-end de ASP.NET WebAPI para autenticar clientes y generar notificaciones, tal como se muestra en el artículo de referencia [Administración de registros desde un back-end](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Este tutorial se basa en el centro de notificaciones que creó en el [Tutorial: Envío de notificaciones de inserción a dispositivos Android con Azure Notification Hubs y Google Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
+Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivo concreto. Se usa un back-end de ASP.NET WebAPI para autenticar clientes y generar notificaciones, tal como se muestra en el artículo de referencia [Administración de registros desde un back-end](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Este tutorial se basa en el centro de notificaciones que creó en el [Tutorial: Envío de notificaciones push a dispositivos Android con Azure Notification Hubs y Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -37,7 +37,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Actualizar la aplicación Android.
 > * Prueba de la aplicación
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Complete el [Tutorial: Envío de notificaciones push a dispositivos Android con Azure Notification y Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md) antes de realizar este tutorial.
 
@@ -45,7 +45,7 @@ Complete el [Tutorial: Envío de notificaciones push a dispositivos Android con 
 
 ## <a name="create-the-android-project"></a>Creación del proyecto Android
 
-El siguiente paso consiste en actualizar la aplicación Android creada en el [Tutorial: Envío de notificaciones de inserción a dispositivos Android con Azure Notification Hubs y Google Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
+El siguiente paso consiste en actualizar la aplicación Android creada en el [Tutorial: Envío de notificaciones push a dispositivos Android con Azure Notification Hubs y Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 1. Abra su archivo`res/layout/activity_main.xml`, reemplace las definiciones de contenido siguientes:
 

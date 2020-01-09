@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: b0e4fcf771f2441d9e1061ee57e83e26b6b1a241
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 389125b1ce3ed43e16f2c9c481e26f1297785a6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922966"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439349"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copia de datos de una base de datos de SQL Server local en Azure Blob Storage
 
@@ -36,7 +36,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Inicio de la ejecución de una canalización.
 > * Supervisión de la ejecución de la canalización
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 ### <a name="azure-subscription"></a>Suscripción de Azure
 Antes de empezar, si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
@@ -135,7 +135,7 @@ Si no está en el equipo, instale la versión más reciente de Azure PowerShell.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-1. Defina una variable para el nombre del grupo de recursos que usará en los comandos de PowerShell más adelante. Copie el comando siguiente en PowerShell, especifique el nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) (entre comillas dobles; por ejemplo, `"adfrg"`) y ejecute el comando. 
+1. Defina una variable para el nombre del grupo de recursos que usará en los comandos de PowerShell más adelante. Copie el comando siguiente en PowerShell, especifique el nombre del [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) (entre comillas dobles; por ejemplo, `"adfrg"`) y ejecute el comando. 
    
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -382,7 +382,7 @@ En este paso, vincula la instancia de SQL Server local a la factoría de datos.
     }
    ```    
 
-    **Uso de la autenticación de Windows:**
+    **Con autenticación de Windows:**
 
     ```json
     {  

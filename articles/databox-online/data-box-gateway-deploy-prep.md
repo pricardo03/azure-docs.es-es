@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 428b42e62f44d182de109740359544135561e54b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fdb4b7c370d5edadf3e0e5bc0d1ae548da6bcaa9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441487"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438656"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutorial: Preparación de la implementación de Azure Data Box Gateway
 
@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 > * Descarga de la imagen del dispositivo virtual
 > * Obtención de la clave de activación
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 Para implementar Data Box Gateway, consulte los siguientes tutoriales en el orden indicado.
 
@@ -42,7 +42,7 @@ Para implementar Data Box Gateway, consulte los siguientes tutoriales en el orde
 
 Ya puede empezar a configurar Azure Portal.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Aquí encontrará los requisitos previos para configurar su recurso de Data Box Gateway, el dispositivo Data Box Gateway y la red de centros de datos.
 
@@ -100,16 +100,16 @@ Siga estos pasos en Azure Portal para crear un recurso de Data Box Gateway.
 
 4. En la pestaña **Datos básicos**, escriba o seleccione los siguientes **detalles del proyecto**.
     
-    |Configuración  |Valor  |
+    |Configuración  |Value  |
     |---------|---------|
     |Subscription    |Este valor se rellena automáticamente según la selección anterior. La suscripción está vinculada a la cuenta de facturación. |
-    |Grupos de recursos  |Cree un nuevo grupo o seleccione uno existente.<br>Más información sobre los [grupos de recursos de Azure](../azure-resource-manager/resource-group-overview.md).     |
+    |Resource group  |Cree un nuevo grupo o seleccione uno existente.<br>Más información sobre los [grupos de recursos de Azure](../azure-resource-manager/management/overview.md).     |
 
 5. Escriba o seleccione los siguientes **detalles de la instancia**.
 
-    |Configuración  |Valor  |
+    |Configuración  |Value  |
     |---------|---------|
-    |NOMBRE   | Nombre descriptivo que identifique el recurso.<br>El nombre tiene entre 2 y 50 caracteres que contiene letras, números y guiones.<br> El nombre comienza y termina con una letra o un número.        |   
+    |Nombre   | Nombre descriptivo que identifique el recurso.<br>El nombre tiene entre 2 y 50 caracteres que contiene letras, números y guiones.<br> El nombre comienza y termina con una letra o un número.        |   
     |Region     |En esta versión, están disponibles las regiones de Este de EE. UU., Sudeste Asiático y Europa Occidental para implementar el recurso. En cuanto a Azure Government, todas las regiones que aparecen en la lista de [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/) están disponibles. <br> Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo.|
     
     ![Creación de un recurso de Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
@@ -177,7 +177,7 @@ Pase al siguiente tutorial para aprender cómo aprovisionar una máquina virtual
 > [!div class="nextstepaction"]
 > [Aprovisionamiento de Data Box Gateway en Hyper-V](./data-box-gateway-deploy-provision-hyperv.md)
 
-OR
+O BIEN
 
 > [!div class="nextstepaction"]
 > [Aprovisionamiento de Data Box Gateway en VMware](./data-box-gateway-deploy-provision-vmware.md)

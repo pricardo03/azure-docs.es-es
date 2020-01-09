@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de un conjunto de escalado de máquinas virtuales de
 description: Aprenda a usar Terraform para configurar y crear la versión de un conjunto de escalado de máquinas virtuales de Azure.
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: ef2ce0a3ea8c50123cd51ab60a6b98894739d859
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6dcdad21eef003fe773a2c6ea3cb8a69b9175ecb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159079"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369480"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>Tutorial: Creación de un conjunto de escalado de máquinas virtuales de Azure mediante Terraform
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a usar [Azure Cloud Shell](/azure/cloud-shell/overv
 > [!NOTE]
 > La última versión de los archivos de configuración de Terraform usados en este artículo se encuentran en el [repositorio de Awesome Terraform en GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
@@ -424,7 +424,7 @@ Un *Jumpbox* SSH es un servidor único por el que se "salta" para acceder a otro
     resource_group_name          = azurerm_resource_group.vmss.name
     allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}-ssh"
-    tags                         = var.tags}
+    tags                         = var.tags
    }
 
    resource "azurerm_network_interface" "jumpbox" {

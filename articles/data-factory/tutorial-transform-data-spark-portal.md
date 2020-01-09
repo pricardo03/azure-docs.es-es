@@ -10,12 +10,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 34c2a27d047888d1e763a0a99461e7eb4b9fb203
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ddc5032da415ebee9920556d3168d30bdae4a158
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925095"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439208"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformación de datos en la nube mediante una actividad de Spark en Azure Data Factory
 En este tutorial, usará Azure Portal para crear una canalización de Azure Data Factory. Esta canalización permite transformar datos mediante una actividad de Spark y un servicio vinculado de Azure HDInsight a petición. 
@@ -30,7 +30,7 @@ En este tutorial, realizará los siguientes pasos:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -99,7 +99,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
    - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable. 
    - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
          
-   En algunos de los pasos de esta guía de inicio rápido se supone que se usa el nombre: **ADFTutorialResourceGroup** para el grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
+   En algunos de los pasos de esta guía de inicio rápido se supone que se usa el nombre: **ADFTutorialResourceGroup** para el grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
 1. En **Versión**, seleccione **V2**.
 1. En **Ubicación**, seleccione la ubicación de la factoría de datos. 
 

@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 11e5aac559370c478b774f2a503bde590dfeedf4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: e0805a9827474e4f52a5a10e019f7dedd1ab45fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707452"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411049"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extracción, transformación y carga de datos mediante Azure Databricks
 
@@ -43,7 +43,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 > Este tutorial no puede llevarse a cabo mediante una **suscripción de evaluación gratuita de Azure**.
 > Si tiene una cuenta gratuita, vaya a su perfil y cambiar la suscripción a **pago por uso**. Para más información consulte el sitio de [cuentas gratuitas de Azure](https://azure.microsoft.com/free/). Después, [quite el límite de gasto](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) y [solicite un aumento de la cuota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para las vCPU de su región. Cuando crea su área de trabajo de Azure Databricks, puede seleccionar el plan de tarifa de la **Trial (Premium - 14-Days Free DBUs)** para que el área de trabajo acceda a las DBU Premium de Azure Databricks gratis durante 14 días.
      
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Complete estas tareas antes de comenzar este tutorial:
 
@@ -55,7 +55,7 @@ Complete estas tareas antes de comenzar este tutorial:
 
 * Cree una cuenta de almacenamiento de Azure Data Lake Storage Gen2. Consulte [Quickstart: Creación de una cuenta de almacenamiento de Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
-* Crear una entidad de servicio. Consulte [Configuración de los portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Crear una entidad de servicio. Consulte [Cómo: portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
    Hay un par de cosas que tendrá que hacer cuando realice los pasos de este artículo.
 
@@ -65,7 +65,7 @@ Complete estas tareas antes de comenzar este tutorial:
 
    * Al realizar los pasos de la sección [Obtención de valores para iniciar sesión](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) del artículo, pegue los valores de identificador de inquilino, identificador de aplicación y contraseña en un archivo de texto, ya que los necesitará pronto.
 
-* Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+* Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="gather-the-information-that-you-need"></a>Recopilación de la información que necesita
 
@@ -105,7 +105,7 @@ En esta sección, va a crear un servicio de Azure Databricks con Azure Portal.
     |---------|---------|
     |**Workspace name** (Nombre del área de trabajo)     | Proporcione un nombre para el área de trabajo de Databricks.        |
     |**Suscripción**     | En el cuadro desplegable, seleccione la suscripción de Azure.        |
-    |**Grupos de recursos**     | Especifique si desea crear un nuevo grupo de recursos o utilizar uno existente. Un grupo de recursos es un contenedor que almacena los recursos relacionados con una solución de Azure. Para más información, consulte [Información general del grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md). |
+    |**Grupos de recursos**     | Especifique si desea crear un nuevo grupo de recursos o utilizar uno existente. Un grupo de recursos es un contenedor que almacena los recursos relacionados con una solución de Azure. Para más información, consulte [Información general del grupo de recursos de Azure](../azure-resource-manager/management/overview.md). |
     |**Ubicación**     | Seleccione **Oeste de EE. UU. 2**.  Para otras regiones disponibles, consulte [Productos disponibles por región](https://azure.microsoft.com/regions/services/).      |
     |**Plan de tarifa**     |  Seleccione **Estándar**.     |
 
@@ -390,7 +390,7 @@ Si no finaliza manualmente el clúster, este se detendrá automáticamente si se
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Creación de un servicio de Azure Databricks

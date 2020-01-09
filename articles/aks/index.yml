@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure Kubernetes Service (AKS)
 metadata:
-  document_id: null
   title: 'Documentación de Azure Kubernetes Service (AKS): tutoriales y referencia de API | Microsoft Docs'
   meta.description: 'AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.'
   services: container-service
@@ -15,7 +14,7 @@ metadata:
 abstract:
   description: 'Azure Kubernetes Service (AKS) permite administrar el entorno hospedado de Kubernetes, lo que hace que sea fácil y rápido implementar y administrar aplicaciones en contenedores sin necesidad de tener conocimientos de orquestación de contenedores. También permite eliminar la carga de las operaciones en curso y las de mantenimiento mediante el aprovisionamiento, actualización y escalado de los recursos a petición, sin tener que desconectar las aplicaciones.'
 sections:
-  - title: Inicio rápido en 5 minutos
+  - title: Guías de inicio rápido de 5 minutos
     items:
       - type: paragraph
         text: 'Aprenda a implementar un clúster de AKS:'
@@ -24,7 +23,7 @@ sections:
         items:
           - image:
               src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: CLI de Azure
+            text: Azure CLI
             href: /azure/aks/kubernetes-walkthrough
           - image:
               src: 'https://docs.microsoft.com/media/common/i_portal.svg'
@@ -51,7 +50,7 @@ sections:
               src: 'https://docs.microsoft.com/media/logos/logo_nodejs.svg'
             text: Node.js
             href: ../dev-spaces/quickstart-nodejs.md
-  - title: Tutoriales detallados
+  - title: Tutoriales paso a paso
     items:
       - type: paragraph
         text: 'Aprenda a implementar, administrar y actualizar aplicaciones en un clúster de AKS.'
@@ -100,4 +99,4 @@ sections:
           - title: Lenguajes
             html: <p><a href="/dotnet/api/overview/azure/containerservice">.NET</a></p><p><a href="/python/api/overview/azure/containerservice">Python</a></p><p><a href="/java/api/overview/azure/containerservice">Java</a></p><p><a href="/javascript/api/overview/azure/container-service">Node.js</a></p>
           - title: REST
-            html: <p><a href="/rest/api/aks">API DE REST</a></p>
+            html: <p><a href="/rest/api/aks">REST API</a></p>

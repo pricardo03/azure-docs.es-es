@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: a42d796010368ec24cc6cfde8a704c4b7608963d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4c6b96f4b8b3a0a90c136967578bfb56c83b7e3f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926621"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439485"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copia de datos de Azure Blob Storage a SQL Database mediante Azure Data Factory
 En este tutorial, creará una factoría de datos mediante la interfaz de usuario (UI) de Azure Data Factory. La canalización de esta factoría de datos copia los datos de Azure Blob Storage a Azure SQL Database. El patrón de configuración de este tutorial se aplica a la copia de un almacén de datos basado en archivos a un almacén de datos relacional. Para obtener una lista de los almacenes de datos que se admiten como orígenes y receptores, consulte la tabla de [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -35,7 +35,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Desencadenamiento de la canalización de forma programada.
 > * Supervisión de las ejecuciones de canalización y actividad.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * **Cuenta de Azure Storage**. Usará Blob Storage como almacén de datos de *origen*. Si no tiene una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para crear una.
 * **Azure SQL Database**. Usará la base de datos como un almacén de datos *receptor*. Si no tiene una base de datos SQL, consulte [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para crear una.
@@ -93,7 +93,7 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 
     b. Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos. 
          
-    Para más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md). 
+    Para más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md). 
 6. En **Versión**, seleccione **V2**.
 7. En **Ubicación**, seleccione la ubicación de la factoría de datos. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (por ejemplo, Azure Storage y SQL Database) y los procesos (por ejemplo, Azure HDInsight) que usa la factoría de datos pueden estar en otras regiones.
 8. Seleccione **Crear**. 
@@ -167,7 +167,7 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
     
     ![Guardar nuevo servicio vinculado](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-1. Va automáticamente al cuadro de diálogo **Set Properties** (Establecer propiedades). En **Table** (Tabla), seleccione **[dbo].[emp]** . A continuación, seleccione **Finish** (Finalizar).
+1. Va automáticamente al cuadro de diálogo **Set Properties** (Establecer propiedades). En **Table** (Tabla), seleccione **[dbo].[emp]** . Después, seleccione **Finalizar**.
 
 1. Vaya a la pestaña con la canalización y, en **Sink Dataset** (Conjunto de datos del receptor), confirme que se ha seleccionado **OutputSqlDataset**.
 

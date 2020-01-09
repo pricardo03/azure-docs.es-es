@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/04/2018
-ms.openlocfilehash: d52aed98549478898cb3bd263d52eeae2a69ccfd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: dd0de5415dc001f107221add7ea223450290b3f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925548"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439260"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformación de datos en Azure Virtual Network mediante la actividad de Hive en Azure Data Factory
 
@@ -32,7 +32,7 @@ En este tutorial, se usa Azure Portal para crear una canalización de Data Facto
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -88,11 +88,11 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
    - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable. 
    - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
          
-     Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
+     Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
 4. Seleccione **V2** para la **versión**.
 5. Seleccione la **ubicación** de Data Factory. En la lista solo se muestran las ubicaciones que se admiten para la creación de factorías de datos.
 6. Seleccione **Anclar al panel**.     
-7. Haga clic en **Create**(Crear).
+7. Haga clic en **Crear**.
 8. En el panel, verá el icono siguiente con el estado: **Deploying data factory** (Implementación de la factoría de datos). 
 
      ![icono implementando factoría de datos](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)

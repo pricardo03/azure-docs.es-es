@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: a019928f710d4b94cc3e5c4c14b559ef7d491ae2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4ab467c0dc5014ec6c8a543fe7e8ecc136dfa02d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926643"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439497"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copia de varias tablas en bloque mediante Azure Data Factory
 
@@ -44,7 +44,7 @@ En este escenario, tenemos varias tablas en Azure SQL Database que queremos copi
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -128,10 +128,7 @@ En este tutorial, creará tres servicios vinculados para el origen, el receptor,
         "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
-                "connectionString": {
-                    "type": "SecureString",
-                    "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-                }
+                "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         }
     }
@@ -167,10 +164,7 @@ En este tutorial, creará tres servicios vinculados para el origen, el receptor,
         "properties": {
             "type": "AzureSqlDW",
             "typeProperties": {
-                "connectionString": {
-                    "type": "SecureString",
-                    "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-            }
+                "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         }
     }
@@ -206,10 +200,7 @@ En este tutorial, debe usar Azure Blob Storage como un área de almacenamiento p
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": {
-                    "type": "SecureString",
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>"
-                }
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>"
             }
         }
     }

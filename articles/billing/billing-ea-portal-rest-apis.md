@@ -4,16 +4,16 @@ description: En este artículo se describen las API REST que se usan para la ins
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: ea53ad91dcb411c43b367bfb43bc9dcea3d2bba7
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 58f38cc3649c1d08187a4bb93be83422c8e7911b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841428"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644535"
 ---
 # <a name="azure-enterprise-rest-apis"></a>API REST de Azure Enterprise
 
@@ -68,22 +68,22 @@ Si desea dar las claves de acceso a la API a personas que no sean administradore
 
 Use la clave de API en todas las llamadas para su autenticación y autorización. Use la siguiente propiedad en los encabezados HTTP:
 
-| Clave de encabezado de solicitud | Valor |
+| Clave de encabezado de solicitud | Value |
 | --- | --- |
 | Authorization | Especifique el valor con este formato: **bearer {API\_KEY}**
 Ejemplo: bearer \&lt;APIKey\&gt; |
 
 ### <a name="swagger"></a>Swagger
 
-Un punto de conexión de Swagger está disponible en las [API de Enterprise Reporting v3](https://consumption.azure.com/swagger/ui/index)para las siguientes API. Swagger ayuda a inspeccionar la API. Use Swagger para generar SDK de cliente mediante [AutoRest](https://github.com/Azure/AutoRest) o [Swagger CodeGen](http://swagger.io/swagger-codegen/). Los datos disponibles después del 1 de mayo de 2014 están disponibles a través de la API.
+Un punto de conexión de Swagger está disponible en las [API de Enterprise Reporting v3](https://consumption.azure.com/swagger/ui/index)para las siguientes API. Swagger ayuda a inspeccionar la API. Use Swagger para generar SDK de cliente mediante [AutoRest](https://github.com/Azure/AutoRest) o [Swagger CodeGen](https://swagger.io/swagger-codegen/). Los datos disponibles después del 1 de mayo de 2014 están disponibles a través de la API.
 
 ### <a name="api-response-codes"></a>Códigos de respuesta de la API
 
 Cuando se usa una API, se muestran códigos de estado de respuesta, que se describen en la siguiente tabla.
 
-| Código de estado de respuesta | Message | DESCRIPCIÓN |
+| Código de estado de respuesta | Message | Descripción |
 | --- | --- | --- |
-| 200 | OK | Sin errores |
+| 200 | Aceptar | Sin errores |
 | 401 | No autorizado | Clave de API no encontrada, no válida, expirada, etc. |
 | 404 | No disponible | Punto de conexión de informe no encontrado |
 | 400 | Bad Request | Parámetros no válidos: intervalos de fechas, números de EA, etc. |
@@ -122,7 +122,7 @@ El formato JSON se genera a partir del informe CSV. En consecuencia, el formato 
 | SubscriptionGuid | MOCPSubscriptionGuid | SubscriptionGuid |   |
 | Subscription Name | SubscriptionName | SubscriptionName |   |
 | Date | Date | Date | Muestra la fecha en que se ejecutó el informe del catálogo de servicios. El formato es una cadena de fecha sin marca de tiempo. |
-| Mes | Mes | Mes |   |
+| Month | Month | Month |   |
 | Día | Día | Día |   |
 | Year | Year | Year |   |
 | Producto | BillableItemName | Producto |   |
@@ -157,7 +157,7 @@ El formato JSON se genera a partir del informe CSV. En consecuencia, el formato 
 | SubscriptionGuid | SubscriptionGuid | SubscriptionGuid |
 | Subscription Name | SubscriptionName |  SubscriptionName |
 | Date | BillingCycle |  Date (solo cadena de fecha. No marca de tiempo)
-| Mes | Mes |  Mes |
+| Month | Month |  Month |
 | Día | Día |  Día |
 | Year | Year |  Year |
 | Id. de medidor | MeterResourceId |  Id. del medidor |

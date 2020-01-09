@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Documentación de App Service
 metadata:
-  document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
   title: Documentación de Azure App Service
   meta.description: 'Host websites, web apps, RESTful APIs, and mobile back ends in Azure App Service. Find quickstarts, tutorials, and samples to help you succeed with App Service.'
   ms.topic: landing-page
@@ -19,7 +18,7 @@ abstract:
     href: 'https://azure.microsoft.com/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/'
     width: 250
 sections:
-  - title: Inicio rápido en 5 minutos
+  - title: Guías de inicio rápido de 5 minutos
     items:
       - type: paragraph
         text: 'Aprenda a implementar su primera aplicación en la nube mediante App Service:'
@@ -91,7 +90,7 @@ sections:
               src: media/index/onedrive.svg
             text: Sincronización de OneDrive
             href: deploy-content-sync.md
-  - title: Tutoriales detallados
+  - title: Tutoriales paso a paso
     items:
       - type: paragraph
         text: 'Aprenda a implementar, administrar y supervisar aplicaciones web seguras en Azure'
@@ -100,7 +99,7 @@ sections:
         items:
           - html: Creación de una aplicación mediante <a href="/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase">.NET con Azure SQL DB</a> o <a href="/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app">Node.js con MongoDB</a>
           - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Asignación de un dominio personalizado existente a la aplicación </a>
-          - html: <a href="/azure/app-service/configure-ssl-certificate">Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service</a>
+          - html: "<a href=\"/azure/app-service/configure-ssl-certificate\">Protección de un nombre DNS personalizado con un enlace SSL en Azure\_App\_Service</a>"
           - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">Incorporación de una CDN a la aplicación</a>
   - title: Desarrollo de aptitudes con Microsoft Learn
     items:

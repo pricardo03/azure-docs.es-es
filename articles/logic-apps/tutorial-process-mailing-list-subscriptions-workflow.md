@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: bcd90859066911797d78737187cae6d361029ddd
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7d7f573e5b18e6e0e63d3275aecefe408a9143fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784670"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456609"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Tutorial: Creación de flujos de trabajo automatizados basados en aprobación mediante Azure Logic Apps
 
@@ -33,9 +33,9 @@ Cuando haya terminado, la aplicación lógica se parecerá a este flujo de traba
 
 ![Información general de la aplicación lógica de alto nivel finalizada](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-overview.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene ninguna suscripción, [suscríbase a una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
+* Suscripción a Azure. Si no tiene ninguna suscripción, [suscríbase a una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
 * Una cuenta de MailChimp que contenga una lista denominada "test-members-ML" en la que la aplicación lógica pueda agregar direcciones de correo electrónico para los miembros aprobados. Si no tiene una cuenta, [regístrese para obtener una cuenta gratuita](https://login.mailchimp.com/signup/) y aprenda a [crear una lista de MailChimp](https://us17.admin.mailchimp.com/lists/#).
 
@@ -55,11 +55,11 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales 
 
    ![Proporción de información acerca de la aplicación lógica](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
-   | Propiedad | Valor | DESCRIPCIÓN |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Nombre** | LA-MailingList | El nombre de la aplicación lógica, que solo puede contener letras, números, guiones (`-`), caracteres de subrayado (`_`), paréntesis (`(`, `)`) y puntos (`.`). En este ejemplo se usa "LA-MailingList". |
    | **Suscripción** | <*nombre-de-su-suscripción-a-Azure*> | El nombre de la suscripción de Azure |
-   | **Grupos de recursos** | LA-MailingList-RG | El nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) que se utiliza para organizar recursos relacionados. En este ejemplo se usa "LA-MailingList-RG". |
+   | **Grupos de recursos** | LA-MailingList-RG | El nombre del [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) que se utiliza para organizar recursos relacionados. En este ejemplo se usa "LA-MailingList-RG". |
    | **Ubicación** | Oeste de EE. UU. | La región en la que desea almacenar la información de la aplicación lógica. En este ejemplo se utiliza "West US". |
    | **Log Analytics** | Off | Mantenga el valor **Off** para el registro de diagnóstico. |
    ||||
@@ -95,7 +95,7 @@ A continuación, agregue un [desencadenador](../logic-apps/logic-apps-overview.m
 
       ![Especificar la carpeta, el intervalo y la frecuencia de comprobación de los correos electrónicos](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-set-up-email.png)
 
-      | Propiedad | Valor | DESCRIPCIÓN |
+      | Propiedad | Value | Descripción |
       |----------|-------|-------------|
       | **Carpeta** | `Inbox` | La carpeta de correo electrónico para supervisar |
       | **Intervalo** | `1` | Número de intervalos que se espera entre comprobaciones |
@@ -136,7 +136,7 @@ Ahora que tiene un desencadenador, agregue una [acción](../logic-apps/logic-app
 
    ![Propiedades de Enviar correo electrónico de aprobación](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-approval-email-settings.png)
 
-   | Propiedad | Valor | DESCRIPCIÓN |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **To** | <*your-email-address*> | Dirección de correo electrónico del aprobador. Para realizar pruebas, puede usar su propia dirección de correo electrónico. En este ejemplo se usa la dirección de correo electrónico ficticia "sophia.owen@fabrikam.com". |
    | **Subject** | `Approve member request for test-members-ML` | Un asunto de correo electrónico descriptivo |
@@ -203,7 +203,7 @@ Ahora, agregue una acción que incorpore al miembro aprobado a la lista de distr
 
    ![Proporcionar la información de "Agregar un miembro a una lista"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member-settings.png)
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | **Identificador de la lista** | Sí | `test-members-ML` | El nombre de la lista de distribución de correo electrónico de MailChimp. En este ejemplo se usa "test-members-ML". |
    | **Estado** | Sí | `subscribed` | Seleccione el estado de la suscripción del nuevo miembro. En el ejemplo se utiliza "subscribed". <p>Para más información, consulte [Manage subscribers with the MailChimp API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/) (Administración de suscriptores con MailChimp API). |
@@ -258,7 +258,7 @@ A continuación, configure los correos electrónicos que se enviarán si la uni�
 
    ![Proporcionar información para el correo electrónico de confirmación de unión correcta](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-settings.png)
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | **To** | Sí | <*your-email-address*> | La dirección de correo electrónico a la que enviar el correo electrónico de confirmación de que la unión se ha realizado correctamente. Para realizar pruebas, puede usar su propia dirección de correo electrónico. |
    | **Subject** | Sí | <*subject-for-success-email*> | El asunto del correo electrónico de confirmación de que la unión se ha realizado correctamente. Para este tutorial, escriba este texto: <p>`Success! Member added to "test-members-ML": ` <p>En la lista de contenido dinámico, en **Agregar un miembro a una lista** seleccione la propiedad **Email Address** (Dirección de correo electrónico). |
@@ -283,7 +283,7 @@ A continuación, configure los correos electrónicos que se enviarán si la uni�
 
    ![Proporcionar información para el correo electrónico de error](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-settings.png)
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | **To** | Sí | <*your-email-address*> | La dirección de correo electrónico a la que enviar el correo electrónico de error. Para realizar pruebas, puede usar su propia dirección de correo electrónico. |
    | **Subject** | Sí | <*subject-for-failure-email*> | El asunto del correo electrónico de error. Para este tutorial, escriba este texto: <p>`Failed, member not added to "test-members-ML": ` <p>En la lista de contenido dinámico, en **Agregar un miembro a una lista** seleccione la propiedad **Email Address** (Dirección de correo electrónico). |

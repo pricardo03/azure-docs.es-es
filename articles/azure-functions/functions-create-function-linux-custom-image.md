@@ -4,12 +4,12 @@ description: Aprenda a crear funciones de Azure que se ejecutan en una imagen de
 ms.date: 09/27/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7bf079f84978539735f3bbf5bb13b18130871fb1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 5a7fbecca2dc7585ff7110d53deccbbbbf23087c
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484381"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551495"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Creación de una función en Linux con una imagen personalizada
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 
 Los pasos siguientes se admiten en equipos Mac, Windows o Linux. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de ejecutar este ejemplo, debe tener lo siguiente:
 
@@ -175,8 +175,7 @@ storageConnectionString=$(az storage account show-connection-string \
 
 az functionapp config appsettings set --name <app_name> \
 --resource-group myResourceGroup \
---settings AzureWebJobsDashboard=$storageConnectionString \
-AzureWebJobsStorage=$storageConnectionString
+--settings AzureWebJobsStorage=$storageConnectionString
 ```
 
 > [!NOTE]

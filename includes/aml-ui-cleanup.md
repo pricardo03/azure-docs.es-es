@@ -8,12 +8,12 @@ ms.topic: include
 author: sgilley
 ms.author: sgilley
 ms.date: 11/06/2019
-ms.openlocfilehash: 96ede63b097999247675364217cf458a268e54d9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 754c9799ed4c2fd90cbcf1e9717b0be21edd54cb
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929683"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659886"
 ---
 >[!IMPORTANT]
 >Los recursos que creó pueden usarse como requisitos previos de otros tutoriales y artículos de procedimientos de Azure Machine Learning.
@@ -42,7 +42,7 @@ El destino de proceso que ha creado aquí se *escala automáticamente* a cero no
 
 Puede anular el registro de los conjuntos de datos del área de trabajo seleccionando cada conjunto de datos y **Anular el registro**.
 
-![Anulación del registro de conjunto de datos](./media/aml-ui-cleanup/unregister-dataset.png)
+![Anulación del registro de conjunto de datos](./media/aml-ui-cleanup/unregister-dataset1225.png)
 
 Para eliminar un conjunto de datos, vaya a la cuenta de almacenamiento mediante Azure Portal o el Explorador de Azure Storage y elimine manualmente esos recursos.
 

@@ -10,12 +10,12 @@ ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 62e760da58eeff265e560d7cbc5dc044bf053de2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e70a59a75531cb7c3a7e5c5573f9e50cc574ab09
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924951"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439140"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformación de datos en la nube mediante la actividad de Spark en Azure Data Factory
 En este tutorial, se usa Azure PowerShell para crear una canalización de Data Factory que transforma los datos mediante la actividad de Spark y un servicio vinculado a HDInsight a petición. En este tutorial, realizará los siguientes pasos:
@@ -29,7 +29,7 @@ En este tutorial, se usa Azure PowerShell para crear una canalización de Data F
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -90,10 +90,7 @@ Cree un archivo JSON con su editor preferido, copie la siguiente definición de 
     "properties": {
       "type": "AzureStorage",
       "typeProperties": {
-        "connectionString": {
-          "value": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>",
-          "type": "SecureString"
-        }
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>"
       }
     }
 }
@@ -251,7 +248,7 @@ Ha creado el servicio vinculado y definiciones de canalización en archivos JSON
     
 ## <a name="start-and-monitor-a-pipeline-run"></a>Inicio y supervisión de una ejecución de la canalización  
 
-1. Inicio de la ejecución de una canalización También se captura el id. de ejecución de la canalización para poder realizar una supervisión en un futuro.
+1. Inicio de la ejecución de una canalización. También se captura el id. de ejecución de la canalización para poder realizar una supervisión en un futuro.
 
     ```powershell
     $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName  

@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Instancia administrada de SQL
 metadata:
-  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: 'Documentación sobre Instancia administrada: tutoriales y referencia de API'
   meta.description: Learn how to use a managed instance in Azure SQL Database.
   services: sql-database
@@ -62,7 +61,7 @@ sections:
           - title: Niveles de servicio
             href: /azure/sql-database/sql-database-service-tiers-general-purpose-business-critical
             html: <p>Elija entre los niveles de servicio de Uso general y Crítico para la empresa según sus necesidades empresariales.</p>
-  - title: Inicio rápido en 5 minutos
+  - title: Guías de inicio rápido de 5 minutos
     items:
       - type: paragraph
         text: 'Instancia administrada le permite realizar fácilmente tareas básicas de administración mediante Azure Portal, la CLI de Azure y Azure PowerShell. Aprenda a realizar tareas básicas de administración con los siguientes ejemplos de inicio rápido:'
@@ -74,7 +73,7 @@ sections:
             title: El Portal de Azure
           - image:
               src: media/index/cli.svg
-            title: CLI de Azure
+            title: Azure CLI
           - image:
               src: media/index/logo_powershell.svg
             title: PowerShell

@@ -18,12 +18,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: afa1d2ca59bacec2695aaff0cacb119a8fbf787b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: f6740076600854f612cfdd6324d93325f0cd5c05
+ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766606"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75667511"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registro del tráfico de red de entrada y salida de una máquina virtual mediante Azure Portal
 
@@ -44,13 +44,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 2. Seleccione **Proceso** y, luego, **Windows Server 2016 Datacenter** o una versión de **Ubuntu Server**.
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
-    |NOMBRE|myVm|
+    |Nombre|myVm|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
-    |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Seleccione su suscripción.|
-    |Grupos de recursos| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
+    |Resource group| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
     |Location| Seleccione **Este de EE. UU**.|
 
 4. Seleccione un tamaño para la máquina virtual y luego **Seleccionar**.
@@ -87,17 +87,13 @@ Para iniciar sesión en el flujo de NSG, es necesario recurrir al proveedor **Mi
 2. Seleccione **Storage** y, a continuación, seleccione **Storage account - blob, file, table, queue** (Cuenta de almacenamiento: blob, archivo, tabla, cola).
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados restantes y haga clic en **Crear**:
 
-    | Configuración        | Valor                                                        |
+    | Configuración        | Value                                                        |
     | ---            | ---   |
-    | NOMBRE           | Debe tener entre 3 y 24 caracteres de longitud y solo puede contener letras minúsculas y números; asimismo, debe ser único para todas las cuentas de Azure Storage.                                                               |
+    | Nombre           | Debe tener entre 3 y 24 caracteres de longitud y solo puede contener letras minúsculas y números; asimismo, debe ser único para todas las cuentas de Azure Storage.                                                               |
     | Location       | Seleccione **Este de EE. UU**.                                           |
     | Resource group | Seleccione **Usar existente** y, luego, seleccione **myResourceGroup** |
 
-    La cuenta de almacenamiento tardará unos minutos en crearse. No continúe con los pasos restantes hasta que haya creado la cuenta de almacenamiento. Si va a usar una cuenta de almacenamiento existente en vez de crear una, asegúrese de seleccionar la cuenta de almacenamiento que tenga la opción **Todas las redes** (valor predeterminado) seleccionada en **Firewalls y redes virtuales**, en la **CONFIGURACIÓN** de la cuenta de almacenamiento. En cualquier caso, la cuenta de almacenamiento debe estar en la misma región que el grupo de seguridad de red. 
-    
-    > [!NOTE]
-    > Aunque actualmente los proveedores Microsoft.Insight y Microsoft.Network son compatibles como [servicios de Microsoft de confianza para Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services), los registros de flujo de NSG aún no se han incorporado totalmente. Para habilitar el registro de flujo de NSG, debe estar seleccionada la opción **All Networks** (Todas las redes), tal y como se mencionó anteriormente.
-    
+    La cuenta de almacenamiento tardará unos minutos en crearse. No continúe con los pasos restantes hasta que haya creado la cuenta de almacenamiento. Si va a usar una cuenta de almacenamiento existente en vez de crear una, asegúrese de seleccionar la cuenta de almacenamiento que tenga la opción **Todas las redes** (valor predeterminado) seleccionada en **Firewalls y redes virtuales**, en la **CONFIGURACIÓN** de la cuenta de almacenamiento. En cualquier caso, la cuenta de almacenamiento debe estar en la misma región que el grupo de seguridad de red.     
 4. En la esquina superior izquierda del portal, seleccione **Todos los servicios**. En el cuadro **Filtrar**, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados de búsqueda, selecciónela.
 5. En **REGISTROS**, seleccione **Registro de flujos de NSG**, tal y como se muestra en la siguiente imagen:
 
@@ -116,8 +112,6 @@ Para iniciar sesión en el flujo de NSG, es necesario recurrir al proveedor **Mi
    > * Las cuentas de almacenamiento tienen habilitado un [espacio de nombres jerárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace).
 1. En la esquina superior izquierda del portal, seleccione **Todos los servicios**. En el cuadro **Filtrar**, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados de búsqueda, selecciónela.
 10. Establezca el valor de **Retención (días)** en 5 y, a continuación, seleccione **Guardar**.
-    > [!IMPORTANT]
-    > Actualmente, hay un problema por el que los [registros de flujo del grupo de seguridad de red (NSG)](network-watcher-nsg-flow-logging-overview.md) para Network Watcher no se eliminan automáticamente del almacenamiento de blobs en función de la configuración de la directiva de retención. Si tiene una directiva de retención distinta de cero, recomendamos que elimine periódicamente los blobs de almacenamiento que superen el período de retención para evitar recargos. Para más información sobre cómo eliminar los blobs de almacenamiento de registros de flujo de NSG, consulte [Eliminación de blobs de almacenamiento de registros de flujo de NSG](network-watcher-delete-nsg-flow-log-blobs.md).
 
 ## <a name="download-flow-log"></a>Descargar el registro de flujos
 
@@ -218,7 +212,7 @@ El valor de **mac** en la salida anterior es la dirección MAC de la interfaz de
 | 443         | Puerto de destino       | El puerto de destino al que se destina el flujo. Puesto que el tráfico se destinó al puerto 443, la regla denominada **UserRule_default-allow-rdp**, en el archivo de registro, es la que procesa el flujo.                                                |
 | T            | Protocolo               | Si el protocolo del flujo es TCP (T) o UDP (U).                                  |
 | O            | Dirección              | Si el tráfico es entrante (I) o saliente (O).                                     |
-| Una            | .                 | Si el tráfico está permitido (A) o si está denegado (D).  
+| Un            | Acción                 | Si el tráfico está permitido (A) o si está denegado (D).  
 | C            | Estado de flujo **solo versión 2** | Captura el estado del flujo. Los estados posibles son**B**: Begin (Comienzo), cuando se crea el flujo. No se proporcionan las estadísticas. **C**: Continuación de un flujo en curso. Las estadísticas se proporcionan a intervalos de cinco minutos. **E**: End (Final), cuando termina el flujo. Se proporcionan las estadísticas. |
 | 30 | Paquetes enviados: origen a destino **solo versión 2** | El número total de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización. |
 | 16978 | Bytes enviados: origen a destino **solo versión 2** | El número total de bytes de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización. Los bytes de paquete incluyen el encabezado y la carga del paquete. |

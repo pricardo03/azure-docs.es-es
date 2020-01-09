@@ -2,19 +2,16 @@
 title: Administración de actualizaciones y revisiones para las máquinas virtuales de Azure
 description: En este artículo se proporciona una introducción al uso de Azure Automation y Update Management para administrar las actualizaciones y revisiones de las máquinas virtuales de Azure y las que no son de Azure.
 services: automation
-author: mgoedtel
-ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 12/03/2019
-ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 44372f32227bbfef46a72afa6f9b0bd88b29905b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 0fd25863d26c38608b6f64f22782422b844fdec8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806565"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420655"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Administración de actualizaciones y revisiones para las máquinas virtuales de Azure
 
@@ -31,11 +28,11 @@ En este tutorial, aprenderá a:
 > * Programación de una implementación de actualizaciones
 > * Ver los resultados de una implementación
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesita:
 
-* Una suscripción de Azure. Si aún no tiene uno, puede [activar su crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse a una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Suscripción a Azure. Si aún no tiene uno, puede [activar su crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse a una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una [cuenta de Azure Automation](automation-offering-get-started.md) para contener los runbooks del monitor y de acción y la tarea del monitor.
 * Una [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para incorporar.
 
@@ -93,7 +90,7 @@ La cuenta de Automation ya se ha seleccionado como recurso. Si desea cambiarlo, 
 
 Haga clic en **Agregar condición** para seleccionar la señal adecuada para su implementación de actualizaciones. En la siguiente tabla se muestran los detalles de las dos señales disponibles para las implementaciones de actualización:
 
-|Nombre de señal|Dimensiones|DESCRIPCIÓN|
+|Nombre de señal|Dimensions|Descripción|
 |---|---|---|
 |**Ejecuciones de implementación de actualizaciones totales**|- Nombre de implementación de actualizaciones</br>- Estado|Esta señal se usa para alertar sobre el estado general de una implementación de actualizaciones.|
 |**Ejecuciones de máquina de implementación de actualizaciones totales**|- Nombre de implementación de actualizaciones</br>- Estado</br>- Equipo de destino</br>- Identificador de ejecución de implementación de actualizaciones|Esta señal se usa para alertar sobre el estado de una implementación de actualizaciones dirigida a máquinas específicas|
@@ -136,7 +133,7 @@ Para programar una nueva implementación de actualizaciones para la máquina vir
 
 En **Nueva implementación de actualizaciones**, especifique la siguiente información:
 
-* **Nombre**: escriba un nombre único para la implementación de actualizaciones.
+* **Name**: escriba un nombre único para la implementación de actualizaciones.
 
 * **Sistema operativo**: seleccione el sistema operativo que es el destino de la implementación de actualizaciones.
 
@@ -148,7 +145,7 @@ En **Nueva implementación de actualizaciones**, especifique la siguiente inform
 
   Los tipos de clasificación son:
 
-   |OS  |type  |
+   |SO  |Tipo  |
    |---------|---------|
    |Windows     | Actualizaciones críticas</br>Actualizaciones de seguridad</br>Paquetes acumulativos de actualizaciones</br>Feature Packs</br>Service Packs</br>Actualizaciones de definiciones</br>Herramientas</br>Actualizaciones        |
    |Linux     | Actualizaciones críticas y de seguridad</br>Otras actualizaciones       |
@@ -224,7 +221,7 @@ Una vez que la implementación de actualizaciones se realiza correctamente, se e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Incorporar máquinas virtuales a Update Management

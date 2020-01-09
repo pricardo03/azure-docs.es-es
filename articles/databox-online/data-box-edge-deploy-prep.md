@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 364ceabc3c9e7a577bd126b81bcd5256d947bbe3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: d9778544fd9e20dc3244a37c644117d1cd505a96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476783"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438663"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Tutorial: Preparación para la implementación de Azure Data Box Edge  
 
@@ -44,7 +44,7 @@ Para implementar Data Box Edge, consulte los siguientes tutoriales en el orden i
 
 Ya puede empezar a configurar Azure Portal.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 A continuación, encontrará los requisitos previos para configurar su recurso de Data Box Edge, el dispositivo Data Box Edge y la red de centros de datos.
 
@@ -105,16 +105,16 @@ Siga estos pasos en Azure Portal para crear un recurso de Data Box Edge.
 
 3. En la pestaña **Datos básicos**, escriba o seleccione los siguientes **detalles del proyecto**.
     
-    |Configuración  |Valor  |
+    |Configuración  |Value  |
     |---------|---------|
     |Subscription    |Este valor se rellena automáticamente según la selección anterior. La suscripción está vinculada a la cuenta de facturación. |
-    |Grupos de recursos  |Cree un nuevo grupo o seleccione uno existente.<br>Más información sobre los [grupos de recursos de Azure](../azure-resource-manager/resource-group-overview.md).     |
+    |Resource group  |Cree un nuevo grupo o seleccione uno existente.<br>Más información sobre los [grupos de recursos de Azure](../azure-resource-manager/management/overview.md).     |
 
 4. Escriba o seleccione los siguientes **detalles de la instancia**.
 
-    |Configuración  |Valor  |
+    |Configuración  |Value  |
     |---------|---------|
-    |NOMBRE   | Nombre descriptivo que identifique el recurso.<br>El nombre tiene entre 2 y 50 caracteres que contiene letras, números y guiones.<br> El nombre comienza y termina con una letra o un número.        |
+    |Nombre   | Nombre descriptivo que identifique el recurso.<br>El nombre tiene entre 2 y 50 caracteres que contiene letras, números y guiones.<br> El nombre comienza y termina con una letra o un número.        |
     |Region     |En esta versión, están disponibles las regiones de Este de EE. UU., Sudeste Asiático y Europa Occidental para implementar el recurso. Si usa Azure Government, todas las regiones de gobierno están disponibles como se muestra en las [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo.|
 
     ![Detalles del proyecto e instancia](media/data-box-edge-deploy-prep/data-box-edge-resource.png)

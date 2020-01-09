@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 1b619ca7bb3b095a5707077beb3e0750dee1c2b7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4f7ad05402745f17ff60dbaab8d736acc8f92196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923480"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439409"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios 
 
@@ -67,7 +67,7 @@ En este tutorial, creará dos canalizaciones que llevan a cabo las dos operacion
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * **Azure SQL Database**. La base de datos se usa como almacén de datos de **origen**. Si no tiene ninguna base de datos de Azure SQL, consulte el artículo [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md).
 * **Cuenta de Azure Storage**. Blob Storage se usa como almacén de datos **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación. Cree un contenedor denominado **adftutorial**. 
 
@@ -160,7 +160,7 @@ Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo i
       
      ![Página New data factory (Nueva factoría de datos)](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)
  
-   El nombre de Azure Data Factory debe ser **único de forma global**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
+   El nombre de la instancia de Azure Data Factory debe ser **único de forma global**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
   
        `Data factory name “ADFTutorialDataFactory” is not available`
 3. Seleccione la **suscripción** de Azure donde desea crear la factoría de datos. 
@@ -169,11 +169,11 @@ Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo i
       - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable. 
       - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
          
-        Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
+        Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
 4. Seleccione **V2 (versión preliminar)** como **versión**.
 5. Seleccione la **ubicación** de Data Factory. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 6. Seleccione **Anclar al panel**.     
-7. Haga clic en **Create**(Crear).      
+7. Haga clic en **Crear**.      
 8. En el panel, verá el icono siguiente con el estado: **Deploying data factory** (Implementación de la factoría de datos). 
 
     ![icono implementando factoría de datos](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
@@ -240,7 +240,7 @@ En este paso, creará conjuntos de datos para representar el origen de datos.
    ![Nombre del conjunto de datos de origen](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-name.png)    
 4. Cambie a la pestaña **Connection** (Conexión) y realice los pasos siguientes: 
     
-    1. Seleccione **AzureSqlDatabaseLinkedService** en **Linked service** (Servicio vinculado). 
+    1. Seleccione **AzureSqlDatabaseLinkedService** como **Linked service** (Servicio vinculado). 
     2. Seleccione **[dbo].[data_source_table]** en **Table** (Tabla). 
 
    ![Conexión de origen](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-connection.png)
@@ -273,7 +273,7 @@ En este paso, creará un conjunto de datos para almacenar la versión de control
 3. Verá una nueva pestaña para configurar el conjunto de datos. También verá el conjunto de datos en la vista de árbol. En la ventana **Properties** (Propiedades), cambie el nombre del conjunto de datos a **ChangeTrackingDataset**.
 4. Cambie a la pestaña **Connection** (Conexión) y realice los pasos siguientes: 
     
-    1. Seleccione **AzureSqlDatabaseLinkedService** en **Linked service** (Servicio vinculado). 
+    1. Seleccione **AzureSqlDatabaseLinkedService** como **Linked service** (Servicio vinculado). 
     2. Seleccione **[dbo].[table_store_ChangeTracking_version]** en **Table** (Table). 
 
 ## <a name="create-a-pipeline-for-the-full-copy"></a>Creación de una canalización para la copia completa
@@ -414,10 +414,10 @@ En este paso, creará una canalización con las siguientes actividades y la ejec
     2. Seleccione **Import parameter** (Importar parámetro). 
     3. En la sección **Stored procedure parameters** (Parámetros de procedimiento almacenado), especifique estos valores: 
 
-        | NOMBRE | type | Valor | 
+        | Nombre | Tipo | Value | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
-        | TableName | string | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
+        | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![Actividad de procedimiento almacenado: parámetros](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
 14. **Conecte la actividad de copia a la de procedimiento almacenado**. Arrastre el botón **verde** asociado a la actividad Copy (Copiar) y colóquelo en la actividad Stored Procedure (Procedimiento almacenado). 

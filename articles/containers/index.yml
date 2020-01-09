@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure for Containers
 metadata:
-  document_id: null
   title: 'Azure for Containers: inicios rápidos, tutoriales, referencia de API'
   description: 'Empiece a administrar e implementar aplicaciones de contenedor con Azure mediante inicios rápidos, tutoriales y herramientas para contenedores.'
   keywords: 'Azure, Containers, Docker, API, Kubernetes'
@@ -22,7 +21,7 @@ sections:
       - type: markdown
         text: |
           Empiece a implementar y a administrar aplicaciones de contenedor con las herramientas y servicios de Azure correspondientes. 
-  - title: Inicio rápido en 5 minutos
+  - title: Guías de inicio rápido de 5 minutos
     items:
       - type: paragraph
         text: Obtenga información acerca de cómo usar contenedores con los servicios de Azure.
@@ -51,7 +50,7 @@ sections:
             title: Ejecución a petición de aplicaciones de contenedor en Azure Container Instances
             image:
               src: /azure/media/index/containerinstances.svg
-  - title: Tutoriales detallados
+  - title: Tutoriales paso a paso
     items:
       - type: paragraph
         text: 'Aprenda a implementar, administrar y actualizar aplicaciones de contenedor con los servicios de Azure.'
@@ -63,7 +62,7 @@ sections:
           - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Creación de una aplicación de varios contenedores en Web App for Containers</a>
           - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Compilación e implementación de imágenes de contenedor con Azure Container Registry Tasks</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Compilación e implementación de un contenedor en Azure Container Instances</a>
-          - html: <a href="/azure/openshift/tutorial-create-cluster">Creación de un clúster de Red Hat OpenShift en Azure</a>
+          - html: "<a href=\"/azure/openshift/tutorial-create-cluster\">Creación de un clúster de Red\_Hat\_OpenShift en Azure</a>"
   - title: Desarrollo de aptitudes con Microsoft Learn
     items:
       - type: list

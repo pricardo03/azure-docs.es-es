@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 5b9bed971ff239c0c4b0d1cb923e845bd76957da
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 099ff9b8d8a55456908748bee5779e4471d4bec6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922913"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439338"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copia de datos de una base de datos de SQL Server local en Azure Blob Storage
 En este tutorial se utiliza la interfaz de usuario (IU) de Azure Data Factory para crear una canalización de Data Factory que copie los datos de una base de datos de SQL Server local en Azure Blob Storage. Cree y use una instancia de Integration Runtime autohospedado, que mueve los datos entre almacenes locales y en la nube.
@@ -35,7 +35,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Inicio de la ejecución de una canalización.
 > * Supervisión de la ejecución de la canalización
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 ### <a name="azure-subscription"></a>Suscripción de Azure
 Antes de empezar, si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
@@ -97,7 +97,7 @@ En esta sección se crea un contenedor de blobs denominado **adftutorial** en la
 
 1. En la ventana **Blob service**, seleccione **Contenedor**. 
 
-1. En la ventana **Nuevo contenedor** en **Nombre**, escriba **adftutorial**. Después seleccione **Aceptar**. 
+1. En la ventana **Nuevo contenedor** en **Nombre**, escriba **adftutorial**. Después, seleccione **Aceptar**. 
 
 1. En la lista de contenedores, seleccione **adftutorial**.
 
@@ -124,7 +124,7 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 
    - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.
         
-     Para más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).
+     Para más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).
 1. En **Versión**, seleccione **V2**.
 1. En **Ubicación**, seleccione la ubicación de la factoría de datos. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (por ejemplo, Azure Storage y SQL Database) y los procesos (por ejemplo, Azure HDInsight) que usa Data Factory pueden estar en otras regiones.
 1. Seleccione **Crear**.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/20/2018
-ms.openlocfilehash: e3ccc5a48251af181983624f0c8d0eed68c241da
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2c89b53d66b93ff38a7cff07b2889faf8eda24ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926538"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439296"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carga incremental de datos de varias tablas de SQL Server a una base de datos de Azure SQL
 
@@ -65,7 +65,7 @@ Estos son los pasos importantes para crear esta solución:
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * **SQL Server**. En este tutorial, usará una base de datos local SQL Server como almacén de datos de origen. 
 * **Azure SQL Database**. Usará una base de datos SQL como almacén de datos receptor. Si no tiene ninguna, consulte [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación. 
 
@@ -246,10 +246,10 @@ END
      
     - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable. 
     - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
-    Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
+    Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
 6. Seleccione **V2** para la **versión**.
 7. Seleccione la **ubicación** de Data Factory. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
-8. Haga clic en **Create**(Crear).      
+8. Haga clic en **Crear**.      
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
    
    ![Página principal Factoría de datos](./media/doc-common-process/data-factory-home-page.png)
@@ -430,7 +430,7 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
         ![Segunda actividad de búsqueda: configuración](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
 1. Arrastre y coloque la actividad **Copy** (Copia) del cuadro de herramientas **Activities** (Actividades) y escriba **IncrementalCopyActivity** en **Name** (Nombre). 
 
-1. Conecte las dos actividades **Lookup **(Búsqueda) con la actividad**Copy** (Copia) una a una. Para conectarse, empiece a arrastrar en el cuadro **verde** adjunto a la actividad **Lookup** (Búsqueda) y colóquela en la actividad **Copy** (Copia). Suelte el botón del mouse cuando el color del borde de la actividad de copia cambie a **azul**.
+1. Conecte las dos actividades **Lookup** (Búsqueda) con la actividad **Copy** (Copia) una a una. Para conectarse, empiece a arrastrar en el cuadro **verde** adjunto a la actividad **Lookup** (Búsqueda) y colóquela en la actividad **Copy** (Copia). Suelte el botón del mouse cuando el color del borde de la actividad de copia cambie a **azul**.
 
     ![Conexión de las actividades de búsqueda a la actividad de copia](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
 1. Seleccione la actividad **Copy** (Copia) de la canalización. Cambie a la pestaña **Source** (Origen) en la ventana de **propiedades**. 
@@ -467,10 +467,10 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
     1. Seleccione **Import parameter** (Importar parámetro). 
     1. Especifique los siguientes valores para los parámetros: 
 
-        | NOMBRE | type | Valor | 
+        | Nombre | Tipo | Value | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | Cadena | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Actividad de procedimiento almacenado: configuración del procedimiento almacenado](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. Seleccione **Publish All** (Publicar todo) para publicar las entidades que creó en el servicio Data Factory. 

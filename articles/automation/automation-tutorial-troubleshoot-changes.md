@@ -2,21 +2,17 @@
 title: Solución de problemas de cambios en una máquina virtual de Azure | Microsoft Docs
 description: Use Change Tracking para solucionar problemas de cambios en una máquina virtual de Azure.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
 keywords: cambio, seguimiento, automatización
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 92f25d956bc8f1f930ae6ebbf7ee48c144bf8a30
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 60ca1ef3d5c14a0f3dea5b662fc5c95184e6574d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476858"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420633"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solución de problemas en el entorno
 
@@ -34,11 +30,11 @@ En este tutorial, aprenderá a:
 > * Ver los cambios
 > * Configurar alertas
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesita:
 
-* Una suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Suscripción a Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una [cuenta de Automation](automation-offering-get-started.md) para contener los runbooks de monitor y de acción y la tarea de monitor.
 * Una [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para incorporar.
 
@@ -99,7 +95,7 @@ En la ventana **Configuración del área de trabajo**, agregue las claves del Re
 
 1. En **Agregar Registro de Windows para el seguimiento de cambios**, introduzca la información de la clave cuyo seguimiento se va a realizar y haga clic en **Guardar**.
 
-|Propiedad  |DESCRIPCIÓN  |
+|Propiedad  |Descripción  |
 |---------|---------|
 |habilitado     | Determina si se aplica la configuración        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
@@ -112,7 +108,7 @@ En la ventana **Configuración del área de trabajo**, agregue las claves del Re
 
 1. En **Agregar archivo de Windows para el seguimiento de cambios**, introduzca la información del archivo o directorio cuyo seguimiento se va a realizar y haga clic en **Guardar**.
 
-|Propiedad  |DESCRIPCIÓN  |
+|Propiedad  |Descripción  |
 |---------|---------|
 |habilitado     | Determina si se aplica la configuración        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
@@ -127,14 +123,14 @@ En la ventana **Configuración del área de trabajo**, agregue las claves del Re
 
 1. En **Agregar archivo de Linux para el seguimiento de cambios**, introduzca la información del archivo o directorio cuyo seguimiento se va a realizar y haga clic en **Guardar**.
 
-|Propiedad  |DESCRIPCIÓN  |
+|Propiedad  |Descripción  |
 |---------|---------|
 |habilitado     | Determina si se aplica la configuración        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos        |
-|Indicar ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "/etc/*.conf"       |
+|Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "/etc/*.conf"       |
 |Tipo de ruta de acceso     | Tipo de elemento cuyo seguimiento se va a realizar; posibles valores son Archivo y Directorio        |
-|Recursión     | Determina si se usa recursividad al buscar el elemento cuyo seguimiento se va a realizar.        |
+|Recursividad     | Determina si se usa recursividad al buscar el elemento cuyo seguimiento se va a realizar.        |
 |Usar sudo     | Esta configuración determina si se va a utilizar sudo al buscar el elemento.         |
 |Vínculos     | Esta configuración determina cómo se tratan los vínculos simbólicos cuando se recorren directorios.<br> **Omitir**: ignora los vínculos simbólicos y no incluye los archivos y directorios de referencia.<br>**Seguir**: sigue los vínculos simbólicos durante la recursión y también incluye los archivos y directorios de referencia.<br>**Administrar**: sigue los vínculos simbólicos y permite modificar el tratamiento del contenido devuelto.      |
 |Cargar archivo de contenido para toda la configuración| Activa o desactiva la carga de contenido de archivos en los cambios sometidos a seguimiento. Opciones disponibles: **True** o **False**.|

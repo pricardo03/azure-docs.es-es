@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 13afdf4d6c45927c60e8de9fd228f70b7c0a3c68
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: ff16458bb853323181ad8006e378a061572db463
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286546"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411128"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Análisis de opiniones sobre los datos de streaming con Azure Databricks
 
@@ -45,7 +45,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 > Este tutorial no puede llevarse a cabo mediante una **suscripción de evaluación gratuita de Azure**.
 > Si tiene una cuenta gratuita, vaya a su perfil y cambiar la suscripción a **pago por uso**. Para más información consulte el sitio de [cuentas gratuitas de Azure](https://azure.microsoft.com/free/). Después, [quite el límite de gasto](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-azure-portal) y [solicite un aumento de la cuota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para las vCPU de su región. Cuando crea su área de trabajo de Azure Databricks, puede seleccionar el plan de tarifa de la **Trial (Premium - 14-Days Free DBUs)** para que el área de trabajo acceda a las DBU Premium de Azure Databricks gratis durante 14 días.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar este tutorial, asegúrese de que se cumplen los requisitos siguientes:
 - Un espacio de nombres de Azure Event Hubs.
@@ -57,7 +57,7 @@ Puede cumplir estos requisitos siguiendo los pasos descritos en el artículo [Cr
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
+Inicie sesión en [Azure Portal](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Creación de un área de trabajo de Azure Databricks
 
@@ -77,7 +77,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
     |---------|---------|
     |**Workspace name** (Nombre del área de trabajo)     | Proporcione un nombre para el área de trabajo de Databricks        |
     |**Suscripción**     | En el cuadro desplegable, seleccione la suscripción de Azure.        |
-    |**Grupos de recursos**     | Especifique si desea crear un nuevo grupo de recursos o utilizar uno existente. Un grupo de recursos es un contenedor que almacena los recursos relacionados con una solución de Azure. Para más información, consulte [Información general del grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md). |
+    |**Grupos de recursos**     | Especifique si desea crear un nuevo grupo de recursos o utilizar uno existente. Un grupo de recursos es un contenedor que almacena los recursos relacionados con una solución de Azure. Para más información, consulte [Información general del grupo de recursos de Azure](../azure-resource-manager/management/overview.md). |
     |**Ubicación**     | Seleccione **Este de EE. UU. 2**. Para otras regiones disponibles, consulte [Productos disponibles por región](https://azure.microsoft.com/regions/services/?WT.mc_id=sparkeventhubs-docs-alehall).        |
     |**Plan de tarifa**     |  Elija entre **Standard** o **Premium**. Para más información sobre estos planes, consulte la [página de precios de Databricks](https://azure.microsoft.com/pricing/details/databricks/?WT.mc_id=sparkeventhubs-docs-alehall).       |
 
@@ -160,7 +160,7 @@ En este tutorial, se utilizan las API de Twitter para enviar tweets a Event Hubs
 
 En este tutorial, se utilizan las [Text Analytics API de Azure Cognitive Services](../cognitive-services/text-analytics/overview.md) para ejecutar análisis de sentimiento en un flujo de tweets casi en tiempo real. Antes de usar las API, debe crear una cuenta de Azure Cognitive Services y recuperar una clave de acceso para usar Text Analytics APIs.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
 
 2. Seleccione **+ Crear un recurso**.
 

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 22fcf75ace672b1481228996d6e7efe9c73013e0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 8bbe32a202af3b8684c16cc2e56d5a111511bef5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927272"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438915"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Creación de una canalización con la actividad de copia mediante el Asistente para copia de Data Factory
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "74927272"
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Plantilla de Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [API DE REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
@@ -39,7 +39,7 @@ El **Asistente para copia** de Azure Data Factory le permite crear rápidamente 
 
 En este tutorial se muestra cómo crear una instancia de Azure Data Factory, iniciar el Asistente para copia, y realizar una serie de pasos en los que se proporcionan detalles acerca del escenario de ingesta y movimiento de datos. Al terminar los pasos del asistente, este crea automáticamente una canalización con una actividad de copia para copiar datos desde Azure Blob Storage a Azure SQL Database. Para más información acerca de la actividad de copia, consulte las [actividades de movimiento de datos](data-factory-data-movement-activities.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Antes de realizar este tutorial, complete los requisitos previos que se enumeran en el artículo [Copia de datos de Almacenamiento de blobs en Base de datos SQL mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 ## <a name="create-data-factory"></a>Creación de Data Factory
@@ -61,10 +61,10 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
       - Seleccione en primer lugar **Usar existente** y después un grupo de recursos existente.
       - Seleccione **Crear nuevo** y escriba un nombre para un grupo de recursos.
           
-        En algunos de los pasos de este tutorial se supone que usa el nombre: **ADFTutorialResourceGroup** para el grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../../azure-resource-manager/resource-group-overview.md).
+        En algunos de los pasos de este tutorial se supone que usa el nombre: **ADFTutorialResourceGroup** para el grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../../azure-resource-manager/management/overview.md).
    4. Seleccione una **ubicación** para la factoría de datos.
    5. Seleccione la casilla **Anclar al panel** en la parte inferior de la hoja.  
-   6. Haga clic en **Create**(Crear).
+   6. Haga clic en **Crear**.
       
        ![Hoja Nueva Factoría de datos](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
 3. Una vez completada la creación, puede ver la hoja **Data Factory** como se muestra en la siguiente imagen:

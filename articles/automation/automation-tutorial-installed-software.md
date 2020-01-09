@@ -3,20 +3,16 @@ title: Detección del software instalado en las máquinas con Azure Automation |
 description: Use Inventario para detectar el software instalado en las máquinas de todo el entorno.
 services: automation
 keywords: inventario, automatización, cambio, seguimiento
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 04/11/2018
 ms.topic: tutorial
-ms.service: automation
 ms.subservice: change-inventory-management
 ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 47313781756e460a8c30638661489874481b88a0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 136521799dbc928a03c339ecc1cef6fdd3d029b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476820"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420573"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Detecte el software que está instalado en sus máquinas, sean de Azure o no
 
@@ -31,11 +27,11 @@ En este tutorial, aprenderá a:
 > * Visualizar el software instalado
 > * Buscar software instalado en los registros del inventario
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesita:
 
-* Una suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Suscripción a Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una [cuenta de Automation](automation-offering-get-started.md) para contener los runbooks de monitor y de acción y la tarea de monitor.
 * Una [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para incorporar.
 

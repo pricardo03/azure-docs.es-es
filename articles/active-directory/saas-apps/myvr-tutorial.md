@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0bb55832443a9f4ac71122d92292c18346a9f48
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 3f0c699f2a3d043e0e5a9c2fd463de289b016cdd
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081898"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530126"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-myvr"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con MyVR
 
@@ -33,7 +33,7 @@ En este tutorial, obtendrá información sobre cómo integrar MyVR con Azure Ac
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para empezar, necesita los siguientes elementos:
 
@@ -87,7 +87,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección  **Configuración básica de SAML** , la aplicación está preconfigurada en el modo iniciado por  **IDP**  y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón  **Guardar** .
+1. En la sección **Configuración básica de SAML**, la aplicación está preconfigurada en el modo iniciado por **IDP** y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón **Guardar**.
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
@@ -99,7 +99,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Además de lo anterior, la aplicación MyVR espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
-   | NOMBRE | Atributo de origen|
+   | Nombre | Atributo de origen|
    | ---------------| --------------- |
    | employeeid | user.employeeid |
 
@@ -121,7 +121,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

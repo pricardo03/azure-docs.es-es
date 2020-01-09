@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 04/09/2018
-ms.openlocfilehash: e248c7f37c062fc69e5e42ae7d33e275c4b0aa19
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: db069571258bce8b79d223ce3115737061685b78
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926520"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439365"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copia de datos de una base de datos de SQL Server local en Azure Blob Storage con la herramienta Copy Data
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -35,7 +35,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Uso de la herramienta Copy Data para crear una canalización.
 > * Supervisión de las ejecuciones de canalización y actividad.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 ### <a name="azure-subscription"></a>Suscripción de Azure
 Antes de empezar, si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
@@ -123,7 +123,7 @@ En esta sección se crea un contenedor de blobs denominado **adftutorial** en la
 
    - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos. 
         
-     Para más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).
+     Para más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).
 1. En **Versión**, seleccione **V2**.
 1. En **Ubicación**, seleccione la ubicación de la factoría de datos. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (por ejemplo, Azure Storage y SQL Database) y los procesos (por ejemplo, Azure HDInsight) que usa Data Factory pueden estar en otras ubicaciones o regiones.
 1. Seleccione **Crear**.

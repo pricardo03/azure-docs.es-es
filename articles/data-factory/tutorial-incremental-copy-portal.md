@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 5d82971cbd7781a298f3f3aeeba47e4be471e248
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1c8df388bcd3956746edba9a721b0598025b827e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927992"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439172"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carga de datos incremental de una base de datos de Azure SQL en Azure Blob Storage mediante Azure Portal
 
@@ -62,7 +62,7 @@ Estos son los pasos importantes para crear esta solución:
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * **Azure SQL Database**. La base de datos se usa como almacén de datos de origen. Si no tiene ninguna, consulte [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
 * **Azure Storage**. Blob Storage se usa como almacén de datos receptor. Si no tiene una cuenta de almacenamiento, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación. Cree un contenedor denominado adftutorial. 
 
@@ -165,10 +165,10 @@ END
       - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable. 
       - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
          
-        Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
+        Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
 6. Seleccione **V2** para la **versión**.
 7. Seleccione la **ubicación** de Data Factory. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
-8. Haga clic en **Create**(Crear).      
+8. Haga clic en **Crear**.      
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
    
    ![Página principal Factoría de datos](./media/doc-common-process/data-factory-home-page.png)
@@ -253,10 +253,10 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     2. Seleccione la cuenta de Azure Storage en **Storage account name** (Nombre de la cuenta de Storage).
     3. Pruebe la conexión y, a continuación, haga clic en **Finalizar**. 
 
-27. En la ventana **Set Properties** (Establecer propiedades), confirme que **AzureStorageLinkedService** está seleccionado para **Linked service** (Servicio vinculado). A continuación, seleccione **Finish** (Finalizar).
+27. En la ventana **Set Properties** (Establecer propiedades), confirme que **AzureStorageLinkedService** está seleccionado para **Linked service** (Servicio vinculado). Después, seleccione **Finalizar**.
 28. Vaya a la pestaña **Connection** (Conexión) de SinkDataset y realice los pasos siguientes:
     1. En el campo **File path** (Ruta de acceso de archivo), escriba **adftutorial/incrementalcopy**. **adftutorial** es el nombre del contenedor de blobs; **incrementalcopy**, el de la carpeta. Con este fragmento de código se da por supuesto que tiene un contenedor de blob denominado adftutorial en Blob Storage. Cree el contenedor si no existe o asígnele el nombre de uno existente. Si no existe, Azure Data Factory crea automáticamente la carpeta de salida **incrementalcopy**. También puede usar el botón **Browse** (Examinar) para ir a una carpeta del contenedor de blobs mediante la **ruta de acceso del archivo**.
-    2. En la parte **File** (Archivo) del campo **File path** (Ruta de acceso de archivo), seleccione **Add dynamic content [ALT+P]** y, después, escriba `@CONCAT('Incremental-', pipeline().RunId, '.txt')` en la ventana abierta. A continuación, seleccione **Finish** (Finalizar). El nombre de archivo se genera dinámicamente mediante la expresión. Cada ejecución de canalización tiene un identificador único. La actividad de copia usa el identificador de ejecución para generar el nombre de archivo. 
+    2. En la parte **File** (Archivo) del campo **File path** (Ruta de acceso de archivo), seleccione **Add dynamic content [ALT+P]** y, después, escriba `@CONCAT('Incremental-', pipeline().RunId, '.txt')` en la ventana abierta. Después, seleccione **Finalizar**. El nombre de archivo se genera dinámicamente mediante la expresión. Cada ejecución de canalización tiene un identificador único. La actividad de copia usa el identificador de ejecución para generar el nombre de archivo. 
 
 28. Cambie al editor de **canalización**; para ello, haga clic en la pestaña de la canalización de la parte superior o en el nombre de esta de la vista de árbol de la izquierda. 
 29. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **Stored Procedure** (Procedimiento almacenado) del cuadro de herramientas **Actividades** para colocarla en la superficie del diseñador de canalizaciones. **Conecte** el resultado verde (correcto) de la actividad **Copy** (Copiar) con la actividad **Stored Procedure** (Procedimiento almacenado). 
@@ -270,10 +270,10 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     1. En **Stored procedure name** (Nombre del procedimiento almacenado), seleccione **usp_write_watermark**. 
     2. Para especificar valores para los parámetros del procedimiento almacenado, haga clic en **Import parameter** (Importar parámetro) y escriba los valores siguientes: 
 
-        | NOMBRE | type | Valor | 
+        | Nombre | Tipo | Value | 
         | ---- | ---- | ----- | 
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | Cadena | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Actividad de procedimiento almacenado: configuración del procedimiento almacenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Para comprobar la configuración de canalización, haga clic en **Validate** (Comprobar) en la barra de herramientas. Confirme que no haya errores de comprobación. Para cerrar la ventana **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en >>.   
