@@ -100,13 +100,13 @@
           href: create-certificate.md
         - name: Supervisión y administración de la creación de certificados
           href: create-certificate-scenarios.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Seguridad
       items:
         - name: Recomendaciones
           href: security-recommendations.md
-    - name: Authentication
+    - name: Authenticate
       items:
         - name: Uso de una identidad administrada en App Service
           href: managed-identity.md
@@ -140,6 +140,8 @@
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
 - name: Referencia
   items:
+    - name: Códigos de error de REST de Key Vault
+      href: rest-error-codes.md
     - name: Azure PowerShell
       href: '/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault'
     - name: Azure CLI
@@ -162,7 +164,7 @@
       href: authentication-requests-and-responses.md
     - name: Parámetros y encabezados comunes
       href: common-parameters-and-headers.md
-    - name: Desarrollo
+    - name: Desarrollar
       items:
         - name: Guía del desarrollador
           href: key-vault-developers-guide.md

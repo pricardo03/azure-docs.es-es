@@ -32,11 +32,13 @@
       href: ingest-data-overview.md
     - name: Introducción a la visualización de datos
       href: viz-overview.md
-- name: Guías de procedimientos
+    - name: Introducción a la seguridad
+      href: security.md
+- name: Guías paso a paso
   items:
     - name: Creación de un clúster y una base de datos
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: create-cluster-database-cli.md
         - name: PowerShell
           href: create-cluster-database-powershell.md
@@ -144,7 +146,19 @@
           href: sisense.md
         - name: Redash
           href: redash.md
-    - name: administración
+    - name: Seguridad
+      items:
+        - name: Administración de la seguridad del clúster
+          href: manage-cluster-security.md
+        - name: Configuración de identidades administradas
+          href: managed-identities.md
+        - name: Configuración de claves administradas por el cliente
+          items:
+            - name: 'C#'
+              href: customer-managed-keys-csharp.md
+            - name: Plantilla del Administrador de recursos de Azure
+              href: customer-managed-keys-resource-manager.md
+    - name: Administrar
       items:
         - name: Clúster
           items:
@@ -154,8 +168,6 @@
               href: manage-cluster-horizontal-scaling.md
             - name: Administración del escalado vertical de clústeres
               href: manage-cluster-vertical-scaling.md
-            - name: Administración de la seguridad del clúster
-              href: manage-cluster-security.md
             - name: Comprobación del estado del clúster
               href: check-cluster-health.md
         - name: Base de datos
@@ -170,7 +182,7 @@
                   href: database-table-policies-csharp.md
                 - name: Python
                   href: database-table-policies-python.md
-        - name: Datos
+        - name: data
           items:
             - name: Eliminación de datos
               href: delete-data.md

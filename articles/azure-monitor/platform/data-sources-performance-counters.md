@@ -4,20 +4,20 @@ description: Azure Monitor recopila contadores de rendimiento para analizar el r
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: d007d3dab1625d58a561d35bb111923fbdeb3482
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 624996c86423bf486111fde8743117ea888862e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932438"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363836"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Orígenes de datos de rendimiento de Windows y Linux en Azure Monitor
 Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Azure Monitor puede recopilar contadores de rendimiento a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.
 
-![contadores de rendimiento](media/data-sources-performance-counters/overview.png)
+![Contadores de rendimiento](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configuración de contadores de rendimiento
 Los contadores de rendimiento se configuran en el [menú Datos en Configuración avanzada](agent-data-sources.md#configuring-data-sources).
@@ -26,7 +26,7 @@ La primera vez que se configuran los contadores de rendimiento de Windows o Linu
 
 Para los contadores de rendimiento de Windows, puede elegir una instancia específica para cada contador de rendimiento. Para los contadores de rendimiento de Linux, la instancia de cada contador que elija se aplica a todos los contadores secundarios del contador primario. La siguiente tabla muestra las instancias comunes disponibles para los contadores de rendimiento de Windows y de Linux.
 
-| Nombre de instancia | DESCRIPCIÓN |
+| Nombre de instancia | Descripción |
 | --- | --- |
 | \_Total |Total de todas las instancias |
 | \* |Todas las instancias |
@@ -74,7 +74,7 @@ Cada objeto, o categoría, de métricas de rendimiento para recopilar debe defin
 
 Los parámetros de este elemento se describen en la tabla siguiente.
 
-| Parámetros | DESCRIPCIÓN |
+| Parámetros | Descripción |
 |:--|:--|
 | object\_name | Nombre de objeto de la colección. |
 | instance\_regex |  Una *expresión regular* que define las instancias que desea recopilar. El valor: `.*` especifica todas las instancias. Para recopilar métricas de procesador solamente de la instancia \_Total, puede especificar `_Total`. Para recopilar métricas de procesamiento solamente de las instancias rond o sshd, puede especificar `(crond\|sshd)`. |
@@ -175,7 +175,7 @@ Esta es la configuración predeterminada de las métricas de rendimiento.
       interval 30s
     </source>
 
-## <a name="data-collection"></a>Colección de datos
+## <a name="data-collection"></a>datos, recopilación
 Azure Monitor recopila todos los contadores de rendimiento especificados en su intervalo de ejemplo en todos los agentes que tengan dicho contador instalado.  Los datos no se agregan; los datos sin procesar están disponibles en todas las vistas de consulta de registro durante el tiempo especificado por la suscripción.
 
 ## <a name="performance-record-properties"></a>Propiedades de registros de rendimiento
@@ -200,7 +200,7 @@ Los registros de rendimiento tienen el tipo **Perf** y sus propiedades son las q
 ## <a name="log-queries-with-performance-records"></a>Consultas de registros con registros de rendimiento
 La tabla siguiente proporciona distintos ejemplos de consultas de registros que recuperan registros de rendimiento.
 
-| Consultar | DESCRIPCIÓN |
+| Consultar | Descripción |
 |:--- |:--- |
 | Perf |Todos los datos de rendimiento |
 | Perf &#124; where Computer == "MyComputer" |Todos los datos de rendimiento de un equipo concreto |

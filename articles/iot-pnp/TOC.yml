@@ -71,8 +71,12 @@
       href: howto-develop-solution.md
 - name: Referencia
   items:
-    - name: REST
-      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/createorupdatemodel'
+    - name: Gemelo digital
+      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin'
+    - name: Servicio Digital Twins
+      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/service'
+    - name: Repositorio de modelo de Digital Twins
+      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel'
     - name: Generación de un token de seguridad REST
       href: howto-generate-sas-token.md
 - name: Temas relacionados

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: abb85d568e26e4b6f85b960a2560aae570daf201
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 101ed792f091a5074b42e3d06eed27d606d3d2a7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61320840"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638959"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Ejecución de una fábrica de imágenes desde AzureDevOps
 En este artículo se tratan todos los preparativos necesarios para ejecutar la fábrica de imágenes desde Azure DevOps (anteriormente Visual Studio Team Services).
@@ -78,7 +78,7 @@ En este punto, tiene los archivos de origen almacenados en un repositorio de Git
 Para simplificar los parámetros de línea de comandos, encapsule los valores de clave que controlan la fábrica de imágenes en un conjunto de variables de compilación. Seleccione la pestaña **Variables** y verá una lista de varias variables predeterminadas. Esta es la lista de variables para escribir en Azure DevOps:
 
 
-| Nombre de la variable | Valor | Notas |
+| Nombre de la variable | Value | Notas |
 | ------------- | ----- | ----- |
 | ConfigurationLocation | /Scripts/ImageFactory/Configuration | Es la ruta de acceso completa del repositorio a la carpeta **Configuration**. Si ha importado el repositorio completo anteriormente, el valor a la izquierda es correcto. En caso contrario, actualícelo para que apunte a la ubicación de configuración. |
 | DevTestLabName | MyImageFactory | El nombre del laboratorio en Azure DevTest Labs usado como la fábrica para producir imágenes. Si no tiene uno, créelo. Asegúrese de que el laboratorio esté en la misma suscripción que el punto de conexión de servicio al que tiene acceso. |
@@ -87,11 +87,11 @@ Para simplificar los parámetros de línea de comandos, encapsule los valores de
 | MachineUserName | ImageFactoryUser | El nombre de usuario de la cuenta de administrador integrada para las máquinas virtuales. Esta es una cuenta transitoria. |
 | StandardTimeoutMinutes | 30 | El tiempo que se deben esperar las operaciones normales de Azure. |
 | SubscriptionId |  0000000000-0000-0000-0000-0000000000000 | El identificador de la suscripción donde existe el laboratorio y al que tiene acceso el punto de conexión de servicio. |
-| VMSize | Standard_A3 | El tamaño de la máquina virtual que se usará en el paso de **creación**. Las máquinas virtuales creadas son transitorias. El tamaño debe ser aquel que está [habilitado para el laboratorio](devtest-lab-set-lab-policy.md). Confirme que hay suficiente [cuota de núcleos de suscripción](../azure-subscription-service-limits.md).
+| VMSize | Standard_A3 | El tamaño de la máquina virtual que se usará en el paso de **creación**. Las máquinas virtuales creadas son transitorias. El tamaño debe ser aquel que está [habilitado para el laboratorio](devtest-lab-set-lab-policy.md). Confirme que hay suficiente [cuota de núcleos de suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ![Variables de compilación](./media/set-up-devops-lab/configure-build-variables.png)
 
-## <a name="connect-to-azure"></a>Conexión a Azure
+## <a name="connect-to-azure"></a>Conexión con Azure
 El siguiente paso es configurar la entidad de servicio. Se trata de una identidad de Azure Active Directory que permite que el agente de compilación de DevOps funcione en Azure en nombre del usuario. Para configurarlo, comience agregando el primero paso de compilación de Azure PowerShell.
 
 1. Seleccione **Add Task** (Agregar tarea).

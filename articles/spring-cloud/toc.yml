@@ -34,6 +34,8 @@
       href: spring-cloud-tutorial-bind-redis.md
     - name: "Enlace de una aplicación a Azure\_MySQL"
       href: spring-cloud-tutorial-bind-mysql.md
+    - name: Implementación de aplicaciones en Azure Spring Cloud mediante Jenkins y la CLI de Azure
+      href: /jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
 - name: Conceptos
   items:
     - name: Descripción de los límites y las cuotas de Azure Spring Cloud
@@ -42,7 +44,7 @@
       href: spring-cloud-concept-metrics.md
     - name: Planear la recuperación ante desastres
       href: disaster-recovery.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: 'Inicio, detención y eliminación de una aplicación de Azure Spring Cloud'
       href: spring-cloud-howto-start-stop-delete.md
@@ -62,7 +64,7 @@
       href: spring-cloud-cli-reference.md
     - name: Recursos
       href: spring-cloud-resources.md
-    - name: Preguntas frecuentes
+    - name: Preguntas más frecuentes
       href: spring-cloud-faq.md
     - name: Guía de solución de problemas
       href: spring-cloud-troubleshoot.md

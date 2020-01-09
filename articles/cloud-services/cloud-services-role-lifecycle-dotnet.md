@@ -3,17 +3,17 @@ title: Control de los eventos de ciclo de vida del servicio en la nube | Microso
 description: Aprenda cómo se pueden usar los métodos del ciclo de vida de un rol de  servicio en la nube en .NET
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: fa4eebfa64a296e6830db3730de31ca9b0565678
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 0a9c32affc50a6d357d4160e00486c896d762e3f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358975"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385820"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalizar el ciclo de vida de un rol web o de trabajo en .NET
 Cuando cree un rol de trabajo, amplíe la clase [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) que ofrece métodos para invalidar que le permiten responder a eventos del ciclo de vida. Para los roles web esta clase es opcional, por lo que debe usarla para responder a eventos del ciclo de vida.
@@ -76,4 +76,7 @@ Puede usar los métodos del ciclo de vida de ASP.NET, además de los proporciona
 
 ## <a name="next-steps"></a>Pasos siguientes
 Aprenda cómo [crear un paquete de servicio en la nube](cloud-services-model-and-package.md).
+
+
+
 

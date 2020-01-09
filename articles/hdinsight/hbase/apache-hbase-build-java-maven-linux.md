@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.openlocfilehash: c948d07bed99f1286e27d645fde7b96fdc699c02
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive,seodec18
+ms.date: 12/24/2019
+ms.openlocfilehash: 3e9b23ce450e45dfedcee8b20e09b1c2b52b6e68
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311688"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495786"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilar aplicaciones Java para Apache HBase
 
@@ -21,7 +21,7 @@ Aprenda a crear una aplicación [HBase de Apache](https://hbase.apache.org/) en 
 
 En los pasos descritos en este documento se usa [Apache Maven](https://maven.apache.org/) para crear y compilar el proyecto. Maven es una herramienta de administración y comprensión de proyectos de software que le permite compilar software, documentación e informes para proyectos Java.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Un clúster de Apache HBase en HDInsight. Vea [Introducción a un ejemplo de Apache HBase en HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 
@@ -31,11 +31,12 @@ En los pasos descritos en este documento se usa [Apache Maven](https://maven.apa
 
 * Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Si usa PowerShell, necesitará el [módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
+* Si usa PowerShell, necesitará el [Módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
 
 * Un editor de texto. En este artículo se usa el Bloc de notas de Microsoft.
 
 ## <a name="test-environment"></a>Entorno de prueba
+
 El entorno usado en este artículo fue un equipo donde se ejecuta Windows 10.  Los comandos se ejecutaron en un símbolo del sistema, y los distintos archivos se editaron con el Bloc de notas. Realice las modificaciones según corresponda en su entorno.
 
 Desde un símbolo del sistema, escriba los siguientes comandos para crear un entorno de trabajo:
@@ -84,7 +85,7 @@ En la sección `pom.xml`, agregue el siguiente texto a la sección `<dependencie
 ```xml
 <dependency>
     <groupId>org.apache.hbase</groupId>
-    <artifactId>hbase-client</artifactId>
+    <artifactId>hbase-shaded-client</artifactId>
     <version>1.1.2</version>
 </dependency>
 <dependency>
@@ -128,7 +129,7 @@ Agregue el código siguiente al archivo `pom.xml` y, después, guárdelo y ciér
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.8.1</version>
         <configuration>
             <source>1.8</source>
             <target>1.8</target>
@@ -184,7 +185,7 @@ Escriba el comando siguiente para crear un archivo `CreateTable.java` y abrirlo.
 notepad src\main\java\com\microsoft\examples\CreateTable.java
 ```
 
-Luego, copie y pegue el código Java siguiente en el nuevo archivo y ciérrelo.
+Luego, copie y pegue el código Java siguiente en el nuevo archivo. y ciérrelo.
 
 ```java
 package com.microsoft.examples;
@@ -266,7 +267,7 @@ Escriba el comando siguiente para crear un archivo `SearchByEmail.java` y abrirl
 notepad src\main\java\com\microsoft\examples\SearchByEmail.java
 ```
 
-Luego, copie y pegue el código Java siguiente en el nuevo archivo y ciérrelo.
+Luego, copie y pegue el código Java siguiente en el nuevo archivo. y ciérrelo.
 
 ```java
 package com.microsoft.examples;
@@ -351,7 +352,7 @@ Escriba el comando siguiente para crear un archivo `DeleteTable.java` y abrirlo.
 notepad src\main\java\com\microsoft\examples\DeleteTable.java
 ```
 
-Luego, copie y pegue el código Java siguiente en el nuevo archivo y ciérrelo.
+Luego, copie y pegue el código Java siguiente en el nuevo archivo. y ciérrelo.
 
 ```java
 package com.microsoft.examples;
@@ -408,7 +409,7 @@ En los siguientes pasos se usa `scp` para copiar el archivo JAR en el nodo prima
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
- 3. Use el siguiente comando en la conexión SSH abierta para crear una tabla HBase por medio de la aplicación Java:
+3. Use el siguiente comando en la conexión SSH abierta para crear una tabla HBase por medio de la aplicación Java:
 
     ```bash
     yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: c8ab954471e597cfea5c6f56cd45b2191aa73242
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 92ff08d460e9bf11b49700570a156a101811a533
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424068"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436003"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -64,7 +64,7 @@ Puede migrar las aplicaciones existentes a App Service con la [herramienta de mi
 
 > **Cuándo se debe usar**: use App Service al migrar aplicaciones web existentes a Azure y cuando necesite una plataforma de hospedaje completamente administrada para sus aplicaciones web. También puede utilizar App Service cuando necesite admitir clientes móviles o exponer API de REST con su aplicación.
 > 
-> **Para comenzar**: con App Service resulta muy sencillo crear e implementar su primera [aplicación web](../../app-service/app-service-web-get-started-dotnet.md), [aplicación móvil](../../app-service-mobile/app-service-mobile-ios-get-started.md) o [aplicación de API](../../app-service/app-service-web-tutorial-rest-api.md).
+> **Introducción**: con App Service resulta muy sencillo crear e implementar su primera [aplicación web](../../app-service/app-service-web-get-started-dotnet.md), [aplicación móvil](../../app-service-mobile/app-service-mobile-ios-get-started.md) o [aplicación de API](../../app-service/app-service-web-tutorial-rest-api.md).
 > 
 > **Pruébelo ya**: App Service le permite aprovisionar una aplicación de corta duración para probar la plataforma sin necesidad de registrarse para obtener una cuenta de Azure. Pruebe la plataforma y [cree una aplicación de Azure App Service](https://tryappservice.azure.com/).
 
@@ -76,7 +76,7 @@ El nivel de control que tiene con las máquinas virtuales le permite ejecutar un
 
 > **Cuándo se debe usar**: use Virtual Machines cuando desee un control total de la infraestructura de su aplicación o para migrar las cargas de trabajo de aplicaciones locales a Azure sin tener que hacer cambios.
 > 
-> **Para comenzar**: cree una [máquina virtual Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) o una [máquina virtual Windows](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) en Azure Portal.
+> **Introducción**: cree una [máquina virtual Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) o una [máquina virtual Windows](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) en Azure Portal.
 
 #### <a name="azure-functions-serverless"></a>Azure Functions (sin servidor)
 
@@ -84,7 +84,7 @@ En lugar de preocuparse por la creación y la administración de toda una aplica
 
 > **Cuándo se debe usar**: use Azure Functions si tiene código que se desencadena mediante otros servicios de Azure, por medio de eventos basados en web o según una programación. También puede usar Functions cuando no necesite la sobrecarga de un proyecto completo hospedado o si desea pagar solo por el tiempo que el código se ejecuta. Para más información, consulte [Introducción a Azure Functions](../../azure-functions/functions-overview.md).
 > 
-> **Para comenzar**: siga el tutorial de inicio rápido de Functions para [crear la primera función](../../azure-functions/functions-create-first-azure-function.md) desde el portal.
+> **Introducción**: siga el tutorial de inicio rápido de Functions para [crear la primera función](../../azure-functions/functions-create-first-azure-function.md) desde el portal.
 > 
 > **Pruébelo ya**: Azure Functions permite ejecutar código sin necesidad de registrarse para obtener una cuenta de Azure. Pruébelo ahora y [cree su primera función de Azure](https://tryappservice.azure.com/).
 
@@ -118,19 +118,19 @@ La mayoría de las aplicaciones debe almacenar datos; por lo tanto, independient
   
   > **Cuándo se debe usar:** cuando la aplicación necesite bases de datos de grafos, tablas o documentos, incluidas las bases de datos de MongoDB, con varios modelos de coherencia bien definidos. 
   > 
-  > **Para comenzar**: [cree una aplicación web de Azure Cosmos DB](../../cosmos-db/create-sql-api-dotnet.md). Si es desarrollador de MongoDB, consulte [Azure Cosmos DB: Compilar una aplicación web de API MongoDB con .NET y Azure Portal](../../cosmos-db/create-mongodb-dotnet.md).
+  > **Introducción**: [cree una aplicación web de Azure Cosmos DB](../../cosmos-db/create-sql-api-dotnet.md). Si es desarrollador de MongoDB, consulte [Azure Cosmos DB: Compilar una aplicación web de API MongoDB con .NET y Azure Portal](../../cosmos-db/create-mongodb-dotnet.md).
 
 - **Azure Storage**: ofrece almacenamiento duradero y de alta disponibilidad para blobs, colas, archivos y otros tipos de datos no relacionales. Storage proporciona la base de almacenamiento para las máquinas virtuales.
 
   > **Cuándo se debe usar**: cuando la aplicación almacene datos no relacionales, como pares de clave-valor (tablas), blobs, recursos compartidos de archivos o mensajes (colas).
   > 
-  > **Para comenzar**: elija uno de estos tipos de almacenamiento: [blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tablas](../../cosmos-db/table-storage-how-to-use-dotnet.md), [colas](../../storage/queues/storage-dotnet-how-to-use-queues.md) o [archivos](../../storage/files/storage-dotnet-how-to-use-files.md).
+  > **Introducción**: elija uno de estos tipos de almacenamiento: [blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tablas](../../cosmos-db/table-storage-how-to-use-dotnet.md), [colas](../../storage/queues/storage-dotnet-how-to-use-queues.md) o [archivos](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 - **Azure SQL Database**: versión para Azure del motor de Microsoft SQL Server para almacenar datos tabulares relacionales en la nube. SQL Database ofrece un rendimiento predecible, escalabilidad sin tiempo de inactividad, continuidad empresarial y protección de datos.
 
   > **Cuándo se debe usar**: cuando la aplicación requiera almacenamiento de datos con integridad referencial, compatibilidad transaccional y compatibilidad con consultas TSQL.
   > 
-  > **Para comenzar**: [cree una base de datos SQL en cuestión de minutos con Azure Portal](../../sql-database/sql-database-get-started.md).
+  > **Introducción**: [cree una base de datos SQL en cuestión de minutos con Azure Portal](../../sql-database/sql-database-get-started.md).
 
 
 Puede usar [Azure Data Factory](../../data-factory/introduction.md) para mover los datos locales existentes a Azure. Si no está listo para mover los datos a la nube, [Conexiones híbridas](../../biztalk-services/integration-hybrid-connection-overview.md) en BizTalk Services le permite conectar su aplicación hospedada en App Service con recursos locales. También puede conectarse a los servicios de datos y almacenamiento de Azure desde las aplicaciones locales.
@@ -145,13 +145,13 @@ Azure proporciona varias maneras de utilizar contenedores en sus aplicaciones.
 
   > **Cuándo se debe usar**: cuando quiera generar implementaciones de contenedor coherentes para las aplicaciones en una máquina virtual, o cuando desee usar [Docker Compose](https://docs.docker.com/compose/overview/).
   > 
-  > **Para comenzar**: [Cree un entorno de Docker en Azure mediante la extensión de máquina virtual de Docker](../../virtual-machines/virtual-machines-linux-dockerextension.md).
+  > **Introducción**: [Cree un entorno de Docker en Azure mediante la extensión de máquina virtual de Docker](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
 - **Azure Container Service**: permite crear, configurar y administrar un clúster de máquinas virtuales preconfiguradas para ejecutar aplicaciones en contenedor. Para más información sobre Container Service, consulte [Introducción a Azure Container Service](../../container-service/container-service-intro.md).
 
   > **Cuándo se debe usar**: cuando necesite crear entornos escalables listos para producción que proporcionen herramientas de administración y programación adicionales, o para implementar un clúster de Docker Swarm.
   > 
-  > **Para comenzar**: [implemente un clúster de Container Service](../../container-service/dcos-swarm/container-service-deployment.md).
+  > **Introducción**: [implemente un clúster de Container Service](../../container-service/dcos-swarm/container-service-deployment.md).
 
 - **Máquina de Docker**: permite instalar y administrar un motor de Docker en hosts virtuales mediante comandos docker-machine.
 
@@ -161,7 +161,7 @@ Azure proporciona varias maneras de utilizar contenedores en sus aplicaciones.
 
   > **Cuándo se debe usar**: al implementar una aplicación web en Linux en una imagen de Docker.
   > 
-  > **Para comenzar**: [use una imagen de Docker personalizada para App Service en Linux](../../app-service/containers/quickstart-docker-go.md)
+  > **Introducción**: [use una imagen de Docker personalizada para App Service en Linux](../../app-service/containers/quickstart-docker-go.md)
 
 ### <a name="authentication"></a>Authentication
 
@@ -171,13 +171,13 @@ Es fundamental saber no solo quién está usando las aplicaciones, sino también
 
   > **Cuándo se debe usar**: cuando quiera proporcionar una experiencia SSO, trabajar con datos basados en Graph o autenticar usuarios basados en dominio.
   > 
-  > **Para comenzar**: para más información, consulte la [guía para desarrolladores de Azure Active Directory](../../active-directory/develop/v1-overview.md).
+  > **Introducción**: para más información, consulte la [guía para desarrolladores de Azure Active Directory](../../active-directory/develop/v1-overview.md).
 
 - **Autenticación de App Service**: al elegir App Service para hospedar la aplicación, también obtiene compatibilidad con la autenticación integrada para Azure AD, además de proveedores de identidades sociales, como Facebook, Google, Microsoft y Twitter.
 
   > **Cuándo se debe usar**: cuando quiera habilitar la autenticación en una aplicación de App Service con Azure AD, proveedores de identidades sociales, o ambos.
   > 
-  > **Para comenzar**: para más información sobre la autenticación en App Service, consulte [Autenticación y autorización en Azure App Service](../../app-service/overview-authentication-authorization.md).
+  > **Introducción**: para más información sobre la autenticación en App Service, consulte [Autenticación y autorización en Azure App Service](../../app-service/overview-authentication-authorization.md).
 
 Para más información sobre los procedimientos recomendados de seguridad en Azure, consulte [Patrones y procedimientos recomendados de seguridad en Azure](../../security/fundamentals/best-practices-and-patterns.md).
 
@@ -266,7 +266,7 @@ Servicios como [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager 
     
-Es probable que la ejecución de la aplicación en Azure implique trabajar con varios servicios de Azure. Estos servicios siguen el mismo ciclo de vida y se pueden considerar como una unidad lógica. Por ejemplo, una aplicación web podría usar los servicios Web Apps, SQL Database, Storage, Azure Redis Cache y Azure Content Delivery Network. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) permite trabajar con los recursos de la aplicación como un grupo. Todos los recursos se pueden implementar, actualizar o eliminar en una sola operación coordinada.
+Es probable que la ejecución de la aplicación en Azure implique trabajar con varios servicios de Azure. Estos servicios siguen el mismo ciclo de vida y se pueden considerar como una unidad lógica. Por ejemplo, una aplicación web podría usar los servicios Web Apps, SQL Database, Storage, Azure Redis Cache y Azure Content Delivery Network. [Azure Resource Manager](../../azure-resource-manager/management/overview.md) permite trabajar con los recursos de la aplicación como un grupo. Todos los recursos se pueden implementar, actualizar o eliminar en una sola operación coordinada.
 
 Junto con la agrupación y administración lógica de recursos relacionados, Azure Resource Manager incluye funcionalidades de implementación que permiten personalizar la implementación y configuración de los recursos relacionados. Por ejemplo, puede usar Resource Manager para implementar y configurar una aplicación. Esta aplicación puede constar de varias máquinas virtuales, un equilibrador de carga y una base de datos de Azure SQL como una sola unidad.
 
@@ -274,7 +274,7 @@ Estas implementaciones se desarrollan usando una plantilla de Azure Resource Man
 
 > **Cuándo se debe usar**: las plantillas de Resource Manager se usan cuando se desea una implementación basada en plantillas de la aplicación que se pueda administrar mediante programación con las API REST, la CLI de Azure y Azure PowerShell.
 > 
-> **Para comenzar**: para empezar a trabajar con plantillas, consulte cómo [crear plantillas de Azure Resource Manager](../../resource-group-authoring-templates.md).
+> **Introducción**: para empezar a trabajar con plantillas, consulte cómo [crear plantillas de Azure Resource Manager](../../resource-group-authoring-templates.md).
 
 ## <a name="understanding-accounts-subscriptions-and-billing"></a>Descripción de las cuentas, suscripciones y facturación
 
@@ -306,7 +306,7 @@ Al permitir el acceso a los recursos de Azure, siempre es recomendable proporcio
 
   > **Cuándo se debe usar**: cuando se necesite administración de acceso detallada para usuarios y grupos o cuando sea necesario convertir a un usuario en propietario de una suscripción.
   > 
-  > **Para comenzar**: para más información, consulte [Administración del acceso mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+  > **Introducción**: para más información, consulte [Administración del acceso mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 - **Objetos de entidad de servicio**: además de proporcionar acceso a las entidades de seguridad de usuarios y grupos, puede conceder el mismo acceso a una entidad de servicio.
 
@@ -320,7 +320,7 @@ Azure Resource Manager permite asignar etiquetas personalizadas a los recursos i
 * En la plantilla de Azure Resource Manager 
 * Uso de la API de REST
 * Uso de la CLI de Azure
-* Con PowerShell 
+* Usar PowerShell 
 
 Puede asignar varias etiquetas a cada recurso. Para más información, consulte [Uso de etiquetas para organizar los recursos de Azure](../../resource-group-using-tags.md).
 

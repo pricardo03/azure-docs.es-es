@@ -10,10 +10,6 @@
       href: quickstart-create-templates-use-the-portal.md
     - name: 'Creación de plantillas: VS Code'
       href: quickstart-create-templates-use-visual-studio-code.md
-    - name: 'Creación de plantillas: Visual Studio'
-      href: create-visual-studio-deployment-project.md
-    - name: 'Creación de plantillas: IntelliJ IDEA'
-      href: create-templates-use-intellij.md
 - name: Tutoriales
   items:
     - name: Principiante
@@ -101,8 +97,9 @@
   items:
     - name: Crear plantillas
       items:
-        - name: Uso de VS Code
-          href: use-vs-code-to-create-template.md
+        - name: Estructura de archivos de plantilla
+          displayName: 'parameters,variables,resources,outputs,condition'
+          href: template-syntax.md
         - name: Escritura de expresiones de plantilla
           href: template-expressions.md
         - name: Parámetros
@@ -134,6 +131,14 @@
           href: deploy-to-subscription.md
         - name: Recursos del nivel de grupo de administración
           href: deploy-to-management-group.md
+    - name: Uso de herramientas de creación
+      items:
+        - name: Código de VS
+          href: use-vs-code-to-create-template.md
+        - name: Visual Studio
+          href: create-visual-studio-deployment-project.md
+        - name: IntelliJ IDEA
+          href: create-templates-use-intellij.md
     - name: Implementación de plantillas
       items:
         - name: 'Implementación: Portal'
@@ -206,9 +211,6 @@
           href: ../../virtual-machines/windows/troubleshoot-deploy-vm.md
 - name: Referencia
   items:
-    - name: Estructura de archivos de plantilla
-      displayName: 'parameters,variables,resources,outputs,condition'
-      href: template-syntax.md
     - name: Referencia de plantilla
       href: /azure/templates/
     - name: Funciones de plantillas

@@ -11,7 +11,7 @@
       href: install-jenkins-solution-template.md
 - name: Tutoriales
   items:
-    - name: 1. Instalación
+    - name: 1. Instalar
       items:
         - name: Creación de un servidor de Jenkins
           href: install-jenkins-solution-template.md
@@ -24,6 +24,10 @@
           href: jenkins-azure-vm-agents.md
     - name: 3. Implementación de CI/CD
       items:
+        - name: Azure Spring Cloud
+          items:
+            - name: Implementación en Azure Spring Cloud mediante la CLI de Azure
+              href: tutorial-jenkins-deploy-cli-spring-cloud-service.md
         - name: AKS
           items:
             - name: Integración y entrega continuas en Kubernetes
@@ -53,7 +57,7 @@
         - name: CI/CD en Service Fabric
           href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
           maintainContext: true
-- name: Procedimiento
+- name: Instrucciones
   items:
     - name: "Uso del complemento de App\_Service"
       href: deploy-jenkins-app-service-plugin.md

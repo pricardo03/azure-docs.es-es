@@ -84,6 +84,8 @@
       items:
         - name: Transformación de datos con Mapping Data Flow
           href: tutorial-data-flow.md
+        - name: Tutoriales en vídeo del flujo de datos de asignación
+          href: data-flow-tutorials.md
         - name: Preparación de datos con un flujo de datos de limpieza y transformación
           href: wrangling-data-flow-tutorial.md
     - name: Transformaciones externas

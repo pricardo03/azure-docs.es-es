@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 16b0fdcbae51b30e14fbf7ea4d98699dfaf19804
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 6df7eebae0f0e7cfab790a4fca12dbb6ee5a5acf
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035740"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638993"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalización de los clústeres de Azure HDInsight mediante acciones de script en Azure
 
@@ -144,7 +144,7 @@ Los scripts de acciones de script se pueden usar con las utilidades siguientes:
 
 HDInsight proporciona scripts para instalar los siguientes componentes en clústeres de HDInsight:
 
-| NOMBRE | Script |
+| Nombre | Script |
 | --- | --- |
 | Adición de una cuenta de Azure Storage |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Consulte [Adición de más cuentas de almacenamiento a HDInsight](hdinsight-hadoop-add-storage.md). |
 | Instalación de Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Consulte [Instalación y uso de Hue en clústeres de Hadoop para HDInsight](hdinsight-hadoop-hue-linux.md). |
@@ -167,10 +167,10 @@ En esta sección se explican las distintas maneras de usar acciones de script al
 
     En la siguiente tabla se describen los elementos del formulario:
 
-    | Propiedad | Valor |
+    | Propiedad | Value |
     | --- | --- |
     | Seleccione un script | Para utilizar su propio script, seleccione __Custom__ (Personalizado). En caso contrario, seleccione uno de los que se proporcionan. |
-    | NOMBRE |Especifique un nombre para la acción de script. |
+    | Nombre |Especifique un nombre para la acción de script. |
     | URI de script de Bash |Especifique el URI del script. |
     | Head, Worker o ZooKeeper |Especifique los nodos en los que se ejecuta el script: **Head**, **Worker** o **ZooKeeper**. |
     | Parámetros |Especifique los parámetros, si lo requiere el script. |
@@ -247,10 +247,10 @@ Vaya a [Azure Portal](https://portal.azure.com):
 
     En la siguiente tabla se describen los elementos del formulario:
 
-    | Propiedad | Valor |
+    | Propiedad | Value |
     | --- | --- |
     | Seleccione un script | Para utilizar su propio script, seleccione __Custom__ (Personalizado). En caso contrario, seleccione uno de los que se proporcionan. |
-    | NOMBRE |Especifique un nombre para la acción de script. |
+    | Nombre |Especifique un nombre para la acción de script. |
     | URI de script de Bash |Especifique el URI del script. |
     | Head, Worker o ZooKeeper |Especifique los nodos en los que se ejecuta el script: **Head**, **Worker** o **ZooKeeper**. |
     | Parámetros |Especifique los parámetros, si lo requiere el script. |
@@ -328,7 +328,7 @@ Si desea ver un ejemplo de uso del SDK de .NET para aplicar scripts a un clúste
 
 ### <a name="the-azure-portal"></a>El Portal de Azure
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Desde el menú de la izquierda, vaya a **Todos los servicios** > **Analytics** > **Clústeres de HDInsight**.
 
@@ -416,13 +416,13 @@ El servicio HDInsight proporciona varias maneras de utilizar los componentes per
 
 3. **Ejemplos**. Para los componentes personalizados más populares, Microsoft y otros pueden proporcionar ejemplos de cómo estos componentes se pueden utilizar en los clústeres de HDInsight. Estas muestras se proporcionan sin soporte técnico.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Puede usar la interfaz de usuario web de Ambari para ver la información registrada por las acciones de script. Si se produce un error en el script durante la creación del clúster, los registros también están disponibles en la cuenta de almacenamiento predeterminada asociada al clúster. Esta sección proporciona información sobre cómo recuperar los registros mediante ambas opciones.
 
 ### <a name="the-apache-ambari-web-ui"></a>Interfaz de usuario web de Apache Ambari
 
-1. En el explorador, vaya a https://CLUSTERNAME.azurehdinsight.net. Reemplace **CLUSTERNAME** por el nombre del clúster de HDInsight.
+1. En el explorador, vaya a `https://CLUSTERNAME.azurehdinsight.net`. Reemplace **CLUSTERNAME** por el nombre del clúster de HDInsight.
 
     Cuando se le solicite, escriba el nombre de cuenta de administrador (**admin**) y la contraseña de administrador para el clúster. Es posible que tenga que volver a escribir las credenciales de administrador en un formulario web.
 
@@ -458,7 +458,7 @@ Si se produce un error al crear el clúster debido a un error de script, los reg
 
 * Es posible crear repetidamente un clúster de la acción de script con el mismo nombre. En tal caso, puede distinguir los registros pertinentes según el nombre de la carpeta de **fecha**. Por ejemplo, la estructura de carpetas de un clúster (**mycluster**) creado en diferentes fechas es similar a las siguientes entradas de registro:
 
-    `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04``\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
+    `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04` `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
 
 * Si crea un clúster de acción de script con el mismo nombre en el mismo día, puede usar el prefijo único para identificar los archivos de registro correspondientes.
 

@@ -1,33 +1,30 @@
 ---
 title: Desarrollo de funciones de .NET Standard para trabajos de Azure Stream Analytics (versión preliminar)
 description: Obtenga información sobre cómo escribir funciones definidas por el usuario en C# para trabajos de Stream Analytics.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0bc59ac3e55466f8ac06a3a8fa9cf08fecbb5ce3
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: f07c02df1b8e0032c9e1b4ef9a24c345fee20a40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024947"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426315"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Desarrollo de funciones definidas por el usuario de .NET Standard para trabajos de Azure Stream Analytics (versión preliminar)
 
 Azure Stream Analytics ofrece un lenguaje de consulta similar a SQL para realizar transformaciones y cálculos sobre transmisiones de datos del evento. Hay muchas funciones integradas, pero algunos escenarios complejos requieren flexibilidad adicional. Con las funciones definidas por el usuario (UDF) de .NET Standard, puede invocar sus propias funciones escritas en cualquier lenguaje de .NET Standard (C#, F#, etc.) para ampliar el lenguaje de consulta de Stream Analytics. Las UDF le permiten realizar cálculos matemáticos complejos, importar modelos de aprendizaje automático personalizados mediante ML.NET y usar una lógica personalizada de imputación para datos que faltan. La característica UDF para trabajos de Stream Analytics está actualmente en versión preliminar y no debe usarse en las cargas de trabajo de producción.
 
 La función definida por el usuario de .NET para trabajos en la nube está disponible en:
-* Centro-oeste de EE. UU. (disponible)
-* Norte de Europa (disponible)
-* Este de EE. UU. (disponible)
-* Oeste de EE. UU. (implementación próxima)
-* Este de EE. UU. 2 (implementación próxima)
-* Oeste de Europa (implementación próxima)
+* Centro occidental de EE.UU.
+* Europa del Norte
+* East US
+* Oeste de EE. UU.
+* Este de EE. UU. 2
+* Europa occidental
 
 Si está interesado en usar esta característica en cualquier otra región, puede [solicitar acceso](https://aka.ms/ccodereqregion).
 

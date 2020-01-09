@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 2785d85db47ed3b214044e673566a2837b83e984
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 5f6428231a3639738e8fb52e7dc3f2f2a3d2a26e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285496"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392809"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Mensajes y conexiones de Azure SignalR Service
 
@@ -38,8 +38,6 @@ Los mensajes mayores de 2 KB se cuentan como mensajes múltiples de 2 KB cada 
 
 Por ejemplo, suponga que tiene tres clientes y un servidor de aplicaciones. Un cliente envía un mensaje de 4 KB para permitir que el servidor difunda a todos los clientes. El número de mensajes es ocho: un mensaje desde el servicio al servidor de aplicaciones y tres mensajes desde el servicio a los clientes. Cada mensaje se cuenta como dos mensajes de 2 KB.
 
-El recuento de mensajes que se muestra en Azure Portal seguirá siendo 0 hasta que se acumule para sumar más de 100.
-
 ## <a name="how-connections-are-counted"></a>Cómo se cuentan las conexiones
 
 Existen conexiones de servidores y conexiones de cliente con Azure SignalR Service. De manera predeterminada, cada servidor de aplicaciones comienza con cinco conexiones iniciales por centro de conectividad y cada cliente tiene una conexión de cliente.
@@ -54,7 +52,7 @@ Durante la vigencia del servidor de aplicaciones, tanto el servicio como el serv
 
 ## <a name="how-inboundoutbound-traffic-is-counted"></a>Cómo se cuenta el tráfico entrante y saliente
 
-La distinción entre el tráfico entrante y el tráfico saliente se basa en la perspectiva de Azure SignalR Service. El tráfico se calcula en bytes. Al igual que el número de mensajes, el tráfico también tiene una frecuencia de muestreo. El gráfico de entrada y salida de Azure Portal se actualiza cada 100 KB por centro.
+La distinción entre el tráfico entrante y el tráfico saliente se basa en la perspectiva de Azure SignalR Service. El tráfico se calcula en bytes.
 
 ## <a name="related-resources"></a>Recursos relacionados
 

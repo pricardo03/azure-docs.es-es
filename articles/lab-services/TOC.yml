@@ -22,7 +22,7 @@
       href: samples-powershell.md
     - name: 'Azure PowerShell: módulo Az.DevTestLabs2'
       href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library'
-    - name: CLI de Azure
+    - name: Azure CLI
       href: samples-cli.md
 - name: Conceptos
   items:
@@ -44,7 +44,7 @@
           href: devtest-lab-training-lab.md
         - name: Escenarios de uso de VM reclamables
           href: devtest-lab-use-claim-capabilities.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Configuración de un laboratorio
       items:
@@ -72,6 +72,8 @@
           href: devtest-lab-auto-startup-vm.md
         - name: Escalado de un laboratorio
           href: devtest-lab-scale-lab.md
+        - name: Habilitación de identidades administradas en máquinas virtuales de laboratorio
+          href: enable-managed-identities-lab-vms.md
         - name: Administración de bases de máquinas virtuales
           items:
             - name: Configuración de imágenes de Azure Marketplace
