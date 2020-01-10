@@ -35,7 +35,7 @@
       href: azure-netapp-files-solution-architectures.md
     - name: Preguntas más frecuentes acerca de Azure NetApp Files
       href: azure-netapp-files-faqs.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Registro en Azure NetApp Files
       href: azure-netapp-files-register.md
@@ -61,7 +61,7 @@
       href: azure-netapp-files-manage-snapshots.md
     - name: Cambiar el tamaño de un grupo de capacidad o de un volumen
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
-    - name: Desarrollo
+    - name: Desarrollar
       items:
         - name: REST
           href: azure-netapp-files-develop-with-rest-api.md
@@ -81,5 +81,7 @@
       href: 'https://azure.microsoft.com/pricing/details/netapp/'
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=netapp'
+    - name: Contrato de nivel de servicio
+      href: 'https://azure.microsoft.com/support/legal/sla/netapp/'
     - name: Vídeos
       href: azure-netapp-files-videos.md
