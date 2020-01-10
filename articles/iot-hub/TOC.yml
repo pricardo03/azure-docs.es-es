@@ -83,7 +83,9 @@
       href: tutorial-connectivity.md
 - name: Conceptos
   items:
-    - name: Cumplimiento de TLS 1.2
+    - name: Soporte técnico de TLS
+      href: iot-hub-tls.md
+    - name: Desuso de TLS 1.0 y 1.1
       href: tls-1.2-everywhere.md
     - name: Introducción sobre los enriquecimientos de mensajes
       href: iot-hub-message-enrichments-overview.md

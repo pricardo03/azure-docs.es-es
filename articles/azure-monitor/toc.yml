@@ -62,6 +62,8 @@
       href: platform/powershell-samples.md
 - name: Conceptos
   items:
+    - name: ¿Qué se puede supervisar?
+      href: monitor-reference.md
     - name: Administración de Azure
       href: azure-management.md
     - name: Supervisión continua
@@ -89,6 +91,8 @@
       items:
         - name: Datos de registro
           href: platform/data-security.md
+        - name: Claves administradas por el cliente
+          href: platform/customer-managed-keys.md
         - name: Control de datos de registro personales
           href: platform/personal-data-mgmt.md
         - name: 'Recopilación, retención y almacenamiento de datos de aplicaciones'

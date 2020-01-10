@@ -1,0 +1,74 @@
+### YamlMime:Landing
+title: Documentación del emparejamiento de Internet
+summary: Más información sobre el emparejamiento de Internet con Microsoft.
+metadata:
+  title: Documentación del emparejamiento de Internet
+  titleSuffix: Azure
+  description: Más información sobre el emparejamiento con Microsoft.
+  services: internet-peering
+  ms.service: internet-peering
+  ms.topic: landing-page
+  author: prmitiki
+  ms.author: prmitiki
+  ms.date: 11/27/2019
+  ms.openlocfilehash: 83549a56b3fb81c66827d1e9f87718467fb1098a
+  ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 01/09/2020
+  ms.locfileid: "75773526"
+landingContent:
+- title: Acerca del emparejamiento de Internet
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Acerca del emparejamiento de Internet
+      url: overview.md
+    - text: Emparejamiento de Internet frente a Peering Service
+      url: overview-peering-service.md
+  - linkListType: concept
+    links:
+    - text: Directiva de emparejamiento
+      url: policy.md
+    - text: Requisitos previos para configurar el emparejamiento con Microsoft
+      url: prerequisites.md
+    - text: Preguntas frecuentes acerca del emparejamiento de Internet
+      url: faqs.md
+- title: Introducción
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Asociación de un ASN del mismo nivel a una suscripción de Azure mediante el portal
+      url: howto-subscription-association-portal.md
+- title: Emparejamiento de Exchange
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Tutorial del emparejamiento de Exchange
+      url: walkthrough-exchange-all.md
+    - text: Creación o modificación de un emparejamiento de Exchange mediante el portal
+      url: howto-exchange-portal.md
+    - text: Conversión de un emparejamiento de Exchange heredado a un recurso de Azure mediante el portal
+      url: howto-legacy-exchange-portal.md
+- title: Emparejamiento directo
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Tutorial del emparejamiento directo
+      url: walkthrough-direct-all.md
+    - text: Creación o modificación de un emparejamiento directo mediante el portal
+      url: howto-direct-portal.md
+    - text: Conversión de un emparejamiento directo heredado en un recurso de Azure mediante el portal
+      url: howto-legacy-direct-portal.md
+- title: Peering Service
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Preguntas frecuentes sobre Peering Service
+      url: service-faqs.md
+  - linkListType: how-to-guide
+    links:
+    - text: Tutorial para asociados de Peering Service
+      url: walkthrough-peering-service-all.md
+    - text: Habilitación de Peering Service en un emparejamiento directo mediante el portal
+      url: howto-peering-service-portal.md

@@ -1,10 +1,10 @@
-- name: Prueba comparativa de la seguridad de Azure
+- name: Pruebas comparativas de la seguridad de Azure
   href: index.yml
 - name: Introducción
   href: introduction.md
 - name: Controles de seguridad
   items:
-    - name: Información general
+    - name: Introducción a los controles de seguridad de Azure
       href: overview.md
     - name: Seguridad de redes
       href: security-control-network-security.md

@@ -1,0 +1,86 @@
+- name: Documentación del emparejamiento de Internet
+  href: index.yml
+- name: Información general
+  items:
+    - name: Acerca del emparejamiento de Internet
+      href: overview.md
+    - name: Emparejamiento de Internet frente a Peering Service
+      href: overview-peering-service.md
+- name: Conceptos
+  items:
+    - name: Directiva de emparejamiento
+      href: policy.md
+- name: Guías paso a paso
+  items:
+    - name: Requisitos previos para configurar el emparejamiento con Microsoft
+      href: prerequisites.md
+    - name: Tutorial del emparejamiento directo
+      href: walkthrough-direct-all.md
+    - name: Tutorial del emparejamiento de Exchange
+      href: walkthrough-exchange-all.md
+    - name: Tutorial para asociados de Peering Service
+      href: walkthrough-peering-service-all.md
+    - name: Asociación de un ASN del mismo nivel a una suscripción de Azure
+      items:
+        - name: Portal
+          href: howto-subscription-association-portal.md
+        - name: Azure PowerShell
+          href: howto-subscription-association-powershell.md
+    - name: Habilitación de Peering Service en un emparejamiento directo
+      items:
+        - name: Portal
+          href: howto-peering-service-portal.md
+        - name: Azure PowerShell
+          href: howto-peering-service-powershell.md
+    - name: Creación o modificación de un emparejamiento directo
+      items:
+        - name: Portal
+          href: howto-direct-portal.md
+        - name: Azure PowerShell
+          href: howto-direct-powershell.md
+    - name: Conversión de un emparejamiento directo heredado en un recurso de Azure
+      items:
+        - name: Portal
+          href: howto-legacy-direct-portal.md
+        - name: Azure PowerShell
+          href: howto-legacy-direct-powershell.md
+    - name: Creación o modificación de un emparejamiento de Exchange
+      items:
+        - name: Portal
+          href: howto-exchange-portal.md
+        - name: Azure PowerShell
+          href: howto-exchange-powershell.md
+    - name: Conversión de un emparejamiento de Exchange heredado en un recurso de Azure
+      items:
+        - name: Portal
+          href: howto-legacy-exchange-portal.md
+        - name: Azure PowerShell
+          href: howto-legacy-exchange-powershell.md
+- name: Referencia
+  items:
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/network'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/az.network'
+    - name: Java
+      href: 'https://docs.microsoft.com/java/api/'
+    - name: Node.js
+      href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: Plantilla de Resource Manager
+      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/allversions'
+- name: Recursos
+  items:
+    - name: Desarrollo de aptitudes con Microsoft Learn
+      href: 'https://docs.microsoft.com/learn/browse/'
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog de redes
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Comentarios de redes
+      href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
+    - name: Preguntas frecuentes acerca del emparejamiento de Internet
+      href: faqs.md
+    - name: Preguntas frecuentes sobre Peering Service
+      href: service-faqs.md

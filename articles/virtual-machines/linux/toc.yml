@@ -41,11 +41,11 @@
       href: tutorial-monitor.md
     - name: 13 - Administración de la seguridad de máquinas virtuales
       href: tutorial-azure-security.md
-    - name: 14 - Implementación de Jenkins
+    - name: 14a - Compilación con Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 15a - Implementación con Azure Pipelines
+    - name: 14b - Implementación con Azure Pipelines (clásica)
       href: tutorial-build-deploy-jenkins.md
-    - name: 15b - CI/CD con Azure Pipelines
+    - name: 15 - CI/CD con Azure Pipelines (YAML)
       href: tutorial-build-deploy-azure-pipelines.md
     - name: 16a - Creación de pila LAMP
       href: tutorial-lamp-stack.md

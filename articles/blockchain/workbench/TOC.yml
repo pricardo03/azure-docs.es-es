@@ -63,7 +63,7 @@
       href: 'https://aka.ms/workbenchforum'
     - name: Soporte técnico de la comunidad
       href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
-    - name: Soporte de Stack Overflow
+    - name: Soporte técnico de Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-blockchain-workbench'
     - name: Comentarios sobre el producto
       href: 'https://aka.ms/blockchainuservoice'
@@ -73,3 +73,5 @@
       href: ../templates/ethereum-poa-deployment.md
     - name: Consorcio de Hyperledger Fabric
       href: ../templates/hyperledger-fabric-consortium-blockchain.md
+    - name: Azure Kubernetes Service del consorcio de Hyperledger Fabric
+      href: ../templates/hyperledger-fabric-consortium-azure-kubernetes-service.md

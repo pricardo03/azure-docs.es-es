@@ -22,7 +22,7 @@
           href: cluster-administration-cluster-admin-role.md
         - name: '2: administración de restricciones del contexto de seguridad'
           href: cluster-administration-security-context-constraints.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   expanded: true
   items:
     - name: Configuración del entorno de desarrollo de Red Hat OpenShift en Azure
@@ -37,6 +37,16 @@
       href: howto-deploy-prometheus.md
     - name: Administración de proyectos en un clúster de Red Hat OpenShift en Azure
       href: howto-manage-projects.md
+    - name: Supervisión y registro
+      items:
+        - name: Azure Monitor para contenedores (versión preliminar)
+          items:
+            - name: Configuración de Azure Monitor para contenedores
+              href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+              maintainContext: true
+            - name: Deshabilitación de Azure Monitor para contenedores
+              href: ../azure-monitor/insights/container-insights-optout-openshift.md
+              maintainContext: true
 - name: Referencia
   items:
     - name: CLI de Red Hat OpenShift en Azure
@@ -47,7 +57,7 @@
   items:
     - name: Preguntas frecuentes
       href: openshift-faq.md
-    - name: solución de problemas
+    - name: Solución de problemas
       href: troubleshoot.md
     - name: Recursos compatibles
       href: supported-resources.md

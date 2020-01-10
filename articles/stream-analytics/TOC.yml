@@ -61,6 +61,16 @@
           href: stream-analytics-sql-output-perf.md
         - name: Patrones personalizados de ruta de acceso a blobs
           href: stream-analytics-custom-path-patterns-blob-storage-output.md
+    - name: Optimización de trabajos de Stream Analytics
+      items:
+        - name: Descripción y ajuste de las unidades de streaming
+          href: stream-analytics-streaming-unit-consumption.md
+        - name: Mejora del rendimiento de las consultas
+          href: stream-analytics-parallelization.md
+        - name: Nueva partición de la entrada
+          href: repartition.md
+        - name: Aumento del rendimiento de un trabajo
+          href: stream-analytics-scale-jobs.md
     - name: Estados de un trabajo
       href: job-states.md
     - name: Funciones de ventana
@@ -148,20 +158,6 @@
           href: stream-analytics-monitor-jobs.md
         - name: 'Supervisión de trabajos: Visual Studio'
           href: stream-analytics-monitor-jobs-use-vs.md
-    - name: Escala
-      items:
-        - name: Escalado con unidades de streaming
-          href: stream-analytics-streaming-unit-consumption.md
-        - name: Escalado con paralelización
-          items:
-            - name: Paralelización de consultas
-              href: stream-analytics-parallelization.md
-            - name: Aumento del rendimiento
-              href: stream-analytics-scale-jobs.md
-        - name: Escalado con funciones de Machine Learning
-          href: stream-analytics-scale-with-machine-learning-functions.md
-        - name: Escalado con nueva creación de particiones
-          href: repartition.md
     - name: Automatizar
       items:
         - name: Uso del SDK de .NET
@@ -218,6 +214,8 @@
           href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
     - name: Depuración mediante diagrama de trabajos
       href: stream-analytics-job-diagram-with-metrics.md
+    - name: Escalado con funciones de Machine Learning
+      href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Lenguaje de consulta de Stream Analytics
   items:
     - name: Funciones integradas

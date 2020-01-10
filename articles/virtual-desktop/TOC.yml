@@ -130,6 +130,10 @@
       href: /rest/api/virtual-desktop/
     - name: Configuración de un archivo RDP compatible
       href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context'
+    - name: Guía de red
+      href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context'
+    - name: Guía para el ajuste de tamaño de las máquinas virtuales
+      href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context'
 - name: Recursos
   items:
     - name: Calculador de experiencia
