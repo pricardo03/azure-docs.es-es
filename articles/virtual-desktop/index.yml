@@ -5,7 +5,7 @@ metadata:
   title: Documentación sobre Windows Virtual Desktop | Microsoft Docs
   description: Windows Virtual Desktop para Azure es una experiencia multiusuario de Windows 10 Enterprise virtualizada en la nube.
   author: Heidilohr
-  manager: daveba
+  manager: lizross
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page
@@ -22,7 +22,7 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/virtual-desktop/overview">¿Qué es Windows Virtual Desktop?</a>
-  - title: Tutoriales detallados
+  - title: Tutoriales paso a paso
     items:
       - type: paragraph
         text: Aprenda a instalar y configurar Windows Virtual Desktop y a cómo conectarse al cliente cuando esté listo.
