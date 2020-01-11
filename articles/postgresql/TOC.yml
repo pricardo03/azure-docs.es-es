@@ -43,7 +43,7 @@
           items:
             - name: Portal de Azure
               href: tutorial-design-database-using-azure-portal.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: tutorial-design-database-using-azure-cli.md
         - name: '2 - Diseño de aplicaciones web: Python'
           href: ../app-service/containers/tutorial-python-postgresql-app.md
@@ -58,7 +58,7 @@
           href: tutorial-design-database-hyperscale-realtime.md
 - name: Ejemplos
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: sample-scripts-azure-cli.md
 - name: Conceptos
   items:
@@ -98,7 +98,9 @@
               href: concepts-data-access-and-security-threat-protection.md
             - name: Autenticación de Azure AD
               href: concepts-aad-authentication.md
-        - name: Continuidad del negocio
+            - name: Private Link
+              href: concepts-data-access-and-security-private-link.md
+        - name: Continuidad empresarial
           items:
             - name: Introducción a la continuidad empresarial
               displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
@@ -171,7 +173,7 @@
           items:
             - name: Opciones de configuración
               href: concepts-hyperscale-configuration-options.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Servidor único
       items:
@@ -185,7 +187,7 @@
               href: howto-create-users.md
             - name: "Configuración de la integración de Azure\_AD"
               href: howto-configure-sign-in-aad-authentication.md
-        - name: Optimizar
+        - name: Optimización
           items:
             - name: Inserciones masivas
               href: howto-optimize-bulk-inserts.md
@@ -199,15 +201,15 @@
           items:
             - name: Portal de Azure
               href: howto-manage-firewall-using-portal.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-manage-firewall-using-cli.md
         - name: Restauración de un servidor
           items:
             - name: Portal de Azure
               href: howto-restore-server-portal.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-restore-server-cli.md
-        - name: Migración de una base de datos
+        - name: Migración de bases de datos
           items:
             - name: Volcado de memoria y restauración
               href: howto-migrate-using-dump-and-restore.md
@@ -219,19 +221,19 @@
           items:
             - name: Portal de Azure
               href: howto-configure-server-parameters-using-portal.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-configure-server-parameters-using-cli.md
         - name: Almacenamiento de crecimiento automático
           items:
             - name: Portal de Azure
               href: howto-auto-grow-storage-portal.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-auto-grow-storage-cli.md
         - name: Registros de acceso
           items:
             - name: Portal de Azure
               href: howto-configure-server-logs-in-portal.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-configure-server-logs-using-cli.md
         - name: Supervisión
           items:
@@ -249,13 +251,19 @@
           items:
             - name: Portal de Azure
               href: howto-manage-vnet-using-portal.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-manage-vnet-using-cli.md
+        - name: Private Link
+          items:
+            - name: Portal de Azure
+              href: howto-configure-privatelink-portal.md
+            - name: Azure CLI
+              href: howto-configure-privatelink-cli.md
         - name: Reinicio del servidor
           items:
             - name: Portal de Azure
               href: howto-restart-server-portal.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-restart-server-cli.md
         - name: Replicación
           items:
@@ -283,7 +291,7 @@
               href: howto-hyperscale-troubleshoot-common-connection-issues.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/postgres
     - name: API DE REST
       href: /rest/api/postgresql
