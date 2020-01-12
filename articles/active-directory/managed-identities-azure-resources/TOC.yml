@@ -20,8 +20,6 @@
           href: tutorial-windows-vm-access-datalake.md
         - name: Acceso a Azure Storage
           href: tutorial-vm-windows-access-storage.md
-        - name: Acceso a Azure Storage mediante una clave de acceso
-          href: tutorial-windows-vm-access-storage.md
         - name: Acceso a Azure SQL
           href: tutorial-windows-vm-access-sql.md
         - name: Acceso a Azure Key Vault
