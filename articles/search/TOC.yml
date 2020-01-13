@@ -113,6 +113,8 @@
       items:
         - name: Introducción a la seguridad
           href: search-security-overview.md
+        - name: Creación de un punto de conexión privado
+          href: service-create-private-endpoint.md
         - name: Administración de claves de servicios
           href: search-security-api-keys.md
         - name: Acceso de administrador basado en rol
@@ -333,7 +335,7 @@
       items:
         - name: "API versión\_2019-05-06-Preview"
           href: search-api-preview.md
-        - name: ResetSkills API
+        - name: Restablecimiento de Skills API
           href: preview-api-resetskills.md
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.search/searchservices
