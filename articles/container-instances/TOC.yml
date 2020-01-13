@@ -51,14 +51,18 @@
       href: container-instances-orchestrator-relationship.md
     - name: Consideraciones sobre la seguridad
       href: container-instances-image-security.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Implementación
       items:
-        - name: Implementación en una red virtual (versión preliminar)
+        - name: Implementación en una red virtual
           href: container-instances-vnet.md
         - name: Implementación desde Azure Container Registry
           href: container-instances-using-azure-container-registry.md
+        - name: Cifrado de datos de implementación
+          href: container-instances-encrypt-data.md
+        - name: Implementación en hosts dedicados
+          href: container-instances-dedicated-hosts.md
     - name: Escenarios de contenedores
       items:
         - name: Establecimiento de la directiva de reinicio para tareas de una sola ejecución
@@ -81,7 +85,7 @@
       items:
         - name: Recurso compartido de archivos de Azure
           href: container-instances-volume-azure-files.md
-        - name: Secret
+        - name: Secreto
           href: container-instances-volume-secret.md
         - name: Directorio vacío
           href: container-instances-volume-emptydir.md
@@ -139,7 +143,7 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/container-instances/'
-    - name: Roadmap
+    - name: Plan de desarrollo
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Proporcionar comentarios sobre el producto
       href: 'https://feedback.azure.com/forums/602224-azure-container-instances'

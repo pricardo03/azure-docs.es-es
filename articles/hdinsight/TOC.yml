@@ -848,6 +848,8 @@
           href: ./hdinsight-management-ip-addresses.md
         - name: Etiquetas de servicio de Azure Firewall
           href: ./hdinsight-service-tags.md
+        - name: Cifrado de disco mediante claves administradas por el cliente
+          href: ./disk-encryption.md
     - name: Procedimientos
       items:
         - name: Uso del agente de identidad para la administración de credenciales

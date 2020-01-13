@@ -229,6 +229,8 @@
           href: certificate-rotation.md
         - name: Creación de un clúster privado
           href: private-clusters.md
+        - name: BYOK para discos
+          href: azure-disk-customer-managed-keys.md
     - name: Supervisión y registro
       items:
         - name: Azure Monitor para contenedores

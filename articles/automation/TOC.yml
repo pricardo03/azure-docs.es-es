@@ -15,6 +15,8 @@
       displayName: certificate renewal
     - name: Configuración de la autenticación con AWS
       href: automation-config-aws-account.md
+    - name: Cifrado de recursos seguros en Azure Automation
+      href: automation-secure-asset-encryption.md
     - name: Administración del control de acceso basado en rol
       href: automation-role-based-access-control.md
       displayName: RBAC
@@ -241,7 +243,7 @@
       displayName: DSC
     - name: Conceptos
       items:
-        - name: PowerShell DSC
+        - name: DSC de PowerShell
           href: /powershell/dsc/overview/overview
     - name: Guías de inicio rápido
       items:

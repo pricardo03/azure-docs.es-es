@@ -36,11 +36,13 @@
       href: architecture-smart-inventory-management-pnp.md
     - name: Arquitectura de análisis del almacén
       href: store-analytics-architecture.md
+    - name: Arquitectura de la plantilla de aplicación del centro de microcumplimiento
+      href: architecture-micro-fulfillment-center-pnp.md
     - name: Conectividad
       href: ../preview/overview-iot-central-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: ¿Qué son las plantillas de aplicación?
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Conexión de dispositivos
       items:
@@ -80,7 +82,7 @@
           href: ../preview/howto-administer.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Exportación de la aplicación
           href: ../preview/howto-use-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
-        - name: Administración de usuarios y roles
+        - name: Administración de los usuarios y los roles.
           href: ../preview/howto-manage-users-roles.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Administración de facturas
           href: ../preview/howto-view-bill.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
