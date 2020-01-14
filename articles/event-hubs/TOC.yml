@@ -17,7 +17,7 @@
       items:
         - name: Portal de Azure
           href: event-hubs-create.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: event-hubs-quickstart-cli.md
         - name: Azure PowerShell
           href: event-hubs-quickstart-powershell.md
@@ -106,9 +106,9 @@
     - name: Guía del protocolo AMQP 1.0
       href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
       maintainContext: true
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
-    - name: Desarrollo
+    - name: Desarrollar
       items:
         - name: Obtención de la cadena de conexión de Event Hubs
           href: event-hubs-get-connection-string.md
@@ -164,7 +164,7 @@
           href: event-hubs-service-endpoints.md
         - name: Habilitar la integración y los firewalls de Virtual Network en el espacio de nombres de Event Hubs
           href: event-hubs-tutorial-virtual-networks-firewalls.md
-        - name: Configuración de claves administradas por el cliente para el cifrado de datos en reposo (versión preliminar)
+        - name: Configuración de claves administradas por el cliente para el cifrado de datos en reposo
           href: configure-customer-managed-key.md
     - name: Solución de problemas
       items:

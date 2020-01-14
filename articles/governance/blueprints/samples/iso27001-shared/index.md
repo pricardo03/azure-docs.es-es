@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos, introducción
 description: Introducción y arquitectura del ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos. Este ejemplo de plano técnico de ejemplo ayuda a los clientes a evaluar determinados controles concretos de la norma ISO 27001.
-ms.date: 11/18/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 9723b77f2ba8f9a7030e891130853deb906c456e
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 0b6a250ebac2744adca813219225388841f1776f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546684"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922537"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Introducción al ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos
 
@@ -16,7 +16,7 @@ El ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos p
 
 El ejemplo de plano técnico para [cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001](../iso27001-ase-sql-workload/index.md) amplía este ejemplo.
 
-## <a name="architecture"></a>Arquitectura
+## <a name="architecture"></a>Architecture
 
 El ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos implementa una infraestructura básica en Azure que diferentes organizaciones pueden usar para hospedar varias cargas de trabajo según el enfoque de Virtual Datacenter (VDC).
 VDC es un conjunto probado de arquitecturas de referencia, herramientas de automatización y modelos de involucración que emplea Microsoft con sus clientes empresariales de mayor tamaño. El ejemplo de plano técnico de los servicios compartidos se basa en un entorno totalmente nativo de Azure VDC que se muestra a continuación.

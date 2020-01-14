@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico para cargas de trabajo de ASE y SQL compatibles con ISO 27001, introducción
 description: Introducción y arquitectura del ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001.
-ms.date: 11/18/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 749304f332bc5c65a9a1cd18aae3131f024b4f53
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: d77029b93b1e77bdba85c5dd5608cbdc5d6543a5
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546738"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920774"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Introducción a un ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001
 
@@ -20,7 +20,7 @@ Hay dos ejemplos de planos técnicos para la norma ISO 27001: este y el ejemplo 
 > [!IMPORTANT]
 > Este ejemplo depende de la infraestructura que se implementa con el ejemplo de plano técnico de los [servicios compartidos de la norma ISO 27001](../iso27001-shared/index.md). Debe implementarse en primer lugar.
 
-## <a name="architecture"></a>Arquitectura
+## <a name="architecture"></a>Architecture
 
 El ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001 implementa un entorno web basado en una plataforma como servicio. El entorno se puede emplear para hospedar varias aplicaciones web, API web e instancias de SQL Database conforme a los estándares de la norma ISO 27001. Este ejemplo de plano técnico se basa en el de los [servicios compartidos de la norma ISO 27001](../iso27001-shared/index.md).
 
