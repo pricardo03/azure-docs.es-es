@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Biblioteca cliente de creación de Language Understanding (LUIS) para Python'
 titleSuffix: Azure Cognitive Services
-description: Introducción a la biblioteca cliente de LUIS para Python. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
+description: Empiece a trabajar con la biblioteca cliente de LUIS para Python con este inicio rápido. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 97bb86dc702802fd071015364cf205c4f1bb11d5
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 398220306fad4dc3459446fa5f77371ac669dd7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422716"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381501"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de creación de Language Understanding (LUIS) para Python
 
@@ -30,7 +30,7 @@ La biblioteca cliente de creación de Language Understanding (LUIS) para Python 
 
 [Documentación de referencia](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [Paquete de creación (Pypi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Cuenta del portal de Language Understanding (LUIS): [cree una de forma gratuita](https://www.luis.ai).
 * [Python 3.x](https://www.python.org/)
@@ -46,7 +46,7 @@ Para obtener la [clave de inicio](luis-how-to-azure-subscription.md#starter-key)
 Con la clave y la región de la clave, cree dos variables de entorno para la autenticación:
 
 * `LUIS_AUTHORING_KEY`: la clave de recurso para autenticar las solicitudes.
-* `LUIS_REGION`: es la región asociada a la clave. Por ejemplo: `westus`.
+* `LUIS_REGION`: es la región asociada a la clave. Por ejemplo, `westus`.
 
 Siga las instrucciones adecuadas para su sistema operativo.
 

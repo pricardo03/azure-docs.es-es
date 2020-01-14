@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplos de la CLI de Azure: Habilitación del escalado automático basado en el host | Microsoft Docs'
-description: Ejemplos de la CLI de Azure
+title: 'Ejemplos de la CLI de Azure: Habilitación del escalado automático basado en el host'
+description: Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Ubuntu y usa métricas basadas en el host para escalar automáticamente a medida que la carga de la CPU cambia.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c843bed96ebd69f0fe96f8dab292d50ef025e750
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 42dd70a355d63d0fa3062a8e3439be857124a6c8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657365"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351017"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Escalado automático de un conjunto de escalado de máquinas virtuales con la CLI de Azure
 Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Ubuntu y usa métricas basadas en el host para escalar automáticamente a medida que la carga de la CPU cambia.

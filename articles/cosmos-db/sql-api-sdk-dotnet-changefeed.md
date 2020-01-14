@@ -1,5 +1,5 @@
 ---
-title: Recursos, API y SDK para los procesadores de fuente de cambios .NET para Azure Cosmos DB
+title: Notas de la versión del SDK y la API de los procesadores de la fuente de cambios .NET de Azure Cosmos DB
 description: Aprenda todo lo necesario sobre el SDK y la API para los procesadores de fuente de cambios como, por ejemplo, fechas de lanzamiento, fechas de retirada y cambios realizados de una versión a otra del SDK para los procesadores de fuente de cambios de .NET.
 author: ealsur
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: bd727e9c68a34c8e182a6726b257a6bf37178837
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 9252e3e41d0c639231a2abe20202499c6b3ee32a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74306776"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444859"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 
@@ -36,8 +36,8 @@ ms.locfileid: "74306776"
 |---|---|
 |**Descarga del SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentación de la API**|[Documentación de referencia de la API de biblioteca de procesadores de fuente de cambios](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Primeros pasos**|[Primeros pasos con el SDL para los procesadores de fuente de cambios de .NET](change-feed.md)|
-|**Plataforma admitida actualmente**| [Microsoft .NET 4.5 Framework](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
+|**Introducción**|[Primeros pasos con el SDL para los procesadores de fuente de cambios de .NET](change-feed.md)|
+|**Plataforma admitida actualmente**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 > [!NOTE]
 > Si usa el procesador de fuente de cambios, consulte la versión 3.x más reciente del [SDK de .NET](change-feed-processor.md), que tiene una fuente de cambios incorporada en el SDK. 
@@ -180,7 +180,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 <br/>
 
-| Versión | Fecha de lanzamiento | Fecha de retirada |
+| Versión | Fecha de la versión | Fecha de retirada |
 | --- | --- | --- |
 | [2.2.8](#2.2.8) |28 de octubre de 2019 |--- |
 | [2.2.7](#2.2.7) |14 de mayo de 2019 |--- |
@@ -202,6 +202,6 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 Para más información sobre Cosmos DB, consulte la página del servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

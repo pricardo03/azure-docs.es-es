@@ -1,6 +1,5 @@
 ---
-title: 'Creación de una aplicación de Angular con la API de Azure Cosmos DB para MongoDB: Creación de una cuenta de Cosmos'
-titleSuffix: Azure Cosmos DB
+title: Creación de una aplicación Angular con la API de Azure Cosmos DB para MongoDB (primera parte)
 description: Parte 4 de la serie de tutoriales en la que se explica cómo crear una aplicación de MongoDB con Angular y Node en Azure Cosmos DB utilizando las mismas API que para MongoDB
 author: johnpapa
 ms.service: cosmos-db
@@ -11,12 +10,12 @@ ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 8320204f75e583dae0449f83e7c38f6638371c2a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d5ed706a0577423f0a95b8eb5f7a563da74a0e7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035133"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441166"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Creación de una aplicación de Angular con la API de Azure Cosmos DB para MongoDB: Creación de una cuenta de Cosmos
 
@@ -32,7 +31,7 @@ La parte 4 del tutorial se basa en la [parte 3](tutorial-develop-mongodb-nodejs-
 
 > [!VIDEO https://www.youtube.com/embed/hfUM-AbOh94]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pasos descritos en la [parte 3](tutorial-develop-mongodb-nodejs-part3.md). 
 

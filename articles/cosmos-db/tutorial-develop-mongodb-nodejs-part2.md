@@ -1,6 +1,5 @@
 ---
-title: 'Creación de una aplicación de Angular con la API de Azure Cosmos DB para MongoDB: Creación de una aplicación de Node.js Express'
-titleSuffix: Azure Cosmos DB
+title: Creación de una aplicación Node.js Express con la API de Azure Cosmos DB para MongoDB (segunda parte)
 description: Parte 2 de la serie de tutoriales en la que se explican cómo crear una aplicación de MongoDB con Angular y Node en Azure Cosmos DB utilizando las mismas API que para MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -11,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 8dd725bed6364979a9388d5741bf17f667bda0b7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 693222f4c1abd9bda128d18dc4dd67703a245bc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435276"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441143"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Creación de una aplicación de Angular con la API de Azure Cosmos DB para MongoDB: Creación de una aplicación de Node.js Express
 
@@ -34,7 +33,7 @@ La parte 2 del tutorial se basa en [la introducción](tutorial-develop-mongodb-n
 
 > [!VIDEO https://www.youtube.com/embed/lIwJIYcGSUg]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de iniciar esta parte del tutorial, asegúrese de que ha visto el [vídeo de introducción](tutorial-develop-mongodb-nodejs.md).
 
@@ -148,11 +147,11 @@ En este tutorial también se necesita:
 
 7. Guarde todos los archivos modificados. 
 
-8. En Visual Studio Code, haga clic en el botón **Depurar** ![Icono Depurar en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) y haga clic en el botón del engranaje ![Botón engranaje en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). El nuevo archivo launch.json se abre en Visual Studio Code.
+8. En Visual Studio Code, haga clic en el botón **Depurar**![Icono Depurar en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) y haga clic en el botón del engranaje ![Botón engranaje en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). El nuevo archivo launch.json se abre en Visual Studio Code.
 
 8. En la línea 11 del archivo launch.json, cambie `"${workspaceFolder}\\server"` por `"program": "${workspaceRoot}/src/server/index.js"` y guarde el archivo.
 
-9. Haga clic en el botón **Iniciar depuración** ![Icono de depuración en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) para ejecutar la aplicación.
+9. Haga clic en el botón **Iniciar depuración**![Icono de depuración en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) para ejecutar la aplicación.
 
     La aplicación se debe ejecutar sin errores.
 

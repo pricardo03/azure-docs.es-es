@@ -1,26 +1,17 @@
 ---
-title: 'Tutorial: Depuración de una aplicación web de Azure Service Fabric Mesh que se ejecuta en un clúster de desarrollo local | Microsoft Docs'
+title: Depuración de una aplicación web de Azure Service Fabric Mesh que se ejecuta localmente
 description: En este tutorial, aprenderá a depurar una aplicación de Azure Service Fabric Mesh en ejecución en el clúster local.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/31/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bef86b189064a82b6605e8b99a374b1ee92682e2
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: c36d45919ae8a17026fc91f8e9040f3bb11d3eb0
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805127"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494946"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutorial: Depuración de una aplicación de Service Fabric Mesh que se ejecuta en el clúster de desarrollo local
 
@@ -42,7 +33,7 @@ En esta serie de tutoriales, se aprende a:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar este tutorial:
 
@@ -62,7 +53,7 @@ La aplicación se encuentra en el directorio `src\todolistapp`.
 
 ## <a name="build-and-debug-on-your-local-cluster"></a>Compilación y depuración en un clúster local
 
-Tan pronto como se carga el proyecto, se crea e implementa una imagen de Docker en el clúster local. Este proceso puede tardar unos minutos. Para supervisar el progreso en el panel **Salida** de Visual Studio, establezca la opción **Mostrar salida de:**, de este panel, en **Herramientas de Service Fabric**.
+Tan pronto como se carga el proyecto, se crea e implementa una imagen de Docker en el clúster local. Este proceso puede tardar unos minutos. Para supervisar el progreso en el panel **Salida** de Visual Studio, establezca la opción **Mostrar salida de:** , de este panel, en **Herramientas de Service Fabric**.
 
 Presione **F5** para compilar y ejecutar el servicio localmente. Cuando se haya ejecutado y depurado el proyecto localmente, Visual Studio:
 

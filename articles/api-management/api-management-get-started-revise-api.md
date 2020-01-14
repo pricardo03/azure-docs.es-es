@@ -1,5 +1,6 @@
 ---
-title: Uso de revisiones para realizar cambios que no producen interrupciones de forma segura en Azure API Management | Microsoft Docs
+title: Uso de revisiones para realizar cambios que no producen interrupciones de forma segura en API Management
+titleSuffix: Azure API Management
 description: Siga los pasos de este tutorial para obtener información sobre cómo realizar cambios que no producen interrupciones a través de revisiones en API Management.
 services: api-management
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 811591a3340f07b08b3a954ccd475e926b73a9cf
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: c91d42f3445bb2ffc02366e6cb9ae49ec2db1be4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176779"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442749"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Uso de revisiones para realizar cambios que no producen interrupciones de forma segura
 Cuando la API esté lista y los desarrolladores empiecen a usarla, tendrá que realizar cambios en dicha API y, al mismo tiempo, no interrumpir a quienes la llaman. También resulta útil informar a los desarrolladores de los cambios realizados. Esto se logra en Azure API Management con las **revisiones**. Para más información, consulte [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) (Versiones y revisiones) y [API Versioning with Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/) (Control de versiones con Azure API Management).
@@ -33,7 +34,7 @@ En este tutorial, aprenderá a:
 
 ![Registro de cambios en el portal para desarrolladores](media/api-management-getstarted-revise-api/azure_portal.PNG)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 + Conocer la [terminología de API Management de Azure](api-management-terminology.md).
 + Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
@@ -97,7 +98,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Agregar una nueva revisión

@@ -1,23 +1,16 @@
 ---
-title: Modelo de hospedaje de Azure Service Fabric | Microsoft Docs
+title: Modelo de hospedaje de Service Fabric
 description: Describe la relación entre las réplicas (o instancias) de un servicio implementado de Service Fabric y el proceso de host de servicio.
-services: service-fabric
-documentationcenter: .net
 author: harahma
-manager: chackdan
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: d2d958a89bff40483e1cd473538f7d1a6971d266
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 69c7edb08693937aad5a658e0b22b00cd2a81647
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60483636"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464581"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de hospedaje de Service Fabric
 En este artículo se ofrece información general sobre los modelos de hospedaje de aplicaciones que Azure Service Fabric proporciona y, además, se describen las diferencias entre los modelos de **proceso compartido** y **proceso exclusivo**. Se describe el aspecto de una aplicación implementada en un nodo de Service Fabric y la relación entre las réplicas (o instancias) del servicio y el proceso de host de servicio.
@@ -111,9 +104,9 @@ Cuando solo se usa el modelo de proceso compartido para una aplicación, solo ha
 >
 
 ## <a name="work-with-a-deployed-service-package"></a>Trabajo con un paquete de servicio implementado
-A una copia activa de *ServicePackage* en un nodo se le conoce como un[paquete de servicio implementado][p3]. Cuando usa el modelo de proceso exclusivo para crear servicios, en una aplicación determinada, podrían existir varios paquetes de servicio implementados para el mismo *ServicePackage*. Si realiza operaciones específicas para un paquete de servicio implementado, debe proporcionar **ServicePackageActivationId** para identificar un paquete de servicio implementado específico. Por ejemplo, proporcione el identificador si [informa sobre el estado de un paquete de servicio implementado][p4] o [reinicia el paquete de código de un paquete de servicio implementado][p5].
+Se hace referencia a una copia activa de *ServicePackage* en un nodo como [paquete de servicio implementado][p3]. Cuando usa el modelo de proceso exclusivo para crear servicios, en una aplicación determinada, podrían existir varios paquetes de servicio implementados para el mismo *ServicePackage*. Si realiza operaciones específicas para un paquete de servicio implementado, debe proporcionar **ServicePackageActivationId** para identificar un paquete de servicio implementado específico. Por ejemplo, proporcione el identificador si [informa sobre el estado de un paquete de servicio implementado][p4] o [reinicia el paquete de código de un paquete de servicio implementado][p5].
 
-Puede averiguar el **ServicePackageActivationId** de un paquete de servicio implementado si consulta la lista de [paquetes de servicio implementados][p3] en un nodo. Cuando consulta los [tipos de servicios implementados][p6], las [réplicas implementadas][p7] y los [paquetes de código implementados][p8] de un nodo, el resultado de consulta también contiene el valor de **ServicePackageActivationId** del paquete de servicio implementado primario.
+Puede averiguar el valor de **ServicePackageActivationId** de un paquete de servicio implementado si consulta la lista de [paquetes de servicio implementados][p3] en un nodo. Cuando consulta los [tipos de servicios implementados][p6], las [réplicas implementadas][p7] y los [paquetes de código implementados][p8] de un nodo, el resultado de consulta también contiene el valor de **ServicePackageActivationId** del paquete de servicio implementado primario.
 
 > [!NOTE]
 >- En el modelo de hospedaje de proceso compartido de un nodo concreto para una aplicación determinada, solo se activa una copia de *ServicePackage*. Aquí, **ServicePackageActivationId** es igual al valor de *cadena vacía*, y no debe especificarse al realizar las operaciones relacionadas con el paquete de servicio implementado. 
@@ -127,7 +120,7 @@ Puede averiguar el **ServicePackageActivationId** de un paquete de servicio impl
 >
 
 ## <a name="guest-executable-and-container-applications"></a>Aplicaciones de contenedor y de archivo ejecutable invitado
-Service Fabric trata las aplicaciones de [archivo ejecutable invitado][a2] y de [contenedor][a3] como servicios sin estado, los que son independientes. No hay runtime de Service Fabric en *ServiceHost* (un proceso o contenedor). Como se trata de servicios independientes, el número de réplicas por *ServiceHost* no es aplicable para estos servicios. La configuración más común que se usa con estos servicios es la partición única con [InstanceCount][c2] igual a -1 (una copia del código de servicio que se ejecuta en cada nodo del clúster). 
+Service Fabric trata las aplicaciones de [archivo ejecutable invitado][a2] y de [contenedor][a3] como servicios sin estado, que son independientes. No hay runtime de Service Fabric en *ServiceHost* (un proceso o contenedor). Como se trata de servicios independientes, el número de réplicas por *ServiceHost* no es aplicable para estos servicios. La configuración más común que se usa con estos servicios es la partición única con [InstanceCount][c2] igual a -1 (una copia del código de servicio que se ejecuta en cada nodo del clúster). 
 
 El valor predeterminado de **ServicePackageActivationMode** para estos servicios es **SharedProcess**, en cuyo caso, Service Fabric solo activa una copia de *ServicePackage* en un nodo para una aplicación determinada.  Esto significa que solo una copia del código de servicio ejecutará un nodo. Si desea que varias copias del código de servicio se ejecute en un nodo, especifique **ServicePackageActivationMode** como **ExclusiveProcess** en el momento de crear el servicio. Por ejemplo, puede hacerlo cuando crea varios servicio (*Service1* a *ServiceN*) de *ServiceType* (especificado en *ServiceManifest*) o cuando el servicio se divide en varias particiones. 
 
@@ -179,7 +172,7 @@ Según el ejemplo anterior, es posible que se plantee que, si "MyCodePackageA" r
 ## <a name="next-steps"></a>Pasos siguientes
 [Empaquete una aplicación][a4] y prepárela para la implementación.
 
-[Implementación y eliminación de aplicaciones][a5]. En este artículo se describe cómo usar PowerShell para administrar las instancias de aplicaciones.
+[Implementar y quitar aplicaciones][a5]. En este artículo se describe cómo usar PowerShell para administrar las instancias de aplicaciones.
 
 <!--Image references-->
 [node-view-one]: ./media/service-fabric-hosting-model/node-view-one.png

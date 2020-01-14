@@ -1,5 +1,6 @@
 ---
-title: Tutorial sobre el uso de la configuración dinámica de Azure App Configuration en una aplicación de ASP.NET Core | Microsoft Docs
+title: 'Tutorial: Uso de la configuración dinámica de App Configuration en ASP.NET Core'
+titleSuffix: Azure App Configuration
 description: En este tutorial aprenderá a actualizar dinámicamente los datos de configuración de aplicaciones de ASP.NET Core
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: f49161531753c217e31d0681bcd19043cb47de75
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 608368daa17246f2512d243b2656dd7702d84f50
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185260"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433706"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de ASP.NET Core
 
@@ -39,7 +40,7 @@ En este tutorial, aprenderá a:
 > * Configurar la aplicación para actualizar su configuración en respuesta a los cambios en un almacén de App Configuration.
 > * Insertar la configuración más reciente en los controladores de la aplicación
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para realizar este tutorial, instale el [SDK de .NET Core](https://dotnet.microsoft.com/download).
 
@@ -195,11 +196,11 @@ Antes de continuar, finalice primero el tutorial [Creación de una aplicación A
 
     ![Inicio de la aplicación del artículo de inicio rápido en un entorno local](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
+4. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
 
 5. Seleccione **Explorador de configuración** y actualice los valores de las claves siguientes:
 
-    | Clave | Valor |
+    | Clave | Value |
     |---|---|
     | TestApp:Settings:BackgroundColor | green |
     | TestApp:Settings:FontColor | lightGray |

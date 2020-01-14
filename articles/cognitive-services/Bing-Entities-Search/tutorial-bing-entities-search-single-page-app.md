@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Aplicación web de página única de Bing Entity Search'
 titleSuffix: Azure Cognitive Services
-description: Aquí podrá ver cómo utilizar Bing Entity Search API en una aplicación web de una sola página.
+description: En este tutorial se indica cómo utilizar Bing Entity Search API en una aplicación web de una sola página.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 07/15/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 5a8276f06207eb69ffec0e21c6d92794973f3b83
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 875a83501b00f0b23aa13317493ab6d341e4e283
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423978"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448605"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicación web de una sola página
 
@@ -37,7 +37,7 @@ Por lo tanto, nuestra aplicación recurre al servicio Mapas de Bing para obtener
 -->
 
 > [!NOTE]
-> Los encabezados JSON y HTTP de la parte inferior de la página revelan la respuesta JSON y la información de solicitud HTTP cuando se hace clic. Estos detalles resultan útiles al explorar el servicio.
+> Los encabezados HTTP y JSON de la parte inferior de la página revelan la respuesta JSON y la información de la solicitud HTTP al hacer clic en ellos. Estos detalles resultan útiles al explorar el servicio.
 
 En la aplicación del tutorial se muestra cómo:
 
@@ -77,7 +77,7 @@ El controlador `onsubmit` devuelve `false`, lo que impide que el formulario que 
 
 La búsqueda se realiza en dos fases. En primer lugar, si el usuario ha escrito una restricción de ubicación, se realiza una consulta de Mapas de Bing para convertirla en coordenadas. A continuación, la devolución de llamada de esta consulta inicia la consulta de Bing Entity Search.
 
-El código HTML también contiene las divisiones (etiquetas `<div>` HTML) donde aparecen los resultados de búsqueda.
+El HTML también contiene las divisiones (etiquetas `<div>` HTML) en que aparecen los resultados de la búsqueda.
 
 ## <a name="managing-subscription-keys"></a>Administrar la clave de suscripción
 
@@ -86,7 +86,7 @@ El código HTML también contiene las divisiones (etiquetas `<div>` HTML) donde 
 
 Para evitar tener que incluir las claves de suscripción de Bing Search API y la API de Mapas de Bing en el código, usamos el almacenamiento persistente del explorador para almacenar las claves. Si no se ha almacenado ninguna de las dos claves, las solicitamos y las almacenamos para su uso posterior. Si, más tarde, la API rechaza la clave, se invalidará la clave almacenada y se le volverá a preguntar al usuario en la siguiente búsqueda.
 
-Definimos funciones `storeValue` y `retrieveValue` que usan el objeto `localStorage` (si el explorador lo admite) o una cookie. Nuestra función `getSubscriptionKey()` usa estas funciones para almacenar y recuperar la clave del usuario.
+Definimos funciones `storeValue` y `retrieveValue` que usan el objeto `localStorage` (si el explorador lo admite) o una cookie. Nuestra función `getSubscriptionKey()` usa estas funciones para almacenar y recuperar la clave del usuario. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
 ```javascript
 // cookie names for data we store
@@ -126,7 +126,7 @@ La etiqueta HTML `<body>` incluye un atributo `onload` que llama a `getSearchSub
 <body onload="document.forms.bing.query.focus(); getSearchSubscriptionKey(); getMapsSubscriptionKey();">
 ```
 
-## <a name="selecting-search-options"></a>Seleccionar opciones de búsqueda
+## <a name="selecting-search-options"></a>Selección de las opciones de búsqueda
 
 ![[impreso de Bing Entity Search]](media/entity-search-spa-form.png)
 
@@ -135,7 +135,7 @@ El formulario HTML incluye los siguientes controles:
 | | |
 |-|-|
 |`where`|Un menú desplegable para seleccionar el mercado (ubicación e idioma) que se usa en la búsqueda.|
-|`query`|El campo de texto en el que se especificarán los términos de búsqueda.|
+|`query`|El campo de texto en el que se especifican los términos de búsqueda.|
 |`safe`|Una casilla que indica si SafeSearch está activado (restringe los resultados para "adultos").|
 |`what`|Un menú para elegir buscar entidades, lugares o ambos.|
 |`mapquery`|El campo de texto en el que el usuario puede escribir una dirección completa o parcial, un punto de referencia, etc. para que Bing Entity Search pueda devolver resultados más relevantes.|
@@ -308,7 +308,7 @@ function bingEntitySearch(query, latlong, options, key) {
 }
 ```
 
-Tras la correcta finalización de la solicitud HTTP, JavaScript llama a nuestro controlador de eventos `load`, la función `handleBingResponse()`, para controlar una solicitud GET HTTP correcta a la API. 
+Tras la correcta finalización de la solicitud HTTP, JavaScript llama nuestro controlador de eventos `load`, la función `handleBingResponse()`, para controlar una solicitud HTTP GET a la API correcta. 
 
 ```javascript
 // handle Bing search request results
@@ -388,7 +388,7 @@ Gran parte del código de las dos funciones anteriores está dedicado al control
 
 Los errores se controlan mediante una llamada a `renderErrorMessage()` con los detalles que se conocen sobre el error. Si la respuesta pasa todas las pruebas de error, llamamos a `renderSearchResults()` para mostrar los resultados de la búsqueda en la página.
 
-## <a name="displaying-search-results"></a>Mostrar los resultados de búsqueda
+## <a name="displaying-search-results"></a>Presentación de los resultados de la búsqueda
 
 Bing Entity Search API [le solicitará mostrar los resultados en un orden específico](use-display-requirements.md). Dado que la API puede devolver dos tipos diferentes de respuestas, no es suficiente iterar a través de la colección de nivel superior `Entities` o `Places` en la respuesta JSON y mostrar esos resultados. (Si solo quiere un tipo de resultado, use el parámetro de consulta `responseFilter`).
 
@@ -400,7 +400,7 @@ En su lugar, usamos la colección `rankingResponse` en los resultados de la bús
 
 Por último. `sidebar` hace referencia a los resultados de búsqueda auxiliares. Se pueden mostrar en una barra lateral o simplemente después de los resultados principales. Hemos elegido este último para nuestra aplicación tutorial.
 
-Cada elemento en una colección `rankingResponse` hace referencia a los resultados reales de la búsqueda, y en dos formas diferentes pero equivalentes.
+Todos y cada uno de los elementos de una colección `rankingResponse` hacen referencia a los resultados reales de la búsqueda, y en dos formas diferentes pero equivalentes.
 
 | | |
 |-|-|
@@ -412,7 +412,7 @@ Cada elemento en una colección `rankingResponse` hace referencia a los resultad
 
 Puede usar el método que sea más conveniente para su aplicación para ubicar el elemento resultado de la búsqueda al que se hace referencia. En el código del tutorial, usamos `answerType` y `resultIndex` para ubicar cada resultado de búsqueda.
 
-Por último, ha llegado el momento de echar un vistazo a nuestra función `renderSearchResults()`. Esta función se itera en las tres colecciones `rankingResponse` que representan las tres secciones de los resultados de la búsqueda. En cada sección, llamamos a `renderResultsItems()` para que represente los resultados de esa sección.
+Por último, ha llegado el momento de echar un vistazo a nuestra función `renderSearchResults()`. Esta función se itera en las tres colecciones `rankingResponse` que representan las tres secciones de los resultados de la búsqueda. En cada sección, llamamos a `renderResultsItems()` para que represente los resultados de dicha sección.
 
 ```javascript
 // render the search results given the parsed JSON response
@@ -430,7 +430,7 @@ function renderSearchResults(results) {
 }
 ```
 
-## <a name="rendering-result-items"></a>Renderizar elementos de resultado
+## <a name="rendering-result-items"></a>Representación de los elementos del resultado
 
 En nuestro código JavaScript es un objeto, `searchItemRenderers`, que contiene *representadores:* funciones que generan código HTML para cada tipo de resultado de búsqueda.
 
@@ -512,15 +512,15 @@ La función del representador de imágenes:
 > * Incluye un vínculo a una búsqueda de Bing para obtener más información sobre la entidad.
 > * Muestra cualquier información de licencia o atribución que requieran las fuentes de datos.
 
-## <a name="persisting-client-id"></a>Id. de cliente persistente
+## <a name="persisting-client-id"></a>Identificador de cliente persistente
 
-Las respuestas de Bing Search API pueden incluir un encabezado `X-MSEdge-ClientID` que debe devolverse a la API con las solicitudes sucesivas. Si se utilizan varias instancias de Bing Search API, se debe usar el mismo identificador de cliente con todas ellas, si es posible.
+Las respuestas de Bing Search API pueden incluir un encabezado `X-MSEdge-ClientID` que debe devolverse a la API con las solicitudes sucesivas. Si se usan varias instancias de Bing Search API, se debe usar el mismo identificador de cliente con todas ellas, si es posible.
 
 Especificar el encabezado `X-MSEdge-ClientID` permite a las API de Bing asociar todas las búsquedas de un usuario, lo que tiene dos ventajas importantes.
 
-En primer lugar, permite al motor de búsqueda de Bing aplicar un contexto pasado a las búsquedas, para así buscar resultados que satisfagan mejor al usuario. Si un usuario ha buscado previamente términos relacionados con la navegación, por ejemplo, una búsqueda posterior de "muelles" podría devolver información acerca de los muelles que se usan para dejar un velero.
+En primer lugar, permite al motor de búsqueda de Bing aplicar un contexto pasado a las búsquedas, con el fin de encontrar los resultados que más satisfagan al usuario. Si un usuario ha buscado previamente términos relacionados con la navegación, por ejemplo, una búsqueda posterior de "muelles" podría devolver información acerca de los muelles que se usan para dejar un velero.
 
-En segundo lugar, Bing puede seleccionar aleatoriamente usuarios para disfrutar de nuevas características antes de que estén disponibles para el público. Proporcionar el mismo identificador de cliente con cada solicitud garantiza que los usuarios elegidos para ver una característica la vean siempre. Sin el identificador de cliente, el usuario puede ver una característica aparecer y desaparecer, de forma aparentemente aleatoria, en los resultados de búsqueda.
+En segundo lugar, Bing puede seleccionar aleatoriamente usuarios para disfrutar de nuevas características antes de que estén disponibles públicamente. Proporcionar el mismo identificador de cliente con cada solicitud garantiza que los usuarios elegidos para ver una característica la vean siempre. Sin el identificador de cliente, el usuario puede ver una característica aparecer y desaparecer, de forma aparentemente aleatoria, en los resultados de búsqueda.
 
 Las directivas de seguridad del explorador (CORS) pueden impedir que el encabezado `X-MSEdge-ClientID` esté disponible para JavaScript. Esta limitación tiene lugar cuando la respuesta a la búsqueda tiene un origen distinto al de la página que la solicitó. En un entorno de producción, debería abordar esta directiva mediante el hospedaje de un script de lado servidor que realice la llamada API en el mismo dominio que la página web. Como el script tiene el mismo origen que la página web, el encabezado `X-MSEdge-ClientID` está disponible para JavaScript.
 

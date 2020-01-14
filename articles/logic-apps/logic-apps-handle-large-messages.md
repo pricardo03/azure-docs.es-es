@@ -1,18 +1,18 @@
 ---
-title: Control de mensajes grandes
-description: Aprenda a controlar tamaños de mensaje grandes con la fragmentación de Azure Logic Apps.
+title: Control de mensajes de gran tamaño mediante la fragmentación
+description: Obtenga información acerca de cómo administrar mensajes de gran tamaño mediante la fragmentación en tareas automatizadas y flujos de trabajo que crea con Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: shae-hurst
 ms.author: shhurst
 ms.topic: article
 ms.date: 12/03/2019
-ms.openlocfilehash: 8c2e857808b0638fbba54cfe9a623ba3fd764119
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 81e7c12b04c1ebd9691c11d76f387f7d42490180
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815093"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456554"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Control de mensajes grandes con la fragmentación de Azure Logic Apps
 
@@ -113,18 +113,18 @@ Estos pasos describen el proceso detallado que usa Logic Apps para cargar conten
 
 1. La aplicación lógica envía una solicitud HTTP POST o PUT inicial con un cuerpo de mensaje vacío. El encabezado de solicitud incluye esta información sobre el contenido que la aplicación lógica desea cargar en fragmentos:
 
-   | Campo de encabezado de solicitud de Logic Apps | Valor | Tipo | DESCRIPCIÓN |
+   | Campo de encabezado de solicitud de Logic Apps | Value | Tipo | Descripción |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | chunked | Cadena | Indica que el contenido se carga en fragmentos |
+   | **x-ms-transfer-mode** | chunked | String | Indica que el contenido se carga en fragmentos |
    | **x-ms-content-length** | <*content-length*> | Entero | El tamaño del contenido completo en bytes antes de la fragmentación |
    ||||
 
 2. El punto de conexión responde con el código de estado correcto "200" y esta información opcional:
 
-   | Campo de encabezado de respuesta del punto de conexión | Tipo | Obligatorio | DESCRIPCIÓN |
+   | Campo de encabezado de respuesta del punto de conexión | Tipo | Obligatorio | Descripción |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Entero | Sin | El tamaño de fragmento sugerido en bytes |
-   | **Ubicación** | Cadena | Sí | La ubicación de la dirección URL a la que enviar los mensajes HTTP PATCH |
+   | **x-ms-chunk-size** | Entero | No | El tamaño de fragmento sugerido en bytes |
+   | **Ubicación** | String | Sí | La ubicación de la dirección URL a la que enviar los mensajes HTTP PATCH |
    ||||
 
 3. La aplicación lógica crea y envía mensajes HTTP PATCH de seguimiento, cada uno con esta información:
@@ -133,19 +133,19 @@ Estos pasos describen el proceso detallado que usa Logic Apps para cargar conten
 
    * Estos detalles de encabezado sobre el fragmento de contenido enviado en cada mensaje PATCH:
 
-     | Campo de encabezado de solicitud de Logic Apps | Valor | Tipo | DESCRIPCIÓN |
+     | Campo de encabezado de solicitud de Logic Apps | Value | Tipo | Descripción |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*range*> | Cadena | El intervalo de bytes del fragmento de contenido actual, que incluye el valor inicial, el valor final y el tamaño total del contenido, por ejemplo: "bytes = 0-1023/10100" |
-     | **Content-Type** | <*content-type*> | Cadena | El tipo de contenido fragmentado |
-     | **Content-Length** | <*content-length*> | Cadena | La longitud de tamaño en bytes del fragmento actual |
+     | **Content-Range** | <*range*> | String | El intervalo de bytes del fragmento de contenido actual, que incluye el valor inicial, el valor final y el tamaño total del contenido, por ejemplo: "bytes = 0-1023/10100" |
+     | **Content-Type** | <*content-type*> | String | El tipo de contenido fragmentado |
+     | **Content-Length** | <*content-length*> | String | La longitud de tamaño en bytes del fragmento actual |
      |||||
 
 4. Después de cada solicitud PATCH, el punto de conexión responde con el código de estado "200" y los siguientes encabezados de respuesta para confirmar la recepción de cada fragmento:
 
-   | Campo de encabezado de respuesta del punto de conexión | Tipo | Obligatorio | DESCRIPCIÓN |
+   | Campo de encabezado de respuesta del punto de conexión | Tipo | Obligatorio | Descripción |
    |--------------------------------|------|----------|-------------|
-   | **Range** | Cadena | Sí | Intervalo de bytes para el contenido recibido por el punto de conexión, por ejemplo: "bytes = 0-1023". |   
-   | **x-ms-chunk-size** | Entero | Sin | El tamaño de fragmento sugerido en bytes |
+   | **Range** | String | Sí | Intervalo de bytes para el contenido recibido por el punto de conexión, por ejemplo: "bytes = 0-1023". |   
+   | **x-ms-chunk-size** | Entero | No | El tamaño de fragmento sugerido en bytes |
    ||||
 
 Por ejemplo, la definición de esta acción muestra una solicitud HTTP POST para cargar contenido fragmentado en un punto de conexión. En la propiedad `runTimeConfiguration` de la acción, la propiedad `contentTransfer` establece `transferMode` en `chunked`:

@@ -1,25 +1,16 @@
 ---
-title: Recuperación ante desastres de Service Fabric de Azure | Microsoft Docs
+title: Recuperación ante desastres de Azure Service Fabric
 description: Service Fabric de Azure ofrece las funciones necesarias para tratar con todo tipo de desastre. En este artículo se describen los tipos de desastres que pueden surgir y cómo resolverlos.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 1be891d38eb918d65cd8efda86e9a81fa629cf38
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f23624dd0be1e700731e3f5a63c8cd7a00ec4e16
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73883989"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458066"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperación ante desastres en Service Fabric de Azure
 Una parte fundamental de la entrega de alta disponibilidad es garantizar que los servicios sobreviven a cualquier tipo de error. Esto es especialmente importante para los errores imprevistos y que se encuentran fuera de control. En este artículo se describen algunos modos de error comunes que podrían ser desastres si no hubieran modelado y administrado correctamente. También se explican las mitigaciones y las acciones que deben realizarse en caso de desastre. El objetivo es limitar o eliminar el riesgo de pérdida de datos o de tiempo de inactividad cuando se produzcan errores, tanto planeados como de otro tipo.

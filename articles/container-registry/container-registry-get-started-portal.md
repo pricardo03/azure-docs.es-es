@@ -4,12 +4,12 @@ description: Aprenda rápidamente a crear un registro de Docker privado en Azure
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c5e6de0fdb7d0e46fa9be28483fd894289baf1a3
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 319fd670c8e82120ef63e94395f4d6809eeb2601
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455225"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611243"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Inicio rápido: Creación de un registro de contenedor privado con Azure Portal
 
@@ -43,7 +43,7 @@ Tome nota del valor del **servidor de inicio de sesión**. Puede usar este valor
 
 ## <a name="log-in-to-registry"></a>Iniciar sesión en el registro
 
-Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en la instancia de ACR. Abra un shell de comandos en el sistema operativo y utilice el comando [az acr login][az-acr-login] en la CLI de Azure.
+Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en la instancia de ACR. Abra un shell de comandos en el sistema operativo y utilice el comando [az acr login][az-acr-login] en la CLI de Azure (especifique solo el nombre del contenedor. No incluya "azurecr.io")
 
 ```azurecli
 az acr login --name <acrName>

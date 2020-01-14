@@ -1,27 +1,27 @@
 ---
 title: 'Inicio rápido: Revisión ortográfica con la API REST y Node.js: Bing Spell Check'
 titleSuffix: Azure Cognitive Services
-description: Introducción al uso de la API REST de Bing Spell Check para la revisión ortográfica y gramatical.
+description: Empiece a utilizar la API REST de Bing Spell Check para la revisión ortográfica y gramatical con este inicio rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/02/2019
-ms.author: aahill
-ms.openlocfilehash: ab8f1d52b5a0b9f5f2539de0acc4728277f9f7b2
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 12/16/2019
+ms.author: aahi
+ms.openlocfilehash: 69c391e6c3f93a998ade7c5721a528d895f8df76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378831"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382868"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y Node.js
 
 Use este inicio rápido para realizar la primera llamada a la API REST de Bing Spell Check. Esta sencilla aplicación de Node envía una solicitud a la API y devuelve una lista de palabras que no ha reconocido, seguida de las correcciones sugeridas. Si bien esta aplicación está escrita en Node.js, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de esta aplicación está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Node.js 6](https://nodejs.org/en/download/) o posterior.
 
@@ -30,7 +30,7 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
 
 ## <a name="create-and-initialize-a-project"></a>Creación e inicialización de un proyecto
 
-1. Cree un archivo de JavaScript en su IDE o editor favorito. Establezca la rigurosidad y que se requiera `https`. A continuación, cree variables para el host, la ruta de acceso y la clave de suscripción del punto de conexión de API.
+1. Cree un archivo de JavaScript en su IDE o editor favorito. Establezca la rigurosidad y que se requiera `https`. A continuación, cree variables para el host, la ruta de acceso y la clave de suscripción del punto de conexión de API. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```javascript
     'use strict';
@@ -96,6 +96,18 @@ let req = https.request (request_params, response_handler);
 req.write ("text=" + text);
 req.end ();
 ```
+
+
+## <a name="run-the-application"></a>Ejecución de la aplicación
+
+Compile y ejecute el proyecto.
+
+Si usa la línea de comandos, use los siguientes comandos para compilar y ejecutar la aplicación.
+
+```bash
+node <FILE_NAME>.js
+```
+
 
 ## <a name="example-json-response"></a>Ejemplo de respuesta JSON
 

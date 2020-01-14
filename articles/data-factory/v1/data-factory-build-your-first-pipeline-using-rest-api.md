@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.openlocfilehash: 7644bac01784ea795f24b967223b0eb37354ca87
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9d8b05a2268a122289c529050c75fd27dd73245b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682971"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438966"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Compilación de la primera factoría de datos Azure mediante la API REST de Data Factory
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "73682971"
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 >
 >
 
@@ -42,7 +42,7 @@ La canalización de este tutorial tiene solo una actividad: **Actividad de Hive 
 > pero cualquier canalización puede tener más de una actividad. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -84,7 +84,7 @@ Cree los siguientes archivos JSON en la carpeta en la que se encuentra curl.exe.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Reemplace **accountname** y **accountkey** por el nombre y la clave de su cuenta de almacenamiento de Azure. Para aprender a obtener la clave de acceso de almacenamiento, consulte la información sobre cómo ver, copiar y regenerar las claves de acceso de almacenamiento en [Administración de la cuenta de almacenamiento](../../storage/common/storage-account-manage.md#access-keys).
+> Reemplace **accountname** y **accountkey** por el nombre y la clave de su cuenta de almacenamiento de Azure. Para aprender a obtener la clave de acceso de almacenamiento, consulte [Administración de claves de acceso de la cuenta de almacenamiento](../../storage/common/storage-account-keys-manage.md).
 >
 >
 
@@ -120,7 +120,7 @@ Cree los siguientes archivos JSON en la carpeta en la que se encuentra curl.exe.
 
 En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se usan en el fragmento de código:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | clusterSize |Tamaño del clúster de HDInsight. |
 | timeToLive |Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine. |
@@ -166,7 +166,7 @@ Este código JSON define un conjunto de datos denominado **AzureBlobInput**, que
 
 En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se usan en el fragmento de código:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | type |La propiedad type se establece en AzureBlob porque los datos residen en Almacenamiento de blobs de Azure. |
 | linkedServiceName |hace referencia a StorageLinkedService que creó anteriormente. |
@@ -315,7 +315,7 @@ En este paso, creará una instancia de Azure Data Factory llamada **LogProcessin
 Tenga en cuenta los siguientes puntos:
 
 * El nombre de Azure Data Factory debe ser único de forma global. Si ve el siguiente error en los resultados, **El nombre “FirstDataFactoryREST” de factoría de datos no está disponible**, siga estos pasos:
-  1. Cambie el nombre (por ejemplo, yournameFirstDataFactoryREST) en el archivo **datafactory.json** . Consulte el tema [Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para conocer las reglas de nomenclatura para los artefactos de Data Factory.
+  1. Cambie el nombre (por ejemplo, yournameFirstDataFactoryREST) en el archivo **datafactory.json** . Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
   2. En el primer comando, donde se asigna un valor a la variable **$cmd** , reemplace FirstDataFactoryREST por el nuevo nombre y ejecute el comando.
   3. Ejecute los dos comandos siguientes para invocar la API de REST para crear la factoría de datos e imprimir los resultados de la operación.
 * Para crear instancias de Data Factory, debe ser administrador o colaborador de la suscripción de Azure.
@@ -486,11 +486,11 @@ En este tutorial, ha creado una instancia de Data Factory de Azure para procesar
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight de Azure a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="see-also"></a>Otras referencias
-| Tema | DESCRIPCIÓN |
+## <a name="see-also"></a>Consulte también
+| Tema | Descripción |
 |:--- |:--- |
 | [Referencia de API de REST de Data Factory](/rest/api/datafactory/) |Consulte la documentación completa sobre los cmdlets de Factoría de datos |
-| [Procesos](data-factory-create-pipelines.md) |Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Factory y cómo aprovecharlas para construir flujos de trabajo controlados por datos de un extremo a otro para su escenario o negocio. |
+| [Canalizaciones](data-factory-create-pipelines.md) |Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Factory y cómo aprovecharlas para construir flujos de trabajo controlados por datos de un extremo a otro para su escenario o negocio. |
 | [Conjuntos de datos](data-factory-create-datasets.md) |Este artículo le ayuda a comprender los conjuntos de datos de Azure Data Factory. |
 | [Programación y ejecución](data-factory-scheduling-and-execution.md) |En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Azure Data Factory. |
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) |En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. |

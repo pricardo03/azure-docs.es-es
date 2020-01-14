@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 860b2f20b4ffda0a1a588ed5d5893ad2c0521a43
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c6e6d4a38c5ed2afc118b267f253ffc7533f9d82
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682830"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438872"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de API REST para crear una canalización de Azure Data Factory 
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "73682830"
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Plantilla de Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [API DE REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
 > 
@@ -46,7 +46,7 @@ pero cualquier canalización puede tener más de una actividad. También puede e
 >  
 > La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de una canalización para transformar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -103,7 +103,7 @@ Cree los siguientes archivos JSON en la carpeta en la que se encuentra curl.exe.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Reemplace **accountname** y **accountkey** por el nombre y la clave de su cuenta de almacenamiento de Azure. Para aprender a obtener una clave de acceso de almacenamiento, consulte [Acerca de las cuentas de almacenamiento de Azure](../../storage/common/storage-account-manage.md#access-keys).
+> Reemplace **accountname** y **accountkey** por el nombre y la clave de su cuenta de almacenamiento de Azure. Para aprender a obtener la clave de acceso de almacenamiento, consulte [Administración de claves de acceso de la cuenta de almacenamiento](../../storage/common/storage-account-keys-manage.md).
 
 ```JSON
 {
@@ -177,7 +177,7 @@ Para más información acerca de las propiedades JSON, consulte [servicio vincul
 
 En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se usan en el fragmento de código:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | type | La propiedad type se establece en **AzureBlob** porque los datos residen en una instancia de Azure Blob Storage. |
 | linkedServiceName | Hace referencia al servicio **AzureStorageLinkedService** que creó anteriormente. |
@@ -188,7 +188,7 @@ En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se us
 | frequency/interval | La frecuencia está establecida en **Hour** y el intervalo es **1**, lo que significa que los segmentos de entrada estarán disponibles **cada hora**. En otras palabras, el servicio Data Factory busca los datos de entrada cada hora en la carpeta raíz del contenedor de blobs (**adftutorial**) que se ha especificado. Busca los datos entre las horas de inicio y finalización de la canalización, no antes ni después de esas horas.  |
 | external | Esta propiedad se establece en **true** si esta canalización no ha generado los datos. Los datos de entrada de este tutorial están en el archivo emp.txt, que no lo generó esta canalización, por lo que establecemos esta propiedad en true. |
 
-Para más información acerca de estas propiedades JSON, consulte el artículo sobre el [conector de Azure Blob](data-factory-azure-blob-connector.md#dataset-properties).
+Para más información acerca de estas propiedades JSON, consulte el [artículo sobre el conector de blob de Azure](data-factory-azure-blob-connector.md#dataset-properties).
 
 ### <a name="outputdatasetjson"></a>outputdataset.json
 
@@ -220,7 +220,7 @@ Para más información acerca de estas propiedades JSON, consulte el artículo s
 ```
 En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se usan en el fragmento de código:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | type | La propiedad type se establece en **AzureSqlTable** porque los datos se copian en una tabla de una base de datos de Azure SQL Database. |
 | linkedServiceName | Hace referencia al servicio **AzureSqlLinkedService** que creó anteriormente. |
@@ -285,7 +285,7 @@ Tenga en cuenta los siguientes puntos:
  
 Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Puede especificar solo la parte de fecha y omitir la parte de hora de la fecha y hora. Por ejemplo, "03-02-2017", que es equivalente a "03-02-2017T00:00:00Z"
  
-Las fechas y horas de inicio y de finalización deben estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2016-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial. 
+Las fechas y horas de inicio y de finalización deben estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2016-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial. 
  
 Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**.
  
@@ -523,7 +523,7 @@ Para cada segmento, se copian dos filas de datos del archivo de origen en la tab
 En este tutorial, ha usado una API REST para crear una factoría de datos de Azure para copiar datos de un blob de Azure en una base de datos de Azure SQL. Estos son los pasos de alto nivel que realizó en este tutorial:  
 
 1. Ha creado una **factoría de datos**de Azure.
-2. Ha creado **servicios vinculados**:
+2. Ha creado **servicios vinculados**.
    1. Un servicio vinculado Azure Storage para vincular la cuenta de Azure Storage que contiene datos de entrada.     
    2. Un servicio vinculado SQL Azure para vincular la base de datos de Azure SQL que contiene los datos de salida. 
 3. Ha creado **conjuntos de datos**que describen los datos de entrada y salida para las canalizaciones.

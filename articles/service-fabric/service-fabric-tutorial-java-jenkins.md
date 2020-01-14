@@ -1,26 +1,17 @@
 ---
-title: Configuración de Jenkins para una aplicación Java de Service Fabric en Azure | Microsoft Docs
+title: Configuración de Jenkins para una aplicación Java de Service Fabric en Azure
 description: En este tutorial, aprenderá a configurar la integración continua mediante Jenkins para implementar una aplicación de Java en Service Fabric.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0a0f7cc8e3810a28fdbec914a9f37808c33ab878
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dee1d5a744ddfc2ad38cbe93447377a8af27a2f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880602"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376669"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutorial: Configuración de un entorno Jenkins para habilitar CI/CD para una aplicación Java en Service Fabric
 
@@ -40,7 +31,7 @@ En esta serie de tutoriales, se aprende a:
 > * [Configurar la supervisión y el diagnóstico para la aplicación](service-fabric-tutorial-java-elk.md)
 > * Configuración de CI/CD
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Instalar Git en el equipo local desde la [página de descargas de Git](https://git-scm.com/downloads). Para más información sobre Git, leer la [documentación correspondiente](https://git-scm.com/docs).
 * Tener conocimientos prácticos de [Jenkins](https://jenkins.io/).
@@ -92,13 +83,13 @@ Jenkins se puede configurar dentro o fuera de un clúster de Service Fabric. En 
 
 1. Vaya a la página del trabajo y haga clic en **Configure** (Configurar).
 
-    a. En la sección general, seleccione la casilla **GitHub project** (Proyecto de GitHub) y especifique la dirección URL del proyecto de GitHub. Dicha URL hospeda la aplicación de Java para Service Fabric que desea integrar con el flujo de integración continua e implementación continua (CI/CD) de Jenkins (por ejemplo, ``https://github.com/testaccount/dev_test``).
+   a. En la sección general, seleccione la casilla **GitHub project** (Proyecto de GitHub) y especifique la dirección URL del proyecto de GitHub. Dicha URL hospeda la aplicación de Java para Service Fabric que desea integrar con el flujo de integración continua e implementación continua (CI/CD) de Jenkins (por ejemplo, ``https://github.com/testaccount/dev_test``).
 
-   b. En la sección **Source Code Management** (Administración del código fuente), seleccione **Git**. Especifique la dirección URL del repositorio que hospeda la aplicación de Java para Service Fabric que desea integrar con el flujo de CI/CD de Jenkins (por ejemplo, *https://github.com/testaccount/dev_test.git*). También puede especificar la rama que se va a compilar (por ejemplo, **/master**).
+   b. En la sección **Source Code Management** (Administración del código fuente), seleccione **Git**. Especifique la dirección URL del repositorio que hospeda la aplicación de Java para Service Fabric que desea integrar con el flujo de CI/CD de Jenkins (por ejemplo, *https://github.com/testaccount/dev_test.git* ). También puede especificar la rama que se va a compilar (por ejemplo, **/master**).
 
-1. Configure su instancia de *GitHub* (la que hospeda el repositorio) para que pueda comunicarse con Jenkins. Para ello, siga los pasos que se describen a continuación:
+1. Configure su instancia de *GitHub* (la que hospeda el repositorio) para que pueda comunicarse con Jenkins. Siga estos pasos:
 
-    a. Vaya a la página del repositorio de GitHub. Vaya a **Settings** >  (Configuración) **Integrations and Services** (Integraciones y servicios).
+   a. Vaya a la página del repositorio de GitHub. Vaya a **Settings** >  (Configuración) **Integrations and Services** (Integraciones y servicios).
 
    b. Seleccione **Add Service** (Agregar servicio), escriba **Jenkins** y seleccione el **complemento Jenkins-GitHub**.
 
@@ -193,7 +184,7 @@ Jenkins se puede configurar dentro o fuera de un clúster de Service Fabric. En 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Implementar el contenedor de Jenkins de Service Fabric en su máquina

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Exposición de un servicio WCF REST local a un cliente externo mediante el uso de Azure WCF Relay'
+title: Exposición de un servicio WCF REST local a los clientes mediante Azure Relay
 description: 'Tutorial: Compile una aplicación cliente y servicio con WCF Relay.'
 services: service-bus-relay
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: e2dd0448dfed55450a6319936f49831e5d6d77f3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ee090ca0d7bbdad70147b85644952143c086d336
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718847"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452291"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Tutorial: Exposición de un servicio WCF REST local a un cliente externo mediante el uso de Azure WCF Relay
 
@@ -43,11 +43,11 @@ En este tutorial, hará lo siguiente:
 > * Implementar el cliente de WCF.
 > * Ejecución de las aplicaciones
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
-* Una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* Suscripción a Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * [Visual Studio 2015 o posterior](https://www.visualstudio.com). En los ejemplos de este tutorial se usa Visual Studio 2019.
 * SDK de Azure para .NET. Instálelo desde la [página de descargas de SDK](https://azure.microsoft.com/downloads/).
 

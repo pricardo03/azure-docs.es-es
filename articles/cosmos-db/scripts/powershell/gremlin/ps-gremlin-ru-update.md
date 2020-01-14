@@ -1,5 +1,5 @@
 ---
-title: 'Script de Azure PowerShell: actualizar RU/s para Gremlin API en Azure Cosmos DB'
+title: Script de PowerShell para actualizar la capacidad de proceso (RU/s) para Gremlin API en Azure Cosmos DB
 description: 'Script de Azure PowerShell: actualizar RU/s para Gremlin API en Azure Cosmos DB'
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 85344d4a8f37bfa34ab14d2dfb9152860973dd1a
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: c298ec58b0d69d20429413f0f36b3e28ff8e5e61
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178920"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441441"
 ---
 # <a name="update-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Actualización de RU/s para una base de datos o un grafo para Gremlin API en Azure Cosmos DB
 

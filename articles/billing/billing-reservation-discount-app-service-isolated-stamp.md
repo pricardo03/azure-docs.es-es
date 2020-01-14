@@ -1,5 +1,5 @@
 ---
-title: Cómo se aplican los descuentos de reserva a los timbres de Azure App Service en entorno aislado
+title: Descuentos de reserva para Azure App Service
 description: Obtenga información sobre cómo se aplican los descuentos de reserva a los timbres de Azure App Service en entorno aislado.
 services: billing
 author: yashesvi
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 2e9f2fd4541621e98bc1d46f23559993eeabe311
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e31c7b0932684b75b9934dbb4a2bcbc56370d98e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225995"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388574"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-isolated-stamps"></a>Cómo se aplican los descuentos de reserva a los timbres de Azure App Service en entorno aislado
 
@@ -29,7 +29,7 @@ Si los timbres no se ejecutan durante una hora completa, la reserva se aplica au
 
 ## <a name="choose-a-stamp-type---windows-or-linux"></a>Selección del tipo de timbre: Windows o Linux
 
-Un timbre vacío en entorno aislado emite el medidor de timbres de Windows de forma predeterminada, por ejemplo, cuando no hay ningún trabajo implementado. Cuando se implementan trabajos de Windows, sigue emitiendo el medidor. Si se implementa un trabajo de Linux, el medidor cambia al medidor de timbres de Linux. El timbre emite el medidor de Windows cuando se implementan trabajos de Windows y de Linux.
+Un timbre vacío en entorno aislado emite el medidor de timbres de Windows de forma predeterminada, por ejemplo, cuando no hay ningún trabajo implementado. Cuando se implementan trabajos de Windows, sigue emitiendo el medidor. Si implementa un trabajo de Linux, el medidor cambia al medidor de timbres de Linux. El timbre emite el medidor de Windows cuando se implementan trabajos de Windows y de Linux.
 
 Como resultado, el medidor de timbres puede cambiar entre Windows y Linux durante la vigencia del timbre. Mientras tanto, las reservas son específicas del sistema operativo. Tendrá que comprar una reserva que admita los trabajos que planea implementar en el timbre. Los timbres mixtos y solo de Windows usan la reserva de Windows. Los timbres que solo tienen trabajos de Linux usan la reserva de Linux.
 

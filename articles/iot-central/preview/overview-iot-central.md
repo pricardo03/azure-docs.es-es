@@ -3,18 +3,18 @@ title: Introducción a Azure IoT Central | Microsoft Docs
 description: Azure IoT Central es una plataforma de aplicaciones de IoT que simplifica la creación de soluciones de IoT y ayuda a reducir la carga y el costo de las operaciones de administración de IoT y el desarrollo. En este artículo se proporciona información general sobre las características de Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/12/2019
+ms.date: 12/10/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8cfcbddfc8d50855860af655847f997fb2a01711
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 52504fb8333b286407b3f2df8f962da59b80ac53
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479700"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434846"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>¿Qué es Azure IoT Central (características en versión preliminar)?
 
@@ -34,22 +34,18 @@ Para IoT Central, en este artículo se describe lo siguiente:
 - Cómo conectar los dispositivos a la aplicación.
 - Cómo administrar una aplicación.
 - Azure IoT Edge funcionalidades en IoT Central.
-- Cómo conectar los dispositivos de Azure IoT Edge en tiempo de ejecución a la aplicación.
+- Cómo conectar los dispositivos del entorno de ejecución de Azure IoT Edge a la aplicación.
 
 ## <a name="known-issues"></a>Problemas conocidos
 
 > [!Note]
 > Estos problemas conocidos solo se aplican a las aplicaciones de versión preliminar de IoT Central.
 
-- Las reglas no admiten todas las acciones (solo el correo electrónico).
-- En el caso de los tipos complejos, no se admiten las reglas, el análisis y los grupos de dispositivos.
 - La exportación continua de datos no admite el formato Avro (incompatibilidad).
-- Los dispositivos simulados no admiten todos los tipos complejos.
 - GeoJSON no se admite actualmente.
 - El icono del mapa no se admite actualmente.
 - Los trabajos no admiten tipos complejos.
 - No se admiten los tipos de esquema de matriz.
-- No se admite la exportación de plantillas de aplicación y la copia de aplicaciones.
 - Solo se admiten el SDK de dispositivos de C y los SDK de dispositivos y servicios de Node.js.
 - Solo disponible en ubicaciones de Estados Unidos y Europa.
 - Los modelos de funcionalidad del dispositivo deben tener todas las interfaces definidas insertadas en el mismo archivo.
@@ -85,14 +81,14 @@ Esta plantilla de dispositivo incluye:
 
 ### <a name="create-device-templates"></a>Creación de plantillas de dispositivo
 
-[IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) permite a IoT Central integrar dispositivos sin necesidad de escribir ningún código de dispositivo integrado. En el núcleo de IoT Plug and Play, es un esquema de modelo de funcionalidad de dispositivo que describe las funcionalidades del dispositivo. En una aplicación de la versión preliminar de IoT Central, las plantillas de dispositivo usan estos modelos de funcionalidad de dispositivo de IoT Plug and Play.
+[IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) permite a IoT Central integrar dispositivos sin necesidad de escribir ningún código de dispositivo integrado. En el núcleo de IoT Plug and Play se encuentra un esquema de modelo de funcionalidad del dispositivo que describe dichas funcionalidades. En una aplicación de la versión preliminar de IoT Central, las plantillas de dispositivo usan estos modelos de funcionalidad de dispositivo de IoT Plug and Play.
 
 Como generador de soluciones, tiene varias opciones para crear plantillas de dispositivo:
 
 - Diseñe la plantilla de dispositivo en IoT Central y, después, implemente el modelo de funcionalidad del dispositivo en el código del dispositivo.
 - Importe un modelo de funcionalidad del dispositivo desde el [catálogo de dispositivos Azure Certified for IoT](https://aka.ms/iotdevcat) y, a continuación, agregue las propiedades, las personalizaciones y los paneles en la nube que necesite la aplicación de IoT Central.
-- Cree un modelo de funcionalidad del dispositivo mediante Visual Studio Code. Implemente el código del dispositivo desde el modelo y conecte el dispositivo a la aplicación de IoT Central. IoT Central encuentra el modelo de funcionalidad del dispositivo en un repositorio y crea automáticamente una plantilla de dispositivo simple.
-- Cree un modelo de funcionalidad del dispositivo mediante Visual Studio Code. Implemente el código del dispositivo a partir del modelo. Importe manualmente el modelo de funcionalidad del dispositivo en la aplicación de IoT Central y, a continuación, agregue las propiedades, las personalizaciones y los paneles en la nube que necesite la aplicación de IoT Central.
+- Cree un modelo de funcionalidad del dispositivo mediante Visual Studio Code. Implemente el código del dispositivo desde el modelo y conecte el dispositivo a la aplicación de IoT Central. IoT Central encuentra el modelo de funcionalidad del dispositivo en un repositorio y crea automáticamente una plantilla de dispositivo simple.
+- Cree un modelo de funcionalidad del dispositivo mediante Visual Studio Code. Implemente el código del dispositivo a partir del modelo. Importe manualmente el modelo de funcionalidad del dispositivo en la aplicación de IoT Central y, a continuación, agregue las propiedades, las personalizaciones y los paneles en la nube que necesite la aplicación de IoT Central.
 
 Como generador de soluciones, puede usar IoT Central para generar código para que los dispositivos de prueba validen las plantillas de dispositivo.
 
@@ -149,7 +145,7 @@ Cada suscripción de Azure tiene cuotas predeterminadas que pueden afectar al á
 
 Ahora que tiene una visión general de IoT Central, estos son los siguientes pasos sugeridos:
 
-- Comprenda las diferencias entre [IoT Central y los aceleradores de soluciones de IoT de Azure](../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
+- Conocer las [tecnologías y servicios de Azure disponibles para crear soluciones de IoT](../../iot-fundamentals/iot-services-and-technologies.md).
 - Familiarizarse con la [interfaz de usuario de Azure IoT Central](overview-iot-central-tour.md).
 - [Crear una aplicación de Azure IoT Central](quick-deploy-iot-central.md) para empezar a trabajar.
 - Más información acerca de [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md)

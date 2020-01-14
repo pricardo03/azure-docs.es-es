@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: alzam
-ms.openlocfilehash: 394ca0c244db751645eb56f50e7023fcee229876
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 02c8bf24d4ddb6408160da7a4c517d6c8c82de5f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807466"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450900"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión VPN de usuario mediante Azure Virtual WAN
 
@@ -135,7 +135,7 @@ Use el perfil descargado para configurar los clientes de acceso remoto. El proce
 2. Descargue el perfil de VPN para la puerta de enlace. Esto puede hacerse desde la pestaña de configuraciones de VPN de usuario de Azure Portal o mediante New-AzureRmVpnClientConfiguration en PowerShell.
 3. Descomprima el perfil. Abra el archivo de configuración vpnconfig.ovpn desde la carpeta OpenVPN en el Bloc de notas.
 4. Rellene la sección de certificado cliente de P2S con la clave pública del certificado cliente de P2S en Base64. En un certificado con formato PEM, puede abrir el archivo .cer y copiar la clave de base64 entre los encabezados del certificado. Vea aquí [cómo exportar un certificado para obtener la clave pública codificada](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site).
-5. Rellene la sección de la clave privada con la clave privada del certificado cliente de P2S en Base64. Vea aquí cómo extraer la clave privada.
+5. Rellene la sección de la clave privada con la clave privada del certificado cliente de P2S en Base64. Vea aquí [cómo extraer la clave privada.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients#windows)
 6. No cambie los demás campos. Use los datos de la configuración de entrada del cliente para conectarse a la VPN.
 7. Copie el archivo vpnconfig.ovpn en la carpeta C:\Program Files\OpenVPN\config.
 8. Haga clic con el botón derecho en l icono de OpenVPN en la bandeja del sistema y, después, haga clic en Conectar.

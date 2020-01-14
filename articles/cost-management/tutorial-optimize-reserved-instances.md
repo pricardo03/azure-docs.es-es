@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Optimización de costos de las instancias reservadas con Cloudyn en Azure | Microsoft Docs'
+title: 'Tutorial: Optimización de los costos de las instancias reservadas con Cloudyn en Azure'
 description: En este tutorial, aprenderá a optimizar los costos de las instancias reservadas para Azure y Amazon Web Services (AWS).
 services: cost-management
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: ade3b63116337ae7b4678b459b1a0c388092f409
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c1afad7cb36916777b2f6cefa40b9bd1ddc465a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229858"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444566"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -38,7 +38,7 @@ Este tutorial explica cómo Cloudyn mantiene las instancias reservadas para Azur
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Debe tener una cuenta de Azure.
 - Debe tener un registro de prueba o una suscripción de pago en Cloudyn.

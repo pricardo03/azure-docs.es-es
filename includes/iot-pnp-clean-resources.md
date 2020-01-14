@@ -4,12 +4,12 @@ ms.author: baanders
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/15/2019
-ms.openlocfilehash: e6ca830a7224326c17003924b76192b95ba6bcb2
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: d88d166e001e71cabdabc3a3d344adc4da19aa8c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152016"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453689"
 ---
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -32,4 +32,4 @@ Para eliminar solo la identidad del dispositivo que registró en IoT Hub, ejecut
 az iot hub device-identity delete --hub-name <YourIoTHubName> --device-id <YourDeviceID>
 ```
 
-También puede que quiera quitar los archivos del SDK clonados de la máquina de desarrollo.
+También puede que quiera quitar los archivos de ejemplo clonados de la máquina de desarrollo.

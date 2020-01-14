@@ -15,12 +15,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e66b51199d19ea6af2b88c48aa89a93c1ed731c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: aa82985fcde59c4cfd8d4bec75ae77643f7da448
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963535"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424108"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Inicio rápido: Compilación de una aplicación de página única de AngularJS para el inicio y el cierre de sesión con Azure Active Directory
 
@@ -48,18 +48,18 @@ Para crear la aplicación de trabajo completa, tendrá que:
 2. Instalar ADAL y configurar la aplicación de una sola página.
 3. Usar ADAL para ayudar a proteger las páginas en la aplicación de una sola página.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para empezar, complete estos requisitos previos:
 
-* [Descargue el esqueleto de la aplicación](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) o [el ejemplo completado](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
+* Descargue el [esqueleto de la aplicación](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) o el [ejemplo completado](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
 * Necesita un inquilino de Azure AD en el que pueda crear usuarios y registrar una aplicación. Si aún no tiene un inquilino, [descubra cómo conseguir uno](quickstart-create-new-tenant.md).
 
 ## <a name="step-1-register-the-directorysearcher-application"></a>Paso 1: Registro de la aplicación DirectorySearcher
 
 Para habilitar la aplicación a fin de autenticar a los usuarios y obtener tokens, primero debe registrarla en el inquilino de Azure AD:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Si inició sesión en varios directorios, debe asegurarse de que está viendo el directorio correcto. Para ello, en la barra superior, haga clic en su cuenta. En la lista **Directorio** lista, elija el inquilino de Azure AD donde desea registrar la aplicación.
 1. Haga clic en **Todos los servicios** en el panel izquierdo y seleccione **Azure Active Directory**.
 1. Haga clic en **Registros de aplicaciones** y luego **Nuevo registro**.

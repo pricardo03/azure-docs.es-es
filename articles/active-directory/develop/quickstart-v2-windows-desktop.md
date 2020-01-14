@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38ebf817d80fb1afdd3642f648d8e881b2e9d7de
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 44b754d92eb7dc1b84ff1524161a93d3bc1f9eed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920453"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423984"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
 
@@ -50,13 +50,12 @@ En esta guía de inicio rápido aprenderá cómo escribir una aplicación .NET d
 >      - En **Tipos de cuenta admitidos**, seleccione **Cuentas en cualquier directorio de organización y cuentas personales de Microsoft (por ejemplo, Skype, Xbox o Outlook.com)** .
 >      - Seleccione **Registrar** para crear la aplicación.
 > 1. En la lista de páginas de la aplicación, seleccione **Autenticación**.
-> 1. Expanda la sección **Escritorio + dispositivos**.  (Si la sección **Escritorio + dispositivos** no está visible, haga clic primero en el banner superior para ver la experiencia de autenticación en versión preliminar).
-> 1. En la sección **URI de redirección**, seleccione **Agregar URI**.  Escriba **urn:ietf:wg:oauth:2.0:oob**.
+> 1. En la sección **URI de redirección** | **URI de redireccionamiento sugeridos para clientes públicos (para dispositivos móviles o de escritorio)** , marque **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > 1. Seleccione **Guardar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal
-> Para que el código de ejemplo de esta guía de inicio rápido funcione, debe agregar una dirección URL de respuesta como **urn:ietf:wg:oauth:2.0:oob**.
+> Para que el código de ejemplo de este inicio rápido funcione, es preciso agregar una dirección URL de respuesta como **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Hacer este cambio por mí]()
 >

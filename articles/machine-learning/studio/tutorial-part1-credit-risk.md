@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial 1: Predicción del riesgo de crédito'
 titleSuffix: ML Studio (classic) - Azure
-description: Tutorial detallado que muestra cómo crear una solución de análisis predictivo para la evaluación del riesgo crediticio en la versión clásica de Azure Machine Learning Studio. Este tutorial es el primero de una serie de tres partes.  Muestra cómo crear un área de trabajo, cargar datos y crear un experimento.
+description: Tutorial detallado que muestra cómo crear una solución de análisis predictivo para la evaluación del riesgo de crédito en Azure Machine Learning Studio (clásico). Este tutorial es el primero de una serie de tres partes.  Muestra cómo crear un área de trabajo, cargar datos y crear un experimento.
 keywords: riesgo de crédito, solución de análisis predictivo, evaluación de riesgos
 author: sdgilley
 ms.author: sgilley
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: e8c1eea097fc3ea2704acfae198eb493943b6ccf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 07621bd2d0593ea3896aba0deb65e0b856e5987b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838864"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432242"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutorial 1: Predicción del riesgo crediticio en Azure Machine Learning Studio (clásico)
 
@@ -25,7 +25,7 @@ En este tutorial se explica con detalle el proceso de desarrollo de una solució
 
 Suponga que necesita predecir el riesgo de crédito de un individuo en función de la información que se proporcionó en una solicitud de crédito.  
 
-La evaluación de riesgos crediticios es un problema complejo, pero en este tutorial se simplificará un poco. Se utilizará como ejemplo de cómo puede crear una solución de análisis predictivo con Microsoft Azure Machine Learning Studio (clásico). En esta solución, se usa la versión clásica de Azure Machine Learning Studio y un servicio web de Machine Learning.  
+La evaluación de riesgos crediticios es un problema complejo, pero en este tutorial se simplificará un poco. Se utilizará como ejemplo de cómo puede crear una solución de análisis predictivo con Microsoft Azure Machine Learning Studio (clásico). En esta solución se usará Azure Machine Learning Studio (clásico) y un servicio web Machine Learning.  
 
 En este tutorial de tres partes, vamos a comenzar con los datos de riesgo crediticio disponibles públicamente.  Después, desarrollaremos y entrenaremos un modelo predictivo.  Finalmente, vamos a implementar el modelo como servicio web.
 
@@ -38,7 +38,7 @@ En esta parte del tutorial, se va a ver lo siguiente:
 
 Después, puede usar este experimento para [entrenar modelos en la parte 2](tutorial-part2-credit-risk-train.md) y, finalmente, [implementarlos en la parte 3](tutorial-part3-credit-risk-deploy.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En este tutorial, se presupone que usó Machine Learning Studio (clásico) con anterioridad al menos una vez y que tiene ciertos conocimientos sobre los conceptos de aprendizaje automático. Pero no se asume de que sea un experto.
 
@@ -95,7 +95,7 @@ A continuación, si el modelo clasifica erróneamente a una persona como de ries
 
 ### <a name="convert-the-dataset-format"></a>Conversión del formato del conjunto de datos
 
-El conjunto de datos original utiliza un formato separado por espacios en blanco. La versión clásica de Machine Learning Studio funciona mejor con un archivo de valores delimitados por comas (CSV), así que se va a convertir el conjunto de datos y reemplazar los espacios por comas.  
+El conjunto de datos original utiliza un formato separado por espacios en blanco. Machine Learning Studio (clásico) funciona mejor con un archivo de valores separados por comas (CSV), así que va a convertir el conjunto de datos y reemplazará los espacios por comas.  
 
 Hay muchas maneras de convertir los datos. En primer lugar, es posible convertirlos con el siguiente comando de Windows PowerShell:   
 
@@ -109,7 +109,7 @@ En cualquier caso, se creará una versión separada por comas de los datos en un
 
 ### <a name="upload-the-dataset-to-machine-learning-studio-classic"></a>Carga del conjunto de datos en Machine Learning Studio (clásico)
 
-Una vez que los datos se han convertido al formato CSV, hay que cargarlos en la versión clásica de Machine Learning Studio. 
+Una vez que los datos se han convertido al formato CSV, hay que cargarlos en Machine Learning Studio (clásico). 
 
 1. Abra la página principal de Machine Learning Studio (clásico) ([https://studio.azureml.net](https://studio.azureml.net)). 
 
@@ -145,7 +145,7 @@ Para más información sobre la importación de diversos tipos de datos a un exp
 
 ## <a name="create-an-experiment"></a>Creación de un experimento
 
-El siguiente paso de este tutorial es crear un experimento en la versión clásica de Machine Learning Studio que utilice el conjunto de datos cargado.  
+El siguiente paso de este tutorial es crear un experimento en Machine Learning Studio (clásico) que use el conjunto de datos cargado.  
 
 1. En Studio (clásico), haga clic en **+NUEVO** en la parte inferior de la ventana.
 1. Seleccione **EXPERIMENTO** y luego ''Experimento en blanco''. 
@@ -173,7 +173,7 @@ El siguiente paso de este tutorial es crear un experimento en la versión clási
 
 Puede ver los 100 primeros registros de los datos e información estadística de todo el conjunto: Haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior) y seleccione **Visualizar**.  
 
-Dado que el archivo de datos no incluye encabezados de columna, la versión clásica de Studio ha proporcionado encabezados genéricos (Col1, Col2, *etc.* ). No es esencial que los encabezados sean perfectos para crear un modelo, pero facilitan el trabajo con los datos del experimento. Además, cuando finalmente se publique este modelo en un servicio web, los encabezados ayudarán al usuario del servicio a identificar las columnas.  
+Dado que el archivo de datos no incluye encabezados de columna, Studio (clásico) ha proporcionado encabezados genéricos (Col1, Col2, *etc.* ). No es esencial que los encabezados sean perfectos para crear un modelo, pero facilitan el trabajo con los datos del experimento. Además, cuando finalmente se publique este modelo en un servicio web, los encabezados ayudarán al usuario del servicio a identificar las columnas.  
 
 Se pueden agregar encabezados de columna mediante el módulo [Edit Metadata][edit-metadata] (Editar metadatos).
 

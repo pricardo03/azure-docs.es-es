@@ -1,282 +1,338 @@
 ---
-title: 'Inicio rápido: Uso de .NET para crear una cola de Azure Storage'
-description: En este inicio rápido, obtendrá información sobre cómo usar la biblioteca cliente de Azure Storage para .NET a fin de crear una cola y agregarle mensajes. A continuación, aprenderá a leer y procesar los mensajes de la cola.
+title: 'Inicio rápido: Biblioteca de Azure Queue Storage v12 para .NET'
+description: Aprenda a usar la biblioteca de Azure Queue v12 para .NET para crear una cola y agregar mensajes a la cola. A continuación, aprenderá a leer y eliminar los mensajes de la cola. También aprenderá a eliminar una cola.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/06/2018
+ms.date: 11/22/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.reviewer: cbrooks
-ms.openlocfilehash: d3706f8585c2644a31bf1f418f5425e0fa58d2a0
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 71a714124cecfc4f985d448371042c8aff092a11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721250"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463837"
 ---
-# <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Inicio rápido: Uso de .NET para crear una cola de Azure Storage
+# <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para .NET
 
-En este inicio rápido, obtendrá información sobre cómo usar la biblioteca cliente de Azure Storage para .NET a fin de crear una cola y agregarle mensajes. A continuación, aprenderá a leer y procesar los mensajes de la cola. 
+Comience a trabajar con la biblioteca cliente de Azure Queue Storage versión 12 para .NET. Azure Queue Storage es un servicio para almacenar grandes cantidades de mensajes para su posterior recuperación y procesamiento. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
 
-## <a name="prerequisites"></a>Requisitos previos
+> [!NOTE]
+> Para empezar a trabajar con la versión anterior del SDK, consulte [Inicio rápido: Use el SDK de Azure Storage v11 para .NET para administrar una cola](storage-quickstart-queues-dotnet-legacy.md).
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+Use la biblioteca cliente de Azure Queue Storage v12 para .NET para realizar lo siguiente:
 
-A continuación, descargue e instale .NET Core 2.0 para su sistema operativo. Si usa Windows, puede instalar Visual Studio y utilizar .NET Framework si lo prefiere. También puede elegir instalar un editor y usarlo con el sistema operativo.
+* Creación de una cola
+* Adición de mensajes a una cola
+* Lectura de los mensajes de una cola
+* Eliminación de un mensaje de una cola
+* mensajes de una cola
+* Eliminación de mensajes de una cola
+* Eliminación de una cola
 
-### <a name="windows"></a>Windows
+[Documentación de referencia de la API](/dotnet/api/azure.storage.queues) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [Paquete (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [Ejemplos](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
 
-- Instale [.NET Core para Windows](https://www.microsoft.com/net/download/windows) o [.NET Framework](https://www.microsoft.com/net/download/windows) (se incluye con Visual Studio para Windows).
-- Instale [Visual Studio para Windows](https://www.visualstudio.com/). Si usa .NET Core, la instalación de Visual Studio es opcional.  
+## <a name="prerequisites"></a>Prerequisites
 
-Para obtener información acerca de cuándo elegir .NET Core o .NET Framework, consulte [Selección entre .NET Core y .NET Framework para aplicaciones de servidor](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
+* Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* El [SDK de NET Core](https://dotnet.microsoft.com/download/dotnet-core) actual del sistema operativo. Asegúrese de obtener el SDK y no el entorno de ejecución.
 
-### <a name="linux"></a>Linux
+## <a name="setting-up"></a>Instalación
 
-- Instale [.NET Core para Linux](https://www.microsoft.com/net/download/linux)
-- Opcionalmente, instale [Visual Studio Code](https://www.visualstudio.com/) y la [extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
+En esta sección se explica cómo preparar un proyecto para que funcione con la biblioteca cliente de Azure Queue Storage v12 para .NET.
 
-### <a name="macos"></a>macOS
+### <a name="create-the-project"></a>Creación del proyecto
 
-- Instale [.NET Core para macOS](https://www.microsoft.com/net/download/macos).
-- Opcionalmente, instale [Visual Studio para Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
+Cree una aplicación de .NET Core llamada *QueuesQuickstartV12*.
 
-## <a name="download-the-sample-application"></a>Descarga de la aplicación de ejemplo
+1. En una ventana de consola (por ejemplo, cmd, PowerShell o Bash), use el comando `dotnet new` para crear una nueva aplicación de consola con el nombre *QueuesQuickstartV12*. Este comando crea un sencillo proyecto "Hola mundo" de C# con un solo archivo de origen: *Program.cs*.
 
-La aplicación de ejemplo utilizada en este tutorial de inicio rápido es una aplicación de consola básica. Puede explorar la aplicación de ejemplo en [GitHub](https://github.com/Azure-Samples/storage-queues-dotnet-quickstart).
+   ```console
+   dotnet new console -n QueuesQuickstartV12
+   ```
 
-Use [git](https://git-scm.com/) para descargar una copia de la aplicación en su entorno de desarrollo. 
+1. Cambie al directorio *QueuesQuickstartV12* recién creado.
 
-```bash
-git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
+   ```console
+   cd QueuesQuickstartV12
+   ```
+
+### <a name="install-the-package"></a>Instalar el paquete
+
+Mientras sigue en el directorio de aplicaciones, instale el paquete de la biblioteca cliente de Azure Queue Storage para .NET con el comando `dotnet add package`.
+
+```console
+dotnet add package Azure.Storage.Queues
 ```
 
-Este comando clona el repositorio en la carpeta git local. Para abrir la solución de Visual Studio, busque la carpeta *storage-queues-dotnet-quickstart*, ábrala y haga doble clic en *storage-queues-dotnet-quickstart.sln*. 
+### <a name="set-up-the-app-framework"></a>Instalación del marco de la aplicación
 
-[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
+Desde el directorio del proyecto:
 
-## <a name="configure-your-storage-connection-string"></a>Configuración de la cadena de conexión de almacenamiento.
+1. Abra el archivo *Program.cs* en el editor.
+1. Quite la instrucción `Console.WriteLine("Hello World!");`.
+1. Agregue directivas `using`.
+1. Actualice la declaración del método `Main` para [admitir código asincrónico](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7-1#async-main).
 
-Para ejecutar la aplicación, debe proporcionar la cadena de conexión de la cuenta de almacenamiento. La aplicación de ejemplo lee la cadena de conexión de una variable de entorno y la utiliza para autorizar las solicitudes en Azure Storage.
 
-Una vez que haya copiado la cadena de conexión, escríbala en una variable de entorno nueva en la máquina local que ejecuta la aplicación. Para establecer la variable de entorno, abra una ventana de consola y siga las instrucciones de su sistema operativo. Reemplace `<yourconnectionstring>` por la cadena de conexión real:
 
-### <a name="windows"></a>Windows
-
-```cmd
-setx storageconnectionstring "<yourconnectionstring>"
-```
-
-Después de agregar la variable de entorno, puede que tenga que reiniciar todos los programas en ejecución que necesiten leer la variable de entorno, incluida la ventana de consola. Por ejemplo, si usa Visual Studio como editor, reinícielo antes de ejecutar el ejemplo. 
-
-### <a name="linux"></a>Linux
-
-```bash
-export storageconnectionstring=<yourconnectionstring>
-```
-
-Después de agregar la variable de entorno, ejecute `source ~/.bashrc` desde la ventana de consola para que los cambios surtan efecto.
-
-### <a name="macos"></a>macOS
-
-Edite .bash_profile y agregue la variable de entorno:
-
-```bash
-export STORAGE_CONNECTION_STRING=<yourconnectionstring>
-```
-
-Después de agregar la variable de entorno, ejecute `source .bash_profile` desde la ventana de consola para que los cambios surtan efecto.
-
-## <a name="run-the-sample"></a>Ejecución del ejemplo
-
-La aplicación de ejemplo crea una cola y le agrega un mensaje. En primer lugar, la aplicación inspecciona el mensaje sin eliminarlo de la cola y, a continuación, lo recupera y lo elimina de la cola.
-
-### <a name="windows"></a>Windows
-
-Si utiliza Visual Studio como editor, puede presionar **F5** para ejecutarlo. 
-
-Otra opción es ir al directorio de la aplicación y ejecutar la aplicación con el comando `dotnet run`.
-
-```
-dotnet run
-```
-
-### <a name="linux"></a>Linux
-
-Desplácese hasta el directorio de la aplicación y ejecute la aplicación con el comando `dotnet run`.
-
-```
-dotnet run
-```
-
-### <a name="macos"></a>macOS
-
-Desplácese hasta el directorio de la aplicación y ejecute la aplicación con el comando `dotnet run`.
-
-```
-dotnet run
-```
-
-La salida de la aplicación de ejemplo es similar a la siguiente:
-
-```
-Azure Queues - .NET Quickstart sample
-
-Created queue 'quickstartqueues-3136fe9a-fa52-4b19-a447-8999a847da52'
-
-Added message 'aa8fa95f-07ea-4df7-bf86-82b3f7debfb7' to queue 'quickstartqueues-3136fe9a-fa52-4b19-a447-8999a847da52'
-Message insertion time: 2/7/2019 4:30:46 AM +00:00
-Message expiration time: 2/14/2019 4:30:46 AM +00:00
-
-Contents of peeked message 'aa8fa95f-07ea-4df7-bf86-82b3f7debfb7': Hello, World
-
-Message 'aa8fa95f-07ea-4df7-bf86-82b3f7debfb7' becomes visible again at 2/7/2019 4:31:16 AM +00:00
-
-Processed and deleted message 'aa8fa95f-07ea-4df7-bf86-82b3f7debfb7'
-
-Press any key to delete the sample queue.
-```
-
-## <a name="understand-the-sample-code"></a>Descripción del código de ejemplo
-
-Después, explore el código de ejemplo para poder saber cómo funciona.
-
-### <a name="try-parsing-the-connection-string"></a>Pruebe a analizar la cadena de conexión
-
-En el ejemplo, en primer lugar se comprueba que la variable de entorno contiene una cadena de conexión que se pueda analizar para crear un objeto [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) que señala a la cuenta de almacenamiento. Para comprobar que la cadena de conexión es válida, use el método [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse). Si **TryParse** funciona correctamente, inicializa la variable *storageAccount* y devuelve el valor **true**.
+Este es el código:
 
 ```csharp
-// Retrieve the connection string for use with the application. The storage connection string is stored
-// in an environment variable called storageconnectionstring, on the machine where the application is running.
-// If the environment variable is created after the application is launched in a console or with Visual
-// Studio, the shell needs to be closed and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
+using Azure;
+using Azure.Storage.Queues;
+using Azure.Storage.Queues.Models;
+using System;
+using System.Threading.Tasks;
 
-// Check whether the connection string can be parsed.
-if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
+namespace QueuesQuickstartV12
 {
-    // If the connection string is valid, proceed with calls to Azure Queues here.
-    ...    
-}
-else
-{
-    Console.WriteLine(
-        "A connection string has not been defined in the system environment variables. " +
-        "Add an environment variable named 'storageconnectionstring' with your storage " +
-        "connection string as a value.");
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+        }
+    }
 }
 ```
 
-### <a name="create-the-queue"></a>Creación de la cola
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
-En primer lugar, en el ejemplo se crea una cola y se le agrega un mensaje. 
+## <a name="object-model"></a>Modelo de objetos
+
+Azure Queue Storage es un servicio para almacenar grandes cantidades de mensajes, Un mensaje de la cola puede llegar a tener hasta 64 KB. Una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento. Las colas se utilizan normalmente para crear un trabajo pendiente del trabajo que se va a procesar de forma asincrónica. Queue Storage ofrece tres tipos de recursos:
+
+* La cuenta de almacenamiento
+* Cola en la cuenta de almacenamiento
+* Mensajes dentro de la cola
+
+En el siguiente diagrama se muestra la relación entre estos recursos.
+
+![Diagrama de la arquitectura de Queue Storage](./media/storage-queues-introduction/queue1.png)
+
+Use las siguientes clases de .NET para interactuar con estos recursos:
+
+* [QueueServiceClient](/dotnet/api/azure.storage.queues.queueserviceclient): La clase `QueueServiceClient` permite administrar todas las colas de la cuenta de almacenamiento.
+* [QueueClient](/dotnet/api/azure.storage.queues.queueclient): La clase `QueueClient` permite administrar y manipular una cola individual y sus mensajes.
+* [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage): La clase `QueueMessage` representa los objetos individuales devueltos al llamar a [ReceiveMessages](/dotnet/api/azure.storage.queues.queueclient.receivemessages) en una cola.
+
+## <a name="code-examples"></a>Ejemplos de código
+
+Estos fragmentos de código de ejemplo muestran cómo realizar las siguientes acciones con la biblioteca cliente de Azure Queue Storage para .NET:
+
+* [Obtención de la cadena de conexión](#get-the-connection-string)
+* [Creación de una cola](#create-a-queue)
+* [Adición de mensajes a una cola](#add-messages-to-a-queue)
+* [Leer los mensajes de una cola](#peek-at-messages-in-a-queue)
+* [Eliminación de un mensaje de una cola](#update-a-message-in-a-queue)
+* [Recepción de mensajes de una cola](#receive-messages-from-a-queue)
+* [Eliminación de mensajes de una cola](#delete-messages-from-a-queue)
+* [Eliminación de una cola](#delete-a-queue)
+
+### <a name="get-the-connection-string"></a>Obtención de la cadena de conexión
+
+El código siguiente recupera la cadena de conexión de la cuenta de almacenamiento. La cadena de conexión se almacena en la variable de entorno creada en la sección [Configuración de la cadena de conexión de almacenamiento](#configure-your-storage-connection-string).
+
+Agregue este código dentro del método `Main`:
 
 ```csharp
-// Create a queue called 'quickstartqueues' and append a GUID value so that the queue name 
-// is unique in your storage account. 
-queue = cloudQueueClient.GetQueueReference("quickstartqueues-" + Guid.NewGuid().ToString());
-await queue.CreateAsync();
+Console.WriteLine("Azure Queue storage v12 - .NET quickstart sample\n");
 
-Console.WriteLine("Created queue '{0}'", queue.Name);
-Console.WriteLine();
+// Retrieve the connection string for use with the application. The storage
+// connection string is stored in an environment variable called
+// AZURE_STORAGE_CONNECTION_STRING on the machine running the application.
+// If the environment variable is created after the application is launched
+// in a console or with Visual Studio, the shell or application needs to be
+// closed and reloaded to take the environment variable into account.
+string connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
 ```
 
-### <a name="add-a-message"></a>Agregar un mensaje
+### <a name="create-a-queue"></a>Creación de una cola
 
-A continuación, en el ejemplo se agrega un mensaje al final de la cola. 
+Decida un nombre para la nueva cola. El código siguiente anexa un valor de GUID al nombre de la cola para asegurarse de que sea único.
 
-El mensaje debe estar en un formato que pueda incluirse en una solicitud XML con codificación UTF-8 y puede tener hasta 64 KB de tamaño. Si un mensaje contiene datos binarios, se recomienda codificarlo en Base64.
+> [!IMPORTANT]
+> Los nombres de la cola solo puede incluir letras minúsculas, números y guiones y debe empezar por una letra o un número. Antes y después de cada guion debe ir un carácter que no sea otro guión. El nombre debe tener entre 3 y 63 caracteres. Para más información sobre la nomenclatura de las colas, consulte [Asignación de nombres a colas y metadatos](/rest/api/storageservices/naming-queues-and-metadata).
 
-De forma predeterminada, el tiempo de vida máximo de un mensaje se establece en 7 días. Puede especificar cualquier número positivo para el período de vida de un mensaje.
+
+Cree una instancia de la clase [QueueClient](/dotnet/api/azure.storage.queues.queueclient). A continuación, llame al método [CreateAsync](/dotnet/api/azure.storage.queues.queueclient.createasync) para crear la cola en la cuenta de almacenamiento.
+
+Agregue este código al final del método `Main`:
 
 ```csharp
-// Create a message and add it to the queue. Set expiration time to 14 days.
-CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-await queue.AddMessageAsync(message, new TimeSpan(14,0,0,0), null, null, null);
-Console.WriteLine("Added message '{0}' to queue '{1}'", message.Id, queue.Name);
-Console.WriteLine("Message insertion time: {0}", message.InsertionTime.ToString());
-Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToString());
-Console.WriteLine();
+// Create a unique name for the queue
+string queueName = "quickstartqueues-" + Guid.NewGuid().ToString();
+
+Console.WriteLine($"Creating queue: {queueName}");
+
+// Instantiate a QueueClient which will be
+// used to create and manipulate the queue
+QueueClient queueClient = new QueueClient(connectionString, queueName);
+
+// Create the queue
+await queueClient.CreateAsync();
 ```
 
-Para agregar un mensaje que no caduque, use `Timespan.FromSeconds(-1)` en la llamada a [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+### <a name="add-messages-to-a-queue"></a>Adición de mensajes a una cola
+
+El siguiente fragmento de código agrega de manera asincrónica mensajes a la cola mediante una llamada al método [SendMessageAsync](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync). También guarda una clase [SendReceipt](/dotnet/api/azure.storage.queues.models.sendreceipt) devuelta desde una llamada a `SendMessageAsync`. La confirmación se utiliza para actualizar el mensaje más adelante en el programa.
+
+Agregue este código al final del método `Main`:
 
 ```csharp
-await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
+Console.WriteLine("\nAdding messages to the queue...");
+
+// Send several messages to the queue
+await queueClient.SendMessageAsync("First message");
+await queueClient.SendMessageAsync("Second message");
+
+// Save the receipt so we can update this message later
+SendReceipt receipt = await queueClient.SendMessageAsync("Third message");
 ```
 
-### <a name="peek-a-message-from-the-queue"></a>Inspección de un mensaje de la cola
+### <a name="peek-at-messages-in-a-queue"></a>Lectura de los mensajes de una cola
 
-El ejemplo muestra cómo inspeccionar un mensaje de una cola. Al inspeccionar un mensaje, puede leer su contenido. Sin embargo, el mensaje permanece visible para otros clientes, de modo que otro cliente pueda recuperarlo y procesarlo posteriormente.
+Lea los mensajes de la cola llamando al método [PeekMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync). El método `PeekMessagesAsync` recupera uno o varios mensajes de la parte delantera de la cola, pero no modifica la visibilidad del mensaje.
+
+Agregue este código al final del método `Main`:
 
 ```csharp
-// Peek at the message at the front of the queue. Peeking does not alter the message's 
-// visibility, so that another client can still retrieve and process it. 
-CloudQueueMessage peekedMessage = await queue.PeekMessageAsync();
+Console.WriteLine("\nPeek at the messages in the queue...");
 
-// Display the ID and contents of the peeked message.
-Console.WriteLine("Contents of peeked message '{0}': {1}", peekedMessage.Id, peekedMessage.AsString);
-Console.WriteLine();
+// Peek at messages in the queue
+PeekedMessage[] peekedMessages = await queueClient.PeekMessagesAsync(maxMessages: 10);
+
+foreach (PeekedMessage peekedMessage in peekedMessages)
+{
+    // Display the message
+    Console.WriteLine($"Message: {peekedMessage.MessageText}");
+}
 ```
 
-### <a name="dequeue-a-message"></a>Quitar de la cola un mensaje
+### <a name="update-a-message-in-a-queue"></a>Eliminación de un mensaje de una cola
 
-En el ejemplo también se muestra cómo quitar un mensaje de la cola. Cuando un mensaje se quita de la cola, se recupera de la parte delantera y permanece temporalmente invisible para otros clientes. De forma predeterminada, un mensaje permanece invisible durante 30 segundos. Durante este tiempo, el código puede procesarlo. Para terminar de eliminar el mensaje de la cola, hágalo inmediatamente después del procesamiento, de modo que otro cliente no elimine de la cola el mismo mensaje.
-
-Si se produce un error en el código al procesar un mensaje debido a un error de hardware o de software, el mensaje se vuelve visible una vez que haya transcurrido el período de invisibilidad. Otro cliente puede recuperar el mismo mensaje e intentarlo de nuevo.
+Actualice el contenido de un mensaje mediante la llamada al método [UpdateMessageAsync](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync). El método `UpdateMessageAsync` puede cambiar el tiempo de espera de visibilidad y el contenido de un mensaje. El contenido del mensaje debe ser una cadena con codificación UTF-8 de hasta 64 KB de tamaño. Junto con el nuevo contenido del mensaje, pase los valores de `SendReceipt` que se guardó anteriormente en el código. Los valores `SendReceipt` identifican el mensaje que se va a actualizar.
 
 ```csharp
-// Retrieve the message at the front of the queue. The message becomes invisible for 
-// a specified interval, during which the client attempts to process it.
-CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
+Console.WriteLine("\nUpdating the third message in the queue...");
 
-// Display the time at which the message will become visible again if it is not deleted.
-Console.WriteLine("Message '{0}' becomes visible again at {1}", retrievedMessage.Id, retrievedMessage.NextVisibleTime);
-Console.WriteLine();
-
-//Process and delete the message within the period of invisibility.
-await queue.DeleteMessageAsync(retrievedMessage);
-Console.WriteLine("Processed and deleted message '{0}'", retrievedMessage.Id);
-Console.WriteLine();
+// Update a message using the saved receipt from sending the message
+await queueClient.UpdateMessageAsync(receipt.MessageId, receipt.PopReceipt, "Third message has been updated");
 ```
 
-### <a name="clean-up-resources"></a>Limpieza de recursos
+### <a name="receive-messages-from-a-queue"></a>mensajes de una cola
 
-En el ejemplo se limpian los recursos que se crearon al eliminar la cola. Al eliminar la cola, también se eliminan los mensajes que contenga.
+Descargue los mensajes agregados anteriormente mediante la llamada al método [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync).
+
+Agregue este código al final del método `Main`:
 
 ```csharp
-Console.WriteLine("Press any key to delete the sample queue.");
+Console.WriteLine("\nReceiving messages from the queue...");
+
+// Get messages from the queue
+QueueMessage[] messages = await queueClient.ReceiveMessagesAsync(maxMessages: 10);
+```
+
+### <a name="delete-messages-from-a-queue"></a>Eliminación de mensajes de una cola
+
+Elimine los mensajes de la cola una vez procesados. En este caso, el procesamiento solo muestra el mensaje en la consola.
+
+La aplicación se detiene para la entrada del usuario mediante una llamada a `Console.ReadLine` antes de procesar y eliminar los mensajes. Compruebe en [Azure Portal](https://portal.azure.com) que los recursos se crearon correctamente, antes de que se eliminen. Los mensajes que no se eliminen explícitamente volverán a estar visibles en la cola para que se procesen.
+
+Agregue este código al final del método `Main`:
+
+```csharp
+Console.WriteLine("\nPress Enter key to 'process' messages and delete them from the queue...");
 Console.ReadLine();
-Console.WriteLine("Deleting the queue and any messages it contains...");
-Console.WriteLine();
-if (queue != null)
+
+// Process and delete messages from the queue
+foreach (QueueMessage message in messages)
 {
-    await queue.DeleteIfExistsAsync();
+    // "Process" the message
+    Console.WriteLine($"Message: {message.MessageText}");
+
+    // Let the service know we're finished with
+    // the message and it can be safely deleted.
+    await queueClient.DeleteMessageAsync(message.MessageId, message.PopReceipt);
 }
 ```
 
-## <a name="resources-for-developing-net-applications-with-queues"></a>Recursos para el desarrollo de aplicaciones .NET con colas
+### <a name="delete-a-queue"></a>Eliminación de una cola
 
-Consulte estos recursos adicionales para el desarrollo de .NET con Azure Queues:
+El código siguiente limpia los recursos que creó la aplicación; para ello, elimina la cola mediante el método [DeleteAsync](/dotnet/api/azure.storage.queues.queueclient.deleteasync).
 
-### <a name="binaries-and-source-code"></a>Archivos binarios y código fuente
+Agregue este código al final del método `Main`:
 
-- Descargue los paquetes NuGet para la versión más reciente de la [Biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage/client)
-    - [Común](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-    - [Colas](https://www.nuget.org/packages/Azure.Storage.Queues/)
-- Vea el [código fuente de la biblioteca de cliente de .NET](https://github.com/Azure/azure-storage-net) en GitHub.
+```csharp
+Console.WriteLine("\nPress Enter key to delete the queue...");
+Console.ReadLine();
 
-### <a name="client-library-reference-and-samples"></a>Referencia a la biblioteca de clientes y ejemplos
+// Clean up
+Console.WriteLine($"Deleting queue: {queueClient.Name}");
+await queueClient.DeleteAsync();
 
-- Para más información acerca de la biblioteca de cliente de .NET, consulte la [referencia de la API de .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage).
-- Explore los [ejemplos de Queue Storage](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) escritos mediante la biblioteca cliente de .NET.
+Console.WriteLine("Done");
+```
+
+## <a name="run-the-code"></a>Ejecución del código
+
+Esta aplicación crea y agrega tres mensajes a una cola de Azure. El código muestra los mensajes en la cola y, a continuación, los recupera y los elimina antes de eliminar la cola.
+
+En la ventana de la consola, vaya al directorio de la aplicación y, después, compile y ejecute la aplicación.
+
+```console
+dotnet build
+```
+
+```console
+dotnet run
+```
+
+La salida de la aplicación es similar a la del ejemplo siguiente:
+
+```output
+Azure Queue storage v12 - .NET quickstart sample
+
+Creating queue: quickstartqueues-5c72da2c-30cc-4f09-b05c-a95d9da52af2
+
+Adding messages to the queue...
+
+Peek at the messages in the queue...
+Message: First message
+Message: Second message
+Message: Third message
+
+Updating the third message in the queue...
+
+Receiving messages from the queue...
+
+Press Enter key to 'process' messages and delete them from the queue...
+
+Message: First message
+Message: Second message
+Message: Third message has been updated
+
+Press Enter key to delete the queue...
+
+Deleting queue: quickstartqueues-5c72da2c-30cc-4f09-b05c-a95d9da52af2
+Done
+```
+
+Cuando la aplicación se detiene antes de recibir mensajes, compruebe la cuenta de almacenamiento en [Azure Portal](https://portal.azure.com). Compruebe que los mensajes están en la cola.
+
+Presione la tecla **Entrar** para recibir y eliminar los mensajes. Cuando se le solicite, presione de nuevo la tecla **Entrar** para eliminar la cola y finalizar la demostración.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha aprendido a agregar mensajes a una cola, a inspeccionar los mensajes de una cola y a quitar de la cola y a procesar los mensajes mediante. NET. 
+En este inicio rápido, ha aprendido a crear una cola y a agregarle mensajes mediante código .NET asincrónico. Después aprendió a ver, recuperar y eliminar mensajes. Por último, ha aprendido a eliminar una cola de mensajes.
+
+Para ver tutoriales, ejemplos, artículos de inicio rápido y otra documentación, visite:
 
 > [!div class="nextstepaction"]
-> [Comunicación entre las aplicaciones con Azure Queue storage](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [Azure para desarrolladores de .NET y .NET Core](https://docs.microsoft.com/dotnet/azure/)
 
-- Para más información sobre .NET Core, consulte [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/) (Introducción a .NET en 10 minutos).
+* Para más información, consulte [Bibliotecas de Azure Storage para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
+* Para ver más aplicaciones de ejemplo de Azure Queue Storage, continúe con los [ejemplos de la biblioteca cliente de Azure Queue Storage para .NET v12](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
+* Para más información sobre .NET Core, consulte [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/) (Introducción a .NET en 10 minutos).

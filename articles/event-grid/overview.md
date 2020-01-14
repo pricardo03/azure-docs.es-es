@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 9c79a6ba1a6b7b5582c6430c6de7a4a309bf4920
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: cfb9db7c78c57e74bfe44fe4ce1c3092e2bf3ca5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169846"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437302"
 ---
 # <a name="what-is-azure-event-grid"></a>¿Qué es Azure Event Grid?
 
@@ -50,7 +50,7 @@ Para obtener una información completa sobre las funcionalidades de cada origen,
 Para obtener una información completa sobre las funcionalidades de cada controlador, así como los artículos relacionados, consulte [controladores de eventos](event-handlers.md). Actualmente, los siguientes servicios de Azure admiten el control de eventos de Event Grid: 
 
 * [Azure Automation](event-handlers.md#azure-automation)
-* [Azure Functions](event-handlers.md#azure-functions)
+* [Funciones de Azure](event-handlers.md#azure-functions)
 * [Event Hubs](event-handlers.md#event-hubs)
 * [conexiones híbridas](event-handlers.md#hybrid-connections)
 * [Logic Apps](event-handlers.md#logic-apps)
@@ -82,7 +82,7 @@ Estas son algunas características clave de Azure Event Grid:
 * **Pago por evento**: pague solo por la cantidad utilizada en Event Grid.
 * **Alto rendimiento**: cree cargas de trabajo de gran volumen en Event Grid con soporte para millones de eventos por segundo.
 * **Eventos integrados**: desarrolle y ejecute rápidamente con eventos integrados definidos por el recurso.
-* **Eventos personalizados**: use la ruta, el filtrado y la entrega confiable de eventos personalizados de Event Grid en su aplicación.
+* **Eventos personalizados**: use Event Grid para enrutar, filtrar y entregar de forma confiable eventos personalizados en su aplicación.
 
 Para obtener una comparación de Event Grid, Event Hubs y Service Bus, vea [Choose between Azure services that deliver message](compare-messaging-services.md) (Elección entre servicios de Azure de envío mensajes).
 

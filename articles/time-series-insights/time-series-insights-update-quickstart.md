@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Explore el entorno de demostración de la versión preliminar de Azure Time Series Insights | Microsoft Docs'
-description: Para más información sobre los entornos de demostración de la versión preliminar de Azure Time Series Insights a través de una guía de inicio rápido.
+description: Exploración de las características clave del entorno de demostración de la versión preliminar de Azure Time Series Insights
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -9,13 +9,13 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 10/24/2019
-ms.openlocfilehash: 61d13831ff0d8810cfdce35f86a0402cb1679ad1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 12/20/2019
+ms.openlocfilehash: b97c8c51bc63fb0c1ff0070714e7393d11ea0dbf
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014754"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497449"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Inicio rápido: Exploración del entorno de demostración de la versión preliminar de Azure Time Series Insights
 
@@ -43,33 +43,33 @@ El explorador de Time Series Insights (versión preliminar) muestra datos histó
    1. Cambie el intervalo de la vista a **1/1/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)** .
    1. Para seleccionar el sensor, elija **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed**. Luego, revise los valores que se muestran.
 
-      [![W7 en Contoso Plant 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
+      [![W7 en Contoso Plant 1](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
 1. Recientemente, Contoso encontró un incendio en el **aerogenerador número 7**. Las opiniones sobre lo que ha provocado el fuego varían. En Time Series Insights, podemos ver que el sensor de alerta de incendio se activó durante el incendio.
 
    1. Cambie el intervalo de la vista a **3/9/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)** .
    1. Seleccione **Safety System** > **FireAlert**.
 
-      [![Contoso tuvo un incendio en la turbina eólica W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
+      [![Contoso tuvo un incendio en la turbina eólica W7](media/v2-update-quickstart/quick-start-fire-alert.png)](media/v2-update-quickstart/quick-start-fire-alert.png#lightbox)
 
 1. Revise otros eventos en el momento del incendio para comprender qué ha sucedido. Se proporcionaron advertencias de presión del aceite y advertencias activas justo antes del incendio.
 
    1. Seleccione **Pitch System** > **HydraulicOilPressure**.
    1. Seleccione **Pitch System** > **ActiveWarning**.
 
-      [![Revisión de otros eventos sucedidos aproximadamente al mismo tiempo](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
+      [![Revisión de otros eventos sucedidos aproximadamente al mismo tiempo](media/v2-update-quickstart/quick-start-active-warning.png)](media/v2-update-quickstart/quick-start-active-warning.png#lightbox)
 
 1. Se dieron advertencias de presión del aceite y advertencias activas justo antes del incendio. Expanda la serie temporal mostrada para ver otras señales que evidencien la causa del incendio. Ambos sensores fluctuaron sistemáticamente con el tiempo. Las fluctuaciones indican un patrón persistente y preocupante.
 
     * Cambie el intervalo de la vista a **2/24/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)** .
 
-      [![Sensores de presión del aceite y sensores de advertencia también activos](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
+      [![Sensores de presión del aceite y sensores de advertencia también activos](media/v2-update-quickstart/quick-start-view-range.png)](media/v2-update-quickstart/quick-start-view-range.png#lightbox)
 
 1. El examen de dos años de datos históricos revela otro incendio con las mismas fluctuaciones en los sensores.
 
     * Cambie el intervalo de la vista a **1/1/16 to 12/31/17** (todos los datos).
 
-      [![Búsqueda de patrones históricos](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
+      [![Búsqueda de patrones históricos](media/v2-update-quickstart/quick-start-expand-view-range.png)](media/v2-update-quickstart/quick-start-expand-view-range.png#lightbox)
 
 Con Time Series Insights y los datos de telemetría de los sensores, hemos descubierto una tendencia a largo plazo oculta en los datos históricos. Con estas nuevas conclusiones, se puede:
 
@@ -84,7 +84,7 @@ Con Time Series Insights y los datos de telemetría de los sensores, hemos descu
     1. Cambie el intervalo de la vista a **6/1/17 20:00:00.00 to 7/1/17 20:00:00.00 (UTC)** .
     1. Seleccione **Contoso Plant 1** > **W6** > **Safety System** > **VoltageActuatorSwitchWarning**.
 
-       [![Cambio del intervalo de la vista y selección de W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
+       [![Cambio del intervalo de la vista y selección de W6](media/v2-update-quickstart/quick-start-voltage-switch-warning.png)](media/v2-update-quickstart/quick-start-voltage-switch-warning.png#lightbox)
 
 1. La advertencia indica un problema con la tensión del generador. La potencia de salida general del generador se encuentra dentro de los parámetros normales en el intervalo actual. Al aumentar nuestro intervalo, vemos otro patrón. Se evidencia una caída.
 
@@ -92,20 +92,20 @@ Con Time Series Insights y los datos de telemetría de los sensores, hemos descu
     1. Seleccione **Generator System** > **ActivePower**.
     1. Cambie el intervalo a **3d**.
 
-       [![Cambio del intervalo a 3d](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
+       [![Cambio del intervalo a 3d](media/v2-update-quickstart/quick-start-interval-change.png)](media/v2-update-quickstart/quick-start-interval-change.png#lightbox)
 
 1. Si expande el intervalo de tiempo, podemos determinar si el problema se ha detenido o si continúa.
 
     * Amplíe el intervalo de tiempo a 60 días.
 
-      [![Ampliación del intervalo de tiempo a 60 días](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
+      [![Ampliación del intervalo de tiempo a 60 días](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
 1. Se pueden agregar otros puntos de datos de sensores para proporcionar un mayor contexto. Cuantos más sensores podamos ver, mayor será nuestra comprensión del problema. Coloquemos un marcador para ver los valores reales. 
 
     1. Seleccione **Generator System** y, luego, elija tres sensores: **GridVoltagePhase1**, **GridVoltagePhase2** y **GridVoltagePhase3**.
     1. Coloque un marcador en el último punto de datos en el área visible.
 
-       [![Eliminación de un marcador](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
+       [![Eliminación de un marcador](media/v2-update-quickstart/quick-start-drop-marker.png)](media/v2-update-quickstart/quick-start-drop-marker.png#lightbox)
 
     Dos de los sensores de voltaje están funcionando de forma comparable y dentro de los parámetros normales. Parece que el sensor **GridVoltagePhase3** es el culpable.
 
@@ -113,7 +113,7 @@ Con Time Series Insights y los datos de telemetría de los sensores, hemos descu
 
     * Cambie la pantalla para superponer todos los sensores de **Generator System** en la misma escala del gráfico.
 
-      [![Cambio de la pantalla para incluir todo](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+      [![Cambio de la pantalla para incluir todo](media/v2-update-quickstart/quick-start-generator-system.png)](media/v2-update-quickstart/quick-start-generator-system.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

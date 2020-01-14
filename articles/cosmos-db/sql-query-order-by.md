@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 14f61d14b59dca4bcf2e0f4b93e918f101a61833
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5cae2bdd7d1f2f26e626c81ea95d2cee3cc8ae13
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326851"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444785"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Cláusula ORDER BY en Azure Cosmos DB
 
@@ -45,11 +45,14 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   Especifica que los valores de la columna especificada se deben ordenar en orden ascendente o descendente. ASC ordena los valores de menor a mayor. DESC ordena los valores de mayor a menos. ASC es el criterio de ordenación predeterminado. Los valores null se tratan como valores mínimos.  
+   Indica que los valores de la columna especificada se deben ordenar en sentido ascendente o descendente. ASC ordena del valor mínimo al valor máximo. DESC ordena del valor máximo al valor mínimo. ASC es el criterio de ordenación predeterminado. Los valores NULL se tratan como los valores más bajos posibles.  
   
-## <a name="remarks"></a>Comentarios  
+## <a name="remarks"></a>Observaciones  
   
-   La cláusula ORDER BY requiere que la directiva de indexación incluya un índice para los campos que se ordenan. El tiempo de ejecución de consulta de Azure Cosmos DB admite la ordenación con un nombre de propiedad y no con las propiedades calculadas. Azure Cosmos DB admite varias propiedades de ORDER BY. Para ejecutar una consulta con varias propiedades de ORDER BY, debe definir un [índice compuesto](index-policy.md#composite-indexes) en los campos que se ordenan.
+   La cláusula ORDER BY requiere que la directiva de indexación incluya un índice para los campos que se ordenan. El tiempo de ejecución de consulta de Azure Cosmos DB admite la ordenación con un nombre de propiedad y no con las propiedades calculadas. Azure Cosmos DB admite varias propiedades de ORDER BY. Para ejecutar una consulta con varias propiedades ORDER BY, debe definir un [índice compuesto](index-policy.md#composite-indexes) en los campos que se ordenan.
+   
+> [!Note] 
+> Al usar el SDK de .NET 3.4.0 o una versión posterior, si es posible que las propiedades que se van a usar para ordenar no estén definidas en algunos documentos, debe crear explícitamente un índice en esas propiedades. La directiva de indexación predeterminada no permite la recuperación de los documentos en los que la propiedad de ordenación no está definida.
 
 ## <a name="examples"></a>Ejemplos
 

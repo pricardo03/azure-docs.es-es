@@ -1,5 +1,5 @@
 ---
-title: Introducción a Table API de Azure Cosmos DB mediante el SDK de .NET Standard
+title: Table API de Azure Cosmos DB con el SDK de .NET Standard
 description: Obtenga información acerca de cómo almacenar y consultar los datos estructurados en una cuenta de Table API de Azure Cosmos DB.
 author: wmengmsft
 ms.author: wmeng
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 12/03/2019
-ms.openlocfilehash: 0a1ba00d2d24664590f76438a90f651e0826d419
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7341d86e68986a2e502f714a4dcf1f882200d384
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870554"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441059"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introducción a Table API de Azure Cosmos DB y Azure Table Storage mediante el SDK de .NET
 
@@ -25,7 +25,7 @@ Table API de Azure Cosmos DB o Azure Table Storage se pueden usar para almacenar
 
 Este tutorial describe un ejemplo que muestra cómo usar [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) con escenarios de almacenamiento de Table API de Azure Cosmos DB y Azure Table Storage. Debe usar la conexión específica del servicio de Azure. Estos escenarios se describen mediante ejemplos de C# que ilustran cómo crear tablas, insertar y actualizar datos, consultar los datos y eliminar las tablas.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Necesitará lo siguiente para completar este ejemplo correctamente:
 
@@ -43,7 +43,7 @@ Necesitará lo siguiente para completar este ejemplo correctamente:
 
 En Visual Studio, cree una nueva aplicación de consola de .NET. Los siguientes pasos muestran cómo crear una aplicación de consola en Visual Studio 2019. Azure Cosmos DB Table Library se puede usar en cualquier tipo de aplicación. NET, incluidos cualquier servicio en la nube o aplicación web de Azure, y aplicaciones de escritorio o móviles. En esta guía, usamos una aplicación de consola para hacerlo más sencillo.
 
-1. Seleccione **Archivo** > **Nuevo** > **Proyecto**.
+1. Seleccione **File (Archivo)**  > **New (Nuevo)**  > **Project (Proyecto)** .
 
 1. Elija **Aplicación de consola (.NET Core)** y, a continuación, seleccione **Siguiente**.
 

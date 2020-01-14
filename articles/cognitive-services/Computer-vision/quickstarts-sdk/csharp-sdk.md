@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Biblioteca cliente de Computer Vision para .NET | Microsoft Docs'
-description: Introducción a la biblioteca cliente de Computer Vision para .NET.
+title: 'Inicio rápido: Biblioteca cliente de Computer Vision para .NET'
+description: En este inicio rápido, se muestra una introducción a la biblioteca cliente de Computer Vision para .NET.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 72c66241965db1264cb508ed1f8f4c76a07883be
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: aa162fb47eab84ff26af2256f8fe0ba9896b7cf0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974996"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448297"
 ---
 # <a name="quickstart-computer-vision-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de Computer Vision para .NET
 
@@ -27,7 +27,7 @@ Puede utilizar la biblioteca cliente de Computer Vision para .NET para:
 
 [Documentación de referencia](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [Ejemplos](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * La versión actual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -38,7 +38,7 @@ Puede utilizar la biblioteca cliente de Computer Vision para .NET para:
 
 Los servicios de Azure Cognitive Services se representan por medio de recursos de Azure a los que se suscribe. Cree un recurso para Computer Vision con [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) en la máquina local. También puede:
 
-* Obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/#decision) válida durante siete días de forma gratuita Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/#decision) válida durante siete días de forma gratuita. Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Ver el recurso en [Azure Portal](https://portal.azure.com/)
 
 Después de obtener una clave de la suscripción de evaluación o el recurso, [cree una variable de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la clave y la dirección URL del punto de conexión, denominadas `COMPUTER_VISION_SUBSCRIPTION_KEY` y `COMPUTER_VISION_ENDPOINT`, respectivamente.
@@ -91,7 +91,7 @@ Si usa el IDE de Visual Studio, la biblioteca cliente estará disponible como un
 
 Las siguientes clases e interfaces controlan algunas de las características principales del SDK de .NET para Computer Vision.
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) | Esta clase es necesaria para todas las funcionalidades de Computer Vision. Cree una instancia de ella con la información de suscripción y úsela para realizar la mayoría de las operaciones con imágenes.|
 |[ComputerVisionClientExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions?view=azure-dotnet)| Esta clase contiene métodos adicionales para **ComputerVisionClient**.|
@@ -141,7 +141,7 @@ Defina el nuevo método para el análisis de imágenes. Agregue el código sigui
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_visualfeatures)]
 
-### <a name="analyze"></a>Análisis
+### <a name="analyze"></a>Analizar
 
 El método **AnalyzeImageAsync** devuelve un objeto **ImageAnalysis** que contiene toda la información extraída.
 

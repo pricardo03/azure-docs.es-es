@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 11/15/2019
-ms.openlocfilehash: 95953b4f052531c9804024410e225bb0b5c62aef
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.date: 11/16/2019
+ms.openlocfilehash: de1366b1bf45301d3d26a4f721ef2828f79be98d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539182"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460646"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database
 
@@ -28,7 +28,7 @@ Las bases de datos únicas, bases de datos agrupadas en grupos elásticos y base
 - **Azure Event Hubs**: para integrar la telemetría de SQL Database con una solución de supervisión personalizada o canalizaciones activas.
 - **Azure Storage**: para archivar grandes cantidades de telemetría por una fracción del precio.
 
-    ![Arquitectura](./media/sql-database-metrics-diag-logging/architecture.png)
+    ![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
 Para más información sobre las métricas y las categorías de registro admitidas por los diversos servicios de Azure, consulte:
 
@@ -63,23 +63,24 @@ Puede configurar bases de datos de Azure SQL y bases de datos de instancia para 
 
 | Telemetría de supervisión de bases de datos | Compatibilidad con bases de datos únicas y bases de datos agrupadas | Compatibilidad de base de datos de instancia |
 | :------------------- | ----- | ----- |
-| [Métricas básicas](#basic-metrics): contiene el porcentaje de DTU/CPU, el límite de DTU/CPU, el porcentaje de lectura de datos físicos, el porcentaje de escritura en registro, las conexiones correctas, erróneas o bloqueadas por el firewall, el porcentaje de sesiones, el porcentaje de trabajo, el almacenamiento, el porcentaje de almacenamiento y el porcentaje de almacenamiento de XTP. | Sí | Sin |
-| [Instancia y aplicación avanzadas](#advanced-metrics):  contiene los datos de la base de datos y el tamaño de archivo de registro del sistema tempdb y el archivo de registro porcentual de tempdb usado. | Sí | Sin |
+| [Métricas básicas](#basic-metrics): contiene el porcentaje de DTU/CPU, el límite de DTU/CPU, el porcentaje de lectura de datos físicos, el porcentaje de escritura en registro, las conexiones correctas, erróneas o bloqueadas por el firewall, el porcentaje de sesiones, el porcentaje de trabajo, el almacenamiento, el porcentaje de almacenamiento y el porcentaje de almacenamiento de XTP. | Sí | No |
+| [Instancia y aplicación avanzadas](#advanced-metrics):  contiene los datos de la base de datos y el tamaño de archivo de registro del sistema tempdb y el archivo de registro porcentual de tempdb usado. | Sí | No |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): contiene la información sobre las estadísticas de tiempo de ejecución de consulta, como el uso de CPU y la duración de la consulta. | Sí | Sí |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): contiene la información sobre las estadísticas de espera de las consultas (el motivo de la espera de sus consultas), como CPU, LOG y LOCKING. | Sí | Sí |
 | [Errores](#errors-dataset): contiene información sobre los errores de SQL en una base de datos. | Sí | Sí |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): contiene la información sobre cuánto tiempo ha dedicado una base de datos a esperar distintos tipos de espera. | Sí | Sin |
-| [Tiempos de expiración](#time-outs-dataset): contiene información sobre los tiempos de expiración en una base de datos. | Sí | Sin |
-| [Bloqueos](#blockings-dataset): contiene información sobre los eventos de bloqueo en una base de datos. | Sí | Sin |
-| [Interbloqueos](#deadlocks-dataset): contiene información sobre los eventos de interbloqueo en una base de datos. | Sí | Sin |
-| [AutomaticTuning](#automatic-tuning-dataset): contiene información sobre las recomendaciones de ajuste automático para una base de datos. | Sí | Sin |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): contiene la información sobre cuánto tiempo ha dedicado una base de datos a esperar distintos tipos de espera. | Sí | No |
+| [Tiempos de expiración](#time-outs-dataset): contiene información sobre los tiempos de expiración en una base de datos. | Sí | No |
+| [Bloqueos](#blockings-dataset): contiene información sobre los eventos de bloqueo en una base de datos. | Sí | No |
+| [Interbloqueos](#deadlocks-dataset): contiene información sobre los eventos de interbloqueo en una base de datos. | Sí | No |
+| [AutomaticTuning](#automatic-tuning-dataset): contiene información sobre las recomendaciones de ajuste automático para una base de datos. | Sí | No |
 | [SQLInsights](#intelligent-insights-dataset): contiene Intelligent Insights sobre el rendimiento de una base de datos. Para obtener más información, consulte [Intelligent Insights](sql-database-intelligent-insights.md). | Sí | Sí |
 
 > [!IMPORTANT]
 > Los grupos elásticos y las instancias administradas tienen sus propios datos de telemetría de las bases de datos que contienen. Es importante tener esto en cuenta, porque la telemetría de diagnóstico se configura por separado para cada uno de estos recursos, tal y como se describe más adelante.
 
 > [!NOTE]
-> Para habilitar el streaming de registros de auditoría, vea [Configuración de la auditoría para su base de datos](sql-database-auditing.md#subheading-2) y [SQL Audit logs in Azure Log Analytics and Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242) (Registros de auditoría de SQL en Azure Log Analytics y Azure Event Hubs).
+> - Para habilitar el streaming de registros de auditoría, vea [Configuración de la auditoría para su base de datos](sql-database-auditing.md#subheading-2) y [SQL Audit logs in Azure Log Analytics and Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242) (Registros de auditoría de SQL en Azure Log Analytics y Azure Event Hubs).
+> - No se puede establecer la configuración de diagnóstico para las **bases de datos del sistema**, como las bases de datos maestra, msdb, modelo, de recursos y tempdb.
 
 ## <a name="azure-portal"></a>Portal de Azure
 
@@ -217,7 +218,7 @@ Para habilitar el streaming de datos de telemetría de diagnóstico para bases d
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
 
 Puede habilitar las métricas y los registros de diagnóstico con PowerShell.
 
@@ -270,7 +271,7 @@ Proporcione el identificador de recurso del área de trabajo \<$WSID\> como un p
 
    Reemplace \<subID\> por el identificador de suscripción, \<RG_NAME\> por el nombre del grupo de recursos y \<WS_NAME\> por el nombre del área de trabajo.
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Puede habilitar las métricas y los registros de diagnóstico con la CLI de Azure.
 
@@ -463,7 +464,7 @@ Los detalles de datos de telemetría disponibles para todos los registros se doc
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|type|Siempre: AzureDiagnostics |
+|Tipo|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: ResourceUsageStats |
 |Resource|Nombre del recurso |
@@ -488,7 +489,7 @@ Los detalles de datos de telemetría disponibles para todos los registros se doc
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|type|Siempre: AzureDiagnostics |
+|Tipo|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: QueryStoreRuntimeStatistics |
 |OperationName|Nombre de la operación. Siempre: QueryStoreRuntimeStatisticsEvent |
@@ -539,7 +540,7 @@ Obtenga más información sobre los [datos de estadísticas de tiempo de ejecuci
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|type|Siempre: AzureDiagnostics |
+|Tipo|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: QueryStoreWaitStatistics |
 |OperationName|Nombre de la operación. Siempre: QueryStoreWaitStatisticsEvent |
@@ -577,7 +578,7 @@ Obtenga más información sobre los [datos de estadísticas de espera del Almac�
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|type|Siempre: AzureDiagnostics |
+|Tipo|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: Errors |
 |OperationName|Nombre de la operación. Siempre: ErrorEvent |
@@ -606,7 +607,7 @@ Obtenga más información sobre [mensajes de error de SQL Server](https://docs.m
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|type|Siempre: AzureDiagnostics |
+|Tipo|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: DatabaseWaitStatistics |
 |OperationName|Nombre de la operación. Siempre: DatabaseWaitStatisticsEvent |
@@ -635,7 +636,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|type|Siempre: AzureDiagnostics |
+|Tipo|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: Tiempos de expiración |
 |OperationName|Nombre de la operación. Siempre: TimeoutEvent |
@@ -658,7 +659,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|type|Siempre: AzureDiagnostics |
+|Tipo|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: Blocks |
 |OperationName|Nombre de la operación. Siempre: BlockEvent |
@@ -682,7 +683,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC] |Marca de tiempo de cuándo se registró el registro |
-|type|Siempre: AzureDiagnostics |
+|Tipo|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: Interbloqueos |
 |OperationName|Nombre de la operación. Siempre: DeadlockEvent |
@@ -703,7 +704,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|type|Siempre: AzureDiagnostics |
+|Tipo|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: AutomaticTuning |
 |Resource|Nombre del recurso |

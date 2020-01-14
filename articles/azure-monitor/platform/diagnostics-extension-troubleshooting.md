@@ -4,15 +4,15 @@ description: Solucione problemas al utilizar Diagnostics de instancias de Azure 
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: 0a6322edccc2047ffd9d67e4e3ed113e668898da
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: facd52ea1fdaa2ad30d6b1544cb1f2d6d5833bfa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834690"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450555"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solución de problemas de Azure Diagnostics
 En este artículo se proporciona información para la solución de problemas relacionados con el uso de Azure Diagnostics. Para obtener información sobre Azure Diagnostics, consulte la [introducción a Azure Diagnostics](diagnostics-extension-overview.md).
@@ -55,7 +55,7 @@ Azure Diagnostics proporciona una serie de datos métricos, que se pueden mostra
 
 En este caso, el elemento **PartitionKey** de la tabla se compone del id. de recursos, la máquina virtual o el conjunto de escalado de máquinas virtuales. **RowKey** es el nombre de la métrica (también conocido como el nombre del contador de rendimiento).
 
-Si el identificador de recursos es incorrecto, compruebe la opción **Diagnósticos** **Configuración** > **Métricas** > **id. de recursos** para ver si el identificador de recursos está configurado correctamente.
+Si el identificador del recurso es incorrecto, compruebe la opción **Diagnóstico** **Configuración** > **Métricas** > **ResourceId** para ver si el identificador del recurso está bien definido.
 
 Si no hay ningún dato para la métrica específica, compruebe la opción **Configuración de diagnóstico** > **Contador de rendimiento** para ver si se incluye la métrica (el contador de rendimiento). Los siguientes contadores se habilitan de forma predeterminada:
 - Procesador(_Total)\% Hora del procesador
@@ -206,7 +206,7 @@ Este es un ejemplo:
 ```
 Este código genera cuatro tablas:
 
-| Evento | Nombre de tabla |
+| Evento | Nombre de la tabla |
 | --- | --- |
 | proveedor="prov1" &lt;Id. de evento="1" /&gt; |WADEvent+MD5("prov1")+"1" |
 | proveedor ="prov1" &lt;ID. de evento="2" eventDestination="dest1" /&gt; |WADdest1 |
@@ -229,9 +229,9 @@ En cuanto al rol de servicio en la nube, si elige la configuración del disco, l
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Códigos de salida del complemento Azure Diagnostics
 El complemento devuelve los siguientes códigos de salida:
 
-| Código de salida | DESCRIPCIÓN |
+| Código de salida | Descripción |
 | --- | --- |
-| 0 |Correcta. |
+| 0 |Correcto. |
 | -1 |Error genérico. |
 | -2 |No se puede cargar el archivo rcf.<p>Este error interno solo debería ocurrir si el iniciador del complemento del agente invitado se invoca manualmente de forma incorrecta en la máquina virtual. |
 | -3 |No se puede cargar el archivo de configuración de Diagnósticos.<p><p>Solución: Esto se debe a que un archivo de configuración no supera la validación del esquema. La solución es proporcionar un archivo de configuración que cumpla el esquema. |

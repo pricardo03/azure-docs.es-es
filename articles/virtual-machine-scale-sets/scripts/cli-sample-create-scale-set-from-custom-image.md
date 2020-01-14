@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplos de la CLI de Azure: uso de imágenes de máquina virtual personalizadas | Microsoft Docs'
-description: Ejemplos de la CLI de Azure
+title: 'Ejemplos de la CLI de Azure: Uso de imágenes de máquina virtual personalizadas'
+description: Este script crea un conjunto de escalado de máquinas virtuales que utiliza una imagen de máquina virtual personalizada como origen para las instancias de máquina virtual.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 637a2e48ca95b5d1a456f9a48f7c8e9008b1d14d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: e26f246de536bbd817bdeb54e5e02655c2aad9c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697749"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351074"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli"></a>Creación de un conjunto de escalado de máquinas virtuales a partir de una imagen de máquina virtual personalizada con la CLI de Azure
 Este script crea un conjunto de escalado de máquinas virtuales que utiliza una imagen de máquina virtual personalizada como origen para las instancias de máquina virtual.

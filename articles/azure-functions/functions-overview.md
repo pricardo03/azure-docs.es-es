@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 10/03/2017
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 28a2732965ee0a19f69dcd0fc2cd7705cb5f94a1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7208825581a0bf16f6ee3a3947387b01abfd16d0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230431"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433066"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Introducción a Azure Functions  
 Azure Functions es una solución para ejecutar fácilmente pequeños fragmentos de código, o "funciones", en la nube. Simplemente, puede escribir el código que necesita para el problema en cuestión, sin preocuparse de toda la aplicación o la infraestructura para ejecutarlo. Con Functions, puede conseguir que el desarrollo sea aún más productivo y, además, le permite usar el lenguaje de desarrollo que prefiera, como C#, Java, JavaScript, PowerShell y Python. Pague solo el tiempo durante el que se ejecuta el código y confíe en Azure para escalar según sea necesario. Azure Functions permite desarrollar aplicaciones [sin servidor](https://azure.microsoft.com/solutions/serverless/) en Microsoft Azure.
@@ -61,7 +61,8 @@ Azure Functions se integra con diversos servicios de Azure y de terceros. Dichos
 ## <a name="pricing"></a>¿Cuánto cuesta Funciones de Azure?
 Azure Functions tiene dos tipos de planes de precios. Elija la que mejor se adapte a sus necesidades: 
 
-* **Plan de Consumo**: cuando se ejecuta la función, Azure proporciona todos los recursos informáticos necesarios. No tiene que preocuparse de la administración de recursos y solo paga por el tiempo que haya empleado ejecutando el código. 
+* **Plan de Consumo**: cuando se ejecuta la función, Azure proporciona todos los recursos informáticos necesarios. No tiene que preocuparse de la administración de recursos y solo paga por el tiempo que haya empleado ejecutando el código.
+* **Plan Prémium**: especifique un número de instancias activadas previamente que siempre están en línea y preparadas para responder de inmediato. Cuando se ejecuta la función, Azure proporciona todos los recursos informáticos adicionales que sean necesarios. Se paga tanto por las instancias activadas previamente que se ejecutan de forma continua como por todas las instancias adicionales que se usen cuando Azure reduce y escala horizontalmente la aplicación.
 * **Plan de App Service**: se ejecutan las funciones igual que aplicaciones web. Cuando ya se usa App Service para las otras aplicaciones, las funciones pueden ejecutarse en el mismo plan sin costo adicional. 
 
 Para más información sobre planes de hospedaje, vea [Comparación de los planes de hospedaje de Azure Functions](functions-scale.md). Puede encontrar todos los detalles de precios en la [página de Precios de Funciones](https://azure.microsoft.com/pricing/details/functions/).

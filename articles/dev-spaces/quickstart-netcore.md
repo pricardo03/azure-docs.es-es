@@ -3,15 +3,15 @@ title: 'Depuración e iteración en Kubernetes: Visual Studio Code y .NET Core
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, malla de servicio, enrutamiento de malla de servicio, kubectl, k8s
+description: En este inicio rápido se muestra cómo usar Azure Dev Spaces y Visual Studio Code para depurar e iterar rápidamente una aplicación .NET Core en Azure Kubernetes Service
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 278ec0683a7ddb3c41f724e06e8ca291d18e3bad
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: a9a750e239dd47ce85b6075c65c644258134ba52
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325599"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438236"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Inicio rápido: Depuración e iteración en Kubernetes: Visual Studio Code y .NET Core: Azure Dev Spaces
 
@@ -26,9 +26,9 @@ Azure Dev Spaces también permite depurar e iterar mediante:
 - [Node.js y Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core y Visual Studio](quickstart-netcore-visualstudio.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Una suscripción de Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
+- Suscripción a Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
 - [Tener Visual Studio Code instalado](https://code.visualstudio.com/download).
 - Tener las extensiones de [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) y [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) para Visual Studio Code instalada.
 - [La CLI de Azure instalada](/cli/azure/install-azure-cli?view=azure-cli-latest).

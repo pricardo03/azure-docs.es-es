@@ -3,12 +3,12 @@ title: Habilitación automática de la copia de seguridad al crear máquinas vir
 description: Un artículo en el que se describe cómo usar Azure Policy para habilitar automáticamente la copia de seguridad de todas las máquinas virtuales creadas en un ámbito determinado
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: ea3c0d217c8495078e91e171caef695bb32d129b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7a3b526d654936d4e7ec89127a9074146c1b0179
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979945"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450133"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Habilitación automática de la copia de seguridad al crear máquinas virtuales mediante Azure Policy
 
@@ -25,6 +25,8 @@ Actualmente, Azure Backup proporciona una directiva integrada (mediante Azure Po
 * El almacén especificado y las máquinas virtuales configuradas para la copia de seguridad pueden pertenecer a distintos grupos de recursos.
 
 * Actualmente no se admite el ámbito del grupo de administración.
+
+* La directiva integrada no está disponible actualmente en nubes nacionales.
 
 ## <a name="using-the-built-in-policy"></a>Uso de la directiva integrada
 

@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Uso de temas y suscripciones de Azure Service Bus con Node.js'
+title: Uso de temas y suscripciones de Service Bus con el paquete azure/services-bus de Node.js
 description: 'Inicio rápido: Aprenda a usar los temas y las suscripciones de Service Bus en Azure desde una aplicación Node.js.'
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 80ca9589e7181518874dc26a9a42b57774f60498
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 3955b67bd0fd40eb903543a240795ed8bc36b3b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561572"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462118"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Inicio rápido: Uso de los temas y las suscripciones de Service Bus con Node.js y el paquete azure-sb
 > [!div class="op_multi_selector" title1="Lenguaje de programación" title2="Paquete Node.js"]
@@ -40,9 +40,9 @@ Los escenarios que se explican aquí incluyen:
 
 Para más información sobre los temas y las suscripciones, consulte la sección [Pasos siguientes](#next-steps).
 
-## <a name="prerequisites"></a>Requisitos previos
-- Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Siga los pasos del [Inicio rápido: Use Azure Portal para crear un tema de Service Bus y suscripciones a dicho tema](service-bus-quickstart-topics-subscriptions-portal.md) para crear un **espacio de nombres** de Service Bus y obtener la **cadena de conexión**.
+## <a name="prerequisites"></a>Prerequisites
+- Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Siga los pasos de [Inicio rápido: Uso de Azure Portal para crear un tema de Service Bus y suscripciones a dicho tema](service-bus-quickstart-topics-subscriptions-portal.md) para crear un **espacio de nombres** de Service Bus y obtener la **cadena de conexión**.
 
     > [!NOTE]
     > En este inicio rápido, creará un **tema** y una **suscripción** al tema mediante **Node.js**. 

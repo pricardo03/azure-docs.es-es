@@ -3,14 +3,14 @@ title: 'Ejecución de varios servicios dependientes: .NET Core y Visual Studio C
 services: azure-dev-spaces
 ms.date: 11/21/2018
 ms.topic: tutorial
-description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
+description: En este tutorial se muestra cómo usar Azure Dev Spaces y Visual Studio Code para depurar una aplicación .NET Core multiservicio en Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
-ms.openlocfilehash: 453cf1fdf2d37817d12ec32f2cba00b3671b1d11
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 0bbb1aefe517c45207160b83b89f7207e8909666
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325680"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438315"
 ---
 # <a name="running-multiple-dependent-services-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Ejecución de varios servicios dependientes: .NET Core y Visual Studio Code con Azure Dev Spaces
 

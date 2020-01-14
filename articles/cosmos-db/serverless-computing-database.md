@@ -1,17 +1,17 @@
 ---
-title: 'Informática de base de datos sin servidor: Azure Functions y Azure Cosmos DB'
+title: Informática de base de datos sin servidor con Azure Cosmos DB y Azure Functions
 description: Obtenga información sobre cómo Azure Cosmos DB y Azure Functions se pueden usar en conjunto para crear aplicaciones informáticas sin servidor basadas en eventos.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: e1014c710d892e45f09999db22b1f59c0bb36300
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4ae2cc33275702a0d549f4e994a597614191b3e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614587"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444873"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Informática de base de datos sin servidor con Azure Cosmos DB y Azure Functions
 
@@ -106,7 +106,7 @@ En implementaciones de venta minorista, cuando un usuario agrega un elemento a s
 
 En todos estos casos de uso, como la función desacopló la aplicación misma, no es necesario iniciar instancias de aplicación nuevas todo el tiempo. En lugar de eso, Azure Functions inicia funciones individuales para completar los procesos discretos según sea necesario.
 
-## <a name="tooling"></a>Herramientas
+## <a name="tooling"></a>Tooling
 
 La integración nativa entre Azure Cosmos DB y Azure Functions está disponible en Azure Portal y en Visual Studio 2019.
 

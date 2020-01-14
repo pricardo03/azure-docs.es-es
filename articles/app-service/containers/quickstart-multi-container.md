@@ -7,16 +7,19 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 0fdba3afe7e0977496af105e39fb5d7e657df2f0
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 4a0207299b480136e8054fbe3d4579dd98f45267
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687525"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430548"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Creación de una aplicación de varios contenedores (versión preliminar) mediante una configuración de Docker Compose
 
-[Web App for Containers](app-service-linux-intro.md) proporciona una manera flexible de utilizar imágenes de Docker. Esta guía de inicio rápido muestra cómo implementar una aplicación de varios contenedores en Web App for Containers con [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) mediante una configuración de Docker Compose.
+> [!NOTE]
+> La aplicación de varios contenedores está en versión preliminar.
+
+[Web App for Containers](app-service-linux-intro.md) proporciona una manera flexible de utilizar imágenes de Docker. En este inicio rápido se muestra cómo implementar una aplicación de varios contenedores (versión preliminar) en Web App for Containers en [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) mediante una configuración de Docker Compose.
 
 Completará esta guía de inicio rápido en Cloud Shell, pero también puede ejecutar estos comandos localmente con la [CLI de Azure](/cli/azure/install-azure-cli) (2.0.32 o posterior). 
 
@@ -133,7 +136,7 @@ Vaya a la aplicación implementada en (`http://<app_name>.azurewebsites.net`). L
 > [Tutorial: Aplicación de WordPress con varios contenedores](tutorial-multi-container-app.md)
 
 > [!div class="nextstepaction"]
-> [Configure a custom container](configure-custom-container.md) (Configuración de un contenedor personalizado)
+> [Configurar un contenedor personalizado](configure-custom-container.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

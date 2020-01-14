@@ -1,27 +1,27 @@
 ---
-title: 'Inicio rápido: Creación de una aplicación de Python que use Azure Cache for Redis'
+title: 'Inicio rápido: Creación de una aplicación de Python (Azure Cache for Redis)'
 description: En este tutorial, aprenderá a crear una aplicación de Python que usa Azure Cache for Redis.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: yegu
 ms.custom:
 - mvc
 - seo-python-october2019
-ms.openlocfilehash: 1ac1767d1ac3f6333d73a1e1c66ff7250942d266
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.date: 11/05/2019
+ms.openlocfilehash: 7b05f12ad3fd3a0f56605d708bbbf06df7e341ed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122665"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433467"
 ---
 # <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>Inicio rápido: Creación de una aplicación de Python que use Azure Cache for Redis
 
 En este artículo incorporará Azure Cache for Redis en una aplicación de Python para acceder a una caché dedicada y segura, a la que se puede acceder desde cualquier aplicación de Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [Python 2 o 3](https://www.python.org/downloads/)

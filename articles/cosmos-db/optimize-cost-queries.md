@@ -1,17 +1,17 @@
 ---
-title: Optimización de las unidades de solicitud y del costo de ejecución de consultas en Azure Cosmos DB
+title: Optimización del costo y las RU/s para ejecutar consultas en Azure Cosmos DB
 description: Aprenda a evaluar los cargos por las unidades de solicitud y a optimizar la consulta en términos de rendimiento y costo.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 376c1a32a70951448b35a4c02022719229a3aad2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753305"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445127"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optimización de los costos de consulta de Azure Cosmos DB
 
@@ -104,11 +104,11 @@ Al optimizar el costo de las consultas, considere los siguientes procedimientos 
 A continuación, puede seguir obteniendo más información sobre la optimización de costos en Azure Cosmos DB con los siguientes artículos:
 
 * Sobre los [precios de Azure Cosmos DB](how-pricing-works.md)
-* Sobre la [optimización para desarrollo y pruebas](optimize-dev-test.md)
+* Obtenga más información sobre la [optimización para desarrollo y pruebas](optimize-dev-test.md).
 * Obtenga más información sobre [la factura de Azure Cosmos DB](understand-your-bill.md).
 * Obtenga más información sobre la [optimización del costo de la capacidad del rendimiento](optimize-cost-throughput.md).
 * Obtenga más información sobre la [optimización del costo del almacenamiento](optimize-cost-storage.md).
-* Sobre la [Optimización del costo de la lectura y la escritura](optimize-cost-reads-writes.md)
-* Sobre la [optimización del costo de las cuentas de Azure Cosmos de varias regiones](optimize-cost-regions.md)
+* Obtenga más información sobre la [optimización del costo de la lectura y la escritura](optimize-cost-reads-writes.md).
+* Obtenga más información sobre la [optimización del costo de las cuentas de Azure Cosmos de varias regiones](optimize-cost-regions.md).
 * Sobre la [capacidad reservada de Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 

@@ -1,19 +1,19 @@
 ---
-title: 'Creación de un espacio de desarrollo de Kubernetes: Visual Studio Code y Java'
+title: 'Creación de un espacio de desarrollo de Kubernetes: Visual Studio Code y Java'
 services: azure-dev-spaces
 author: stepro
 ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
+description: En este tutorial se muestra cómo usar Azure Dev Spaces y Visual Studio Code para depurar e iterar rápidamente una aplicación Java en Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 5888547939759984effb10aa2c7c6b2add135d12
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: fcfbdfb371f50601bf1f58bceab51d4299f2847a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708392"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438602"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Creación de un espacio de desarrollo de Kubernetes: Visual Studio Code y Java con Azure Dev Spaces
 
@@ -203,7 +203,7 @@ De forma similar al comando `up`, el código se sincroniza con el espacio de des
 
 Establezca un punto de interrupción en un archivo de código del lado servidor, por ejemplo en la función `greeting()` del archivo de origen `src/main/java/com/ms/sample/webfrontend/Application.java`. Al actualizar la página del navegador, el punto de interrupción se activa.
 
-Tiene acceso completo a la información de depuración, tal como lo haría si el código se ejecutara localmente, como la pila de llamadas, las variables locales o la información de excepción, por ejemplo.
+Tiene acceso completo a la información de depuración, igual que si el código se ejecutara localmente, como la pila de llamadas, las variables locales o la información de excepción, por ejemplo.
 
 ### <a name="edit-code-and-refresh"></a>Edición del código y actualización
 Con el depurador activo, realice una edición del código. Por ejemplo, modifique el saludo en `src/main/java/com/ms/sample/webfrontend/Application.java`. 

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: c6b52585200db07ebc2e15f509b1def55dff5caf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dd6eec34a1f1bd59aed397111e31048196e1e9c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839943"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427718"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Inicio rápido: Creación del primer experimento de ciencia de datos en Azure Machine Learning Studio (clásico)
 
@@ -45,7 +45,7 @@ En este inicio rápido se sigue el flujo de trabajo predeterminado para un exper
 ## <a name="get-the-data"></a>Obtener los datos
 
 Lo primero que necesita en el aprendizaje automático son datos.
-La versión clásica de Studio incluye varios conjuntos de datos que puede usar, pero también puede importarlos de muchos orígenes. En este ejemplo, usaremos el conjunto de datos de ejemplo, **Automobile price data (Raw)** , que se incluye en el área de trabajo.
+En Studio (versión clásica) hay varios conjuntos de datos que puede usar; otra opción es importarlos de diversos orígenes. En este ejemplo, usaremos el conjunto de datos de ejemplo, **Automobile price data (Raw)** , que se incluye en el área de trabajo.
 Este conjunto de datos incluye entradas para diversos automóviles individuales, por ejemplo, información sobre la marca, el modelo, las especificaciones técnicas y el precio.
 
 > [!TIP]
@@ -111,7 +111,7 @@ Primero, se agrega un módulo que quita completamente la columna **normalized-lo
 
      ![Hacer doble clic en un módulo para agregar un comentario](./media/create-experiment/add-comment.png)
 
-1. Arrastre el módulo [Clean Missing Data][clean-missing-data] al lienzo del experimento y conéctelo con el módulo [Select Columns in Dataset][select-columns]. En el panel **Propiedades**, seleccione **Remove entire row** (Quitar la fila entera) en **Cleaning mode** (Modo de limpieza). Estas opciones indican a [Clean Missing Data][clean-missing-data] (Limpiar datos que faltan) que limpie los datos quitando las filas con valores que faltan. Haga doble clic en el módulo y escriba el comentario "Quitar las filas sin valor".
+1. Arrastre el módulo [Clean Missing Data][clean-missing-data] al lienzo del experimento y conéctelo con el módulo [Select Columns in Dataset][select-columns]. En el panel **Propiedades**, seleccione **Remove entire row** (Quitar la fila entera) en **Cleaning mode** (Modo de limpieza). Estas opciones indican a [Clean Missing Data][clean-missing-data] (Limpiar los datos que faltan) que limpie los datos quitando las filas con valores que faltan. Haga doble clic en el módulo y escriba el comentario "Quitar las filas sin valor".
 
     ![Establecimiento del modo de limpieza en Remove entire row (Quitar la fila entera) para el módulo Clean Missing Data (Limpiar los datos que faltan)](./media/create-experiment/set-remove-entire-row.png)
 

@@ -1,29 +1,30 @@
 ---
-title: Transmisión de los registros de recurso de Azure a un centro de eventos
+title: Transmisión de registros de plataforma de Azure a un centro de eventos
 description: Aprenda a transmitir los registros de recurso de Azure a un centro de eventos para enviar datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 680570c5102f656b2b2d2e05f9e08f51fe892f44
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: b8e244dc00b4ed61a802f5c9f39149a7c020768a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304953"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530840"
 ---
-# <a name="stream-azure-resource-logs-to-azure-event-hubs"></a>Transmisión de los registros de recurso de Azure a Azure Event Hubs
-Los [registros de recurso](resource-logs-overview.md) en Azure proporcionan datos exhaustivos y frecuentes acerca del funcionamiento interno de un recurso de Azure. En este artículo se describe la transmisión de los registros de recurso a Event Hubs para enviar datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros.
+# <a name="stream-azure-platform-logs-to-azure-event-hubs"></a>Transmisión de registros de plataforma de Azure a Azure Event Hubs
+Los [registros de plataforma](resource-logs-overview.md) en Azure, incluidos los registros de recurso y los registros de actividad de Azure, proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma de Azure de la que dependen.  En este artículo se describe la transmisión de los registros de plataforma a Event Hubs para enviar datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros.
 
 
-## <a name="what-you-can-do-with-resource-logs-sent-to-an-event-hub"></a>Qué se puede hacer con los registros de recurso enviados a un centro de eventos
-Transmita los registros de recurso de Azure a centros de eventos para proporcionar la siguiente funcionalidad:
+## <a name="what-you-can-do-with-platform-logs-sent-to-an-event-hub"></a>Qué se puede hacer con los registros de plataforma enviados a un centro de eventos
+Transmita los registros de plataforma de Azure a centros de eventos para proporcionar la siguiente funcionalidad:
 
-* **Transmisión de registros a sistemas de registro y telemetría de terceros**: transmita todos los registros de recurso a un centro de eventos único para canalizar datos de registro en una herramienta SIEM o de análisis de registros de terceros.
-* **Creación de una plataforma de registro y telemetría personalizada**: la naturaleza altamente escalable de publicación y suscripción de los centros de eventos otorga la flexibilidad necesaria para ingerir registros de recurso en una plataforma de telemetría personalizada. Consulte [Designing and Sizing a Global Scale Telemetry Platform on Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) (Diseño y cambio de tamaño de una plataforma de telemetría a escala global en Azure Event Hubs) para más información.
+* **Transmisión de registros a sistemas de registro y telemetría de terceros**: transmita todos los registros de plataforma a un centro de eventos único para canalizar datos de registro en una herramienta SIEM o de análisis de registros de terceros.
+  
+* **Creación de una plataforma de registro y telemetría personalizada**: la naturaleza altamente escalable de publicación y suscripción de los centros de eventos otorga la flexibilidad necesaria para ingerir registros de plataforma en una plataforma de telemetría personalizada. Consulte [Designing and Sizing a Global Scale Telemetry Platform on Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) (Diseño y cambio de tamaño de una plataforma de telemetría a escala global en Azure Event Hubs) para más información.
 
 * **Visualización del estado del servicio mediante la transmisión de datos a Power BI**: con Event Hubs, Stream Analytics y Power BI, transforme los datos de diagnóstico en información casi en tiempo real de los servicios de Azure. Consulte [Stream Analytics y Power BI: panel de análisis en tiempo real de flujo de datos](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para detalles sobre esta solución.
 
@@ -39,25 +40,24 @@ Transmita los registros de recurso de Azure a centros de eventos para proporcion
     CROSS APPLY GetArrayElements(e.records) AS records
     ```
 
-## <a name="prerequisites"></a>Requisitos previos
-Si no lo tiene, [cree un centro de eventos](../../event-hubs/event-hubs-create.md). Si anteriormente transmitió los registros de recurso a este espacio de nombres de Event Hubs, se reutilizará ese centro de eventos.
+## <a name="prerequisites"></a>Prerequisites
+Si no lo tiene, [cree un centro de eventos](../../event-hubs/event-hubs-create.md). Si ya tiene una configuración de diagnóstico que usa este espacio de nombres de Event Hubs, se volverá a usar el centro de eventos.
 
 La directiva de acceso compartido del espacio de nombres define los permisos que tiene el mecanismo de transmisión. Para transmitir a Event Hubs, se necesitan permisos de administración, envío y escucha. Puede crear o modificar directivas de acceso compartido en la pestaña Configurar de Azure Portal para su espacio de nombres de Event Hubs.
 
 Para actualizar la configuración de diagnóstico para incluir la transmisión, debe tener el permiso ListKey sobre esa regla de autorización de Event Hubs. El espacio de nombres de Event Hubs no tiene que estar necesariamente en la misma suscripción que la suscripción que emite los registros, siempre que el usuario que configure el valor tenga el acceso RBAC adecuado a ambas suscripciones y estas se encuentren en el mismo inquilino de AAD.
 
 ## <a name="create-a-diagnostic-setting"></a>Creación de una configuración de diagnóstico
-Los registros de recurso no se recopilan de forma predeterminada. Envíelos a un centro de eventos y otros destinos mediante la creación de una configuración de diagnóstico para un recurso de Azure. Consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](diagnostic-settings.md) para más información.
+Envíe los registros de plataforma a un centro de eventos y otros destinos mediante la creación de una configuración de diagnóstico para un recurso de Azure. Consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](diagnostic-settings.md) para más información.
 
-## <a name="stream-data-from-compute-resources"></a>Transmisión de datos desde recursos de proceso
-El proceso de este artículo está destinado a los recursos que no son de proceso, tal como se describe en la [introducción a los registros de recurso de Azure](diagnostic-settings.md).
-Transmita registros de recurso desde recursos de proceso de Azure mediante el agente de Windows Azure Diagnostics. Consulte [Transmisión de datos de Azure Diagnostics en la ruta de acceso activa mediante Event Hubs](diagnostics-extension-stream-event-hubs.md) para más detalles.
+## <a name="collect-data-from-compute-resources"></a>Recopilación de datos desde recursos de proceso
+La configuración de diagnóstico recopilará los registros de recursos para los recursos de proceso de Azure, como cualquier otro recurso, pero no su sistema operativo invitado o sus cargas de trabajo. Para recopilar estos datos, instale el [agente de Log Analytics](log-analytics-agent.md). 
 
 
 ## <a name="consuming-log-data-from-event-hubs"></a>Consumo de los datos de registro desde los centros de eventos
-Al consumir registros de recurso desde centros de eventos, tendrán formato JSON con los elementos de la tabla siguiente.
+Los registros de plataforma de los centros de eventos se consumen en formato JSON con los elementos de la tabla siguiente.
 
-| Nombre del elemento | DESCRIPCIÓN |
+| Nombre del elemento | Descripción |
 | --- | --- |
 | records |Matriz de todos los eventos de registro de esta carga. |
 | time |Hora a la que se produjo el error. |
@@ -68,7 +68,7 @@ Al consumir registros de recurso desde centros de eventos, tendrán formato JSON
 | properties |Propiedades del evento. Estas varían para cada servicio de Azure, tal y como se describe en [](). |
 
 
-A continuación se muestran datos de salida de ejemplo de Event Hubs:
+A continuación se muestran datos de salida de ejemplo de Event Hubs para un registro de recursos:
 
 ```json
 {
@@ -135,7 +135,8 @@ A continuación se muestran datos de salida de ejemplo de Event Hubs:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Más información sobre los registros de recurso](resource-logs-overview.md).
+* [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](diagnostic-settings.md).
 * [Transmisión de registros de Azure Active Directory con Azure Monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
-* [Más información sobre los registros de recurso de Azure](resource-logs-overview.md).
 * [Introducción a Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 

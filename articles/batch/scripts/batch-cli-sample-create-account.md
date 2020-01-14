@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplo de script de la CLI de Azure: creación de una cuenta en Batch - servicio de Batch | Microsoft Docs'
-description: 'Ejemplo de script de la CLI de Azure: creación de una cuenta en Batch en modo de servicio de Batch'
+title: 'Ejemplo de script de la CLI de Azure: creación de una cuenta en Batch (servicio Batch)'
+description: Este script crea una cuenta de Azure Batch en modo de servicio de Batch y muestra cómo se pueden consultar o actualizar las distintas propiedades de la cuenta.
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: lahugh
-ms.openlocfilehash: 038cea1aa8d72d46d028873fb4be19887b83d787
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: ee733b492e1d89c58336003bcb4be72f79b9e403
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322225"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449734"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>Ejemplo de la CLI: Creación de una cuenta de Batch en modo de servicio de Batch
 

@@ -13,20 +13,28 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2019
+ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d130a962c14415c417eedecd6ae26af1131b2e86
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: d884987ed5fb00d4078a38aa37d463a81630ca7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997027"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423387"
 ---
-# <a name="build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Compilación de un demonio multiinquilino que usa el punto de conexión de la plataforma de identidad de Microsoft
+# <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutorial: Compilación de un demonio multiinquilino que usa el punto de conexión de la plataforma de identidad de Microsoft
 
 En este tutorial, aprenderá a usar la plataforma de identidad de Microsoft para acceder a los datos de los clientes empresariales de Microsoft en un proceso no interactivo de larga duración. El demonio de ejemplo usa la [concesión de credenciales de cliente de OAuth2](v2-oauth2-client-creds-grant-flow.md) para adquirir el token de acceso. A continuación, utiliza el token para llamar a [Microsoft Graph](https://graph.microsoft.io) y acceder a los datos de la organización.
+
+> [!div class="checklist"]
+> * Integración de una aplicación de demonio con la Plataforma de identidad de Microsoft
+> * Concesión de permisos de aplicación directamente a la aplicación por un administrador
+> * Obtención de un token de acceso para llamar a Microsoft Graph API
+> * Llamada a Microsoft Graph API
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 La aplicación se compila como una aplicación ASP.NET MVC. Usa el middleware de OWIN OpenID Connect para iniciar la sesión de los usuarios.  
 
@@ -42,7 +50,7 @@ Dado que la aplicación es una aplicación multiinquilino para clientes empresar
 
 Para más información sobre los conceptos que se usan en este ejemplo, lea la [documentación del protocolo de credenciales de cliente del punto de conexión de la plataforma de identidad](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para ejecutar el ejemplo de este inicio rápido, necesitará lo siguiente:
 
@@ -60,11 +68,11 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
 También puede [descargar el ejemplo en un archivo ZIP](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/archive/master.zip).
 
-## <a name="register-the-sample-application-with-your-azure-ad-tenant"></a>Registro de la aplicación de ejemplo en un inquilino de Azure AD
+## <a name="register-your-application"></a>Registrar su aplicación
 
-Este ejemplo tiene un proyecto. Para registrarlo, puede hacer dos cosas:
+Este ejemplo tiene un proyecto. Para registrar la aplicación en el inquilino de Azure AD, puede:
 
-- Seguir los pasos que se indican en [Registro del ejemplo en el inquilino de Azure Active Directory](#register-the-sample-application-with-your-azure-ad-tenant) y [Configuración del ejemplo para usar el inquilino de Azure AD](#choose-the-azure-ad-tenant).
+- Seguir los pasos que se indican en [Registro del ejemplo en el inquilino de Azure Active Directory](#register-your-application) y [Configuración del ejemplo para usar el inquilino de Azure AD](#choose-the-azure-ad-tenant).
 - Usar scripts de PowerShell que realizan las siguientes acciones:
   - Crean *automáticamente* las aplicaciones de Azure AD y los objetos relacionados (contraseñas, permisos, dependencias).
   - Modifican los archivos de configuración de los proyectos de Visual Studio.
@@ -171,7 +179,7 @@ El código de interés para este ejemplo se encuentra en los siguientes archivos
 
 ## <a name="re-create-the-sample-app"></a>Volver a crear la aplicación de ejemplo
 
-1. En Visual Studio, cree un proyecto de **Aplicación web ASP.NET (.NET Framework)** de **Visual C#** . 
+1. En Visual Studio, cree un nuevo proyecto de **Aplicación web ASP.NET (.NET Framework)** de **Visual C#** . 
 1. En la siguiente pantalla, elija la plantilla de proyecto **MVC**. Agregue también referencias de carpeta y núcleo para **API web**, ya que más adelante agregará un controlador de API web. Deje el modo de autenticación elegido del proyecto como predeterminado: **Sin autenticación**.
 1. Seleccione el proyecto en la ventana **Explorador de soluciones** y presione la tecla **F4**. 
 1. En las propiedades del proyecto, establezca **SSL habilitado** en **True**. Anote la información de **Dirección URL de SSL**. La necesitará al configurar el registro de esta aplicación en Azure Portal.
@@ -208,7 +216,7 @@ Este proyecto tiene proyectos de aplicación web y API web. Para implementarlos 
 
 ### <a name="create-and-publish-dotnet-web-daemon-v2-to-an-azure-website"></a>Creación y publicación de dotnet-web-daemon-v2 en un sitio web de Azure
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. En la esquina superior izquierda, seleccione **Crear un recurso**.
 1. Seleccione **Web** > **Aplicación web** y, luego, asigne a su sitio web un nombre. Por ejemplo, lo puede llamar **dotnet-web-daemon-v2-contoso.azurewebsites.net**.
 1. Seleccione la información de **Suscripción**, **Grupo de recursos** y **App service plan and location** (Plan y ubicación de App Service). **SO** es **Windows** y **Publicar** es **Código**.
@@ -237,7 +245,10 @@ Visual Studio publicará el proyecto y abrirá automáticamente un explorador e
 1. Guarde la configuración.
 1. Agregue la misma dirección URL a la lista de valores del menú **Autenticación** > **URI de redirección**. Si tiene varias direcciones URL de redirección, asegúrese de que haya una nueva entrada que use el URI del servicio de aplicaciones para cada una.
 
-## <a name="community-help-and-support"></a>Ayuda y soporte técnico de la comunidad
+## <a name="clean-up-resources"></a>Limpieza de recursos
+Cuando ya no lo necesite, elimine el objeto de aplicación que creó en el paso [Registrar su aplicación](#register-your-application).  Para eliminar la aplicación, siga las instrucciones descritas en [Eliminación de una aplicación creada por usted o por su organización](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization).
+
+## <a name="get-help"></a>Obtener ayuda
 
 Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) para obtener soporte técnico de la comunidad.
 Primero plantee sus preguntas en Stack Overflow y examine los problemas existentes para ver si algún usuario ha hecho esa pregunta antes.

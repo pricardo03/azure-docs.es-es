@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplos de la CLI de Azure: procesamiento por lotes | Microsoft Docs'
-description: Ejemplos de la CLI de Azure para el servicio Batch
+title: 'Ejemplos de la CLI de Azure: Batch'
+description: Ejemplos de la CLI de Azure para el servicio Azure Batch. Aprenda a crear una cuenta de Batch y a agregar una aplicación.
 services: batch
 documentationcenter: batch
 author: laurenhughes
@@ -15,12 +15,12 @@ ms.workload: ''
 ms.date: 01/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 026e6be7dec90da86e602ff23df2f7efdd067238
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ae16fc3dc8c273b201d7266f5afc252da3676ce3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094069"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390293"
 ---
 # <a name="azure-cli-examples-for-azure-batch"></a>Ejemplos de la CLI de Azure para Azure Batch
 

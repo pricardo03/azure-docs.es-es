@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2018
-ms.openlocfilehash: e0e6ffc45d55dc76abdbdf839958479b2ac5d40b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c44f1b39ae700fbd11b7c0866e7150d1edec8c4f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926697"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439513"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copia de varias tablas en bloque mediante Azure Data Factory
 
@@ -47,7 +47,7 @@ En este escenario, tenemos varias tablas en Azure SQL Database que queremos copi
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * **Cuenta de Azure Storage**. La cuenta de Azure Storage se usa como almacenamiento de blobs de almacenamiento provisional en la operación de copia masiva. 
 * **Azure SQL Database**. Esta base de datos contiene los datos de origen. 
 * **Azure SQL Data Warehouse**. Este almacén de datos contiene los datos que se copian de SQL Database. 
@@ -72,7 +72,7 @@ Para verificar y activar esta configuración, vaya a Azure SQL Server > Segurida
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
-1. En el menú de la izquierda, seleccione **Crear un recurso** > **Analytics** > **Data Factory**: ![Selección de Data Factory en el panel "Nuevo"](./media/doc-common-process/new-azure-data-factory-menu.png)
+1. En el menú de la izquierda, seleccione **Crear un recurso** > **Análisis** > **Data Factory**: ![Selección de Data Factory en el panel "Nuevo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 1. En la página **Nueva factoría de datos**, escriba el nombre **ADFTutorialBulkCopyDF** como **nombre**. 
  
@@ -85,10 +85,10 @@ Para verificar y activar esta configuración, vaya a Azure SQL Server > Segurida
    - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable. 
    - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
          
-     Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
+     Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
 1. Seleccione **V2** para la **versión**.
 1. Seleccione la **ubicación** de Data Factory. Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 1. Una vez completada la creación, verá la página **Data Factory**.
    
 1. Haga clic en el icono **Author & Monitor** (Creación y supervisión) para iniciar la aplicación de la interfaz de usuario de Data Factory en una pestaña independiente.
@@ -122,7 +122,7 @@ En este paso, creará un servicio vinculado para vincular su base de datos de Az
 
     f. Para probar la conexión a Azure SQL Database con la información indicada, haga clic en **Test connection** (Prueba de conexión).
   
-    g. Haga clic en **Continue**.
+    g. Haga clic en **Continuar**.
 
 
 ### <a name="create-the-sink-azure-sql-data-warehouse-linked-service"></a>Creación del servicio vinculado de la instancia Azure SQL Data Warehouse receptora
@@ -143,7 +143,7 @@ En este paso, creará un servicio vinculado para vincular su base de datos de Az
      
     f. Para probar la conexión a Azure SQL Database con la información indicada, haga clic en **Test connection** (Prueba de conexión).
      
-    g. Haga clic en **Continue**.
+    g. Haga clic en **Continuar**.
 
 ### <a name="create-the-staging-azure-storage-linked-service"></a>Creación del servicio vinculado de Azure Storage de almacenamiento provisional
 En este tutorial, debe usar Azure Blob Storage como un área de almacenamiento provisional para habilitar PolyBase a fin de mejorar el rendimiento de copia.
@@ -156,7 +156,7 @@ En este tutorial, debe usar Azure Blob Storage como un área de almacenamiento p
     
     b. Seleccione la **cuenta de Azure Storage** de **Storage account name** (Nombre de la cuenta de Storage).
     
-    c. Haga clic en **Continue**.
+    c. Haga clic en **Continuar**.
 
 
 ## <a name="create-datasets"></a>Creación de conjuntos de datos

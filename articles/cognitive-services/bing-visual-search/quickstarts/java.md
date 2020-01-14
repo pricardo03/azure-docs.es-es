@@ -8,31 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 4/02/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: eecca2372c7265d456276a966cc441b15c17272a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: fe323fc27062ad1bee9abdfaf3408430e28523a9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383607"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446632"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Inicio rápido: Obtención de conclusiones de imágenes mediante la API de REST Bing Visual Search y Java
 
 Use este inicio rápido para realizar la primera llamada a Bing Visual Search API y ver los resultados. Esta aplicación de Java carga una imagen en la API y muestra la información que se devuelve. Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
-Al cargar una imagen local, los datos del formulario deben incluir el encabezado `Content-Disposition`. Debe establecer su parámetro `name` en "image", y puede establecer el parámetro `filename` en cualquier cadena. El contenido del formulario incluye los datos binarios de la imagen. El tamaño de imagen máximo que puede cargar es de 1 MB.
-
-```
---boundary_1234-abcd
-Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
-
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
-
---boundary_1234-abcd--
-```
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Kit de desarrollo de Java (JDK) 7 u 8](https://aka.ms/azure-jdks)
 * La [biblioteca Java para Gson](https://github.com/google/gson)
@@ -63,7 +52,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     import org.apache.http.impl.client.HttpClientBuilder;
     ```
 
-2. Cree variables para el punto de conexión de API, la clave de suscripción y la ruta de acceso a la imagen:
+2. Cree variables para el punto de conexión de API, la clave de suscripción y la ruta de acceso a la imagen. `endpoint` puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso:
 
     ```java
     static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
@@ -71,18 +60,30 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     static String imagePath = "path-to-your-image";
     ```
 
+    
+    Al cargar una imagen local, los datos del formulario deben incluir el encabezado `Content-Disposition`. Debe establecer su parámetro `name` en "image", y puede establecer el parámetro `filename` en cualquier cadena. El contenido del formulario incluye los datos binarios de la imagen. El tamaño de imagen máximo que puede cargar es de 1 MB.
+    
+    ```
+    --boundary_1234-abcd
+    Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
+    
+    ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+    
+    --boundary_1234-abcd--
+    ```
+
 ## <a name="create-the-json-parser"></a>Creación del analizador JSON
 
 Cree un método para hacer que la respuesta JSON desde la API sea más legible mediante `JsonParser`:
 
-    ```java
-    public static String prettify(String json_text) {
-            JsonParser parser = new JsonParser();
-            JsonObject json = parser.parse(json_text).getAsJsonObject();
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            return gson.toJson(json);
-        }
-    ```
+```java
+public static String prettify(String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(json_text).getAsJsonObject();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
+    }
+```
 
 ## <a name="construct-the-search-request-and-query"></a>Construcción de la consulta y la solicitud de búsqueda
 
@@ -120,11 +121,11 @@ Cree un método para hacer que la respuesta JSON desde la API sea más legible m
 
 2. Almacene la cadena JSON e imprima la respuesta:
 
-```java
-String json = new Scanner(stream).useDelimiter("\\A").next();
-System.out.println("\nJSON Response:\n");
-System.out.println(prettify(json));
-```
+    ```java
+    String json = new Scanner(stream).useDelimiter("\\A").next();
+    System.out.println("\nJSON Response:\n");
+    System.out.println(prettify(json));
+    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

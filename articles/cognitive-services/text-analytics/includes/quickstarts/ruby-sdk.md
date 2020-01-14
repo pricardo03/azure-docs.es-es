@@ -4,18 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/02/2019
 ms.author: aahi
-ms.openlocfilehash: 847b2d0489dc04b4275465dbe957b72418bbf1a4
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ffa14a4e3628bdc3453e8d536797b0edf6129a12
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750176"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446287"
 ---
 [Documentación de referencia](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics) | [Paquete (RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
 <a name="HOLTop"></a>
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 * La versión actual de [Ruby](https://www.ruby-lang.org/)
@@ -45,12 +45,14 @@ En el archivo de Ruby, importe los siguientes paquetes.
 
 [!code-ruby[Import statements](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=includeStatement)]
 
-Cree variables para el punto de conexión y la clave de Azure del recurso, denominadas `TEXT_ANALYTICS_ENDPOINT` y `TEXT_ANALYTICS_SUBSCRIPTION_KEY`. Si ha creado la variable de entorno después de haber iniciado la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que lo ejecuta para acceder a la variable. 
+Cree variables para el punto de conexión y la clave de Azure del recurso. 
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-
-[!code-ruby[endpoint, key variables](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=vars)]
+```ruby
+const subscription_key = '<paste-your-text-analytics-key-here>'
+const endpoint = `<paste-your-text-analytics-endpoint-here>`
+```
 
 ## <a name="object-model"></a>Modelo de objetos 
 
@@ -81,7 +83,7 @@ class TextAnalyticsClient
 end
 ```
 
-En esta clase, cree una función llamada `initialize` para autenticar el cliente. Use las variables de entorno `TEXT_ANALYTICS_SUBSCRIPTION_KEY` y `TEXT_ANALYTICS_ENDPOINT`. 
+En esta clase, cree una función llamada `initialize` para autenticar el cliente mediante su clave y punto de conexión. 
 
 [!code-ruby[initialize function for authentication](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=initialize)]
 

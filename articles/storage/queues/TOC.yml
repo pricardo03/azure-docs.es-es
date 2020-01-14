@@ -144,9 +144,9 @@
                   href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Administración del cifrado de servicio Azure Storage
               items:
-                - name: Comprobación del modelo de clave de cifrado de la cuenta
-                  href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: Configuración de las claves de cifrado administradas por el cliente
+                - name: Creación de una cuenta que admita las claves administradas por el cliente
+                  href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Configuración de claves administradas por el cliente
                   items:
                     - name: Portal
                       href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
@@ -154,6 +154,8 @@
                       href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                     - name: Azure CLI
                       href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Comprobación del modelo de clave de cifrado de la cuenta
+                  href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Configuración del cifrado en el lado de cliente
           items:
             - name: .NET

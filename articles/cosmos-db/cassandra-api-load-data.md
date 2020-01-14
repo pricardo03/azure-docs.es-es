@@ -9,12 +9,12 @@ ms.date: 05/20/2019
 ms.author: govindk
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Java application to load data to a Cassandra API table in Azure Cosmos DB so that customers can store and manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: e9fc96b9f26344045aa7e45fe7bdbe389e329377
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 66c292bcb02e3b2b215cabe4968fa30a45422cef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472684"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445665"
 ---
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Tutorial: Carga de datos de ejemplo en una tabla de Cassandra API en Azure Cosmos DB
 
@@ -24,11 +24,11 @@ En este tutorial se describen las tareas siguientes:
 
 > [!div class="checklist"]
 > * Carga de datos en una tabla de Cassandra
-> * Ejecución de la aplicación
+> * Ejecución la aplicación
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Este artículo pertenece a un tutorial de varias partes. Antes de empezar con este documento, no olvide [crear la cuenta, el espacio de claves y la tabla de Cassandra API](create-cassandra-api-account-java.md).   
 
@@ -74,7 +74,7 @@ Siga estos pasos para cargar datos en la tabla de Cassandra API:
      repository.insertUser(preparedStatement, 5, "PeterS", "Everett");
    ```
 
-## <a name="run-the-app"></a>Ejecución de la aplicación
+## <a name="run-the-app"></a>Ejecución la aplicación
 
 Abra un símbolo del sistema o la ventana de terminal y cambie la ruta de acceso a la carpeta en la que ha creado el proyecto. Ejecute el comando "mvn clean install" para generar el archivo cosmosdb-cassandra-examples.jar dentro de la carpeta de destino y ejecute la aplicación. 
 

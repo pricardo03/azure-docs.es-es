@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de una base de datos de Azure Cosmos en Azure Portal'
+title: 'Inicio rápido: Creación de recursos de Azure Cosmos DB en Azure Portal'
 description: En este inicio rápido se muestra cómo crear una base de datos, un contenedor y elementos de Azure Cosmos mediante Azure Portal.
 author: SnehaGunda
 ms.author: sngun
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/02/2019
-ms.openlocfilehash: 9b563f7546710b0cb07573d32b2f3939d8e64085
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 58fa891503342ac0ec9d41e9c458a71d18e58161
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872220"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445603"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Inicio rápido: Creación de una base de datos, un contenedor y elementos de Azure Cosmos desde Azure Portal
 
@@ -30,7 +30,7 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 
 En este inicio rápido se muestra cómo usar Azure Portal para crear una cuenta de [SQL API](sql-api-introduction.md) de Azure Cosmos DB, crear una base de datos de documentos y un contenedor, y agregar datos a dicho contenedor. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Una suscripción a Azure o una cuenta de evaluación gratuita de Azure Cosmos DB
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
@@ -55,7 +55,7 @@ Para crear una base de datos y un contenedor, puede usar Data Explorer en Azure 
     
 1.  En el panel **Agregar contenedor**, especifique la configuración del nuevo contenedor.
     
-    |Configuración|Valor sugerido|DESCRIPCIÓN
+    |Configuración|Valor sugerido|Descripción
     |---|---|---|
     |**Identificador de base de datos**|ToDoList|Escriba *ToDoList* como nombre de la nueva base de datos. Los nombres de base de datos tienen que tener entre 1 y 255 caracteres y no pueden contener `/, \\, #, ?` o espacios finales. Seleccione la opción **Provision database throughput** (Aprovisionar rendimiento de la base de datos) que le permite compartir el rendimiento aprovisionado de la base de datos entre todos los contenedores de esta. Esta opción también le ayudará a reducir los costos. |
     |**Rendimiento**|400|Deje el rendimiento en 400 unidades de solicitud por segundo (RU/s). Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante.| 

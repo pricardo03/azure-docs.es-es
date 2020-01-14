@@ -9,22 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 29e43692c1eb543768934a961a2bb8ae5a023b1d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: cd646ef061a0be06a9b1a56b72a4f35d9796aa63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894604"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447879"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extracción de datos relacionados contextualmente de una expresión
 
 En este tutorial, busque datos relacionados en función del contexto. Por ejemplo, una ubicación de origen y destino para una transferencia de una ciudad a otra. Ambas partes de datos pueden ser necesarias y están relacionadas entre sí.
 
 Un rol se puede usar con cualquier tipo de entidad precompilada o personalizada, y tanto en patrones como en expresiones de ejemplo.
-
-[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **En este tutorial, aprenderá a:**
 
@@ -51,7 +49,11 @@ Un rol se debe utilizar cuando los datos de la entidad que se deben extraer:
 
 ## <a name="create-a-new-app"></a>Creación de una nueva aplicación
 
-[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+1. Inicie sesión en la versión preliminar del portal de LUIS con la dirección URL [https://preview.luis.ai](https://preview.luis.ai).
+
+1. Seleccione **Crear una aplicación**, escriba el nombre `HumanResources` y mantenga la referencia cultural predeterminada, **English** (Inglés). Deje en blanco la descripción.
+
+1. Seleccione **Listo**.
 
 ## <a name="create-an-intent-to-move-employees-between-cities"></a>Creación de una intención para mover los empleados entre ciudades
 
@@ -61,7 +63,8 @@ Un rol se debe utilizar cuando los datos de la entidad que se deben extraer:
 
 1. Escriba `MoveEmployeeToCity` en el cuadro de diálogo emergente y seleccione **Done** (Listo).
 
-    ![Captura de pantalla del cuadro de diálogo Create new intent (Crear nueva intención)](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla del cuadro de diálogo Create new intent (Crear nueva intención)](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
 1. Agregue expresiones de ejemplo a la intención.
 
@@ -77,7 +80,8 @@ Un rol se debe utilizar cuando los datos de la entidad que se deben extraer:
     |Transfer Steve Standish from San Diego toward Bellevue |
     |lift Tanner Thompson from Kansas city and shift to Chicago|
 
-    [![Captura de pantalla de LUIS con nuevas expresiones en la intención MoveEmployee](./media/tutorial-entity-roles/hr-enter-utterances.png)](./media/tutorial-entity-roles/hr-enter-utterances.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de LUIS con nuevas expresiones en la intención MoveEmployee](./media/tutorial-entity-roles/hr-enter-utterances.png)
 
 ## <a name="add-prebuilt-entity-geographyv2"></a>Adición de la entidad precompilada geographyV2
 
@@ -87,16 +91,30 @@ La entidad precompilada, geographyV2, extrae información de ubicación, incluid
 
 1. Seleccione **Add prebuilt entity** (Agregar entidad precompilada) y `geo` en la barra de búsqueda para filtrar las entidades precompiladas.
 
-    ![Adición de la entidad precompilada geographyV2 a la aplicación](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
+    > [!div class="mx-imgBorder"]
+    > ![Adición de la entidad precompilada geographyV2 a la aplicación](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
+
 1. Seleccione la casilla de verificación y **Listo**.
 1. En la lista **Entidades**, seleccione **geographyV2** para abrir la nueva entidad.
 1. Agregue dos roles (`Origin` y `Destination`).
 
-    ![Adición de roles a la entidad precompilada](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
-1. Seleccione **Intenciones** desde el panel de navegación del lado izquierdo y la intención **MoveEmployeeToCity**. Tenga en cuenta que los nombres de ciudades están etiquetados con la entidad precompilada **geographyV2**.
-1. En el primer expresión de la lista, seleccione la ubicación de origen. Aparecerá un menú desplegable. Seleccione **geographyV2** en la lista y, a continuación, desplácese por el menú para seleccionar **Origen**.
-1. Use el método del paso anterior para marcar todos los roles de las ubicaciones en todas las expresiones.
+    > [!div class="mx-imgBorder"]
+    > ![Adición de roles a la entidad precompilada](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 
+1. Seleccione **Intenciones** desde el panel de navegación del lado izquierdo y la intención **MoveEmployeeToCity**. Tenga en cuenta que los nombres de ciudades están etiquetados con la entidad precompilada **geographyV2**.
+1. En la barra de herramientas de contexto, seleccione la **paleta de entidades**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Seleccionar paleta de entidades en la barra de herramientas del contenido](media/tutorial-entity-roles/intent-detail-context-toolbar-select-entity-palette.png)
+
+1. Seleccione la entidad precompilada, **geographyV2**, después, seleccione el **inspector de entidades**.
+1. En el **inspector de entidades**, seleccione un rol, **Destino**. Esto cambia el cursor del mouse. Use el cursor para etiquetar el texto de todas las expresiones que estén en la ubicación de destino.
+
+    > [!div class="mx-imgBorder"]
+    > ![Seleccionar rol en la paleta de entidades](media/tutorial-entity-roles/entity-palette-select-entity-role.png)
+
+
+1. Vuelva al **inspector de entidades** y cambie el rol a **Origen**. Use el cursor para etiquetar el texto de todas las expresiones que estén en la ubicación de origen.
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Incorporación de expresiones de ejemplo a la intención None
 

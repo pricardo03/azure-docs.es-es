@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: a7511b8026cb3f53a23eed0f0c057632314320c4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 70cabc75ebdeb7ed6d7ffd000419295fce6303de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466597"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459510"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutorial: Creación de un inquilino en Windows Virtual Desktop
 
@@ -25,14 +25,18 @@ En este tutorial, aprenderá a:
 > * Asignar el rol de aplicación TenantCreator a un usuario en el inquilino de Azure Active Directory.
 > * Crear un inquilino de Windows Virtual Desktop.
 
-Esto es lo que necesita para configurar el inquilino de Windows Virtual Desktop:
+## <a name="what-you-need-to-set-up-a-tenant"></a>Lo que necesita para configurar un inquilino
+
+Antes de empezar a configurar el inquilino de Windows Virtual Desktop, asegúrese de que tiene lo siguiente:
 
 * El identificador de inquilino de [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para los usuarios de Windows Virtual Desktop.
 * Una cuenta de administrador global en el inquilino de Azure Active Directory.
    * Esto también es aplicable a las organizaciones de proveedores de soluciones en la nube (CSP) que crean un inquilino de Windows Virtual Desktop para sus clientes. Si este es su caso, debe poder iniciar sesión como administrador global de la instancia de Azure Active Directory del cliente.
    * La cuenta de administrador se debe originar en el inquilino de Azure Active Directory en el que está intentando crear el inquilino de Windows Virtual Desktop. Este proceso no es compatible con las cuentas de Azure Active Directory B2B (invitado).
    * La cuenta de administrador debe ser una cuenta profesional o educativa.
-* Una suscripción de Azure.
+* Suscripción a Azure.
+
+Debe tener el identificador de inquilino, la cuenta de administrador global y la suscripción de Azure listos para que el proceso descrito en este tutorial pueda funcionar correctamente.
 
 ## <a name="grant-permissions-to-windows-virtual-desktop"></a>Concesión de permisos para Windows Virtual Desktop
 
@@ -135,6 +139,12 @@ Reemplace los valores entre corchetes por los valores pertinentes para la organi
 
 ```powershell
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
+```
+
+Es una buena idea asignar acceso administrativo a un segundo usuario por si alguna vez tiene el acceso bloqueado a su cuenta o por si se va de vacaciones y necesita que alguien actúe como administrador del inquilino en su ausencia. Para asignar acceso de administrador a un segundo usuario, ejecute el siguiente cmdlet y reemplace `<TenantName>` y `<Upn>` por el nombre del inquilino y el UPN del segundo usuario.
+
+```powershell
+New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinitionName "RDS Owner"
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

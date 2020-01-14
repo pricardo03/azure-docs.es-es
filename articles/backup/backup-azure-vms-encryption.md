@@ -3,12 +3,12 @@ title: Copia de seguridad y restauración de VM de Azure cifradas
 description: Se describe cómo realizar una copia de seguridad de máquinas virtuales de Azure cifradas, y cómo restaurarlas, con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: c4bc413e70d8e19f8006580c0631641651dcaf92
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 2ce0453c0b57ab682fa102f76c31afa567d80778
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172535"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449981"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Copia de seguridad y restauración de máquinas virtuales de Azure cifradas
 
@@ -136,10 +136,10 @@ Para establecer los permisos:
 Restaure las máquinas virtuales cifradas de la manera siguiente:
 
 1. [Restaure el disco de máquina virtual](backup-azure-arm-restore-vms.md#restore-disks).
-2. Luego, realice una de las operaciones siguientes:
-    - Use la plantilla que se generó durante la operación de restauración para personalizar la configuración de la máquina virtual y desencadene la implementación de la máquina virtual. [Más información](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-    - Cree una máquina virtual a partir de los discos restaurados mediante PowerShell. [Más información](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
-    - En el caso de las máquinas virtuales Linux, restablezca la extensión ADE para que los discos de datos estén abiertos y montados.
+2. Vuelva a crear la instancia de máquina virtual mediante una de las siguientes acciones:
+    1. Use la plantilla que se generó durante la operación de restauración para personalizar la configuración de la máquina virtual y desencadene la implementación de la máquina virtual. [Más información](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
+    2. Cree una máquina virtual a partir de los discos restaurados mediante PowerShell. [Más información](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+3. En el caso de VM Linux, vuelva a instalar la extensión ADE para que los discos de datos estén abiertos y montados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

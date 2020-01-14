@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 64d70390b3563e17bbe0c70ed426dcda81b50198
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 76521464127780d266ba58eab7306b8fe2930c2b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872747"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422209"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Inicio rápido: Creación de una aplicación de Java en Azure App Service en Linux
 
@@ -21,7 +21,7 @@ ms.locfileid: "74872747"
 
 > [!NOTE]
 >
-> También se puede hacer lo mismo con IDE populares, como IntelliJ y Eclipse. Consulte nuestros documentos similares en [Inicio rápido de Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) o [Inicio rápido de Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+> Se puede hacer lo mismo con mediante entornos de desarrollo integrado populares, como IntelliJ, Eclipse y VS Code. Consulte nuestros documentos similares en [Inicio rápido de Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app), [Inicio rápido de Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app) o [Inicio rápido de VS Code](https://code.visualstudio.com/docs/java/java-webapp).
 >
 ![Aplicación de ejemplo que se ejecuta en Azure App Service](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
@@ -91,7 +91,7 @@ Confirm (Y/N)? : Y
 
 Vaya nuevamente a `pom.xml` para ver si se actualizó la configuración del complemento. Puede modificar otras configuraciones de App Service directamente en el archivo POM si es necesario. Algunas configuraciones comunes se muestran a continuación:
 
- Propiedad | Obligatorio | DESCRIPCIÓN | Versión
+ Propiedad | Obligatorio | Descripción | Versión
 ---|---|---|---
 `<schemaVersion>` | false | Especifique la versión del esquema de configuración. Los valores admitidos son: `v1`, `v2`. | 1.5.2
 `<resourceGroup>` | true | Grupo de recursos de Azure para la aplicación web. | 0.1.0+

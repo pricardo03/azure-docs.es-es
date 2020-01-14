@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 9f75b630dd26e2cdef009771ad5e09cc3d230449
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1b7d08ba25a02334152e661501acf826d6c9bdf7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226434"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449634"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Evitar cargos en su cuenta gratuita de Azure
 
@@ -26,7 +26,7 @@ Veamos algunas de las razones por las que se le puede cobrar en su cuenta gratui
 
 ## <a name="your-credit-runs-out-or-is-expired"></a>El crédito se agota o ha expirado
 
-Tanto la suscripción como los servicios se deshabilitan cuando el crédito se agota o expira al terminar los 30 días. Para seguir usando los servicios de Azure, debe actualizar la cuenta. Para más información consulte el sitio de [Actualización de una cuenta gratuita de Azure](billing-upgrade-azure-subscription.md). Después de la actualización, seguirá teniendo acceso a los servicios gratuitos durante 12 meses y se le cobrará solo por el uso que supere las cantidades y los servicios gratuitos.
+Tanto la suscripción como los servicios se deshabilitan cuando el crédito se agota o expira al terminar los 30 días. Para seguir usando los servicios de Azure, debe actualizar la cuenta. Para más información consulte el sitio de [Actualización de una cuenta gratuita de Azure](billing-upgrade-azure-subscription.md). Después de la actualización, seguirá teniendo acceso a los servicios gratuitos durante 12 meses y se le cobrará solo por el uso que supere las cantidades y los servicios gratuitos.
 
 
 ## <a name="usage-exceeds-the-limits-of-free-services"></a>El uso supera los límites de los servicios gratuitos
@@ -41,7 +41,7 @@ Una vez que haya actualizado la cuenta, se le cobran tarifas de pago por uso por
 
 Las cantidades y los servicios gratuitos expiran una vez transcurridos 12 meses. Puede averiguar cuándo expiran los servicios gratis en Azure Portal.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. En el área de navegación izquierda, seleccione **Todos los servicios**.
 

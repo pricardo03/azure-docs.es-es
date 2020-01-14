@@ -1,5 +1,5 @@
 ---
-title: 'Descripción de los cargos de la factura del contrato de cliente de Microsoft: Azure'
+title: 'Cargos en la factura del Contrato de cliente de Microsoft: Azure'
 description: Aprenda a leer y comprender los cargos en la factura.
 author: jureid
 manager: jureid
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e9c74fd18bf80dfb8fa406912795fb53e655bd88
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b5dfffecbd2908e987b76f29b14937f0e50ce64f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226150"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388999"
 ---
 # <a name="understand-charges-on-your-microsoft-customer-agreement-invoice"></a>Descripción de los cargos en la factura de un contrato de cliente de Microsoft
 
@@ -26,7 +26,7 @@ Este artículo se aplica a una cuenta de facturación para un contrato de client
 
 ## <a name="view-transactions-for-an-invoice-in-the-azure-portal"></a>Visualización de las transacciones de una factura en Azure Portal
 
-1. Inicie sesión en el [Azure Portal](https://www.azure.com).
+1. Inicie sesión en [Azure Portal](https://www.azure.com).
 
 2. Busque **Administración de costos + facturación**.
 
@@ -71,7 +71,7 @@ En la cuenta de facturación de un contrato de cliente de Microsoft, los cargos 
 
 ### <a name="view-summary-of-pending-charges"></a>Visualización del resumen de los cargos pendientes
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Busque **Administración de costos + facturación**.
 
@@ -91,7 +91,7 @@ Los cargos del mes hasta la fecha son los cargos pendientes para el mes actual y
 
 Una vez que se identifiquen los cargos pendientes, puede entender los cargos mediante el análisis de las transacciones individuales que contribuyeron a los cargos. En este momento, los cargos por uso pendientes no se muestran en la página Todas las transacciones. Puede ver los cargos por uso pendientes en la página de suscripciones a Azure. Para más información, consulte [Visualización de los cargos por uso pendientes](#view-pending-usage-charges).
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Busque **Administración de costos + facturación**.
 
@@ -107,7 +107,7 @@ Una vez que se identifiquen los cargos pendientes, puede entender los cargos med
 
 ### <a name="view-pending-usage-charges"></a>Visualización de los cargos por uso pendientes
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Busque *Administración de costos + facturación*.
 

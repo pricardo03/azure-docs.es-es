@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 05e4dc5bc96ef654006a98f27ff4a12e924250b4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 50dd97107296c70ba9dde162b723f49a658a3994
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828753"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355902"
 ---
 ## <a name="benefits-of-managed-disks"></a>Ventajas de los discos administrados
 
@@ -37,7 +37,7 @@ Los discos administrados admiten [Availability Zones](../articles/availability-z
 
 ### <a name="azure-backup-support"></a>Soporte técnico de Azure Backup
 
-Para protegerse frente a desastres regionales, se puede usar [Azure Backup](../articles/backup/backup-overview.md) para crear un trabajo de copia de seguridad con copias de seguridad basadas en el tiempo y directivas de retención de copia de seguridad. Esto le permite realizar restauraciones sencillas de máquinas virtuales a voluntad. Azure Backup admite la copia de seguridad y la restauración de discos administrados. [Más información](../articles/backup/backup-support-matrix-iaas.md) sobre la compatibilidad con la copia de seguridad de máquinas virtuales de Azure.
+Para protegerse frente a desastres regionales, se puede usar [Azure Backup](../articles/backup/backup-overview.md) para crear un trabajo de copia de seguridad con copias de seguridad basadas en el tiempo y directivas de retención de copia de seguridad. Esto le permite realizar restauraciones sencillas de máquinas virtuales a voluntad. Actualmente, Azure Backup admite tamaños de disco de hasta cuatro tebibytes (TiB).  Azure Backup admite la copia de seguridad y la restauración de discos administrados. [Más información](../articles/backup/backup-support-matrix-iaas.md) sobre la compatibilidad con la copia de seguridad de máquinas virtuales de Azure.
 
 ### <a name="granular-access-control"></a>Control de acceso pormenorizado
 
@@ -126,5 +126,7 @@ Azure usa un canal de red con clasificación por orden de prioridad para el trá
 Consulte el artículo sobre [diseño de alto rendimiento](../articles/virtual-machines/windows/premium-storage-performance.md) para conocer los procedimientos recomendados a la hora de optimizar las configuraciones de máquina virtual y disco, de modo que pueda lograr el rendimiento deseado.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Si desea obtener más información sobre los discos administrados en un vídeo, consulte: [Mejor resistencia de las máquinas virtuales de Azure con Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 
 Más información sobre los tipos de disco individuales que ofrece Azure, cuál es una buena elección para sus necesidades y sus objetivos de rendimiento en nuestro artículo sobre los tipos de disco.

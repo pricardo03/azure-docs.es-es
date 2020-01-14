@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/13/2019
 ms.custom: mvc
-ms.openlocfilehash: cd1a483cd50051ade5d7d4f45c8eb7e5d8351787
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f9074a004683393df18d621a679fbb7378dc6704
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900459"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398634"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Búsqueda y diagnóstico de problemas de rendimiento con Azure Application Insights
 
@@ -26,7 +26,7 @@ Azure Application Insights recopila datos de telemetría de cualquier aplicació
 > * Analizar los detalles de las vistas de página mediante el lenguaje de consulta
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial:
 
@@ -72,7 +72,7 @@ Application Insights recopila datos de rendimiento de las distintas operaciones 
 
     ![Consejo de rendimiento](media/tutorial-performance/6-perf-tip.png)
 
-8.  Para un análisis más profundo, puede hacer clic en **Descargar seguimiento** para descargar el seguimiento en Visual Studio.
+8.   Para un análisis más profundo, haga clic en **Descargar seguimiento** para descargar el seguimiento. Puede ver estos datos mediante [PerfView](https://github.com/Microsoft/perfview#perfview-overview).
 
 ## <a name="use-logs-data-for-server"></a>Uso de datos de registros para el servidor
  Los registros proporcionan un lenguaje de consulta completo que le permite analizar todos los datos recopilados por Application Insights. Con ello se puede realizar un análisis profundo de los datos de solicitud y rendimiento.
@@ -98,7 +98,7 @@ Además de identificar los procesos del servidor que se deben optimizar, Applica
 ## <a name="use-logs-data-for-client"></a>Uso de datos de registros para el cliente
 Al igual que los datos recopilados relativos al rendimiento del servidor, Application Insights hace que todos los datos de cliente estén disponibles para un análisis profundo mediante Registros.
 
-1. Vuelva al resumen del explorador y haga clic en el icono ![Registros](media/tutorial-performance/app-viewinlogs-icon.png) **Ver en registros (Analytics)**
+1. Vuelva al resumen del explorador y haga clic en el icono ![Registros](media/tutorial-performance/app-viewinlogs-icon.png) **Ver en Registros (Analytics)**
 
 2. Los registros se abren con una consulta en cada una de las vistas del panel. La primera consulta muestra la duración de distintas vistas de la página a lo largo del tiempo.
 

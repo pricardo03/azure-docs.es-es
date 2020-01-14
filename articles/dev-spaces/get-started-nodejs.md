@@ -3,14 +3,14 @@ title: 'Creación de un espacio de desarrollo de Kubernetes: Visual Studio Code
 services: azure-dev-spaces
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
+description: En este tutorial se muestra cómo usar Azure Dev Spaces y Visual Studio Code para depurar e iterar rápidamente una aplicación Node.js en Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
-ms.openlocfilehash: 64d4f7560325429fc2a36be066c6c475d4d60e90
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a5cfd0281b7f68a416f47e478292341bd708ed1a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708596"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438532"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Creación de un espacio de desarrollo de Kubernetes: Visual Studio Code y Node.js con Azure Dev Spaces
 
@@ -140,7 +140,7 @@ Identifique la dirección URL pública para el servicio en la salida desde el co
 Para ver la aplicación web, abra la dirección URL pública en un explorador. Además, tenga en cuenta que la salida `stdout` y `stderr` se transmite a la ventana del terminal *azds-trace* a medida que interactúa con su aplicación web. También verá la información de seguimiento de las solicitudes HTTP a medida que pasan por el sistema. Esto le facilita el seguimiento de llamadas complejas de múltiples servicios durante el desarrollo. La instrumentación agregada por Dev Spaces proporciona este seguimiento de las solicitudes.
 
 > [!Note]
-> Además de la dirección URL pública, puede usar la dirección URL alternativa `http://localhost:<portnumber>` que se muestra en la salida de la consola. Si utiliza la dirección URL del host local, puede parecer que el contenedor se ejecuta localmente, pero en realidad se ejecuta en Azure. Azure Dev Spaces usa la funcionalidad de *reenvío de puerto*de Kubernetes para asignar el puerto localhost al contenedor que se ejecuta en AKS. Esto facilita la interacción con el servicio desde la máquina local.
+> Además de la dirección URL pública, puede usar la dirección URL alternativa `http://localhost:<portnumber>` que se muestra en la salida de la consola. Si utiliza la dirección URL del host local, puede parecer que el contenedor se ejecuta localmente, pero en realidad se ejecuta en Azure. Azure Dev Spaces usa la funcionalidad de *reenvío de puerto* de Kubernetes para asignar el puerto localhost al contenedor que se ejecuta en AKS. Esto facilita la interacción con el servicio desde la máquina local.
 
 ### <a name="update-a-content-file"></a>Actualización de un archivo de contenido
 Con Azure Dev Spaces no se trata solo de conseguir que el código se ejecute en Kubernetes, sino de permitirle ver rápida e iterativamente que los cambios de código surtan efecto en un entorno de Kubernetes en la nube.

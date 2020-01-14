@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Biblioteca cliente de Computer Vision para Node.js | Microsoft Docs'
-description: Introducción a la biblioteca cliente de Computer Vision para Node.js
+title: 'Inicio rápido: Biblioteca cliente de Computer Vision para Node.js'
+description: Empiece a trabajar con la biblioteca cliente de Computer Vision para Node.js con este inicio rápido.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 199ead07e499575de21c6878cd348e648f604171
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 05bc30fb8401597695848290a3d4f6c0d10ce836
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972666"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382249"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Inicio rápido: Biblioteca cliente de Computer Vision para Node.js
 
@@ -27,7 +27,7 @@ Use la biblioteca cliente de Computer Vision para Node.js para:
 
 [Documentación de referencia](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [Paquete (npm)](https://www.npmjs.com/package/azure-cognitiveservices-computervision) | [Ejemplos](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * La versión actual de [Node.js](https://nodejs.org/)
@@ -38,7 +38,7 @@ Use la biblioteca cliente de Computer Vision para Node.js para:
 
 Los servicios de Azure Cognitive Services se representan por medio de recursos de Azure a los que se suscribe. Cree un recurso para Computer Vision con [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) en la máquina local. También puede:
 
-* Obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/#decision) válida durante siete días de forma gratuita Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/#decision) válida durante siete días de forma gratuita. Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Ver el recurso en [Azure Portal](https://portal.azure.com/)
 
 Después de obtener una clave de la suscripción de prueba o del recurso, [cree las variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la clave y la dirección URL del punto de conexión, denominadas `COMPUTER_VISION_SUBSCRIPTION_KEY` y `COMPUTER_VISION_ENDPOINT`, respectivamente.
@@ -83,7 +83,7 @@ Luego, defina una función `computerVision` y declare una serie asincrónica con
 
 Las siguientes clases e interfaces controlan algunas de las características principales del SDK de Node.js para Computer Vision.
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) | Esta clase es necesaria para todas las funcionalidades de Computer Vision. Cree una instancia de ella con la información de suscripción y úsela para realizar la mayoría de las operaciones con imágenes.|
 |[VisualFeatureTypes](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest)| Esta enumeración define los diferentes tipos de análisis de imágenes que se pueden realizar en una operación de análisis estándar. Debe especificar un conjunto de valores de **VisualFeatureTypes** en función de sus necesidades. |

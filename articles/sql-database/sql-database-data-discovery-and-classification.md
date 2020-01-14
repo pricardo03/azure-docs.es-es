@@ -12,18 +12,18 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 7a8fe0f21ea8b31fb26727e2220f7395e2d71c2c
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: bb6961d87fd08af78db495b700acf34fbf4944a1
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555366"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552556"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Clasificación y detección de datos de Azure SQL Database y Azure SQL Data Warehouse
 
-La clasificación y detección de datos proporciona funcionalidades avanzadas integradas en Azure SQL Database para **detectar**, **clasificar**, **etiquetar** & **proteger** la información confidencial de las bases de datos.
+La clasificación y detección de datos proporciona funcionalidades avanzadas integradas en Azure SQL Database para **detectar**, **clasificar**, **etiquetar** & **notificar** la información confidencial de las bases de datos.
 
-Las funciones de detección y clasificación de la información confidencial más importante [empresarial, financiera, médica, información personal identificable (PII), etc.] desempeñan un rol fundamental en el modo en que se protege la información de su organización. Puede servir como infraestructura para:
+Las funciones de detección y clasificación de la información confidencial más importante [empresarial, financiera, médica, información personal identificable (PII), etc.] desempeñan un rol fundamental en el modo en que se protege la información de su organización. Puede servir como infraestructura para lo siguiente:
 
 - Ayudar a cumplir los requisitos de cumplimiento de normas y los estándares relacionados con la privacidad de datos.
 - Varios escenarios de seguridad, como la supervisión (auditoría) y las alertas relacionadas con accesos anómalos a información confidencial.
@@ -56,12 +56,12 @@ La clasificación y detección de datos incluye un conjunto de servicios avanzad
 
 ## <a id="subheading-2"></a>Descubrir, clasificar y etiquetar columnas confidenciales
 
-En la siguiente sección se describen los pasos para detectar, clasificar y etiquetar las columnas que contienen datos confidenciales de su base de datos, así como para ver el estado actual de clasificación de su base de datos y exportar informes.
+En la sección siguiente se describen los pasos necesarios para detectar, clasificar y etiquetar las columnas que contienen datos confidenciales en la base de datos, así como para ver el estado de clasificación actual de la base de datos y exportar informes.
 
 La clasificación incluye dos atributos de metadatos:
 
-- Etiquetas: atributos de clasificación principales, que se utilizan para definir el nivel de confidencialidad de los datos almacenados en la columna.  
-- Tipos de información: proporcionan una granularidad adicional en el tipo de datos almacenados en la columna.
+- Etiquetas: son los atributos principales de clasificación, que se usan para definir el nivel de confidencialidad de los datos almacenados en la columna.  
+- Tipos de información: proporcionan una granularidad adicional para el tipo de datos almacenados en la columna.
 
 ## <a name="define-and-customize-your-classification-taxonomy"></a>Definir y personalizar la taxonomía de clasificación
 
@@ -100,7 +100,7 @@ Una vez definida la directiva de todos los inquilinos, puede continuar con la cl
 
       ![Clasifique sus datos](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
 
-   - Revise la lista de recomendaciones: para aceptar una recomendación para una columna específica, active la casilla de la columna izquierda de la fila correspondiente. También puede aceptar *todas las recomendaciones*. Para ello, active la casilla del encabezado de la tabla de recomendaciones.
+   - Revise la lista de recomendaciones: para aceptar una recomendación para una columna específica, active la casilla de la columna izquierda de la fila correspondiente. También puede marcar *todas las recomendaciones* como aceptadas. Para ello, active la casilla del encabezado de la tabla de recomendaciones.
 
        ![Revise la lista de recomendaciones](./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png)
 
@@ -108,13 +108,13 @@ Una vez definida la directiva de todos los inquilinos, puede continuar con la cl
 
       ![Aplicación de recomendaciones](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
 
-7. Si quiere, también puede **clasificar manualmente** las columnas, o puede optar por hacerlo así además de realizar la clasificación basada en recomendaciones:
+7. También puede **clasificar manualmente** las columnas como alternativa a la clasificación basada en recomendaciones, o además de ella:
 
    - Haga clic en **Agregar clasificación** en el menú superior de la ventana.
 
       ![Agregue clasificación de forma manual](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png)
 
-   - En la ventana de contexto que se abre, seleccione el esquema > la tabla > la columna que quiera clasificar, y el tipo de información y la etiqueta de confidencialidad. A continuación, haga clic en el botón azul **Agregar clasificación** situado en la parte inferior de la ventana de contexto.
+   - En la ventana contextual que se abre, seleccione el esquema > tabla > columna que quiera clasificar, así como el tipo de información y la etiqueta de confidencialidad. Después, haga clic en el botón azul **Agregar clasificación** situado en la parte inferior de la ventana contextual.
 
       ![Seleccione la columna que quiera clasificar](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png)
 
@@ -149,7 +149,7 @@ Puede utilizar T-SQL para agregar o quitar las clasificaciones de columna, así 
 - Vea todas las clasificaciones de la base de datos: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 # <a name="rest-apistabazure-rest-api"></a>[API Rest](#tab/azure-rest-api)
-También puede usar las API de REST para administrar las clasificaciones mediante programación. Las API de REST publicadas se admiten las siguientes operaciones:
+También puede usar las API REST para administrar las clasificaciones y recomendaciones mediante programación. Las API de REST publicadas se admiten las siguientes operaciones:
 
 - [Crear o actualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): crea o actualiza la etiqueta de confidencialidad de una columna determinada
 - [Eliminar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): elimina la etiqueta de confidencialidad de una columna determinada
@@ -157,13 +157,12 @@ También puede usar las API de REST para administrar las clasificaciones mediant
 - [Habilitar recomendación](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation): habilita recomendaciones de confidencialidad en una columna determinada (las recomendaciones están habilitadas de forma predeterminada en todas las columnas)
 - [Obtener](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): obtiene la etiqueta de confidencialidad de una columna determinada
 - [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) (Enumerar actuales por base de datos): enumera las etiquetas de confidencialidad actuales de una base de datos determinada
-
 - [List Recommended By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) (Enumerar recomendadas por base de datos): enumera las etiquetas de confidencialidad recomendadas de una base de datos determinada
 
 # <a name="powershell-cmdlettabazure-powelshell"></a>[Cmdlet de PowerShell](#tab/azure-powelshell)
-Se puede usar PowerShell para obtener todas las columnas recomendadas en una base de datos Azure SQL y en una instancia administrada.
+Puede usar PowerShell para administrar las clasificaciones y las recomendaciones de Azure SQL Database e Instancia administrada.
 
-### <a name="powershell-cmdlet-for-azure-sql-database"></a>Cmdlet de PowerShell para la base de datos de Azure SQL
+### <a name="powershell-cmdlet-for-azure-sql-database"></a>Cmdlet de PowerShell para la base de datos de Azure SQL
 - [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
 - [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
 - [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)

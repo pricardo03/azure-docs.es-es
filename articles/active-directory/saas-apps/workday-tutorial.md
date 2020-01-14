@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/20/2019
+ms.date: 11/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fe63ba810724216b1b356896b621f1e5b021bbf
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d2bf769169b579cb0a06a48b3a5998efb89eb8fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69891977"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443326"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Workday
 
@@ -33,7 +33,7 @@ En este tutorial, obtendrá información sobre cómo integrar Workday con Azure 
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para empezar, necesita los siguientes elementos:
 
@@ -125,7 +125,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -167,14 +167,14 @@ En esta sección, va a permitir que B. Simon acceda a Workday mediante el inici
 
    > [!NOTE]
    > El valor del atributo Entorno está vinculado con el valor de la URL del inquilino:  
-   > -Si el nombre de dominio de la URL de inquilino de Workday empieza por impl (por ejemplo, *https:\//impl.workday.com/\<tenant\>/login-saml2.flex*), el atributo **Entorno** tiene que establecerse en Implementación.  
+   > Si el nombre de dominio de la dirección URL de inquilino de Workday empieza por impl (por ejemplo, *https://www.myworkday.com/"tenant"/login-saml2.htmld*), el atributo **Environment** (Entorno) tiene que establecerse en Implementation (Implementación).  
    > Si el nombre de dominio empieza por otra cosa, deberá ponerse en contacto con el [equipo de soporte técnico de Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obtener el valor de **Entorno** coincidente.
 
 4. En la sección **Configuración de SAML** , realice los pasos siguientes:
 
     ![Configuración de SAML](./media/workday-tutorial/IC782926.png "Configuración de SAML")
 
-    a.  Seleccione **Enable SAML Authentication**(Habilitar autenticación SAML).
+    a.  Seleccione **Habilitar autenticación SAML**.
 
     b.  Haga clic en **Add Row**(Agregar fila).
 
@@ -233,11 +233,11 @@ En esta sección, va a permitir que B. Simon acceda a Workday mediante el inici
 
     c. Como **Método de firma de solicitud de autenticación**, seleccione **SHA256**.
 
-    ![Método de firma de solicitud de autenticación](./media/workday-tutorial/WorkdaySSOConfiguration.png "Método de firmas de solicitudes de autenticación") 
+    ![Método de firma de solicitud de autenticación](./media/workday-tutorial/WorkdaySSOConfiguration.png "Método de firmas de solicitudes de autenticación")
 
     d. Haga clic en **OK**.
 
-    ![OK (CORRECTO)](./media/workday-tutorial/IC782933.png "OK")
+    ![OK (CORRECTO)](./media/workday-tutorial/IC782933.png "Aceptar")
 
     > [!NOTE]
     > Asegúrese de configurar el inicio de sesión único correctamente. Si habilita el inicio de sesión único con una configuración incorrecta, es posible que no pueda entrar en la aplicación con sus credenciales y quede bloqueado fuera de esta. En esta situación, Workday proporciona una URL de inicio de sesión de respaldo donde los usuarios pueden iniciar sesión con su nombre de usuario y contraseña normal en el siguiente formato: [Su URL de Workday]/login.flex?redirect=n

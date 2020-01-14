@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 68f274fb50b883c6f252a78f97f31e49e72b135c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6d926ccaac5ca05fe6f137102cbfdd45b0e182bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974716"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434628"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Inicio rápido: Inscripción de dispositivos X.509 en el servicio Device Provisioning con Node.js
 
@@ -29,7 +29,7 @@ Aunque los pasos de este artículo funcionan en máquinas Windows y Linux, este 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Instale [Node.js v4.0 o posterior](https://nodejs.org).
 - Instale [Git](https://git-scm.com/download/).
@@ -41,19 +41,23 @@ En esta guía de inicio rápido debe tener un archivo .pem o .cer que contenga l
 
 El [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c) contiene herramientas de prueba que pueden ayudarle a crear una cadena de certificados X.509, cargar un certificado raíz o intermedio a partir de esa cadena y realizar la prueba de posesión con el servicio para comprobar el certificado. Los certificados creados con las herramientas del SDK están diseñados para su uso en las **pruebas de desarrollo únicamente**. Estos certificados **no se deben usar en producción**. Contienen contraseñas codificadas de forma rígida ("1234") que expiran después de 30 días. Para saber cómo obtener certificados adecuados para el código de producción, consulte [Cómo obtener un certificado de entidad de certificación X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) en la documentación de Azure IoT Hub.
 
-Para usar estas herramientas de prueba para generar certificados, realice los pasos siguientes: 
+Para usar estas herramientas de prueba para generar certificados, realice los pasos siguientes:
  
-1. Abra un símbolo del sistema o el shell de Git Bash y cambie a una carpeta de trabajo de la máquina. Ejecute el siguiente comando para clonar el repositorio de GitHub del [SDK para C de Azure IoT](https://github.com/Azure/azure-iot-sdk-c):
-    
-   ```cmd/sh
-   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
-   ```
+1. Busque el nombre de etiqueta de la [versión más reciente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) del SDK de C de IoT de Azure.
 
-   Esta operación puede tardar varios minutos en completarse.
+2. Abra un símbolo del sistema o el shell de Git Bash y cambie a una carpeta de trabajo de la máquina. Ejecute los siguientes comandos para clonar la versión más reciente del repositorio de GitHub del [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c). Use la etiqueta que encontró en el paso anterior como valor del parámetro `-b`:
 
-   Las herramientas de prueba se encuentran en el directorio *azure-iot-sdk-c/tools/CACertificates* del repositorio que clonó.    
+    ```cmd/sh
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
+    ```
 
-2. Siga los pasos descritos en [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) (Administración de certificados de entidad de certificación de prueba para ejemplos y tutoriales). 
+    Esta operación puede tardar varios minutos en completarse.
+
+   Las herramientas de prueba se encuentran en el directorio *azure-iot-sdk-c/tools/CACertificates* del repositorio que clonó.
+
+3. Siga los pasos descritos en [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) (Administración de certificados de entidad de certificación de prueba para ejemplos y tutoriales). 
 
 
 
@@ -111,7 +115,7 @@ Para usar estas herramientas de prueba para generar certificados, realice los pa
 ## <a name="run-the-enrollment-group-sample"></a>Ejecutar el ejemplo del grupo de inscripción
  
 1. Para ejecutar el ejemplo, necesita la cadena de conexión para el servicio de aprovisionamiento. 
-    1. Inicie sesión en Azure Portal, seleccione el botón **Todos los recursos** situado en el menú izquierdo y abra el servicio Device Provisioning. 
+    1. Inicie sesión en Azure Portal, seleccione el botón **Todos los recursos** en el menú de la izquierda y abra Device Provisioning Service. 
     2. Haga clic en **Directivas de acceso compartido** y, a continuación, seleccione la directiva de acceso que quiere usar para abrir sus propiedades. En la ventana **Directiva de acceso**, copie y tome nota de la cadena de conexión de la clave principal. 
 
        ![Obtención de la cadena de conexión del servicio de aprovisionamiento desde el portal](./media/quick-enroll-device-x509-node/get-service-connection-string.png) 
@@ -136,10 +140,10 @@ Para usar estas herramientas de prueba para generar certificados, realice los pa
     ![Propiedades de la inscripción en el portal](./media/quick-enroll-device-x509-node/verify-enrollment-portal.png) 
  
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Si tiene previsto explorar los ejemplos del servicio de Node.js, no elimine los recursos que se crearon con este inicio rápido. Si no va a continuar, use el siguiente procedimiento para eliminar todos los recursos de Azure creados con este inicio rápido.
+Si planea explorar los ejemplos del servicio de Node.js, no elimine los recursos que se han creado en este inicio rápido. Si no va a continuar, use el siguiente procedimiento para eliminar todos los recursos de Azure creados con este inicio rápido.
  
 1. Cierre la ventana de salida de ejemplo de Node.js en su máquina.
-2. Vaya al servicio Device Provisioning en Azure Portal, seleccione **Administrar inscripciones** y, a continuación, seleccione la pestaña **Grupos de inscripción**. Seleccione el *nombre de grupo* para los dispositivos X.509 que inscribió mediante este inicio rápido y presione el botón **Eliminar** situado en la parte superior del panel.    
+2. Vaya a Device Provisioning Service en Azure Portal, seleccione **Administrar inscripciones** y, a continuación, seleccione la pestaña **Grupos de inscripción**. Seleccione la casilla que se encuentra junto a *NOMBRE DE GRUPO* para ver los dispositivos X.509 que inscribió mediante este inicio rápido y presione el botón **Eliminar** situado en la parte superior del panel.    
 3. Desde el servicio Device Provisioning en Azure Portal, seleccione **Certificados**, seleccione el certificado que cargó para este inicio rápido y presione el botón **Eliminar** situado en la parte superior de la ventana **Detalles del certificado**.  
  
 ## <a name="next-steps"></a>Pasos siguientes

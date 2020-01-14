@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 05d0fcb9e689b8954bffaff402475762344c023d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 3f715af835df6783ae5d59dd073a042a553fba4d
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091935"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498046"
 ---
 # <a name="moving-azure-vms-to-another-azure-region"></a>Traslado de máquinas virtuales de Azure a otra región de Azure
 
@@ -81,7 +81,7 @@ En función de las [arquitecturas](#typical-architectures-for-a-multi-tier-deplo
 
      ![Implementación de máquinas virtuales de instancia única en distintos niveles](media/move-vm-overview/single-zone.png)
 
-* **Máquinas virtuales en todos los niveles implementadas en conjuntos de disponibilidad**: Puede configurar las máquinas virtuales en un conjunto de disponibilidad en zonas de disponibilidad independientes al habilitar la replicación de la máquina virtual mediante Azure Site Recovery. El Acuerdo de Nivel de Servicio de disponibilidad será del 99,9 % una vez finalizada la operación de traslado.
+* **Máquinas virtuales en todos los niveles implementadas en conjuntos de disponibilidad**: Puede configurar las máquinas virtuales en un conjunto de disponibilidad en zonas de disponibilidad independientes al habilitar la replicación de la máquina virtual mediante Azure Site Recovery. El Acuerdo de Nivel de Servicio de disponibilidad será del 99,99 % una vez finalizada la operación de traslado.
 
      ![Implementación de máquinas virtuales en conjuntos de disponibilidad y zonas de disponibilidad](media/move-vm-overview/aset-azone.png)
 

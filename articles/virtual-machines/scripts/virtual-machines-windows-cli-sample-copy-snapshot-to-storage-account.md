@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de la CLI de Azure: copia de una instantánea en una cuenta de almacenamiento de otra región'
+title: 'Copia de una instantánea en una cuenta de almacenamiento de otra región: Ejemplo de la CLI'
 description: 'Ejemplo de script de la CLI de Azure: exportación o copia de instantánea como un VHD a una cuenta de almacenamiento en misma suscripción o en una diferente'
 services: virtual-machines-windows
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 1e9ba52357703238c35d31823462d9ff3bd04c87
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 05868682708ee2f064addf698508b5e178424963
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040043"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375889"
 ---
 # <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>Exportación o copia de una instantánea administrada como un VHD a una cuenta de almacenamiento en una región diferente con la CLI
 

@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b4305e9b3cfdb5e05ce76ee1811dc0d2dcc265b7
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 6fa0379f2f8194356ed122e86b5a225f72adfe7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950211"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367610"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutorial: Habilitación de la autenticación en una aplicación web mediante Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Cree flujos de usuario](tutorial-create-user-flows.md) para habilitar las experiencias de usuario en la aplicación.
 * Instalar [Visual Studio 2019](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**.
@@ -46,7 +46,7 @@ Para actualizar la aplicación, puede usar la experiencia **Aplicaciones** actua
 
 #### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Aplicaciones** y, a continuación, seleccione la aplicación *webapp1*.
@@ -56,7 +56,7 @@ Para actualizar la aplicación, puede usar la experiencia **Aplicaciones** actua
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Registros de aplicaciones (versión preliminar)** , seleccione la pestaña **Aplicaciones propias** y, a continuación, seleccione la aplicación *webapp1*.
@@ -94,7 +94,7 @@ Actualice la configuración en el archivo Web.config para que funcione con el fl
 1. En el proyecto **TaskWebApp**, abra el archivo **Web.config**.
     1. Actualice el valor de `ida:Tenant` y `ida:AadInstance` con el nombre del inquilino de Azure AD B2C que ha creado. Por ejemplo, reemplace `fabrikamb2c` por `contoso`.
     1. Reemplace el valor de `ida:ClientId` por el identificador de la aplicación que ha registrado.
-    1. Reemplace el valor de `ida:ClientSecret` con la clave que ha registrado. Debe codificar en XML el secreto de cliente antes de agregarlo al archivo Web.config.
+    1. Reemplace el valor de `ida:ClientSecret` con la clave que ha registrado. Si el secreto de cliente contiene entidades XML predefinidas, por ejemplo, menor que (`<`), mayor que (`>`), signo et (`&`) o comillas dobles (`"`), debe evitarlas mediante la codificación XML del secreto de cliente antes de agregarlo al archivo Web.config.
     1. Reemplace el valor de `ida:SignUpSignInPolicyId` por `b2c_1_signupsignin1`.
     1. Reemplace el valor de `ida:EditProfilePolicyId` por `b2c_1_profileediting1`.
     1. Reemplace el valor de `ida:ResetPasswordPolicyId` por `b2c_1_passwordreset1`.
@@ -120,7 +120,7 @@ Sin embargo, la característica **Lista de tareas pendientes**  no funcionará h
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Actualizar la aplicación en Azure AD B2C

@@ -1,25 +1,17 @@
 ---
-title: Configuración de una puerta de enlace para enrutar solicitudes | Microsoft Docs
+title: Configuración de una puerta de enlace para enrutar solicitudes
 description: Obtenga información sobre cómo configurar la puerta de enlace que controla el tráfico entrante de las aplicaciones que se ejecutan en Service Fabric Mesh.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b4fc6f91ee2429205974b9cb7ceb05b7cff53f15
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ec408403d4baa0f211c6bfe867a15c96513693cb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034219"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461956"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configuración de un recurso de puerta de enlace para enrutar solicitudes
 

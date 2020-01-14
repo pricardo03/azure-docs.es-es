@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 30fffa6264411238c3ff0a5e829e1567c00f4f97
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/17/2019
+ms.openlocfilehash: d2b8b2fecbf85e6590294f1fbd7ff2a4453b9e87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794209"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460751"
 ---
 # <a name="create-a-basic-index-in-azure-cognitive-search"></a>Creación de un índice básico en Azure Cognitive Search
 
@@ -37,7 +37,7 @@ Para llegar al diseño adecuado del índice, se necesitan normalmente varias ite
 
 3. Descargue el esquema de índice mediante [la API REST Get Index](https://docs.microsoft.com/rest/api/searchservice/get-index) y una herramienta de prueba web como [Postman](search-get-started-postman.md). Ahora tiene una representación JSON del índice que creó en el portal. 
 
-   Llegados a este punto, va a cambiar a un enfoque basado en código. El portal no es adecuado para la iteración porque no se puede editar un índice que ya se ha creado. Sin embargo, puede usar Postman y REST en el resto de las tareas.
+   Llegados a este punto, va a cambiar a un enfoque basado en código. El portal no es adecuado para la iteración porque no puede editar un índice que ya se ha creado. Sin embargo, puede usar Postman y REST en el resto de las tareas.
 
 4. [Cargue el índice con datos](search-what-is-data-import.md). Azure Cognitive Search acepta documentos JSON. Para cargar los datos mediante programación, puede usar Postman con documentos JSON en la carga de solicitudes. Si los datos no se expresan con facilidad como JSON, este paso será más laborioso.
 
@@ -145,7 +145,7 @@ La [*recopilación de campos*](#fields-collection) es normalmente el elemento m�
 Al definir el esquema, debe especificar el nombre, el tipo y los atributos de cada campo del índice. El tipo de campo permite clasificar los datos que se almacenan en ese campo. Los atributos se establecen en campos individuales para especificar cómo se usa el campo. En la tabla siguiente se enumeran los tipos y los atributos que puede especificar.
 
 ### <a name="data-types"></a>Tipos de datos
-| type | DESCRIPCIÓN |
+| Tipo | Descripción |
 | --- | --- |
 | *Edm.String* |Texto que opcionalmente se puede acortar para búsquedas de texto completo (separación de palabras, lematización, etc.). |
 | *Collection(Edm.String)* |Una lista de cadenas que opcionalmente se pueden acortar para búsquedas de texto completo. En teoría, no hay ningún límite superior para el número de elementos de una colección, pero el límite de 16 MB en el tamaño de la carga se aplica a las colecciones. |
@@ -166,7 +166,7 @@ Los demás atributos determinan cómo se utiliza un campo en una aplicación. Po
 
 Las API que usa para crear un índice tienen distintos comportamientos predeterminados. En el caso de las [API REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index), la mayoría de los atributos están habilitados de forma predeterminada (por ejemplo, **searchable** y **retrievable** son true para los campos de cadena) y a menudo solo deberá establecerlos si desea desactivarlos. Para el SDK de .NET, ocurre lo contrario. En cualquier propiedad que no establezca de forma explícita, el valor predeterminado es que el comportamiento de búsqueda correspondiente esté deshabilitado, a menos que lo habilite específicamente.
 
-| Atributo | DESCRIPCIÓN |
+| Atributo | Descripción |
 | --- | --- |
 | `key` |Una cadena que proporciona el identificador único de cada documento, que se usa para buscar los documentos. Todos los índices deben tener una clave. Solo un campo puede ser la clave y se debe establecer su tipo en Edm.String. |
 | `retrievable` |Establece si el campo se puede devolver en un resultado de búsqueda. |
@@ -175,10 +175,9 @@ Las API que usa para crear un índice tienen distintos comportamientos predeterm
 | `facetable` |Permite que un campo se use en una estructura de [navegación con facetas](search-faceted-navigation.md) para el filtrado autodirigido. Normalmente los campos que contienen valores repetitivos que se pueden usar para agrupar varios documentos (por ejemplo, varios documentos que forman parte de una única categoría de servicio o un único producto) funcionan mejor como facetas. |
 | `searchable` |Marca el campo como campo de búsqueda de texto completo. |
 
+## <a name="index-size"></a>Tamaño de índice
 
-## <a name="storage-implications"></a>Implicaciones del almacenamiento
-
-Los atributos seleccionados tienen un efecto sobre el almacenamiento. La siguiente captura de pantalla ilustra los patrones de almacenamiento de índices resultantes de diversas combinaciones de atributos.
+El tamaño de un índice viene determinado por el tamaño de los documentos que se cargan, además de la configuración del índice, por ejemplo, si incluye los proveedores de sugerencias y cómo establece los atributos en los campos individuales. La siguiente captura de pantalla ilustra los patrones de almacenamiento de índices resultantes de diversas combinaciones de atributos.
 
 El índice se basa en el origen de datos [ejemplo de real estate integrado](search-get-started-portal.md), que se puede indexar y consultar en el portal. Aunque no se muestran los esquemas de índice, puede deducir los atributos según el nombre del índice. Por ejemplo, el índice *realestate-searchable* tiene seleccionado el atributo **searchable** y nada más, el índice *realestate-retrievable* tiene seleccionado el atributo **retrievable** y nada más y así sucesivamente.
 
@@ -186,13 +185,13 @@ El índice se basa en el origen de datos [ejemplo de real estate integrado](sear
 
 Aunque estas variantes de índice son artificiales, se puede hacer referencia a ellas en comparaciones más amplias de cómo los atributos afectan al almacenamiento. ¿El valor **retrievable** aumenta el tamaño del índice? No. ¿Agregar campos a un **proveedor de sugerencias** aumenta el tamaño del índice? Sí.
 
-Los índices que admiten ordenación y filtrado son en proporción más grandes que aquellos que solo admiten búsqueda de texto completo. El motivo es que la consulta de ordenación y filtrado se realiza por coincidencias exactas, de forma que los documentos se almacenan intactos. En cambio, los campos que permiten búsquedas que admiten búsqueda de texto completo y búsqueda parcial usan índices invertidos, que se rellenan con términos acortados que consumen menos espacio que los documentos completos.
+Los índices que admiten la ordenación y el filtrado son en proporción más grandes que aquellos que solo admiten la búsqueda de texto completo. Las operaciones de filtro y ordenación buscan coincidencias exactas, lo que requiere la presencia de documentos intactos. En cambio, los campos que permiten búsquedas que admiten búsqueda de texto completo y búsqueda parcial usan índices invertidos, que se rellenan con términos acortados que consumen menos espacio que los documentos completos. 
 
 > [!Note]
 > La arquitectura de almacenamiento se considera un detalle de implementación de Azure Cognitive Search y podría cambiar sin previo aviso. No hay ninguna garantía de que el comportamiento actual se conserve en el futuro.
 
 ## <a name="suggesters"></a>Proveedores de sugerencias
-Un proveedor de sugerencias es una sección del esquema que define qué campos de un índice se utilizan para admitir consultas con la función Autocompletar o con escritura automática en las búsquedas. Normalmente, las cadenas de búsqueda parcial se envían a las [API REST de sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggestions) mientras el usuario escribe una consulta de búsqueda, y la API devuelve un conjunto de frases sugeridas. 
+Un proveedor de sugerencias es una sección del esquema que define qué campos de un índice se utilizan para admitir consultas con la función Autocompletar o con escritura automática en las búsquedas. Normalmente, las cadenas de búsqueda parcial se envían a [Sugerencias (API REST)](https://docs.microsoft.com/rest/api/searchservice/suggestions) mientras el usuario escribe una consulta de búsqueda, y la API devuelve un conjunto de documentos o frases sugeridas. 
 
 Los campos agregados a un proveedor de sugerencias se usan para compilar los términos de búsqueda de escritura anticipada. Todos los términos de búsqueda se crean durante la indexación y se almacenan por separado. Para más información sobre la creación de una estructura de proveedor de sugerencias, consulte [Incorporación de proveedores de sugerencias](index-add-suggesters.md).
 
@@ -220,7 +219,7 @@ Se pueden establecer las opciones siguientes para CORS:
 
 ## <a name="encryption-key"></a>Clave de cifrado
 
-Mientras todos los índices de Azure Cognitive Search se cifran mediante claves administradas por Microsoft de manera predeterminada, los índices se pueden configurar para cifrarse con **claves administradas por el cliente** en Key Vault. Para obtener más información, consulte [Administración de claves de cifrado en Azure Cognitive Search](search-security-manage-encryption-keys.md).
+Mientras que todos los índices de Azure Cognitive Search se cifran mediante claves administradas por Microsoft de manera predeterminada, los índices se pueden configurar para cifrarse con **claves administradas por el cliente** en Key Vault. Para más información, consulte [Administración de claves de cifrado en Azure Cognitive Search](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

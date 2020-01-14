@@ -1,25 +1,14 @@
 ---
-title: Escenarios y diseño de aplicaciones | Microsoft Docs
+title: Escenarios y diseño de aplicaciones
 description: Información general de las categorías de las aplicaciones de nube en Service Fabric. Describe el diseño de la aplicación que usa servicios con estado y sin estado.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 3a8ca6ea-b8e9-4bc3-9e20-262437d2528e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 4/24/2019
-ms.author: atsenthi
-ms.openlocfilehash: d72e124248887690ca26c2676e8036cb1b5c4339
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.openlocfilehash: bdbbf81186463e1f645738b370662de9c13f5c17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303504"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464911"
 ---
 # <a name="service-fabric-application-scenarios"></a>Escenarios de aplicación de Service Fabric
 Azure Service Fabric ofrece una plataforma confiable y flexible que le permite escribir y ejecutar muchos tipos de aplicaciones y servicios empresariales. Estas aplicaciones y microservicios pueden tener estado o no tenerlo y se equilibran mediante recursos en las máquinas virtuales para maximizar su eficacia. 
@@ -68,7 +57,7 @@ Los microservicios con estado simplifican los diseños de la aplicación porque 
 
 En los siguientes diagramas se muestran las diferencias entre diseñar una aplicación sin estado y otra con estado. Al aprovecharse los modelos de programación de [Reliable Services](service-fabric-reliable-services-introduction.md) y [Reliable Actors](service-fabric-reliable-actors-introduction.md), los servicios con estado reducen la complejidad de la aplicación, al mismo tiempo que se obtienen un alto rendimiento y una baja latencia.
 
-Esta es una aplicación de ejemplo que usa servicios sin estado: ![Aplicación que utiliza servicios sin estado][Image1]
+Esta es una aplicación de ejemplo que usa servicios sin estado: ![Aplicación que utiliza servicios con estado][Image1]
 
 Esta es una aplicación de ejemplo que usa servicios con estado: ![Aplicación que utiliza servicios con estado][Image2]
 

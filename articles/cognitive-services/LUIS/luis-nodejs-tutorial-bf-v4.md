@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Bot de Language Understanding Node.js v4'
 titleSuffix: Azure Cognitive Services
-description: Use Node.js para crear un bot de chat que se integre con Language Understanding (LUIS). Este bot de chat utiliza la aplicación de recursos humanos para implementar con rapidez una solución de bot. El bot se compila con la versión 4 de Bot Framework y el bot de aplicación web de Azure.
+description: Use Node.js para crear un bot de chat que se integre con Language Understanding (LUIS) en este tutorial. Este bot de chat utiliza la aplicación de recursos humanos para implementar con rapidez una solución de bot. El bot se compila con la versión 4 de Bot Framework y el bot de aplicación web de Azure.
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 9a38f43b24e5db6a60ff38cd0f1d9b59b9875bba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 754d9d74a5d2c74a873145eaaddaaced29aa2ca8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492678"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447999"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Tutorial: Uso de un bot de aplicación web habilitado con Language Understanding en Node.js 
 
@@ -32,7 +32,7 @@ Use Node.js para crear un bot de chat que se integre con Language Understanding 
 > * Iniciar el emulador y el bot localmente en el equipo.
 > * Ver los resultados de expresiones del bot.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Bot Emulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
@@ -44,16 +44,16 @@ Use Node.js para crear un bot de chat que se integre con Language Understanding 
 
 1. En el cuadro de búsqueda, busque y seleccione **Bot de aplicación web**. Seleccione **Crear**.
 
-1. En **Servicio de bots**, proporcione la información necesaria:
+1. En **Bot Service**, proporcione la información necesaria:
 
     |Configuración|Propósito|Configuración sugerida|
     |--|--|--|
     |Nombre del bot|Nombre del recurso|`luis-nodejs-bot-` + `<your-name>`, por ejemplo, `luis-nodejs-bot-johnsmith`|
-    |Subscription|Suscripción donde se desea crear el bot.|Suscripción principal.
-    |Grupos de recursos|Grupo lógico de recursos de Azure|Crear un nuevo grupo para almacenar todos los recursos utilizados con este bot, denominando el grupo `luis-nodejs-bot-resource-group`.|
-    |Ubicación|Región de Azure: no tiene que ser la misma que la región de creación o publicación de LUIS.|`westus`|
-    |Plan de tarifa|Se usa para los límites de solicitud de servicio y facturación.|`F0` es el plan gratuito.
-    |Nombre de la aplicación|El nombre se usa como el subdominio cuando el bot se implementa en la nube (por ejemplo, humanresourcesbot.azurewebsites.net).|`luis-nodejs-bot-` + `<your-name>`, por ejemplo, `luis-nodejs-bot-johnsmith`|
+    |Subscription|Suscripción donde se creará el bot.|Suscripción principal.
+    |Resource group|Grupo lógico de recursos de Azure|Crear un nuevo grupo para almacenar todos los recursos utilizados con este bot, denominando el grupo `luis-nodejs-bot-resource-group`.|
+    |Location|Región de Azure: no tiene que ser la misma que la región de creación o publicación de LUIS.|`westus`|
+    |Plan de tarifa|Se usa para los límites de solicitud de servicio y facturación.|`F0` es el nivel Gratis.
+    |Nombre de la aplicación|El nombre se usa como subdominio cuando el bot se implementa en la nube (por ejemplo, humanresourcesbot.azurewebsites.net).|`luis-nodejs-bot-` + `<your-name>`, por ejemplo, `luis-nodejs-bot-johnsmith`|
     |Plantilla de bot|Configuración de Bot Framework: ver la tabla siguiente|
     |Ubicación de la aplicación de LUIS|Debe ser la misma que la región de recursos de LUIS.|`westus`|
     |Plan de App Service/ubicación|No cambie el valor predeterminado proporcionado.|

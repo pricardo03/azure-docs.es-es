@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 42dcc0e9bd07f357c17f28dd754e4ae3404e01ff
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 3e36aa268286b9127f36859a1fa4402644994a32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561882"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444842"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ El SDK de Java de API de SQL admite las operaciones sincrónicas. En caso de que
 |**Descarga del SDK**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**Documentación de la API**|[Documentación de referencia de API](/java/api/com.microsoft.azure.documentdb)|
 |**Contribuya al SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**Primeros pasos**|[Introducción al SDK de Java](sql-api-java-get-started.md)|
+|**Introducción**|[Introducción al SDK de Java](sql-api-java-get-started.md)|
 |**Tutorial de la aplicación web**|[Desarrollo de aplicaciones web con Azure Cosmos DB](sql-api-java-application.md)|
 |**Tiempo de ejecución mínimo admitido**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
 
@@ -48,6 +48,7 @@ El SDK de Java de API de SQL admite las operaciones sincrónicas. En caso de que
 
 ### <a name="a-name244244"></a><a name="2.4.4"/>2.4.4
 * Optimización de las actualizaciones de caché del intervalo de claves de partición.
+* Corrige el escenario en el que el SDK no contempla la sugerencia de división de particiones del servidor y devuelve una actualización de caché de enrutamiento del lado cliente incorrecta.
 
 ### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
 * Optimización de las actualizaciones de caché de colección.
@@ -253,7 +254,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 <br/>
 
-| Versión | Fecha de lanzamiento | Fecha de retirada |
+| Versión | Fecha de la versión | Fecha de retirada |
 | --- | --- | --- |
 | [2.1.3](#2.1.3) |13 de marzo de 2018 |--- |
 | [2.1.2](#2.1.2) |09 de marzo de 2018 |--- |
@@ -301,6 +302,6 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 ## <a name="faq"></a>Preguntas más frecuentes
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 Para más información sobre Cosmos DB, consulte la página del servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 

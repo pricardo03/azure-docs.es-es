@@ -1,27 +1,27 @@
 ---
 title: 'Inicio rápido: Revisión ortográfica con la API REST y Ruby: Bing Spell Check'
 titleSuffix: Azure Cognitive Services
-description: Introducción al uso de la API REST de Bing Spell Check para la revisión ortográfica y gramatical.
+description: Empiece a utilizar la API REST de Bing Spell Check para la revisión ortográfica y gramatical con este inicio rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: e80a7bd3b56ccfd13a20c11f845d076271448b76
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 89a2a345e2a4e3ca1be31297e614e86f800e6316
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383841"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448429"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y Ruby
 
 Use este inicio rápido para realizar la primera llamada a la API REST de Bing Spell Check mediante Ruby. Esta sencilla aplicación envía una solicitud a la API y devuelve una lista de palabras que no reconoce, seguida de las correcciones sugeridas. Si bien esta aplicación está escrita en Ruby, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de esta aplicación está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) o posterior.
 
@@ -32,13 +32,13 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
 
 1. Cree un archivo de Ruby en su editor o IDE favoritos y agregue los siguientes requisitos. 
 
-    ```javascript
+    ```ruby
     require 'net/http'
     require 'uri'
     require 'json'
     ```
 
-2. Cree variables para la clave de suscripción, el URI del punto de conexión y la ruta de acceso. Para crear los parámetros de solicitud, anexe el parámetro `mkt=` a su mercado y `&mode` al modo `proof`.
+2. Cree variables para la clave de suscripción, el URI del punto de conexión y la ruta de acceso. Para crear los parámetros de solicitud, anexe el parámetro `mkt=` a su mercado y `&mode` al modo `proof`. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -81,6 +81,16 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
     result = JSON.pretty_generate(JSON.parse(response.body))
     puts result
     ```
+
+## <a name="run-the-application"></a>Ejecución de la aplicación
+
+Compile y ejecute el proyecto.
+
+Si usa la línea de comandos, utilice los siguientes comandos para ejecutar la aplicación.
+
+```bash
+ruby <FILE_NAME>.rb
+```
 
 ## <a name="example-json-response"></a>Ejemplo de respuesta JSON
 

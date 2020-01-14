@@ -3,15 +3,15 @@ title: Desarrollo de aplicaciones en Kubernetes
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: Implementación de un microservicio en AKS con Azure Dev Spaces
+description: En este inicio rápido se muestra cómo usar Azure Dev Spaces y la línea de comandos para desarrollar una aplicación en Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 932b25e277936a2efe6a3e037458fabd67b024c2
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: b4902930b04e880bbbdfbe7418d5e0ec86f89470
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325638"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438257"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>Inicio rápido: Desarrollo de aplicaciones en Kubernetes: Azure Dev Spaces
 En esta guía, aprenderá a:
@@ -19,9 +19,9 @@ En esta guía, aprenderá a:
 - Configurar Azure Dev Spaces con un clúster de Kubernetes administrado en Azure.
 - Desarrollar y ejecutar código de contenedores mediante la línea de comandos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Una suscripción de Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
+- Suscripción a Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
 - [La CLI de Azure instalada](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Creación de un clúster de Azure Kubernetes Service

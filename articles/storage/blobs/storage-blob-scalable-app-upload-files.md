@@ -1,5 +1,5 @@
 ---
-title: Cargar grandes cantidades de datos aleatorios en paralelo en Azure Storage | Microsoft Docs
+title: Carga de grandes cantidades de datos aleatorios en paralelo en Azure Storage
 description: Aprenda a usar la biblioteca cliente de Azure Storage para cargar grandes cantidades de datos aleatorios en paralelo en una cuenta de Azure Storage
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 5b20686399db9537e5db8622a433b5e506939d19
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: dd87e1a9bcff55813dff420976df58351386fb34
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302983"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371945"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Cargar grandes cantidades de datos aleatorios en paralelo en Azure Storage
 
@@ -26,11 +26,11 @@ En la segunda parte de la serie, se aprende a:
 > * Ejecución de la aplicación
 > * Validar el número de conexiones
 
-Azure Blob Storage proporciona un servicio escalable para almacenar los datos. Para asegurarse de que la aplicación tenga el máximo rendimiento posible, se recomienda comprender el funcionamiento de Blob Storage. Conocer los límites de los blobs de Azure es importante. Para obtener más información acerca de estos límites, visite: [Objetivos de escalabilidad y rendimiento de Azure Storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
+Azure Blob Storage proporciona un servicio escalable para almacenar los datos. Para asegurarse de que la aplicación tenga el máximo rendimiento posible, se recomienda comprender el funcionamiento de Blob Storage. Es importante conocer los límites de los blobs de Azure. Para más información sobre estos límites, visite: [Objetivos de escalabilidad y rendimiento de Blob Storage](../blobs/scalability-targets.md).
 
 La [nomenclatura de las particiones](../blobs/storage-performance-checklist.md#partitioning) es otro factor posiblemente importante al diseñar una aplicación de alto rendimiento con blobs. En el caso de tamaños de bloques mayores o iguales que 4 MiB, se usan los [blobs en bloques de alto rendimiento](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) y la nomenclatura de las particiones no afecta al rendimiento. En el caso de tamaños de bloques menores de 4 MiB, Azure Storage usa un esquema de partición basado en intervalo para escalar y equilibrar la carga. Esta configuración significa que los archivos con prefijos o convenciones de nomenclatura similares van a la misma partición. Esta lógica incluye el nombre del contenedor donde se cargan los archivos. En este tutorial, usará archivos que tienen GUID de nombres, así como contenido generado de manera aleatoria. Estos se cargan posteriormente en cinco contenedores diferentes con nombres aleatorios.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, debe haber completado el tutorial anterior sobre el almacenamiento: [Creación de una máquina virtual y una cuenta de almacenamiento para una aplicación escalable][previous-tutorial].
 
@@ -44,7 +44,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="configure-the-connection-string"></a>Configurar la cadena de conexión
 
-En Azure Portal, vaya a la cuenta de almacenamiento. Seleccione **Claves de acceso** en **Configuración**, en su cuenta de almacenamiento. Copie la **cadena de conexión** de la clave principal o secundaria. Inicie sesión en la máquina virtual creada en el tutorial anterior. Abra un **símbolo del sistema** como administrador y ejecute el comando `setx` con el conmutador `/m`. Este comando guarda una variable de entorno de configuración de la máquina. La variable de entorno no está disponible hasta que se vuelve a cargar el **símbolo del sistema**. Reemplace  **\<storageConnectionString\>** en el ejemplo siguiente:
+En Azure Portal, vaya a la cuenta de almacenamiento. Seleccione **Claves de acceso** en **Configuración**, en su cuenta de almacenamiento. Copie la **cadena de conexión** de la clave principal o secundaria. Inicie sesión en la máquina virtual creada en el tutorial anterior. Abra un **símbolo del sistema** como administrador y ejecute el comando `setx` con el conmutador `/m`. Este comando guarda una variable de entorno de configuración de la máquina. La variable de entorno no está disponible hasta que se vuelve a cargar el **símbolo del sistema**. Reemplace **\<storageConnectionString\>** en el ejemplo siguiente:
 
 ```
 setx storageconnectionstring "<storageConnectionString>" /m
@@ -66,12 +66,12 @@ La aplicación crea cinco contenedores con nombres aleatorios y comienza a carga
 
 Además de establecer la configuración del límite de subprocesos y de conexiones, la clase [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) del método [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) está configurada para usar el paralelismo y deshabilitar la validación de hash MD5. Los archivos se cargan en bloques de 100 MB. Esta configuración proporciona un mejor rendimiento, pero puede aumentar el costo si se usa una red con un rendimiento deficiente, ya que si se produce un error, se reintenta todo el bloque de 100 MB.
 
-|Propiedad|Valor|DESCRIPCIÓN|
+|Propiedad|Value|Descripción|
 |---|---|---|
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| La configuración divide el blob en bloques al realizar la carga. Para conseguir el máximo rendimiento, este valor debe ser 8 veces el número de núcleos. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Esta propiedad deshabilita la función de comprobación del hash MD5 del contenido cargado. Al deshabilitar la validación de MD5, se agiliza la transferencia. Aún así, hay que tener en cuenta que no se puede confirmar la validez o integridad de los archivos que se transfieren.   |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Esta propiedad determina si se calcula y almacena un hash MD5 con el archivo.   |
-| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| Retroceso de 2 segundos con 10 reintentos como máximo |Determina la directiva de reintentos de las solicitudes. Los errores de conexión se reintentan y, en este ejemplo, una directiva [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) está configurada con un retroceso de 2 segundos y un número máximo de reintentos de 10. Esta configuración es importante cuando la aplicación se acerca a los [Objetivos de escalabilidad y rendimiento de Azure Storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
+| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| Retroceso de 2 segundos con 10 reintentos como máximo |Determina la directiva de reintentos de las solicitudes. Los errores de conexión se reintentan y, en este ejemplo, una directiva [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) está configurada con un retroceso de 2 segundos y un número máximo de reintentos de 10. Esta configuración es importante cuando la aplicación se acerca a los objetivos de escalabilidad y rendimiento de Blob Storage. Para más información, consulte [Objetivos de escalabilidad y rendimiento de Blob Storage](../blobs/scalability-targets.md).  |
 
 La tarea `UploadFilesAsync` se muestra en el ejemplo siguiente:
 

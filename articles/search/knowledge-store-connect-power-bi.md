@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: d1e836e0f463d1d2ce2b71d689ed590239cfb607
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 11/26/2019
+ms.openlocfilehash: dec792dfd3a2640fa08ebccd9077c081ba9737bb
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406586"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563299"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Conexión a un almacén de conocimiento con Power BI
 
@@ -28,13 +28,14 @@ En este artículo, aprenderá a conectarse a un almacén de conocimiento y a exp
 
 ## <a name="sample-power-bi-template---azure-portal-only"></a>Plantilla de ejemplo de Power BI: solo Azure Portal
 
-Si [creó el almacén de conocimiento mediante Azure Portal](knowledge-store-create-portal.md), puede usar la [plantilla de ejemplo de Power BI en Azure Cognitive Search](https://github.com/Azure-Samples/cognitive-search-templates) para ver visualizaciones de Power BI y experimentar con ellas. Esta plantilla también está disponible para su descarga cuando se siguen los pasos del asistente para **Importar datos**.
+Al crear un [almacén de conocimiento con Azure Portal](knowledge-store-create-portal.md), tiene la opción de descargar una [plantilla de Power BI](https://github.com/Azure-Samples/cognitive-search-templates) en la segunda página del **Asistente para la importación de datos**. Esta plantilla proporciona varias visualizaciones, como WordCloud y Network Navigator, para el contenido basado en texto. 
 
-La plantilla de ejemplo se encargará de llevar a cabo los pasos de configuración que se describen en el resto de este artículo. Sin embargo, si usó la API REST para crear el almacén de conocimiento, omita la plantilla y use las secciones restantes de este artículo para conectar el almacén de conocimiento a Power BI. Comience en [Conexión con Power BI](#connect-with-power-bi).
-
-La plantilla de ejemplo incluye varias visualizaciones, como WordCloud y Network Navigator. Algunas visualizaciones de la plantilla, como el mapa de Locations y Entity-Graph Viewer, no mostrarán los datos del almacén de conocimiento de ejemplo creado en [Creación de un almacén de conocimiento en Azure Portal](knowledge-store-create-portal.md). Esto se debe a que solo se usó un subconjunto de las características de enriquecimiento con IA disponibles en el asistente para **Importar datos**.
+Haga clic en **Obtener plantilla de Power BI** en la página **Agregar conocimientos cognitivos** para recuperar y descargar la plantilla desde su ubicación pública de GitHub. El asistente modifica la plantilla para acomodar la forma de los datos capturados en las proyecciones del almacén de conocimiento especificadas en dicho asistente. Por esta razón, la plantilla que descargue variará cada vez que ejecute el asistente, suponiendo que haya diferentes entradas de datos y selecciones de aptitudes.
 
 ![Plantilla de ejemplo de Power BI en Azure Cognitive Search](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Plantilla de ejemplo de Power BI")
+
+> [!NOTE]
+> Aunque la plantilla se descarga mientras el asistente está en curso, tendrá que esperar a que el almacén de conocimiento se cree realmente en el almacenamiento de tablas de Azure antes de poder usarlo.
 
 ## <a name="connect-with-power-bi"></a>Conexión con Power BI
 
@@ -48,7 +49,11 @@ La plantilla de ejemplo incluye varias visualizaciones, como WordCloud y Network
 
 1. Si se le solicita, escriba la clave de la cuenta de almacenamiento.
 
-1. Seleccione las tablas *hotelReviewsSsDocument*, *hotelReviewsSsKeyPhrases* y *hotelReviewsSsPages*. Estas tablas son proyecciones de tabla de Azure de los datos de ejemplo de reseñas de hoteles e incluyen los enriquecimientos de inteligencia artificial que se seleccionaron cuando se creó el almacén de conocimiento.
+1. Seleccione las tablas que contienen los datos de reseñas de hoteles creados en los tutoriales anteriores. 
+
+   + En el tutorial del portal, los nombres de las tablas son *hotelReviewsSsDocument*, *hotelReviewsSsEntities*, *hotelReviewsSsKeyPhrases* y *hotelReviewsSsPages*. 
+   
+   + En el tutorial de REST, los nombres de las tablas son *hotelReviewsDocument*, *hotelReviewsPages*, *hotelReviewsKeyPhrases* y *hotelReviewsSentiment*.
 
 1. Haga clic en **Cargar**.
 
@@ -57,7 +62,6 @@ La plantilla de ejemplo incluye varias visualizaciones, como WordCloud y Network
    ![Abrir Power Query](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "Abrir Power Query")
 
 1. Seleccione *hotelReviewsSsDocument* y quite las columnas *PartitionKey*, *RowKey* y *Timestamp*. 
-
    ![Editar tablas](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Editar tablas")
 
 1. Haga clic en el icono con flechas opuestas en el lado superior derecho de la tabla para expandir el *contenido*. Cuando aparezca la lista de columnas, seleccione todas las columnas y, a continuación, anule la selección de las columnas que comienzan por "metadata". Haga clic en **Aceptar** para mostrar las columnas seleccionadas.
@@ -82,6 +86,8 @@ La plantilla de ejemplo incluye varias visualizaciones, como WordCloud y Network
    ![Validar relaciones](media/knowledge-store-connect-power-bi/powerbi-relationships.png "Validar relaciones")
 
 1. Haga doble clic en cada relación y asegúrese de que la **dirección de filtro cruzado** está establecida en **Ambas**.  Esto permite que los objetos visuales se actualicen cuando se aplica un filtro.
+
+1. Haga clic en el icono de informe en el panel de navegación izquierdo para explorar los datos mediante visualizaciones. En el caso de los campos de texto, las tablas y las tarjetas son visualizaciones útiles. Puede elegir campos de cada una de las tres tablas para rellenar la tabla o tarjeta. 
 
 <!-- ## Try with larger data sets
 
@@ -114,8 +120,3 @@ Para obtener información sobre cómo explorar este almacén de conocimiento con
 
 > [!div class="nextstepaction"]
 > [Visualización con el Explorador de Storage](knowledge-store-view-storage-explorer.md)
-
-Para obtener información sobre cómo crear un almacén de conocimiento mediante las API REST y Postman, consulte el artículo siguiente.  
-
-> [!div class="nextstepaction"]
-> [Creación de un almacén de conocimiento con REST](knowledge-store-howto.md)

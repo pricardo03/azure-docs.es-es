@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Creación de una página web de búsqueda personalizada con Bing Custom Search'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a configurar una instancia de búsqueda personalizada de Bing e integrarla en una página web.
+description: Aprenda a configurar una instancia de búsqueda personalizada de Bing y a integrarla en una página web con este tutorial.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 5a4d797fecca8e040a6e22bf59a5776b1ffff80f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c3d571f494d5f08c7c9e3c551eba88fb86e1ec23
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977206"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448783"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Creación de una página web de Custom Search
 
@@ -26,13 +26,13 @@ En este tutorial se muestra cómo configurar una instancia de búsqueda personal
 Las tareas que se tratan son:
 
 > [!div class="checklist"]
-> - Crear una instancia de búsqueda personalizada
+> - Creación de una instancia de búsqueda personalizada
 > - Agregar entradas activas
 > - Agregar entradas bloqueadas
 > - Agregar entradas ancladas
 > - Integrar la búsqueda personalizada en una página web
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Para seguir con el tutorial, necesita una clave de suscripción para Bing Custom Search API.  Para obtener una clave, consulte [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
 - Si aún no tiene instalado Visual Studio 2017 o versiones posteriores, puede descargar y usar la edición **gratuita** de [Visual Studio 2019 Community](https://www.visualstudio.com/downloads/).
@@ -45,7 +45,7 @@ Para crear una instancia de Bing Custom Search:
   
 2. Navegue al [portal](https://customsearch.ai) de Custom Search.  
   
-3. Inicie sesión en el portal mediante una cuenta Microsoft (MSA). Si no tiene una MSA, haga clic en **Create a Microsoft account** (Crear una cuenta Microsoft). Si es la primera vez que usa el portal, se le pedirán los permisos para acceder a los datos. Haga clic en **Sí**.  
+3. Inicie sesión en el portal mediante una cuenta Microsoft (MSA). Si no tiene una MSA, haga clic en **Creación de una cuenta Microsoft**. Si es la primera vez que usa el portal, se le pedirán los permisos para acceder a los datos. Haga clic en **Sí**.  
   
 4. Después de iniciar sesión, haga clic en **New custom search** (Nueva búsqueda personalizada). En la ventana **Create a new custom search instance** (Crear una instancia de búsqueda personalizada), escriba un nombre que sea significativo y que describa el tipo de contenido que devuelve la búsqueda. Puede cambiar el nombre en cualquier momento.  
   

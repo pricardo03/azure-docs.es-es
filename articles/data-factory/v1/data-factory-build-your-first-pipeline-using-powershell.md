@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 0209b004ba54417a26cd41716687d328ec1431cf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 94f11e306f866496d4ae03dad03b070d26d616e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682995"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438990"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Compilación de la primera factoría de datos de Azure mediante Azure PowerShell
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "73682995"
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 >
 >
 
@@ -41,7 +41,7 @@ La canalización de este tutorial tiene solo una actividad: **Actividad de Hive 
 > 
 > pero cualquier canalización puede tener más de una actividad. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -117,7 +117,7 @@ En este paso, vinculará su cuenta de Azure Storage con su factoría de datos. T
         }
     }
     ```
-    Reemplace **account name** por el nombre de la cuenta de Azure Storage y **account key** por la clave de acceso de la cuenta de Azure Storage. Para aprender a obtener la clave de acceso de almacenamiento, consulte la información sobre cómo ver, copiar y regenerar las claves de acceso de almacenamiento en [Administración de la cuenta de almacenamiento](../../storage/common/storage-account-manage.md#access-keys).
+    Reemplace **account name** por el nombre de la cuenta de Azure Storage y **account key** por la clave de acceso de la cuenta de Azure Storage. Para aprender a obtener la clave de acceso de almacenamiento, consulte [Administración de claves de acceso de la cuenta de almacenamiento](../../storage/common/storage-account-keys-manage.md).
 2. En Azure PowerShell, cambie a la carpeta ADFGetStarted.
 3. Puede usar el cmdlet **New-AzDataFactoryLinkedService** que crea un servicio vinculado. Tanto cmdlet como otros cmdlets de Data Factory que usa en este tutorial requieren que se pasen los valores de los parámetros *ResourceGroupName* y *DataFactoryName*. Como alternativa, puede usar **Get-AzDataFactory** para obtener un objeto **DataFactory** y pasarlo sin necesidad de escribir *ResourceGroupName* y *DataFactoryName* cada vez que ejecuta un cmdlet. Ejecute el comando siguiente para asignar el resultado del cmdlet **Get-AzDataFactory** a una variable **$df**.
 
@@ -158,7 +158,7 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
     ```
     En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se usan en el fragmento de código:
 
-   | Propiedad | DESCRIPCIÓN |
+   | Propiedad | Descripción |
    |:--- |:--- |
    | clusterSize |Especifica el tamaño del clúster de HDInsight. |
    | timeToLive |Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine. |
@@ -212,7 +212,7 @@ En este paso, creará conjuntos de datos que representan los datos de entrada y 
 
     En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se usan en el fragmento de código:
 
-   | Propiedad | DESCRIPCIÓN |
+   | Propiedad | Descripción |
    |:--- |:--- |
    | type |La propiedad type se establece en AzureBlob porque los datos residen en Almacenamiento de blobs de Azure. |
    | linkedServiceName |hace referencia a StorageLinkedService que creó anteriormente. |
@@ -411,12 +411,12 @@ En este tutorial, ha creado una instancia de Data Factory de Azure para procesar
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight de Azure a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
-| Tema | DESCRIPCIÓN |
+| Tema | Descripción |
 |:--- |:--- |
 | [Referencia para cmdlets de Factoría de datos](/powershell/module/az.datafactory) |Consulte la documentación completa sobre los cmdlets de Factoría de datos |
-| [Procesos](data-factory-create-pipelines.md) |Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Factory y cómo aprovecharlas para construir flujos de trabajo controlados por datos de un extremo a otro para su escenario o negocio. |
+| [Canalizaciones](data-factory-create-pipelines.md) |Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Factory y cómo aprovecharlas para construir flujos de trabajo controlados por datos de un extremo a otro para su escenario o negocio. |
 | [Conjuntos de datos](data-factory-create-datasets.md) |Este artículo le ayuda a comprender los conjuntos de datos de Azure Data Factory. |
 | [Programación y ejecución](data-factory-scheduling-and-execution.md) |En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Azure Data Factory. |
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) |En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. |

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de una cuenta de Cassandra API mediante una aplicación de Java: Azure Cosmos DB'
+title: 'Tutorial: Compilación de una aplicación Java para crear una cuenta de Cassandra API en Azure Cosmos DB'
 description: En este tutorial se muestra cómo crear una cuenta de Cassandra API, así como agregar una base de datos (también conocida como espacio de claves) y una tabla en esa cuenta usando una aplicación de Java.
 author: kanshiG
 ms.author: govindk
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: d2d4d568f53c426b063f3285cc8d3d510c3db440
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: b0103f7b827de77c522f78000c8d28683ac85f4b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034623"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441897"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Tutorial: Creación de una cuenta de Cassandra API en Azure Cosmos DB mediante una aplicación de Java para almacenar datos de pares clave/valor
 
@@ -28,9 +28,9 @@ En este tutorial se describen las tareas siguientes:
 > * Obtención de la cadena de conexión de cuenta
 > * Creación de un proyecto de Maven y sus dependencias
 > * Adición de una base de datos y una tabla
-> * Ejecución de la aplicación
+> * Ejecución la aplicación
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerequisites 
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar. 
 
@@ -41,15 +41,15 @@ En este tutorial se describen las tareas siguientes:
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/). 
 
 2. Seleccione **Crear un recurso** > **Bases de datos** > **Azure Cosmos DB**. 
 
 3. En el panel **Nueva cuenta**, especifique la configuración de la nueva cuenta de Azure Cosmos. 
 
-   |Configuración   |Valor sugerido  |DESCRIPCIÓN  |
+   |Configuración   |Valor sugerido  |Descripción  |
    |---------|---------|---------|
-   |ID   |   Escriba un nombre único.    | Escriba un nombre único para identificar esta cuenta de Azure Cosmos. <br/><br/>Como cassandra.cosmosdb.azure.com se anexa al identificador que proporcione para crear el punto de contacto, debe usar un identificador único, pero reconocible.         |
+   |id   |   Escriba un nombre único.    | Escriba un nombre único para identificar esta cuenta de Azure Cosmos. <br/><br/>Como cassandra.cosmosdb.azure.com se anexa al identificador que proporcione para crear el punto de contacto, debe usar un identificador único, pero reconocible.         |
    |API    |  Cassandra   |  La API determina el tipo de cuenta que se va a crear. <br/> Seleccione **Cassandra**, ya que en este artículo se creará una base de datos de columnas que se puede consultar mediante la sintaxis del lenguaje de consulta Cassandra (CQL).  |
    |Subscription    |  Su suscripción        |  Seleccione la suscripción de Azure que desea usar para esta cuenta de Azure Cosmos.        |
    |Grupo de recursos   | Escribir un nombre    |  Seleccione **Crear nuevo** y luego escriba un nombre nuevo de grupo de recursos para la cuenta. Para simplificar, puede usar el mismo nombre del identificador.    |
@@ -204,7 +204,7 @@ En esta sección se describe cómo agregar una base de datos (espacio de claves)
    } 
    ```
  
-## <a name="run-the-app"></a>Ejecución de la aplicación 
+## <a name="run-the-app"></a>Ejecución la aplicación 
 
 1. Abra un símbolo del sistema o una ventana de terminal. Pegue el bloque de código siguiente. 
 

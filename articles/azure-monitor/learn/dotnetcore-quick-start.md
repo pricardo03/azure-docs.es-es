@@ -1,6 +1,6 @@
 ---
-title: Guía de inicio rápido con Azure Application Insights | Microsoft Docs
-description: Proporciona instrucciones para configurar rápidamente una aplicación web ASP.NET Core para la supervisión con Application Insights
+title: 'Inicio rápido: ASP.NET Core (Azure Monitor Application Insights)'
+description: Proporciona instrucciones para configurar rápidamente una aplicación web de ASP.NET Core para la supervisión con Application Insights de Azure Monitor
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: ec39380409d5170efb56530c86a41d934e41728a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e05926d7a76f47cc3c95088fa2d8f1a6e385bbbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900565"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399031"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Inicio de la supervisión de la aplicación web ASP.NET Core
 
@@ -21,7 +21,7 @@ Con Azure Application Insights puede supervisar fácilmente la disponibilidad, e
 
 Esta guía de inicio rápido le ayudará a agregar el SDK de Application Insights a una aplicación web ASP.NET Core existente. Para información sobre cómo configurar Application Insights sin Visual Studio, consulte este [artículo](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar esta guía de inicio rápido:
 
@@ -37,7 +37,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="enable-application-insights"></a>Habilitación de Application Insights
 
@@ -46,21 +46,23 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 1. Seleccione **Crear un recurso** > **Herramientas de desarrollo** > **Application Insights**.
 
    > [!NOTE]
-   >Si esta es la primera vez que crea un recurso de Application Insights, puede obtener más información visitando la documentación [Creación de recursos en Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+   >Si esta es la primera vez que crea un recurso de Application Insights, puede obtener más información visitando la documentación [Creación de recursos en Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
     Aparece un cuadro de configuración, use la tabla siguiente para rellenar los campos de entrada.
 
-   | Configuración        |  Valor           | DESCRIPCIÓN  |
+   | Configuración        |  Value           | Descripción  |
    | ------------- |:-------------|:-----|
    | **Nombre**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
-   | **Grupo de recursos**     | myResourceGroup      | Nombre para el nuevo grupo de recursos que hospedará los datos de Application Insights |
+   | **Grupo de recursos**     | myResourceGroup      | Nombre del nuevo grupo de recursos que hospedará los datos de Application Insights. puede crear un grupo de recursos o use uno existente. |
    | **Ubicación** | East US | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
 
-2. Haga clic en **Create**(Crear).
+2. Haga clic en **Crear**.
+
+
 
 ## <a name="configure-app-insights-sdk"></a>Configuración del SDK de Application Insights
 
-1. Abra el **proyecto** de la aplicación web ASP.NET Core en Visual Studio > haga clic con el botón derecho en el nombre de la aplicación en el **Explorador de soluciones** > seleccione **Agregar**  >  **Telemetría de Application Insights**.
+1. Abra el **proyecto** de la aplicación web ASP.NET Core en Visual Studio > haga clic con el botón derecho en el nombre de la aplicación en el **Explorador de soluciones** > seleccione **Agregar** > **Telemetría de Application Insights**.
 
     ![Incorporación de los datos de telemetría de Application Insights](./media/dotnetcore-quick-start/2vsaddappinsights.png)
 
@@ -87,7 +89,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
    ![Mapa de aplicación](./media/dotnetcore-quick-start/5appmap.png)
 
-3. Haga clic en el icono **App Analytics** ![icono de Mapa de Aplicación](./media/dotnetcore-quick-start/006.png) **Ver en Analytics**. Se abrirá **Application Insights Analytics**, que proporciona un lenguaje de consulta avanzado para analizar todos los datos recopilados por Application Insights. En este caso, se genera una consulta que representa el número de solicitudes en un gráfico. Puede escribir sus propias consultas para analizar otros datos.
+3. Haga clic en el icono **App Analytics**![icono de Mapa de aplicación](./media/dotnetcore-quick-start/006.png)**Ver en Analytics**. Se abrirá **Application Insights Analytics**, que proporciona un lenguaje de consulta avanzado para analizar todos los datos recopilados por Application Insights. En este caso, se genera una consulta que representa el número de solicitudes en un gráfico. Puede escribir sus propias consultas para analizar otros datos.
 
    ![Gráfico de Analytics con las solicitudes de usuario durante un período de tiempo](./media/dotnetcore-quick-start/6analytics.png)
 
@@ -106,6 +108,9 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Cuando haya realizado las pruebas, puede eliminar el grupo de recursos y todos los recursos relacionados. Para ello, siga estos pasos.
+
+> [!NOTE]
+> Si ha usado un grupo de recursos existente, las instrucciones siguientes no funcionarán y solo necesitará eliminar el recurso individual de Application Insights. Tenga esto en cuenta que cada vez que se elimina un grupo de recursos, se eliminarán todos los recursos de subyacente que sean miembros de ese grupo.
 
 1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y en **myResourceGroup**.
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba **myResourceGroup** en el cuadro de texto y haga clic en **Eliminar**.

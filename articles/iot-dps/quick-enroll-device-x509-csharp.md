@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 1986f51b834f177a7c8d70392cc532cbfadb7170
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 64bc3921a606ab3211173b46b268ded53952c8bb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974740"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434661"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Inicio rápido: Inscripción de dispositivos X.509 en el servicio Device Provisioning con C#
 
@@ -28,7 +28,7 @@ Aunque los pasos de este artículo funcionan en equipos Windows y Linux, en este
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Instale [Visual Studio 2019](https://www.visualstudio.com/vs/).
 * Instalación del [SDK de .NET Core](https://www.microsoft.com/net/download/windows).
@@ -49,17 +49,21 @@ El [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c) contiene 
 
 Para usar estas herramientas de prueba para generar certificados, realice los pasos siguientes:
 
-1. Abra una ventana del símbolo del sistema o el shell de Git Bash y cambie a una carpeta de trabajo del equipo. Ejecute el siguiente comando para clonar el repositorio de GitHub del [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c):
+1. Busque el nombre de etiqueta de la [versión más reciente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) del SDK de C de IoT de Azure.
 
-   ```cmd/sh
-   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
-   ```
+2. Abra un símbolo del sistema o el shell de Git Bash y cambie a una carpeta de trabajo de la máquina. Ejecute los siguientes comandos para clonar la versión más reciente del repositorio de GitHub del [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c). Use la etiqueta que encontró en el paso anterior como valor del parámetro `-b`:
 
-   Esta operación puede tardar varios minutos en completarse.
+    ```cmd/sh
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
+    ```
+
+    Esta operación puede tardar varios minutos en completarse.
 
    Las herramientas de prueba se encuentran en el directorio *azure-iot-sdk-c/tools/CACertificates* del repositorio que clonó.
 
-1. Siga los pasos descritos en [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) (Administración de certificados de entidad de certificación de prueba para ejemplos y tutoriales).
+3. Siga los pasos descritos en [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) (Administración de certificados de entidad de certificación de prueba para ejemplos y tutoriales).
 
 Además de las herramientas del SDK de C, el [ejemplo de comprobación del certificado de grupo](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample) del *SDK de Microsoft Azure IoT para .NET* muestra cómo realizar la prueba de posesión en C# con un certificado X.509 existente de entidad de certificación raíz o intermedio.
 
@@ -85,7 +89,7 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
 
 1. Cuando se abre la solución en Visual Studio, en el panel **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **CreateEnrollmentGroup** y, a continuación, seleccione **Administrar paquetes NuGet**.
 
-1. En **Administrador de paquetes NuGet**, seleccione **Examinar**, busque y elija **Microsoft.Azure.Devices.Provisioning.Service** y luego presione **Instalar**.
+1. En **Administrador de paquetes NuGet**, seleccione **Examinar**, busque y elija **Microsoft.Azure.Devices.Provisioning.Service** y presione **Instalar**.
 
     ![Ventana del Administrador de paquetes NuGet](media//quick-enroll-device-x509-csharp/add-nuget.png)
 
@@ -167,7 +171,7 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
 
 ## <a name="run-the-enrollment-group-sample"></a>Ejecutar el ejemplo del grupo de inscripción
   
-Ejecute el ejemplo en Visual Studio para crear el grupo de inscripción. Aparecerá una ventana del símbolo del sistema y comenzará a mostrar los mensajes de confirmación. Tras una creación correcta, la ventana del símbolo del sistema muestra las propiedades del grupo de inscripción nuevo.
+Ejecute el ejemplo en Visual Studio para crear el grupo de inscripción. Aparecerá una ventana del símbolo del sistema que comenzará a mostrar los mensajes de confirmación. Tras una creación correcta, la ventana del símbolo del sistema muestra las propiedades del grupo de inscripción nuevo.
 
 Puede comprobar que se ha creado el grupo de inscripción. En el resumen de Device Provisioning Service, seleccione **Administrar inscripciones** y, después, **Grupos de inscripción**. Verá una nueva entrada de inscripción que corresponde al identificador de registro usado en el ejemplo.
 

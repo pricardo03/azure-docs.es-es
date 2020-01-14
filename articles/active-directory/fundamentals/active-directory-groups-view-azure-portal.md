@@ -1,5 +1,5 @@
 ---
-title: Inicio rápido para la visualización de los grupos y miembros en Azure Active Directory | Microsoft Docs
+title: 'Inicio rápido: Visualización de grupos y miembros (Azure AD)'
 description: Instrucciones para buscar y ver los grupos de la organización y los miembros asignados.
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b4f2f6e86ce076e7c0464609252b027499a8307
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: d52c90db5414c39c4e916bbab19c43739d9ea904
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942879"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423011"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -29,7 +29,7 @@ En esta guía de inicio rápido podrá ver todos los grupos existentes en la org
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Antes de comenzar, deberá:
 
 - Crear un inquilino de Azure Active Directory. Para más información, consulte [Acceso al portal de Azure Active Directory y creación de un nuevo inquilino](active-directory-access-create-new-tenant.md).

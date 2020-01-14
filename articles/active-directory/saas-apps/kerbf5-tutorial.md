@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1ec0dd844dea8cf98621130d6a19b415bda1cf0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a1f06b0b5aa59328d2fe39d501cfdf3ad7524427
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786493"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431472"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con F5
 
@@ -33,7 +33,7 @@ En este tutorial, obtendrá información sobre cómo integrar F5 con Azure Acti
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para empezar, necesita los siguientes elementos:
 
@@ -75,7 +75,7 @@ Para empezar, necesita los siguientes elementos:
 
 1. En la interfaz de usuario web de F5 BIG-IP, haga clic en **Access >> Guided Configuration** (Acceso >> Configuración guiada).
 
-2. En la página **Guided Configuration (Configuración guiada)** , haga clic en **Upgrade Guided Configuration** (Actualizar configuración guiada) en la esquina superior izquierda.
+2. En la página **Guided Configuration** (Configuración guiada), haga clic en **Upgrade Guided Configuration** (Actualizar configuración guiada) en la esquina superior izquierda.
 
     ![Configuración de F5 (Kerberos)](./media/kerbf5-tutorial/configure14.png) 
 
@@ -94,7 +94,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * F5 admite el inicio de sesión único iniciado por **SP e IDP**.
 * El inicio de sesión único de F5 se puede configurar de tres maneras diferentes:
 
-- [Configurar el inicio de sesión único de F5 para la aplicación Kerberos](#configure-f5-single-sign-on-for-kerberos-application)
+- [Configuración del inicio de sesión único de F5 para la aplicación Kerberos](#configure-f5-single-sign-on-for-kerberos-application)
 
 - [Configuración del inicio de sesión único de F5 para la aplicación basada en encabezados](headerf5-tutorial.md)
 
@@ -179,7 +179,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -284,7 +284,7 @@ Configure un servidor de AAA de Active Directory en el Administrador de directi
 
 1.  En la pestaña Main (Principal), haga clic en **Access Policy > AAA Servers > Active Directory** (Directiva de acceso > Servidores de AAA > Active Directory). Se abre la pantalla con la lista de servidores de Active Directory.
 
-2.  Haga clic en **Create**(Crear). Se abre la pantalla New Server properties (Propiedades del nuevo servidor).
+2.  Haga clic en **Crear**. Se abre la pantalla New Server properties (Propiedades del nuevo servidor).
 
 3.  En el campo **Name** (Nombre), escriba un nombre único para el servidor de autenticación.
 
@@ -370,7 +370,7 @@ Configure un servidor de AAA de Active Directory en el Administrador de directi
     >[!Note]
     > Necesitará que la cuenta de delegación de Kerberos se cree y se especifique. Consulte la sección KCD (consulte el apéndice para las referencias de variables).
 
-    * **Username Source** (Origen del nombre de usuario): session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
+    * **Username Source** (Origen del nombre de usuario): session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
 
     * **User Realm Source** (Origen del dominio del usuario): session.logon.last.domain
 
@@ -381,7 +381,7 @@ Configure un servidor de AAA de Active Directory en el Administrador de directi
     * Nombre: KerbApp200
     * Tipo de perfil: All
     * Ámbito del perfil: Perfil
-    * Lenguajes: English
+    * Lenguajes: Inglés
 
         ![Configuración de F5 (Kerberos)](./media/kerbf5-tutorial/configure30.png)
 
@@ -422,7 +422,7 @@ Configure un servidor de AAA de Active Directory en el Administrador de directi
 1. Para agregar un nuevo nodo, vaya a **Local Traffic > Nodes > Node List (Tráfico local > Nodos > Lista de nodos), haga clic en Create (Crear)** , complete la siguiente información y, a continuación, haga clic en **Finished** (Finalizado).
 
     * Nombre: KerbApp200
-    * Description: KerbApp200
+    * Descripción: KerbApp200
     * Dirección: 192.168.20.200
 
         ![Configuración de F5 (Kerberos)](./media/kerbf5-tutorial/configure39.png)
@@ -430,7 +430,7 @@ Configure un servidor de AAA de Active Directory en el Administrador de directi
 1. Para crear un nuevo grupo, vaya a **Local Traffic > Pools > Pool List (Tráfico local > Grupos > Lista de grupos), haga clic en Create (Crear)** , complete la siguiente información y, a continuación, haga clic en **Finished** (Finalizado).
 
     * Nombre: KerbApp200-Pool
-    * Description: KerbApp200-Pool
+    * Descripción: KerbApp200-Pool
     * Monitores de estado: http
     * Dirección: 192.168.20.200
     * Puerto de servicio: 81
@@ -456,7 +456,7 @@ Configure un servidor de AAA de Active Directory en el Administrador de directi
 
 *  **Paso 1:** Creación de una cuenta de delegación
 
-    **Ejemplo:**
+    **Ejemplo**:
     * Nombre de dominio: **superdemo.live**
 
     * Nombre de cuenta de SAM: **big-ipuser**
@@ -465,7 +465,7 @@ Configure un servidor de AAA de Active Directory en el Administrador de directi
 
 * **Paso 2:** Establecer SPN (en la cuenta de delegación de APM)
 
-    **Ejemplo:**
+    **Ejemplo**:
     * setspn –A **host/big-ipuser.superdemo.live** big-ipuser
 
 * **Paso 3:** La delegación de SPN (para la cuenta de App Service) configura la delegación adecuada para la cuenta de delegación de F5.

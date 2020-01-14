@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 52deb1cf872176b69975d550dd89d870b34d9bf0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: b5ce78e95d139cf16b6193fedffc563513b39719
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107090"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408040"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Creación de un localizador de almacén mediante Azure Maps
 
@@ -33,22 +33,20 @@ Este tutorial le guía por el proceso de creación de un localizador de almacén
 
 Avance al [ejemplo de localizador de almacén activo](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) o al [código fuente](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Para realizar los pasos de este tutorial, primero debe [crear su cuenta de Azure Maps](./tutorial-search-location.md#createaccount) y seguir los pasos de [Obtención de la clave principal](./tutorial-search-location.md#getkey) para obtener la clave de suscripción principal de la cuenta.
+Para realizar los pasos de este tutorial, primero debe crear una cuenta de Azure Maps y obtener la clave principal (clave de suscripción). Siga las instrucciones de [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) para crear una suscripción de cuenta de Azure Maps con el plan de tarifa S1 y siga los pasos de [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obtener la clave principal de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="design"></a>Diseño
 
 Antes de empezar con el código, es una buena idea comenzar con un diseño. El localizador de almacén puede ser tan sencillo o complejo como se quiera. En este tutorial, crearemos un localizador de almacén sencillo. Se incluyen algunas sugerencias a lo largo del camino para ayudarle a ampliar algunas funcionalidades si elige hacerlo. Crearemos un localizador de almacén para una compañía ficticia llamada Contoso Coffee. En la siguiente ilustración se muestra un contorno reticular del diseño general del localizador de almacén que se va a crear en este tutorial:
 
-<br/>
 <center>
 
 ![Contorno reticular de un localizador de almacén para ubicaciones de cafetería de Contoso Coffee](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 Para sacar el máximo provecho de este localizador de almacén, se incluye un diseño dinámico que se ajusta cuando el ancho de pantalla de un usuario es inferior a 700 píxeles. Un diseño dinámico facilita el uso del localizador de almacén en una pantalla pequeña, como la de un dispositivo móvil. Este es el contorno reticular de un diseño de pantalla pequeña:  
 
-<br/>
 <center>
 
 ![Contorno reticular del localizador de almacén de Contoso Coffee en un dispositivo móvil](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
@@ -73,7 +71,6 @@ Los contornos reticulares muestran una aplicación bastante sencilla. La aplicac
 
 Antes de desarrollar una aplicación de localizador de almacén, se debe crear un conjunto de datos de las tiendas que quiere mostrar en el mapa. En este tutorial, se usará un conjunto de datos de una cafetería ficticia llamada Contoso Coffee. El conjunto de datos de este localizador de almacén sencillo se administra en un libro de Excel. El conjunto de datos contiene 10 213 ubicaciones de cafetería de Contoso Coffee repartidas alrededor de nueve países y regiones: Estados Unidos, Canadá, Reino Unido, Francia, Alemania, Italia, Países Bajos, Dinamarca y España. Esta es una captura de pantalla del aspecto de los datos:
 
-<br/>
 <center>
 
 ![Captura de pantalla de los datos del localizador de almacén en un libro de Excel](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
@@ -95,14 +92,12 @@ Otro enfoque consiste en convertir este conjunto de datos en un archivo de texto
 
 Para convertir el libro en un archivo de texto sin formato, guárdelo como un archivo delimitado por tabulaciones. Cada columna está delimitada por un carácter de tabulación, lo que facilita el análisis de las columnas en nuestro código. Puede usar el formato de valores separados por comas (CSV), pero esa opción requiere más lógica de análisis. Cualquier campo que tenga una coma alrededor podría incluirse entre comillas. Para exportar estos datos como un archivo delimitado por tabulaciones en Excel, seleccione **Save As** (Guardar como). En la lista desplegable **Save as type** (Guardar como tipo), seleccione **(Texto (delimitado por tabulaciones)(*.txt)** . Asigne al archivo el nombre *ContosoCoffee.txt*. 
 
-<br/>
 <center>
 
 ![Captura de pantalla del cuadro de diálogo Guardar como tipo](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
 Si abre el archivo de texto en el Bloc de notas, se parecerá a la siguiente ilustración:
 
-<br/>
 <center>
 
 ![Captura de pantalla de un archivo de Bloc de notas que muestra un conjunto de datos delimitado por tabulaciones](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
@@ -112,7 +107,6 @@ Si abre el archivo de texto en el Bloc de notas, se parecerá a la siguiente ilu
 
 Para crear el proyecto, puede usar [Visual Studio](https://visualstudio.microsoft.com) o el editor de código de su elección. En la carpeta del proyecto, cree tres archivos: *index.html*, *index.css* e *index.js*. Estos archivos definen el diseño, el estilo y la lógica de la aplicación. Cree una carpeta llamada *data* y agregue a ella *ContosoCoffee.txt*. Cree otra carpeta llamada *images*. Se usarán diez imágenes en esta aplicación para iconos, botones y marcadores en el mapa. También puede [descargar estas imágenes](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). La carpeta del proyecto ahora debería parecerse a la siguiente ilustración:
 
-<br/>
 <center>
 
 ![Captura de pantalla de la carpeta de proyecto del localizador de almacén sencillo](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
@@ -930,21 +924,18 @@ Ahora, tiene un localizador de almacén totalmente funcional. En un explorador w
 
 La primera vez que un usuario selecciona el botón My Location (Mi ubicación), el explorador muestra una advertencia de seguridad que solicita permiso para acceder a la ubicación del usuario. Si el usuario acepta compartir su ubicación, el mapa la acerca y se muestran las cafeterías cercanas. 
 
-<br/>
 <center>
 
 ![Captura de pantalla de la solicitud del explorador para acceder a la ubicación del usuario](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
 Al acercar lo suficiente una zona que tiene ubicaciones de cafetería, los clústeres se separan en ubicaciones individuales. Seleccione uno de los iconos del mapa o un elemento del panel lateral para ver una ventana emergente que muestre información de esa ubicación.
 
-<br/>
 <center>
 
 ![Captura de pantalla del localizador de almacén finalizado](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
 
 Si cambia de tamaño la ventana del explorador a un ancho inferior a 700 píxeles o abre la aplicación en un dispositivo móvil, el diseño cambia para adaptarse mejor a pantallas más pequeñas. 
 
-<br/>
 <center>
 
 ![Captura de pantalla de la versión de pantalla pequeña del localizador de almacén](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>

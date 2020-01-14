@@ -14,74 +14,94 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: ec3236ffba409c390a12e46dd29263b18857c647
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 952cf89a4e1f6c5ed82a817b81d32b61ab673fe4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74222726"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449261"
 ---
-# <a name="view-billing-accounts-in-azure-portal"></a>Visualización de las cuentas de facturación en Azure Portal  
+# <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Cuentas de facturación y ámbitos en Azure Portal
 
 Cuando se registra para usar Azure, se crea una cuenta de facturación. Use su cuenta de facturación para administrar las facturas, los pagos y hacer seguimiento de los costos. Puede tener acceso a varias cuentas de facturación. Por ejemplo, es posible que te hayas registrado en Azure para tus proyectos personales. También se puede tener acceso a Azure a través del Contrato Enterprise de la organización o del contrato de cliente de Microsoft. Para cada uno de estos escenarios, se dispondría de una cuenta de facturación independiente.
 
-Azure Portal admite actualmente los siguientes tipos de cuentas de facturación:
+Azure Portal admite actualmente el tipo siguiente de cuentas de facturación:
 
 - **Microsoft Online Services Program**: Se crea una cuenta de facturación para Microsoft Online Services Programa cuando se registra en el sitio web de Azure. Por ejemplo, cuando se registra para obtener una [cuenta gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), como una [cuenta con tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) o como un [suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
 - **Contrato Enterprise**: Se crea una cuenta de facturación para un Contrato Enterprise cuando la organización firma este [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) para utilizar Azure.
 
-- **Contrato de cliente de Microsoft**: Se crea una cuenta de facturación para un contrato de cliente de Microsoft cuando una organización trabaja con un representante de Microsoft para firmar un contrato de cliente de Microsoft. Algunos clientes en regiones seleccionadas, que se registran en el sitio web de Azure para una [cuenta con tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) o actualizar su [cuenta gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), también pueden tener una cuenta de facturación para un contrato de cliente de Microsoft. Para obtener más información, consulte [Empezar a trabajar con la cuenta de facturación para un contrato de cliente de Microsoft](billing-mca-overview.md).
+- **Contrato de cliente de Microsoft**: Se crea una cuenta de facturación para un contrato de cliente de Microsoft cuando una organización trabaja con un representante de Microsoft para firmar un contrato de cliente de Microsoft. Algunos clientes en regiones seleccionadas, que se registran en el sitio web de Azure para una [cuenta con tarifas de Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) o una [cuenta gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), también pueden tener una cuenta de facturación para un Contrato de cliente de Microsoft. Para obtener más información, consulte [Empezar a trabajar con la cuenta de facturación para un contrato de cliente de Microsoft](billing-mca-overview.md).
 
-<!--Todo Add section to identify the type of accounts -->
+- **Microsoft Partner Agreement**: Para los asociados del programa Proveedor de soluciones en la nube (CSP), se crea una cuenta de facturación para un acuerdo de Microsoft Partner Agreement con el fin de administrar sus clientes en la nueva experiencia comercial. Los asociados deben tener al menos un cliente con un [plan de Azure](https://docs.microsoft.com/partner-center/purchase-azure-plan) para administrar su cuenta de facturación en Azure Portal. Para obtener más información, consulte [Introducción a la cuenta de facturación para un contrato Microsoft Partner Agreement](mpa-overview.md).
+
+Para determinar el tipo de la cuenta de facturación, consulte [Comprobación del tipo de la cuenta de facturación](#check-the-type-of-your-account).
 
 ## <a name="scopes-for-billing-accounts"></a>Ámbitos para las cuentas de facturación
-Un ámbito es un nodo dentro de una cuenta de facturación que los usuarios utilizan para ver y administrar la facturación. Es donde los usuarios administran los datos de facturación, los pagos, las facturas y realizar la administración de cuentas generales. 
+Un ámbito es un nodo dentro de una cuenta de facturación que los usuarios utilizan para ver y administrar la facturación. Es donde se administran los datos de facturación, los pagos, las facturas y realizar la administración de cuentas generales. 
 
 ### <a name="microsoft-online-services-program"></a>Microsoft Online Services Program
 
+ ![Captura de pantalla que muestra la jerarquía de MOSP](./media/billing-view-all-accounts/mosp-hierarchy.png)
+
 |Ámbito  |Definición  |
 |---------|---------|
-|Cuenta de facturación     | Representa a un propietario único (administrador de cuenta) para una o varias suscripciones de Azure. Un administrador de cuenta está autorizado para realizar varias tareas de facturación, como crear suscripciones, ver facturas o cambiar la facturación de las suscripciones.  |
-|Subscription     |  Representa una agrupación de los recursos de Azure. La factura se genera en este ámbito. Tiene sus propios métodos de pago que se usan para pagar esta factura.|
-
+|Cuenta de facturación     | Representa un contrato que un cliente acepta para usar Azure. Contiene una o varias suscripciones.  |
+|Subscription     |  Representa una agrupación de los recursos de Azure. La factura se genera en este ámbito. Otra información de facturación, como los métodos de pago y la dirección de uso, está asociada a este ámbito.|
 
 ### <a name="enterprise-agreement"></a>Contrato Enterprise
 
+![Captura de pantalla que muestra la jerarquía de EA](./media/billing-view-all-accounts/ea-hierarchy.png)
+
 |Ámbito  |Definición  |
 |---------|---------|
-|Cuenta de facturación    | Representa una inscripción de Contrato Enterprise. La factura se genera en este ámbito. Se estructura mediante el uso de cuentas de inscripción y departamentos.  |
-|department     |  Agrupación opcional de las cuentas de inscripción.      |
-|Cuenta de inscripción     |  Representa al propietario de una cuenta única. Las suscripciones de Azure se crean bajo este ámbito.  |
-
+|Cuenta de facturación    | Representa una inscripción de Contrato Enterprise. Contiene uno o varios departamentos y cuentas. La factura se genera en este ámbito. |
+|department     |  Agrupación opcional de cuentas para segmentar los costos en agrupaciones lógicas y establecer el presupuesto.     |
+|Cuenta     |  Representa al propietario de una cuenta única. Los propietarios de la cuenta tienen permisos para crear y administrar suscripciones de Azure que se facturan a la inscripción. |
 
 ### <a name="microsoft-customer-agreement"></a>Contrato de cliente de Microsoft
 
+![Captura de pantalla que muestra la jerarquía de MCA](./media/billing-view-all-accounts/mca-hierarchy.png)
+
 |Ámbito  |Tareas  |
 |---------|---------|
-|Cuenta de facturación     |   Representa un contrato de cliente para varios productos y servicios de Microsoft. Se estructura mediante el uso de perfiles de facturación y las secciones de la factura.   |
-|Perfil de facturación     |  Representa una factura y sus métodos de pago. La factura se genera en este ámbito. Puede tener varias secciones de factura.      |
-|Sección de factura     |   Representa un grupo de costos en una factura. Las suscripciones y otras compras están asociadas a este ámbito.    |
+|Cuenta de facturación     |   Representa un contrato de cliente para los productos y servicios de Microsoft. Contiene uno o varios perfiles de facturación. |
+|Perfil de facturación     |   Representa una factura y la información de facturación relacionada, como los métodos de pago y la dirección de facturación. Contiene una o varias secciones de factura. |
+|Sección de factura     |   Representa una agrupación de costos en una factura. Las suscripciones de Azure y otras compras, como Azure Marketplace y productos de origen de la aplicación, están asociadas a este ámbito.    |
 
+### <a name="microsoft-partner-agreement"></a>Microsoft Partner Agreement
+
+![Captura de pantalla que muestra la jerarquía de MPA](./media/billing-view-all-accounts/mpa-hierarchy.png)
+
+|Ámbito  |Tareas  |
+|---------|---------|
+|Cuenta de facturación     |   Representa un contrato del asociado para administrar los productos y servicios de Microsoft de los clientes en la nueva experiencia comercial. Contiene uno o varios perfiles de facturación y clientes.   |
+|Perfil de facturación     |   Representa una factura para una moneda.     |
+|Customer    |   Representa un cliente para un asociado del programa Proveedor de soluciones en la nube (CSP).  Las suscripciones de Azure y otras compras, como Azure Marketplace y productos de origen de la aplicación, están asociadas a este ámbito.  |
+|Vendedor    |   Revendedor que proporciona servicios a un cliente. Este es un campo opcional para una suscripción y solo se aplica a los proveedores indirectos en el modelo de dos niveles de CSP.     |
 
 ## <a name="switch-billing-scope-in-the-azure-portal"></a>Cambio del ámbito de facturación en Azure Portal
 
-
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Busque **Administración de costos + facturación**.
 
    ![Captura de pantalla que muestra la búsqueda en Azure Portal](./media/billing-view-all-accounts/billing-search-cost-management-billing.png)
 
-3. Seleccione **Todos los ámbitos de facturación** en el lado izquierdo.
+3. En la página de información general, seleccione **Switch scope** (Cambiar ámbito).
 
-   ![Captura de pantalla que muestra todos los ámbitos de facturación](./media/billing-view-all-accounts/billing-list-of-accounts.png)
+   ![Captura de pantalla que muestra los ámbitos de facturación](./media/billing-view-all-accounts/overview-select-scopes.png)
 
-   ** No verá **Todos los ámbitos de facturación** si solo tiene acceso a un ámbito.
+   > [!Note]
+    >
+    > No verá Swich scope (Cambiar ámbito) si solo tiene acceso a un ámbito.
 
 4. Seleccione un ámbito para ver los detalles.
 
+   ![Captura de pantalla que muestra los ámbitos de facturación](./media/billing-view-all-accounts/list-of-scopes.png)
 
+## <a name="check-the-type-of-your-account"></a>Comprobación del tipo de la cuenta
+[!INCLUDE [billing-check-mca](../../includes/billing-check-account-type.md)]
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 

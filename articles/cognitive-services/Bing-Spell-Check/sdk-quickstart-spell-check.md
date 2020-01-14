@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 74697d69fbeb9072f839f0b6d49c010c5a7a7a05
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: b314944f1ae8847470f218ca23a11beed7731f67
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996704"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448411"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Inicio rápido: Revisión ortográfica con el SDK de Bing Spell Check para C#
 
@@ -23,7 +23,7 @@ Use este inicio rápido para empezar la revisión ortográfica con el SDK de Bin
 
 ## <a name="application-dependencies"></a>Dependencias de aplicaciones
 
-* Cualquier edición de [Visual Studio 2017 o posterior](https://visualstudio.microsoft.com/downloads/).
+* Cualquier edición de [Visual Studio 2017 o versiones posteriores](https://visualstudio.microsoft.com/downloads/).
 * El [paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck) de Bing Spell Check
 
 Para agregar el SDK de Bing Spell Check, seleccione **Administración de paquetes de NuGet** en el **Explorador de soluciones** en Visual Studio. Agregue el paquete `Microsoft.Azure.CognitiveServices.Language.SpellCheck`. El paquete también instala las siguientes dependencias:
@@ -83,20 +83,24 @@ Para agregar el SDK de Bing Spell Check, seleccione **Administración de paquete
 3. Obtenga la primera corrección sugerida, si hay alguna. Imprima la puntuación de la sugerencia y la palabra sugerida. 
 
     ```csharp
-            var suggestions = firstspellCheckResult.Suggestions;
+    var suggestions = firstspellCheckResult.Suggestions;
 
-            if (suggestions?.Count > 0)
-            {
-                var firstSuggestion = suggestions.FirstOrDefault();
-                Console.WriteLine("First SpellCheck Suggestion Score: {0} ", firstSuggestion.Score);
-                Console.WriteLine("First SpellCheck Suggestion : {0} ", firstSuggestion.Suggestion);
-            }
-   }
+    if (suggestions?.Count > 0)
+    {
+        var firstSuggestion = suggestions.FirstOrDefault();
+        Console.WriteLine("First SpellCheck Suggestion Score: {0} ", firstSuggestion.Score);
+        Console.WriteLine("First SpellCheck Suggestion : {0} ", firstSuggestion.Suggestion);
+    }
+    ```
 
-## Next steps
+## <a name="run-the-application"></a>Ejecución de la aplicación
+
+Compile y ejecute el proyecto. Si usa Visual Studio, pulse **F5** para depurar el archivo.
+
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Create a single page web-app](tutorials/spellcheck.md)
+> [Creación de una aplicación web de una sola página](tutorials/spellcheck.md)
 
-- [What is the Bing Spell Check API?](overview.md)
-- [Bing Spell Check C# SDK reference guide](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)
+- [¿Qué es Bing Spell Check API?](overview.md)
+- [Guía de referencia del SDK en C# para Bing Spell Check](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)

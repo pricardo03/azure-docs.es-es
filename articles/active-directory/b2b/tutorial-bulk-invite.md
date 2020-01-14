@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ffcdad43195ce49ef3cd8b695f9ad5009af82fb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 493c60e8148b666ba1f514d303229b7a11c2e43e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272351"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425036"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Tutorial: Invitación en bloque a usuarios de colaboración B2B de Azure AD (versión preliminar)
 
@@ -25,6 +25,8 @@ ms.locfileid: "74272351"
 | En este artículo se describe una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
+> [!NOTE]
+> Desde el 22/12/2019, la característica de usuarios de invitación masiva (versión preliminar) se ha deshabilitado temporalmente.
 
 Si usas la colaboración de Azure Active Directory (Azure AD) B2B para trabajar con asociados externos, puede invitar a varios usuarios a su organización al mismo tiempo. En este tutorial aprenderá a usar Azure Portal para enviar invitaciones de forma masiva a usuarios externos. En particular, haga lo siguiente:
 
@@ -35,7 +37,7 @@ Si usas la colaboración de Azure Active Directory (Azure AD) B2B para trabajar 
 
 Antes de comenzar, si no tiene una cuenta de Azure Active Directory, [cree una gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Necesita dos o más cuentas de correo electrónico de prueba a las que poder enviar las invitaciones. Las cuentas deben estar fuera de su organización. Puede usar cualquier tipo de cuenta, incluidas las cuentas sociales como las direcciones de gmail.com o outlook.com.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Biblioteca cliente de Face para .NET | Microsoft Docs'
-description: Introducción a la biblioteca cliente de Face para .NET.
+title: 'Inicio rápido: Biblioteca cliente de Face para .NET'
+description: Empiece a trabajar con la biblioteca cliente de Face para .NET con este inicio rápido.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 5602e26e2e1b327d65d411f8e92f264f1bf9fb91
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 269f2c9a2cf8578438971e8ad75fec1379a21c19
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977869"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448184"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de Face para .NET
 
@@ -31,7 +31,7 @@ Use la biblioteca cliente de Face para .NET para:
 
 [Documentación de referencia](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1) | [Ejemplos](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * La versión actual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -42,7 +42,7 @@ Use la biblioteca cliente de Face para .NET para:
 
 Los servicios de Azure Cognitive Services se representan por medio de recursos de Azure a los que se suscribe. Cree un recurso para Face mediante [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) en la máquina local. También puede:
 
-* Obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/#decision) válida durante siete días de forma gratuita Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/#decision) válida durante siete días de forma gratuita. Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Ver el recurso en [Azure Portal](https://portal.azure.com/)
 
 Después de obtener una clave de la suscripción de evaluación o el recurso, [cree una variable de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la clave y la dirección URL del punto de conexión, denominadas `FACE_SUBSCRIPTION_KEY` y `FACE_ENDPOINT`, respectivamente.
@@ -95,7 +95,7 @@ Si usa el IDE de Visual Studio, la biblioteca cliente estará disponible como un
 
 Las siguientes clases e interfaces controlan algunas de las características principales del SDK de .NET para Face:
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |---|---|
 |[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) | Esta clase representa la autorización para usar el servicio Face, se necesita para que Face funcione correctamente. Cree una instancia de ella con la información de suscripción y úsela para generar instancias de otras clases. |
 |[FaceOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperations?view=azure-dotnet)|Esta clase controla las tareas básicas de detección y reconocimiento que puede realizar con las caras humanas. |

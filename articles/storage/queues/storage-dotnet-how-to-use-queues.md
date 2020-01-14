@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: aa92b72b09ed28b41d85ac7c7605077761657d40
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5ffee146bdbd666d4175af2f49f6b447743b2bc0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721560"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457658"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introducción al Almacenamiento en cola de Azure mediante .NET
 
@@ -31,7 +31,7 @@ Este tutorial muestra cómo escribir código .NET para algunos escenarios comune
 
 **Tiempo estimado para completarla:** 45 minutos
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Biblioteca cliente Azure Storage Common para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
@@ -89,7 +89,7 @@ Tiene dos opciones de entorno para ejecutar los ejemplos de esta guía:
 * Puede ejecutar el código en una cuenta de Azure Storage en la nube.
 * Puede ejecutar el código en el emulador de almacenamiento de Azure. El emulador de almacenamiento es un entorno local que emula una cuenta de Azure Storage en la nube. El emulador es una opción gratis para probar y depurar el código mientras la aplicación está en desarrollo. El emulador usa una cuenta y una clave conocidas. Para más información, consulte [Uso del emulador de Azure Storage para desarrollo y pruebas](../common/storage-use-emulator.md).
 
-Si el destino es una cuenta de Storage en la nube, copie la clave de acceso principal de su cuenta de Storage de Azure Portal. Para más información, consulte [Claves de acceso](../common/storage-account-manage.md#access-keys).
+Si el destino es una cuenta de Storage en la nube, copie la clave de acceso principal de su cuenta de Storage de Azure Portal. Para obtener más información, consulte [Administración de las claves de acceso de la cuenta de almacenamiento](../common/storage-account-keys-manage.md).
 
 > [!NOTE]
 > Puede dirigirse al emulador de almacenamiento para evitar incurrir en cualquier coste asociado con Azure Storage. Sin embargo, si selecciona dirigirse a una cuenta de almacenamiento de Azure en la nube, los costes derivados de la realización de este tutorial serán insignificantes.

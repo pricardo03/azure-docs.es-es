@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 3b909f1cb65ae2b355451def53410c32ae482167
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 75c61452e73c50cbdaed03a27481d920e4c2ad86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872968"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406235"
 ---
 # <a name="start-monitoring-your-website"></a>Inicio de la supervisión del sitio web
 
@@ -21,7 +21,7 @@ Con Application Insights de Azure Monitor puede supervisar fácilmente la dispon
 
 Esta guía de inicio rápido ayudará mediante la adición del [SDK de JavaScript de Application Insights de código abierto](https://github.com/Microsoft/ApplicationInsights-JS), que le permite comprender la experiencia del cliente o explorador para los visitantes del sitio web.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar esta guía de inicio rápido:
 
@@ -31,7 +31,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="enable-application-insights"></a>Habilitación de Application Insights
 
@@ -44,13 +44,13 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
    Aparece un cuadro de configuración, use la tabla siguiente para rellenar los campos de entrada.
 
-    | Configuración        | Valor           | DESCRIPCIÓN  |
+    | Configuración        | Value           | Descripción  |
    | ------------- |:-------------|:-----|
    | **Nombre**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
-   | **Grupo de recursos**     | myResourceGroup      | Nombre para el nuevo grupo de recursos que hospedará los datos de Application Insights |
+   | **Grupo de recursos**     | myResourceGroup      | Nombre del nuevo grupo de recursos que hospedará los datos de Application Insights. puede crear un grupo de recursos o use uno existente. |
    | **Ubicación** | East US | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
 
-2. Haga clic en **Create**(Crear).
+2. Haga clic en **Crear**.
 
 ## <a name="create-an-html-file"></a>Creación de un archivo HTML
 
@@ -96,7 +96,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
 1. Ahora puede volver a abrir la página **Introducción** de Application Insights en Azure Portal; para ello, de donde recuperó la clave de instrumentación, para ver los detalles de la aplicación en ejecución. Los cuatro gráficos predeterminados de la página de introducción se extienden a los datos de la aplicación del lado servidor. Dado que estamos instrumentando las interacciones del cliente o explorador con el SDK de JavaScript, esta vista en particular no se aplica a menos que también tengamos instalado un SDK del lado servidor.
 
-2. Haga clic en el icono ![Mapa de aplicaciones](media/website-monitoring/006.png) **Analytics**.  Se abrirá **Analytics**, que proporciona un lenguaje de consulta avanzado para analizar todos los datos recopilados por Application Insights. Para ver los datos relacionados con las solicitudes de explorador del lado cliente, ejecute la siguiente consulta:
+2. Haga clic en el ![icono Mapa de aplicación](media/website-monitoring/006.png) **Analytics**.  Se abrirá **Analytics**, que proporciona un lenguaje de consulta avanzado para analizar todos los datos recopilados por Application Insights. Para ver los datos relacionados con las solicitudes de explorador del lado cliente, ejecute la siguiente consulta:
 
     ```kusto
     // average pageView duration by name
@@ -132,6 +132,9 @@ Para obtener configuraciones más avanzadas para supervisar sitios web, consulte
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si tiene previsto seguir trabajando con las siguientes guías de inicio rápido o tutoriales, no elimine los recursos creados en esta guía de inicio rápido. En caso contrario, si no tiene previsto continuar, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal.
+
+> [!NOTE]
+> Si ha usado un grupo de recursos existente, las instrucciones siguientes no funcionarán y solo necesitará eliminar el recurso individual de Application Insights. Tenga esto en cuenta que cada vez que se elimina un grupo de recursos, se eliminarán todos los recursos de subyacente que sean miembros de ese grupo.
 
 1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y en **myResourceGroup**.
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba **myResourceGroup** en el cuadro de texto y haga clic en **Eliminar**.

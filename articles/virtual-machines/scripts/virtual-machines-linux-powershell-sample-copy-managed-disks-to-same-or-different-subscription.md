@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplo de script de Azure PowerShell: copia (transferencia) de discos administrados en la misma suscripción o en otra'
-description: 'Ejemplo de script de Azure PowerShell: copia (transferencia) de discos administrados en la misma suscripción o en otra'
+title: 'Copia de discos administrados en una suscripción: Ejemplo de PowerShell'
+description: 'Ejemplo de script de Azure PowerShell: Copia o transferencia de discos administrados en la misma suscripción o en otra'
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: bb473a2f543c1621b99904b5a58dc7fc6625f6fc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9e655ce33c8952acab7228f4caae81f09c2d56ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021463"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375906"
 ---
 # <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>Copia de discos administrados en la misma suscripción o en otra con PowerShell
 

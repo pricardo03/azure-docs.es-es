@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación y administración de datos exportados desde Azure Cost Management'
+title: 'Tutorial: Exportación de datos desde Azure Cost Management'
 description: En este artículo se muestra cómo crear y administrar datos de Azure Cost Management para utilizarlos en sistemas externos.
 services: cost-management
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a462b3d165a596673049abbbb8b5b8d346f5fc9d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5d5f6bc4620d60d3eb776a6229450e02035b8290
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229824"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441015"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Creación y administración de datos exportados
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 > * Creación de una exportación diaria
 > * Verificación de la recopilación de los datos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 La exportación de datos está disponible para varios tipos de cuenta de Azure, entre las que se incluyen las de los clientes con [contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/). Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Para la exportación de datos por usuario y grupo, se admiten los siguientes permisos o ámbitos de Azure por suscripción. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
 - Propietario: puede crear, modificar o eliminar exportaciones programadas para una suscripción.
@@ -112,7 +112,7 @@ Uno de los propósitos de exportar los datos de Cost Management es tener acceso 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Creación de una exportación diaria

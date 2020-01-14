@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Ejecución de un trabajo de Azure Batch: Python API'
-description: Ejecute rápidamente un trabajo y tareas de Batch mediante la biblioteca cliente de Python de Batch.
+description: Ejecute rápidamente las tareas y un trabajo de ejemplo de Azure Batch mediante la biblioteca cliente Python de Batch. Conozca los conceptos clave del servicio Batch.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -12,12 +12,12 @@ ms.author: lahugh
 ms.custom:
 - seo-python-october2019
 - mvc
-ms.openlocfilehash: 6c9690a74e8dff9978fa4e07883738d062238121
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: ab628ebe81592e7d5b2e6c79de5a62b368ee772d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72437373"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390234"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Inicio rápido: Ejecute su primer trabajo de Batch con Python API
 
@@ -29,7 +29,7 @@ La aplicación carga varios archivos de datos de entrada en Azure Storage y, des
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python 2.7 o 3.3, o cualquier versión posterior](https://www.python.org/downloads/)
 
@@ -69,7 +69,7 @@ _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
 
-## <a name="run-the-app"></a>Ejecución de la aplicación
+## <a name="run-the-app"></a>Ejecución la aplicación
 
 Para ver el flujo de trabajo de Batch en acción, ejecute el script:
 

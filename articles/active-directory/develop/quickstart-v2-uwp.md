@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 996bc35820d35e031056207adeb707a7ea98a763
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c29aadfde6c0ab01b2e6ed2c9e4bcc59572bef57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920436"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424025"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Inicio rápido: Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (UWP)
 
@@ -51,13 +51,12 @@ En esta guía de inicio rápido, se incluye código de ejemplo que muestra cómo
 >      - En **Tipos de cuenta admitidos**, seleccione **Cuentas en cualquier directorio de organización y cuentas personales de Microsoft (por ejemplo, Skype, Xbox o Outlook.com)** .
 >      - Seleccione **Registrar** para crear la aplicación.
 > 1. En la lista de páginas de la aplicación, seleccione **Autenticación**.
-> 1. Expanda la sección **Escritorio + dispositivos**.  (Si la sección **Escritorio + dispositivos** no está visible, haga clic primero en el banner superior para ver la experiencia de autenticación en versión preliminar).
-> 1. En la sección **URI de redirección**, seleccione **Agregar URI**.  Escriba **urn:ietf:wg:oauth:2.0:oob**.
+> 1. En la sección **URI de redirección** | **URI de redireccionamiento sugeridos para clientes públicos (para dispositivos móviles o de escritorio)** , marque **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > 1. Seleccione **Guardar**.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>Paso 1: Configuración de la aplicación
-> Para que el código de ejemplo de esta guía de inicio rápido funcione, debe agregar un identificador URL de redirección como **urn:ietf:wg:oauth:2.0:oob**.
+> Para que el código de ejemplo de este inicio rápido funcione, es preciso agregar un identificador URI de redirección como **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Hacer este cambio por mí]()
 >

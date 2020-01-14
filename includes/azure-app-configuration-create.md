@@ -5,17 +5,17 @@ services: azure-app-configuration
 author: yegu
 ms.service: azure-app-configuration
 ms.topic: include
-ms.date: 01/22/2019
+ms.date: 12/03/2019
 ms.author: yegu
 ms.custom: include file
-ms.openlocfilehash: c98a17be394887ef4e008b079467c85d4ded7e09
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: ccd2a0ded1cd915dc52dea1449d75136bbef18fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393297"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75413391"
 ---
-1. Para crear un almacén de App Configuration, inicie sesión en [Azure Portal](https://portal.azure.com). En la esquina superior izquierda del panel, seleccione **+ Crear un recurso**. En el cuadro **Buscar en Marketplace**, escriba **App Configuration** y presione Entrar.
+1. Para crear un almacén de App Configuration, inicie sesión en [Azure Portal](https://portal.azure.com). En la esquina superior izquierda de la página principal, seleccione **Crear un recurso**. En el cuadro **Buscar en Marketplace**, escriba **App Configuration** y presione Entrar.
 
     ![Buscar App Configuration](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-new.png)
 
@@ -23,7 +23,7 @@ ms.locfileid: "66393297"
 
 1. En el panel **App Configuration** > **Crear**, escriba la siguiente configuración:
 
-    | Configuración | Valor sugerido | DESCRIPCIÓN |
+    | Configuración | Valor sugerido | Descripción |
     |---|---|---|
     | **Nombre del recurso** | Nombre único globalmente | Escriba un nombre de recurso único para usarlo como recurso de almacén de App Configuration. El nombre debe ser una cadena de entre 1 y 63 caracteres y solo puede contener números, letras y el carácter `-`. El nombre no puede comenzar ni terminar por el carácter `-` y no se pueden usar varios caracteres `-` consecutivos.  |
     | **Suscripción** | Su suscripción | Seleccione la suscripción de Azure que desee usar para probar App Configuration. Si su cuenta solo tiene una suscripción, se selecciona automáticamente y la lista **Suscripción** no aparece. |
@@ -32,6 +32,6 @@ ms.locfileid: "66393297"
 
     ![Creación de un recurso del almacén de App Configuration](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-create.png)
 
-1. Seleccione **Crear**. La implementación puede tardar unos minutos en finalizar.
+1. Seleccione **Crear**. La implementación puede tardar unos minutos.
 
-1. Una vez finalizada la implementación, seleccione **Configuración** > **Claves de acceso**. Anote la cadena de conexión de la clave principal de solo lectura o de la clave principal de lectura y escritura. Usará esta cadena de conexión más adelante para configurar la aplicación y que se comunique con el almacén de Azure App Configuration que ha creado.
+1. Una vez finaliza la implementación, seleccione **Configuración** > **Claves de acceso**. Tome nota de la cadena de conexión de la clave de solo lectura principal. Usará esta cadena de conexión más adelante para configurar la aplicación y que se comunique con el almacén de Azure App Configuration que ha creado.

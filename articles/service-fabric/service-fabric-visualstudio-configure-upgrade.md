@@ -1,25 +1,16 @@
 ---
-title: Configuración de la actualización de una aplicación de Service Fabric | Microsoft Docs
+title: Configuración de la actualización de una aplicación de Service Fabric
 description: Obtenga información sobre cómo configurar los parámetros para la actualización de la aplicación de Service Fabric mediante Microsoft Visual Studio.
-services: service-fabric
-documentationcenter: na
 author: mikkelhegn
-manager: mfussell
-editor: tglee
-ms.assetid: 1757ba85-0b7b-4f16-8a23-2ddaa61c86c6
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikhegn
-ms.openlocfilehash: 5979541146b7cd7b854f35c5bf204e71208f066b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: ef88a528dbb6d326e5cc742d14c27218eb7502f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876754"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464079"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configuración de la actualización de una aplicación de Service Fabric en Visual Studio
 Las herramientas de Visual Studio para Azure Service Fabric proporcionan compatibilidad con la actualización para la publicación el clústeres locales o remotos. Hay tres escenarios en los que le convendría actualizar la aplicación a una versión más reciente en lugar de reemplazarla durante las pruebas y la depuración:

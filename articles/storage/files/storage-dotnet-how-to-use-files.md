@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6f2159ddf3e3039dc0c38fc8f942c508ac177f06
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: dfb1d71a02ae3bf06a5f2d8a93bcb3ac83433a86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038189"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460367"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Desarrollo para Azure Files con .NET
 
@@ -23,7 +23,7 @@ En este tutorial se muestran los aspectos básicos del uso de .NET para desarrol
 
 * Obtenga el contenido de un archivo.
 * Establezca la *cuota* o tamaño máximo para el recurso compartido de archivos.
-* Crear una firma de acceso compartido (clave SAS) para un archivo que utiliza una directiva de acceso compartido definida en el recurso compartido.
+* Cree una firma de acceso compartido (clave SAS) para un archivo que utiliza una directiva de acceso almacenada definida en el recurso compartido.
 * Copie un archivo en otro en la misma cuenta de almacenamiento.
 * Copie un archivo en un blob en la misma cuenta de almacenamiento.
 * Use las métricas de Azure Storage para solucionar problemas.
@@ -36,7 +36,7 @@ Para obtener más información acerca de Azure Files, consulte [¿Qué es Azure 
 
 Azure Files proporciona dos amplios enfoques para las aplicaciones cliente: bloque de mensajes del servidor (SMB) y REST. Dentro de. NET, las API `System.IO` y `WindowsAzure.Storage` extraen estos métodos.
 
-API | Cuándo se deben usar | Notas
+API | Cuándo se usa | Notas
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Su aplicación: <ul><li>Es necesario leer o escribir archivos mediante SMB</li><li>Se ejecuta en un dispositivo que tenga acceso a través del puerto 445 a su cuenta de Azure Files</li><li>No es necesario administrar cualquiera de las opciones administrativas del recurso compartido de archivos</li></ul> | La E/S de archivos de Azure Files a través de SMB normalmente es igual que la E/S con cualquier recurso compartido de red o dispositivo de almacenamiento local. Para obtener una introducción a una serie de características en .NET, incluida la E/S de archivos, consulte [Aplicación de consola](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter).
 [Microsoft.Azure.Storage.File](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | Su aplicación: <ul><li>No se puede tener acceso a Azure Files mediante SMB en el puerto 445 debido a restricciones de ISP o firewall</li><li>Requiere funcionalidad administrativa, como la capacidad de establecer la cuota de un recurso compartido de archivo o crear una firma de acceso compartido</li></ul> | Este artículo muestra el uso de `Microsoft.Azure.Storage.File` para la E/S de archivos con REST (en lugar de SMB) y la administración del recurso compartido de archivos.
@@ -192,9 +192,9 @@ if (share.Exists())
 
 ### <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Generar una firma de acceso compartido para un archivo o recurso compartido de archivos
 
-A partir de la versión 5.x de la biblioteca de cliente de Azure Storage, puede generar una firma de acceso compartido (SAS) para un recurso compartido de archivos o para un archivo individual. También puede crear una directiva de acceso compartido en un recurso compartido de archivos para administrar firmas de acceso compartido. Se recomienda crear una directiva de acceso compartido, ya que permite revocar la clave SAS si está en peligro.
+A partir de la versión 5.x de la biblioteca de cliente de Azure Storage, puede generar una firma de acceso compartido (SAS) para un recurso compartido de archivos o para un archivo individual. También puede crear una directiva de acceso almacenada en un recurso compartido de archivos para administrar firmas de acceso compartido. Le recomendamos que cree una directiva de acceso almacenada, ya que le permite revocar la clave SAS si se encuentra en peligro.
 
-En el ejemplo siguiente se crea una directiva de acceso compartido en un recurso compartido. En el ejemplo se usa esa directiva para proporcionar las restricciones para una clave SAS en un archivo del recurso compartido.
+En el ejemplo siguiente se crea una directiva de acceso almacenada en un recurso compartido. En el ejemplo se usa esa directiva para proporcionar las restricciones para una clave SAS en un archivo del recurso compartido.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -212,7 +212,7 @@ if (share.Exists())
 {
     string policyName = "sampleSharePolicy" + DateTime.UtcNow.Ticks;
 
-    // Create a new shared access policy and define its constraints.
+    // Create a new stored access policy and define its constraints.
     SharedAccessFilePolicy sharedPolicy = new SharedAccessFilePolicy()
         {
             SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
@@ -222,7 +222,7 @@ if (share.Exists())
     // Get existing permissions for the share.
     FileSharePermissions permissions = share.GetPermissions();
 
-    // Add the shared access policy to the share's policies. Note that each policy must have a unique name.
+    // Add the stored access policy to the share's policies. Note that each policy must have a unique name.
     permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
     share.SetPermissions(permissions);
 

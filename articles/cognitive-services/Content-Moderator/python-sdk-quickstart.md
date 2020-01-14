@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Biblioteca cliente de Content Moderator para Python | Microsoft Docs'
+title: 'Inicio rápido: Biblioteca cliente de Content Moderator para Python'
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo empezar a usar la biblioteca cliente de Content Moderator de Azure Cognitive Services para Python.
+description: En este inicio rápido empezará a usar la biblioteca cliente de Content Moderator de Azure Cognitive Services para Python.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: ee3f59bc9e9f8c7950d005b16433cde9267fea9a
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 931e6e35df520f4a0ab35dfb6067654f9d08ed9d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538998"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448270"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de Content Moderator para Python
 
@@ -31,7 +31,7 @@ Use la biblioteca cliente de Content Moderator para Python para:
 
 [Documentación de referencia](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [Paquete (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -42,7 +42,7 @@ Use la biblioteca cliente de Content Moderator para Python para:
 
 Los servicios de Azure Cognitive Services se representan por medio de recursos de Azure a los que se suscribe. Cree un recurso para Content Moderator con [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) en la máquina local. También puede:
 
-* Obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/#decision) válida durante siete días de forma gratuita Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/#decision) válida durante siete días de forma gratuita. Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Ver este recurso en [Azure Portal](https://portal.azure.com/).
 
 Después de obtener una clave de la suscripción de evaluación o el recurso, [cree una variable de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la clave y la dirección URL del punto de conexión, denominadas `CONTENT_MODERATOR_SUBSCRIPTION_KEY` y `CONTENT_MODERATOR_ENDPOINT`, respectivamente.
@@ -72,7 +72,7 @@ pip install --upgrade azure-cognitiveservices-vision-contentmoderator
 
 Las siguientes clases controlan algunas de las características principales del SDK de Python para Content Moderator.
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python)|Esta clase es necesaria para todas las funciones de Content Moderator. Cree una instancia de ella con la información de suscripción y úsela para generar instancias de otras clases.|
 |[ImageModerationOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python)|Esta clase proporciona la funcionalidad para analizar imágenes de contenido para adultos, información personal o caras humanas.|

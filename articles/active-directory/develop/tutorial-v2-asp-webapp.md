@@ -1,5 +1,5 @@
 ---
-title: Adición de inicio de sesión a la aplicación web ASP.NET de Azure AD
+title: Adición de inicio de sesión en la Plataforma de identidad de Microsoft a una aplicación web de ASP.NET
 titleSuffix: Microsoft identity platform
 description: Implementación del inicio de sesión de Microsoft en una solución ASP.NET mediante una aplicación basada en un explorador web tradicional y el estándar OpenID Connect
 services: active-directory
@@ -17,18 +17,18 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff89d3c11ca88db14d2efd772be44aef7165a8a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: cf1abc42fd3639bf76f752e5fe6a8f62c7d9e66d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964742"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423470"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adición del inicio de sesión en Microsoft a una aplicación web ASP.NET
 
 Esta guía muestra cómo implementar el inicio de sesión en Microsoft a través de una solución ASP.NET MVC mediante una aplicación basada en explorador web tradicional y OpenID Connect.
 
-Cuando haya completado esta guía, la aplicación podrá aceptar inicios de sesión de cuentas personales de outlook.com y live.com. Además, tanto las cuentas profesionales como las educativas de cualquier empresa u organización que esté integrada en Azure Active Directory (Azure AD) podrán iniciar sesión en la aplicación.
+Cuando haya completado esta guía, la aplicación podrá aceptar inicios de sesión de cuentas personales de outlook.com y live.com. Además, tanto las cuentas profesionales como las educativas de cualquier empresa u organización que esté integrada con la Plataforma de identidad de Microsoft podrán iniciar sesión en la aplicación.
 
 > Esta guía requiere Microsoft Visual Studio 2019.  ¿No lo tiene?  [Descargue Visual Studio 2019 de manera gratuita](https://www.visualstudio.com/downloads/).
 
@@ -42,7 +42,7 @@ La aplicación de ejemplo que se crea se basa en un escenario en el que se usa e
 
 Esta guía utiliza las siguientes bibliotecas:
 
-|Biblioteca|DESCRIPCIÓN|
+|Biblioteca|Descripción|
 |---|---|
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|Middleware que permite a una aplicación que use OpenIDConnect para la autenticación|
 |[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Middleware que permite a una aplicación mantener una sesión de usuario mediante cookies|
@@ -106,7 +106,7 @@ Los pasos siguientes se usan para crear una clase de inicio del middleware de OW
     ```csharp
     public class Startup
     {
-        // The Client ID is used by the application to uniquely identify itself to Azure AD.
+        // The Client ID is used by the application to uniquely identify itself to Microsoft identity platform.
         string clientId = System.Configuration.ConfigurationManager.AppSettings["ClientId"];
 
         // RedirectUri is the URL where the user will be redirected to after they sign in.
@@ -115,7 +115,7 @@ Los pasos siguientes se usan para crear una clase de inicio del middleware de OW
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Azure Active Directory v2.0 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed by Microsoft identity platform endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -175,7 +175,7 @@ Los pasos siguientes se usan para crear una clase de inicio del middleware de OW
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Más información
-> Los parámetros que se proporcionan en *OpenIDConnectAuthenticationOptions* sirven de coordenadas para que la aplicación se comunique con Azure AD. Dado que el middleware de OpenID Connect usa cookies en segundo plano, también debe configurar la autenticación con cookies como muestra el código anterior. El valor *ValidateIssuer* indica a OpenIdConnect que no restrinja el acceso a una organización específica.
+> Los parámetros que se proporcionan en *OpenIDConnectAuthenticationOptions* sirven de coordenadas para que la aplicación se comunique con la Plataforma de identidad de Microsoft. Dado que el middleware de OpenID Connect usa cookies en segundo plano, también debe configurar la autenticación con cookies como muestra el código anterior. El valor *ValidateIssuer* indica a OpenIdConnect que no restrinja el acceso a una organización específica.
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Agregar un controlador para controlar las solicitudes de inicio de sesión y cierre de sesión
@@ -270,7 +270,7 @@ En Visual Studio, cree otra vista para agregar el botón de inicio de sesión y
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Más información
-> Esta página agrega un botón de inicio de sesión en formato SVG con un fondo negro:<br/>![Iniciar sesión con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para más botones de inicio de sesión, vaya a [Directrices de personalización de marca](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "BDirectrices de personalización de marca).
+> Esta página agrega un botón de inicio de sesión en formato SVG con un fondo negro:<br/>![Iniciar sesión con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para más botones de inicio de sesión, vaya a [Directrices de personalización de marca](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Directrices de marca").
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Agregar un controlador para mostrar las notificaciones del usuario
@@ -374,7 +374,7 @@ Para registrar la aplicación y agregar la información de registro de la aplica
    1. En el Explorador de soluciones, seleccione el proyecto y vea la ventana Propiedades (si no la ve, presione F4).
    1. Cambie SSL habilitado a `True`.
    1. Haga clic con el botón derecho en el proyecto en Visual Studio, seleccione **Propiedades** y, después, seleccione la pestaña **Web**. En la sección **Servidores**, cambie el valor **URL del proyecto** a **Dirección URL de SSL**.
-   1. Copie la URL de SSL. En el siguiente paso, agregará esta dirección URL a la lista de direcciones URL de redireccionamiento del portal de registro correspondiente.<br/><br/>![Propiedades del proyecto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+   1. Copie la URL de SSL. En el siguiente paso, agregará esta dirección URL a la lista de direcciones URL de redireccionamiento del portal de registro correspondiente.<br/><br/>![Propiedades de proyecto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) mediante una cuenta profesional o educativa, o bien una cuenta personal de Microsoft.
 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD que desee.
 1. Vaya a la página [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) de la plataforma de identidad de Microsoft para desarrolladores.
@@ -407,7 +407,7 @@ Cuando esté listo para realizar la prueba, use una cuenta de Azure AD (profesi
 
 <!--start-collapse-->
 > ###  <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft
->  Las aplicaciones que se integran con la plataforma de identidad de Microsoft siguen un modelo de autorización que permite a los usuarios y los administradores controlar el modo en que se puede acceder a los datos. Después de que un usuario se autentique con Azure AD para acceder a esta aplicación, se le pedirá que dé su consentimiento a los permisos solicitados por la aplicación ("Ver su perfil básico" y "Mantener el acceso a los datos a los que ha dado acceso"). Después de aceptar estos permisos, el usuario continuará con los resultados de la aplicación. Sin embargo, en su lugar, el usuario puede ver la página **Need admin consent** (Se necesita el consentimiento del administrador) si se produce alguna de las siguientes situaciones:
+>  Las aplicaciones que se integran con la plataforma de identidad de Microsoft siguen un modelo de autorización que permite a los usuarios y los administradores controlar el modo en que se puede acceder a los datos. Después de que un usuario se autentique con la Plataforma de identidad de Microsoft para acceder a esta aplicación, se le pedirá que dé su consentimiento a los permisos solicitados por la aplicación ("Ver su perfil básico" y "Mantener el acceso a los datos a los que ha dado acceso"). Después de aceptar estos permisos, el usuario continuará con los resultados de la aplicación. Sin embargo, en su lugar, el usuario puede ver la página **Need admin consent** (Se necesita el consentimiento del administrador) si se produce alguna de las siguientes situaciones:
 >  > - El desarrollador de aplicaciones agrega todos los permisos adicionales que requieran **consentimiento del administrador**.
 >  > - O bien se configura el inquilino (en **Aplicaciones empresariales -> Configuración de usuario**), donde los usuarios no pueden dar el consentimiento a las aplicaciones que accedan a los datos de la empresa en su nombre.
 >
@@ -426,14 +426,14 @@ Para ver las notificaciones de usuario, seleccione el vínculo para ir a la vist
 
 Una vez en la vista del controlador, verá una tabla que contiene las propiedades básicas del usuario:
 
-|Propiedad |Valor |DESCRIPCIÓN |
+|Propiedad |Value |Descripción |
 |---|---|---|
 |**Nombre** |Nombre completo del usuario | Nombre y apellido del usuario
 |**Nombre de usuario** |usuario<span>@domain.com</span> | Nombre de usuario que se usa para identificar al usuario|
 |**Subject** |Asunto |Cadena que identifica al usuario de forma exclusiva en la web|
 |**Id. de inquilino** |Guid | Un **GUID** que representa de forma única la organización de Azure AD del usuario|
 
-Además, debería ver una tabla de todas las notificaciones que se encuentran en la solicitud de autenticación. Para más información, consulte la [lista de notificaciones que se encuentran en un token de identificación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Además, debería ver una tabla de todas las notificaciones que se encuentran en la solicitud de autenticación. Para más información, consulte la [lista de notificaciones que se encuentran en un token de identificación](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Probar el acceso a un método que tiene un atributo Authorize (opcional)
 
@@ -459,7 +459,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>Restringir quién puede iniciar sesión a la aplicación
 
-De forma predeterminada, cuando compile la aplicación que creó con esta guía, la aplicación podrá aceptar inicios de sesión de cuentas personales (como outlook.com, live.com y otras), así como cuentas profesionales y educativas de cualquier empresa u organización que se haya integrado con Azure AD. Esta es una opción recomendada para las aplicaciones SaaS.
+De forma predeterminada, cuando compile la aplicación que creó con esta guía, la aplicación podrá aceptar inicios de sesión de cuentas personales (como outlook.com, live.com y otras), así como cuentas profesionales y educativas de cualquier empresa u organización que se haya integrado con la Plataforma de identidad de Microsoft. Esta es una opción recomendada para las aplicaciones SaaS.
 
 Existen varias opciones para restringir el acceso de los usuarios al proceso de inicio de sesión de la aplicación.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Introducción a iOS y macOS: plataforma de identidad de Microsoft | Azure'
-description: Aprenda la forma en que las aplicaciones de iOS y macOS (Swift) pueden llamar a una API que requiera tokens de acceso mediante la plataforma de identidad de Microsoft.
+title: 'Tutorial de MSAL para iOS y macOS: Plataforma de identidad de Microsoft | Azure'
+description: Aprenda la forma en que las aplicaciones de iOS y macOS (Swift) pueden llamar a una API que requiera tokens de acceso mediante la Plataforma de identidad de Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
 author: tylermsft
@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f161d94d622ae76932e88be52df6f068bfc945
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a0aa97f2cb54295d9403ec332eb9c0ada684df12
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964675"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423398"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Inicio de sesión de los usuarios y llamada a Microsoft Graph desde una aplicación para iOS o macOS
 
@@ -45,7 +45,7 @@ Este ejemplo utiliza la Biblioteca de autenticación de Microsoft (MSAL) para im
 
 Este tutorial es aplicable a las aplicaciones para iOS y macOS. Tenga en cuenta que algunos pasos son diferentes entre esas dos plataformas. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - En esta guía se requiere la versión 10.x o posterior de XCode para compilar la aplicación. Puede descargar XCode desde el [sitio web de iTunes](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL de descarga de XCode").
 - Biblioteca de autenticación de Microsoft ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Puede usar un administrador de dependencias o agregar la biblioteca manualmente. Las instrucciones siguientes muestran cómo hacerlo.
@@ -649,7 +649,7 @@ La primera vez que un usuario inicie sesión en la aplicación, Microsoft Identi
 
 Después de iniciar sesión, esta aplicación mostrará los datos devueltos desde el punto de conexión `/me` de Microsoft Graph.
 
-## <a name="get-help"></a>Obtención de ayuda
+## <a name="get-help"></a>Obtener ayuda
 
 Visite [Ayuda y soporte técnico](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) si tienes algún problema con este tutorial o con la plataforma de identidad de Microsoft.
 

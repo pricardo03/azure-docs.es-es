@@ -1,5 +1,5 @@
 ---
-title: Transferencia de la propiedad de facturación de suscripción de Azure a otra cuenta | Microsoft Docs
+title: Transferencia de la propiedad de facturación de una suscripción de Azure
 description: Transferencia de una propiedad de facturación de suscripción de Azure a otra cuenta y algunas preguntas frecuentes (P+F) sobre el proceso
 keywords: transferencia de la suscripción de Azure, suscripción de transferencia de Azure, traslado de la suscripción de Azure a otra cuenta, cambio de propietario de la suscripción de Azure, transferencia de la suscripción de Azure a otra cuenta, facturación de transferencia de Azure
 author: bandersmsft
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a858ef9918135bfb660c059d80f4c7c49e1e3364
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 721c8a1381ad90a68cfeb628ad00e39aadbb1db7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223563"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388948"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de facturación de una suscripción de Azure a otra cuenta
 
@@ -115,9 +115,9 @@ La transferencia de suscripciones en Azure Portal está disponible para los tipo
 - [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/)
 - [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)
 - [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)
-- [Plan de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
+- [Plan de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 
-\* [A través del portal de EA](#EA).
+\*[A través del portal de EA](#EA).
 
 \*\* Solo se admite para las cuentas que se crean durante el registro en el sitio web de Azure.
 
@@ -184,13 +184,13 @@ Sí. Sin embargo, si la cuenta se encuentra en un inquilino de Azure AD diferen
 
 Incluso si las asignaciones de [control de acceso basado en roles (RBAC)](../role-based-access-control/role-assignments-portal.md) se quitan durante la transferencia, es posible que los usuarios de la cuenta del propietario original sigan teniendo acceso a la suscripción a través de algunos mecanismos de seguridad, entre los que se incluyen:
 
-* Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para más información, consulte [Create and Upload a Management Certificate for Azure](../cloud-services/cloud-services-certs-create.md) (Creación y actualización de un certificado de administración para Azure).
+* Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para obtener más información, consulte [Crear y cargar un certificado de administración para Azure](../cloud-services/cloud-services-certs-create.md).
 * Claves de acceso para servicios como Almacenamiento. Para más información, consulte [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md).
 * Credenciales de acceso remoto para servicios como Azure Virtual Machines.
 
 El destinatario debe restringir el acceso a sus recursos y considerar la actualización de todos los secretos asociados al servicio. La mayoría de los recursos se pueden actualizar mediante el uso de los siguientes pasos:
 
-  1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+  1. Inicie sesión en [Azure Portal](https://portal.azure.com).
   2. En el menú Concentrador, seleccione **Todos los recursos**.
   3. Seleccione el recurso.
   4. En la página de recursos, haga clic en **Configuración**. Aquí puede ver y actualizar los secretos existentes.
@@ -207,7 +207,7 @@ Sí. Al aceptar la solicitud de transferencia, puede seleccionar un método de p
 
 El administrador de empresa puede actualizar la propiedad de la cuenta para cualquier cuenta incluso después de que el propietario de la cuenta original ya no forme parte de la organización. Para ello, puede seguir las instrucciones de [Transferencia de la propiedad de la cuenta para todas las suscripciones](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) en EA Portal.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a id="no-button"></a>¿Por qué no veo el botón "Transfer subscription" (Transferir suscripción)?
 

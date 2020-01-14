@@ -1,31 +1,23 @@
 ---
-title: Inicio rápido para aprender a usar Azure App Configuration | Microsoft Docs
+title: Inicio rápido para aprender a usar Azure App Configuration
 description: Una artículo de inicio rápido para usar Azure App Configuration con aplicaciones de Java Spring.
-services: azure-app-configuration
-documentationcenter: ''
 author: yidon
-manager: jeffya
-editor: ''
-ms.assetid: ''
-ms.service: azure-app-configuration
-ms.devlang: java
-ms.topic: quickstart
-ms.tgt_pltfrm: Spring
-ms.workload: tbd
-ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: e8f6f9ca610c515deca6ed1bdbee54f40cacf427
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.service: azure-app-configuration
+ms.topic: quickstart
+ms.date: 12/17/2019
+ms.openlocfilehash: c4fee6c61ba58a8a1629b5c98d7eebdadfdf1a89
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184933"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495208"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación de Java Spring con Azure App Configuration
 
 En este inicio rápido incorporará Azure App Configuration a una aplicación de Java Spring para centralizar el almacenamiento y la administración de la configuración de la aplicación de forma independiente del código.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - Un [kit de desarrollo de Java (JDK)](https://docs.microsoft.com/java/azure/jdk) admitido, versión 8.
@@ -37,7 +29,7 @@ En este inicio rápido incorporará Azure App Configuration a una aplicación de
 
 6. Seleccione **Explorador de configuración** >  **+ Crear** para agregar los siguientes pares clave-valor:
 
-    | Clave | Valor |
+    | Clave | Value |
     |---|---|
     | /application/config.message | Hola |
 
@@ -45,7 +37,7 @@ En este inicio rápido incorporará Azure App Configuration a una aplicación de
 
 ## <a name="create-a-spring-boot-app"></a>Creación de una aplicación Spring Boot
 
-Para crear un proyecto de Spring Boot, se usa [Spring Initializr](https://start.spring.io/).
+Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spring.io/).
 
 1. Vaya a <https://start.spring.io/>.
 
@@ -121,7 +113,7 @@ Para crear un proyecto de Spring Boot, se usa [Spring Initializr](https://start.
 
 6. Cree un nuevo archivo denominado `bootstrap.properties` bajo el directorio de recursos de la aplicación y agréguele las siguientes líneas. Reemplace los valores de ejemplo por las propiedades adecuadas para su almacén de App Configuration.
 
-    ```properties
+    ```CLI
     spring.cloud.azure.appconfiguration.stores[0].connection-string=[your-connection-string]
     ```
 
@@ -129,13 +121,13 @@ Para crear un proyecto de Spring Boot, se usa [Spring Initializr](https://start.
 
 1. Compile la aplicación de Spring Boot con Maven y ejecútela; por ejemplo:
 
-    ```shell
+    ```CLI
     mvn clean package
     mvn spring-boot:run
     ```
 2. Una vez que se está ejecutando la aplicación, puede usar *curl* para probarla, por ejemplo:
 
-      ```shell
+      ```CLI
       curl -X GET http://localhost:8080/
       ```
     Verá el mensaje que escribió en el almacén de App Configuration.

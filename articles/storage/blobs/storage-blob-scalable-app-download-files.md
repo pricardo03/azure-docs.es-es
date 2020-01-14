@@ -1,5 +1,5 @@
 ---
-title: Descargar grandes cantidades de datos aleatorios desde Azure Storage | Microsoft Docs
+title: Descarga de grandes cantidades de datos aleatorios desde Azure Storage | Microsoft Docs
 description: Obtenga información acerca de cómo usar el SDK de Azure para descargar grandes cantidades de datos aleatorios de una cuenta de Azure Storage.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 8d270485cef9fb6859de056bc364a36c054c0121
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: b3fe9c7481e79b8eeda9f18e9a036fa8c72e658d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699016"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372098"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Descargar grandes cantidades de datos aleatorios desde Azure Storage
 
@@ -25,7 +25,7 @@ En la tercera parte de la serie, se aprende a:
 > * Ejecución de la aplicación
 > * Validar el número de conexiones
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, debe haber completado el tutorial anterior sobre el almacenamiento: [Carga de grandes cantidades de datos aleatorios en paralelo en Azure Storage][previous-tutorial].
 
@@ -98,7 +98,7 @@ dotnet run
 La aplicación lee los contenedores que se encuentran en la cuenta de almacenamiento especificada en **storageconnectionstring**. Se iteran 10 blobs cada vez mediante el método [ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) de los contenedores y los descarga en el equipo local mediante el método [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync).
 En la siguiente tabla se muestran la clases [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) que se definen para cada blob a medida que se descarga.
 
-|Propiedad|Valor|DESCRIPCIÓN|
+|Propiedad|Value|Descripción|
 |---|---|---|
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Esta propiedad deshabilita la función de comprobación del hash MD5 del contenido cargado. Al deshabilitar la validación de MD5, se agiliza la transferencia. Aún así, hay que tener en cuenta que no se puede confirmar la validez o integridad de los archivos que se transfieren. |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Esta propiedad determina si se calcula y almacena un hash MD5.   |

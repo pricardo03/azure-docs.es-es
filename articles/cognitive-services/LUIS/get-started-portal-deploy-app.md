@@ -8,24 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 65af2caa2272549b5ad562ff3c38b90e3ea43fd5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a67852d333a86c5acf20e8bf69004aa9131e1f9f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278543"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448067"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Inicio rápido: Implementación de una aplicación en el portal de LUIS
-
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 Una vez que la aplicación de LUIS está lista para devolver predicciones de expresiones a una aplicación cliente (por ejemplo, un bot de chat), es preciso implementar la aplicación en el punto de conexión de la predicción.
 
 En esta guía de inicio rápido, aprenderá a implementar una aplicación. Cree un recurso de punto de conexión de predicción, asigne el recurso a la aplicación, entrene la aplicación y publíquela.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Obtener una [suscripción de Azure](https://azure.microsoft.com/free).
 * Completar el [inicio rápido del portal anterior](get-started-portal-build-app.md) o [descargar e importar la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
@@ -39,9 +37,9 @@ Cree el recurso del punto de conexión de predicción en Azure Portal. Dicho rec
 
 1. Configure la suscripción con los valores siguientes:
 
-   |Configuración|Valor|Propósito|
+   |Configuración|Value|Propósito|
    |--|--|--|
-   |NOMBRE|`my-luis-resource`|El nombre del recurso de Azure. Este nombre será necesario al asignar el recurso a la aplicación en el portal de LUIS.|
+   |Nombre|`my-luis-resource`|El nombre del recurso de Azure. Este nombre será necesario al asignar el recurso a la aplicación en el portal de LUIS.|
    |Subscription|Su suscripción|Seleccione una de las suscripciones asociadas a su cuenta.|
    |Resource group|`my-resource-group`|Cree un grupo de recursos para todos los recursos de Cognitive Services. Cuando haya terminado con los recursos, puede eliminar el grupo de recursos para limpiar la suscripción. |
    |Creación de la ubicación|**Oeste de EE. UU.**|La región de Azure para la creación.|
@@ -61,7 +59,7 @@ Cree el recurso del punto de conexión de predicción en Azure Portal. Dicho rec
 
 Cada vez que crea un recurso para LUIS, será preciso que lo asigne a la aplicación de LUIS. Una vez que lo asigne, no tendrá que volver a realizar este paso, a menos que cree otro recurso. Puede crear un recurso para expandir las regiones de la aplicación o para admitir un mayor número de consultas de predicción.
 
-1. Inicie sesión en el [portal de LUIS](https://preview.luis.ai) y elija la aplicación **myEnglishApp** en la lista de aplicaciones.
+1. Inicie sesión en el [portal de LUIS (versión preliminar)](https://preview.luis.ai) y elija la aplicación **myEnglishApp** en la lista de aplicaciones.
 
 1. Seleccione **Manage** (Administrar) en el menú superior derecho y, después, seleccione **Azure Resources** (Recursos de Azure).
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: overview
-ms.date: 06/27/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 4b0b0d91af15912e1c64761351ba33acfd3e2725
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 12c255f0e4ed11ce8acbd762530604218f8bc12b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405161"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448741"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>¿Qué es Bing Custom Search API?
 
@@ -23,7 +23,7 @@ Bing Custom Search API le permite crear experiencias de búsqueda a medida sin a
 
 ## <a name="features"></a>Características
 
-|Característica  |DESCRIPCIÓN  |
+|Característica  |Descripción  |
 |---------|---------|
 |[Sugerencias de búsqueda en tiempo real personalizadas](define-custom-suggestions.md)     | Proporciona sugerencias de búsqueda que pueden mostrarse como una lista desplegable a medida que los usuarios escriben.       | 
 |[Experiencias personalizadas de búsqueda de imágenes](get-images-from-instance.md)     | Permita que los usuarios busquen imágenes en los dominios y los sitios web especificados en su instancia de búsqueda personalizada.        |        
@@ -36,7 +36,7 @@ Puede crear una instancia de búsqueda personalizada con el [portal de Bing Cust
 
 Una vez creada, puede integrar la instancia de búsqueda (y, opcionalmente, una interfaz de usuario) en su aplicación o sitio web mediante una llamada a Bing Custom Search API:
 
-![Imagen que muestra que puede conectar con Bing Custom Search mediante la API](media/BCS-Overview.png "Cómo funciona Bing Custom Search").
+![Imagen que muestra que puede conectar con Bing Custom Search mediante la API](media/BCS-Overview.png "Funcionamiento de Bing Custom Search")
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -46,6 +46,8 @@ Para iniciar rápidamente, consulte [Create your first Bing Custom Search instan
 Para obtener más información sobre cómo personalizar su instancia de búsqueda, consulte [Define a custom search instance](define-your-custom-view.md) (Definir una instancia de búsqueda personalizada).
 
 Consulte los [requisitos de visualización y uso de Bing](./use-and-display-requirements.md) para usar los resultados de búsqueda en sus aplicaciones y servicios.
+
+Visite la [página central de Bing Search API](../bing-web-search/search-the-web.md) para explorar las otras API disponibles.
 
 Familiarícese con el contenido de referencia de cada uno de los puntos de conexión de búsqueda personalizada. La referencia contiene los puntos de conexión, los encabezados y los parámetros de consulta que se utilizan para solicitar los resultados de la búsqueda. También incluye definiciones de los objetos de respuesta.
 

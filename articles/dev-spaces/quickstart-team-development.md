@@ -3,15 +3,15 @@ title: Desarrollo en equipo en Kubernetes
 services: azure-dev-spaces
 ms.date: 04/25/2019
 ms.topic: quickstart
-description: Desarrollo en equipo de Kubernetes con contenedores y microservicios en Azure
+description: En esta guía de inicio rápido se muestra cómo desarrollar Kubernetes en equipo con contenedores y microservicios con Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 2f3ed0f2a9635488aea509e7816fbe84e1589d14
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 396358be63f93fde2ba5ec5f00545708dbfa19d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484034"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438210"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Inicio rápido: Desarrollo en equipo en Kubernetes: Azure Dev Spaces
 
@@ -23,9 +23,9 @@ En esta guía, aprenderá a:
 
 ![Desarrollo en equipo de Azure Dev Spaces](media/azure-dev-spaces/collaborate-graphic.gif)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Una suscripción de Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
+- Suscripción a Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
 - [La CLI de Azure instalada](/cli/azure/install-azure-cli?view=azure-cli-latest).
 - [Helm 2.13 - 2.16 instalado][helm-installed].
 

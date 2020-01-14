@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Compilación de una aplicación web de Node.js mediante el SDK de JavaScript para administrar los datos de API DE SQL de Azure Cosmos DB'
+title: 'Tutorial: Creación de una aplicación web Node.js mediante el SDK de JavaScript de Azure Cosmos DB para administrar los datos de SQL API'
 description: Este tutorial de Node.js explora cómo usar Microsoft Azure Cosmos DB para almacenar datos de una aplicación web Node.js Express hospedada en una característica de Web Apps de Microsoft Azure App Service y acceder a ellos.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: a67870cc2494321aa739d6f59f18651013b7403b
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 7a01c436f31a8ce5b8071db3eda4cf5562c421c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995956"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441275"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Compilación de una aplicación web de Node.js mediante el SDK de JavaScript para administrar la cuenta de SQL API en Azure Cosmos DB 
 
@@ -102,7 +102,7 @@ El archivo **package.json** es uno de los archivos creados en la raíz del proye
 ## <a name="_Toc395783180"></a>Conexión de la aplicación Node.js a Azure Cosmos DB
 Ahora que ha completado la instalación y configuración iniciales, a continuación escribirá código que la aplicación de tareas pendientes (Todo) necesita para comunicarse con Azure Cosmos DB.
 
-### <a name="create-the-model"></a>Crear el modelo
+### <a name="create-the-model"></a>Creación del modelo
 1. En la raíz del directorio del proyecto, cree un nuevo directorio con el nombre **models**.  
 
 2. En el directorio **models**, cree un archivo nuevo con el nombre **taskDao.js**. Este archivo contiene el código necesario para crear la base de datos y el contenedor. También define los métodos para leer, actualizar, crear y encontrar tareas en Azure Cosmos DB. 

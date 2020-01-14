@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f816091e3e8682069a950ff6f6eb839e285bb2f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c29a06496bb1303849250f049e4e7444a5a5ddf3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512456"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423354"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
 
@@ -50,7 +50,7 @@ MSAL administra el almacenamiento en caché y la actualización de los tokens de
 
 Esta guía utiliza los siguientes paquetes NuGet:
 
-|Biblioteca|DESCRIPCIÓN|
+|Biblioteca|Descripción|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Biblioteca de autenticación de Microsoft (MSAL.NET)|
 
@@ -106,9 +106,9 @@ Para registrar la aplicación y agregar la información de registro de aplicaci�
    - Seleccione **Registrar** para crear la aplicación.
 1. En la lista de páginas de la aplicación, seleccione **Autenticación**.
    1. En la sección **URI de redirección**, en la lista de identificadores URI de redirección:
-   1. En la columna **TIPO**, seleccione **Cliente público (móvil y escritorio)** .
-   1. En la columna **URI DE REDIRECCIÓN**, escriba `urn:ietf:wg:oauth:2.0:oob`.
-1. Seleccione **Guardar**.
+   1. En la columna **TIPO**, seleccione **Cliente público/Nativo (móvil y escritorio)** .
+   1. En la columna **URI DE REDIRECCIÓN**, escriba `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+1. Seleccione **Registrar**.
 1. Vaya a Visual Studio, abra el archivo *App.xaml.cs* y, luego, reemplace `Enter_the_Application_Id_here` en el siguiente fragmento de código por el identificador de aplicación que acaba de registrar y copiar.
 
     ```csharp
@@ -277,7 +277,7 @@ En última instancia, se producirá un error en el método `AcquireTokenSilent`.
 * En su lugar, puede presentar una indicación visual a los usuarios para señalar que es necesario iniciar sesión de manera interactiva, lo que les permitirá escoger el momento oportuno para iniciar sesión. Asimismo, la aplicación puede volver a probar el método `AcquireTokenSilent` más tarde. Este patrón se utiliza con frecuencia cuando los usuarios pueden usar otras funciones de aplicación sin interrupciones; por ejemplo, cuando hay contenido sin conexión disponible en la aplicación. En este caso, los usuarios pueden decidir cuándo desean iniciar sesión para acceder al recurso protegido o para actualizar la información obsoleta. Como alternativa, la aplicación puede decidir probar el método `AcquireTokenSilent` de nuevo cuando se restablezca la red después de no haber estado disponible temporalmente.
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Llamada a la API de Microsoft Graph con el token que acaba de obtener
+## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Llamada a Microsoft Graph API con el token que acaba de obtener
 
 Añada el siguiente método nuevo a su archivo `MainWindow.xaml.cs`. El método se utiliza para realizar una solicitud de `GET` a Graph API con un encabezado de autorización:
 
@@ -311,7 +311,7 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Más información acerca de cómo realizar una llamada de REST a una API protegida
 
-En esta aplicación de ejemplo, el método `GetHttpContentWithToken` se usa para realizar una solicitud HTTP `GET` a un recurso protegido que requiere un token y, a continuación, devolver el contenido al autor de la llamada. Este método agrega el token adquirido al encabezado de autorización HTTP. En este ejemplo, el recurso es el punto de conexión *me* de la API de Microsoft Graph, que muestra información del perfil del usuario.
+En esta aplicación de ejemplo, el método `GetHttpContentWithToken` se usa para realizar una solicitud HTTP `GET` a un recurso protegido que requiere un token y, a continuación, devolver el contenido al autor de la llamada. Este método agrega el token adquirido al encabezado de autorización HTTP. En este ejemplo, el recurso es el punto de conexión *me* de Microsoft Graph API, que muestra información del perfil del usuario.
 <!--end-collapse-->
 
 ## <a name="add-a-method-to-sign-out-a-user"></a>Adición de un método para cerrar la sesión de un usuario

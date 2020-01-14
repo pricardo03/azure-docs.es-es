@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplos de Azure PowerShell: Instalación de aplicaciones | Microsoft Docs'
-description: Ejemplos de Azure PowerShell
+title: 'Ejemplos de PowerShell: Instalación de aplicaciones'
+description: Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Windows Server 2016 y usa la extensión de script personalizado para instalar una aplicación web básica.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,19 +16,19 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a2887eea0e4a43e21c776f7d25a1ee55971d80a1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 196ac6c59315fbb2ab291b08138575c7757bb9cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981611"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350892"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-powershell"></a>Instalación de aplicaciones en un conjunto de escalado de máquinas virtuales con PowerShell
 Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Windows Server 2016 y usa la extensión de script personalizado para instalar una aplicación web básica. Después de ejecutar el script, puede tener acceso a la aplicación web mediante un explorador web.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Script de ejemplo
 

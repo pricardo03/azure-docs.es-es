@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: 3feadaca361950df2a09f8da33fe380fc3763763
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: cd859a4009782ca39732ec004a3d3e05edd377b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614829"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442898"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la administración y la protección de las imágenes de contenedor en Azure Kubernetes Service (AKS)
 
@@ -25,6 +25,8 @@ En este artículo se indica cómo proteger los contenedores de AKS. Aprenderá a
 > * Desencadenar automáticamente y volver a implementar imágenes de contenedor cuando se actualiza una imagen base
 
 También puede leer los procedimientos recomendados para la [seguridad del clúster][best-practices-cluster-security] y la [seguridad de pod][best-practices-pod-security].
+
+También puede usar la [seguridad de contenedor de Security Center][security-center-containers] para facilitar el análisis de los contenedores en busca de vulnerabilidades.  También hay [integración de Azure Container Registry][security-center-acr] con Security Center para ayudar a proteger las imágenes y el Registro de vulnerabilidades.
 
 ## <a name="secure-the-images-and-run-time"></a>Proteger las imágenes y el tiempo de ejecución
 
@@ -61,3 +63,5 @@ En este artículo se indica cómo proteger los contenedores. Para implementar al
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md
+[security-center-containers]: /azure/security-center/container-security
+[security-center-acr]: /azure/security-center/azure-container-registry-integration

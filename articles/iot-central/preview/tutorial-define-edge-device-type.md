@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 00ab92effbc5167d8bca3242e55d566c71209ac4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e5aa41023e1d7f84e8de095d13835d5ebdf66f57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979094"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434872"
 ---
 # <a name="tutorial-define-a-new-azure-iot-edge-device-type-in-your-azure-iot-central-application-preview-features"></a>Tutorial: Definición de un nuevo tipo de dispositivo de Azure IoT Edge en la aplicación de Azure IoT Central (característica en versión preliminar)
 
@@ -57,7 +57,7 @@ En este tutorial, aprenderá a:
 > * Agregar relaciones a las plantillas de dispositivo de nivel inferior.
 > * Publicar la plantilla de dispositivo
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesitará [crear una aplicación de Azure IoT Central](quick-deploy-iot-central.md).
 
@@ -294,7 +294,7 @@ Una plantilla de dispositivo puede incluir propiedades de la nube. Las propiedad
     | Nombre para mostrar      | Tipo semántico | Schema |
     | ----------------- | ------------- | ------ |
     | Fecha de la última revisión | None          | Date   |
-    | Nombre del cliente     | None          | Cadena |
+    | Nombre del cliente     | None          | String |
 
 2. Seleccione **Guardar**.
 
@@ -387,7 +387,7 @@ Una vez publicada una plantilla de dispositivo, es visible en la página **Devic
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 * Crear un dispositivo perimetral como plantilla de dispositivo hoja.
 * Generar módulos a partir de un manifiesto de implementación cargado.
@@ -400,4 +400,4 @@ En este tutorial aprendió lo siguiente:
 Ahora que ha creado una plantilla de dispositivo en una aplicación de Azure IoT Central puede hacer esto a continuación:
 
 > [!div class="nextstepaction"]
-> [Conexión de dispositivos](./tutorial-connect-pnp-device.md)
+> [Conectar el dispositivo perimetral](./tutorial-add-edge-as-leaf-device.md).

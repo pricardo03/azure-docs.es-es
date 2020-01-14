@@ -1,5 +1,5 @@
 ---
-title: Uso de reservas de Azure para una suscripción individual con tarifas de pago por uso
+title: Uso de reservas de Azure para una suscripción individual
 description: Aprenda a interpretar los datos de uso para comprender como se aplican las tarifas de reserva de Azure a su suscripción individual de pago por uso.
 author: bandersmsft
 manager: yashr
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 0b578436a118539517d2d515717f2bdd97612d6e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 991afd5a91ef5f5586acd624c03babc38b5c1960
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225784"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449147"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Descripción del uso de reservas para su suscripción individual de pago por uso
 
@@ -30,7 +30,7 @@ En este artículo se da por hecho que la reserva se aplica a una única suscripc
 
 En las siguientes secciones se da por hecho que está ejecutando una máquina virtual Windows Standard_DS1_v2 en la región Este de EE. UU. y que la información de la instancia reservada de la máquina virtual tiene una apariencia similar a la de la siguiente tabla:
 
-| Campo | Valor |
+| Campo | Value |
 |---| :---: |
 |ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
 |Cantidad |1|
@@ -55,7 +55,7 @@ Filtre por **Información adicional** y escriba su **Identificador de reserva**.
 
 1. **ReservationId** en el campo **Información adicional** es la reserva que se aplicó a la máquina virtual.
 2. **ConsumptionMeter** es el identificador del medidor de la máquina virtual.
-3. En **Instancias reservadas de VM base**, la línea **Meter Subcategory** (Subcategoría de medidor) representa el costo de 0 $ en la sección de instrucciones. El costo de la ejecución de esta máquina virtual ya lo cubre la reserva.
+3. En **Instancias reservadas de VM base**, la línea **Meter Subcategory** (Subcategoría de medidor) representa el costo de 0 $ en la sección de instrucciones. El costo de la ejecución de esta máquina virtual ya lo cubre la reserva.
 4. **Id. de medidor** es el identificador del medidor de la reserva. El costo del medidor es de 0 $. Este identificador de medidor aparece para cualquier máquina virtual apta para el descuento de reserva.
 5. Standard_DS1_v2 es una máquina virtual de vCPU y se implementa sin la Ventaja híbrida de Azure. Por lo tanto, este medidor cubre el costo extra del software de Windows. Para buscar el medidor correspondiente a la máquina virtual de 1 núcleo de serie D, consulte [Costos del software de Windows de las instancias de máquina virtual de reserva de Azure](billing-reserved-instance-windows-software-costs.md). Si tiene la Ventaja híbrida de Azure, no se aplicará este cargo adicional.
 
@@ -65,7 +65,7 @@ En las siguientes secciones se usa Azure SQL Database como ejemplo para describi
 
 Imagine que ejecuta una instancia de SQL Database Gen 4 en la región Este de EE. UU. y que la información de la reserva tiene una apariencia similar a la de esta tabla:
 
-| Campo | Valor |
+| Campo | Value |
 |---| --- |
 |ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
 |Cantidad |2|

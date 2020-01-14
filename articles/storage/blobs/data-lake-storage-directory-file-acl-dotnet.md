@@ -1,5 +1,5 @@
 ---
-title: Uso de Azure .NET con archivos y listas de control de acceso (ACL) en Azure Data Lake Storage Gen2 (versión preliminar)
+title: SDK de .NET para Azure Data Lake Storage Gen2 para archivos y ACL (versión preliminar)
 description: Use la biblioteca cliente de Azure Storage con el fin de administrar directorios y listas de control de acceso (ACL) de archivos y directorios en cuentas de almacenamiento que tengan habilitado el espacio de nombres jerárquico (HNS).
 author: normesta
 ms.service: storage
@@ -8,14 +8,14 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: a756518688b5b1f8b854165de69d3444b772eabc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7921b42475d92070884a4298f66411813c995452
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931218"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443784"
 ---
-# <a name="use-net-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Uso de .NET con archivos y listas de control de acceso (ACL) en Azure Data Lake Storage Gen2 (versión preliminar)
+# <a name="use-net-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Uso de .NET para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2 (versión preliminar)
 
 En este artículo se muestra cómo usar .NET para crear y administrar directorios, archivos y permisos en cuentas de almacenamiento que tengan habilitado el espacio de nombres jerárquico (HNS). 
 
@@ -24,10 +24,10 @@ En este artículo se muestra cómo usar .NET para crear y administrar directorio
 
 [Paquete (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6) | [Ejemplos](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake) | [Referencia de API](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Storage.Files.DataLake/12.0.0-preview.6/api/index.html) | [Asignación de Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md) | [Envíenos sus comentarios](https://github.com/Azure/azure-sdk-for-net/issues)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 > [!div class="checklist"]
-> * Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+> * Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 > * Una cuenta de almacenamiento que tenga habilitado el espacio de nombres jerárquico (HNS). Siga [estas](data-lake-storage-quickstart-create-account.md) instrucciones para crear uno.
 
 ## <a name="set-up-your-project"></a>Configurar su proyecto
@@ -79,7 +79,7 @@ public async Task<DataLakeFileSystemClient> CreateFileSystem
 }
 ```
 
-## <a name="create-a-directory"></a>Creación de directorios
+## <a name="create-a-directory"></a>Creación de un directorio
 
 Cree una referencia de directorio llamando al método **FileSystemClient.CreateDirectoryAsync**.
 
@@ -145,7 +145,7 @@ public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient)
 }
 ```
 
-## <a name="manage-a-directory-acl"></a>Administración de una lista de control de acceso de un directorio
+## <a name="manage-a-directory-acl"></a>Administración de una lista de control de acceso de directorio
 
 Obtenga la lista de control de acceso (ACL) de un directorio llamando al método **directoryClient.GetAccessControlAsync** y establezca dicha lista con una llamada al método **DirectoryClient.SetAccessControl**.
 
@@ -194,7 +194,7 @@ public async Task UploadFile(DataLakeFileSystemClient fileSystemClient)
 }
 ```
 
-## <a name="manage-a-file-acl"></a>Administración de la lista de control de acceso de un archivo
+## <a name="manage-a-file-acl"></a>Administración de una lista de control de acceso de archivo
 
 Obtenga la lista de control de acceso (ACL) de un archivo llamando al método **DataLakeFileClient.GetAccessControlAsync** y establezca dicha lista con una llamada al método **FileClient.SetAccessControl**.
 
@@ -220,7 +220,7 @@ public async Task ManageFileACLs(DataLakeFileSystemClient fileSystemClient)
 
 ## <a name="download-from-a-directory"></a>Descarga de un directorio 
 
-En primer lugar, cree una instancia de **DataLakeFileClient** que represente al archivo que desea descargar. Use el método **FileClient.ReadAsync** y analice el valor devuelto para obtener un objeto [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream). Use cualquier archivo .NET que procese API para guardar bytes de la transmisión en un archivo. 
+En primer lugar, cree una instancia de **DataLakeFileClient** que represente al archivo que quiere descargar. Use el método **FileClient.ReadAsync** y analice el valor devuelto para obtener un objeto [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream). Use cualquier archivo .NET que procese API para guardar bytes de la transmisión en un archivo. 
 
 En este ejemplo se usa [BinaryReader](https://docs.microsoft.com/dotnet/api/system.io.binaryreader) y [FileStream](https://docs.microsoft.com/dotnet/api/system.io.filestream) para guardar bytes en un archivo. 
 

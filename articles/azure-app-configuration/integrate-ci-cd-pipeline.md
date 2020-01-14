@@ -1,5 +1,6 @@
 ---
-title: Tutorial para la integración con una canalización de integración y entrega continuas mediante Azure App Configuration | Microsoft Docs
+title: 'Tutorial: Integración con una canalización de integración y entrega continuas'
+titleSuffix: Azure App Configuration
 description: En este tutorial, aprenderá a generar un archivo de configuración mediante los datos de Azure App Configuration durante la integración y entrega continuas.
 services: azure-app-configuration
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: e9b81baed14b18c6db736bd94a2aba43a4e671ad
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f8adfee1e707181e78f4e845f61477b08af935e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185100"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433634"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integración con una canalización de CI/CD
 
@@ -37,7 +38,7 @@ En el ejemplo siguiente se muestra cómo incluir los datos de App Configuration 
 
 Para realizar los pasos de este tutorial, puede usar cualquier editor de código. [Visual Studio Code](https://code.visualstudio.com/) es una excelente opción disponible en las plataformas Windows, macOS y Linux.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 Si compila localmente, descargue e instale la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) si aún no lo ha hecho.
 

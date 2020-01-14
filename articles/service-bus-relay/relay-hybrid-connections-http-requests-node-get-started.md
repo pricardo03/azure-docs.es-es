@@ -1,5 +1,5 @@
 ---
-title: Introducción a las solicitudes HTTP de Conexiones híbridas de Azure Relay en Node | Microsoft Docs
+title: 'Conexiones híbridas de Azure Relay: solicitudes HTTP en Node'
 description: Escriba una aplicación de consola en Node.js para solicitudes HTTP de Conexiones híbridas de Azure Relay en Node.
 services: service-bus-relay
 documentationcenter: node
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: clemensv
-ms.openlocfilehash: e54a096bd27efddaa9eafb8619e787178550a6e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d71386b86bf7133bb73ddce2e65c3b88743009ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60553952"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462029"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Introducción a las solicitudes HTTP de Conexiones híbridas de Relay en Node
 
@@ -35,9 +35,9 @@ En esta guía de inicio rápido, realizará los siguientes pasos:
 4. Escritura de una aplicación de consola de cliente (remitente) para enviar mensajes.
 5. Ejecución de aplicaciones.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 - [Node.js](https://nodejs.org/en/).
-- Una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+- Suscripción a Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="create-a-namespace-using-the-azure-portal"></a>Creación de un espacio de nombres mediante Azure Portal
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]

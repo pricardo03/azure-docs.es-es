@@ -1,22 +1,22 @@
 ---
 title: 'Inicio rápido: Uso de Java para llamar a la API REST Text Analytics'
 titleSuffix: Azure Cognitive Services
-description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Text Analytics API en Azure Cognitive Services.
+description: En este inicio rápido se muestra cómo obtener información y ejemplos de código que le ayuden a empezar a usar rápidamente la API Text Analytics en Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: fe07290eaa68965e2ebe1f9220fc963c915f48f1
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: c111937dbbea5e588e82bc9753a71d1d597ca767
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284952"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378796"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de Node.js para llamar a Text Analytics de Cognitive Services  
 <a name="HOLTop"></a>
@@ -25,7 +25,7 @@ En este artículo se muestra cómo [detectar el idioma](#Detect), [analizar las 
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -35,27 +35,17 @@ En este artículo se muestra cómo [detectar el idioma](#Detect), [analizar las 
 
 Language Detection API detecta el idioma de un documento de texto con el [método Detectar idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-1. Cree las variables de entorno `TEXT_ANALYTICS_SUBSCRIPTION_KEY` y `TEXT_ANALYTICS_ENDPOINT` para la clave de suscripción y el punto de conexión de Azure del recurso. Si creó estas variables de entorno después de haber comenzado a editar la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que usa para acceder a ellas.
 1. Cree un proyecto de Node.js en su IDE favorito (o en una carpeta de su escritorio).
 1. Agregue el código que se proporciona a continuación a un nuevo archivo `.js`.
+1. Copie la clave y el punto de conexión en el código. 
 1. Ejecute el programa desde el IDE o la línea de comandos, por ejemplo `npm start` o `node detect.js`.
 
 ```javascript
 'use strict';
 
 let https = require ('https');
-
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/languages';
 
@@ -154,9 +144,9 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 Sentiment Analysis API detecta la opinión de un conjunto de registros de texto mediante el [método Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). El análisis de opinión se puede usar para averiguar qué piensan los clientes de su marca o de un tema concreto mediante el análisis de texto sin formato, con el fin de obtener pistas acerca de si sus opiniones son positivas o negativas. En el ejemplo siguiente se proporcionan las puntuaciones de dos documentos, uno en inglés y otro en español.
 
-1. Cree las variables de entorno `TEXT_ANALYTICS_SUBSCRIPTION_KEY` y `TEXT_ANALYTICS_ENDPOINT` para la clave de suscripción y el punto de conexión de Azure del recurso. Si creó estas variables de entorno después de haber comenzado a editar la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que usa para acceder a ellas.
 1. Cree un proyecto de Node.js en su IDE favorito (o en una carpeta de su escritorio).
 1. Agregue el código que se proporciona a continuación a un nuevo archivo `.js`.
+1. Copie la clave y el punto de conexión de Text Analytics en el código. 
 1. Ejecute el programa desde el IDE o la línea de comandos, por ejemplo `npm start` o `node sentiment.js`.
 
 ```javascript
@@ -164,17 +154,8 @@ Sentiment Analysis API detecta la opinión de un conjunto de registros de texto 
 
 let https = require ('https');
 
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/sentiment';
 
@@ -247,9 +228,9 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 Key Phrase Extraction API extrae frases clave de un documento de texto con el [método de frases clave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). La extracción de frases clave se usa para identificar rápidamente los puntos principales de un documento o texto. En el ejemplo siguiente se extraen frases clave de documentos tanto en inglés y como en español.
 
-1. Cree las variables de entorno `TEXT_ANALYTICS_SUBSCRIPTION_KEY` y `TEXT_ANALYTICS_ENDPOINT` para la clave de suscripción y el punto de conexión de Azure del recurso. Si creó estas variables de entorno después de haber comenzado a editar la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que usa para acceder a ellas.
 1. Cree un proyecto de Node.js en su IDE favorito (o en una carpeta de su escritorio).
 1. Agregue el código que se proporciona a continuación a un nuevo archivo `.js`.
+1. Copie la clave y el punto de conexión de Text Analytics en el código. 
 1. Ejecute el programa desde el IDE o la línea de comandos, por ejemplo `npm start` o `node key-phrases.js`.
 
 ```javascript
@@ -257,17 +238,8 @@ Key Phrase Extraction API extrae frases clave de un documento de texto con el [m
 
 let https = require ('https');
 
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/keyPhrases';
 
@@ -316,7 +288,7 @@ get_key_phrases(documents);
 
 **Respuesta de extracción de frases clave**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {
@@ -360,9 +332,9 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 
 Entities API identifica las entidades conocidas en un documento de texto mediante el [método Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). Las [entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraen palabras de texto, como "Estados Unidos" y, luego, le proporcionan el tipo o un vínculo a la Wikipedia en relación con estas palabras. El tipo de "Estados Unidos" es `location`, mientras que el vínculo a la Wikipedia es `https://en.wikipedia.org/wiki/United_States`.  En el ejemplo siguiente se identifican las entidades de documentos en inglés.
 
-1. Cree las variables de entorno `TEXT_ANALYTICS_SUBSCRIPTION_KEY` y `TEXT_ANALYTICS_ENDPOINT` para la clave de suscripción y el punto de conexión de Azure del recurso. Si creó estas variables de entorno después de haber comenzado a editar la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que usa para acceder a ellas.
 1. Cree un proyecto de Node.js en su IDE favorito (o en una carpeta de su escritorio).
 1. Agregue el código que se proporciona a continuación a un nuevo archivo `.js`.
+1. Copie la clave y el punto de conexión de Text Analytics en el código
 1. Ejecute el programa desde el IDE o la línea de comandos, por ejemplo `npm start` o `node entities.js`.
 
 ```javascript
@@ -370,17 +342,8 @@ Entities API identifica las entidades conocidas en un documento de texto mediant
 
 let https = require ('https');
 
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/entities';
 
@@ -481,7 +444,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 > [!div class="nextstepaction"]
 > [Text Analytics con Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Consulte también 
 
  [Información general de Text Analytics](../overview.md)  
  [Preguntas más frecuentes](../text-analytics-resource-faq.md)

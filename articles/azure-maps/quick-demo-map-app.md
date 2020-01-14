@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1b9d8c98391e7e2bac3492dcf696f098f5c6cf57
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 7553499dc9aba8d20bee126204b6d19f2386d295
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903176"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408411"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Inicio rápido: Creación de una búsqueda interactiva de mapas mediante Azure Maps
 
@@ -26,24 +26,38 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-## <a name="create-an-account-and-get-your-key"></a>Creación de una cuenta y obtención de la clave
+<a id="createaccount"></a>
 
-1. En la esquina superior izquierda de [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso**.
-2. En el campo **Buscar en Marketplace**, escriba **Maps**.
-3. En **Resultados**, seleccione **Maps**. Haga clic en el botón **Crear** que aparece debajo del mapa.
-4. En la página **Crear una cuenta de Azure Maps**, escriba los siguientes valores:
-   - El **nombre** de la nueva cuenta.
-   - La **suscripción** que quiere usar para esta cuenta.
-   - El **Grupo de recursos** para esta cuenta. Puede elegir **Crear nuevo** o **Usar existente** para el grupo de recursos.
-   - Seleccione el **plan de tarifa** que prefiera.
-   - Lea las secciones **Licencia** y **Declaración de privacidad**. Active la casilla para aceptar los términos.
-   - Finalmente, seleccione el botón **Crear**.
+## <a name="create-an-account-with-azure-maps"></a>Crear una cuenta con Azure Maps
 
-     ![Creación de una cuenta de Azure Maps en el portal](./media/quick-demo-map-app/create-account.png)
+Cree una nueva cuenta de Maps con los pasos siguientes:
 
-5. Una vez que la cuenta se ha creado correctamente, ábrala y busque la sección de configuración del menú de la cuenta. Seleccione **Autenticación** para ver las claves principal y secundaria de la cuenta de Azure Maps. Copie el valor de la **clave principal** en el Portapapeles local para usarlo en la sección siguiente.
+1. En la esquina superior izquierda de [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso**.
+2. En el campo *Buscar en el Marketplace*, escriba **Maps**.
+3. En *Resultados*, seleccione **Maps**. Haga clic en el botón **Crear** que aparece debajo del mapa.
+4. En la página **Create Maps Account** (Crear una cuenta de Azure Maps), escriba los siguientes valores:
+    * La *suscripción* que quiere usar para esta cuenta.
+    * El nombre del *grupo de recursos* para esta cuenta. Puede elegir *Crear nuevo* o *Usar existente* para el grupo de recursos.
+    * El *nombre* de la nueva cuenta.
+    * El *Plan de tarifa* de la cuenta.
+    * Lea la *licencia* y la *declaración de privacidad* y active la casilla para aceptar los términos.
+    * Haga clic en el botón **Crear**.
+
+![Creación de una cuenta de Maps en el portal](./media/quick-demo-map-app/create-account.png)
+
+<a id="getkey"></a>
+
+## <a name="get-the-primary-key-for-your-account"></a>Obtención de la clave principal de una cuenta
+
+Una vez que se haya creado correctamente la cuenta de Maps, recupere la clave que le permite consultar las API de Maps. Se recomienda el uso de la clave principal de la cuenta como clave de suscripción al llamar a los servicios Azure Maps.
+
+1. Abra su cuenta de Maps en el portal.
+2. En la sección de configuración, seleccione **Autenticación**.
+3. Copie la **clave principal** al Portapapeles. Guárdela localmente para usarla más adelante en este tutorial.
+
+![Obtención de la clave principal en el portal](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>Descarga de la aplicación
 

@@ -2,14 +2,14 @@
 title: 'Organización de los recursos con grupos de administración: Servicios de gobernanza de Azure'
 description: Más información sobre los grupos de administración, el funcionamiento de sus permisos y cómo utilizarlos.
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
-ms.date: 04/22/2019
+ms.date: 12/18/2019
 ms.topic: overview
-ms.openlocfilehash: 7e121ed256e04332ca7fd33c9fc48cd2bc7bae03
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 72e37c3ef96f8068d9d9958910a6d75bbebd37fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960196"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436477"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure
 
@@ -23,7 +23,7 @@ Puede compilar una estructura flexible de grupos de administración y suscripcio
 
 ![Ejemplo de árbol de jerarquía de un grupo de administración](./media/tree.png)
 
-Puede crear una jerarquía que aplique una directiva, por ejemplo, que limite las ubicaciones de las máquinas virtuales a la región Oeste de EE. UU. en el grupo denominado "Producción". Esta directiva se heredará en ambas suscripciones de EA en ese grupo de administración y se aplicará a todas las máquinas virtuales de esas suscripciones. El propietario de recursos o suscripciones no puede modificar esta directiva de seguridad, lo que permite una gobernanza mejorada.
+Puede crear una jerarquía que aplique una directiva, por ejemplo, que limite las ubicaciones de las máquinas virtuales a la región Oeste de EE. UU. en el grupo denominado "Producción". Esta directiva se heredará en todas las suscripciones de EA descendientes de ese grupo de administración y se aplicará a todas las máquinas virtuales de esas suscripciones. El propietario de recursos o suscripciones no puede modificar esta directiva de seguridad, lo que permite una gobernanza mejorada.
 
 Otro escenario en el que usaría grupos de administración es para proporcionar acceso de usuario a varias suscripciones. Al mover muchas suscripciones bajo ese grupo de administración, puede crear una asignación de [control de acceso basado en rol](../../role-based-access-control/overview.md) (RBAC) en el grupo de administración que heredará ese acceso en todas las suscripciones.
 Una asignación en el grupo de administración puede permitir a los usuarios acceder a todo lo que necesitan en lugar de realizar scripting para proporcionar control de acceso basado en rol sobre las distintas suscripciones.
@@ -45,7 +45,7 @@ Este grupo de administración raíz está integrado en la jerarquía de manera q
 ### <a name="important-facts-about-the-root-management-group"></a>Hechos importantes acerca de los grupos de administración raíz
 
 - De forma predeterminada, el nombre para mostrar del grupo de administración raíz es **Grupo raíz de inquilino**. El identificador es el de Azure Active Directory.
-- Para cambiar el nombre para mostrar, se debe asignar a su cuenta el rol de Propietario o Colaborador en el grupo de administración raíz. Para conocer los pasos para cambiar el nombre, consulte [Cambio del nombre de un grupo de administración](manage.md#change-the-name-of-a-management-group).
+- Para cambiar el nombre para mostrar, se debe asignar a su cuenta el rol de Propietario o Colaborador en el grupo de administración raíz. Para actualizar el nombre de un grupo de administración, consulte [Cambio del nombre de un grupo de administración](manage.md#change-the-name-of-a-management-group).
 - El grupo de administración raíz no se puede mover ni eliminar, a diferencia de los demás.  
 - Todas las suscripciones y los grupos de administración se incluyen en el grupo de administración raíz único del directorio.
   - Todos los recursos del directorio pertenecen al grupo de administración raíz para la administración global.
@@ -82,7 +82,7 @@ Si tiene preguntas acerca de este proceso de reposición, póngase en contacto c
 ## <a name="management-group-access"></a>Acceso al grupo de administración
 
 Los grupos de administración de Azure admiten el [control de acceso basado en rol (RBAC) de Azure](../../role-based-access-control/overview.md) para todos los accesos a recursos y las definiciones de roles.
-Estos permisos se heredan en los recursos secundarios que existen en la jerarquía. Cualquier rol de RBAC integrado puede asignarse a un grupo de administración que heredará la jerarquía para los recursos.
+Estos permisos se heredan en los recursos secundarios que existen en la jerarquía. Cualquier rol de RBAC puede asignarse a un grupo de administración que heredará la jerarquía para los recursos.
 Por ejemplo, el colaborador de máquina virtual del rol de RBAC puede asignarse a un grupo de administración. Este rol no tiene ninguna acción en el grupo de administración, pero se heredará en todas las máquinas virtuales de ese grupo de administración.
 
 El gráfico siguiente muestra la lista de roles y las acciones admitidas en los grupos de administración.
@@ -100,9 +100,86 @@ El gráfico siguiente muestra la lista de roles y las acciones admitidas en los 
 *: Colaborador MG y Lector MG solo permiten a los usuarios realizar esas acciones en el ámbito del grupo de administración.  
 **: Las asignaciones de roles en el grupo de administración raíz no son necesarias para mover una suscripción o grupo de administración a este grupo y desde este.  Consulte [Administración de los recursos con grupos de administración](manage.md) para más información acerca de cómo mover elementos dentro de la jerarquía.
 
-### <a name="custom-rbac-role-definition-and-assignment"></a>Asignación y definición de roles de RBAC personalizados
+## <a name="custom-rbac-role-definition-and-assignment"></a>Asignación y definición de roles de RBAC personalizados
 
-Los roles de RBAC personalizados no se admiten en los grupos de administración en este momento. Consulte el [foro de comentarios sobre los grupos de administración](https://aka.ms/mgfeedback) para ver el estado de este elemento.
+La compatibilidad de los roles de RBAC personalizados con grupos de administración se admite actualmente con algunas [limitaciones ](#limitations).  El ámbito de los grupos de administración se puede definir en el ámbito asignable de Definición de roles.  Dicho rol personalizado de RBAC estará disponible para su asignación no solo en ese grupo de administración, sino también en todos los grupos de administración, suscripciones, grupos de recursos o recursos que haya debajo de él. Este rol personalizado heredará la jerarquía, como cualquier rol integrado.    
+
+### <a name="example-definition"></a>Definición de ejemplo
+La [definición y creación de un rol personalizado](../../role-based-access-control/custom-roles.md) no cambia con la inclusión de grupos de administración. Use la ruta de acceso completa para definir el grupo de administración **/providers/Microsoft.Management/managementgroups/{groupId}** . 
+
+Use el identificador del grupo de administración, no su nombre para mostrar. Este error común se produce porque ambos son campos definidos personalizados al crear un grupo de administración. 
+
+```json
+...
+{
+  "Name": "MG Test Custom Role",
+  "Id": "id", 
+  "IsCustom": true,
+  "Description": "This role provides members understand custom roles.",
+  "Actions": [
+    "Microsoft.Management/managementgroups/delete",
+    "Microsoft.Management/managementgroups/read",
+    "Microsoft.Management/managementgroup/write",
+    "Microsoft.Management/managementgroup/subscriptions/delete",
+    "Microsoft.Management/managementgroup/subscriptions/write",
+    "Microsoft.resources/subscriptions/read",
+    "Microsoft.Authorization/policyAssignments/*",
+    "Microsoft.Authorization/policyDefinitions/*",
+    "Microsoft.Authorization/policySetDefinitions/*",
+    "Microsoft.PolicyInsights/*",
+    "Microsoft.Authorization/roleAssignments/*",
+    "Microsoft.Authorization/roledefinitions/*"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+        "/providers/microsoft.management/managementGroups/ContosoCorporate"
+  ]
+}
+...
+```
+
+### <a name="issues-with-breaking-the-role-definition-and-assignment-hierarchy-path"></a>Problemas al desasociar la definición del rol y la ruta de la jerarquía de asignación
+Las definiciones de roles son un ámbito asignable en cualquier parte de la jerarquía de grupos de administración. Se puede definir una definición de roles en un grupo de administración primario mientras la asignación de roles real exista en la suscripción secundaria. Al haber una relación entre ambos elementos, aparecerá un error al intentar separar la asignación de su definición. 
+
+Por ejemplo: Examinemos una pequeña sección de una jerarquía en un objeto visual. 
+
+![subárbol](./media/subtree.png)
+
+Supongamos que hay un rol personalizado definido en el grupo de administración Marketing. Dicho rol personalizado se asigna en las dos suscripciones de prueba gratuitas.  
+
+Si intentamos mover una de esas suscripciones para que sea un elemento secundario del grupo de administración Producción, se desasociaría la ruta de asignación de roles de la suscripción de la definición del rol del grupo de administración Marketing. En este escenario, recibirá un error que indica que no se permite el movimiento porque interrumpirá esta relación.  
+
+Para corregir este escenario hay varias opciones:
+- Quitar la asignación de roles de la suscripción antes de moverla a otro grupo de administración primario.
+- Agregar la suscripción al ámbito asignable de la definición de roles.
+- Cambiar el ámbito asignable en la definición de roles. En el ejemplo anterior, se pueden actualizar los ámbitos asignables de Marketing a Grupo de administración raíz para que las dos ramas de la jerarquía puedan acceder a la definición.   
+- Crear un rol personalizado adicional que se definirá en la otra rama.  Este nuevo rol requerirá que la asignación de roles se cambie también en la suscripción.  
+
+### <a name="limitations"></a>Limitaciones  
+Existen limitaciones al usar roles personalizados en grupos de administración. 
+
+ - En los ámbitos asignables de un nuevo rol no se puede definir más de un grupo de administración.  Esta limitación se ha establecido para reducir el número de situaciones en las que las definiciones de roles y las asignaciones de roles están desconectadas.  Esto sucede cuando una suscripción o un grupo de administración con una asignación de roles se mueven a un elemento primario que no tiene la definición de roles.   
+ - No se permite definir las acciones del plano de datos de RBAC en los roles personalizados del grupo de administración.  Esta restricción se ha establecido porque hay un problema de latencia cuando las acciones de RBAC actualizan los proveedores de recursos del plano de datos. Se está trabajando en dicho problema y estas acciones se deshabilitarán de la definición de roles para reducir los riesgos.
+ - Azure Resource Manager no valida la existencia del grupo de administración en el ámbito asignable de la definición de roles.  Aunque haya algún error de escritura o un identificador de grupo de administración incorrecto en la lista, se creará la definición de roles.   
+
+## <a name="moving-management-groups-and-subscriptions"></a>Movimiento de grupos de administración y suscripciones 
+
+Para que un grupo de administración o una suscripción sean un elemento secundario de otro grupo de administración, es preciso evaluar tres reglas como verdaderas.
+
+Si va a realizar la acción de movimiento, necesitará lo siguiente: 
+
+-  Permisos de escritura de grupos de administración y de escritura de la asignación de roles en la suscripción o en el grupo de administración secundarios.
+   - Ejemplo de rol integrado: **Propietario**
+- Acceso de escritura de grupos de administración en el grupo de administración primario de destino.
+   - Ejemplo de rol integrado: **Propietario**, **Colaborador**, **Colaborador de grupo de administración**
+- Acceso de escritura de grupos de administración en el grupo de administración primario existente.
+   - Ejemplo de rol integrado: **Propietario**, **Colaborador**, **Colaborador de grupo de administración**
+
+**Excepción**: Si el grupo de administración primario existente o de destino es el grupo de administración raíz, no se aplican los requisitos de permisos. Puesto que el grupo de administración raíz es la zona de aterrizaje predeterminada de todos los nuevos grupos de administración y suscripciones, no necesita permisos sobre él para mover un elemento.
+
+Si el rol de propietario de la suscripción se hereda del grupo de administración actual, los destinos de movimiento están limitados. Solo puede mover la suscripción a otro grupo de administración en el que tenga el rol de propietario. No puede moverla a un grupo de administración en el que sea colaborador porque perdería la propiedad de la suscripción. Si se le asigna directamente el rol de propietario de la suscripción (no se hereda del grupo de administración), puede moverlo a cualquier grupo de administración donde sea colaborador. 
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditoría de los grupos de administración mediante registros de actividad
 

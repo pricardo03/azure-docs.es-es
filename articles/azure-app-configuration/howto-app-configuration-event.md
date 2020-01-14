@@ -1,5 +1,6 @@
 ---
-title: Tutorial sobre la configuración de Azure App Configuration para enviar eventos a un punto de conexión web | Microsoft Docs
+title: 'Tutorial: Envío de eventos a un punto de conexión web con Azure App Configuration'
+titleSuffix: Azure App Configuration
 description: En este tutorial, aprenderá a configurar las suscripciones a eventos de Azure App Configuration para que envíen eventos de modificación de pares clave-valor a un punto de conexión web.
 services: azure-app-configuration
 documentationcenter: ''
@@ -13,18 +14,18 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 32a3131c8ff6a01a35fbe42750384dd303a23140
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 4943a64f72191981fc1b655c431cab00f180e503
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185175"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433685"
 ---
 # <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Inicio rápido: Enrutamiento de eventos de Azure App Configuration a un punto de conexión web con la CLI de Azure
 
 En este inicio rápido aprenderá a configurar las suscripciones a eventos de Azure App Configuration para que envíen eventos de modificación de pares clave-valor a un punto de conexión web. Los usuarios de Azure App Configuration pueden suscribirse a eventos que se emiten cada vez que se modifican los pares clave-valor. Estos eventos pueden desencadenar webhooks, instancias de Azure Functions, colas de Azure Storage o cualquier otro controlador de eventos que sea compatible con Azure Event Grid. Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. Sin embargo, para simplificar en este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/). También puede usar Azure Cloud Shell.
 
@@ -38,7 +39,7 @@ Si no usa Cloud Shell, primero debe iniciar sesión con `az login`.
 
 Los temas de Event Grid son recursos de Azure y se deben colocar en un grupo de recursos de Azure. El grupo de recursos de Azure es una colección lógica en la que se implementan y administran los recursos de Azure.
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group). 
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group). 
 
 En el ejemplo siguiente se crea un grupo de recursos llamado `<resource_group_name>` en la ubicación *eastus*.  Reemplace `<resource_group_name>` por un nombre único para grupo de recursos.
 

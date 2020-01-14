@@ -1,26 +1,16 @@
 ---
-title: Creación de una aplicación contenedor de Linux de Service Fabric en Azure | Microsoft Azure
+title: Creación de una aplicación contenedor de Linux de Service Fabric en Azure
 description: En este inicio rápido, compilará una imagen de Docker con la aplicación, insertará la imagen en un registro de contenedor y luego implementar el contenedor en un clúster de Service Fabric.
-services: service-fabric
-documentationcenter: linux
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: python
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0f6e24d2790f78ab0ec7292640fda3ab30e03a03
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: eb0a83d0110002cc32998af4083d06cf6e86e16a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599408"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372693"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Inicio rápido: Implementar contenedores Linux en Service Fabric
 
@@ -30,7 +20,7 @@ Este inicio rápido muestra cómo implementar contenedores Linux en un clúster 
 
 ![Página web de la aplicación de votación][quickstartpic]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar esta guía de inicio rápido:
 
@@ -90,7 +80,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location --
 > El servicio front-end web está configurado para escuchar en el puerto 80 el tráfico entrante. De forma predeterminada, el puerto 80 está abierto en las máquinas virtuales del el clúster y en el equilibrador de carga de Azure.
 >
 
-## <a name="configure-your-environment"></a>Configuración del entorno
+## <a name="configure-your-environment"></a>Configurar su entorno
 
 Service Fabric proporciona varias herramientas que puede usar para administrar un clúster y sus aplicaciones:
 

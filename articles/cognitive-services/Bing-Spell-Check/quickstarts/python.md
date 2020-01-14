@@ -1,27 +1,27 @@
 ---
 title: 'Inicio rápido: Revisión ortográfica con la API REST y Python: Bing Spell Check'
 titleSuffix: Azure Cognitive Services
-description: Introducción al uso de la API REST de Bing Spell Check para la revisión ortográfica y gramatical.
+description: Empiece a utilizar la API REST de Bing Spell Check para la revisión ortográfica y gramatical con este inicio rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 9a75148ab1ca1dae0acb5af8128fe1220fbbe8b3
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 6b0977628f7c3d971804d8597f42425608028081
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378812"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448468"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y Python.
 
 Use este inicio rápido para realizar la primera llamada a la API REST de Bing Spell Check. Esta sencilla aplicación de Python envía una solicitud a la API y devuelve una lista de correcciones sugeridas. Si bien esta aplicación está escrita en Python, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de esta aplicación está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Python [3.x](https://www.python.org)
 
@@ -36,7 +36,7 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
    import json
    ```
 
-2. Cree variables para el texto cuya ortografía quiere revisar, para la clave de suscripción y para el punto de conexión de Bing Spell Check.
+2. Cree variables para el texto cuya ortografía quiere revisar, para la clave de suscripción y para el punto de conexión de Bing Spell Check. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```python
     api_key = "<ENTER-KEY-HERE>"
@@ -84,6 +84,15 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
     json_response = response.json()
     print(json.dumps(json_response, indent=4))
     ```
+
+
+## <a name="run-the-application"></a>Ejecución de la aplicación
+
+Si usa la línea de comandos, utilice los siguientes comandos para ejecutar la aplicación.
+
+```bash
+python <FILE_NAME>.py
+```
 
 ## <a name="example-json-response"></a>Ejemplo de respuesta JSON
 

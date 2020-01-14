@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e17205af1ede845ea77b04f6f2b4c6babf3bc450
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 10b9dba2f54a2d20b0cb405285772f8c3d74b3a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482143"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450829"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión de sitio a sitio mediante Azure Virtual WAN
 
@@ -75,7 +75,7 @@ Un centro de conectividad es una red virtual que puede contener puertas de enlac
 
 ## <a name="site"></a>Creación de un sitio
 
-Ahora está listo para crear los sitios correspondientes a sus ubicaciones físicas. Cree tantos sitios como necesite que se correspondan con sus ubicaciones físicas. Por ejemplo, si tiene una sucursal en Nueva York, otra en Londres y otra en Los Ángeles, crearía tres sitios independientes. Estos sitios contienen los puntos de conexión de dispositivo VPN local. Puede crear hasta 1000 sitios por cada centro de conectividad virtual en una instancia de Virtual WAN. Si tiene varios centros de conectividad, puede crear 1000 sitios en cada uno de ellos. Si tiene un dispositivo CPE de asociado de Virtual WAN (link insert), consulte con su asociado para obtener información sobre su automatización de Azure. Normalmente, la automatización implica simplemente hacer clic para exportar información de una rama a gran escala en Azure y configurar la conectividad desde el CPE a la puerta de enlace de VPN de Azure Virtual WAN (Here is a link to automation guidance from Azure to CPE partners).
+Ahora está listo para crear los sitios correspondientes a sus ubicaciones físicas. Cree tantos sitios como necesite que se correspondan con sus ubicaciones físicas. Por ejemplo, si tiene una sucursal en Nueva York, otra en Londres y otra en Los Ángeles, crearía tres sitios independientes. Estos sitios contienen los puntos de conexión de dispositivo VPN local. Puede crear hasta 1000 sitios por cada centro de conectividad virtual en una instancia de Virtual WAN. Si tiene varios centros de conectividad, puede crear 1000 sitios en cada uno de ellos. Si tiene un dispositivo CPE de asociado de Virtual WAN (link insert), consulte con su asociado para obtener información sobre su automatización de Azure. Normalmente, la automatización implica simplemente hacer clic para exportar información de una rama a gran escala en Azure y configurar la conectividad desde el CPE a la puerta de enlace de VPN de Azure Virtual WAN. Para más información, consulte la [guía de automatización de Azure para asociados de CPE](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 

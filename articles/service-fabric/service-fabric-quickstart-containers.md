@@ -1,26 +1,16 @@
 ---
-title: Creación de una aplicación contenedor de Windows de Service Fabric en Azure | Microsoft Azure
+title: Creación de una aplicación contenedor de Windows de Service Fabric en Azure
 description: En esta guía de inicio rápido, creará su primera aplicación contenedora Windows en Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: jpconnock
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 096a398b8fc4f7f42dcc42feb7fe00b182d7649b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 477d47fabc59c5718c449418f225d6a38838b270
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599373"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466272"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Inicio rápido: Implementación de contenedores de Windows en Service Fabric
 
@@ -40,7 +30,7 @@ En esta guía de inicio rápido, aprenderá a hacer lo siguiente:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una suscripción de Azure (puede crear una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * Un equipo de desarrollo en el que se ejecute:
@@ -51,7 +41,7 @@ En esta guía de inicio rápido, aprenderá a hacer lo siguiente:
 
 Las herramientas y el SDK de Service Fabric proporcionan una plantilla de servicio que le ayuda a implementar un contenedor en un clúster de Service Fabric.
 
-Inicie Visual Studio como administrador.  Seleccione **Archivo** > **Nuevo** > **Proyecto**.
+Inicie Visual Studio como administrador.  Seleccione **File (Archivo)**  > **New (Nuevo)**  > **Project (Proyecto)** .
 
 Seleccione **Aplicación de Service Fabric**, asígnele el nombre "MyFirstContainer" y haga clic en **Crear**.
 
@@ -92,7 +82,7 @@ También en el archivo *ApplicationManifest.xml*, cambie **PasswordEncrypted** a
 <RepositoryCredentials AccountName="" Password="" PasswordEncrypted="false" />
 ```
 
-## <a name="create-a-cluster"></a>Creación de un clúster
+## <a name="create-a-cluster"></a>Crear un clúster
 
 En este script de ejemplo se crea un clúster de Service Fabric de cinco nodos protegido con un certificado X.509. El comando crea un certificado autofirmado y lo carga en un nuevo almacén de claves. El certificado también se copia en un directorio local. Puede aprender más sobre cómo crear un clúster mediante este script en [Creación de un clúster de Service Fabric](scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 

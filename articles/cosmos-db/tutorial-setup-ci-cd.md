@@ -1,5 +1,5 @@
 ---
-title: Configuración de una canalización de CI/CD con la tarea de compilación del emulador de Azure Cosmos DB
+title: Configuración de una canalización de CI/CD con la tarea de compilación del emulador de Azure Cosmos DB
 description: Tutorial acerca de cómo configurar el flujo de trabajo de compilación y publicación en Azure DevOps mediante la tarea de compilación del emulador de Cosmos DB
 author: deborahc
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 514c9655a1d303c444cc8c183ed6b73fd3422cf8
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: e3f7bcee8969939e3c3e9d9e10b43a3eb234fd50
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533201"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441048"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configuración de una canalización de CI/CD con la tarea de compilación del emulador de Azure Cosmos DB en Azure DevOps
 

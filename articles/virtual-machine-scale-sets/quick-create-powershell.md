@@ -1,6 +1,6 @@
 ---
-title: 'Guía de inicio rápido: Creación de un conjunto de escalado de máquinas virtuales con Azure PowerShell | Microsoft Docs'
-description: Aprenda a crear rápidamente un conjunto de escalado de máquinas virtuales con Azure PowerShell.
+title: 'Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales con Azure PowerShell'
+description: Para empezar a trabajar con las implementaciones, aprenda a crear rápidamente una escala de máquinas virtuales con Azure PowerShell.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 3f2fc70457a6d36bbbb7d8c37c87a8aa4167ab4a
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 52111559ac784e112c4cb3ddbf5ba9e6967385e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742606"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351118"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-azure-powershell"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales con Azure PowerShell
 

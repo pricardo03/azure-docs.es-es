@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/11/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: e51c1220e120d157ea4a413b95a7beb20c950518
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 036ea00362b604957a1887127fca0b8d775d4e7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378907"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382972"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y C#
 
 Use este inicio rápido para realizar la primera llamada a la API REST de Bing Spell Check. Esta sencilla aplicación de C# envía una solicitud a la API y devuelve una lista de correcciones sugeridas. Si bien esta aplicación está escrita en C#, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de esta aplicación está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Cualquier edición de [Visual Studio 2017 o posterior](https://www.visualstudio.com/downloads/).
+* Cualquier edición de [Visual Studio 2017 o versiones posteriores](https://www.visualstudio.com/downloads/).
 * Para instalar `Newtonsoft.Json` como un paquete NuGet en Visual Studio:
     1. En el **Explorador de soluciones**, haga clic con el botón derecho en el archivo Solution.
     1. Seleccione **Administrar paquetes NuGet para la solución**.
@@ -46,7 +46,7 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
     using Newtonsoft.Json;
     ```
 
-2. Cree variables para el punto de conexión de API, la clave de suscripción y el texto cuya ortografía se va a revisar.
+2. Cree variables para el punto de conexión de API, la clave de suscripción y el texto cuya ortografía se va a revisar. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```csharp
     namespace SpellCheckSample
@@ -62,7 +62,7 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
     }
     ```
 
-3. Cree una variable para los parámetros de búsqueda. Anexe el código de mercado después de `mkt=`. El código de mercado es el país desde el que se realiza la solicitud. Anexe también el modo de revisión ortográfica después de `&mode=`. El modo es `proof` (detecta la mayoría de los errores de ortografía y de gramática) o `spell` (detecta la mayoría de los errores de ortografía, pero no tanto los de gramática).
+3. Cree una variable para los parámetros de búsqueda. Anexe el código de mercado después de `mkt=`. El código de mercado es el país desde el que se realiza la solicitud. Anexe también el modo de revisión ortográfica después de `&mode=`. El modo es `proof` (detecta la mayoría de los errores ortográficos y gramaticales) o `spell` (detecta la mayoría de los errores ortográficos, pero no todos los gramaticales).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -136,6 +136,10 @@ static void Main(string[] args)
     Console.ReadLine();
 }
 ```
+
+## <a name="run-the-application"></a>Ejecución de la aplicación
+
+Compile y ejecute el proyecto. Si usa Visual Studio, pulse **F5** para depurar el archivo.
 
 ## <a name="example-json-response"></a>Ejemplo de respuesta JSON
 

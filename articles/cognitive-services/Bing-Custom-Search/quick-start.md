@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Creación de la primera instancia de Bing Custom Search | Microsoft Docs'
+title: 'Inicio rápido: Creación de una primera instancia de Bing Custom Search'
 titleSuffix: Azure Cognitive Services
-description: Use este artículo para crear una instancia personalizada de Bing que pueda buscar en los dominios y las páginas web que defina.
+description: Use este inicio rápido para crear una instancia personalizada de Bing que pueda buscar en los dominios y las páginas web que defina.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 2c98395e2671c245d9349a72ed6a964b2ebd28ca
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 45478c8e4f5003ff41eb8b486d67caa452739cd4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978550"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384753"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Inicio rápido: Creación de la primera instancia de Bing Custom Search
 
@@ -25,7 +25,7 @@ Para crear la instancia, utilice el [portal de Bing Custom Search](https://custo
 
 ![Imagen del portal de Bing Custom Search](media/blockedCustomSrch.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 

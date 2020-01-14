@@ -1,18 +1,18 @@
 ---
 title: CEILING en el lenguaje de consulta de Azure Cosmos DB
-description: Obtenga información sobre cómo la función del sistema SQL CEILING en Azure Cosmos DB devuelve el valor principal del arco tangente de y/x, expresado en radianes.
+description: Obtenga información sobre cómo la función del sistema SQL CEILING en Azure Cosmos DB devuelve el mínimo valor entero mayor o igual que la expresión numérica especificada.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 18462b152b698e7c6bc4c6c1e59511b4bacaa611
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 2da7820a6c9f1f90585b4deb605bb99c7580b0e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873444"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444803"
 ---
 # <a name="ceiling-azure-cosmos-db"></a>CEILING (Azure Cosmos DB)
  Devuelve el valor entero más pequeño mayor o igual que la expresión numérica especificada.  
@@ -28,7 +28,7 @@ CEILING (<numeric_expr>)
 *numeric_expr*  
    Es una expresión numérica.  
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión numérica.  
   

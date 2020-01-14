@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Uso de temas y suscripciones de Azure Service Bus con Node.js'
+title: Uso de temas y suscripciones de Azure Service Bus con Node.js
 description: 'Inicio rápido: Aprenda a usar los temas y las suscripciones de Service Bus en Azure desde una aplicación Node.js.'
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: fa6f40eba02ffe171dc521f952e0d00fc35fc7e6
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 160f9831a23ed16fc33ddbbb9b4e07a5627a3f9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721667"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462130"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Inicio rápido: Uso de los temas y las suscripciones de Service Bus con Node.js y el paquete azure/services-bus.
 > [!div class="op_multi_selector" title1="Lenguaje de programación" title2="Paquete Node.js"]
@@ -28,8 +28,8 @@ ms.locfileid: "73721667"
 
 En este tutorial, obtendrá información sobre cómo crear un programa de Node.js para enviar mensajes a un tema de Service Bus y recibir mensajes de una suscripción de Service Bus con el paquete [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) nuevo. En este paquete se usa el [protocolo AMQP 1.0](service-bus-amqp-overview.md) (más rápido), mientras que en el paquete [azure-sb](https://www.npmjs.com/package/azure-sb) anterior se utilizaban las [API de tiempo de ejecución REST de Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Los ejemplos están escritos en JavaScript.
 
-## <a name="prerequisites"></a>Requisitos previos
-- Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Prerequisites
+- Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Si no tiene un tema ni una suscripción con los cuales trabajar, siga los pasos que aparecen en el artículo [Use Azure Portal para crear un tema de Service Bus y suscripciones a dicho tema](service-bus-quickstart-topics-subscriptions-portal.md) para crearlos. Anote la cadena de conexión de la instancia de Service Bus y el nombre del tema y de la suscripción que creó. Utilizaremos estos valores en los ejemplos.
 
 > [!NOTE]
@@ -91,7 +91,7 @@ Felicidades. Acaba de enviar mensajes a una cola de Service Bus.
 
 Los mensajes tienen algunas propiedades estándar, como `label` y `messageId`, que se pueden establecer cuando se envían. Si desea establecer alguna propiedad personalizada, utilice `userProperties`, que es un objeto JSON que puede contener pares de clave y valor de los datos personalizados.
 
-El tamaño máximo de mensaje que admiten los temas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). No hay límite para el número de mensajes que puede contener un tema, pero sí lo hay para el tamaño total de los mensajes de un tema. El tamaño de los temas se define en el momento de la creación (el límite máximo es de 5 GB). Para obtener más información sobre las cuotas, vea [Cuotas de Service Bus](service-bus-quotas.md).
+El tamaño máximo de mensaje que admiten los temas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). No hay límite para el número de mensajes que puede contener un tema, pero sí lo hay para el tamaño total de los mensajes de un tema. El tamaño de los temas se define en el momento de la creación (el límite máximo es de 5 GB). Para obtener más información sobre las cuotas, consulte [Cuotas de Service Bus](service-bus-quotas.md).
 
 ## <a name="receive-messages-from-a-subscription"></a>Recepción de mensajes de una suscripción
 La interactuación con una suscripción de Service Bus empieza por la creación de una instancia de la clase [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) y su uso para crear una instancia de la clase [SubscriptionClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient). Una vez que tenga el cliente de suscripción, puede crear un receptor y usar los métodos [receiveMessages](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#receivemessages-number--undefined---number-) o [registerMessageHandler](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) en él para recibir mensajes.

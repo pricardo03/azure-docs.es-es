@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Biblioteca cliente de Personalizer para .NET | Microsoft Docs'
+title: 'Inicio rápido: Biblioteca cliente de Personalizer para .NET'
 titleSuffix: Azure Cognitive Services
-description: Introducción a la biblioteca de cliente de Personalizer para .NET con un bucle de aprendizaje.
+description: En este inicio rápido se muestra cómo empezar a trabajar con la biblioteca cliente de Personalizer para .NET con un bucle de aprendizaje.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: 411bd82ade2ca7b904b36a3a4408c1a00852fc2c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c17bf54d89e3a98ca667eeba40f2d2b166550833
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927836"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446392"
 ---
 # <a name="quickstart-personalizer-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de Personalizer para .NET
 
@@ -28,7 +28,7 @@ Introducción a la biblioteca de cliente de Personalizer para .NET. Siga estos p
 
 [Documentación de referencia](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-personalizer-samples)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * La versión actual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -174,7 +174,7 @@ Agregue los métodos siguientes, que [obtienen las opciones de contenido](#get-f
 
 Para completar la solicitud de clasificación, el programa solicita las preferencias del usuario para crear un elemento `currentContent`de las opciones de contenido. El proceso puede crear contenido para excluir de la clasificación, que se muestra como `excludeActions`. La solicitud de clasificación necesita las acciones, currentContext, excludeActions y un identificador de evento de clasificación único (como un GUID), para recibir la respuesta clasificada. 
 
-Este inicio rápido tiene características de contexto simples de hora del día y preferencias alimentarias del usuario. En los sistemas de producción, la determinación y [evaluación](concept-feature-evaluation.md) de [acciones y características](concepts-features.md) puede ser una cuestión menos trivial.  
+Este inicio rápido tiene características de contexto simples de hora del día y preferencias alimentarias del usuario. En los sistemas de producción, la determinación y [evaluación](concept-feature-evaluation.md) de [acciones y características](concepts-features.md) no es una cuestión trivial.  
 
 [!code-csharp[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=rank)]
 
@@ -213,4 +213,3 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 * [¿Qué es Personalizer?](what-is-personalizer.md)
 * [¿Dónde se puede utilizar Personalizer?](where-can-you-use-personalizer.md)
 * [Solución de problemas](troubleshooting.md)
-

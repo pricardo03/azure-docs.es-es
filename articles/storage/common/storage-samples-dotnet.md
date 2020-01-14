@@ -7,16 +7,19 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 9d6e441adeb7025e09b8d73764d2defab439dd90
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 043a21aec5753dd16f558ad29d2300ada7a35d72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350906"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431777"
 ---
 # <a name="azure-storage-samples-using-net"></a>Ejemplos de Azure Storage con .NET
 
 En la tabla siguiente se proporciona información general sobre el repositorio de ejemplos y los escenarios que abarca cada ejemplo. Haga clic en los vínculos para ver el código de ejemplo correspondiente en GitHub.
+
+> [!NOTE]
+> En estos ejemplos se usa la biblioteca .NET v11 de Azure Storage. Para ver el código de v12, consulte [samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples) en el repositorio de GitHub.
 
 ## <a name="blob-samples"></a>Ejemplos de blob
 
@@ -72,7 +75,7 @@ En la tabla siguiente se proporciona información general sobre el repositorio d
 |--------------|-----------------|
 | Crear tabla | [Administración de simultaneidad con Almacenamiento de Azure: aplicación de ejemplo](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262) |
 | Eliminar entidad/tabla | [Introducción a Azure Table Storage mediante .NET](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs) |
-| Insertar/combinar/reemplazar entidad | [Administración de simultaneidad con Azure Storage: aplicación de ejemplo](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262) |
+| Insertar/combinar/reemplazar entidad | [Administración de simultaneidad con Almacenamiento de Azure: aplicación de ejemplo](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262) |
 | Query Entities | [Introducción a Azure Table Storage mediante .NET](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs) |
 | Consultar tablas | [Introducción a Azure Table Storage mediante .NET](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs) |
 | ACL/propiedades de tabla | [Introducción a Azure Table Storage mediante .NET](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/AdvancedSamples.cs) |

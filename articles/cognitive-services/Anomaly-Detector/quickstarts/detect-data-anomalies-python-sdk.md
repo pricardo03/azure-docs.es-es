@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Detección de anomalías en los datos mediante la biblioteca cliente de Anomaly Detector para Python'
 titleSuffix: Azure Cognitive Services
-description: Use la API Anomaly Detector para detectar anomalías en la serie de datos como un lote o en la transmisión de datos.
+description: En este inicio rápido se indica cómo usar la API Anomaly Detector para detectar anomalías en la serie de datos como un lote o en la transmisión de datos.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: f58f4f9c89e2c0bfb7d9eca6d39dab3f25b21990
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 0493f9e4b45d8d4804d1933bb923d3483b87005e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483352"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448989"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de Anomaly Detector para Python
 
@@ -28,7 +28,7 @@ Use la biblioteca cliente de Anomaly Detector para Python para las siguientes ac
 
 [Documentación de referencia de la biblioteca](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Paquete (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [Buscar el ejemplo de código en GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/python-sdk-sample.py)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * Una clave y un punto de conexión de Anomaly Detector
@@ -105,7 +105,7 @@ Llame a la API para detectar anomalías en el conjunto de datos de serie tempora
 
 [!code-python[Batch anomaly detection sample](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=detectAnomaliesBatch)]
 
-## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detectar el estado de anomalía del punto de datos más reciente
+## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detección del estado de anomalía del punto de datos más reciente
 
 Llame a Anomaly Detector API para determinar si el punto de datos más reciente es una anomalía mediante el método [last_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-) del cliente y almacene el objeto [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) devuelto. El valor `is_anomaly` de la respuesta es un valor booleano que especifica el estado de anomalía de ese punto.  
 

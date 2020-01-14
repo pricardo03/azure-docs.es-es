@@ -2,31 +2,31 @@
 title: Spark Structured Streaming en Azure HDInsight
 description: Uso de aplicaciones de Spark Structured Streaming en los clústeres de HDInsight Spark.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.author: hrasheed
-ms.openlocfilehash: 0aaca127fec82d35da0ba943e97221834c2e42ed
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.custom: hdinsightactive
+ms.date: 12/24/2019
+ms.openlocfilehash: 19cfd5d8ed4100048c270fb41e5e54a920c61516
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441909"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548843"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Información general acerca de Apache Spark Structured Streaming
 
 [Apache Spark](https://spark.apache.org/) Structured Streaming permite implementar aplicaciones escalables, de alto rendimiento y tolerantes a errores para el procesamiento de flujos de datos. Structured Streaming se basa en el motor de Spark SQL y mejora las construcciones de las tramas de datos y los conjuntos de datos de Spark SQL, lo que permite escribir consultas de streaming de la misma manera que se escribirían las consultas por lotes.  
 
-Las aplicaciones de Structured Streaming se ejecutan en clústeres de HDInsight Spark y se conectan a los datos de streaming de [Apache Kafka](https://kafka.apache.org/), un socket de TCP (para la depuración), Azure Storage o Azure Data Lake Storage. Las dos últimas opciones, que usan servicios de almacenamiento externo, permiten inspeccionar los nuevos archivos agregados al almacenamiento y procesar su contenido como si se transmitieran en secuencias. 
+Las aplicaciones de Structured Streaming se ejecutan en clústeres de HDInsight Spark y se conectan a los datos de streaming de [Apache Kafka](https://kafka.apache.org/), un socket de TCP (para la depuración), Azure Storage o Azure Data Lake Storage. Las dos últimas opciones, que usan servicios de almacenamiento externo, permiten inspeccionar los nuevos archivos agregados al almacenamiento y procesar su contenido como si se transmitieran en secuencias.
 
-Structured Streaming crea una consulta de ejecución prolongada durante la que se aplican operaciones a los datos de entrada, como la selección, proyección, agregación, división en ventanas y la combinación de la trama de datos de streaming con las tramas de datos de referencia. A continuación, se generan los resultados en el almacenamiento de archivos (Azure Storage Blob o Data Lake Storage) o en cualquier almacén de datos mediante el uso de código personalizado (como SQL Database o Power BI). Structured Streaming también proporciona salida a la consola para su depuración local y a una tabla en memoria para que se puedan ver los datos generados para la depuración en HDInsight. 
+Structured Streaming crea una consulta de ejecución prolongada durante la que se aplican operaciones a los datos de entrada, como la selección, proyección, agregación, división en ventanas y la combinación de la trama de datos de streaming con las tramas de datos de referencia. A continuación, se generan los resultados en el almacenamiento de archivos (Azure Storage Blob o Data Lake Storage) o en cualquier almacén de datos mediante el uso de código personalizado (como SQL Database o Power BI). Structured Streaming también proporciona salida a la consola para su depuración local y a una tabla en memoria para que se puedan ver los datos generados para la depuración en HDInsight.
 
 ![Procesamiento de secuencias con HDInsight y Spark Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
 > [!NOTE]  
-> Spark Structured Streaming reemplaza a Spark Streaming (DStreams). En el futuro, Structured Streaming recibirá mejoras y el mantenimiento, mientras que DStreams estará solo en modo de mantenimiento. En la actualidad, Structured Streaming no tiene tantas características como DStreams para los orígenes y receptores que admite de forma estándar, así que es aconsejable evaluar los requisitos para elegir la opción de procesamiento de secuencias de Spark adecuada. 
+> Spark Structured Streaming reemplaza a Spark Streaming (DStreams). En el futuro, Structured Streaming recibirá mejoras y el mantenimiento, mientras que DStreams estará solo en modo de mantenimiento. En la actualidad, Structured Streaming no tiene tantas características como DStreams para los orígenes y receptores que admite de forma estándar, así que es aconsejable evaluar los requisitos para elegir la opción de procesamiento de secuencias de Spark adecuada.
 
 ## <a name="streams-as-tables"></a>Secuencias como tablas
 
@@ -34,13 +34,13 @@ Spark Structured Streaming representa una secuencia de datos como una tabla cuya
 
 ![Concepto de Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-concept.png)
 
-En Structured Streaming, los datos llegan al sistema, se ingieran de inmediato y se colocan en una tabla de entrada. Se escriben consultas (mediante las API de DataFrame y Dataset) que realizan operaciones en esta tabla de entrada. La salida de la consulta genera otra tabla, la *tabla de resultados*. La tabla de resultados contiene los resultados de la consulta, a partir de la cual se extraen datos para un almacén de datos externo, como una base de datos relacional. El *intervalo del desencadenador* controla el momento en el que se procesan los datos desde la tabla de entrada. De manera predeterminada, el valor del intervalo del desencadenador es cero, por lo que Structured Streaming intenta procesar los datos en cuanto llegan. En la práctica, esto significa que en cuanto Structured Streaming finaliza el procesamiento de la ejecución de la consulta anterior, inicia otro procesamiento en el que se ejecutan los datos recién recibidos. Puede configurar el desencadenador para que se ejecute en un intervalo, con el fin de que los datos de streaming se procesen en lotes temporales. 
+En Structured Streaming, los datos llegan al sistema, se ingieran de inmediato y se colocan en una tabla de entrada. Se escriben consultas (mediante las API de DataFrame y Dataset) que realizan operaciones en esta tabla de entrada. La salida de la consulta genera otra tabla, la *tabla de resultados*. La tabla de resultados contiene los resultados de la consulta, a partir de la cual se extraen datos para un almacén de datos externo, como una base de datos relacional. El *intervalo del desencadenador* controla el momento en el que se procesan los datos desde la tabla de entrada. De manera predeterminada, el valor del intervalo del desencadenador es cero, por lo que Structured Streaming intenta procesar los datos en cuanto llegan. En la práctica, esto significa que en cuanto Structured Streaming finaliza el procesamiento de la ejecución de la consulta anterior, inicia otro procesamiento en el que se ejecutan los datos recién recibidos. Puede configurar el desencadenador para que se ejecute en un intervalo, con el fin de que los datos de streaming se procesen en lotes temporales.
 
-Los datos de la tabla de resultados pueden contener solo los datos nuevos, con respecto a la última vez que se procesó la consulta (*modo de anexión*), o bien se puede actualizar totalmente la tabla cada vez que haya nuevos datos, con el fin de que incluya todos los datos de salida desde el inicio de la consulta de streaming (*modo completo*).
+Los datos de la tabla de resultados pueden contener solo los datos nuevos, con respecto a la última vez que se procesó la consulta (*modo de anexión*), o bien se puede actualizar la tabla cada vez que haya nuevos datos, con el fin de que incluya todos los datos de salida desde el inicio de la consulta de streaming (*modo completo*).
 
 ### <a name="append-mode"></a>Modo de anexión
 
-En este modo, las filas que se han agregado a la tabla de resultados desde la última vez que se ejecutó la consulta son las únicas que aparecen en la tabla de resultados y que se escriben en un almacenamiento externo. Por ejemplo, la consulta más sencilla sólo copia todos los datos de la tabla de entrada en la tabla de resultados sin modificaciones. Cada vez que transcurre un intervalo del desencadenador, se procesan los datos nuevos y las filas que representa dichos datos aparecen en la tabla de resultados. 
+En este modo, las filas que se han agregado a la tabla de resultados desde la última vez que se ejecutó la consulta son las únicas que aparecen en la tabla de resultados y que se escriben en un almacenamiento externo. Por ejemplo, la consulta más sencilla sólo copia todos los datos de la tabla de entrada en la tabla de resultados sin modificaciones. Cada vez que transcurre un intervalo del desencadenador, se procesan los datos nuevos y las filas que representa dichos datos aparecen en la tabla de resultados.
 
 Considere un escenario en el que procesa la telemetría de los sensores de temperatura, como un termostato. Suponga que el primer desencadenador procesó un evento a la hora 00:01 para el dispositivo 1 con una lectura de temperatura de 95 grados. En el primer desencadenador de la consulta, la fila con la hora 00:01 es la única que aparece en la tabla de resultados. En la hora 00:02, cuando se recibe otro evento, la fila nueva es la fila con la hora 00:02 y, por tanto, la tabla de resultados contendrá solo esa fila.
 
@@ -50,13 +50,13 @@ Si se usa el modo de anexión, la consulta aplicará proyecciones (se selecciona
 
 ### <a name="complete-mode"></a>Modo completo
 
-Piense en el mismo escenario, pero esta vez se utiliza el modo completo. En el modo completo, toda la tabla de resultados completo se actualiza en cada desencadenador para que la tabla no incluya solo los datos de la última vez que se ejecutó el desencadenador, sino de todas las ejecuciones. El modo completo se puede usar para copiar los datos sin modificaciones de la tabla de entrada a la tabla de resultados. En cada ejecución desencadenada, las nuevas filas de resultados aparecen junto con todas las anteriores. La tabla de resultados de salida acabará almacenando todos los datos recopilados desde que comenzó la consulta y, finalmente, se quedaría sin memoria. El modo completo está pensado para usarlo con consultas agregadas que resumen los datos de entrada de alguna manera y en cada desencadenador la tabla de resultados se actualiza con un resumen nuevo. 
+Piense en el mismo escenario, pero esta vez se utiliza el modo completo. En el modo completo, toda la tabla de resultados completo se actualiza en cada desencadenador para que la tabla no incluya solo los datos de la última vez que se ejecutó el desencadenador, sino de todas las ejecuciones. El modo completo se puede usar para copiar los datos sin modificaciones de la tabla de entrada a la tabla de resultados. En cada ejecución desencadenada, las nuevas filas de resultados aparecen junto con todas las anteriores. La tabla de resultados de salida acabará almacenando todos los datos recopilados desde que comenzó la consulta y, finalmente, se quedaría sin memoria. El modo completo está pensado para usarlo con consultas agregadas que resumen los datos de entrada de alguna manera, por lo que en cada desencadenador la tabla de resultados se actualiza con un resumen nuevo.
 
-Suponga que hasta ahora hay datos procesados correspondientes a cinco segundos y es el momento de procesar los datos del sexto segundo. La tabla de entrada tiene eventos de la hora 00:01 y la hora 00:03. El objetivo de esta consulta de ejemplo es dar la temperatura media del dispositivo cada cinco segundos. La implementación de esta consulta aplica una agregado que toma todos los valores que se encuentren en cada periodo de 5 segundos, calcula el promedio de la temperatura y genera una fila para la temperatura media en ese intervalo. Al final del primera periodo de 5 segundos, hay dos tuplas: (00:01, 1, 95) y (00:03, 1, 98). Por tanto en el periodo 00:00-00:05 la agregación genera una tupla con la temperatura media de 96,5 grados. En el siguiente periodo de 5 segundos, hay solo un punto de datos en la hora 00:06, por lo que la temperatura media resultante es 98 grados. En la hora 00:10, utilizando el modo completo, la tabla de resultados tiene las filas de ambos periodos 00:00-00:05 y 05:00-00:10, porque la consulta devuelve todas las filas agregadas, no solo las nuevas. Por consiguiente, la tabla de resultados sigue creciendo a medida que se agregan nuevas periodos.    
+Suponga que hasta ahora hay datos procesados correspondientes a cinco segundos y es el momento de procesar los datos del sexto segundo. La tabla de entrada tiene eventos de la hora 00:01 y la hora 00:03. El objetivo de esta consulta de ejemplo es dar la temperatura media del dispositivo cada cinco segundos. La implementación de esta consulta aplica una agregado que toma todos los valores que se encuentren en cada periodo de 5 segundos, calcula el promedio de la temperatura y genera una fila para la temperatura media en ese intervalo. Al final del primera periodo de 5 segundos, hay dos tuplas: (00:01, 1, 95) y (00:03, 1, 98). Por tanto en el periodo 00:00-00:05 la agregación genera una tupla con la temperatura media de 96,5 grados. En el siguiente periodo de 5 segundos, hay solo un punto de datos en la hora 00:06, por lo que la temperatura media resultante es 98 grados. En la hora 00:10, utilizando el modo completo, la tabla de resultados tiene las filas de ambos periodos 00:00-00:05 y 05:00-00:10, porque la consulta devuelve todas las filas agregadas, no solo las nuevas. Por consiguiente, la tabla de resultados sigue creciendo a medida que se agregan nuevas periodos.
 
 ![Modo completo de Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-complete-mode.png)
 
-No todas las consultas que utilicen el modo completo harán que la tabla crezca sin límites.  Suponga que, en el ejemplo anterior, en lugar de calcular el promedio de la temperatura por período de tiempo, lo hace por identificador de dispositivo. La tabla de resultados contiene un número fijo de filas (una por dispositivo) con la temperatura promedio del dispositivo en todos los puntos de datos procedentes del mismo. Cuando se reciben nuevas temperaturas, se actualiza la tabla de resultados para que sus medias estén siempre actualizadas. 
+No todas las consultas que utilicen el modo completo harán que la tabla crezca sin límites.  Suponga que, en el ejemplo anterior, en lugar de calcular el promedio de la temperatura por período de tiempo, lo hace por identificador de dispositivo. La tabla de resultados contiene un número fijo de filas (una por dispositivo) con la temperatura promedio del dispositivo en todos los puntos de datos procedentes del mismo. Cuando se reciben nuevas temperaturas, se actualiza la tabla de resultados para que sus medias estén siempre actualizadas.
 
 ## <a name="components-of-a-spark-structured-streaming-application"></a>Componentes de una aplicación de Spark Structured Streaming
 
@@ -68,7 +68,7 @@ Una consulta de ejemplo simple puede resumir las lecturas de temperatura por per
     {"time":1469501219,"temp":"95"}
     {"time":1469501225,"temp":"95"}
 
-Estos archivos JSON se almacenan en la subcarpeta `temps` debajo del contenedor del clúster de HDInsight. 
+Estos archivos JSON se almacenan en la subcarpeta `temps` debajo del contenedor del clúster de HDInsight.
 
 ### <a name="define-the-input-source"></a>Definición del origen de entrada
 
@@ -100,18 +100,17 @@ A continuación, defina el destino de las filas que se agregan a la tabla de res
 
 ### <a name="start-the-query"></a>Inicio de la consulta
 
-Inicie la consulta de streaming y ejecútela hasta que reciba una señal de finalización. 
+Inicie la consulta de streaming y ejecútela hasta que reciba una señal de finalización.
 
     val query = streamingOutDF.start()  
 
 ### <a name="view-the-results"></a>View the results
 
-Mientras se ejecuta la consulta, en la misma sesión de Spark, puede ejecutar una consulta de SparkSQL en el `temps`tabla en que se almacenan los resultados de la consulta. 
+Mientras se ejecuta la consulta, en la misma sesión de Spark, puede ejecutar una consulta de SparkSQL en el `temps`tabla en que se almacenan los resultados de la consulta.
 
     select * from temps
 
 Esta consulta devuelve resultados similares a los siguientes:
-
 
 | periodo |  mín. (temp.) | media (temp.) | máx. (temp.) |
 | --- | --- | --- | --- |

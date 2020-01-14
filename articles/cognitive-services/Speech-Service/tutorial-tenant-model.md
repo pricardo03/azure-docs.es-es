@@ -1,7 +1,7 @@
 ---
 title: 'Creación de un modelo de inquilino (versión preliminar): servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: Genere automáticamente un modelo de inquilino (Custom Speech con datos de Office 365) que aproveche los datos de Office 365 para ofrecer un reconocimiento de voz óptimo para términos específicos de una organización y que sea seguro y compatible.
+description: Genere automáticamente un modelo de inquilino compatible y seguro (Custom Speech con datos de Office 365) que use los datos de Office 365 para ofrecer un reconocimiento de voz óptimo para términos específicos de una organización.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,95 +10,101 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: 8ca31dcadebf2dc47d5a4b4db715f26fb38e204e
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 4fec6b93ad206ae3052df5f7763f3c146b7aa680
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816383"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446799"
 ---
-# <a name="create-a-tenant-model-preview"></a>Creación de un modelo de inquilino (versión preliminar)
+# <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Creación de un modelo de inquilino (versión preliminar)
 
-El modelo de inquilino (Custom Speech con datos de Office 365) es un servicio de participación para clientes de Office 365 Enterprise que genera automáticamente un modelo de reconocimiento de voz personalizado a partir de los datos de Office 365 de su organización. El modelo creado está optimizado para términos técnicos, jerga y nombres de personas, todo de un modo seguro y compatible.
+Tenant Model (Custom Speech con datos de Office 365) es un servicio de participación para clientes empresariales de Office 365 que genera automáticamente un modelo de reconocimiento de voz personalizado a partir de los datos de Office 365 de su organización. El modelo está optimizado para términos técnicos, jerga y nombres de personas, y todo ello de forma segura y compatible.
 
 > [!IMPORTANT]
-> Si su organización se inscribe con el modelo de inquilino, el servicio Voz podrá acceder al modelo de lenguaje de su organización, que se genera a partir de los correos electrónicos y los documentos de grupo públicos de Office 365 que pueden ver todos los miembros de la organización. El administrador de Office 365 de la organización puede activar o desactivar el uso del modelo de lenguaje de toda la organización mediante el portal de administración de Office 365.
+> Si su organización se inscribe mediante el servicio Tenant Model, el servicio de voz puede acceder al modelo de lenguaje de su organización. El modelo se genera a partir de documentos y correos electrónicos de grupos públicos de Office 365, que puede ver cualquier usuario de la organización. El administrador de Office 365 de la organización puede activar o desactivar el uso del modelo de lenguaje en toda la organización desde el portal de administración de Office 365.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Inscribirse para usar un modelo de inquilino en el centro de administración de Microsoft 365
+> * Inscribirse en Tenant Model desde el Centro de administración de Microsoft 365
 > * Obtener una clave de suscripción del servicio Voz
 > * Crear un modelo de inquilino
 > * Implementar un modelo de inquilino
 > * Usar un modelo de inquilino con el SDK de Voz
 
-## <a name="enroll-using-the-microsoft-365-admin-center"></a>Inscripción mediante el centro de administración de Microsoft 365
+## <a name="enroll-in-the-tenant-model-service"></a>Inscripción en el servicio Tenant Model
 
-Antes de implementar el modelo de inquilino, primero debe inscribirse mediante el centro de administración de Microsoft 365. Esta tarea solo la puede realizar el administrador de Microsoft 365.
+Para poder implementar un modelo de inquilino, es preciso estar inscrito en el servicio Tenant Model. La inscripción se completa en el Centro de administración de Microsoft 365 y solo puede realizarla un administrador de Microsoft 365.
 
-1. Inicie sesión en el [centro de administración de Microsoft 365](https://admin.microsoft.com ).
-2. En el panel izquierdo, seleccione **Configuración** y, a continuación, **Aplicaciones**.
+1. Inicie sesión en el [Centro de administración de Microsoft 365](https://admin.microsoft.com).
 
-   ![Inscripción en el modelo de inquilino](media/tenant-language-model/tenant-language-model-enrollment.png)
+1. En el panel izquierdo, seleccione **Configuración**, **Aplicaciones** y **Servicios de voz de Azure**.
 
-3. Busque y seleccione **Servicios de Voz de Azure**.
+   ![El panel "Servicios y complementos"](media/tenant-language-model/tenant-language-model-enrollment.png)
 
-   ![Inscripción en el modelo de inquilino 2](media/tenant-language-model/tenant-language-model-enrollment-2.png)
+1. Seleccione la casilla **Permitir el modelo de idioma de toda la organización** y, después, **Guardar cambios**. 
 
-4. Haga clic en la casilla y guarde.
+   ![El panel Servicios de voz de Azure](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
-Si tiene que desactivar el modelo de inquilino, vuelva a esta pantalla, anule la selección de la casilla y vuelva a guardar.
+Para desactivar la instancia del modelo de inquilino:
+1. Repita los pasos 1 y 2 anteriores.
+1. Desactive la casilla **Permitir el modelo de idioma de toda la organización** y seleccione **Guardar cambios**.
 
 ## <a name="get-a-speech-subscription-key"></a>Obtener una clave de suscripción del servicio Voz
 
-Para usar un modelo de inquilino con el SDK de Voz, necesitará un recurso de Voz y su clave de suscripción asociada.
+Para usar un modelo de inquilino con el SDK de Voz, necesita un recurso de Voz y su clave de suscripción asociada.
 
-1. Inicie sesión en el [Portal de Azure](https://aka.ms/azureportal).
-2. Seleccione **Crear un recurso**.
-3. En la barra de búsqueda, escriba: **Voz**.
-4. Seleccione **Voz** y, a continuación, haga clic en **Crear**.
-5. Siga las instrucciones en pantalla para crear el recurso. Asegúrese de que:
+1. Inicie sesión en [Azure Portal](https://aka.ms/azureportal).
+1. Seleccione **Crear un recurso**.
+1. En el cuadro **Buscar en Marketplace**, escriba **Speech**.
+1. En la lista de resultados, seleccione **Speech** y, después, **Crear**.
+1. Siga las instrucciones en pantalla para crear el recurso. Asegúrese de lo siguiente:
    * La **ubicación** se ha establecido en **eastus** o **westus**.
    * El **plan de tarifa** está establecido en **S0**.
-6. Haga clic en **Crear**.
-7. Después de unos minutos, se crea el recurso. La clave de suscripción está disponible en la sección **Información general** del recurso.
+1. Seleccione **Crear**.
 
-## <a name="create-a-model"></a>Crear un modelo
+   Después de unos minutos, se crea el recurso. La clave de suscripción está disponible en la sección **Información general** del recurso.
 
-Una vez que el administrador haya habilitado el modelo de inquilino para su organización, puede crear un modelo de lenguaje basado en los datos de Office 365.
+## <a name="create-a-language-model"></a>Creación de un modelo de lenguaje
+
+Una vez que el administrador haya habilitado Tenant Model para su organización, puede crear un modelo de lenguaje basado en los datos de Office 365.
 
 1. Inicie sesión en [Speech Studio](https://speech.microsoft.com/).
-2. En la esquina superior derecha, busque y haga clic en el icono de engranaje (configuración) y, a continuación, seleccione **Tenant Model settings** (Configuración del modelo de inquilino).
+1. En la parte superior derecha, seleccione **Settings** (Configuración) (icono del engranaje) y, después, **Tenant Model settings** (Configuración de Tenant Model).
 
-   ![Menú Configuración](media/tenant-language-model/tenant-language-settings.png)
+   ![El vínculo "Tenant Model settings" (Configuración de Tenant Model)](media/tenant-language-model/tenant-language-settings.png)
 
-3. En este momento, verá un mensaje que le informa si está cualificado para crear un modelo de inquilino.
+   Speech Studio muestra un mensaje que le indica que si es apto para crear un modelo de inquilino.
+
    > [!NOTE]
-   > Los clientes empresariales de Office 365 en Norteamérica son aptos para crear un modelo de inquilino (inglés). Si es un cliente de Caja de seguridad del cliente (CLB), Clave de cliente (CK) u Office 365 Administración Pública, esta característica no está disponible. Para averiguarlo, siga estas instrucciones:
+   > Los clientes empresariales de Office 365 en Norteamérica son aptos para crear un modelo de inquilino (inglés). Para los clientes de Caja de seguridad del cliente, Clave de cliente u Office 365 Administración Pública característica no está disponible. Para determinar si es un cliente de Caja de seguridad del cliente o de Clave de cliente, consulte:
    > * [Caja de seguridad del cliente](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
    > * [Clave de cliente](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
    > * [Office 365 Administración Pública](https://www.microsoft.com/microsoft-365/government)
 
-4. A continuación, seleccione **Participar**. Recibirá un correo electrónico con instrucciones cuando el modelo de inquilino esté listo.
+1. Seleccione **Habilitar envío**. 
 
-## <a name="deploy-your-model"></a>Implementación del modelo
+   Cuando el modelo de inquilino esté listo, recibirá un mensaje de correo electrónico de confirmación con más instrucciones.
 
-Cuando el modelo de inquilino esté listo, siga estos pasos para implementarlo:
+## <a name="deploy-your-tenant-model"></a>Implementación de un modelo de inquilino
 
-1. Haga clic en el botón **View model** (Ver modelo) del correo electrónico de confirmación que ha recibido o inicie sesión en [Speech Studio](https://speech.microsoft.com/).
-2. En la esquina superior derecha, busque y haga clic en el icono de engranaje (configuración) y, a continuación, seleccione **Tenant Model settings** (Configuración del modelo de inquilino).
+Cuando la instancia del modelo de inquilino esté lista, siga estos pasos para implementarla:
 
-   ![Menú Configuración](media/tenant-language-model/tenant-language-settings.png)
+1. En el mensaje de correo electrónico de confirmación, seleccione el botón **View model** (Ver modelo). O bien, inicie sesión en [Speech Studio](https://speech.microsoft.com/).
+1. En la parte superior derecha, seleccione **Settings** (Configuración) (icono del engranaje) y, después, **Tenant Model settings** (Configuración de Tenant Model).
 
-3. Haga clic en **Implementar**.
-4. Cuando se implementa el modelo, el estado cambia a **Implementado**.
+   ![El vínculo "Tenant Model settings" (Configuración de Tenant Model)](media/tenant-language-model/tenant-language-settings.png)
 
-## <a name="use-your-model-with-the-speech-sdk"></a>Uso del modelo con el SDK de Voz
+1. Seleccione **Implementar**.
 
-Ahora que ha implementado el modelo, puede usarlo con el SDK de Voz. En esta sección, usará el código de ejemplo proporcionado para llamar al servicio de voz mediante la autenticación de Azure AD.
+   Cuando el modelo se haya implementado, el estado cambiará a *Implementado*.
 
-Echemos un vistazo al código que usará para llamar al SDK de Voz en C#. En este ejemplo, realizará el reconocimiento de voz mediante un modelo de inquilino. En esta guía se da por supuesto que la plataforma ya está configurada. Si necesita ayuda con la configuración, consulte [Inicio rápido: Reconocimiento de voz, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
+## <a name="use-your-tenant-model-with-the-speech-sdk"></a>Usar un modelo de inquilino con el SDK de Voz
+
+Ahora que ha implementado el modelo, puede usarlo con el SDK de Voz. En esta sección, se usa un código de ejemplo para llamar al servicio de voz mediante la autenticación de Azure Active Directory (Azure AD).
+
+Echemos un vistazo al código que usará para llamar al SDK de Voz en C#. En este ejemplo, el reconocimiento de voz se realiza mediante un modelo de inquilino. En esta guía se da por supuesto que la plataforma ya está configurada. Si necesita ayuda para el programa de configuración, consulte [Inicio rápido: Reconocimiento de voz, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
 
 Copie este código en el proyecto:
 
@@ -117,7 +123,7 @@ namespace PrincetonSROnly.FrontEnd.Samples
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Newtonsoft.Json.Linq;
 
-    // Note: ServiceApplicationId is a fixed value.  No need to change.
+    // ServiceApplicationId is a fixed value. No need to change it.
 
     public class TenantLMSample
     {
@@ -281,18 +287,21 @@ namespace PrincetonSROnly.FrontEnd.Samples
 }
 ```
 
-A continuación, necesitará volver a compilar y ejecutar el proyecto desde la línea de comandos. Hay algunos parámetros que deberá actualizar antes de ejecutar el comando.
+Después tendrá que volver a compilar y ejecutar el proyecto desde la línea de comandos. Antes de ejecutar el comando, actualice algunos parámetros, para lo que debe seguir estos pasos:
 
 1. Reemplace `<Username>` y `<Password>` por los valores de un usuario de inquilino válido.
-2. Reemplace `<Subscription-Key>` por la clave de suscripción del recurso de Voz. Este valor está disponible en la hoja de **información general** del recurso de Voz de [Azure Portal](https://aka.ms/azureportal).
-3. Reemplace `<Endpoint-Uri>` por el punto de conexión siguiente. Asegúrese de que reemplaza `{your-region}` por la región donde se creó el recurso de Voz. Se admiten estas regiones: `westus`, `westus2`y `eastus`. La información de la región está disponible en la sección de **información general** del recurso de Voz de [Azure Portal](https://aka.ms/azureportal).
+1. Reemplace `<Subscription-Key>` por la clave de suscripción del recurso de Voz. Este valor está disponible en la hoja de **información general** del recurso de Voz de [Azure Portal](https://aka.ms/azureportal).
+1. Reemplace `<Endpoint-Uri>` por el siguiente punto de conexión. Asegúrese de que reemplaza `{your region}` por la región donde se creó el recurso de Voz. Se admiten estas regiones: `westus`, `westus2`y `eastus`. La información de la región está disponible en la sección de **información general** del recurso de Voz de [Azure Portal](https://aka.ms/azureportal).
    ```
    "wss://{your region}.online.princeton.customspeech.ai/msgraphcustomspeech/conversation/v1".
    ```
-4. Ejecute el comando:
+1. Ejecute el siguiente comando:
+
    ```bash
    dotnet TenantLMSample.dll --Username=<Username> --Password=<Password> --SubscriptionKey=<Subscription-Key> --EndpointUri=<Endpoint-Uri>
    ```
+
+En este tutorial, ha aprendido a usar los datos de Office 365 para crear un modelo de reconocimiento de voz personalizado, a implementarlo y a usarlo con el SDK de Voz.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,21 +1,21 @@
 ---
-title: Visualización de anomalías con detección por lotes y Power BI
+title: 'Tutorial: Visualización de anomalías con detección por lotes y Power BI'
 titleSuffix: Azure Cognitive Services
-description: Use Anomaly Detector API y Power BI para visualizar anomalías en los datos de series temporales.
+description: Aprenda a usar Anomaly Detector API y Power BI para visualizar anomalías en los datos de series temporales.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: fa78e737cd863d19e294c5001dfd27b07760521f
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 1d1f71ed56138f2c799c7410508c0bc4899e7887
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840862"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448851"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualización de anomalías con detección por lotes y Power BI
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 > * Integrar Power BI Desktop con Anomaly Detector API para la detección de anomalías por lotes
 > * Visualizar las anomalías que se encuentran en los datos, incluidos los valores esperados y vistos, y los límites de la detección de anomalías.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), disponible de forma gratuita.
 * Un archivo de Excel (.xlsx) que contenga los puntos de datos de la serie temporal. Los datos de ejemplo de este inicio rápido están disponibles en [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962).
@@ -143,7 +143,7 @@ En la pantalla principal de Power BI, empiece a usar las consultas que creó an
 
 Agregue los siguientes campos desde **Función invocada** al campo **Valores** del gráfico. Use la siguiente captura de pantalla para ayudar a crear el gráfico.
 
-    * Valor
+    * Value
     * UpperMargins
     * LowerMargins
     * ExpectedValues

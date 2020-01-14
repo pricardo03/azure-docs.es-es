@@ -1,5 +1,5 @@
 - name: Información general
-  href: redhat-overview.md
+  href: overview.md
 - name: Imágenes de Red Hat Enterprise Linux
   items:
     - name: Introducción a las imágenes de Red Hat Enterprise Linux
@@ -9,4 +9,4 @@
 - name: Infraestructura de actualización de Red Hat en Azure
   href: redhat-rhui.md
 - name: Oferta de imágenes de BYOS de Red Hat Enterprise Linux
-  href: redhat-byos.md
+  href: byos.md

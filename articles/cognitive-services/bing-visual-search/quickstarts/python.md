@@ -8,35 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 4/02/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6fafc35d9d74927789fee3f3fea3014ff3be5717
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b56f6743b642904349797ac5b6167194f7916b45
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383173"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446587"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-python"></a>Inicio rápido: Obtención de conclusiones de imágenes mediante la API REST Bing Visual Search y Python
 
 Use este inicio rápido para realizar la primera llamada a Bing Visual Search API y ver los resultados. Esta aplicación de Python carga una imagen en la API y muestra la información que se devuelve. Si bien esta aplicación está escrita en Python, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
-Al cargar una imagen local, los datos del formulario deben incluir el encabezado `Content-Disposition`. Debe establecer su parámetro `name` en "image", y puede establecer el parámetro `filename` en cualquier cadena. El contenido del formulario incluye los datos binarios de la imagen. El tamaño de imagen máximo que puede cargar es de 1 MB.
-
-```
---boundary_1234-abcd
-Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
-
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
-
---boundary_1234-abcd--
-```
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python 3.x](https://www.python.org/)
 
-[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="initialize-the-application"></a>Inicialización de la aplicación
 
@@ -46,13 +35,24 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     import requests, json
     ```
 
-2. Cree variables para la clave de suscripción, el punto de conexión y la ruta de acceso a la imagen que está cargando:
+2. Cree variables para la clave de suscripción, el punto de conexión y la ruta de acceso a la imagen que está cargando. `BASE_URI` puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso:
 
     ```python
 
     BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
     SUBSCRIPTION_KEY = 'your-subscription-key'
     imagePath = 'your-image-path'
+    ```
+    
+    Al cargar una imagen local, los datos del formulario deben incluir el encabezado `Content-Disposition`. Debe establecer su parámetro `name` en "image", y puede establecer el parámetro `filename` en cualquier cadena. El contenido del formulario incluye los datos binarios de la imagen. El tamaño de imagen máximo que puede cargar es de 1 MB.
+    
+    ```
+    --boundary_1234-abcd
+    Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
+    
+    ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+    
+    --boundary_1234-abcd--
     ```
 
 3. Cree un objeto de diccionario para almacenar la información de encabezado de la solicitud. Enlace la clave de suscripción a la cadena `Ocp-Apim-Subscription-Key`, como se muestra a continuación:

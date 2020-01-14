@@ -4,21 +4,21 @@ description: Introducción a los discos administrados de Azure, que controlan la
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: overview
-ms.date: 11/06/2019
+ms.date: 12/02/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7e9a5e1b1e1b0c879a1264573e7073e70a1e95fc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 2b25da174399b092fe821a46b235d7a2bd14572b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035862"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355915"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introducción a los discos administrados de Azure
 
-Un disco administrado de Azure es un disco duro virtual (VHD). Se puede considerar como un disco físico en un servidor en el entorno local, pero virtualizado. Los discos administrados de Azure se almacenan como blobs en páginas, que son un objeto de almacenamiento de E/S aleatorio en Azure. Llamamos a administrados a estos discos porque es una abstracción sobre los blobs en páginas, los contenedores de blobs y las cuentas de almacenamiento de Azure. Con los discos administrados, lo único que debe hacer es aprovisionar el disco y Azure se encarga del resto.
+Los discos administrados de Azure son volúmenes de almacenamiento de nivel de bloque que administra Azure y que se usan con Azure Virtual Machines. Los discos administrados se pueden considerar como un disco físico en un servidor local, pero virtualizado. Con los discos administrados, lo único que tiene que hacer es especificar el tamaño y el tipo del disco y aprovisionarlo. Cuando aprovisione el disco, Azure controla el resto.
 
-Cuando se selecciona usar discos administrados de Azure con las cargas de trabajo, Azure crea y administra el disco automáticamente. Los tipos de discos disponibles son discos ultra, unidades de estado sólido (SSD) premium, SSD estándar y unidades de disco duro estándar (HDD). Para más información acerca de cada tipo de disco individual, consulte [Selección de un tipo de disco para máquinas virtuales IaaS](disks-types.md).
+Los tipos de discos disponibles son discos ultra, unidades de estado sólido (SSD) prémium, unidades SSD estándar y unidades de disco duro estándar (HDD). Para más información acerca de cada tipo de disco individual, consulte [Selección de un tipo de disco para máquinas virtuales IaaS](disks-types.md).
 
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
 

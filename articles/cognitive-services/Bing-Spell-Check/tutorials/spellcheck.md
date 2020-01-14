@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Obtención de resultados de revisión ortográfica mediante Bing Spell Check API'
 titleSuffix: Azure Cognitive Services
-description: En este tutorial, vamos a compilar una página web que permita a los usuarios consultar Bing Spell Check API y muestre los resultados.
+description: Utilice este tutorial para compilar una página web que envíe consultas a la API Bing Spell Check y muestre los resultados.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 12/20/2019
 ms.author: aahi
-ms.openlocfilehash: 4ef45d0d67d44ee1bcf0f06f41425ca5366ce46d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 038716f43c18432b1b8e7c86c3ffbcab46f1db8f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111455"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382803"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Compilación de un cliente de revisión ortográfica de página web
 
@@ -27,9 +27,9 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 > - Consulta simple a Bing Spell Check API
 > - Visualización de resultados de la consulta
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Para seguir con el tutorial, necesita una clave de suscripción para Bing Spell Check API. Si no tiene una, [suscríbase para una prueba gratuita](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
+Para seguir con el tutorial, necesita una clave de suscripción para Bing Spell Check API. Si no tiene ninguna, [suscríbase para obtener una evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 
 ## <a name="create-a-new-web-page"></a>Creación de una página web
 

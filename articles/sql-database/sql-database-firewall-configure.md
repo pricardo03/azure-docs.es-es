@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 5c1a146a12fd8881982826e0a87868a6eaf05cb1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9db6b5ff517a1b0d67e59591ee634dfad685527b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851843"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461472"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Reglas de firewall de IP para Azure SQL Database y Azure SQL Data Warehouse
 
@@ -101,7 +101,7 @@ Cuando un equipo intenta conectarse al servidor de bases de datos desde Internet
 
 ### <a name="connections-from-inside-azure"></a>Conexiones desde dentro de Azure
 
-Para permitir que las aplicaciones hospedadas en Azure se conecten al servidor SQL, deben habilitarse las conexiones de Azure. Cuando una aplicación intenta conectarse desde Azure al servidor de bases de datos, el firewall comprueba que se permiten las conexiones de Azure. Una configuración de firewall con las direcciones IP inicial y final iguales a *0.0.0.0* indica que se permiten las conexiones de Azure. Si no se permite la conexión, la solicitud no alcanza al servidor de SQL Database.
+Para permitir que las aplicaciones hospedadas en Azure se conecten al servidor SQL, deben habilitarse las conexiones de Azure. Cuando una aplicación intenta conectarse desde Azure al servidor de bases de datos, el firewall comprueba que se permiten las conexiones de Azure. Una configuración de firewall con las direcciones IP inicial y final iguales a *0.0.0.0* indica que se permiten las conexiones de Azure. Puede activarse directamente desde la hoja de Azure Portal mediante el establecimiento de reglas de firewall, así como si se cambia la opción **Permitir que los servicios y recursos de Azure accedan a este servidor** a **Activada** en la configuración **Firewalls y redes virtuales**. Si no se permite la conexión, la solicitud no alcanza al servidor de SQL Database.
 
 > [!IMPORTANT]
 > Esta opción configura el firewall para permitir todas las conexiones desde Azure, incluidas las procedentes de las suscripciones de otros clientes. Si selecciona esta opción, asegúrese de que los permisos de usuario y el inicio de sesión solo dejan acceder a los usuarios autorizados.
@@ -147,7 +147,7 @@ Se abre la página de información general del servidor. Muestra el nombre compl
 
 ### <a name="use-transact-sql-to-manage-ip-firewall-rules"></a>Uso de Transact-SQL para administrar reglas de firewall de IP
 
-| Vista de catálogo o procedimiento almacenado | Nivel | DESCRIPCIÓN |
+| Vista de catálogo o procedimiento almacenado | Nivel | Descripción |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Server |Muestra las reglas de firewall de IP de nivel de servidor actuales |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Server |Crea o actualiza las reglas de firewall de IP de nivel de servidor |
@@ -181,7 +181,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 > [!IMPORTANT]
 > El módulo Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo se realiza ahora para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos de los módulos Az y AzureRm son esencialmente idénticos.
 
-| Cmdlet | Nivel | DESCRIPCIÓN |
+| Cmdlet | Nivel | Descripción |
 | --- | --- | --- |
 | [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Server |Devuelve las reglas de firewall de nivel de servidor actuales |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Server |Crear una regla de firewall de nivel de servidor |
@@ -203,7 +203,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ### <a name="use-cli-to-manage-server-level-ip-firewall-rules"></a>Uso de la CLI para administrar reglas de firewall de IP de nivel de servidor
 
-| Cmdlet | Nivel | DESCRIPCIÓN |
+| Cmdlet | Nivel | Descripción |
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Server|Crea una regla de firewall de IP del servidor|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Server|Enumera las reglas de firewall de IP en un servidor|
@@ -225,7 +225,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ### <a name="use-a-rest-api-to-manage-server-level-ip-firewall-rules"></a>Uso de API REST para administrar reglas de firewall de IP de nivel de servidor
 
-| API | Nivel | DESCRIPCIÓN |
+| API | Nivel | Descripción |
 | --- | --- | --- |
 | [Enumerar reglas de firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Server |Muestra las reglas de firewall de IP de nivel de servidor actuales |
 | [Crear o actualizar regla de firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Crea o actualiza las reglas de firewall de IP de nivel de servidor |

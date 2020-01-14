@@ -1,35 +1,38 @@
 ---
-title: Requerir transferencia segura en Azure Storage | Microsoft Docs
-description: Obtenga información acerca de la característica "Se requiere transferencia segura" de Azure Storage y cómo habilitarla.
+title: Requisito de transferencia segura para garantizar conexiones seguras
+titleSuffix: Azure Storage
+description: Obtenga información sobre cómo requerir una transferencia segura para las solicitudes a Azure Storage. Cuando se requiere una transferencia segura para una cuenta de almacenamiento, se rechazan todas las solicitudes que se originan en una conexión no segura.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 06/20/2017
+ms.topic: how-to
+ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 7239e7fbe1221acc3c302260045d6fc510db2cbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b2d78bd929e23d49a57f337022f6678114bb5fe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148571"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457447"
 ---
-# <a name="require-secure-transfer-in-azure-storage"></a>Requerir transferencia segura en Azure Storage
+# <a name="require-secure-transfer-to-ensure-secure-connections"></a>Requisito de transferencia segura para garantizar conexiones seguras
 
-La opción "Se requiere transferencia segura" mejora la seguridad de su cuenta de almacenamiento, ya que solo permite enviar solicitudes a la cuenta desde conexiones seguras. Por ejemplo, al llamar a las API de REST para acceder a una cuenta de almacenamiento, es preciso conectarse mediante HTTPS. "Se requiere transferencia segura" rechaza las solicitudes que utilizan HTTP.
+Puede configurar la cuenta de almacenamiento para que acepte solicitudes de conexiones seguras solo si establece la propiedad **Se requiere transferencia segura** para la cuenta de almacenamiento. Cuando se requiere una transferencia segura, se rechazan todas las solicitudes que se originan en una conexión no segura. Microsoft recomienda que siempre se requiera una transferencia segura para todas las cuentas de almacenamiento.
 
-Si se usa el servicio Azure Files, se produce un error en todas las conexiones sin cifrado cuando la opción "Se requiere transferencia segura" está habilitada. Aquí se incluyen los escenarios que usan SMB 2.1 y SMB 3.0 sin cifrado, y algunas versiones del cliente SMB de Linux. 
+Cuando se requiere una transferencia segura, se debe realizar una llamada a una operación de API REST de Azure Storage a través de HTTPS. Se rechaza cualquier solicitud realizada a través de HTTP.
 
-De forma predeterminada, la opción "Se requiere transferencia segura" está deshabilitada cuando se crea una cuenta de almacenamiento con el SDK. Y está habilitada de forma predeterminada al crear una cuenta de almacenamiento en Azure Portal.
+Se produce un error al establecer conexión con un recurso compartido de archivos de Azure a través de SMB sin cifrado cuando se requiere la transferencia segura para la cuenta de almacenamiento. Entre los ejemplos de conexiones no seguras se incluyen las realizadas a través de SMB 2.1, SMB 3.0 sin cifrado o algunas versiones del cliente SMB de Linux.
+
+De forma predeterminada, la opción **Se requiere transferencia segura** está deshabilitada cuando se crea una cuenta de almacenamiento en Azure Portal. Sin embargo, se deshabilita cuando se crea una cuenta de almacenamiento con el SDK.
 
 > [!NOTE]
 > Dado que Azure Storage no admite HTTPS para los nombres de dominio personalizados, esta opción no se aplica cuando se utiliza un nombre de dominio personalizado. Y las cuentas de almacenamiento clásico no se admiten.
 
-## <a name="enable-secure-transfer-required-in-the-azure-portal"></a>Habilitación de "Se requiere transferencia segura" en Azure Portal
+## <a name="require-secure-transfer-in-the-azure-portal"></a>Requerir una transferencia segura en Azure Storage
 
-La opción de "Se requiere transferencia segura" se puede activar cuando se crea una cuenta de almacenamiento en [Azure Portal](https://portal.azure.com). También puede habilitarla para cuentas de almacenamiento existentes.
+Puede activar la propiedad **Se requiere transferencia segura** al crear una cuenta de almacenamiento en [Azure Portal](https://portal.azure.com). También puede habilitarla para cuentas de almacenamiento existentes.
 
 ### <a name="require-secure-transfer-for-a-new-storage-account"></a>Solicitud de transferencia segura en una nueva cuenta de almacenamiento
 
@@ -46,30 +49,30 @@ La opción de "Se requiere transferencia segura" se puede activar cuando se crea
 
    ![Panel de menú de la cuenta de almacenamiento](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
-## <a name="enable-secure-transfer-required-programmatically"></a>Habilitación de "Se requiere transferencia segura" mediante programación
+## <a name="require-secure-transfer-from-code"></a>Requerir una transferencia segura desde el código
 
-Para requerir una transferencia segura mediante programación, use la configuración de _supportsHttpsTrafficOnly_ en propiedades de la cuenta de almacenamiento mediante la API de REST, herramientas o bibliotecas:
+Para requerir una transferencia segura mediante programación, establezca la propiedad _supportsHttpsTrafficOnly_ en la cuenta de almacenamiento. Puede establecer esta propiedad mediante la API REST del proveedor de recursos de almacenamiento, las bibliotecas de cliente o las herramientas siguientes:
 
-* [API de REST](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (versión: 2016-12-01)
-* [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) (versión: 0.7)
-* [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (versión: 2.0.11)
-* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (versión: 1.1.0)
-* [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (versión: 6.3.0)
-* [SDK de Python](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0) (versión: 1.1.0)
-* [SDK de Ruby](https://rubygems.org/gems/azure_mgmt_storage) (versión: 0.11.0)
+* [REST API](/rest/api/storagerp/storageaccounts)
+* [PowerShell](/powershell/module/az.storage/set-azstorageaccount)
+* [CLI](/cli/azure/storage/account)
+* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/)
+* [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
+* [SDK de Python](https://pypi.org/project/azure-mgmt-storage)
+* [SDK de Ruby](https://rubygems.org/gems/azure_mgmt_storage)
 
-### <a name="enable-secure-transfer-required-setting-with-powershell"></a>Habilitación de la configuración "Se requiere transferencia segura" con PowerShell
+## <a name="require-secure-transfer-with-powershell"></a>Requerir una transferencia segura con PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-En este ejemplo, debe utilizarse la versión 0.7 del módulo Az de Azure PowerShell o una versión posterior. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps) (Instalación y configuración de Azure PowerShell).
+En este ejemplo, debe utilizarse la versión 0.7 del módulo Az de Azure PowerShell o una versión posterior. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-Az-ps).
 
 Ejecute `Connect-AzAccount` para crear una conexión con Azure.
 
  Utilice la siguiente línea de comandos siguiente para comprobar la configuración:
 
 ```powershell
-> Get-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
+Get-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : False
@@ -80,7 +83,7 @@ EnableHttpsTrafficOnly : False
 Utilice la siguiente línea de comandos siguiente para habilitar la configuración:
 
 ```powershell
-> Set-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
+Set-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : True
@@ -88,16 +91,16 @@ EnableHttpsTrafficOnly : True
 
 ```
 
-### <a name="enable-secure-transfer-required-setting-with-cli"></a>Habilitación de la configuración "Se requiere transferencia segura" con CLI
+## <a name="require-secure-transfer-with-azure-cli"></a>Requerir una transferencia segura con la CLI de Azure
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
- Utilice la siguiente línea de comandos siguiente para comprobar la configuración:
+ Utilice el comando siguiente para comprobar esta configuración:
 
 ```azurecli-interactive
-> az storage account show -g {ResourceGroupName} -n {StorageAccountName}
+az storage account show -g {ResourceGroupName} -n {StorageAccountName}
 {
   "name": "{StorageAccountName}",
   "enableHttpsTrafficOnly": false,
@@ -107,10 +110,10 @@ EnableHttpsTrafficOnly : True
 
 ```
 
-Utilice la siguiente línea de comandos siguiente para habilitar la configuración:
+Utilice el comando siguiente para habilitar la configuración:
 
 ```azurecli-interactive
-> az storage account update -g {ResourceGroupName} -n {StorageAccountName} --https-only true
+az storage account update -g {ResourceGroupName} -n {StorageAccountName} --https-only true
 {
   "name": "{StorageAccountName}",
   "enableHttpsTrafficOnly": true,
@@ -121,4 +124,5 @@ Utilice la siguiente línea de comandos siguiente para habilitar la configuraci�
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Azure Storage proporciona un completo conjunto de funcionalidades de seguridad que, conjuntamente, permiten a los desarrolladores compilar aplicaciones seguras. Para obtener más detalles, vaya a la [Guía de seguridad para almacenamiento](storage-security-guide.md).
+
+[Recomendaciones de seguridad para Blob Storage](../blobs/security-recommendations.md)

@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 042aedf1a043cd89d74ff099554642d38a3c7dd3
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 83f66fb7e4d9b07cdcd72e47da1b397a85886e29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186062"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468976"
 ---
 ## <a name="what-is-table-storage"></a>¿Qué es Table Storage?
 Azure Table Storage permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales. Table Storage suele usarse para realizar las siguientes tareas:
@@ -31,7 +31,7 @@ Table Storage contiene los siguientes componentes:
   Las cuentas de Table API de Azure Cosmos DB utilizan este formato:`http://<storage account>.table.cosmosdb.azure.com/<table>`  
 
   Puede desviar las tablas de Azure directamente mediante esta dirección con el protocolo OData. Para más información, consulte [OData.org][OData.org].
-* **Cuentas:** Todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](../articles/storage/common/storage-scalability-targets.md) para obtener información sobre la capacidad de la cuenta de almacenamiento. 
+* **Cuentas:** Todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Para más información sobre las cuentas de almacenamiento, consulte [Introducción a la cuenta de Azure Storage][../articles/storage/common/storage-account-overview.md].
 
     Todo el acceso a Azure Cosmos DB se realiza a través de una cuenta de Table API. Consulte [Creación de una cuenta de Table API](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account) para obtener información sobre cómo crear una cuenta de Table API.
 * **Tabla**: Una tabla es una colección de entidades. Las tablas no exigen un esquema sobre entidades, lo que significa que una única tabla puede contener entidades que dispongan de diferentes conjuntos de propiedades.  

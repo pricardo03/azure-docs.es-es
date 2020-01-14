@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 529c2a453bade8745a596b5cd2e374907a66f613
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1c308243e3dfebb3622ebbe346771fe781b97cc5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893729"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443304"
 ---
 # <a name="tutorial-integrate-productboard-with-azure-active-directory"></a>Tutorial: Integración de productboard con Azure Active Directory
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a integrar productboard con Azure Active Director
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para empezar, necesita los siguientes elementos:
 
@@ -68,7 +68,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con productboa
     * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de productboard](#configure-productboard-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
-    * **[Creación de un usuario de prueba de productboard](#create-productboard-test-user)** , para tener un homólogo de B.Simon en productboard vinculado a la representación del usuario en Azure AD.
+    * **[Creación de un usuario de prueba de productboard](#create-productboard-test-user)** , para tener un homólogo de B.Simon en productboard que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -106,7 +106,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

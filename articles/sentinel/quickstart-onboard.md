@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 12/05/2019
-ms.openlocfilehash: 108d251ec6aadb4881f500edfa3483f137a09a68
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: e8625b1d81db5b3ec90a177f426d05bd84bd10dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900432"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426982"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Inicio rápido: Incorporación de Azure Sentinel
 
@@ -41,12 +41,14 @@ Después de conectar los orígenes de datos, puede elegir de una galería de lib
  
 ## Habilitar Azure Sentinel <a name="enable"></a>
 
-1. Vaya a Azure Portal.
-2. Asegúrese de que la suscripción en la que se crea Azure Sentinel está seleccionada. 
-3. Busque Azure Sentinel. 
-   ![search](./media/quickstart-onboard/search-product.png)
+1. Inicie sesión en Azure Portal. Asegúrese de que la suscripción en la que se crea Azure Sentinel está seleccionada.
 
-1. Haga clic en **+Agregar**.
+1. Busque y seleccione **Azure Sentinel**.
+
+   ![búsqueda](./media/quickstart-onboard/search-product.png)
+
+1. Seleccione **Agregar**.
+
 1. Seleccione el área de trabajo que quiere usar o cree una nueva. Puede ejecutar Azure Sentinel en más de un área de trabajo, pero los datos se aíslan en un área de trabajo.
 
    ![búsqueda](./media/quickstart-onboard/choose-workspace.png)
@@ -55,7 +57,7 @@ Después de conectar los orígenes de datos, puede elegir de una galería de lib
    > - Las áreas de trabajo predeterminadas creadas por Azure Security Center no aparecerán en la lista; no puede instalar Azure Sentinel en ellas.
    > - Azure Sentinel se puede ejecutar en áreas de trabajo de cualquier [región con disponibilidad general de Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), excepto en las regiones de China, Alemania y Azure Government. Los datos generados por Azure Sentinel (como incidentes, marcadores y reglas de alertas, que pueden contener algunos datos de clientes procedentes de estas áreas de trabajo) se guardan en la región Oeste de Europa (para las áreas de trabajo ubicadas en Europa) o en la de Este de EE. UU. (para todas las áreas de trabajo ubicadas en Estados Unidos, así como en cualquier otra región excepto Europa).
 
-6. Haga clic en **Agregar Azure Sentinel**.
+1. Seleccione **Agregar Azure Sentinel**.
   
 
 ## <a name="connect-data-sources"></a>Conexión con orígenes de datos

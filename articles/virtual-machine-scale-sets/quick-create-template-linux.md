@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Creación de un conjunto de escalado de máquinas virtuales Linux con una plantilla de Azure | Microsoft Docs'
+title: 'Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales Linux con una plantilla de Azure'
 description: Aprenda a crear rápidamente un conjunto de escalado de máquinas virtuales con Linux con una plantilla de Azure Resource Manager que implementa una aplicación de ejemplo y configura reglas de escalado automático.
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: aa1aca6a1c47e486e0630e779c975b699a193d41
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 34cc269bc9355fa6744c7d31fff7e986baf1e049
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375964"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351106"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales con Linux con una plantilla de Azure
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático según el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. Un equilibrador de carga de Azure distribuirá el tráfico a las instancias de máquina virtual del conjunto de escalado. En esta guía de inicio rápido, creará un conjunto de escalado de máquinas virtuales e implementará una aplicación de ejemplo con una plantilla de Azure Resource Manager.
@@ -42,9 +42,9 @@ Para crear una escala con una plantilla, debe definir los recursos adecuados. La
 
 | Propiedad                     | Descripción de la propiedad                                  | Valor de la plantilla de ejemplo                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
-| Tipo                         | Tipo de recurso de Azure que se creará                            | Microsoft.Compute/virtualMachineScaleSets |
-| Nombre                         | Nombre del conjunto de escalado                                       | myScaleSet                                |
-| location                     | Ubicación donde se creará el conjunto de escalado                     | East US                                   |
+| type                         | Tipo de recurso de Azure que se creará                            | Microsoft.Compute/virtualMachineScaleSets |
+| name                         | Nombre del conjunto de escalado                                       | myScaleSet                                |
+| ubicación                     | Ubicación donde se creará el conjunto de escalado                     | East US                                   |
 | sku.name                     | Tamaño de VM para cada instancia de conjunto de escalado                  | Standard_A1                               |
 | sku.capacity                 | Número de instancias de VM que se crearán inicialmente           | 2                                         |
 | upgradePolicy.mode           | Modo de actualización de la instancia de VM cuando se producen cambios              | Automático                                 |

@@ -1,5 +1,5 @@
 ---
-title: 'Descripción del descuento de plan de reserva de Red Hat y del uso: Azure | Microsoft Docs'
+title: 'Descuentos del plan de reserva de Red Hat: Azure'
 description: Obtenga información sobre cómo se aplican los descuentos del plan de Red Hat en el software de Red Hat en máquinas virtuales.
 services: billing
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2019
 ms.author: cwatson
-ms.openlocfilehash: 0ac7425ed695d7ceac134e29b20cd12b01545239
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7af9f6ae0c274f38798d96dd9228a68ce709686c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225757"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388455"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Comprenda cómo se aplica para Azure el descuento del plan de reserva de software Red Hat Linux Enterprise).
 
@@ -161,7 +161,7 @@ Para más información acerca de las reservas, consulte los siguientes artículo
 - [Qué son las reservas de Azure](billing-save-compute-costs-reservations.md)
 - [Pago por adelantado para planes de software de Red Hat con reservas de Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Administración de las reservas de Azure](billing-manage-reserved-vm-instance.md)
+- [Administración de reservas para Azure](billing-manage-reserved-vm-instance.md)
 - [Información sobre el uso de reservas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
 - [Información sobre el uso de reservas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
 

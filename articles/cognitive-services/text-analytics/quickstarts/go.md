@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: d833293d094837c164da855aef197ad927c60ad7
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 03311cb873420f741ca0150dde59fb27eaa5d76f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286514"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378776"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de Go para llamar a Text Analytics de Cognitive Services 
 <a name="HOLTop"></a>
@@ -24,7 +24,7 @@ En este artículo se muestra cómo [detectar el idioma](#Detect), [analizar las 
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -37,9 +37,9 @@ En este artículo se muestra cómo [detectar el idioma](#Detect), [analizar las 
 
 Language Detection API detecta el idioma de un documento de texto con el [método Detectar idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-1. Cree las variables de entorno `TEXT_ANALYTICS_SUBSCRIPTION_KEY` y `TEXT_ANALYTICS_ENDPOINT` para la clave de suscripción y el punto de conexión de Azure del recurso. Si creó estas variables de entorno después de iniciar la edición de la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que usa para tener acceso a ellas.
 1. Cree un nuevo proyecto de Go en su editor de código favorito.
 1. Agregue el código que se proporciona a continuación.
+1. Copie la clave y el punto de conexión de la API Text Analytics en el código.
 1. Guarde el archivo con la extensión ".go".
 1. Desde la carpeta raíz, abra un símbolo del sistema en un equipo que tenga instalado Go.
 1. Compile el archivo, por ejemplo: `go build detect.go`.
@@ -60,17 +60,9 @@ import (
 )
 
 func main() {
-    var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-    if "" == os.Getenv(subscriptionKeyVar) {
-        log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
-    }
-    var subscriptionKey string = os.Getenv(subscriptionKeyVar)
-    var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
-    if "" == os.Getenv(endpointVar) {
-        log.Fatal("Please set/export the environment variable " + endpointVar + ".")
-    }
-    var endpoint string = os.Getenv(endpointVar)
-
+    
+    var subscriptionKey string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
     const uriPath = "/text/analytics/v2.1/languages"
 
     var uri = endpoint + uriPath
@@ -178,9 +170,9 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 Sentiment Analysis API detecta la opinión de un conjunto de registros de texto mediante el [método Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). En el ejemplo siguiente se puntúan dos documentos, uno en inglés y otro en español.
 
-1. Cree las variables de entorno `TEXT_ANALYTICS_SUBSCRIPTION_KEY` y `TEXT_ANALYTICS_ENDPOINT` para la clave de suscripción y el punto de conexión de Azure del recurso. Si creó estas variables de entorno después de iniciar la edición de la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que usa para tener acceso a ellas.
 1. Cree un nuevo proyecto de Go en su editor de código favorito.
 1. Agregue el código que se proporciona a continuación.
+1. Copie la clave y el punto de conexión de Text Analytics en el código.
 1. Guarde el archivo con la extensión ".go".
 1. Desde la carpeta raíz, abra un símbolo del sistema en un equipo que tenga instalado Go.
 1. Compile el archivo, por ejemplo: `go build sentiment.go`.
@@ -201,16 +193,8 @@ import (
 )
 
 func main() {
-    var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-    if "" == os.Getenv(subscriptionKeyVar) {
-        log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
-    }
-    var subscriptionKey string = os.Getenv(subscriptionKeyVar)
-    var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
-    if "" == os.Getenv(endpointVar) {
-        log.Fatal("Please set/export the environment variable " + endpointVar + ".")
-    }
-    var endpoint string = os.Getenv(endpointVar)
+    var subscriptionKey string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
 
     const uriPath = "/text/analytics/v2.1/sentiment"
 
@@ -294,9 +278,9 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 Key Phrase Extraction API extrae frases clave de un documento de texto con el [método de frases clave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). En el ejemplo siguiente se extraen frases clave de documentos tanto en inglés y como en español.
 
-1. Cree las variables de entorno `TEXT_ANALYTICS_SUBSCRIPTION_KEY` y `TEXT_ANALYTICS_ENDPOINT` para la clave de suscripción y el punto de conexión de Azure del recurso. Si creó estas variables de entorno después de iniciar la edición de la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que usa para tener acceso a ellas.
 1. Cree un nuevo proyecto de Go en su editor de código favorito.
 1. Agregue el código que se proporciona a continuación.
+1. Copie la clave y el punto de conexión de Text Analytics en el código.
 1. Guarde el archivo con la extensión ".go".
 1. Abra un símbolo del sistema en un equipo que tenga instalado Go.
 1. Compile el archivo, por ejemplo: `go build key-phrases.go`.
@@ -317,16 +301,8 @@ import (
 )
 
 func main() {
-    var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-    if "" == os.Getenv(subscriptionKeyVar) {
-        log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
-    }
-    var subscriptionKey string = os.Getenv(subscriptionKeyVar)
-    var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
-    if "" == os.Getenv(endpointVar) {
-        log.Fatal("Please set/export the environment variable " + endpointVar + ".")
-    }
-    var endpoint string = os.Getenv(endpointVar)
+    var subscriptionKey string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
     
     const uriPath = "/text/analytics/v2.1/keyPhrases"
 
@@ -430,7 +406,6 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 Entities API identifica las entidades conocidas en un documento de texto mediante el [método Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). Las [entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraen palabras de texto, como "Estados Unidos" y, luego, le proporcionan el tipo o un vínculo a la Wikipedia en relación con estas palabras. El tipo de "Estados Unidos" es `location`, mientras que el vínculo a la Wikipedia es `https://en.wikipedia.org/wiki/United_States`.  En el ejemplo siguiente se identifican las entidades de documentos en inglés.
 
-1. Cree las variables de entorno `TEXT_ANALYTICS_SUBSCRIPTION_KEY` y `TEXT_ANALYTICS_ENDPOINT` para la clave de suscripción y el punto de conexión de Azure del recurso. Si creó estas variables de entorno después de iniciar la edición de la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que usa para tener acceso a ellas.
 1. Cree un nuevo proyecto de Go en su editor de código favorito.
 1. Agregue el código que se proporciona a continuación.
 1. Guarde el archivo con la extensión ".go".
@@ -453,16 +428,9 @@ import (
 )
 
 func main() {
-    var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-    if "" == os.Getenv(subscriptionKeyVar) {
-        log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
-    }
-    var subscriptionKey string = os.Getenv(subscriptionKeyVar)
-    var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
-    if "" == os.Getenv(endpointVar) {
-        log.Fatal("Please set/export the environment variable " + endpointVar + ".")
-    }
-    var endpoint string = os.Getenv(endpointVar)
+
+    var subscriptionKey string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
     
     const uriPath = "/text/analytics/v2.1/entities"
 
@@ -572,7 +540,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 > [!div class="nextstepaction"]
 > [Text Analytics con Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
  [Información general de Text Analytics](../overview.md)  
  [Preguntas más frecuentes](../text-analytics-resource-faq.md)

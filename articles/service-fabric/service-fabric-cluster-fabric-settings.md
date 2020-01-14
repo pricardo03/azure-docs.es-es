@@ -1,25 +1,14 @@
 ---
-title: Cambio de la configuración de un clúster de Azure Service Fabric | Microsoft Docs
+title: Cambio de la configuración de un clúster de Azure Service Fabric
 description: En este artículo se describe la configuración de Fabric y las directivas de actualización de Fabric que se pueden personalizar.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: reference
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/30/2019
-ms.author: atsenthi
-ms.openlocfilehash: cf070e91d6f15e80f51242722a59918d1bc70696
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: aab59af7031d8b2d8aa52e9ba13b73a204f19acc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615550"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458342"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -101,7 +90,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |UpgradeHealthCheckInterval |Tiempo en segundos, el valor predeterminado es 60. |Dinámica|Se comprueba la frecuencia del estado de mantenimiento durante las actualizaciones de una aplicación supervisada. |
 |UpgradeStatusPollInterval |Tiempo en segundos, el valor predeterminado es 60. |Dinámica|La frecuencia de sondeo del estado de actualización de la aplicación. Este valor determina la frecuencia de actualización de cualquier llamada a GetApplicationUpgradeProgress. |
 
-## <a name="common"></a>Común
+## <a name="common"></a>Comunes
 
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
@@ -132,8 +121,8 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |ApplicationLogsFormatVersion |Int, el valor predeterminado es 0. | Dinámica |Versión del formato de registros de aplicación. Los valores admitidos son 0 y 1. La versión 1 incluye más campos del registro de eventos de ETW que la versión 0. |
 |AuditHttpRequests |Bool, el valor predeterminado es false. | Dinámica | Active o desactive la auditoría de HTTP. La finalidad de las auditorías es ver las actividades que se han realizado en el clúster, incluido quién inició la solicitud. Cabe decir que solamente se registra el menor intento, con lo cual pueden producirse pérdidas de seguimiento. Las solicitudes HTTP con autenticación de "Usuario" no se registran. |
 |CaptureHttpTelemetry|Bool, el valor predeterminado es true. | Dinámica | Active y desactive la telemetría HTTP. La finalidad de la telemetría es que Service Fabric pueda capturar datos de telemetría para ayudar a planear el trabajo futuro e identificar las áreas problemáticas. La telemetría no registra ningún dato personal ni el cuerpo de la solicitud. La telemetría captura todas las solicitudes HTTP, a menos que se configure de otra manera. |
-|ClusterId |Cadena | Dinámica |El id. único del clúster. Se genera cuando se crea el clúster. |
-|ConsumerInstances |Cadena | Dinámica |La lista de instancias de consumidor de DCA. |
+|ClusterId |String | Dinámica |El id. único del clúster. Se genera cuando se crea el clúster. |
+|ConsumerInstances |String | Dinámica |La lista de instancias de consumidor de DCA. |
 |DiskFullSafetySpaceInMB |Int, el valor predeterminado es 1024. | Dinámica |Espacio en disco restante en MB para proteger contra el uso por DCA. |
 |EnableCircularTraceSession |Bool, el valor predeterminado es false. | estática |La marca indica si se deben usar sesiones de seguimiento circulares. |
 |EnablePlatformEventsFileSink |Bool, el valor predeterminado es false. | estática |Habilita o deshabilita eventos de la plataforma que se escriben en el disco. |
@@ -141,7 +130,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |FailuresOnlyHttpTelemetry | Bool, el valor predeterminado es false. | Dinámica | Si la captura de telemetría HTTP está habilitada, capture solo las solicitudes con errores, así el número de eventos generados para la telemetría será menor. |
 |HttpTelemetryCapturePercentage | int, el valor predeterminado es 50. | Dinámica | Si la captura de telemetría HTTP está habilitada, capture solo un porcentaje de solicitudes aleatorio, así el número de eventos generados para la telemetría será menor. |
 |MaxDiskQuotaInMB |Int, el valor predeterminado es 65 536. | Dinámica |Cuota de disco en MB para archivos de registro de Windows Fabric. |
-|ProducerInstances |Cadena | Dinámica |La lista de instancias de productor de DCA. |
+|ProducerInstances |String | Dinámica |La lista de instancias de productor de DCA. |
 
 ## <a name="dnsservice"></a>DnsService
 | **Parámetro** | **Valores permitidos** |**Directiva de actualización**| **Orientación o breve descripción** |
@@ -515,7 +504,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-|Counters |Cadena | Dinámica |Lista separada por comas de los contadores de rendimiento que se recolectarán. |
+|Counters |String | Dinámica |Lista separada por comas de los contadores de rendimiento que se recolectarán. |
 |IsEnabled |Bool, el valor predeterminado es true. | Dinámica |La marca indica si está habilitada la colección de contadores de rendimiento en el nodo local. |
 |MaxCounterBinaryFileSizeInMB |Int, el valor predeterminado es 1. | Dinámica |Tamaño máximo (en MB) de cada archivo binario de contador de rendimiento. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, el valor predeterminado es 10. | Dinámica |Intervalo máximo (en segundos) después del cual se crea un nuevo archivo binario de contador de rendimiento. |
@@ -834,16 +823,16 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, el valor predeterminado es None|Dinámica|Esta es una lista de pares "nombre" y "valor". Cada "nombre" es el nombre común del asunto o el nombre DNS de los certificados X509 autorizados para las operaciones de servidor. Para un "nombre" dado, "valor" es una lista separada por comas de huellas digitales de certificado para la asignación del emisor; si no está vacío, el emisor directo de los certificados de servidor debe estar en la lista.|
 
-## <a name="setup"></a>Configuración
+## <a name="setup"></a>Configurar
 
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|string, el valor predeterminado es "".| estática |Nombre de red que se usará al configurar una red de contenedores.|
 |ContainerNetworkSetup|bool, el valor predeterminado es FALSE| estática |Establece si se debe configurar una red de contenedores.|
-|FabricDataRoot |Cadena | No permitida |Directorio raíz de datos de Service Fabric. El valor predeterminado para Azure es d:\svcfab. |
-|FabricLogRoot |Cadena | No permitida |Directorio raíz del registro de Service Fabric. Aquí es donde se colocan los seguimientos y registros de SF. |
+|FabricDataRoot |String | No permitida |Directorio raíz de datos de Service Fabric. El valor predeterminado para Azure es d:\svcfab. |
+|FabricLogRoot |String | No permitida |Directorio raíz del registro de Service Fabric. Aquí es donde se colocan los seguimientos y registros de SF. |
 |NodesToBeRemoved|string, el valor predeterminado es "".| Dinámica |Nodos que deben quitarse como parte de la actualización de la configuración. (Solo para implementaciones independientes.)|
-|ServiceRunAsAccountName |Cadena | No permitida |El nombre de la cuenta con el que se ejecuta el servicio Fabric Host. |
+|ServiceRunAsAccountName |String | No permitida |El nombre de la cuenta con el que se ejecuta el servicio Fabric Host. |
 |SkipContainerNetworkResetOnReboot|bool, el valor predeterminado es FALSE|No permitidos|Si se debe omitir el restablecimiento de la red de contenedores al reiniciar.|
 |SkipFirewallConfiguration |Bool, el valor predeterminado es false. | No permitida |Especifica si el sistema debe establecer o no la configuración de firewall. Solo aplicable si usa Firewall de Windows. Si usa firewalls de terceros, debe abrir los puertos para que los usen el sistema y las aplicaciones. |
 
