@@ -1,6 +1,6 @@
 ---
-title: 'Implementación de módulos desde Visual Studio Code: Azure IoT Edge | Microsoft Docs'
-description: Uso de Visual Studio Code para implementar módulos en un dispositivo IoT Edge
+title: Implementación de módulos desde Visual Studio Code - Azure IoT Edge
+description: Use Visual Studio Code con Azure IoT Tools para enviar un módulo de IoT Edge desde la instancia de IoT Hub al dispositivo IoT Edge, tal como se configura en un manifiesto de implementación.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 415494fed0870a855a20314816bcebbe22680a98
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: d1c5897240f627d52af056767943b59d85dd2d0c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457418"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434288"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Implementación de módulos de Azure IoT Edge desde Visual Studio Code
 
-Una vez que cree módulos de IoT Edge con su lógica empresarial, querrá implementarlos en sus dispositivos para usarlos en el perímetro. Si tiene varios módulos que funcionan conjuntamente para recopilar y procesar datos, puede implementarlos todos a la vez y declarar las reglas de enrutamiento que los conectan.
+Una vez que ha creado módulos de IoT Edge con su lógica empresarial, querrá implementarlos en sus dispositivos para usarlos en el perímetro. Si tiene varios módulos que funcionan conjuntamente para recopilar y procesar datos, puede implementarlos todos a la vez y declarar las reglas de enrutamiento que los conectan.
 
 En este artículo se muestra cómo crear un manifiesto de implementación de JSON y, luego, usar ese archivo para insertar la implementación en un dispositivo IoT Edge. Para información sobre la creación de una implementación dirigida a varios dispositivos en función de sus etiquetas compartidas, consulte [Implementación y supervisión de módulos de IoT Edge a escala](how-to-deploy-monitor.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) en la suscripción de Azure.
 * Un [dispositivo de IoT Edge](how-to-register-device.md#register-with-visual-studio-code) que tenga instalado el entorno de ejecución de Azure IoT Edge.
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/).
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) para Visual Studio Code.
 
 ## <a name="configure-a-deployment-manifest"></a>Configuración de un manifiesto de implementación
@@ -101,7 +101,7 @@ Este es un manifiesto de implementación básico con un módulo como ejemplo:
    }
    ```
 
-## <a name="sign-in-to-access-your-iot-hub"></a>Inicio de sesión para acceder al centro de IoT
+## <a name="sign-in-to-access-your-iot-hub"></a>Iniciar sesión para acceder a IoT Hub
 
 Puede usar las extensiones de Azure IoT para Visual Studio Code para realizar operaciones con IoT Hub. Para que estas operaciones funcionen, debe iniciar sesión en su cuenta de Azure y seleccionar la instancia de IoT Hub en la que está trabajando.
 

@@ -1,5 +1,6 @@
 ---
-title: 'Ejemplo de directiva de Azure API Management: envío de información contextual de la solicitud al servicio de back-end | Microsoft Docs'
+title: 'Muestra de directiva de API Management: envío de información contextual al servicio de back-end'
+titleSuffix: Azure API Management
 description: 'Ejemplo de directiva de Azure API Management: demuestra cómo enviar información contextual de la solicitud al servicio back-end.'
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: cc770ff700155f8ab32bbbd6737c9dad7bc6e664
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8cef989ca7ce8ee649c4f4aeb579c43bf8a8d6ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067522"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442416"
 ---
 # <a name="send-request-context-information-to-the-backend-service"></a>Envío de información contextual de la solicitud al servicio de back-end
 

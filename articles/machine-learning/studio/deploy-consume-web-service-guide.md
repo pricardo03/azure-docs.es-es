@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 1c97fd4f4d5646b6654f5261abd99372c521c389
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 564126ab262306f2b01948e29baf239b725083e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228250"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427602"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Servicios web de Azure Machine Learning Studio (clásico): Implementación y consumo
 
@@ -41,13 +41,13 @@ Los vínculos siguientes proporcionan información general sobre cómo implement
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Con API de proveedor de recursos de servicios web (API de Azure Resource Manager)
 
-El proveedor de recursos de la versión clásica de Azure Machine Learning Studio para servicios web permite la implementación y administración de servicios web mediante llamadas a la API REST. Para información más detallada, consulte la referencia [Servicio web Machine Learning (REST)](/rest/api/machinelearning/index).
+El proveedor de recursos de Azure Machine Learning Studio (clásico) para servicios web permite la implementación y administración de servicios web mediante llamadas a la API de REST. Para información más detallada, consulte la referencia [Servicio web Machine Learning (REST)](/rest/api/machinelearning/index).
 
 <!-- [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference. -->
 
 ### <a name="with-powershell-cmdlets"></a>Con cmdlets de PowerShell
 
-El proveedor de recursos de la versión clásica de Azure Machine Learning Studio para servicios web permite la implementación y administración de servicios web mediante el uso de cmdlets de PowerShell.
+El proveedor de recursos de Azure Machine Learning Studio (clásico) para servicios web permite la implementación y administración de servicios web mediante los cmdlets de PowerShell.
 
 Para usar los cmdlets, primero debe iniciar sesión en su cuenta de Azure desde el entorno de PowerShell mediante el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Si no sabe cómo llamar a los comandos de PowerShell basados en Resource Manager, consulte [Uso de Azure PowerShell con Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
 

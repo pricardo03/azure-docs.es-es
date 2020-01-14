@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 95083809f8fcfe42ae76faa0af507c7ce4acd709
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 268a7e7c94285d3c4fdcb0c5fb91b685c09b58c8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083431"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436909"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Supervisión, métricas y alertas de ExpressRoute
 

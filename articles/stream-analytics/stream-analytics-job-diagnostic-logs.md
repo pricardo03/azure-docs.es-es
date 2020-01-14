@@ -1,25 +1,24 @@
 ---
 title: Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico
 description: En este artículo se describe cómo analizar los registros de diagnóstico en Azure Stream Analytics.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
-ms.openlocfilehash: 68c40cf893bf150756f0a03056473e82cff5754f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 12/19/2019
+ms.openlocfilehash: f318b373f6a6f46ee3a85703c6099c76568580ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620957"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426134"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico
 
 En ocasiones, un trabajo de Azure Stream Analytics deja de procesarse inesperadamente. Es importante poder solucionar este tipo de evento. Los errores pueden deberse a un resultado de consulta inesperado, la conectividad a los dispositivos o una interrupción inesperada del servicio. Los registros de diagnóstico de Stream Analytics pueden ayudarle a identificar la causa de los problemas cuando se producen y a reducir el tiempo de recuperación.
 
-Es muy recomendable habilitar los registros de diagnóstico para todos los trabajos de producción.
+Se recomienda encarecidamente habilitar los registros de diagnóstico para todos los trabajos, ya que esto contribuirá en gran medida a la depuración y la supervisión.
 
 ## <a name="log-types"></a>Tipos de registro
 
@@ -68,19 +67,15 @@ Es muy recomendable activar los registros de diagnóstico y enviarlos a los regi
 
     ![Configuración de registros de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
-3. Cuando se inicia el trabajo de Stream Analytics, los registros de diagnóstico se enrutan a su área de trabajo de Log Analytics. Navegue hasta el área de trabajo de Log Analytics y elija **Registros** bajo la sección **General**.
+3. Cuando se inicia el trabajo de Stream Analytics, los registros de diagnóstico se enrutan a su área de trabajo de Log Analytics. Para ver los registros de diagnóstico del trabajo, seleccione **Registros** en la sección **Supervisión**.
 
-   ![Registros de Azure Monitor en la sección general](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![Registros de diagnóstico en Supervisión](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
-4. Puede escribir [su propia consulta](../azure-monitor/log-query/get-started-portal.md) para buscar términos, identificar tendencias o analizar patrones y proporcionar conclusiones basadas en los datos. Por ejemplo, puede escribir una consulta para filtrar solo los registros de diagnóstico que tengan el mensaje "Error en el trabajo de streaming". Los registros de diagnóstico de Azure Stream Analytics se almacenan en la tabla **AzureDiagnostics**.
+4. Stream Analytics proporciona consultas predefinidas que le permiten buscar fácilmente los registros que le interesan. Las tres categorías son **General**, **Errores de los datos de entrada** y **Errores de los datos de salida**. Por ejemplo, para ver un resumen de todos los errores del trabajo de los últimos 7 días, puede seleccionar la opción **Ejecutar** de la consulta predefinida adecuada. 
 
-   ![Consulta y resultados de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-query.png)
+   ![Registros de diagnóstico en Supervisión](./media/stream-analytics-job-diagnostic-logs/logs-categories.png)
 
-5. Cuando tenga una consulta que busque los registros correctos, guárdela seleccionando **Guardar** y proporcione un nombre y una categoría. A continuación, puede crear una alerta seleccionando **Nueva regla de alertas**. A continuación, especifique la condición de la alerta. Seleccione **Condición** y escriba el valor de umbral y la frecuencia a la que se evalúa esta búsqueda de registros personalizada.  
-
-   ![Consulta de búsqueda de registros de diagnóstico](./media/stream-analytics-job-diagnostic-logs/search-query.png)
-
-6. Elija el grupo de acciones y especifique los detalles de la alerta, como el nombre y descripción, antes de poder crear la regla de alertas. Puede enrutar los registros de diagnóstico de varios trabajos a la misma área de trabajo de Log Analytics. Esto le permite configurar las alertas una vez para que funcionen en todos los trabajos.  
+   ![Resultados de los registros](./media/stream-analytics-job-diagnostic-logs/logs-result.png)
 
 ## <a name="diagnostics-log-categories"></a>Categorías de registro de diagnóstico
 
@@ -99,7 +94,7 @@ Azure Stream Analytics captura dos categorías de registros de diagnóstico:
 
 Todos los registros se almacenan en formato JSON. Cada entrada tiene los siguientes campos de cadena comunes:
 
-NOMBRE | DESCRIPCIÓN
+Nombre | Descripción
 ------- | -------
 time | Marca de tiempo (en UTC) del registro.
 resourceId | Identificador del recurso en el que tuvo lugar la operación, en mayúsculas. Incluye el identificador de suscripción, el grupo de recursos y el nombre del trabajo. Por ejemplo, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
@@ -117,12 +112,12 @@ Los registros de ejecución contienen información sobre eventos que se produjer
 
 Cualquier error que se produce mientras el trabajo está procesando datos se puede incluir en esta categoría de registros. Estos registros se crean habitualmente durante las operaciones de lectura, serialización y escritura de datos. No incluyen errores de conectividad. Los errores de conectividad se tratan como eventos genéricos. Puede aprender más sobre la causa de los distintos [errores de datos de entrada y salida](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
-NOMBRE | DESCRIPCIÓN
+Nombre | Descripción
 ------- | -------
-Origen | Nombre de la entrada o salida del trabajo donde se produjo el error.
+Source | Nombre de la entrada o salida del trabajo donde se produjo el error.
 Message | Mensaje asociado al error.
-type | Tipo de error. Por ejemplo, **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
-Datos | Contiene datos útiles para localizar con exactitud el origen del error. Sujeto a truncamiento dependiendo del tamaño.
+Tipo | Tipo de error. Por ejemplo, **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
+data | Contiene datos útiles para localizar con exactitud el origen del error. Sujeto a truncamiento dependiendo del tamaño.
 
 En función del valor de **operationName**, los errores de datos tendrán el siguiente esquema:
 
@@ -138,11 +133,11 @@ En función del valor de **operationName**, los errores de datos tendrán el sig
 
 Los eventos genéricos incluyen todos los demás.
 
-NOMBRE | DESCRIPCIÓN
+Nombre | Descripción
 -------- | --------
 Error | (opcional) Información de error. Normalmente, es información de la excepción, si está disponible.
 Message| Mensaje de registro.
-type | Tipo de mensaje. Se asigna a la categorización interna de errores. Por ejemplo, **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
+Tipo | Tipo de mensaje. Se asigna a la categorización interna de errores. Por ejemplo, **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
 Id. de correlación | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que identifica de manera única la ejecución del trabajo. Todas las entradas de registros de ejecución desde el momento en que se inicia el trabajo hasta que se detiene tienen el mismo valor de **Id. de correlación**.
 
 ## <a name="next-steps"></a>Pasos siguientes

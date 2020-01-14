@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 614d93a16b9149a217b5ff1004031e0a2d7337ca
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d430d7d94f8eed76bb78042a174aeddf2e6ccaa3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615051"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410207"
 ---
 Configuración de [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
 
@@ -52,14 +52,15 @@ Configuración de [Durable Functions](../articles/azure-functions/durable-functi
   "durableTask": {
     "hubName": "MyTaskHub",
     "storageProvider": {
-      "controlQueueBatchSize": 32,
-      "partitionCount": 4,
-      "controlQueueVisibilityTimeout": "00:05:00",
-      "workItemQueueVisibilityTimeout": "00:05:00",
-      "maxQueuePollingInterval": "00:00:30",
       "connectionStringName": "AzureWebJobsStorage",
+      "controlQueueBatchSize": 32,
+      "controlQueueBufferThreshold": 256,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "maxQueuePollingInterval": "00:00:30",
+      "partitionCount": 4,
       "trackingStoreConnectionStringName": "TrackingStorage",
-      "trackingStoreNamePrefix": "DurableTask"
+      "trackingStoreNamePrefix": "DurableTask",
+      "workItemQueueVisibilityTimeout": "00:05:00",
     },
     "tracing": {
       "traceInputsAndOutputs": false,
@@ -82,17 +83,19 @@ Configuración de [Durable Functions](../articles/azure-functions/durable-functi
     "maxConcurrentActivityFunctions": 10,
     "maxConcurrentOrchestratorFunctions": 10,
     "extendedSessionsEnabled": false,
-    "extendedSessionIdleTimeoutInSeconds": 30
+    "extendedSessionIdleTimeoutInSeconds": 30,
+    "useGracefulShutdown": false
   }
 }
 ```
 
 Los nombres de la central de tareas deben empezar por una letra y estar formados únicamente por letras y números. Si no se especifica, el nombre predeterminado de la central de tareas de la aplicación de función es **DurableFunctionsHub**. Para más información, consulte el artículo sobre las [centrales de tareas](../articles/azure-functions/durable-functions-task-hubs.md).
 
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------|
 |hubName|DurableFunctionsHub|Se pueden usar nombres de [central de tareas](../articles/azure-functions/durable-functions-task-hubs.md) alternativos para aislar varias aplicaciones de Durable Functions unas de otras, incluso si usan el mismo back-end de almacenamiento.|
 |controlQueueBatchSize|32|El número de mensajes que se van a extraer a la vez de la cola de control.|
+|controlQueueBufferThreshold|256|Número de mensajes de la cola de control que se pueden almacenar en búfer en la memoria a la vez, momento en que el distribuidor esperará para quitar cualquier mensaje adicional de la cola.|
 |partitionCount |4|El recuento de particiones para la cola de control. Puede ser un entero positivo comprendido entre 1 y 16.|
 |controlQueueVisibilityTimeout |5 minutos|El tiempo de espera de visibilidad de los mensajes de la cola de control quitados de la cola.|
 |workItemQueueVisibilityTimeout |5 minutos|El tiempo de espera de visibilidad de los mensajes de la cola de elementos de trabajo quitados de la cola.|
@@ -109,5 +112,6 @@ Los nombres de la central de tareas deben empezar por una letra y estar formados
 |eventGridPublishRetryCount|0|El número de reintentos, si, al publicar en el tema de Event Grid, se produce un error.|
 |eventGridPublishRetryInterval|5 minutos|Event Grid publica el intervalo de reintento en formato *hh:mm:ss*.|
 |eventGridPublishEventTypes||Lista de tipos de eventos que se van a publicar en Event Grid. Si no se especifica, se publicarán todos los tipos de evento. Los valores permitidos son `Started`, `Completed`, `Failed` y `Terminated`.|
+|useGracefulShutdown|false|(Versión preliminar) Habilite el apagado correcto para reducir la posibilidad de que se produzcan errores de apagado del host en las ejecuciones de función en proceso.|
 
 Muchos de estos valores son para optimizar el rendimiento. Para más información, consulte [Rendimiento y escalado](../articles/azure-functions/durable-functions-perf-and-scale.md).

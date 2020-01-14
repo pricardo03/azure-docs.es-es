@@ -1,5 +1,5 @@
 ---
-title: Obtención de un token para llamar a las API web en aplicaciones móviles | Azure
+title: Obtención de un token para llamar a una API web (aplicaciones móviles) | Azure
 titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo compilar una aplicación móvil que llama a otras API web (para obtener un token para la aplicación).
 services: active-directory
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1101a1923e094c22e9f6a82853f4dec4deb089a1
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5d584dc2eef27747627133511af3defe085068ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919926"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423838"
 ---
 # <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Aplicación móvil que llama a las API web: obtener un token
 
@@ -45,7 +45,7 @@ let scopes = ["https://graph.microsoft.com/.default"]
 ```
 
 #### <a name="xamarin"></a>Xamarin
-```CSharp 
+```csharp 
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
@@ -200,7 +200,7 @@ MSAL para iOS y macOS admite varios modificadores al obtener un token de forma i
 
 El ejemplo siguiente muestra un código mínimo para obtener un token de forma interactiva para leer el perfil del usuario con Microsoft Graph.
 
-```CSharp
+```csharp
 string[] scopes = new string[] {"user.read"};
 var app = PublicClientApplicationBuilder.Create(clientId).Build();
 var accounts = await app.GetAccountsAsync();
@@ -243,7 +243,7 @@ La clase define las constantes siguientes:
 
 Este modificador se usa en un escenario avanzado donde quiere que el usuario dé previamente su consentimiento a varios recursos por adelantado (y no quiere utilizar el consentimiento incremental, que normalmente se utiliza con MSAL.NET / la plataforma de identidad de Microsoft v2.0). Para obtener más detalles, vea [Cómo tener el consentimiento del usuario por adelantado para varios recursos](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources).
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .WithExtraScopeToConsent(scopesForVendorApi)
                      .ExecuteAsync();

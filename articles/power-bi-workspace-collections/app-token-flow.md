@@ -1,5 +1,5 @@
 ---
-title: Autenticación y autorización con Colecciones de áreas de trabajo de Power BI | Microsoft Docs
+title: Autenticación y autorización - Colecciones de áreas de trabajo de Power BI
 description: Autenticación y autorización con Colecciones de áreas de trabajo de Power BI.
 services: power-bi-workspace-collections
 author: rkarlin
@@ -8,12 +8,12 @@ ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 713c56904769c133272db4fb65f8b596ab66804b
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 8fcd7caffb041c57090d7256361421cb49a9a5fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672500"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427108"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticación y autorización con Colecciones de áreas de trabajo de Power BI
 
@@ -36,7 +36,7 @@ Los tokens de aplicación son un JWT (JSON Web Token) que está firmado por una 
 
 El token de la aplicación puede contener las siguientes notificaciones:
 
-| Notificación | DESCRIPCIÓN |    
+| Notificación | Descripción |    
 | --- | --- |
 | **ver** |La versión del token de aplicación. La versión actual es 0.2.0. |
 | **aud** |El destinatario previsto del token. Para Colecciones de áreas de trabajo de Power BI, use:  *https:\//analysis.windows.net/powerbi/api*. |
@@ -92,7 +92,7 @@ Si usa tokens de inserción, puede restringir el uso de los recursos a los que p
 
 Los siguientes son los ámbitos disponibles para Colecciones de áreas de trabajo de Power BI.
 
-|Ámbito|DESCRIPCIÓN|
+|Ámbito|Descripción|
 |---|---|
 |Dataset.Read|Proporciona permiso para leer el conjunto de datos especificado.|
 |Dataset.Write|Proporciona permiso para escribir en el conjunto de datos especificado.|
@@ -172,12 +172,12 @@ Después de que **Colecciones de áreas de trabajo de Power BI** envíe un infor
 
 ![Ejemplo de informe insertado en la aplicación](media/get-started-sample/sample-web-app.png)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Introducción a ejemplos de Colecciones de áreas de trabajo de Power BI](get-started-sample.md)  
-[Escenarios comunes de Colecciones de áreas de trabajo de Power BI](scenarios.md)  
+[Escenarios comunes de las colecciones de áreas de trabajo de Power BI](scenarios.md)  
 [Introducción a las colecciones de áreas de trabajo de Power BI](get-started.md)  
 [Repositorio GIT PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)
 
-¿Tiene más preguntas? [Pruebe la comunidad de Power BI](https://community.powerbi.com/)
+¿Tiene alguna pregunta más? [Pruebe la comunidad de Power BI](https://community.powerbi.com/)

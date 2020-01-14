@@ -1,17 +1,17 @@
 ---
-title: Adición y ejecución de fragmentos de código
-description: Adición y ejecución de fragmentos de código con código en línea en Azure Logic Apps
+title: Agregar y ejecutar fragmentos de código con código alineado
+description: Aprenda a crear y ejecutar fragmentos de código mediante acciones de código alineado para tareas y flujos de trabajo automatizados que cree con Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
-ms.openlocfilehash: f28a93e47aa028f152d7ca797abb17cb3832aa60
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f7a134fd026b42d1666b8310b3fb0c10642c7bb0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792606"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453495"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Adición y ejecución de fragmentos de código mediante código en línea en Azure Logic Apps
 
@@ -28,13 +28,13 @@ Si desea ejecutar un fragmento de código dentro de su aplicación lógica, pued
 
 Esta acción ejecuta el fragmento de código y devuelve el resultado de ese fragmento como un token denominado **Result**, que puede usar en las acciones posteriores en la aplicación lógica. Para otros escenarios en los que desee crear una función para el código, intente [crear y llamar a una función de Azure](../logic-apps/logic-apps-azure-functions.md) en la aplicación lógica.
 
-En este artículo, la aplicación lógica de ejemplo se desencadena cuando llega un nuevo correo electrónico a una cuenta de Office 365 Outlook. El fragmento de código extrae y devuelve todas las direcciones de correo electrónico que aparecen en el cuerpo del correo electrónico.
+En este artículo, la aplicación lógica de ejemplo se desencadena cuando llegaun nuevo correo electrónico a una cuenta de Office 365 Outlook. El fragmento de código extrae y devuelve todas las direcciones de correo electrónico que aparecen en el cuerpo del correo electrónico.
 
 ![Información general de ejemplo](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * La aplicación lógica donde desea agregar el fragmento de código, incluido un desencadenador. Si no tiene una aplicación lógica, consulte [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -128,7 +128,7 @@ El objeto `workflowContext` tiene esta estructura, que incluye las subpropiedade
 
 Esta tabla contiene más información acerca de estas subpropiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 |----------|------|-------|
 | `actions` | Colección de objetos | Objetos de resultado de acciones que se ejecutan antes de que el fragmento de código se ejecute. Cada objeto tiene un par *clave-valor* donde la clave es el nombre de una acción y el valor es equivalente a llamar a la [función actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions) con `@actions('<action-name>')`. El nombre de la acción utiliza el mismo nombre de acción que se usa en la definición del flujo de trabajo subyacente, que reemplaza los espacios (" ") en el nombre de acción por caracteres de subrayado (_). Este objeto proporciona acceso a los valores de propiedad de la acción de la ejecución de la instancia de flujo de trabajo actual. |
 | `trigger` | Object | Objeto de resultado del desencadenador, equivalente a llamar a la [función trigger()](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Este objeto proporciona acceso a los valores de propiedad del desencadenador de la ejecución de la instancia de flujo de trabajo actual. |
@@ -218,7 +218,7 @@ Para agregar estos parámetros, abra la lista **Agregar nuevo parámetro** y sel
 
    ![Adición de parámetros](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
 
-   | Parámetro | DESCRIPCIÓN |
+   | Parámetro | Descripción |
    |-----------|-------------|
    | **Acciones** | Incluya los resultados de las acciones anteriores. Consulte [Incluir resultados de acción](#action-results). |
    | **Desencadenador** | Incluya los resultados del desencadenador. Consulte [Incluir resultados de desencadenador](#trigger-results). |

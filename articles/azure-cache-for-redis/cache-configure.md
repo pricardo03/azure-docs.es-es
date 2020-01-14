@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 7c0642377e75e621e1774936262ffddd166ff06d
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 62e0c9bbf8b1c7cef9b1cc239810cb554b5ffa45
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122879"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433532"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuración de Azure Cache for Redis
 En este tema se describe la configuración disponible para las instancias de Azure Cache for Redis. En este tema también se describe la configuración predeterminada del servidor Redis para las instancias de Azure Cache for Redis.
@@ -50,7 +50,7 @@ Puede ver y configurar las siguientes opciones con el **menú Recursos**.
     * [Bloqueos](#locks)
     * [Script de Automation](#automation-script)
 * Administración
-    * [Importación de datos](#importexport)
+    * [Importar datos](#importexport)
     * [Exportación de datos](#importexport)
     * [Reboot](#reboot)
 * [Supervisión](#monitoring)
@@ -120,7 +120,7 @@ Los siguientes ajustes se configuran en la hoja **Configuración avanzada**.
 El acceso no SSL está deshabilitado de forma predeterminada para las nuevas cachés. Para habilitar el puerto no SSL, haga clic en **No** en la opción **Permitir el acceso solo mediante SSL** de la hoja **Configuración avanzada** y seleccione **Guardar**.
 
 > [!NOTE]
-> El acceso SSL para Azure Cache for Redis admite TLS 1.0 de forma predeterminada. La versión mínima admitida de TLS puede incrementarse hasta TLS 1.2 si lo desea desde la lista desplegable **Versión de TLS mínima** en la hoja **Configuración avanzada** y, luego, haga clic en **Guardar**.
+> El acceso SSL a Azure Cache for Redis admite TLS 1.0, 1.1 y 1.2 actualmente, pero las versiones 1.0 y 1.1 se retirarán pronto.  Lea la [página Quitar TLS 1.0 y 1.1](cache-remove-tls-10-11.md) para obtener más detalles.
 
 ![Puertos de acceso de Azure Cache for Redis](./media/cache-configure/redis-cache-access-ports.png)
 
@@ -213,7 +213,7 @@ Haga clic en **Tamaño del Clúster en Redis (VERSIÓN PRELIMINAR)** para cambia
 Para modificar el tamaño del clúster, utilice el control deslizante o especifique un número comprendido entre 1 y 10 en el cuadro de texto **Número de particiones**. Después, haga clic en **Aceptar** para guardar.
 
 > [!IMPORTANT]
-> La agrupación en clústeres de Redis solo está disponible para las memorias cachés premium. Para más información, consulte [How to configure Redis clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md) (Configuración de la agrupación en clústeres para una instancia de Azure Cache for Redis Premium).
+> La agrupación en clústeres de Redis solo está disponible para las memorias cachés premium. Para más información, consulte [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md) (Configuración de la agrupación en clústeres para una instancia de Azure Cache for Redis Prémium).
 > 
 > 
 
@@ -221,7 +221,7 @@ Para modificar el tamaño del clúster, utilice el control deslizante o especifi
 ### <a name="redis-data-persistence"></a>Persistencia de datos de Redis
 Haga clic en **Persistencia de los datos en Redis** para habilitar, deshabilitar o configurar la persistencia de los datos para la caché premium. Azure Cache for Redis ofrece persistencia de Redis mediante [persistencia de RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) o [persistencia de AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
-Para más información, vea [How to configure persistence for a Premium Azure Cache for Redis](cache-how-to-premium-persistence.md) (Configuración de la persistencia para una instancia de Azure Cache for Redis Premium).
+Para más información, vea [How to configure persistence for a Premium Azure Cache for Redis](cache-how-to-premium-persistence.md) (Configuración de la persistencia para una instancia de Azure Cache for Redis Prémium).
 
 
 > [!IMPORTANT]
@@ -278,7 +278,7 @@ Puede especificar las reglas de firewall con un intervalo de direcciones IP de i
 > 
 > 
 
-### <a name="properties"></a>properties (Propiedades)
+### <a name="properties"></a>Propiedades
 Haga clic en **Propiedades** para ver información sobre la memoria caché, incluidos los puertos y el extremo de la caché.
 
 ![Propiedades de Azure Cache for Redis](./media/cache-configure/redis-cache-properties.png)
@@ -295,13 +295,13 @@ La configuración de la sección **Administración** le permite llevar a cabo la
 
 ![Administración](./media/cache-configure/redis-cache-administration.png)
 
-* [Importación de datos](#importexport)
+* [Importar datos](#importexport)
 * [Exportación de datos](#importexport)
 * [Reboot](#reboot)
 
 
 ### <a name="importexport"></a>Import/Export
-Import/Export es una operación de administración de datos de Azure Cache for Redis que permite importar y exportar datos en la caché mediante la importación y exportación de una instantánea de base de datos de Azure Cache for Redis (RDB) desde una caché premium a un blob en páginas en una cuenta de Azure Storage. Import/Export permite migrar entre diferentes instancias de Azure Cache for Redis o rellenar la caché de datos antes de su uso.
+Import/Export es una operación de administración de datos de Azure Cache for Redis que permite importar y exportar datos en la caché mediante la importación y exportación de una instantánea de base de datos de Azure Cache for Redis (RDB) desde una caché premium a un blob en páginas en una cuenta de Azure Storage. Import/Export permite migrar entre diferentes instancias de Azure Cache for Redis o rellenar la memoria caché de datos antes de su uso.
 
 La importación se puede usar para traer los archivos RDB compatibles de Redis desde cualquier servidor de Redis que se ejecute en cualquier nube o entorno, incluidas las instancias de Redis que se ejecutan en Linux, Windows o cualquier proveedor de nube como, por ejemplo, Amazon Web Services. La importación de datos supone una manera fácil de crear una caché con datos rellenados previamente. Durante el proceso de importación, Azure Cache for Redis carga los archivos RDB desde Azure Storage en la memoria y, luego, inserta las claves en la memoria caché.
 
@@ -342,9 +342,9 @@ La sección **Supervisión** permite configurar el diagnóstico y supervisar Azu
 ### <a name="redis-metrics"></a>Caché en Redis
 Haga clic en **Métricas de Redis** para [ver las métricas](cache-how-to-monitor.md#view-cache-metrics) de la memoria caché.
 
-### <a name="alert-rules"></a>Reglas de alertas
+### <a name="alert-rules"></a>Las reglas de alertas
 
-Haga clic en **Reglas de alerta** para configurar las alertas basadas en métricas de Azure Cache for Redis. Para obtener más información, consulte [Alerts](cache-how-to-monitor.md#alerts) (Alertas).
+Haga clic en **Reglas de alerta** para configurar las alertas basadas en métricas de Azure Cache for Redis. Para más información, consulte [Alertas](cache-how-to-monitor.md#alerts).
 
 ### <a name="diagnostics"></a>Diagnóstico
 
@@ -390,7 +390,7 @@ Las nuevas instancias de Azure Cache for Redis se configuran con los siguientes 
 > 
 > 
 
-| Configuración | Valor predeterminado | DESCRIPCIÓN |
+| Configuración | Valor predeterminado | Descripción |
 | --- | --- | --- |
 | `databases` |16 |El número predeterminado de bases de datos es 16, pero se puede configurar otro número en función del plan de tarifa.<sup>1</sup> La base de datos predeterminada es DB 0, pero se puede seleccionar otra por conexión mediante `connection.GetDatabase(dbid)`, donde `dbid` es un número entre `0` y `databases - 1`. |
 | `maxclients` |Depende del plan de tarifa<sup>2</sup> |Este valor es el número máximo de clientes conectados que se permiten al mismo tiempo. Una vez alcanzado el límite, Redis cierra todas las conexiones nuevas y devuelve un error de "número máximo alcanzado de clientes". |
@@ -398,7 +398,7 @@ Las nuevas instancias de Azure Cache for Redis se configuran con los siguientes 
 | `maxmemory-samples` |3 |Para ahorrar memoria, los algoritmos LRU y TTL mínimo son algoritmos aproximados en lugar de algoritmos precisos. De forma predeterminada, Redis comprueba tres claves y selecciona la que se ha usado menos recientemente. |
 | `lua-time-limit` |5\.000 |Tiempo máximo de ejecución de un script Lua en milisegundos. Si se alcanza el tiempo máximo de ejecución, Redis registra que un script está aún en ejecución una vez transcurrido el tiempo máximo permitido y empieza a responder a las consultas con un error. |
 | `lua-event-limit` |500 |Tamaño máximo de la cola de eventos de script. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Los límites de búfer de salida de cliente pueden usarse para forzar la desconexión de clientes que, por algún motivo (un motivo habitual es que un cliente de Pub/Sub no puede consumir mensajes tan rápidamente como el publicador los crea), no leen datos del servidor con suficiente rapidez. Para más información, consulte [https://redis.io/topics/clients](https://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Los límites de búfer de salida de cliente pueden usarse para forzar la desconexión de clientes que, por algún motivo (un motivo habitual es que un cliente de Pub/Sub no puede consumir mensajes tan rápidamente como el publicador los crea), no leen datos del servidor con suficiente rapidez. Para más información, vea [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>El límite de `databases` es diferente en cada plan de tarifa de Azure Cache for Redis y puede establecerse al crear la memoria caché. Si no se especifica la configuración de `databases` al crear la memoria caché, el valor predeterminado es 16.
@@ -458,7 +458,7 @@ Para obtener más información sobre las bases de datos, consulte el artículo [
 > * CONFIG
 > * DEBUG
 > * MIGRATE
-> * Guardar
+> * SAVE
 > * SHUTDOWN
 > * SLAVEOF
 > * CLÚSTER: los comandos de escritura del clúster están deshabilitados, pero se permiten los comandos de solo lectura del clúster.

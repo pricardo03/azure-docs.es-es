@@ -1,14 +1,14 @@
 ---
 title: Guía para solicitudes limitadas
-description: Aprenda a procesar por lotes, escalonar, paginar y consultar en paralelo las solicitudes para evitar que Azure Resource Graph las limite.
-ms.date: 11/21/2019
+description: Aprenda a agrupar, escalonar, paginar y consultar en paralelo las solicitudes para evitar que Azure Resource Graph las limite.
+ms.date: 12/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4405cce567a75f83823cc2d441b2a59985c196ad
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: fbd4bec715b187bcc643fe32b8452b0e062e7713
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304669"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436075"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Guía de solicitudes limitadas en Azure Resource Graph
 
@@ -17,7 +17,7 @@ Al crear datos mediante programación y de uso frecuente Azure Resource Graph, s
 En este artículo se describen cuatro áreas y patrones relacionados con la creación de consultas en Azure Resource Graph:
 
 - Descripción de los encabezados de limitación
-- Procesamiento por lotes de las consultas
+- Agrupación de consultas
 - Escalonamiento de las consultas
 - Impacto de la paginación
 
@@ -37,9 +37,9 @@ Para ilustrar cómo funcionan los encabezados, echemos un vistazo a una respuest
 
 Para ver un ejemplo del uso de los encabezados para el _retroceso_ de las solicitudes de consulta, consulte el ejemplo en [Consulta en paralelo](#query-in-parallel).
 
-## <a name="batching-queries"></a>Procesamiento por lotes de las consultas
+## <a name="grouping-queries"></a>Agrupación de consultas
 
-El procesamiento por lotes de las consultas según la suscripción, grupo de recursos o recurso individual es más eficaz que realizan consultas en paralelo. El coste de la cuota de una consulta de mayor tamaño con frecuencia es menor que el coste de la cuota de muchas consultas pequeñas y dirigidas. Se recomienda que el tamaño del lote sea inferior a _300_.
+La agrupación de consultas según la suscripción, grupo de recursos o recurso individual es más eficaz que realizar consultas en paralelo. El coste de la cuota de una consulta de mayor tamaño con frecuencia es menor que el coste de la cuota de muchas consultas pequeñas y dirigidas. Se recomienda que el tamaño del grupo sea inferior a _300_.
 
 - Ejemplo de un método mal optimizado
 
@@ -62,19 +62,19 @@ El procesamiento por lotes de las consultas según la suscripción, grupo de rec
   }
   ```
 
-- Ejemplo 1 de un método de procesamiento por lotes optimizado
+- Ejemplo 1 de un método de agrupación optimizado
 
   ```csharp
   // RECOMMENDED
   var header = /* your request header */
   var subscriptionIds = /* A big list of subscriptionIds */
 
-  const int batchSize = 100;
-  for (var i = 0; i <= subscriptionIds.Count / batchSize; ++i)
+  const int groupSize = 100;
+  for (var i = 0; i <= subscriptionIds.Count / groupSize; ++i)
   {
-      var currSubscriptionBatch = subscriptionIds.Skip(i * batchSize).Take(batchSize).ToList();
+      var currSubscriptionGroup = subscriptionIds.Skip(i * groupSize).Take(groupSize).ToList();
       var userQueryRequest = new QueryRequest(
-          subscriptions: currSubscriptionBatch,
+          subscriptions: currSubscriptionGroup,
           query: "Resources | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
@@ -85,21 +85,25 @@ El procesamiento por lotes de las consultas según la suscripción, grupo de rec
   }
   ```
 
-- Ejemplo 2 de un método de procesamiento por lotes optimizado
+- Ejemplo 2 de un método de agrupación optimizado para obtener varios recursos en una consulta
+
+  ```kusto
+  Resources | where id in~ ({resourceIdGroup}) | project name, type
+  ```
 
   ```csharp
   // RECOMMENDED
   var header = /* your request header */
   var resourceIds = /* A big list of resourceIds */
 
-  const int batchSize = 100;
-  for (var i = 0; i <= resourceIds.Count / batchSize; ++i)
+  const int groupSize = 100;
+  for (var i = 0; i <= resourceIds.Count / groupSize; ++i)
   {
-      var resourceIdBatch = string.Join(",",
-          resourceIds.Skip(i * batchSize).Take(batchSize).Select(id => string.Format("'{0}'", id)));
+      var resourceIdGroup = string.Join(",",
+          resourceIds.Skip(i * groupSize).Take(groupSize).Select(id => string.Format("'{0}'", id)));
       var userQueryRequest = new QueryRequest(
           subscriptions: subscriptionList,
-          query: $"Resources | where id in~ ({resourceIds}) | project name, type");
+          query: $"Resources | where id in~ ({resourceIdGroup}) | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -149,12 +153,12 @@ while (/* Need to query more? */)
 
 ### <a name="query-in-parallel"></a>Consulta en paralelo
 
-Aunque el procesamiento por lotes es recomendable en comparación con la paralelización, hay ocasiones en las que las consultas no se pueden procesar fácilmente por lotes. En estos casos, puede consultar Azure Resource Graph al enviar varias consultas en paralelo. A continuación proporcionamos un ejemplo de cómo hacer un _retroceso_ según los encabezados de limitación en este tipo de escenario:
+Aunque la agrupación es recomendable en comparación con la paralelización, hay ocasiones en las que las consultas no se pueden agrupar fácilmente. En estos casos, puede consultar Azure Resource Graph al enviar varias consultas en paralelo. A continuación proporcionamos un ejemplo de cómo hacer un _retroceso_ según los encabezados de limitación en este tipo de escenario:
 
 ```csharp
-IEnumerable<IEnumerable<string>> queryBatches = /* Batches of queries  */
-// Run batches in parallel.
-await Task.WhenAll(queryBatches.Select(ExecuteQueries)).ConfigureAwait(false);
+IEnumerable<IEnumerable<string>> queryGroup = /* Groups of queries  */
+// Run groups in parallel.
+await Task.WhenAll(queryGroup.Select(ExecuteQueries)).ConfigureAwait(false);
 
 async Task ExecuteQueries(IEnumerable<string> queries)
 {
@@ -224,7 +228,7 @@ Dado que Azure Resource Graph devuelve 1000 entradas como máximo en una respues
 
 ## <a name="still-get-throttled"></a>¿Todavía se ve limitado?
 
-Si se ve limitado después de aplicar las recomendaciones anteriores, póngase en contacto con el equipo en [ resourcegraphsupport@microsoft.com ](mailto:resourcegraphsupport@microsoft.com).
+Si se ve limitado después de aplicar las recomendaciones anteriores, póngase en contacto con el equipo en [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com).
 
 Proporcione esta información:
 

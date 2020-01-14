@@ -5,22 +5,21 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 23c2a4e8c576f3f2355db0d903c43c9c5b24cc18
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 12/17/2019
+ms.openlocfilehash: b1d81296c996ab09cb6482cb970496779ccf8bd6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311646"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435495"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix en Azure HDInsight
 
 [Apache Phoenix](https://phoenix.apache.org/) es una capa de base de datos relacional de código abierto y masivamente paralela que se basa en [Apache HBase](hbase/apache-hbase-overview.md). Phoenix permite usar consultas de tipo SQL sobre HBase. Phoenix usa controladores JDBC subyacentes para permitir a los usuarios crear, eliminar y modificar índices, vistas, secuencias y tablas SQL, así como realizar operaciones upsert en filas de forma individual o masiva. Phoenix usa la compilación nativa de NoSQL en lugar de usar MapReduce para compilar consultas, lo que permite crear aplicaciones de baja latencia a partir de HBase. Phoenix agrega coprocesadores para admitir la ejecución de código proporcionado por clientes en el espacio de direcciones del servidor, ejecutando el código colocado con los datos. Este enfoque minimiza la transferencia de datos entre cliente y servidor.
 
 Apache Phoenix facilita las consultas de macrodatos a personas que no son desarrolladores, ya que pueden usar una sintaxis de tipo SQL en lugar de programación. Phoenix está altamente optimizado para HBase, a diferencia de otras herramientas como [Apache Hive](hadoop/hdinsight-use-hive.md) y Apache Spark SQL. La ventaja para los desarrolladores es que pueden escribir consultas de alto rendimiento con mucho menos código.
-<!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 Cuando envía una consulta SQL, Phoenix compila la consulta para llamadas nativas de HBase y ejecuta el análisis (o plan) en paralelo para optimización. Gracias a esta capa de abstracción, el desarrollador no tiene que escribir trabajos MapReduce y puede centrarse, en su lugar, en la lógica de negocios y el flujo de trabajo de la aplicación en torno al almacenamiento de macrodatos de Phoenix.
 
@@ -51,8 +50,8 @@ Por ejemplo, esta es una tabla física denominada `product_metrics` con la sigui
 ```sql
 CREATE  TABLE product_metrics (
     metric_type CHAR(1),
-    created_by VARCHAR, 
-    created_date DATE, 
+    created_by VARCHAR,
+    created_date DATE,
     metric_id INTEGER
     CONSTRAINT pk PRIMARY KEY (metric_type, created_by, created_date, metric_id));
 ```
@@ -71,7 +70,7 @@ Para agregar más columnas luego, use la instrucción `ALTER VIEW`.
 
 Omitir examen usa una o varias columnas de un índice compuesto para buscar valores DISTINCT. A diferencia de un examen de intervalo, Omitir examen implementa el análisis dentro de filas y produce un [rendimiento mejorado](https://phoenix.apache.org/performance.html#Skip-Scan). Al analizar, se omite el primer valor coincidente junto con el índice hasta que se encuentra el siguiente valor.
 
-Omitir examen usa la enumeración `SEEK_NEXT_USING_HINT` del filtro HBase. Con `SEEK_NEXT_USING_HINT`, Omitir examen realiza un seguimiento de qué conjunto de claves o rangos de claves se buscan en cada columna. A continuación, Omitir examen toma una clave que se le pasó durante la evaluación del filtro y determina si es una de las combinaciones. Si no lo es, Omitir examen evalúa la siguiente clave más alta a la que va a saltar.
+Omitir examen usa la enumeración `SEEK_NEXT_USING_HINT` del filtro HBase. Con `SEEK_NEXT_USING_HINT`, Omitir examen realiza un seguimiento de qué conjunto de claves o rangos de claves se buscan en cada columna. Omitir examen toma una clave que se le pasó durante la evaluación del filtro y determina si es una de las combinaciones. Si no lo es, Omitir examen evalúa la siguiente clave más alta a la que va a saltar.
 
 ### <a name="transactions"></a>Transacciones
 
@@ -135,6 +134,8 @@ Un clúster HDInsight HBase incluye la [interfaz de usuario de Ambari](hdinsight
 
     ![Sección de configuración de Ambari Phoenix SQL](./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Uso de Apache Phoenix con clústeres de HBase basados en Linux en HDInsight](hbase/apache-hbase-query-with-phoenix.md)
+
+* [Use Apache Zeppelin para ejecutar consultas de Apache Phoenix a través de Apache HBase en Azure HDInsight](./hbase/apache-hbase-phoenix-zeppelin.md)

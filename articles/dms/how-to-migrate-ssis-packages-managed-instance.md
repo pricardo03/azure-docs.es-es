@@ -1,6 +1,7 @@
 ---
-title: Migración de paquetes de SQL Server Integration Services a una instancia administrada de Azure SQL Database | Microsoft Docs
-description: Aprenda a migrar paquetes de SQL Server Integration Services a una instancia administrada de Azure SQL Database.
+title: Migración de paquetes de SSIS a una instancia administrada de SQL
+titleSuffix: Azure Database Migration Service
+description: Obtenga información sobre cómo migrar paquetes y proyectos de SQL Server Integration Services (SSIS) a una instancia administrada de Azure SQL Database mediante Azure Database Migration Service o Data Migration Assistant.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 06/08/2019
-ms.openlocfilehash: 82a047616c199e37bfa22f53e02f3f7b224b47c1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c0ec3cb21c83c7b9f5ff0cec092ab210ea8894eb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082185"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437983"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-database-managed-instance"></a>Migración de paquetes de SQL Server Integration Services a una instancia administrada de Azure SQL Database
 Si usa SQL Server Integration Services (SSIS) y quiere migrar sus proyectos o paquetes de SSIS desde la SSISDB de origen, que está hospedada en SQL Server, a la SSISDB de destino, que está hospedada en una instancia administrada de Azure SQL Database, puede usar Azure Database Migration Service.
@@ -26,13 +27,13 @@ Si la versión de SSIS que usa es anterior a 2012 o utiliza tipos de almacenes d
 > [!NOTE]
 > Actualmente, Azure Database Migration Service (DMS) no admite Azure SQL Database como un destino de migración. Para volver a implementar los proyectos o paquetes de SSIS en Azure SQL Database, consulte el artículo [Reimplementación de paquetes de SQL Server Integration Services a Azure SQL Database](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 > [!div class="checklist"]
 >
 > * Evaluar los proyectos o paquetes SSIS de origen.
 > * Migrar de paquetes o proyectos SSIS a Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar estos pasos, necesitará lo siguiente:
 

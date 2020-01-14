@@ -3,16 +3,16 @@ title: Detalles de la estructura de asignaciones de directivas
 description: Describe la definición de asignación de directiva utilizada por Azure Policy para relacionar las definiciones de directiva y los parámetros con los recursos para su evaluación.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9301004fe05afa77f3e73c6ec97335a17c237ce9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5f6b097b82d31926b7b5d3099d1f3f23669e78c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279475"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436376"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estructura de asignaciones de Azure Policy
 
-Azure Policy usa las asignaciones de directivas para definir los recursos que se asignan a las directivas o iniciativas. La asignación de directivas puede determinar los valores de los parámetros para ese grupo de recursos en el momento de la asignación, lo que permite volver a usar las definiciones de directiva que se ocupan de las mismas propiedades de recursos con diferentes necesidades de cumplimiento.
+Azure Policy usa las asignaciones de directivas para definir qué recursos se asignan a qué directivas o iniciativas. La asignación de directivas puede determinar los valores de los parámetros para ese grupo de recursos en el momento de la asignación, lo que permite volver a usar las definiciones de directiva que se ocupan de las mismas propiedades de recursos con diferentes necesidades de cumplimiento.
 
 Utilice JSON para crear una definición de directiva. La asignación de directivas contiene elementos para:
 
@@ -21,7 +21,7 @@ Utilice JSON para crear una definición de directiva. La asignación de directiv
 - metadata
 - modo de cumplimiento
 - definición de directiva
-- parameters
+- parámetros
 
 Por ejemplo, el siguiente archivo JSON muestra una asignación de directiva en el modo _DoNotEnforce_ con parámetros dinámicos:
 
@@ -59,10 +59,10 @@ La propiedad **enforcementMode** proporciona a los clientes la capacidad de prob
 
 Esta propiedad tiene los siguientes valores:
 
-|Mode |Valor JSON |type |Corregir manualmente |Entrada de registro de actividad |DESCRIPCIÓN |
+|Mode |Valor JSON |Tipo |Corregir manualmente |Entrada de registro de actividad |Descripción |
 |-|-|-|-|-|-|
 |habilitado |Valor predeterminado |string |Sí |Sí |El efecto de la directiva se aplica durante la creación o actualización de recursos. |
-|Disabled |DoNotEnforce |string |Sí |Sin | El efecto de la directiva no se aplica durante la creación o actualización de recursos. |
+|Disabled |DoNotEnforce |string |Sí |No | El efecto de la directiva no se aplica durante la creación o actualización de recursos. |
 
 Si **enforcementMode** no se especifica en una definición de directiva o iniciativa, se usa el valor _Default_. [Las tareas de corrección](../how-to/remediate-resources.md) se pueden iniciar para las directivas [deployIfNotExists](./effects.md#deployifnotexists), incluso cuando **enforcementMode** está establecido en _DoNotEnforce_.
 

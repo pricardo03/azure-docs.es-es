@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 88094e7ade688505bb971dd85505ddfacb1d8859
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9ca44b1917cfaed5d01c31f8f06d98e5e4b611a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926797"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438917"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 
@@ -205,7 +205,7 @@ Actualmente, no se pueden copiar datos entre dos almacenes de datos locales medi
 ### <a name="configuration"></a>Configuración
 Configure la opción **enableStaging** de la actividad de copia para especificar si quiere que los datos se almacenen provisionalmente en Blob Storage antes de cargarlos en un almacén de datos de destino. Al establecer **enableStaging** en TRUE, especifique las propiedades adicionales enumeradas en la siguiente tabla. Si no tiene un servicio vinculado a la firma de acceso compartido de Almacenamiento o de Azure Storage para el almacenamiento provisional, deberá crear uno.
 
-| Propiedad | Description | Valor predeterminado | Obligatorio |
+| Propiedad | Descripción | Valor predeterminado | Obligatorio |
 | --- | --- | --- | --- |
 | **enableStaging** |Especifique si desea copiar los datos a través de un almacén provisional. |False |No |
 | **linkedServiceName** |Especifique el nombre de un servicio vinculado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service), que haga referencia a la instancia de Azure Storage que se usa como almacenamiento provisional. <br/><br/> No puede usar Storage con una firma de acceso compartido para cargar datos en SQL Data Warehouse mediante PolyBase. Puede usarlo en todos los demás casos. |N/D |Sí, cuando el valor de **enableStaging** está establecido en True. |
@@ -399,24 +399,25 @@ En este caso, la compresión de datos bzip2 podría estar ralentizando la canali
 
 **Análisis y optimización del rendimiento**: por ejemplo, si ha instalado la puerta de enlace en una máquina de cuatro núcleos, Data Factory usa 16 copias en paralelo para mover los archivos del sistema de archivos a Blob Storage de manera simultánea. Esta ejecución en paralelo debe tener como resultado un alto rendimiento. También puede especificar explícitamente el número de copias en paralelo. Al copiar muchos archivos pequeños, las copias en paralelo ayudan considerablemente al rendimiento al usar los recursos de forma más eficaz.
 
-![Escenario 1.](./media/data-factory-copy-activity-performance/scenario-1.png)
+![Escenario 1](./media/data-factory-copy-activity-performance/scenario-1.png)
 
 **Escenario II**: se copian 20 blobs de 500 MB cada uno de Blob Storage a Data Lake Store Analytics y luego se optimiza el rendimiento.
 
 **Análisis y optimización del rendimiento**: en este escenario, Data Factory copia los datos de Blob Storage a Data Lake Store mediante una única copia (**parallelCopies** se establece en 1) y unidades de movimiento de datos de nube única. El rendimiento que observe estará próximo al que se describe en la [sección de referencia de rendimiento](#performance-reference).
 
-![Escenario 2.](./media/data-factory-copy-activity-performance/scenario-2.png)
+![Escenario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
 
 **Escenario III**: el tamaño de cada archivo es mayor que decenas de MB y el volumen total es grande.
 
 **Análisis y optimización del rendimiento**: el aumento del valor de **parallelCopies** no da lugar a un rendimiento mejor de la copia debido a las limitaciones de recursos de una DMU de nube única. En su lugar, debe especificar más DMU de nube para obtener más recursos de cara a realizar el movimiento de los datos. No especifique un valor para la propiedad **parallelCopies** . Data Factory controla el paralelismo automáticamente. En este caso, si establece **cloudDataMovementUnits** en 4, se produce una capacidad de proceso cuádruple.
 
-![Escenario 3.](./media/data-factory-copy-activity-performance/scenario-3.png)
+![Escenario 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
 ## <a name="reference"></a>Referencia
 Estas son algunas referencias para la supervisión y la optimización del rendimiento para algunos de los almacenes de datos admitidos:
 
-* Azure Storage (incluido Blob Storage y Table Storage): [Objetivos de escalabilidad de Azure Storage](../../storage/common/storage-scalability-targets.md) y [Lista de comprobación de rendimiento y escalabilidad de Azure Storage](../../storage/common/storage-performance-checklist.md)
+* Azure Blob Storage: [Objetivos de escalabilidad y rendimiento de Blob Storage](../../storage/blobs/scalability-targets.md) y [Lista de comprobación de escalabilidad y rendimiento para Blob Storage](../../storage/blobs/storage-performance-checklist.md).
+* Azure Table Storage: [Objetivos de escalabilidad y rendimiento de Blob Storage](../../storage/tables/scalability-targets.md) y [Lista de comprobación de rendimiento y de escalabilidad para Table Storage](../../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database: puede [supervisar el rendimiento](../../sql-database/sql-database-single-database-monitor.md) y comprobar el porcentaje de unidades de transacción de base de datos (DTU).
 * Azure SQL Data Warehouse: su capacidad se mide en unidades de almacenamiento de datos (DWU); consulte [Administración de la potencia de proceso en Azure SQL Data Warehouse (información general)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [Niveles de rendimiento en Azure Cosmos DB](../../cosmos-db/performance-levels.md)

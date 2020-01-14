@@ -1,25 +1,16 @@
 ---
-title: Descripción de un clúster con Cluster Resource Manager | Microsoft Docs
+title: Descripción de un clúster con Cluster Resource Manager
 description: Describa un clúster de Service Fabric mediante la especificación de los dominios de error, los dominios de actualización, y las propiedades y funcionalidades del nodo en Cluster Resource Manager.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 22ccb21a208bbe8e825bff9f7602bfca05990816
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 56765fa16bc1ea96f1429b72fded38c4385e65ec
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271650"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452119"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descripción de un clúster de Service Fabric con Cluster Resource Manager
 La característica Cluster Resource Manager de Azure Service Fabric proporciona varios mecanismos para describir un clúster:
@@ -384,7 +375,7 @@ El valor especificado en la propiedad de nodo puede ser una cadena, un booleano 
 
 * Comprobaciones condicionales para crear instrucciones concretas:
 
-  | Instrucción | Sintaxis |
+  | . | Sintaxis |
   | --- |:---:|
   | "equal to" | "==" |
   | "not equal to" | "!=" |
@@ -395,7 +386,7 @@ El valor especificado en la propiedad de nodo puede ser una cadena, un booleano 
 
 * Instrucciones booleanas para operaciones lógicas y de agrupación:
 
-  | Instrucción | Sintaxis |
+  | . | Sintaxis |
   | --- |:---:|
   | "and" | "&&" |
   | "or" | "&#124;&#124;" |

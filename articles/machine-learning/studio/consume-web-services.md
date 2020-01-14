@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: 1a567e8f910ccf539038a19eef0319f21833f336
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: a53128605e1f124cbd26fb679e799822b8abad29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839688"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454806"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Cómo consumir un servicio web de Azure Machine Learning Studio (clásico)
 
@@ -32,7 +32,7 @@ Puede encontrar más información sobre cómo crear e implementar un servicio we
 ## <a name="overview"></a>Información general
 Con el servicio web Azure Machine Learning, una aplicación externa se comunica con un modelo de puntuación de flujo de trabajo de Machine Learning en tiempo real. Una llamada al servicio web Machine Learning devuelve resultados de predicción a una aplicación externa. Para llamar a un servicio web Machine Learning, se pasa una clave de API que se crea cuando se implementa una predicción. El servicio web Machine Learning se basa en REST, una opción popular de arquitectura para proyectos de programación web.
 
-La versión clásica de Azure Machine Learning Studio tiene dos tipos de servicios:
+Azure Machine Learning Studio (clásico) tiene dos tipos de servicios:
 
 * Servicio de solicitud y respuesta (RRS): servicio de latencia baja altamente escalable que proporciona una interfaz con los modelos sin estado creados e implementados desde Machine Learning Studio (clásico).
 * Servicio de ejecución por lotes (BES): servicio asincrónico que puntúa un lote de registros de datos.

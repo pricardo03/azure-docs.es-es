@@ -1,5 +1,5 @@
 ---
-title: 'Detección inteligente: Azure Application Insights detectó una posible fuga de memoria | Microsoft Docs'
+title: Detección de fugas de memoria - Detección inteligente de Azure Application Insights
 description: Supervise las aplicaciones con Azure Application Insights para detectar posibles fugas de memoria.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
-ms.openlocfilehash: f07da754c6c9e0ad0541db12740c1d80f7f884fd
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: cc6074732a86be02a8d8c596c46e154db4e8ad7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818795"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406459"
 ---
 # <a name="memory-leak-detection-preview"></a>Detección de fugas de memoria (versión preliminar)
 
@@ -28,6 +28,6 @@ No, una notificación no significa que la aplicación tenga un problema. Aunque 
 
 ## <a name="how-do-i-fix-it"></a>¿Cómo puedo corregirlo?
 Las notificaciones incluyen información de diagnóstico para facilitar el proceso de análisis de diagnóstico:
-1. **Evaluación de errores.** La notificación muestra cuánto aumentó la memoria (en GB) y el intervalo de tiempo en el que se produjo ese aumento. Esto puede ayudarlo a asignar una prioridad al problema.
+1. **Evaluación de prioridades**. La notificación muestra cuánto aumentó la memoria (en GB) y el intervalo de tiempo en el que se produjo ese aumento. Esto puede ayudarlo a asignar una prioridad al problema.
 2. **Ámbito.** ¿Cuántas máquinas mostraron el patrón de fuga de memoria? ¿Cuántas excepciones se desencadenaron durante la posible fuga de memoria? Esta información puede obtenerse de la notificación.
-3. **Diagnóstico.** La detección contiene el patrón de fuga de memoria, y muestra el consumo de memoria del proceso a lo largo del tiempo. También puede usar los elementos relacionados y los vínculos de informes para obtener información que puede ayudarle a efectuar un diagnóstico exhaustivo del problema.
+3. **Diagnóstico.** La detección contiene el patrón de fuga de memoria, y muestra el consumo de memoria del proceso a lo largo del tiempo. También puede usar los elementos relacionados y los vínculos de informes para obtener información que puede ayudarle a efectuar un diagnóstico más exhaustivo del problema.

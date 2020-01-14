@@ -3,12 +3,12 @@ title: Descripción del funcionamiento de los efectos
 description: Las definiciones de Azure Policy tienen diversos efectos que determinan cómo se administra y notifica el cumplimiento.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8338f3bf965f121a553a56c551d2095bf60e4880
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: fec2f966260d997b45be50554e0f41d5fd0491aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279509"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436361"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -65,7 +65,7 @@ Un efecto append solo tiene una matriz **details**, que es necesaria. Como **det
 
 ### <a name="append-examples"></a>Ejemplos de append
 
-Ejemplo 1: un único par **campo/valor** que usa un [alias](definition-structure.md#aliases) distinto de- **[\*]** con un **valor** de matriz para establecer reglas de IP en una cuenta de almacenamiento. Cuando el alias que no es **[\*]** es una matriz, el efecto anexa el **valor** como toda la matriz. Si la matriz ya existe, el conflicto ocasiona un evento de rechazo.
+Ejemplo 1: un único par **campo valor** que usa un valor distinto de **[\*]** como [alias](definition-structure.md#aliases) con un **valor** de matriz para establecer reglas de IP en una cuenta de almacenamiento. Cuando el alias que no es **[\*]** es una matriz, el efecto anexa el **valor** como toda la matriz. Si la matriz ya existe, el conflicto ocasiona un evento de rechazo.
 
 ```json
 "then": {
@@ -80,7 +80,7 @@ Ejemplo 1: un único par **campo/valor** que usa un [alias](definition-structure
 }
 ```
 
-Ejemplo 2: un único par **campo/valor** que usa un [alias](definition-structure.md#aliases) **[\*]** con un **valor** de matriz para establecer reglas IP en una cuenta de almacenamiento. Mediante el uso del alias **[\*]** , el efecto anexa el **valor** a una matriz que es posible que ya exista. Si la matriz todavía no existe, se creará.
+Ejemplo 2: un único par **campo valor** que usa un valor distinto de **[\*]** como [alias](definition-structure.md#aliases) con un **valor** de matriz para establecer reglas IP en una cuenta de almacenamiento. Mediante el uso del alias **[\*]** , el efecto anexa el **valor** a una matriz que es posible que ya exista. Si la matriz todavía no existe, se creará.
 
 ```json
 "then": {
@@ -158,7 +158,7 @@ La matriz de propiedades **operations** permite modificar varias etiquetas de ma
 
 La propiedad **operation** tiene las siguientes opciones:
 
-|Operación |DESCRIPCIÓN |
+|Operación |Descripción |
 |-|-|
 |addOrReplace |Agrega la etiqueta y el valor definidos al recurso, incluso si la etiqueta ya existe con un valor diferente. |
 |Sumar |Agrega la etiqueta y el valor definidos al recurso. |
@@ -327,7 +327,7 @@ Ejemplo: evalúa Virtual Machines para determinar si existe la extensión Antima
 Similar a AuditIfNotExists, una definición de directiva DeployIfNotExists ejecuta una implementación de plantilla cuando se cumple la condición.
 
 > [!NOTE]
-> Las [plantillas anidadas](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template) son compatibles con **deployIfNotExists**, pero las [plantillas vinculadas](../../../azure-resource-manager/resource-group-linked-templates.md) no son compatibles actualmente.
+> Las [plantillas anidadas](../../../azure-resource-manager/templates/linked-templates.md#nested-template) son compatibles con **deployIfNotExists**, pero las [plantillas vinculadas](../../../azure-resource-manager/templates/linked-templates.md#linked-template) no son compatibles actualmente.
 
 ### <a name="deployifnotexists-evaluation"></a>Evaluación de DeployIfNotExists
 

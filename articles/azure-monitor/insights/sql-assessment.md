@@ -4,15 +4,15 @@ description: Con Azure Monitor, puede usar periódicamente la solución SQL Heal
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/28/2019
-ms.openlocfilehash: 7808ead7ec4191bdf17e3ab225aeaa909abd7d08
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e3e399e99dca453a84c4daef782027b2b1ad6da1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900682"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401033"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimización del entorno de SQL con la solución SQL Server Health Check en Azure Monitor
 
@@ -32,9 +32,9 @@ Después de haber agregado la solución y completar una evaluación, se muestra 
 
 ![imagen del panel de SQL Health Check](./media/sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* La solución SQL Health Check requiere que esté instalada una versión compatible de .NET Framework 4 en todos los equipos que tengan Microsoft Monitoring Agent (MMA) instalado.  System Center 2016 - Operations Manager y Operations Manager 2012 R2, y Azure Monitor, usan el agente de MMA.  
+* La solución SQL Health Check requiere que esté instalada una versión compatible de .NET Framework 4.6.2 en todos los equipos que tengan Microsoft Monitoring Agent (MMA) instalado.  System Center 2016 - Operations Manager y Operations Manager 2012 R2, y Azure Monitor, usan el agente de MMA.  
 * La solución es compatible con las versiones 2012, 2014 y 2016 de SQL Server.
 * Un área de trabajo de Log Analytics para agregar la solución SQL Health Check desde Azure Marketplace en Azure Portal.  Para instalar la solución, debe ser administrador o colaborador en la suscripción de Azure.
 
@@ -58,7 +58,7 @@ SQL Health Check recopila datos de los siguientes orígenes mediante el agente h
 
 * Instrumental de administración de Windows (WMI)
 * Registro
-* contadores de rendimiento
+* Contadores de rendimiento
 * Resultados de la vista de administración dinámica de SQL Server
 
 Los datos se recopilan en el servidor de SQL Server y se reenvían a Log Analytics cada siete días.
@@ -225,7 +225,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Azu
 * Se recopilan los siguientes tipos de datos:
   * WMI
   * Registro
-  * contadores de rendimiento
+  * Contadores de rendimiento
   * Vistas de administración dinámica (DMV) de SQL
 
 *¿Se puede configurar el momento en que se recopilan los datos?*

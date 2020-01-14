@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: troubleshooting
-ms.date: 08/13/2018
+ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: 5ae97f18bb15b5ab2fe092a1e3b857ea3ef0aed0
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5652c5035c2e4cd35ac6943ef90c8bcc02b95dba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012982"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442892"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -79,7 +79,7 @@ Este error aparece cuando los clústeres entran en un estado con errores por div
 
 1. Hasta que el clúster deje de tener el estado `failed`, las operaciones `upgrade` y `scale` no se realizarán correctamente. Los problemas y resoluciones raíz comunes incluyen:
     * Escalado con una **cuota de proceso insuficiente (CRP)** . Para solucionarlo, primero debe escalar el clúster de vuelta a un estado objetivo estable dentro de la cuota. Luego, siga estos [pasos para solicitar un aumento de cuota de proceso](../azure-supportability/resource-manager-core-quotas-request.md) antes de intentar volver a escalar verticalmente más allá de los límites de cuota iniciales.
-    * Escalar un clúster con redes avanzadas y **recursos de subred (redes) insuficientes**. Para solucionarlo, primero debe escalar el clúster de vuelta a un estado objetivo estable dentro de la cuota. Luego, siga estos [pasos para solicitar un aumento de cuota de recursos](../azure-resource-manager/resource-manager-quota-errors.md#solution) antes de intentar volver a escalar verticalmente más allá de los límites de cuota iniciales.
+    * Escalar un clúster con redes avanzadas y **recursos de subred (redes) insuficientes**. Para solucionarlo, primero debe escalar el clúster de vuelta a un estado objetivo estable dentro de la cuota. Luego, siga estos [pasos para solicitar un aumento de cuota de recursos](../azure-resource-manager/templates/error-resource-quota.md#solution) antes de intentar volver a escalar verticalmente más allá de los límites de cuota iniciales.
 2. Una vez que se resuelve la causa subyacente de un error de actualización, el clúster debería tener un estado correcto. Una vez que compruebe el estado correcto, vuelva a intentar la operación original.
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Recibo errores cuando intento actualizar o escalar que indican que el clúster se está actualizando o que hay un error de actualización.
@@ -482,3 +482,17 @@ kubectl edit secret azure-storage-account-{storage-account-name}-secret
 ```
 
 Después de unos minutos, el nodo del agente volverá a intentar el montaje de Azure Files con la clave de almacenamiento actualizada.
+
+### <a name="cluster-autoscaler-fails-to-scale-with-error-failed-to-fix-node-group-sizes"></a>El escalador automático del clúster no se puede escalar con el error que indica que no se pudieron corregir los tamaños del grupo de nodos
+
+Si el escalador automático del clúster no se amplía o reduce verticalmente y aparece un error como el siguiente en los [registros del escalador automático del clúster][view-master-logs].
+
+```console
+E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes: failed to decrease aks-default-35246781-vmss: attempt to delete existing nodes
+```
+
+Este error se debe a una condición de carrera del escalador automático del clúster ascendente, en que el escalador automático del clúster finaliza con un valor diferente al del clúster. Para salir de este estado, simplemente, deshabilite y vuelva a habilitar el [escalador automático del clúster][cluster-autoscaler].
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md

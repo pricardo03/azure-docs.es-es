@@ -1,5 +1,5 @@
 ---
-title: Uso de Internet Explorer con MSAL.js | Azure
+title: Problemas de Internet Explorer (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: Uso de la biblioteca de autenticación de Microsoft para JavaScript (MSAL.js) con el explorador Internet Explorer.
 services: active-directory
@@ -14,14 +14,14 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 715e92a10ca0b4cbe38119931bc66d36c3b9259a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4de918d87abca521f3b573f831f8bfd6a7e17728
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916288"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424294"
 ---
-# <a name="use-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Use los exploradores web de Internet Explorer y Microsoft Edge con MSAL.js
+# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Problemas conocidos en los exploradores Internet Explorer y Microsoft Edge (MSAL.js)
 
 La biblioteca de autenticación de Microsoft para JavaScript (MSAL.js) se genera para [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29), para que pueda ejecutarse en Internet Explorer. Hay, sin embargo, algunas cosas que debe saber.
 

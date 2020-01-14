@@ -2,19 +2,15 @@
 title: Solución Update Management de Azure
 description: En este artículo se describe cómo usar la solución Azure Update Management para administrar las actualizaciones de los equipos Windows y Linux.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/03/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 06d7ede1e9b91832f908c87a22cca37ec2866365
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 924f5bee94544c533f3a2548d931fce292469567
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806548"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420353"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -152,13 +148,13 @@ Para más información sobre cómo se actualizan los módulos de administración
 > [!NOTE]
 > Para sistemas con el agente de Operations Manager: Para que Update Management administre completamente un agente, este último debe actualizarse para MMA. Para aprender a actualizar el agente, consulte [Actualización de Operations Manager Agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents). En entornos que usan Operations Manager, debe ejecutar System Center Operations Manager 2012 R2 UR 14 o posterior.
 
-## <a name="data-collection"></a>Colección de datos
+## <a name="data-collection"></a>datos, recopilación
 
 ### <a name="supported-agents"></a>Agentes admitidos
 
 En la tabla siguiente se describen los orígenes conectados compatibles con esta solución:
 
-| Origen conectado | Compatible | DESCRIPCIÓN |
+| Origen conectado | Compatible | Descripción |
 | --- | --- | --- |
 | Agentes de Windows |Sí |La solución recopila información sobre las actualizaciones del sistema de los agentes de Windows e inicia a continuación la instalación de las actualizaciones necesarias. |
 | Agentes de Linux |Sí |La solución recopila información sobre las actualizaciones del sistema de los agentes de Linux e inicia a continuación la instalación de las actualizaciones necesarias en las distribuciones admitidas. |
@@ -180,10 +176,10 @@ Las direcciones siguientes se requieren específicamente para Update Management.
 
 |Azure Public  |Azure Government  |
 |---------|---------|
-|\* .ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
-|\* .oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|\* .blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|\* .azure-automation.net|*.azure-automation.us|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 En el caso de máquinas Windows, también debe permitir el tráfico a los puntos de conexión que necesita Windows Update. Puede encontrar una lista actualizada de los puntos de conexión necesarios en [Problemas relacionados con HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Si tiene un [servidor de Windows Update](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) local, también debe permitir el tráfico al servidor especificado en la [clave de WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
@@ -217,7 +213,7 @@ En las siguientes tablas se muestran las clasificaciones de actualizaciones en U
 
 ### <a name="windows"></a>Windows
 
-|clasificación  |DESCRIPCIÓN  |
+|clasificación  |Descripción  |
 |---------|---------|
 |Actualizaciones críticas     | Actualización para un problema específico que resuelve un error crítico no relacionado con la seguridad.        |
 |Actualizaciones de seguridad     | Actualización para un problema específico del producto relacionado con la seguridad.        |
@@ -230,7 +226,7 @@ En las siguientes tablas se muestran las clasificaciones de actualizaciones en U
 
 ### <a name="linux-2"></a>Linux
 
-|clasificación  |DESCRIPCIÓN  |
+|clasificación  |Descripción  |
 |---------|---------|
 |Actualizaciones críticas y de seguridad     | Actualizaciones para un problema específico o un problema de un producto específico relacionado con la seguridad.         |
 |Otras actualizaciones     | Todas las demás actualizaciones que ni son críticas por naturaleza ni son actualizaciones de seguridad.        |
@@ -273,7 +269,7 @@ Al implementar actualizaciones en una máquina Linux, puede seleccionar clasific
 
 Dado que Update Management realiza el enriquecimiento de actualizaciones en la nube, algunas actualizaciones pueden marcarse en Update Management como de impacto para la seguridad, aunque la máquina local no tenga esa información. Como resultado, si aplica actualizaciones críticas a una máquina Linux, puede haber actualizaciones que no estén marcadas como de impacto para la seguridad en esa máquina y que, por lo tanto, no se apliquen. Sin embargo, es posible que Update Management todavía notifique que esa máquina no es compatible porque tiene información adicional acerca de la actualización pertinente.
 
-La implementación de actualizaciones mediante la clasificación de actualizaciones no funciona en las versiones RTM de CentOS. Para implementar correctamente actualizaciones para CentOS, seleccione todas las clasificaciones para asegurarse de que se aplican las actualizaciones. Para SUSE, al seleccionar *solo* **Otras actualizaciones** como clasificación, puede causar que se instalen también algunas actualizaciones de seguridad si primero se requieren actualizaciones de seguridad relacionadas con zypper (administrador de paquetes) o sus dependencias. Este comportamiento es una limitación de zypper. En algunos casos, puede que se le pida volver a ejecutar la implementación de actualizaciones. Para ello, compruebe el registro de actualizaciones.
+La implementación de actualizaciones mediante la clasificación de actualizaciones no funciona en las versiones RTM de CentOS. Para implementar correctamente actualizaciones para CentOS, seleccione todas las clasificaciones para asegurarse de que se aplican las actualizaciones. Para SUSE, al seleccionar *solo* **Otras actualizaciones** como clasificación, puede que se instalen también algunas actualizaciones de seguridad si primero se requieren actualizaciones de seguridad relacionadas con zypper (administrador de paquetes) o sus dependencias. Este comportamiento es una limitación de zypper. En algunos casos, puede que se le pida volver a ejecutar la implementación de actualizaciones. Para ello, compruebe el registro de actualizaciones.
 
 ### <a name="multi-tenant"></a>Implementaciones de actualizaciones entre inquilinos
 

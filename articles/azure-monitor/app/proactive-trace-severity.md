@@ -1,18 +1,18 @@
 ---
-title: Detección inteligente, degradación en la relación de gravedad de seguimiento, en Azure Application Insights | Microsoft Docs
-description: Supervise los seguimientos de las aplicaciones con Azure Application Insights para detectar patrones poco habituales de telemetría de seguimiento.
+title: Degradación en la relación de gravedad de seguimiento - Azure Application Insights
+description: Supervise los seguimientos de las aplicaciones con Azure Application Insights para detectar patrones poco habituales de telemetría de seguimiento con Detección inteligente.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/27/2017
-ms.openlocfilehash: 83c1296beabaaae78289a653c6b30f6665f725c2
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b51cb66b59589c9b58d9115dfa6cefce0a20f3c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820533"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432415"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>Degradación en la relación de gravedad de seguimiento (versión preliminar)
 

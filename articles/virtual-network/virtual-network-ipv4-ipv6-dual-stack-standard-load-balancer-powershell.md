@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/08/2019
+ms.date: 12/17/2019
 ms.author: kumud
-ms.openlocfilehash: b1506c40d83e1483980c368db1659c9470b9a46a
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: eb6119584787973f097f496fd24064a65383fecd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185469"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368165"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Implementación de una aplicación de pila doble IPv6 en Azure - PowerShell (versión preliminar)
 
@@ -31,7 +31,7 @@ En este artículo se explica cómo se implementa mediante Standard Load Balancer
 
 Si decide instalar y usar PowerShell de forma local, la versión del módulo de Azure PowerShell que necesita este artículo es la 6.9.0 u otra posterior. Ejecute `Get-Module -ListAvailable Az` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-Az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para poder implementar una aplicación de pila doble en Azure, primero debe configurar la suscripción de esta característica en vista previa (GB) utilizando el siguiente procedimiento de Azure PowerShell:
 
 Regístrese del modo siguiente:
@@ -130,7 +130,11 @@ $backendPoolv4 = New-AzLoadBalancerBackendAddressPoolConfig `
 $backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig `
 -Name "dsLbBackEndPool_v6"
 ```
-
+### <a name="create-a-health-probe"></a>Creación de un sondeo de estado
+Utilice [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig) para crear un sondeo de estado para supervisar el estado de las VM.
+```azurepowershell
+$probe = New-AzLoadBalancerProbeConfig -Name MyProbe -Protocol tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
+```
 ### <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
 
 Las reglas de equilibrador de carga se utilizan para definir cómo se distribuye el tráfico a las máquinas virtuales. Defina la configuración de la IP de front-end para el tráfico entrante y el grupo de IP de back-end para el tráfico entrante, junto con los puertos de origen y destino requeridos. Para tener la seguridad de que solo reciben tráfico las máquinas virtuales correctas, también puede definir un sondeo de estado. Los equilibradores de carga básicos usan un sondeo de IPv4 para evaluar el estado de los puntos de conexión IPv4 e IPv6 de las máquinas virtuales. Los equilibradores de carga estándar permiten realizar explícitamente sondeos de estado de IPv6.
@@ -144,7 +148,8 @@ $lbrule_v4 = New-AzLoadBalancerRuleConfig `
   -BackendAddressPool $backendPoolv4 `
   -Protocol Tcp `
   -FrontendPort 80 `
-  -BackendPort 80
+  -BackendPort 80 `
+   -probe $probe
 
 $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -Name "dsLBrule_v6" `
@@ -152,7 +157,8 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -BackendAddressPool $backendPoolv6 `
   -Protocol Tcp `
   -FrontendPort 80 `
-  -BackendPort 80
+  -BackendPort 80 `
+   -probe $probe
 ```
 
 ### <a name="create-load-balancer"></a>Creación de un equilibrador de carga

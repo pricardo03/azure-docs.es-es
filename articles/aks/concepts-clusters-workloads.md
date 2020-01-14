@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: 78fb06c7ecd20d8ed2af40bcc294f2fb1b166d96
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: a6b696e16d2c946572cc213115fb440775fce3fe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120618"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442979"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
@@ -125,7 +125,7 @@ Los nodos de la misma configuración se agrupan en *grupos de nodos*. Un clúste
 
 Al escalar o actualizar un clúster de AKS, la acción se realiza en el grupo de nodos predeterminado. También puede escalar o actualizar un grupo de nodos específicos. Para las operaciones de actualización, los contenedores en ejecución se programan en otros nodos del grupo de nodos hasta que todos los nodos se actualizan correctamente.
 
-Para más información sobre cómo usar varios grupos de nodos en AKS, consulte [Creación y administración de varios grupos de nodos para un clúster en AKS][use-multiple-node-pools].
+Para obtener más información sobre cómo usar varios grupos de nodos en AKS, consulte [Creación y administración de varios grupos de nodos para un clúster en AKS][use-multiple-node-pools].
 
 ### <a name="node-selectors"></a>Selectores de nodos
 
@@ -152,7 +152,7 @@ Para más información sobre cómo controlar pods en grupos de nodos, consulte [
 
 Kubernetes utiliza *pods* para ejecutar una instancia de la aplicación. Un pod representa una instancia individual de la aplicación. Los pods suelen tener una asignación 1:1 con un contenedor, aunque hay escenarios avanzados en los que un pod puede incluir varios contenedores. Los pods de varios contenedores se programan conjuntamente en el mismo nodo y permiten que los contenedores compartan recursos relacionados.
 
-Al crear un pod, puede definir *límites de recursos* para solicitar una determinada cantidad de recursos de memoria o CPU. Scheduler de Kubernetes intenta programar los pods para que se ejecuten en un nodo con recursos disponibles para satisfacer la solicitud. También puede especificar los límites de recursos máximos que impiden que un determinado pod consuma demasiados recursos de proceso del nodo subyacente. Un procedimiento recomendado consiste en incluir los límites de recursos de todos los pods para ayudar a Scheduler de Kubernetes a comprender qué recursos son necesarios y cuáles se permiten.
+Al crear un pod, puede definir *solicitudes de recursos* para solicitar una determinada cantidad de recursos de memoria o CPU. Scheduler de Kubernetes intenta programar los pods para que se ejecuten en un nodo con recursos disponibles para satisfacer la solicitud. También puede especificar los límites de recursos máximos que impiden que un determinado pod consuma demasiados recursos de proceso del nodo subyacente. Un procedimiento recomendado consiste en incluir los límites de recursos de todos los pods para ayudar a Scheduler de Kubernetes a comprender qué recursos son necesarios y cuáles se permiten.
 
 Para obtener más información, consulte [Pods de Kubernetes][kubernetes-pods] y [Ciclo de vida de pods de Kubernetes][kubernetes-pod-lifecycle].
 

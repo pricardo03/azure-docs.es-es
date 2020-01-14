@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: b073c4244d2a7abc7c2c066c3fad036f0caa5faa
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 529e188d1a4ee00cee7f3d023ab45a48dd0d3c5f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929541"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428388"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure
 
@@ -24,7 +24,7 @@ En las tareas de ciencias de datos que se demuestran en este tutorial se siguen 
 
 En este tutorial analizamos el conjunto de datos [spambase](https://archive.ics.uci.edu/ml/datasets/spambase). Spambase es un conjunto de correos electrónicos que se marcan como correo no deseado o ham (no es correo no deseado). Spambase también contiene algunas estadísticas sobre el contenido de los correos electrónicos. Hablaremos sobre las estadísticas más adelante en el tutorial.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de usar una instancia de DSVM de Linux, debe cumplir los siguientes requisitos previos:
 
@@ -174,17 +174,17 @@ Vamos a probar un modelo de bosque aleatorio. Los bosques aleatorios entrenan mu
 
 ## <a name="deploy-a-model-to-azure-machine-learning-studio-classic"></a>Implementación de un modelo en Azure Machine Learning Studio (clásico)
 
-[Azure Machine Learning Studio (clásico)](https://studio.azureml.net/) es un servicio en la nube que permite la creación e implementación de forma fácil de modelos de análisis predictivo. Una característica interesante de la versión clásica de Azure Machine Learning Studio es la posibilidad de publicar cualquier función de R como un servicio web. El paquete de R de Azure Machine Learning Studio permite realizar la implementación de forma fácil, justo desde su sesión de R en DSVM.
+[Azure Machine Learning Studio (clásico)](https://studio.azureml.net/) es un servicio en la nube que permite la creación e implementación de forma fácil de modelos de análisis predictivo. Una característica interesante de Azure Machine Learning Studio (clásico) es la posibilidad de publicar cualquier función de R como un servicio web. El paquete de R de Azure Machine Learning Studio (clásico) permite realizar la implementación de forma fácil, justo desde su sesión de R en DSVM.
 
 Para implementar el código del árbol de decisiones de la sección anterior, inicie sesión en Azure Machine Learning Studio (clásico). Necesita el identificador del área de trabajo y un token de autorización para iniciar sesión. Para encontrar estos valores e inicializar las variables de Azure Machine Learning con ellos, complete estos pasos:
 
 1. En el menú de la izquierda, seleccione **Configuración**. Tenga en cuenta el valor de **ID. DEL ÁREA DE TRABAJO**.
 
-   ![Id. del área de trabajo de Azure Machine Learning Studio](./media/linux-dsvm-walkthrough/workspace-id.png)
+   ![Id. del área de trabajo de Azure Machine Learning Studio (clásico)](./media/linux-dsvm-walkthrough/workspace-id.png)
 
 1. Seleccione la pestaña **Tokens de autorización**. Tenga en cuenta el valor del **token de autorización principal**.
 
-   ![Token de autorización principal de Azure Machine Learning Studio](./media/linux-dsvm-walkthrough/workspace-token.png)
+   ![Token de autorización principal de Azure Machine Learning Studio (clásico)](./media/linux-dsvm-walkthrough/workspace-token.png)
 1. Cargue el paquete de **AzureML** y luego establezca los valores de las variables con su token y su id. de área de trabajo en la sesión de R de DSVM:
 
         if(!require("AzureML")) install.packages("AzureML")

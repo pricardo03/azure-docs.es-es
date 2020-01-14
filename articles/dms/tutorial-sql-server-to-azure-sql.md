@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: Uso de Azure Database Migration Service para migrar sin conexión de SQL Server a una base de datos única o agrupada en Azure SQL Database | Microsoft Docs'
+title: 'Tutorial: Migración de SQL Server sin conexión a una base de datos única de SQL'
+titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar la migración de SQL Server en el entorno local a una base de datos única o agrupada en Azure SQL Database sin conexión mediante Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: 46d5754d046284ae42da91c2eb08bfe709e7e372
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 867e371babda5cfd3abe7e22ac685c7648461327
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582347"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437430"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>Tutorial: Migración de SQL Server a una base de datos única o agrupada en Azure SQL Database sin conexión mediante DMS
 
@@ -37,7 +38,7 @@ En este tutorial, aprenderá a:
 
 En este artículo se describe una migración sin conexión desde SQL Server a una base de datos única o agrupada de Azure SQL Database. Para una migración en línea, consulte [Migración de SQL Server a Azure SQL Database en línea mediante DMS](tutorial-sql-server-azure-sql-online.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesita:
 
@@ -147,7 +148,7 @@ Para migrar el esquema de **AdventureWorks2012** a una base de datos única o ag
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registro del proveedor de recursos Microsoft.DataMigration
 
-1. Inicie sesión en Azure Portal, seleccione **Todos los servicios** y, después, **Suscripciones**.
+1. Inicie sesión en Azure Portal. Busque y seleccione **Suscripciones**.
 
    ![Mostrar suscripciones en el portal](media/tutorial-sql-server-to-azure-sql/portal-select-subscription1.png)
 
@@ -155,13 +156,13 @@ Para migrar el esquema de **AdventureWorks2012** a una base de datos única o ag
 
     ![Mostrar los proveedores de recursos](media/tutorial-sql-server-to-azure-sql/portal-select-resource-provider.png)
 
-3. Busque la migración y después, a la derecha de **Microsoft.DataMigration**, seleccione **Registrar**.
+3. Busque la migración y, después, seleccione **Registrar** para **Microsoft.DataMigration**.
 
     ![Registro del proveedor de recursos](media/tutorial-sql-server-to-azure-sql/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>Creación de una instancia
 
-1. En Azure Portal, seleccione + **Crear un recurso**, busque Azure Database Migration Service y, después, seleccione **Azure Database Migration Service** en la lista desplegable.
+1. En el menú de Azure Portal o en la página **principal**, seleccione **Crear un recurso**. Busque y seleccione **Azure Database Migration Service**.
 
     ![Azure Marketplace](media/tutorial-sql-server-to-azure-sql/portal-marketplace.png)
 
@@ -191,15 +192,16 @@ Para migrar el esquema de **AdventureWorks2012** a una base de datos única o ag
 
 Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proyecto de migración.
 
-1. En Azure Portal, seleccione **Todos los servicios**, busque Azure Database Migration Service y, luego, elija **Azure Database Migration Services**.
+1. En el menú de Azure Portal, seleccione **Todos los servicios**. Busque y seleccione **Azure Database Migration Service**.
 
      ![Búsqueda de todas las instancias de Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-search.png)
 
-2. En la pantalla **Azure Database Migration Services**, busque el nombre de la instancia de Azure Database Migration Service que creó y, después, seleccione la instancia.
+2. En la pantalla **Azure Database Migration Services**, seleccione el nombre de la instancia de Azure Database Migration Service que creó.
 
-    ![Buscar una instancia de Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
+3. Seleccione **Nuevo proyecto de migración**.
 
-3. Seleccione **+ New Migration Project** (+ Nuevo proyecto de migración).
+     ![Buscar una instancia de Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
+
 4. En la pantalla **Nuevo proyecto de migración**, especifique un nombre para el proyecto. En el cuadro de texto **Source server type** (Tipo de servidor de origen), seleccione **SQL Server**, en el cuadro de texto **Target server type** (Tipo de servidor de destino), seleccione **Azure SQL Database** y, finalmente, en **Elegir tipo de actividad**, seleccione **Migración de datos sin conexión**.
 
     ![Creación de un proyecto de Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-create-project2.png)

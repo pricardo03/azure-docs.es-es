@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 12/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6ff1dac312bcb4df1e1afc9679df09fc8a2b28ff
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c03be46207e7698d0557729c546488412c0cc5dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896890"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437100"
 ---
 # <a name="about-expressroute-fastpath"></a>Acerca de FastPath de ExpressRoute
 
@@ -26,14 +26,24 @@ FastPath está disponible en todos los circuitos de ExpressRoute.
 
 ### <a name="gateways"></a>Puertas de enlace
 
-FastPath de todos modos necesita que se cree una puerta de enlace de red virtual para intercambiar rutas entre la red virtual y una red local. Para más información acerca de las puertas de enlace de red virtual y ExpressRoute, consulte [Puerta de enlace de red virtual de ExpressRoute y FastPath](expressroute-about-virtual-network-gateways.md).
+FastPath de todos modos necesita que se cree una puerta de enlace de red virtual para intercambiar rutas entre la red virtual y una red local. Para más información acerca de las puertas de enlace de red virtual y ExpressRoute, incluidas las SKU de puerta de enlace y la información sobre el rendimiento, consulte [Puerta de enlace de red virtual de ExpressRoute](expressroute-about-virtual-network-gateways.md).
 
-La puerta de enlace de red virtual debe ser alguna de las siguientes:
+Para configurar FastPath, la puerta de enlace de red virtual debe ser una de las siguientes:
 
 * Ultrarrendimiento
 * ErGw3AZ
 
-## <a name="supported-features"></a>Características compatibles
+#### <a name="aggthroughput"></a>Rendimientos estimados por SKU de puerta de enlace
+En la tabla siguiente se muestran los tipos de puerta de enlace y los rendimientos estimados. Esta tabla se aplica a los modelos de implementación del Administrador de recursos y clásico.
+
+[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
+
+> [!IMPORTANT]
+> El rendimiento de la aplicación depende de varios factores, como la latencia de extremo a extremo y el número de flujos de tráfico que abre la aplicación. Los números de la tabla representan el límite superior que teóricamente la aplicación puede alcanzar en un entorno ideal.
+>
+>
+
+## <a name="supported-features"></a>Características admitidas
 
 Aunque FastPath admite la mayoría de las configuraciones, no es compatible con las siguientes características:
 

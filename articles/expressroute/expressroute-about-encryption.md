@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: b8e9748360b22cd1c693b2c601024c0824ffb483
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 7dd9106539b6756d74629ac663241a5b5562cefb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083621"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437046"
 ---
 # <a name="expressroute-encryption"></a>Cifrado de ExpressRoute
  
@@ -40,7 +40,7 @@ Sí. MACsec protege las conexiones físicas entre el usuario y Microsoft. IPsec 
 ### <a name="can-i-use-azure-vpn-gateway-to-set-up-the-ipsec-tunnel-between-my-on-premises-network-and-my-azure-virtual-network"></a>¿Puedo usar la puerta de enlace de Azure VPN para configurar el túnel IPsec entre mi red local y mi red virtual de Azure?
 Sí. Puede configurar este túnel IPsec a través de Emparejamiento de Microsoft del circuito ExpressRoute. Siga nuestra [guía de configuración](site-to-site-vpn-over-microsoft-peering.md).
 ### <a name="can-i-use-azure-vpn-gateway-to-set-up-the-ipsec-tunnel-over-azure-private-peering"></a>¿Puedo usar la puerta de enlace de Azure VPN para configurar el túnel IPsec a través de Emparejamiento privado de Azure?
-No. Tiene que implementar una puerta de enlace de VPN de terceros en la red virtual de Azure y establecer un túnel IPsec entre ella y la puerta de enlace de VPN en el entorno local.
+Si adopta Azure Virtual WAN, puede seguir [estos pasos](../virtual-wan/vpn-over-expressroute.md) para cifrar la conexión de un extremo a otro. Si tiene una VNET de Azure normal, puede implementar una puerta de enlace de VPN de terceros en la VNET y establecer un túnel IPsec entre ella y la puerta de enlace de VPN en el entorno local.
 ### <a name="what-is-the-throughput-i-will-get-after-enabling-ipsec-on-my-expressroute-connection"></a>¿Cuál es el rendimiento que se obtendría después de habilitar IPsec en mi conexión de ExpressRoute?
 Si se usa la puerta de enlace de Azure VPN, compruebe las [cifras de rendimiento aquí](../vpn-gateway/vpn-gateway-about-vpngateways.md). Si se usa una puerta de enlace de VPN de terceros, consulte con el proveedor de las cifras de rendimiento.
 

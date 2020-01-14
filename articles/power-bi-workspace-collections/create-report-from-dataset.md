@@ -1,5 +1,5 @@
 ---
-title: Creación de un nuevo informe a partir de un conjunto de datos en Colecciones de áreas de trabajo de Power BI | Microsoft Docs
+title: Creación de un informe a partir de un conjunto de datos - Colecciones de áreas de trabajo de Power BI
 description: Los informes de Colección de áreas de trabajo de Power BI ahora se pueden crear a partir de un conjunto de datos de su propia aplicación.
 services: power-bi-workspace-collections
 ms.service: power-bi-embedded
@@ -8,12 +8,12 @@ ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 2034c62a17b71b92b43a7afd794c2c172288d58c
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: bcc6044d0f0f5270f81a619e4d1ad71ea35cc170
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672449"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427055"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Creación de un nuevo informe a partir de un conjunto de datos en Colecciones de áreas de trabajo de Power BI
 
@@ -196,7 +196,7 @@ var embedCreateConfiguration = {
 </script>
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 [Get started with Microsoft Power BI Embedded sample (Introducción a Microsoft Power BI Embedded: ejemplo)](get-started-sample.md)  
 [Almacenamiento de informes](save-reports.md)  
@@ -207,4 +207,4 @@ var embedCreateConfiguration = {
 [Paquete NuGet Power BI Core](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
 [Paquete Power BI JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 
-¿Tiene más preguntas? [Pruebe la comunidad de Power BI](https://community.powerbi.com/)
+¿Tiene alguna pregunta más? [Pruebe la comunidad de Power BI](https://community.powerbi.com/)

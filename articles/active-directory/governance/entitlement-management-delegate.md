@@ -1,5 +1,5 @@
 ---
-title: 'Delegación y roles en la administración de derechos de Azure AD: Azure Active Directory'
+title: Delegación y roles en la administración de derechos - Azure AD
 description: Aprenda a delegar la gobernanza del acceso de los administradores de TI en los administradores de departamentos y los jefes de proyecto para que ellos mismos puedan encargarse del acceso.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d68728c4ca4f9fe511faedcf2ca177b7160f112
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174261"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422597"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegación y roles en la administración de derechos de Azure AD
 
@@ -76,7 +76,7 @@ Después de la delegación, el departamento de marketing podría tener roles sim
 
 La administración de derechos incluye los siguientes roles específicos de administración de derechos.
 
-| Rol de administración de derechos | DESCRIPCIÓN |
+| Rol de administración de derechos | Descripción |
 | --- | --- |
 | Creador de catálogos | Crear y administrar catálogos. Normalmente, un administrador de TI que no es administrador global o un propietario de recursos en una colección de recursos. La persona que crea un catálogo se convierte automáticamente en el primer propietario del catálogo y puede agregar otros propietarios del catálogo. Un creador de catálogos no puede administrar o ver los catálogos que no son de su propiedad y no puede agregar recursos que no son de su propiedad a un catálogo. Si el creador del catálogo tiene que administrar otro catálogo o agregar recursos que no son de su propiedad, puede solicitar ser copropietario de ese catálogo o recurso. |
 | Propietario del catálogo | Editar y administrar catálogos existentes. Normalmente, un administrador de TI o propietarios de recursos, o un usuario que el propietario del catálogo ha designado. |
@@ -84,7 +84,7 @@ La administración de derechos incluye los siguientes roles específicos de admi
 
 Además, un aprobador designado y un solicitante de un paquete de acceso también disponen de derechos, aunque no son roles.
 
-| Right | DESCRIPCIÓN |
+| Right | Descripción |
 | --- | --- |
 | Aprobador | Usuario autorizado por una directiva para aprobar o rechazar solicitudes de acceso a paquetes, aunque no puede cambiar las definiciones de paquetes de acceso. |
 | Solicitante | Usuario autorizado por una directiva de un paquete de acceso para solicitar ese paquete de acceso. |

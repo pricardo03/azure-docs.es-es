@@ -1,25 +1,16 @@
 ---
-title: Supervisión del mantenimiento en Service Fabric | Microsoft Docs
+title: Supervisión del estado de mantenimiento en Service Fabric
 description: Una introducción al modelo de supervisión del mantenimiento de Azure Service Fabric, que proporciona supervisión del clúster y de sus aplicaciones y servicios.
-services: service-fabric
-documentationcenter: .net
 author: oanapl
-manager: chackdan
-editor: ''
-ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 473aa2b9a74193a857390cd3e29b2b559b6084d3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60949188"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433897"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introducción a la supervisión del mantenimiento de Service Fabric
 Azure Service Fabric presenta un modelo de mantenimiento que proporciona informes y datos de evaluación del mantenimiento completos, flexibles y extensibles. El modelo permite la supervisión casi en tiempo real del estado tanto del clúster como de los servicios que se ejecutan en él. Puede obtener con facilidad información sobre el mantenimiento, y corregir posibles problemas antes de que se propaguen y causen interrupciones masivas. En el modelo típico, los servicios envían informes basados en sus vistas locales, y dicha información se agrega para proporcionar una vista general del nivel del clúster.
@@ -49,7 +40,7 @@ Las entidades de mantenimiento, organizadas en una jerarquía basada en relacion
 Las entidades de mantenimiento son:
 
 * **Clúster**. Representa el estado de un clúster de Service Fabric. Los informes de mantenimiento del clúster describen las condiciones que afectan al clúster completo. Estas condiciones afectan a varias entidades en el clúster o al propio clúster. En función de la condición, el indicador no puede restringir el problema a uno o varios elementos secundarios con un estado incorrecto. Entre los ejemplos se incluye el cerebro de la división del clúster debida problema de creación de particiones de red o de comunicación.
-* **Nodo**. Representa el estado de un nodo de Service Fabric. Los informes de mantenimiento del nodo describen las condiciones que afectan a la funcionalidad del nodo. Normalmente afectan a todas las entidades implementadas que se ejecutan en él. Entre los ejemplos se incluyen que un nodo se quede sin espacio en disco (u otra propiedad de la máquina como la memoria o las conexiones) y cuando un nodo está inactivo. La entidad del nodo se identifica por el nombre del nodo (cadena).
+* **Node**. Representa el estado de un nodo de Service Fabric. Los informes de mantenimiento del nodo describen las condiciones que afectan a la funcionalidad del nodo. Normalmente afectan a todas las entidades implementadas que se ejecutan en él. Entre los ejemplos se incluyen que un nodo se quede sin espacio en disco (u otra propiedad de la máquina como la memoria o las conexiones) y cuando un nodo está inactivo. La entidad del nodo se identifica por el nombre del nodo (cadena).
 * **Aplicación**. Representa el estado de una instancia de aplicación que se ejecuta en el clúster. Los informes de mantenimiento de aplicación describen las condiciones que afectan el mantenimiento general de la aplicación. No se pueden restringir a elementos secundarios individuales (servicios o aplicaciones implementadas). Entre los ejemplos se incluye la interacción de un extremo a otro entre los diferentes servicios de la aplicación. La entidad de la aplicación se identifica mediante el nombre de la aplicación (identificador URI).
 * **Servicio**. Representa el estado de un servicio que se ejecuta en el clúster. Los informes de mantenimiento del servicio describen las condiciones que afectan el mantenimiento general del servicio. El indicador no puede reducir el problema a una partición o una réplica con un estado incorrecto. Entre los ejemplos se incluye una configuración del servicio (como un puerto o un recurso compartido de archivos externo) que causa problemas en todas las particiones. La entidad de servicio se identifica mediante el nombre del servicio (identificador URI).
 * **Partición**. Representa el estado de una partición de servicio. Los informes de mantenimiento de la partición describen las condiciones que afectan al conjunto completo de réplicas. Entre los ejemplos se incluye cuando el número de réplicas es inferior al recuento de destino y cuando la partición tiene una pérdida de cuórum. La entidad de la partición se identifica mediante el identificador de la partición (GUID).

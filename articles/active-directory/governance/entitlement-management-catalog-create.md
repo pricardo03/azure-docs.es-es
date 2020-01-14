@@ -1,5 +1,5 @@
 ---
-title: 'Creación y administración de un catálogo de recursos en la administración de derechos de Azure AD: Azure Active Directory'
+title: Creación y administración de recursos en la administración de derechos - Azure AD
 description: Obtenga información sobre cómo crear un contenedor de recursos y paquetes de acceso en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66e3dee83ccf4a857fda9d5804848108c0cc251
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 24e82abd2c95bcbfdde843a6636a809bb3aeb70c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174428"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422643"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Creación y administración de un catálogo de recursos en la administración de derechos de Azure AD
 

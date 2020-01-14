@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: 891f680485ec3ee65c0bef102eb7f52cea0611c6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 57bc5739d8e6b1fa30482de69285c8895294cfa8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839645"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454753"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Creación de puntos de conexión para los servicios web de Azure Machine Learning Studio (clásico) implementados
 
@@ -34,12 +34,12 @@ Puede agregar un punto de conexión a un servicio web mediante el portal de serv
 
 1. En Machine Learning Studio (clásico), en la columna de navegación izquierda, haga clic en Servicios web.
 2. En la parte inferior del panel de servicios web, haga clic en **Manage endpoints**(Administrar puntos de conexión). El portal de servicios web de Azure Machine Learning se abre en la página de puntos de conexión del servicio web.
-3. Haga clic en **Nuevo**.
+3. Haga clic en **Nueva**.
 4. Escriba un nombre y una descripción para el nuevo punto de conexión. Los nombres de los puntos de conexión deben tener 24 caracteres o menos y deben estar formados por letras en minúsculas o números. Seleccione el nivel de registro y si los datos de ejemplo están habilitados. Para más información sobre los registros, vea [Habilitar el registro para los servicios web de Machine Learning](web-services-logging.md).
 
 ## <a id="scaling"></a> Escalado de un servicio web mediante la incorporación de puntos de conexión adicionales
 
-De manera predeterminada, cada servicio web publicado está configurado para admitir 20 solicitudes simultáneas y 200 solicitudes simultáneas como máximo. La versión clásica de Azure Machine Learning Studio optimiza automáticamente este valor con el fin de brindar el mejor rendimiento al servicio web, por lo que se omite el valor del portal.
+De manera predeterminada, cada servicio web publicado está configurado para admitir 20 solicitudes simultáneas y 200 solicitudes simultáneas como máximo. Azure Machine Learning Studio (clásico) optimiza automáticamente este valor con el fin de brindar el mejor rendimiento al servicio web, por lo que se omite el valor del portal.
 
 Si tiene previsto llamar a la API con una carga mayor que un máximo de 200 llamadas simultáneas, debe crear varios puntos de conexión en el mismo servicio web. Acto seguido, podrá distribuir aleatoriamente la carga entre todos ellos.
 

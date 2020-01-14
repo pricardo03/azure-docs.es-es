@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ba903d75707be91bb8af1271b52eb260ffcde306
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d27f792b39a1809cde0f27186f343af7d7aef60a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72941809"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454147"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Conexión de un dispositivo Raspberry Pi a su aplicación de Azure IoT Central (C#)
 
@@ -27,12 +27,12 @@ En este artículo se describe cómo conectar, en tanto que desarrollador de disp
 
 Para completar los pasos descritos en este artículo, necesita los siguientes componentes:
 
-* Una aplicación de Azure IoT Central creada a partir de la plantilla de aplicación **Ejemplo Devkits**. Para más información, consulte la [guía de inicio rápido para crear una aplicación](quick-deploy-iot-central.md).
+* Una aplicación de Azure IoT Central creada a partir de la plantilla de la **Aplicación heredada**. Para más información, consulte la [guía de inicio rápido para crear una aplicación](quick-deploy-iot-central.md).
 * Un dispositivo Raspberry Pi que ejecuta el sistema operativo Raspbian. Raspberry Pi debe poder conectarse a Internet. Para obtener más información, consulte [Configuración del dispositivo Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
 
-## <a name="sample-devkits-application"></a>Aplicación **Ejemplo Devkits**
+## <a name="add-a-device-template"></a>Incorporación de una plantilla de dispositivo
 
-Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits** incluye una plantilla de dispositivo **Raspberry Pi** con las siguientes características:
+En la aplicación de Azure IoT Central, agregue una nueva plantilla de dispositivo **Raspberry Pi** con las siguientes características:
 
 * Datos de telemetría, lo que incluye las siguientes medidas que recopilará el dispositivo:
   * Humedad
@@ -46,9 +46,14 @@ Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits
   * Current
   * Fan Speed
   * Conmutador de infrarrojos.
-* properties (Propiedades)
+* Propiedades
   * Propiedad Die number (Número de chip) del dispositivo
   * Propiedad Location cloud (ubicación en la nube)
+
+1. Seleccione **+Nuevo** desde ![Plantilla de dispositivo](media/howto-connect-raspberry-pi-csharp/adddevicetemplate.png) en las plantillas de dispositivo
+   
+
+2. Seleccione **Raspberry Pi** y cree la plantilla de dispositivo Raspberry Pi ![Agregar plantilla de dispositivo](media/howto-connect-raspberry-pi-csharp/newdevicetemplate.png)
 
 Para obtener detalles completos sobre la configuración de la plantilla de dispositivo, consulte los [detalles de la plantilla de dispositivo Raspberry Pi](#raspberry-pi-device-template-details).
 
@@ -349,7 +354,7 @@ Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits
 
 Valores numéricos
 
-| Nombre para mostrar | Nombre del campo | Unidades | Posiciones decimales | Mínima | Máxima | Inicial |
+| Nombre para mostrar | Nombre del campo | Unidades | Posiciones decimales | Mínima | Máxima | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltage (Voltaje)      | setVoltage | Voltios | 0              | 0       | 240     | 0       |
 | Current      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
@@ -357,16 +362,16 @@ Valores numéricos
 
 Cambiar configuración
 
-| Nombre para mostrar | Nombre del campo | Texto activado | Texto desactivado | Inicial |
+| Nombre para mostrar | Nombre del campo | Texto activado | Texto desactivado | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | ACTIVAR      | Apagado      | Off     |
 
-### <a name="properties"></a>properties (Propiedades)
+### <a name="properties"></a>Propiedades
 
-| type            | Nombre para mostrar | Nombre del campo | Tipo de datos                              |
+| Tipo            | Nombre para mostrar | Nombre del campo | Tipo de datos                              |
 | --------------- | ------------ | ---------- | -------------------------------------- |
-| Propiedad de dispositivo | Die number   | dieNumber  | número                                 |
-| Location        | Location     | location   | {lat: float, long: float, alt?: float} |
+| Propiedad de dispositivo | Die number   | dieNumber  | number                                 |
+| Location        | Location     | ubicación   | {lat: float, long: float, alt?: float} |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

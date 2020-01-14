@@ -1,17 +1,17 @@
 ---
-title: Ejemplos de operaciones de datos
-description: Ejemplos de código para acciones de operaciones de datos en Azure Logic Apps
+title: Ejemplos de código para el uso de operaciones de datos
+description: Pruebe estos ejemplos de código que muestran cómo puede utilizar las operaciones de datos en flujos de trabajo automatizados creados con Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/01/2019
-ms.openlocfilehash: d59e461fab52bddf9cb1f881d52a751931c7312b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c56c31bb6f56efb10808ce25b6b232089391e831
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793087"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428685"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Ejemplos de código de operaciones de datos para Azure Logic Apps
 
@@ -93,7 +93,7 @@ Para probar la acción de ejemplo [**Redactar**](../logic-apps/logic-apps-perfor
 
 ## <a name="create-csv-table"></a>Crear tabla CSV
 
-Para probar la acción de ejemplo [ **Crear tabla CSV**](../logic-apps/logic-apps-perform-data-operations.md#create-csv-table-action), estas son las definiciones de acción que puede usar:
+Para probar la acción de ejemplo [**Crear tabla CSV**](../logic-apps/logic-apps-perform-data-operations.md#create-csv-table-action), estas son las definiciones de acción que puede usar:
 
 ```json
 "actions": {
@@ -138,7 +138,7 @@ Para probar la acción de ejemplo [ **Crear tabla CSV**](../logic-apps/logic-app
 
 ## <a name="create-html-table"></a>Crear tabla HTML
 
-Para probar la acción de ejemplo [ **Crear tabla HTML**](../logic-apps/logic-apps-perform-data-operations.md#create-html-table-action), estas son las definiciones de acción que puede usar:
+Para probar la acción de ejemplo [**Crear tabla HTML**](../logic-apps/logic-apps-perform-data-operations.md#create-html-table-action), estas son las definiciones de acción que puede usar:
 
 ```json
 "actions": {
@@ -183,7 +183,7 @@ Para probar la acción de ejemplo [ **Crear tabla HTML**](../logic-apps/logic-ap
 
 ## <a name="filter-array"></a>Filter array
 
-Para probar la acción de ejemplo [ **Filtrar matriz**](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action), estas son las definiciones de acción que puede usar:
+Para probar la acción de ejemplo [**Filtrar matriz**](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action), estas son las definiciones de acción que puede usar:
 
 ```json
 "actions": {
@@ -222,7 +222,7 @@ Para probar la acción de ejemplo [ **Filtrar matriz**](../logic-apps/logic-apps
 
 <a name="join-action-example"></a>
 
-## <a name="join"></a>Unión
+## <a name="join"></a>Join
 
 Para probar la acción de ejemplo [**Combinar**](../logic-apps/logic-apps-perform-data-operations.md#join-action), estas son las definiciones de acción que puede usar:
 
@@ -265,7 +265,7 @@ Para probar la acción de ejemplo [**Combinar**](../logic-apps/logic-apps-perfor
 
 ## <a name="parse-json"></a>Parse JSON
 
-Para probar la acción de ejemplo [ **Análisis del archivo JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action), estas son las definiciones de acción que puede usar:
+Para probar la acción de ejemplo [**Análisis del archivo JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action), estas son las definiciones de acción que puede usar:
 
 ```json
 "actions": {
@@ -324,7 +324,7 @@ Para probar la acción de ejemplo [ **Análisis del archivo JSON**](../logic-app
 
 ## <a name="select"></a>Seleccionar
 
-Para probar la acción de ejemplo [ **Seleccionar**](../logic-apps/logic-apps-perform-data-operations.md#select-action), estas son las definiciones de acción que puede usar:
+Para probar la acción de ejemplo [**Seleccionar**](../logic-apps/logic-apps-perform-data-operations.md#select-action), estas son las definiciones de acción que puede usar:
 
 ```json
 "actions": {

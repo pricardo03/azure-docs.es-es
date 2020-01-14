@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/11/2019
-ms.openlocfilehash: 356c8389ed486246ce55b5006e1e489ac7c3c1e3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5a647dda21855f754754f76682e5c00443eaac55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884780"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432604"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Administración de la ubicación geográfica y la dirección IP
 

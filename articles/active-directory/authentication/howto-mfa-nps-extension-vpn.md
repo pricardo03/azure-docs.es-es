@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2ccfc2219c063a9cef25f82cef33f446993a02
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f446f1549b3efcd5f27752fac972dfd80c8650d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848381"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425404"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integración de la infraestructura de VPN con Azure MFA utilizando la extensión Servidor de directivas de redes para Azure
 
@@ -72,7 +72,7 @@ Cuando la extensión NPS para Azure está integrada con NPS, el flujo de una aut
 7. Después de que el intento de conexión se autentica y autoriza, el servidor NPS donde está instalada la extensión envía un mensaje de *aceptación de acceso* RADIUS al servidor VPN (cliente RADIUS).
 8. Se concede acceso al usuario al puerto virtual en el servidor VPN y se establece un túnel VPN cifrado.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En esta sección se detallan los requisitos previos que hay que cumplir antes de integrar MFA con la VPN. Antes de comenzar, debe cumplir los siguientes requisitos previos:
 
@@ -326,13 +326,13 @@ Como parte de la configuración de la extensión NPS, debe proporcionar las cred
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global del inquilino de Azure.
 
-2. En el panel izquierdo, seleccione el botón **Azure Active Directory**.
+2. En el menú de Azure Portal, seleccione **Azure Active Directory** o busque y seleccione **Azure Active Directory** desde cualquier página.
 
 3. Seleccione **Propiedades**.
 
 4. Para copiar el identificador de Azure AD, seleccione el botón **Copiar**.
 
-    ![Identificador de directorio de Azure AD en Azure Portal](./media/howto-mfa-nps-extension-vpn/image35.png)
+    ![Identificador de directorio de Azure AD en Azure Portal](./media/howto-mfa-nps-extension-vpn/azure-active-directory-id-in-azure-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Instalación de la extensión de NPS
 
@@ -442,7 +442,7 @@ Para realizar opciones avanzadas de solución de problemas, consulte los archivo
 
 Las entradas de estos archivos de registro son difíciles de interpretar, a menos que los exporte en una hoja de cálculo o una base de datos. Puede encontrar muchas herramientas de análisis del Servicio de autenticación de Internet en línea para facilitar la interpretación de los archivos de registro. A continuación, se muestra la salida de una [aplicación shareware](https://www.deepsoftware.com/iasviewer) que se puede descargar:
 
-![Analizador de IAS de aplicación shareware de ejemplo](./media/howto-mfa-nps-extension-vpn/image49.png)
+![Ejemplo del analizador de IAS de la aplicación Shareware](./media/howto-mfa-nps-extension-vpn/image49.png)
 
 Para más opciones de solución de problemas, puede utilizar un analizador de protocolos, como Wireshark o el [Analizador de mensajes de Microsoft](https://technet.microsoft.com/library/jj649776.aspx). La siguiente imagen de Wireshark muestra los mensajes RADIUS entre el servidor VPN y el servidor NPS.
 

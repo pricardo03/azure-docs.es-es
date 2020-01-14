@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bfa8982fb49b31540d1926bdeb75a96dc1d79cf0
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: b82001b8bceac620dec9f1fe6ef47f4aa81b1011
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950908"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425624"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico autoafirmado en una directiva personalizada en Azure Active Directory B2C
 
@@ -51,31 +51,92 @@ En un perfil técnico autoafirmado, puede usar los elementos **InputClaims** y *
   </InputClaims>
 ```
 
+## <a name="display-claims"></a>Notificaciones de visualización
+
+La característica de notificaciones de visualización se encuentra actualmente en **versión preliminar**.
+
+El elemento **DisplayClaims** contiene una lista de las notificaciones que se van a presentar en la pantalla para recopilar datos del usuario. Para rellenar previamente los valores de las notificaciones de salida, use las notificaciones de entrada que se describieron anteriormente. El elemento también puede incluir un valor predeterminado.
+
+El orden de las notificaciones en **DisplayClaims** especifica el orden en que Azure AD B2C presenta las notificaciones en la pantalla. Para forzar que el usuario proporcione un valor para una notificación específica, establezca el atributo **Required** del elemento **DisplayClaim** en `true`.
+
+El elemento **ClaimType** de la colección **DisplayClaims** necesita establecer el elemento **UserInputType** en cualquier tipo de entrada de usuario admitido por Azure AD B2C. Por ejemplo, `TextBox` o `DropdownSingleSelect`.
+
+### <a name="add-a-reference-to-a-displaycontrol"></a>Adición de una referencia a un elemento DisplayControl
+
+En la colección de notificaciones de visualización, puede incluir una referencia a un elemento [DisplayControl](display-controls.md) que haya creado. Un control de visualización es un elemento de la interfaz de usuario que tiene una funcionalidad especial e interactúa con el servicio de back-end de Azure AD B2C. Permite al usuario realizar acciones en la página que invocan un perfil técnico de validación en el back-end. Por ejemplo, la comprobación de una dirección de correo electrónico, un número de teléfono o un número de fidelidad del cliente.
+
+En el siguiente ejemplo `TechnicalProfile` se muestra el uso de las notificaciones de visualización con controles de visualización.
+
+* La primera notificación de visualización hace referencia al control de visualización `emailVerificationControl`, que recopila y comprueba la dirección de correo electrónico.
+* La quinta notificación de visualización hace referencia al control de visualización `phoneVerificationControl`, que recopila y comprueba un número de teléfono.
+* Las demás notificaciones de visualización son elementos ClaimTypes que se van a recopilar del usuario.
+
+```XML
+<TechnicalProfile Id="Id">
+  <DisplayClaims>
+    <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+    <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
+    <DisplayClaim DisplayControlReferenceId="phoneVerificationControl" />
+    <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+  </DisplayClaims>
+</TechnicalProfile>
+```
+
+Como hemos mencionado, una notificación de visualización con una referencia a un control de visualización puede ejecutar su propia validación, por ejemplo la comprobación de la dirección de correo electrónico. Además, la página autofirmada admite el uso de un perfil técnico de validación para validar toda la página, incluidos los datos proporcionados por el usuario (tipos de notificaciones o controles de visualización), antes de pasar al siguiente paso de orquestación.
+
+### <a name="combine-usage-of-display-claims-and-output-claims-carefully"></a>Combinación del uso de notificaciones de visualización y notificaciones de salida con cuidado
+
+Si especifica uno o más elementos de **DisplayClaim** en un perfil técnico autoafirmado, debe usar un elemento DisplayClaim para *cada* notificación que desee mostrar en pantalla y recopilar del usuario. No existe ninguna notificación de salida que muestre el perfil técnico autoafirmado que contenga una notificación de salida como mínimo.
+
+Considere el siguiente ejemplo en el que se define una notificación `age` como una notificación de **salida** en una directiva base. Antes de agregar cualquier notificación de visualización al perfil técnico autoafirmado, la notificación `age` se muestra en la pantalla para la recopilación de datos del usuario:
+
+```XML
+<TechnicalProfile Id="id">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="age" />
+  </OutputClaims>
+</TechnicalProfile>
+```
+
+Si una directiva de hoja que hereda esa base especifica posteriormente `officeNumber` como una notificación de **visualización**:
+
+```XML
+<TechnicalProfile Id="id">
+  <DisplayClaims>
+    <DisplayClaim ClaimTypeReferenceId="officeNumber" />
+  </DisplayClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="officeNumber" />
+  </OutputClaims>
+</TechnicalProfile>
+```
+
+La notificación `age` de la directiva base ya no se muestra al usuario en la pantalla, sino que está "oculta". Para mostrar la notificación `age` y recopilar el valor de edad del usuario, debe agregar un elemento **DisplayClaim** `age`.
 
 ## <a name="output-claims"></a>Notificaciones de salida
 
-El elemento **OutputClaims** contiene una lista de las notificaciones que se van a presentar para recopilar datos del usuario. Para rellenar previamente las notificaciones de salida con algunos valores, use las notificaciones de entrada que se describieron anteriormente. El elemento también puede incluir un valor predeterminado. El orden de las notificaciones en **OutputClaims** controla el orden en que Azure AD B2C presenta las notificaciones en la pantalla. El atributo **DefaultValue** solo tiene efecto si la notificación no se ha establecido antes. En cambio, si se ha establecido antes en un paso de orquestación anterior, incluso si el usuario deja el valor vacío, el valor predeterminado no surtirá efecto. Para forzar el uso de un valor predeterminado, establezca el atributo **AlwaysUseDefaultValue** en `true`. Para forzar que el usuario proporcione un valor para una notificación de salida específica, establezca el atributo **Required** del elemento **OutputClaims** en `true`.
+El elemento **OutputClaims** contiene una lista de las notificaciones que se van a devolver en el siguiente paso de orquestación. El atributo **DefaultValue** solo tiene efecto si la notificación nunca se ha establecido. Si se ha establecido en un paso de orquestación anterior, el valor predeterminado no se aplica aunque el usuario deje el valor vacío. Para forzar el uso de un valor predeterminado, establezca el atributo **AlwaysUseDefaultValue** en `true`.
 
-El elemento **ClaimType** de la colección **OutputClaims** necesita establecer el elemento **UserInputType** en cualquier tipo de entrada de usuario admitido por Azure AD B2C, como `TextBox`o `DropdownSingleSelect`. O el elemento **OutputClaim** debe establecer un **DefaultValue**.
+> [!NOTE]
+> En las versiones anteriores de Identity Experience Framework (IEF), las notificaciones de salida se usaban para recopilar datos del usuario. Para recopilar datos del usuario, use una colección **DisplayClaims** en su lugar.
 
-El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o generar otras nuevas.
+El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o para generar nuevas.
 
-La siguiente notificación de salida siempre se establece en `live.com`:
+### <a name="when-you-should-use-output-claims"></a>Cuándo se deben usar las notificaciones de salida
 
-```XML
-<OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" AlwaysUseDefaultValue="true" />
-```
+En un perfil técnico autoafirmado, la colección de notificaciones de salida devuelve las notificaciones en el siguiente paso de orquestación.
 
-### <a name="use-case"></a>Caso de uso
+Debe usar notificaciones de salida si:
 
-Hay cuatro escenarios para las notificaciones de salida:
-
-- **Recopilar las notificaciones de salida del usuario**: cuando tenga que recopilar información del usuario, como la fecha de nacimiento, debe agregar la notificación a la colección **OutputClaims**. Las notificaciones que se presentan al usuario deben especificar el **UserInputType**, como `TextBox` o `DropdownSingleSelect`. Si el perfil técnico autoafirmado contiene un perfil técnico de validación que da como resultado la misma notificación, Azure AD B2C no presenta la notificación al usuario. Si no hay ninguna solicitud de salida más para presentar al usuario, Azure AD B2C omite el perfil técnico.
-- **Establecer un valor predeterminado en una notificación de salida**: sin recopilar datos del usuario ni devolver los datos desde el perfil técnico de validación. El perfil técnico autoafirmado `LocalAccountSignUpWithLogonEmail` establece la notificación **executed-SelfAsserted-Input** en `true`.
+- **Las notificaciones se emiten mediante la transformación de notificaciones de salida**
+- **Establece un valor predeterminado en una notificación de salida** sin recopilar datos del usuario ni devolver los datos desde el perfil técnico de validación. El perfil técnico autoafirmado `LocalAccountSignUpWithLogonEmail` establece la notificación **executed-SelfAsserted-Input** en `true`.
 - **Un perfil técnico de validación devuelve las notificaciones de salida**: su perfil técnico puede llamar a un perfil técnico de validación que devuelve algunas notificaciones. Es posible que desee propagar las notificaciones y devolverlas a los siguientes pasos de orquestación en el recorrido del usuario. Por ejemplo, al iniciar sesión con una cuenta local, el perfil técnico autoafirmado denominado `SelfAsserted-LocalAccountSignin-Email` llama al perfil técnico de validación denominado `login-NonInteractive`. Este perfil técnico valida las credenciales de usuario y también devuelve el perfil de usuario. Por ejemplo, “userPrincipalName”, “displayName”, “givenName” y “surName”.
-- **Salida de las notificaciones a través de la transformación de notificaciones de salida**
+- **Un control de visualización devuelve las notificaciones de salida**: su perfil técnico puede tener una referencia a un [control de visualización](display-controls.md). El control de visualización devuelve algunas notificaciones, como la dirección de correo electrónico comprobada. Es posible que desee propagar las notificaciones y devolverlas a los siguientes pasos de orquestación en el recorrido del usuario. La característica de notificaciones de visualización se encuentra actualmente en **versión preliminar**.
 
-En el ejemplo siguiente, el perfil técnico autoafirmado `LocalAccountSignUpWithLogonEmail` muestra el uso de notificaciones de salida y establece **executed-SelfAsserted-Input** en `true`. Las notificaciones `objectId`, `authenticationSource` y `newUser` son el resultado del perfil de validación técnica `AAD-UserWriteUsingLogonEmail` y no se muestran al usuario.
+En el ejemplo siguiente se muestra el uso de un perfil técnico autoafirmado que utiliza notificaciones de visualización y notificaciones de salida.
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -86,32 +147,30 @@ En el ejemplo siguiente, el perfil técnico autoafirmado `LocalAccountSignUpWith
     <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
     <Item Key="language.button_continue">Create</Item>
   </Metadata>
-  <CryptographicKeys>
-    <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
-  </CryptographicKeys>
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" />
   </InputClaims>
+  <DisplayClaims>
+    <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+    <DisplayClaim DisplayControlReferenceId="SecondaryEmailVerificationControl" />
+    <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+  </DisplayClaims>
   <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="email" Required="true" />
     <OutputClaim ClaimTypeReferenceId="objectId" />
-    <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
-    <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
-    <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
     <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
     <OutputClaim ClaimTypeReferenceId="authenticationSource" />
     <OutputClaim ClaimTypeReferenceId="newUser" />
-
-    <!-- Optional claims, to be collected from the user -->
-    <OutputClaim ClaimTypeReferenceId="displayName" />
-    <OutputClaim ClaimTypeReferenceId="givenName" />
-    <OutputClaim ClaimTypeReferenceId="surName" />
   </OutputClaims>
   <ValidationTechnicalProfiles>
     <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
   </ValidationTechnicalProfiles>
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
 </TechnicalProfile>
-
 ```
 
 ## <a name="persist-claims"></a>Conservar las notificaciones
@@ -128,30 +187,17 @@ También puede llamar a un perfil técnico de la API de REST con la lógica de n
 
 ## <a name="metadata"></a>Metadatos
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| setting.showContinueButton | Sin | Muestra el botón para continuar. Valores posibles: `true` (opción predeterminada) o `false` |
-| setting.showCancelButton | Sin | Muestra el botón para cancelar. Valores posibles: `true` (opción predeterminada) o `false` |
-| setting.operatingMode | Sin | En una página de inicio de sesión, esta propiedad controla el comportamiento del campo de nombre de usuario, como la validación de entrada y los mensajes de error. Valores esperados: `Username` o `Email`. |
+| setting.showContinueButton | No | Muestra el botón para continuar. Valores posibles: `true` (opción predeterminada) o `false` |
+| setting.showCancelButton | No | Muestra el botón para cancelar. Valores posibles: `true` (opción predeterminada) o `false` |
+| setting.operatingMode | No | En una página de inicio de sesión, esta propiedad controla el comportamiento del campo de nombre de usuario, como la validación de entrada y los mensajes de error. Valores esperados: `Username` o `Email`. |
 | ContentDefinitionReferenceId | Sí | El identificador de la [definición de contenido](contentdefinitions.md) asociada a este perfil técnico. |
-| EnforceEmailVerification | Sin | Para registrarse o editar el perfil, exige la comprobación del correo electrónico. Valores posibles: `true` (opción predeterminada) o `false`. |
-| setting.showSignupLink | Sin | Muestra el botón para registrarse. Valores posibles: `true` (opción predeterminada) o `false` |
-| setting.retryLimit | Sin | Controla el número de veces que un usuario puede intentar proporcionar los datos que se comprueban con un perfil técnico de validación. Por ejemplo, si un usuario intenta registrarse con una cuenta que ya existe y sigue intentándolo hasta que alcance el límite.
-| SignUpTarget | Sin | Identificador de intercambio de destinos del registro. Cuando el usuario hace clic en el botón de registro, Azure AD B2C ejecuta el identificador de intercambio especificado. |
+| EnforceEmailVerification | No | Para registrarse o editar el perfil, exige la comprobación del correo electrónico. Valores posibles: `true` (opción predeterminada) o `false`. |
+| setting.showSignupLink | No | Muestra el botón para registrarse. Valores posibles: `true` (opción predeterminada) o `false` |
+| setting.retryLimit | No | Controla el número de veces que un usuario puede intentar proporcionar los datos que se comprueban con un perfil técnico de validación. Por ejemplo, si un usuario intenta registrarse con una cuenta que ya existe y sigue intentándolo hasta que alcance el límite.
+| SignUpTarget | No | Identificador de intercambio de destinos del registro. Cuando el usuario hace clic en el botón de registro, Azure AD B2C ejecuta el identificador de intercambio especificado. |
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 
 El elemento **CryptographicKeys** no se usa.
-
-
-
-
-
-
-
-
-
-
-
-
-

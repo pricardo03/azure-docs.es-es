@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 2596351a0db921276ad74c27e30a8e2af93f2f36
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d6cc6c787e38cc72a0a3d4340d55c0248918dba6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981490"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392320"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes: Azure Resource Manager Los siguientes límites solo son válidos en los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
@@ -22,7 +22,7 @@ ms.locfileid: "74981490"
 
 | Resource | Límite predeterminado/máximo | 
 | --- | --- |
-| Redes virtuales |1000 |
+| Redes virtuales |1,000 |
 | Subredes por red virtual |3000 |
 | Emparejamientos de redes virtuales por red virtual |500 |
 | [Puertas de enlace de red virtual (VPN Gateway) por red virtual](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |30 |
@@ -35,7 +35,7 @@ ms.locfileid: "74981490"
 | [Conexiones TCP concurrentes o flujo UDP por NIC de una máquina virtual o instancia de rol](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) |500.000 |
 | Tarjetas adaptadoras de red |65 536 |
 | Grupos de seguridad de red |5\.000 |
-| Reglas de NSG por NSG |1000 |
+| Reglas de NSG por NSG |1,000 |
 | Direcciones IP y rangos especificados para el origen o destino en un grupo de seguridad |4\.000 |
 | Grupos de seguridad de aplicaciones |3000 |
 | Grupos de seguridad de aplicaciones por configuración de IP, por NIC |20 |
@@ -60,11 +60,10 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 
 | Resource | Límite predeterminado/máximo |
 | --- | --- |
-| Equilibradores de carga | 1000 | 
+| Equilibradores de carga | 1,000 | 
 | Reglas por recurso, básico | 250 |
 | Reglas por recurso, estándar | 1500 | 
-| Reglas por configuración de dirección IP | 299 |
-| Reglas por NIC | 300 |
+| Reglas por NIC (en todas las direcciones IP de una NIC) | 300 |
 | Configuraciones de direcciones IP de front-end, Básico | 200 |
 | Configuraciones de direcciones IP de front-end, Estándar | 600 |
 | Grupo de servidores back-end, Básico | 100, conjunto de disponibilidad único |
@@ -84,7 +83,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Direcciones IP privadas por red virtual |4 096 |4 096 |
 | Conexiones TCP concurrentes o flujo UDP por NIC de una máquina virtual o instancia de rol |500 000, hasta 1 000 000 de dos o varias NIC. |500 000, hasta 1 000 000 de dos o varias NIC. |
 | Grupos de seguridad de red (NSG) |200 |200 |
-| Reglas de NSG por NSG |1000 |1000 |
+| Reglas de NSG por NSG |1,000 |1,000 |
 | Tablas de rutas definidas por el usuario |200 |200 |
 | Rutas definidas por el usuario por tabla de ruta |400 |400 |
 | Direcciones IP públicas (dinámicas) |500 |500 |

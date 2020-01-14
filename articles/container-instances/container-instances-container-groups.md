@@ -4,12 +4,12 @@ description: Obtenga información sobre los grupos de contenedores de Azure Cont
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: c4d5217fe96ca2669397bb7f2a94c6394c002534
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ca160c62160bc5233139dccc650474811c4cd784
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896581"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442295"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contenedores en Azure Container Instances
 
@@ -44,21 +44,19 @@ Para conservar la configuración de un grupo de contenedores, puede exportar la 
 
 ## <a name="resource-allocation"></a>Asignación de recursos
 
-Azure Container Instances asigna recursos como CPU, memoria y, opcionalmente, [GPU][gpus] (versión preliminar) a un grupo de contenedores mediante la adición de las [solicitudes de recursos][resource-requests] de las instancias del grupo. Por ejemplo, cuando se toman recursos de CPU y se crea un grupo de contenedores con dos instancias, y cada una de ellas solicita 1 CPU, se asignan 2 CPU al grupo de contenedores.
+Azure Container Instances asigna recursos como CPU, memoria y, opcionalmente, [GPU][gpus] (versión preliminar) a un grupo de varios contenedores mediante la adición de las [solicitudes de recursos][resource-requests] de las instancias del grupo. Por ejemplo, cuando se toman recursos de CPU y se crea un grupo de contenedores con dos instancias, y cada una de ellas solicita 1 CPU, se asignan 2 CPU al grupo de contenedores.
 
 ### <a name="resource-usage-by-instances"></a>Uso de recursos por instancias
 
-A cada instancia de contenedor se le asignan los recursos especificados en su solicitud de recursos. Aunque el uso de recursos por parte de una instancia de contenedor de un grupo depende de cómo se configure su propiedad opcional [límite de recursos][resource-limits]. El límite de recursos debe ser menor que el de la propiedad de [solicitud de recursos][resource-requests] obligatoria.
+A cada instancia de contenedor de un grupo se le asignan los recursos especificados en su solicitud de recursos. Sin embargo, el número máximo de recursos que usa una instancia de un grupo puede ser diferente si configura su propiedad de [límite de recursos][resource-limits] opcional. El límite de recursos de una instancia debe ser mayor o igual que la propiedad de [solicitud de recurso][resource-requests] obligatoria.
 
 * Si no especifica un límite de recursos, el uso máximo de recursos de la instancia es el mismo que el de su solicitud de recursos.
 
-* Si especifica un límite de recursos para una instancia, puede ajustar el uso de recursos de la instancia para su carga de trabajo, ya sea reduciendo o aumentando el uso en relación con la solicitud de recursos. El límite máximo de recursos que puede establecer es el total de recursos asignados al grupo.
+* Si especifica un límite para una instancia, el uso máximo de la instancia puede ser mayor que la solicitud, hasta el límite que establezca. En consecuencia, el uso de recursos por parte de otras instancias del grupo podría disminuir. El límite máximo de recursos que puede establecer para una instancia es el total de recursos asignados al grupo.
     
-Por ejemplo, en un grupo con dos instancias que solicitan 1 CPU, uno de los contenedores podría ejecutar una carga de trabajo que requiera mayor número de CPU en ejecución que el otro.
+Por ejemplo, en un grupo con dos instancias que solicitan 1 CPU cada una, uno de los contenedores podría ejecutar una carga de trabajo que requiera mayor número de CPU en ejecución que el otro.
 
-En este escenario, puede establecer un límite de recursos de 0,5 CPU para una instancia y un límite de 2 CPU para el segundo. Esta configuración limita el uso de recursos del primer contenedor a 0,5 CPU, lo que permite que el segundo contenedor pueda usar las 2 CPU completas, si están disponibles.
-
-Para obtener más información, consulte la propiedad [ResourceRequirements][resource-requirements] en la API de REST de grupos de contenedores.
+En este escenario, puede establecer un límite de recursos de 2 CPU para la instancia. Esta configuración permite que el contenedor use hasta 2 CPU completas si están disponibles.
 
 ### <a name="minimum-and-maximum-allocation"></a>Asignación mínima y máxima
 
@@ -78,7 +76,7 @@ Opcionalmente, implemente grupos de contenedores en una [red virtual de Azure][v
 
 Puede especificar volúmenes externos para montar dentro de un grupo de contenedores. Puede asignar los volúmenes en rutas de acceso específicas dentro de los contenedores individuales en un grupo.
 
-## <a name="common-scenarios"></a>Escenarios comunes
+## <a name="common-scenarios"></a>Escenarios frecuentes
 
 Los grupos de varios contenedores son útiles en casos donde quiera dividir una única tarea funcional en un número pequeño de imágenes de contenedor. Luego, estas imágenes las pueden entregar diferentes equipos y pueden tener diversos requisitos de recursos.
 

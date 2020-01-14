@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 506eb38a2844ed8e8eb9739b116d7647bc1810ec
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c731dae02e9013fc436d6f30d8c8b2ab384968a0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480283"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453987"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Administración de IoT Central desde Azure PowerShell
 
@@ -21,7 +21,7 @@ ms.locfileid: "74480283"
 
 En lugar de crear y administrar aplicaciones de IoT Central desde el sitio web del [administrador de aplicaciones de Azure IoT Central](https://aka.ms/iotcentral), puede usar [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) para administrar las aplicaciones.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -43,7 +43,7 @@ Si la lista de módulos instalados no incluye **Az.IotCentral**, ejecute el sigu
 Install-Module Az.IotCentral
 ```
 
-## <a name="create-an-application"></a>Creación de una aplicación
+## <a name="create-an-application"></a>Crear una aplicación
 
 Use el cmdlet [New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) para crear una aplicación de IoT Central en su suscripción de Azure. Por ejemplo:
 
@@ -63,28 +63,26 @@ New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 
 En primer lugar, el script crea un grupo de recursos en la ubicación Este de EE. UU. para la aplicación. En la tabla siguiente se describen los parámetros utilizados con el comando **New-AzIotCentralApp**:
 
-|Parámetro         |DESCRIPCIÓN |
+|Parámetro         |Descripción |
 |------------------|------------|
 |ResourceGroupName |Grupo de recursos que contiene a la aplicación. Este grupo de recursos ya debe existir en la suscripción. |
 |Location |De forma predeterminada, este cmdlet usa la ubicación del grupo de recursos. Actualmente, puede crear una aplicación de IoT Central en las ubicaciones **Estados Unidos**, **Australia**, **Asia Pacífico** o **Europa**.  |
-|NOMBRE              |Nombre de la aplicación en Azure Portal. |
+|Nombre              |Nombre de la aplicación en Azure Portal. |
 |Subdominio         |Subdominio en la dirección URL de la aplicación. En el ejemplo, la dirección URL de la aplicación es https://mysubdomain.azureiotcentral.com. |
 |SKU               |Actualmente, el único valor es **S1** (nivel estándar). Consulte [Precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Plantilla          | Plantilla de aplicación que se va a usar. Para más información, vea la tabla siguiente: |
 |DisplayName       |Nombre de la aplicación tal como se muestra en la interfaz de usuario. |
 
-**Plantillas de aplicación con características disponibles con carácter general**
+**Plantilla de aplicación con características disponibles con carácter general**
 
-| Nombre de la plantilla            | DESCRIPCIÓN |
+| Nombre de la plantilla            | Descripción |
 | ------------------------ | ----------- |
-| iotc-default@1.0.0       | Permite crear una aplicación vacía para que pueda rellenarla con sus propias plantillas de dispositivo y dispositivos. |
-| iotc-demo@1.0.0          | Crea una aplicación que incluye una plantilla de dispositivo que ya se ha creado para una máquina expendedora de refrigerados. Utilice esta plantilla para empezar a explorar Azure IoT Central. |
-| iotc-devkit-sample@1.0.0 | Permite crear una aplicación con plantillas de dispositivo preparadas para que se conecte a un dispositivo MXChip o Raspberry Pi. Utilice esta plantilla si es un desarrollador de dispositivos que experimenta con alguno de estos dispositivos. |
+| iotc-default@1.0.0       | Permite crear una aplicación vacía para que pueda rellenarla con sus propias plantillas de dispositivo y dispositivos.
 
 
 **Plantillas de aplicación con características de versión preliminar pública**
 
-| Nombre de la plantilla            | DESCRIPCIÓN |
+| Nombre de la plantilla            | Descripción |
 | ------------------------ | ----------- |
 | iotc-pnp-preview@1.0.0   | Crea una aplicación de versión preliminar Plug and Play vacía para que la complete con sus propios dispositivos y plantillas de dispositivo. |
 | iotc-condition@1.0.0     | Crea una aplicación con una plantilla de supervisión de condiciones de análisis en la tienda. Use esta plantilla para conectar y supervisar el entorno del almacén. |
@@ -100,7 +98,7 @@ En primer lugar, el script crea un grupo de recursos en la ubicación Este de EE
 | iotc-waste@1.0.0         | Permite crear una aplicación con una plantilla de administración de desechos conectada. Use esta plantilla para supervisar contenedores de residuos y operadores de campo de distribución. |
 
 > [!NOTE]
-> Las plantillas de vista previa de aplicación solo están disponibles actualmente en **Europa** y **Estados Unidos**.
+> Las plantillas de aplicación de versión preliminar solo están disponibles actualmente en **Europa** y **Estados Unidos**.
 
 ## <a name="view-your-iot-central-applications"></a>Visualización de las aplicaciones de IoT Central
 

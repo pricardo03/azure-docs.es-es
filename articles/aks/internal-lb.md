@@ -7,27 +7,27 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: mlearned
-ms.openlocfilehash: 5842003d43d4268d0f663e8a57e40562a480e252
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6b4bbac5d8555a705b2311abcea8396c1151da90
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615153"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430765"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Uso de un equilibrador de carga interno con Azure Kubernetes Service (AKS)
 
 Para restringir el acceso a las aplicaciones en Azure Kubernetes Service (AKS), puede crear y usar un equilibrador de carga interno. Un equilibrador de carga interno permite que un servicio de Kubernetes sea accesible solo para las aplicaciones que se ejecutan en la misma red virtual que el clúster de Kubernetes. En este artículo se muestra cómo crear y usar un equilibrador de carga interno con Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> Azure Load Balancer está disponible en dos SKU: *Básica* y *Estándar*. De forma predeterminada, la SKU *básica* se usa cuando un manifiesto de servicio se emplea para crear un equilibrador de carga en AKS. Para más información, consulte el apartado de [comparación de las SKU de Azure Load Balancer][azure-lb-comparison].
+> Azure Load Balancer está disponible en dos SKU: *Básica* y *Estándar*. De forma predeterminada, la SKU Estándar se usa al crear un clúster de AKS.  Al crear un servicio con el tipo LoadBalancer, obtendrá el mismo tipo de LB que al aprovisionar el clúster. Para más información, consulte el apartado de [comparación de las SKU de Azure Load Balancer][azure-lb-comparison].
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
 
-Si usa una subred o un grupo de recursos ya existentes, la entidad de servicio del clúster de AKS necesita permiso para administrar los recursos de red. En general, asigne el rol *Colaborador de red* a la entidad de servicio en los recursos delegados. Para más información sobre los permisos, consulte [Delegación del acceso a otros recursos de Azure][aks-sp].
+Si usa una subred o un grupo de recursos existentes, la entidad de servicio del clúster de AKS necesita permiso para administrar los recursos de red. En general, asigne el rol *Colaborador de red* a la entidad de servicio en los recursos delegados. Para más información sobre los permisos, consulte [Delegación del acceso de AKS a otros recursos de Azure][aks-sp].
 
 ## <a name="create-an-internal-load-balancer"></a>Creación de un conjunto de equilibrador de carga interno
 

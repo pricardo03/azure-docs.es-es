@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 4a8dbe9d1c66955e585f7b2cbf842193c965252e
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 19f31a2fafc112f499ff87eed23843915cab32a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74998734"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75414231"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Guía de recuperación ante desastres para Avere vFXT for Azure
 
@@ -104,7 +104,7 @@ Para acceder al contenedor de copia de seguridad desde un clúster de Avere vFXT
 1. Si es necesario, cree un nuevo clúster de Avere vFXT for Azure en una región no afectada.
 
    > [!TIP]
-   > Al crear un clúster de Avere vFXT for Azure, puede guardar una copia de la plantilla y los parámetros de creación. Si guarda esta información al crear el clúster principal, puede usarla para crear un clúster de reemplazo con las mismas propiedades. En la página de [validación y resumen](avere-vfxt-deploy.md#validation-and-purchase), haga clic en el vínculo **Descargar plantilla y parámetros**. Guarde la información en un archivo antes de hacer clic en el botón **Aceptar** para crear el clúster.
+   > Al crear un clúster de Avere vFXT for Azure, puede guardar una copia de la plantilla y los parámetros de creación. Si guarda esta información al crear el clúster principal, puede usarla para crear un clúster de reemplazo con las mismas propiedades. En la página [Resumen](avere-vfxt-deploy.md#validation-and-purchase), haga clic en el vínculo **Descargar plantilla y parámetros**. Guarde la información en un archivo antes de crear el clúster.
 
 1. Agregue un nuevo archivador básico en la nube que apunte al contenedor de blobs duplicado.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Obtención de tokens en aplicaciones de demonio que llaman a las API web: Plataforma de identidad de Microsoft | Azure'
+title: Adquisición de tokens para llamar a una API web (aplicación de demonio) - Plataforma de identidad de Microsoft | Azure
 description: Obtenga información sobre cómo compilar una aplicación de demonio que llame a las API web (adquisición de tokens)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0588e20467701512da6542da0d87fca786dcc793
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 58952bdb58619693b31ee4705b6f9f704431657d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920300"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423954"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplicación de demonio que llama a las API web: adquisición de un token
 
@@ -33,7 +33,7 @@ El ámbito que va a solicitar para un flujo de credenciales de cliente es el nom
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
@@ -70,7 +70,7 @@ Para adquirir un token para la aplicación, usará `AcquireTokenForClient` o el 
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 using Microsoft.Identity.Client;
 
 // With client credentials flows the scopes is ALWAYS of the shape "resource/.default", as the
@@ -185,7 +185,7 @@ Para más información, consulte la documentación del protocolo: [La Plataforma
 
 En MSAL.NET, `AcquireTokenForClient` usa la **caché de tokens de aplicación** (todos los demás métodos AcquireTokenXX usan la caché de tokens de usuario). No llame a `AcquireTokenSilent` antes de llamar a `AcquireTokenForClient`, ya que `AcquireTokenSilent` usa la caché de tokens de **usuario**. `AcquireTokenForClient` comprueba la propia caché de tokens de **aplicación** y la actualiza.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>¿Ha usado el ámbito de recurso/.default?
 

@@ -1,25 +1,14 @@
 ---
-title: Implementación de un ejecutable invitado en Azure Service Fabric | Microsoft Docs
+title: Implementación de un ejecutable existente en Azure Service Fabric
 description: Aprenda a empaquetar una aplicación existente como ejecutable invitado para implementarla en un clúster de Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 07/02/2017
-ms.author: atsenthi
-ms.openlocfilehash: 575303cc2ec3e880187bac64da06d05721df14e6
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cdbc965d0e8ec4a8f42fbe438b8ac6ddfe05a1b3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599666"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377113"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empaquetado e implementación de un ejecutable existente en Service Fabric
 Al empaquetar un ejecutable existente como [ejecutable invitado](service-fabric-guest-executables-introduction.md), puede elegir usar una plantilla de proyecto de Visual Studio o [crear el paquete de aplicación manualmente](#manually). Con Visual Studio, la estructura del paquete de aplicación y los archivos de manifiesto se crean mediante la plantilla para nuevos proyectos.

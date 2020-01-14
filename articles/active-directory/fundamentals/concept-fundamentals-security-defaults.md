@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d899f477612e4c738314187f61551fe5c0b17f8d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 83a839d75757bcee14d7f696d2d11d1d7d8fa4cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932165"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422843"
 ---
 # <a name="what-are-security-defaults"></a>¿Cuáles son los valores de seguridad predeterminados?
 
@@ -73,13 +73,16 @@ Hoy en día, la mayoría de los intentos de inicio de sesión que ponen en pelig
 
 Después de habilitar los valores de seguridad predeterminados en el inquilino, se bloquearán todas las solicitudes de autenticación realizadas con un protocolo antiguo. Los valores de seguridad predeterminados no bloquean Exchange ActiveSync.
 
+> [!WARNING]
+> Antes de habilitar los valores predeterminados de seguridad, asegúrese de que los administradores no estén usando protocolos de autenticación antiguos. Para más información, consulte [Cómo cambiar la autenticación heredada](concept-fundamentals-block-legacy-authentication.md).
+
 ### <a name="protecting-privileged-actions"></a>Protección de acciones con privilegios
 
 Las organizaciones usan diversos servicios de Azure que se administran mediante la API de Azure Resource Manager, entre ellos:
 
 - Portal de Azure 
 - Azure PowerShell 
-- CLI de Azure
+- Azure CLI
 
 El uso de Azure Resource Manager para administrar los servicios es una acción con privilegios elevados. Azure Resource Manager puede modificar las configuraciones de todo el inquilino, como la configuración del servicio y la facturación de la suscripción. La autenticación de factor único es vulnerable a una variedad de ataques, como la suplantación de identidad (phishing) y la difusión de contraseñas. 
 
@@ -89,22 +92,30 @@ Después de habilitar los valores de seguridad predeterminados en el inquilino, 
 
 Si el usuario no está registrado para Multi-Factor Authentication, deberá registrarse con la aplicación Microsoft Authenticator para poder continuar. No se proporcionará un periodo de registro de 14 días en Multi-Factor Authentication.
 
+> [!NOTE]
+> La cuenta de sincronización de Azure AD Connect se excluye de los valores predeterminados de seguridad y no se le pedirá que se registre ni que realice la autenticación multifactor. Las organizaciones no deben usar esta cuenta para otros fines.
+
 ## <a name="deployment-considerations"></a>Consideraciones de la implementación
 
 A continuación, se muestran consideraciones adicionales relacionadas con la implementación de los valores de seguridad predeterminados para el inquilino.
 
-### <a name="older-protocols"></a>Protocolos antiguos
+### <a name="authentication-methods"></a>Métodos de autenticación
 
-Los clientes de correo usan protocolos de autenticación anteriores (IMAP, SMTP y POP3) para realizar solicitudes de autenticación. Estos protocolos no son compatibles con Multi-Factor Authentication. La mayor parte de los peligros para las cuentas que Microsoft detecta provienen de ataques contra los protocolos antiguos que intentan omitir Multi-Factor Authentication. 
+Los valores predeterminados de seguridad permiten el registro y el uso de Azure Multi-Factor Authentication **mediante el uso exclusivo de la aplicación Microsoft Authenticator con notificaciones**. El acceso condicional permite el uso de cualquier método de autenticación que el administrador decida habilitar.
 
-Para asegurarse de que se requiere Multi-Factor Authentication al iniciar sesión en una cuenta administrativa y que los atacantes no pueden omitir este paso, los valores de seguridad predeterminados bloquean todas las solicitudes de autenticación realizadas a las cuentas de administrador con protocolos antiguos.
+|   | Valores predeterminados de seguridad | Acceso condicional |
+| --- | --- | --- |
+| Notificación a través de aplicación móvil | X | X |
+| Código de verificación de aplicación móvil o token de hardware |   | X |
+| Mensaje de texto al teléfono |   | X |
+| Llamada al teléfono |   | X |
+| Contraseñas de aplicación |   | X** |
 
-> [!WARNING]
-> Antes de habilitar esta configuración, asegúrese de que los administradores no estén usando protocolos de autenticación antiguos. Para más información, consulte [Cómo cambiar la autenticación heredada](concept-fundamentals-block-legacy-authentication.md).
+** Las contraseñas de aplicación solo están disponibles en MFA por usuario con escenarios de autenticación heredados si las habilitan los administradores.
 
 ### <a name="conditional-access"></a>Acceso condicional
 
-Puede usar el acceso condicional para configurar directivas que proporcionan el mismo comportamiento que los valores de seguridad predeterminados. Si usa acceso condicional y tiene habilitadas directivas de acceso condicional en su entorno, los valores de seguridad predeterminados no estarán disponibles. Si tiene una licencia que proporciona acceso condicional, pero no tiene ninguna directiva de acceso condicional habilitada en su entorno, puede usar los valores de seguridad predeterminados hasta que habilite las directivas de acceso condicional.
+Puede usar el acceso condicional para configurar directivas similares a los valores predeterminados de seguridad, pero con más granularidad, incluidas las exclusiones de usuario, que no están disponibles en los valores predeterminados de seguridad. Si usa acceso condicional y tiene habilitadas directivas de acceso condicional en su entorno, los valores de seguridad predeterminados no estarán disponibles. Si tiene una licencia que proporciona acceso condicional, pero no tiene ninguna directiva de acceso condicional habilitada en su entorno, puede usar los valores de seguridad predeterminados hasta que habilite las directivas de acceso condicional. Para más información sobre las licencias de Azure AD, consulte la [página de precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ![Mensaje de advertencia que indica que puede tener valores predeterminados de seguridad o acceso condicional, pero no ambos](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 

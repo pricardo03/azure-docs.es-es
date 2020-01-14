@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ece310a248140b7913ffcc9f7146d382ee44fb5d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 455652795a13fe9755c1ed57681bedaf7a70a5d5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851305"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435169"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtención de datos de sensor de los asociados de sensor
 
@@ -24,10 +24,10 @@ Para iniciar la transmisión de los datos del sensor, compruebe lo siguiente:
 
 -  Ha instalado FarmBeats en Azure Marketplace.
 -  Ha decidido sobre los sensores y los dispositivos que quiere instalar en la granja.
--  Si tiene previsto usar sensores de humedad del suelo, utilice el mapa de colocación de sensores de humedad del suelo de FarmBeats para obtener una recomendación sobre el número de sensores y dónde deben colocarse exactamente. Para más información, consulte [Generación de mapas](generate-maps.md).
+-  Si tiene previsto usar sensores de humedad del suelo, utilice el mapa de colocación de sensores de humedad del suelo de FarmBeats para obtener una recomendación sobre el número de sensores y dónde deben colocarse exactamente. Para más información, consulte [Generación de mapas](generate-maps-in-azure-farmbeats.md).
 - Compre e implemente dispositivos o sensores de su asociado de dispositivo en la granja. Asegúrese de que puede acceder a los datos del sensor a través de la solución de los asociados de dispositivo.
 
-## <a name="enable-device-integration-with-farmbeats"></a>Habilitación de la integración de dispositivos con FarmBeats 
+## <a name="enable-device-integration-with-farmbeats"></a>Habilitación de la integración de dispositivos con FarmBeats
 
 Tras iniciar la transmisión de los datos del sensor, puede comenzar el proceso de introducir los datos en el sistema FarmBeats. Para habilitar la integración con FarmBeats, proporcione la siguiente información al proveedor de datos:
 
@@ -155,4 +155,4 @@ Siga estos pasos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora los datos del sensor fluyen a la instancia de Azure FarmBeats. A continuación, aprenda a [generar mapas](generate-maps.md#generate-maps) para las granjas.
+Ahora los datos del sensor fluyen a la instancia de Azure FarmBeats. A continuación, aprenda a [generar mapas](generate-maps-in-azure-farmbeats.md#generate-maps) para las granjas.

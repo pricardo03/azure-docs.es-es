@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: 3063767c73f4639e667d5f64b0563f1da396cfbf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3a42d7da21cfb2e3066fbdd81b27c82155d8456f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927303"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440007"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Copia masiva desde una base de datos con una tabla de control
 
@@ -33,12 +33,16 @@ La plantilla contiene tres actividades:
 - **ForEach** obtiene la lista de particiones de la actividad Lookup y recorre en iteración cada partición para la actividad Copy.
 - **Copy** copia cada partición del almacén de la base de datos de origen en el almacén de destino.
 
-La plantilla define cinco parámetros:
+La plantilla define los parámetros siguientes:
 - *Control_Table_Name* es la tabla de control externo, que almacena la lista de partición para la base de datos de origen.
 - *Control_Table_Schema_PartitionID* es el nombre de columna en la tabla de control externa que almacena cada identificador de partición. Asegúrese de que el identificador de partición es único para cada partición en la base de datos de origen.
 - *Control_Table_Schema_SourceTableName* es la tabla de control externa que almacena cada nombre de tabla desde la base de datos de origen.
 - *Control_Table_Schema_FilterQuery* es el nombre de la columna en la tabla de control externa que almacena la consulta de filtro para obtener los datos de cada partición de la base de datos de origen. Por ejemplo, si realizó una partición en los datos por año, la consulta almacenada en cada fila podría ser similar a select * from datasource where LastModifytime >= ''2015-01-01 00:00:00'' and LastModifytime <= ''2015-12-31 23:59:59.999''.
-- *Data_Destination_Folder_Path* es la ruta de acceso donde se copian los datos en el almacén de destino. Este parámetro solo está visible si el destino que elija es un almacenamiento basado en archivo. Si elige SQL Data Warehouse como almacén de destino, el parámetro no es necesario. Pero los nombres de tabla y el esquema en SQL Data Warehouse deben ser iguales que los de la base de datos de origen.
+- *Data_Destination_Folder_Path* es la ruta de acceso en que se copian los datos en el almacén de destino (aplicable cuando se selecciona "Sistema de archivos" o "Azure Data Lake Storage Gen1" como destino). 
+- *Data_Destination_Container* es la ruta de acceso de la carpeta raíz del lugar donde los datos se copian en el almacén de destino. 
+- *Data_Destination_Directory* es la ruta de acceso del directorio en la raíz donde los datos se copian en el almacén de destino. 
+
+Los tres últimos parámetros, que definen la ruta de acceso en el almacén de destino, solo están visibles si el destino que elige es almacenamiento basado en archivos. Si elige "Azure Synapse Analytics (antes, SQL DW)" como almacén de destino, estos parámetros no son necesarios. Pero los nombres de tabla y el esquema en SQL Data Warehouse deben ser iguales que los de la base de datos de origen.
 
 ## <a name="how-to-use-this-solution-template"></a>Uso de esta plantilla de solución
 
@@ -68,16 +72,14 @@ La plantilla define cinco parámetros:
 
 3. Creación de una **nueva** conexión a la base de datos de origen desde la que está copiando datos.
 
-     ![Creación de una nueva conexión a la base de datos de origen](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
+    ![Creación de una nueva conexión a la base de datos de origen](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
     
 4. Cree una conexión **nueva** al almacén de datos de destino en el que está copiando datos.
 
     ![Creación de una nueva conexión al almacén de destino](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png)
 
-5. Seleccione **Use this template** (Usar esta plantilla).
+5. Seleccione **Usar esta plantilla**.
 
-    ![Uso de esta plantilla](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
-    
 6. Ve la canalización, como se muestra en el ejemplo siguiente:
 
     ![Revisión de la canalización](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
@@ -90,7 +92,7 @@ La plantilla define cinco parámetros:
 
     ![Revisión del resultado](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. (Opcional) Si elige SQL Data Warehouse como destino de datos, debe escribir una conexión a una instancia de Azure Blob Storage como almacenamiento provisional, porque así lo requiere SQL Data Warehouse Polybase. Asegúrese de que ya ha creado el contenedor en Blob Storage.
+9. (Opcional) Si elige "Azure Synapse Analytics (antes, SQL DW)" como destino de datos, debe escribir una conexión a una instancia de Azure Blob Storage como almacenamiento provisional, porque así lo requiere SQL Data Warehouse Polybase. La plantilla generará automáticamente una ruta de acceso de contenedor para Blob Storage. Consulte si el contenedor se ha creado después de la ejecución de la canalización.
     
     ![Configuración de PolyBase](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

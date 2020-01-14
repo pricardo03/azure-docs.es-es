@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: mlearned
-ms.openlocfilehash: 6fc1af356d035c4db73f761ce679f7ad16126d4f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5f3e6cf8c5de8d5f3de17ad0b5d4bb4c004c06df
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013010"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442994"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Protección del acceso al servidor de API con intervalos de direcciones IP autorizadas en Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ En Kubernetes, el servidor de API recibe solicitudes para realizar acciones en e
 En este artículo se muestra cómo usar los intervalos IP autorizados por el servidor de API para limitar qué direcciones IP y CIDR pueden acceder al plano de control.
 
 > [!IMPORTANT]
-> En los nuevos clústeres, los intervalos IP autorizados del servidor de API solo se admiten en la SKU *Estándar* del equilibrador de carga. Los clústeres existentes con la SKU *Básico* del equilibrador de carga y los intervalos IP autorizados del servidor de API seguirán funcionando tal cual. Esos clústeres también pueden actualizarse y seguirán funcionando.
+> En los nuevos clústeres, los intervalos IP autorizados del servidor de API solo se admiten en la SKU *Estándar* del equilibrador de carga. Los clústeres existentes con la SKU *Básica* del equilibrador de carga y los intervalos IP autorizados del servidor de API seguirán funcionando tal cual, pero no se podrán migrar a un equilibrador de carga de SKU *Estándar*. Los clústeres existentes también seguirán funcionando si se actualiza la versión de Kubernetes o el plano de control.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 

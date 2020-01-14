@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas de las herramientas de análisis de comportamiento de usuario en Azure Application Insights
+title: Solución de problemas de las herramientas de análisis de usuario - Azure Application Insights
 description: 'Guía de solución de problemas: análisis de uso del sitio y las aplicaciones con Application Insights'
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9222f4611f87869c1bacf3084035c0ab9322fa40
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: aa540cdaef1af3016d87ab93768ceb30802cef0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899345"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432276"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Solución de problemas de las herramientas de análisis de comportamiento de usuario en Application Insights
 ¿Tiene alguna pregunta sobre las [herramientas de análisis de comportamiento de usuario en Application Insights](usage-overview.md): [usuarios, sesiones, eventos](usage-segmentation.md), [embudos](usage-funnels.md), [flujos de usuario](usage-flows.md), [retención](usage-retention.md) o cohortes? Estas son algunas respuestas.
@@ -50,6 +50,6 @@ Si la aplicación envía demasiados nombres de evento personalizados, cambie los
 
 * [Introducción a las herramientas de análisis de comportamiento de usuario](usage-overview.md)
 
-## <a name="get-help"></a>Obtención de ayuda
-* [Desbordamiento de la pila](https://stackoverflow.com/questions/tagged/ms-application-insights)
+## <a name="get-help"></a>Obtener ayuda
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 

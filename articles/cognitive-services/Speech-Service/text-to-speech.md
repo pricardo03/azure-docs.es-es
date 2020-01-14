@@ -8,48 +8,57 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 12/10/2019
 ms.author: erhopf
-ms.openlocfilehash: f5929be58c5e2159e832005b0e0f8d01e014427e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d076d2520bda4d6209fbdd991df57c4eedaa3938
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923751"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379885"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 
-La característica de texto a voz del servicio de voz permite que sus aplicaciones, herramientas o dispositivos conviertan el texto en una voz sintetizada natural similar a la humana. Puede elegir entre voces estándar y neuronales, o puede crear su propia voz personalizada única para su producto o marca. Tiene más de 75 voces estándar disponibles en más de 45 idiomas y configuraciones regionales y 5 voces neuronales que están disponibles en 4 idiomas y configuraciones regionales. Para ver una lista completa, consulte los [idiomas admitidos](language-support.md#text-to-speech).
+La característica de texto a voz del servicio de voz permite que sus aplicaciones, herramientas o dispositivos conviertan el texto en una voz sintetizada similar a la humana. Puede elegir entre voces estándar y neuronales, o puede crear una voz personalizada única para su producto o marca. Tiene más de 75 voces estándar disponibles en más de 45 idiomas y configuraciones regionales, y 5 voces neuronales que están disponibles en varios idiomas y configuraciones regionales. Para obtener una lista completa de las voces, los idiomas y las configuraciones regionales compatibles, consulte [Idiomas admitidos](language-support.md#text-to-speech).
 
-La tecnología de texto a voz permite a los creadores de contenido interactuar con sus usuarios de diferentes maneras. La conversión de texto a voz puede mejorar la accesibilidad al ofrecer a los usuarios la opción de interactuar con el contenido de manera audible. Si el usuario tiene dificultades visuales, problemas de aprendizaje o requiere información de navegación mientras conduce, el texto a voz puede mejorar una experiencia ya existente. También, la conversión de texto a voz es un complemento valioso para los bots y los asistentes de voz.
+> [!NOTE]
+> Bing Speech se ha retirado el 15 de octubre de 2019. Si sus aplicaciones, herramientas o productos usan Bing Speech API o Custom Speech, hemos creado guías para que le ayuden a migrar al servicio de voz.
+> - [Migración de Bing Speech al servicio de voz](how-to-migrate-from-bing-speech.md)
 
-Al aprovechar el lenguaje de marcado de síntesis de voz (SSML), que es un lenguaje de marcado basado en XML, los desarrolladores que usan el servicio de texto a voz pueden especificar cómo se convierte el texto de entrada en una voz sintetizada. Con SSML, puede ajustar el tono, la pronunciación, la velocidad del habla, el volumen y muchas cosas más. Para obtener más información, consulte [SSML](#speech-synthesis-markup-language-ssml).
+## <a name="core-features"></a>Características principales 
 
-### <a name="standard-voices"></a>Voces estándar
+* Síntesis de voz: use el [SDK de voz](quickstarts/text-to-speech-audio-file.md) o la [API de REST](rest-text-to-speech.md) para convertir texto a voz mediante las voces estándar, neuronal o personalizada.
 
-Las voces estándar se crean mediante técnicas de Síntesis paramétrica estadística y de Síntesis de concatenación. Estas voces son realmente inteligibles y suenan muy naturales. Puede habilitar fácilmente sus aplicaciones para que hablen en más de 45 idiomas, con una amplia gama de opciones de voz. Estas voces proporcionan una alta precisión de pronunciación, admiten abreviaturas, expanden acrónimos, interpretan la fecha y la hora, son polifónicas y ofrecen muchas cosas más. Use la voz estándar para mejorar la accesibilidad de sus aplicaciones y servicios al permitir que los usuarios interactúen con su contenido de manera audible.
+* Síntesis asincrónica de audio de larga duración: use [Long Audio API](long-audio-api.md) para sintetizar asincrónicamente archivos de texto a voz de más de 10 minutos (por ejemplo, audiolibros o audioconferencias). A diferencia de la síntesis realizada mediante el SDK de voz o la API de REST de voz a texto, las respuestas no se devuelven en tiempo real. La expectativa es que las solicitudes se envíen de forma asincrónica, se sondeen las respuestas y el audio sintetizado se descargue cuando esté disponible en el servicio. Solo se admiten las voces neuronales.
 
-### <a name="neural-voices"></a>Voces neuronales
+* Voces estándar: se crean mediante técnicas de síntesis paramétrica estadística y de síntesis de concatenación. Estas voces son realmente inteligibles y suenan muy naturales. Puede habilitar fácilmente sus aplicaciones para que hablen en más de 45 idiomas, con una amplia gama de opciones de voz. Estas voces proporcionan una alta precisión de pronunciación, admiten abreviaturas, expanden acrónimos, interpretan la fecha y la hora, son polifónicas y ofrecen muchas cosas más. Hay una lista completa de voces estándar en [Idiomas admitidos](language-support.md#text-to-speech).
 
-Las voces neuronales usan redes neuronales profundas para superar los límites de los sistemas tradicionales de texto a voz y así poder hacer coincidir los patrones de acentuación y entonación en el lenguaje hablado y sintetizar las unidades del habla en una voz del equipo. La conversión de texto a voz estándar divide la prosodia en análisis lingüísticos separados y pasos de predicción acústica que se rigen por modelos independientes, lo que puede resultar en una síntesis de voz que se oye amortiguada. La capacidad neuronal se encarga de la predicción de la prosodia y la síntesis de voz simultáneamente, lo que resulta en una voz más fluida y natural.
+* Voces neuronales: las redes neuronales profundas se usan para superar los límites de la síntesis de voz tradicional con respecto al acento y la entonación del lenguaje hablado. La predicción de la prosodia y la síntesis de voz se realizan simultáneamente, lo que resulta en una voz más fluida y natural. Las voces neuronales se pueden usar para que las interacciones con los bots de chat y los asistentes de voz sean más naturales y atractivas, para convertir textos digitales (por ejemplo, los libros electrónicos) en audiolibros y para mejorar los sistemas de navegación de los automóviles. Gracias a su prosodia natural similar a la humana y a la clara articulación de las palabras, las voces neuronales reducen considerablemente la fatiga al escucharlas que suele aparecer cuando los usuarios interactúan con sistemas de inteligencia artificial. Hay una lista completa de voces neuronales en [Idiomas admitidos](language-support.md#text-to-speech).
 
-Las voces neuronales se pueden usar para que las interacciones con los bots de chat y los asistentes de voz sean más naturales y atractivas, para convertir textos digitales (por ejemplo, los libros electrónicos) en audiolibros y para mejorar los sistemas de navegación de los automóviles. Gracias a su prosodia natural similar a la humana y a la clara articulación de las palabras, las voces neuronales reducen considerablemente la fatiga al escucharlas que suele aparecer cuando los usuarios interactúan con sistemas de inteligencia artificial.
+* Lenguaje de marcado de síntesis de voz (SSML): lenguaje de marcado basado en XML que se usa para personalizar las salidas de voz a texto. Con SSML, puede ajustar el tono, agregar pausas, mejorar la pronunciación, acelerar o ralentizar la velocidad del habla, subir o bajar el volumen y atribuir varias voces a un solo documento. Consulte [SSML](speech-synthesis-markup.md).
 
-Las voces neuronales admiten diferentes estilos, como el neutral y el alegre. Por ejemplo, la voz Jessa (en-US) puede hablar alegremente, lo que está optimizado para tener una conversación cálida y feliz. Puede ajustar la salida de voz, como el tono, el timbre y la velocidad mediante el [Lenguaje de marcado de síntesis de voz](speech-synthesis-markup.md). Hay una lista completa de voces disponibles en [Idiomas admitidos](language-support.md#text-to-speech).
+## <a name="get-started"></a>Introducción
 
-Para obtener más información sobre los beneficios de las voces neuronales, consulte [Microsoft’s new neural text-to-speech service helps machines speak like people](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/) (El nuevo servicio neuronal de conversión de texto a voz de Microsoft ayuda a las máquinas a hablar como personas).
+El servicio de texto a voz está disponible a través del [SDK de voz](speech-sdk.md). Existen varios escenarios comunes disponibles como inicios rápidos, en diferentes lenguajes y plataformas:
 
-### <a name="custom-voices"></a>Voces personalizadas
+* [Síntesis de voz en un archivo de audio](quickstarts/text-to-speech-audio-file.md)
+* [Síntesis de voz en un altavoz](quickstarts/text-to-speech.md)
+* [Síntesis asincrónica de audio de formato largo](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 
-La personalización de la voz le permite crear una voz reconocible y única para su marca. Para crear su fuente de voz, haga que un estudio grabe y cargue los scripts asociados como datos de aprendizaje. A continuación, el servicio crea un modelo de voz único ajustado a la grabación. Asimismo, puede usar esta fuente de voz personalizada para sintetizar la voz. Para obtener más información, consulte las [voces personalizadas](how-to-customize-voice-font.md).
+Si lo prefiere, el servicio de texto a voz es accesible a través de [REST](rest-text-to-speech.md).
 
-## <a name="speech-synthesis-markup-language-ssml"></a>Lenguaje de marcado de síntesis de voz (SSML)
+## <a name="sample-code"></a>Código de ejemplo
 
-El lenguaje de marcado de síntesis de voz (SSML) es un lenguaje de marcado basado en XML que permite a los desarrolladores especificar cómo se convierte el texto de entrada en una voz sintetizada mediante el servicio de texto a voz. En comparación con el texto sin formato, SSML permite a los desarrolladores ajustar el tono, la pronunciación, la velocidad del habla, el volumen y muchas cosas más en la salida de texto a voz. La puntuación normal, como hacer una pausa después de un punto o usar la entonación correcta cuando una oración termina con un signo de interrogación, se administra automáticamente.
+El ejemplo de código para texto a voz está disponible en GitHub. Estos ejemplos tratan la conversión de texto a voz en los lenguajes de programación más populares.
 
-Todas las entradas de texto enviadas al servicio de texto a voz deben estar estructuradas como SSML. Para obtener más información, consulte [Speech Synthesis Markup Language](speech-synthesis-markup.md) (Lenguaje de marcado de síntesis de voz).
+- [Ejemplos de conversión de texto a voz (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+- [Ejemplos de texto a voz (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
-### <a name="pricing-note"></a>Nota de precios
+## <a name="customization"></a>Personalización 
+
+Además de las voces estándar y neuronales, puede crear y ajustar las voces personalizadas exclusivas del producto o la marca. Todo lo que se necesita para empezar son unos cuantos archivos de audio y las transcripciones asociadas. Para obtener información, consulte [Introducción a voz personalizada](how-to-custom-voice.md).
+
+## <a name="pricing-note"></a>Nota de precios
 
 Al usar el servicio de texto a voz, se le facturará por cada carácter que se convierte a voz, incluida la puntuación. Si bien el documento SSML en sí no es facturable, los elementos opcionales que se usan para ajustar el modo de convertir el texto a voz, como los fonemas y el tono, se cuentan como caracteres facturables. Aquí tiene una lista de lo que se puede facturar:
 
@@ -63,67 +72,12 @@ Para obtener más información, consulte [Precios](https://azure.microsoft.com/p
 > [!IMPORTANT]
 > Cada carácter en chino, japonés y coreano se cuenta como dos caracteres para la facturación.
 
-## <a name="core-features"></a>Características principales
-
-En esta tabla se enumeran las características principales de texto a voz:
-
-| Caso de uso                                  | SDK | REST  |
-| ----------------------------------------- | --- | ----- |
-| Convertir texto a voz.                   | Sí | Sí   |
-| Carga de conjuntos de datos para la adaptación de voces.     | Sin  | Sí\* |
-| Creación y administración de modelos de fuentes de voz.      | Sin  | Sí\* |
-| Creación y administración de implementaciones de fuentes de voz. | Sin  | Sí\* |
-| Creación y administración de pruebas de fuentes de voz.       | Sin  | Sí\* |
-| Administración de suscripciones.                     | Sin  | Sí\* |
-
-\*_Estos servicios están disponibles mediante el punto de conexión cris.ai. Consulte la [referencia de Swagger](https://westus.cris.ai/swagger/ui/index). Estas API de administración y aprendizaje de voz personalizadas implementan una limitación que permite 25 solicitudes por 5 segundos, mientras que la API de síntesis de voz implementa una limitación que permite 200 solicitudes por segundo como el valor más alto. Cuando se produzca una limitación, recibirá una notificación a través de los encabezados de los mensajes._
-
-## <a name="get-started-with-text-to-speech"></a>Empezar a trabajar con texto a voz
-
-Le ofrecemos inicios rápidos diseñados para que ejecute el código en menos de 10 minutos. Esta tabla incluye una lista de inicios rápidos de texto a voz ordenados en función del idioma.
-
-### <a name="sdk-quickstarts"></a>Guías de inicio rápido de SDK
-
-| Inicio rápido (SDK) | Plataforma | Referencia de API |
-| ---------------- | -------- | ------------- |
-| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)  | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, Unity](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=unity) | Windows, Android | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
-| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-cpp&tabs=linux) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
-| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
-| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=android) | Android | [Browse](https://aka.ms/csspeech/javaref) |
-| [Objective-C](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/objectivec-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Objective-C](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/objectivec-ios.md) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Swift](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/swift-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Swift](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/swift-ios.md) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/pythonref) |
-
-### <a name="rest-quickstarts"></a>Inicios rápidos de REST
-
-| Inicio rápido (REST) | Plataforma | Referencia de API |
-| ----------------- | -------- | ------------- |
-| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Window, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Python](quickstart-python-text-to-speech.md) | Window, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-
-## <a name="sample-code"></a>Código de ejemplo
-
-El ejemplo de código para texto a voz está disponible en GitHub. Estos ejemplos tratan la conversión de texto a voz en los lenguajes de programación más populares.
-
-- [Ejemplos de conversión de texto a voz (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-- [Ejemplos de texto a voz (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
-
 ## <a name="reference-docs"></a>Documentos de referencia
 
-- [Acerca del SDK de Voz](speech-sdk-reference.md)
-- [Speech Devices SDK](speech-devices-sdk.md)
-- [API REST: Speech-to-text](rest-speech-to-text.md) (API de REST: Voz a texto)
+- [Acerca del SDK de Voz](speech-sdk.md)
 - [API REST: Text-to-speech](rest-text-to-speech.md) (API de REST: Texto a voz)
-- [API REST: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index) (API de REST: Transcripción y personalización de Azure Batch)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Obtención de una suscripción de gratuita al servicio de voz](get-started.md)
-- [Creación de fuentes de voz personalizadas](how-to-customize-voice-font.md)
+- [Obtención del SDK de voz](speech-sdk.md)

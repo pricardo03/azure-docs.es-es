@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: Uso de Azure Database Migration Service para realizar una migración en línea de PostgreSQL a Azure Database for PostgreSQL | Microsoft Docs'
+title: 'Tutorial: Migración de PostgreSQL en línia a Azure Database for PostgreSQL'
+titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar una migración en línea de PostgreSQL local a Azure Database for PostgreSQL mediante Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,19 +9,19 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/28/2019
-ms.openlocfilehash: 1b4eebafadcdbebfc89ce7265f4d4f77f4f5ac8c
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: a710512d7063a73fde42e2b076a3bb67c5efbf7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043245"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437355"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migración de PostgreSQL a Azure Database for PostgreSQL en línea mediante DMS
 
-Puede usar Azure Database Migration Service para migrar las bases de datos de una instancia de PostgreSQL local a [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) con un tiempo de inactividad mínimo. En otras palabras, se puede lograr la migración con un tiempo de inactividad mínimo para la aplicación. En este tutorial, va a migrar la base de datos de ejemplo **DVD Rental** de una instancia local de PostgreSQL 9.6 a Azure Database for PostgreSQL mediante la actividad de migración en línea de Azure Database Migration Service.
+Puede usar Azure Database Migration Service para migrar las bases de datos de una instancia de PostgreSQL local a [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) con un tiempo de inactividad mínimo. En otras palabras, la migración se puede completar con un tiempo de inactividad mínimo para la aplicación. En este tutorial, va a migrar la base de datos de ejemplo **DVD Rental** de una instancia local de PostgreSQL 9.6 a Azure Database for PostgreSQL mediante la actividad de migración en línea de Azure Database Migration Service.
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
@@ -37,7 +38,7 @@ En este tutorial, aprenderá a:
 > [!IMPORTANT]
 > Para disfrutar de una experiencia de migración óptima, Microsoft recomienda crear una instancia de Azure Database Migration Service en la misma región de Azure que la base de datos de destino. Si los datos se transfieren entre diferentes regiones o ubicaciones geográficas, el proceso de migración puede verse afectado y pueden producirse errores.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesita:
 
@@ -60,7 +61,7 @@ Para completar este tutorial, necesita:
 * Configurar su [Firewall de Windows para acceder al motor de base de datos](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Abra el Firewall de Windows para permitir que Azure Database Migration Service tenga acceso al servidor PostgreSQL de origen que, de manera predeterminada, es el puerto TCP 5432.
 * Cuando se usa un dispositivo de firewall frente a las bases de datos de origen, puede que sea necesario agregar reglas de firewall para permitir que Azure Database Migration Service acceda a las bases de datos de origen para realizar la migración.
-* Cree una [regla de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) en el nivel de servidor para que Azure Database for PostgreSQL permita a Azure Database Migration Service tener acceso a las bases de datos de destino. Proporcione el intervalo de subred de la red virtual usada para Azure Database Migration Service.
+* Cree una [regla de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) en el nivel de servidor para que Azure Database for PostgreSQL permita a Azure Database Migration Service tener acceso a las bases de datos de destino. Proporcione el rango de subredes de la red virtual usadas para Azure Database Migration Service.
 * Hay dos métodos para invocar la CLI:
 
   * En la esquina superior derecha de Azure Portal, seleccione el botón Cloud Shell:
@@ -356,7 +357,7 @@ Para completar todos los objetos de base de datos como esquemas de tabla, índic
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
    ```
 
-   OR
+   O BIEN
 
     ```
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output

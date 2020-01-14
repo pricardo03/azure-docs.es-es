@@ -1,27 +1,27 @@
 ---
 title: Uso de .NET para crear una SAS de delegación de usuarios para un contenedor o un blob
 titleSuffix: Azure Storage
-description: Aprenda a crear una SAS de delegación de usuarios (versión preliminar) con credenciales de Azure Active Directory en Azure Storage mediante la biblioteca cliente de .NET.
+description: Aprenda a crear una SAS de delegación de usuarios con credenciales de Azure Active Directory en Azure Storage mediante la biblioteca cliente de .NET.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 915f2895fbc1e543fbbfbb408ba27eb758a40515
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 385d2c3b88bc2e4d653dae2dc9670cb9e9388faf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892539"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371843"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>Creación de una SAS de delegación de usuarios para un contenedor o blob con .NET (versión preliminar)
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Creación de una SAS de delegación de usuarios para un contenedor o blob con .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-En este artículo se muestra cómo usar credenciales de Azure Active Directory (Azure AD) para crear una SAS de delegación de usuarios (versión preliminar) para un contenedor o blob con la biblioteca cliente de Azure Storage para .NET.
+En este artículo se muestra cómo usar credenciales de Azure Active Directory (Azure AD) para crear una SAS de delegación de usuarios para un contenedor o blob con la biblioteca cliente de Azure Storage para .NET.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
@@ -215,7 +215,7 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
     }
     catch (RequestFailedException e)
     {
-        // Check for a 403 (Forbidden) error. If the SAS is invalid, 
+        // Check for a 403 (Forbidden) error. If the SAS is invalid,
         // Azure Storage returns this error.
         if (e.Status == 403)
         {
@@ -239,4 +239,4 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md) (Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido [SAS])
 - [Obtener la operación de clave de delegación de usuario](/rest/api/storageservices/get-user-delegation-key)
-- [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas) (Creación de una SAS de delegación de usuario [API de REST])
+- [Creación de una SAS de delegación de usuario (API de REST)](/rest/api/storageservices/create-user-delegation-sas)

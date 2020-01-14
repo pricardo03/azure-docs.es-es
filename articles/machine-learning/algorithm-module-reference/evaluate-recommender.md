@@ -1,7 +1,7 @@
 ---
 title: 'Evaluación del recomendador: Referencia del módulo'
-titleSuffix: Azure Machine Learning service
-description: Aprenda a usar el módulo Evaluate Recommender (Evaluar recomendador) en Azure Machine Learning Service para evaluar la precisión de las predicciones del modelo del recomendador.
+titleSuffix: Azure Machine Learning
+description: Obtenga más información sobre como usar el módulo de evaluación del recomendador en Azure Machine Learning para evaluar la precisión de las predicciones del modelo del recomendador.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 9a80fce04aa939895d1dc9572714046d9203bad7
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717164"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428535"
 ---
 # <a name="evaluate-recommender"></a>Evaluación del recomendador
 
@@ -25,7 +25,7 @@ En este artículo se describe cómo usar el módulo Evaluate Recommender (Evalua
   
 Al crear predicciones con un modelo de recomendación, se devuelven resultados ligeramente diferentes para cada uno de estos tipos de predicción admitidos. El módulo Evaluate Recommender (Evaluar recomendador) deduce el tipo de predicción del formato de columna del conjunto de datos puntuado. Por ejemplo, el conjunto de datos puntuado puede contener:
 
-- Tripleta usuario-elemento-clasificación
+- Tripleta clasificación-usuario-elemento
 - Usuarios y sus elementos recomendados
 
 El módulo también aplica las métricas de rendimiento adecuadas, en función del tipo de predicción que se realice. 
@@ -90,4 +90,4 @@ Dado que es imposible conocer los datos "ciertos" actuales de los elementos reco
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 59f8b8b253fc914e5723a9c41475ec78bc3f376e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b95fb8d5a0c05d2d66744a91f4200d58a71470d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429355"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427366"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Movimiento de datos desde un servidor SQL Server local hasta SQL Azure con Azure Data Factory
 
-En este artículo se muestra cómo mover datos desde una base de datos local de SQL Server hasta una base de datos de SQL Azure a través de Azure Blob Storage mediante Azure Data Factory (ADF).
+En este artículo se muestra cómo migrar datos de una base de datos de SQL Server local a una base de datos de Azure SQL Database a través de Azure Blob Storage mediante Azure Data Factory (ADF): este método es un enfoque heredado admitido que tiene las ventajas de una copia de almacenamiento provisional replicada; sin embargo, [se recomienda que consulte nuestra página sobre migración de datos para conocer las opciones más recientes](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
 
 Para ver una tabla que resuma varias opciones para mover datos a una base de datos de Azure SQL, vea [Traslado de datos a una base de datos de Azure SQL para Azure Machine Learning](move-sql-azure.md).
 
@@ -51,7 +51,7 @@ Configuramos una canalización ADF que se compone de dos actividades de migraci�
 En este tutorial se asume que dispone de:
 
 * Una **suscripción de Azure**. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Una **cuenta de almacenamiento de Azure**. En este tutorial se usa una cuenta de Azure Storage para almacenar los datos. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md) . Tras crear la cuenta de almacenamiento, tendrá que obtener la clave de cuenta que se usa para tener acceso al almacenamiento. Consulte [Administración de las claves de acceso de almacenamiento](../../storage/common/storage-account-manage.md#access-keys).
+* Una **cuenta de almacenamiento de Azure**. En este tutorial se usa una cuenta de Azure Storage para almacenar los datos. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md) . Tras crear la cuenta de almacenamiento, tendrá que obtener la clave de cuenta que se usa para tener acceso al almacenamiento. Vea [Administración de las claves de acceso de la cuenta de almacenamiento](../../storage/common/storage-account-keys-manage.md).
 * Acceso a **Azure SQL Database**. Si debe configurar una instancia de Azure SQL Database, el tema [Introducción a Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) proporciona información sobre cómo aprovisionar una nueva.
 * **Azure PowerShell** instalado y configurado de forma local. Para obtener instrucciones, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
@@ -63,7 +63,7 @@ En este tutorial se asume que dispone de:
 ## <a name="upload-data"></a> Carga de datos en la instancia de SQL Server local
 Usamos el [conjunto de datos de taxis de Nueva York](https://chriswhong.com/open-data/foil_nyc_taxi/) para demostrar el proceso de migración. El conjunto de datos de taxis de Nueva York está disponible, como se especificó en esa publicación, en la instancia de Azure Blob Storage [NYC Taxi Data](https://www.andresmh.com/nyctaxitrips/). Los datos tienen dos archivos, el archivo trip_data.csv, que contiene detalles de carreras, y el archivo trip_far.csv, que contiene detalles de la tarifa de cada carrera. En [Descripción del conjunto de datos de carreras de taxi de Nueva York](sql-walkthrough.md#dataset), se proporciona un ejemplo y una descripción de estos archivos.
 
-Puede adaptar el procedimiento que se proporciona aquí para un conjunto de datos propios o seguir los pasos descritos para el uso del conjunto de datos de taxis de Nueva York. Para cargar el conjunto de datos de taxis de Nueva York en la base de datos de SQL Server local, siga el procedimiento descrito en [Importación masiva de datos en una base de datos de SQL Server](sql-walkthrough.md#dbload). Estas instrucciones son para un servidor SQL Server en una máquina virtual de Azure, pero el procedimiento para realizar la carga en el servidor SQL Server local es el mismo.
+Puede adaptar el procedimiento que se proporciona aquí para un conjunto de datos propios o seguir los pasos descritos para el uso del conjunto de datos de taxis de Nueva York. Para cargar el conjunto de datos de taxis de Nueva York en la base de datos de SQL Server local, siga el procedimiento descrito en [Importación masiva de datos en una base de datos de SQL Server](sql-walkthrough.md#dbload). Estas instrucciones corresponden a un servidor SQL Server en una máquina virtual de Azure, pero el procedimiento para realizar la carga en SQL Server local es el mismo.
 
 ## <a name="create-adf"></a> Crear una factoría de datos de Azure
 Las instrucciones para crear una nueva factoría de datos de Azure y un grupo de recursos en [Azure Portal](https://portal.azure.com/) se proporcionan en [Creación de Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Ponga el nombre *adfdsp* a la nueva instancia de ADF y el nombre *adfdsprg* al grupo de recursos creado.

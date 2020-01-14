@@ -1,5 +1,6 @@
 ---
-title: 'Ejemplo de directiva de Azure API Management: autorización de acceso con tokens de Google OAuth | Microsoft Docs'
+title: 'Directiva de administración de API de muestra: autorización de acceso mediante el token de OAuth de Google'
+titleSuffix: Azure API Management
 description: 'Ejemplo de directiva de Azure API Management: muestra cómo autorizar el acceso a los puntos de conexión con Google como proveedor de tokens de OAuth.'
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 7acc9071008937cd85c628878b385f1f53707e53
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d606d29d84cd5917c74efe188ae02627ad55d4ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071923"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442371"
 ---
 # <a name="authorize-access-using-google-oauth-token"></a>Autorización de acceso con el token de OAuth de Google
 

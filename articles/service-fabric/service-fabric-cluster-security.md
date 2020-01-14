@@ -1,25 +1,14 @@
 ---
-title: Protección de un clúster de Azure Service Fabric | Microsoft Docs
+title: Protección de un clúster de Azure Service Fabric
 description: Información acerca de los escenarios de seguridad para un clúster de Azure Service Fabric y las diferentes tecnologías que se pueden usar para implementarlos.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 26b58724-6a43-4f20-b965-2da3f086cf8a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/14/2018
-ms.author: atsenthi
-ms.openlocfilehash: cf808bef75a73cef6e8c17045506f29fabf3b52e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f00a356a948a6bb76d12b39a03cd156fcb975d4d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819442"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451877"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Escenarios de seguridad de los clústeres de Service Fabric
 Un clúster de Azure Service Fabric es un recurso que usted posee. Tiene la responsabilidad de proteger los clústeres para impedir que usuarios no autorizados se conecten a ellos. Proteger el clúster es especialmente importante si en él se ejecutan cargas de trabajo de producción. Es posible crear un clúster sin protección. Sin embargo, si este expone los puntos de conexión de administración a Internet público, podrían conectarse a él usuarios anónimos. Los clústeres sin protección no se admiten para cargas de trabajo de producción. 
@@ -83,7 +72,7 @@ Para los clústeres de Service Fabric implementados en una red pública hospedad
 Para los clústeres de Windows Server independientes, si tiene Windows Server 2012 R2 y Windows Active Directory, se recomienda la seguridad de Windows con las cuentas de servicio administradas de grupo. De lo contrario, use la seguridad de Windows con cuentas de Windows.
 
 ## <a name="role-based-access-control-rbac"></a>Control de acceso basado en rol (RBAC)
-Puede usar el control de acceso para limitarlo a determinadas operaciones de clúster para los diferentes grupos de usuarios. Esto ayuda a que el clúster esté más protegido. Se admiten dos tipos de control de acceso para los clientes que se conectan a un clúster: rol de administrador y usuario.
+Puede usar el control de acceso para limitarlo a determinadas operaciones de clúster para los diferentes grupos de usuarios. Esto ayuda a que el clúster esté más protegido. Se admiten dos tipos de control de acceso para los clientes que se conectan a un clúster: Rol de administrador y rol de usuario.
 
 Los usuarios con el rol de administrador tienen acceso total a las funcionalidades de administración (incluidas las de lectura y escritura). Los usuarios con el rol de usuario, de forma predeterminada, tienen acceso de solo lectura a las funcionalidades de administración (por ejemplo, funcionalidad de consulta). También pueden resolver aplicaciones y servicios.
 

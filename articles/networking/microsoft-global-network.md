@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: c064a5afee8db0c747273ab1c38c901a6f10ef98
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 10a061163447a60f1c25b386ef28028436284650
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876147"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453068"
 ---
 # <a name="microsoft-global-network"></a>Red global de Microsoft
 
@@ -56,7 +56,7 @@ El [emparejamiento de VNet global](../virtual-network/virtual-network-peering-ov
 
 ## <a name="well-managed-using-software-defined-innovation"></a>Administración correcta con innovación definida por software
 
-Con una de las nubes líderes a nivel mundial, Microsoft ha obtenido mucha información y experiencia sobre la [creación y administración](https://myignite.techcommunity.microsoft.com/sessions/66668) de una infraestructura global de alto rendimiento.  
+Con una de las nubes líderes a nivel mundial, Microsoft ha obtenido mucha información y experiencia sobre la creación y administración de una infraestructura global de alto rendimiento.  
  
 Seguimos un conjunto sólido de principios operativos: 
  

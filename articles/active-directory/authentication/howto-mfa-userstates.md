@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46195a0a799f9edabcd8cd5a27e1b79752d03a45
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1c39546d47e9916dbc138a4660d73b79e54ebbe3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964062"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425244"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Exigencia de verificación en dos pasos para un usuario
 
@@ -29,9 +29,9 @@ Puede utilizar uno de estos dos métodos para requerir la verificación en dos p
 
 **Enabled by changing user state** (Habilitada mediante el cambio de estado de usuario): se trata del método tradicional para exigir la verificación en dos pasos y se describe en este artículo. Funciona tanto en Azure MFA en la nube como en el servidor de Azure MFA. El uso de este método requiere que los usuarios realicen la verificación en dos pasos **cada vez** que inicien sesión e invalida las directivas de acceso condicional.
 
-Enabled by conditional access policy (Habilitada mediante la directiva de acceso condicional): se trata del medio más flexible para habilitar la verificación en dos pasos para los usuarios. La habilitación de la directiva de acceso condicional solo funciona con Azure MFA en la nube y es una característica premium de Azure AD. Puede encontrar más información sobre este método en [Implementación de Azure Multi-factor Authentication en la nube](howto-mfa-getstarted.md).
+**Enabled by Conditional Access policy** (Habilitada mediante la directiva de acceso condicional): se trata del medio más flexible para habilitar la verificación en dos pasos para los usuarios. La habilitación de la directiva de acceso condicional solo funciona con Azure MFA en la nube y es una característica premium de Azure AD. Puede encontrar más información sobre este método en [Implementación de Azure Multi-factor Authentication en la nube](howto-mfa-getstarted.md).
 
-Enabled by Azure AD Identity Protection (Habilitada por Azure AD Identity Protection): este método utiliza la directiva de riesgos de Azure AD Identity Protection para exigir la verificación en dos pasos solo según el riesgo de inicio de sesión para todas las aplicaciones en la nube. Este método requiere una licencia de Azure Active Directory P2. Para más información sobre este método, vea [Azure Active Directory Identity Protection](../identity-protection/howto-sign-in-risk-policy.md).
+**Enabled by Azure AD Identity Protection** (Habilitada por Azure AD Identity Protection): este método utiliza la directiva de riesgos de Azure AD Identity Protection para exigir la verificación en dos pasos solo según el riesgo de inicio de sesión para todas las aplicaciones en la nube. Este método requiere una licencia de Azure Active Directory P2. Para más información sobre este método, vea [Azure Active Directory Identity Protection](../identity-protection/howto-sign-in-risk-policy.md).
 
 > [!Note]
 > Puede encontrar más información sobre licencias y precios en las páginas de precios de [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
@@ -44,9 +44,9 @@ Las cuentas de usuario de Azure Multi-Factor Authentication tienen los siguiente
 > [!IMPORTANT]
 > Al habilitar Azure MFA mediante una directiva de acceso condicional, no se cambiará el estado del usuario. Los usuarios a los que no se deben realizar notificaciones de alarma aparecen deshabilitados. El acceso condicional no cambia el estado. **Las organizaciones no deben habilitar o imponer a los usuarios si usan directivas de acceso condicional.**
 
-| Status | DESCRIPCIÓN | Aplicaciones que no son de explorador afectadas | Aplicaciones que son de explorador afectadas | Autenticación moderna afectada |
+| Status | Descripción | Aplicaciones que no son de explorador afectadas | Aplicaciones que son de explorador afectadas | Autenticación moderna afectada |
 |:---:| --- |:---:|:--:|:--:|
-| Disabled | Estado predeterminado para un usuario nuevo no inscrito en Azure MFA. | Sin | No | Sin |
+| Disabled | Estado predeterminado para un usuario nuevo no inscrito en Azure MFA. | No | No | No |
 | habilitado | El usuario se ha inscrito en Azure MFA, pero no se ha registrado. La próxima vez que inicie sesión, se le pedirá registrarse. | No.  Continúa funcionando hasta que se complete el proceso de registro. | Sí. Una vez que expire la sesión, se requerirá el registro de Azure MFA.| Sí. Una vez que expire el token de acceso, se requerirá el registro de Azure MFA. |
 | Aplicado | El usuario se ha inscrito y ha completado el proceso de registro de Azure MFA. | Sí. Las aplicaciones requieren contraseñas de aplicación. | Sí. Se requiere Azure MFA en el inicio de sesión. | Sí. Se requiere Azure MFA en el inicio de sesión. |
 

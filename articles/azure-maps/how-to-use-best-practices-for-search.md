@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: de9e484e43c87375c2fdf9b34dd2efce3bb8aa8c
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 6a51d764b8e42419bc331e3d4731ef5c5f511f91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429170"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408717"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Procedimientos recomendados para utilizar el servicio de búsqueda de Azure Maps
 
@@ -25,9 +25,9 @@ El [servicio de búsqueda](https://docs.microsoft.com/rest/api/maps/search) de A
 * Leer la estructura de respuesta de la búsqueda de direcciones
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Para realizar cualquier llamada a las API del servicio Azure Maps, necesita una cuenta de Maps y una clave. Para obtener información sobre cómo crear una cuenta, siga las instrucciones de [Administrar cuentas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) y siga los pasos de [Obtención de la clave principal](./tutorial-search-location.md#getkey) para recuperar una clave de suscripción principal para su cuenta.
+Para realizar cualquier llamada a las API del servicio Azure Maps, necesita una cuenta de Maps y una clave. Para obtener información sobre cómo crear una cuenta, siga las instrucciones de [Crear una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) y siga los pasos de [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para recuperar una clave principal (suscripción) para su cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
 
 > [!Tip]
 > Para hacer una consulta al servicio de búsqueda, puede usar la [aplicación Postman](https://www.getpostman.com/apps) para crear llamadas de REST o el entorno de desarrollo de API que prefiera.

@@ -1,34 +1,25 @@
 ---
-title: Diagnóstico y supervisión de Azure Service Fabric | Microsoft Docs
+title: Diagnóstico y supervisión de Azure Service Fabric
 description: En este artículo se describen las características de supervisión del rendimiento del entorno de tiempo de ejecución Reliable ServiceRemoting de Service Fabric, incluidos los contadores de rendimiento y los eventos que emite.
-services: service-fabric
-documentationcenter: .net
 author: suchiagicha
-manager: chackdan
-editor: suchiagicha
-ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/29/2017
 ms.author: pepogors
-ms.openlocfilehash: a7c5ec023eb03d7d68a43ffecdc74aa4e505a0ce
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170490"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426696"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Supervisión de diagnósticos y rendimiento de Reliable ServiceRemoting
 El entorno de tiempo de ejecución de Reliable ServiceRemoting emite [contadores de rendimiento](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Estos ofrecen información sobre cómo está funcionando Reliable ServiceRemoting y le ayudarán con la solución de problemas y la supervisión de rendimiento.
 
 
-## <a name="performance-counters"></a>contadores de rendimiento
+## <a name="performance-counters"></a>Contadores de rendimiento
 El entorno de tiempo de ejecución de Reliable ServiceRemoting define las siguientes categorías de contador de rendimiento:
 
-| Category | DESCRIPCIÓN |
+| Category | Descripción |
 | --- | --- |
 | Servicio de Service Fabric |Contadores específicos para la comunicación remota de servicios de Azure Service Fabric como, por ejemplo, el promedio de tiempo empleado en procesar la solicitud |
 | Método del servicio Service Fabric |Contadores específicos de los métodos que implementan los servicios de comunicación remota de Service Fabric. Por ejemplo, la frecuencia con que se invoca un método de servicio. |
@@ -83,7 +74,7 @@ En el ejemplo anterior, `ivoicemailboxservice.leavemessageasync` es un nombre de
 
 El entorno de tiempo de ejecución del servicio de confianza publica los siguientes contadores de rendimiento relacionados con la ejecución de los métodos de servicio.
 
-| Nombre de la categoría | Nombre del contador | DESCRIPCIÓN |
+| Nombre de la categoría | Nombre del contador | Descripción |
 | --- | --- | --- |
 | Método del servicio Service Fabric |Invocaciones/seg. |Número de veces que se invoca el método de servicio del actor por segundo |
 | Método del servicio Service Fabric |Promedio de milisegundos por invocación |Tiempo necesario para ejecutar el método de servicio en milisegundos |
@@ -92,7 +83,7 @@ El entorno de tiempo de ejecución del servicio de confianza publica los siguien
 ### <a name="service-request-processing-performance-counters"></a>Contadores de rendimiento del procesamiento de solicitudes de servicio
 Cuando un cliente invoca un método a través de un objeto de proxy de servicio, se envía un mensaje de solicitud a través de la red al servicio de comunicación remota. El servicio procesa el mensaje de solicitud y envía una respuesta al cliente. El entorno de tiempo de ejecución de Reliable ServiceRemoting publica los siguientes contadores de rendimiento relacionados con el procesamiento de las solicitudes de servicio.
 
-| Nombre de la categoría | Nombre del contador | DESCRIPCIÓN |
+| Nombre de la categoría | Nombre del contador | Descripción |
 | --- | --- | --- |
 | Servicio de Service Fabric |Número de solicitudes pendientes |Número de solicitudes que se procesan en el servicio |
 | Servicio de Service Fabric |Promedio de milisegundos por solicitud |Tiempo que tarda el servicio (en milisegundos) en procesar una solicitud |

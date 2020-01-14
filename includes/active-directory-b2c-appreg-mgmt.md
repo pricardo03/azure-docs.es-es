@@ -5,20 +5,20 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: marsma
-ms.openlocfilehash: 77c3aee4fdb5f8b2ee7ed83f92917573ad6ad529
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 0ab9302909f86ff4559ece217f8d702710733691
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643616"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368015"
 ---
-Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregintro).
+Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-1. En el menú de la izquierda, seleccione **Azure Active Directory** (*no* Azure AD B2C). O bien seleccione **Todos los servicios** y, luego, busque y seleccione **Azure Active Directory**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. En Azure Portal, busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones (característica heredada)** .
 1. Seleccione **Nuevo registro de aplicaciones**.
 1. Escriba un nombre para la aplicación. Por ejemplo, *managementapp1*.
@@ -29,11 +29,11 @@ Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la 
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Registros de aplicaciones (versión preliminar)** y luego **Nuevo registro**.
-1. Escriba un **nombre** para la aplicación. Por ejemplo, *managementapp1*.
+1. Escriba un **Nombre** para la aplicación. Por ejemplo, *managementapp1*.
 1. Seleccione **Solo las cuentas de este directorio organizativo**.
 1. En **Permisos**, desactive la casilla *Conceda permiso del administrador a los permisos openid y offline_access*.
 1. Seleccione **Registrar**.

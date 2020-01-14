@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: ad4a30b9bcd537a59f3d2ef17d3d2f215c1f4b98
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 5c51eff77c0375491f4376f12c9ff959f033e2ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848905"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425386"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Habilitación de auditorías de seguridad para Azure Active Directory Domain Services
 
@@ -31,7 +31,7 @@ Las auditorías de seguridad de Azure AD DS se alinean con las auditorías tradi
 
 Hay disponibles las siguientes categorías de eventos de auditoría:
 
-| Nombre de categoría de auditoría | DESCRIPCIÓN |
+| Nombre de categoría de auditoría | Descripción |
 |:---|:---|
 | Inicio de sesión de la cuenta|Audita los intentos para autenticar los datos de la cuenta en un controlador de dominio o en un administrador de cuentas de seguridad (SAM) local.</p>Configuración de la directiva de inicio y cierre de sesión e intentos de seguimiento de eventos para acceder a un equipo determinado. La configuración y los eventos de esta categoría se centran en la base de datos de cuenta que se está utilizando. Esta categoría incluye las subcategorías siguientes:<ul><li>[Auditar validación de credenciales](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-credential-validation)</li><li>[Auditar servicio de autenticación Kerberos](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-authentication-service)</li><li>[Auditar operaciones de vales de servicio Kerberos](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-service-ticket-operations)</li><li>[Auditar otros eventos de inicio y cierre de sesión](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li></ul>|
 | Administración de cuentas|Audita los cambios en grupos y cuentas de usuarios y equipos. Esta categoría incluye las subcategorías siguientes:<ul><li>[Auditar administración de grupos de aplicaciones](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-application-group-management)</li><li>[Auditar administración de cuentas de equipo](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-computer-account-management)</li><li>[Auditar administración de grupos de distribución](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-distribution-group-management)</li><li>[Auditar otros eventos de administración de cuentas](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-account-management-events)</li><li>[Auditar administración de grupos de seguridad](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-group-management)</li><li>[Auditar administración de cuentas de usuario](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-user-account-management)</li></ul>|
@@ -70,7 +70,7 @@ En la tabla siguiente se esbozan los escenarios para cada tipo de recurso de des
 
 | Recurso de destino | Escenario |
 |:---|:---|
-|Azure Storage| Este destino se debe usar cuando la necesidad principal es almacenar eventos de auditoría de seguridad para fines de archivado. Se pueden usar otros destinos para fines de archivado, pero esos destinos proporcionan funcionalidades que van más allá de la principal necesidad de archivado. Antes de habilitar eventos de auditoría de seguridad de Azure AD DS, [cree una cuenta de Azure Storage](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal#create-a-storage-account-1).|
+|Azure Storage| Este destino se debe usar cuando la necesidad principal es almacenar eventos de auditoría de seguridad para fines de archivado. Se pueden usar otros destinos para fines de archivado, pero esos destinos proporcionan funcionalidades que van más allá de la principal necesidad de archivado. Antes de habilitar eventos de auditoría de seguridad de Azure AD DS, [cree una cuenta de Azure Storage](../storage/common/storage-account-create.md).|
 |Azure Event Hubs| Este destino debe usarse cuando la principal necesidad es compartir eventos de auditoría de seguridad con otro software, como software de análisis de datos o software de administración de eventos e información de seguridad (SIEM). Antes de habilitar eventos de auditoría de seguridad de Azure AD DS, [cree un centro de eventos mediante Azure Portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
 |Área de trabajo de Azure Log Analytics| Este destino debe usarse cuando la principal necesidad es analizar y revisar auditorías de seguridad directamente en Azure Portal. Antes de habilitar eventos de auditoría de seguridad de Azure AD DS, [cree un área de trabajo de Log Analytics en Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).|
 

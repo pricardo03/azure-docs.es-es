@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 1f5f5f2064baa4b2821ccb7b9a2237e6aeeb86f5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 7cb3b4d6b490d09d14046465e0fc58526be5b045
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048770"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433841"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitectura de conectividad para una instancia administrada en Azure SQL Database
 
@@ -81,161 +81,13 @@ Cuando la conexión se inicia dentro de la instancia administrada (como ocurre c
 > [!NOTE]
 > El tráfico que se dirige a los servicios de Azure que están dentro de la región de la instancia administrada se optimiza y, por ese motivo, no se dirige mediante NAT a la dirección IP pública del punto de conexión de la instancia administrada. Así que si necesita usar reglas de firewall basadas en IP, mayormente para el almacenamiento, el servicio debe estar en una región distinta de la de la instancia administrada.
 
-## <a name="network-requirements"></a>Requisitos de red
-
-Implemente una instancia administrada en una subred dedicada dentro de la red virtual. La subred debe tener estas características:
-
-- **Subred dedicada:** la subred de la instancia administrada no puede contener ningún otro servicio en la nube asociado a ella y no puede ser una subred de puerta de enlace. La subred no puede contener ningún recurso, a excepción de la instancia administrada, y no se pueden agregar posteriormente otros tipos de recursos en la subred.
-- **Grupo de seguridad de red (NSG):** Un NSG que esté asociado a la red virtual debe definir [reglas de seguridad de entrada](#mandatory-inbound-security-rules) y [reglas de seguridad de salida](#mandatory-outbound-security-rules) antes que cualquier otras reglas. Puede usar un NSG para controlar el acceso al punto de conexión de datos de la instancia administrada mediante el filtrado del tráfico en el puerto 1433 y en los puertos 11000 a 11999 cuando la instancia administrada está configurada para conexiones de redirección.
-- **Tabla de rutas definida por el usuario (UDR):** una tabla UDR que esté asociada a la red virtual debe incluir [entradas](#user-defined-routes) específicas.
-- **Sin puntos de conexión de servicio:** ningún punto de conexión de servicio debe estar asociado con la subred de la instancia administrada. Asegúrese de que la opción de puntos de conexión de servicio esté deshabilitada al crear la red virtual.
-- **Suficientes direcciones IP:** la subred de la instancia administrada debe tener al menos 16 direcciones IP. El mínimo recomendado es 32 direcciones IP. Para más información, consulte [Determinación del tamaño de subred para instancias administradas](sql-database-managed-instance-determine-size-vnet-subnet.md). Puede implementar instancias administradas en [la red existente](sql-database-managed-instance-configure-vnet-subnet.md) después de configurarla para satisfacer [los requisitos de red de las instancias administradas](#network-requirements). De lo contrario, cree [una red y una subred](sql-database-managed-instance-create-vnet-subnet.md).
-
-> [!IMPORTANT]
-> No se puede implementar una nueva instancia administrada si la subred de destino no tiene estas características. Cuando se crea una instancia administrada, se aplica una directiva de intención de red en la subred para evitar cambios no compatibles con la configuración de red. Después de quitar la última instancia de la subred, también se quitará la directiva de intención de red.
-
-### <a name="mandatory-inbound-security-rules"></a>Reglas de seguridad de entrada obligatorias
-
-| NOMBRE       |Port                        |Protocolo|Source           |Destination|.|
-|------------|----------------------------|--------|-----------------|-----------|------|
-|management  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |MI SUBNET  |Allow |
-|mi_subnet   |Any                         |Any     |MI SUBNET        |MI SUBNET  |Allow |
-|health_probe|Any                         |Any     |AzureLoadBalancer|MI SUBNET  |Allow |
-
-### <a name="mandatory-outbound-security-rules"></a>Reglas de seguridad de salida obligatorias
-
-| NOMBRE       |Port          |Protocolo|Source           |Destination|.|
-|------------|--------------|--------|-----------------|-----------|------|
-|management  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Allow |
-|mi_subnet   |Any           |Any     |MI SUBNET        |MI SUBNET  |Allow |
-
-> [!IMPORTANT]
-> Asegúrese de que solo haya una regla de entrada para los puertos 9000, 9003, 1438, 1440, 1452 y una regla de salida para los puertos 443, 12000. El aprovisionamiento de instancias administradas mediante implementaciones de Azure Resource Manager producirá un error si las reglas de entrada y salida están configuradas por separado para cada puerto. Si estos puertos están en reglas distintas, la implementación generará el código de error `VnetSubnetConflictWithIntendedPolicy`
-
-\* MI SUBNET se refiere al intervalo de direcciones IP de la subred con el formato 10.x.x.x/y. Puede encontrar esta información en Portal de Azure, en las propiedades de subred.
-
-> [!IMPORTANT]
-> Aunque las reglas de seguridad de entrada obligatorias permiten el tráfico desde _cualquier_ origen en los puertos 9000, 9003, 1438, 1440 y 1452, estos puertos están protegidos por un firewall integrado. Para más información, consulte [Determinación de la dirección del punto de conexión de administración](sql-database-managed-instance-find-management-endpoint-ip-address.md).
-> [!NOTE]
-> Si usa replicación transaccional en una instancia administrada y si utiliza cualquier base de datos de instancias como publicador o distribuidor, abra el puerto 445 (salida TCP) en las reglas de seguridad de la subred. Este puerto permitirá el acceso al recurso compartido de archivos de Azure.
-
-### <a name="user-defined-routes"></a>rutas definidas por el usuario
-
-|NOMBRE|Prefijo de dirección|Próximo salto|
-|----|--------------|-------|
-|subnet_to_vnetlocal|MI SUBNET|Virtual network|
-|mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
-|mi-13-96-13-nexthop-internet|13.96.0.0/13|Internet|
-|mi-13-104-14-nexthop-internet|13.104.0.0/14|Internet|
-|mi-20-8-nexthop-internet|20.0.0.0/8|Internet|
-|mi-23-96-13-nexthop-internet|23.96.0.0/13|Internet|
-|mi-40-64-10-nexthop-internet|40.64.0.0/10|Internet|
-|mi-42-159-16-nexthop-internet|42.159.0.0/16|Internet|
-|mi-51-8-nexthop-internet|51.0.0.0/8|Internet|
-|mi-52-8-nexthop-internet|52.0.0.0/8|Internet|
-|mi-64-4-18-nexthop-internet|64.4.0.0/18|Internet|
-|mi-65-52-14-nexthop-internet|65.52.0.0/14|Internet|
-|mi-66-119-144-20-nexthop-internet|66.119.144.0/20|Internet|
-|mi-70-37-17-nexthop-internet|70.37.0.0/17|Internet|
-|mi-70-37-128-18-nexthop-internet|70.37.128.0/18|Internet|
-|mi-91-190-216-21-nexthop-internet|91.190.216.0/21|Internet|
-|mi-94-245-64-18-nexthop-internet|94.245.64.0/18|Internet|
-|mi-103-9-8-22-nexthop-internet|103.9.8.0/22|Internet|
-|mi-103-25-156-22-nexthop-internet|103.25.156.0/22|Internet|
-|mi-103-36-96-22-nexthop-internet|103.36.96.0/22|Internet|
-|mi-103-255-140-22-nexthop-internet|103.255.140.0/22|Internet|
-|mi-104-40-13-nexthop-internet|104.40.0.0/13|Internet|
-|mi-104-146-15-nexthop-internet|104.146.0.0/15|Internet|
-|mi-104-208-13-nexthop-internet|104.208.0.0/13|Internet|
-|mi-111-221-16-20-nexthop-internet|111.221.16.0/20|Internet|
-|mi-111-221-64-18-nexthop-internet|111.221.64.0/18|Internet|
-|mi-129-75-16-nexthop-internet|129.75.0.0/16|Internet|
-|mi-131-253-16-nexthop-internet|131.253.0.0/16|Internet|
-|mi-132-245-16-nexthop-internet|132.245.0.0/16|Internet|
-|mi-134-170-16-nexthop-internet|134.170.0.0/16|Internet|
-|mi-134-177-16-nexthop-internet|134.177.0.0/16|Internet|
-|mi-137-116-15-nexthop-internet|137.116.0.0/15|Internet|
-|mi-137-135-16-nexthop-internet|137.135.0.0/16|Internet|
-|mi-138-91-16-nexthop-internet|138.91.0.0/16|Internet|
-|mi-138-196-16-nexthop-internet|138.196.0.0/16|Internet|
-|mi-139-217-16-nexthop-internet|139.217.0.0/16|Internet|
-|mi-139-219-16-nexthop-internet|139.219.0.0/16|Internet|
-|mi-141-251-16-nexthop-internet|141.251.0.0/16|Internet|
-|mi-146-147-16-nexthop-internet|146.147.0.0/16|Internet|
-|mi-147-243-16-nexthop-internet|147.243.0.0/16|Internet|
-|mi-150-171-16-nexthop-internet|150.171.0.0/16|Internet|
-|mi-150-242-48-22-nexthop-internet|150.242.48.0/22|Internet|
-|mi-157-54-15-nexthop-internet|157.54.0.0/15|Internet|
-|mi-157-56-14-nexthop-internet|157.56.0.0/14|Internet|
-|mi-157-60-16-nexthop-internet|157.60.0.0/16|Internet|
-|mi-167-220-16-nexthop-internet|167.220.0.0/16|Internet|
-|mi-168-61-16-nexthop-internet|168.61.0.0/16|Internet|
-|mi-168-62-15-nexthop-internet|168.62.0.0/15|Internet|
-|mi-191-232-13-nexthop-internet|191.232.0.0/13|Internet|
-|mi-192-32-16-nexthop-internet|192.32.0.0/16|Internet|
-|mi-192-48-225-24-nexthop-internet|192.48.225.0/24|Internet|
-|mi-192-84-159-24-nexthop-internet|192.84.159.0/24|Internet|
-|mi-192-84-160-23-nexthop-internet|192.84.160.0/23|Internet|
-|mi-192-100-102-24-nexthop-internet|192.100.102.0/24|Internet|
-|mi-192-100-103-24-nexthop-internet|192.100.103.0/24|Internet|
-|mi-192-197-157-24-nexthop-internet|192.197.157.0/24|Internet|
-|mi-193-149-64-19-nexthop-internet|193.149.64.0/19|Internet|
-|mi-193-221-113-24-nexthop-internet|193.221.113.0/24|Internet|
-|mi-194-69-96-19-nexthop-internet|194.69.96.0/19|Internet|
-|mi-194-110-197-24-nexthop-internet|194.110.197.0/24|Internet|
-|mi-198-105-232-22-nexthop-internet|198.105.232.0/22|Internet|
-|mi-198-200-130-24-nexthop-internet|198.200.130.0/24|Internet|
-|mi-198-206-164-24-nexthop-internet|198.206.164.0/24|Internet|
-|mi-199-60-28-24-nexthop-internet|199.60.28.0/24|Internet|
-|mi-199-74-210-24-nexthop-internet|199.74.210.0/24|Internet|
-|mi-199-103-90-23-nexthop-internet|199.103.90.0/23|Internet|
-|mi-199-103-122-24-nexthop-internet|199.103.122.0/24|Internet|
-|mi-199-242-32-20-nexthop-internet|199.242.32.0/20|Internet|
-|mi-199-242-48-21-nexthop-internet|199.242.48.0/21|Internet|
-|mi-202-89-224-20-nexthop-internet|202.89.224.0/20|Internet|
-|mi-204-13-120-21-nexthop-internet|204.13.120.0/21|Internet|
-|mi-204-14-180-22-nexthop-internet|204.14.180.0/22|Internet|
-|mi-204-79-135-24-nexthop-internet|204.79.135.0/24|Internet|
-|mi-204-79-179-24-nexthop-internet|204.79.179.0/24|Internet|
-|mi-204-79-181-24-nexthop-internet|204.79.181.0/24|Internet|
-|mi-204-79-188-24-nexthop-internet|204.79.188.0/24|Internet|
-|mi-204-79-195-24-nexthop-internet|204.79.195.0/24|Internet|
-|mi-204-79-196-23-nexthop-internet|204.79.196.0/23|Internet|
-|mi-204-79-252-24-nexthop-internet|204.79.252.0/24|Internet|
-|mi-204-152-18-23-nexthop-internet|204.152.18.0/23|Internet|
-|mi-204-152-140-23-nexthop-internet|204.152.140.0/23|Internet|
-|mi-204-231-192-24-nexthop-internet|204.231.192.0/24|Internet|
-|mi-204-231-194-23-nexthop-internet|204.231.194.0/23|Internet|
-|mi-204-231-197-24-nexthop-internet|204.231.197.0/24|Internet|
-|mi-204-231-198-23-nexthop-internet|204.231.198.0/23|Internet|
-|mi-204-231-200-21-nexthop-internet|204.231.200.0/21|Internet|
-|mi-204-231-208-20-nexthop-internet|204.231.208.0/20|Internet|
-|mi-204-231-236-24-nexthop-internet|204.231.236.0/24|Internet|
-|mi-205-174-224-20-nexthop-internet|205.174.224.0/20|Internet|
-|mi-206-138-168-21-nexthop-internet|206.138.168.0/21|Internet|
-|mi-206-191-224-19-nexthop-internet|206.191.224.0/19|Internet|
-|mi-207-46-16-nexthop-internet|207.46.0.0/16|Internet|
-|mi-207-68-128-18-nexthop-internet|207.68.128.0/18|Internet|
-|mi-208-68-136-21-nexthop-internet|208.68.136.0/21|Internet|
-|mi-208-76-44-22-nexthop-internet|208.76.44.0/22|Internet|
-|mi-208-84-21-nexthop-internet|208.84.0.0/21|Internet|
-|mi-209-240-192-19-nexthop-internet|209.240.192.0/19|Internet|
-|mi-213-199-128-18-nexthop-internet|213.199.128.0/18|Internet|
-|mi-216-32-180-22-nexthop-internet|216.32.180.0/22|Internet|
-|mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
-||||
-
-Además, puede agregar entradas a la tabla de rutas para enrutar el tráfico que tiene intervalos IP privados locales como destino a través de una puerta de enlace de red virtual o de un dispositivo de red virtual (NVA).
-
-Si la red virtual incluye un DNS personalizado, el servidor DNS personalizado debe ser capaz de resolver los registros DNS públicos. El uso de características adicionales, como la autenticación de Azure AD, puede requerir resolver FQDN adicionales. Para más información, consulte [Configuración de un DNS personalizado ](sql-database-managed-instance-custom-dns.md).
-
-## <a name="service-aided-subnet-configuration-public-preview-in-east-us-and-west-us"></a>Configuración de subred asistida por servicio (versión preliminar pública en Este de EE. UU. y Oeste de EE. UU.)
+## <a name="service-aided-subnet-configuration"></a>Configuración de subred asistida por servicio
 
 Para cumplir los requisitos de manejabilidad y seguridad de los clientes, la instancia administrada cambia de una configuración de subred manual a una asistida por servicio.
 
 Con la configuración de subred asistida por servicio, el usuario tiene control total sobre el tráfico de datos (TDS) al mismo tiempo que asume la responsabilidad de garantizar el flujo ininterrumpido de tráfico de administración para cumplir el Acuerdo de Nivel de Servicio.
 
-### <a name="network-requirements-with-service-aided-subnet-configuration"></a>Requisitos de red con la configuración de subred asistida por servicio 
+### <a name="network-requirements"></a>Requisitos de red 
 
 Implemente una instancia administrada en una subred dedicada dentro de la red virtual. La subred debe tener estas características:
 
@@ -251,24 +103,24 @@ Implemente una instancia administrada en una subred dedicada dentro de la red vi
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Reglas de seguridad de entrada obligatorias con la configuración de subred asistida por servicio 
 
-| NOMBRE       |Port                        |Protocolo|Source           |Destination|.|
+| Nombre       |Port                        |Protocolo|Source           |Destination|Acción|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |MI SUBNET  |Allow |
 |            |9000, 9003                  |TCP     |CorpnetSaw       |MI SUBNET  |Allow |
-|            |9000, 9003                  |TCP     |65.55.188.0/24, 167.220.0.0/16, 131.107.0.0/16|MI SUBNET  |Allow |
+|            |9000, 9003                  |TCP     |65.55.188.0/24, 167.220.0.0/16, 131.107.0.0/16, 94.245.87.0/24|MI SUBNET  |Allow |
 |mi_subnet   |Any                         |Any     |MI SUBNET        |MI SUBNET  |Allow |
 |health_probe|Any                         |Any     |AzureLoadBalancer|MI SUBNET  |Allow |
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Reglas de seguridad de entrada obligatorias con la configuración de subred asistida por servicio 
 
-| NOMBRE       |Port          |Protocolo|Source           |Destination|.|
+| Nombre       |Port          |Protocolo|Source           |Destination|Acción|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Allow |
 |mi_subnet   |Any           |Any     |MI SUBNET        |MI SUBNET  |Allow |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Rutas definidas por el usuario con la configuración de subred asistida por servicio 
 
-|NOMBRE|Prefijo de dirección|Próximo salto|
+|Nombre|Prefijo de dirección|Próximo salto|
 |----|--------------|-------|
 |subnet-to-vnetlocal|MI SUBNET|Virtual network|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
@@ -426,6 +278,154 @@ Implemente una instancia administrada en una subred dedicada dentro de la red vi
 ||||
 
 \* MI SUBNET se refiere al intervalo de direcciones IP de la subred con el formato 10.x.x.x/y. Puede encontrar esta información en Portal de Azure, en las propiedades de subred.
+
+Además, puede agregar entradas a la tabla de rutas para enrutar el tráfico que tiene intervalos IP privados locales como destino a través de una puerta de enlace de red virtual o de un dispositivo de red virtual (NVA).
+
+Si la red virtual incluye un DNS personalizado, el servidor DNS personalizado debe ser capaz de resolver los registros DNS públicos. El uso de características adicionales, como la autenticación de Azure AD, puede requerir resolver FQDN adicionales. Para más información, consulte [Configuración de un DNS personalizado ](sql-database-managed-instance-custom-dns.md).
+
+### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>[En desuso] Requisitos de red sin configuración de subred asistida por servicio
+
+Implemente una instancia administrada en una subred dedicada dentro de la red virtual. La subred debe tener estas características:
+
+- **Subred dedicada:** la subred de la instancia administrada no puede contener ningún otro servicio en la nube asociado a ella y no puede ser una subred de puerta de enlace. La subred no puede contener ningún recurso, a excepción de la instancia administrada, y no se pueden agregar posteriormente otros tipos de recursos en la subred.
+- **Grupo de seguridad de red (NSG):** Un NSG que esté asociado a la red virtual debe definir [reglas de seguridad de entrada](#mandatory-inbound-security-rules) y [reglas de seguridad de salida](#mandatory-outbound-security-rules) antes que cualquier otras reglas. Puede usar un NSG para controlar el acceso al punto de conexión de datos de la instancia administrada mediante el filtrado del tráfico en el puerto 1433 y en los puertos 11000 a 11999 cuando la instancia administrada está configurada para conexiones de redirección.
+- **Tabla de rutas definida por el usuario (UDR):** una tabla UDR que esté asociada a la red virtual debe incluir [entradas](#user-defined-routes) específicas.
+- **Sin puntos de conexión de servicio:** ningún punto de conexión de servicio debe estar asociado con la subred de la instancia administrada. Asegúrese de que la opción de puntos de conexión de servicio esté deshabilitada al crear la red virtual.
+- **Suficientes direcciones IP:** la subred de la instancia administrada debe tener al menos 16 direcciones IP. El mínimo recomendado es 32 direcciones IP. Para más información, consulte [Determinación del tamaño de subred para instancias administradas](sql-database-managed-instance-determine-size-vnet-subnet.md). Puede implementar instancias administradas en [la red existente](sql-database-managed-instance-configure-vnet-subnet.md) después de configurarla para satisfacer [los requisitos de red de las instancias administradas](#network-requirements). De lo contrario, cree [una red y una subred](sql-database-managed-instance-create-vnet-subnet.md).
+
+> [!IMPORTANT]
+> No se puede implementar una nueva instancia administrada si la subred de destino no tiene estas características. Cuando se crea una instancia administrada, se aplica una directiva de intención de red en la subred para evitar cambios no compatibles con la configuración de red. Después de quitar la última instancia de la subred, también se quitará la directiva de intención de red.
+
+### <a name="mandatory-inbound-security-rules"></a>Reglas de seguridad de entrada obligatorias
+
+| Nombre       |Port                        |Protocolo|Source           |Destination|Acción|
+|------------|----------------------------|--------|-----------------|-----------|------|
+|management  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |MI SUBNET  |Allow |
+|mi_subnet   |Any                         |Any     |MI SUBNET        |MI SUBNET  |Allow |
+|health_probe|Any                         |Any     |AzureLoadBalancer|MI SUBNET  |Allow |
+
+### <a name="mandatory-outbound-security-rules"></a>Reglas de seguridad de salida obligatorias
+
+| Nombre       |Port          |Protocolo|Source           |Destination|Acción|
+|------------|--------------|--------|-----------------|-----------|------|
+|management  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Allow |
+|mi_subnet   |Any           |Any     |MI SUBNET        |MI SUBNET  |Allow |
+
+> [!IMPORTANT]
+> Asegúrese de que solo haya una regla de entrada para los puertos 9000, 9003, 1438, 1440, 1452 y una regla de salida para los puertos 443, 12000. El aprovisionamiento de instancias administradas mediante implementaciones de Azure Resource Manager producirá un error si las reglas de entrada y salida están configuradas por separado para cada puerto. Si estos puertos están en reglas distintas, la implementación generará el código de error `VnetSubnetConflictWithIntendedPolicy`
+
+\* MI SUBNET se refiere al intervalo de direcciones IP de la subred con el formato 10.x.x.x/y. Puede encontrar esta información en Portal de Azure, en las propiedades de subred.
+
+> [!IMPORTANT]
+> Aunque las reglas de seguridad de entrada obligatorias permiten el tráfico desde _cualquier_ origen en los puertos 9000, 9003, 1438, 1440 y 1452, estos puertos están protegidos por un firewall integrado. Para más información, consulte [Determinación de la dirección del punto de conexión de administración](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+> [!NOTE]
+> Si usa replicación transaccional en una instancia administrada y si utiliza cualquier base de datos de instancias como publicador o distribuidor, abra el puerto 445 (salida TCP) en las reglas de seguridad de la subred. Este puerto permitirá el acceso al recurso compartido de archivos de Azure.
+
+### <a name="user-defined-routes"></a>rutas definidas por el usuario
+
+|Nombre|Prefijo de dirección|Próximo salto|
+|----|--------------|-------|
+|subnet_to_vnetlocal|MI SUBNET|Virtual network|
+|mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
+|mi-13-96-13-nexthop-internet|13.96.0.0/13|Internet|
+|mi-13-104-14-nexthop-internet|13.104.0.0/14|Internet|
+|mi-20-8-nexthop-internet|20.0.0.0/8|Internet|
+|mi-23-96-13-nexthop-internet|23.96.0.0/13|Internet|
+|mi-40-64-10-nexthop-internet|40.64.0.0/10|Internet|
+|mi-42-159-16-nexthop-internet|42.159.0.0/16|Internet|
+|mi-51-8-nexthop-internet|51.0.0.0/8|Internet|
+|mi-52-8-nexthop-internet|52.0.0.0/8|Internet|
+|mi-64-4-18-nexthop-internet|64.4.0.0/18|Internet|
+|mi-65-52-14-nexthop-internet|65.52.0.0/14|Internet|
+|mi-66-119-144-20-nexthop-internet|66.119.144.0/20|Internet|
+|mi-70-37-17-nexthop-internet|70.37.0.0/17|Internet|
+|mi-70-37-128-18-nexthop-internet|70.37.128.0/18|Internet|
+|mi-91-190-216-21-nexthop-internet|91.190.216.0/21|Internet|
+|mi-94-245-64-18-nexthop-internet|94.245.64.0/18|Internet|
+|mi-103-9-8-22-nexthop-internet|103.9.8.0/22|Internet|
+|mi-103-25-156-22-nexthop-internet|103.25.156.0/22|Internet|
+|mi-103-36-96-22-nexthop-internet|103.36.96.0/22|Internet|
+|mi-103-255-140-22-nexthop-internet|103.255.140.0/22|Internet|
+|mi-104-40-13-nexthop-internet|104.40.0.0/13|Internet|
+|mi-104-146-15-nexthop-internet|104.146.0.0/15|Internet|
+|mi-104-208-13-nexthop-internet|104.208.0.0/13|Internet|
+|mi-111-221-16-20-nexthop-internet|111.221.16.0/20|Internet|
+|mi-111-221-64-18-nexthop-internet|111.221.64.0/18|Internet|
+|mi-129-75-16-nexthop-internet|129.75.0.0/16|Internet|
+|mi-131-253-16-nexthop-internet|131.253.0.0/16|Internet|
+|mi-132-245-16-nexthop-internet|132.245.0.0/16|Internet|
+|mi-134-170-16-nexthop-internet|134.170.0.0/16|Internet|
+|mi-134-177-16-nexthop-internet|134.177.0.0/16|Internet|
+|mi-137-116-15-nexthop-internet|137.116.0.0/15|Internet|
+|mi-137-135-16-nexthop-internet|137.135.0.0/16|Internet|
+|mi-138-91-16-nexthop-internet|138.91.0.0/16|Internet|
+|mi-138-196-16-nexthop-internet|138.196.0.0/16|Internet|
+|mi-139-217-16-nexthop-internet|139.217.0.0/16|Internet|
+|mi-139-219-16-nexthop-internet|139.219.0.0/16|Internet|
+|mi-141-251-16-nexthop-internet|141.251.0.0/16|Internet|
+|mi-146-147-16-nexthop-internet|146.147.0.0/16|Internet|
+|mi-147-243-16-nexthop-internet|147.243.0.0/16|Internet|
+|mi-150-171-16-nexthop-internet|150.171.0.0/16|Internet|
+|mi-150-242-48-22-nexthop-internet|150.242.48.0/22|Internet|
+|mi-157-54-15-nexthop-internet|157.54.0.0/15|Internet|
+|mi-157-56-14-nexthop-internet|157.56.0.0/14|Internet|
+|mi-157-60-16-nexthop-internet|157.60.0.0/16|Internet|
+|mi-167-220-16-nexthop-internet|167.220.0.0/16|Internet|
+|mi-168-61-16-nexthop-internet|168.61.0.0/16|Internet|
+|mi-168-62-15-nexthop-internet|168.62.0.0/15|Internet|
+|mi-191-232-13-nexthop-internet|191.232.0.0/13|Internet|
+|mi-192-32-16-nexthop-internet|192.32.0.0/16|Internet|
+|mi-192-48-225-24-nexthop-internet|192.48.225.0/24|Internet|
+|mi-192-84-159-24-nexthop-internet|192.84.159.0/24|Internet|
+|mi-192-84-160-23-nexthop-internet|192.84.160.0/23|Internet|
+|mi-192-100-102-24-nexthop-internet|192.100.102.0/24|Internet|
+|mi-192-100-103-24-nexthop-internet|192.100.103.0/24|Internet|
+|mi-192-197-157-24-nexthop-internet|192.197.157.0/24|Internet|
+|mi-193-149-64-19-nexthop-internet|193.149.64.0/19|Internet|
+|mi-193-221-113-24-nexthop-internet|193.221.113.0/24|Internet|
+|mi-194-69-96-19-nexthop-internet|194.69.96.0/19|Internet|
+|mi-194-110-197-24-nexthop-internet|194.110.197.0/24|Internet|
+|mi-198-105-232-22-nexthop-internet|198.105.232.0/22|Internet|
+|mi-198-200-130-24-nexthop-internet|198.200.130.0/24|Internet|
+|mi-198-206-164-24-nexthop-internet|198.206.164.0/24|Internet|
+|mi-199-60-28-24-nexthop-internet|199.60.28.0/24|Internet|
+|mi-199-74-210-24-nexthop-internet|199.74.210.0/24|Internet|
+|mi-199-103-90-23-nexthop-internet|199.103.90.0/23|Internet|
+|mi-199-103-122-24-nexthop-internet|199.103.122.0/24|Internet|
+|mi-199-242-32-20-nexthop-internet|199.242.32.0/20|Internet|
+|mi-199-242-48-21-nexthop-internet|199.242.48.0/21|Internet|
+|mi-202-89-224-20-nexthop-internet|202.89.224.0/20|Internet|
+|mi-204-13-120-21-nexthop-internet|204.13.120.0/21|Internet|
+|mi-204-14-180-22-nexthop-internet|204.14.180.0/22|Internet|
+|mi-204-79-135-24-nexthop-internet|204.79.135.0/24|Internet|
+|mi-204-79-179-24-nexthop-internet|204.79.179.0/24|Internet|
+|mi-204-79-181-24-nexthop-internet|204.79.181.0/24|Internet|
+|mi-204-79-188-24-nexthop-internet|204.79.188.0/24|Internet|
+|mi-204-79-195-24-nexthop-internet|204.79.195.0/24|Internet|
+|mi-204-79-196-23-nexthop-internet|204.79.196.0/23|Internet|
+|mi-204-79-252-24-nexthop-internet|204.79.252.0/24|Internet|
+|mi-204-152-18-23-nexthop-internet|204.152.18.0/23|Internet|
+|mi-204-152-140-23-nexthop-internet|204.152.140.0/23|Internet|
+|mi-204-231-192-24-nexthop-internet|204.231.192.0/24|Internet|
+|mi-204-231-194-23-nexthop-internet|204.231.194.0/23|Internet|
+|mi-204-231-197-24-nexthop-internet|204.231.197.0/24|Internet|
+|mi-204-231-198-23-nexthop-internet|204.231.198.0/23|Internet|
+|mi-204-231-200-21-nexthop-internet|204.231.200.0/21|Internet|
+|mi-204-231-208-20-nexthop-internet|204.231.208.0/20|Internet|
+|mi-204-231-236-24-nexthop-internet|204.231.236.0/24|Internet|
+|mi-205-174-224-20-nexthop-internet|205.174.224.0/20|Internet|
+|mi-206-138-168-21-nexthop-internet|206.138.168.0/21|Internet|
+|mi-206-191-224-19-nexthop-internet|206.191.224.0/19|Internet|
+|mi-207-46-16-nexthop-internet|207.46.0.0/16|Internet|
+|mi-207-68-128-18-nexthop-internet|207.68.128.0/18|Internet|
+|mi-208-68-136-21-nexthop-internet|208.68.136.0/21|Internet|
+|mi-208-76-44-22-nexthop-internet|208.76.44.0/22|Internet|
+|mi-208-84-21-nexthop-internet|208.84.0.0/21|Internet|
+|mi-209-240-192-19-nexthop-internet|209.240.192.0/19|Internet|
+|mi-213-199-128-18-nexthop-internet|213.199.128.0/18|Internet|
+|mi-216-32-180-22-nexthop-internet|216.32.180.0/22|Internet|
+|mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
+||||
 
 ## <a name="next-steps"></a>Pasos siguientes
 

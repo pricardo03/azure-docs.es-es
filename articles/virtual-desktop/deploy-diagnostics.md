@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: 27231dc25604e9031f0456d787530bf2a29616f7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b6b310bf1958671583aab873ab42a70845f93f9a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167436"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452424"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos
 
@@ -25,7 +25,7 @@ Esto es lo que la herramienta de diagnósticos para Windows Virtual Desktop pued
 - Enviar un mensaje a los usuarios activos en un host de sesión específico.
 - Cerrar la sesión de los usuarios de un host de sesión.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Debe crear un registro de aplicaciones de Azure Active Directory y un área de trabajo de Log Analytics antes de implementar la plantilla de Azure Resource Manager para la herramienta. El usuario o el administrador necesitan estos permisos para hacerlo:
 
@@ -256,3 +256,8 @@ También puede interactuar con usuarios en el host de sesión:
 - [Retraso de entrada de usuario por sesión(\*)\\Retraso máximo de entrada](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
     - Umbral: Un valor superior a 2000 ms se marca como incorrecto.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Obtenga información sobre cómo supervisar los registros de actividad en [Uso de diagnósticos con Log Analytics](diagnostics-log-analytics.md).
+- Obtenga información sobre los escenarios de error más comunes y cómo corregirlos en [Identificación y diagnóstico de problemas](diagnostics-role-service.md).

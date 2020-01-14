@@ -1,5 +1,5 @@
 ---
-title: 'Configuración de una aplicación de escritorio que llama a las API web: Plataforma de identidad de Microsoft | Azure'
+title: Configuración de aplicaciones de escritorio que llaman a las API web - Plataforma de identidad de Microsoft | Azure
 description: Aprenda a configurar el código de una aplicación de escritorio que llama a las API web.
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d31a70ebc63a5e9a16e0da00623bd5855f0a7d1
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 33b1724c25ef2d85aa8f838811864104b49576a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920266"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423891"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>Aplicación de escritorio que llama a las API web: configuración de código
 
@@ -30,11 +30,11 @@ Ahora que ha creado la aplicación, aprenderá a configurar el código con las c
 
 Las bibliotecas de Microsoft que admiten aplicaciones de escritorio son:
 
-  Biblioteca MSAL | DESCRIPCIÓN
+  Biblioteca MSAL | Descripción
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Admite la creación de una aplicación de escritorio en varias plataformas: Linux, Windows y MacOS
-  ![Python](media/sample-v2-code/logo_python.png) <br/> Python de MSAL | Admite la creación de una aplicación de escritorio en varias plataformas. Desarrollo en curso: en versión preliminar pública
-  ![Java](media/sample-v2-code/logo_java.png) <br/> Java de MSAL | Admite la creación de una aplicación de escritorio en varias plataformas. Desarrollo en curso: en versión preliminar pública
+  ![Python](media/sample-v2-code/logo_python.png) <br/> Python de MSAL | Admite la creación de una aplicación de escritorio en varias plataformas.
+  ![Java](media/sample-v2-code/logo_java.png) <br/> Java de MSAL | Admite la creación de una aplicación de escritorio en varias plataformas.
   ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Admite aplicaciones de escritorio que se ejecutan solo en macOS
 
 ## <a name="public-client-application"></a>Aplicación cliente pública
@@ -51,14 +51,14 @@ Deberá compilar y manipular MSAL.NET`IPublicClientApplication`.
 
 El código siguiente crea una instancia de una aplicación cliente pública e inicia la sesión de los usuarios en la nube pública de Microsoft Azure con una cuenta profesional o educativa o bien con una cuenta Microsoft personal.
 
-```CSharp
+```csharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
 Si piensa utilizar la autenticación interactiva o el flujo de código de dispositivo, tal como se muestra anteriormente, querrá utilizar el modificador `.WithRedirectUri`:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithDefaultRedirectUri()
@@ -69,7 +69,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 El código siguiente crea una instancia de una aplicación cliente pública a partir de un objeto de configuración, que podría rellenarse mediante programación o leerse desde un archivo de configuración:
 
-```CSharp
+```csharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
 IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicationOptions(options)
         .WithDefaultRedirectUri()
@@ -80,7 +80,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 
 Puede elaborar la compilación de la aplicación agregando una serie de modificadores. Por ejemplo, si quiere que la aplicación sea una aplicación de varios inquilinos en una nube nacional (en la Administración Pública de Estados Unidos), podría escribir lo siguiente:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithDefaultRedirectUri()
@@ -91,7 +91,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 MSAL.NET también contiene un modificador de ADFS 2019:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithAdfsAuthority("https://consoso.com/adfs")
@@ -100,7 +100,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 Por último, si quiere adquirir tokens para un inquilino de Azure AD B2C, puede especificar el inquilino tal como se muestra en el siguiente fragmento de código:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithB2CAuthority("https://fabrikamb2c.b2clogin.com/tfp/{tenant}/{PolicySignInSignUp}")
@@ -134,7 +134,7 @@ Imagine una aplicación de consola .NET Core que tiene el siguiente archivo de c
 
 Tiene poco código para leer este archivo mediante el marco de configuración de .NET proporcionado;
 
-```CSharp
+```csharp
 public class SampleConfiguration
 {
  /// <summary>
@@ -177,7 +177,7 @@ public class SampleConfiguration
 
 Ahora, para crear la aplicación, basta con que escriba el código siguiente:
 
-```CSharp
+```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
 var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.PublicClientApplicationOptions)
            .WithDefaultRedirectUri()

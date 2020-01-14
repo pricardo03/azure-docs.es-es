@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: ac2aabe12697336377df808e02e283dde0e4da16
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 00fae22b91b2ad68392a21a29df3c2aec6bf5c5e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927221"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406743"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: supervisión y diagnóstico con una latencia de 1 segundo
 
@@ -33,9 +33,9 @@ Con Live Metrics Stream, puede:
 
 Actualmente, Live Metrics se admite en aplicaciones de ASP.NET, ASP.NET Core, Azure Functions, Java y Node.js.
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
-1. Si aún no ha [instalado Application Insights](../../azure-monitor/azure-monitor-app-hub.md) en su aplicación web, hágalo ahora.
+1. Si aún no ha [instalado Application Insights](../../azure-monitor/azure-monitor-app-hub.yml) en su aplicación web, hágalo ahora.
 2. Además de los paquetes de Application Insights estándar, se requiere [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) para habilitar Live Metrics Stream.
 3. **Actualice a la versión más reciente** del paquete de Application Insights. En Visual Studio, haga clic con el botón derecho en el proyecto y elija **Administrar paquetes NuGet**. Abra la pestaña **Actualizaciones** y seleccione todos los paquetes Microsoft.ApplicationInsights.*.
 
@@ -53,7 +53,7 @@ Compruebe que [los puertos de salida de Live Metrics Stream](../../azure-monitor
 
 | |Live Stream | Explorador de métricas y Analytics |
 |---|---|---|
-|Latency|Los datos se muestran en un segundo.|La agregación se realiza en minutos.|
+|Latencia|Los datos se muestran en un segundo.|La agregación se realiza en minutos.|
 |Sin retención|Los datos se conservan solo mientras se encuentren en el gráfico y luego se descartan.|[Los datos se conservan durante 90 días.](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |A petición|Se transmiten datos mientras se abre Live Metrics.|Se envían datos siempre que el SDK esté instalado y habilitado.|
 |Gratuito|No se efectúa ningún cargo por los datos de Live Stream.|Están sujetos a aplicación de [precios](../../azure-monitor/app/pricing.md).
@@ -157,7 +157,7 @@ En el caso de Azure Function Apps (versión 2), la protección del canal con una
 
 Cree una clave de API desde su recurso de Application Insights y vaya a **Configuración de la aplicación** en Function App. Seleccione **agregar nueva configuración** y escriba un nombre de `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` y un valor que corresponda a la clave de API.
 
-### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core (Requiere Application Insights ASP.NET Core SDK 2.3.0-beta o superior)
+### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-or-greater"></a>ASP.NET Core (requiere el SDK de Application Insights ASP.NET Core 2.3.0 o superior)
 
 Modifique el archivo startup.cs como sigue:
 
@@ -202,7 +202,7 @@ Las métricas básicas incluyen la tasa de solicitudes, dependencias y excepcion
 
 De manera predeterminada, Live Metrics está deshabilitado en el SDK de Node.js. Para habilitar Live Metrics, agregue `setSendLiveMetrics(true)` a los [métodos de configuración](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) al inicializar el SDK.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 ¿No hay datos? Si la aplicación está en una red protegida: Live Metrics Stream usa direcciones IP diferentes a las de otros datos de telemetría de Application Insights. Asegúrese de que [esas direcciones IP](../../azure-monitor/app/ip-addresses.md) están abiertos en el firewall.
 

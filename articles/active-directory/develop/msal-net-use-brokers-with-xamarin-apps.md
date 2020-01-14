@@ -1,5 +1,5 @@
 ---
-title: Autenticación asíncrona en Xamarin, iOS y Android | Azure
+title: Uso de agentes con Xamarin, iOS y Android | Azure
 titleSuffix: Microsoft identity platform
 description: Aprenda a migrar aplicaciones de Xamarin iOS que pueden usar Microsoft Authenticator de la biblioteca de autenticación de Azure AD para .NET (ADAL.NET) a la biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
 author: jmprieur
@@ -13,12 +13,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a26f73354b99160275649855f7a2a616249ce05c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 49198909da103debd77fcf0d630e0fa16c1e4448
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921848"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424219"
 ---
 # <a name="use-microsoft-authenticator-or-microsoft-intune-company-portal-on-xamarin-applications"></a>Uso de Microsoft Authenticator o el Portal de empresa de Microsoft Intune en aplicaciones de Xamarin
 
@@ -37,7 +37,7 @@ Siga estos pasos para permitir que la aplicación de Xamarin.iOS establezca comu
 ### <a name="step-1-enable-broker-support"></a>Paso 1: Habilitar la compatibilidad con el agente
 La compatibilidad con el agente se habilita por PublicClientApplication. De forma predeterminada, está deshabilitada. Use el parámetro `WithBroker()` (establecido en true de forma predeterminada) al crear PublicClientApplication a través de PublicClientApplicationBuilder.
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder
                 .Create(ClientId)
                 .WithBroker()
@@ -45,10 +45,24 @@ var app = PublicClientApplicationBuilder
                 .Build();
 ```
 
-### <a name="step-2-update-appdelegate-to-handle-the-callback"></a>Paso 2: Actualizar AppDelegate para controlar la devolución de llamada
+### <a name="step-2-enable-keychain-access"></a>Paso 2: Habilitación de acceso a la cadena de claves
+
+Para habilitar el acceso a la cadena de claves, la aplicación debe tener un grupo de acceso a la cadena de claves. Puede usar la API de `WithIosKeychainSecurityGroup()` para establecer el grupo de acceso a cadenas de claves al crear la aplicación:
+
+```csharp
+var builder = PublicClientApplicationBuilder
+     .Create(ClientId)
+      
+     .WithIosKeychainSecurityGroup("com.microsoft.adalcache")
+     .Build();
+```
+
+Para más información, consulte [Habilitación de acceso a la cadena de claves](msal-net-xamarin-ios-considerations.md#enable-keychain-access).
+
+### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>Paso 3: Actualizar AppDelegate para controlar la devolución de llamada
 Cuando la biblioteca de autenticación de Microsoft para .NET (MSAL.NET) llama al agente, el agente devuelve la llamada a la aplicación mediante el método `OpenUrl` de la clase `AppDelegate`. Como MSAL espera la respuesta del agente, la aplicación debe cooperar para volver a llamar a MSAL.NET. Para permitir esta cooperación, actualice el archivo `AppDelegate.cs` para invalidar el método siguiente.
 
-```CSharp
+```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url, 
                              string sourceApplication,
                              NSObject annotation)
@@ -70,7 +84,7 @@ public override bool OpenUrl(UIApplication app, NSUrl url,
 
 Este método se invoca cada vez que se inicia la aplicación. Se usa como una oportunidad para procesar la respuesta del agente y finalizar el proceso de autenticación iniciado por MSAL.NET.
 
-### <a name="step-3-set-a-uiviewcontroller"></a>Paso 3: Establecer un UIViewController()
+### <a name="step-4-set-a-uiviewcontroller"></a>Paso 4: Establecer un UIViewController()
 En el archivo `AppDelegate.cs`, deberá establecer una ventana de objeto. Normalmente, con Xamarin iOS, no es necesario hacerlo. Para enviar y recibir respuestas del agente, se necesita una ventana de objeto. 
 
 Para ello, haga dos cosas. 
@@ -80,22 +94,22 @@ Para ello, haga dos cosas.
 **Por ejemplo:**
 
 En `App.cs`:
-```CSharp
+```csharp
    public static object RootViewController { get; set; }
 ```
 En `AppDelegate.cs`:
-```CSharp
+```csharp
    LoadApplication(new App());
    App.RootViewController = new UIViewController();
 ```
 En la llamada al token de adquisición:
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();
 ```
 
-### <a name="step-4-register-a-url-scheme"></a>Paso 4: Registrar un esquema de dirección URL
+### <a name="step-5-register-a-url-scheme"></a>Paso 5: Registrar un esquema de dirección URL
 MSAL.NET usa direcciones URL para invocar al agente y devolver la respuesta del agente a la aplicación. Para finalizar el recorrido de ida y vuelta, registre un esquema de dirección URL para la aplicación en el archivo `Info.plist`.
 
 El nombre de `CFBundleURLSchemes` debe incluir un prefijo `msauth.`, seguido de su `CFBundleURLName`.
@@ -125,7 +139,7 @@ El nombre de `CFBundleURLSchemes` debe incluir un prefijo `msauth.`, seguido de 
     </array>
 ```
 
-### <a name="step-5-add-the-broker-identifier-to-the-lsapplicationqueriesschemes-section"></a>Paso 5: Agregar el identificador de agente a la sección LSApplicationQueriesSchemes
+### <a name="step-6-add-the-broker-identifier-to-the-lsapplicationqueriesschemes-section"></a>Paso 6: Agregar el identificador de agente a la sección LSApplicationQueriesSchemes
 MSAL usa `–canOpenURL:` para comprobar si el agente está instalado en el dispositivo. En iOS 9, Apple ha bloqueado los esquemas que puede consultar una aplicación. 
 
 Agregue `msauthv2` a la sección `LSApplicationQueriesSchemes` del archivo `Info.plist`.
@@ -134,21 +148,22 @@ Agregue `msauthv2` a la sección `LSApplicationQueriesSchemes` del archivo `Info
 <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>msauthv2</string>
+      <string>msauthv3</string>
     </array>
 ```
 
-### <a name="step-6-register-your-redirect-uri-in-the-application-portal"></a>Paso 6: Registrar el URI de redirección en el portal de aplicaciones
+### <a name="step-7-register-your-redirect-uri-in-the-application-portal"></a>Paso 7: Registrar el URI de redirección en el portal de aplicaciones
 El uso del agente agrega un requisito adicional al URI de redirección. El URI de redirección _debe_ tener el siguiente formato:
-```CSharp
+```csharp
 $"msauth.{BundleId}://auth"
 ```
 **Por ejemplo:**
-```CSharp
+```csharp
 public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; 
 ```
 Observe que el URI de redirección coincide con el nombre `CFBundleURLSchemes` que incluyó en el archivo `Info.plist`.
 
-### <a name="step-7-make-sure-the-redirect-uri-is-registered-with-your-app"></a>Paso 7: Asegurarse de que el URI de redirección está registrado en la aplicación
+### <a name="step-8-make-sure-the-redirect-uri-is-registered-with-your-app"></a>Paso 8: Asegurarse de que el URI de redirección está registrado en la aplicación
 
 Este URI de redirección debe estar registrado en el portal de registro de aplicaciones (https://portal.azure.com) con un valor válido para la aplicación. 
 

@@ -1,5 +1,6 @@
 ---
-title: No se puede agregar un dominio personalizado mediante un certificado de Key Vault en Azure API Management | Microsoft Docs
+title: No se puede agregar un dominio personalizado mediante el certificado de Key Vault
+titleSuffix: Azure API Management
 description: Obtenga información sobre cómo solucionar el problema en el que no se puede agregar un dominio personalizado en Azure API Management mediante un certificado de Key Vault.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
-ms.openlocfilehash: 5d31ec21e341c46c2f2d0ab49fdb2d4302c29dc6
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a09c15466a4a9f62b2696b087cb7ab23cc767379
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121533"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430587"
 ---
 # <a name="failed-to-update-api-management-service-hostnames"></a>No se pudieron actualizar los nombres de host del servicio API Management
 

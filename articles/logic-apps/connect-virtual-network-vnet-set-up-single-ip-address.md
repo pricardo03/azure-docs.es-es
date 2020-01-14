@@ -1,23 +1,25 @@
 ---
-title: Configuración del acceso para varios ISE
-description: En el caso de varios entornos de servicio de integración (ISE), puede configurar una dirección IP de salida pública única para acceder a sistemas externos desde Azure Logic Apps.
+title: Configuración de una dirección IP de salida pública para ISE
+description: Aprenda a configurar una única dirección IP de salida pública para entornos del servicio de integración (ISE) en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 11/27/2019
-ms.openlocfilehash: f3b422a55b7e2abbc8b1538183fd57fb234900d4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/16/2019
+ms.openlocfilehash: b2b07882afb6c89c6920726db3c313dbb6a6dfc4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792688"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453478"
 ---
-# <a name="set-up-access-for-multiple-integration-service-environments-in-azure-logic-apps"></a>Configuración del acceso para varios entornos de servicio de integración en Azure Logic Apps
+# <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Configuración de una única dirección IP para uno o varios entornos de servicio de integración en Azure Logic Apps
 
-Cuando trabaja con Azure Logic Apps, puede configurar un [*entorno de servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar aplicaciones lógicas que necesitan acceso a recursos en una [red virtual de Azure](../virtual-network/virtual-networks-overview.md). Si tiene varias instancias de ISE que necesitan acceso a otros puntos de conexión con restricciones de IP, implemente [Azure Firewall](../firewall/overview.md) o una [aplicación virtual de red](../virtual-network/virtual-networks-overview.md#filter-network-traffic) en la red virtual y enrute el tráfico saliente a través de ese firewall o aplicación virtual de red. Luego, puede hacer que todas las instancias de ISE de la red virtual usen una dirección IP pública única y predecible para comunicarse con los sistemas de destino. De ese modo, no es necesario configurar aperturas adicionales del firewall en los sistemas de destino para cada ISE. En este tema se muestra cómo enrutar el tráfico saliente a través de Azure Firewall, pero puede aplicar conceptos similares a una aplicación virtual de red, como un firewall de terceros, desde Azure Marketplace.
+Cuando trabaja con Azure Logic Apps, puede configurar un [*entorno de servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar aplicaciones lógicas que necesitan acceso a recursos en una [red virtual de Azure](../virtual-network/virtual-networks-overview.md). Si tiene varias instancias de ISE que necesitan acceso a otros puntos de conexión con restricciones de IP, implemente [Azure Firewall](../firewall/overview.md) o una [aplicación virtual de red](../virtual-network/virtual-networks-overview.md#filter-network-traffic) en la red virtual y enrute el tráfico saliente a través de ese firewall o aplicación virtual de red. Luego, puede hacer que todas las instancias de ISE de la red virtual usen una única dirección IP pública, estática y predecible para comunicarse con los sistemas de destino. De ese modo, no es necesario configurar aperturas adicionales del firewall en los sistemas de destino para cada ISE.
 
-## <a name="prerequisites"></a>Requisitos previos
+En este tema se muestra cómo enrutar el tráfico saliente a través de Azure Firewall, pero puede aplicar conceptos similares a una aplicación virtual de red, como un firewall de terceros, desde Azure Marketplace. Aunque este tema se centra en la configuración de varias instancias de ISE, también puede usar este enfoque para un solo ISE si el escenario requiere limitar el número de direcciones IP que necesitan acceso. Considere si los costos adicionales del firewall o el dispositivo de red virtual tienen sentido para su escenario. Más información acerca de los [precios de Azure Firewall](https://azure.microsoft.com/pricing/details/azure-firewall/).
+
+## <a name="prerequisites"></a>Prerequisites
 
 * Una instancia de Azure Firewall que se ejecuta en la misma red virtual que el ISE. Si no tiene un firewall, primero [agregue una subred](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) denominada `AzureFirewallSubnet` a la red virtual. Luego puede [crear e implementar un firewall](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) en la red virtual.
 
@@ -47,7 +49,7 @@ Cuando trabaja con Azure Logic Apps, puede configurar un [*entorno de servicio d
 
    ![Configuración de una regla para dirigir el tráfico saliente](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-rule-to-route-table.png)
 
-   | Propiedad | Valor | DESCRIPCIÓN |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Nombre de ruta** | <*unique-route-name*> | Un nombre único para la ruta en la tabla de rutas. |
    | **Prefijo de dirección** | <*destination-address*> | La dirección del sistema de destino adonde quiere que vaya el tráfico. Asegúrese de usar la [notación de enrutamiento de interdominios sin clases (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) para esta dirección. |
@@ -69,7 +71,7 @@ Cuando trabaja con Azure Logic Apps, puede configurar un [*entorno de servicio d
 
    **Propiedades de una colección de reglas de red**
 
-   | Propiedad | Valor | DESCRIPCIÓN |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Nombre** | <*network-rule-collection-name*> | El nombre de la colección de reglas de red. |
    | **Prioridad** | <*priority-level*> | El orden de prioridad que se va a usar para ejecutar la colección de reglas. Para más información, consulte [¿Cuáles son algunos de los conceptos de Azure Firewall](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)? |
@@ -78,7 +80,7 @@ Cuando trabaja con Azure Logic Apps, puede configurar un [*entorno de servicio d
 
    **Propiedades de una regla de red**
 
-   | Propiedad | Valor | DESCRIPCIÓN |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Nombre** | <*network-rule-name*> | El nombre de la regla de red. |
    | **Protocolo** | <*connection-protocols*> | Los protocolos de conexión que se van a usar. Por ejemplo, si usa reglas de NSG, seleccione tanto **TCP** como **UDP**, no solo **TCP**. |

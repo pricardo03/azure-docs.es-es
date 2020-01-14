@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas relacionados con Azure Application Insights Profiler | Microsoft Docs
+title: Solución de problemas relacionados con Azure Application Insights Profiler
 description: Este artículo muestra información y los pasos a seguir para la solución de problema para ayudar a los desarrolladores que tienen dificultades para habilitar o usar Application Insights Profiler.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7430f04846a1e66680f85f939854fd50a5df41e4
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6022bf975352f9f70c4ba8aa716a695ead590a32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899973"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432381"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solución de problemas de activación o visualización de Application Insights Profiler
 
@@ -65,7 +65,7 @@ Para que Profiler funcione correctamente:
 * La aplicación web debe tener Application Insights habilitado.
 * La aplicación web debe tener las siguientes opciones:
 
-    |Configuración de aplicación    | Valor    |
+    |Configuración de aplicación    | Value    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey para el recurso de Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -97,7 +97,7 @@ Cuando se configura Profiler, se realizan las siguientes actualizaciones en la c
 1. Establezca **Siempre activado** en **Activado**.
 1. Cree esta configuración de aplicación:
 
-    |Configuración de aplicación    | Valor    |
+    |Configuración de aplicación    | Value    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey para el recurso de Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -143,7 +143,7 @@ Para comprobar la configuración que se usó para configurar Azure Diagnostics:
     ```
     c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
     ```
-    o
+    or
     ```
     c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
     ```
@@ -163,6 +163,11 @@ Para comprobar la configuración que se usó para configurar Azure Diagnostics:
     Si Profiler se está ejecutando mientras la aplicación recibe solicitudes, se mostrará el siguiente mensaje: *Activity detected from iKey* (Se ha detectado actividad en la clave de instrumentación). 
 
     Cuando se cargue el seguimiento, se muestra el mensaje siguiente: *Start to upload trace* (Inicio de carga del seguimiento). 
+
+
+## <a name="edit-network-proxy-or-firewall-rules"></a>Edición de reglas de firewall o proxy de red
+
+Si la aplicación se conecta a Internet a través de un proxy o un firewall, es posible que tenga que editar las reglas para permitir que la aplicación se comunique con el servicio Application Insights Profiler. Las direcciones IP que se usan en Application Insights Profiler se incluyen en la etiqueta de servicio de Azure Monitor.
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png

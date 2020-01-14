@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: d8dd6392cf22852a10c1dc2600edcbc647f3c510
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: d43f95b91df7d0c9c442339de51936200f4688e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871166"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441257"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ para traducción de lenguaje SQL
 
@@ -64,7 +64,7 @@ El proveedor LINQ incluido con el SDK de .NET para SQL admite los operadores sig
 - **OrderBy** y **OrderByDescending**: Se traducen a ORDER BY con ASC o DESC.
 - Los operadores **Count**, **Sum**, **Min**, **Max** y **Average** para la agregación y sus equivalentes asincrónicos **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** y **AverageAsync**.
 - **CompareTo**: Se traduce a las comparaciones de intervalos. Se usa frecuentemente para las cadenas, debido a que no es comparable en .NET.
-- **Take**: Se traduce a la instrucción SQL TOP para limitar los resultados desde una consulta.
+- **Skip** y **Take**: se traducen en OFFSET y LIMIT de SQL para limitar los resultados de una consulta y realizar la paginación.
 - **Funciones matemáticas**: Admite la traducción desde .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan` y `Truncate` a las funciones integradas equivalentes de SQL.
 - **Funciones de cadena**: Admite la traducción desde .NET `Concat`, `Contains`, `Count`, `EndsWith`, `IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd` y `TrimStart` a las funciones integradas equivalentes de SQL.
 - **Funciones de matriz**: Admite la traducción desde .NET `Concat`, `Contains` y `Count` a las funciones integradas equivalentes de SQL.
@@ -74,7 +74,7 @@ El proveedor LINQ incluido con el SDK de .NET para SQL admite los operadores sig
 
 ## <a name="examples"></a>Ejemplos
 
-Los ejemplos siguientes ilustran la traducción de algunos de los operadores de consulta de LINQ estándar a consultas de Cosmos DB.
+Los ejemplos siguientes ilustran la traducción de algunos de los operadores de consulta de LINQ estándar a consultas de Cosmos DB.
 
 ### <a name="select-operator"></a>Operador Select
 

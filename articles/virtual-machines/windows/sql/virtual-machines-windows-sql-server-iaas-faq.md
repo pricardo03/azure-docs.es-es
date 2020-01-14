@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: c3b4fabb319a3ea76ee62c8c699d4613184a4e76
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 4919c8f303488b583ea4d10dca87dd29bfb52e99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791052"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374087"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Preguntas más frecuentes para SQL Server en máquinas virtuales de Windows en Azure
 
@@ -42,7 +42,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿Están actualizadas las imágenes existentes de la galería de máquinas virtuales de SQL Server?**
 
-   Cada dos meses, las imágenes de SQL Server de la galería de máquinas virtuales se actualizan con las últimas actualizaciones de Windows y Linux. En el caso de las imágenes de Windows, esto incluye cualquier actualización que se marque como importante en Windows Update, incluidas las actualizaciones de seguridad importantes de SQL Server y los Service Pack. En el caso de las imágenes de Linux, esto incluye las últimas actualizaciones del sistema. Las actualizaciones acumulativas de SQL Server se tratan de forma diferente para Linux y Windows. En Linux, las actualizaciones acumulativas de SQL Server también se incluyen en la actualización. Pero en este momento, las máquinas virtuales de Windows no se actualizan con las actualizaciones acumulativas de SQL Server o Windows Server.
+   Cada dos meses, las imágenes de SQL Server de la galería de máquinas virtuales se actualizan con las últimas actualizaciones de Windows y Linux. En el caso de las imágenes de Windows, esto incluye cualquier actualización que se marque como importante en Windows Update, incluidas las actualizaciones de seguridad importantes de SQL Server y los Service Pack. En las imágenes de Linux, esto incluye las últimas actualizaciones del sistema. Las actualizaciones acumulativas de SQL Server se tratan de forma diferente para Linux y Windows. En Linux, las actualizaciones acumulativas de SQL Server también se incluyen en la actualización. Pero en este momento, las máquinas virtuales de Windows no se actualizan con las actualizaciones acumulativas de SQL Server o Windows Server.
 
 1. **¿Se pueden quitar las imágenes de máquinas virtuales de SQL Server de la galería?**
 
@@ -53,7 +53,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
    Sí, mediante PowerShell. Para obtener más información sobre cómo implementar VM con SQL Server mediante PowerShell, consulte [Aprovisionamiento de máquinas virtuales de SQL Server con Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
-1. **¿Puedo crear una imagen de Marketplace de Azure SQL Server generalizada de mi máquina virtual con SQL Server y usarla para implementar máquinas virtuales?**
+1. **¿Puedo crear una imagen de Marketplace de Azure SQL Server generalizada de mi VM con SQL Server y usarla para implementar VM?**
 
    Sí, pero debe [registrar todas las máquinas virtuales con SQL Server con el proveedor de recursos de máquina virtual con SQL Server](virtual-machines-windows-sql-register-with-resource-provider.md) para administrarlas en el portal y poder usar características como la aplicación automática de revisiones y las copias de seguridad automáticas. Al registrar con el proveedor de recursos, también deberá especificar el tipo de licencia para cada máquina virtual con SQL Server. 
 
@@ -84,12 +84,12 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿Tengo que pagar para obtener una licencia de SQL Server en una máquina virtual de Azure si solo se usa para conmutación por error o en modo en espera?**
 
-   Para tener una licencia pasiva gratuita para un grupo de disponibilidad secundario en espera o una instancia de clúster de conmutación por error, debe cumplir todos los criterios siguientes, tal como se describe en el [PDF de la guía de licencias](https://download.microsoft.com/download/7/8/C/78CDF005-97C1-4129-926B-CE4A6FE92CF5/SQL_Server_2017_Licensing_guide.pdf):
+   Para tener una licencia pasiva gratuita para un grupo de disponibilidad secundario en espera o una instancia de clúster de conmutación por error, debe cumplir todos los criterios siguientes, tal como se describe en los [Términos de licencia del producto](https://www.microsoft.com/licensing/product-licensing/products):
 
    1. Tiene [movilidad de licencias](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) a través de [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
-   1. La instancia de SQL Server pasiva no proporciona datos de SQL Server a los clientes ni ejecuta cargas de trabajo de SQL Server activas. Solo se utiliza para sincronizar con el servidor principal y mantener la base de datos pasiva en un estado de espera semiactiva. Si está proporcionando datos, como informes a clientes que ejecutan cargas de trabajo de SQL Server activas, o si realiza cualquier "trabajo", como copias de seguridad adicionales del servidor secundario, debe ser una instancia de SQL Server con licencia de pago. 
+   1. La instancia de SQL Server pasiva no proporciona datos de SQL Server a los clientes ni ejecuta cargas de trabajo de SQL Server activas. Solo se utiliza para sincronizar con el servidor principal y mantener la base de datos pasiva en un estado de espera semiactiva. Si está proporcionando datos, como informes a clientes que ejecutan cargas de trabajo de SQL Server activas, o si realiza cualquier trabajo, que no se especifique en los términos del producto, debe ser una instancia de SQL Server con licencia de pago. La siguiente actividad se permite en la instancia secundaria: comprobaciones de coherencia de base de datos o CHECKDB, copias de seguridad completas, copias de seguridad de registros de transacciones y supervisión de datos de uso de recursos. También puede ejecutar la instancia principal y la instancia de recuperación ante desastres correspondiente de forma simultánea durante breves períodos de pruebas de recuperación ante desastres cada 90 días. 
    1. La licencia activa de SQL Server está incluida en Software Assurance y permite **una** instancia de SQL Server secundaria pasiva, con hasta la misma cantidad de proceso que el servidor activo con licencia únicamente. 
-   1. La máquina virtual con SQL Server secundaria utiliza el [modelo de licencia](virtual-machines-windows-sql-ahb.md) traiga su propia licencia (BYOL) o Ventaja híbrida de Azure (AHB). 
+   1. La VM de SQL Server secundaria emplea la licencia de [recuperación ante desastres](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) en Azure Portal.
 
 1. **¿Puedo cambiar una máquina virtual para usar mi propia licencia de SQL Server si se ha creado desde una de las imágenes de la galería de pago por uso?**
 
@@ -163,8 +163,8 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿Dónde puedo obtener el soporte de instalación para cambiar la edición o la versión de SQL Server?**
 
-  Los clientes que cuenten con [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) pueden obtener el soporte de instalación desde el [centro de licencias por volumen](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Los clientes que no tengan Software Assurance pueden usar el soporte de instalación de una imagen de máquina virtual con SQL Server de Marketplace que tenga la edición que deseen.
-
+   Los clientes que cuenten con [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) pueden obtener el soporte de instalación desde el [centro de licencias por volumen](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Los clientes que no tengan Software Assurance pueden usar el soporte de instalación de una imagen de VM con SQL Server de Marketplace que tenga la edición que deseen.
+   
 1. **¿Cómo se aplican las actualizaciones y los Service Packs en una máquina virtual de SQL Server?**
 
    Las máquinas virtuales brindan control sobre la máquina virtual, incluido el momento en que se aplican las actualizaciones y la manera de hacerlas. En el caso del sistema operativo, puede aplicar manualmente las actualizaciones de Windows, o bien puede habilitar un servicio de programación llamado [Aplicación de revisiones automatizada](virtual-machines-windows-sql-automated-patching.md). Aplicación de revisión automatizada instala las actualizaciones marcadas como importantes, incluidas las actualizaciones de SQL Server que tienen esa categoría. Otras actualizaciones opcionales a SQL Server se deben instalar manualmente.
@@ -173,6 +173,12 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
    Sí. Puede usar cualquier soporte de instalación para actualizar la versión y edición de SQL Server y, a continuación, puede actualizar el [modo de la extensión IaaS de SQL](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes)) de _sin agente_ a _completo_. Esto le dará acceso a todas las ventajas de la extensión IaaS de SQL, como la capacidad de administración de portal, las copias de seguridad automáticas y la aplicación de revisiones automatizada. 
 
+1. **¿Cómo puedo obtener actualizaciones de seguridad ampliadas gratuitas para el fin del soporte de mis instancias de SQL Server 2008 y SQL Server 2008 R2?**
+
+   Para obtener [actualizaciones de seguridad ampliadas gratuitas](virtual-machines-windows-sql-server-2008-eos-extend-support.md), mueva su instancia de SQL Server tal cual a una máquina virtual de Azure SQL. Para obtener más información, vea las [opciones de fin del soporte](/sql/sql-server/end-of-support/sql-server-end-of-life-overview). 
+  
+   
+
 ## <a name="general"></a>General
 
 1. **¿Son compatibles las instancias del clúster de conmutación por error (FCI) de SQL Server con Azure Virtual Machines?**
@@ -180,7 +186,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
    Sí. También puede [crear un clúster de conmutación por error de Windows en Windows Server 2016](virtual-machines-windows-portal-sql-create-failover-cluster.md) y usar Espacios de almacenamiento directo (S2D) para el almacenamiento del clúster. También puede usar soluciones de agrupación en clústeres o almacenamiento de terceros como se describe en [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
-   > En este momento, la _extensión Agente de IaaS de SQL Server_ [completa](virtual-machines-windows-sql-server-agent-extension.md) no es compatible con FCI de SQL Server en Azure. Recomendamos que desinstale la extensión _completa_ de las máquinas virtuales que participan en la FCI y que, en su lugar, instale la extensión en modo _ligero_. Esta extensión admite características, como las copias de seguridad automáticas y la aplicación de revisiones automatizada y algunas características del portal de SQL Server. Estas características no funcionarán para las máquinas virtuales con SQL Server después de desinstalar el agente _completo_.
+   > En este momento, la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md) _completa_ no es compatible con FCI de SQL Server en Azure. Recomendamos que desinstale la extensión _completa_ de las máquinas virtuales que participan en la FCI y que, en su lugar, instale la extensión en modo _ligero_. Esta extensión admite características, como las copias de seguridad automáticas y la aplicación de revisiones automatizada y algunas características del portal de SQL Server. Estas características no funcionarán para las máquinas virtuales con SQL Server después de desinstalar el agente _completo_.
 
 1. **¿Cuál es la diferencia entre las máquinas virtuales con SQL Server y el servicio SQL Database?**
 

@@ -1,6 +1,6 @@
 ---
-title: Preguntas más frecuentes sobre el uso de Azure Database Migration Service | Microsoft Docs
-description: Conozca las preguntas más frecuentes sobre cómo usar Azure Database Migration Service para realizar migraciones de base de datos.
+title: 'Preguntas frecuentes: Azure Database Migration Service'
+description: Preguntas más frecuentes sobre cómo usar Azure Database Migration Service para realizar migraciones de base de datos.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 07/10/2019
-ms.openlocfilehash: 5077539f6f80784f865bd4c1b52e3b4c147107ed
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 11aec9c62c388155f8d90b7a89171937f22dd9d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718004"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438013"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Preguntas más frecuentes sobre el uso de Azure Database Migration Service
 
@@ -51,7 +51,7 @@ Azure Database Migration Service es el método preferido para la migración de b
 **P. ¿Cómo se compara Azure Database Migration Service con la oferta de Azure Migrate?**
 Azure Migrate ayuda con la migración de máquinas virtuales locales a IaaS de Azure. El servicio evalúa la idoneidad de la migración y el ajuste de tamaño basado en el rendimiento, y proporciona estimaciones del costo que supone la ejecución de máquinas virtuales locales en Azure. Azure Migrate es útil para las migraciones mediante lift-and-shift de cargas de trabajo basadas en VM locales a máquinas virtuales de IaaS de Azure. En cambio, a diferencia de Azure Database Migration Service, Azure Migrate no es una oferta de servicios de migración de bases de datos especializada para las plataformas de bases de datos relacionales de PaaS de Azure, como Azure SQL Database o Instancia administrada de Azure SQL Database.
 
-## <a name="setup"></a>Configuración
+## <a name="setup"></a>Configurar
 
 **P. ¿Cuáles son los requisitos previos para usar Azure Database Migration Service?**
 Hay varios requisitos previos necesarios para garantizar que Azure Database Migration Service se ejecute sin problemas al realizar migraciones de bases de datos. Algunos de los requisitos previos se aplican en todos los escenarios (pares origen-destino) compatibles con el servicio, mientras que otros son exclusivos para un escenario específico.

@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0fd50f730c604ba1359218cf5268bd20e570d3c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7afad7bdc0cd0fb957104e4963eaade96fa2d840
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962651"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423933"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicación de demonio que llama a las API web: configuración de código
 
@@ -31,11 +31,11 @@ Aprenda a configurar el código para la aplicación de demonio que llama a las A
 
 Las bibliotecas de Microsoft que admiten aplicaciones de demonio son:
 
-  Biblioteca MSAL | DESCRIPCIÓN
+  Biblioteca MSAL | Descripción
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Las plataformas admitidas para compilar una aplicación de demonio son las plataformas .NET Framework y .NET Core (no UWP, Xamarin.iOS ni Xamarin.Android, ya que estas plataformas se usan para compilar aplicaciones cliente públicas)
-  ![Python](media/sample-v2-code/logo_python.png) <br/> Python de MSAL | Desarrollo en curso: en versión preliminar pública
-  ![Java](media/sample-v2-code/logo_java.png) <br/> Java de MSAL | Desarrollo en curso: en versión preliminar pública
+  ![Python](media/sample-v2-code/logo_python.png) <br/> Python de MSAL | Compatibilidad con aplicaciones de demonio en Python
+  ![Java](media/sample-v2-code/logo_java.png) <br/> Java de MSAL | Compatibilidad con aplicaciones de demonio en Java
 
 ## <a name="configuration-of-the-authority"></a>Configuración de la autoridad
 
@@ -136,7 +136,7 @@ Agregue el paquete NuGet [Microsoft.IdentityClient](https://www.nuget.org/packag
 En MSAL.NET, la aplicación cliente confidencial está representada por la interfaz `IConfidentialClientApplication`.
 Use el espacio de nombres MSAL.NET en el código fuente
 
-```CSharp
+```csharp
 using Microsoft.Identity.Client;
 IConfidentialClientApplication app;
 ```
@@ -164,7 +164,7 @@ Este es el código para crear una instancia de aplicación cliente confidencial 
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .WithClientSecret(config.ClientSecret)
            .WithAuthority(new Uri(config.Authority))
@@ -204,7 +204,7 @@ Este es el código para compilar una aplicación con un certificado:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
     .WithCertificate(certificate)
@@ -271,7 +271,7 @@ MSAL.NET tiene dos métodos para proporcionar aserciones firmadas a la aplicaci�
 
 Cuando use `WithClientAssertion`, tiene que proporcionar un JWT firmado. Este escenario avanzado se detalla en las [aserciones de cliente](msal-net-client-assertions.md).
 
-```CSharp
+```csharp
 string signedClientAssertion = ComputeAssertion();
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithClientAssertion(signedClientAssertion)
@@ -281,7 +281,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 Cuando utilice `WithClientClaims`, MSAL.NET calculará una aserción firmada que contiene las notificaciones esperadas por Azure AD más las notificaciones de cliente adicionales que se quieren enviar.
 Este es un fragmento de código sobre cómo hacerlo:
 
-```CSharp
+```csharp
 string ipAddress = "192.168.1.2";
 var claims = new Dictionary<string, string> { { "client_ip", ipAddress } };
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);

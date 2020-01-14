@@ -1,25 +1,16 @@
 ---
-title: Contenedores y servicios de escalado automático de Azure Service Fabric | Microsoft Docs
+title: Contenedores y servicios de escalado automático de Azure Service Fabric
 description: Azure Service Fabric permite establecer directivas de escalado automático para servicios y contenedores.
-services: service-fabric
-documentationcenter: .net
 author: radicmilos
-manager: ''
-editor: nipuzovi
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 8e57c071c9fd93a8581d574aeec2b23b38b3ab95
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3660ece7add8f279292340aae9ab445b682fe045
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60844030"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452080"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introducción al escalado automático
 El escalado automático es una funcionalidad adicional de Service Fabric para escalar servicios de manera dinámica en función de la carga que notifican los servicios o del uso de recursos. El escalado automático proporciona una gran elasticidad y permite el aprovisionamiento de instancias o particiones adicionales del servicio a petición. Todo el proceso de escalado es automático y transparente. Además, una vez configuradas las directivas en un servicio, no es necesario realizar ninguna operación de escalado manual a nivel de servicio. El escalado automático se puede activar al crear el servicio o al actualizarlo en cualquier momento.

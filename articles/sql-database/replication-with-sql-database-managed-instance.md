@@ -1,26 +1,30 @@
 ---
 title: Configuración de la replicación en una base de datos de instancia administrada
-description: Aprenda a configurar la replicación transaccional en una base de datos de instancia administrada de Azure SQL Database
+description: Aprenda a configurar la replicación transaccional entre el publicador o distribuidor de una instancia administrada de Azure SQL Database y el suscriptor de la instancia administrada.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: MashaMSFT
+ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: f303a363fd4d42889e7817273be5d5e5440a2293
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: fd881142e0260d313e197d5e40ae25a2621646df
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822591"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372486"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configuración de la replicación en una base de datos de instancia administrada de Azure SQL Database
 
 La replicación transaccional permite replicar datos en una base de datos de instancia administrada de Azure SQL Database desde una base de datos de SQL Server u otro tipo de bases de datos de instancias. 
+
+En este artículo se muestra cómo configurar la replicación entre un publicador o distribuidor de la instancia administrada y un suscriptor de la instancia administrada. 
+
+![Replicación entre dos instancias administradas](media/replication-with-sql-database-managed-instance/sqlmi-sqlmi-repl.png)
 
 También puede usar la replicación transaccional para insertar los cambios realizados en una base de datos de instancia en la instancia administrada de Azure SQL Database para:
 
@@ -31,7 +35,8 @@ También puede usar la replicación transaccional para insertar los cambios real
 La replicación transaccional está disponible en versión preliminar pública en [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md). Una Instancia administrada puede hospedar bases de datos del publicador, distribuidor y suscriptor. Consulte las [configuraciones de la replicación transaccional](sql-database-managed-instance-transactional-replication.md#common-configurations) para ver las opciones disponibles.
 
   > [!NOTE]
-  > Este artículo está pensado para orientar a un usuario en la configuración de la replicación con una instancia administrada de Azure Database de extremo a extremo, empezando por la creación del grupo de recursos. Si ya ha implementado instancias administradas, vaya directamente al [paso 4](#4---create-a-publisher-database) para crear la base de datos del publicador o al [paso 6](#6---configure-distribution) si ya tiene una base de datos del publicador y del suscriptor y está listo para empezar a configurar la replicación.  
+  > - Este artículo está pensado para orientar a un usuario en la configuración de la replicación con una instancia administrada de Azure Database de extremo a extremo, empezando por la creación del grupo de recursos. Si ya ha implementado instancias administradas, vaya directamente al [paso 4](#4---create-a-publisher-database) para crear la base de datos del publicador o al [paso 6](#6---configure-distribution) si ya tiene una base de datos del publicador y del suscriptor y está listo para empezar a configurar la replicación.  
+  > - En este artículo se configuran el publicador y el distribuidor en la misma instancia administrada. Para colocar el distribuidor en una instancia administrada independiente, vea el tutorial sobre la [configuración de la replicación entre un publicador de MI y un distribuidor de MI](sql-database-managed-instance-configure-replication-tutorial.md). 
 
 ## <a name="requirements"></a>Requisitos
 
@@ -50,7 +55,7 @@ Para configurar una instancia administrada de forma que funcione como un publica
 
 ## <a name="features"></a>Características
 
-Admite:
+Es compatible con:
 
 - Una combinación de la replicación de instantáneas y la replicación transaccional de instancias locales de SQL Server e instancias administradas de Azure SQL Database.
 - Los suscriptores pueden ser bases de datos locales de SQL Server, bases de datos únicas o instancias administradas de Azure SQL Database o bases de datos agrupadas en grupos elásticos de Azure SQL Database.
@@ -67,10 +72,10 @@ Use [Azure Portal](https://portal.azure.com) para crear un grupo de recursos den
 
 ## <a name="2---create-managed-instances"></a>2 - Creación de instancias administradas
 
-Use [Azure Portal](https://portal.azure.com) para crear dos [instancias administradas](sql-database-managed-instance-create-tutorial-portal.md) en la misma red virtual y subred. Las dos instancias administradas deben tener un nombre:
+Use [Azure Portal](https://portal.azure.com) para crear dos [instancias administradas](sql-database-managed-instance-create-tutorial-portal.md) en la misma red virtual y subred. Por ejemplo, asigne un nombre a las dos instancias administradas:
 
-- `sql-mi-pub`
-- `sql-mi-sub`
+- `sql-mi-pub` (junto con algunos caracteres para la selección aleatoria)
+- `sql-mi-sub` (junto con algunos caracteres para la selección aleatoria)
 
 También deberá [configurar una VM de Azure para la conexión](sql-database-managed-instance-configure-vm.md) a instancias administradas de Azure SQL Database. 
 
@@ -80,9 +85,13 @@ También deberá [configurar una VM de Azure para la conexión](sql-database-man
 
 Copie la ruta de acceso del recurso compartido de archivos en el formato `\\storage-account-name.file.core.windows.net\file-share-name`.
 
+Ejemplo: `\\replstorage.file.core.windows.net\replshare`
+
 Copie las claves de acceso de almacenamiento en el formato `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`.
 
- Para obtener más información, consulte [Visualización y copia de las claves de acceso de almacenamiento](../storage/common/storage-account-manage.md#access-keys). 
+Ejemplo: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
+
+Para obtener más información, consulte [Administración de las claves de acceso de la cuenta de almacenamiento](../storage/common/storage-account-keys-manage.md). 
 
 ## <a name="4---create-a-publisher-database"></a>4 - Creación de una base de datos del publicador
 
@@ -160,8 +169,9 @@ En la instancia administrada `sql-mi-pub` del publicador, cambie la ejecución d
 :setvar username loginUsedToAccessSourceManagedInstance
 :setvar password passwordUsedToAccessSourceManagedInstance
 :setvar file_storage "\\storage-account-name.file.core.windows.net\file-share-name"
+-- example: file_storage "\\replstorage.file.core.windows.net\replshare"
 :setvar file_storage_key "DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net"
-
+-- example: file_storage_key "DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net"
 
 USE [master]
 EXEC sp_adddistpublisher
@@ -173,6 +183,9 @@ EXEC sp_adddistpublisher
   @working_directory = N'$(file_storage)',
   @storage_connection_string = N'$(file_storage_key)'; -- Remove this parameter for on-premises publishers
 ```
+
+   > [!NOTE]
+   > Asegúrese de usar solo barras diagonales inversas (`\`) para el parámetro file_storage. El uso de una barra diagonal (`/`) puede producir un error al conectarse al recurso compartido de archivos. 
 
 Este script configura un publicador local en la instancia administrada, agrega un servidor vinculado y crea un conjunto de trabajos del Agente SQL Server. 
 
@@ -322,10 +335,11 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-Para limpiar los recursos de Azure, [elimine los recursos de la instancia administrada del grupo de recursos](../azure-resource-manager/manage-resources-portal.md#delete-resources) y, a continuación, elimine el grupo de recursos `SQLMI-Repl`. 
+Para limpiar los recursos de Azure, [elimine los recursos de la instancia administrada del grupo de recursos](../azure-resource-manager/management/manage-resources-portal.md#delete-resources) y, a continuación, elimine el grupo de recursos `SQLMI-Repl`. 
 
    
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Replicación transaccional](sql-database-managed-instance-transactional-replication.md)
-- [¿Qué es la Instancia administrada?](sql-database-managed-instance.md)
+- [Tutorial: Configurar la replicación transaccional entre un publicador de MI y el suscriptor de SQL Server](sql-database-managed-instance-configure-replication-tutorial.md)
+- [¿Qué es Instancia administrada?](sql-database-managed-instance.md)

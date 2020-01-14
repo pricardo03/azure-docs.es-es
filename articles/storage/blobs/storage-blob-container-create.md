@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d1218b10eadf0788752bab2aec4b21614666888c
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 70f905d15c69876ced56c25ec92f858bb15b7d36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671282"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372217"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Creación o eliminación de un contenedor en Azure Storage con .NET
 
@@ -126,7 +126,7 @@ Para eliminar un contenedor de .NET, use uno de los métodos siguientes:
 
 Los métodos **Delete** y **DeleteAsync** inician una excepción si el contenedor no existe.
 
-Los métodos **DeleteIfNotExists** y **DeleteIfNotExistsAsync** devuelven un valor booleano que indica si se ha eliminado el contenedor. Si el contenedor especificado no existe, estos métodos devuelven **False** para indicar que el contenedor no se ha eliminado.
+Los métodos **DeleteIfExists** y **DeleteIfExistsAsync** devuelven un valor booleano que indica si se ha eliminado el contenedor. Si el contenedor especificado no existe, estos métodos devuelven **False** para indicar que el contenedor no se ha eliminado.
 
 Después de eliminar un contenedor, no se puede crear otro con el mismo nombre durante al menos 30 segundos y, posiblemente, más. Mientras se elimina el contenedor, un intento de crear otro con el mismo nombre producirá un error con el código de error de HTTP 409 (conflicto). Cualquier otra operación en el contenedor o en los blobs que contiene producirá un error con el código de error HTTP 404 (no encontrado) mientras se elimina el contenedor.
 
@@ -185,7 +185,7 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Operación de creación de contenedor](/rest/api/storageservices/create-container)
 - [Operación Eliminar contenedor](/rest/api/storageservices/delete-container)

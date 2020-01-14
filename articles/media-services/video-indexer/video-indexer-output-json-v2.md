@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: juliako
-ms.openlocfilehash: c978fed1675ea80ae9b2f6fb7fbe9a4c84472638
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ab48787edcdd8c28891ca49d0f8b64305ce0e747
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978311"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454634"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examen de la salida de Video Indexer producida por la API
 
-Cuando se llama a **Get Video Index** API y el estado de la respuesta es correcto, obtendrá una salida JSON detallada como contenido de la respuesta. El contenido JSON incluye información detallada del vídeo especificado. La información detallada incluye dimensiones como: transcripciones, OCR, rostros, temas o bloques, entre otras. Las dimensiones tienen instancias de intervalos de tiempo que muestran cuándo apareció cada dimensión en el vídeo.  
+Cuando se llama a **Get Video Index** API y el estado de la respuesta es correcto, obtendrá una salida JSON detallada como contenido de la respuesta. El contenido JSON incluye información detallada del vídeo especificado. La información detallada incluye transcripciones, OCR, rostros, temas o bloques, entre otras. Cada tipo de conclusión incluye instancias de intervalos de tiempo que se muestran cuando aparece la conclusión en el vídeo. 
 
 1. Para recuperar el archivo JSON, llame a [Get Video Index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?).
 1. Si también está interesado en artefactos específicos, llame a [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?).
@@ -92,9 +92,9 @@ En esta sección se muestra el resumen de la información detallada.
 |audioEffects| Puede contener cero o más efectos de audio. Para más información, consulte [audioEffects](#audioEffects).|
 |labels| Puede contener cero o más etiquetas. Para más información, consulte [labels](#labels).|
 |brands| Puede contener cero o más marcas. Para más información, consulte [brands](#brands).|
-|statistics | Para más información, consulte [statistics](#statistics).|
+|estadísticas | Para más información, consulte [statistics](#statistics).|
 |emotions| Puede contener cero o más emociones. Para más información, consulte [emotions](#emotions).|
-|topics|Puede contener cero o más temas. Dimensión [topics](#topics).|
+|topics|Puede contener cero o más temas. Las conclusiones de los [temas](#topics).|
 
 ## <a name="videos"></a>videos
 
@@ -121,7 +121,7 @@ En esta sección se muestra el resumen de la información detallada.
 |indexingPreset|Valor predeterminado utilizado para indexar el vídeo.|
 |streamingPreset|Valor predeterminado utilizado para publicar el vídeo.|
 |linguisticModelId|Modelo CRIS utilizado para transcribir el vídeo.|
-|statistics | Para más información, consulte [statistics](#statistics).|
+|estadísticas | Para más información, consulte [statistics](#statistics).|
 
 ```json
 {
@@ -150,7 +150,7 @@ En esta sección se muestra el resumen de la información detallada.
 ```
 ### <a name="insights"></a>insights
 
-La información detallada es un conjunto de dimensiones (por ejemplo, líneas de transcripción, rostros, marcas, etc.), en el que cada dimensión es una lista de elementos únicos (por ejemplo, face1, face2, face3) y cada elemento tiene sus propios metadatos y una lista de sus instancias (que son intervalos de tiempo con metadatos opcionales adicionales).
+Cada conclusión (por ejemplo, líneas de transcripción, rostros, marcas, etc.) contiene una lista de elementos únicos (por ejemplo, face1, face2, face3) y cada elemento tiene sus propios metadatos y una lista de sus instancias (que son intervalos de tiempo con metadatos opcionales adicionales).
 
 Un rostro podría tener un identificador, un nombre, una miniatura, otros metadatos y una lista de sus instancias temporales (por ejemplo: 00:00:05: 00:00:10, 00:01:00: 00:02:30 y 00:41:21: 00:41:49). Cada instancia temporal puede tener metadatos adicionales. Por ejemplo, las coordenadas del rectángulo del rostro (20,230,60,60).
 
@@ -158,20 +158,20 @@ Un rostro podría tener un identificador, un nombre, una miniatura, otros metada
 |---|---|
 |sourceLanguage|Idioma de origen del vídeo (suponiendo que hay un idioma principal). Con el formato de cadena [BCP-47](https://tools.ietf.org/html/bcp47).|
 |language|Idioma de la información detallada (traducida del idioma de origen). Con el formato de cadena [BCP-47](https://tools.ietf.org/html/bcp47).|
-|transcript|Dimensión [transcript](#transcript).|
-|ocr|Dimensión [OCR](#ocr).|
-|keywords|Dimensión [keywords](#keywords).|
+|transcript|La conclusión [transcript](#transcript).|
+|ocr|La conclusión [OCR](#ocr).|
+|keywords|La conclusión [keywords](#keywords).|
 |blocks|Puede contener uno o más dimensiones [blocks](#blocks).|
-|faces|Dimensión [faces](#faces).|
-|labels|Dimensión [labels](#labels).|
-|shots|Dimensión [shots](#shots).|
-|brands|Dimensión [brands](#brands).|
-|audioEffects|Dimension [audioEffects](#audioEffects).|
-|sentiments|Dimension [sentiments](#sentiments).|
-|visualContentModeration|Dimensión [visualContentModeration](#visualcontentmoderation).|
-|textualContentModeration|Dimensión [textualConentModeration](#textualcontentmoderation).|
-|emotions| Dimensión [emotions](#emotions).|
-|topics|Dimensión [topics](#topics).|
+|faces|La conclusión [faces](#faces).|
+|labels|La conclusión [labels](#labels).|
+|shots|La conclusión [shots](#shots).|
+|brands|La conclusión [brands](#brands).|
+|audioEffects|La conclusión [audioEffects](#audioEffects).|
+|sentiments|La conclusión [sentiments](#sentiments).|
+|visualContentModeration|La conclusión [visualContentModeration](#visualcontentmoderation).|
+|textualContentModeration|La conclusión [visualContentModeration](#textualcontentmoderation).|
+|emotions| La conclusión [emotions](#emotions).|
+|topics|Las conclusiones de los [temas](#topics).|
 
 Ejemplo:
 
@@ -310,7 +310,7 @@ Ejemplo:
 |Nombre|Descripción|
 |---|---|
 |id|Identificador del rostro.|
-|Nombre|Nombre del rostro. Puede ser "Unknown #0", una celebridad identificada o una persona capacitada del cliente.|
+|name|Nombre del rostro. Puede ser "Unknown #0", una celebridad identificada o una persona capacitada del cliente.|
 |confidence|Confidencialidad de la identificación facial.|
 |description|Descripción de la celebridad. |
 |thumbnailId|Identificador de la miniatura del rostro en cuestión.|
@@ -411,7 +411,7 @@ Ejemplo:
 
 #### <a name="scenes"></a>scenes
 
-|NOMBRE|Descripción|
+|Nombre|Descripción|
 |---|---|
 |id|Identificador de la escena.|
 |instances|Lista de intervalos de tiempo de esta escena (una escena puede tener solo 1 instancia).|
@@ -551,7 +551,7 @@ Nombres de empresas y marcas de productos detectados en la transcripción de voz
 ]
 ```
 
-#### <a name="statistics"></a>statistics
+#### <a name="statistics"></a>estadísticas
 
 |Nombre|Descripción|
 |---|---|
@@ -563,10 +563,10 @@ Nombres de empresas y marcas de productos detectados en la transcripción de voz
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|NOMBRE|Descripción|
+|Nombre|Descripción|
 |---|---|
 |id|Identificador del efecto de audio.|
-|Tipo|Tipo de efecto de audio (por ejemplo, aplausos, voz, silencio).|
+|type|Tipo de efecto de audio (por ejemplo, aplausos, voz, silencio).|
 |instances|Lista de los intervalos de tiempo donde apareció este efecto de audio.|
 
 ```json
@@ -667,7 +667,7 @@ Los vídeos en los que se encuentre contenido para adultos o subido de tono podr
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|NOMBRE|Descripción|
+|Nombre|Descripción|
 |---|---|
 |id|Identificador de la moderación de contenido textual.|
 |bannedWordsCount |Número de palabras no permitidas.|
@@ -677,10 +677,10 @@ Los vídeos en los que se encuentre contenido para adultos o subido de tono podr
 
 Video Indexer identifica emociones en función de las indicaciones para voz y audio. La emoción identificada podría ser: felicidad, tristeza, ira o miedo.
 
-|NOMBRE|Descripción|
+|Nombre|Descripción|
 |---|---|
 |id|Identificador de la emoción.|
-|Tipo|Momento de la emoción que se identificó en función de las indicaciones para voz y audio. La emoción podría ser: felicidad, tristeza, ira o miedo.|
+|type|Momento de la emoción que se identificó en función de las indicaciones para voz y audio. La emoción podría ser: felicidad, tristeza, ira o miedo.|
 |instances|Lista de los intervalos de tiempo donde apareció esta emoción.|
 
 ```json
@@ -767,11 +767,11 @@ Video Indexer identifica emociones en función de las indicaciones para voz y au
 
 Video Indexer saca conclusiones de los temas principales a partir de las transcripciones. Cuando es posible, se incluye la taxonomía [IPTC](https://iptc.org/standards/media-topics/) de segundo nivel. 
 
-|NOMBRE|Descripción|
+|Nombre|Descripción|
 |---|---|
 |id|Identificador del tema.|
-|Nombre|El nombre del tema, por ejemplo: "productos farmacéuticos".|
-|referenceId|Rutas de navegación que reflejan la jerarquía de temas. Por ejemplo:  "Salud y bienestar / Medicina y salud / Productos farmacéuticos".|
+|name|El nombre del tema, por ejemplo: "productos farmacéuticos".|
+|referenceId|Rutas de navegación que reflejan la jerarquía de temas. Por ejemplo: "Salud y bienestar / Medicina y salud / Productos farmacéuticos".|
 |confidence|Puntuación de confianza en el intervalo [0,1]. Cuanto mayor es, más segura es.|
 |language|Idioma que se usa en el tema.|
 |iptcName|Nombre del código multimedia IPTC, si se detecta.|

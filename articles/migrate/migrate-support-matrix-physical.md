@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: b5b5da6282b1df6c70fd58dcf8c417250de81b73
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9e749297d831aeae7d785a9a9a29bea1f8c6d5e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196349"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454617"
 ---
 # <a name="support-matrix-for-physical-server-assessment-and-migration"></a>Matriz de compatibilidad para la evaluación y migración de servidores físicos
 
@@ -73,7 +73,7 @@ Para la evaluación, Azure Migrate ejecuta una aplicación ligera para detectar 
 
 | **Soporte técnico**                | **Detalles**               
 | :-------------------       | :------------------- |
-| **Implementación del dispositivo**   |  La aplicación se implementa en un servidor físico o una máquina virtual.<br/>  El equipo host debe estar ejecutando Windows Server 2012 R2 o posterior.<br/> El host necesita espacio suficiente para asignar 16 GB de RAM, 8 vCPU, alrededor de 80 GB de espacio de almacenamiento y conmutador externo para la máquina virtual del dispositivo.<br/> El dispositivo requiere una dirección IP estática o dinámica y acceso a Internet.
+| **Implementación del dispositivo**   |  El script del instalador del dispositivo se puede descargar desde el portal (en una carpeta comprimida). <br/> Puede descomprimir la carpeta y ejecutar el script de PowerShell (AzureMigrateInstaller.ps1) en un servidor físico dedicado o en una máquina virtual para configurar el dispositivo.<br/>  La máquina elegida para instalar el dispositivo debe ejecutar Windows Server 2016.<br/> La máquina necesita espacio suficiente para asignar 16 GB de RAM, 8 vCPU, alrededor de 80 GB de espacio de almacenamiento y conmutador externo para la máquina virtual del dispositivo.<br/> El dispositivo requiere una dirección IP estática o dinámica y acceso a Internet.
 | **Proyecto de Azure Migrate**  |  Un dispositivo solo puede estar asociado a un proyecto.<br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> Puede evaluar hasta 35 000 máquinas en un proyecto.
 | **Detección**              | Un solo dispositivo puede detectar hasta 250 servidores.
 | **Grupo de evaluación**       | Puede agregar hasta 35 000 máquinas en un solo grupo.
@@ -109,7 +109,7 @@ En la tabla siguiente se resumen los requisitos de los puertos para la evaluaci�
 **Dispositivo** | **Connection**
 --- | ---
 **Dispositivo** | Conexiones entrantes en el puerto TCP 3389 para permitir las conexiones del Escritorio remoto al dispositivo.<br/> Conexiones entrantes en el puerto 44368 para tener acceso de forma remota a la aplicación de administración del dispositivo mediante la dirección URL: ``` https://<appliance-ip-or-name>:44368 ```<br/> Conexiones salientes en los puertos 443, 5671 y 5672 para enviar los metadatos de detección y rendimiento a Azure Migrate.
-**Servidores físicos** | **Windows:** Conexiones entrantes en los puertos 443 y 5989 para extraer los metadatos de configuración y rendimiento de los servidores de Windows. <br/> **Linux:**  Conexiones entrantes en el puerto 22 (UDP) para extraer los metadatos de configuración y rendimiento de los servidores Linux. |
+**Servidores físicos** | **Windows:** Conexiones entrantes en los puertos 443, los puertos WinRM 5985 (HTTP) y 5986 (HTTPS) para extraer los metadatos de configuración y rendimiento de los servidores de Windows. <br/> **Linux:**  Conexiones entrantes en el puerto 22 (UDP) para extraer los metadatos de configuración y rendimiento de los servidores Linux. |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

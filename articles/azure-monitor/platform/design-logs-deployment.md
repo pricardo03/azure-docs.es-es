@@ -4,15 +4,15 @@ description: En este artículo se describen las consideraciones y las recomendac
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 373c498b9ce58062e42f4318c9fa94688556d8c5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3d4fe7319e0af9c463bd64483f43a4e73ef8871d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894222"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395752"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Diseño de la implementación de registros de Azure Monitor
 
@@ -63,7 +63,7 @@ Con el control de acceso basado en rol (RBAC) puede conceder a los usuarios y gr
 
 Los datos a los que un usuario tiene acceso vienen determinados por una combinación de factores que se enumeran en la tabla siguiente. Cada uno se describe en las secciones siguientes.
 
-| Factor | DESCRIPCIÓN |
+| Factor | Descripción |
 |:---|:---|
 | [Modo de acceso](#access-mode) | Método que utiliza el usuario para acceder al área de trabajo.  Define el ámbito de los datos disponibles y el modo de control de acceso que se aplica. |
 | [Modo de control de acceso](#access-control-mode) | Configuración en el área de trabajo que define si los permisos se aplican en el nivel de área de trabajo o recurso. |
@@ -128,7 +128,9 @@ Para obtener información sobre cómo cambiar el modo de control de acceso en el
 
 ## <a name="ingestion-volume-rate-limit"></a>Límite de velocidad por volumen de ingesta
 
-Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. El umbral de velocidad de ingesta predeterminado se establece en **500 MB/min** por área de trabajo. Si envía datos a una velocidad superior a una sola área de trabajo, se quitan algunos datos y se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Si el volumen de ingesta sigue superando el límite de velocidad o prevé que pronto lo alcanzará, puede abrir una solicitud de soporte técnico para solicitar un aumento en el área de trabajo.
+Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. El umbral de velocidad de ingesta predeterminado se establece en **6 GB/min** por área de trabajo. Este es un valor aproximado, ya que el tamaño real puede variar entre los tipos de datos en función de la longitud del registro y su razón de compresión. Este límite no se aplica a los datos que se envían desde agentes o la [Data Collector API](data-collector-api.md).
+
+Si envía datos a una velocidad superior a una sola área de trabajo, se quitan algunos datos y se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Si el volumen de ingesta sigue superando el límite de velocidad o prevé que pronto lo alcanzará, puede abrir una solicitud de soporte técnico para solicitar un aumento en el área de trabajo.
  
 Para recibir notificaciones de este tipo de evento en el área de trabajo, cree una [regla de alerta de registro](alerts-log.md) mediante la siguiente consulta con la base de la lógica de alerta en el número de resultados mayor que cero.
 

@@ -1,5 +1,5 @@
 ---
-title: Evaluación de las consultas con la función de perfil de ejecución para Gremlin API de Azure Cosmos DB
+title: Use el perfil de ejecución para evaluar consultas en la API Gremlin de Azure Cosmos DB
 description: Aprenda a solucionar problemas y mejorar sus consultas de Gremlin con el paso de perfil de ejecución.
 services: cosmos-db
 author: luisbosquez
@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: lbosq
-ms.openlocfilehash: ab5c55105eeb912281f35e3d6094c0c43a76f89a
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 5705ef4fb6aa895009d554617c968543cc3fcd63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915886"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441850"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Uso del paso de perfil de ejecución para evaluar las consultas de Gremlin
 
@@ -155,7 +155,7 @@ La respuesta de una función executionProfile() producirá una jerarquía de obj
     - `storeOps.count`: representa el número de resultados que devolvió esta operación de almacenamiento.
     - `storeOps.size`: representa el tamaño en bytes del resultado de una operación de almacenamiento determinada.
 
-Operador de tiempo de ejecución de Gremlin de Cosmos DB|DESCRIPCIÓN
+Operador de tiempo de ejecución de Gremlin de Cosmos DB|Descripción
 ---|---
 `GetVertices`| Este paso obtiene un conjunto declarado de objetos de la capa de persistencia. 
 `GetEdges`| Este paso obtiene los bordes adyacentes a un conjunto de vértices. Este paso puede dar lugar a una o varias operaciones de almacenamiento.

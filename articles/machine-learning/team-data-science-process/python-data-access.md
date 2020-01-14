@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7b86d643540e46f9a4fc86c83fc77d739bfba418
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 241f804b0519fd744e8b980b2d311a72680aafad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978499"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427383"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acceso a conjuntos de datos con Python mediante la biblioteca de cliente de Python de Azure Machine Learning
 La versión preliminar de la biblioteca de cliente de Python de Microsoft Azure Machine Learning puede permitir un acceso seguro a los conjuntos de datos de Azure Machine Learning desde un entorno local de Python, así como la creación y administración de conjuntos de datos en un área de trabajo.
@@ -96,7 +96,7 @@ Los tokens de autorización se administran en la página **TOKENS DE AUTORIZACI�
     ![Pegar el código en el cuaderno][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Obtener acceso a los conjuntos de datos intermedios de experimentos de Machine Learning
-Después de ejecutar un experimento en la versión clásica de Machine Learning Studio, es posible acceder a los conjuntos de datos intermedios desde los nodos de salida de los módulos. Los conjuntos de datos intermedios son datos que se han creado y utilizado para pasos intermedios cuando se ha ejecutado una herramienta de modelo.
+Después de ejecutar un experimento en Machine Learning Studio (clásico), es posible acceder a los conjuntos de datos intermedios desde los nodos de salida de los módulos. Los conjuntos de datos intermedios son datos que se han creado y utilizado para pasos intermedios cuando se ha ejecutado una herramienta de modelo.
 
 El acceso a los conjuntos de datos intermedios es posible siempre que el formato de los datos sea compatible con la biblioteca de cliente de Python.
 

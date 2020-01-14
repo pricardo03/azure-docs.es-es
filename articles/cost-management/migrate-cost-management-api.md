@@ -1,5 +1,5 @@
 ---
-title: 'Migración desde la API de Contrato Enterprise a la API de contrato de cliente de Microsoft: Azure | Microsoft Docs'
+title: Migración del Contrato Enterprise a las API del contrato de cliente de Microsoft - Azure
 description: En este artículo se explicarán las consecuencias de migrar un Contrato Enterprise (EA) de Microsoft a un contrato de cliente de Microsoft.
 services: cost-management
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 20d83c48fb4ad60b091dc87b224a053690251a48
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7fef417a7b19d463a98d32b7cf3cce515d1137a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481711"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440995"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migración desde la API de Contrato Enterprise a la API de contrato de cliente de Microsoft
 
@@ -126,7 +126,7 @@ Para obtener los detalles del uso con la API Usage Details:
 
 La API Usage Details, así como todas las API de Cost Management, está disponible en varios ámbitos. En el caso de los costos facturados, como los recibiría tradicionalmente en un nivel de inscripción, use el ámbito del perfil de facturación.  Para más información sobre los ámbitos de Cost Management, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
-| type | Formato de identificador |
+| Tipo | Formato de identificador |
 | --- | --- |
 | Cuenta de facturación | `/Microsoft.Billing/billingAccounts/{billingAccountId}` |
 | Perfil de facturación | `/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}` |
@@ -187,15 +187,15 @@ El nombre de la propiedad que contiene la matriz de los registros de uso cambió
 | ExtendedCost y Cost | costInBillingCurrency | &nbsp;  |
 | InstanceId | resourceId | &nbsp;  |
 | Is Recurring Charge | None | &nbsp;  |
-| Location | location | &nbsp;  |
+| Location | ubicación | &nbsp;  |
 | MeterCategory | meterCategory | Los valores de cadena exactos pueden diferir. |
 | Id. del medidor | meterId | Los valores de cadena exactos difieren. |
 | MeterName | meterName | Los valores de cadena exactos pueden diferir. |
 | MeterRegion | meterRegion | Los valores de cadena exactos pueden diferir. |
 | MeterSubCategory | meterSubCategory | Los valores de cadena exactos pueden diferir. |
-| Mes | None | Analiza el mes de la fecha. |
+| Month | None | Analiza el mes de la fecha. |
 | Nombre de la oferta | None | Use publisherName y productOrderName. |
-| OfferId | None | &nbsp;  |
+| OfferID | None | &nbsp;  |
 | Order Number | None | &nbsp;  |
 | PartNumber | None | Use meterId y productOrderName para identificar los precios de manera única. |
 | Plan Name | productOrderName | &nbsp;  |
@@ -373,10 +373,10 @@ En la tabla siguiente se muestran los campos de la API Enterprise Get price shee
 | meterId  | meterId | &nbsp;  |
 | unitOfMeasure  | unitOfMeasure | Los valores de cadena exactos pueden diferir. |
 | includedQuantity  | includedQuantity | No es aplicable para los servicios en los contratos de cliente de Microsoft. |
-| partNumber  | _No aplicable_ | En su lugar, use una combinación de productOrderName (igual que offerId) y meterid. |
+| partNumber  | _No aplicable_ | En su lugar, use una combinación de productOrderName (igual que offerID) y meterID. |
 | unitPrice  | unitPrice | El precio unitario se aplica a los servicios consumidos en los contratos de cliente de Microsoft. |
 | currencyCode  | pricingCurrency | Los contratos de cliente de Microsoft representan los precios en la moneda de precios y la moneda de facturación. currencyCode corresponde a pricingCurrency en los contratos de cliente de Microsoft. |
-| offerId | productOrderName | En lugar de OfferId, puede usar productOrderName, pero no es lo mismo que OfferId. Sin embargo, productOrderName y meter determinan los precios en los contratos de cliente de Microsoft relacionados con meterId y OfferId en las inscripciones heredadas. |
+| offerID | productOrderName | En lugar de OfferID, puede usar productOrderName, pero no es lo mismo que OfferID. Sin embargo, productOrderName y meter determinan los precios en los contratos de cliente de Microsoft relacionados con meterId y OfferID en las inscripciones heredadas. |
 
 ## <a name="consumption-price-sheet-api-operations"></a>Operaciones de Consumption Price Sheet API
 
@@ -428,26 +428,26 @@ En el ámbito de la inscripción de EA, la respuesta de la API y las propiedades
 
 Las propiedades anteriores para las [Price Sheet API de Azure Resource Manager](/rest/api/consumption/pricesheet) y las mismas propiedades nuevas están en la tabla siguiente.
 
-| Anterior propiedad de Price Sheet API de Azure Resource Manager  | Nueva propiedad de Price Sheet API de contrato de cliente de Microsoft   | DESCRIPCIÓN |
+| Anterior propiedad de Price Sheet API de Azure Resource Manager  | Nueva propiedad de Price Sheet API de contrato de cliente de Microsoft   | Descripción |
 | --- | --- | --- |
-| Id. de medidor | _meterId_ | Identificador único del medidor. Igual que meterId. |
+| Id. de medidor | _meterId_ | Identificador único del medidor. Igual que meterID. |
 | Nombre del medidor | meterName | Nombre del medidor. El medidor representa el recurso de un servicio de Azure que se puede implementar. |
 | Categoría del medidor  | service | El nombre de la categoría de clasificación del medidor. Igual que el servicio en la hoja de precios de contrato de cliente de Microsoft. Los valores de cadena exactos difieren. |
 | Subcategoría del medidor | meterSubCategory | El nombre de la categoría de subclasificación del medidor. Basado en la clasificación de la diferenciación del conjunto de características de alto nivel del servicio. Por ejemplo, base de datos SQL básica frente a base de datos SQL estándar. |
 | Región del medidor | meterRegion | &nbsp;  |
 | Unidad | _No aplicable_ | Se puede analizar a partir de unitOfMeasure. |
 | Unidad de medida | unitOfMeasure | &nbsp;  |
-| Número de pieza | _No aplicable_ | En lugar de partNumber, use productOrderName y MeterId para identificar de manera única el precio para un perfil de facturación. Los campos se enumeran en la factura de MCA en lugar del partNumber en las facturas de MCA. |
+| Número de pieza | _No aplicable_ | En lugar del número de pieza, use productOrderName y MeterID para identificar de manera única el precio para un perfil de facturación. Los campos se enumeran en la factura de MCA en lugar del número de pieza en las facturas de MCA. |
 | Precio unitario | unitPrice | El precio unitario en los contratos de cliente de Microsoft. |
 | Código de moneda | pricingCurrency | Los contratos de cliente de Microsoft representan los precios en la moneda de precios y la moneda de facturación. El código de divisa es igual que pricingCurrency en los contratos de cliente de Microsoft. |
 | Cantidad incluida | includedQuantity | No es aplicable a los servicios en los contratos de cliente de Microsoft. Se muestra con valores de cero. |
-|  Id. de oferta  | productOrderName | En lugar de OfferId, use productOrderName. No es lo mismo que OfferId, pero productOrderName y meter determinan los precios de los contratos de cliente de Microsoft. Relacionado con meterId y Offerid en las inscripciones heredadas. |
+|  Id. de oferta  | productOrderName | En lugar de OfferID, use productOrderName. No es lo mismo que OfferID, pero productOrderName y meter determinan los precios de los contratos de cliente de Microsoft. Relacionado con meterId y OfferiD en las inscripciones heredadas. |
 
-El precio para los contratos de cliente de Microsoft se define de manera distinta a como se hace en los Contratos Enterprise. El precio de los servicios en la inscripción Enterprise es único para el producto, el número de pieza, el medidor y la oferta. PartNumber no se usa en los contratos de cliente de Microsoft.
+El precio para los contratos de cliente de Microsoft se define de manera distinta a como se hace en los Contratos Enterprise. El precio de los servicios en la inscripción Enterprise es único para el producto, el número de pieza, el medidor y la oferta. El número de pieza no se usa en los contratos de cliente de Microsoft.
 
-El precio del servicio de consumo de Azure que forma parte de un contrato de cliente de Microsoft es único para productOrderName y meterId. Representan el medidor del servicio y el plan del producto.
+El precio del servicio de consumo de Azure que forma parte de un contrato de cliente de Microsoft es único para productOrderName y meterID. Representan el medidor del servicio y el plan del producto.
 
-Para conciliar la hoja de precios y el uso en Usage Details API, puede usar productOrderName y meterId.
+Para conciliar la hoja de precios y el uso en Usage Details API, puede usar productOrderName y meterID.
 
 Los usuarios que tienen derechos de propietario del perfil de facturación, colaborador, lector y administrador de facturación pueden descargar la hoja de precios.
 
@@ -457,15 +457,15 @@ La hoja de precios incluye los precios de los servicios cuyos precios se basan e
 
 Los siguientes campos no están disponibles en las Price Sheet API de contrato de cliente de Microsoft o tienen los mismos campos.
 
-|Campo retirados| DESCRIPCIÓN|
+|Campo retirados| Descripción|
 |---|---|
 | billingPeriodId | No aplicable. Corresponde a InvoiceId para MCA. |
-| offerId | No aplicable. Corresponde a productOrderName en MCA. |
+| offerID | No aplicable. Corresponde a productOrderName en MCA. |
 | meterCategory  | No aplicable. Corresponde a Service en MCA. |
 | unit | No aplicable. Se puede analizar a partir de unitOfMeasure. |
 | currencyCode | Igual que pricingCurrency en MCA. |
 | meterLocation | Igual que meterRegion en MCA. |
-| partNumber partnumber | No se aplica, porque el número de pieza no aparece en las facturas de MCA. En lugar de partnumber, use la combinación de meterId y productOrderName para identificar los precios de manera única. |
+| partNumber partnumber | No se aplica, porque el número de pieza no aparece en las facturas de MCA. En lugar del número de pieza, use la combinación de meterId y productOrderName para identificar los precios de manera única. |
 | totalIncludedQuantity | No aplicable. |
 | pretaxStandardRate  | No aplicable. |
 
@@ -481,7 +481,7 @@ Para obtener las transacciones de compras de reservas con Transactions API:
 
 ## <a name="recommendations-apis-replaced"></a>Recommendations API reemplazadas
 
-Las Reserved Instance Purchase Recommendations API ofrecen el uso de una máquina virtual durante los últimos 7, 30 o 60 días. Las API también ofrecen recomendaciones de compras de reservas. Entre ellos se incluyen los siguientes:
+Las Reserved Instance Purchase Recommendations API ofrecen el uso de una máquina virtual durante los últimos 7, 30 o 60 días. Las API también ofrecen recomendaciones de compras de reservas. Incluyen:
 
 - [Shared Reserved Instance Recommendation API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)
 - [Single Reserved Instance Recommendations API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)
@@ -498,7 +498,7 @@ Para obtener recomendaciones de reservas con Reservation Recommendations API:
 
 Puede obtener el uso de reservas de una inscripción con Reserved Instance Usage API. Si hay más de una instancia reservada en una inscripción, también puede obtener el uso de todas las compras de instancias reservadas con esta API.
 
-Entre ellos se incluyen los siguientes:
+Incluyen:
 
 - [Detalles de uso de instancias reservadas](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)
 - [Resumen de uso de instancias reservadas](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)

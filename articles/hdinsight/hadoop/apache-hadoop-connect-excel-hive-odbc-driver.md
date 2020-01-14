@@ -1,20 +1,19 @@
 ---
 title: 'Excel y Apache Hadoop con el controlador ODBC: Azure HDInsight'
 description: Aprenda a configurar y usar el controlador ODBC de Microsoft Hive para que Excel consulte datos en un clúster de HDInsight desde Microsoft Excel
-keywords: Excel en Hadoop, Excel en Hive, ODBC de Hive
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 10/08/2019
-ms.openlocfilehash: 37cb05c4bf3822c9dc21b1fa9cd0ea4a2ba6d933
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 12/11/2019
+ms.openlocfilehash: 883192e1d041014c23445b7a2fa0ece45eb76f10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177331"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435811"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Conexión de Excel a Apache Hadoop en Azure HDInsight con el controlador ODBC de Microsoft Hive
 
@@ -24,7 +23,7 @@ La solución de macrodatos de Microsoft integra componentes de inteligencia empr
 
 También es posible conectar desde Excel los datos asociados con un clúster de HDInsight y otros orígenes de datos, incluidos otros clústeres Hadoop (que no sean de HDInsight), con la utilización del complemento Microsoft Power Query para Excel. Para obtener más información acerca de la instalación y uso de Power Query, consulte [Conexión de Excel a HDInsight con Power Query](../hdinsight-connect-excel-power-query.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar este artículo, debe tener los siguientes elementos:
 
@@ -49,19 +48,19 @@ En los siguientes pasos se explica cómo crear un origen de datos de Hive ODBC.
 
 1. Escriba o seleccione los valores siguientes:
 
-   | Propiedad | DESCRIPCIÓN |
+   | Propiedad | Descripción |
    | --- | --- |
    |  Data Source Name |Asigne un nombre al origen de datos |
-   |  Host(s) |Escriba `HDInsightClusterName.azurehdinsight.net`. Por ejemplo: `myHDICluster.azurehdinsight.net` |
+   |  Host(s) |Escriba `HDInsightClusterName.azurehdinsight.net`. Por ejemplo, `myHDICluster.azurehdinsight.net`. Nota: se admite `HDInsightClusterName-int.azurehdinsight.net` siempre y cuando la VM de cliente esté emparejada a la misma red virtual. |
    |  Port |Use **443**. (Este puerto se ha cambiado de 563 a 443). |
    |  Base de datos |Use el **valor predeterminado**. |
    |  Mechanism |Seleccione **Servicio HDInsight de Microsoft Azure**. |
-   |  User Name |Escriba el nombre de usuario HTTP del clúster de HDInsight. El nombre de usuario predeterminado es **admin**. |
+   |  Nombre de usuario |Escriba el nombre de usuario HTTP del clúster de HDInsight. El nombre de usuario predeterminado es **admin**. |
    |  Contraseña |Escriba la contraseña del usuario del clúster de HDInsight. Seleccione la casilla **Save Password (Encrypted)** [Guardar contraseña (cifrada)].|
 
 1. Opcional: Seleccione **Opciones avanzadas...**  
 
-   | Parámetro | DESCRIPCIÓN |
+   | Parámetro | Descripción |
    | --- | --- |
    |  Use Native Query |Cuando esta opción está seleccionada, el controlador ODBC NO trata de convertir TSQL en HiveQL. Solo debe usarla si está totalmente seguro de que va a enviar instrucciones de HiveQL puras. Al conectarse a SQL Server o a Azure SQL Database, debe dejar esta opción desactivada. |
    |  Rows fetched per block |Al capturar un gran volumen de registros, es posible que sea necesario ajustar este parámetro para garantizar un rendimiento óptimo. |
