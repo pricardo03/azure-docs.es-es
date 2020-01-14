@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación del primer paquete de acceso en la administración de derechos de Azure AD: Azure Active Directory'
+title: 'Tutorial: Creación de un paquete de acceso: administración de derechos de Azure AD'
 description: Tutorial paso a paso sobre cómo crear el primer paquete de acceso en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/22/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de4d4a1825149a512d7abdb192d8fb9d49e85a20
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cd4feeb83acc3842874e7a2e4bbd32dacabcc00d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174877"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422650"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Creación del primer paquete de acceso en la administración de derechos de Azure AD
 
@@ -42,7 +42,7 @@ Para consultar una demostración detallada del proceso de implementación de la 
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para usar la administración de derechos de Azure AD, debe tener una de las licencias siguientes:
 
@@ -65,7 +65,7 @@ Un directorio de recurso tiene uno o más recursos para compartir. En este paso,
 
 1. Cree o configure los siguientes dos usuarios. Puede usar estos nombres u otros diferentes. **Admin1** puede ser el usuario con el que inició sesión.
 
-    | NOMBRE | Rol del directorio |
+    | Nombre | Rol del directorio |
     | --- | --- |
     | **Admin1** | Administrador global<br/>O bien<br/>Administrador de usuarios |
     | **Solicitante1** | Usuario |

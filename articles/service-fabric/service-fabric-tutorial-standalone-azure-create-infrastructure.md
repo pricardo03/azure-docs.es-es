@@ -1,26 +1,15 @@
 ---
-title: 'Tutorial de creación de la infraestructura para un clúster de Service Fabric en las VM de Azure: Azure Service Fabric | Microsoft Docs'
+title: Creación de una infraestructura para un clúster en máquinas virtuales de Azure
 description: En este tutorial aprenderá a configurar la infraestructura de una máquina virtual de Azure para ejecutar un clúster de Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: jpconnock
-manager: jpconnock
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: jeconnoc
 ms.custom: mvc
-ms.openlocfilehash: b24b4d95827dbd398c0eba43dcbad9fbfeb51469
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166281"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614016"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Creación de la infraestructura de una máquina virtual de Azure para hospedar un clúster de Service Fabric
 
@@ -36,7 +25,7 @@ En la primera parte de la serie, se aprende a:
 > * Iniciar sesión en una de las instancias
 > * Preparar la instancia para Service Fabric
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesitará una suscripción de Azure.  Si aún no tiene una, vaya a [Azure Portal](https://portal.azure.com) para crearla.
 

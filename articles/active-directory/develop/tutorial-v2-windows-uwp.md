@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2019
+ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0cafc439a24c10c4c5a678219a0e0dce84476ff
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e2a243b11c2789afe0b2eb7ffd8de032dc10d8d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290851"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423333"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (XAML)
 
@@ -44,7 +44,7 @@ En esta guía se crea una aplicación de UWP de ejemplo que consulta Microsoft G
 
 Esta guía utiliza los siguientes paquetes NuGet:
 
-|Biblioteca|DESCRIPCIÓN|
+|Biblioteca|Descripción|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Biblioteca de autenticación de Microsoft|
 
@@ -55,7 +55,7 @@ En esta sección se proporcionan instrucciones paso a paso para integrar una apl
 En esta guía se crea una aplicación que muestra un botón que consulta Graph API y un botón para cerrar la sesión. También se muestran los cuadros de texto que contienen los resultados de las llamadas.
 
 > [!NOTE]
-> ¿Desea descargar este proyecto de Visual Studio de ejemplo en lugar de crearlo? [Descargue un proyecto](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) y vaya al paso [Registro de aplicaciones](#register-your-application "aPaso de registro de aplicaciones") para configurar el código de ejemplo antes de ejecutarlo.
+> ¿Desea descargar este proyecto de Visual Studio de ejemplo en lugar de crearlo? [Descargue un proyecto](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) y vaya al paso [Registro de aplicaciones](#register-your-application "paso de registro de aplicación") para configurar el código de ejemplo antes de ejecutarlo.
 
 ### <a name="create-your-application"></a>Creación de la aplicación
 
@@ -344,7 +344,7 @@ Agregue el siguiente método nuevo al archivo *MainPage.xaml.cs*:
 
 Ahora debe registrar la aplicación:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione **Azure Active Directory** > **Registros de aplicaciones**.
 1. Seleccione **Nuevo registro**. Escriba un nombre significativo que se mostrará a los usuarios de la aplicación, por ejemplo, *UWP-App-calling-MSGraph*.
 1. En **Tipos de cuenta compatibles**, seleccione **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox)** y, después, seleccione **Registrar** para continuar.
@@ -353,7 +353,7 @@ Ahora debe registrar la aplicación:
 Configure la autenticación para su aplicación:
 
 1. De nuevo en [Azure Portal](https://portal.azure.com), en **Administrar**, seleccione **Autenticación**.
-1. En la lista **URI de redirección**, en **TIPO**, seleccione **Cliente público (móvil y escritorio)** y escriba `urn:ietf:wg:oauth:2.0:oob` para **URI DE REDIRECCIÓN**.
+1. En la sección **URI de redirección** | **URI de redireccionamiento sugeridos para clientes públicos (para dispositivos móviles o de escritorio)** , marque **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 1. Seleccione **Guardar**.
 
 Configure los permisos de la API para la aplicación:
@@ -400,7 +400,7 @@ Verá la información de perfil de usuario que devolvió la llamada de Microsoft
 
 También verá información básica sobre el token adquirido a través de `AcquireTokenInteractive` o `AcquireTokenSilent` en el cuadro de **información de token**:
 
-|Propiedad  |Formato  |DESCRIPCIÓN |
+|Propiedad  |Formato  |Descripción |
 |---------|---------|---------|
 |`Username` |`user@domain.com` |El nombre de usuario que identifica al usuario.|
 |`Token Expires` |`DateTime` |La hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario.|

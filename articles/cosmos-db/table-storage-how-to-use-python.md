@@ -1,5 +1,5 @@
 ---
-title: Introducción a Azure Table Storage y a Table API de Azure Cosmos DB mediante Python
+title: Uso de Azure Storage Table y Table API de Azure Cosmos DB con Python
 description: Almacene datos estructurados en la nube mediante Azure Table Storage o Table API de Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -9,12 +9,12 @@ ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: 883965d1d59e5523527a6aab1e83521d7491bf82
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 6c01b9581795f4ac74bd74757b9116c0d5df586d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675705"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444751"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Introducción a Azure Table Storage y a Table API de Azure Cosmos DB mediante Python
 
@@ -33,7 +33,7 @@ En este ejemplo se muestra cómo usar el [SDK de Table de Azure Cosmos DB para P
 
 Se recomienda que consulte la [referencia de la API del SDK de Azure Cosmos DB para Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python) mientras trabaja con los escenarios de este ejemplo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Necesitará lo siguiente para completar este ejemplo correctamente:
 
@@ -220,7 +220,7 @@ Elimine una entidad pasando sus propiedades **PartitionKey** y **RowKey** al mé
 table_service.delete_entity('tasktable', 'tasksSeattle', '001')
 ```
 
-## <a name="delete-a-table"></a>Eliminación de una tabla
+## <a name="delete-a-table"></a>Eliminar una tabla
 
 Si ya no necesita una tabla ni ninguna de las entidades dentro de ella, llame al método [delete_table][py_delete_table] para eliminar permanentemente la tabla de Azure Storage.
 

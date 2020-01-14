@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Tutorial de entidad compuesta: LUIS'
 titleSuffix: Azure Cognitive Services
-description: Agregue una entidad compuesta para agrupar los datos extraídos de varios tipos en una única entidad contenedora. Mediante la agrupación de los datos, la aplicación cliente puede extraer fácilmente los datos relacionados en diferentes tipos de datos.
+description: En este tutorial, agregue una entidad compuesta para agrupar los datos extraídos de varios tipos en una única entidad contenedora. Mediante la agrupación de los datos, la aplicación cliente puede extraer fácilmente los datos relacionados en diferentes tipos de datos.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 0e72563f366330f841d1a61ed67956b6314c769a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f2b2c3f52610cd9fae0845b15aebf032a088000b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893199"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447946"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Tutorial: Agrupación y extracción de datos relacionados
 En este tutorial, agregue una entidad compuesta para agrupar los datos extraídos de varios tipos en una única entidad contenedora. Mediante la agrupación de los datos, la aplicación cliente puede extraer fácilmente los datos relacionados en diferentes tipos de datos.
@@ -27,9 +27,7 @@ La entidad compuesta es una buena opción para este tipo de datos, ya que los da
 
 * Están relacionados entre sí.
 * Usan una variedad de tipos de entidad.
-* Debe estar agrupados y procesados por la aplicación cliente como una unidad de información.
-
-[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
+* Debe estar agrupadas y procesarse por la aplicación cliente como una unidad de información.
 
 **En este tutorial, aprenderá a:**
 
@@ -46,9 +44,10 @@ La entidad compuesta es una buena opción para este tipo de datos, ya que los da
 
 ## <a name="import-example-app"></a>Importar la aplicación de ejemplo
 
-1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) desde el tutorial para enumerar entidades.
+1.  Descargue y guarde el [archivo JSON de la aplicación](
+https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json?raw=true) desde el tutorial para enumerar entidades.
 
-2. Importe el archivo JSON en una aplicación nueva.
+2. Importe el archivo JSON en una nueva aplicación mediante el [portal de LUIS](https://www.luis.ai).
 
 3. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `composite`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL.
 

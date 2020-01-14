@@ -1,26 +1,15 @@
 ---
-title: Eliminación de un clúster de Service Fabric en Azure | Microsoft Docs
+title: Eliminación de un clúster de Service Fabric en Azure
 description: En este tutorial, aprenderá a eliminar un clúster de Service Fabric hospedado en Azure y todos sus recursos. Puede eliminar el grupo de recursos que contiene el clúster o eliminar los recursos de forma selectiva.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: c6fd4234257cbb19580a5b406750cc72d03609c0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 802fdfc46344929930b1ffb015b364b4e2360cca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598869"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465371"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Tutorial: Eliminación de un clúster de Service Fabric que se ejecuta en Azure
 
@@ -43,7 +32,7 @@ En esta serie de tutoriales, se aprende a:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar este tutorial:
 
@@ -111,7 +100,7 @@ az resource delete --name "<name of the Resource>" --resource-type "Microsoft.Se
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Eliminar un grupo de recursos y todos sus recursos

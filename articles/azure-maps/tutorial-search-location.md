@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 86ba98bfb4003a723cfaaf2d1c51301314ca47cf
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ae2d7b3d855f1c06397d4eb0f977dd04aa841942
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109518"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432736"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Búsqueda de puntos cercanos de interés mediante Azure Maps
 
@@ -23,14 +23,14 @@ En este tutorial se muestra cómo configurar una cuenta con Azure Maps y luego u
 > [!div class="checklist"]
 > * Crear una cuenta de Azure Maps
 > * Recuperar la clave principal de la cuenta de Maps
-> * Crear una nueva página web mediante la API de control de mapa
+> * Crear una nueva página web con Map Control API
 > * Usar el servicio de búsqueda de Maps para encontrar un punto cercano de interés
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com).
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
@@ -55,13 +55,15 @@ Cree una nueva cuenta de Maps con los pasos siguientes:
 
 ## <a name="get-the-primary-key-for-your-account"></a>Obtención de la clave principal de una cuenta
 
-Una vez que se haya creado correctamente la cuenta de Maps, recupere la clave que le permite consultar las API de Maps.
+Una vez que se haya creado correctamente la cuenta de Maps, recupere la clave que le permite consultar las API de Maps. Se recomienda el uso de la clave principal de la cuenta como clave de suscripción al llamar a los servicios Azure Maps.
 
 1. Abra su cuenta de Maps en el portal.
 2. En la sección de configuración, seleccione **Autenticación**.
 3. Copie la **clave principal** al Portapapeles. Guárdela localmente para usarla más adelante en este tutorial.
 
 ![Obtención de la clave principal en el portal](./media/tutorial-search-location/get-key.png)
+
+Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 
@@ -275,7 +277,7 @@ La asignación que hemos hecho hasta ahora solo examina los datos de latitud o l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Crear una cuenta con Azure Maps

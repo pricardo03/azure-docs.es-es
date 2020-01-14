@@ -1,20 +1,22 @@
 ---
-title: Migración de un cuaderno de Jupyter Notebook local a Azure Notebooks
-description: Transfiera rápidamente un cuaderno de Jupyter Notebook a Azure Notebooks desde el equipo local o una dirección URL web y, posteriormente, a compartirlo con fines de colaboración.
+title: Migración de un cuaderno de Jupyter Notebook local a Azure Notebooks (versión preliminar)
+description: Transfiera rápidamente un cuaderno de Jupyter Notebook a Azure Notebooks (versión preliminar) desde el equipo local o una dirección URL web y, posteriormente, a compartirlo con fines de colaboración.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 3b7d5aab05923fb4356e0d45aaf21a77076a870a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9e5270c59a64f9510f9108bbe4d00b922178888c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277479"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647057"
 ---
-# <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Inicio rápido: Migración de un cuaderno de Jupyter Notebook local
+# <a name="quickstart-migrate-a-local-jupyter-notebook-in-azure-notebooks-preview"></a>Inicio rápido: Migración de un cuaderno de Jupyter Notebook local a Azure Notebooks (versión preliminar)
 
 Solo usted puede acceder a los cuadernos de Jupyter Notebook que crea localmente en su propio equipo. Puede compartir los archivos de diferentes maneras, pero los destinatarios tendrán su propia copia local del cuaderno y le será difícil incorporar los cambios que estos realicen. También puede almacenar cuadernos en un repositorio compartido en línea como GitHub, pero para ello es necesario que cada colaborador tenga su propia instalación local de Jupyter con la misma configuración que la suya.
 
 Al migrar los cuadernos basados en repositorio o locales a Azure Notebooks, estos se almacenarán en la nube y podrá compartirlos al instante con sus colaboradores. Los colaboradores solo necesitan un explorador para ver y ejecutar el cuaderno y, si [inician sesión](quickstart-sign-in-azure-notebooks.md) en Azure Notebooks, también podrán realizar cambios.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 En este inicio rápido se muestra el proceso de migración de un bloc de notas desde su equipo local u otra dirección URL de archivo accesible. Para migrar los cuadernos desde un repositorio de GitHub, consulte [Inicio rápido: Clonación de un cuaderno](quickstart-clone-jupyter-notebook.md).
 
@@ -28,7 +30,7 @@ En este inicio rápido se muestra el proceso de migración de un bloc de notas d
 
 1. En la página **My Projects** (Mis proyectos), seleccione **+New Project** (+Nuevo proyecto) [método abreviado de teclado: n]; el botón puede aparecer solo como **+** si la ventana del explorador es estrecha:
 
-    ![Comando Nuevo proyecto en la página Mis proyectos](media/quickstarts/new-project-command.png)
+    ![Comando New Project (Nuevo proyecto) en la página My Projects (Mis proyectos)](media/quickstarts/new-project-command.png)
 
 1. En la ventana emergente **Crear nuevo proyecto**, introduzca los valores adecuados para el cuaderno que va a migrar en los campos **Nombre del proyecto** e **Id. de proyecto**, desactive las opciones **Proyecto público** y **Crear un archivo README.md** y, después, seleccione **Crear**.
 
@@ -52,7 +54,7 @@ En este inicio rápido se muestra el proceso de migración de un bloc de notas d
 
 1. Para compartir un vínculo en el cuaderno cargado, haga clic en el archivo del proyecto y seleccione **Copiar vínculo** (método abreviado de teclado: y) y, después, péguelo en el mensaje adecuado. Como alternativa, puede compartir el proyecto como un todo con el control **Compartir** en la página del proyecto.
 
-1. Para editar los archivos que no sean cuadernos, haga clic en el archivo del proyecto y seleccione **Editar archivo** (método abreviado de teclado: i). La acción predeterminada, **Ejecutar** (método abreviado de teclado: r), solo muestra el contenido del archivo y no permite la edición.
+1. Para editar los archivos que no sean cuadernos, haga clic con el botón derecho en el archivo del proyecto y seleccione **Editar archivo** (método abreviado de teclado: i). La acción predeterminada, **Ejecutar** (método abreviado de teclado: r), solo muestra el contenido del archivo y no permite la edición.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

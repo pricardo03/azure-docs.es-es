@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 08/30/2019
+ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 22a8bb2609439a82a825bf7f542709d46771ad92
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 52e3e65fb4f42530373decca547674a28a60f759
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195209"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446654"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>¿Qué es Bing Visual Search API?
 
@@ -30,7 +30,7 @@ Si usa [Bing Image Search API](../bing-image-search/overview.md), puede utilizar
 
 Mediante el uso de Bing Visual Search puede obtener la información siguiente:
 
-| Conclusión                              | DESCRIPCIÓN |
+| Conclusión                              | Descripción |
 |--------------------------------------|-------------|
 | Imágenes visualmente similares              | Lista de imágenes que son visualmente similares a la imagen de entrada. |
 | Productos visualmente similares            | Productos que son visualmente similares al producto mostrado.            |
@@ -59,8 +59,10 @@ Esta demostración muestra cómo puede personalizar rápidamente una consulta de
 
 Para empezar a trabajar rápidamente con la primera solicitud, consulte los artículos de inicio rápido: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * La referencia de [Images - Visual Search](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) (Imágenes: búsqueda visual) describe definiciones e información sobre los puntos de conexión, los encabezados de solicitud, las respuestas y los parámetros de consulta que puede usar para solicitar resultados de búsqueda basados en imágenes.
 
 * En los [requisitos de uso y visualización de Bing Search API](../bing-web-search/use-display-requirements.md) se especifican usos aceptables del contenido y la información adquirida mediante las API de Bing Search.
+
+* Visite la [página central de Bing Search API](../bing-web-search/search-the-web.md) para explorar las otras API disponibles.

@@ -1,18 +1,20 @@
 ---
-title: Ejemplos de cuadernos de Jupyter Notebook para Azure Notebooks
+title: Ejemplos de cuadernos de Jupyter para la versión preliminar de Azure Notebooks
 description: Los ejemplos son una excelente manera de experimentar los cuadernos de Jupyter Notebook en ejecución en los servicios en la nube gratuitos de Azure Notebooks.
-ms.topic: article
+ms.topic: sample
 ms.date: 01/11/2019
-ms.openlocfilehash: cd615777adb28af6528afd2b95bc853372e799e8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f67c37d0ffe0e90e13e05bb50ed6c523e0b3a14e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277659"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646320"
 ---
-# <a name="discover-and-use-sample-notebooks"></a>Detección y uso de los cuadernos de ejemplo
+# <a name="discover-and-use-sample-notebooks-in-azure-notebooks-preview"></a>Detección y uso de cuadernos de ejemplo en la versión preliminar de Azure Notebooks
 
 En Internet hay muchas colecciones de cuadernos interesantes y útiles de Jupyter Notebook que puede incorporar de manera sencilla en Azure Notebooks. En este artículo se proporciona una lista de ejemplos destacados.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Una vez que identifique un cuaderno que le gustaría explorar, estos son algunos de los detalles que debe entender:
 
@@ -31,7 +33,7 @@ Una vez que identifique un cuaderno que le gustaría explorar, estos son algunos
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
-- [How to: Configure and manage projects](configure-manage-azure-notebooks-projects.md) (Configuración y administración de proyectos)
-- [Trabajar con archivos de datos en proyectos de Azure Notebooks](work-with-project-data-files.md)
-- [How to: Access data resources](access-data-resources-jupyter-notebooks.md) (Acceso a los recursos de datos)
-- [Uso de Uso de Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Cómo: Configure and manage projects](configure-manage-azure-notebooks-projects.md) (Configuración y administración de proyectos)
+- [Cómo: con archivos de datos en proyectos de Azure Notebooks](work-with-project-data-files.md)
+- [Cómo: Access data resources](access-data-resources-jupyter-notebooks.md) (Acceso a los recursos de datos)
+- [Cómo: Uso de Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

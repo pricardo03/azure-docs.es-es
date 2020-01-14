@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d2e1612804c78e3436b776cdffea7e19bc2925fe
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c5e217a33c8b461a438e2d0209fe6733850634e6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277003"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465151"
 ---
 # <a name="quickstart-create-a-xamarin-ios-app-with-azure-spatial-anchors"></a>Inicio rápido: Creación de una aplicación para iOS en Xamarin con Azure Spatial Anchors
 
@@ -24,17 +24,18 @@ Aprenderá a:
 > [!div class="checklist"]
 > * Crear una cuenta de Spatial Anchors
 > * Configurar la clave y el identificador de la cuenta de Spatial Anchors
-> * Implementar y ejecutar en un dispositivo iOS
+> * Implementarlo y ejecutarlo en un dispositivo iOS
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar esta guía de inicio rápido, asegúrese de que dispone de lo siguiente:
 - Un equipo Mac que ejecute macOS High Sierra (10.13) o posterior con:
   - La versión más reciente de Xcode y el SDK de iOS instalada desde el [App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
   - Una versión actualizada de <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio para Mac 8.1+</a>.
   - <a href="https://git-scm.com/download/mac" target="_blank">Git para macOS</a>
+  - <a href="https://git-lfs.github.com/">Git LFS</a>.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 

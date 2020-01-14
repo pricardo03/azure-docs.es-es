@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplo de script de CLI de Azure: Creación de Azure Cache for Redis'
-description: 'Ejemplo de script de CLI de Azure: Creación de Azure Cache for Redis'
+title: Creación de una instancia de Azure Cache for Redis con la CLI de Azure
+description: Este ejemplo de código de la CLI de Azure muestra cómo crear una instancia de Azure Cache for Redis mediante el comando az redis create.
 author: yegu-ms
 tags: azure-service-management
 ms.service: cache
@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.author: yegu
-ms.openlocfilehash: e0ca7131a4ea9a512ac31231754f86d218c35025
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 79b749c0d02a21c1225ee0d046d73ed3fdd98904
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121307"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411315"
 ---
 # <a name="create-an-azure-cache-for-redis"></a>Creación de una instancia de Azure Redis Cache
 

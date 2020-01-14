@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/10/2019
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: 70b886286980c065379678ba21ab21e02d0e2bbb
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f2e76229673033ab001c5499739090a7c435ef8a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180176"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467399"
 ---
 | |
 |--|
-|Si lo que ve en la pantalla no coincide con lo que se tratará en este artículo, significa que el administrador no ha activado el nuevo elemento **Mis aplicaciones** (versión preliminar). Pasa usar la experiencia anterior, debe seguir las instrucciones y la información de la sección [Portal Mis aplicaciones](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-overview).|
-| |
+|Si el administrador ha activado la nueva experiencia de la versión preliminar de **Aplicaciones** en su organización, verá un banner en la parte superior de la página **Aplicaciones** con el siguiente mensaje: **An updated My Applications experience is available** (Está disponible una experiencia actualizada de Mis aplicaciones). Si selecciona **Probar**, irá inmediatamente a la nueva dirección URL (myapplications.microsoft.com) y a la experiencia actualizada. Después, cada vez que vuelva a la página **Aplicaciones**, irá automáticamente a la nueva experiencia.<br><br>Para dejar de usar la nueva experiencia, puede seleccionar **Sí** en el banner **Leave new experience** (Salir de la experiencia nueva) de la parte superior de la nueva página**Aplicaciones**. Volverá inmediatamente a la dirección URL (myapps.microsoft.com) y a la experiencia anteriores. Después, cada vez que vuelva a la página **Aplicaciones**, irá automáticamente a la experiencia anterior.|
+|

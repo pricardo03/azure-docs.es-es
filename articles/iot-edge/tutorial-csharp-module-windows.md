@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 041efc62b32e8d8c0c477d9d5715882fd7899cd9
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8ed622ff928fa612e6d33ba0647ce258bf4c1c21
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701941"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665204"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desarrollo de un módulo de IoT Edge en C# para dispositivos Windows
 
@@ -43,7 +43,7 @@ Utilice la tabla siguiente si desea conocer las opciones para desarrollar e impl
 | **Desarrollo de Windows AMD64** | ![Desarrollo de módulos C# para WinAMD64 en VS Code](./media/tutorial-c-module/green-check.png) | ![Desarrollo de módulos C# para WinAMD64 en Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Depuración de Windows AMD64** |   | ![Depuración de módulos C# para WinAMD64 en Visual Studio](./media/tutorial-c-module/green-check.png) |
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar este tutorial, debe haber realizado el anterior para configurar el entorno de desarrollo, [Desarrollo de un módulo IoT Edge para un dispositivo Windows](tutorial-develop-for-windows.md). Después de completar este tutorial, ya debe tener los siguientes requisitos previos: 
 
@@ -76,7 +76,7 @@ Azure IoT Edge Tools proporciona plantillas de proyecto para todos los idiomas
 
 4. En la ventana del módulo y la aplicación de IoT Edge, configure el proyecto con los valores siguientes: 
 
-   | Campo | Valor |
+   | Campo | Value |
    | ----- | ----- |
    | Seleccione una plantilla: | Seleccione **Módulo C#** . | 
    | Nombre del proyecto de módulo | Asigne al módulo el nombre **CSharpModule**. | 
@@ -92,29 +92,30 @@ El manifiesto de implementación comparte las credenciales del registro de conte
 
 1. En el explorador de soluciones de Visual Studio, abra el archivo **deployment.template.json**. 
 
-2. Busque la propiedad **registryCredentials** en las propiedades $edgeAgent que desee. 
-
-3. Actualice la propiedad con sus credenciales, con este formato: 
+2. Busque la propiedad **registryCredentials** en las propiedades $edgeAgent que desee. La dirección del registro se rellenará automáticamente con la información que proporcionó al crear el proyecto y, entonces, los campos de nombre de usuario y contraseña contendrán nombres de variable. Por ejemplo: 
 
    ```json
    "registryCredentials": {
      "<registry name>": {
-       "username": "<username>",
-       "password": "<password>",
+       "username": "$CONTAINER_REGISTRY_USERNAME_<registry name>",
+       "password": "$CONTAINER_REGISTRY_PASSWORD_<registry name>",
        "address": "<registry name>.azurecr.io"
      }
    }
-   ```
 
-4. Guarde el archivo deployment.template.json. 
+3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
 
-### <a name="update-the-module-with-custom-code"></a>Actualización del módulo con código personalizado
+4. Add the **Username** and **Password** values from your Azure container registry. 
 
-El código de módulo predeterminado recibe mensajes en una cola de entrada y los pasa por la cola de salida. Vamos a agregar código adicional para que el módulo procese los mensajes en el perímetro antes de reenviarlos a IoT Hub. Actualice el módulo para que analice los datos de temperatura de cada mensaje y solo envíe el mensaje a IoT Hub si la temperatura supera un umbral determinado. 
+5. Save your changes to the .env file.
 
-1. En Visual Studio, abra **CSharpModule** > **Program.cs**.
+### Update the module with custom code
 
-2. En la parte superior del espacio de nombres **CSharpModule**, agregue tres instrucciones **using** para los tipos que se usarán más adelante en:
+The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+
+1. In Visual Studio, open **CSharpModule** > **Program.cs**.
+
+2. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>
@@ -291,13 +292,13 @@ El código de módulo predeterminado recibe mensajes en una cola de entrada y lo
 
 En la sección anterior se ha creado una solución de IoT Edge y se ha agregado código a **CSharpModule** para filtrar los mensajes en los que la temperatura registrada de la máquina está por debajo del umbral aceptable. Ahora, tiene que compilar la solución como una imagen de contenedor e insertarla en el registro de contenedor. 
 
-1. Utilice el siguiente comando para iniciar sesión en Docker en la máquina de desarrollo. Use el nombre de usuario, la contraseña y el servidor de inicio de sesión de Azure Container Registry. Puede recuperar estos valores en la sección **Claves de acceso** del Registro en Azure Portal.
+1. Utilice el siguiente comando para iniciar sesión en Docker en la máquina de desarrollo. Use el nombre de usuario, la contraseña y el servidor de inicio de sesión de Azure Container Registry. Puede recuperar estos valores en la sección **Claves de acceso** del Registro en Azure Portal.
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   Puede recibir una advertencia de seguridad en la que se recomiende el uso de `--password-stdin`. Aunque ese procedimiento se recomienda para escenarios de producción, está fuera del ámbito de este tutorial. Para más información, vea la referencia de [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
+   Puede recibir una advertencia de seguridad en la que se recomiende el uso de `--password-stdin`. Aunque ese procedimiento se recomienda para escenarios de producción, está fuera del ámbito de este tutorial. Para más información, consulte la referencia de [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
 
 2. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en el nombre del proyecto que desea compilar. El nombre predeterminado es **AzureIotEdgeApp1** y puesto que va a compilar un módulo de Windows, la extensión debe ser **Windows.Amd64**. 
 
@@ -309,7 +310,7 @@ En la sección anterior se ha creado una solución de IoT Edge y se ha agregado 
 
 Utilice el explorador en la nube de Visual Studio y la extensión Azure IoT Edge Tools para implementar el proyecto de módulo en el dispositivo IoT Edge. Ya tiene un manifiesto de implementación preparado para su escenario, el archivo **deployment.json** de la carpeta config. Ahora todo lo que necesita hacer es seleccionar un dispositivo que reciba la implementación.
 
-Asegúrese de que el dispositivo IoT Edge está en funcionamiento. 
+Asegúrese de que el dispositivo IoT Edge está en funcionamiento. 
 
 1. En el explorador en la nube de Visual Studio, expanda los recursos para ver la lista de dispositivos de IoT. 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Uso de colas de Azure Service Bus en Node.js'
+title: Uso de colas de Azure Service Bus en Node.js con el paquete azure-sb
 description: 'Inicio rápido: Obtenga información sobre cómo usar las colas de Service Bus en Azure desde una aplicación Node.js.'
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 404163ed93549b55ceadad10825a9cf682de470b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 5fa74bdc632154e361fc4d95ed602e4b4d39a198
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719228"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462173"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Inicio rápido: Uso de colas de Service Bus en Azure con Node.js y el paquete azure-sb
 
@@ -32,8 +32,8 @@ En este tutorial, obtendrá información sobre cómo crear aplicaciones de Node.
 
 El paquete [azure-sb](https://www.npmjs.com/package/azure-sb) usa las [API de REST de Service Bus en tiempo de ejecución](/rest/api/servicebus/service-bus-runtime-rest). Puede obtener una experiencia más rápida con el nuevo paquete [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) que usa el [protocolo AMQP 1.0](service-bus-amqp-overview.md) más rápido. Para obtener más información sobre el nuevo paquete, consulte [Uso de colas con Service Bus con Node.js y el paquete @azure/service-bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package); en caso contrario, siga leyendo para ver cómo se usa el paquete [azure](https://www.npmjs.com/package/azure).
 
-## <a name="prerequisites"></a>Requisitos previos
-- Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Prerequisites
+- Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Si no tiene una cola con la que trabajar, siga los pasos del artículo [Uso de Azure Portal para crear una cola de Service Bus](service-bus-quickstart-portal.md) para crear una.
     1. Lea la **introducción** rápida de las **colas** de Service Bus. 
     2. Cree un **espacio de nombres** de Service Bus. 

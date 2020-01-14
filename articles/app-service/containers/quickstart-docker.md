@@ -5,18 +5,18 @@ author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
-ms.openlocfilehash: 14ea5444d3d8827919405a4d5aa8a176746c2e72
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 62e6b007e89fc6be726d3d971ca838770db9cb6e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688964"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422147"
 ---
 # <a name="deploy-a-custom-linux-container-to-azure-app-service"></a>Implementación de un contenedor Linux personalizado en Azure App Service
 
 App Service en Linux proporciona pilas de aplicaciones predefinidas en Linux con compatibilidad con lenguajes como .NET, PHP o Node.js entre otros. También puede usar una imagen personalizada de Docker para ejecutar la aplicación web en una pila de aplicaciones aún sin definir en Azure. En este inicio rápido se muestra cómo implementar una imagen desde [Azure Container Registry](/azure/container-registry) (ACR) en App Service.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una [cuenta de Azure](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
 * [Docker](https://www.docker.com/community-edition)
@@ -26,7 +26,7 @@ App Service en Linux proporciona pilas de aplicaciones predefinidas en Linux con
 
 ## <a name="create-an-image"></a>Crear una imagen
 
-Para completar este inicio rápido, necesitará una imagen de aplicación web adecuada almacenada en [Azure Container Registry](/azure/container-registry). Siga las instrucciones del artículo [Guía de inicio rápido: Creación de un registro de contenedor privado con Azure Portal](/azure/container-registry/container-registry-get-started-portal), pero use la imagen `mcr.microsoft.com/azuredocs/go` en lugar de `hello-world`.
+Para completar este inicio rápido, necesitará una imagen de aplicación web adecuada almacenada en [Azure Container Registry](/azure/container-registry). Siga las instrucciones del artículo [Guía de inicio rápido: Creación de un registro de contenedor privado con Azure Portal](/azure/container-registry/container-registry-get-started-portal), pero use la imagen `mcr.microsoft.com/azuredocs/go` en lugar de `hello-world`. Como referencia, el [ejemplo de Dockerfile se encuentra en el repositorio Azure Samples](https://github.com/Azure-Samples/go-docs-hello-world).
 
 > [!IMPORTANT]
 > Asegúrese de establecer la opción **Usuario administrador** en **Habilitar** al crear el registro de contenedor. También puede establecerla en la sección **Claves de acceso** de la página de registro en Azure Portal. Esta opción de configuración es necesaria para el acceso a App Service.
@@ -81,7 +81,7 @@ Ha completado correctamente este inicio rápido.
 A continuación, vea otras extensiones de Azure.
 
 * [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
-* [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+* [Funciones de Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 * [Herramientas de la CLI de Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 * [Herramientas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 

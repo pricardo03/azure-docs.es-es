@@ -3,12 +3,27 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/12/2019
-ms.openlocfilehash: 4c69ebd7e1d4d649bfd2896ae87f0047c5988325
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 12/16/2019
+ms.openlocfilehash: 7c7e6fb7cc99a155c4e89ae930943f79a725beb3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186644"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382867"
 ---
-Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con acceso a Bing Spell Check API. Si no tiene una suscripción de Azure, puede [crear una cuenta](https://azure.microsoft.com/try/cognitive-services/?api=text-analytics) gratuita. Antes de continuar, necesitará la clave de acceso que se le [proporcionó al activar la versión de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/my-apis/) o puede usar una clave de suscripción de pago desde el panel de Azure.
+## <a name="create-an-azure-resource"></a>Creación de un recurso de Azure
+
+Para empezar a usar Bing Spell Check API, cree uno de los siguientes recursos de Azure.
+
+* [Creación de un recurso de evaluación](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api-v7):
+    * No se necesita ninguna suscripción de Azure.
+    * Válido durante siete días de forma gratuita. Después de suscribirse, tendrá una clave de prueba y un punto de conexión disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+
+* [Creación de un recurso de Bing Spell Check](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7):
+    * Disponible en Azure Portal hasta que lo elimine.
+    * Use el plan de tarifa gratuito para probar el servicio y actualícelo más adelante a un nivel de pago para producción.
+    * Bing Spell Check API también se ofrece en algunos niveles del [recurso Bing Search, versión 7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7).
+    
+* [Creación de un recurso de varios servicios](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
+    * Disponible en Azure Portal hasta que lo elimine.  
+    * Use la misma clave y el mismo punto de conexión para las aplicaciones en varios servicios de Cognitive Services.

@@ -1,18 +1,18 @@
 ---
-title: Tutorial para la creación de una aplicación web con Azure Cache for Redis que utilice el patrón Cache-Aside
-description: Aprenda a crear una aplicación web con Azure Cache for Redis que use el patrón Cache-Aside
+title: 'Tutorial: Creación de una aplicación web (cache-aside): Azure Cache for Redis'
+description: Aprenda a crear una aplicación web con Azure Cache for Redis que use el patrón cache-aside.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.author: yegu
-ms.openlocfilehash: dbd8250da46e640aaa9403430ae0fbfaa9b181c8
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121517"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411954"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Creación de una tabla de clasificación cache-aside en ASP.NET
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para realizar este tutorial, debe disponer de los siguientes requisitos previos:
 
@@ -652,7 +652,7 @@ En esta sección, aprovisionará una nueva base de datos SQL de Azure para que l
 
 1. Utilice la siguiente configuración para la nueva instancia de SQL Database:
 
-   | Configuración       | Valor sugerido | DESCRIPCIÓN |
+   | Configuración       | Valor sugerido | Descripción |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nombre de la base de datos** | *ContosoTeamsDatabase* | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). |
    | **Suscripción** | *Su suscripción*  | Seleccione la misma suscripción que usó para crear la memoria caché y hospedar la instancia de App Service. |
@@ -661,7 +661,7 @@ En esta sección, aprovisionará una nueva base de datos SQL de Azure para que l
 
 1. En **Servidor**, haga clic en **Configurar los valores obligatorios** > **Crear un nuevo servidor** y especifique la siguiente información y, después, haga clic en el botón **Seleccionar**:
 
-   | Configuración       | Valor sugerido | DESCRIPCIÓN |
+   | Configuración       | Valor sugerido | Descripción |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/resource-naming) (Convenciones de nomenclatura). |
    | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). |
@@ -701,7 +701,7 @@ En este paso del tutorial, publicará las actualizaciones de la aplicación en A
 
     En la tabla siguiente se describe cada vínculo de acción de la aplicación de ejemplo:
 
-    | . | DESCRIPCIÓN |
+    | Acción | Descripción |
     | --- | --- |
     | Crear nuevo |Crear un nuevo equipo. |
     | Reproducir temporada |Reproducir una temporada de juegos, actualizar las estadísticas de equipos y borrar de la caché los datos de equipo no actualizados. |

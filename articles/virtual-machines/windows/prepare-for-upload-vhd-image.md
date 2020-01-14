@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 6db0f6c5f65967dd42d6ed9a8a1e50364ced094d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 6a9385a49e85806464e8f9ccf11d9232fae42435
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672467"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461117"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure
 
@@ -78,6 +78,10 @@ En este comando, reemplace el valor de `-Path` por la ruta de acceso del disco d
 Si tiene una imagen de máquina virtual de Windows en [formato de archivo VMDK](https://en.wikipedia.org/wiki/VMDK), use [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497) para convertirla en un disco duro virtual. Para más información, vea [Cómo convertir un VMDK de VMWare a VHD de Hyper-V](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
 ## <a name="set-windows-configurations-for-azure"></a>Establecimiento de configuraciones de Windows para Azure
+
+> [!NOTE]
+> La plataforma Azure monta un archivo ISO en el DVD-ROM cuando se crea una máquina virtual Windows a partir de una imagen generalizada.
+> Por este motivo, el DVD-ROM debe estar habilitado en el sistema operativo de la imagen generalizada. Si está deshabilitado, la máquina virtual Windows se bloqueará en la configuración rápida.
 
 En la máquina virtual que tenga previsto cargar en Azure, ejecute los siguientes comandos en una [ventana del símbolo del sistema con privilegios elevados](https://technet.microsoft.com/library/cc947813.aspx):
 
@@ -148,7 +152,6 @@ Get-Service -Name TermService | Where-Object { $_.StartType -ne 'Manual' } | Set
 Get-Service -Name MpsSvc | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
 Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
 ```
-
 ## <a name="update-remote-desktop-registry-settings"></a>Actualización de la configuración del Registro de Escritorio remoto
 Asegúrese de que la siguiente configuración está establecida correctamente para la conexión remota:
 
@@ -216,7 +219,7 @@ Asegúrese de que la siguiente configuración está establecida correctamente pa
 
 9. Si la máquina virtual va a formar parte de un dominio, compruebe las siguientes directivas para asegurarse de que la configuración anterior no se revierte. 
     
-    | Objetivo                                     | Directiva                                                                                                                                                       | Valor                                                                                    |
+    | Objetivo                                     | Directiva                                                                                                                                                       | Value                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP está habilitado                           | Configuración del equipo\Directivas\Configuración de Windows\Plantillas administrativas\ Componentes\Servicios de Escritorio remoto\Host de sesión de Escritorio remoto\Conexiones         | Permitir a los usuarios conectarse de forma remota desde el Escritorio remoto                                  |
     | Directiva de grupo de NLA                         | Configuración\Plantillas administrativas\Componentes\Servicios de Escritorio remoto\Host de sesión de Escritorio remoto\Seguridad                                                    | Requerir la autenticación del usuario para las conexiones remotas mediante Autenticación a nivel de red |
@@ -250,7 +253,7 @@ Asegúrese de que la siguiente configuración está establecida correctamente pa
    ``` 
 5. Si la máquina virtual va a formar parte de un dominio, compruebe las siguientes directivas de Azure AD para asegurarse de que la configuración anterior no se revierte. 
 
-    | Objetivo                                 | Directiva                                                                                                                                                  | Valor                                   |
+    | Objetivo                                 | Directiva                                                                                                                                                  | Value                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | Habilitar los perfiles de Firewall de Windows | Configuración del equipo\Directivas\Configuración de Windows\Plantillas administrativas\Red\Conexión de red\Firewall de Windows\Perfil de dominio\Firewall de Window   | Proteger todas las conexiones de red         |
     | Habilitar RDP                           | Configuración del equipo\Directivas\Configuración de Windows\Plantillas administrativas\Red\Conexión de red\Firewall de Windows\Perfil de dominio\Firewall de Window   | Permitir excepciones de Escritorio remoto entrantes |

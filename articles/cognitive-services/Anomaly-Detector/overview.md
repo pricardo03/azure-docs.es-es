@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/05/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 706bd9c141b191632acee1c04745d64baaf50ee5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 05ed7903cafbb265f23ba74a24ee0498be0effe9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012051"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448969"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>¿Qué es Anomaly Detector API?
 
@@ -29,7 +29,7 @@ Para usar Anomaly Detector, no se necesita ninguna experiencia anterior con el a
 
 Con Anomaly Detector, puede detectar automáticamente las anomalías existentes en los datos de serie temporal, o cuando se producen en tiempo real. 
 
-|Característica  |DESCRIPCIÓN  |
+|Característica  |Descripción  |
 |---------|---------|
 |Detección de anomalías cuando se producen en tiempo real | Detecte anomalías en sus datos de transmisión mediante los puntos de datos vistos anteriormente para determinar si el último de ellos es una anomalía. Esta operación genera un modelo con los puntos de datos enviados y determina si el punto de destino es una anomalía. La llamada a la API con cada nuevo punto de datos que genera le permite supervisar los datos que se crean. |
 |Detección de anomalías en todo el conjunto de datos como un lote | Use la serie temporal para detectar las anomalías que podrían existir en los datos. Esta operación genera un modelo con todos los datos de serie temporal, donde cada punto de analiza con el mismo modelo.         |
@@ -41,7 +41,7 @@ Con Anomaly Detector, puede detectar automáticamente las anomalías existentes 
 Consulte esta [demostración interactiva](https://aka.ms/adDemo) para comprender cómo funciona Anomaly Detector.
 Para ejecutar la demostración, debe crear un recurso de Anomaly Detector y obtener la clave de API y el punto de conexión.
 
-## <a name="notebook"></a>Bloc de notas
+## <a name="notebook"></a>Notebook
 
 Para saber cómo llamar a Anomaly Detector API, pruebe este [cuaderno de Azure Notebooks](https://aka.ms/adNotebook). En esta instancia de Jupyter Notebook hospedada en web se muestra cómo enviar una solicitud de API y visualizar el resultado.
 
@@ -72,8 +72,12 @@ Después del registro:
 
 ## <a name="algorithms"></a>Algoritmos
 
-* Consulte los blogs técnicos [Introducción a la API de Anomaly Detector de Azure](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) e [información general sobre el algoritmo de SR-CNN en el Anomaly Detector de Azure](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798) sobre los algoritmos dentro.
-* Consulte el artículo [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) (Servicio de detección de anomalías de Time Series) (aceptado por KDD 2019) para conocer los algoritmos SR-CNN más modernos desarrollados por Microsoft.
+* Consulte los siguientes blogs técnicos para obtener información acerca de los algoritmos usados:
+    * [Introducing Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) (Introducción a Anomaly Detector API de Azure)
+    * [Introducción al algoritmo SR-CNN de Azure Anomaly Detector](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798)
+
+Puede leer el artículo [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) (Servicio de detección de anomalías de Time Series) (aceptado por KDD 2019) para conocer los algoritmos SR-CNN desarrollados por Microsoft.
+
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
 

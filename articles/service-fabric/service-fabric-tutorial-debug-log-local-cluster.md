@@ -1,26 +1,17 @@
 ---
-title: Depuración de una aplicación Java en un clúster local de Service Fabric | Microsoft Docs
+title: Depuración de una aplicación Java en un clúster local de Service Fabric
 description: En este tutorial, aprenderá a depurar y obtener registros de una aplicación de Java en Service Fabric que se ejecuta en un clúster local.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: mfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c5ff1a0373fcce339bea2b235d86f20dc861a15c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c664b586260957138249028e4d521c29b411d56d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444266"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465387"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Tutorial: Depuración de una aplicación de Java implementada en un clúster local de Service Fabric
 
@@ -41,7 +32,7 @@ En la segunda parte de la serie, se aprende a:
 > * Redirigir los registros a una ubicación configurable
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar este tutorial:
 
@@ -73,7 +64,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 5. Actualice el manifiesto de aplicación y establezca en 1 el recuento de instancias o el recuento de réplicas del servicio que se está depurando. Esta configuración evita conflictos en el puerto que se usa para depuración. Por ejemplo, para servicios sin estado, establezca ``InstanceCount="1"`` y, para los servicios con estado, establezca los tamaños del conjunto de réplicas mínimo y de destino en 1 de la manera siguiente: ``TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
 
-6. En el IDE de Eclipse, seleccione **Run (Ejecutar) -> Debug Configurations (Configuraciones de depuración) -> Remote Java Application (Aplicación de Java remota)**, presione el botón **New** (Nuevo), establezca las propiedades de la manera siguiente y haga clic en **Apply** (Aplicar).
+6. En el IDE de Eclipse, seleccione **Run (Ejecutar) -> Debug Configurations (Configuraciones de depuración) -> Remote Java Application (Aplicación de Java remota)** , presione el botón **New** (Nuevo), establezca las propiedades de la manera siguiente y haga clic en **Apply** (Aplicar).
 
     ```
     Name: Voting
@@ -89,7 +80,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 9. En la ventana **Publish Application** (Publicar aplicación), seleccione **Local.json** en la lista desplegable y haga clic en **Publish** (Publicar).
 
-10. En el IDE de Eclipse IDE, seleccione **Run (Ejecutar) -> Debug Configurations (Configuraciones de depuración) -> Remote Java Application (Aplicación de Java remota)**, haga clic en la configuración de **Voting** que ha creado y haga clic en **Debug** (Depurar).
+10. En el IDE de Eclipse IDE, seleccione **Run (Ejecutar) -> Debug Configurations (Configuraciones de depuración) -> Remote Java Application (Aplicación de Java remota)** , haga clic en la configuración de **Voting** que ha creado y haga clic en **Debug** (Depurar).
 
 11. Vaya a su explorador web y acceda a **localhost: 8080**. Alcanzará automáticamente el punto de interrupción y Eclipse escribirá la **perspectiva de depuración**.
 

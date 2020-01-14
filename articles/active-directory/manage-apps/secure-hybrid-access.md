@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 10/29/2019
+ms.date: 12/18/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21b89704bdd2836057db8f7a78244205efb9cc90
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 0e97b95e290ef74ffd98a3396ffe4705270132b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896193"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433761"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-app-delivery-controllers-and-networks"></a>Acceso híbrido seguro: Protección de aplicaciones heredadas con redes y controladores de entrega de aplicaciones
 
@@ -28,5 +28,7 @@ Con la red y el controlador de entrega existentes, puede proteger fácilmente la
 
 Los siguientes proveedores ofrecen soluciones predefinidas e instrucciones detalladas para la integración con Azure AD.
 
+* [Acceso de aplicaciones empresariales (EAA) de Akamai](../saas-apps/akamai-tutorial.md)
+* [Controlador de entrega de aplicaciones (ADC) de Citrix](../saas-apps/citrix-netscaler-tutorial.md)
 * [APM BIG-IP de F5](https://aka.ms/f5-hybridaccessguide)
 * [Zscaler Private Access (ZPA)](https://aka.ms/zscaler-hybridaccessguide)

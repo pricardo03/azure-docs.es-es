@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: da47a471ddcf2c083ed127b79e4d3da9713d2ed4
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 09f379279a7247f87b9e0830414a5e4363f41cdb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719057"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469193"
 ---
 Los tamaños de VM optimizadas para memoria ofrecen una relación alta de memoria a CPU que es excelente para servidores de bases de datos relacionales, memorias caché de medianas a grandes y análisis en memoria. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento y del ancho de banda de red para cada tamaño de esta agrupación.
 
@@ -225,7 +225,7 @@ Los tamaños de la serie DSv2 se ejecutan en procesadores Intel® Xeon® 8171M d
 | Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80000 / 640 (720) |64000 / 960 |8 / 25 000&nbsp;<sup>4</sup>
 
 <sup>1</sup> El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie DSv2 puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados.  Para información detallada, consulte [Azure Premium Storage: Diseño de alto rendimiento](../articles/virtual-machines/windows/premium-storage-performance.md).  
-<sup>2</sup> La instancia está aislada en el hardware dedicado a un solo cliente.  
+<sup>2</sup> La instancia está aislada en el hardware basado en Intel Haswell y se dedica a un solo cliente.  
 <sup>3</sup> Tamaños de núcleos restringidos disponibles.  
 <sup>4</sup> 25 000 Mbps con redes aceleradas. 
 

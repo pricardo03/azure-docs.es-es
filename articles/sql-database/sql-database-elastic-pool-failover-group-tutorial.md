@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: e2ae9afaf7c1dcc1794b90d4851fdd60298b5ad6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c57f9eed2147504dd7b3313d58468fb76ab40caa
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823889"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552566"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Tutorial: Adición de un grupo elástico de Azure SQL Database a un grupo de conmutación por error
 
@@ -28,11 +28,11 @@ Configure un grupo de conmutación por error para un grupo elástico de Azure SQ
 > - Crear un [grupo de conmutación por error](sql-database-auto-failover-group.md) para dos grupos elásticos entre dos servidores lógicos de SQL Server.
 > - Probar la conmutación por error.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, asegúrese de disponer de los siguientes elementos: 
 
-- Una suscripción de Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
+- Suscripción a Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
 
 
 ## <a name="1---create-a-single-database"></a>1\. Creación de una base de datos única 
@@ -55,7 +55,7 @@ Cree el grupo elástico mediante Azure Portal.
     ![Seleccionar un grupo elástico](media/sql-database-elastic-pool-failover-group-tutorial/select-azure-sql-elastic-pool.png)
 
 1. Configure el grupo elástico con los siguientes valores:
-   - **Nombre**: Proporcione un nombre único para el grupo elástico, como `myElasticPool`. 
+   - **Name**: Proporcione un nombre único para el grupo elástico, como `myElasticPool`. 
    - **Suscripción**: Seleccione la suscripción en la lista desplegable.
    - **ResourceGroup**: Seleccione `myResourceGroup` en la lista desplegable, el grupo de recursos que ha creado en la sección 1. 
    - **Servidor**: Seleccione el servidor que ha creado en la sección 1 en la lista desplegable.  
@@ -378,7 +378,6 @@ Limpie sus recursos mediante PowerShell.
    Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
    Write-host "Resource group removed =" $resourceGroupName
    ```
----
 
 En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 
@@ -386,7 +385,10 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos. | 
 
-Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
+---
+
+> [!IMPORTANT]
+> Si quiere mantener el grupo de recursos, pero eliminar la base de datos secundaria, quítela del grupo de conmutación por error antes de eliminarla. Eliminar una base de datos secundaria antes de quitarla del grupo de conmutación por error puede provocar un comportamiento impredecible. 
 
 ## <a name="full-script"></a>Script completo
 

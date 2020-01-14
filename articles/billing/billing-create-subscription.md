@@ -1,5 +1,5 @@
 ---
-title: Creación de una suscripción de Azure adicional | Microsoft Docs
+title: Creación de una suscripción de Azure adicional
 description: Aprenda a agregar una nueva suscripción de Azure en Azure Portal.
 services: billing
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
-ms.openlocfilehash: bd561f616c9e120a38f1c6b125e349684f82942e
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 0f4df548313e02a9e8eb857bf2c1d798d5ccdcc3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665617"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449614"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Creación de una suscripción de Azure adicional
 
@@ -40,7 +40,7 @@ Necesita los siguientes permisos para crear suscripciones:
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Creación de una suscripción en Azure Portal
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Busque **Suscripciones**.
 
    ![Captura de pantalla que muestra la búsqueda de suscripciones en el portal](./media/billing-create-subscription/billing-search-subscription-portal.png)
@@ -57,7 +57,7 @@ Necesita los siguientes permisos para crear suscripciones:
 
 |Campo  |Definición  |
 |---------|---------|
-|NOMBRE     | El nombre para mostrar ayuda a identificar fácilmente la suscripción en Azure Portal.  |
+|Nombre     | El nombre para mostrar ayuda a identificar fácilmente la suscripción en Azure Portal.  |
 |Oferta     | Seleccione Desarrollo/pruebas EA si va a usar esta suscripción para las cargas de trabajo de desarrollo o pruebas; si no, utilice Microsoft Azure Enterprise. La oferta de Desarrollo/pruebas debe estar habilitada para que la cuenta de inscripción cree suscripciones de desarrollo/pruebas del Contrato Enterprise.|
 
 **Contrato de cliente de Microsoft**
@@ -67,15 +67,15 @@ Necesita los siguientes permisos para crear suscripciones:
 |Perfil de facturación     | Los cargos correspondientes a su suscripción se facturarán en el perfil de facturación que haya seleccionado. Si tiene acceso a solo un perfil de facturación, se atenúa la selección.     |
 |Sección de factura     | Los cargos de la suscripción aparecerán en esta sección de factura del perfil de facturación. Si tiene acceso a solo una sección de factura, se atenúa la selección.  |
 |Plan     | Seleccione Plan de Microsoft Azure para Desarrollo/pruebas si va a usar esta suscripción para las cargas de trabajo de desarrollo o pruebas; si no, utilice Plan de Microsoft Azure. Si solo hay un plan para el perfil de facturación, la selección aparecerá atenuada.  |
-|NOMBRE     | El nombre para mostrar ayuda a identificar fácilmente la suscripción en Azure Portal.  |
+|Nombre     | El nombre para mostrar ayuda a identificar fácilmente la suscripción en Azure Portal.  |
 
 **Microsoft Partner Agreement**
 
 |Campo  |Definición  |
 |---------|---------|
-|Cliente    | La suscripción se crea para el cliente que seleccione. Si solo tiene un cliente, la selección aparece atenuada.  |
+|Customer    | La suscripción se crea para el cliente que seleccione. Si solo tiene un cliente, la selección aparece atenuada.  |
 |Vendedor    | El revendedor que proporciona servicios al cliente. Este campo es opcional, solo se aplica a los proveedores indirectos en el modelo de dos niveles de CSP. |
-|NOMBRE     | El nombre para mostrar ayuda a identificar fácilmente la suscripción en Azure Portal.  |
+|Nombre     | El nombre para mostrar ayuda a identificar fácilmente la suscripción en Azure Portal.  |
 
 ## <a name="create-an-additional-azure-subscription-programmatically"></a>Creación de una suscripción a Azure adicional mediante programación
 

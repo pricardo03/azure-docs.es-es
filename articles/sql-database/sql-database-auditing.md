@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: f36906bfa6bbef43c0e3133bfa1e8a163810086f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 450f40c8ba49028d99143d7cf2b2995eb354f8fd
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928696"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551631"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introducción a la auditoría de bases de datos SQL
 
@@ -73,7 +73,7 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
 1. Vaya a [Azure Portal](https://portal.azure.com).
 2. Vaya a **Auditoría** bajo el encabezado Seguridad en el panel de la base de datos/servidor SQL.
 
-    <a id="auditing-screenshot"></a>![Panel de navegación][1]
+    <a id="auditing-screenshot"></a> ![Panel de navegación][1]
 
 3. Si prefiere configurar una directiva de auditoría de servidor, puede seleccionar el vínculo **Ver configuración del servidor** en la hoja de auditoría de base de datos. Después, puede ver o modificar la configuración de auditoría del servidor. Las directivas de auditoría de servidor se aplican a todas las bases de datos existentes y recién creadas en este servidor.
 
@@ -243,7 +243,7 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 - Cuando se usa la autenticación de Azure AD, los registros de inicios de sesión con error *no* aparecerán en el registro de auditoría SQL. Para ver los registros de auditoría de inicio de sesión con error, debe visitar el [portal de Azure Active Directory]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que registra los detalles de estos eventos.
 
 
-## <a id="subheading-7"></a>Administración de auditorías de SQL Database mediante Azure PowerShell
+## <a id="subheading-7"></a>Administración de auditorías de Azure SQL Server y Database mediante Azure PowerShell
 
 **Cmdlets de PowerShell (incluye compatibilidad con la cláusula WHERE para filtrado adicional)** :
 
@@ -256,7 +256,7 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 
 Para ver un script de ejemplo, consulte [Configuración de la auditoría y detección de amenazas mediante PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
-## <a id="subheading-9"></a>Administración de auditorías de SQL Database mediante API de REST
+## <a id="subheading-8"></a>Administración de auditorías de Azure SQL Server y Database mediante la API REST
 
 **API REST**:
 
@@ -272,7 +272,7 @@ Directiva extendida compatible con la cláusula WHERE para filtrado adicional:
 - [Obtener la directiva de auditoría de base de datos *extendida*](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Obtener la directiva de auditoría de servidor *extendida*](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>Administración de auditorías de SQL Database mediante plantillas de Azure Resource Manager
+## <a id="subheading-9"></a>Administración de auditorías de Azure SQL Server y Database mediante plantillas de Azure Resource Manager
 
 Puede administrar auditorías de Azure SQL Database mediante plantillas de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), tal como se muestra en estos ejemplos:
 
@@ -289,10 +289,9 @@ Puede administrar auditorías de Azure SQL Database mediante plantillas de [Azur
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
-[Manage SQL database auditing using Azure PowerShell]: #subheading-7
-[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
-[Manage SQL database auditing using REST API]: #subheading-9
-[Manage SQL database auditing using ARM templates]: #subheading-10
+[Manage Azure SQL Server and Database auditing using Azure PowerShell]: #subheading-7
+[Manage SQL database auditing using REST API]: #subheading-8
+[Manage Azure SQL Server and Database auditing using ARM templates]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

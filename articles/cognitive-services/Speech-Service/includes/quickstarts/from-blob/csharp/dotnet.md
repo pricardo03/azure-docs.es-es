@@ -7,18 +7,18 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 96062057a139e4ab2c91792b5c451e093f7f4c96
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: b8b650920c03b14c7d55aafd6ecdb43dafaafafe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828798"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466644"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, compruebe lo siguiente:
 
@@ -67,7 +67,7 @@ Continúe y coloque sus declaraciones detrás de `TranscribeAsync`.
 
 ## <a name="create-and-configure-an-http-client"></a>Creación y configuración de un cliente HTTP
 Lo primero que necesitamos es un cliente HTTP con una dirección URL base y un conjunto de autenticación correctos.
-Inserte este código en `TranscribeAsync` [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=46-50)].
+Inserte este código en `TranscribeAsync` [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=46-50)]
 
 ## <a name="generate-a-transcription-request"></a>Generación de una solicitud de transcripción
 A continuación, se generará la solicitud de transcripción. Agregue este código a `TranscribeAsync` [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=52-57)]

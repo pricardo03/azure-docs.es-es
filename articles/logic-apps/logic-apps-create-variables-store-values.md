@@ -1,17 +1,17 @@
 ---
-title: Creación y administración de variables para guardar valores
-description: Creación y administración de valores mediante el uso de variables en Azure Logic Apps
+title: Creación y administración de variables para almacenar y pasar valores
+description: Averigüe cómo puede almacenar, administrar, usar y pasar valores mediante el uso de variables en las tareas automatizadas y el flujo de trabajo que crea con Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 9b3ba7ff20e581988c3e862cff3bbf6d5ee96bf4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 55984082a6b287e9f7cdca005a24ef3c18032491
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793176"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456701"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Creación y administración de valores mediante el uso de variables en Azure Logic Apps
 
@@ -29,9 +29,9 @@ Las variables solo existen y son globales en la instancia de la aplicación lóg
 > [!IMPORTANT]
 > De forma predeterminada, los ciclos de un bucle "Para cada uno" se ejecutan en paralelo. Cuando se usan variables en bucles, ejecute el bucle [secuencialmente](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) para que las variables devuelvan resultados predecibles.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
 * La aplicación lógica en la que desea crear una variable.
 
@@ -65,11 +65,11 @@ Puede crear una variable y declarar el tipo de datos y el valor inicial de la mi
 
 1. Proporcione esta información sobre su variable tal y como se describe a continuación:
 
-   | Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value |  Descripción |
    |----------|----------|-------|--------------|
    | **Nombre** | Sí | <*variable-name*> | El nombre de la variable que se va a incrementar |
    | **Tipo** | Sí | <*variable-type*> | El tipo de datos de la variable |
-   | **Valor** | Sin | <*start-value*> | Valor inicial de la variable <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor inicial de la variable. |
+   | **Valor** | No | <*start-value*> | Valor inicial de la variable <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor inicial de la variable. |
    |||||
 
    Por ejemplo:
@@ -205,10 +205,10 @@ Para aumentar o *incrementar* una variable con un valor constante, agregue la ac
 
 1. Proporcione esta información para la incrementar la variable:
 
-   | Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value |  Descripción |
    |----------|----------|-------|--------------|
    | **Nombre** | Sí | <*variable-name*> | El nombre de la variable que se va a incrementar |
-   | **Valor** | Sin | <*increment-value*> | El valor que se usa para incrementar la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para incrementar la variable. |
+   | **Valor** | No | <*increment-value*> | El valor que se usa para incrementar la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para incrementar la variable. |
    ||||
 
    Por ejemplo:
@@ -326,10 +326,10 @@ Para disminuir o *reducir* una variable con un valor constante, siga los pasos p
 
 Estas son las propiedades para la acción **Reducir variable**:
 
-| Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
+| Propiedad | Obligatorio | Value |  Descripción |
 |----------|----------|-------|--------------|
 | **Nombre** | Sí | <*variable-name*> | El nombre de la variable que se va a reducir | 
-| **Valor** | Sin | <*increment-value*> | El valor para reducir la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para reducir la variable. |
+| **Valor** | No | <*increment-value*> | El valor para reducir la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para reducir la variable. |
 ||||| 
 
 Si cambia del diseñador al editor de la vista de código, esta es la manera en que la acción **Reducir variable** aparece en la definición de la aplicación lógica, que se encuentra en formato JSON.
@@ -359,7 +359,7 @@ Para asignar un valor diferente a una variable existente, siga los pasos para [a
 
 Estas son las propiedades para la acción **Establecer variable**:
 
-| Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
+| Propiedad | Obligatorio | Value |  Descripción |
 |----------|----------|-------|--------------|
 | **Nombre** | Sí | <*variable-name*> | El nombre de la variable que se va a establecer |
 | **Valor** | Sí | <*new-value*> | El valor al que quiere asignar la variable. Ambos deben tener los mismos tipos de datos. |
@@ -417,7 +417,7 @@ En cuanto a las variables que almacenan cadenas o matrices, puede insertar o *an
 
 Estas son las propiedades para la acción **Anexar a...** :
 
-| Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
+| Propiedad | Obligatorio | Value |  Descripción |
 |----------|----------|-------|--------------|
 | **Nombre** | Sí | <*variable-name*> | El nombre de la variable que se va a establecer |
 | **Valor** | Sí | <*append-value*> | El valor que quiere anexar, que puede ser de cualquier tipo. |

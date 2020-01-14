@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 0165da8adbb28b97d524f1a07c725716b69277d4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8f3b38b3455b171701ff78345a3ee667c2c45071
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223630"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449324"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Optimización de los costes de Azure Databricks con una compra anticipada
 
@@ -41,8 +41,8 @@ Antes de comprar, calcule el total de DBU consumido para las diferentes cargas d
 
 Puede comprar planes de Databricks en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). Para comprar capacidad reservada, debe tener el rol de propietario al menos en una suscripción Enterprise.
 
-- Actualmente, la compra anticipada solo está disponible para clientes con Contrato Enterprise.
-- Debe tener un rol de propietario al menos en una suscripción Enterprise.
+- Debe tener un rol de propietario al menos en una suscripción Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Contrato de cliente de Microsoft o una suscripción individual con tarifas de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P).
+- En el caso de las suscripciones de EA, la opción Agregar instancias reservadas debe estar habilitada en el portal de EA. O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción.
 - En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción.
 
 **Para comprar:**

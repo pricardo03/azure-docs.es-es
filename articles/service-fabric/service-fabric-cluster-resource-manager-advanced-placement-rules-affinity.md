@@ -1,25 +1,18 @@
 ---
-title: Configuración y uso de la afinidad de servicio en Service Fabric | Microsoft Docs
-description: Información general sobre la configuración de afinidad para servicios de Service Fabric
+title: 'Resource Manager para el clúster de Service Fabric: afinidad'
+description: Introducción a la afinidad de servicio para servicios de Azure Service Fabric e instrucciones sobre la configuración de afinidad de servicio.
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 678073e1-d08d-46c4-a811-826e70aba6c4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 29377492b90f366227ca7bedf85890b7734ea25f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7bfd261802fbf891b8f45079255783cb1e8ac7d4
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118422"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551750"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configuración y uso de la afinidad de servicio en Service Fabric
 La afinidad es un control que se proporciona principalmente para facilitar la transición de aplicaciones grandes y monolíticas al mundo de la nube y los microservicios. También se usa como optimización para mejorar el rendimiento de los servicios, aunque en este caso podrían producirse efectos secundarios.

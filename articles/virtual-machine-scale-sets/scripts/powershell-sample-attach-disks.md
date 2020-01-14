@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplos de Azure PowerShell: Conexión y uso de discos de datos | Microsoft Docs'
-description: Ejemplos de Azure PowerShell
+title: 'Ejemplos de Azure PowerShell: Conexión y uso de discos de datos'
+description: Este script crea un conjunto de escalado de máquinas virtuales de Azure y conecta y prepara los discos de datos mediante PowerShell.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,19 +16,19 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0d0a3e949f4803470a6fc2318ab222e20d8eccae
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: f7098808837b9fd0206323fca03da4c98096d3c5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976817"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350955"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-powershell"></a>Conexión y uso de discos de datos con un conjunto de escalado de máquinas virtuales con PowerShell
 Este script crea un conjunto de escalado de máquinas virtuales y conecta y prepara los discos de datos.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Script de ejemplo
 

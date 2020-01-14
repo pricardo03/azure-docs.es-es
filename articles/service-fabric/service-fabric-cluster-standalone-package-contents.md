@@ -1,24 +1,16 @@
 ---
-title: Paquete independiente de Azure Service Fabric para Windows Server | Microsoft Docs
+title: Paquete independiente de Azure Service Fabric para Windows Server
 description: Descripción y contenido del paquete independiente de Azure Service Fabric para Windows Server.
-services: service-fabric
-documentationcenter: .net
 author: maburlik
-manager: chackdan
-editor: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: facdcd162826e6f77ace098391459cba00061c4f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bb73fa69717f067139067f127a0d50af4878d6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711091"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451844"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Contenido del paquete independiente de Service Fabric para Windows Server
 En el paquete independiente de Service Fabric [descargado](https://go.microsoft.com/fwlink/?LinkId=730690), encontrará los siguientes archivos:
@@ -39,7 +31,7 @@ En el paquete independiente de Service Fabric [descargado](https://go.microsoft.
 | Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |StandaloneLogCollector.exe, que se ejecuta a petición para recopilar y cargar registros de seguimiento en Microsoft para soporte técnico. |
 | Tools\ServiceFabricUpdateService.zip |Herramienta que se usa para habilitar la actualización automática de código en los clústeres que no tienen acceso a Internet. [aquí](service-fabric-cluster-upgrade-windows-server.md)|
 
-**Plantillas** 
+**Templates** (Plantillas [C++]) 
 
 | **Nombre de archivo** | **Descripción breve** |
 | --- | --- |

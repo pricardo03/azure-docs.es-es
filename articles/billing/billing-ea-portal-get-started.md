@@ -4,16 +4,16 @@ description: En este artículo se explica cómo usan los clientes el portal del 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 2f7c4f0d4d8bd7e5209f666dbfca34eaffc8ebc7
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 92581cfcace6ec566428c9cb54d205f108399b1f
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841377"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660671"
 ---
 # <a name="get-started-with-the-azure-ea-portal"></a>Introducción al portal del Contrato Enterprise de Azure
 
@@ -46,14 +46,15 @@ En el siguiente diagrama se ilustran las jerarquías simples de Azure EA.
 
 ![Diagrama de jerarquías simples de Azure EA](./media/billing-ea-portal-get-started/ea-hierarchies.png)
 
-## <a name="enterprise-user-roles"></a>Roles de los usuarios de la empresa
+## <a name="enterprise-user-roles"></a>Roles de los usuarios de empresa
 
-Para administrar los servicios de Azure en su inscripción, hay cuatro roles de usuario administrativo de empresa distintos:
+Para administrar los servicios de Azure en su inscripción, hay cinco roles de usuario administrativo de empresa distintos:
 
 - Administrador de empresa
 - Administrador de departamentos
 - Propietario de cuenta
 - Administrador de servicios
+- Contacto para notificaciones
 
 Los roles se usan para completar tareas en dos portales de Microsoft Azure diferentes. El portal del Contrato Enterprise de Azure (https://ea.azure.com) se usa para ayudarle a administrar la facturación y los costos. Azure Portal (https://portal.azure.com) se utiliza para administrar los servicios de Azure.
 
@@ -101,9 +102,15 @@ Todas las cuentas requieren una cuenta profesional, educativa o de Microsoft ún
 
 El administrador de servicios tiene permisos para administrar servicios en Azure Portal y asignar a los usuarios el rol de coadministrador.
 
+### <a name="notification-contact"></a>Contacto para notificaciones
+
+El contacto para notificaciones recibe las notificaciones de uso relacionadas con la inscripción.
+
 ## <a name="activate-your-enrollment"></a>Activación de la inscripción
 
 Para activar un servicio, el administrador de empresa inicial abre el portal del Contrato Enterprise de Azure en [https://ea.azure.com](https://ea.azure.com) e inicia sesión con la dirección del correo electrónico de invitación.
+
+Si se ha configurado como administrador de EA, no es preciso que reciba el correo electrónico de activación para iniciar sesión en Azure EA Portal. Puede continuar con [https://ea.azure.com](https://ea.azure.com) e iniciar sesión con su dirección de correo electrónico (ya sea profesional, educativa o Live ID) y la contraseña.
 
 Si tiene más de una inscripción, elija la que desea activar. De forma predeterminada, solo se muestran las inscripciones activas. Para ver el historial de inscripciones, desactive la opción **Active** (Activo) en la parte superior derecha del portal del Contrato Enterprise de Azure.
 
@@ -369,7 +376,7 @@ Este es un vídeo que muestra cómo ver el uso:
 
 ### <a name="download-csv-reports"></a>Descarga de informes CSV
 
-Los administradores de empresa usan la página de descarga de informes mensuales para descargar varios informes como archivos CSV. Entre ellos se incluyen los siguientes:
+Los administradores de empresa usan la página de descarga de informes mensuales para descargar varios informes como archivos CSV. Incluyen:
 
 - Saldo y cargo
 - Detalle de uso
@@ -445,7 +452,7 @@ Sí, puede hacerlo. Es importante recordar que todas las suscripciones de Azure 
 
 Para recuperar la ventaja de la suscripción de Azure individual de Visual Studio después de autenticarse como propietario de una cuenta de Contrato Enterprise y después de haber usado el mismo inicio de sesión para el Contrato Enterprise que la suscripción de Visual Studio, debe:
 1. Eliminar el propietario de la cuenta en EA Portal, después de eliminar o mover las suscripciones de Azure que posea y de registrarlas en las ventajas individuales de Azure en Visual Studio.
- OR
+ O BIEN
 1. Eliminar el suscriptor de Visual Studio del sitio de administración en VLSC y reasignar la suscripción con un inicio de sesión diferente en este momento; a continuación, estas pueden registrarse para obtener las ventajas individuales de Azure en Visual Studio.
 
 ### <a name="what-type-of-subscription-should-i-create"></a>¿Qué tipo de suscripción debo crear?

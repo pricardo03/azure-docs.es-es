@@ -1,6 +1,6 @@
 ---
 title: Inicio rápido de Azure - Ejecución de un trabajo de Batch - .NET
-description: Ejecute rápidamente un trabajo y tareas de Batch con la biblioteca cliente de .NET de Batch.
+description: Ejecute rápidamente las tareas y un trabajo de ejemplo de Azure Batch desde una aplicación en c# con la biblioteca cliente .NET de Batch.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 37cd6fdd2f82af581e27f9341292c484b1cc601e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 613f771af71c4f03f7ccf9283b98c09836c312cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322326"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390320"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Inicio rápido: Ejecute su primer trabajo de Azure Batch con la API de .NET
 
@@ -25,7 +25,7 @@ En esta guía de inicio rápido se ejecuta un trabajo de Azure Batch desde una a
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Visual Studio 2017 o superior](https://www.visualstudio.com/vs) o [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS o Windows. 
 

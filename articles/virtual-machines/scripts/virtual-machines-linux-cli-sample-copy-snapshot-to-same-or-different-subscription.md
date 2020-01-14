@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplo de script de CLI de Azure: copia (transferencia) de instantánea de un disco administrado en la misma suscripción o en otra con CLI'
-description: 'Ejemplo de script de CLI de Azure: copia (transferencia) de instantánea de un disco administrado en la misma suscripción o en otra con CLI'
+title: 'Copia de instantáneas de un disco administrado en una suscripción: ejemplo de la CLI'
+description: 'Ejemplo de script de la CLI de Azure: copia (o transferencia) de instantáneas de un disco administrado en la misma suscripción o en otra con la CLI'
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 23886256e405f57c5a581356b4212498779ae6e5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 19c791cf1f394f5aab6ad2fcd7f98c4b30497286
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038234"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458541"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Copia de instantánea de un disco administrado en la misma suscripción o en otra con CLI
 
@@ -51,7 +51,7 @@ Este script usa los siguientes comandos para crear una instantánea en la suscri
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación de una máquina virtual a partir de una instantánea](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Crear una máquina virtual a partir de una instantánea](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure).
 

@@ -1,6 +1,6 @@
 ---
-title: Conjuntos de escalado de máquinas virtuales de Azure conectadas a discos de datos | Microsoft Docs
-description: Aprenda a usar discos de datos conectados a conjuntos de escalado de máquinas virtuales
+title: Discos de datos conectados a Azure Virtual Machine Scale Sets
+description: Aprenda a usar discos de datos conectados a conjuntos de escalado de máquinas virtuales mediante esquemas de casos de uso específicos.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 4/25/2017
 ms.author: manayar
-ms.openlocfilehash: 5482e082e3e37d279c4374a8642f2cb6db588dd5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b6c752c1b86061f43af912405e610d466f17e37
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328840"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465009"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Conjuntos de escalado de máquinas virtuales de Azure y discos de datos conectados
 Para expandir el almacenamiento disponible, los [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/) de Azure admiten instancias de máquina virtual con discos de datos asociados. Puede asociar discos de datos cuando se crea el conjunto de escalado, o a un conjunto de escalado existente.
 
 > [!NOTE]
-> Cuando se crea un conjunto de escalado con discos de datos asociados, debe montar y dar formato a los discos desde una máquina virtual para usarlos (al igual que sucede con las máquinas virtuales de Azure independientes). Una manera práctica de llevar cabo este proceso es usar una extensión de script personalizado que llama a un script para crear una partición y dar formato a todos los discos de datos en una máquina virtual. Para ver ejemplos, consulte [CLI de Azure](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
+> Cuando se crea un conjunto de escalado con discos de datos asociados, debe montar y dar formato a los discos desde una máquina virtual para usarlos (al igual que sucede con las máquinas virtuales de Azure independientes). Una manera práctica de llevar cabo este proceso es usar una extensión de script personalizado que llama a un script para crear una partición y dar formato a todos los discos de datos en una máquina virtual. Para ver ejemplos, consulte la [CLI de Azure](tutorial-use-disks-cli.md#prepare-the-data-disks) y [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
 
 
 ## <a name="create-and-manage-disks-in-a-scale-set"></a>Creación y administración de discos de un conjunto de escalado

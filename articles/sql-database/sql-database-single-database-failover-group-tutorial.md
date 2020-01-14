@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 6e3b4be836699cc200d30168c14462f81136646b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8c4c346dd004e435846aff5592a20cd747c45df7
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821094"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552634"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Tutorial: Adición de una base de datos única de Azure SQL Database a un grupo de conmutación por error
 
@@ -27,25 +27,25 @@ Configure un grupo de conmutación por error para una base de datos única de Az
 > - Crear un [grupo de conmutación por error](sql-database-auto-failover-group.md) para una base de datos única entre dos servidores lógicos de SQL.
 > - Probar la conmutación por error.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Para completar este tutorial, asegúrese de disponer de los siguientes elementos: 
 
-- Una suscripción de Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
+- Suscripción a Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
 
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Para completar el tutorial, asegúrese de que cuenta con los elementos siguientes:
 
-- Una suscripción de Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
+- Suscripción a Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 
 # <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 Para completar el tutorial, asegúrese de que cuenta con los elementos siguientes:
 
-- Una suscripción de Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
+- Suscripción a Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
 - La versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 ---
@@ -427,6 +427,10 @@ En esta parte del tutorial se usan los siguientes cmdlets de la CLI de AZ:
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ---
+
+
+> [!IMPORTANT]
+> Si quiere mantener el grupo de recursos, pero eliminar la base de datos secundaria, quítela del grupo de conmutación por error antes de eliminarla. Eliminar una base de datos secundaria antes de quitarla del grupo de conmutación por error puede provocar un comportamiento impredecible. 
 
 
 ## <a name="full-scripts"></a>Scripts completos

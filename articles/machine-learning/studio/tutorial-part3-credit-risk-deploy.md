@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial 3: Implementación del modelo de riesgo crediticio'
-titleSuffix: ML Studio (classic) - Azure
-description: Tutorial detallado que muestra cómo crear una solución de análisis predictivo para la evaluación del riesgo crediticio en la versión clásica de Azure Machine Learning Studio. Se trata de la tercera parte de un tutorial de tres. Muestra cómo se implementa un modelo como servicio web.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Tutorial detallado que muestra cómo crear una solución de análisis predictivo para la evaluación del riesgo de crédito en Azure Machine Learning Studio (clásico). Se trata de la tercera parte de un tutorial de tres. Muestra cómo se implementa un modelo como servicio web.
 keywords: credit risk, predictive analytics solution,risk assessment, deploy, web service
 author: sdgilley
 ms.author: sgilley
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 4e8e8a114a06029ef9a81d92b60afd575bc9661f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9353e5749906aca1f0c91b622c93ba6028cd3bef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839486"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432194"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutorial 3: Implementación de un modelo de riesgo crediticio: Azure Machine Learning Studio (clásico)
 
@@ -23,7 +23,7 @@ En este tutorial se explica con detalle el proceso de desarrollo de una solució
 
 Suponga que necesita predecir el riesgo de crédito de un individuo en función de la información que se proporcionó en una solicitud de crédito.  
 
-La evaluación de riesgos crediticios es un problema complejo, pero en este tutorial se simplificará un poco. Se utilizará como ejemplo de cómo puede crear una solución de análisis predictivo con Microsoft Azure Machine Learning Studio (clásico). En esta solución, se usa la versión clásica de Azure Machine Learning Studio y un servicio web de Machine Learning. 
+La evaluación de riesgos crediticios es un problema complejo, pero en este tutorial se simplificará un poco. Se utilizará como ejemplo de cómo puede crear una solución de análisis predictivo con Microsoft Azure Machine Learning Studio (clásico). En esta solución se usará Azure Machine Learning Studio (clásico) y un servicio web Machine Learning. 
 
 En este tutorial de tres partes, vamos a comenzar con los datos de riesgo crediticio disponibles públicamente.  Después, desarrollaremos y entrenaremos un modelo predictivo.  Finalmente, vamos a implementar el modelo como servicio web.
 
@@ -34,17 +34,17 @@ En la [segunda parte del tutorial](tutorial-part2-credit-risk-train.md) entrenó
 En esta parte del tutorial, se va a ver lo siguiente:
 
 > [!div class="checklist"]
-> * Preparación de la implementación
+> * Preparar la implementación
 > * Implementación del servicio web
 > * Prueba del servicio web
 > * Administración del servicio web
 > * Acceso al servicio web
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Completar la [parte dos del tutorial](tutorial-part2-credit-risk-train.md).
 
-## <a name="prepare-for-deployment"></a>Preparación de la implementación
+## <a name="prepare-for-deployment"></a>Preparar la implementación
 Para permitir que otros usuarios puedan usar el modelo predictivo desarrollado en este tutorial, se puede implementar como servicio web en Azure.
 
 Hasta ahora hemos estado experimentando con el entrenamiento de nuestro modelo. Sin embargo, el servicio implementado ya no va a realizar el entrenamiento: va a generar nuevas predicciones mediante la puntuación de la entrada del usuario en función de nuestro modelo. Por lo tanto, hay que realizar unos cuantos preparativos para convertir este experimento de ***entrenamiento*** en un experimento ***predictivo***. 
@@ -244,7 +244,7 @@ Para obtener más información sobre el uso de plantillas de aplicación web, co
 En este tutorial ha completado estos pasos:
 
 > [!div class="checklist"]
-> * Preparación de la implementación
+> * Preparar la implementación
 > * Implementación del servicio web
 > * Prueba del servicio web
 > * Administración del servicio web

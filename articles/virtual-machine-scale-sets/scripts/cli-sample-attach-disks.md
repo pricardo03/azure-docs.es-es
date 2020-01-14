@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplos de la CLI de Azure: Conexión y uso de discos de datos | Microsoft Docs'
-description: Ejemplos de la CLI de Azure
+title: 'Ejemplos de la CLI de Azure: Conexión y uso de discos de datos'
+description: Este script crea un conjunto de escalado de máquinas virtuales de Azure y conecta y prepara los discos de datos con la CLI de Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6966aead6ced88e0ff9b201dd12bec0a16799907
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 04d0c557dcca3ca0acd736d3013cf9119490af52
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661385"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351052"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli"></a>Conexión y uso de discos de datos con un conjunto de escalado de máquinas virtuales con la CLI de Azure
 Este script crea un conjunto de escalado de máquinas virtuales y conecta y prepara los discos de datos.

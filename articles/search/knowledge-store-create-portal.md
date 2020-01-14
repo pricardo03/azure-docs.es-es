@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: a8cc368b2949d9a65034ee4f989b8603dfa01027
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/30/2019
+ms.openlocfilehash: cffd94459e3a18567f2ff2f6b8fca35598cb5eed
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533955"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563480"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Inicio rápido: Creación de un almacén de conocimiento de Azure Cognitive Search en Azure Portal
 
@@ -22,9 +22,9 @@ ms.locfileid: "74533955"
 
 El almacén de conocimiento es una característica de Azure Cognitive Search que conserva la salida de una canalización de aptitudes cognitivas para su procesamiento o análisis posteriores. 
 
-Una canalización acepta imágenes y texto no estructurado como contenido sin procesar, aplica inteligencia artificial mediante Cognitive Services (como el procesamiento de imágenes y de lenguaje natural) y crea contenido enriquecido (nuevas estructuras e información) como salida. Uno de los artefactos físicos creados por una canalización es un [almacén de conocimiento](knowledge-store-concept-intro.md), al que se puede acceder mediante herramientas para analizar y explorar el contenido.
+Una canalización acepta imágenes y texto no estructurado como contenido sin procesar, aplica inteligencia artificial mediante Cognitive Services (como OCR, análisis de imágenes y procesamiento de lenguaje natural), extrae información y genera nuevas estructuras e información. Uno de los artefactos físicos creados por una canalización es un [almacén de conocimiento](knowledge-store-concept-intro.md), al que se puede acceder mediante herramientas para analizar y explorar el contenido.
 
-En este inicio rápido, combinará servicios y datos en la nube de Azure para crear un almacén de conocimiento. Una vez que todo esté en su lugar, ejecutará el **Asistente para la importación de datos** en el portal para extraerlo todo junto. El resultado final es el contenido generado por inteligencia artificial más original que puede ver en el portal ([Explorador de Storage](knowledge-store-view-storage-explorer.md)).
+En este inicio rápido, combinará servicios y datos en la nube de Azure para crear un almacén de conocimiento. Una vez que todo esté en su lugar, ejecutará el **Asistente para la importación de datos** en el portal para extraerlo todo junto. El resultado final es el contenido de texto original más el generado por inteligencia artificial que puede ver en el portal ([Explorador de Storage](knowledge-store-view-storage-explorer.md)).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -38,13 +38,9 @@ Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en
 
 1. [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) o [busque una](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) en su suscripción actual. Usará Azure Storage tanto para el contenido sin procesar que se va a importar como para el almacén de información que es el resultado final.
 
-   Hay dos requisitos para esta cuenta:
+   Elija el tipo de cuenta **StorageV2 (uso general V2)** .
 
-   + Elija la misma región de Azure Cognitive Search. 
-   
-   + Elija el tipo de cuenta StorageV2 (uso general V2). 
-
-1. Abra las páginas de Blob service y cree un contenedor.  
+1. Abra las páginas de Blob service y cree un contenedor denominado *hotel-reviews*.
 
 1. Haga clic en **Cargar**.
 
@@ -54,13 +50,13 @@ Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en
 
     ![Creación del contenedor de Azure Blob Storage](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Creación del contenedor de Azure Blob Storage")
 
-<!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. Get a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
+1. Casi ha terminado con este recurso, pero, antes de dejar estas páginas, use un vínculo en el panel de navegación izquierdo para abrir la página **Claves de acceso**. Obtiene una cadena de conexión para recuperar datos de Blob Storage. La cadena de conexión es similar a la del ejemplo siguiente: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
-1. [Cree un servicio de Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). Puede usar un servicio gratuito para este inicio rápido.
+1. Todavía en el portal, cambie a Azure Cognitive Search. [Cree un servicio](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). Puede usar un servicio gratuito para este inicio rápido.
 
 Ahora ya está preparado para continuar con el Asistente para la importación de datos.
 
-## <a name="run-the-import-data-wizard"></a>Ejecución del Asistente para la importación de datos
+## <a name="run-the-import-data-wizard"></a>Ejecutar el Asistente para la importación de datos
 
 En la página de información general del servicio de búsqueda, haga clic en **Importar datos** en la barra de comandos para crear un almacén de información en cuatro pasos.
 
@@ -71,17 +67,18 @@ En la página de información general del servicio de búsqueda, haga clic en **
 1. En **Conectarse a los datos**, elija **Azure Blob Storage** y seleccione la cuenta y el contenedor que creó. 
 1. En **Nombre**, escriba `hotel-reviews-ds`.
 1. En **Modo de análisis**, seleccione **Texto delimitado** y, a continuación, active la casilla **La primera línea contiene encabezado**. Asegúrese de que el **Carácter delimitador** es una coma (,).
-1. Escriba la **Cadena de conexión** del servicio de almacenamiento que guardó en un paso anterior.
-1. En **Nombre de contenedor**, escriba `hotel-reviews`.
-1. Haga clic en **Siguiente: Agregue el enriquecimiento con IA (opcional)** .
+1. En **Cadena de conexión**, pegue la cadena de conexión que ha copiado de la página **Claves de acceso** en Azure Storage.
+1. En **Contenedores**, escriba el nombre del contenedor de blobs que contiene los datos.
 
-      ![Creación de un objeto de origen de datos](media/knowledge-store-create-portal/hotel-reviews-ds.png "Creación de un objeto de origen de datos")
+    La página debe tener un aspecto similar a la siguiente captura de pantalla.
+
+    ![Creación de un objeto de origen de datos](media/knowledge-store-create-portal/hotel-reviews-ds.png "Creación de un objeto de origen de datos")
 
 1. Continúe en la siguiente página.
 
 ### <a name="step-2-add-cognitive-skills"></a>Paso 2: Agregar conocimientos cognitivos
 
-En este paso del asistente, creará un conjunto de aptitudes con enriquecimientos de aptitudes cognitivas. Las aptitudes que usamos en este ejemplo extraerán las frases clave y detectarán el idioma y la opinión. En un paso posterior, estos enriquecimientos se "proyectarán" en un almacén de conocimiento como tablas de Azure.
+En este paso del asistente, creará un conjunto de aptitudes con enriquecimientos de aptitudes cognitivas. Los datos de origen se componen de revisiones de clientes en varios idiomas. Las aptitudes pertinentes para este conjunto de datos incluyen la extracción de frases clave, la detección de opiniones y la traducción de texto. En un paso posterior, estos enriquecimientos se "proyectarán" en un almacén de conocimiento como tablas de Azure.
 
 1. Expanda **Adjuntar Cognitive Services**. De forma predeterminada, está seleccionada la opción **Gratis (enriquecimientos limitados)** . Puede usar este recurso porque el número de registros de HotelReviews-Free.csv es 19 y este recurso gratuito permite hasta 20 transacciones al día.
 1. Expanda **Agregar conocimientos cognitivos**.
@@ -90,7 +87,7 @@ En este paso del asistente, creará un conjunto de aptitudes con enriquecimiento
 1. En **Nivel de granularidad de enriquecimiento**, seleccione **Páginas (fragmentos de 5 000 caracteres)** .
 1. Seleccione estas aptitudes cognitivas:
     + **Extracción de frases clave**
-    + **Detección de idioma**
+    + **Traducir texto**
     + **Detección de opiniones**
 
       ![Creación de un conjunto de aptitudes](media/knowledge-store-create-portal/hotel-reviews-ss.png "Creación de un conjunto de aptitudes")
@@ -104,6 +101,8 @@ En este paso del asistente, creará un conjunto de aptitudes con enriquecimiento
 
     ![Configuración del almacén de conocimiento](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configuración del almacén de conocimiento")
 
+1. Opcionalmente, descargue una plantilla de Power BI. Al tener acceso a la plantilla desde el asistente, el archivo .pbit local se adapta para reflejar la forma de los datos.
+
 1. Continúe en la siguiente página.
 
 ### <a name="step-3-configure-the-index"></a>Paso 3: Configuración del índice
@@ -111,10 +110,7 @@ En este paso del asistente, creará un conjunto de aptitudes con enriquecimiento
 En este paso del asistente, configurará un índice para las consultas de búsqueda de texto completo opcionales. El asistente examinará el origen de datos para deducir los campos y los tipos de datos. Solo tiene que seleccionar los atributos para el comportamiento deseado. Por ejemplo, el atributo **Retrievable** permitirá que el servicio de búsqueda devuelva un valor de campo, mientras que **Searchable** habilitará la búsqueda de texto completo en el campo.
 
 1. En **Nombre de índice**, escriba `hotel-reviews-idx`.
-1. En los atributos, realice estas selecciones:
-    + Seleccione **Retrievable** para todos los campos.
-    + Seleccione **Filterable** y **Facetable** para estos campos: *Sentiment*, *Language* y *Keyphrases*
-    + Seleccione **Searchable** para estos campos: *city*, *name*, *reviews_text*, *language* y *Keyphrases*.
+1. En el caso de los atributos, acepte las selecciones predeterminadas: **Retrievable** (Recuperable) y **Searchable** (Permite búsquedas) para los nuevos campos que crea la canalización.
 
     El índice debe tener un aspecto similar al de la siguiente imagen. Dado que la lista es larga, no todos los campos están visibles en la imagen.
 

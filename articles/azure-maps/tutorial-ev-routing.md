@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 0f5964472b738bd3868bbf361b85fa4ad1f13b5c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 7039cd73263388f206075a53d7898e0d15da6b03
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109609"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613693"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python)
 
@@ -35,13 +35,15 @@ En este tutorial, aprenderá lo siguiente:
 > * Búsqueda y visualización de la ruta a la estación de carga de vehículos eléctricos más cercana en función del tiempo de conducción.
 
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerequisites 
 
 Para realizar este tutorial, primero debe crear una cuenta de Azure Maps y obtener la clave principal (clave de suscripción). 
 
-Para crear una suscripción de cuenta de Azure Maps en el plan de tarifa S1, siga las instrucciones de [Administración de la cuenta de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account). 
+Para crear una suscripción a una cuenta de Azure Maps en el plan de tarifa S1, siga las instrucciones de [Crear una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps). 
 
-Para obtener la clave de suscripción principal de su cuenta, siga las instrucciones que se indican en [Creación de una cuenta y obtención de la clave](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-and-get-your-key).
+Para obtener la clave de suscripción principal de la cuenta, siga las instrucciones de [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+
+Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
 
 ## <a name="create-an-azure-notebook"></a>Creación de un cuaderno de Azure
 
@@ -111,7 +113,7 @@ Dado que la compañía prefiere el uso de rutas equilibradas por economía y vel
 Para determinar los límites del intervalo de alcance del vehículo eléctrico, ejecute el script de la siguiente celda:
 
 ```python
-subscriptionKey = "Your Azure Maps primary subscription key"
+subscriptionKey = "Your Azure Maps key"
 currentLocation = [34.028115,-118.5184279]
 session = aiohttp.ClientSession()
 
@@ -398,6 +400,6 @@ Para explorar las API de Azure Maps que se usan en este tutorial, consulte:
 * [Post Route Matrix](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Get Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
 
-Para obtener una lista completa de las API REST de Azure Maps, consulte [API REST de Azure Maps](https://docs.microsoft.com/azure/azure-maps/#reference).
+Para obtener una lista completa de las API REST de Azure Maps, consulte [API REST de Azure Maps](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
 Para más información sobre Azure Notebooks, consulte [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).

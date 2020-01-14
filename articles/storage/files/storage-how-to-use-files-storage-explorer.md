@@ -1,5 +1,5 @@
 ---
-title: Guía de inicio rápido para administrar recursos compartidos de archivos de Azure mediante el Explorador de Azure Storage
+title: Administración de recursos compartidos de archivos de Azure mediante el Explorador de Azure Storage
 description: Use esta guía de inicio rápido para aprender a usar el Explorador de Azure Storage para administrar Azure Files.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b034b3e7aa5fcb61cf83565f3e4c3b1c83f3610c
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 0bf66baba1b665c92a11d7bda91dcaa3e355dd96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699465"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431822"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Inicio rápido: Creación y administración de recursos compartidos de archivos de Azure con el Explorador de Azure Storage
 En esta guía se describen los conceptos básicos sobre cómo trabajar con [recursos compartidos de archivos de Azure](storage-files-introduction.md) mediante el Explorador de Azure Storage. Los recursos compartidos de archivos de Azure son iguales a otros recursos compartidos de archivos, pero se almacenan en la nube y están respaldados por la plataforma Azure. Los recursos compartidos de archivos de Azure admiten el protocolo SMB estándar del sector y permiten el uso compartido entre varias máquinas, aplicaciones e instancias. 
@@ -21,7 +21,7 @@ El Explorador de Azure Storage es una herramienta de cliente conocida que está 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Esta guía de inicio rápido requiere que esté instalado el Explorador de Storage. Para su descarga e instalación, vaya a [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
@@ -56,7 +56,7 @@ Después de crear el recurso compartido de archivos, se abre una pestaña para e
 ## <a name="use-your-azure-file-share"></a>Uso de un recurso compartido de archivos de Azure
 Ahora que ha creado un recurso compartido de archivos de Azure, puede montarlo con SMB en [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) o [macOS](storage-how-to-use-files-mac.md). Como alternativa, puede trabajar con el recurso compartido de archivos de Azure con el Explorador de Azure Storage. La ventaja de usar el Explorador de Azure Storage en lugar de montar el recurso compartido de archivos mediante SMB es que todas las solicitudes que se realizan con dicho explorador usan la API REST de Azure Files. Puede utilizar la API REST de Azure Files para crear, modificar y eliminar archivos y directorios en los clientes que no tienen acceso mediante SMB.
 
-### <a name="create-a-directory"></a>Creación de directorios
+### <a name="create-a-directory"></a>Creación de un directorio
 Al agregar un directorio se proporciona una estructura jerárquica para administrar el recurso compartido de archivos. Puede crear varios niveles en el directorio. Debe asegurarse de que existen los directorios primarios antes de crear un subdirectorio. Por ejemplo, para la ruta de acceso myDirectory/mySubDirectory, primero debe crear el directorio *myDirectory*. A continuación, puede crear *mySubDirectory*. 
 
 1. En la pestaña del recurso compartido de archivos, en el menú superior, seleccione el botón **New Folder** (Nueva carpeta). Se abre el panel **Create New Directory** (Crear nuevo directorio).

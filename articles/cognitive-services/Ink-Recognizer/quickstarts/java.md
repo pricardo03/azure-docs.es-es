@@ -1,21 +1,21 @@
 ---
 title: 'Inicio rápido: Reconocimiento de la entrada de lápiz digital con la API REST Ink Recognizer y Java'
 titleSuffix: Azure Cognitive Services
-description: Use la API Ink Recognizer para comenzar a reconocer los trazos de entrada de lápiz digital.
+description: Use la API Ink Recognizer para comenzar a reconocer los trazos de entrada de lápiz digital en este inicio rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 09/23/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: e8cd6a4acbd1492bba1c9e88b523a7c44a44f009
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: d2cd4e56477ea39587ce318538c9ddd84c51b03b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996847"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448120"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Inicio rápido: Reconocimiento de la entrada de lápiz digital con la API REST Ink Recognizer y Java
 
@@ -29,7 +29,7 @@ Normalmente se llamaría a la API desde una aplicación de entrada de lápiz dig
 
 El código fuente de este inicio rápido está disponible en [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Kit de desarrollo de [Java&trade; (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) o superior.
 
@@ -71,7 +71,7 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
 
 ## <a name="send-an-ink-recognition-request"></a>Envío de una solicitud de reconocimiento de entada de lápiz
 
-Cree un método llamado `recognizeInk()` para reconocer los datos de trazo de la entrada de lápiz. Llame al método `sendRequest()` creado anteriormente con el punto de conexión, la dirección URL, la clave de suscripción y los datos JSON. Obtenga el resultado e imprímalo en la consola.
+Cree un método llamado `recognizeInk()` para reconocer los datos de trazo de la entrada de lápiz. Llame al método `sendRequest()` creado anteriormente con el punto de conexión, dirección URL, la clave de suscripción y datos JSON. Obtenga el resultado e imprímalo en la consola.
 
 [!code-java[recognizeInk](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=recognizeInk)]
 

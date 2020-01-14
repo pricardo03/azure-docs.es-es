@@ -1,5 +1,5 @@
 ---
-title: Ahorro de costos de los cargos de SQL Data Warehouse con la capacidad reservada de Azure
+title: Ahorro en los cargos de SQL Data Warehouse con la capacidad reservada de Azure
 description: Obtenga información de cómo ahorrar costos en los cargos de SQL Data Warehouse con la capacidad reservada para ahorrar dinero.
 services: billing
 author: yashesvi
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 75e008a6a19baacec40a809530e3a1f624a33f2b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f6a6b37a8250fd794e7810f7da5a567e14c8bc20
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223622"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388727"
 ---
 # <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Ahorro de costos de los cargos de SQL Data Warehouse con la capacidad reservada
 
@@ -30,7 +30,7 @@ Para más información sobre precios, consulte la [oferta de capacidad reservada
 Puede comprar capacidad reservada de Azure SQL Data Warehouse en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Pague la reserva [por adelantado o mensualmente](billing-monthly-payments-reservations.md). Para adquirir capacidad reservada:
 
 - Debe tener rol de propietario al menos en una suscripción Enterprise o de Pago por uso.
-- En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal del Contrato Enterprise](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador del Contrato Enterprise.
+- En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador del Contrato Enterprise.
 - En el caso del programa del Proveedor de soluciones en la nube (CSP), los únicos que pueden comprar la capacidad reservada de SQL Data Warehouse son los agentes de administración o de ventas.
 
 Para más información sobre cómo se les cobra a los clientes de empresa y a los de pago por uso las compras de reservas, consulte [Información sobre el uso de reservas de Azure para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md) y [Información sobre el uso de reservas de Azure para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md).
@@ -43,7 +43,7 @@ Por ejemplo, suponga que el consumo total de SQL Data Warehouse es DW3000c. Dese
 
 ## <a name="buy-sql-data-warehouse-reserved-capacity"></a>Compra de capacidad reservada de SQL Data Warehouse
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Seleccione **Todos los servicios** > **Reservations**.
 3. Seleccione una suscripción. Utilice la lista de suscripciones para elegir la que se va a usar para pagar la capacidad reservada. Los costos de la capacidad reservada se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P).
    - Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite.
@@ -51,7 +51,7 @@ Por ejemplo, suponga que el consumo total de SQL Data Warehouse es DW3000c. Dese
 4. Seleccione un ámbito. Utilice la lista de ámbitos para elegir el ámbito de la suscripción.
    - **Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.
    - **Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.
-   - **Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de cuenta.
+   - **Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.
    - Para los clientes empresariales, el contexto de facturación es la inscripción en el Contrato Enterprise.
    - Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.
 5. Seleccione una región para elegir una región de Azure que abarca la capacidad reservada.

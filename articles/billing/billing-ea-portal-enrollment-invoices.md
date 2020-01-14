@@ -4,16 +4,16 @@ description: En este artículo se explica cómo administrar y actuar en su factu
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 15c2e84742ff0f552c688ccf1ba795f742e288ca
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d6faf56554d666ce29b68ba90bb920b4e6c56c30
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849894"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644569"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Facturas de inscripciones de Azure Enterprise
 
@@ -22,8 +22,6 @@ En este artículo se explica cómo administrar y actuar en su factura de Azure E
 ## <a name="change-a-po-number-for-an-overage-invoice"></a>Cambio de un número de pedido de compra para una factura de uso por encima del límite
 
 El portal del Contrato Enterprise de Azure genera automáticamente un número de pedido de compra predeterminado, a menos que el administrador del Contrato Enterprise establezca uno antes de la fecha de la factura. Un administrador del Contrato Enterprise puede actualizar el número de pedido de compra hasta siete días después de recibir un correo electrónico de notificación de factura automática.
-
-También se puede especificar un número de pedido de compra para una cuenta o suscripción concreta. Los informes tendrán como valor predeterminado el número de pedido de compra más bajo establecido en la jerarquía, lo que significa que si no se especifica ningún número de pedido de compra de suscripción, se usará el número de pedido de compra de la cuenta y, si no se especifica ningún pedido de compra de cuenta, se utilizará el pedido de compra del departamento.
 
 ### <a name="to-update-the-azure-services-purchase-order-number"></a>Para actualizar el número de pedido de compra de los servicios de Azure:
 
@@ -419,7 +417,7 @@ En el caso de los servicios en los que la zona y la región afectan a los precio
 | Zona 2 | Este de Asia Pacífico <br> Sudeste de Asia Pacífico <br> Este de Japón <br> Oeste de Japón <br> Este de Australia <br> Sudeste de Australia | Asia Pacífico <br> Japón <br> América Latina <br> Oriente Medio y África <br> Este de Australia <br> Sudeste de Australia |
 | Zona 3 | Sur de Brasil |   |
 
-**Tabla**  **4**  **– Regiones de transferencia de datos**
+**Tabla** **4**  **: Regiones de transferencia de datos**
 
 No hay cargos por la salida de datos entre servicios (por ejemplo, O365 y Azure) hospedados en el mismo centro de datos.
 
@@ -554,12 +552,12 @@ Algunas ofertas específicas de Azure Marketplace pueden usar fondos de un compr
 
 Para más información, consulte estas fuentes adicionales. Estos archivos se actualizan dos veces al mes, los días 6 y 20. Los detalles de cada archivo son los siguientes:
 
-| Título del apéndice | DESCRIPCIÓN | Convención de nomenclatura de URL |
+| Título del apéndice | Descripción | Convención de nomenclatura de URL |
 | --- | --- | --- |
 | [**Nombres descriptivos de servicios**](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Proporciona una lista de todos los servicios activos con la categoría de servicio, el nombre descriptivo del servicio, el nombre del compromiso y el número de artículo, el nombre de consumo y el número de artículo, las unidades de medida y los factores de conversión entre el uso indicado y el uso mostrado en Enterprise Portal. | Friendly\_Service\_Names.xlsx |
 | [**Campos de descarga de servicio**](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Esta hoja de cálculo proporciona una lista de todas las posibles combinaciones de campos relacionados con el servicio del informe de descarga de uso. | Service\_Download\_Fields.xlsx |
 
-**Tabla**  **5**  **– Fuentes de información adicionales**
+**Table** **5** **: Fuentes de información adicionales**
 
 ## <a name="power-bi-reporting"></a>Informes de Power BI
 

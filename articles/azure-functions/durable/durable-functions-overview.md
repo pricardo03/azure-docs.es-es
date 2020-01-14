@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 684c067f393b1f6037e67d3b49a861341f3353c8
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 24738e4d6a9f18bccdbc775fa20cccec222a85fb
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706119"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561633"
 ---
 # <a name="what-are-durable-functions"></a>¿Qué es Durable Functions?
 
@@ -48,7 +48,7 @@ En el modelo de encadenamiento de funciones, una secuencia de funciones se ejecu
 
 Puede utilizar Durable Functions para implementar el patrón de encadenamiento de funciones de forma concisa, como se muestra en el siguiente ejemplo.
 
-En este ejemplo, los valores `F1`, `F2`, `F3` y `F4` son los nombres de otras funciones en la aplicación de función. Puede implementar el flujo de control mediante construcciones de código imperativas normales. El código se ejecuta de arriba hacia abajo. y puede implicar semántica de flujo de control del lenguaje ya existente, como instrucciones condicionales y bucles. Puede incluir lógica de control de errores en bloques `try`/`catch`/`finally`.
+En este ejemplo, los valores `F1`, `F2`, `F3` y `F4` son los nombres de otras funciones de la aplicación de funciones. Puede implementar el flujo de control mediante construcciones de código imperativas normales. El código se ejecuta de arriba hacia abajo. y puede implicar semántica de flujo de control del lenguaje ya existente, como instrucciones condicionales y bucles. Puede incluir lógica de control de errores en bloques `try`/`catch`/`finally`.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -71,7 +71,7 @@ public static async Task<object> Run(
 }
 ```
 
-Puede usar el parámetro `context` para invocar otras funciones por nombre, pasar parámetros y devolver la salida de una función. Cada vez que el código llama a `await`, el marco de Durable Functions establece puntos de control del progreso de la instancia actual de la función. Si el proceso o la máquina virtual se recicla a mitad de la ejecución, la instancia de la función se reanuda desde la llamada a `await` anterior. Para obtener más información, consulte la siguiente sección, Patrón 2: Distribución ramificada de entrada y salida.
+Puede usar el parámetro `context` para invocar otras funciones por nombre, pasar parámetros y devolver la salida de una función. Cada vez que el código llama a `await`, el marco de Durable Functions establece puntos de control del progreso de la instancia actual de la función. Si el proceso o la máquina virtual se reciclan a mitad de la ejecución, la instancia de la función se reanuda desde la llamada a `await` anterior. Para obtener más información, consulte la siguiente sección, Patrón 2: Distribución ramificada de entrada y salida.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
@@ -353,7 +353,7 @@ Un cliente externo puede enviar la notificación de eventos a una función de or
 curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
 ```
 
-También se pueden generar eventos mediante el cliente de orquestación durable desde otra función:
+También se pueden generar eventos mediante el cliente de orquestación durable desde otra función de la misma aplicación de funciones:
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -507,7 +507,7 @@ Con el fin de proporcionar garantías de ejecución prolongada y confiable, las 
 
 ## <a name="billing"></a>Facturación
 
-Durable Functions se factura igual que Azure Functions. Para más información, consulte los [precios de Azure Functions](https://azure.microsoft.com/pricing/details/functions/). Al ejecutar funciones de orquestador en el [Plan de consumo](../functions-scale.md#consumption-plan) de Azure Functions, hay algunos comportamientos de facturación que deben tenerse en cuenta. Para más información acerca de estos comportamientos, consulte el artículo en el que se explica la [facturación de Durable Functions](durable-functions-billing.md).
+Durable Functions se factura igual que Azure Functions. Para más información, consulte los [precios de Azure Functions](https://azure.microsoft.com/pricing/details/functions/). Al ejecutar funciones de orquestador en el [plan de consumo](../functions-scale.md#consumption-plan) de Azure Functions, hay algunos comportamientos de facturación que deben tenerse en cuenta. Para más información acerca de estos comportamientos, consulte el artículo en el que se explica la [facturación de Durable Functions](durable-functions-billing.md).
 
 ## <a name="jump-right-in"></a>Comenzar de inmediato
 

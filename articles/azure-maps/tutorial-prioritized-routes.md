@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 07391633436931a8f7cc46c430387f5877d10674
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: cec7027ee0eadae2284e9aa2b127c195870ee929
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106708"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613642"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: Búsqueda de rutas para diferentes modos de desplazamiento mediante Azure Maps
 
@@ -26,9 +26,8 @@ En este tutorial se muestra cómo usar la cuenta de Azure Maps y servicio de rut
 > * Crear consultas de ruta que declaran el modo de desplazamiento
 > * Mostrar varias rutas en el mapa
 
-## <a name="prerequisites"></a>Requisitos previos
-
-Antes de continuar, siga las instrucciones de [Administrar cuentas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) para crear una suscripción de cuenta de Azure Maps con el plan de tarifa S1 y siga los pasos de [Obtención de la clave principal](./tutorial-search-location.md#getkey) para obtener la clave de suscripción principal de la cuenta.
+## <a name="prerequisites"></a>Prerequisites
+Antes de continuar, siga las instrucciones de [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) para crear una suscripción de cuenta de Azure Maps con el plan de tarifa S1 y siga los pasos de [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obtener la clave principal de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="create-a-new-map"></a>Creación de un nuevo mapa
 
@@ -275,7 +274,7 @@ En esta sección se explica cómo usar Route Service API de Maps para buscar var
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Crear una nueva página web con Map Control API
@@ -295,4 +294,4 @@ En el siguiente tutorial se muestra el proceso de creación de un localizador de
 > [Creación de un localizador de almacén mediante Azure Maps](./tutorial-create-store-locator.md)
 
 > [!div class="nextstepaction"]
-> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md) (Uso de expresiones de estilo controladas por datos)
+> [Uso de expresiones de estilo controladas por datos](data-driven-style-expressions-web-sdk.md)

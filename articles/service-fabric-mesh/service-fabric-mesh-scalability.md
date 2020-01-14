@@ -1,20 +1,16 @@
 ---
-title: Escalabilidad de aplicaciones en Azure Service Fabric Mesh | Microsoft Docs
+title: Escalabilidad de aplicaciones en Azure Service Fabric Mesh
 description: Una de las ventajas de implementar aplicaciones en Service Fabric Mesh es la capacidad de escalar fácilmente los servicios, ya sea manualmente o con directivas de escalado automático.
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 10/26/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 59fdf68ed1ead4665ec8944d67f2d5112d370716
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 474eda904df653d514fd2ee59fa046f1f87a66aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73662993"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459000"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Escalado de aplicaciones en Service Fabric Mesh
 

@@ -1,17 +1,17 @@
 ---
-title: 'Inicialización del hardware: Microsoft Azure FXT Edge Filer'
+title: 'Tutorial: Inicialización del hardware: Azure FXT Edge Filer'
 description: Establecimiento de una contraseña inicial en los nodos de Azure FXT Edge Filer
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: 080aa05af77b996bc0eb71287a3dfef25c24629a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8cb5f639deb0630575c46db30efe70ad967324a8
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256018"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550898"
 ---
 # <a name="tutorial-set-hardware-passwords"></a>Tutorial: Establecimiento de las contraseñas del hardware
 
@@ -34,7 +34,7 @@ Repita estos pasos con todos los nodos que vaya a utilizar en el clúster.
 
 Este tutorial se completa en unos 15 minutos. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar este tutorial, realice estos pasos: 
 

@@ -1,68 +1,84 @@
 ---
 title: 'Inicio rápido: Reconocimiento de voz, intenciones y entidades en Java: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 01/02/2020
+ms.topic: include
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 49aac37d298a1d2cd52e815ae6fa5e08e6cc80c2
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 420350f1fa119b53844a3c3f28405ced1c20fb91
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816176"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660549"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Antes de comenzar, compruebe lo siguiente:
+Antes de comenzar:
 
-> [!div class="checklist"]
->
-> * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
-> * [Ha creado una aplicación de Language Understanding LUIS y ha obtenido una clave de punto de conexión](../../../../quickstarts/create-luis.md)
-> * [Ha configurado el entorno de desarrollo](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Ha creado un proyecto de ejemplo vacío](../../../../quickstarts/create-project.md?tabs=jre)
+* Si este es su primer proyecto en Java (JRE), use esta guía para <a href="../quickstarts/create-project.md?tabs=jre" target="_blank">crear un proyecto de ejemplo vacío</a>.
+* <a href="../quickstarts/setup-platform.md?tabs=jre" target="_blank">Instale el SDK de Voz de su entorno de desarrollo</a>.
+
+## <a name="create-a-luis-app-for-intent-recognition"></a>Creación de una aplicación de LUIS para el reconocimiento de la intención
+
+[!INCLUDE [Create a LUIS app for intent recognition](../luis-sign-up.md)]
 
 ## <a name="open-your-project"></a>Apertura del proyecto
 
-Cargue el proyecto y abra `Main.java`.
+1. Abra el entorno de desarrollo integrado que prefiera.
+2. Cargue el proyecto y abra `Main.java`.
 
 ## <a name="start-with-some-boilerplate-code"></a>Inicio con código reutilizable
 
 Vamos a agregar código que funcione como el esqueleto del proyecto.
+
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-20,69-76)]
 
 ## <a name="create-a-speech-configuration"></a>Creación de una configuración de Voz
 
-Antes de inicializar un objeto `IntentRecognizer`, debe crear una configuración que use la clave y la región del punto de conexión de LUIS. Inserte este código en el bloque try/catch en Main.
+Para poder inicializar un objeto `IntentRecognizer`, es preciso crear una configuración que use la clave y ubicación del recurso de predicción de LUIS.  
 
-En este ejemplo se usa el método `FromSubscription()` para compilar la clase `SpeechConfig`. Para ver una lista completa de los métodos disponibles, consulte [Clase SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
-El SDK de Voz se usará de forma predeterminada para reconocer el uso de en-us como idioma. Para más información sobre cómo elegir el idioma de origen, consulte [Especificación del idioma de origen para la conversión de voz a texto](../../../../how-to-specify-source-language.md).
+Inserte este código en el bloque try/catch en `main()`. Asegúrese de actualizar estos valores:
 
-> [!NOTE]
-> Es importante usar la clave del punto de conexión de LUIS y no las claves de inicio o creación, ya que solo la clave del punto de conexión es válida para el reconocimiento de la conversión de voz en intención. Consulte [Creación de una aplicación de LUIS y obtención de una clave de punto de conexión](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) para instrucciones sobre cómo conseguir la clave correcta.
+* Reemplace `"YourLanguageUnderstandingSubscriptionKey"` por la clave de predicción de LUIS. 
+* Reemplace `"YourLanguageUnderstandingServiceRegion"` por la ubicación de LUIS. 
+
+>[!TIP]
+> Si necesita ayuda para encontrar estos valores, consulte [Creación de una aplicación de LUIS para el reconocimiento de la intención](#create-a-luis-app-for-intent-recognition).
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
+
+En este ejemplo se usa el método `FromSubscription()` para compilar la clase `SpeechConfig`. Para ver una lista completa de los métodos disponibles, consulte [Clase SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+
+El SDK de Voz se usará de forma predeterminada para reconocer el uso de en-us como idioma. Para más información sobre cómo elegir el idioma de origen, consulte [Especificación del idioma de origen para la conversión de voz a texto](../../../../how-to-specify-source-language.md).
 
 ## <a name="initialize-an-intentrecognizer"></a>Inicialización de IntentRecognizer
 
 Ahora, vamos a crear un objeto `IntentRecognizer`. Inserte este código justo debajo de la configuración de Voz.
+
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=30)]
 
 ## <a name="add-a-languageunderstandingmodel-and-intents"></a>Adición de un objeto LanguageUnderstandingModel e intenciones
 
-Ahora debe asociar un objeto `LanguageUnderstandingModel` con el reconocedor de intenciones y agregar las intenciones que quiera que se reconozcan.
+Debe asociar un objeto `LanguageUnderstandingModel` con el reconocedor de intenciones y agregar las intenciones que desee que se reconozcan. Vamos a usar las intenciones del dominio precompilado para la automatización doméstica. 
+
+Inserte este código debajo de `IntentRecognizer`. Asegúrese de reemplazar `"YourLanguageUnderstandingAppId"` por el identificador de la aplicación de LUIS. 
+
+>[!TIP]
+> Si necesita ayuda para encontrar este valor, consulte [Creación de una aplicación de LUIS para el reconocimiento de la intención](#create-a-luis-app-for-intent-recognition).
+
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=33-36)]
 
 ## <a name="recognize-an-intent"></a>Reconocimiento de una intención
 
 En el objeto `IntentRecognizer`, va a llamar al método `recognizeOnceAsync()`. Este método permite que el servicio Voz sepa que solo va a enviar una frase para el reconocimiento y que, una vez que se identifica la frase, se detendrá el reconocimiento de voz.
+
+Inserte este código debajo del modelo:
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=41)]
 
@@ -70,16 +86,22 @@ En el objeto `IntentRecognizer`, va a llamar al método `recognizeOnceAsync()`. 
 
 Cuando el servicio Voz devuelva el resultado del reconocimiento, querrá hacer algo con él. Vamos a hacer algo tan sencillo como imprimir el resultado en la consola.
 
-Debajo de la llamada a `recognizeOnceAsync()`, agregue este código: [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=44-65)]
+Inserte este código debajo de la llamada a `recognizeOnceAsync()`: [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=44-65)]
 
 ## <a name="release-resources"></a>Liberación de recursos
 
-Es importante liberar los recursos de voz cuando haya terminado de usarlos. Inserte este código al final del bloque try/catch: [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=67-68)]
+Es importante liberar los recursos de voz cuando haya terminado de usarlos. Inserte este código al final del bloque try/catch:
+
+[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=67-68)]
 
 ## <a name="check-your-code"></a>Comprobación del código
 
 En este momento, el código debe tener esta apariencia:  
-(Se han agregado algunos comentarios a esta versión) [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-76)]
+
+> [!NOTE]
+> Se han agregado algunos comentarios a esta versión.
+
+[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-76)]
 
 ## <a name="build-and-run-your-app"></a>Compilación y ejecución de la aplicación
 

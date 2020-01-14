@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Revisión de expresiones de punto de conexión: LUIS'
 titleSuffix: Azure Cognitive Services
-description: Mejore las predicciones de aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTP de LUIS de las que LUIS no está seguro. Algunas expresiones puede que se comprueben para la intención y otras puede que necesiten comprobarse para la entidad.
+description: En este tutorial, va a mejorar las predicciones de las aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTPS de LUIS de las que LUIS no está seguro. Algunas expresiones puede que se comprueben para la intención y otras puede que necesiten comprobarse para la entidad.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 0a4d2a3345ce4f69d4492d1a782b778b1ee3bf4c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3cecf334189989574e82772205c7d32298240867
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895662"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447815"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrección de predicciones poco seguras mediante la revisión de las expresiones del punto de conexión
 En este tutorial, va a mejorar las predicciones de las aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTPS de LUIS de las que LUIS no está seguro. Debe revisar las expresiones de punto de conexión como una parte convencional del mantenimiento programado de LUIS.
@@ -28,8 +28,6 @@ Este proceso de revisión permite que LUIS aprenda el dominio de aplicación. LU
 * Debe revisarse periódicamente.
 
 Al revisar las expresiones de punto de conexión, debe comprobar o corregir la intención pronosticada de la expresión.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **En este tutorial, aprenderá a:**
 
@@ -46,7 +44,7 @@ Al revisar las expresiones de punto de conexión, debe comprobar o corregir la i
 
 Siga estos pasos para importar una aplicación.
 
-1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
 1. En el [portal de LUIS (versión preliminar)](https://preview.luis-ai), importe el archivo .json en una nueva aplicación.
 

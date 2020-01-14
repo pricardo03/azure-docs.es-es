@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 01/02/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7d4a400681113736c52046fb6aa5c04098ddda
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: fe08f1523b4b61653d89a9b3472355dd3eeaf69f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893236"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640115"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smartdraw"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SmartDraw
 
@@ -33,7 +32,7 @@ En este tutorial, obtendrá información sobre cómo integrar SmartDraw con Azur
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para empezar, necesita los siguientes elementos:
 
@@ -44,13 +43,8 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-
-
 * SmartDraw admite el inicio de sesión único iniciado tanto por **SP como por IDP**
 * SmartDraw admite el aprovisionamiento de usuarios **Just-In-Time**
-
-> [!NOTE]
-> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
 ## <a name="adding-smartdraw-from-the-gallery"></a>Incorporación de SmartDraw desde la galería
 
@@ -63,7 +57,6 @@ Para configurar la integración de SmartDraw en Azure AD, es preciso agregar Sma
 1. En la sección **Agregar desde la galería**, escriba **SmartDraw** en el cuadro de búsqueda.
 1. Seleccione **SmartDraw** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-smartdraw"></a>Configuración y prueba del inicio de sesión único de Azure AD para SmartDraw
 
 Configure y pruebe el inicio de sesión único de Azure AD con SmartDraw mediante un usuario de prueba llamado **B.Simon**. Para que el SSO funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de SmartDraw.
@@ -71,10 +64,10 @@ Configure y pruebe el inicio de sesión único de Azure AD con SmartDraw median
 Para configurar y probar el inicio de sesión único de Azure AD con SmartDraw, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en SmartDraw](#configure-smartdraw-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de SmartDraw](#create-smartdraw-test-user)** : para tener un homólogo de B.Simon en SmartDraw que esté vinculado a la representación del usuario en Azure AD.
+    * **[Creación de un usuario de prueba de SmartDraw](#create-smartdraw-test-user)** : para tener un homólogo de B.Simon en SmartDraw que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -87,7 +80,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección  **Configuración básica de SAML** , la aplicación está preconfigurada en el modo iniciado por  **IDP**  y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón  **Guardar** .
+1. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
@@ -96,13 +89,15 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > El valor de la dirección URL de inicio de sesión no es real. El valor de la dirección URL de inicio de sesión se actualizará con el real, lo que se explica más adelante en el tutorial. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
+1. Haga clic en **Save**(Guardar).
+
 1. La aplicación SmartDraw espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
-    ![imagen](common/edit-attribute.png)
+    ![imagen](common/default-attributes.png)
 
 1. Además de lo anterior, la aplicación SmartDraw espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
-    | NOMBRE | Atributo de origen|
+    | Nombre | Atributo de origen|
     | ---------------| --------------- |
     | Nombre | user.givenname |
     | Apellidos | user.surname |
@@ -117,7 +112,6 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -128,7 +122,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -150,20 +144,28 @@ En esta sección va a permitir que B.Simon acceda a SmartDraw mediante el inicio
 
 ## <a name="configure-smartdraw-sso"></a>Configuración del inicio de sesión único de SmartDraw
 
-1. En otra ventana del explorador web, inicie sesión en SmartDraw como administrador.
+1. Para automatizar la configuración en SmartDraw, debe instalar la **extensión del explorador de inicio de sesión seguro de Mis aplicaciones**; para ello, haga clic en **Instalar la aplicación**.
 
-2. Haga clic en **Inicio de sesión único** en Manage your SmartDraw License (Administrar su licencia de SmartDraw).
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+1. Después de agregar la extensión al explorador, haga clic en **Configurar SmartDraw** para ir a la aplicación SmartDraw. Desde allí, proporcione las credenciales del administrador para iniciar sesión en SmartDraw. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 5.
+
+    ![Configuración](common/setup-sso.png)
+
+1. Si quiere configurar SmartDraw manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de SmartDraw como administrador y haga lo siguiente:
+
+1. Haga clic en **Inicio de sesión único** en Manage your SmartDraw License (Administrar su licencia de SmartDraw).
 
     ![Configuración de SmartDraw](./media/smartdraw-tutorial/configure01.png)
 
-3. En la página Configuración, siga estos pasos:
+1. En la página Configuración, siga estos pasos:
 
     ![Configuración de SmartDraw](./media/smartdraw-tutorial/configure02.png)
 
     a. En el cuadro de texto **Su dominio (como acme.com)** , escriba el dominio.
 
     b. Copie el valor de **Your SP Initiated Login Url will be** (Su dirección URL de inicio de sesión iniciado por SP será) de la instancia y péguelo en el cuadro de texto Sign-on URL (Dirección URL de inicio de sesión) en **Configuración básica de SAML** en Azure Portal.
-    
+
     c. En el cuadro de texto **Security Groups to Allow SmartDraw Access** (Grupos de seguridad para permitir el acceso a SmartDraw), escriba **Everyone** (Todos).
 
     d. En el cuadro de texto **Your SAML Issuer URL** (Dirección URL del emisor de SAML), pegue el valor del **identificador de Azure AD** que ha copiado de Azure Portal.
@@ -174,9 +176,9 @@ En esta sección va a permitir que B.Simon acceda a SmartDraw mediante el inicio
 
 ### <a name="create-smartdraw-test-user"></a>Creación de usuario de prueba de SmartDraw
 
-En esta sección, se crea un usuario llamado a Britta Simon en SmartDraw. SmartDraw admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe en SmartDraw, se crea otro después de la autenticación.
+En esta sección, se crea un usuario llamado B.Simon en SmartDraw. SmartDraw admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe en SmartDraw, se crea otro después de la autenticación.
 
-## <a name="test-sso"></a>Prueba de SSO 
+## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
@@ -191,4 +193,3 @@ Al hacer clic en el icono de SmartDraw en el Panel de acceso, debería iniciar s
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prueba de SmartDraw con Azure AD](https://aad.portal.azure.com/)
-

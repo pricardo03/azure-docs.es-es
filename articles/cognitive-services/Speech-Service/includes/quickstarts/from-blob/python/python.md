@@ -7,18 +7,18 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9223fa484d45b927059c73e23e0607526e70fae4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 2f06d0015bd80b37407df28045d4ced4a128e47e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828970"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466736"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, compruebe lo siguiente:
 
@@ -34,7 +34,7 @@ Para ejecutar el ejemplo, debe generar la biblioteca de Python para la API REST 
 
 Siga estos pasos para la instalación:
 
-1. Vaya a https://editor.swagger.io.
+1. Ir a https://editor.swagger.io.
 1. Haga clic en **File** (Archivo) y, luego, en **Import URL** (URL de importación).
 1. Escriba la dirección URL de Swagger, incluida la región de la suscripción del servicio de voz: `https://<your-region>.cris.ai/docs/v2.0/swagger`.
 1. Haga clic en **Generate Client** (Generar cliente) y seleccione **Python**.
@@ -71,7 +71,7 @@ Vamos a agregar código que funcione como el esqueleto del proyecto.
 
 ## <a name="create-and-configure-an-http-client"></a>Creación y configuración de un cliente HTTP
 Lo primero que necesitamos es un cliente HTTP con una dirección URL base y un conjunto de autenticación correctos.
-Inserte este código en `transcribe` [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=37-45)].
+Inserte este código en `transcribe` [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=37-45)]
 
 ## <a name="generate-a-transcription-request"></a>Generación de una solicitud de transcripción
 A continuación, se generará la solicitud de transcripción. Agregue este código a `transcribe` [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=52-54)]

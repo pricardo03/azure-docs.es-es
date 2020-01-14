@@ -3,15 +3,15 @@ title: 'Depuración e iteración en Kubernetes: Visual Studio Code y Java'
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: Desarrollo rápido de Kubernetes con contenedores, microservicios y Java en Azure
+description: En este inicio rápido se muestra cómo usar Azure Dev Spaces y Visual Studio Code para depurar e iterar rápidamente una aplicación Java en Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Java, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 5f0f9991ae8718b60221c3f291b6169f677b59c5
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8050e7793146456894ce86ab89e1563c6282b8df
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325625"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438284"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>Inicio rápido: Depuración e iteración en Kubernetes con Visual Studio Code y Java: Azure Dev Spaces
 
@@ -26,9 +26,9 @@ Azure Dev Spaces también permite depurar e iterar mediante:
 - [.NET Core y Visual Studio Code](quickstart-netcore.md)
 - [.NET Core y Visual Studio](quickstart-netcore-visualstudio.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Una suscripción de Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
+- Suscripción a Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
 - [Tener Visual Studio Code instalado](https://code.visualstudio.com/download).
 - Tener las extensiones [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) y [Depurador de Java para Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) instaladas para Visual Studio Code.
 - [La CLI de Azure instalada](/cli/azure/install-azure-cli?view=azure-cli-latest).

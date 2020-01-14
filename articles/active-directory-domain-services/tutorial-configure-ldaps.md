@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 37ff89f6b837aaf0de5c195a89bb827464534d11
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a8028cf4ece79fc31969532a358cca993c7ab948
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703713"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549455"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configuración de LDAP seguro para un dominio administrado de Azure Active Directory Domain Services
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
@@ -40,7 +40,7 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
     * Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio en el entorno local o con un directorio solo en la nube.
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
-* Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
+* Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
     * Si es necesario, [cree y configure una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * La herramienta *LDP.exe* instalada en el equipo.
     * Si es necesario, [instale las Herramientas de administración remota del servidor (RSAT)][rsat] para *Active Directory Domain Services y LDAP*.
@@ -172,7 +172,7 @@ Ahora el archivo de certificado *.CER* se puede distribuir a los equipos cliente
 1. Elija **Seleccionar automáticamente el almacén de certificados según el tipo de certificado** y, después, seleccione **Siguiente**.
 1. En la página de revisión, seleccione **Finalizar** para importar el archivo de certificado *.CER*. Se muestra un cuadro de diálogo de confirmación cuando el certificado se ha importado correctamente.
 
-## <a name="enable-secure-ldap-for-azure-ad-ds"></a>Habilitación de LDAP seguro para Azure AD DS
+## <a name="enable-secure-ldap-for-azure-ad-ds"></a>Habilitar LDAP seguro para Azure AD DS
 
 Ahora que ya contamos con un certificado digital creado y exportado que incluye la clave privada y con el equipo cliente configurado para confiar en la conexión, es necesario habilitar LDAP seguro en el dominio administrado de Azure AD DS. Para habilitar LDAP seguro en un dominio administrado de Azure AD DS, lleve a cabo los siguientes pasos de configuración:
 
@@ -211,7 +211,7 @@ Crearemos una regla para permitir el acceso LDAP seguro de entrada a través del
 1. Se muestra la lista de reglas de seguridad de entrada y salida existentes. En el lado izquierdo de las ventanas del grupo de seguridad de red, elija **Configuración > Reglas de seguridad de entrada**.
 1. Seleccione **Agregar** y, a continuación, cree una regla para permitir el puerto *TCP* *636*. Para mejorar la seguridad, elija el origen como *Direcciones IP* y, después, especifique su propia dirección IP o el intervalo de direcciones IP válidas para la organización.
 
-    | Configuración                           | Valor        |
+    | Configuración                           | Value        |
     |-----------------------------------|--------------|
     | Source                            | Direcciones IP |
     | Intervalos de direcciones IP de origen y CIDR | Una dirección o un intervalo de direcciones IP válidas para el entorno |
@@ -219,9 +219,9 @@ Crearemos una regla para permitir el acceso LDAP seguro de entrada a través del
     | Destination                       | Any          |
     | Intervalos de puertos de destino           | 636          |
     | Protocolo                          | TCP          |
-    | .                            | Allow        |
+    | Acción                            | Allow        |
     | Priority                          | 401          |
-    | NOMBRE                              | AllowLDAPS   |
+    | Nombre                              | AllowLDAPS   |
 
 1. Cuando esté preparado, seleccione **Agregar** para guardar y aplicar la regla.
 
@@ -277,7 +277,7 @@ Si en este tutorial ha agregado una entrada DNS en el archivo de hosts local del
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Crear un certificado digital para su uso con Azure AD DS

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b56319579bc8766bbd8467296daf41e25fc31862
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 73104cc1bcd9266cbb9e5b1985dac4a4566f0a74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420524"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423116"
 ---
 # <a name="what-is-a-device-identity"></a>¿Qué es una identidad de dispositivo?
 
@@ -58,7 +58,10 @@ Los dispositivos de Azure AD pueden administrarse mediante herramientas de admi
 
 ## <a name="resource-access"></a>Acceso a los recursos
 
-El registro y la unión ofrecen a los usuarios Inicio de sesión único de conexión directa (SSO) a los recursos en la nube y a los administradores la capacidad de aplicar directivas de acceso condicional a esos recursos. 
+El registro y la unión de dispositivos a Azure AD proporciona a los usuarios un inicio de sesión único de conexión directa (SSO) a los recursos en la nube. Este proceso también proporciona a los administradores la capacidad de aplicar directivas de acceso condicional a los recursos en función del dispositivo desde el que se acceda a ellos. 
+
+> [!NOTE]
+> Las directivas de acceso condicional basadas en dispositivos requieren dispositivos híbridos unidos a Azure AD o unidos a Azure AD compatibles o dispositivos registrados de Azure AD.
 
 Los dispositivos que están unidos a Azure AD o híbridos unidos a Azure AD se benefician del Inicio de sesión único de conexión directa para los recursos locales de la organización, al igual que para los recursos en la nube. Para más información, consulte [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md) (Funcionamiento del inicio de sesión único en los recursos locales en dispositivos unidos a Azure AD).
 
@@ -66,7 +69,7 @@ Los dispositivos que están unidos a Azure AD o híbridos unidos a Azure AD se
 
 - Los **dispositivos registrados en Azure AD** utilizan una cuenta administrada por el usuario final; esta es una cuenta Microsoft o protegida localmente mediante la administración de credenciales, con uno o más de los siguientes elementos.
    - Contraseña
-   - N.º de pin
+   - PIN
    - Patrón
    - Windows Hello
 - Los **dispositivos unidos a Azure AD o híbridos unidos a Azure AD** utilizan una cuenta de organización en Azure AD protegida por uno o más de los siguientes elementos.
@@ -92,6 +95,6 @@ Con la administración de identidades de dispositivos en Azure AD, puede:
 
 - Obtenga más información sobre los [dispositivos registrados en Azure AD](concept-azure-ad-register.md).
 - Obtenga más información sobre los [dispositivos unidos a Azure AD](concept-azure-ad-join.md).
-- Más información sobre los [dispositivos híbridos unidos a Azure AD](concept-azure-ad-join-hybrid.md).
+- Obtenga más información sobre los [dispositivos híbridos unidos a Azure AD](concept-azure-ad-join-hybrid.md).
 - Para obtener información general sobre cómo administrar identidades de dispositivos en Azure Portal, consulte [Administración de identidades de dispositivos mediante Azure Portal](device-management-azure-portal.md).
 - Para obtener más información sobre el acceso condicional basado en dispositivo, consulte [Configuración de directivas de acceso condicional basadas en dispositivo de Azure Active Directory](../conditional-access/require-managed-devices.md).

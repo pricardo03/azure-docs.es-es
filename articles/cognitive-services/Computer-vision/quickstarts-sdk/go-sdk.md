@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Biblioteca cliente de Computer Vision para Go | Microsoft Docs'
+title: 'Inicio rápido: Biblioteca cliente de Computer Vision para Go'
 titleSuffix: Azure Cognitive Services
-description: Introducción a la biblioteca cliente de Computer Vision para Go.
+description: Empiece a trabajar con la biblioteca cliente de Computer Vision para Go con este inicio rápido.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 10/22/2019
 ms.author: pafarley
-ms.openlocfilehash: f05ef80d34d1c0635bdcdca244aacba6185565fb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d9d68f018b34c13f6570bf83c408bd436f0cc8c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72943097"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382316"
 ---
 # <a name="quickstart-computer-vision-client-library-for-go"></a>Inicio rápido: Biblioteca cliente de Computer Vision para Go
 
@@ -28,7 +28,7 @@ Puede utilizar la biblioteca cliente de Computer Vision para Go para:
 
 [Documentación de referencia](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [Paquete](https://github.com/Azure/azure-sdk-for-go)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * La versión más reciente de [Go](https://golang.org/dl/).
@@ -39,7 +39,7 @@ Puede utilizar la biblioteca cliente de Computer Vision para Go para:
 
 Los servicios de Azure Cognitive Services se representan por medio de recursos de Azure a los que se suscribe. Cree un recurso para Computer Vision con [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) en la máquina local. También puede:
 
-* Obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/#decision) válida durante siete días de forma gratuita Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/#decision) válida durante siete días de forma gratuita. Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Ver el recurso en [Azure Portal](https://portal.azure.com/)
 
 Después de obtener una clave de la suscripción de evaluación o el recurso, [cree una variable de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la clave y la dirección URL del punto de conexión, denominadas `COMPUTER_VISION_SUBSCRIPTION_KEY` y `COMPUTER_VISION_ENDPOINT`, respectivamente.
@@ -99,7 +99,7 @@ A continuación, empezará a agregar código para llevar a cabo distintas operac
 
 Las siguientes clases e interfaces controlan algunas de las características principales del SDK de Go para Computer Vision.
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |---|---|
 | [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) | Esta clase es necesaria para todas las funciones de Computer Vision, como el análisis de imágenes y la lectura de texto. Cree una instancia de ella con la información de suscripción y úsela para realizar la mayoría de las operaciones con imágenes.|
 |[ImageAnalysis](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ImageAnalysis)| Este tipo contiene los resultados de una llamada de función **AnalyzeImage**. Hay tipos similares para cada una de las funciones específicas de categoría.|

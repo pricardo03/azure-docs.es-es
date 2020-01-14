@@ -1,21 +1,21 @@
 ---
 title: 'Inicio rápido: Uso de Python para llamar a Text Analytics API'
 titleSuffix: Azure Cognitive Services
-description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Text Analytics API en Azure Cognitive Services.
+description: En este inicio rápido se muestra cómo obtener información y ejemplos de código que le ayuden a empezar a usar rápidamente la API Text Analytics en Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 15f0cf7725dec99884497be79b63c21ef16f88b1
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 7f2a4ff98345aa43dd6a99eafd60ff2d05ee1bee
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284966"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378558"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de la API REST de Python para llamar a Text Analytics de Cognitive Services 
 <a name="HOLTop"></a>
@@ -24,7 +24,7 @@ Use esta guía de inicio rápido para empezar a analizar el lenguaje con la API 
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python 3.x](https://python.org)
 
@@ -41,7 +41,7 @@ Use esta guía de inicio rápido para empezar a analizar el lenguaje con la API 
 
 ## <a name="create-a-new-python-application"></a>Creación de una nueva aplicación de Python
 
-Cree una nueva aplicación de Python en su editor o IDE favorito. Agregue las importaciones siguientes al archivo.
+Cree una aplicación de Python en su editor o IDE favoritos. Agregue las importaciones siguientes al archivo.
 
 ```python
 import requests
@@ -49,20 +49,13 @@ import requests
 from pprint import pprint
 ```
 
-Cree variables para la clave de suscripción y el punto de conexión de Azure del recurso. Estos valores se obtienen de las variables de entorno TEXT_ANALYTICS_SUBSCRIPTION_KEY y TEXT_ANALYTICS_ENDPOINT. Si creó estas variables de entorno después de haber comenzado a editar la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que usa para acceder a las variables.
+Cree variables para la clave de suscripción y el punto de conexión de Azure del recurso.
     
 ```python
 import os
 
-key_var_name = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY'
-if not key_var_name in os.environ:
-    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
-subscription_key = os.environ[key_var_name]
-
-endpoint_var_name = 'TEXT_ANALYTICS_ENDPOINT'
-if not endpoint_var_name in os.environ:
-    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
-endpoint = os.environ[endpoint_var_name]
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 ```
 
 En las siguientes secciones se describe cómo llamar a cada una de las características de API.
@@ -77,7 +70,7 @@ Anexe `/text/analytics/v2.1/languages` al punto de conexión de base de Text Ana
 language_api_url = endpoint + "/text/analytics/v2.1/languages"
 ```
 
-La carga a la API consta de una lista de `documents`, que son tuplas que contienen `id` y un atributo `text`. El atributo `text` almacena el texto que se va a analizar, y `id` puede ser cualquier valor. 
+La carga a la API consta de una lista de `documents`, que son tuplas que contienen `id` y un atributo `text`. El atributo `text` almacena el texto que se va a analizar y el `id` puede ser cualquier valor. 
 
 ```python
 documents = {"documents": [
@@ -461,7 +454,7 @@ pprint(entities)
 > [!div class="nextstepaction"]
 > [Text Analytics con Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Consulte también 
 
  [Información general de Text Analytics](../overview.md)  
  [Preguntas más frecuentes](../text-analytics-resource-faq.md)

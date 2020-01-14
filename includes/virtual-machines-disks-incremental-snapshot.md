@@ -5,23 +5,21 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/23/2019
+ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a0325a7fd3aca3d27b24c193a9f131546a70d80b
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: b936c3a320a99d0853cb331fcd0bc44718527b9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74566352"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467592"
 ---
 Las instantáneas incrementales (versión preliminar) son copias de seguridad en un momento dado de los discos administrados que, cuando se realizan, solo constan de todos los cambios desde la última instantánea. Al intentar descargar o usar una instantánea incremental, se utiliza el VHD completo. Esta nueva funcionalidad para las instantáneas de discos administrados puede permitir que sean más rentables, ya que no es necesario almacenar todo el disco con cada instantánea individual a menos que decida hacerlo expresamente. Al igual que las instantáneas normales, las instantáneas incrementales se pueden usar para crear un disco administrado completo o para realizar una instantánea normal.
 
 Hay algunas diferencias entre una instantánea incremental y una instantánea normal. Las instantáneas incrementales usan siempre el almacenamiento de discos HDD estándar, independientemente del tipo de almacenamiento del disco, mientras que las instantáneas periódicas pueden usar discos SSD Premium. Si usa instantáneas periódicas en Premium Storage para escalar verticalmente implementaciones de máquinas virtuales, le recomendamos que use imágenes personalizadas en el almacenamiento estándar de [Shared Image Gallery](../articles/virtual-machines/linux/shared-image-galleries.md). Le ayudará a lograr una escala más masiva con un costo más bajo. Además, las instantáneas incrementales pueden ofrecer mejor confiabilidad con el [almacenamiento con redundancia de zona](../articles/storage/common/storage-redundancy-zrs.md). Si el almacenamiento con redundancia de zona está disponible en la región seleccionada, una instantánea incremental lo usará automáticamente. Si el almacenamiento con redundancia de zona no está disponible en la región, la instantánea tendrá como valor predeterminado el [almacenamiento con redundancia local](../articles/storage/common/storage-redundancy-lrs.md). Puede invalidar este comportamiento y seleccionar uno manualmente, pero no es recomendable.
 
 Las instantáneas incrementales también ofrecen una funcionalidad diferencial, que está disponible de forma única para los discos administrados. Permiten obtener los cambios entre dos instantáneas incrementales de los mismos discos administrados hasta el nivel de bloque. Puede usar esta funcionalidad para reducir la superficie de los datos al copiar instantáneas entre regiones.
-
-Si aún no se ha suscrito a la versión preliminar y le gustaría empezar a usar instantáneas incrementales, envíenos un correo electrónico a AzureDisks@microsoft.com para acceder a la versión preliminar pública.
 
 ## <a name="restrictions"></a>Restricciones
 
@@ -156,8 +154,4 @@ También puede usar plantillas de Azure Resource Manager para crear una instant�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-1. Si aún no se ha suscrito a la versión preliminar y le gustaría empezar a usar instantáneas incrementales, envíenos un correo electrónico a AzureDisks@microsoft.com para acceder a la versión preliminar pública. 
-
-2. Explore los ejemplos siguientes para la copia de instantáneas incrementales entre regiones mediante la funcionalidad diferencial.   
-
-    - [Uso de los SDK de .NET para Azure](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)
+Si quiere ver un código de ejemplo que muestre la funcionalidad diferencial de las instantáneas incrementales con .NET, consulte [Copia de las copias de seguridad de Azure Managed Disks en otra región con una funcionalidad diferencial de instantáneas incrementales](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

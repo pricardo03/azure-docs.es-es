@@ -1,17 +1,17 @@
 ---
 title: Creación de una instancia de Azure HPC Cache
-description: Cómo crear una instancia de Azure HPC Cache
+description: Creación de una instancia de Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: rohogue
-ms.openlocfilehash: 07aba1b1536635e414fc5fab4ece148683909188
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 793a80e7019e72c1cb3087da02d5642639cb8d5e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168579"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647163"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creación de una instancia de Azure HPC Cache
 
@@ -36,7 +36,7 @@ En **Detalles del servicio**, establezca el nombre de la memoria caché y estos 
 
 En la página **Caché**, debe establecer la capacidad de la memoria caché. Estos valores determinan la cantidad de datos que puede contener la memoria caché y la rapidez con la que puede atender las solicitudes de cliente.
 
-Después del período de versión preliminar pública, la capacidad también afectará al costo de la memoria caché.
+La capacidad también afecta al costo de la caché.
 
 Para elegir la capacidad, establezca estos dos valores:
 

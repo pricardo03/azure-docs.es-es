@@ -1,21 +1,21 @@
 ---
 title: 'Inicio rápido: Uso de PHP para llamar a Text Analytics API'
 titleSuffix: Azure Cognitive Services
-description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Text Analytics API en Azure Cognitive Services.
+description: En este inicio rápido se muestra cómo obtener información y ejemplos de código que le ayuden a empezar a usar rápidamente la API Text Analytics en Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 3b95109ea3389cc8ee7e748e06265870d5f903a4
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: a74cdb79da668cdba44c051c7b7eada3ace8abe4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284752"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378592"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de PHP para llamar a Text Analytics de Cognitive Services
 <a name="HOLTop"></a>
@@ -24,7 +24,7 @@ En este artículo se muestra cómo [detectar el idioma](#Detect), [analizar las 
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -34,9 +34,9 @@ En este artículo se muestra cómo [detectar el idioma](#Detect), [analizar las 
 
 Language Detection API detecta el idioma de un documento de texto con el [método Detectar idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-1. Cree las variables de entorno `TEXT_ANALYTICS_SUBSCRIPTION_KEY` y `TEXT_ANALYTICS_ENDPOINT` para la clave de suscripción y el punto de conexión de Azure del recurso. Si creó estas variables de entorno después de haber comenzado a editar la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que usa para acceder a ellas.
 1. Cree un nuevo proyecto PHP en su IDE favorito.
 1. Agregue el código que se proporciona a continuación.
+1. Copie la clave y el punto de conexión de Text Analytics en el código.
 1. Ejecute el programa.
 
 ```php
@@ -47,18 +47,8 @@ Language Detection API detecta el idioma de un documento de texto con el [métod
 // You might need to set the full path, for example:
 // extension="C:\Program Files\Php\ext\php_openssl.dll"
 
-$key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-if (!getenv($key_var)) {
-    throw new Exception ("Please set/export the following environment variable: $key_var");
-} else {
-    $subscription_key = getenv($key_var);
-}
-$endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-if (!getenv($endpoint_var)) {
-    throw new Exception ("Please set/export the following environment variable: $endpoint_var");
-} else {
-    $endpoint = getenv($endpoint_var);
-}
+$subscription_key = "<paste-your-text-analytics-key-here>";
+$endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 $path = '/text/analytics/v2.1/languages';
 
@@ -151,9 +141,10 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 Sentiment Analysis API detecta la opinión de un conjunto de registros de texto mediante el [método Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). En el ejemplo siguiente se puntúan dos documentos, uno en inglés y otro en español.
 
-1. Cree las variables de entorno `TEXT_ANALYTICS_SUBSCRIPTION_KEY` y `TEXT_ANALYTICS_ENDPOINT` para la clave de suscripción y el punto de conexión de Azure del recurso. Si creó estas variables de entorno después de haber comenzado a editar la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que usa para acceder a ellas.
+
 1. Cree un nuevo proyecto PHP en su IDE favorito.
 1. Agregue el código que se proporciona a continuación.
+1. Copie la clave y el punto de conexión de Text Analytics en el código.
 1. Ejecute el programa.
 
 ```php
@@ -163,19 +154,8 @@ Sentiment Analysis API detecta la opinión de un conjunto de registros de texto 
 // ;extension=php_openssl.dll
 // You might need to set the full path, for example:
 // extension="C:\Program Files\Php\ext\php_openssl.dll"
-
-$key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-if (!getenv($key_var)) {
-    throw new Exception ("Please set/export the following environment variable: $key_var");
-} else {
-    $subscription_key = getenv($key_var);
-}
-$endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-if (!getenv($endpoint_var)) {
-    throw new Exception ("Please set/export the following environment variable: $endpoint_var");
-} else {
-    $endpoint = getenv($endpoint_var);
-}
+$subscription_key = "<paste-your-text-analytics-key-here>";
+$endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 $path = '/text/analytics/v2.1/sentiment';
 
@@ -247,10 +227,9 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 ## <a name="extract-key-phrases"></a>Extracción de frases clave
 
 Key Phrase Extraction API extrae frases clave de un documento de texto con el [método de frases clave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). En el ejemplo siguiente se extraen frases clave de documentos tanto en inglés y como en español.
-
-1. Cree las variables de entorno `TEXT_ANALYTICS_SUBSCRIPTION_KEY` y `TEXT_ANALYTICS_ENDPOINT` para la clave de suscripción y el punto de conexión de Azure del recurso. Si creó estas variables de entorno después de haber comenzado a editar la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que usa para acceder a ellas.
 1. Cree un nuevo proyecto PHP en su IDE favorito.
 1. Agregue el código que se proporciona a continuación.
+1. Copie la clave y el punto de conexión de Text Analytics en el código.
 1. Ejecute el programa.
 
 ```php
@@ -260,19 +239,8 @@ Key Phrase Extraction API extrae frases clave de un documento de texto con el [m
 // ;extension=php_openssl.dll
 // You might need to set the full path, for example:
 // extension="C:\Program Files\Php\ext\php_openssl.dll"
-
-$key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-if (!getenv($key_var)) {
-    throw new Exception ("Please set/export the following environment variable: $key_var");
-} else {
-    $subscription_key = getenv($key_var);
-}
-$endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-if (!getenv($endpoint_var)) {
-    throw new Exception ("Please set/export the following environment variable: $endpoint_var");
-} else {
-    $endpoint = getenv($endpoint_var);
-}
+$subscription_key = "<paste-your-text-analytics-key-here>";
+$endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 $path = '/text/analytics/v2.1/keyPhrases';
 
@@ -359,9 +327,9 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 Entities API identifica las entidades conocidas en un documento de texto mediante el [método Entities](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). En el ejemplo siguiente se identifican las entidades de documentos en inglés.
 
-1. Cree las variables de entorno `TEXT_ANALYTICS_SUBSCRIPTION_KEY` y `TEXT_ANALYTICS_ENDPOINT` para la clave de suscripción y el punto de conexión de Azure del recurso. Si creó estas variables de entorno después de haber comenzado a editar la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que usa para acceder a ellas.
 1. Cree un nuevo proyecto PHP en su IDE favorito.
 1. Agregue el código que se proporciona a continuación.
+1. Copie la clave y el punto de conexión de Text Analytics en el código. 
 1. Ejecute el programa.
 
 ```php
@@ -371,19 +339,8 @@ Entities API identifica las entidades conocidas en un documento de texto mediant
 // ;extension=php_openssl.dll
 // You might need to set the full path, for example:
 // extension="C:\Program Files\Php\ext\php_openssl.dll"
-
-$key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-if (!getenv($key_var)) {
-    throw new Exception ("Please set/export the following environment variable: $key_var");
-} else {
-    $subscription_key = getenv($key_var);
-}
-$endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-if (!getenv($endpoint_var)) {
-    throw new Exception ("Please set/export the following environment variable: $endpoint_var");
-} else {
-    $endpoint = getenv($endpoint_var);
-}
+$subscription_key = "<paste-your-text-analytics-key-here>";
+$endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 $path = '/text/analytics/v2.1/entities';
 
@@ -476,7 +433,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 > [!div class="nextstepaction"]
 > [Text Analytics con Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Consulte también 
 
  [Información general de Text Analytics](../overview.md)  
  [Preguntas más frecuentes](../text-analytics-resource-faq.md)

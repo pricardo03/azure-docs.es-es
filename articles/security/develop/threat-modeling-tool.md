@@ -1,26 +1,18 @@
 ---
-title: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs
-description: página principal de Microsoft Threat Modeling Tool, que contiene información acerca de cómo empezar a usar la herramienta, lo que incluye el proceso de modelado de amenazas
-services: security
-documentationcenter: na
+title: 'Introducción a Microsoft Threat Modeling Tool: Azure'
+description: Introducción a Microsoft Threat Modeling Tool, que contiene información acerca de cómo empezar a usar la herramienta, lo que incluye el proceso de modelado de amenazas.
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
-ms.author: jegeib
-ms.openlocfilehash: 47ae7661874bec211935315679e6e2c79e6d59ef
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0d800102b6f6ff77944a2b625d3bcecef69c1ee9
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727818"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548756"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft Threat Modeling Tool
 
@@ -45,7 +37,7 @@ Estas son algunas funcionalidades e innovaciones de herramientas, solo por nombr
 
 La tabla siguiente contiene vínculos importantes para ayudarle a comenzar con Threat Modeling Tool:
 
-| Paso  | DESCRIPCIÓN                                                                                   |
+| Paso  | Descripción                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
 | **1** | [Descarga de Threat Modeling Tool](https://aka.ms/threatmodelingtool)                                |
 | **2** | [Lea nuestra guía de introducción](threat-modeling-tool-getting-started.md)    |
@@ -57,7 +49,7 @@ La tabla siguiente contiene vínculos importantes para ayudarle a comenzar con T
 
 A continuación encontrará algunos artículos antiguos que siguen siendo pertinentes para el modelado de amenazas de hoy en día:
 
-* [Artículo sobre la importancia del modelado de amenazas](https://msdn.microsoft.com/magazine/dd347831.aspx)
+* [Artículo sobre la importancia del modelado de amenazas](https://docs.microsoft.com/archive/msdn-magazine/2009/january/security-briefs-getting-started-with-the-sdl-threat-modeling-tool)
 * [Aprendizaje publicado por Trustworthy Computing](https://www.microsoft.com/download/details.aspx?id=16420)
 
 Consulte lo que han hecho algunos expertos de Threat Modeling Tool:

@@ -1,26 +1,17 @@
 ---
-title: 'Tutorial de limpieza del clúster de Service Fabric independiente: Azure Service Fabric | Microsoft Docs'
-description: En este tutorial aprenderá a limpiar el clúster independiente.
-services: service-fabric
-documentationcenter: .net
+title: Limpieza de un clúster independiente
+description: En este tutorial aprenderá a limpiar los recursos de AWS o de Azure del clúster de Service Fabric independiente.
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bebe3a2dc83b651e713ee80d7b11068b13096e04
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bfb23ca5f5eb9540491fbd05efdfd6997db15e6b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385161"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639027"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>Tutorial: Limpieza del clúster independiente
 
@@ -67,7 +58,7 @@ En la parte número cuatro de la serie, se aprende a:
 
 ## <a name="clean-up-azure-resources"></a>Limpieza de los recursos de Azure
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en Azure Portal.
 2. Vaya a la sección **Máquinas virtuales**.
 3. Active las casillas de los tres nodos que creó en la primera parte del tutorial.
 4. Haga clic en **Eliminar**.

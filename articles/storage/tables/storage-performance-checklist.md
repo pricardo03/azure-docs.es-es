@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: b36ed2cac7e5009a0581091252b36dcd5af81bd7
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 588f9595dbe04b98cb8d70a33beb5740d812bd7c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389987"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457619"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de comprobación de rendimiento y de escalabilidad para Table Storage
 
@@ -28,7 +28,8 @@ En este artículo se organizan los procedimientos de eficacia probada a la hora 
 | ¡Listo! | Category | Consideraciones acerca del diseño |
 | --- | --- | --- |
 | &nbsp; |Objetivos de escalabilidad |[¿Puede diseñar la aplicación para que no supere el número máximo de cuentas de almacenamiento?](#maximum-number-of-storage-accounts) |
-| &nbsp; |Objetivos de escalabilidad |[¿Va a evitar acercarse a los límites de transacción y capacidad?](#capacity-and-transaction-targets) |
+| &nbsp; |Objetivos de escalabilidad |[¿Evita acercarse a los límites de transacción y capacidad?](#capacity-and-transaction-targets) |
+| &nbsp; |Objetivos de escalabilidad |[¿Se aproxima a los objetivos de escalabilidad para entidades por segundo?](#targets-for-data-operations) |
 | &nbsp; |Redes |[¿Disponen los dispositivos del cliente de un ancho de banda suficientemente grande y una latencia suficientemente baja como para lograr el rendimiento necesario?](#throughput) |
 | &nbsp; |Redes |[¿Tienen los dispositivos del cliente un enlace de red de alta calidad?](#link-quality) |
 | &nbsp; |Redes |[¿Está la aplicación cliente en la misma región que la cuenta de almacenamiento?](#location) |
@@ -41,7 +42,6 @@ En este artículo se organizan los procedimientos de eficacia probada a la hora 
 | &nbsp; |Herramientas |[¿Usa las versiones más recientes de las herramientas y bibliotecas de cliente que proporciona Microsoft?](#client-libraries-and-tools) |
 | &nbsp; |Reintentos |[¿Usa una directiva de reintentos con un retroceso exponencial para los errores de limitación y tiempos de espera?](#timeout-and-server-busy-errors) |
 | &nbsp; |Reintentos |[¿Evita su aplicación reintentos para errores que no se pueden reintentar?](#non-retryable-errors) |
-| &nbsp; |Objetivos de escalabilidad |[¿Se aproxima a los objetivos de escalabilidad para entidades por segundo?](#table-specific-scalability-targets) |
 | &nbsp; |Configuración |[¿Usa JSON para sus solicitudes de tabla?](#use-json) |
 | &nbsp; |Configuración |[¿Ha desactivado el algoritmo de Nagle para mejorar el rendimiento de las solicitudes pequeñas?](#disable-nagle) |
 | &nbsp; |Tablas y particiones |[¿Ha particionado sus datos correctamente?](#schema) |
@@ -61,11 +61,11 @@ En este artículo se organizan los procedimientos de eficacia probada a la hora 
 
 Si su aplicación se aproxima o supera cualquiera de estos objetivos de escalabilidad, puede encontrar un aumento en la limitación o latencias de transacción. Cuando Azure Storage limita su aplicación, el servicio comienza a devolver códigos de error 503 (Servidor ocupado) o 500 (Tiempo de espera de la operación). Evitar estos errores, mediante la permanencia en los límites de los objetivos de escalabilidad, es una parte importante de la mejora del rendimiento de la aplicación.
 
-Para más información acerca de los objetivos de escalabilidad de Table service, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage en cuentas de almacenamiento](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2ftables%2ftoc.json#azure-table-storage-scale-targets).
+Para más información acerca de los objetivos de escalabilidad de Table service, consulte [Objetivos de escalabilidad y rendimiento para Table Storage](scalability-targets.md).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Número máximo de cuentas de almacenamiento
 
-Si se aproxima al número máximo de cuentas de almacenamiento permitido para una combinación de suscripción/región concreta, ¿usa varias cuentas de almacenamiento para la partición para aumentar la entrada, la salida, las operaciones de E/S por segundo o la capacidad? En este escenario, Microsoft recomienda aprovechar el aumento de los límites de las cuentas de almacenamiento para reducir el número de cuentas de almacenamiento necesarias para la carga de trabajo, siempre que sea posible. Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/) para solicitar el aumento de los límites de la cuenta de almacenamiento. Para más información, consulte [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) (Anuncio de cuentas de almacenamiento más grandes y con mayor escala).
+Si se aproxima al número máximo de cuentas de almacenamiento permitido para una combinación de suscripción/región concreta, ¿usa varias cuentas de almacenamiento para la partición para aumentar la entrada, la salida, las operaciones de E/S por segundo o la capacidad? En este escenario, Microsoft recomienda aprovechar las ventajas del aumento de los límites de las cuentas de almacenamiento para reducir el número de cuentas de almacenamiento necesarias para la carga de trabajo, siempre que sea posible. Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/) para solicitar el aumento de los límites de la cuenta de almacenamiento. Para más información, consulte [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) (Anuncio de cuentas de almacenamiento más grandes y con mayor escala).
 
 ### <a name="capacity-and-transaction-targets"></a>Objetivos de capacidad y transacción
 
@@ -75,11 +75,19 @@ Si su aplicación se aproxima a los objetivos de escalabilidad para una sola cue
 - Si su aplicación debe superar uno de los objetivos de escalabilidad, cree varias cuentas de almacenamiento y realice particiones de los datos de su aplicación entre esas cuentas. Si usa este patrón, entonces debe asegurarse de designar la aplicación de forma que pueda agregar más cuentas de almacenamiento en el futuro para equilibrio de carga. Las propias cuentas de almacenamiento no tienen ningún costo aparte del de su uso en términos de datos almacenados, transacciones realizadas o datos transferidos.
 - Si la aplicación se aproxima a los objetivos de ancho de banda, considere la posibilidad de comprimir los datos en el cliente para reducir el ancho de banda necesario para enviar los datos a Azure Storage.
     Aunque comprimir datos puede ahorrar ancho de banda y mejorar el rendimiento de la red, también puede tener efectos negativos en el rendimiento. Evalúe el impacto en el rendimiento de los requisitos de procesamiento adicionales para la compresión y descompresión de datos en el cliente. Tenga en cuenta que el almacenamiento de los datos comprimidos puede dificultar la solución de problemas, ya que es muy probable que sea más complicado ver los datos con herramientas estándar.
-- Si la aplicación se acerca a los objetivos de escalabilidad, asegúrese de que usa un retroceso exponencial para los reintentos. Es recomendable que intente evitar llegar a los objetivos de escalabilidad mediante la implementación de las recomendaciones que se describen en este artículo. Sin embargo, el uso de un retroceso exponencial para los reintentos impedirá que la aplicación vuelva a intentarlo rápidamente, lo que podría empeorar la limitación. Para más información, consulte la sección relativa a los [errores debidos al tiempo de expiración y a que el servidor está ocupado](#timeout-and-server-busy-errors).
+- Si la aplicación se acerca a los objetivos de escalabilidad, asegúrese de que usa un retroceso exponencial para los reintentos. Es recomendable que intente evitar llegar a los objetivos de escalabilidad mediante la implementación de las recomendaciones que se describen en este artículo. Sin embargo, el uso de un retroceso exponencial para los reintentos impedirá que la aplicación vuelva a intentarlo rápidamente, lo que podría empeorar la limitación. Para más información, consulte la sección [Errores de tiempo de expiración y servidor ocupado](#timeout-and-server-busy-errors).
 
-## <a name="table-specific-scalability-targets"></a>Objetivos de escalabilidad específicos de las tablas
+### <a name="targets-for-data-operations"></a>Destinos para operaciones de datos
 
-Además de las limitaciones de ancho de banda de una cuenta de almacenamiento completa, las tablas tienen el siguiente límite de escalabilidad específico. El sistema equilibrará la carga a medida que el tráfico aumente, pero si este tráfico tiene ráfagas repentinas, no podrá obtener este volumen de rendimiento inmediatamente. Si su patrón tiene ráfagas, es de esperar que se produzcan limitaciones y/o tiempos de espera durante dichas ráfagas, ya que el servicio Storage equilibrará la carga automáticamente fuera de la tabla. El aumento lento generalmente tiene mejores resultados ya que proporciona al sistema tiempo para equilibrar la carga apropiadamente.
+Azure Storage equilibra la carga a medida que aumenta el tráfico hacia la cuenta de almacenamiento, pero si el tráfico exhibe ráfagas repentinas, es posible que no pueda obtener este volumen de rendimiento de inmediato. Espere ver el límite o los tiempos de espera durante la ráfaga ya que Azure Storage equilibra automáticamente la carga de la tabla. El aumento lento generalmente proporciona mejores resultados, ya que el sistema tiene tiempo para equilibrar la carga apropiadamente.
+
+#### <a name="entities-per-second-storage-account"></a>Entidades por segundo (cuenta de almacenamiento)
+
+El límite de escalabilidad para el acceso a tablas es de hasta 20 000 unidades (1 KB cada una) por segundo para una cuenta. En general, cada entidad que se inserta, actualiza, elimina o examina, cuenta para este objetivo. Por tanto, una inserción por lotes que contiene 100 entidades contaría como 100 entidades. Una consulta que examina 1.000 y devuelve 5, contaría como 1.000 entidades.
+
+#### <a name="entities-per-second-partition"></a>Entidades por segundo (partición)
+
+Dentro de una sola partición, el objetivo de escalabilidad para obtener acceso a las tablas es de 2000 entidades (1 KB cada una) por segundo, usando el mismo recuento descrito en la sección anterior.
 
 ## <a name="networking"></a>Redes
 
@@ -113,7 +121,7 @@ Por lo general, los exploradores web no permiten que haya código JavaScript en 
 
 Por ejemplo, supongamos que una aplicación web que se ejecuta en Azure realiza una solicitud de un recurso en una cuenta de Azure Storage. La aplicación web es el dominio de origen y la cuenta de almacenamiento es el dominio de destino. Puede configurar CORS para que cualquiera de los servicios de Azure Storage comunique al explorador web que Azure Storage confía en las solicitudes del dominio de origen. Para más información sobre CORS, consulte [Soporte técnico del uso compartido de recursos entre orígenes (CORS) para Azure Storage](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).  
   
-Tanto SAS como CORS pueden ayudarle a evitar que haya una carga innecesaria en la aplicación web.  
+Tanto SAS como CORS pueden evitar una carga innecesaria en la aplicación web.  
 
 ## <a name="batch-transactions"></a>Transacciones por lotes
 
@@ -178,7 +186,7 @@ Los errores de conectividad se pueden reintentar inmediatamente porque no se der
 
 Las bibliotecas cliente controlan los reintentos y saben qué errores se pueden reintentar y cuáles no. Sin embargo, si va a llamar directamente a la API REST de Azure Storage, hay algunos errores que no debe reintentar. Por ejemplo, un error 400 (solicitud incorrecta) indica que la aplicación cliente ha enviado una solicitud que no se pudo procesar porque no tenía el formato esperado. El reenvío de esta solicitud genera la misma respuesta siempre, por lo que no tiene sentido reintentarla. Si llama directamente a la API REST de Azure Storage, tenga en cuenta los posibles errores y si deben reintentarse.
 
-Para más información acerca de los códigos de error de Azure Storage, consulte [Estado y códigos de error](/rest/api/storageservices/status-and-error-codes2).
+Para más información sobre los códigos de error de Azure Storage, consulte [Estado y códigos de error](/rest/api/storageservices/status-and-error-codes2).
 
 ## <a name="configuration"></a>Configuración
 
@@ -194,7 +202,7 @@ Para más información, consulte la publicación [Microsoft Azure Tables: Introd
 
 El algoritmo de Nagle está ampliamente implementado en redes TCP/IP como medio de mejorar el rendimiento de la red. Sin embargo, no es óptimo en todas las situaciones (como por ejemplo en entornos altamente interactivos). El algoritmo de Nagle tiene un efecto negativo en el rendimiento de las solicitudes en Azure Table service y debe deshabilitarlo si es posible.
 
-## <a name="schema"></a>Esquema
+## <a name="schema"></a>Schema
 
 La forma de representar los datos y realizar consultas es el factor más importante que afecta al rendimiento de Table service. Aunque cada aplicación es diferente, en esta sección se describen algunas prácticas probadas generales relacionadas con:
 

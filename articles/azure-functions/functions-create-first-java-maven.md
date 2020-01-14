@@ -5,12 +5,12 @@ author: rloutlaw
 ms.topic: quickstart
 ms.date: 08/10/2018
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: cb43f558a5c983a8a4cc3823b278b75cb8cde78d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ef81ff1d3d42e3c9e2ba5d4187f5b5805d35d900
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230743"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562041"
 ---
 # <a name="quickstart-use-java-and-maven-to-create-and-publish-a-function-to-azure"></a>Inicio rápido: Uso de Java y Maven para crear y publicar una función en Azure
 
@@ -21,7 +21,7 @@ En este artículo se indica cómo compilar una función de Java en Azure Functi
 > You can also create a Kotlin-based Azure Functions project by using the azure-functions-kotlin-archetype instead. Visit the [GitHub repository](https://github.com/microsoft/azure-maven-archetypes/tree/develop/azure-functions-kotlin-archetype) for more information.
 -->
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para desarrollar funciones con Java, debe tener instalado lo siguiente:
 
@@ -29,7 +29,7 @@ Para desarrollar funciones con Java, debe tener instalado lo siguiente:
 - [Apache Maven](https://maven.apache.org), versión 3.0 o posterior
 - [CLI de Azure]
 - [Azure Functions Core Tools](./functions-run-local.md#v2), versión 2.6.666 u otra posterior
-- Una suscripción de Azure.
+- Suscripción a Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -68,7 +68,7 @@ mvn archetype:generate ^
 
 Maven le pide los valores necesarios para finalizar la generación del proyecto en la implementación. Indique los siguientes valores cuando se le solicite:
 
-| Valor | DESCRIPCIÓN |
+| Value | Descripción |
 | ----- | ----------- |
 | **groupId** | Un valor que identifica de forma única su proyecto entre todos los demás y que sigue las [reglas de nomenclatura de paquetes](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) de Java. En los ejemplos de este inicio rápido se usa `com.fabrikam.functions`. |
 | **artifactId** | Un valor que es el nombre del archivo jar, sin un número de versión. En los ejemplos de este inicio rápido se usa `fabrikam-functions`. |
@@ -76,13 +76,16 @@ Maven le pide los valores necesarios para finalizar la generación del proyecto 
 | **package** | Un valor que es el paquete de Java para el código de función generado. Use el valor predeterminado. En los ejemplos de este inicio rápido se usa `com.fabrikam.functions`. |
 | **appName** | Escriba un nombre único global que identifique la nueva aplicación de funciones en Azure. Use el valor predeterminado, que es _artifactId_, anexado con un número aleatorio. Tome nota de este valor ya que lo necesitará más adelante. |
 | **appRegion** | Elija una [región](https://azure.microsoft.com/regions/) cerca de usted o cerca de otros servicios a los que tendrán acceso las funciones. El valor predeterminado es `westus`. Ejecute este comando de la [CLI de Azure] para obtener una lista de todas las regiones:<br/>`az account list-locations --query '[].{Name:name}' -o tsv` |
-| **resourceGroup** | Nombre para el nuevo [grupo de recursos](../azure-resource-manager/resource-group-overview.md) en el que se va a crear la aplicación de funciones. Use `myResourceGroup`, que es lo que utilizan los ejemplos de este inicio rápido. Un grupo de recursos debe ser único para su suscripción de Azure.|
+| **resourceGroup** | Nombre para el nuevo [grupo de recursos](../azure-resource-manager/management/overview.md) en el que se va a crear la aplicación de funciones. Use `myResourceGroup`, que es lo que utilizan los ejemplos de este inicio rápido. Un grupo de recursos debe ser único para su suscripción de Azure.|
 
 Escriba `Y` o presione Entrar para confirmar.
 
 Maven crea los archivos del proyecto en una carpeta nueva llamada _artifactId_ que, en este ejemplo, es `fabrikam-functions`. 
 
 Abra el nuevo archivo Function.java desde la ruta de acceso *src/main/java*  en un editor de texto y revise el código generado. Este código es una función [desencadenada por HTTP](functions-bindings-http-webhook.md) que devuelve el cuerpo de la solicitud. 
+
+> [!div class="nextstepaction"]
+> [He tenido un problema](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=generate-project)
 
 ## <a name="run-the-function-locally"></a>Ejecución local de la función
 
@@ -119,6 +122,9 @@ Hello AzureFunctions!
 ```
 No se requiere la [clave de la función](functions-bindings-http-webhook.md#authorization-keys) cuando se ejecuta de manera local. Use `Ctrl+C` en el terminal para detener el código de función.
 
+> [!div class="nextstepaction"]
+> [He tenido un problema](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=local-run)
+
 ## <a name="deploy-the-function-to-azure"></a>Implementación de la función en Azure
 
 La primera vez que crea una aplicación de funciones, se crea dicha función y los recursos relacionados en Azure. Antes de poder implementar, use el comando [az login](/cli/azure/authenticate-azure-cli) de la CLI de Azure para iniciar sesión en la suscripción de Azure. 
@@ -146,6 +152,9 @@ Este destino `azure-functions:deploy` de Maven crea los siguientes recursos en A
 La implementación también empaqueta los archivos de proyecto y los implementa en la nueva aplicación de funciones mediante la [implementación de archivos zip](functions-deployment-technologies.md#zip-deploy), con el modo de ejecución desde el paquete habilitado.
 
 Cuando se complete la implementación, verá la dirección URL que puede usar para acceder a los puntos de conexión de la aplicación de funciones. Dado que el desencadenador HTTP que publicamos usa `authLevel = AuthorizationLevel.FUNCTION`, debe obtener la clave de función para llamar al punto de conexión de la función a través de HTTP. La forma más fácil de obtener la clave de función es desde [Azure Portal].
+
+> [!div class="nextstepaction"]
+> [He tenido un problema](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=deploy)
 
 ## <a name="get-the-http-trigger-url"></a>Obtención de la dirección URL del desencadenador HTTP
 
@@ -176,6 +185,9 @@ Esto envía una solicitud POST al punto de conexión de la función con `AzureFu
 ```Output
 Hello AzureFunctions!
 ```
+
+> [!div class="nextstepaction"]
+> [He tenido un problema](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=verify-deployment)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

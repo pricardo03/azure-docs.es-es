@@ -1,6 +1,6 @@
 ---
-title: Ejemplos de Azure PowerShell | Microsoft Docs
-description: Ejemplos de Azure PowerShell
+title: Ejemplos de Azure PowerShell
+description: Una tabla que incluye vínculos a scripts de Bash de ejemplo creados mediante Azure PowerShell, como la creación y administración de un conjunto de escalado.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3727d2db375847c8df0a96d5721ea3135584eeec
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a0a5939d1b64d93d4dbcc40b2639e3f3ac1a33be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976255"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369140"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Ejemplos de Azure PowerShell para conjuntos de escalado de máquinas virtuales.
 
@@ -43,4 +43,4 @@ En la tabla siguiente se incluyen vínculos a scripts de Bash creados con Azure 
 | | |
 
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]    
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]    

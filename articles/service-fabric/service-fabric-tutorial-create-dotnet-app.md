@@ -1,26 +1,15 @@
 ---
-title: Creación de una aplicación .NET de Service Fabric en Azure | Microsoft Docs
+title: Creación de una aplicación .NET de Service Fabric en Azure
 description: En este tutorial, aprenderá a crear una aplicación con un front-end de ASP.NET Core y un back-end de servicio confiable con estado, así como a implementar la aplicación en un clúster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: b5acee47a13e0faa538c5d8464835297088d03e8
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cbfae89ffa446ca3915129fd9add2701ac21d837
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598918"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465477"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Creación e implementación de una aplicación con un servicio de front-end de ASP.NET Core Web API y un servicio back-end con estado
 
@@ -43,7 +32,7 @@ En esta serie de tutoriales, se aprende a:
 > * [Configuración de CI/CD con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurar la supervisión y el diagnóstico para la aplicación](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar este tutorial:
 * Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -180,7 +169,7 @@ Abra el archivo **Views/Home/Index.cshtml**, la vista específica para el contro
 </div>
 ```
 
-### <a name="update-the-layoutcshtml-file"></a>Actualización del archivo _Layout.cshtml
+### <a name="update-the-_layoutcshtml-file"></a>Actualización del archivo _Layout.cshtml
 
 Abra el archivo **Views/Shared/_Layout.cshtml**, el diseño predeterminado para la aplicación ASP.NET.  Reemplace su contenido por el siguiente y guarde los cambios.
 
@@ -338,7 +327,7 @@ Una vez que la aplicación Voting se implemente en el clúster local de Service 
 
 Para detener la depuración de la aplicación, vuelva a Visual Studio y presione **Mayús+F5**.
 
-## <a name="add-a-stateful-back-end-service-to-your-application"></a>Incorporación de un servicio back-end con estado a la aplicación
+## <a name="add-a-stateful-back-end-service-to-your-application"></a>Adición de un servicio back-end con estado a la aplicación
 
 Ahora que se ejecuta un servicio de ASP.NET Web API en la aplicación, agreguemos un servicio de confianza con estado para almacenar datos en la aplicación.
 

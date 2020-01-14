@@ -1,5 +1,6 @@
 ---
-title: Importación de una instancia de Azure Function App como API en Azure API Management | Microsoft Docs
+title: Importación de una instancia de Azure Function App como API en API Management
+titleSuffix: Azure API Management
 description: En este tutorial se muestra cómo importar una instancia de Azure Function App en Azure API Management como API.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: 0c4a95669eea1b98baea5f9a866598e000c0923c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 97e4863294a32e7c11cd0c4bfa987b4e5764c0d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107848"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442577"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importación de una instancia de Azure Function App como API en Azure API Management
 
@@ -34,7 +35,7 @@ Aprenderá a:
 > * Prueba de la API en Azure Portal
 > * Prueba de la API en el portal para desarrolladores
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Complete la guía de inicio rápido [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 * Asegúrese de que tiene una aplicación de Azure Functions en la suscripción. Para más información, consulte [Creación de una instancia de Azure Function App](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Debe contener funciones con desencadenador HTTP y la configuración del nivel de autorización debe establecerse en *Anónimo* o *Función*.
@@ -74,7 +75,7 @@ Siga estos pasos para crear una API desde una instancia de Azure Function App.
 
     ![Agregar desde Function App](./media/import-function-app-as-api/add-06.png)
 
-8. Haga clic en **Create**(Crear).
+8. Haga clic en **Crear**.
 
 ## <a name="append-azure-function-app-to-api"></a>Anexión de una instancia de Azure Function App a una API existente
 

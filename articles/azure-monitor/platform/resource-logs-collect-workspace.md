@@ -5,35 +5,39 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 83b91be52694076373d950e0ad785ef22671ef4f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 82738627b84713669cb6ddfc94c22b6f24b49e3a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894527"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530857"
 ---
-# <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recopilación de registros de recurso de Azure en el área de trabajo de Log Analytics en Azure Monitor
-Los [registros de recurso](resource-logs-overview.md) en Azure proporcionan datos exhaustivos y frecuentes acerca del funcionamiento interno de un recurso de Azure. En este artículo se describe la recopilación de registros de recurso en un área de trabajo de Log Analytics que permita el análisis con otros datos de supervisión recopilados en los registros de Azure Monitor mediante consultas de registro eficaces y también el aprovechamiento de otras características de Azure Monitor, como las alertas y las visualizaciones. 
+# <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recopilación de registros de plataforma de Azure en el área de trabajo de Log Analytics en Azure Monitor
+Los [registros de plataforma](resource-logs-overview.md) en Azure, incluidos los registros de recurso y los registros de actividad de Azure, proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma de Azure de la que dependen. En este artículo se describe la recopilación de registros de recurso en un área de trabajo de Log Analytics que permita el análisis con otros datos de supervisión recopilados en los registros de Azure Monitor mediante consultas de registro eficaces y también el aprovechamiento de otras características de Azure Monitor, como las alertas y las visualizaciones. 
 
 
-## <a name="what-you-can-do-with-resource-logs-in-a-workspace"></a>Qué se puede hacer con los registros de recurso en un área de trabajo
-La recopilación de registros de recurso en un área de trabajo de Log Analytics permite analizar los registros de todos los recursos de Azure de forma conjunta y aprovechar todas las características disponibles para los [registros de Azure Monitor](data-platform-logs.md), que incluyen lo siguiente:
+## <a name="what-you-can-do-with-platform-logs-in-a-workspace"></a>Qué se puede hacer con los registros de plataforma en un área de trabajo
+La recopilación de registros de plataforma en un área de trabajo de Log Analytics permite analizar los registros de todos los recursos de Azure de forma conjunta y aprovechar todas las características disponibles para los [registros de Azure Monitor](data-platform-logs.md), que incluyen lo siguiente:
 
 * **Consultas de registro**: cree [consultas de registro](../log-query/log-query-overview.md) con un lenguaje de consulta eficaz para analizar y obtener información sobre los datos de diagnóstico rápidamente, y analizarlos junto con los datos recopilados de otros orígenes en Azure Monitor.
 * **Alertas**: obtenga una notificación proactiva de los patrones y las condiciones críticas identificados en los registros de recurso mediante [alertas de registro en Azure Monitor](alerts-log.md).
 * **Visualizaciones**: ancle los resultados de una consulta de registro a un panel de Azure o inclúyala en un libro como parte de un informe interactivo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Si no la tiene, [cree un área de trabajo](../learn/quick-create-workspace.md). El área de trabajo no tiene que estar en la misma suscripción que la del recurso que envía los registros, siempre que el usuario que realiza la configuración tenga el acceso RBAC adecuado a ambas suscripciones.
 
 ## <a name="create-a-diagnostic-setting"></a>Creación de una configuración de diagnóstico
-Los registros de recurso no se recopilan de forma predeterminada. Recopílelos en un área de trabajo de Log Analytics y otros destinos mediante la creación de configuración de diagnóstico para un recurso de Azure. Consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](diagnostic-settings.md) para más información.
+Envíe los registros de plataforma a un área de trabajo de Log Analytics y otros destinos mediante la creación de configuración de diagnóstico para un recurso de Azure. Consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](diagnostic-settings.md) para más información.
 
-## <a name="collection-mode"></a>Modo de recopilación
-Los datos recopilados en un área de trabajo de Log Analytics se almacenan en tablas, tal como se describe en [Estructura de registros de Azure Monitor](../log-query/logs-structure.md). Las tablas que usan los registros de recurso dependen del tipo de colección del recurso:
+
+## <a name="activity-log-collection"></a>Recopilación de registros de actividades
+Puede enviar el registro de actividad desde cualquier suscripción única hasta un máximo de cinco áreas de trabajo de Log Analytics. Los datos del registro de recursos recopilados en un área de trabajo de Log Analytics se almacenan en la tabla de **AzureActivity**. 
+
+## <a name="resource-log-collection-mode"></a>Modo de recopilación de registros de recursos
+Los datos de registros de recursos recopilados en un área de trabajo de Log Analytics se almacenan en tablas, tal como se describe en [Estructura de registros de Azure Monitor](../log-query/logs-structure.md). Las tablas que usan los registros de recurso dependen del tipo de colección del recurso:
 
 - Azure Diagnostics: todos los datos se escriben en la tabla _AzureDiagnostics_.
 - Específicos del recurso: los datos se escriben en una tabla individual para cada categoría del recurso.
@@ -51,7 +55,7 @@ Considere el ejemplo siguiente, donde se recopila la configuración de diagnóst
 
 La tabla AzureDiagnostics tendrá el siguiente aspecto:  
 
-| ResourceProvider    | Category     | Una  | b  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | Category     | Un  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft.Service1 | AuditLogs    | x1 | y1 | z1 |    |    |    |    |    |    |
 | Microsoft.Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
@@ -59,7 +63,7 @@ La tabla AzureDiagnostics tendrá el siguiente aspecto:
 | Microsoft.Service1 | ErrorLogs    |    |    |    | q2 | w2 | e2 |    |    |    |
 | Microsoft.Service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | l3 |
 | Microsoft.Service1 | AuditLogs    | x5 | y5 | z5 |    |    |    |    |    |    |
-| ... |
+| … |
 
 ### <a name="resource-specific"></a>Específico del recurso
 En este modo se crean tablas individuales en el área de trabajo seleccionada para cada categoría seleccionada en la configuración de diagnóstico. Se recomienda este método porque facilita el trabajo con los datos en las consultas de registro, proporciona mejor capacidad de detección de esquemas y su estructura, mejora el rendimiento en la latencia de ingesta y en los tiempos de consulta, y ofrece la capacidad de conceder derechos de RBAC en un tabla específica. Todos los servicios de Azure se migrarán finalmente al modo específico del recurso. 
@@ -68,11 +72,11 @@ En el ejemplo anterior, esto daría lugar a la creación de tres tablas:
  
 - Tabla *Service1AuditLogs*:
 
-    | Proveedor de recursos | Category | Una | b | C |
+    | Proveedor de recursos | Category | Un | B | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | x1 | y1 | z1 |
     | Service1 | AuditLogs | x5 | y5 | z5 |
-    | ... |
+    | … |
 
 - Tabla *Service1ErrorLogs*:  
 
@@ -80,7 +84,7 @@ En el ejemplo anterior, esto daría lugar a la creación de tres tablas:
     | -- | -- | -- | -- | -- | 
     | Service1 | ErrorLogs |  q1 | w1 | e1 |
     | Service1 | ErrorLogs |  q2 | w2 | e2 |
-    | ... |
+    | … |
 
 - Tabla *Service2AuditLogs*:  
 
@@ -88,7 +92,7 @@ En el ejemplo anterior, esto daría lugar a la creación de tres tablas:
     | -- | -- | -- | -- | -- |
     | Service2 | AuditLogs | j1 | k1 | l1|
     | Service2 | AuditLogs | j3 | k3 | l3|
-    | ... |
+    | … |
 
 
 
@@ -120,5 +124,5 @@ Debe migrar los registros para usar el modo específico del recurso lo antes pos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre los registros de recurso de Azure, consulte [Introducción a los registros de recurso de Azure](resource-logs-overview.md).
-* Para crear una configuración de diagnóstico para recopilar registros de recurso en un área de trabajo de Log Analytics, consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](diagnostic-settings.md).
+* [Más información sobre los registros de recurso](resource-logs-overview.md).
+* [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](diagnostic-settings.md).

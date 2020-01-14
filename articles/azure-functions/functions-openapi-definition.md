@@ -1,16 +1,16 @@
 ---
-title: Creación de una definición de OpenAPI para una API sin servidor con Azure API Management
+title: Exposición de las funciones con OpenAPI mediante Azure API Management
 description: Cree una definición de OpenAPI que permita que otras aplicaciones y servicios llamen a la función en Azure.
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 659c05b3d31f5673e95cb27f10eaa8bd872e4be6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 56e2182b408b4e8b1f89eee7458a27c5dd54bb55
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226815"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562020"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Creación de una definición de OpenAPI para una API sin servidor con Azure API Management
 
@@ -39,7 +39,7 @@ Este tutorial usa una función desencadenada por HTTP que adopta dos parámetros
 * El tiempo estimado para realizar la reparación de una turbina, en horas.
 * La capacidad de la turbina, en kilovatios. 
 
-La función luego calcula cuánto costará la reparación y cuántos ingresos podría generar la turbina en un período de 24 horas. PARA crear la función desencadenada por HTTP en [Azure Portal](https://portal.azure.com).
+La función luego calcula cuánto costará la reparación y cuántos ingresos podría generar la turbina en un período de 24 horas. Para crear la función desencadenada por HTTP en [Azure Portal](https://portal.azure.com):
 
 1. Expanda la instancia de Function App y haga clic en el botón **+** , que se encuentra junto a **Funciones**. Seleccione **En el portal** > **Continuar**.
 
@@ -139,7 +139,7 @@ Ahora el usuario está listo para generar la definición de OpenAPI.
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nombre** | Nombre único globalmente | Se genera un nombre basado en el nombre de la aplicación de función. |
     | **Suscripción** | Su suscripción | Suscripción en la que se crea este nuevo recurso. |  
-    | **[Grupo de recursos](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | El mismo recurso que la aplicación de función, que debe establecerse automáticamente. |
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)** |  myResourceGroup | El mismo recurso que la aplicación de función, que debe establecerse automáticamente. |
     | **Ubicación** | Oeste de EE. UU. | Elija la ubicación Oeste de EE. UU. |
     | **Nombre de la organización** | Contoso | El nombre de la organización utilizado en el portal para desarrolladores y para notificaciones de correo electrónico. |
     | **Correo electrónico del administrador** | Su correo electrónico | Correo electrónico que recibe las notificaciones del sistema desde API Management. |

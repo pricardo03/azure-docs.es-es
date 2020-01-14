@@ -1,24 +1,24 @@
 ---
-author: erikre
+author: georgewallace
 ms.service: multiple
 ms.topic: include
 ms.date: 11/25/2018
-ms.author: erikre
-ms.openlocfilehash: 96c4da8465a87fee4c00bfc6177515c94910704a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: gwallace
+ms.openlocfilehash: e38cecfe206f21f9189493e7ed6e8f0cadda9cd9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67185992"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463557"
 ---
-Los clientes de Azure pueden desbloquear 25.000 correos electrónicos gratuitos cada mes. Estos 25 000 correos electrónicos mensuales gratuitos le darán acceso a funciones avanzadas de informes y análisis, así como a [todas las API][all APIs] (Web, SMTP, Event, Parse, etc.). Para información sobre los servicios adicionales que ofrece SendGrid, visite la página [Soluciones de SendGrid][SendGrid Solutions].
+Los clientes de Azure pueden desbloquear 25.000 correos electrónicos gratuitos cada mes. Estos 25 000 correos electrónicos mensuales gratuitos le darán acceso a funciones avanzadas de informes y análisis, así como a [todas las API][all APIs] (Web, SMTP, Event, Parse, etc.). Para obtener información sobre los servicios adicionales que ofrece SendGrid, visite la página [Soluciones de SendGrid][SendGrid Solutions].
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Para registrarse y obtener una cuenta SendGrid
 1. Inicie sesión en [Azure Portal][Azure portal].
-2. En el menú izquierdo, haga clic en **Crear un recurso**.
+2. En el menú de Azure Portal o en la página principal, seleccione **Crear un recurso**.
 
     ![command-bar-new][command-bar-new]
-3. Haga clic en **Complementos** y, luego, en **Servicio de correo electrónico SendGrid**.
+3. Busque y seleccione **SendGrid**.
 
     ![sendgrid-store][sendgrid-store]
 4. Complete el formulario de registro y seleccione **Crear**.
@@ -34,11 +34,11 @@ Los clientes de Azure pueden desbloquear 25.000 correos electrónicos gratuitos 
 10. Escriba un **código de promoción**, si tiene.
 11. Escriba la **información de contacto**.
 12. Revise y acepte los **términos legales**.
-13. Después de confirmar la cuenta, verá una ventana emergente que indica que la **implementación se realizó correctamente** y la cuenta aparecerá en la sección **Todos los recursos**.
+13. Después de confirmar la compra, verá una ventana emergente que indica que la **implementación se realizó correctamente** y se mostrará la cuenta.
 
     ![all-resources][all-resources]
 
-    Una vez que complete la compra y haga clic en el botón **Administrar** para iniciar el proceso de comprobación de correo electrónico, recibirá un correo electrónico de SendGrid en el que se le pedirá que compruebe la cuenta. Si no recibe este correo electrónico o tiene problemas para comprobar la cuenta, consulte estas preguntas más frecuentes.
+    Una vez que complete la compra y haga clic en el botón **Administrar** para iniciar el proceso de comprobación de correo electrónico, recibirá un correo electrónico de SendGrid en el que se le pedirá que compruebe la cuenta. Si no recibe este correo electrónico o tiene problemas para verificar la cuenta, consulte nuestras Preguntas más frecuentes.
 
     ![administrar][manage]
 
@@ -76,7 +76,7 @@ Para administrar la configuración de las opciones de entrega de correo electró
 
 ![administrar][manage]
 
-Para más información sobre el envío de correos electrónicos a través de SendGrid, visite la [Introducción a Email API][Email API Overview].
+Para obtener más información sobre el envío de correos electrónicos a través de SendGrid, visite el artículo [Introducción a Email API][Email API Overview].
 
 <!--images-->
 

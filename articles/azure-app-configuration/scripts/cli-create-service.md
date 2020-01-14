@@ -1,5 +1,6 @@
 ---
-title: 'Ejemplo de script de la CLI de Azure: Creación de un almacén de Azure App Configuration | Microsoft Docs'
+title: 'Ejemplo de script de la CLI de Azure: creación de un almacén de Azure App Configuration'
+titleSuffix: Azure App Configuration
 description: 'Ejemplo de script de la CLI de Azure: Creación de un almacén de Azure App Configuration'
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cd150368898b3f02b4366debbe775ece76b23043
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: d57de8219cb73864ed722c6906a1bd75fec51a50
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184903"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433585"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Creación de un almacén de Azure App Configuration
 

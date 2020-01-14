@@ -1,26 +1,17 @@
 ---
-title: 'Tutorial: implementar una aplicación en Azure Service Fabric Mesh | Microsoft Docs'
+title: 'Tutorial: Implementación de una aplicación en Azure Service Fabric Mesh'
 description: En este tutorial, obtendrá información sobre cómo implementar una aplicación en Service Fabric Mesh mediante una plantilla.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ce063d8a256cbf2507e19d459aafe13150eccce7
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306948"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494944"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implementar una aplicación en Service Fabric Mesh mediante una plantilla
 
@@ -43,7 +34,7 @@ En esta serie de tutoriales, se aprende a:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar este tutorial:
 
@@ -264,7 +255,7 @@ Los servicios se especifican en la plantilla como propiedades del recurso de apl
                   "endpoints": [
                     {
                       "name": "ServiceAListener",
-                      "port": 20001
+                      "port": 80
                     }
                   ],
                   "resources": {
@@ -345,9 +336,9 @@ Cree la aplicación y los recursos relacionados mediante el siguiente comando, y
 
 En el archivo de parámetros, actualice los siguientes valores de los parámetros:
 
-|Parámetro|Valor|
+|Parámetro|Value|
 |---|---|
-|location|La región donde se implementará la aplicación.  Por ejemplo: "eastus".|
+|ubicación|La región donde se implementará la aplicación.  Por ejemplo: "eastus".|
 |registryPassword|La contraseña que ha obtenido anteriormente en [Recuperar las credenciales del registro](#retrieve-credentials-for-the-registry). Este parámetro en la plantilla es una cadena segura y no se mostrará en el estado de implementación ni en los comandos `az mesh service show`.|
 |registryUserName|El nombre de usuario que ha obtenido en [Recuperar las credenciales del registro](#retrieve-credentials-for-the-registry).|
 |registryServer|El nombre de servidor de registro que ha obtenido en [Recuperar las credenciales del registro](#retrieve-credentials-for-the-registry).|

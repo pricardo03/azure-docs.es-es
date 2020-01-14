@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: f9203f77d5b398f53fcb7c9fceb70604b364a4e0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 17802228c8f08e3c8f1533296e2d39080f6f8b7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790290"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456629"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Tutorial: Creación de un flujo de trabajo automatizado, periódico y basado en una programación mediante Azure Logic Apps
 
@@ -32,9 +32,9 @@ Cuando haya terminado, la aplicación lógica se parecerá a este flujo de traba
 
 ![Introducción al flujo de trabajo de una aplicación lógica de alto nivel](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene ninguna suscripción, [suscríbase a una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
+* Suscripción a Azure. Si no tiene ninguna suscripción, [suscríbase a una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
 * Una cuenta de correo electrónico con un proveedor de correo electrónico compatible con Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. En el caso de otros proveedores, [consulte la lista de conectores que se muestra aquí](https://docs.microsoft.com/connectors/). Este inicio rápido utiliza una cuenta de Office 365 Outlook. Si utiliza una cuenta de correo electrónico diferente, los pasos generales siguen siendo los mismos, pero la interfaz de usuario podría ser ligeramente distinta.
 
@@ -54,11 +54,11 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales 
 
    ![Proporción de información acerca de la aplicación lógica](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
-   | Propiedad | Valor | DESCRIPCIÓN |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Nombre** | LA TravelTime | El nombre de la aplicación lógica, que solo puede contener letras, números, guiones (`-`), caracteres de subrayado (`_`), paréntesis (`(`, `)`) y puntos (`.`). En este ejemplo se utiliza "LA-TravelTime". |
    | **Suscripción** | <*nombre-de-su-suscripción-a-Azure*> | El nombre de la suscripción de Azure |
-   | **Grupos de recursos** | LA-TravelTime-RG | El nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) que se utiliza para organizar recursos relacionados. En este ejemplo se utiliza "LA-TravelTime-RG". |
+   | **Grupos de recursos** | LA-TravelTime-RG | El nombre del [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) que se utiliza para organizar recursos relacionados. En este ejemplo se utiliza "LA-TravelTime-RG". |
    | **Ubicación** | Oeste de EE. UU. | La región en la que desea almacenar la información de la aplicación lógica. En este ejemplo se utiliza "West US". |
    | **Log Analytics** | Off | Mantenga el valor **Off** para el registro de diagnóstico. |
    ||||
@@ -89,7 +89,7 @@ A continuación, agregue el [desencadenador](../logic-apps/logic-apps-overview.m
 
    ![Cambio del intervalo de periodicidad y la frecuencia del desencadenador](./media/tutorial-build-scheduled-recurring-logic-app-workflow/change-interval-frequency.png)
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | **Intervalo** | Sí | 1 | Número de intervalos que se espera entre comprobaciones |
    | **Frecuencia** | Sí | Semana | Unidad de tiempo que se usa para la periodicidad. |
@@ -107,7 +107,7 @@ A continuación, agregue el [desencadenador](../logic-apps/logic-apps-overview.m
 
    ![Indicación de detalles de programación y periodicidad](./media/tutorial-build-scheduled-recurring-logic-app-workflow/recurrence-trigger-property-values.png)
 
-   | Propiedad | Valor | DESCRIPCIÓN |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **En estos días** | Lunes,Martes,Miércoles,Jueves,Viernes | Disponible solo cuando **Frecuencia** se establece en "Semana". |
    | **A estas horas** | 7,8,9 | Disponible solo cuando **Frecuencia** se establece en "Semana" o "Día". Se seleccionan las horas del día para ejecutar esta periodicidad. En este ejemplo, la ejecución se realiza a las marcas de hora 7, 8 y 9. |
@@ -138,7 +138,7 @@ Ahora que ya tiene un desencadenador, agregue una [acción](../logic-apps/logic-
 
    ![Creación de la conexión a la API de Bing Maps](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | **Nombre de la conexión** | Sí | BingMapsConnection | Proporcione un nombre para la conexión. En este ejemplo se usa "BingMapsConnection". |
    | **Clave de API** | Sí | <*su-clave-de-Mapas-de-Bing*> | Escriba la clave de Mapas de Bing recibida previamente. Si no tiene una clave de Mapas de Bing, consulte [Getting a Bing Maps Key](https://msdn.microsoft.com/library/ff428642.aspx) (Obtención de una clave de Mapas de Bing). |
@@ -158,13 +158,13 @@ Ahora que ya tiene un desencadenador, agregue una [acción](../logic-apps/logic-
 
    ![Especificación de detalles para la acción "Get route" (Obtener ruta)](./media/tutorial-build-scheduled-recurring-logic-app-workflow/get-route-action-settings.png) 
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | **Waypoint 1** (Punto de referencia 1) | Sí | <*ubicación-inicial*> | Origen de la ruta |
    | **Waypoint 2** (Punto de referencia 2) | Sí | <*ubicación-final*> | Destino de la ruta |
-   | **Optimize** (Optimizar) | Sin | timeWithTraffic | Parámetro para optimizar la ruta, como distancia, tiempo de desplazamiento con tráfico actual, etc. Seleccione el parámetro "timeWithTraffic". |
-   | **Distance unit** (Unidad de distancia) | Sin | <*su preferencia*> | Unidad de distancia para la ruta. En este ejemplo se usa "kilómetro" como unidad. |
-   | **Travel mode** (Modo de desplazamiento) | Sin | Conducción | Modo de desplazamiento para la ruta. Seleccione el modo "Driving" (Conducción). |
+   | **Optimize** (Optimizar) | No | timeWithTraffic | Parámetro para optimizar la ruta, como distancia, tiempo de desplazamiento con tráfico actual, etc. Seleccione el parámetro "timeWithTraffic". |
+   | **Distance unit** (Unidad de distancia) | No | <*su preferencia*> | Unidad de distancia para la ruta. En este ejemplo se usa "kilómetro" como unidad. |
+   | **Travel mode** (Modo de desplazamiento) | No | Conducción | Modo de desplazamiento para la ruta. Seleccione el modo "Driving" (Conducción). |
    ||||
 
    Para más información acerca de estos parámetros, consulte [Calculate a route](https://docs.microsoft.com/bingmaps/rest-services/routes/calculate-a-route) (Cálculo de una ruta).
@@ -189,11 +189,11 @@ De forma predeterminada, la acción anterior **Get route** (Obtener ruta) devuel
 
 1. Proporcione los detalles de la variable tal como se describen aquí:
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | **Nombre** | Sí | travelTime | El nombre de la variable. En este ejemplo se usa "travelTime". |
-   | **Tipo** | Sí | Integer | Tipo de datos de la variable |
-   | **Valor** | Sin| Expresión que convierte el tiempo de desplazamiento actual de segundos a minutos (consulte los pasos a continuación de esta tabla). | Valor inicial de la variable |
+   | **Tipo** | Sí | Entero | Tipo de datos de la variable |
+   | **Valor** | No| Expresión que convierte el tiempo de desplazamiento actual de segundos a minutos (consulte los pasos a continuación de esta tabla). | Valor inicial de la variable |
    ||||
 
    1. Para crear la expresión para el campo **Valor**, haga clic en el campo para que aparezca la lista de contenido dinámico. Si es necesario, amplíe el explorador hasta que aparezca la lista. En la lista de contenido dinámico, seleccione **Expresión**.

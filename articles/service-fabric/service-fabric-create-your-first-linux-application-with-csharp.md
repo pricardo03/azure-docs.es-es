@@ -1,25 +1,14 @@
 ---
-title: Creación de la primera aplicación de Azure Service Fabric en Linux con C#| Microsoft Docs
+title: Creación de la primera aplicación de Azure Service Fabric en Linux con C#
 description: Aprenda a crear e implementar una aplicación de Service Fabric con C# y .NET Core 2.0.
-services: service-fabric
-documentationcenter: csharp
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
-ms.service: service-fabric
-ms.devlang: csharp
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/11/2018
-ms.author: atsenthi
-ms.openlocfilehash: 8c34f50e8eb9d9793c146c38aca47691b04049c0
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 202dde933b41a98c1c119f422d47cbdbb0be84ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167298"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458126"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Creación de la primera aplicación de Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -30,7 +19,7 @@ ms.locfileid: "72167298"
 
 Service Fabric ofrece SDK para compilar servicios en Linux tanto en .NET Core como Java. En este tutorial, veremos cómo crear una aplicación para Linux y cómo compilar un servicio con C# en .NET Core 2.0.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Antes de empezar, asegúrese de [configurar el entorno de desarrollo Linux](service-fabric-get-started-linux.md). Si usa Mac OS X, puede [configurar un entorno one-box de Linux en una máquina virtual mediante Vagrant](service-fabric-get-started-mac.md).
 
 También deberá instalar la [CLI de Service Fabric](service-fabric-cli.md)
@@ -129,7 +118,7 @@ Los proyectos de actor no hacen nada por sí solos. Necesitan que otro servicio 
 
 Para agregar otro servicio a una aplicación ya creada mediante `yo`, realice los pasos siguientes:
 1. Cambie el directorio al directorio raíz de la aplicación existente.  Por ejemplo, `cd ~/YeomanSamples/MyApplication`, si `MyApplication` es la aplicación creada por Yeoman.
-2. Ejecute `yo azuresfcsharp:AddService`
+2. Ejecute `yo azuresfcsharp:AddService`:
 
 ## <a name="next-steps"></a>Pasos siguientes
 

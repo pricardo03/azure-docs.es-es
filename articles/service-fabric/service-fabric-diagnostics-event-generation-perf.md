@@ -1,25 +1,16 @@
 ---
-title: Supervisión del rendimiento de Azure Service Fabric | Microsoft Docs
+title: Supervisión de rendimiento de Azure Service Fabric
 description: Obtenga información sobre los contadores de rendimiento para la supervisión y el diagnóstico de clústeres de Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: ee1608c40801f568b38ace4670b0d5ea7f73003c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60392898"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464703"
 ---
 # <a name="performance-metrics"></a>Métricas de rendimiento
 
@@ -39,7 +30,7 @@ Para las máquinas del clúster, considere la posibilidad de recopilar los sigui
 | Disco físico (por disco) | Lecturas de disco/s |
 | Disco físico (por disco) | Bytes de lectura de disco/s |
 | Disco físico (por disco) | Escrituras en disco/s |
-| Disco físico (por disco) |  Bytes de escritura en disco/s |
+| Disco físico (por disco) | Bytes de escritura en disco/s |
 | Memoria | MB disponibles |
 | Archivo de paginación | % de uso |
 | Procesador (total) | % de tiempo de procesador |

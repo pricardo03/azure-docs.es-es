@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplo de script de la CLI de Azure: creación de una cuenta en Batch - suscripción de usuario | Microsoft Docs'
-description: 'Ejemplo de script de la CLI de Azure: creación de una cuenta en Batch en modo de suscripción de usuario'
+title: 'Ejemplo de script de la CLI de Azure: creación de una cuenta en Batch - suscripción de usuario'
+description: Este script crea una cuenta en Azure Batch en modo de suscripción de usuario. Esta cuenta asigna nodos de proceso a la suscripción.
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: lahugh
-ms.openlocfilehash: a22bd7a2ab4e3a9c0d56aa9f4a2137881b6216af
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 55429e0aafe978cfa6861d73b132ebcee26de493
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322215"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449709"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>Ejemplo de la CLI: Creación de una cuenta de Batch en modo de suscripción de usuario
 

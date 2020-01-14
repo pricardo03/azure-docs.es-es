@@ -1,20 +1,21 @@
 ---
-title: Configuración de una cadena de conexión para Azure Storage
+title: Configuración de la cadena de conexión
+titleSuffix: Azure Storage
 description: Configure una cadena de conexión para una cuenta de Azure Storage. Una cadena de conexión contiene la información necesaria para autorizar el acceso a una cuenta de almacenamiento desde una aplicación en tiempo de ejecución mediante la autorización de clave compartida.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/20/2019
+ms.date: 12/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d1106865b3a2ea3164090896c5b90ab08f996f3d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: f617beec8a53570ede7755040cfbb92a7d1712b7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640504"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460551"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configuración de las cadenas de conexión de Azure Storage
 
@@ -23,8 +24,6 @@ Una cadena de conexión incluye la información de autorización que requiere la
 * Conectarse al emulador de Azure Storage.
 * Acceder a la cuenta de Azure Storage.
 * Acceder a recursos especificados en Azure a través de una firma de acceso compartido (SAS).
-
-[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
@@ -145,4 +144,4 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 * [Uso del emulador de Azure Storage para desarrollo y pruebas](storage-use-emulator.md)
 * [Exploradores de Azure Storage](storage-explorers.md)
-* [Uso de Firmas de acceso compartido (SAS)](storage-sas-overview.md)
+* [Uso de firmas de acceso compartido (SAS)](storage-sas-overview.md)

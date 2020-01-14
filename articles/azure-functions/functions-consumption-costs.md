@@ -3,18 +3,18 @@ title: Estimación de los costos del plan de consumo en Azure Functions
 description: Obtenga información sobre cómo estimar mejor los costos que se pueden producir al ejecutar la aplicación de funciones en un plan de consumo de Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9d81c99f3602e3d7ed5508884b0b313ef2f2fcaf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 38a3435ddbc6e7cce5d18c99e227d405fdc2e7dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230860"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613065"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimación de los costos según el plan de consumo
 
 Actualmente hay tres tipos de planes de hospedaje para una aplicación que se ejecuta en Azure Functions, donde cada plan tiene su propio modelo de precios: 
 
-| Plan | DESCRIPCIÓN |
+| Plan | Descripción |
 | ---- | ----------- |
 | [**Consumo**](functions-scale.md#consumption-plan) | Solo se le cobrará por el tiempo que se ejecute la aplicación de funciones. Este plan incluye una [concesión gratuita][página de precios] por suscripción.|
 | [**Premium**](functions-scale.md#premium-plan) | Proporciona las mismas características y mecanismo de escalado que el plan de consumo, pero con un rendimiento mejorado y acceso a redes virtuales. El costo se basa en el plan de tarifa elegido. Para más información, consulte [Plan Premium de Azure Functions](functions-premium-plan.md). |
@@ -45,7 +45,7 @@ En el caso de las funciones que se ejecutan en un plan de consumo, el costo tota
 
 Al calcular los costos generales de la aplicación de funciones y los servicios relacionados, use la [calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/?service=functions). 
 
-| Costo relacionado | DESCRIPCIÓN |
+| Costo relacionado | Descripción |
 | ------------ | ----------- |
 | **Cuenta de almacenamiento** | Cada aplicación de funciones requiere que tenga una [cuenta de almacenamiento de Azure](../storage/common/storage-introduction.md#types-of-storage-accounts) de uso general asociada, que se [factura por separado](https://azure.microsoft.com/pricing/details/storage/). El tiempo de ejecución de Functions usa esta cuenta internamente, pero también se puede usar para los desencadenadores y enlaces de almacenamiento. Si no tiene una cuenta de almacenamiento, se crea una automáticamente cuando se crea la aplicación de funciones. Para más información, consulte [Requisitos de la cuenta de almacenamiento](functions-scale.md#storage-account-requirements).|
 | **Application Insights** | Functions se basa en [Application Insights](../azure-monitor/app/app-insights-overview.md) para proporcionar una experiencia de supervisión de alto rendimiento para las aplicaciones de funciones. Aunque no es necesario, debe [habilitar la integración de Application Insights](functions-monitoring.md#enable-application-insights-integration). Cada mes se incluye una concesión gratuita de datos de telemetría. Para más información, consulte la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). |
@@ -76,7 +76,7 @@ Use el [explorador de métricas de Azure Monitor](../azure-monitor/platform/metr
     ![Selección del recurso de la aplicación de funciones](media/functions-consumption-costing/select-a-resource.png)
 
       
-    |Configuración  |Valor sugerido  |DESCRIPCIÓN  |
+    |Configuración  |Valor sugerido  |Descripción  |
     |---------|---------|---------|
     | Subscription    |  Su suscripción  | La suscripción con la aplicación de funciones.  |
     | Resource group     | Su grupo de recursos  | El grupo de recursos que contiene la aplicación de funciones.   |
@@ -99,7 +99,7 @@ Dado que el número de unidades de ejecución es mucho mayor que el recuento de 
 
 En este gráfico se muestra un total de 1,11 mil millones de `Function Execution Units` consumidas en un período de dos horas, medido en MB por milisegundo. Para convertir a GB por segundo, divídalo por 1 024 000. En este ejemplo, la aplicación de funciones ha consumido `1110000000 / 1024000 = 1083.98` GB por segundo. Puede tomar este valor y multiplicar por el precio actual del tiempo de ejecución en la [página de precios de Functions][página de precios], que le proporciona el costo de estas dos horas, suponiendo que ya ha usado cualquier concesión gratuita de tiempo de ejecución. 
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 La [CLI de Azure](/cli/azure/) tiene comandos para recuperar métricas. Puede usar la CLI desde un entorno de comandos local o directamente desde el portal mediante [Azure Cloud Shell](../cloud-shell/overview.md). Por ejemplo, el comando siguiente [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) devuelve datos por hora durante el mismo período de tiempo utilizado antes.
 
@@ -206,7 +206,7 @@ performanceCounters
 
 Los resultados deben tener un aspecto similar al ejemplo siguiente:
 
-| marca de tiempo \[UTC\]          | Nombre          | value       |
+| marca de tiempo \[UTC\]          | name          | value       |
 |----------------------------|---------------|-------------|
 | 9/12/2019, 1:05:14\.947 AM | Bytes privados | 209,932,288 |
 | 9/12/2019, 1:06:14\.994 AM | Bytes privados | 212 189 184 |
@@ -226,7 +226,7 @@ customMetrics
 | summarize averageDurationMilliseconds=avg(averageDuration) by name
 ```
 
-| Nombre                       | averageDurationMilliseconds |
+| name                       | averageDurationMilliseconds |
 |----------------------------|-----------------------------|
 | QueueTrigger AvgDurationMs | 16\.087                     |
 | QueueTrigger MaxDurationMs | 90\.249                     |

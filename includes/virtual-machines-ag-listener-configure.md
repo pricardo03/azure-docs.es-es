@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 276ddf0a70fa450451cd3ddc78c7610c4ab1edc1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 73ba78eca710f0b98b2a209494519cb8003e554b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186272"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467806"
 ---
 El agente de escucha del grupo de disponibilidad es un nombre de red y una dirección IP en los que escucha el grupo de disponibilidad de SQL Server. Para crear el agente de escucha del grupo de disponibilidad, haga lo siguiente:
 
@@ -140,4 +140,4 @@ Si fuera necesario, repita los pasos anteriores para establecer los parámetros 
    b. Ejecute el script de PowerShell en uno de los nodos del clúster para establecer los parámetros del clúster.  
 
 >[!WARNING]
->El puerto de sondeo de estado del agente de escucha del grupo de disponibilidad debe ser diferente del puerto de sondeo de estado de la dirección IP principal del clúster. En estos ejemplos, el puerto del agente de escucha es 59999 y la dirección IP principal del clúster es 58888. Ambos puertos requieren una regla de firewall que permita la entrada.
+>El puerto de sondeo de estado del agente de escucha del grupo de disponibilidad debe ser diferente del puerto de sondeo de estado de la dirección IP principal del clúster. En estos ejemplos, el puerto del cliente de escucha es 59999 y el puerto de sondeo del estado de la dirección IP principal del clúster es 58888. Ambos puertos requieren una regla de firewall que permita la entrada.

@@ -2,19 +2,15 @@
 title: Incorporación de soluciones de actualización y control de cambios a Azure Automation
 description: Aprenda a incorporar soluciones de actualización y control de cambios a Azure Automation.
 services: automation
-ms.service: automation
-author: eamonoreilly
-ms.author: eamono
-manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: cacd9206eb0213d410a11ee3a2dcf5c0e28989c6
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: d0024b8c43e76e3dd26b4b73c4ae0e09890b3b46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372830"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421842"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Incorporación de soluciones de actualización y control de cambios a Azure Automation
 
@@ -27,7 +23,7 @@ En este tutorial, aprenderá a incorporar soluciones de actualización, control 
 > * Importación de un runbook de incorporación
 > * Inicio del runbook
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Los siguientes requisitos son necesarios para completar este tutorial:
 
@@ -37,7 +33,7 @@ Los siguientes requisitos son necesarios para completar este tutorial:
 
 ## <a name="onboard-an-azure-vm"></a>Incorporar una máquina virtual de Azure
 
-Hay varias maneras de incorporar máquinas, puede incorporar la solución [desde una máquina virtual](automation-onboard-solutions-from-vm.md), [desde la exploración en varias máquinas](automation-onboard-solutions-from-browse.md) [desde su cuenta de Automation](automation-onboard-solutions-from-automation-account.md) o mediante un runbook. En este tutorial se explica cómo habilitar Update Management mediante un runbook. Para incorporar máquinas virtuales de Azure a escala, debe incorporar una máquina virtual existente con la solución de control de cambios o de administración de actualizaciones. En este paso, se incorpora una máquina virtual con la solución de administración de actualizaciones y control de cambios.
+Hay varias maneras de incorporar máquinas, puede incorporar la solución [desde una máquina virtual](automation-onboard-solutions-from-vm.md), [desde la exploración en varias máquinas](automation-onboard-solutions-from-browse.md), [desde su cuenta de Automation](automation-onboard-solutions-from-automation-account.md) o mediante un runbook. En este tutorial se explica cómo habilitar Update Management mediante un runbook. Para incorporar máquinas virtuales de Azure a escala, debe incorporar una máquina virtual existente con la solución de control de cambios o de administración de actualizaciones. En este paso, se incorpora una máquina virtual con la solución de administración de actualizaciones y control de cambios.
 
 ### <a name="enable-change-tracking-and-inventory"></a>Habilitación de Change Tracking e Inventario
 
@@ -140,7 +136,7 @@ Para quitar una VM de Update Management:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Incorporar máquinas virtuales de Azure manualmente

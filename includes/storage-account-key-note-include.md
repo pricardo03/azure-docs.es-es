@@ -5,17 +5,18 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 06/20/2019
+ms.date: 12/12/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 53ccd439429dc7df311e086d79f7234e26fd8b0e
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 95639caddfa627290f4e7153d50f9f7799a1f320
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302352"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460561"
 ---
-> [!IMPORTANT]
-> La clave de la cuenta de almacenamiento es similar a la contraseña raíz de la cuenta de almacenamiento. Siempre debe proteger la clave de la cuenta. Evite distribuirla a otros usuarios, codificarla de forma rígida o guardarla en un archivo de texto al que puedan acceder otros usuarios. Vuelva a generar la clave de la cuenta mediante el Azure Portal si cree que puede verse comprometida.
->
-> Los tokens de SAS (Firma de acceso compartido) son fundamentales para proteger, al igual que las claves de acceso de la cuenta. A la vez que proporciona granularidad, SAS concede a los clientes acceso a los recursos de la cuenta de almacenamiento, por lo que no debe compartirse públicamente. Cuando sea necesario compartirla para solucionar problemas, considere la posibilidad de usar una versión censurada de los archivos de registro o eliminar los tokens de SAS (si existen) de dichos archivos, y asegúrese de que las capturas de pantalla tampoco incluyan información de SAS.
+## <a name="protect-your-access-keys"></a>Protección de las claves de acceso
+
+Las claves de acceso de la cuenta de almacenamiento son similares a una contraseña raíz de la cuenta de almacenamiento. Siempre debe proteger las claves de acceso. Use Azure Key Vault para administrar y rotar las claves de forma segura. Evite distribuirlas a otros usuarios, codificarlas de forma rígida o guardarlas en un archivo de texto sin formato al que puedan acceder otros usuarios. Rote sus claves si cree que se han puesto en peligro.
+
+Si es posible, use Azure Active Directory (Azure AD) para autorizar solicitudes a Blob Storage y Queue Storage en lugar de la clave compartida. Azure AD proporciona una mayor seguridad y facilidad de uso a través de la clave compartida. Para obtener más información sobre la autorización de acceso a datos con Azure AD, consulte [Autorización del acceso a los blobs y las colas de Azure con Azure Active Directory](../articles/storage/common/storage-auth-aad.md).

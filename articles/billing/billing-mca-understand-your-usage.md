@@ -1,5 +1,5 @@
 ---
-title: Términos en el archivo de uso y cargos de Azure para un contrato de cliente de Microsoft
+title: Términos del archivo de uso y cargos de Azure para el Contrato de cliente de Microsoft
 description: Aprenda a leer y entender las secciones del archivo de cargos y de uso de Azure para el perfil de facturación.
 author: bandersmsft
 manager: jureid
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: b46c635b28d693cb0d6ab9e643a8a1ee9e55fc64
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f619d11c3df29a629b8b4da7b440376d6e9aedbd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226085"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388897"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Términos en el archivo de uso y cargos de Azure para un contrato de cliente de Microsoft
 
@@ -35,7 +35,7 @@ Si era cliente de EA, verá que los términos del archivo .csv de uso del perfil
 | Archivo .csv de uso de Azure EA | CSV de cargos y de uso de Azure para el contrato de cliente de Microsoft |
 | --- | --- |
 | Date | date |
-| Mes| date |
+| Month| date |
 | Día | date |
 | Year | date |
 | Producto | product |
@@ -65,7 +65,7 @@ Si era cliente de EA, verá que los términos del archivo .csv de uso del perfil
 
 Los términos siguientes se muestran en el archivo de uso y cargos de Azure.
 
-Término | DESCRIPCIÓN
+Término | Descripción
 --- | ---
 invoiceId | Identificador único del documento mostrado en el PDF de la factura
 previousInvoiceId | Referencia a una factura original si este elemento de línea es un reembolso
@@ -87,7 +87,7 @@ productOrderName | Nombre único para el pedido del producto
 consumedService | Nombre del servicio consumido
 meterId | Identificador único para el medidor
 meterName | Nombre del medidor
-meterCategory | Nombre de la categoría de clasificación para el medidor. Por ejemplo, *Cloud Services*, *Redes*, etc.
+meterCategory | El nombre de la categoría de clasificación del medidor. Por ejemplo, *servicios en la nube* o *redes*.
 meterSubCategory | Nombre de la categoría de subclasificación del medidor
 meterRegion | Nombre de la región donde está disponible el medidor para el servicio. Identifica la ubicación del centro de datos para ciertos servicios cuyos precios se establecen según la ubicación del centro de datos.
 offer | Nombre de la oferta comprada
@@ -104,7 +104,7 @@ resourceGroupName | Nombre del grupo de recursos asociado al recurso
 resourceId | Identificador único para la instancia del recurso
 resourceType | Tipo de instancia del recurso
 resourceLocation | Identifica la ubicación del centro de datos donde se está ejecutando el recurso
-location | Ubicación normalizada del recurso si se configuran diferentes ubicaciones de recursos para las mismas regiones
+ubicación | Ubicación normalizada del recurso si se configuran diferentes ubicaciones de recursos para las mismas regiones
 quantity | Número de unidades compradas o consumidas
 unitOfMeasure | Unidad de medida para facturar por el servicio Por ejemplo, los servicios de proceso se facturan por hora.
 chargeType | Tipo de cargo. Valores: <ul><li>AsCharged-Usage: Los cargos que se acumulan en función del uso de un servicio de Azure. Esto incluye el uso en máquinas virtuales que no se cobran debido a instancias reservadas.</li><li>AsCharged-PurchaseMarketplace: Cargos únicos o periódicos fijos por compras en Marketplace</li><li>AsCharged-UsageMarketplace: Cargos por servicios de Marketplace que se cobran en función de unidades de consumo</li></ul>

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: f98daf301e8e17ad3f0bfb850ded1a8ed8bce417
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793117"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666744"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Realización de operaciones de datos en Azure Logic Apps
 
@@ -29,7 +29,7 @@ En estas tablas se resumen las operaciones de datos que puede usar, organizadas 
 
 Estas acciones permiten trabajar con datos de matrices.
 
-| . | DESCRIPCIÓN |
+| Acción | Descripción |
 |--------|-------------|
 | [**Crear tabla CSV**](#create-csv-table-action) | Crea una tabla de valores separados por comas (CSV) a partir de una matriz. |
 | [**Crear tabla HTML**](#create-html-table-action) | Crea una tabla HTML a partir de una matriz. |
@@ -42,7 +42,7 @@ Estas acciones permiten trabajar con datos de matrices.
 
 Estas acciones le ayudan a trabajar con datos en formato de notación de objetos JavaScript (JSON).
 
-| . | DESCRIPCIÓN |
+| Acción | Descripción |
 |--------|-------------|
 | [**Redactar**](#compose-action) | Crea un mensaje o cadena, a partir de varias entradas que pueden tener varios tipos de datos. Luego puede usar esta cadena como una única entrada, en lugar de especificar varias veces las mismas entradas. Por ejemplo, puede crear un único mensaje JSON a partir de varias entradas. |
 | [**Análisis del archivo JSON**](#parse-json-action) | Crea tokens de datos fáciles de usar para propiedades de contenido JSON para que pueda usar las propiedades más fácilmente en las aplicaciones lógicas. |
@@ -50,9 +50,9 @@ Estas acciones le ayudan a trabajar con datos en formato de notación de objetos
 
 Para crear transformaciones JSON más complejas, consulte [Perform advanced JSON transformations with Liquid templates](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md) (Realización de transformaciones JSON avanzadas con plantillas de Liquid).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
 * La aplicación lógica donde necesita la operación para trabajar con los datos.
 
@@ -179,7 +179,7 @@ De forma predeterminada, la propiedad **Columnas** está configurada para crear 
 
 1. En la propiedad **Value**, especifique el valor personalizado que se va a usar en su lugar.
 
-Para devolver valores de la matriz, puede usar la función [ `item()` ](../logic-apps/workflow-definition-language-functions-reference.md#item) con la acción **Crear tabla CSV**. En un bucle `For_each`, puede usar la función [ `items()` ](../logic-apps/workflow-definition-language-functions-reference.md#items).
+Para devolver valores de la matriz, puede usar la función [`item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) con la acción **Crear tabla CSV**. En un bucle `For_each`, puede usar la función [`items()`](../logic-apps/workflow-definition-language-functions-reference.md#items).
 
 Por ejemplo, supongamos que desea columnas de tabla que solo tengan los valores de propiedad y no los nombres de propiedad de una matriz. Para devolver solo estos valores, siga estos pasos para trabajar en la vista de diseñador o en la vista de código. Este es el resultado que devuelve este ejemplo:
 
@@ -330,7 +330,7 @@ De forma predeterminada, la propiedad **Columnas** está configurada para crear 
 
 1. En la propiedad **Value**, especifique el valor personalizado que se va a usar en su lugar.
 
-Para devolver valores de la matriz, puede usar la función [ `item()` ](../logic-apps/workflow-definition-language-functions-reference.md#item) con la acción **Crear tabla HTML**. En un bucle `For_each`, puede usar la función [ `items()` ](../logic-apps/workflow-definition-language-functions-reference.md#items).
+Para devolver valores de la matriz, puede usar la función [`item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) con la acción **Crear tabla HTML**. En un bucle `For_each`, puede usar la función [`items()`](../logic-apps/workflow-definition-language-functions-reference.md#items).
 
 Por ejemplo, supongamos que desea columnas de tabla que solo tengan los valores de propiedad y no los nombres de propiedad de una matriz. Para devolver solo estos valores, siga estos pasos para trabajar en la vista de diseñador o en la vista de código. Este es el resultado que devuelve este ejemplo:
 
@@ -443,6 +443,9 @@ Para crear una matriz más pequeña que contenga elementos que satisfagan determ
 > Cualquier texto de filtro que use en la condición distingue mayúsculas de minúsculas. Además, esta acción no puede cambiar el formato o los componentes de los elementos de la matriz. 
 > 
 > Para que las acciones usen la salida de matriz de la acción **Filtrar matriz**, esas acciones deben aceptar matrices como entrada, o puede que tenga que transformar la matriz de salida en otro formato compatible.
+> 
+> Si llama a un punto de conexión HTTP y recibe una respuesta JSON, use la acción **analizar JSON** para procesar la respuesta JSON. 
+> De lo contrario, la acción del **filtro de la matriz** solo puede leer el cuerpo de la respuesta y no la estructura de la carga JSON.
 
 Si prefiere trabajar en el editor de vista de código, puede copiar las definiciones de acción de ejemplo **Filtrar matriz** e **Inicializar variable** de este artículo en su propia definición de flujo de trabajo subyacente de la aplicación lógica: [Ejemplos de código de operación de datos: Filtrar matriz](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
 

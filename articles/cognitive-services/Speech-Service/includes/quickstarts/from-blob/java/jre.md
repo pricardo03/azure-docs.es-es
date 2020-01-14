@@ -7,18 +7,18 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d4a436540460240ebd97c39d3406b2886586a6df
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e110c87835cdf517bdd54adda0ef6d9168a44d52
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828918"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466973"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, compruebe lo siguiente:
 
@@ -57,7 +57,7 @@ Continúe y coloque sus declaraciones delante de `Main`.
 
 ## <a name="create-and-configure-an-http-client"></a>Creación y configuración de un cliente HTTP
 Lo primero que necesitamos es un cliente HTTP con una dirección URL base y un conjunto de autenticación correctos.
-Inserte este código en `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=106-113)].
+Inserte este código en `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=106-113)]
 
 ## <a name="generate-a-transcription-request"></a>Generación de una solicitud de transcripción
 A continuación, se generará la solicitud de transcripción. Agregue este código a `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=115-116)]

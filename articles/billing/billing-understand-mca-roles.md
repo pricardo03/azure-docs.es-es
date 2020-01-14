@@ -1,5 +1,5 @@
 ---
-title: Descripción de los roles administrativos de facturación para los contratos de cliente de Microsoft en Azure
+title: 'Roles de facturación del Contrato de cliente de Microsoft: Azure'
 description: Aprenda sobre los roles de facturación para las cuentas de facturación de Azure para los contratos de cliente de Microsoft.
 author: amberbhargava
 manager: amberbhargava
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: f143297ce3a3e41174cbd6cf59ca3df29f8ebc63
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3949d2a70d29f2bfa33596ef2c47f45e1c87c2d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223525"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388179"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Descripción de los roles administrativos del contrato de cliente de Microsoft en Azure
 
@@ -27,7 +27,7 @@ Este artículo se aplica a una cuenta de facturación para un contrato de client
 
 En la tabla siguiente se describen los roles de facturación que se utilizan para administrar la cuenta de facturación, los perfiles de facturación y las secciones de factura.
 
-|Role|DESCRIPCIÓN|
+|Role|Descripción|
 |---|---|
 |Propietario de la cuenta de facturación|Administrar todo para la cuenta de facturación|
 |Colaborador de la cuenta de facturación|Administrar todo, excepto los permisos, en la cuenta de facturación|
@@ -39,7 +39,7 @@ En la tabla siguiente se describen los roles de facturación que se utilizan par
 |Propietario de la sección de facturas|Administrar todo en la sección de factura|
 |Colaborador de la sección de factura|Administrar todo, excepto los permisos, en la sección de factura|
 |Lector de la sección de facturas|Vista de solo lectura de todo en la sección de factura|
-|Creador de la suscripción de Azure|Creación de suscripciones a Azure|
+|Creador de la suscripción a Azure|Creación de suscripciones a Azure|
 
 ## <a name="billing-account-roles-and-tasks"></a>Tareas y roles de la cuenta de facturación
 
@@ -180,7 +180,7 @@ En la tabla siguiente se muestra qué rol necesita para completar las tareas en 
 
 ## <a name="manage-billing-roles-in-the-azure-portal"></a>Administración de roles integrados en Azure Portal
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Busque **Administración de costos + facturación**.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 996db9690d19cc40c3963922d4edb3b59469752b
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 5586704e098fc568c714e779c2eed44aa3d1df9c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514812"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383006"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>¿Qué es Bing Spell Check API?
 
@@ -44,3 +44,5 @@ Bing Spell Check API es fácil de llamar desde cualquier lenguaje de programaci�
 En primer lugar, pruebe la [demostración interactiva](https://azure.microsoft.com/services/cognitive-services/spell-check/) de Bing Spell Check Search API para ver cómo puede revisar rápidamente una variedad de textos.
 
 Cuando esté listo para llamar a la API, cree una [cuenta de API de Cognitive Services](../../cognitive-services/cognitive-services-apis-create-account.md). Si no tiene una suscripción de Azure, puede [crear una cuenta](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuita.
+
+Puede también visitar la [página central de Bing Search API](../bing-web-search/search-the-web.md) para explorar las otras API disponibles.

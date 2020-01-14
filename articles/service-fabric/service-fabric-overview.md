@@ -1,26 +1,15 @@
 ---
-title: Información general de Service Fabric en Azure | Microsoft Docs
+title: Introducción a Service Fabric en Azure
 description: Información general de Service Fabric donde las aplicaciones se componen de muchos microservicios para ofrecer escala y resiliencia. Service Fabric es una plataforma de sistemas distribuidos que se usa para crear aplicaciones escalables, confiables y fáciles de administrar para la nube.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider
-ms.assetid: bbcc652a-a790-4bc4-926b-e8cd966587c0
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: overview
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 0226c9f1b90495cdfd47a5c5c7a415a36761753d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: a9b8c2051322a7d99af7359c31cb6c77f53d4b1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901594"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466305"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Información general de Azure Service Fabric
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetado, la implementación y la administración de microservicios y contenedores escalables y confiables. Service Fabric también aborda los desafíos importantes en el desarrollo y la administración de aplicaciones nativas en la nube. Los desarrolladores y administradores pueden evitar problemas complejos de infraestructura y centrarse en su lugar en las cargas de trabajo más exigentes y críticas que son escalables, confiables y fáciles de administrar. Service Fabric representa la plataforma de próxima generación para crear y administrar estas aplicaciones de clase empresarial, escala de nube y nivel 1 que se ejecutan en contenedores.
@@ -32,13 +21,13 @@ En este breve vídeo se presentan Service Fabric y los microservicios:
 El proveedor de recursos de Azure Service Fabric está disponible en todas las regiones de Azure y cumple todos los certificados que tiene Azure, entre los que se incluyen: SOC, ISO, PCI DSS, HIPAA y GDPR. A continuación encontrará una lista completa de certificados de cumplimiento: [Ofertas de cumplimiento](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## <a name="applications-composed-of-microservices"></a>Aplicaciones compuestas por microservicios 
-Service Fabric le permite compilar y administrar aplicaciones escalables y confiables compuestas por microservicios que se ejecutan con una densidad alta en un grupo compartido de máquinas, denominado clúster. Ofrece un sofisticado y ligero sistema en tiempo de ejecución para crear microservicios con y sin estado, distribuidos y escalables que se ejecutan en contenedores. También ofrece una completa funcionalidad de administración de aplicaciones para aprovisionar, implementar, supervisar, actualizar/aplicar revisiones y eliminar aplicaciones implementadas, incluidos los servicios en contenedor.
+Service Fabric permite crear y administrar aplicaciones escalables y confiables compuestas de microservicios. Estos microservicios distribuidos se ejecutan con una densidad alta en un grupo compartido de máquinas, al que se hace referencia como un clúster. Service Fabric proporciona un entorno de ejecución sofisticado y ligero que admite microservicios con estado y sin él. También ofrece funciones de administración de aplicaciones completas para aprovisionar, implementar, supervisar, actualizar/aplicar revisiones y eliminar aplicaciones implementadas.
+
+Service Fabric se adapta para crear servicios nativos de la nube que pueden empezar con un tamaño pequeño, según sea necesario, y crecer a gran escala con cientos o miles de máquinas. Actualmente, los servicios de escala de Internet se crean a partir de microservicios. Entre los ejemplos de microservicios se encuentran las puertas de enlace de protocolo, perfiles de usuario, carros de la compra, procesamiento de inventario, colas y memorias caché.
 
 En la actualidad, Service Fabric se utiliza en muchos servicios Microsoft, como Azure SQL Database, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT Hub, Dynamics 365, Skype Empresarial y muchos servicios principales de Azure.
 
-Service Fabric se adapta para crear servicios nativos de la nube que pueden empezar con un tamaño pequeño, según sea necesario, y crecer a gran escala con cientos o miles de máquinas. Actualmente, los servicios de escala de Internet se crean a partir de microservicios. Entre los ejemplos de microservicios se encuentran las puertas de enlace de protocolo, perfiles de usuario, carros de la compra, procesamiento de inventario, colas y memorias caché. 
-
-Service Fabric ofrece funciones completas de administración del ciclo de vida y de tiempo de ejecución para las aplicaciones que están compuestas de estos microservicios. Hospeda microservicios dentro de contenedores que se implementan y activan en el clúster de Service Fabric. La migración desde las máquinas virtuales a los contenedores hace posible un aumento de un orden de magnitud en la densidad. De manera similar, se hace posible otro orden de magnitud en la densidad si se migra de contenedores a microservicios en estos contenedores. Por ejemplo, un único clúster de Azure SQL Database se compone de cientos de máquinas que ejecutan decenas de miles de contenedores que hospedan un total de cientos de miles de bases de datos. Cada base de datos es un microservicio con estado de Service Fabric. 
+Service Fabric hospeda microservicios dentro de contenedores que se implementan y activan en el clúster de Service Fabric. La migración desde las máquinas virtuales a los contenedores hace posible un aumento de un orden de magnitud en la densidad. De manera similar, se hace posible otro orden de magnitud en la densidad si se migra de contenedores a microservicios en estos contenedores. Por ejemplo, un único clúster de Azure SQL Database se compone de cientos de máquinas que ejecutan decenas de miles de contenedores que hospedan un total de cientos de miles de bases de datos. Cada base de datos es un microservicio con estado de Service Fabric.
 
 Para más información sobre el enfoque de los microservicios, lea [¿Por qué usar un enfoque de microservicios para crear aplicaciones?](service-fabric-overview-microservices.md)
 

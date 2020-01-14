@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 2ac2d552aed5b11eaf5a8e4708b2cabc33ba1bb3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d12e3b91dad2b7e7d28c6bd50fd62623e07e580b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223805"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449446"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Obtención de la propiedad de la facturación de las suscripciones a Azure de otras cuentas
 
@@ -33,52 +33,77 @@ Para solicitar la propiedad de la facturación, debe ser **propietario de la sec
 
 2. Busque **Administración de costos + facturación**.
 
-   ![Captura de pantalla que muestra la búsqueda en Azure Portal de Administración de costos + facturación](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
+    ![Captura de pantalla que muestra la búsqueda en Azure Portal de Administración de costos + facturación](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. Seleccione **Secciones de factura** en el lado izquierdo. Dependiendo de su acceso, es posible que tenga que seleccionar una cuenta de facturación o un perfil de facturación. En el perfil o la cuenta de facturación, seleccione **Secciones de la factura**.
+3. En la página de ámbitos de facturación, seleccione la cuenta de facturación que se utilizará para pagar el uso de las suscripciones. La cuenta de facturación será del tipo **Contrato de cliente de Microsoft**.
+
+    ![Captura de pantalla que muestra la búsqueda en el portal para la administración de cosos y facturación](./media/billing-mca-check-azure-credits-balance/list-of-scopes.png)
+
+    > [!NOTE]
+    >
+    > Azure Portal recuerda el último ámbito de facturación al que tiene acceso y muestra el ámbito la próxima vez que llega a la página Administración de costos + facturación. No verá la página de ámbitos de facturación si ha visitado Administración de costos y facturación anteriormente. Si es así, compruebe que se encuentra en el [ámbito correcto](#check-for-access). En caso contrario, [cambie el ámbito](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal) para seleccionar la cuenta de facturación de un Contrato de cliente de Microsoft.
+
+4. Seleccione **Perfiles de facturación** en el lado izquierdo.
    
-   ![Captura de pantalla que muestra la selección de las secciones de la factura](./media/billing-mca-request-billing-ownership/mca-select-invoice-sections.png)        
+    ![Captura de pantalla que muestra la selección de los perfiles de facturación](./media/billing-mca-request-billing-ownership/mca-select-profiles.png)     
 
-4. Seleccione una sección de la factura en la lista. Una vez que asume la propiedad de las suscripciones, se facturarán en esta sección de la factura.
+    > [!Note]
+    >
+    > Si no ve los perfiles de facturación, no se encuentra en el ámbito de facturación adecuado. Tiene que seleccionar una cuenta de facturación de un Contrato de cliente de Microsoft y después seleccione los perfiles de facturación. Para obtener información sobre cómo cambiar los ámbitos, consulte [Cambio de ámbitos de facturación en Azure Portal](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
 
-5. Seleccione **Solicitudes de transferencia** en el lado inferior izquierdo y, luego, **Agregar**.
+5. Seleccione un **perfil de facturación** en la lista. Cuando se asume la propiedad de las suscripciones, se facturará por su uso en este perfil de facturación.
+
+6. Seleccione **Secciones de factura** en el lado izquierdo. 
+
+    ![Captura de pantalla que muestra la selección de las secciones de la factura](./media/billing-mca-request-billing-ownership/mca-select-invoice-sections.png)   
+
+7. Seleccione una sección de la factura en la lista. Cuando se asume la propiedad de las suscripciones, se asignará su uso a esta sección de la factura del perfil de facturación.
+
+8. Seleccione **Solicitudes de transferencia** en el lado inferior izquierdo y, luego, **Agregar una nueva solicitud**.
  
-   ![Captura de pantalla que muestra la selección de solicitudes de facturación](./media/billing-mca-request-billing-ownership/mca-select-transfer-requests.png)
+    ![Captura de pantalla que muestra la selección de solicitudes de facturación](./media/billing-mca-request-billing-ownership/mca-select-transfer-requests.png)
 
-6. Escriba la dirección de correo electrónico del usuario al que solicita la propiedad de la facturación. El usuario debe ser un administrador de cuenta en una cuenta de facturación de Microsoft Online Service Program o un propietario de cuenta en un Contrato Enterprise. Para más información, consulte [Visualización de las cuentas de facturación en Azure Portal](billing-view-all-accounts.md). Seleccione **Enviar solicitud de transferencia**.
+9. Escriba la dirección de correo electrónico del usuario al que solicita la propiedad de la facturación. El usuario debe ser un administrador de cuenta en una cuenta de facturación de Microsoft Online Service Program o un propietario de cuenta en un Contrato Enterprise. Para más información, consulte [Visualización de las cuentas de facturación en Azure Portal](billing-view-all-accounts.md). Seleccione **Enviar solicitud de transferencia**.
 
-   ![Captura de pantalla que muestra el envío de una solicitud de transferencia](./media/billing-mca-request-billing-ownership/mca-send-transfer-requests.png)
+    ![Captura de pantalla que muestra el envío de una solicitud de transferencia](./media/billing-mca-request-billing-ownership/mca-send-transfer-requests.png)
 
-7. El usuario recibe un correo electrónico con instrucciones para revisar la solicitud de transferencia.
+10. El usuario recibe un correo electrónico con instrucciones para revisar la solicitud de transferencia.
 
-   ![Captura de pantalla que muestra un correo electrónico de solicitud de transferencia](./media/billing-mca-request-billing-ownership/mca-review-transfer-request-email.png)
+    ![Captura de pantalla que muestra un correo electrónico de solicitud de transferencia](./media/billing-mca-request-billing-ownership/mca-review-transfer-request-email.png)
 
-8. Para aprobar la solicitud de transferencia, el usuario selecciona el vínculo en el correo electrónico y sigue las instrucciones.
+11. Para aprobar la solicitud de transferencia, el usuario selecciona el vínculo en el correo electrónico y sigue las instrucciones.
 
     ![Captura de pantalla que muestra un correo electrónico de solicitud de transferencia](./media/billing-mca-request-billing-ownership/mca-review-transfer-request.png)
 
 ## <a name="check-the-transfer-request-status"></a>Comprobación del estado de una solicitud de transferencia
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Busque **Administración de costos + facturación**.
 
-   ![Captura de pantalla que muestra la búsqueda en Azure Portal de Administración de costos + facturación](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
+    ![Captura de pantalla que muestra la búsqueda en Azure Portal de Administración de costos + facturación](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
+3. En la página de ámbitos de facturación, seleccione la cuenta de facturación a la que se envió la solicitud de transferencia.
 
-3. Seleccione **Secciones de factura** en el lado izquierdo. Dependiendo de su acceso, es posible que tenga que seleccionar una cuenta de facturación o un perfil de facturación. En el perfil o la cuenta de facturación, seleccione **Secciones de la factura**.
+4. Seleccione **Perfiles de facturación** en el lado izquierdo.
    
-   ![Captura de pantalla que muestra la selección de las secciones de la factura](./media/billing-mca-request-billing-ownership/mca-select-invoice-sections.png)        
+    ![Captura de pantalla que muestra la selección de los perfiles de facturación](./media/billing-mca-request-billing-ownership/mca-select-profiles.png)     
 
-4. Seleccione en la lista la sección de la factura para la que envió la solicitud de transferencia.
+5. Seleccione el **perfil de facturación** para el que se envió la solicitud de transferencia.
 
-5. Seleccione **Solicitudes de transferencia** en el lado inferior izquierdo. En la página Solicitudes de transferencia se muestra la siguiente información:
+6. Seleccione **Secciones de factura** en el lado izquierdo. 
+
+    ![Captura de pantalla que muestra la selección de las secciones de la factura](./media/billing-mca-request-billing-ownership/mca-select-invoice-sections.png)   
+
+7. Seleccione en la lista la sección de la factura para la que envió la solicitud de transferencia.
+
+8. Seleccione **Solicitudes de transferencia** en el lado inferior izquierdo. En la página Solicitudes de transferencia se muestra la siguiente información:
 
     ![Captura de pantalla que muestra una lista de solicitudes de facturación](./media/billing-mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)
 
    |Columna|Definición|
    |---------|---------|
-   |Fecha de solicitud|La fecha en la que se envió la solicitud de transferencia|
+   |Fecha de solicitud|La fecha en la que se envió la solicitud de transferencia.|
    |Recipient|La dirección de correo electrónico del usuario que envió la solicitud para transferir la propiedad de la facturación|
    |Fecha de expiración|La fecha en que expira la solicitud|
    |Status|El estado de la solicitud de transferencia|
@@ -95,9 +120,9 @@ Para solicitar la propiedad de la facturación, debe ser **propietario de la sec
    |Canceled|Un usuario con acceso a la solicitud de transferencia ha cancelado la solicitud.|
    |Rechazado|El usuario ha rechazado la solicitud de transferencia.|
 
-7. Seleccione una solicitud de transferencia para ver los detalles. En la página de detalles de la transferencia se muestra la siguiente información:
+9. Seleccione una solicitud de transferencia para ver los detalles. En la página de detalles de la transferencia se muestra la siguiente información:
    
-   ![Captura de pantalla que muestra la lista de las suscripciones transferidas](./media/billing-mca-request-billing-ownership/mca-transfer-completed.png)
+    ![Captura de pantalla que muestra la lista de las suscripciones transferidas](./media/billing-mca-request-billing-ownership/mca-transfer-completed.png)
     
    |Columna  |Definición|
    |---------|---------|

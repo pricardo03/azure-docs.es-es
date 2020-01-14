@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 06/30/2019
 ms.author: banders
-ms.openlocfilehash: 07f8d897d55868923ecca03797cf18a5346d667c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 20eacdb1ab8f7ebdf118646cd548d7b60b2d2ebc
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225791"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644352"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obtención del uso y los costos de reservas de Contrato Enterprise
 
@@ -41,7 +41,7 @@ Los datos se dividen en dos conjuntos de datos independientes: _Costo real_ y _C
 
 Comparación de dos conjuntos de datos:
 
-| Datos | Conjunto de datos de costo real | Conjunto de datos de costo amortizado |
+| data | Conjunto de datos de costo real | Conjunto de datos de costo amortizado |
 | --- | --- | --- |
 | Compras de la reserva | Está disponible en esta vista.<br><br>  Para obtener estos datos, filtre según ChargeType = &quot;Compra&quot;. <br><br> Consulte ReservationID o ReservationName para saber para qué es el cargo de la reserva.  | No es aplicable a esta vista. <br><br> Los costos de compra no se proporcionan en los datos amortizados. |
 | EffectivePrice | El valor es cero para el uso que obtiene el descuento de la reserva. | El valor es el costo prorrateado por hora de la reserva para el uso que tiene el descuento de la reserva. |
@@ -65,9 +65,9 @@ Puede obtener los datos mediante la API o descargarlos desde Azure Portal.
 
 Para obtener los datos nuevos, llame a [Usage Details API](/rest/api/consumption/usagedetails/list). Para obtener más información acerca de la terminología, consulte los [términos de uso](billing-understand-your-usage.md). El autor de la llamada debe ser un administrador de Enterprise del Contrato Enterprise mediante [EA Portal](https://ea.azure.com). Los administradores de Enterprise de solo lectura también pueden obtener los datos.
 
-Los datos no están disponibles en [Reporting APIs for Enterprise customers - Usage Details](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) (API de informes para clientes de Enterprise: detalles de uso).
+Tenga en cuenta que estos datos no están disponibles en [Reporting APIs for Enterprise customers - Usage Details](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) (API de informes para clientes de Enterprise: Usage Details).
 
-Este es un ejemplo de llamada a la API:
+Este es un ejemplo de llamada a Usage Details API:
 
 ```
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
@@ -89,7 +89,7 @@ La información de la tabla siguiente sobre la métrica y los filtros puede ayud
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Descarga del archivo CSV de uso con los nuevos datos
 
-Si es administrador de EA, puede descargar el archivo CSV que contiene los nuevos datos de uso de Azure Portal. Estos datos no están disponibles desde [EA Portal](https://ea.azure.com).
+Si es administrador de EA, puede descargar el archivo CSV que contiene los nuevos datos de uso de Azure Portal. Estos datos no están disponibles en el portal de EA (ea.azure.com), debe descargar el archivo de uso de Azure Portal (portal.azure.com) para ver los nuevos datos.
 
 En Azure Portal, vaya a [Administración de costos + facturación](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
@@ -111,7 +111,7 @@ Los costos de compra de reserva están disponibles en los datos de Costo real. F
 
 ### <a name="get-underutilized-reservation-quantity-and-costs"></a>Obtención de los costos y la cantidad de reserva infrautilizada
 
-Obtenga los datos de Costo amortizado y filtre por _ChargeType_ _= UnusedReservation_. De esta forma, obtiene el costo y la cantidad diaria de reserva sin usar. Puede filtrar los datos de una reserva o un pedido de reserva mediante los campos _ReservationId_ y _ProductOrderId_, respectivamente. Si una reserva era utiliza al 100%, el registro tiene una cantidad de 0.
+Obtenga los datos de costo amortizado y filtre por _ChargeType_ _= UnusedReservation_. De esta forma, obtiene el costo y la cantidad diaria de reserva sin usar. Puede filtrar los datos de una reserva o un pedido de reserva mediante los campos _ReservationId_ y _ProductOrderId_, respectivamente. Si una reserva era utiliza al 100%, el registro tiene una cantidad de 0.
 
 ### <a name="amortize-reservation-costs"></a>Amortización de los costos de la reserva
 

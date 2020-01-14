@@ -1,5 +1,5 @@
 ---
-title: Compilación de una aplicación de consola mediante la API de Azure Cosmos DB para MongoDB y el SDK de Golang
+title: Aplicación de consola que usa la API de Azure Cosmos DB para MongoDB y el SDK de Golang
 description: Se presenta un ejemplo de código de Golang que se puede usar para conectarse a la API de Azure Cosmos DB para MongoDB y realizar consultas.
 author: markjbrown
 ms.author: mjbrown
@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: e16b9b7e591fcc089d74794c98ddfc951cbdced9
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c717a8d5baa57ce780fbbc0d25e67c2509ca86fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755109"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441948"
 ---
 # <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>Inicio rápido: Compilación de una aplicación de consola mediante la API de Azure Cosmos DB para MongoDB y el SDK de Golang
 
@@ -31,9 +31,9 @@ En este inicio rápido se muestra cómo tomar una aplicación de MongoDB existen
 
 En otras palabras, la aplicación Golang solo sabe que se está conectando mediante un cliente de MongoDB. Para la aplicación, resulta transparente que los datos se almacenen en la base de datos de Cosmos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar. 
+- Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar. 
 
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
@@ -212,7 +212,7 @@ if err != nil {
 }
 ```
     
-## <a name="run-the-app"></a>Ejecución de la aplicación
+## <a name="run-the-app"></a>Ejecución la aplicación
 
 1. En Golang, asegúrese de que su GOPATH (disponible en **Archivo**, **Configuración**, **Go**, **GOPATH**) incluye la ubicación en la que se instaló el gopkg, que es USERPROFILE\go de forma predeterminada. 
 2. Convierta en comentario las líneas que eliminan el documento, de la 103 a la 107, para que pueda ver el documento después de ejecutar la aplicación.

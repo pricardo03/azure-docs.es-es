@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de un espacio de nombres y una cola de Azure Service Bus mediante una plantilla de Azure Resource Manager'
+title: Creación de colas y espacios de nombres de Azure Service Bus con una plantilla de Azure
 description: 'Inicio rápido: Creación de un espacio de nombres de Service Bus y una cola mediante una plantilla de Azure Resource Manager'
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/05/2019
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 40aeff225cfa6d499ebdfae6736e0684b2a27244
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 978111596330d7d6b324c1ecc07fd424c7fd47b7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718803"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427002"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Inicio rápido: Creación de un espacio de nombres de Service Bus y una cola mediante una plantilla de Azure Resource Manager
 
@@ -130,7 +130,7 @@ Para la sintaxis y las propiedades de JSON, consulte los[espacios de nombres](/a
 New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
 ```
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 azure config mode arm
@@ -146,7 +146,7 @@ Vea los siguientes artículos para aprender a administrar estos recursos:
 * [Administración de Service Bus con PowerShell](service-bus-manage-with-ps.md)
 * [Administración de recursos de Service Bus con el Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Service Bus namespace and queue template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Learn more about Service Bus queues]: service-bus-queues-topics-subscriptions.md

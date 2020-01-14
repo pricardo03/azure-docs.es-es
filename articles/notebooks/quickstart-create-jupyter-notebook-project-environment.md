@@ -1,18 +1,20 @@
 ---
-title: Creación de un proyecto de Azure Notebooks con un entorno personalizado
-description: Cree un proyecto en Azure Notebooks que esté configurado con un conjunto específico de scripts de inicio y paquetes instalados.
+title: Creación de un proyecto de Azure Notebooks (versión preliminar) con un entorno personalizado
+description: Cree un proyecto en Azure Notebooks (versión preliminar) que esté configurado con un conjunto específico de scripts de inicio y paquetes instalados.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: f167d1bf6064cde535d17fa4a336ee13424baba7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 999133dd7d9d792956f9a2c93ec218e458c921e8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277495"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647074"
 ---
-# <a name="quickstart-create-a-project-with-a-custom-environment"></a>Inicio rápido: Creación de un proyecto con un entorno personalizado
+# <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Inicio rápido: Creación de un proyecto con un entorno personalizado en de Azure Notebooks (versión preliminar)
 
 Un proyecto de Azure Notebooks es una colección de archivos, como cuadernos, archivos de datos, documentación, imágenes, etc. junto con un entorno que se puede configurar con comandos de instalación específicos. Al definir el entorno con el proyecto, cualquier usuario que clone el proyecto en su propia cuenta de Azure Notebooks tiene toda la información necesaria para volver a crear el entorno necesario.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="create-a-project"></a>Crear un proyecto
 
@@ -28,9 +30,9 @@ Un proyecto de Azure Notebooks es una colección de archivos, como cuadernos, ar
 
 1. En la ventana emergente **Create New Project** (Crear nuevo proyecto) que aparece, escriba o establezca estos detalles y, luego, seleccione **Create** (Crear):
 
-    - **Nombre del proyecto**: Proyecto con un entorno personalizado
+    - **Project name** (Nombre del proyecto): Proyecto con un entorno personalizado
     - **Identificador del proyecto**: project-custom-environment
-    - **Proyecto público**: (desactivado)
+    - **Public project** (Proyecto público): desactivada
     - **Create a README.md** (Crear un Léame.md): desactivada
 
 1. Después de unos instantes, Azure Notebooks lo lleva al proyecto nuevo. Para agregar un cuaderno al proyecto, seleccione el menú desplegable **+ Nuevo** (que puede aparecer simplemente como **+** ) y seleccione **Cuaderno**.
@@ -49,7 +51,7 @@ Un proyecto de Azure Notebooks es una colección de archivos, como cuadernos, ar
 
 1. El comando **+ Agregar** crea un paso definido por una operación y un archivo de destino que se selecciona de los archivos del proyecto. Se admiten las operaciones siguientes:
 
-    | Operación | DESCRIPCIÓN |
+    | Operación | Descripción |
     | --- | --- |
     | Requirements.txt | Los proyectos de Python definen sus dependencias en un archivo llamado requirements.txt. Con esta opción, seleccione el archivo adecuado en la lista de archivos del proyecto y seleccione también la versión de Python en la otra lista desplegable que aparece. Si es necesario, seleccione **Cancelar** para volver al proyecto, cargue o cree el archivo y, luego, vuelva a la pestaña **Configuración del proyecto** > **Entorno** para crear un paso. Una vez que se crea este paso, al ejecutar un cuaderno en el proyecto, automáticamente se ejecuta `pip install -r <file>` |
     | Script de shell | Úselo para indicar un script de shell de bash (por lo general, un archivo con extensión *.sh*) que contiene cualquier comando que quiere ejecutar para inicializar el entorno. |

@@ -1,26 +1,17 @@
 ---
-title: 'Tutorial de instalación de una aplicación en el clúster de Service Fabric independiente: Azure Service Fabric | Microsoft Docs'
+title: Instalación de una aplicación en un clúster independiente
 description: En este tutorial aprenderá a instalar una aplicación en el clúster de Service Fabric independiente.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 5e5260a2001d9cb0a38f4182e923a5416f76712b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 124fc6035c1d0ad504a34b7db227f0f4675f24f7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384993"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613965"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Tutorial: Implementación de una aplicación en el clúster de Service Fabric independiente
 
@@ -34,7 +25,7 @@ En la tercera parte de la serie, se aprende a:
 > * Descargar la aplicación de ejemplo
 > * Implementar en el clúster
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar este tutorial:
 

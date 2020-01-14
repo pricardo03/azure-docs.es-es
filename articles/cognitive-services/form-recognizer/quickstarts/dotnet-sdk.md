@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Biblioteca cliente de Form Recognizer para .NET | Microsoft Docs'
-description: Empiece con la Biblioteca cliente de Form Recognizer para .NET para entrenar, extraer, analizar y obtener resultados de datos estructurados.
+title: 'Inicio rápido: Biblioteca cliente de Form Recognizer para .NET'
+description: Empiece a trabajar con la biblioteca cliente de Form Recognizer para .NET para entrenar, extraer, analizar y obtener resultados de datos estructurados con este inicio rápido.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 018371f4c188d05d92a5fd3fd81511d941a359a6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8fd938e685c712cda60c171ccf9092ff42e6037e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978618"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446492"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de Form Recognizer para .NET
 
@@ -28,9 +28,9 @@ Utilice la biblioteca cliente de Form Recognizer para .NET para:
 * [Obtener una lista de modelos personalizados](#get-a-list-of-custom-models)
 * [Eliminar un modelo personalizado](#delete-a-custom-model)
 
-[Documentación de referencia](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
+[Documentación de referencia](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/FormRecognizer) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 * Tener acceso a la versión preliminar de acceso limitado de Form Recognizer. Para acceder a la versión preliminar, rellene y envíe el formulario [Solicitud de acceso de Form Recognizer](https://aka.ms/FormRecognizerRequestAccess).
@@ -91,7 +91,7 @@ Si usa el IDE de Visual Studio, la biblioteca cliente estará disponible como un
 
 Las siguientes clases controlan la funcionalidad principal del SDK de Form Recognizer.
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |---|---|
 |[FormRecognizerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.formrecognizerclient?view=azure-dotnet-preview)|Esta clase es necesaria para todas las funcionalidades de Form Recognizer. Cree una instancia de ella con la información de suscripción y úsela para generar instancias de otras clases.|
 |[TrainRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainrequest?view=azure-dotnet-preview)| Utilice esta clase para entrenar un modelo personalizado de Form Recognizer con sus propios datos de entrada de entrenamiento. |

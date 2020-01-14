@@ -1,25 +1,14 @@
 ---
-title: Más información acerca de Azure Service Fabric | Microsoft Docs
+title: Más información acerca de Azure Service Fabric
 description: Obtenga información acerca de los conceptos básicos y las áreas principales de Azure Service Fabric. Proporciona información general ampliada de Service Fabric y cómo crear microservicios.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/08/2017
-ms.author: atsenthi
-ms.openlocfilehash: 1227871f2003ded7b9cb92eaf32bd9a984958f9f
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 4e6e21f5f9ebfeddb5292e00dc8a929341e77372
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537807"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458149"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>¿Qué desea saber sobre Service Fabric?
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables.  Sin embargo, Service Fabric tiene un área expuesta de gran tamaño, y hay mucho por aprender.  En este artículo se proporciona una sinopsis de Service Fabric y se describen los conceptos principales, los modelos de programación, el ciclo de vida de la aplicación, las pruebas, los clústeres y la supervisión del estado. Lea [Información general](service-fabric-overview.md) y [¿Qué son los microservicios?](service-fabric-overview-microservices.md) para obtener una introducción y conocer cómo se puede utilizar Service Fabric para crear microservicios. Este artículo no contiene una lista completa de contenido, pero incluye vínculos a información general y artículos de introducción de cada área de Service Fabric. 
@@ -146,7 +135,7 @@ Estos son los escenarios de seguridad de clúster:
 
 Para más información, lea [Proteger un clúster](service-fabric-cluster-security.md).
 
-### <a name="scaling"></a>Escalado
+### <a name="scaling"></a>Ampliación
 Si agrega nuevos nodos al clúster, Service Fabric reequilibra las réplicas e instancias de la partición entre el número aumentado de nodos. El rendimiento general de la aplicación mejora y se reduce la contención para el acceso a la memoria. Si los nodos del clúster no se usan de forma eficaz, puede reducir su número de nodos. Service Fabric vuelve a reequilibrar las réplicas e instancias de la partición en el número reducido de nodos para aprovechar mejor el hardware de cada nodo. Puede escalar clústeres en Azure [manualmente](service-fabric-cluster-scale-up-down.md) o [mediante programación](service-fabric-cluster-programmatic-scaling.md). Los clústeres independientes se pueden escalar [manualmente](service-fabric-cluster-windows-server-add-remove-nodes.md).
 
 ### <a name="cluster-upgrades"></a>Actualizaciones de clústeres

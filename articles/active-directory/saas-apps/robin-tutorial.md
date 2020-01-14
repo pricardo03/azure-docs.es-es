@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Robin | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Robin | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Robin.
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 01/02/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f8278f9c0b478d940a629d3308fd73ea474a4aa
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 964ba7ba9ebac84e2895e5a50f3fa31f1dbdd874
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081657"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659702"
 ---
-# <a name="tutorial-integrate-robin-with-azure-active-directory"></a>Tutorial: Integración de Robin en Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-robin"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Robin
 
 En este tutorial, aprenderá a integrar Robin en Azure Active Directory (Azure AD). Al integrar Robin en Azure AD, puede hacer lo siguiente:
 
@@ -33,7 +32,7 @@ En este tutorial, aprenderá a integrar Robin en Azure Active Directory (Azure
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para empezar, necesita los siguientes elementos:
 
@@ -47,6 +46,9 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * Robin admite el inicio de sesión único iniciado por **SP e IDP**
 * Robin admite el aprovisionamiento de usuarios **Just-In-Time**
 
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+
 ## <a name="adding-robin-from-the-gallery"></a>Adición de Robin desde la galería
 
 Para configurar la integración de Robin en Azure AD, será preciso agregar Robin desde la galería a la lista de aplicaciones SaaS administradas.
@@ -58,32 +60,30 @@ Para configurar la integración de Robin en Azure AD, será preciso agregar Robi
 1. En la sección **Agregar desde la galería**, escriba **Robin** en el cuadro de búsqueda.
 1. Seleccione **Robin** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on-for-robin"></a>Configuración y prueba del inicio de sesión único de Azure AD para Robin
 
 Configure y pruebe el inicio de sesión único de Azure AD con Robin mediante una usuaria de prueba llamada **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Robin.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Robin, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Robin](#configure-robin-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
-    * **[Creación de un usuario de prueba de Robin](#create-robin-test-user)** , para tener un homólogo de B.Simon en Robin que esté vinculado a la representación del usuario en Azure AD.
+    1. **[Creación de un usuario de prueba de Robin](#create-robin-test-user)** , para tener un homólogo de B.Simon en Robin que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
 1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Robin**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único**, seleccione **SAML**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
 1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, la aplicación está preconfigurada en el modo iniciado por **IDP** y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón **Guardar**.
-
-    ![Información de dominio y direcciones URL de inicio de sesión único de Robin](common/preintegrated.png)
+1. En la sección  **Configuración básica de SAML** , la aplicación está preconfigurada en el modo iniciado por  **IDP**  y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón  **Guardar** .
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
@@ -95,12 +95,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Además de lo anterior, la aplicación Robin espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
-    | NOMBRE | Atributo de origen|
-    | ---------------|  --------- |
-    | Email | user.userprincipalname |
-    | Nombre |  user.givenname |
-    | Apellidos |  user.surname |
-
+    | Nombre | Atributo de origen|
+    | ---------------| --------- |
+    | Nombre | user.givenname |
+    | Apellidos | user.surname |
+    | Email | user.mail |
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (sin procesar)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -120,7 +119,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -146,9 +145,9 @@ Para configurar el inicio de sesión único en **Robin**, es preciso enviar el *
 
 ### <a name="create-robin-test-user"></a>Creación de un usuario de prueba de Robin
 
-En esta sección, se crea una usuaria llamada B.Simon en Robin. Robin admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si aún no existe aún un usuario en Robin, se crea uno después de la autenticación.
+En esta sección se crea un usuario llamado B.Simon en Robin. Robin admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si aún no existe aún un usuario en Robin, se crea uno después de la autenticación.
 
-### <a name="test-sso"></a>Prueba de SSO 
+## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
@@ -163,3 +162,4 @@ Al hacer clic en el icono de Robin en el panel de acceso y debería iniciar sesi
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prueba de Robin con Azure AD](https://aad.portal.azure.com/)
+

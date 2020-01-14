@@ -1,18 +1,18 @@
 ---
 title: ¿Qué es Azure Cache for Redis?
-description: Aprenda qué es Azure Redis Cache y cómo se utiliza habitualmente.
+description: Obtenga información no solo sobre qué es Azure Cache for Redis, sino también sobre sus usos comunes, entre los que se incluyen cache-aside, el almacenamiento en caché de contenido, el almacenamiento en caché de la sesión de usuario, el trabajo y la cola de mensajes, y las transacciones distribuidas.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: overview
-ms.date: 03/26/2018
-ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 87e7505bddfce431b5e859fbbeee79f75867cfc9
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.date: 03/26/2018
+ms.openlocfilehash: 5224be999ff8ff52c2f52568a504095dc5962398
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122659"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433413"
 ---
 # <a name="azure-cache-for-redis-description"></a>Descripción de Azure Redis Cache
 
@@ -32,7 +32,7 @@ Hay muchos patrones comunes en los que se usa Azure Redis Cache para admitir la 
 | [Almacenamiento en caché de contenido](cache-aspnet-output-cache-provider.md) | La mayoría de las páginas web se generan a partir de plantillas con encabezados, pies de página, barras de herramientas, menús, etc. Realmente no cambian con frecuencia y no se deben generar dinámicamente. El uso de una memoria caché en memoria, como Azure Redis Cache, proporcionará a los servidores web acceso rápido a este tipo de contenido estático, en comparación con almacenes de datos de back-end. Este patrón reduce tanto el tiempo de procesamiento como la carga del servidor necesarias para generar contenido dinámicamente, lo que mejora la capacidad de respuesta de los servidores web y le puede permiten reducir el número de servidores necesarios para controlar cargas. Azure Redis Cache proporciona el proveedor de caché de salida de Redis, que ayuda a admitir este patrón con ASP.NET.|
 | [Almacenamiento en caché de sesión de usuario](cache-aspnet-session-state-provider.md) | Este patrón se utiliza normalmente con carros de la compra y otra información de tipo de historial de usuario que una aplicación web puede desear asociar con las cookies del usuario. El almacenamiento de demasiados datos en una cookie puede tener un impacto negativo en el rendimiento, ya que aumenta su tamaño y no hay que olvidar que se pasa y se valida con cada solicitud. Una solución habitual es usar la cookie como clave cuando se consultan datos en una base de datos del back-end. El uso de una memoria caché en memoria, como Azure Redis Cache, para asociar información a un usuario es mucho más rápido que su interacción con una base de datos relacional completa. |
 | Almacenamiento en cola de trabajos y mensajes | Cuando las aplicaciones reciben solicitudes, a menudo las operaciones asociadas con la solicitud tardan más tiempo en ejecutarse. Es una práctica común para aplazar las operaciones que más tardan en ejecutarse mediante su inclusión en una cola, que se procesa posteriormente, y posiblemente por otro servidor. Este método de aplazar trabajo se denomina puesta en cola de tareas. Hay muchos componentes de software diseñados para admitir colas de tareas. Azure Redis Cache también se usa para este fin, así como cola distribuida.|
-| Transacciones distribuidas | Es un requisito común que las aplicaciones puedan ejecutar una serie de comandos en un almacén de datos de back-end en una única operación (atómica). El resultado de todos los comandos debe ser satisfactorio, o todos deben revertirse al estado inicial. Azure Redis Cache admite la ejecución de un lote de comandos como una única operación en forma de [transacciones](https://redis.io/topics/transactions). |
+| Distributed transactions | Es un requisito común que las aplicaciones puedan ejecutar una serie de comandos en un almacén de datos de back-end en una única operación (atómica). El resultado de todos los comandos debe ser satisfactorio, o todos deben revertirse al estado inicial. Azure Redis Cache admite la ejecución de un lote de comandos como una única operación en forma de [transacciones](https://redis.io/topics/transactions). |
 
 ## <a name="azure-cache-for-redis-offerings"></a>Ofertas de Azure Redis Cache
 
@@ -40,7 +40,7 @@ Azure Redis Cache está disponible en los niveles siguientes:
 
 | Nivel | Descripción |
 |---|---|
-Básico | Caché de un solo nodo. Este nivel admite varios tamaños de memoria (250 MB - 53 GB). Es un nivel ideal para el desarrollo o la realización de pruebas, así como para cargas de trabajo no críticas. El nivel Básico no tiene ningún Acuerdo de Nivel de Servicio (SLA) |
+Básica | Caché de un solo nodo. Este nivel admite varios tamaños de memoria (250 MB - 53 GB). Es un nivel ideal para el desarrollo o la realización de pruebas, así como para cargas de trabajo no críticas. El nivel Básico no tiene ningún Acuerdo de Nivel de Servicio (SLA) |
 | Estándar | Caché replicada en una configuración de dos nodos, principal y secundario, administrada por Microsoft y con un Acuerdo de Nivel de Servicio de alta disponibilidad (99,9 %). |
 | Premium | El nivel Premium es el nivel específico para la empresa. Las memorias caché de nivel Premium admiten más características y tienen un rendimiento mayor con latencias más bajas. En el nivel Premium, las memorias caché se implementan en un hardware más potente, lo que proporciona un mejor rendimiento en comparación con los niveles Estándar o Básico. Esta ventaja significa que el rendimiento de una caché del mismo tamaño será mayor en el nivel Premium, en comparación con el nivel Estándar. |
 
@@ -54,7 +54,7 @@ Una vez creada, la memoria caché se puede escalar a un nivel superior. Sin emba
 
 En la página [Precios de Azure Cache for Redis](https://azure.microsoft.com/pricing/details/cache/) encontrará una comparación detallada de cada nivel. La tabla siguiente le ayuda a describir algunas de las características que admite cada nivel:
 
-| Descripción de la característica | Premium | Estándar | Básico |
+| Descripción de la característica | Premium | Estándar | Básica |
 | ------------------- | :-----: | :------: | :---: |
 | [Acuerdo de Nivel de Servicio (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |✔|✔|-|
 | [Persistencia de datos de Redis](cache-how-to-premium-persistence.md) |✔|-|-|

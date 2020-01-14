@@ -1,26 +1,17 @@
 ---
-title: 'Tutorial: Implementación de una aplicación de Service Fabric Mesh | Microsoft Docs'
+title: 'Tutorial: Implementación de una aplicación de Service Fabric Mesh'
 description: Obtenga información sobre cómo utilizar Visual Studio para publicar una aplicación de Azure Service Fabric Mesh que consta de un sitio web de ASP.NET Core que se comunica con un servicio web de back-end.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eef4cfaff38a96597794354cc991f5d3eeae9404
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: d2bb37252bc93c982dbc090a0c3f20aef842325f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806630"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351860"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Tutorial: Implementación de una aplicación Service Fabric Mesh
 
@@ -37,12 +28,12 @@ En esta serie de tutoriales, se aprende a:
 > * [Crear una aplicación de Service Fabric Mesh en Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
 > * [Depurar una aplicación de Service Fabric Mesh que se ejecuta en el clúster de desarrollo local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * Implementación de una aplicación de Service Fabric Mesh
-> * [Actualización de una aplicación de Service Fabric Mesh](service-fabric-mesh-tutorial-upgrade.md)
+> * [Actualizar una aplicación de Service Fabric Mesh](service-fabric-mesh-tutorial-upgrade.md)
 > * [Limpiar los recursos de Service Fabric Mesh](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar este tutorial:
 
@@ -66,13 +57,13 @@ Para publicar el proyecto de Service Fabric Mesh en Azure, haga clic con el bot�
 
 A continuación, verá un cuadro de diálogo **Publicación de la aplicación de Service Fabric**.
 
-![Cuadro de diálogo de publicación de Service Fabric Mesh en Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
+![Cuadro de diálogo de publicación de Service Fabric mesh en Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
 Seleccione la cuenta y la suscripción de Azure. Elija una **ubicación**. En este artículo se utiliza **Este de EE. UU**.
 
-En **Grupo de recursos**, seleccione **\<Crear un nuevo grupo de recursos...>**. Aparece un cuadro de diálogo donde se va a crear un nuevo grupo de recursos. En este artículo se utiliza la ubicación **Este de EE. UU.** y llama al grupo **sfmeshTutorial1RG** (si la organización tiene varias personas con la misma suscripción, elija un nombre de grupo único).  Presione **Crear** para crear el grupo de recursos y volver al cuadro de diálogo Publicar.
+En **Grupo de recursos**, seleccione **\<Crear un nuevo grupo de recursos...>** . Aparece un cuadro de diálogo donde se va a crear un nuevo grupo de recursos. En este artículo se utiliza la ubicación **Este de EE. UU.** y llama al grupo **sfmeshTutorial1RG** (si la organización tiene varias personas con la misma suscripción, elija un nombre de grupo único).  Presione **Crear** para crear el grupo de recursos y volver al cuadro de diálogo Publicar.
 
-![Cuadro de diálogo del nuevo grupo de recursos de Service Fabric Mesh en Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
+![Cuadro de diálogo del nuevo grupo de recursos de Service Fabric mesh en Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
 De nuevo en el cuadro de diálogo **Publicación de la aplicación de Service Fabric**, en **Azure Container Registry**, seleccione **\<Create New Container Registry...>** (Crear una instancia de Azure Container Registry...>). En el cuadro de diálogo **Crear Registro de contenedor**, utilice un nombre único para el **nombre de la instancia de Container Registry**. Especifique una **ubicación** (en este tutorial se utiliza **East US**). Seleccione el **grupo de recursos** que creó en el paso anterior en la lista desplegable, por ejemplo, **sfmeshTutorial1RG**. Establezca **SKU** en **Básica** y, a continuación, presione **Crear** para crear el registro de contenedor privado de Azure y volver al cuadro de diálogo Publicar.
 
@@ -84,7 +75,7 @@ Si obtiene un error que indica que un proveedor de recursos no se ha registrado 
 Get-AzureRmResourceProvider -ListAvailable
 ```
 
-Si el proveedor del registro de contenedor (`Microsoft.ContainerRegistry`) está disponible, regístrelo desde Powershell:
+Si el proveedor del registro de contenedor (`Microsoft.ContainerRegistry`) está disponible, regístrelo desde PowerShell:
 
 ```Powershell
 Connect-AzureRmAccount
@@ -93,7 +84,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerRegistry
 
 En el cuadro de diálogo Publicar, presione el botón **Publicar** para implementar la aplicación de Service Fabric en Azure.
 
-Al publicar en Azure por primera vez, la imagen del docker se inserta en Azure Container Registry (ACR), que tarda tiempo según el tamaño de la imagen. Las publicaciones posteriores del mismo proyecto serán más rápidas. Para supervisar el progreso de la implementación, seleccione el panel **Herramientas de Service Fabric** en la ventana **Salida** de Visual Studio. Una vez finalizada la implementación, la salida de **Herramientas de Service Fabric** mostrará la dirección IP y el puerto de la aplicación en forma de dirección URL.
+Al publicar en Azure por primera vez, la imagen de Docker se inserta en Azure Container Registry (ACR), que tarda según el tamaño de la imagen. Las publicaciones posteriores del mismo proyecto serán más rápidas. Para supervisar el progreso de la implementación, seleccione el panel **Herramientas de Service Fabric** en la ventana **Salida** de Visual Studio. Una vez finalizada la implementación, la salida de **Herramientas de Service Fabric** mostrará la dirección IP y el puerto de la aplicación en forma de dirección URL.
 
 ```
 Packaging Application...

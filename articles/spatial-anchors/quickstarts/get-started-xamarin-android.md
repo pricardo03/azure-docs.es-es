@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2976104c72179fede3b39816663ac8196d7539ec
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 94906d645ec38a24d54536ee8aa93e7418c8dc35
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277020"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465186"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Inicio rápido: Creación de una aplicación para Android en Xamarin con Azure Spatial Anchors
 
@@ -28,16 +28,18 @@ Aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar esta guía de inicio rápido, asegúrese de que dispone de lo siguiente:
 - Un equipo Windows o macOS:
   - Si usa Windows:
     - Una versión actualizada de <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019 16.2+</a>.
     - <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a>
+    - <a href="https://git-lfs.github.com/">Git LFS</a>.
   - Si usa macOS:
     - Una versión actualizada de <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio para Mac 8.1+</a>.
     - <a href="https://git-scm.com/download/mac" target="_blank">Git para macOS</a>
+    - <a href="https://git-lfs.github.com/">Git LFS</a>.
 - La versión más reciente de Xamarin.Android instalada y en ejecución en la plataforma que elija. Para obtener una guía sobre la instalación de Xamarin.Android, consulte las guías de [instalación de Xamarin.Android](https://docs.microsoft.com/xamarin/android/get-started/installation/index).
 - Un dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado para el desarrollo</a> y <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">preparado para ARCore</a>.
   - Puede que se necesiten controladores de dispositivo adicionales para que el equipo se comunique con el dispositivo Android. Para más información, consulte [esta página](https://developer.android.com/studio/run/device.html).

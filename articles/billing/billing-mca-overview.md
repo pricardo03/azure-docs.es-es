@@ -1,5 +1,5 @@
 ---
-title: 'Empezar a trabajar con la cuenta de facturación para un contrato de cliente de Microsoft: Azure'
+title: 'Introducción a la facturación para el Contrato de cliente de Microsoft: Azure'
 description: Descripción de la cuenta de facturación para un contrato de cliente de Microsoft
 author: bandersmsft
 manager: amberbhargava
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: banders
-ms.openlocfilehash: e27d2116cf58c64fca7fb0273c852d6223f00c6e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 46918810648deb15ce0ae0dd13824702dcfb7073
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226115"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389237"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Empezar a trabajar con la cuenta de facturación para un contrato de cliente de Microsoft
 
@@ -51,7 +51,7 @@ En Azure Portal puede ver la factura, descargar documentos y cambiar la configur
 
 Cada perfil de facturación dispone de sus propios métodos de pago, que se usan para pagar las facturas. Se admiten los siguientes métodos de pago:
 
-| type             | Definición  |
+| Tipo             | Definición  |
 |------------------|-------------|
 |Créditos de Azure    |  Los créditos se aplican automáticamente a los cargos elegibles en la factura, con lo que baja el importe que debe pagar. Para más información, consulte [Seguimiento del saldo del crédito de Azure para el perfil de facturación](billing-mca-check-azure-credits-balance.md). |
 |Cheque o transferencia bancaria | Si la cuenta está aprobada para el pago con cheque o transferencia bancaria. Puede pagar el importe de la factura por cheque o transferencia bancaria. Las instrucciones de pago se incluyen en la factura. |

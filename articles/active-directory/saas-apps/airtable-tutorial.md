@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 12/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f43d965e2c1d706097c9cc2c432ca77e16f162c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: b4c8e254b2ceb040b487de1cfaac6e4d8670d8b5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74187269"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430960"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-airtable"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Airtable
 
@@ -33,7 +33,7 @@ En este tutorial, obtendrá información sobre cómo integrar Airtable con Azure
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para empezar, necesita los siguientes elementos:
 
@@ -112,7 +112,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -134,7 +134,7 @@ En esta sección, va a permitir que B.Simon acceda a Airtable mediante el inicio
 
 ## <a name="configure-airtable-sso"></a>Configuración del inicio de sesión único de Airtable
 
-Para configurar el inicio de sesión único en **Airtable**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Airtable](mailto:azure-ad-marketplace@airtable.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Siga las instrucciones indicadas en el [vínculo](https://support.airtable.com/hc/articles/360037475234) para configurar el inicio de sesión único en **Airtable**.
 
 ### <a name="create-airtable-test-user"></a>Creación de un usuario de prueba de Airtable
 

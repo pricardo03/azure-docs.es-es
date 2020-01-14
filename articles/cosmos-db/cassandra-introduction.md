@@ -1,6 +1,6 @@
 ---
 title: Introducción a Cassandra API de Azure Cosmos DB
-description: Aprenda a usar Azure Cosmos DB para migrar mediante lift-and-shift aplicaciones existentes y compilar nuevas aplicaciones con Cassandra API mediante los controladores de Cassandra y CQL con los que ya está familiarizado.
+description: Aprenda a usar Azure Cosmos DB para migrar mediante "lift-and-shift" las aplicaciones existentes y compilar nuevas aplicaciones mediante los controladores de Cassandra y CQL
 author: kanshiG
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/21/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 82ca7814f756a12005ee5802c3e8a7fd28f6d398
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 63a85e86b1882bdaf4e5b85601a7deabe5b3bbef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968977"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442133"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Introducción a Cassandra API de Azure Cosmos DB
 

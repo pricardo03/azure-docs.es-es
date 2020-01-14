@@ -1,5 +1,5 @@
 ---
-title: Obtención de un token y llamada a instancias de Microsoft Graph API desde aplicaciones de consola (v 1.0) | Azure
+title: Adquisición de un token y llamada a Microsoft Graph (consola de .NET Core) (v1.0) | Azure
 description: Cree una aplicación de demonio de .NET que se integre con Azure AD y que llame a las API protegidas de Azure AD mediante OAuth 2.0
 services: active-directory
 author: rwike77
@@ -14,14 +14,14 @@ ms.author: jmprieur
 ms.reviewer: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2858a0b14863195ee0f56c89fe2c55c9e63873de
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d44dfe3eb03ff086d3785311c34ab1a6a5b3982a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965932"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424048"
 ---
-# <a name="quickstart-acquire-token-and-call-microsoft-graph-api-with-console-apps-identity-v10"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API con la identidad de la aplicación de consola (v1.0) 
+# <a name="quickstart-acquire-token-and-call-microsoft-graph-using-console-apps-identity-v10"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph mediante la identidad de la aplicación de consola (v1.0)
 
 La [Plataforma de identidad de Microsoft](v2-overview.md) es una evolución de la plataforma para desarrolladores de Azure Active Directory (Azure AD). Permite a los desarrolladores compilar aplicaciones que inicien sesión en todas las identidades de Microsoft, obtener tokens para llamar a las API de Microsoft como Microsoft Graph, o a otras API que los desarrolladores hayan creado.
 

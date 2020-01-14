@@ -11,50 +11,50 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 10/17/2019
-ms.openlocfilehash: 325278ee0222070ce7c02c1d72961f0431284677
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c0dcd8f8f5ecd2d333e610c96ea89a44f8f4c547
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73670549"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75528358"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>¿Qué es Machine Learning Studio (clásico)?
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-Microsoft Azure Machine Learning Studio (clásico) es una herramienta colaborativa de arrastrar y colocar que se puede usar para compilar, probar e implementar soluciones de análisis predictivo en sus datos.  La versión clásica de Machine Learning Studio publica modelos como servicios web que aplicaciones personalizadas o herramientas de BI como Excel pueden consumir fácilmente.
+Microsoft Azure Machine Learning Studio (clásico) es una herramienta colaborativa de arrastrar y colocar que se puede usar para compilar, probar e implementar soluciones de análisis predictivo en sus datos. Azure Machine Learning Studio (clásico) publica modelos como servicios web que pueden utilizarse fácilmente en aplicaciones personalizadas o herramientas de inteligencia empresarial como Excel.
 
 Machine Learning Studio (clásico) es el lugar en que confluyen la ciencia de datos, el análisis predictivo, los recursos en la nube y sus datos.
 
 ## <a name="the-machine-learning-studio-classic--interactive-workspace"></a>El área de trabajo interactiva de Machine Learning Studio (clásico)
 Para desarrollar un modelo de análisis predictivo, normalmente se utilizan datos de una o varias fuentes, se transforman y analizan los datos a través de diversas funciones estadísticas y de manipulación de datos y se genera un conjunto de resultados. Desarrollar un modelo como este es un proceso iterativo: a medida que se modifican las diversas funciones y sus parámetros, sus resultados convergen hasta que esté satisfecho con un modelo entrenado y efectivo.
 
-La versión clásica de Azure Machine Learning Studio le proporciona un área de trabajo visual interactiva para realizar compilaciones, pruebas e iteraciones fácilmente en un modelo de análisis predictivo. Los ***conjuntos de datos*** y los ***módulos*** de análisis se arrastran y colocan en un lienzo interactivo, y se conectan todos para formar un ***experimento*** que se ejecuta en Machine Learning Studio (clásico). Para iterar su diseño de modelo, se puede editar el experimento, guardar una copia si así se desea y ejecutarlo de nuevo. Cuando esté listo, puede convertir el ***experimento de entrenamiento*** en un ***experimento predictivo***, y luego publicarlo como ***servicio web*** para que otros usuarios puedan acceder al modelo.
+Azure Machine Learning Studio (clásico) le proporciona un área de trabajo visual e interactiva para crear, probar e iterar con toda facilidad sobre un modelo de análisis predictivo. Los ***conjuntos de datos*** y los ***módulos*** de análisis se arrastran y colocan en un lienzo interactivo, y se conectan todos para formar un ***experimento*** que se ejecuta en Machine Learning Studio (clásico). Para iterar su diseño de modelo, se puede editar el experimento, guardar una copia si así se desea y ejecutarlo de nuevo. Cuando esté listo, puede convertir el ***experimento de entrenamiento*** en un ***experimento predictivo***, y luego publicarlo como ***servicio web*** para que otros usuarios puedan acceder al modelo.
 
 No se requiere programación; conecte visualmente conjuntos de datos y módulos para construir el modelo de análisis predictivo.
 
-![Diagrama de Azure Machine Learning Studio: crear experimentos, leer datos de muchos orígenes, escribir datos puntuados, modelos de escritura.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
+![Diagrama de Azure Machine Learning Studio (clásico): crear experimentos, leer datos de muchos orígenes, escribir datos puntuados, modelos de escritura.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
 <a name="compare"></a>
 ## <a name="how-does-machine-learning-studio-classic-differ-from-azure-machine-learning"></a>¿En qué se diferencia Machine Learning Studio (clásico) de Azure Machine Learning?
 
-[Azure Machine Learning](../service/overview-what-is-azure-ml.md) proporciona los SDK **y** el diseñador de Azure Machine Learning (versión preliminar) para preparar los datos y entrenar e implementar con rapidez los modelos de aprendizaje automático. El diseñador proporciona una experiencia de arrastrar y colocar similar a Studio (clásico). Sin embargo, a diferencia de la plataforma de proceso propietaria de Studio (clásico), el diseñador utiliza sus propios recursos de proceso y está totalmente integrado en Azure Machine Learning.
+[Azure Machine Learning](../overview-what-is-azure-ml.md) proporciona los SDK **y** el diseñador de Azure Machine Learning (versión preliminar) para preparar los datos y entrenar e implementar con rapidez los modelos de aprendizaje automático. El diseñador proporciona una experiencia de arrastrar y colocar similar a Studio (clásico). Sin embargo, a diferencia de la plataforma de proceso propietaria de Studio (clásico), el diseñador utiliza sus propios recursos de proceso y está totalmente integrado en Azure Machine Learning.
 
 Esta es una comparación rápida:
 
 || Machine Learning Studio (clásico) | Azure Machine Learning |
 |---| --- | --- |
-| Interfaz que permite arrastrar y colocar | Sí | Sí: [diseñador de Azure Machine Learning (versión preliminar)](../service/concept-designer.md) |
+| Interfaz que permite arrastrar y colocar | Sí | Sí: [diseñador de Azure Machine Learning (versión preliminar)](../concept-designer.md) |
 | Experimento | Escalable (límite de datos de entrenamiento, 10 GB) | Escalar con destino de proceso |
 | Módulos para la interfaz de arrastrar y colocar | Muchos | Conjunto inicial de [módulos](../algorithm-module-reference/module-reference.md) populares|
-|Entrenamiento de destinos de proceso| Destino de proceso propietario, solo admite CPU| Admite el proceso de Azure Machine Learning (GPU o CPU) y las máquinas virtuales de Notebook.<br/>([Otros procesos que admite el SDK](../service/concept-compute-target.md#train))|
-|Destinos de proceso de inferencia| Formato del servicio web propietario, no personalizable |  Azure Kubernetes Service y Proceso de Azure Machine Learning <br/>([Otros procesos que admite el SDK](../service/how-to-deploy-and-where.md)) |
-| Canalización de Machine Learning | No compatible | [Canalizaciones](../service/concept-ml-pipelines.md) que se admiten |
+|Entrenamiento de destinos de proceso| Destino de proceso propietario, solo admite CPU| Admite el proceso de Azure Machine Learning (GPU o CPU) y las máquinas virtuales de Notebook.<br/>([Otros procesos que admite el SDK](../concept-compute-target.md#train))|
+|Destinos de proceso de inferencia| Formato del servicio web propietario, no personalizable |  Azure Kubernetes Service y Proceso de Azure Machine Learning <br/>([Otros procesos que admite el SDK](../how-to-deploy-and-where.md)) |
+| Canalización de Machine Learning | No compatible | [Canalizaciones](../concept-ml-pipelines.md) que se admiten |
 | MLOps | Implementación y administración básicas de modelos | Implementación configurable: control de versiones y seguimiento de canalizaciones y modelos |
-| Formato del modelo | Formato propietario, solo Studio | Formato estándar en función del tipo de trabajo de entrenamiento |
-|Entrenamiento de modelos y optimización de hiperparámetros automatizados | Sin | Aún no está en el diseñador <br/> ([Se admite en el SDK y en la página de aterrizaje del área de trabajo](../service/concept-automated-ml.md)) | 
+| Formato del modelo | Formato propietario, solo Studio (clásico) | Formato estándar en función del tipo de trabajo de entrenamiento |
+|Entrenamiento de modelos y optimización de hiperparámetros automatizados | No | Aún no está en el diseñador <br/> ([Se admite en el SDK y en la página de aterrizaje del área de trabajo](../concept-automated-ml.md)) | 
 
-Pruebe el diseñador con [Tutorial: Predicción del precio de un automóvil con el diseñador](../service/tutorial-designer-automobile-price-train-score.md)
+Pruebe el diseñador con [Tutorial: Predicción del precio de un automóvil con el diseñador](../tutorial-designer-automobile-price-train-score.md)
 
 > [!NOTE]
 > Azure Machine Learning no puede implementar ni administrar los modelos creados en Studio (clásico). Sin embargo, los modelos creados e implementados en el diseñador se pueden administrar mediante el área de trabajo de Azure Machine Learning.
@@ -93,7 +93,7 @@ Cuando crea un experimento, puede elegir un conjunto de datos en la lista de con
 Para obtener una lista de los conjuntos de datos de ejemplo incluidos en Machine Learning Studio (clásico), vea [Uso de conjuntos de datos de ejemplo en Azure Machine Learning Studio (clásico)](use-sample-datasets.md).
 
 ### <a name="modules"></a>Módulos
-Un módulo es un algoritmo que puede aplicar sobre sus datos.  La versión clásica de Machine Learning Studio tiene varios módulos, que van desde las funciones de entrada de datos hasta los procesos de entrenamiento, puntuación y validación. A continuación se muestran algunos ejemplos de los módulos incluidos:
+Un módulo es un algoritmo que puede aplicar sobre sus datos. Azure Machine Learning Studio (clásico) cuenta con diversos módulos que van desde las funciones de incorporación de datos hasta procesos de entrenamiento, puntuación y validación. A continuación se muestran algunos ejemplos de los módulos incluidos:
 
 * [Convertir a ARFF][convert-to-arff]: convierte un conjunto de datos serializados de .NET a Formato de archivo atributo-relación (ARFF).
 * [Estadísticas elementales de procesos][elementary-statistics]: calcula estadísticas elementales como la media, la desviación estándar, etc.

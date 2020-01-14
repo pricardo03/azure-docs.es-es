@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Detección de anomalías como un lote mediante la API REST Anomaly Detector y Python'
 titleSuffix: Azure Cognitive Services
-description: Use la API Anomaly Detector para detectar anomalías en la serie de datos como un lote o en la transmisión de datos.
+description: Use la API Anomaly Detector para detectar anomalías en la serie de datos como un lote o en la transmisión de datos con este inicio rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: e24436cef11cc07571adb55bca63add5bda783c4
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7cef1c8c1b05c859f9435b06c3096bb983965656
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483400"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448862"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>Inicio rápido: Detección de anomalías en los datos de serie temporal mediante API REST Anomaly Detector y Python
 
@@ -28,7 +28,7 @@ Use este inicio rápido para comenzar a usar los dos modos de detección de la A
 
  Si bien esta aplicación está escrita en Python, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de este inicio rápido está disponible en [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/python-detect-anomalies.py).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Python 2.x o 3.x](https://www.python.org/downloads/)
 - Una clave y un punto de conexión de Anomaly Detector

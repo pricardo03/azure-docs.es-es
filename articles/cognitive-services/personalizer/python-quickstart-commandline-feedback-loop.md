@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Biblioteca cliente de Personalizer para Python | Microsoft Docs'
+title: 'Inicio rápido: Biblioteca cliente de Personalizer para Python'
 titleSuffix: Azure Cognitive Services
-description: Introducción a la biblioteca de cliente de Personalizer para Python con un bucle de aprendizaje.
+description: En este inicio rápido se muestra cómo empezar a trabajar con la biblioteca cliente de Personalizer para Python con un bucle de aprendizaje.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 02c4e0142ed7b3719cc07306f089769c532d6653
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f999a54c7841437e169205fed2edea1630aa81a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494453"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378949"
 ---
 # <a name="quickstart-personalizer-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de Personalizer para Python
 
@@ -28,7 +28,7 @@ Introducción a la biblioteca de cliente de Personalizer para Python Siga estos 
 
 [Paquete (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -148,7 +148,7 @@ Agregue los métodos siguientes, que [obtienen las opciones de contenido](#get-c
 
 Para completar la solicitud de clasificación, el programa solicita las preferencias del usuario para crear un elemento `currentContent`de las opciones de contenido. El proceso puede crear contenido para excluir de la clasificación, que se muestra como `excludeActions`. La solicitud de clasificación necesita las acciones, currentContext, excludeActions y un identificador de evento de clasificación único (como un GUID), para recibir la respuesta clasificada. 
 
-Este inicio rápido tiene características de contexto simples de hora del día y preferencias alimentarias del usuario. En los sistemas de producción, la determinación y [evaluación](concept-feature-evaluation.md) de [acciones y características](concepts-features.md) puede ser una cuestión menos trivial.  
+Este inicio rápido tiene características de contexto simples de hora del día y preferencias alimentarias del usuario. En los sistemas de producción, la determinación y [evaluación](concept-feature-evaluation.md) de [acciones y características](concepts-features.md) no es una cuestión trivial.  
 
 [!code-python[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/python/sample.py?name=rank)]
 

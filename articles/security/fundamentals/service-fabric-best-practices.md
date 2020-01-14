@@ -1,26 +1,18 @@
 ---
-title: Procedimientos recomendados de seguridad de Azure Service Fabric | Microsoft Docs
+title: Procedimientos recomendados de seguridad de Azure Service Fabric
 description: En este artículo se proporciona un conjunto de procedimientos recomendados para la reforzar la seguridad de Azure Service Fabric.
-services: security
-documentationcenter: na
 author: unifycloud
-manager: barbkess
-editor: tomsh
-ms.assetid: ''
+ms.author: tomsh
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/16/2019
-ms.author: tomsh
-ms.openlocfilehash: dc063621e6b3e1d0d3e1a51d744ca9d9a6ef8c8d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 458a1d474e9a722a98ca068e1827cf0e1abf4b47
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934620"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548826"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedimientos recomendados de seguridad de Azure Service Fabric
 La implementación de una aplicación en Azure es un proceso rápido, sencillo y rentable. Antes de implementar la aplicación en la nube en producción, revise la lista de procedimientos recomendados y fundamentales para implementar clústeres seguros en la aplicación.
@@ -58,7 +50,7 @@ Use implementaciones automatizadas:
 -   Requiera autenticación para el acceso de usuario a los secretos.
 
 Además, tenga en cuenta las siguientes opciones de configuración:
--   Cree redes perimetrales (también conocido como zonas desmilitarizadas, DMZ y subredes filtradas) mediante el uso de grupos de seguridad de red (NSG) de Azure.
+-   Cree redes perimetrales (también conocido como DMZ y subredes filtradas) mediante el uso de grupos de seguridad de red (NSG) de Azure.
 -   Use servidores de salto con conexión a Escritorio remoto para obtener acceso a las máquinas virtuales (VM) del clúster o administrar el clúster.
 
 Los clústeres deben estar protegidos para evitar que usuarios no autorizados se conecten a ellos, especialmente cuando un clúster está en producción. Aunque es posible crear un clúster sin protección, si este expone los puntos de conexión de administración a Internet público, podrían conectarse a él usuarios anónimos.
@@ -152,7 +144,7 @@ El protocolo HTTP no es seguro y está sujeto a ataques de interceptación. Los 
 Para más información sobre el uso de certificados SSL, consulte [Configuración de SSL para aplicaciones de Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Uso de aislamiento y seguridad de red con Azure Service Fabric
-Configure un clúster seguro de 3 tipos de nodo mediante la [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) como ejemplo. Controle el tráfico de red entrante y saliente mediante el uso de la plantilla y los grupos de seguridad de red.
+Configure un clúster seguro de 3 tipos de nodo mediante la [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) como ejemplo. Controle el tráfico de red entrante y saliente mediante el uso de la plantilla y los grupos de seguridad de red.
 
 La plantilla tiene un grupo de seguridad de red para cada uno de los conjuntos de escalado de máquinas virtuales a fin de controlar el tráfico dentro y fuera del conjunto. De forma predeterminada, las reglas se configuran para permitir todo el tráfico que necesitan los servicios del sistema y los puertos de la aplicación especificados en la plantilla. Revise esas reglas y realice los cambios que necesite, incluido agregar nuevas reglas para las aplicaciones.
 

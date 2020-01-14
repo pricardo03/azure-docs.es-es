@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: f0937ee53e66cb1bf0c5d6b55a8dde045570e924
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 12ecacf1266c0d8211f5928a933cfd4acf8c49f0
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309721"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551393"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Application Gateway
 
@@ -22,19 +22,21 @@ Application Gateway publica puntos de datos, denominados métricas, para [Azure 
 
 ### <a name="timing-metrics"></a>Métricas de tiempo
 
-Están disponibles las siguientes métricas relacionadas con el momento de la solicitud y la respuesta. Mediante el análisis de estas métricas, puede determinar si la ralentización en la aplicación se debe a la WAN, Application Gateway, la red entre Application Gateway y el back-end o el rendimiento de la aplicación.
+Están disponibles las siguientes métricas relacionadas con el momento de la solicitud y la respuesta. Mediante el análisis de estas métricas para un cliente de escucha específico, puede determinar si la ralentización en la aplicación se debe a la WAN, Application Gateway, la red entre Application Gateway y la aplicación de back-end, o el rendimiento de la aplicación de back-end.
+
+> [!NOTE]
+>
+> Si hay más de un agente de escucha en Application Gateway, filtre siempre por la dimensión *Agente de escucha* al comparar las diferentes métricas de latencia para obtener una inferencia significativa.
 
 - **Cliente RTT**
 
-  Tiempo medio de ida y vuelta entre clientes y Application Gateway. Esta métrica indica cuánto tiempo se tarda en establecer conexiones y devolver confirmaciones.
+  Tiempo medio de ida y vuelta entre clientes y Application Gateway. Esta métrica indica cuánto tiempo se tarda en establecer conexiones y devolver confirmaciones. 
 
 - **Tiempo total de Application Gateway**
 
   Promedio de tiempo que se tarda en procesar una solicitud y en enviar la respuesta. Esto se calcula como promedio del intervalo desde el momento en que Application Gateway recibe el primer byte de una solicitud HTTP hasta el momento en que termina la operación de envío de la respuesta. Es importante tener en cuenta que esto normalmente incluye el tiempo de procesamiento de Application Gateway, el tiempo que los paquetes de solicitud y respuesta viajan por la red y el tiempo que el servidor back-end tardó en responder.
-
-- **Tiempo de conexión de back-end**
-
-  Tiempo empleado en establecer una conexión con un servidor back-end. 
+  
+Si el *RTT cliente* es mucho más que el *tiempo total de Application Gateway*, se puede deducir que la latencia observada por el cliente se debe a la conectividad de red entre el cliente y Application Gateway. Si ambas latencias son comparables, la latencia alta podría deberse a alguna de las siguientes causas: Application Gateway, la red entre Application Gateway y la aplicación de back-end, o el rendimiento de la aplicación de back-end.
 
 - **Tiempo de respuesta del primer byte de back-end**
 
@@ -43,6 +45,13 @@ Están disponibles las siguientes métricas relacionadas con el momento de la so
 - **Tiempo de respuesta del último byte de back-end**
 
   Intervalo de tiempo entre el inicio del establecimiento de una conexión con el servidor back-end y la recepción del último byte del cuerpo de la respuesta
+  
+Si el *tiempo total de Application Gateway* es mucho más que el *tiempo de respuesta del último byte del back-end* para un agente de escucha concreto, se puede deducir que la latencia alta puede deberse a Application Gateway. Por otro lado, si las dos métricas son comparables, el problema podría deberse a la red entre Application Gateway y la aplicación de back-end, o bien el rendimiento de la aplicación de back-end.
+
+- **Tiempo de conexión de back-end**
+
+  Tiempo empleado en establecer una conexión con una aplicación de back-end. En el caso de SSL, incluye el tiempo empleado en el protocolo de enlace. Tenga en cuenta que esta métrica es diferente de las otras métricas de latencia, ya que solo mide el tiempo de conexión y, por lo tanto, no debe compararse directamente en magnitud con las demás latencias. Sin embargo, la comparación del patrón de *tiempo de conexión de back-end* con el patrón de las demás latencias puede indicar si se podría deducir un aumento de las latencias debido a una variación en la red entre Application Gatway y la aplicación de back-end. 
+  
 
 ### <a name="application-gateway-metrics"></a>Métricas de Application Gateway
 
@@ -115,6 +124,10 @@ Para Application Gateway, están disponibles las métricas siguientes:
 
 Para Application Gateway, están disponibles las métricas siguientes:
 
+- **Uso de CPU**
+
+  Muestra el uso de las CPU asignadas a Application Gateway.  En condiciones normales, el uso de CPU no debe superar con regularidad el 90 %, ya que esto puede provocar latencia en los sitios web hospedados tras Application Gateway e interrumpir la experiencia del cliente. Para controlar o mejorar indirectamente el uso de CPU, puede modificar la configuración de Application Gateway aumentando el número de instancias o pasando a un tamaño de SKU mayor, o bien haciendo ambas cosas.
+
 - **Conexiones actuales**
 
   Recuento de conexiones actuales establecidas con Application Gateway
@@ -157,7 +170,7 @@ Navegue a una instancia de Application Gateway y, en **Supervisión**, seleccion
 
 En la siguiente imagen, verá un ejemplo con tres métricas que se muestran para los últimos 30 minutos:
 
-[![](media/application-gateway-diagnostics/figure5.png "Vista de métrica")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
+[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 Para ver una lista de métricas actuales, consulte el artículo de [métricas compatibles con Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 

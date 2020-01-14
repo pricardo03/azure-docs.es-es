@@ -7,18 +7,18 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cc1eb4c4fce1398365145b2f3d63db984635d667
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 34bc62a9cb7e5d1358322500a8929b6f8b36d422
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196230"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454550"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparación de máquinas virtuales de VMware para la evaluación y migración a Azure
 
 Este artículo ayuda a preparar la valoración y migración de máquinas virtuales de VMware locales a Azure mediante [Azure Migrate](migrate-services-overview.md).
 
-[Azure Migrate](migrate-overview.md) proporciona un centro de herramientas que le ayuda a detecta las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Dicho centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros.
+[Azure Migrate](migrate-overview.md) proporciona un centro de herramientas que le ayuda a detecta las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Este centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros.
 
 
 Este tutorial es el primero de una serie que muestra cómo evaluar y migrar máquinas virtuales de VMware. En este tutorial, aprenderá a:
@@ -124,7 +124,7 @@ Compruebe los requisitos del dispositivo antes de implementarlo.
 
 1. [Compruebe](migrate-support-matrix-vmware.md#assessment-appliance-requirements) los requisitos del dispositivo y las limitaciones.
 2. Si usa un proxy de firewall basado en URL, [revise](migrate-support-matrix-vmware.md#assessment-url-access-requirements) las direcciones URL de Azure a las que el dispositivo necesitará tener acceso. Asegúrese de que el proxy resuelve todos los registros CNAME recibidos al buscar las direcciones URL.
-3. Revise los [datos de rendimiento](migrate-appliance.md#collected-performance-data-vmware) y los [metadatos](migrate-appliance.md#collected-metadata-vmware) que el dispositivo recopila durante la detección y la valoración.
+3. Revise los [datos de rendimiento](migrate-appliance.md#collected-performance-data-vmware) y los [metadatos](migrate-appliance.md#collected-metadata-vmware) que el dispositivo recopila durante la detección y la evaluación.
 4. [Tenga en cuenta](migrate-support-matrix-vmware.md#assessment-port-requirements) los puertos a los que accede el dispositivo.
 5. En vCenter Server, asegúrese de que la cuenta tiene permisos para crear una máquina virtual mediante un archivo OVA. Puede implementar el dispositivo de Azure Migrate como una máquina virtual de VMware mediante un archivo OVA.
 
@@ -148,7 +148,7 @@ Revise los requisitos para la migración sin agente de máquinas virtuales de VM
 
 Revise los requisitos para la [migración basada en agente](server-migrate-overview.md) de máquinas virtuales de VMware.
 
-1. [Revisar](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) los requisitos del servidor de VMware.
+1. [Revise](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) los requisitos del servidor de VMware.
 2. Configure una cuenta con los [permisos necesarios](migrate-support-matrix-vmware.md#agent-based-migration-vcenter-server-permissions). Así, Azure Migrate puede acceder a vCenter Server para la migración sin agente mediante Azure Migrate Server Migration.
 3. [Revise](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) los requisitos de las máquinas virtuales de VMware que desea migrar a Azure mediante la migración basada en agente, incluida la instalación de Mobility Service en cada máquina virtual que desee migrar.
 4. Tenga en cuenta el [acceso a direcciones URL](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements).

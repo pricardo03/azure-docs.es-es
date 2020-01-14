@@ -3,12 +3,27 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/19/2019
-ms.openlocfilehash: 0da406ca1b37e05a44ba0d0f3ca56c266dda0dac
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 12/11/2019
+ms.openlocfilehash: a678603d19b8da9ace8b519e19fc8ef2673621fe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186648"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384732"
 ---
-Debe tener una [cuenta de API de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con acceso a Bing Autosuggest API. Si no tiene una suscripción de Azure, puede [crear una cuenta](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api) gratuita. Antes de continuar, necesitará la clave de acceso que se le proporcionó al activar la versión de evaluación gratuita o puede usar una clave de suscripción de pago desde el panel de Azure.
+## <a name="create-an-azure-resource"></a>Creación de un recurso de Azure
+
+Comience a usar Bing Autosuggest API mediante la creación de uno de los recursos de Azure que se indican a continuación.
+
+* [Creación de un recurso de evaluación](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api):
+    * No se necesita ninguna suscripción de Azure.
+    * Válido durante siete días de forma gratuita. Después de suscribirse, tendrá una clave de prueba y un punto de conexión disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+
+* [Creación de un recurso de Bing Autosuggest](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7):
+    * Disponible en Azure Portal hasta que lo elimine.
+    * Use el plan de tarifa gratuito para probar el servicio y actualícelo más adelante a un nivel de pago para producción.
+    * Bing Autosuggest también se ofrece en los niveles de pago del [recurso Bing Search, versión 7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7).
+
+* [Creación de un recurso de varios servicios](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
+    * Disponible en Azure Portal hasta que lo elimine.  
+    * Use la misma clave y el mismo punto de conexión para las aplicaciones en varios servicios de Cognitive Services.

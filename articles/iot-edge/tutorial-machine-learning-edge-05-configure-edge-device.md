@@ -8,17 +8,17 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5be7b66a51113121ed755d8ad9cea3518577f2e7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 16920a46e64306daa331957df24babba8ac4b731
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706952"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612877"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: Configure un dispositivo IoT Edge
 
 > [!NOTE]
-> Este artículo forma parte de un tutorial sobre el uso de Azure Machine Learning en IoT Edge. Si ha llegado directamente a este artículo, le recomendamos que comience desde el [primer el artículo](tutorial-machine-learning-edge-01-intro.md) de la serie para obtener los mejores resultados.
+> Este artículo forma parte de un tutorial sobre el uso de Azure Machine Learning en IoT Edge. Si ha llegado directamente a este artículo, le recomendamos que comience con el [primer el artículo](tutorial-machine-learning-edge-01-intro.md) de la serie para obtener los mejores resultados.
 
 En este artículo, se configurará una máquina virtual de Azure que ejecuta Linux para que sea un dispositivo Azure IoT Edge que actúa como puerta de enlace transparente. La configuración de la puerta de enlace transparente permite que los dispositivos se conecten a Azure IoT Hub a través de la puerta de enlace sin necesidad de saber si dicha puerta existe. Al mismo tiempo, un usuario que interactúa con los dispositivos de IoT Hub no es consciente del dispositivo de puerta de enlace intermedio. En última instancia, se usa la puerta de enlace transparente para agregar análisis de Edge a nuestro sistema mediante la adición de módulos de IoT Edge a la puerta de enlace.
 
@@ -28,7 +28,7 @@ Los pasos descritos en este artículo los realiza normalmente un desarrollador e
 
 Para que un dispositivo funcione como una puerta de enlace, debe poder conectarse de forma segura a los dispositivos de bajada. Azure IoT Edge le permite usar una infraestructura de clave pública (PKI) para configurar conexiones seguras entre los dispositivos. En este caso, vamos a permitir que un dispositivo de bajada se conecte a un dispositivo IoT Edge que actúa como puerta de enlace transparente. Para mantener una seguridad razonable, el dispositivo de bajada debe confirmar la identidad del dispositivo IoT Edge. Para obtener más información acerca de cómo los dispositivos IoT Edge usan certificados, consulte [Información de uso de los certificados de Azure IoT Edge](iot-edge-certs.md).
 
-En esta sección, crearemos los certificados autofirmados con una imagen de Docker que después se compila y ejecuta. Hemos optado por utilizar una imagen de Docker para completar este paso, ya que reduce significativamente el número de pasos necesarios para crear los certificados en el equipo de desarrollo de Windows. Consulte [Generación de certificados con Windows](how-to-create-transparent-gateway.md#generate-certificates-with-windows) para obtener información detallada sobre cómo generar los certificados sin usar un contenedor. [Generación de certificados con Linux](how-to-create-transparent-gateway.md#generate-certificates-with-linux) incluye el conjunto de instrucciones que se automatizan con la imagen de Docker.
+En esta sección, crearemos los certificados autofirmados con una imagen de Docker que después se compila y ejecuta. Hemos optado por utilizar una imagen de Docker para completar este paso, ya que reduce significativamente el número de pasos necesarios para crear los certificados en el equipo de desarrollo de Windows. Consulte [Creación de certificados de demostración para probar las características del dispositivo IoT Edge](how-to-create-test-certificates.md) para comprender lo que se automatiza con la imagen de Docker.
 
 1. Inicie sesión en la nueva máquina virtual de desarrollo.
 
@@ -119,7 +119,7 @@ Usamos la imagen [Azure IoT Edge en Ubuntu](https://azuremarketplace.microsoft.c
 
 Para usar la imagen del Marketplace en una implementación con scripts, es necesario habilitar la implementación mediante programación para la imagen.
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en Azure Portal.
 
 1. Seleccione **Todos los servicios**.
 
@@ -161,9 +161,9 @@ A continuación, ejecute el script para crear la máquina virtual para el dispos
 
 4. Para que el script pueda configurar la VM, deberá iniciar sesión en Azure con las credenciales asociadas con la suscripción de Azure que está usando.
 
-5. El script confirma la información de la creación de la VM. En este caso, seleccione **y** o **ENTRAR** para continuar.
+5. El script confirma la información para crear la máquina virtual. En este caso, seleccione **y** o **ENTRAR** para continuar.
 
-6. El script se ejecuta durante varios minutos mientras ejecuta los pasos siguientes:
+6. El script se ejecuta durante varios minutos mientras realiza los pasos siguientes:
 
     * Creación del grupo de recursos si todavía no existe
     * Creación de la máquina virtual

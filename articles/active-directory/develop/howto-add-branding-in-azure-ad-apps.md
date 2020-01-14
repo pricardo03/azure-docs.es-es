@@ -1,5 +1,5 @@
 ---
-title: Guía de personalización de marca de una aplicación de Azure AD
+title: Guía de personalización de marca | Azure
 titleSuffix: Microsoft identity platform
 description: Una guía completa sobre recursos orientados al desarrollador para Azure Active Directory
 services: active-directory
@@ -15,12 +15,12 @@ ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ad786429eb23b51cc2da5da5d8af11d19985c9a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d130bfb055b41ea3d2726c83c06430a0ea58fe98
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967292"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424569"
 ---
 # <a name="branding-guidelines-for-applications"></a>Directrices de personalización de marca para aplicaciones
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: 3312b5ba6f97dc51f5eeff06eeb194e367935e08
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c357e460e49ffee669f3978be7678353acfcd249
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869534"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459430"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuración de máquina virtual de host de sesión
 
@@ -102,7 +102,7 @@ Siga estas instrucciones para confirmar que los componentes se han instalado y p
 
 **Causa:** DSC de PowerShell pudo ejecutarse, pero no pudo conectarse a Windows Virtual Desktop.
 
-**Corrección:** Confirme los elementos de la lista siguiente.
+**Solución:** Confirme los elementos de la lista siguiente.
 
 - Registre manualmente las VM con el servicio de Windows Virtual Desktop.
 - Confirme que la cuenta usada para conectarse a Windows Virtual Desktop tiene permisos en el inquilino para crear grupos host.
@@ -118,7 +118,7 @@ Cuando el agente de Windows Virtual Desktop se instala por primera vez en las VM
 
 **Causa:** El agente no puede actualizarse automáticamente a una nueva versión.
 
-**Corrección:** Siga estas instrucciones para actualizar manualmente el agente.
+**Solución:** Siga estas instrucciones para actualizar manualmente el agente.
 
 1. Descargue una nueva versión del agente en la VM del host de sesión.
 2. Inicie el Administrador de tareas y, en la pestaña Servicio, detenga el servicio RDAgentBootLoader.
@@ -131,7 +131,7 @@ Cuando el agente de Windows Virtual Desktop se instala por primera vez en las VM
 
 **Causa:** El token de registro ha expirado o se ha generado con el valor de expiración de 999999.
 
-**Corrección:** Siga estas instrucciones para corregir el error del registro del agente.
+**Solución:** Siga estas instrucciones para corregir el error del registro del agente.
 
 1. Si ya hay un token de registro, quítelo con Remove-RDSRegistrationInfo.
 2. Genere un nuevo token con Rds-NewRegistrationInfo.
@@ -205,7 +205,7 @@ Examine las entradas del Registro que se enumeran a continuación y confirme que
 
 **Causa:** La pila en paralelo no está instalada en la VM del host de sesión.
 
-**Corrección:** Siga estas instrucciones para instalar la pila en paralelo en la VM del host de sesión.
+**Solución:** Siga estas instrucciones para instalar la pila en paralelo en la VM del host de sesión.
 
 1. Use el Protocolo de escritorio remoto (RDP) para ir directamente a la VM del host de sesión como administrador local.
 2. Descargue e importe [el módulo de PowerShell para Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) que se usará en la sesión de PowerShell, si aún no lo ha hecho y, a continuación, ejecute este cmdlet para iniciar sesión en la cuenta:
@@ -340,9 +340,10 @@ Vuelva a implementar el sistema operativo host con la versión más reciente de 
 - Para obtener información general sobre cómo solucionar problemas de Windows Virtual Desktop y las pistas de escalación, consulte [Introducción, comentarios y soporte técnico para solucionar problemas](troubleshoot-set-up-overview.md).
 - Para solucionar problemas durante la creación de un grupo de inquilinos y de hosts en un entorno de Windows Virtual Desktop, consulte [Creación de los grupos de inquilinos y de host](troubleshoot-set-up-issues.md).
 - Para solucionar problemas al configurar una máquina virtual (VM) en Windows Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
-- Para solucionar problemas con conexiones de cliente de Windows Virtual Desktop, consulte [Conexiones de cliente de Escritorio remoto](troubleshoot-client-connection.md).
+- Para solucionar problemas con conexiones de cliente de Windows Virtual Desktop, consulte [Conexiones de servicios de Windows Virtual Desktop](troubleshoot-service-connection.md).
+- Para solucionar problemas con los clientes de Escritorio remoto, consulte [Solucionar problemas con el cliente de Escritorio remoto](troubleshoot-client.md).
 - Para solucionar problemas al usar PowerShell con Windows Virtual Desktop, consulte [PowerShell para Windows Virtual Desktop](troubleshoot-powershell.md).
-- Para más información sobre el servicio, consulte [Entorno de Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- Para más información sobre el servicio, consulte [Entorno de Windows Virtual Desktop](environment-setup.md).
+- Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
+- Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](../azure-resource-manager/resource-group-audit.md).
+- Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](../azure-resource-manager/resource-manager-deployment-operations.md).

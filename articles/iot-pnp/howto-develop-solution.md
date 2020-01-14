@@ -3,24 +3,24 @@ title: Interacción con un dispositivo de IoT Plug and Play (versión preliminar
 description: Como desarrollador de soluciones, aprenda a usar el SDK del servicio para interactuar con dispositivos de IoT Plug and Play.
 author: Philmea
 ms.author: philmea
-ms.date: 07/24/2019
+ms.date: 12/26/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 543f332087aef4147c9274ca980cb56543a68112
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 485b17ff236de32eab5388629c1bb6044ba19197
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977597"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531350"
 ---
 # <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Conexión e interacción con un dispositivo de la versión preliminar de IoT Plug and Play
 
 En esta guía paso a paso se indica cómo usar los ejemplos del SDK del servicio de Node que muestran cómo la solución de IoT puede interactuar con los dispositivos de la versión preliminar de IoT Plug and Play.
 
-Si no ha completado el inicio rápido [Conexión de un dispositivo de IoT Plug and Play a la solución](quickstart-connect-pnp-device-solution.md), debe hacerlo ahora. En él se muestra cómo descargar e instalar el SDK y ejecutar algunos de los ejemplos.
+Si no ha completado el inicio rápido [Conexión de un dispositivo de IoT Plug and Play a la solución](quickstart-connect-pnp-device-solution-node.md), debe hacerlo ahora. En él se muestra cómo descargar e instalar el SDK y ejecutar algunos de los ejemplos.
 
 Antes de ejecutar los ejemplos de servicio, abra un nuevo terminal, vaya a la carpeta raíz del repositorio clonado, vaya a la carpeta **digitaltwins/quickstarts/service** y, luego, ejecute el siguiente comando para instalar las dependencias:
 
@@ -52,7 +52,7 @@ Con las mismas instrucciones que para los ejemplos de servicio y dispositivo, de
 
 * `AZURE_IOT_MODEL_REPOSITORY_CONNECTION_STRING`
 
-Puede encontrar esta cadena de conexión en el portal de [Azure Certified for IoT](https://preview.catalog.azureiotsolutions.com) en la pestaña **Connection strings** (Cadenas de conexión) del **repositorio de la empresa**.
+Encontrará esta cadena de conexión en el [portal de Azure Certified for IoT](https://preview.catalog.azureiotsolutions.com), en la pestaña **Connection strings** (Cadenas de conexión) del **repositorio de la empresa**.
 
 La cadena de conexión se parece al ejemplo siguiente:
 
@@ -82,7 +82,7 @@ select * from devices where HAS_CAPABILITYMODEL('id without version', version)
 
 ### <a name="creating-digital-twin-routes"></a>Creación de rutas de gemelos digitales
 
-La solución puede recibir notificaciones de eventos de cambios de gemelos digitales. Para suscribirse a estas notificaciones, use la [característica de enrutamiento de IoT Hub](../iot-hub/iot-hub-devguide-endpoints.md) para enviar las notificaciones a un punto de conexión, como almacenamiento de blobs, Event Hubs o una cola de Service Bus.
+La solución puede recibir notificaciones de eventos de cambios de gemelos digitales. Para suscribirse a estas notificaciones, use la [característica de enrutamiento de IoT Hub](../iot-hub/iot-hub-devguide-endpoints.md) para enviar las notificaciones a un punto de conexión, como Blob Storage, Event Hubs o una cola de Service Bus.
 
 Para crear una ruta de gemelo digital, siga estos pasos:
 

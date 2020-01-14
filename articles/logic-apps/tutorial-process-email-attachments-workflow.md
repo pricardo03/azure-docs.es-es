@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 6486427753543e0f4fe9a197b6825a555ef2fc70
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ef0445727c100b7262ebffc69be5e00a7956520a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793472"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428774"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatización de tareas para procesar correos electrónicos mediante Azure Logic Apps, Azure Functions y Azure Storage
 
@@ -34,9 +34,9 @@ Cuando haya terminado, la aplicación lógica se parecerá a este flujo de traba
 
 ![Aplicación lógica de alto nivel finalizada](./media/tutorial-process-email-attachments-workflow/overview.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Una cuenta de correo electrónico con un proveedor de correo electrónico compatible con Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. En el caso de otros proveedores, [consulte la lista de conectores que se muestra aquí](https://docs.microsoft.com/connectors/).
 
@@ -54,10 +54,10 @@ Puede guardar los correos electrónicos entrantes y los datos adjuntos como blob
 
 1. Para crear un contenedor de almacenamiento, [cree una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) con esta configuración en la pestaña **Datos básicos** de Azure Portal:
 
-   | Configuración | Valor | DESCRIPCIÓN |
+   | Configuración | Value | Descripción |
    |---------|-------|-------------|
    | **Suscripción** | <*Azure-subscription-name*> | El nombre de la suscripción a Azure |  
-   | **Grupos de recursos** | <*Azure-resource-group*> | El nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar y administrar los recursos relacionados. En este ejemplo se utiliza "LA-tutorial-RG". <p>**Nota:** Existe un grupo de recursos dentro de una región específica. Aunque es posible que los elementos de este tutorial no estén disponibles en todas las regiones, intente usar la misma región siempre que sea posible. |
+   | **Grupos de recursos** | <*Azure-resource-group*> | El nombre del [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) usado para organizar y administrar los recursos relacionados. En este ejemplo se utiliza "LA-tutorial-RG". <p>**Nota:** Existe un grupo de recursos dentro de una región específica. Aunque es posible que los elementos de este tutorial no estén disponibles en todas las regiones, intente usar la misma región siempre que sea posible. |
    | **Nombre de cuenta de almacenamiento** | <*Azure-storage-account-name*> | El nombre de la cuenta de almacenamiento, que tiene que tener entre 3 y 24 caracteres, y solo puede contener letras minúsculas y números. En este ejemplo se usa "attachmentstorageacct". |
    | **Ubicación** | <*Azure-region*> | La región en la que se va a almacenar la información sobre su cuenta de almacenamiento. En este ejemplo se utiliza "West US". |
    | **Rendimiento** | Estándar | Esta configuración especifica los tipos de datos admitidos y los medios para almacenar los datos. Consulte [Tipos de cuentas de almacenamiento](../storage/common/storage-introduction.md#types-of-storage-accounts). |
@@ -68,7 +68,7 @@ Puede guardar los correos electrónicos entrantes y los datos adjuntos como blob
 
    En la pestaña **Opciones avanzadas**, seleccione este valor:
 
-   | Configuración | Valor | DESCRIPCIÓN |
+   | Configuración | Value | Descripción |
    |---------|-------|-------------|
    | **Se requiere transferencia segura** | Disabled | Esta configuración especifica la seguridad que necesitan las solicitudes en las conexiones. Consulte [Exigencia de transferencia segura](../storage/common/storage-require-secure-transfer.md). |
    ||||
@@ -138,7 +138,7 @@ Ahora, use el fragmento de código proporcionado en estos pasos para crear una f
 
 1. Antes de crear una función, [cree una aplicación de función](../azure-functions/functions-create-function-app-portal.md) con estos valores de configuración:
 
-   | Configuración | Valor | DESCRIPCIÓN |
+   | Configuración | Value | Descripción |
    | ------- | ----- | ----------- |
    | **Nombre de la aplicación** | <*function-app-name*> | El nombre de la aplicación de función, que debe ser único globalmente en Azure. En este ejemplo ya se usa "CleanTextFunctionApp", por lo que debe proporcionar un nombre diferente, como "MyCleanTextFunctionApp-<*su-nombre*>" |
    | **Suscripción** | <*nombre-de-su-suscripción-a-Azure*> | La misma suscripción de Azure que usó anteriormente. |
@@ -177,7 +177,7 @@ Ahora, use el fragmento de código proporcionado en estos pasos para crear una f
 
 1. Cuando se abra el editor, sustituya el código de la plantilla por este código de ejemplo, que elimina el HTML y devuelve los resultados a la persona que llama:
 
-   ```CSharp
+   ```csharp
    #r "Newtonsoft.Json"
 
    using System.Net;
@@ -235,7 +235,7 @@ Después de comprobar que funciona la función, cree la aplicación lógica. Aun
 
    ![Especificación de información de la aplicación lógica](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
-   | Configuración | Valor | DESCRIPCIÓN |
+   | Configuración | Value | Descripción |
    | ------- | ----- | ----------- |
    | **Nombre** | LA-ProcessAttachment | Nombre de la aplicación lógica |
    | **Suscripción** | <*nombre-de-su-suscripción-a-Azure*> | La misma suscripción de Azure que usó anteriormente. |
@@ -274,20 +274,20 @@ A continuación, agregue un [desencadenador](../logic-apps/logic-apps-overview.m
 
       ![Especificar la carpeta, el intervalo y la frecuencia de comprobación de los correos electrónicos](./media/tutorial-process-email-attachments-workflow/set-up-email-trigger.png)
 
-      | Configuración | Valor | DESCRIPCIÓN |
+      | Configuración | Value | Descripción |
       | ------- | ----- | ----------- |
       | **Carpeta** | Bandeja de entrada | La carpeta de correo electrónico para comprobar. |
       | **Tiene datos adjuntos** | Sí | Obtener solo los correos electrónicos con datos adjuntos. <p>**Nota:** El desencadenador no elimina los correos electrónicos de la cuenta, solo comprueba si existen nuevos mensajes y procesa únicamente los correos electrónicos que coinciden con el filtro del asunto. |
       | **Include Attachments** (Incluir datos adjuntos) | Sí | Obtener los datos adjuntos como entrada del flujo de trabajo, en lugar de solamente buscar datos adjuntos. |
       | **Intervalo** | 1 | Número de intervalos que se espera entre comprobaciones |
-      | **Frecuencia** | Minuto | La unidad de tiempo de cada intervalo entre comprobaciones |
+      | **Frecuencia** | Minute | La unidad de tiempo de cada intervalo entre comprobaciones |
       ||||
   
    1. En la lista **Agregar nuevo parámetro** lista, seleccione **Filtro de asunto**.
 
    1. Después de que el cuadro **Filtro de asunto** aparezca en la acción, especifique el asunto como se muestra aquí:
 
-      | Configuración | Valor | DESCRIPCIÓN |
+      | Configuración | Value | Descripción |
       | ------- | ----- | ----------- |
       | **Subject Filter** (Filtro de asunto) | `Business Analyst 2 #423501` | El texto para encontrar el asunto del correo electrónico. |
       ||||
@@ -435,7 +435,7 @@ A continuación, agregue una acción que cree un blob en el contenedor de almace
 
    ![Crear la conexión a la cuenta de almacenamiento](./media/tutorial-process-email-attachments-workflow/create-storage-account-connection-first.png)
 
-   | Configuración | Valor | DESCRIPCIÓN |
+   | Configuración | Value | Descripción |
    | ------- | ----- | ----------- |
    | **Nombre de la conexión** | AttachmentStorageConnection | Un nombre descriptivo para la conexión. |
    | **Storage Account** | attachmentstorageacct | El nombre de la cuenta de almacenamiento que creó anteriormente para guardar los datos adjuntos. |
@@ -447,7 +447,7 @@ A continuación, agregue una acción que cree un blob en el contenedor de almace
 
    ![Proporcionar información del blob para el cuerpo del correo electrónico](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body.png)
 
-   | Configuración | Valor | DESCRIPCIÓN |
+   | Configuración | Value | Descripción |
    | ------- | ----- | ----------- |
    | **Folder path** (Ruta de acceso a la carpeta) | /attachments | La ruta de acceso y el nombre del contenedor que creó anteriormente. En este ejemplo, haga clic en el icono de la carpeta y, después, seleccione el contenedor "/attachments". |
    | **Blob name** (Nombre de blob) | Campo **From** (De) | En este ejemplo, utilice el nombre del remitente como nombre del blob. Haga clic dentro de este cuadro para que aparezca la lista de contenido dinámico y, después, seleccione el campo **De** bajo la acción **Cuando llega un nuevo correo electrónico**. |
@@ -532,7 +532,7 @@ A continuación, agregue la acción que guarda cada archivo adjunto como un blob
 
    ![Proporcionar información de blob](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment.png)
 
-   | Configuración | Valor | DESCRIPCIÓN |
+   | Configuración | Value | Descripción |
    | ------- | ----- | ----------- |
    | **Folder path** (Ruta de acceso a la carpeta) | /attachments | La ruta de acceso y el nombre del contenedor que creó anteriormente. En este ejemplo, haga clic en el icono de la carpeta y, después, seleccione el contenedor "/attachments". |
    | **Blob name** (Nombre de blob) | Campo **Name** (Nombre) | En este ejemplo, utilice el nombre del archivo adjunto como nombre del blob. Haga clic dentro de este cuadro para que aparezca la lista de contenido dinámico y, después, seleccione el campo **Nombre** bajo la acción **Cuando llega un nuevo correo electrónico**. |
@@ -597,11 +597,11 @@ A continuación, agregue una acción para que la aplicación lógica envíe un c
 
    Si no puede encontrar campo que esperaba que estuviera en la lista de contenido dinámico, seleccione **See more** (Ver más) junto a **When a new email arrives** (Cuando llega un nuevo correo electrónico).
 
-   | Configuración | Valor | Notas |
+   | Configuración | Value | Notas |
    | ------- | ----- | ----- |
    | **To** | <*recipient-email-address*> | Para realizar pruebas, puede usar su propia dirección de correo electrónico. |
-   | **Subject**  | ```ASAP - Review applicant for position:``` **Subject** (Asunto) | El asunto del correo electrónico que quiere incluir. Haga clic en este cuadro, escriba el texto de ejemplo y, en la lista de contenido dinámico, seleccione el campo **Asunto** en **Cuando llega un nuevo correo electrónico**. |
-   | **Cuerpo** | ```Please review new applicant:``` <p>```Applicant name:``` **From** (De) <p>```Application file location:``` **Path** (Ruta de acceso) <p>```Application email content:``` **Body** (Cuerpo) | El contenido del cuerpo del correo electrónico. Haga clic en este cuadro, escriba el texto de ejemplo y, en la lista de contenido dinámico, seleccione estos campos: <p>- El campo **From** (De) en **When a new email arrives** (Cuando llega un nuevo correo electrónico) </br>- El campo **Path** (Ruta de acceso) en **Create blob for email body** (Crear blob para el cuerpo del correo electrónico) </br>- El campo **Body** (Cuerpo) en **Call RemoveHTMLFunction to clean email body** (Llamar a RemoveHTMLFunction para limpiar el cuerpo del correo electrónico) |
+   | **Subject**  | ```ASAP - Review applicant for position:``` **Asunto** | El asunto del correo electrónico que quiere incluir. Haga clic en este cuadro, escriba el texto de ejemplo y, en la lista de contenido dinámico, seleccione el campo **Asunto** en **Cuando llega un nuevo correo electrónico**. |
+   | **Cuerpo** | ```Please review new applicant:``` <p>```Applicant name:``` **De** <p>```Application file location:``` **Ruta de acceso** <p>```Application email content:``` **Cuerpo** | El contenido del cuerpo del correo electrónico. Haga clic en este cuadro, escriba el texto de ejemplo y, en la lista de contenido dinámico, seleccione estos campos: <p>- El campo **From** (De) en **When a new email arrives** (Cuando llega un nuevo correo electrónico) </br>- El campo **Path** (Ruta de acceso) en **Create blob for email body** (Crear blob para el cuerpo del correo electrónico) </br>- El campo **Body** (Cuerpo) en **Call RemoveHTMLFunction to clean email body** (Llamar a RemoveHTMLFunction para limpiar el cuerpo del correo electrónico) |
    ||||
 
    > [!NOTE]

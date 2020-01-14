@@ -1,25 +1,16 @@
 ---
-title: Lista de eventos de Azure Service Fabric | Microsoft Docs
+title: Lista de eventos de Azure Service Fabric
 description: Lista completa de eventos proporcionados por Azure Service Fabric como ayuda para supervisar clústeres.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: reference
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: cde0464985f756132c60453c4e79ffefd4a1dd2c
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: e69b407bc7d58a83616daa44272ec008ccff9fad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65788591"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451754"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos de Service Fabric 
 
@@ -40,7 +31,7 @@ A continuación, presentamos una lista de estos eventos de Service Fabric organi
 
 Se pueden encontrar más detalles sobre las actualizaciones de clústeres [en esta página](service-fabric-cluster-upgrade-windows-server.md).
 
-| EventId | NOMBRE | Categoría | DESCRIPCIÓN |Origen (tarea) | Nivel | 
+| EventId | Nombre | Category | Descripción |Origen (tarea) | Nivel | 
 | --- | --- | --- | --- | --- | --- | 
 | 29627 | ClusterUpgradeStarted | Actualizar | Se ha iniciado una actualización de clúster | CM | Informativo |
 | 29628 | ClusterUpgradeCompleted | Actualizar | Se ha terminado una actualización de clúster | CM | Informativo | 
@@ -52,7 +43,7 @@ Se pueden encontrar más detalles sobre las actualizaciones de clústeres [en es
 
 **Eventos del ciclo de vida de los nodos** 
 
-| EventId | NOMBRE | Categoría | DESCRIPCIÓN |Origen (tarea) | Nivel |
+| EventId | Nombre | Category | Descripción |Origen (tarea) | Nivel |
 | --- | --- | ---| --- | --- | --- | 
 | 18602 | NodeDeactivateCompleted | StateTransition | Se ha completado la desactivación de un nodo | FM | Informativo | 
 | 18603 | NodeUp | StateTransition | El clúster ha detectado que un nodo se ha iniciado | FM | Informativo | 
@@ -69,7 +60,7 @@ Se pueden encontrar más detalles sobre las actualizaciones de clústeres [en es
 
 **Eventos del ciclo de vida de aplicaciones**
 
-| EventId | NOMBRE | Categoría | DESCRIPCIÓN |Origen (tarea) | Nivel | 
+| EventId | Nombre | Category | Descripción |Origen (tarea) | Nivel | 
 | --- | --- | --- | --- | --- | --- | 
 | 29620 | ApplicationCreated | LifeCycle | Se ha creado una nueva aplicación | CM | Informativo | 
 | 29625 | ApplicationDeleted | LifeCycle | Se ha eliminado una aplicación existente | CM | Informativo | 
@@ -79,7 +70,7 @@ Se pueden encontrar más detalles sobre las actualizaciones de clústeres [en es
 
 Pueden encontrar más detalles sobre las actualizaciones de aplicaciones [en esta página](service-fabric-application-upgrade.md).
 
-| EventId | NOMBRE | Categoría | DESCRIPCIÓN |Origen (tarea) | Nivel | 
+| EventId | Nombre | Category | Descripción |Origen (tarea) | Nivel | 
 | --- | --- | ---| --- | --- | --- | 
 | 29621 | ApplicationUpgradeStarted | Actualizar | Se ha iniciado una actualización de aplicación | CM | Informativo | 
 | 29622 | ApplicationUpgradeCompleted | Actualizar | Se ha terminado una actualización de aplicación | CM | Informativo | 
@@ -91,7 +82,7 @@ Pueden encontrar más detalles sobre las actualizaciones de aplicaciones [en est
 
 **Eventos de ciclo de vida de servicios**
 
-| EventId | NOMBRE | Categoría | DESCRIPCIÓN |Origen (tarea) | Nivel | 
+| EventId | Nombre | Category | Descripción |Origen (tarea) | Nivel | 
 | --- | --- | ---| --- | --- | --- |
 | 18657 | ServiceCreated | LifeCycle | Se ha creado un nuevo servicio | FM | Informativo | 
 | 18658 | ServiceDeleted | LifeCycle | Se ha eliminado un servicio existente | FM | Informativo | 
@@ -100,7 +91,7 @@ Pueden encontrar más detalles sobre las actualizaciones de aplicaciones [en est
 
 **Eventos de movimiento de particiones**
 
-| EventId | NOMBRE | Categoría | DESCRIPCIÓN |Origen (tarea) | Nivel | 
+| EventId | Nombre | Category | Descripción |Origen (tarea) | Nivel | 
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | LifeCycle | Se ha terminado la reconfiguración de una partición | RA | Informativo | 
 
@@ -108,7 +99,7 @@ Pueden encontrar más detalles sobre las actualizaciones de aplicaciones [en est
 
 **Eventos de ciclo de vida de las réplicas**
 
-| EventId | NOMBRE | Categoría | DESCRIPCIÓN |Origen (tarea) | Nivel |
+| EventId | Nombre | Category | Descripción |Origen (tarea) | Nivel |
 | --- | --- | ---| --- | --- | --- |
 | 61701 | ReliableDictionaryOpened | LifeCycle | El diccionario de confianza se ha abierto. | DistributedDictionary | Informativo |
 | 61702 | ReliableDictionaryClosed | LifeCycle | El diccionario de confianza se ha cerrado. | DistributedDictionary | Informativo |
@@ -142,7 +133,7 @@ Pueden encontrar más detalles sobre las actualizaciones de aplicaciones [en est
 
 **Eventos de ciclo de vida de contenedores** 
 
-| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| EventId | Nombre | Descripción |Origen (tarea) | Nivel | Versión |
 | --- | --- | ---| --- | --- | --- |
 | 23074 | ContainerActivated | Se ha iniciado un contenedor | Hospedaje | Informativo | 1 |
 | 23075 | ContainerDeactivated | Se ha detenido un contenedor | Hospedaje | Informativo | 1 |
@@ -158,21 +149,21 @@ El [modelo de mantenimiento de Service Fabric](service-fabric-health-introductio
 
 **Eventos de informe de estado de clústeres**
 
-| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| EventId | Nombre | Descripción |Origen (tarea) | Nivel | Versión |
 | --- | --- | --- | --- | --- | --- |
 | 54428 | ClusterNewHealthReport | Hay un nuevo informe de estado de clúster disponible | HM | Informativo | 1 |
 | 54437 | ClusterHealthReportExpired | Un informe de estado de clúster existente ha expirado | HM | Informativo | 1 |
 
 **Eventos de informe de estado de nodos**
 
-| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| EventId | Nombre | Descripción |Origen (tarea) | Nivel | Versión |
 | --- | --- | ---| --- | --- | --- |
 | 54423 | NodeNewHealthReport | Hay un nuevo informe de estado de nodo disponible | HM | Informativo | 1 |
 | 54432 | NodeHealthReportExpired | Un informe de estado de nodo existente ha expirado | HM | Informativo | 1 |
 
 **Eventos de informe de estado de aplicaciones**
 
-| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| EventId | Nombre | Descripción |Origen (tarea) | Nivel | Versión |
 | --- | --- | ---| --- | --- | --- |
 | 54425 | ApplicationNewHealthReport | Se ha creado un informe de estado de aplicación. Para aplicaciones no implementadas. | HM | Informativo | 1 |
 | 54426 | DeployedApplicationNewHealthReport | Se ha creado un informe de estado de aplicación implementada | HM | Informativo | 1 |
@@ -183,21 +174,21 @@ El [modelo de mantenimiento de Service Fabric](service-fabric-health-introductio
 
 **Eventos de informe de estado de servicios**
 
-| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| EventId | Nombre | Descripción |Origen (tarea) | Nivel | Versión |
 | --- | --- | ---| --- | --- | --- |
 | 54424 | ServiceNewHealthReport | Se ha creado un informe de estado de servicio | HM | Informativo | 1 |
 | 54433 | ServiceHealthReportExpired | Un informe de estado de servicio existente ha expirado | HM | Informativo | 1 |
 
 **Eventos de informe de estado de particiones**
 
-| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| EventId | Nombre | Descripción |Origen (tarea) | Nivel | Versión |
 | --- | --- | ---| --- | --- | --- |
 | 54422 | PartitionNewHealthReport | Se ha creado un informe de estado de partición | HM | Informativo | 1 |
 | 54431 | PartitionHealthReportExpired | Un informe de estado de partición existente ha expirado | HM | Informativo | 1 |
 
 **Eventos de informe de estado de réplicas**
 
-| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| EventId | Nombre | Descripción |Origen (tarea) | Nivel | Versión |
 | --- | --- | ---| --- | --- | --- |
 | 54429 | StatefulReplicaNewHealthReport | Se ha creado un informe de estado de réplica con estado | HM | Informativo | 1 |
 | 54430 | StatelessInstanceNewHealthReport | Se ha creado un informe de estado de instancia sin estado | HM | Informativo | 1 |
@@ -208,28 +199,28 @@ El [modelo de mantenimiento de Service Fabric](service-fabric-health-introductio
 
 **Eventos de sesión de caos**
 
-| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| EventId | Nombre | Descripción |Origen (tarea) | Nivel | Versión |
 | --- | --- | ---| --- | --- | --- |
 | 50021 | ChaosStarted | Se ha iniciado una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
 | 50023 | ChaosStopped | Se ha detenido una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
 
 **Eventos de nodos de Chaos**
 
-| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| EventId | Nombre | Descripción |Origen (tarea) | Nivel | Versión |
 | --- | --- | ---| --- | --- | --- |
 | 50033 | ChaosNodeRestartScheduled | Se ha programado el reinicio de un nodo como parte de una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
 | 50087 | ChaosNodeRestartCompleted | Un nodo ha terminado el reinicio como parte de una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
 
 **Eventos de aplicación Chaos**
 
-| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| EventId | Nombre | Descripción |Origen (tarea) | Nivel | Versión |
 | --- | --- | ---| --- | --- | --- |
 | 50053 | ChaosCodePackageRestartScheduled | Se ha programado un reinicio del paquete de código durante una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
 | 50101 | ChaosCodePackageRestartCompleted | Se ha completado el reinicio del paquete de código durante una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
 
 **Eventos de particiones de Chaos**
 
-| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| EventId | Nombre | Descripción |Origen (tarea) | Nivel | Versión |
 | --- | --- | ---| --- | --- | --- |
 | 50069 | ChaosPartitionPrimaryMoveScheduled | Se ha programado la migración de una partición principal como parte de una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
 | 50077 | ChaosPartitionSecondaryMoveScheduled | Se ha programado la migración de una partición secundaria como parte de una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
@@ -237,7 +228,7 @@ El [modelo de mantenimiento de Service Fabric](service-fabric-health-introductio
 
 **Eventos de réplicas de Chaos**
 
-| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| EventId | Nombre | Descripción |Origen (tarea) | Nivel | Versión |
 | --- | --- | ---| --- | --- | --- |
 | 50047 | ChaosReplicaRestartScheduled | Se ha programado un reinicio de una réplica como parte de una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
 | 50051 | ChaosReplicaRemovalScheduled | Se ha programado una eliminación de réplica como parte de una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
@@ -247,7 +238,7 @@ El [modelo de mantenimiento de Service Fabric](service-fabric-health-introductio
 
 **Eventos de correlaciones**
 
-| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| EventId | Nombre | Descripción |Origen (tarea) | Nivel | Versión |
 | --- | --- | ---| --- | --- | --- |
 | 65011 | CorrelationOperational | Se ha detectado una correlación | Capacidad de prueba | Informativo | 1 |
 
@@ -255,7 +246,7 @@ El [modelo de mantenimiento de Service Fabric](service-fabric-health-introductio
 
 A continuación figura una lista completa de los eventos proporcionados por Service Fabric antes de la versión 6.2.
 
-| EventId | NOMBRE | Origen (tarea) | Nivel |
+| EventId | Nombre | Origen (tarea) | Nivel |
 | --- | --- | --- | --- |
 | 25620 | NodeOpening | FabricNode | Informativo |
 | 25621 | NodeOpenedSuccess | FabricNode | Informativo |

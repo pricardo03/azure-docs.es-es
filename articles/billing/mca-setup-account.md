@@ -1,5 +1,5 @@
 ---
-title: 'Configurar la cuenta de facturación para un contrato de cliente de Microsoft: Azure'
+title: 'Configuración de la facturación del Contrato de cliente de Microsoft: Azure'
 description: Aprenda a configurar su cuenta de facturación para un contrato de cliente de Microsoft.
 author: amberbhargava
 manager: amberb
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 5d01fa5f4bb7367bdd1939d77dc1f80bd4436765
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8855552ef4bc5e8135d1df62cca384b5ee14a02d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225577"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388353"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar la cuenta de facturación para un contrato de cliente de Microsoft
 
@@ -187,7 +187,7 @@ Para completar la configuración, necesita acceso a la nueva cuenta de facturaci
     - En la nueva cuenta de facturación se crea una jerarquía de facturación que corresponde a la jerarquía del Contrato Enterprise. Para más información, consulte [Descripción de los cambios realizados en la jerarquía de facturación](#understand-changes-to-your-billing-hierarchy).
     - Los administradores de la inscripción del Contrato Enterprise obtienen acceso a la nueva cuenta de facturación para que sigan administrando la facturación de la organización.
     - La facturación de las suscripciones de Azure se traslada a la nueva cuenta. **No habrá ningún impacto en los servicios de Azure durante esta transición. Estos siguen en ejecución sin interrupciones**.
-    - Si tiene reservas de Azure, estas se mueven a la nueva cuenta de facturación sin cambios en las ventajas o el plazo. 
+    - Si tiene reservas de Azure, estas se mueven a la nueva cuenta de facturación sin cambios en las ventajas o el plazo.
 
 4. Puede supervisar el estado de la transición en la página **Estado de la transición**.
 
@@ -199,7 +199,7 @@ Para completar la configuración, necesita acceso a la nueva cuenta de facturaci
 
 ### <a name="azure-subscriptions"></a>Suscripciones de Azure
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Busque **Administración de costos + facturación**.
 
@@ -219,7 +219,7 @@ Las reservas de Azure en la inscripción del Contrato Enterprise se trasladarán
 
 ### <a name="access-of-enterprise-administrators-on-the-billing-account"></a>Acceso de los administradores de Enterprise en la cuenta de facturación
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Busque **Administración de costos + facturación**.
 
@@ -235,7 +235,7 @@ Los administradores de Enterprise se muestran como propietarios de cuentas de fa
 
 ### <a name="access-of-enterprise-administrators-on-the-billing-profile"></a>Acceso de los administradores de Enterprise en el perfil de facturación
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Busque **Administración de costos + facturación**.
 
@@ -251,7 +251,7 @@ Los administradores de Enterprise se muestran como propietarios de perfiles de f
 
 ### <a name="access-of-enterprise-administrators-department-administrators-and-account-owners-on-invoice-sections"></a>Acceso de los administradores de Enterprise, administradores de departamento y propietarios de cuentas en las secciones de factura
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Busque **Administración de costos + facturación**.
 

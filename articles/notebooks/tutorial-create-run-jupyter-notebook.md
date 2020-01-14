@@ -1,20 +1,31 @@
 ---
-title: 'Tutorial: Creación y ejecución de un cuaderno de Jupyter en Azure'
-description: Cómo crear y ejecutar un cuaderno de Jupyter en Azure Notebooks que muestra el proceso de regresión lineal en ciencia de datos.
+title: 'Tutorial: Creación y ejecución de un cuaderno de Jupyter en la versión preliminar de Azure Notebooks'
+description: Aprenda a crear y ejecutar un cuaderno de Jupyter en la versión preliminar de Azure Notebooks para demostrar el proceso de regresión lineal en ciencia de datos.
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.openlocfilehash: 2c151cb0de2855856e92d9de07ad7dabfda2f55b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8a1c13f41ef1588b040b3540b852d83764c6ce79
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277429"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660824"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: Creación y ejecución de un cuaderno de Jupyter con Python
 
 Este tutorial le guiará en el proceso de uso de Azure Notebooks para crear un cuaderno de Jupyter completo que muestra la regresión lineal simple. En el transcurso de este tutorial, se familiarizará con la interfaz de usuario de Jupyter Notebook, que incluye la creación de distintas celdas, la ejecución de celdas y la visualización del cuaderno como una presentación.
 
 Encontrará el cuaderno completo en [GitHub: Ejemplos de Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Sin embargo, este tutorial empieza con un proyecto nuevo y un cuaderno vacío para que pueda experimentar su creación paso a paso.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+En este tutorial, aprenderá a:
+
+> [!div class="checklist"]
+> * Crear un cuaderno de proyecto con algunos datos de ejemplo
+> * Usar la interfaz de cuaderno para crear diversos tipos de celdas
+> * Ejecución del cuaderno
+> * Guardar el cuaderno
+> * Depurar el cuaderno en Visual Studio Code
 
 ## <a name="create-the-project"></a>Creación del proyecto
 
@@ -30,10 +41,10 @@ Encontrará el cuaderno completo en [GitHub: Ejemplos de Azure Notebooks](https:
 
 1. En la ventana emergente **Create New Project** (Crear nuevo proyecto) que aparece, escriba o establezca estos detalles y, luego, seleccione **Create** (Crear):
 
-    - **Project name** (Nombre del proyecto): Linear Regression Example - Cricket Chirps
-    - **Project ID** (Id. del proyecto): linear-regression-example
-    - **Public project** (Proyecto público): desactivada
-    - **Create a README.md** (Crear un Léame.md): desactivada
+   - **Project name** (Nombre del proyecto): Linear Regression Example - Cricket Chirps
+   - **Project ID** (Id. del proyecto): linear-regression-example
+   - **Public project** (Proyecto público): desactivada
+   - **Create a README.md** (Crear un Léame.md): desactivada
 
 1. Después de unos instantes, Azure Notebooks lo lleva al proyecto nuevo.
 
@@ -140,15 +151,15 @@ Jupyter incorpora un paseo por los principales elementos de la interfaz de usuar
 
 Los grupos de comandos de menú son los siguientes:
 
-| Menú | DESCRIPCIÓN |
+| Menú | Descripción |
 | --- | --- |
 | Archivo | Comandos para administrar el archivo de cuaderno, incluidos los comandos para crear y copiar cuadernos, mostrar una vista previa de impresión y descargar el cuaderno en diversos formatos. |
-| Edit | Comandos típicos para cortar, copiar y pegar celdas, buscar y reemplazar valores, administrar datos adjuntos de celda e insertar imágenes.  |
+| Editar | Comandos típicos para cortar, copiar y pegar celdas, buscar y reemplazar valores, administrar datos adjuntos de celda e insertar imágenes.  |
 | Ver | Comandos para controlar la visibilidad de las distintas partes de la UI de Jupyter. |
 | Insertar | Comandos para insertar una nueva celda por encima o debajo de la celda actual. Estos comandos se utilizan con frecuencia para crear un cuaderno. |
 | Cell | Los distintos comandos **Run** (Ejecutar) ejecutan una o varias celdas en diferentes combinaciones. Los comandos **Cell Type** (Tipo de celda) cambia el tipo de celda entre **Code** (Código), **Markdown** y **Raw NBConvert** (texto sin formato). Los comandos **Current Outputs** (Salidas actuales) y **All Outputs** (Todas las salidas) controlan cómo se muestra el resultado de la ejecución del código, e incluyen un comando para borrar todas las salidas. |
 | Kernel | Comandos para administrar cómo se ejecuta el código en el kernel, más **Change kernel** (Cambiar kernel) para cambiar el lenguaje o la versión de Python que se usa para ejecutar el cuaderno. |
-| Datos | Comandos para cargar y descargar archivos desde el proyecto o la sesión. Consulte [Trabajo con archivos de datos de proyecto](work-with-project-data-files.md). |
+| data | Comandos para cargar y descargar archivos desde el proyecto o la sesión. Consulte [Trabajo con archivos de datos de proyecto](work-with-project-data-files.md). |
 | Widgets | Comandos para administrar [Jupyter Widgets](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html) (Widgets de Jupyter), que proporcionan funcionalidades adicionales para la visualización, la asignación y el trazado.|
 | Ayuda | Comandos que ofrecen ayuda y documentación sobre la interfaz de Jupyter. |
 
@@ -228,7 +239,7 @@ Tal y como se explicó para la celda Markdown anterior, puede incluir comandos d
 
     ![Indicador de ocupado del kernel del cuaderno](media/tutorial/tutorial-kernel-busy.png)
 
-1. Todos los comandos `pip install` se ejecutan rápidamente y, como estos paquetes ya están instalados en el entorno del proyecto (y también están incluidos en Azure Notebooks de forma predeterminada), verá muchos mensajes del tipo "Requirement already satisfied" (Requisito ya cumplido). Como todas esas salidas pueden resultar una distracción a la vista, seleccione esa celda (con un clic) y use **Cell** > **Cell Outputs** > **Toggle** (Celda > Salidas de celda > Alternar). También puede usar el comando **Clear** (Borrar) en ese mismo submenú para quitar todas las salidas.
+1. Todos los comandos `pip install` se ejecutan rápidamente y, como estos paquetes ya están instalados en el entorno del proyecto (y también están incluidos en Azure Notebooks de forma predeterminada), verá muchos mensajes del tipo "Requirement already satisfied" (Requisito ya cumplido). Como todas esas salidas pueden resultar una distracción a la vista, seleccione esa celda (con un clic) y use **Cell** > **Cell Outputs** > **Toggle** (Celda > Salidas de celda > Alternar) para ocultar la salida. También puede usar el comando **Clear** (Borrar) en ese mismo submenú para quitar todas las salidas.
 
     El comando **Toggle** (Alternar) oculta solo la salida más reciente de la celda; si vuelve a ejecutar la celda, la salida vuelve a aparecer.
 

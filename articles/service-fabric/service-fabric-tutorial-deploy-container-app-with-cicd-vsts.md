@@ -1,26 +1,15 @@
 ---
-title: Implementación de una aplicación de contenedor con CI/CD en un clúster de Azure Service Fabric
+title: Implementación de una aplicación de contenedor con CI/CD
 description: En este tutorial aprenderá a configurar la integración y la implementación continuas para una aplicación de contenedor de Azure Service Fabric mediante Visual Studio Azure DevOps.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/29/2018
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: a2dc6aeb7dc2a62c543a58c322c23c9661c6940a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9cf619eddd07bbe55cd7aea5f27051a7d0415c24
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832742"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614140"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementación de una aplicación de contenedor con CI/CD en un clúster de Service Fabric
 
@@ -34,7 +23,7 @@ En la segunda parte de la serie, se aprende a:
 > * Crear una definición de versión en Visual Studio Team Explorer
 > * Implementar y actualizar una aplicación automáticamente
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar este tutorial:
 
@@ -185,7 +174,7 @@ La actualización de la aplicación puede tardar varios minutos. Una vez conclui
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Agregar un control de código fuente al proyecto

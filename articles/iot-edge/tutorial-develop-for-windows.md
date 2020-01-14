@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4a56a79798acf4948739b26062ab770fcbb47f7b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 55ae542ed0490248d501cd7c4f50c0a7ba32091a
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707084"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665195"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desarrollo de módulos IoT Edge para dispositivos Windows
 
@@ -51,7 +51,7 @@ En la tabla siguiente se enumeran los escenarios de desarrollo compatibles con l
 | **Idiomas** | C# (no se admite la depuración) | C <br> C# |
 | **Más información** | [Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Azure IoT Edge Tools para Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Una máquina de desarrollo:
 
@@ -71,7 +71,7 @@ Recursos en la nube:
 
 ## <a name="install-container-engine"></a>Instalación de un motor de contenedor
 
-Los módulos IoT Edge se empaquetan como contenedores, por lo que necesita un motor de contenedor en la máquina de desarrollo para crear y administrar los contenedores. Se recomienda usar Docker Desktop para el desarrollo debido a gran cantidad de características y su popularidad como motor de contenedor. Con Docker Desktop en un equipo Windows, se puede cambiar entre contenedores de Linux y Windows, con el fin de poder desarrollar fácilmente módulos para los distintos tipos de dispositivos IoT Edge. 
+Los módulos IoT Edge se empaquetan como contenedores, por lo que necesita un motor de contenedor en la máquina de desarrollo para crear y administrar los contenedores. Se recomienda usar Docker Desktop para el desarrollo debido a gran cantidad de características y su popularidad como motor de contenedor. Con Docker Desktop en un equipo Windows, se puede cambiar entre contenedores de Linux y Windows, con el fin de poder desarrollar fácilmente módulos para los distintos tipos de dispositivos IoT Edge. 
 
 Use la documentación de Docker para realizar la instalación en la máquina de desarrollo: 
 
@@ -130,10 +130,10 @@ La extensión Azure IoT Edge Tools proporciona plantillas de proyecto para tod
 
 4. En la ventana Agregar módulo, configure el proyecto con los valores siguientes: 
 
-   | Campo | Valor |
+   | Campo | Value |
    | ----- | ----- |
    | Plantilla de Visual Studio | Seleccione **Módulo C#** . | 
-   | Nombre de módulo | Acepte el valor predeterminado **IotEdgeModule1**. | 
+   | Nombre del módulo | Acepte el valor predeterminado **IotEdgeModule1**. | 
    | URL del repositorio | Un repositorio de imágenes incluye el nombre del registro de contenedor y el nombre de la imagen de contenedor. La imagen de contenedor se rellena previamente con el valor del nombre del proyecto del módulo. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión del registro de contenedor de Azure. Puede recuperar el valor de **Servidor de inicio de sesión** de la página **Información general** del registro de contenedor en Azure Portal. <br><br> El repositorio de imágenes final será similar a \<nombre del Registro\>.azurecr.io/iotedgemodule1. |
 
       ![Configuración del proyecto para el dispositivo de destino, el tipo de módulo y el registro de contenedor](./media/tutorial-develop-for-windows/add-module-to-solution.png)
@@ -158,7 +158,7 @@ El entorno de ejecución de IoT Edge necesita las credenciales del registro par
 
 1. Abra el archivo **deployment.template.json** en la solución del módulo.
 
-1. Busque la propiedad **registryCredentials** en las propiedades $edgeAgent que desee y asegúrese de que contiene la información correcta.
+1. Busque la propiedad **registryCredentials** en las propiedades $edgeAgent que desee. La dirección del registro se rellenará automáticamente con la información que proporcionó al crear el proyecto y, entonces, los campos de nombre de usuario y contraseña contendrán nombres de variable. Por ejemplo: 
 
    ```json
    "registryCredentials": {
@@ -258,7 +258,7 @@ La máquina de desarrollo ahora tiene acceso al registro de contenedores y tambi
 
 8. Abra el archivo **deployment.windows-amd64.json** de nuevo. Observe que no se creó un nuevo archivo cuando ejecutó el comando de compilación e inserción de nuevo. Más bien, el mismo archivo se actualizó para reflejar los cambios. La imagen de IotEdgeModule1 ahora apunta a la versión 0.0.2 del contenedor. Este cambio en el manifiesto de implementación es cómo se puede saber el dispositivo IoT Edge que hay una nueva versión de un módulo de extracción. 
 
-9. Para comprobar mejor lo que hizo el comando de compilación e inserción, vaya a [Azure Portal](https://portal.azure.com) y navegue al registro de contenedor. 
+9. Para comprobar mejor lo que hizo el comando de compilación e inserción, vaya a [Azure Portal](https://portal.azure.com) y navegue al registro de contenedor. 
 
 10. En el registro de contenedor, seleccione **Repositorios** y después **iotedgemodule1**. Compruebe que ambas versiones de la imagen se hayan insertado en el registro.
 

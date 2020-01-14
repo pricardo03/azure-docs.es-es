@@ -9,12 +9,12 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: dc8e3e92a9b843291643fe3a43092a6ac9b9c7cb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c16fca06950ea06b80f2e27d6fb845f5d0d282c0
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701909"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665126"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Almacenamiento de datos en el perímetro con bases de datos de SQL Server
 
@@ -34,12 +34,13 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar este tutorial, debe haber realizado el anterior para configurar el entorno de desarrollo de contenedores de Linux: [Desarrollo de módulos IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Al completar ese tutorial, se deben cumplir los siguientes requisitos previos: 
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) de nivel estándar o gratis en Azure.
-* Un [dispositivo Linux que ejecute Azure IoT Edge](quickstart-linux.md).
+* Un [dispositivo Linux que ejecute Azure IoT Edge](quickstart-linux.md) que sea AMD64.
+  * Los dispositivos ARM, como Raspberry PI, no pueden ejecutar SQL Server. Si quiere usar SQL en un dispositivo ARM, puede registrarse para probar la versión preliminar de [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/). 
 * Un registro de contenedor, como [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
 * [Visual Studio Code](https://code.visualstudio.com/) configurado con [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [CE de Docker](https://docs.docker.com/install/) configurado para ejecutar contenedores de Linux.
@@ -61,9 +62,9 @@ En los siguientes pasos puede ver cómo crear una función de IoT Edge mediante 
 
 2. Para abrir la paleta de comandos de VS Code, seleccione **View** > **Command palette** (Ver > Paleta de comandos).
 
-3. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Nueva solución de IoT Edge). En la paleta de comandos, proporcione la siguiente información para crear la solución: 
+3. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: nueva solución de IoT Edge). En la paleta de comandos, proporcione la siguiente información para crear la solución: 
 
-   | Campo | Valor |
+   | Campo | Value |
    | ----- | ----- |
    | Seleccionar carpeta | Elija la ubicación en el equipo de desarrollo en la que VS Code creará los archivos de la solución. |
    | Proporcionar un nombre de la solución | Escriba un nombre descriptivo para la solución, como **SqlSolution** o acepte el valor predeterminado. |
@@ -208,7 +209,7 @@ Un [manifiesto de implementación](module-composition.md) declara qué módulos 
 
 2. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: Add IoT Edge Module** (Azure IoT Edge: agregar módulo IoT Edge). En la paleta de comandos, proporcione la siguiente información para agregar un módulo nuevo: 
 
-   | Campo | Valor | 
+   | Campo | Value | 
    | ----- | ----- |
    | Seleccionar archivo de la plantilla de implementación | La paleta de comandos resalta el archivo deployment.template.json en la carpeta de su solución actual. Seleccione ese archivo.  |
    | Seleccionar plantilla del módulo | Seleccione **Módulo de Azure Marketplace**. |

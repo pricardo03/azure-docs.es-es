@@ -11,17 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 12/19/2019
 ms.author: memildin
-ms.openlocfilehash: 8b069bedd3c36f27828e54a1110443ae6dfcdf3f
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 6b262baddd10c9d0dff4b196b733972b97d99872
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268861"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552991"
 ---
-# <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Supervisión de la identidad y el acceso en Azure Security Center (Versión preliminar)
-Este artículo le ayuda a usar Azure Security Center para supervisar la identidad y la actividad de acceso del usuario.
+# <a name="monitor-identity-and-access-preview"></a>Supervisión de la identidad y el acceso (versión preliminar)
+Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios para reforzar y proteger sus recursos.
+
+En este artículo se explica la página **Identidad y acceso** de la sección de seguridad de los recursos de Azure Security Center.
+
+Para obtener una lista completa de las recomendaciones que puede ver en esta página, consulte [Recomendaciones de identidad y acceso](recommendations-reference.md#recs-identity).
 
 > [!NOTE]
 > La supervisión de la identidad y el acceso se encuentra en versión preliminar y solo está disponible en el nivel estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
@@ -36,30 +40,20 @@ Mediante la supervisión de las actividades de identidad, puede realizar accione
 - Quitar las cuentas externas con privilegios de la suscripción
 
 > [!NOTE]
-> Si su suscripción tiene más de 600 cuentas, Security Center no puede ejecutar las recomendaciones de identidades en su suscripción. Las recomendaciones que no se ejecutan se muestran bajo "evaluaciones no disponibles", lo que se describe a continuación.
+> Si su suscripción tiene más de 600 cuentas, Security Center no puede ejecutar las recomendaciones de identidades en su suscripción. Las recomendaciones que no se ejecutan se muestran bajo "evaluaciones no disponibles" a continuación.
 Security Center no puede ejecutar las recomendaciones de identidad en los agentes de administración del asociado de un proveedor de soluciones en la nube (CSP).
 >
 
-Consulte [Recomendaciones](security-center-identity-access.md#recommendations) para obtener una lista de las recomendaciones de acceso e identidad proporcionadas por Security Center.
-
-## <a name="monitoring-security-health"></a>Supervisión del estado de seguridad
-Puede supervisar el estado de seguridad de los recursos en el panel **Security Center – Información general**. La sección **Recursos** es un indicador de mantenimiento que muestra la gravedad para cada tipo de recurso.
-
-Para ver una lista de todos los problemas, puede seleccionar **Recomendaciones**. En **Recursos**, puede ver una lista de los problemas específicos del proceso y las aplicaciones, la seguridad de los datos, las redes o la identidad y el acceso. Para más información sobre cómo aplicar las recomendaciones, consulte [Implementación de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
-
-Para una lista completa de las recomendaciones de identidades y acceso, consulte [Recomendaciones](security-center-identity-access.md#recommendations).
-
-Para continuar, seleccione **Identidad y acceso** en **Recursos** o en el menú principal de Security Center.
-
-![Panel de Security Center][1]
-
 ## <a name="monitor-identity-and-access"></a>Supervisión de la identidad y el acceso
+
+Para abrir la lista de problemas de identidad y acceso identificados, seleccione **Identidad y acceso** en la barra lateral de Security Center (en **Recursos**) o en la página de información general. 
+
 En **Identidad y acceso**, hay dos pestañas:
 
 - **Información general**: recomendaciones identificadas por Security Center.
 - **Suscripciones**: lista de las suscripciones y el estado de seguridad actual de cada una.
 
-![Identidad y acceso][2]
+[![Identidad y acceso](./media/security-center-identity-access/identity-dashboard.png)](./media/security-center-identity-access/identity-dashboard.png#lightbox)
 
 ### <a name="overview-section"></a>Sección Información general
 En **Información general**, hay una lista de recomendaciones. La primera columna muestra la recomendación. La segunda columna muestra el número total de suscripciones a las que afecta dicha recomendación. La tercera columna muestra la gravedad del problema.
@@ -70,14 +64,14 @@ En **Información general**, hay una lista de recomendaciones. La primera column
    - Una lista de suscripciones correctas e incorrectas
    - Una lista de los recursos sin examinar debido a una evaluación errónea o a que el recurso está en una suscripción que se ejecuta en el nivel gratuito y no se evalúa
 
-   ![Ventana de recomendaciones][3]
+    [![Ventana de recomendaciones](./media/security-center-identity-access/select-subscription.png)](./media/security-center-identity-access/select-subscription.png#lightbox)
 
 1. Seleccione una suscripción en la lista para obtener detalles adicionales.
 
 ### <a name="subscriptions-section"></a>Sección Suscripciones
 En **Suscripciones**, hay una lista de suscripciones. La primera columna muestra las suscripciones. La segunda columna muestra el número total de recomendaciones para cada suscripción. La tercera columna muestra la gravedad de los problemas.
 
-![Pestaña Suscripciones][4]
+[![Pestaña Suscripciones](./media/security-center-identity-access/subscriptions.png)](./media/security-center-identity-access/subscriptions.png#lightbox)
 
 1. Seleccione una suscripción. Se abre una vista de resumen con tres pestañas:
 
@@ -87,36 +81,19 @@ En **Suscripciones**, hay una lista de suscripciones. La primera columna muestra
 
    En **Recomendaciones** hay una lista de las recomendaciones para la suscripción seleccionada y la gravedad de cada una.
 
-   ![Recomendaciones para la suscripción seleccionada][5]
+   [![Recomendaciones para la suscripción seleccionada](./media/security-center-identity-access/recommendations.png)](./media/security-center-identity-access/recommendations.png#lightbox)
 
 1. Seleccione una recomendación para obtener su descripción, una lista de suscripciones correctas e incorrectas, y una lista de los recursos sin examinar.
 
-   ![La descripción de la recomendación][6]
+   [![Descripción de la recomendación](./media/security-center-identity-access/designate.png)](./media/security-center-identity-access/designate.png#lightbox)
 
    En **Evaluaciones aprobadas** hay una lista de las evaluaciones que se consideraron superadas.  La gravedad de estas evaluaciones siempre aparece en verde.
 
-   ![Evaluaciones aprobadas][7]
+   [![Evaluaciones aprobadas](./media/security-center-identity-access/passed-assessments.png)](./media/security-center-identity-access/passed-assessments.png#lightbox)
 
 1. Seleccione una evaluación aprobada en la lista para obtener su descripción y una lista de suscripciones correctas. Hay una pestaña para las suscripciones incorrectas que enumera todas las que tenían errores.
 
-   ![Evaluaciones aprobadas][8]
-
-## <a name="recommendations"></a>Recomendaciones
-Use la tabla siguiente como referencia para ayudarle a conocer las recomendaciones de identidad y acceso disponibles, y lo que hará cada una si la aplica.
-
-|Tipo de recurso|Puntuación segura|Recomendación|DESCRIPCIÓN|
-|----|----|----|----|
-|Subscription|50|MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción|Habilite Multi-Factor Authentication (MFA) para todas las cuentas de suscripción con privilegios de administrador para evitar una vulneración de las cuentas o recursos.|
-|Subscription|40|MFA debe estar habilitada en las cuentas de la suscripción con permisos de escritura|Habilite Multi-Factor Authentication (MFA) para todas las cuentas de suscripción con privilegios de escritura para evitar una vulneración de las cuentas o recursos.|
-|Subscription|30|Las cuentas externas con permisos de propietario deben quitarse de la suscripción|Elimine las cuentas externas con permisos de propietario de la suscripción a fin de evitar el acceso no supervisado.|
-|Subscription|30|MFA debe estar habilitada en las cuentas de la suscripción con permisos de lectura|Habilite Multi-Factor Authentication (MFA) para todas las cuentas de suscripción con privilegios de lectura para evitar una vulneración de las cuentas o recursos.|
-|Subscription|25|Las cuentas externas con permisos de escritura deben quitarse de la suscripción|Elimine las cuentas externas con permisos de escritura de la suscripción a fin de evitar el acceso no supervisado. |
-|Subscription|20|Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción|Quite de la suscripción las cuentas en desuso con permisos de propietario.|
-|Subscription|5|Las cuentas en desuso deben quitarse de la suscripción|Quite las cuentas en desuso de sus suscripciones para habilitar el acceso a solo los usuarios actuales. |
-|Subscription|5|Debe haber más de un propietario asignado a su suscripción|Designe a más de un propietario de la suscripción para tener redundancia de acceso de administrador.|
-|Subscription|5|Debe designar un máximo de tres propietarios para la suscripción|Designe a un máximo de 3 propietarios de suscripción para reducir el riesgo de vulneración por parte de un propietario en peligro.|
-|Almacén de claves|5|Se deben habilitar los registros de diagnóstico en Key Vault|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
-|Subscription|15|Las cuentas externas con permisos de lectura deben quitarse de la suscripción|Elimine las cuentas externas con privilegios de lectura de la suscripción a fin de evitar el acceso no supervisado.| 
+   [![Evaluaciones aprobadas](./media/security-center-identity-access/remove.png)](./media/security-center-identity-access/remove.png#lightbox)
 
 > [!NOTE]
 > Si ha creado una directiva de acceso condicional que necesita MFA pero tiene exclusiones establecidas, la evaluación de la recomendación de MFA de Security Center considera la directiva no compatible, ya que permite que algunos usuarios inicien sesión en Azure sin MFA.
@@ -127,19 +104,3 @@ Para más información sobre las recomendaciones que se aplican a otros tipos de
 - [Protección de las aplicaciones y las máquinas en Azure Security Center](security-center-virtual-machine-protection.md)
 - [Protección de las redes en Azure Security Center](security-center-network-recommendations.md)
 - [Protección del servicio SQL de Azure en Azure Security Center](security-center-sql-service-recommendations.md)
-
-Para más información sobre Security Center, consulte los siguientes artículos:
-* [Administración y respuesta a las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Aprenda a administrar las alertas y a responder a incidentes de seguridad en Security Center.
-* [Comprensión de las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Obtenga información acerca de los distintos tipos de alertas de seguridad.
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md). Obtenga respuestas a las preguntas más frecuentes acerca de Security Center.
-
-
-<!--Image references-->
-[1]: ./media/security-center-identity-access/overview.png
-[2]: ./media/security-center-identity-access/identity-dashboard.png
-[3]: ./media/security-center-identity-access/select-subscription.png
-[4]: ./media/security-center-identity-access/subscriptions.png
-[5]: ./media/security-center-identity-access/recommendations.png
-[6]: ./media/security-center-identity-access/designate.png
-[7]: ./media/security-center-identity-access/passed-assessments.png
-[8]: ./media/security-center-identity-access/remove.png

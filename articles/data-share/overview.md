@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: 43972bc8e64e0bf88aae00126735d3e0c8751254
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d1665ef3e845491f116174cf1914c38e7cf5c691
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499369"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660807"
 ---
 # <a name="what-is-azure-data-share"></a>¿Qué es Azure Data Share?
 
@@ -35,7 +35,7 @@ Azure Data Share también se puede usar para establecer un mercado de datos para
 
 Otro caso de uso de Azure Data Share consiste en establecer un consorcio de datos. Por ejemplo, varias instituciones de investigación diferentes puede compartir datos con un único cuerpo de confianza. Los datos se analizan, agregan o procesan mediante las herramientas de análisis de Azure y, después, se comparten los datos con las partes interesadas. 
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 Azure Data Share ofrece actualmente el uso compartido basado en instantáneas y el uso compartido in situ (en versión preliminar limitada). 
 
@@ -47,7 +47,7 @@ Los proveedores de datos pueden ofrecer a sus consumidores de datos actualizacio
 
 Cuando un consumidor de datos acepta un recurso compartido de datos, puede recibir los datos en el almacén de datos que prefiera. Por ejemplo, si el proveedor de datos comparte datos mediante Azure Blob Storage, el consumidor de datos puede recibirlos en Azure Data Lake Store. Del mismo modo, si el proveedor de datos comparte datos desde una instancia de Azure SQL Data Warehouse, el consumidor de datos puede elegir si desea recibirlos en una instancia de Azure Data Lake Store, una de Azure SQL Database o una de Azure SQL Data Warehouse. En el caso de uso compartido desde orígenes basados en SQL, el consumidor de datos también puede elegir si recibirá los datos en formato Parquet o csv. 
 
-El uso compartido in situ se encuentra actualmente en versión preliminar limitada para Azure Data Explorer. Los proveedores de datos pueden compartir datos desde la ubicación de estos, sin ningún movimiento de datos a través de un vínculo simbólico. Regístrese para obtener la versión preliminar limitada del uso compartido in situ para Azure Data Explorer [aquí](https://aka.ms/azuredatasharepreviewsignup). 
+El uso compartido in situ se encuentra actualmente en versión preliminar limitada para Azure Data Explorer. Los proveedores de datos pueden compartir datos desde la ubicación de estos, sin ningún movimiento de datos a través de un vínculo simbólico. Regístrese para obtener la versión preliminar limitada de Azure Data Explorer de uso compartido in situ [aquí](https://aka.ms/azuredatasharepreviewsignup). 
 
 ## <a name="key-capabilities"></a>Principales capacidades
 

@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de un clúster de máquinas virtuales de Azure con T
 description: Uso de Terraform y HCL para crear un clúster de máquinas virtuales Linux con un equilibrador de carga en Azure
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: f28cbbf13015d07c9d789ed258a9e2b0582ba1da
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 1ff13f05a5be463ed7477b4bbbc3e1f977a04a75
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159272"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665369"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>Tutorial: Creación de un clúster de máquinas virtuales de Azure con Terraform y HCL
 
@@ -34,7 +34,7 @@ En esta sección, genera una entidad de servicio de Azure y dos archivos de conf
 
 1. [Configure una entidad de servicio de Azure AD](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) a fin de habilitar Terraform para aprovisionar recursos en Azure. Al crear la entidad de seguridad, tome nota de los valores para el identificador de suscripción, el suscriptor, el identificador de aplicación y la contraseña.
 
-2. Abra el símbolo del sistema.
+2. Abra un símbolo del sistema.
 
 3. Cree un directorio vacío en el que vaya a almacenar los archivos de Terraform.
 
@@ -208,7 +208,7 @@ En esta sección, creará un archivo que contiene las definiciones de recursos p
       disable_password_authentication = false
     }
 
-    tags {
+    tags = {
       environment = "staging"
     }
    }
@@ -260,10 +260,10 @@ De forma predeterminada, Terraform intentó encontrar el archivo de variables de
 - Archivo denominado `terraform.tfvars`
 - El nombre de archivo emplea el siguiente patrón: `*.auto.tfvars`
 
-Sin embargo, el archivo de variables no necesita seguir ninguna de las dos convenciones anteriores. En ese caso, especifique el nombre del archivo de variables con el parámetro `-var-file`. Esto se ilustra en el ejemplo siguiente:
+Sin embargo, el archivo de variables no necesita seguir ninguna de las dos convenciones anteriores. En ese caso, especifique el nombre de archivo de variables con el parámetro `-var-file`, donde el nombre de archivo de la variable no lleva una extensión. Esto se ilustra en el ejemplo siguiente:
 
 ```hcl
-terraform plan -var-file <my-variables-file.tf>
+terraform plan -var-file <my-variables-file>
 ```
 
 Terraform determina las acciones necesarias para lograr el estado especificado en el archivo de configuración.

@@ -13,23 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 4a6d733b490edd892136f6febcc90c29a5a865e1
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b7e5b0286cdd15834b84e4fd3e619c6555054823
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766810"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75553008"
 ---
 # <a name="protect-your-machines-and-applications"></a>Protección de las aplicaciones y las máquinas
-Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que le guían por el proceso de configurar los controles necesarios. 
+Cuando Azure Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios para reforzar y proteger sus recursos.
 
-En este artículo se explica la página **Proceso y aplicaciones** de la sección de seguridad de los recursos de Azure Security Center. También se describen algunas de las recomendaciones que verá ahí.
+En este artículo se explica la página **Proceso y aplicaciones** de la sección de seguridad de los recursos de Security Center.
 
-Para ver la lista completa de recomendaciones para los servicios de proceso y aplicaciones, consulte [Recomendaciones de proceso y aplicaciones](recommendations-compute-and-apps.md).
+Para obtener una lista completa de las recomendaciones que puede ver en esta página, consulte [Recomendaciones de datos y almacenamiento](recommendations-reference.md#recs-computeapp).
+
 
 ## <a name="view-the-security-of-your-compute-and-apps-resources"></a>Visualización de la seguridad de los recursos de procesos y aplicaciones
 
-![Panel de Security Center](./media/security-center-virtual-machine-recommendations/overview.png)
+[![Panel de Security Center](./media/security-center-virtual-machine-recommendations/overview.png)](./media/security-center-virtual-machine-recommendations/overview.png#lightbox)
 
 Para ver el estado de los recursos de proceso y aplicaciones, seleccione **Proceso y aplicaciones** en **Recursos** en la barra lateral de Security Center. Las siguientes pestañas están disponibles:
 
@@ -74,7 +75,8 @@ El icono que aparece en cada recomendación le ayuda a identificar rápidamente 
 
 Para explorar en profundidad las recomendaciones de seguridad para cada máquina virtual, haga clic en la máquina virtual.
 Aquí verá los detalles de seguridad de la máquina virtual o del equipo. En la parte inferior puede ver la acción recomendada y la gravedad de cada problema.
-![Cloud Services](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
+
+[![Cloud Services](./media/security-center-virtual-machine-recommendations/recommendation-list.png)](./media/security-center-virtual-machine-recommendations/recommendation-list.png#lightbox)
 
 ### <a name="cloud-services"></a>Cloud Services
 En el caso de los servicios en la nube, se crea una recomendación cuando la versión del sistema operativo está obsoleta.
@@ -141,6 +143,7 @@ Si desea configurar todos los conjuntos de escalado existentes para instalar Mic
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:
 
+* [Lista de referencia completa de las recomendaciones de seguridad de Azure Security Center](recommendations-reference.md)
 * [Supervisión de identidad y acceso en Azure Security Center](security-center-identity-access.md)
 * [Protección de las redes en Azure Security Center](security-center-network-recommendations.md)
 * [Protección del servicio SQL de Azure en Azure Security Center](security-center-sql-service-recommendations.md)

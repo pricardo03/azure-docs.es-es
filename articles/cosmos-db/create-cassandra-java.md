@@ -1,5 +1,5 @@
 ---
-title: 'Uso de la API de Cassandra y Java para crear una aplicación: Azure Cosmos DB'
+title: Creación de una aplicación Java con Cassandra API de Azure Cosmos DB
 description: Esta guía de inicio rápido muestra cómo usar la API de Cassandra de Azure Cosmos DB para crear una aplicación de perfil con Azure Portal y Java
 ms.service: cosmos-db
 author: SnehaGunda
@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 5b1eacb1d0121f2dd0d97807f07042e828fe7932
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 1f9151ab174a9a1f9e492bd068b5285772f6a546
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266014"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442061"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data"></a>Inicio rápido: Creación de una aplicación Java para administrar los datos de Cassandra API de Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Esta guía de inicio rápido muestra cómo se usan Java y la [API de Cassandra](
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, tablas, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] También puede [probar gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin suscripción de Azure, sin cargos y sin compromiso.
 
@@ -52,7 +52,7 @@ Para poder crear una base de datos de documentos, debe crear una cuenta de Cassa
 
 Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación de Cassandra desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación. 
 
-1. Abra el símbolo del sistema. Cree una carpeta nueva denominada `git-samples`. Después cierre el símbolo del sistema.
+1. Abra un símbolo del sistema. Cree una carpeta nueva denominada `git-samples`. Después cierre el símbolo del sistema.
 
     ```bash
     md "C:\git-samples"
@@ -170,7 +170,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
     `cassandra_username=cosmos-db-quickstart`
 
-4. Vuelva al portal y copie el valor de CONTRASEÑA. Pegue el valor de CONTRASEÑA del portal sobre `<cassandra endpoint password>` en la línea 5.
+4. Vuelva al portal y copie el valor de PASSWORD. Pegue el valor de CONTRASEÑA del portal sobre `<cassandra endpoint password>` en la línea 5.
 
     La línea 5 de config.properties debe parecerse a esta: 
 

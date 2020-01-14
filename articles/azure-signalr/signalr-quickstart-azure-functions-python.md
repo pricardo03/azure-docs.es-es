@@ -5,30 +5,28 @@ author: anthonychu
 ms.service: signalr
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/14/2019
 ms.author: antchu
-ms.openlocfilehash: 728111548176a0a3212b1677eeb192ccdc47fe88
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 0cf8705cf2567a60129681c2db41b0868f8fe182
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709490"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392142"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Inicio rápido: Creación de un salón de chat con Azure Functions y SignalR Service mediante Python
 
 El servicio Azure SignalR le permite agregar fácilmente funcionalidad en tiempo real a la aplicación. Azure Functions es una plataforma sin servidor que le permite ejecutar el código sin tener que administrar ninguna infraestructura. En esta guía de inicio rápido, obtenga información sobre cómo usar el servicio SignalR y Functions para crear una aplicación de chat sin servidor en tiempo real.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Esta guía de inicio rápido se puede ejecutar en macOS, Windows o Linux.
 
 Asegúrese de tener instalado un editor de código como [Visual Studio Code](https://code.visualstudio.com/).
 
-Instale [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing) (versión 2.7.1505 o posteriores) para ejecutar las aplicaciones de Azure Functions de Python de forma local.
+Instale [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (versión 2.7.1505 o posteriores) para ejecutar las aplicaciones de Azure Functions de Python de forma local.
 
-Azure Functions requiere [Python 3.6](https://www.python.org/downloads/).
-
-Para instalar extensiones, Azure Functions Core Tools requiere actualmente de la instalación del [SDK de .NET Core](https://www.microsoft.com/net/download). En cambio, no se requiere ningún conocimiento de .NET para compilar aplicaciones de Azure Function de Python.
+Azure Functions requiere [Python 3.6 o 3.7](https://www.python.org/downloads/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -54,19 +52,19 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
 
 1. En el editor de código, abra la carpeta *src/chat/python* en el repositorio clonado.
 
-1. Para desarrollar y probar las funciones de Python a nivel local, debe trabajar en un entorno de Python 3.6. Ejecute los comandos siguientes para crear y activar un entorno virtual denominado `.venv`.
+1. Para desarrollar y probar las funciones de Python a nivel local, debe trabajar en un entorno de Python 3.6 o 3.7. Ejecute los comandos siguientes para crear y activar un entorno virtual denominado `.venv`.
 
     **Linux o macOS:**
 
     ```bash
-    python3.6 -m venv .venv
+    python3.7 -m venv .venv
     source .venv/bin/activate
     ```
 
     **Windows:**
 
     ```powershell
-    py -3.6 -m venv .venv
+    py -3.7 -m venv .venv
     .venv\scripts\activate
     ```
 
@@ -79,10 +77,10 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
     - **negotiate**: usa el enlace de entrada *SignalRConnectionInfo* para generar y devolver información de conexión válida.
     - **messages**: recibe un mensaje de chat en el cuerpo de la solicitud y usa el enlace de salida *SignalR* para difundir el mensaje a todas las aplicaciones cliente conectadas.
 
-1. En el terminal, asegúrese de que se encuentra en la carpeta *src/chat/python*. Use Azure Functions Core Tools para instalar las extensiones necesarias para ejecutar la aplicación.
+1. En el terminal con el entorno virtual activado, asegúrese de que se encuentra en la carpeta *src/chat/python*. Instale los paquetes de Python necesarios mediante PIP.
 
     ```bash
-    func extensions install
+    python -m pip install -r requirements.txt
     ```
 
 1. Ejecute la aplicación de función.

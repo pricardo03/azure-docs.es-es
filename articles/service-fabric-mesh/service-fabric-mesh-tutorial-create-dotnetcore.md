@@ -1,26 +1,17 @@
 ---
-title: 'Tutorial: creación, depuración, implementación y supervisión de una aplicación multiservicio en Service Fabric Mesh | Microsoft Docs'
+title: Creación e implementación de una aplicación de varios servicios en Service Fabric Mesh
 description: En este tutorial se crea una aplicación Azure Service Fabric Mesh multiservicio que consta de un sitio web de ASP.NET Core que se comunica con un servicio web de back-end, lo depura localmente y lo publica en Azure.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2053706aac2e6136e35e8574dcd19150fe3d3b6a
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: e3a6ee382208119e46a816790c15ae47f16be57e
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805433"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495193"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutorial: Creación, depuración, implementación y actualización de una aplicación multiservicio en Service Fabric Mesh
 
@@ -50,7 +41,7 @@ En esta serie de tutoriales, se aprende a:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar este tutorial:
 
@@ -62,13 +53,13 @@ Antes de empezar este tutorial:
 
 Ejecute Visual Studio, seleccione **Archivo** > **Nuevo** > **Proyecto...**
 
-En el cuadro de diálogo **Nuevo proyecto**, en el cuadro **Buscar** de la parte superior, escriba `mesh`. Seleccione la plantilla **Service Fabric Mesh Application** (Aplicación de Service Fabric mesh). [Si no ve la plantilla, asegúrese de que ha instalado el SDK de Mesh y la versión preliminar de las herramientas de VS como se describe en [Set up your Windows development environment to build Service Fabric applications ](service-fabric-mesh-howto-setup-developer-environment-sdk.md) (Configuración de un entorno de desarrollo Windows para compilar aplicaciones de Service Fabric)].  
+En el cuadro **Buscar** del cuadro de diálogo **Nuevo proyecto** de la parte superior, escriba `mesh`. Seleccione la plantilla **Service Fabric Mesh Application** (Aplicación de Service Fabric mesh). (Si no la ve, asegúrese de que ha instalado el SDK de Mesh y la versión preliminar de las herramientas de VS según se describe en [Configuración del entorno de desarrollo](service-fabric-mesh-howto-setup-developer-environment-sdk.md).  
 
 En el cuadro **Nombre**, escriba `todolistapp` y en el cuadro **Ubicación**, establezca como ruta de acceso a la carpeta la ubicación en que desea que se almacenen los archivos del proyecto.
 
-Asegúrese de que la opción **Create directory for solution** (Crear directorio para la solución) esté activada y haga clic en **Aceptar** para crear el proyecto de Service Fabric Mesh.
+Asegúrese de que la opción **Create directory for solution** (Crear directorio para la solución) esté activada y haga clic en **Aceptar** para crear el proyecto de Service Fabric mesh.
 
-![Cuadro de diálogo de nuevo proyecto de Service Fabric Mesh en Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
+![Cuadro de diálogo de proyecto nuevo de Service Fabric mesh en Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
 
 Luego verá el cuadro de diálogo **Nuevo servicio de Service Fabric**.
 
@@ -82,7 +73,7 @@ En **Service Name** (Nombre de servicio), seleccione **WebFrontEnd**. Presione *
 
 A continuación verá el cuadro de diálogo Aplicación web ASP.NET Core. Seleccione **Aplicación web** y, después, haga clic en **Aceptar**.
 
-![Nueva aplicación ASP.NET Core de Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
+![Nueva aplicación web ASP.NET Core de Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
 Ya tiene una aplicación de Service Fabric Mesh. A continuación, cree el modelo para la información de tareas pendientes.
 
@@ -90,7 +81,7 @@ Ya tiene una aplicación de Service Fabric Mesh. A continuación, cree el modelo
 
 Por simplicidad, las tareas pendientes se almacenan en una lista en memoria. Cree una biblioteca de clases para los elementos de tareas pendientes y una lista que los contenga. En Visual Studio, que actualmente tiene la solución **todolistapp** cargada, seleccione **Archivo** > **Agregar** > **Nuevo proyecto**.
 
-En el cuadro **Buscar** del cuadro de diálogo **Agregar nuevo proyecto** en la parte superior, escriba `C# .net core class`. Seleccione la plantilla **Biblioteca de clases (.NET Core)**.
+En el cuadro **Buscar** del cuadro de diálogo **Agregar nuevo proyecto** en la parte superior, escriba `C# .net core class`. Seleccione la plantilla **Biblioteca de clases (.NET Core)** .
 
 En el cuadro **Nombre**, escriba `Model`. Haga clic en **Aceptar** para crear la biblioteca de clases.
 
@@ -190,7 +181,7 @@ Aparece el cuadro de diálogo **Nuevo servicio de Service Fabric**. Seleccione e
 
 A continuación, aparece el cuadro de diálogo **Nueva aplicación web ASP.NET Core**. En dicho cuadro de diálogo, seleccione **API** y, después, **Aceptar**, y un proyecto del servicio se agrega a la solución.
 
-![Nueva aplicación ASP.NET Core de Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-webapi.png)
+![Nueva aplicación web ASP.NET Core de Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-webapi.png)
 
 Dado que el servicio back-end no proporciona ninguna interfaz de usuario, desactive la opción de iniciar el explorador cuando se inicia el servicio. En el **Explorador de soluciones**, haga clic con el botón derecho en **ToDoService** y seleccione **Propiedades**. En la ventana de propiedades que aparece, seleccione la pestaña **Depurar** de la izquierda y desactive la opción **Iniciar explorador**. Presione **CTRL+S** para guardar el cambio.
 
@@ -362,7 +353,8 @@ Vaya al **Explorador de soluciones**, al proyecto **ToDoService** y abra **Servi
 
 ![Figura 1: el archivo service.yaml de ToDoService](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
 
-* El nombre del servicio `ToDoService` se encuentra en `services:`. Consulte (1) en la ilustración anterior.
+ El nombre del servicio `ToDoService` se encuentra en `services:`. Consulte (1) en la ilustración anterior.
+
 * El puerto `80` se encuentra en `endpoints:`. Consulte (2) en la ilustración anterior. Será probable que el número de puerto del proyecto no coincida.
 
 Después hay que definir las variables de entorno que representan el nombre del servicio y el número de puerto en el proyecto WebFrontEnd, para que pueda llamar al servicio back-end.

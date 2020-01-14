@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Visualización de anomalías de datos de eventos en tiempo real: Azure Event Hubs'
+title: 'Azure Event Hubs: Visualización de anomalías de datos de eventos en tiempo real'
 description: 'Tutorial: Visualización de anomalías de datos de eventos en tiempo real enviados a Microsoft Azure Event Hubs'
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -8,13 +8,13 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 11/05/2019
-ms.openlocfilehash: 3e228fb9d4223ad1d6d906b44ab63c35600faa56
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.date: 12/20/2019
+ms.openlocfilehash: 1fc791519fd32b35bdbe3a69caec3c64e3ce3178
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307349"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437144"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualización de anomalías de datos de eventos en tiempo real enviados a Azure Event Hubs
 
@@ -24,15 +24,15 @@ En este tutorial, se simula este ejemplo. Ejecutará una aplicación que crea y 
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
-> * Crear un espacio de nombres de Event Hubs
-> * Crear un centro de eventos
+> * Creación de un espacio de nombres de Event Hubs
+> * Creación de un centro de eventos
 > * Ejecutar la aplicación que envía transacciones de tarjeta de crédito
 > * Configurar un trabajo de Stream Analytics para procesar esas transacciones
 > * Configurar una visualización de Power BI para mostrar los resultados
 
 Para completar este tutorial, necesitará una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita][] antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -47,7 +47,7 @@ En este tutorial, necesitará un espacio de nombres de Event Hubs y un centro de
 
 En las secciones siguientes se describe cómo realizar estos pasos necesarios. Siga las instrucciones de la CLI *o* de PowerShell para realizar los pasos siguientes:
 
-1. Cree un [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
+1. Cree un [grupo de recursos](../azure-resource-manager/management/overview.md). 
 
 2. Cree un espacio de nombres de Event Hubs. 
 
@@ -180,7 +180,7 @@ Ahora puede transmitir los datos al centro de eventos. Para usar esos datos en u
 
    **Suscripción**: Seleccione su suscripción.
 
-   **Grupos de recursos**: use el mismo grupo de recursos utilizado por el centro de eventos (**ContosoResourcesEH**).
+   **Grupo de recursos**: use el mismo grupo de recursos utilizado por el centro de eventos (**ContosoResourcesEH**).
 
    **Ubicación**: use la misma ubicación que en el script de instalación (**Oeste de EE. UU.** ).
 
@@ -217,7 +217,7 @@ Las entradas del trabajo de Steam Analytics son las transacciones de tarjeta de 
 
    ![Captura de pantalla que muestra cómo agregar un flujo de entrada al trabajo de Stream Analytics.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-inputs.png)
 
-5. Haga clic en **Guardar**.
+5. Haga clic en **Save**(Guardar).
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adición de una salida al trabajo de Stream Analytics
 
@@ -239,7 +239,7 @@ Las entradas del trabajo de Steam Analytics son las transacciones de tarjeta de 
 
 4. En el resto de los campos, acepte los valores predeterminados.
 
-5. Haga clic en **Guardar**.
+5. Haga clic en **Save**(Guardar).
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configuración de la consulta del trabajo de Stream Analytics
 
@@ -268,7 +268,7 @@ Esta consulta se usa para recuperar los datos que finalmente se envían a la vis
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Haga clic en **Guardar**.
+4. Haga clic en **Save**(Guardar).
 
 ### <a name="test-the-query-for-the-stream-analytics-job"></a>Prueba de la consulta en el trabajo de Stream Analytics 
 
@@ -318,7 +318,7 @@ En el trabajo de Stream Analytics, haga clic en **Iniciar**, luego en **Ahora** 
 
    ![Captura de pantalla de especificación de campos y tipo de visualización.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
-   Haga clic en **Siguiente**.
+   Haga clic en **Next**.
 
 10. Establezca el título en **Fraudulent uses** (Usos fraudulentos) y el subtítulo en **Sum in last few minutes** (Suma en los últimos minutos). Haga clic en **Aplicar**. El icono se guarda en el panel.
 
@@ -330,7 +330,7 @@ En el trabajo de Stream Analytics, haga clic en **Iniciar**, luego en **Ahora** 
 
     * Haga clic en **Agregar icono**.
     * Seleccione **Datos de streaming personalizados**. 
-    * Haga clic en **Siguiente**.
+    * Haga clic en **Next**.
     * Seleccione el conjunto de datos y, a continuación, haga clic en **Siguiente**. 
 
 12. En **Tipo de visualización**, seleccione **Gráfico de líneas**.
@@ -339,7 +339,7 @@ En el trabajo de Stream Analytics, haga clic en **Iniciar**, luego en **Ahora** 
 
 14. En **Valores**, haga clic en **Agregar valor** y seleccione **fraudulentuses**.
 
-15. En **Time window to display** (Período de tiempo para mostrar), seleccione los últimos 10 minutos. Haga clic en **Siguiente**.
+15. En **Time window to display** (Período de tiempo para mostrar), seleccione los últimos 10 minutos. Haga clic en **Next**.
 
 16. Especifique **Show fraudulent uses over time** (Mostrar usos fraudulentos con el tiempo) como título y deje el subtítulo del icono en blanco; a continuación, haga clic en **Aplicar**. Se le redirigirá a su panel.
 
@@ -373,10 +373,10 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 > [!div class="checklist"]
-> * Crear un espacio de nombres de Event Hubs
-> * Crear un centro de eventos
+> * Creación de un espacio de nombres de Event Hubs
+> * Creación de un centro de eventos
 > * Ejecutar la aplicación que simula eventos y los envía al centro de eventos
 > * Configurar un trabajo de Stream Analytics para procesar los eventos enviados al centro
 > * Configurar una visualización de Power BI para mostrar los resultados

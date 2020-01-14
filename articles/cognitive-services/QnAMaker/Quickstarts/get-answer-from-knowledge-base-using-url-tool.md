@@ -11,12 +11,12 @@ zone_pivot_groups: URL-test-interface
 ms.topic: quickstart
 ms.date: 11/21/2019
 ms.author: diberry
-ms.openlocfilehash: 7066513b330aea4336f13e70a8c0bfb887aa4f76
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: f47dd14446e6b7829ef1ac0c8226687510b4bd99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424192"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447479"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base"></a>Inicio rápido: Obtención de una respuesta de la base de conocimiento
 
@@ -35,4 +35,4 @@ ms.locfileid: "74424192"
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Usar metadatos al generar una respuesta](create-new-kb-csharp.md)
+> [Prueba de una base de conocimientos con archivo por lotes](batch-testing.md)

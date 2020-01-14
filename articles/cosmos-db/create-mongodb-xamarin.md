@@ -1,5 +1,5 @@
 ---
-title: Compilación de una aplicación Xamarin.Forms con .NET y la API de Azure Cosmos DB para MongoDB
+title: Compilación de una aplicación de Xamarin con .NET y la API de Azure Cosmos DB para MongoDB
 description: En este tema se presenta un ejemplo de código de Xamarin que se puede usar para conectarse a la API de Azure Cosmos DB para MongoDB y realizar consultas
 author: codemillmatt
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: a0612ea06c71b2a93e6fb76f5d82516cfbad8657
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a21e3705fe367e478ec02b82ec83c4ad7cfb4151
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860336"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445460"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Inicio rápido: Creación de una aplicación Xamarin.Forms con .NET SDK y la API de Azure Cosmos DB para MongoDB
 
@@ -162,7 +162,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Azure Cosmos DB.
 
-## <a name="run-the-app"></a>Ejecución de la aplicación
+## <a name="run-the-app"></a>Ejecución la aplicación
 
 ### <a name="visual-studio-2019"></a>Visual Studio 2019
 

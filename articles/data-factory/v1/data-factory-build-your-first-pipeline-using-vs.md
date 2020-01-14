@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: 49b3b5890fe38f6c635e7ba420a1adf5d778de0f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: eb9c21bf1972304da688586da9ccabe5063fa112
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703931"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438972"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Creación de una factoría de datos mediante Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -25,7 +25,7 @@ ms.locfileid: "74703931"
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
 > [!NOTE]
@@ -56,7 +56,7 @@ Estos son los pasos que debe realizar en este tutorial:
 4. Cree una instancia de Data Factory denominada **DataFactoryUsingVS**. Implemente tanto la instancia de Data Factory como todas las entidades de Data Factory (servicios vinculados, tablas y la canalización).
 5. Después de publicar, use las hojas de Azure Portal y la aplicación de supervisión y administración para supervisar la canalización. 
   
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -65,7 +65,7 @@ Estos son los pasos que debe realizar en este tutorial:
 3. Debe tener lo siguiente instalado en el equipo:
    * Visual Studio 2013 o Visual Studio 2015.
    * Descargue el SDK de Azure para Visual Studio 2013 o Visual Studio 2015. Vaya a la [página Descargas de Azure](https://azure.microsoft.com/downloads/) y haga clic en **VS 2013** o **VS 2015** en la sección **.NET**.
-   * Descargue el complemento más reciente de Azure Data Factory para Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). También puede actualizar el complemento con el procedimiento siguiente: En el menú, haga clic en **Herramientas** -> **Extensiones y actualizaciones** -> **En línea** -> **Galería de Visual Studio** -> **Microsoft Azure Data Factory Tools for Visual Studio**  -> **Actualizar**.
+   * Descargue el complemento más reciente de Azure Data Factory para Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). También puede actualizar el complemento con el procedimiento siguiente: En el menú, haga clic en **Herramientas** -> **Extensiones y actualizaciones** -> **En línea** -> **Galería de Visual Studio** -> **Microsoft Azure Data Factory Tools for Visual Studio (Herramientas de Microsoft Azure Data Factory para Visual Studio)**  -> **Actualizar**.
 
 Vamos a usa Visual Studio para crear una instancia de Azure Data Factory.
 
@@ -92,7 +92,7 @@ Con el servicio vinculado de HDInsight a petición, se crea automáticamente el 
 1. Haga clic con el botón derecho en **Servicios vinculados** en el Explorador de soluciones, seleccione **Agregar** y haga clic en **Nuevo elemento**.      
 2. En el cuadro de diálogo **Agregar nuevo elemento**, seleccione **Servicios vinculados de Azure Storage** en la lista y haga clic en **Agregar**.
     ![Servicio vinculado de Azure Storage](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
-3. Reemplace `<accountname>` y `<accountkey>` por el nombre de la cuenta de Azure Storage y su clave. Para aprender a obtener la clave de acceso de almacenamiento, consulte la información sobre cómo ver, copiar y regenerar las claves de acceso de almacenamiento en [Administración de la cuenta de almacenamiento](../../storage/common/storage-account-manage.md#access-keys).
+3. Reemplace `<accountname>` y `<accountkey>` por el nombre de la cuenta de Azure Storage y su clave. Para aprender a obtener la clave de acceso de almacenamiento, consulte [Administración de claves de acceso de la cuenta de almacenamiento](../../storage/common/storage-account-keys-manage.md).
     ![Servicio vinculado de Azure Storage](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. Guarde el archivo **AzureStorageLinkedService1.json** .
 
@@ -119,7 +119,7 @@ Con el servicio vinculado de HDInsight a petición, se crea automáticamente el 
 
     En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se usan en el fragmento de código:
 
-    Propiedad | DESCRIPCIÓN
+    Propiedad | Descripción
     -------- | ----------- 
     clusterSize | Especifica el tamaño del clúster de HDInsight Hadoop.
     timeToLive | Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine.
@@ -168,9 +168,9 @@ En este paso, creará conjuntos de datos que representan los datos de entrada y 
 
     En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se usan en el fragmento de código:
 
-    Propiedad | DESCRIPCIÓN |
+    Propiedad | Descripción |
     -------- | ----------- |
-    Tipo |La propiedad type se establece en **AzureBlob** porque los datos residen en Azure Blob Storage.
+    type |La propiedad type se establece en **AzureBlob** porque los datos residen en Azure Blob Storage.
     linkedServiceName | Hace referencia al servicio AzureStorageLinkedService1 que creó anteriormente.
     fileName |Esta propiedad es opcional. Si omite esta propiedad, se seleccionan todos los archivos de folderPath. En este caso, se procesa solo el archivo input.log.
     type | Los archivos de registro están en formato de texto, por lo que usaremos TextFormat. |
@@ -214,7 +214,7 @@ Ahora, se crea el conjunto de datos de salida que representa los datos de salida
 4. Guarde el archivo **OutputDataset.json** .
 
 ### <a name="create-pipeline"></a>Creación de una canalización
-Hasta ahora se han creado el servicio vinculado de Azure Storage y los conjuntos de datos de entrada y salida. Ahora, cree una canalización con una actividad **HDInsightHive**. La **entrada** de la actividad de Hive está establecida en **AzureBlobInput** y la **salida** de la actividad está establecida en **AzureBlobOutput**. Un segmento de un conjunto de datos de entrada está disponible mensualmente (frecuencia: Mensual, intervalo: 1) y el segmento de salida se genera mensualmente también. 
+Hasta ahora se han creado el servicio vinculado de Azure Storage y los conjuntos de datos de entrada y salida. Ahora, cree una canalización con una actividad **HDInsightHive**. La **entrada** de la actividad de Hive está establecida en **AzureBlobInput** y la **salida** de la actividad está establecida en **AzureBlobOutput**. Un segmento de un conjunto de datos de entrada está disponible mensualmente (frecuencia: mensual, intervalo: 1) y el segmento de salida se genera mensualmente también. 
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en **Canalizaciones**, seleccione **Agregar** y haga clic en **Nuevo elemento**.
 2. Seleccione **Hive Transformation Pipeline** (Canalización de transformación de Hive) en la lista y haga clic en **Agregar**.
@@ -303,7 +303,7 @@ En este paso, va a publicar las entidades de Data Factory (servicios vinculados,
     ![Publicar: nueva configuración de Data Factory](media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png)
 
    1. Seleccione la opción **Crear la nueva factoría de datos** .
-   2. Escriba un **nombre** único para la factoría de datos. Por ejemplo:  **DataFactoryUsingVS09152016**. El nombre debe ser único globalmente.
+   2. Escriba un **nombre** único para la factoría de datos. Por ejemplo: **DataFactoryUsingVS09152016**. El nombre debe ser único globalmente.
    3. Seleccione la suscripción correcta en el campo **Suscripción** . 
         > [!IMPORTANT]
         > Si no ve ninguna suscripción, asegúrese de que ha iniciado sesión con una cuenta que sea administrador o coadministrador de la suscripción.
@@ -561,11 +561,11 @@ En este artículo, creó una canalización con una actividad de transformación 
 Puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md). 
 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
-| Tema | DESCRIPCIÓN |
+| Tema | Descripción |
 |:--- |:--- |
-| [Procesos](data-factory-create-pipelines.md) |Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Factory y cómo aprovecharlas para construir flujos de trabajo controlados por datos para su escenario o negocio. |
+| [Canalizaciones](data-factory-create-pipelines.md) |Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Factory y cómo aprovecharlas para construir flujos de trabajo controlados por datos para su escenario o negocio. |
 | [Conjuntos de datos](data-factory-create-datasets.md) |Este artículo le ayuda a comprender los conjuntos de datos de Azure Data Factory. |
 | [Transformación y análisis con Data Factory de Azure](data-factory-data-transformation-activities.md) |En este artículo se proporciona una lista de actividades de transformación de datos (por ejemplo, la transformación de Hive para HDInsight usada en este tutorial), que se admiten en Azure Data Factory. |
 | [Programación y ejecución con Data Factory](data-factory-scheduling-and-execution.md) |En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Azure Data Factory. |

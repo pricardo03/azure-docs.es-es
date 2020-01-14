@@ -9,15 +9,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 09/30/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: b32c1be93e2fb16da9ce9ebb65b664017e70cac6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 60e366466e399bbde78b026e0b401cd6bd1edbee
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223936"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644399"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Visualización y descarga de los precios de Azure de la organización
 
@@ -96,14 +96,14 @@ También puede usar los precios de la organización para estimar los costos con 
 Si es un cliente EA, consulte:
 
 - [Administración del acceso a la información de facturación de EA de Azure](billing-manage-access.md)
-- [Visualización y descarga de la factura de Microsoft Azure](billing-download-azure-invoice.md)
-- [Visualización y descarga de la utilización y los cargos de Microsoft Azure](billing-download-azure-daily-usage.md)
+- [Visualización y descarga de la factura de Microsoft Azure](billing-download-azure-invoice.md)
+- [Visualización y descarga de los datos de uso y los cargos de Microsoft Azure](billing-download-azure-daily-usage.md)
 - [Descripción de la factura de los clientes con un Contrato Enterprise](billing-understand-your-bill-ea.md)
 
-Si tiene un contrato de cliente de Microsoft, consulte:
+Si tiene un contrato de cliente de Microsoft, vea:
 
 - [Descripción de los términos de la hoja de precios para un contrato de cliente de Microsoft](billing-mca-understand-pricesheet.md)
-- [Visualización y descarga de la factura de Microsoft Azure](billing-download-azure-invoice.md)
-- [Visualización y descarga de la utilización y los cargos de Microsoft Azure](billing-download-azure-daily-usage.md)
-- [Visualización y descarga de los documentos de impuestos del perfil de facturación](billing-mca-download-tax-document.md)
+- [Visualización y descarga de la factura de Microsoft Azure](billing-download-azure-invoice.md)
+- [Visualización y descarga de los datos de uso y los cargos de Microsoft Azure](billing-download-azure-daily-usage.md)
+- [Ver los documentos de impuestos del contrato de cliente de Microsoft](billing-mca-download-tax-document.md)
 - [Descripción de los cargos en la factura del perfil de facturación](billing-mca-understand-your-bill.md)

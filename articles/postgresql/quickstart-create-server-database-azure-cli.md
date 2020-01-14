@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2019
 ms.custom: mvc
-ms.openlocfilehash: 54e31f206057207a9ed396c8980c6a3986d5ece4
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: ed78d3dd4e6fbde10c69403cc3dcff24072dc676
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766929"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358060"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Inicio rápido: Crear una instancia de Azure Database for PostgreSQL: servidor único con la CLI de Azure
 
@@ -40,7 +40,7 @@ az account set --subscription <subscription id>
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con el comando [az group create](/cli/azure/group). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo. Debe proporcionar un nombre único. En el ejemplo siguiente, se crea un grupo de recursos denominado `myresourcegroup` en la ubicación `westus`.
+Cree un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) con el comando [az group create](/cli/azure/group). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo. Debe proporcionar un nombre único. En el ejemplo siguiente, se crea un grupo de recursos denominado `myresourcegroup` en la ubicación `westus`.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
@@ -52,12 +52,12 @@ Cree un [servidor de Azure Database for PostgreSQL](overview.md) con el comando 
 
 **Configuración** | **Valor de ejemplo** | **Descripción**
 ---|---|---
-Nombre | mydemoserver | Elija un nombre único que identifique al servidor de Azure Database for PostgreSQL. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
+name | mydemoserver | Elija un nombre único que identifique al servidor de Azure Database for PostgreSQL. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
 resource-group | myresourcegroup | Especifique el nombre del grupo de recursos de Azure.
 sku-name | GP_Gen5_2 | El nombre de la SKU. Sigue la convención {plan de tarifa}\_{generación de procesos}\_{núcleos virtuales} en forma abreviada. En esta misma tabla puede obtener más información acerca del parámetro sku-name.
 backup-retention | 7 | Cuánto tiempo deben conservarse las copias de seguridad. La unidad es días. El intervalo es 7-35. 
 geo-redundant-backup | Disabled | Si se deben habilitar las copias de seguridad con redundancia geográfica en este servidor o no. Valores permitidos: Enabled (Habilitada), Disabled (Deshabilitada).
-location | westus | La ubicación de Azure para el servidor.
+ubicación | westus | La ubicación de Azure para el servidor.
 ssl-enforcement | habilitado | Si debe ssl debe habilitarse, o no, en este servidor. Valores permitidos: Enabled (Habilitada), Disabled (Deshabilitada).
 storage-size | 51200 | La capacidad de almacenamiento del servidor (la unidad es megabytes). El tamaño de almacenamiento válido un mínimo de 5120 MB y aumenta en incrementos de 1024 MB. Consulte el documento de los [planes de tarifa](./concepts-pricing-tiers.md) para más información acerca de los límites de tamaño de almacenamiento. 
 version | 9,6 | La versión principal de PostgreSQL.
@@ -72,7 +72,7 @@ El valor del parámetro sku-name sigue la convención {plan de tarifa}\_{generac
 
 Para comprender cuáles son los valores válidos por región y nivel consulte la documentación sobre [planes de tarifa](./concepts-pricing-tiers.md).
 
-En el ejemplo siguiente se crea un servidor PostgreSQL 9.6 en la región Oeste de EE. UU. llamado `mydemoserver` en el grupo de recursos `myresourcegroup` con el inicio de sesión de administrador de servidor `myadmin`. Se trata de un servidor **Gen 4** de **uso general** con **2 núcleos virtuales**. Sustituya `<server_admin_password>` por su propio valor.
+En el ejemplo siguiente se crea un servidor PostgreSQL 9.6 en la región Oeste de EE. UU. llamado `mydemoserver` en el grupo de recursos `myresourcegroup` con el inicio de sesión de administrador de servidor `myadmin`. Se trata de un servidor **Gen 4** de **uso general** con **dos núcleos virtuales**. Sustituya `<server_admin_password>` por su propio valor.
 ```azurecli-interactive
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
@@ -178,7 +178,7 @@ pgAdmin es una herramienta de código abierto que se usa con PostgreSQL. Puede i
 
    ![Pestaña "Conexión"](./media/quickstart-create-server-database-azure-cli/10-pgadmin-create-server.png)
 
-    parámetro pgAdmin |Valor|DESCRIPCIÓN
+    parámetro pgAdmin |Value|Descripción
     ---|---|---
     Host name/address | Nombre de servidor | El valor de nombre de servidor que usó al crear el servidor de Azure Database for MySQL. El servidor de ejemplo es **mydemoserver.postgres.database.azure.com.** Use el nombre de dominio completo ( **\*.postgres.database.azure.com**) tal como se muestra en el ejemplo. Si no recuerda el nombre del servidor, siga los pasos de la sección anterior para obtener la información de conexión. 
     Port | 5432 | El puerto se usará al conectarse al servidor de Azure Database for PostgreSQL. 
@@ -211,7 +211,7 @@ pgAdmin es una herramienta de código abierto que se usa con PostgreSQL. Puede i
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Elimine el [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) para eliminar todos los recursos que ha creado en la guía de inicio rápido.
+Elimine el [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) para eliminar todos los recursos que ha creado en la guía de inicio rápido.
 
 > [!TIP]
 > Otras guías de inicio rápido de esta colección se basan en los valores de esta. Si tiene previsto seguir trabajando con las siguientes guías de inicio rápido, no elimine los recursos creados en esta. Si no tiene previsto continuar, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en la CLI de Azure.

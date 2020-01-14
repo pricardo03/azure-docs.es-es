@@ -6,35 +6,35 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: e112fdc9e6f518e2ea3c72161e8978118cf19335
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6e35430713a3dbc8317944fed1180432a2083676
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74890321"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461604"
 ---
-# <a name="tutorial-prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Tutorial: Preparación de una aplicación Java Spring para su implementación en Azure Spring Cloud
+# <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Preparación de una aplicación Java Spring para su implementación en Azure Spring Cloud
 
-En este inicio rápido se muestra cómo preparar una aplicación Java Spring Cloud existente para su implementación en Azure Spring Cloud.  Si se ha configurado correctamente, Azure Spring Cloud proporciona servicios sólidos para supervisar, escalar y actualizar cualquier aplicación Spring Cloud. 
+En este inicio rápido se muestra cómo preparar una aplicación Java Spring Cloud existente para su implementación en Azure Spring Cloud. Si se ha configurado correctamente, Azure Spring Cloud proporciona servicios sólidos para supervisar, escalar y actualizar cualquier aplicación Java Spring Cloud.
 
 ## <a name="java-runtime-version"></a>Versión del entorno de ejecución de Java
 
 Las aplicaciones de Spring/Java son las únicas que se pueden ejecutar en Azure Spring Cloud.
 
-Se admiten tanto Java 8 como Java 11. El entorno de hospedaje contiene la versión más reciente de Azul Zulu OpenJDK para Azure. Consulte [este artículo](https://docs.microsoft.com/azure/java/jdk/java-jdk-install) para más información sobre Azul Zulu OpenJDK para Azure. 
+Azure Spring Cloud es compatible con Java 8 y Java 11. El entorno de hospedaje contiene la versión más reciente de Azul Zulu OpenJDK para Azure. Para más información sobre Azul Zulu OpenJDK para Azure, consulte [Instalación del JDK para Azure y Azure Stack](https://docs.microsoft.com/azure/java/jdk/java-jdk-install).
 
 ## <a name="spring-boot-and-spring-cloud-versions"></a>Versiones de Spring Boot y Spring Cloud
 
-Las aplicaciones de Spring Boot son las únicas que se admiten en Azure Spring Cloud. Se admiten Spring Boot 2.0 y 2.1. En la tabla siguiente se muestran las combinaciones de Spring Boot y Spring Cloud admitidas.
+Azure Spring Cloud solo admite aplicaciones Spring Boot (versiones 2\.0 y 2.1). En la tabla siguiente se enumeran las combinaciones admitidas de Spring Boot y Spring Cloud:
 
 Versión de Spring Boot | Versión de Spring Cloud
 ---|---
-2.0.x | Finchley.RELEASE
-2.1.x | Greenwich.RELEASE
+2.0 | Finchley.RELEASE
+2.1 | Greenwich.RELEASE
 
-Compruebe que el archivo `pom.xml` tiene las dependencias de Spring Boot y Spring Cloud basadas en su versión.
+Compruebe que el archivo pom.xml tenga las dependencias correctas de Spring Boot y Spring Cloud según la versión de Spring Boot.
 
-### <a name="version-20"></a>Versión 2.0:
+### <a name="dependencies-for-spring-boot-version-20"></a>Dependencias de Spring Boot, versión 2.0
 
 ```xml
     <!-- Spring Boot dependencies -->
@@ -58,7 +58,7 @@ Compruebe que el archivo `pom.xml` tiene las dependencias de Spring Boot y Sprin
     </dependencyManagement>
 ```
 
-### <a name="version-21"></a>Versión 2.1:
+### <a name="dependencies-for-spring-boot-version-21"></a>Dependencias de Spring Boot, versión 2.1
 
 ```xml
     <!-- Spring Boot dependencies -->
@@ -84,18 +84,19 @@ Compruebe que el archivo `pom.xml` tiene las dependencias de Spring Boot y Sprin
 
 ## <a name="azure-spring-cloud-client-dependency"></a>Dependencia de cliente de Azure Spring Cloud
 
-Azure Spring Cloud hospeda y administra automáticamente los componentes de Spring Cloud, como Spring Cloud Service Registry y Spring Cloud Config Server. Incluya la biblioteca de cliente de Azure Spring Cloud en sus dependencias para permitir la comunicación con su instancia de servicio de Azure Spring Cloud.
+Azure Spring Cloud hospeda y administra componentes de Spring Cloud automáticamente. Por ejemplo, componentes como Spring Cloud Service Registry y Spring Cloud Config Server. Incluya la biblioteca cliente de Azure Spring Cloud en sus dependencias para permitir la comunicación con su instancia de servicio de Azure Spring Cloud.
 
-En la tabla siguiente se enumeran las versiones correctas de la aplicación Spring Boot/Spring Cloud.
+En la tabla siguiente se enumeran las versiones correctas de Azure Spring Cloud para la aplicación que usa Spring Boot y Spring Cloud.
 
 Versión de Spring Boot | Versión de Spring Cloud | Versión de Azure Spring Cloud
 ---|---|---
-2.0.x | Finchley.RELEASE | 2.0.x
-2.1.x | Greenwich.RELEASE | 2.1.x
+2.0 | Finchley.RELEASE | 2.0
+2.1 | Greenwich.RELEASE | 2.1
 
-Incluya uno de los fragmentos de código que aparecen a continuación en su `pom.xml`.  Seleccione el fragmento de código cuya versión coincida con la suya.
+Incluya una de las dependencias siguientes en el archivo pom.xml. Seleccione la dependencia cuya versión de Azure Spring Cloud coincida con la suya.
 
-### <a name="version-20x"></a>Versión 2.0.x:
+### <a name="dependency-for-azure-spring-cloud-version-20"></a>Dependencia de Azure Spring Cloud, versión 2.0
+
 ```xml
 <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -104,7 +105,8 @@ Incluya uno de los fragmentos de código que aparecen a continuación en su `pom
 </dependency>
 ```
 
-### <a name="version-21x"></a>Versión 2.1.x:
+### <a name="dependency-for-azure-spring-cloud-version-21"></a>Dependencia de Azure Spring Cloud, versión 2.1
+
 ```xml
 <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -115,13 +117,11 @@ Incluya uno de los fragmentos de código que aparecen a continuación en su `pom
 
 ## <a name="other-required-dependencies"></a>Otras dependencias necesarias
 
-Para habilitar las características integradas de Azure Spring Cloud, la aplicación debe incluir las siguientes dependencias. Esto garantiza que la aplicación se configurará automáticamente de forma correcta con cada componente.  
+Para habilitar las características integradas de Azure Spring Cloud, la aplicación debe incluir las siguientes dependencias. Esta inclusión garantiza que la aplicación se configurará por sí sola correctamente con cada componente.  
 
-### <a name="service-registry"></a>Registro del servicio
+### <a name="service-registry-dependency"></a>Dependencia de Service Registry
 
-Para usar el servicio Azure Service Registry administrado, incluya `spring-cloud-starter-netflix-eureka-client` en `POM.xml`, como se muestra a continuación.
-
-El punto de conexión del servidor de Service Registry se insertará automáticamente como variables de entorno en la aplicación. Las aplicaciones podrán registrarse en el servidor de Service Registry y detectar otros microservicios dependientes.
+Para usar el servicio Azure Service Registry administrado, incluya la dependencia `spring-cloud-starter-netflix-eureka-client` en el archivo pom.xml, como se muestra aquí:
 
 ```xml
     <dependency>
@@ -130,9 +130,11 @@ El punto de conexión del servidor de Service Registry se insertará automática
     </dependency>
 ```
 
-### <a name="distributed-configuration"></a>Configuración distribuida
+El punto de conexión del servidor de Service Registry se inserta automáticamente como variables de entorno con la aplicación. Así, las aplicaciones se pueden registrar por sí solas en el servidor de Service Registry y detectar otros microservicios dependientes.
 
-Para habilitar la configuración distribuida, incluya `spring-cloud-config-client` en la sección de dependencias de `pom.xml`.
+### <a name="distributed-configuration-dependency"></a>Dependencia de configuración distribuida
+
+Para habilitar la configuración distribuida, incluya la siguiente dependencia `spring-cloud-config-client` en la sección de dependencias del archivo pom.xml:
 
 ```xml
 <dependency>
@@ -142,11 +144,11 @@ Para habilitar la configuración distribuida, incluya `spring-cloud-config-clien
 ```
 
 > [!WARNING]
-> No especifique `spring.cloud.config.enabled=false` en la configuración de arranque, ya que impedirá que la aplicación funcione con Config Server.
+> No especifique `spring.cloud.config.enabled=false` en la configuración de arranque. De lo contrario, la aplicación dejará de funcionar con Config Server.
 
-### <a name="metrics"></a>Métricas
+### <a name="metrics-dependency"></a>Dependencia de métricas
 
-Incluya `spring-boot-starter-actuator` en la sección de dependencias del archivo pom.xml. Las métricas se extraerán periódicamente de los puntos de conexión de JMX y se pueden ver en Azure Portal.
+Incluya la dependencia `spring-boot-starter-actuator` en la sección de dependencias del archivo pom.xml, como se muestra aquí:
 
 ```xml
 <dependency>
@@ -155,9 +157,11 @@ Incluya `spring-boot-starter-actuator` en la sección de dependencias del archiv
 </dependency>
 ```
 
-### <a name="distributed-tracing"></a>Seguimiento distribuido
+ Se extraen métricas periódicamente de los puntos de conexión JMX. Estas métricas se pueden visualizar mediante Azure Portal.
 
-Incluya `spring-cloud-starter-sleuth` y `spring-cloud-starter-zipkin` en la sección de dependencias del archivo pom.xml, como se muestra a continuación. Además, debe habilitar una instancia de Azure App Insights para que funcione con su instancia de servicio de Azure Spring Cloud. [Aquí](spring-cloud-tutorial-distributed-tracing.md) puede encontrar más información sobre cómo habilitar App Insights con Azure Spring Cloud
+### <a name="distributed-tracing-dependency"></a>Dependencia de seguimiento distribuido
+
+Incluya las dependencias `spring-cloud-starter-sleuth` y `spring-cloud-starter-zipkin` en la sección de dependencias del archivo pom.xml:
 
 ```xml
 <dependency>
@@ -170,11 +174,13 @@ Incluya `spring-cloud-starter-sleuth` y `spring-cloud-starter-zipkin` en la secc
 </dependency>
 ```
 
+ También debe habilitar una instancia de Azure Application Insights para que funcione con su instancia de servicio de Azure Spring Cloud. Lea el [tutorial sobre el seguimiento distribuido](spring-cloud-tutorial-distributed-tracing.md) para aprender a usar Application Insights con Azure Spring Cloud.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a configurar una aplicación Java Spring para su implementación en Azure Spring Cloud.  Para aprender a habilitar Config Server, vaya al siguiente tutorial.
+En este tutorial, ha aprendido a configurar una aplicación Java Spring para su implementación en Azure Spring Cloud. Para aprender a configurar una instancia de Config Server, continúe con el tutorial siguiente.
 
 > [!div class="nextstepaction"]
-> [Aprenda a configurar Config Server](spring-cloud-tutorial-config-server.md).
+> [Aprender a configurar una instancia de Config Server](spring-cloud-tutorial-config-server.md)
 
 Hay más ejemplos disponibles en GitHub: [Ejemplos de Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

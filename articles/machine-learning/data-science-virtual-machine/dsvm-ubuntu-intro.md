@@ -6,40 +6,34 @@ ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: 951191422e80ef6224cd140beed782de31cb3822
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.date: 12/31/2019
+ms.openlocfilehash: 263c12b344e8634c639167aa3e455032f0817e2f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677845"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612094"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Inicio rápido: Configuración de Data Science Virtual Machine para Linux (Ubuntu)
 
-Empiece a trabajar con la instancia de Data Science Virtual Machine para Ubuntu.
+Empiece a trabajar con la instancia de Data Science Virtual Machine para Ubuntu 18.04.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Para crear una instancia de Microsoft Data Science Virtual Machine, debe tener una suscripción de Azure. [Pruebe Azure gratis](https://azure.com/free).
+Para crear una instancia de Data Science Virtual Machine para Ubuntu 18.04, debe tener una suscripción a Azure. [Pruebe Azure gratis](https://azure.com/free).
 Tenga en cuenta que las cuentas gratuitas de Azure no admiten los SKU de máquinas virtuales habilitadas para GPU.
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Creación de la instancia de Data Science Virtual Machine para Linux
 
-A continuación le indicamos los pasos para crear una instancia de Data Science Virtual Machine para Linux:
+A continuación le indicamos los pasos para crear una instancia de Data Science Virtual Machine para Ubuntu 18.04:
 
 1. Vaya a [Azure Portal](https://portal.azure.com). Es posible que se le pida que inicie sesión en su cuenta de Azure, si todavía no lo ha hecho.
-1. Busque la lista de máquinas virtuales. Para ello, escriba "data science virtual machine" y seleccione "Data Science Virtual Machine para Linux (Ubuntu)".
-    
-    ![Lista de máquinas virtuales Ubuntu](./media/dsvm-ubuntu-intro/search-ubuntu.png)
+1. Busque la lista de máquinas virtuales. Para ello, escriba "data science virtual machine" y seleccione "Data Science Virtual Machine - Ubuntu 18.04 Preview".
 
 1. En la ventana siguiente, seleccione **Crear**.
 
-   [![](media/dsvm-ubuntu-intro/create-linux.png "Botón para crear una máquina Ubuntu")](media/dsvm-ubuntu-intro/create-linux-expanded.png#lightbox)
-
 1. Debería ser redirigido a la hoja "Crear una máquina virtual".
    
-   ![Pestaña Aspectos básicos correspondiente a la máquina virtual Ubuntu](./media/dsvm-ubuntu-intro/review-create-ubuntu.png)
-
 1. Escriba la siguiente información para configurar cada paso del asistente:
 
     1. **Aspectos básicos**:
@@ -49,7 +43,7 @@ A continuación le indicamos los pasos para crear una instancia de Data Science 
        * **Nombre de la máquina virtual**: escriba el nombre de la máquina virtual. Así es como aparecerá en Azure Portal.
        * **Región**: seleccione el centro de datos más adecuado. Para disfrutar de un acceso más rápido a la red, elija el centro de datos que tenga la mayoría de los datos o el que esté más cerca de su ubicación física. Más información sobre las [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Imagen**: Deje el valor predeterminado.
-       * **Tamaño**: debería rellenarse automáticamente con un tamaño adecuado para cargas de trabajo generales. Obtenga más información sobre los [tamaños de las máquinas virtuales Linux en Azure](../../virtual-machines/linux/sizes.md).
+       * **Size**: debería rellenarse automáticamente con un tamaño adecuado para cargas de trabajo generales. Obtenga más información sobre los [tamaños de las máquinas virtuales Linux en Azure](../../virtual-machines/linux/sizes.md).
        * **Tipo de autenticación**: para que la configuración sea más rápida, seleccione "Contraseña". 
          
          > [!NOTE]

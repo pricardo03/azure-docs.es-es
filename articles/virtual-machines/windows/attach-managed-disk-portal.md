@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d98fdab6dcd0abb70967d1e17d138a860a31da5f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0610b235d218c24c108e39aeb9bd3b2cf8c9c663
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039317"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463438"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Conexión de un disco de datos administrado a una máquina virtual Windows en Azure Portal
 
@@ -21,7 +21,7 @@ En este artículo se muestra cómo conectar un nuevo disco de datos administrado
 
 ## <a name="add-a-data-disk"></a>Agregar un disco de datos
 
-1. En [Azure Portal](https://portal.azure.com), en el menú de la izquierda, seleccione **Máquinas virtuales**.
+1. Vaya [Azure Portal](https://portal.azure.com) para agregar un disco de datos. Busque y seleccione **Máquinas virtuales**.
 2. Seleccione una máquina virtual de la lista.
 3. En la página **Máquina virtual**, seleccione **Discos**.
 4. En la página **Discos**, seleccione **Agregar disco de datos**.

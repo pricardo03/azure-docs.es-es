@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 11/06/2019
 ms.author: tamram
-ms.openlocfilehash: 4ad977dc8cbaa85360092dbfd391a3c3b88f67bb
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: e479f2376668a2fc3824e733996c94cfab04c9ec
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747931"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467049"
 ---
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -61,4 +61,4 @@ export AZURE_STORAGE_ACCOUNT="<account-name>"
 export AZURE_STORAGE_KEY="<account-key>"
 ```
 
-Para obtener más información sobre cómo recuperar las claves de acceso de la cuenta mediante Azure Portal, consulte **Claves de acceso** en [Administración de la configuración de cuentas de almacenamiento en Azure Portal](../articles/storage/common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#access-keys).
+Para más información sobre cómo recuperar las claves de acceso de la cuenta mediante Azure Portal, consulte [Administración de las claves de acceso de la cuenta de almacenamiento](../articles/storage/common/storage-account-keys-manage.md).

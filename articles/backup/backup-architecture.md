@@ -3,12 +3,12 @@ title: Introducción a la arquitectura
 description: Proporciona información general sobre la arquitectura, los componentes y los procesos usados por el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: ae7b0c2b81bd3d393b7e749e077a6f5fa0379562
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: de532bb02b4ecf5e912a71df404418338325d582
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173513"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450189"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
@@ -105,11 +105,11 @@ Copia de seguridad de discos desduplicados | | | ![Parcialmente][yellow]<br/><br
 ## <a name="architecture-built-in-azure-vm-backup"></a>Arquitectura: Copia de seguridad integrada de máquina virtual de Azure
 
 1. Cuando se habilita la copia de seguridad de una máquina virtual de Azure, se ejecuta una copia de seguridad con la programación que especifique.
-1. Durante la primera copia de seguridad, se instala una extensión de copia de seguridad en la máquina virtual si se está ejecutando.
+1. Durante la primera copia de seguridad, se instala una extensión de copia de seguridad en la VM si esta se encuentra en ejecución.
     - En máquinas virtuales Windows, se instala la extensión VMSnapshot.
     - En máquinas virtuales Linux, se instala la extensión VMSnapshot para Linux.
 1. La extensión toma una instantánea de nivel de almacenamiento.
-    - En el caso de las máquinas virtuales Windows en ejecución, el servicio Backup se coordina con el Servicio de instantáneas de volumen (VSS) de Windows para obtener una instantánea coherente con la aplicación de la máquina virtual. De forma predeterminada, Backup realiza copias de seguridad de VSS completas. Si Azure Backup no puede tomar una instantánea coherente con la aplicación, toma una instantánea coherente con el archivo.
+    - En el caso de las máquinas virtuales Windows en ejecución, el servicio Backup se coordina con el Servicio de instantáneas de volumen (VSS) de Windows para obtener una instantánea coherente con la aplicación de la máquina virtual. De forma predeterminada, Azure Backup realiza copias de seguridad de VSS completas. Si Azure Backup no puede tomar una instantánea coherente con la aplicación, toma una instantánea coherente con el archivo.
     - En máquinas virtuales Linux, Azure Backup toma una instantánea coherente con el archivo. Para obtener instantáneas coherentes con la aplicación, debe personalizar manualmente los scripts previos y posteriores.
     - Azure Backup se optimiza mediante la copia de seguridad de cada disco de máquina virtual en paralelo. Este servicio lee los bloques de cada disco que se va a copiar y solo almacena los datos cambiados.
 1. Después de tomar la instantánea, los datos se transfieren al almacén.
@@ -174,7 +174,7 @@ Para obtener más información sobre el almacenamiento en discos y los tipos de 
 Puede realizar una copia de seguridad de máquinas virtuales de Azure mediante Premium Storage con Azure Backup:
 
 - Durante el proceso de copia de seguridad de máquinas virtuales con Premium Storage, el servicio Backup crea una ubicación de almacenamiento provisional, llamada *AzureBackup-* en la cuenta de almacenamiento. El tamaño de la ubicación de ensayo equivale al de la instantánea del punto de recuperación.
-- Asegúrese de que haya espacio disponible suficiente en la cuenta de Premium Storage para dar cabida a la ubicación de almacenamiento provisional. [Más información](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). No modifique la ubicación de almacenamiento provisional.
+- Asegúrese de que haya espacio disponible suficiente en la cuenta de Premium Storage para dar cabida a la ubicación de almacenamiento provisional. Para obtener más información, consulte [Objetivos de escalabilidad de las cuentas de almacenamiento de blob en páginas prémium](../storage/blobs/scalability-targets-premium-page-blobs.md). No modifique la ubicación de almacenamiento provisional.
 - Una vez finalizado el trabajo de copia de seguridad, se elimina esta ubicación.
 - El precio del almacenamiento usado para la ubicación de almacenamiento provisional es coherente con todos los [precios de Premium Storage](../virtual-machines/windows/disks-types.md#billing).
 

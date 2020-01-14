@@ -1,5 +1,5 @@
 ---
-title: Almacenamiento transaccional y analítico distribuido globalmente para contenedores de Azure Cosmos
+title: Almacenamiento transaccional y analítico distribuido globalmente (en versión preliminar privada) para contenedores de Azure Cosmos
 description: Obtenga información sobre el almacenamiento transaccional y analítico y sus opciones de configuración para contenedores de Azure Cosmos.
 author: markjbrown
 ms.author: mjbrown
@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 22bb36e3b22f65bbf9922bd31e4b2e041cdb8979
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 18cf43ba137c92fc00d5f8e82e13501d03b4b6a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601228"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445402"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Almacenamiento transaccional y analítico distribuido globalmente para contenedores de Azure Cosmos
 
-Los contenedores de Azure Cosmos están respaldados internamente por dos motores de almacenamiento: el motor de almacenamiento transaccional y un motor de almacenamiento analítico actualizable. Ambos motores de almacenamiento están estructurados en registros y optimizados para la escritura, lo que permite actualizaciones más rápidas. Aunque cada uno de ellos se codifica de forma diferente:
+Los contenedores de Azure Cosmos están respaldados internamente por dos motores de almacenamiento: el motor de almacenamiento transaccional y un motor de almacenamiento analítico actualizable (en versión preliminar privada). Ambos motores de almacenamiento están estructurados en registros y optimizados para la escritura, lo que permite actualizaciones más rápidas. Aunque cada uno de ellos se codifica de forma diferente:
 
 * **Motor de almacenamiento transaccional**: se codifica en formato orientado a filas a fin de realizar consultas y lecturas transaccionales rápidas.
 
@@ -29,8 +29,8 @@ El motor de almacenamiento transaccional está respaldado por discos SSD locales
 
 |Característica  |Almacenamiento transaccional  |Almacenamiento analítico |
 |---------|---------|---------|
-|Almacenamiento máximo por contenedor de Azure Cosmos |   Ilimitado      |    Ilimitado     |
-|Almacenamiento máximo por clave de partición lógica   |   10 GB      |   Ilimitado      |
+|Almacenamiento máximo por contenedor de Azure Cosmos |   Sin límite      |    Sin límite     |
+|Almacenamiento máximo por clave de partición lógica   |   10 GB      |   Sin límite      |
 |Codificación de almacenamiento  |   Orientado a filas con formato interno.   |   Orientado a columnas con formato Parquet de Apache. |
 |Localidad de almacenamiento |   Almacenamiento replicado respaldado por discos SSD locales o dentro del clúster. |  Almacenamiento replicado respaldado por discos SSD de clúster remotos o fuera del clúster.       |
 |Durabilidad.  |    99,99999 (7-9 s)     |  99,99999 (7-9 s)       |

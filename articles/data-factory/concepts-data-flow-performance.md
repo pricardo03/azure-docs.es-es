@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
-ms.openlocfilehash: fb2a11850370766ab174c67dd122f33879fb432a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 3036fb44cdd636c4a7b9e690ee19aa3d5ab2f5ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928530"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444520"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
@@ -81,7 +81,7 @@ Incluso si no tiene los datos particionados en las tablas de destino, se recomie
 
 ### <a name="disable-indexes-on-write"></a>Deshabilitación de índices durante la escritura
 
-En su canalización, agregue una [actividad de procedimiento almacenado](transform-data-using-stored-procedure.md) antes de la actividad de Data Flow que deshabilita los índices en las tablas de destino en las que se escribe desde el receptor. Después de la actividad de Data Flow, agregue otra actividad de procedimiento almacenado que habilite estos índices.
+En su canalización, agregue una [actividad de procedimiento almacenado](transform-data-using-stored-procedure.md) antes de la actividad de Data Flow que deshabilita los índices en las tablas de destino en las que se escribe desde el receptor. Después de la actividad de Data Flow, agregue otra actividad de procedimiento almacenado que habilite estos índices. O bien, use los scripts anteriores y posteriores al procesamiento en un receptor de base de datos.
 
 ### <a name="increase-the-size-of-your-azure-sql-db-and-dw"></a>Aumento del tamaño de las instancias de Azure SQL DB y Azure SQL Data Warehouse
 
@@ -114,7 +114,7 @@ Para evitar que se agoten los recursos de nodo de proceso, mantenga el esquema o
 
 ### <a name="looping-through-file-lists"></a>Bucles a través de listas de archivos
 
-Un flujo de datos de asignación se ejecutará mejor cuando la transformación de origen recorra en iteración varios archivos en lugar de crear bucles a través de la actividad For Each. Se recomienda usar caracteres comodín o listas de archivos en la transformación de origen. El proceso de Data Flow se ejecutará más rápido si se permiten bucles dentro del clúster de Spark. Para más información, consulte [Caracteres comodín en la transformación de origen](data-flow-source.md#file-based-source-options).
+Un flujo de datos de asignación se ejecutará mejor cuando la transformación de origen recorra en iteración varios archivos en lugar de crear bucles a través de la actividad For Each. Se recomienda usar caracteres comodín o listas de archivos en la transformación de origen. El proceso de Data Flow se ejecutará más rápido si se permiten bucles dentro del clúster de Spark. Para más información, consulte [Caracteres comodín en la transformación de origen](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
 
 Por ejemplo, si tiene una lista de archivos de datos de julio de 2019 que desea procesar en una carpeta en Blob Storage, a continuación se muestra un carácter comodín que puede usar en la transformación de origen.
 

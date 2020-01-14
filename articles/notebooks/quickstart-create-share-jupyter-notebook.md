@@ -1,18 +1,24 @@
 ---
-title: Creación y uso compartido de un cuaderno de Jupyter Notebook en Azure
-description: Obtenga información sobre cómo crear y ejecutar un cuaderno de Jupyter Notebook en Azure Notebooks y, luego, compartir ese cuaderno con otros usuarios.
+title: Creación y uso compartido de un cuaderno de Jupyter Notebook en Azure Notebooks (versión preliminar)
+description: Cree y ejecute rápidamente un cuaderno de Jupyter Notebook en Azure Notebooks (versión preliminar) y, luego, comparta ese cuaderno con otros usuarios.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 71220fa5aa0367d1cb1694582b4f96459a3016e7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7b983d927bfd789cddb8d00675294cefc9f55e08
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277498"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647091"
 ---
-# <a name="quickstart-create-and-share-a-notebook"></a>Inicio rápido: Creación y uso compartido de un cuaderno
+# <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Inicio rápido: Creación y uso compartido de un cuaderno en Azure Notebooks (versión preliminar)
 
-1. Vaya a [Azure Notebooks](https://notebooks.azure.com) e inicie sesión. (Para más información, consulte [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md) [Inicio rápido: Inicio de sesión en Azure Notebooks]).
+En este artículo de inicio rápido, aprenderá a crear y ejecutar un cuaderno de Jupyter Notebook en Azure Notebooks y, después, compartirá ese cuaderno con otros.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+## <a name="create-a-new-project-and-notebook"></a>Creación de un nuevo proyecto y un cuaderno
+
+1. Vaya al [sitio de Azure Notebooks (https://notebooks.azure.com)](https://notebooks.azure.com) e inicie sesión. (Para más información, consulte [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md) [Inicio rápido: Inicio de sesión en Azure Notebooks]).
 
 1. En la página del perfil público, seleccione **My Projects** (Mis proyectos) en la parte superior de la página:
 
@@ -24,10 +30,10 @@ ms.locfileid: "74277498"
 
 1. En la ventana emergente **Create New Project** (Crear nuevo proyecto) que aparece, escriba o establezca estos detalles y, luego, seleccione **Create** (Crear):
 
-   - **Nombre del proyecto**: Hola mundo en Python
+   - **Project name** (Nombre del proyecto): Hola mundo en Python
    - **Identificador del proyecto**: hello-world-python
-   - **Proyecto público**: (desactivado)
-   - **Crear un archivo README.md**: (desactivado)
+   - **Public project** (Proyecto público): desactivada
+   - **Create a README.md** (Crear un Léame.md): desactivada
 
      ![Ventana emergente Nuevo proyecto con los detalles completados](media/quickstarts/new-project-popup.png)
 

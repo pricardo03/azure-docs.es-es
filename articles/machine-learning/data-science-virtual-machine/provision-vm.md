@@ -6,17 +6,17 @@ ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: afc026ccb602538b0749fa294cee763efa3d27d0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/31/2019
+ms.openlocfilehash: f498c2cd6906d1966ab5dfd1f7547686163fe2ce
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73483229"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611924"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Inicio rápido: Configuración de Data Science Virtual Machine para Windows
 
-Empiece a trabajar con la instancia de Data Science Virtual Machine para Windows.
+Empiece a trabajar con una instancia de Data Science Virtual Machine para Windows Server 2019.
 
 ## <a name="prerequisite"></a>Requisito previo
 
@@ -28,16 +28,11 @@ Tenga en cuenta que las cuentas gratuitas de Azure no admiten los SKU de máquin
 Para crear una instancia de DSVM:
 
 1. Vaya a [Azure Portal](https://portal.azure.com). Es posible que se le pida que inicie sesión en su cuenta de Azure, si todavía no lo ha hecho.
-1. Busque la lista de máquinas virtuales. Para ello, escriba "data science virtual machine" y seleccione "Data Science Virtual Machine - Windows 2016".
-
-    ![Lista de máquinas virtuales Windows](./media/provision-vm/search-windows.png)
+1. Busque la lista de máquinas virtuales. Para ello, escriba "data science virtual machine" y seleccione "Data Science Virtual Machine - Windows 2019 (versión preliminar)".
 
 1. Seleccione el botón **Crear** que se encuentra en la parte inferior.
 
-    [![](media/provision-vm/create-windows.png "Button to create a Windows machine")](media/provision-vm/create-windows-expanded.png#lightbox)
-
 1. Debería ser redirigido a la hoja "Crear una máquina virtual".
-   ![Pestaña Aspectos básicos correspondiente a la máquina virtual Windows](./media/provision-vm/review-create-windows.png)
 
 1. Rellene la pestaña **Aspectos básicos**:
       * **Suscripción**: si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina. Debe tener privilegios de creación de recursos en esta suscripción.
@@ -45,7 +40,7 @@ Para crear una instancia de DSVM:
       * **Nombre de la máquina virtual**: escriba el nombre de la máquina virtual. Así es como aparecerá en Azure Portal.
       * **Ubicación**: seleccione el centro de datos más adecuado. Para disfrutar de un acceso más rápido a la red, elija el centro de datos que tenga la mayoría de los datos o el que esté más cerca de su ubicación física. Más información sobre las [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).
       * **Imagen**: Deje el valor predeterminado.
-      * **Tamaño**: debería rellenarse automáticamente con un tamaño adecuado para cargas de trabajo generales. Más información sobre los [tamaños de máquina virtual Windows en Azure](../../virtual-machines/windows/sizes.md).
+      * **Size**: debería rellenarse automáticamente con un tamaño adecuado para cargas de trabajo generales. Más información sobre los [tamaños de máquina virtual Windows en Azure](../../virtual-machines/windows/sizes.md).
       * **Nombre de usuario**: escriba el nombre de usuario del administrador. Es el nombre de usuario que usará para iniciar sesión en la máquina virtual y no necesariamente debe ser el mismo que el nombre de usuario de Azure.
       * **Contraseña**: escriba la contraseña que utilizará para iniciar sesión en la máquina virtual.    
 1. Seleccione **Revisar + crear**.
@@ -72,9 +67,7 @@ También puede conectar una instancia de DSVM a Azure Notebooks para ejecutar cu
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para explorar las herramientas en DSVM; abra el menú **Inicio**.
-* Obtenga información acerca de Azure Machine Learning en [¿Qué es Azure Machine Learning?](../service/overview-what-is-azure-ml.md) y pruebe los [tutoriales](../index.yml).
-* En el Explorador de archivos, vaya a C:\Archivos de programa\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts para ver ejemplos de uso de la biblioteca RevoScaleR de R que admiten análisis de datos a escala empresarial. 
+* Obtenga información acerca de Azure Machine Learning en [¿Qué es Azure Machine Learning?](../overview-what-is-azure-ml.md) y pruebe los [tutoriales](../index.yml).
 * Lea el artículo [Diez cosas que puede hacer en Data Science Virtual Machine](https://aka.ms/dsvmtenthings).
-* Aprenda a crear soluciones analíticas completas mediante el uso sistemático del [proceso de ciencia de datos en equipo](../team-data-science-process/index.yml).
 * Visite la [Galería de Azure AI](https://gallery.cortanaintelligence.com) para ver ejemplos de aprendizaje automático y análisis de datos donde se usa Azure Machine Learning y servicios de datos relacionados en Azure. También hemos proporcionado un icono para esta galería en el menú **Inicio** y en el escritorio de la máquina virtual.
 

@@ -1,25 +1,16 @@
 ---
-title: Eventos de Azure Service Fabric | Microsoft Docs
+title: Eventos de Azure Service Fabric
 description: Obtenga información acerca de los eventos de Service Fabric que le proporcionarán ayuda para supervisar el clúster de Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: b4270b9438a397ec09537c9d6343515ebc21af98
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 638b650e485ad3e83bd6021639a7e55b540d9cdc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393051"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451724"
 ---
 # <a name="service-fabric-events"></a>Eventos de Service Fabric 
 

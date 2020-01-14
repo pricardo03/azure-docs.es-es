@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplos de la CLI de Azure: creación de un conjunto de escalado de máquinas virtuales | Microsoft Docs'
-description: Ejemplos de la CLI de Azure
+title: 'Ejemplos de la CLI de Azure: creación de un conjunto de escalado de máquinas virtuales'
+description: Este script crea un conjunto de escalado de máquinas virtuales de Azure con un sistema operativo Ubuntu y recursos de red relacionados, como el equilibrador de carga.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7327468722f4f3b0fc7048bc8afcdb757df50bc7
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: c4fbefc0c513df8fb300798155c2f8814bc3140b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695668"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351036"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Creación de un conjunto de escalado de máquinas virtuales con la CLI de Azure
 Este script crea un conjunto de escalado de máquinas virtuales de Azure con un sistema operativo Ubuntu y recursos de red relacionados, como el equilibrador de carga. Después de ejecutar el script, puede acceder a las instancias de máquina virtual a través de SSH.

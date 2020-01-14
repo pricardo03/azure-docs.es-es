@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 610673c548294f875ca70edb8ab26b1fdeb41cb6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8b2a24b6f2d7df92f1c8ea1b22432471aa432011
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838076"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644909"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
@@ -83,7 +83,7 @@ También es importante tener en cuenta que **todos los parámetros son opcionale
 
 ### <a name="accepted-parameter-metadata-types"></a>Tipos aceptados de metadatos de parámetros
 
-| Tipo de metadatos   | Tipo de parámetro  | DESCRIPCIÓN     | Valor de ejemplo    |
+| Tipo de metadatos   | Tipo de parámetro  | Descripción     | Valor de ejemplo    |
 |---|---|---|---|
 | **baseuri**     | string          | Identificador URI base del paquete de implementación| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
 | **username**    | string          | Nuevo nombre de usuario aleatorio.| admin68876      |
@@ -289,7 +289,7 @@ Ejemplo:
 
 Otra cosa que debe tener en cuenta son los límites del servicio y la suscripción. Por ejemplo, si desea implementar un máximo de diez máquinas virtuales de cuatro núcleos, tiene que asegurarse de que la suscripción que se utiliza para el laboratorio le permite usar 40 núcleos.
 
-Puede encontrar más información sobre los límites del servicio y la suscripción de Azure en [este artículo](https://docs.microsoft.com/azure/azure-subscription-service-limits). Dado que se pueden realizar varias versiones de prueba al mismo tiempo, compruebe que la suscripción puede controlar el número de núcleos multiplicado por el número total de versiones de prueba simultáneas que se pueden realizar.
+Puede encontrar más información sobre los límites del servicio y la suscripción de Azure en [este artículo](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Dado que se pueden realizar varias versiones de prueba al mismo tiempo, compruebe que la suscripción puede controlar el número de núcleos multiplicado por el número total de versiones de prueba simultáneas que se pueden realizar.
 
 ### <a name="what-to-upload"></a>Qué hay que cargar
 
@@ -332,7 +332,7 @@ La siguiente sección que hay que rellenar corresponde a los detalles de la vers
 
 **Manual del usuario:** *obligatorio* se trata del tutorial detallado de la experiencia con la versión de prueba. El cliente lo abrirá y podrá seguir exactamente lo que se quiere que haga durante la versión de prueba. Es importante que este contenido sea fácil de entender y de seguir. (Debe ser un archivo .pdf)
 
-**Vídeo de demostración de la versión de prueba:** *Recomendable* De forma parecida al Manual del usuario, es recomendable incluir un tutorial en vídeo con la experiencia de la versión de prueba. El cliente lo verá antes o durante el uso de la versión de prueba y hará exactamente lo que desea que hagan con esa versión de prueba. Es importante que este contenido sea fácil de entender y de seguir.
+**Vídeo de demostración de la versión de prueba:** *Recomendable* de forma parecida al Manual del usuario, es mejor incluir un tutorial en vídeo con la experiencia de la versión de prueba. El cliente lo verá antes o durante el uso de la versión de prueba y hará exactamente lo que desea que hagan con esa versión de prueba. Es importante que este contenido sea fácil de entender y de seguir.
 
 - **Nombre**: título del vídeo.
 - **Vínculo**: debe ser una dirección URL insertada desde la cámara o el vídeo. Abajo puede ver un ejemplo de cómo obtener la dirección URL insertada:
@@ -359,11 +359,11 @@ En este momento se calcula el número total de posibles versiones de prueba simu
 
 **(Número de regiones seleccionadas x instancias activas) + (número de regiones seleccionadas x instancias semiactivas) + (número de regiones seleccionadas x instancias inactivas)**
 
-**Duración de la versión de prueba (horas):** *obligatorio* tiempo en número de horas durante el que la versión de prueba estará activa. La versión de prueba finaliza automáticamente cuando finaliza este período de tiempo.
+**Duración de la versión de prueba (horas):** *obligatorio* tiempo en \#número de horas durante el que la versión de prueba estará activa. La versión de prueba finaliza automáticamente cuando finaliza este período de tiempo.
 
-**Test Drive Resource Manager template:** (Plantilla de Resource Manager de la versión de prueba) *obligatorio* cargue aquí la plantilla de Resource Manager. Se trata del archivo compilado en la sección anterior. Asigne al archivo de plantilla principal "main-template.json" y asegúrese de que la plantilla de Resource Manager contiene los parámetros de salida para las variables clave que se necesitan. (Debe ser un archivo .zip)
+**Administrador de recursos de la plantilla de prueba:** *obligatorio* cargue aquí la plantilla del Administrador de recursos. Se trata del archivo compilado en la sección anterior. Asigne al archivo de plantilla principal "main-template.json" y asegúrese de que la plantilla de Resource Manager contiene los parámetros de salida para las variables clave que se necesitan. (Debe ser un archivo .zip)
 
-**Información de acceso:** *obligatorio* cuando un cliente obtiene su versión de prueba, se le presenta la información de acceso. Estas instrucciones tienen por objeto compartir los parámetros de salida útiles de la plantilla de Resource Manager de la versión de prueba. Para incluir parámetros de salida, use corchetes dobles (por ejemplo, **{{outputname}}** ) y se insertarán correctamente en la ubicación. (En este caso se recomienda usar el formato de cadena HTML para la representación en el front-end).
+**Información de acceso:** *obligatorio* después de que un cliente obtenga su versión de prueba, se le presentará la información de acceso. Estas instrucciones tienen por objeto compartir los parámetros de salida útiles de la plantilla de Resource Manager de la versión de prueba. Para incluir parámetros de salida, use corchetes dobles (por ejemplo, **{{outputname}}** ) y se insertarán correctamente en la ubicación. (En este caso se recomienda usar el formato de cadena HTML para la representación en el front-end).
 
 ### <a name="test-drive-deployment-subscription-details"></a>Detalles de suscripción de la implementación de la versión de prueba
 
@@ -375,7 +375,7 @@ La última sección que hay que rellenar permite implementar las versiones de pr
 
 ![Suscripciones de Azure](./media/azure-resource-manager-test-drive/subdetails2.png)
 
-**Id. de inquilino de Azure AD** *obligatorio* si ya tiene un identificador de inquilino disponible, puede encontrarlo en Propiedades -\> Id. de directorio.
+**Identificador de inquilino de Azure AD***obligatorio* si ya tiene un identificador de inquilino disponible, puede encontrarlo en Propiedades:\> identificador de directorio.
 
 ![Propiedades de Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails3.png)
 
@@ -387,7 +387,7 @@ En caso contrario, cree un inquilino en Azure Active Directory.
 
 ![Confirmación de la selección](./media/azure-resource-manager-test-drive/subdetails6.png)
 
-**Id. de aplicación de Azure AD:** *obligatorio* el siguiente paso consiste en crear una aplicación y registrarla. Esta aplicación se usará para realizar operaciones en la instancia de la versión de prueba.
+**Identificador de aplicación de Azure AD:** *obligatorio* el siguiente paso consiste en crear una aplicación y registrarla. Esta aplicación se usará para realizar operaciones en la instancia de la versión de prueba.
 
 1. Navegue al directorio recién creado o a uno que ya existe y seleccione Azure Active Directory en el panel de filtro.
 2. Busque "Registros de aplicaciones" y haga clic en "Agregar".

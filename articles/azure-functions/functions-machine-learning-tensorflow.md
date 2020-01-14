@@ -1,17 +1,17 @@
 ---
-title: Uso de Python y TensorFlow en Azure Functions para realizar inferencias de aprendizaje automático
+title: Uso de Python y TensorFlow para el aprendizaje automático en Azure
 description: En este tutorial se muestra cómo aplicar los modelos de aprendizaje automático de TensorFlow en Azure Functions
 author: anthonychu
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: e7c4e1bbd23d43d5e11ab8b26c3d4e1215b4946b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f8122a828f19c3daf6c23a866a99a214ee2c4427
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230504"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409768"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: Aplicación de modelos de aprendizaje automático en Azure Functions con Python y TensorFlow
 
@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerequisites 
 
 Para crear instancias de Azure Functions en Python, debe instalar algunas herramientas.
 
@@ -170,7 +170,7 @@ copy ..\resources\predict.py classify
 
 Confirme que *classify* ahora contiene un archivo denominado *predict.py*.
 
-### <a name="install-dependencies"></a>Instalación de dependencias
+### <a name="install-dependencies"></a>Instalar dependencias
 
 La biblioteca auxiliar tiene algunas dependencias que deben instalarse. Abra *start/requirements.txt* en el editor y agregue las siguientes dependencias al archivo.
 

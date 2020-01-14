@@ -1,5 +1,5 @@
 ---
-title: 'Finalización de tareas del Contrato Enterprise en el contrato de cliente de Microsoft: Azure'
+title: 'Tareas de EA de un Contrato de cliente de Microsoft: Azure'
 description: Obtenga información sobre cómo completar tareas del Contrato Enterprise en la nueva cuenta de facturación.
 author: amberbhargava
 manager: amberb
@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: banders
-ms.openlocfilehash: 87fe00066989a0b037fc093c8ddf181b8453d5d9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 38639c43d796774571fd25a865bc042bd73e8c01
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849877"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644382"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Finalización de tareas del Contrato Enterprise en la cuenta de facturación para un contrato de cliente de Microsoft
 
@@ -32,7 +32,7 @@ En el diagrama siguiente se describe cómo se organiza la facturación en la nue
 | Contrato Enterprise   | Contrato de cliente de Microsoft    |
 |------------------------|--------------------------------------------------------|
 | Inscripción            | Utilice un perfil de facturación para administrar la facturación de la organización, de forma similar a la inscripción al Contrato Enterprise. Los administradores de Enterprise se convierten en los propietarios del perfil de facturación. Para más información sobre los perfiles de facturación, consulte [Descripción de los perfiles de facturación](billing-mca-overview.md#billing-profiles).
-| department            | Puede usar una sección de la factura para organizar los costos, de manera similar a los departamentos en la inscripción al contrato Enterprise. El departamento se convierte en las secciones de la factura y los administradores de departamento se convierten en los propietarios de las secciones de la factura respectivas. Para más información sobre las secciones de la factura, consulte [Descripción de las secciones de factura](billing-mca-overview.md#invoice-sections). |
+| department            | Puede usar una sección de la factura para organizar los costos, de manera similar a los departamentos en la inscripción al contrato Enterprise. El departamento se convierte en las secciones de la factura y los administradores de departamento se convierten en los propietarios de las respectivas secciones de la factura. Para más información sobre las secciones de la factura, consulte [Descripción de las secciones de factura](billing-mca-overview.md#invoice-sections). |
 | Cuenta               | No se admiten las cuentas que se crearon en el Contrato Enterprise en la nueva cuenta de facturación. Las suscripciones de la cuenta pertenecen a la respectiva sección de facturas correspondiente al departamento. Los propietarios de la cuenta pueden crear y administrar suscripciones para sus secciones de factura. |
 
 ## <a name="changes-for-enterprise-administrators"></a>Cambios en los administradores de empresa
@@ -64,7 +64,7 @@ Se crea una sección de factura para cada departamento que tiene en el Contrato 
 
 ### <a name="view-charges-for-an-account"></a>Visualización de los cargos de una cuenta
 
-No se admiten las cuentas que se crearon en la inscripción al Contrato Enterprise en la nueva cuenta de facturación. Las suscripciones de la cuenta pertenecen a la sección de facturas correspondiente al departamento. Los propietarios de la cuenta pueden crear y administrar suscripciones para sus secciones de factura.
+No se admiten las cuentas que se crearon en la inscripción al Contrato Enterprise en la nueva cuenta de facturación. Las suscripciones de la cuenta pertenecen a la respectiva sección de facturas correspondiente al departamento. Los propietarios de la cuenta pueden crear y administrar suscripciones para sus secciones de factura.
 
 Para ver el costo total de las suscripciones que pertenecían a una cuenta, debe establecer un centro de coste para cada suscripción. Después, puede usar el archivo csv de cargos y de uso de Azure para filtrar las suscripciones por centro de coste.
 
@@ -120,7 +120,7 @@ Asigne a los usuarios el rol de creador de la suscripción a Azure en la secció
 
 ### <a name="view-charges-for-accounts-in-your-departments"></a>Visualización de los cargos para las cuentas de los departamentos
 
-No se admiten las cuentas que se crearon en la inscripción al Contrato Enterprise en la nueva cuenta de facturación. Las suscripciones de la cuenta pertenecen a la sección de facturas correspondiente al departamento. Los propietarios de la cuenta pueden crear y administrar suscripciones para sus secciones de factura.
+No se admiten las cuentas que se crearon en la inscripción al Contrato Enterprise en la nueva cuenta de facturación. Las suscripciones de la cuenta pertenecen a la respectiva sección de facturas correspondiente al departamento. Los propietarios de la cuenta pueden crear y administrar suscripciones para sus secciones de factura.
 
 Para ver el costo total de las suscripciones que pertenecían a una cuenta del departamento, debe establecer un centro de coste para cada suscripción. Después, puede usar el archivo csv de cargos y de uso de Azure para filtrar las suscripciones por centro de coste.
 

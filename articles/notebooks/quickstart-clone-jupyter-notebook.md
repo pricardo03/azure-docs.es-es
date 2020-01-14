@@ -1,20 +1,22 @@
 ---
-title: Clonación de un cuaderno de Jupyter Notebook desde GitHub con Azure Notebooks
+title: Clonación de un cuaderno de Jupyter Notebook desde GitHub con Azure Notebooks (versión preliminar)
 description: Clone rápidamente un cuaderno de Jupyter Notebook desde un repositorio de GitHub y ejecútelo en su cuenta de Azure Notebooks.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 500bd3f85409bb2f5e7b73be0478694695cc9c00
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8aa88008ece170a5eed7ab491e3318aed5168923
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277519"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647108"
 ---
-# <a name="quickstart-clone-a-notebook"></a>Inicio rápido: Clonación de un cuaderno
+# <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>Inicio rápido: Clonación de un cuaderno en Azure Notebooks (versión preliminar)
 
 Muchos desarrolladores y científicos de datos almacenan los cuadernos en [repositorios de GitHub](https://github.com), un servicio gratuito que proporciona control de versiones y almacenamiento para muchos tipos de proyectos diferentes. GitHub a menudo se usa como un medio de colaboración en cuadernos de Jupyter Notebook que se ejecutan localmente. En tales casos, cada colaborador mantiene una copia local del repositorio y ejecuta los cuadernos desde esa copia.
 
 La clonación crea una copia de un cuaderno de GitHub en la cuenta de Azure Notebooks en su lugar. Este clon es independiente de su repositorio original; los cambios solo se almacenan en la cuenta de Azure Notebooks y no afectan al original. Dado que el clon se encuentra en la nube, puede compartir el proyecto con otros colaboradores que no necesitan realizar ninguna copia local o incluso que tengan Jupyter instalado en sus propios equipos. También puede clonar un cuaderno simplemente como un punto inicial para un proyecto de su propiedad o para obtener archivos de datos.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="clone-azure-cognitive-services-notebooks"></a>Clonación de cuadernos de Azure Cognitive Services
 
@@ -32,7 +34,7 @@ La clonación crea una copia de un cuaderno de GitHub en la cuenta de Azure Note
 
    - **Repositorio de GitHub**: Microsoft/cognitive-services-notebooks (este nombre clona los cuadernos de Jupyter Notebook para Azure Cognitive Services en [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
    - **Clone recursively** (Clonar de forma recursiva): (desactivado)
-   - **Nombre del proyecto**: Clon de Cognitive Services
+   - **Project name** (Nombre del proyecto): Clon de Cognitive Services
    - **Identificador del proyecto**: cognitive-services-clone
    - **Público**: (desactivado)
 
@@ -48,7 +50,7 @@ La clonación crea una copia de un cuaderno de GitHub en la cuenta de Azure Note
 
 1. Para compartir la copia del proyecto clonado, use el control **Share** o consiga un vínculo, código HTML o Markdown que contenga el vínculo, o bien cree un mensaje de correo electrónico con el vínculo:
 
-    ![Comando Project share](media/quickstarts/share-project-command.png)
+    ![Comando para compartir el proyecto](media/quickstarts/share-project-command.png)
 
 1. Dado que se ha desactivado la opción **Público** al clonar el proyecto, el clon es privado. Para realizar la copia pública, seleccione **Configuración del proyecto**, establezca la opción **Proyecto público** en la ventana emergente y, a continuación, seleccione **Guardar**.
 

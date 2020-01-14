@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b876b27d0eb24a9eabcffe0d131ea0ef5bb79bad
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 6c35b52149e3c0117c727771d38d0f010180fc63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107046"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432806"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutorial: Implementación del análisis espacial de IoT mediante Azure Maps
 
@@ -77,7 +77,7 @@ La siguiente ilustración representa el área de la geovalla resaltada en azul y
   ![Ruta de geovalla](./media/tutorial-iot-hub-maps/geofence-route.png)
 
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerequisites 
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -104,7 +104,8 @@ Para completar los pasos de este tutorial, antes es preciso crear un grupo de re
 
 ### <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps 
 
-Para implementar la lógica de negocios basada en el análisis espacial de Azure Maps, es preciso crear una cuenta de Azure Maps en el grupo de recursos que hemos creado. Siga las instrucciones de [Administrar cuentas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) para crear una suscripción de cuenta de Azure Maps con el plan de tarifa S1 y siga los pasos de [Obtención de la clave principal](./tutorial-search-location.md#getkey) para obtener la clave de suscripción principal de la cuenta.
+Para implementar la lógica de negocios basada en el análisis espacial de Azure Maps, es preciso crear una cuenta de Azure Maps en el grupo de recursos que hemos creado. Siga las instrucciones de [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) para crear una suscripción de cuenta de Azure Maps con el plan de tarifa S1 y siga los pasos de [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obtener la clave principal de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
+
 
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
@@ -167,7 +168,7 @@ Abra la aplicación Postman y siga estos pasos para cargar la geovalla mediante 
     
     El valor "geojson" del parámetro `dataFormat` de la ruta de acceso de la dirección URL representa el formato de datos de los datos que se cargan.
 
-3. Haga clic en **Params** (Parámetros) y escriba los siguientes pares de clave-valor que se usarán para la dirección URL de la solicitud POST. Reemplace el valor de subscription-key por la clave de suscripción principal de Azure Maps.
+3. Haga clic en **Params** (Parámetros) y escriba los siguientes pares de clave-valor que se usarán para la dirección URL de la solicitud POST. Reemplace el valor de subscription-key por su clave de Azure Maps.
    
     ![Parámetros de clave-valor de Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 

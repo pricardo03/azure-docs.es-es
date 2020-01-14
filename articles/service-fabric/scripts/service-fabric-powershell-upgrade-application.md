@@ -1,6 +1,6 @@
 ---
-title: 'Script de ejemplo de Azure PowerShell: actualización de una aplicación de Service Fabric | Microsoft Docs'
-description: 'Script de ejemplo de Azure PowerShell: actualización de una aplicación de Service Fabric.'
+title: Actualización de una aplicación de Service Fabric en PowerShell
+description: 'Script de ejemplo de Azure PowerShell: actualización y supervisión de una aplicación de Azure Service Fabric con PowerShell.'
 services: service-fabric
 documentationcenter: ''
 author: athinanthny
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 45186f497371b533451ff374e68b38f9a7eebe51
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3a4ef9fad8567eb145d51c6fef61773cc3a00b11
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035496"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614747"
 ---
 # <a name="upgrade-a-service-fabric-application"></a>Actualización de una aplicación de Service Fabric
 

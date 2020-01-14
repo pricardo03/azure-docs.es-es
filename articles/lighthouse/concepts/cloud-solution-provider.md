@@ -1,14 +1,14 @@
 ---
 title: Consideraciones del programa de proveedor de soluciones en la nube
 description: En el caso de los asociados de CSP, la administración de recursos delegados de Azure ayuda a mejorar la seguridad y el control mediante la habilitación de permisos más específicos.
-ms.date: 10/23/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7e1e371d8c31c45828ee0565545cb40145b40e92
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 66ea74751f12a499a1e2d9e083497da31746e3c7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463966"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456912"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse y el programa Proveedor de soluciones en la nube
 
@@ -34,9 +34,9 @@ Para incorporar una suscripción creada desde el programa CSP, siga los pasos de
 ![Administración de inquilinos mediante AOBO y la administración de recursos delegados de Azure](../media/csp-2.jpg)
 
 > [!NOTE]
-> La página [**Mis clientes** de Azure Portal](../how-to/view-manage-customers.md) incluye ahora una sección **Proveedor de soluciones en la nube (versión preliminar)** , que muestra la información de facturación y los recursos para los clientes de CSP que han [firmado el contrato de cliente de Microsoft (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) y están en el plan de Azure. Para obtener más información, consulte [Introducción a la cuenta de facturación para un contrato Microsoft Partner Agreement](https://docs.microsoft.com/azure/billing/mpa-overview).
+> La página [**Mis clientes** de Azure Portal](../how-to/view-manage-customers.md) ahora incluye la sección **Proveedor de soluciones en la nube (versión preliminar)** , que muestra la información de facturación y los recursos para los clientes de CSP que han [firmado el Contrato de cliente de Microsoft (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) y usan [el plan de Azure](https://docs.microsoft.com/partner-center/azure-plan-get-started). Para obtener más información, consulte [Introducción a la cuenta de facturación para un contrato Microsoft Partner Agreement](../../billing/mpa-overview.md).
 >
-> Los clientes de CSP pueden aparecer en esta sección independientemente de que se hayan incorporado a la administración de recursos delegados de Azure. En caso afirmativo, también aparecerán en la sección **Clientes**, como se describe en [Ver y administrar clientes y recursos delegados](../how-to/view-manage-customers.md).
+> Los clientes de CSP pueden aparecer en esta sección independientemente de si también se han incorporado para la administración de recursos delegados de Azure. En caso afirmativo, también se mostrarán en la sección **Clientes**, como se describe en [Ver y administrar clientes y recursos delegados](../how-to/view-manage-customers.md). Del mismo modo, no es necesario que un cliente de CSP aparezca en la sección **Proveedor de soluciones en la nube (versión preliminar)** de **Mis clientes** para poder incorporarlo a la administración de recursos delegados de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

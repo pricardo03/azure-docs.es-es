@@ -3,17 +3,17 @@ title: 'Depuración e iteración en Kubernetes: Visual Studio y .NET Core'
 services: azure-dev-spaces
 ms.date: 11/13/2019
 ms.topic: quickstart
-description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, malla de servicio, enrutamiento de malla de servicio, kubectl, k8s
+description: En este inicio rápido se muestra cómo usar Azure Dev Spaces y Visual Studio para depurar e iterar rápidamente una aplicación .NET Core en Azure Kubernetes Service
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: a151314bef14e302879f4db0f7c0094779bdcfec
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: bfa798027a3905eff29bf1ce11251ce900bd7267
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325603"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438247"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Inicio rápido: Depuración e iteración en Kubernetes: Visual Studio y .NET Core: Azure Dev Spaces
 
@@ -28,9 +28,9 @@ Azure Dev Spaces también permite depurar e iterar mediante:
 - [Node.js y Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core y Visual Studio Code](quickstart-netcore.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Una suscripción de Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
+- Suscripción a Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
 - Visual Studio 2019 en Windows con la carga de trabajo de desarrollo de Azure instalada. También puede usar Visual Studio 2017 en Windows con la carga de trabajo Desarrollo web y [Visual Studio Tools para Kubernetes](https://aka.ms/get-vsk8stools) instalados. Si no tiene instalado Visual Studio, descárguelo [aquí](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Creación de un clúster de Azure Kubernetes Service
@@ -44,7 +44,7 @@ Debe crear un clúster de AKS en una [región admitida][supported-regions]. Para
     ![Creación de instancia de AKS en Azure Portal](media/get-started-netcore-visualstudio/create-aks-portal.png)
 
 1. Haga clic en *Revisar + crear*.
-1. Haga clic en *Create*(Crear).
+1. Haga clic en *Crear*.
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Habilitar Azure Dev Spaces en el clúster de AKS
 
@@ -55,12 +55,12 @@ Vaya a su clúster de AKS en Azure Portal y haga clic en *Dev Spaces*. Cambie *U
 ## <a name="create-a-new-aspnet-web-app"></a>Crear una aplicación web ASP.NET
 
 1. Abra Visual Studio.
-1. Crear un nuevo proyecto.
+1. Cree un nuevo proyecto.
 1. Elija *Aplicación Web ASP.NET Core* y haga clic en *Siguiente*.
 1. Asigne el nombre *webfrontend* al proyecto y haga clic en *Crear*.
 1. Cuando se le solicite, elija *Aplicación web (Modelo-Vista-Controlador)* para la plantilla.
 1. Seleccione *.NET Core* y *ASP.NET Core 2.1* en la parte superior.
-1. Haga clic en *Create*(Crear).
+1. Haga clic en *Crear*.
 
 ## <a name="connect-your-project-to-your-dev-space"></a>Conexión del proyecto al espacio de desarrollo
 

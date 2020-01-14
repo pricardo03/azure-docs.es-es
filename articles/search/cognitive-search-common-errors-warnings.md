@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fb8aec10d58ed4f2eca462774aeaf61f2ea21dd0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1e11c5a570f899a5ac18673a71fe79db95de0f80
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973975"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461078"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solución de errores y advertencias comunes con el indexador en Azure Cognitive Search
 
@@ -32,12 +32,12 @@ Las advertencias no detienen la indexación, sino que indican las condiciones qu
 
 A partir de la versión de API `2019-05-06`, los errores y advertencias del indexador de nivel de elemento están estructurados para proporcionar una mayor claridad en torno a las causas y los pasos siguientes. Contienen las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Ejemplo |
+| Propiedad | Descripción | Ejemplo |
 | --- | --- | --- |
 | key | Identificador de documento del documento afectado por el error o la advertencia. | https:\//coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
-| Nombre | Nombre de la operación que describe dónde se produjo el error o la advertencia. Lo genera la siguiente estructura: [category].[subcategory].[resourceType].[resourceName] | DocumentExtraction.azureblob.myBlobContainerName Enrichment.WebApiSkill.mySkillName Projection.SearchIndex.OutputFieldMapping.myOutputFieldName Projection.SearchIndex.MergeOrUpload.myIndexName Projection.KnowledgeStore.Table.myTableName |
+| name | Nombre de la operación que describe dónde se produjo el error o la advertencia. Lo genera la siguiente estructura: [category].[subcategory].[resourceType].[resourceName] | DocumentExtraction.azureblob.myBlobContainerName Enrichment.WebApiSkill.mySkillName Projection.SearchIndex.OutputFieldMapping.myOutputFieldName Projection.SearchIndex.MergeOrUpload.myIndexName Projection.KnowledgeStore.Table.myTableName |
 | message | Descripción de alto nivel del error o la advertencia. | No se pudo ejecutar la aptitud debido a un error en la solicitud a la API web. |
-| details | Detalles adicionales que pueden ser útiles para diagnosticar el problema, como la respuesta de WebAPI, si se produce un error en la ejecución de una aptitud personalizada. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`Un origen, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ...resto del seguimiento de la pila... |
+| detalles | Detalles adicionales que pueden ser útiles para diagnosticar el problema, como la respuesta de WebAPI, si se produce un error en la ejecución de una aptitud personalizada. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`Un origen, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ...resto del seguimiento de la pila... |
 | documentationLink | Vínculo a la documentación pertinente con información detallada para depurar y resolver el problema. Este vínculo suele apuntar a una de las secciones siguientes de esta página. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
 <a name="could-not-read-document"/>
@@ -46,7 +46,7 @@ A partir de la versión de API `2019-05-06`, los errores y advertencias del inde
 
 El indexador no pudo leer el documento del origen de datos. Estos pueden ser los motivos:
 
-| Motivo | Detalles/ejemplo | Resolución |
+| Motivo | Detalles/ejemplo | Solución |
 | --- | --- | --- |
 | tipos de campo incoherentes en distintos documentos | El tipo de valor no coincide con el tipo de columna. No se pudo almacenar `'{47.6,-122.1}'` en la columna de autores.  El tipo esperado es JArray. | Asegúrese de que el tipo de cada campo sea el mismo en los distintos documentos. Por ejemplo, si el campo `'startTime'` del primer documento es DateTime y el del segundo documento es una cadena, se mostrará este error. |
 | errores del servicio subyacente del origen de datos | (de Cosmos DB) `{"Errors":["Request rate is large"]}` | Compruebe la instancia de almacenamiento para asegurarse de que es correcta. Es posible que tenga que ajustar el escalado o la creación de particiones. |
@@ -54,22 +54,22 @@ El indexador no pudo leer el documento del origen de datos. Estos pueden ser los
 
 <a name="could-not-extract-document-content"/>
 
-## <a name="error-could-not-extract-document-content"></a>Error: No se pudo extraer el contenido del documento
-El indexador con un origen de datos de blob no pudo extraer el contenido del documento (por ejemplo, un archivo PDF). Estos pueden ser los motivos:
+## <a name="error-could-not-extract-content-or-metadata-from-your-document"></a>Error: No se pudo extraer el contenido o los metadatos del documento
+El indexador con un origen de datos de blob no pudo extraer el contenido o los metadatos del documento (por ejemplo, un archivo PDF). Estos pueden ser los motivos:
 
-| Motivo | Detalles/ejemplo | Resolución |
+| Motivo | Detalles/ejemplo | Solución |
 | --- | --- | --- |
 | el blob está por encima del límite de tamaño | El documento tiene `'150441598'` bytes, lo que supera el tamaño máximo de `'134217728'` bytes para la extracción de documentos con el nivel de servicio actual. | [errores de indexación de blobs](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | el blob tiene un tipo de contenido no admitido | El documento tiene un tipo de contenido no admitido `'image/png'` | [errores de indexación de blobs](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | el blob está cifrado | No se pudo procesar el documento; puede que esté cifrado o protegido con contraseña. | Puede omitir el blob con la [configuración de blob](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
-| problemas transitorios | Error al procesar el blob: Se anuló la solicitud: Se canceló la solicitud. | En ocasiones, hay problemas de conectividad inesperados. Intente volver a ejecutar el documento mediante el indexador más adelante. |
+| problemas transitorios | "Error al procesar el blob: Se anuló la solicitud: se canceló la solicitud." "Se agotó el tiempo de espera del documento durante el procesamiento". | En ocasiones, hay problemas de conectividad inesperados. Intente volver a ejecutar el documento mediante el indexador más adelante. |
 
 <a name="could-not-parse-document"/>
 
 ## <a name="error-could-not-parse-document"></a>Error: No se pudo analizar el documento
 El indexador leyó el documento desde el origen de datos, pero hubo un problema al convertir el contenido del documento en el esquema de asignación de campos especificado. Estos pueden ser los motivos:
 
-| Motivo | Detalles/ejemplo | Resolución |
+| Motivo | Detalles/ejemplo | Solución |
 | --- | --- | --- |
 | Falta la clave del documento. | No puede faltar la clave del documento ni estar vacía | Asegúrese de que todos los documentos tengan claves de documento válidas. |
 | La clave del documento no es válida | La clave del documento no puede tener más de 1024 caracteres | Modifique la clave del documento para que cumpla los requisitos de validación. |
@@ -81,7 +81,7 @@ El indexador leyó el documento desde el origen de datos, pero hubo un problema 
 ## <a name="error-could-not-execute-skill"></a>Error: No se pudo ejecutar la aptitud
 El indexador no pudo ejecutar una aptitud del conjunto de aptitudes.
 
-| Motivo | Detalles/ejemplo | Resolución |
+| Motivo | Detalles/ejemplo | Solución |
 | --- | --- | --- |
 | Problemas de conectividad transitorios | Se produjo un error transitorio. Inténtelo de nuevo más tarde. | En ocasiones, hay problemas de conectividad inesperados. Intente volver a ejecutar el documento mediante el indexador más adelante. |
 | Posible error del producto | Se ha producido un error inesperado. | Esto indica una clase desconocida de error y puede significar que hay un error del producto. Registre una [incidencia de soporte técnico](https://ms.portal.azure.com/#create/Microsoft.Support) para obtener ayuda. |
@@ -140,7 +140,7 @@ El valor máximo que puede establecer para el parámetro `timeout` es de 230 se
 
 El documento se leyó y se procesó, pero el indexador no pudo agregarlo al índice de búsqueda. Estos pueden ser los motivos:
 
-| Motivo | Detalles/ejemplo | Resolución |
+| Motivo | Detalles/ejemplo | Solución |
 | --- | --- | --- |
 | Un campo contiene un término demasiado grande | Un término del documento es mayor que el [límite de 32 KB](search-limits-quotas-capacity.md#api-request-limits) | Para evitar esta restricción, asegúrese de que el campo no está configurado como filtrable, con facetas o que se puede ordenar.
 | El documento es demasiado grande para indexarlo | Un documento es mayor que el [tamaño de solicitud de API máximo](search-limits-quotas-capacity.md#api-request-limits) | [Indexación de grandes conjuntos de datos](search-howto-large-index.md)
@@ -158,7 +158,7 @@ El documento se leyó y se procesó, pero debido a un error de coincidencia en l
 
 | Motivo | Detalles/ejemplo
 | --- | ---
-| El tipo de datos de los campos extraídos por el indexador no es compatible con el modelo de datos del campo de índice de destino correspondiente. | El campo de datos "_data_" del documento con la clave "_data_" tiene un valor no válido "of type 'Edm.String'". El tipo esperado era "Collection(Edm.String)". |
+| El tipo de datos de los campos extraídos por el indexador no es compatible con el modelo de datos del campo de índice de destino correspondiente. | El campo de datos "_data_" del documento con la clave "888" tiene un valor no válido "of type 'Edm.String'". El tipo esperado era "Collection(Edm.String)". |
 | Error al extraer una entidad JSON de un valor de cadena. | No se pudo analizar el valor "of type 'Edm.String'" del campo "_data_" como objeto JSON. Error: "After parsing a value an unexpected character was encountered: ''. Path '_path_', line 1, position 3162". |
 | Error al extraer una colección de entidades JSON de un valor de cadena.  | No se pudo analizar el valor "of type 'Edm.String'" del campo "_data_" como matriz JSON. Error: "After parsing a value an unexpected character was encountered: ''. Path '[0]', line 1, position 27". |
 | Se detectó un tipo desconocido en el documento de origen. | No se puede indexar el tipo desconocido "_unknown_" |
@@ -174,10 +174,18 @@ Este error se produce cuando el indexador no puede finalizar el procesamiento de
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 
-## <a name="warning-could-not-execute-skill-because-a-skill-input-was-invalid"></a>Advertencia: No se pudo ejecutar la aptitud porque una entrada de aptitud no era válida
-El indexador no pudo ejecutar una aptitud del conjunto de aptitudes porque faltaba una entrada para la aptitud, era del tipo equivocado o no era válida.
+## <a name="warning-skill-input-was-invalid"></a>Advertencia: La entrada de aptitud no era válida
+Faltaba una entrada para la aptitud, era de un tipo incorrecto o bien no era válida. El mensaje de advertencia indicará el impacto:
+1) No se pudo ejecutar la aptitud
+2) La aptitud se ejecutó, pero puede tener resultados inesperados
 
-Las aptitudes cognitivas tienen entradas obligatorias y entradas opcionales. Por ejemplo, la [aptitud Extracción de frases clave](cognitive-search-skill-keyphrases.md) tiene dos entradas obligatorias `text`, `languageCode`, y no tienen ninguna entrada opcional. Si las entradas requeridas no son válidas, la aptitud se omite y genera una advertencia. Las aptitudes omitidas no generan ninguna salida, por lo que si otras aptitudes usan salidas de la aptitud omitida, podrían generar más advertencias.
+Las aptitudes cognitivas tienen entradas obligatorias y entradas opcionales. Por ejemplo, la [aptitud Extracción de frases clave](cognitive-search-skill-keyphrases.md) tiene dos entradas obligatorias `text`, `languageCode`, y no tienen ninguna entrada opcional. Las entradas de aptitudes personalizadas se consideran entradas opcionales.
+
+Si faltan entradas necesarias o si alguna de estas no es el tipo correcto, se omite la aptitud y se genera una advertencia. Las aptitudes omitidas no generan ninguna salida, por lo que si otras aptitudes usan salidas de la aptitud omitida, podrían generar más advertencias.
+
+Si falta una entrada opcional, la aptitud seguirá ejecutándose, pero puede producir una salida inesperada debido a que falta la entrada.
+
+En ambos casos, se puede esperar esta advertencia debido a la forma de los datos. Por ejemplo, si tiene un documento que contiene información sobre personas con los campos `firstName`, `middleName`y `lastName`, es posible que tenga algunos documentos que no incluyan una entrada para `middleName`. Si va a pasar `middleName` como una entrada a una aptitud de la canalización, se espera que falte algo de tiempo en esta entrada de aptitud. Tendrá que evaluar los datos y el escenario para determinar si se requiere alguna acción como resultado de esta advertencia.
 
 Si quiere proporcionar un valor predeterminado en caso de una entrada omitida, puede usar la [aptitud condicional](cognitive-search-skill-conditional.md) para generar un valor predeterminado y luego usar la salida de la [aptitud condicional](cognitive-search-skill-conditional.md) como la entrada de la aptitud.
 
@@ -195,10 +203,10 @@ Si quiere proporcionar un valor predeterminado en caso de una entrada omitida, p
 }
 ```
 
-| Motivo | Detalles/ejemplo | Resolución |
+| Motivo | Detalles/ejemplo | Solución |
 | --- | --- | --- |
-| La entrada de aptitud tiene un tipo incorrecto | La entrada de aptitud obligatoria `X` no tenía el tipo esperado `String`. La entrada de aptitud obligatoria `X` no tenía el formato esperado. | Ciertas aptitudes esperan entradas de tipos determinados, por ejemplo, la [aptitud Opinión](cognitive-search-skill-sentiment.md) espera que `text` sea una cadena. Si la entrada especifica un valor que no es de cadena, la aptitud no se ejecuta y no genera ninguna salida. Asegúrese de que el conjunto de datos tiene valores de entrada con un tipo uniforme, o bien use una [aptitud API web personalizada](cognitive-search-custom-skill-web-api.md) para procesar previamente la entrada. Si va a iterar la aptitud en una matriz, revise que la entrada y el contexto de la aptitud tengan `*` en las posiciones correctas. Por lo general, tanto el contexto como el origen de entrada deben finalizar con `*` para las matrices. |
-| Falta la entrada de aptitud | Falta la entrada de aptitud obligatoria `X`. | Si todos los documentos reciben esta advertencia, lo más probable es que haya un error tipográfico en las rutas de acceso de las entradas, por lo que debe revisar nuevamente el uso de mayúsculas y minúsculas en el nombre de la propiedad, ver si faltan o sobran `*` en la ruta de acceso y si los documentos del origen de datos definen las entradas obligatorias. |
+| La entrada de aptitud tiene un tipo incorrecto | "La entrada de aptitud obligatoria no era del tipo esperado `String`. Nombre: `text`; origen: `/document/merged_content`".  "La entrada de aptitud obligatoria no tenía el formato esperado. Nombre: `text`; origen: `/document/merged_content`".  "No se puede iterar en el elemento `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`, que no es una matriz".  "No se puede seleccionar `0` en un elemento `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`, que no es una matriz". | Ciertas aptitudes esperan entradas de tipos determinados, por ejemplo, la [aptitud Opinión](cognitive-search-skill-sentiment.md) espera que `text` sea una cadena. Si la entrada especifica un valor que no es de cadena, la aptitud no se ejecuta y no genera ninguna salida. Asegúrese de que el conjunto de datos tiene valores de entrada con un tipo uniforme, o bien use una [aptitud API web personalizada](cognitive-search-custom-skill-web-api.md) para procesar previamente la entrada. Si va a iterar la aptitud en una matriz, revise que la entrada y el contexto de la aptitud tengan `*` en las posiciones correctas. Por lo general, tanto el contexto como el origen de entrada deben finalizar con `*` para las matrices. |
+| Falta la entrada de aptitud | "Falta la entrada de aptitud obligatoria. Nombre: `text`; origen: `/document/merged_content`". "Falta el valor `/document/normalized_images/0/imageTags`".  "No se puede seleccionar `0` en una matriz `/document/pages` de longitud `0`". | Si todos los documentos reciben esta advertencia, lo más probable es que haya un error ortográfico en las rutas de acceso de las entradas, por lo que debe revisar nuevamente el uso de mayúsculas y minúsculas en el nombre de la propiedad, ver si faltan o sobran `*` en la ruta de acceso y asegurarse de que los documentos del origen de datos proporcionan las entradas obligatorias. |
 | La entrada de código de idioma de aptitud no es válida | La entrada de aptitud `languageCode` tiene los códigos de idioma siguientes `X,Y,Z`, uno de los cuales es al menos no válido. | Consulte más detalles [a continuación](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid). |
 
 <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"/>

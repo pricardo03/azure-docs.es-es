@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Extracción de detalles de imágenes con la API REST y C#: Bing Image Search'
 titleSuffix: Azure Cognitive Services
-description: Use este artículo para crear una aplicación de C# que extraiga los detalles de la imagen con Bing Image Search API.
+description: Use este inicio rápido para crear una aplicación de C# que extraiga los detalles de la imagen con Bing Image Search API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
-ms.openlocfilehash: 9f707dd6b93080e550b4f75e7c9c23139b8adf1d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 69c5fc9805bed8fdfde3dd208e7fb66254e82c3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930682"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383882"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutorial: Extracción de detalles de imágenes con Bing Image Search API y C#
 
@@ -34,7 +34,7 @@ Este tutorial explica cómo realizar lo siguiente:
 
 El código fuente del ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingGetSimilarImages.cs).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Cualquier edición de [Visual Studio 2017 o posterior](https://visualstudio.microsoft.com/downloads/).
 

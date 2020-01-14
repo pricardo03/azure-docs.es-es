@@ -1,29 +1,28 @@
 ---
-title: Configuración de la conmutación por error y la conmutación por recuperación para máquinas virtuales de Hyper-V en Azure Site Recovery
-description: Aprenda a realizar la conmutación por error y la conmutación por recuperación de máquinas virtuales de Hyper V durante la recuperación ante desastres a Azure mediante el servicio Azure Site Recovery.
+title: Configuración de la conmutación por error de máquinas virtuales de Hyper-V a Azure en Azure Site Recovery
+description: Aprenda a conmutar por error máquinas virtuales de Hyper-V a Azure con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/14/2019
+ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: a8c197c2f0875bb31d091fb5839730ee1568b471
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 03826abf6da94859c510f4c127dfce035aa79370
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082645"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498158"
 ---
-# <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Conmutar por error y conmutar por recuperación máquinas virtuales de Hyper-V replicadas en Azure
+# <a name="fail-over-hyper-v-vms-to-azure"></a>Conmutación por error de máquinas virtuales de Hyper-V a Azure
 
-En este tutorial se describe cómo conmutar por error una máquina virtual de Hyper-V en Azure. Después de que ha conmutado por error, conmutará por recuperación a su sitio local cuando esté disponible. En este tutorial, aprenderá a:
+En este tutorial se describe cómo conmutar por error máquinas virtuales de Hyper-V a Azure con [Azure Site Recovery](site-recovery-overview.md). Después de que ha conmutado por error, conmutará por recuperación a su sitio local cuando esté disponible. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Verificar las propiedades de máquinas virtuales de Hyper-V para comprobar que se cumplen los requisitos de Azure.
-> * Ejecutar una conmutación por error en Azure.
-> * Conmutación por recuperación de Azure al entorno local
-> * Realizar replicación inversa en las máquinas virtuales locales para volver a iniciar la replicación en Azure
+> * Comprobar las propiedades de máquinas virtuales de Hyper-V para confirmar que se cumplen los requisitos de Azure.
+> * Conmutar por error máquinas virtuales específicas a Azure.
+
 
 Este es el quinto tutorial de su serie. En él se da por hecho que ya ha realizado las tareas de los tutoriales anteriores.    
 
@@ -32,8 +31,9 @@ Este es el quinto tutorial de su serie. En él se da por hecho que ya ha realiza
 3. Configuración de la recuperación ante desastres de [máquinas virtuales de Hyper-V](tutorial-hyper-v-to-azure.md) o de [máquinas virtuales de Hyper-V administradas en nubes VMM de System Center](tutorial-hyper-v-vmm-to-azure.md)
 4. [Exploración de la recuperación ante desastres](tutorial-dr-drill-azure.md)
 
-## <a name="prepare-for-failover-and-failback"></a>Preparación de la conmutación por error y la conmutación por recuperación
+[Más información](failover-failback-overview.md#types-of-failover) sobre los diferentes tipos de conmutación por error. Si quiere conmutar por error varias máquinas virtuales de un plan de recuperación, revise [este artículo](site-recovery-failover.md).
 
+## <a name="prepare-for-failover"></a>Preparación para la conmutación por error 
 Asegúrese de que no hay instantáneas en la máquina virtual y de que la máquina virtual local se ha desactivado durante la conmutación por recuperación. Esto ayuda a garantizar la coherencia de datos durante la replicación. No encienda la máquina virtual local durante la conmutación por recuperación. 
 
 La conmutación por error y la conmutación por recuperación constan de tres etapas:
@@ -56,7 +56,7 @@ En **Elementos protegidos**, haga clic en **Elementos replicados** > VM.
 
 1. En **Discos** puede ver información sobre los discos de datos y el sistema operativo de la máquina virtual.
 
-## <a name="failover-to-azure"></a>Conmutación por error a Azure
+## <a name="fail-over-to-azure"></a>Conmutación por error a Azure
 
 1. En **Configuración** > **Elementos replicados**, haga clic en VM > **Conmutación por error**.
 2. En **Conmutación por error**, seleccione el punto de recuperación **más reciente**. 
@@ -66,15 +66,18 @@ En **Elementos protegidos**, haga clic en **Elementos replicados** > VM.
 > [!WARNING]
 > **No cancele una conmutación por error en curso**: Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.
 
-## <a name="failback-azure-vm-to-on-premises-and-reverse-replicate-the-on-premises-vm"></a>Conmutación por recuperación de una máquina virtual de Azure a un entorno local y replicación inversa de la máquina virtual local
+## <a name="connect-to-failed-over-vm"></a>Conexión a la máquina virtual conmutada por error
 
-Básicamente, la operación de conmutación por recuperación es una conmutación por error desde Azure hasta el sitio local y en la replicación inversa empieza de nuevo la replicación de las máquinas virtuales desde el sitio local hasta Azure.
+1. Si quiere conectarse a las máquinas virtuales de Azure después de la conmutación por error mediante el Protocolo de escritorio remoto (RDP) y Secure Shell (SSH), [compruebe que se han cumplido los requisitos](failover-failback-overview.md#connect-to-azure-after-failover).
+2. Después de la conmutación por error, vaya a la máquina virtual y [conéctese](../virtual-machines/windows/connect-logon.md) a ella para realizar la validación.
+3. Use **Cambiar punto de recuperación** si desea usar otro punto de recuperación después de la conmutación por error. Después de confirmar la conmutación por error en el paso siguiente, esta opción dejará de estar disponible.
+4. Tras la validación, seleccione **Confirmar** para finalizar el punto de recuperación de la máquina virtual después de la conmutación por error.
+5. Tras la confirmación, los demás puntos de recuperación disponibles se eliminan. Este paso finaliza la conmutación por error.
 
-1. En **Configuración** > **Elementos replicados**, haga clic en VM > **Conmutación por error planeada**.
-2. En **Confirmar conmutación por error planeada**, compruebe la dirección de la conmutación por error (de Azure) y seleccione las ubicaciones de origen y de destino.
-3. Seleccione **Sincronizar datos antes de la conmutación por error (sincronizar solo cambios diferenciales)** . Esta opción minimiza el tiempo de inactividad de la máquina virtual, ya que se sincroniza sin necesidad de apagarla.
-4. Inicie la conmutación por error. Puede seguir el progreso de la conmutación por error en la pestaña **Trabajos** .
-5. Una vez que la sincronización de datos inicial haya finalizado y esté listo para apagar las máquinas virtuales de Azure, haga clic en **Trabajos** > nombre del trabajo de conmutación por error planeado > **Completar conmutación por error**. La máquina virtual de Azure se apagará, se transferirán los cambios más recientes en el entorno local y se iniciará la máquina virtual local.
-6. Inicie sesión en la máquina virtual local para comprobar que está disponible según lo previsto.
-7. La máquina virtual local se encuentra ahora en un estado de **confirmación pendiente**. Haga clic en **Confirmar**. Así se eliminan las máquinas virtuales de Azure y sus discos, y se prepara la máquina virtual local para la replicación inversa.
-Para iniciar la replicación de la máquina virtual local en Azure, habilite la **replicación inversa**. Esto desencadena la replicación de cambios diferenciales que se han producido desde que se apagó la máquina virtual de Azure.  
+>[!TIP]
+> Si tiene algún problema de conectividad después de la conmutación por error, siga la [guía para la solución de problemas](site-recovery-failover-to-azure-troubleshoot.md).
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Tras la conmutación por error, vuelva a proteger las máquinas virtuales de Azure de modo que se repliquen de Azure al entorno local. Después de que las máquinas virtuales estén protegidas y replicando en el sitio local, realice una conmutación por recuperación desde Azure cuando esté listo.

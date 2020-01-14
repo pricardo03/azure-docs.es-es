@@ -1,18 +1,17 @@
 ---
 title: Ejemplos de Azure Cache for Redis
-description: Aprenda a usar Azure Cache for Redis
+description: Aprenda a usar Azure Cache for Redis con estos ejemplos de código (escenarios de conexión a una caché, lectura y escritura de datos en ella, proveedores de Azure Cache for Redis de ASP.NET).
 author: yegu-ms
-ms.service: cache
-ms.devlang: multiple
-ms.topic: conceptual
-ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: 9097a25c0223faebd91fe3c01ff3edea6c4e6f9f
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.service: cache
+ms.topic: sample
+ms.date: 01/23/2017
+ms.openlocfilehash: 8057a7db3d1a2db0e51ec15e4966ed0b31c84226
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122605"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433401"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Ejemplos de Azure Cache for Redis
 Este tema proporciona una lista de ejemplos de Azure Cache for Redis y cubre escenarios como la conexión a una caché, las operaciones de lectura y escritura de datos en una caché y el uso de proveedores de Azure Cache for Redis de ASP.NET. Algunos de los ejemplos son proyectos que se pueden descargar y algunos otros proporcionan instrucciones paso a paso e incluyen fragmentos de código pero no vínculos a un proyecto que se puede descargar.
@@ -62,4 +61,3 @@ El ejemplo [Retwis](https://github.com/SyntaxC4-MSFT/retwis) es el Hello World d
 
 ## <a name="bandwidth-monitor"></a>Supervisión del ancho de banda
 El ejemplo [Supervisión del ancho de banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) permite supervisar el ancho de banda utilizado en el cliente. Para medir el ancho de banda, ejecute el ejemplo en el equipo cliente de la caché, realice llamadas a la memoria caché y observe el ancho de banda notificado por el ejemplo de supervisión de ancho de banda.
-

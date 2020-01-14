@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: b53bf80774a0715c7a02d837975284e985958635
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 925894aea267e4f100f7bcdb817424b5cdfe6c25
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607431"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459435"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creación de los grupos de inquilinos y de host
 
@@ -53,13 +53,13 @@ Ejemplo de error no procesado:
 
 **Causa:** No han asignado al usuario que ha iniciado sesión el rol TenantCreator en su Azure Active Directory.
 
-**Corrección:** Siga las instrucciones de [Asignar el rol de aplicación TenantCreator a un usuario en el inquilino de Azure Active Directory](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role). Después de seguir las instrucciones, tendrá un usuario asignado al rol TenantCreator.
+**Solución:** Siga las instrucciones de [Asignar el rol de aplicación TenantCreator a un usuario en el inquilino de Azure Active Directory](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role). Después de seguir las instrucciones, tendrá un usuario asignado al rol TenantCreator.
 
 ![Captura de pantalla del rol TenantCreator asignado.](media/TenantCreatorRoleAssigned.png)
 
 ## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Creación de máquinas virtuales de host de sesión de Windows Virtual Desktop
 
-Las máquinas virtuales de host de sesión se pueden crear de varias maneras, pero los equipos de Servicios de Escritorio remoto/Windows Virtual Desktop solo admiten problemas de aprovisionamiento de máquinas virtuales relacionados con la plantilla de Azure Resource Manager. La plantilla de Azure Resource Manager está disponible en [Azure Marketplace](https://azuremarketplace.microsoft.com/) y [GitHub](https://github.com/).
+Las máquinas virtuales de host de sesión se pueden crear de varias maneras, pero el equipo de Windows Virtual Desktop solo admite problemas de aprovisionamiento de máquinas virtuales relacionados con la oferta de [Azure Marketplace](https://azuremarketplace.microsoft.com/). Para obtener más detalles, consulte [Problemas con Windows Virtual Desktop: aprovisionar una oferta de Azure Marketplace de grupo de host](#issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering).
 
 ## <a name="issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering"></a>Problemas con Windows Virtual Desktop: aprovisionar una oferta de Azure Marketplace de grupo de host
 
@@ -87,6 +87,27 @@ Windows Virtual Desktop: en Azure Marketplace está disponible una plantilla de 
     #create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%
     2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
     ```
+
+### <a name="error-you-receive-template-deployment-is-not-valid-error"></a>Error: recibe el error "la implementación de la plantilla no es válida"
+
+![Captura de pantalla del error "la implementación de la plantilla no es válida"](media/troubleshooting-marketplace-validation-error-generic.png)
+
+Antes de realizar una acción específica, deberá comprobar el registro de actividad para ver el error detallado de la validación de la implementación con errores.
+
+Para ver el error en el registro de actividad:
+
+1. Salga de la oferta de implementación de Azure Marketplace actual.
+2. En la barra de búsqueda superior, busque y seleccione **Registro de actividad**.
+3. Busque una actividad denominada **Validar implementación** que tenga el estado **Erróneo** y seleccione la actividad.
+   ![Captura de pantalla de la actividad individual **Validar implementación** con un estado *Erróneo*](media/troubleshooting-marketplace-validation-error-activity-summary.png)
+
+4. Seleccione JSON y, a continuación, desplácese hacia abajo hasta la parte inferior de la pantalla hasta que vea el campo "statusMessage".
+   ![Captura de pantalla de la actividad con errores, con un cuadro rojo alrededor de la propiedad statusMessage del texto JSON.](media/troubleshooting-marketplace-validation-error-json-boxed.png)
+
+Si la plantilla de la operación supera el límite de cuota, puede realizar una de las siguientes acciones para solucionarlo:
+
+ - Ejecute Azure Marketplace con los parámetros que usó la primera vez, pero esta vez use menos máquinas virtuales y núcleos de máquina virtual.
+ - Abra el vínculo que aparece en el campo **statusMessage** en un explorador para enviar una solicitud a fin de aumentar la cuota de su suscripción a Azure para la SKU de la máquina virtual especificada.
 
 ## <a name="azure-resource-manager-template-and-powershell-desired-state-configuration-dsc-errors"></a>Errores de la plantilla de Azure Resource Manager y de la Configuración de estado deseado (DSC) de PowerShell
 
@@ -138,7 +159,7 @@ Ejemplo de error no procesado:
 
 **Causa 2:** Error transitorio de conexión.
 
-**Corrección:** Inicie sesión con PowerShell para confirmar que el entorno de Windows Virtual Desktop es correcto. Finalice manualmente el registro de la máquina virtual en [Creación de un grupo de host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+**Solución:** Inicie sesión con PowerShell para confirmar que el entorno de Windows Virtual Desktop es correcto. Finalice manualmente el registro de la máquina virtual en [Creación de un grupo de host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Error: El nombre de usuario de administrador especificado no está permitido
 
@@ -157,7 +178,7 @@ Ejemplo de error no procesado:
 
 **Causa:** La contraseña proporcionada contiene subcadenas prohibidas (admin, administrador, raíz).
 
-**Corrección:** Actualice el nombre de usuario o utilice distintos usuarios.
+**Solución:** Actualice el nombre de usuario o utilice distintos usuarios.
 
 ### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Error: La máquina virtual ha indicado un error al procesar la extensión
 
@@ -183,7 +204,7 @@ Ejemplo de error no procesado:
 
 **Causa:** La extensión DSC de PowerShell no ha podido obtener acceso de administrador a la máquina virtual.
 
-**Corrección:** Confirme que el nombre de usuario y la contraseña tienen acceso administrativo a la máquina virtual y vuelva a ejecutar la plantilla de Azure Resource Manager.
+**Solución:** Confirme que el nombre de usuario y la contraseña tienen acceso administrativo a la máquina virtual y vuelva a ejecutar la plantilla de Azure Resource Manager.
 
 ### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Error: DeploymentFailed: la configuración de DSC de PowerShell "FirstSessionHost" se ha completado con errores
 
@@ -215,7 +236,7 @@ Ejemplo de error no procesado:
 
 **Causa:** La extensión DSC de PowerShell no ha podido obtener acceso de administrador a la máquina virtual.
 
-**Corrección:** Confirme que el nombre de usuario y la contraseña proporcionados tienen acceso administrativo a la máquina virtual y vuelva a ejecutar la plantilla de Azure Resource Manager.
+**Solución:** Confirme que el nombre de usuario y la contraseña proporcionados tienen acceso administrativo a la máquina virtual y vuelva a ejecutar la plantilla de Azure Resource Manager.
 
 ### <a name="error-deploymentfailed--invalidresourcereference"></a>Error: DeploymentFailed: InvalidResourceReference
 
@@ -242,7 +263,7 @@ region.\\\",\\r\\n\\\"details\\\": []\\r\\n }\\r\\n}\"\r\n }\r\n ]\r\n }\r\n ]\r
 
 **Causa:** Parte del nombre del grupo de recursos se usa para determinados recursos que se crean mediante la plantilla. Debido a los recursos existentes con coincidencia de nombres, la plantilla puede seleccionar un recurso existente de un grupo diferente.
 
-**Corrección:** Al ejecutar la plantilla de Azure Resource Manager para implementar las máquinas virtuales del host de sesión, asegúrese de los dos primeros caracteres sean únicos para el nombre del grupo de recursos de suscripción.
+**Solución:** Al ejecutar la plantilla de Azure Resource Manager para implementar las máquinas virtuales del host de sesión, asegúrese de los dos primeros caracteres sean únicos para el nombre del grupo de recursos de suscripción.
 
 ### <a name="error-deploymentfailed--invalidresourcereference"></a>Error: DeploymentFailed: InvalidResourceReference
 
@@ -269,7 +290,7 @@ resources are in the same region.\\\",\\r\\n \\\"details\\\": []\\r\\n }\\r\\n}\
 
 **Causa:** Este error se debe a que la NIC creada con la plantilla de Azure Resource Manager tiene el mismo nombre que otra NIC de la red virtual.
 
-**Corrección:** Utilice un prefijo de host diferente.
+**Solución:** Utilice un prefijo de host diferente.
 
 ### <a name="error-deploymentfailed--error-downloading"></a>Error: DeploymentFailed: error al descargar
 
@@ -288,7 +309,7 @@ the VM.\\\"
 
 **Causa:** Este error se debe a que una ruta estática, una regla de firewall o un NSG bloquean la descarga del archivo zip vinculado a la plantilla de Azure Resource Manager.
 
-**Corrección:** Suprima la ruta estática de bloqueo, la regla de firewall o el NSG. De manera opcional, abra el archivo json de plantilla de Azure Resource Manager en un editor de texto, comprima el vínculo en un archivo zip y descargue el recurso en una ubicación permitida.
+**Solución:** Suprima la ruta estática de bloqueo, la regla de firewall o el NSG. De manera opcional, abra el archivo json de plantilla de Azure Resource Manager en un editor de texto, comprima el vínculo en un archivo zip y descargue el recurso en una ubicación permitida.
 
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Error: El usuario no está autorizado para consultar el servicio de administración
 
@@ -307,7 +328,7 @@ The SendConfigurationApply function did not succeed.\"." }, "name": "2c3272ec-d2
 
 **Causa:** El administrador de inquilinos de Windows Virtual Desktop especificado no tiene una asignación de roles válida.
 
-**Corrección:** El usuario que ha creado el inquilino de Windows Virtual Desktop debe iniciar sesión en PowerShell para Windows Virtual Desktop y asignar un rol al usuario que lo ha intentado. Si está ejecutando los parámetros de la plantilla de GitHub Azure Resource Manager, siga estas instrucciones mediante los comandos de PowerShell:
+**Solución:** El usuario que ha creado el inquilino de Windows Virtual Desktop debe iniciar sesión en PowerShell para Windows Virtual Desktop y asignar un rol al usuario que lo ha intentado. Si está ejecutando los parámetros de la plantilla de GitHub Azure Resource Manager, siga estas instrucciones mediante los comandos de PowerShell:
 
 ```PowerShell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -326,7 +347,7 @@ Ejemplo de error no procesado:
 
 **Causa:** El administrador de inquilinos de Windows Virtual Desktop especificado requiere autenticación multifactor (MFA) de Azure para iniciar sesión.
 
-**Corrección:** Cree una entidad de servicio y asígnele un rol para el inquilino de Windows Virtual Desktop mediante los pasos descritos en [Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell). Después de comprobar que puede iniciar sesión en Windows Virtual Desktop con la entidad de servicio, vuelva a ejecutar la oferta de Azure Marketplace o la plantilla de GitHub Azure Resource Manager, según el método que utilice. Siga las instrucciones siguientes para introducir los parámetros correctos para el método.
+**Solución:** Cree una entidad de servicio y asígnele un rol para el inquilino de Windows Virtual Desktop mediante los pasos descritos en [Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell). Después de comprobar que puede iniciar sesión en Windows Virtual Desktop con la entidad de servicio, vuelva a ejecutar la oferta de Azure Marketplace o la plantilla de GitHub Azure Resource Manager, según el método que utilice. Siga las instrucciones siguientes para introducir los parámetros correctos para el método.
 
 Si está ejecutando la oferta de Azure Marketplace, proporcione valores para los parámetros siguientes a fin de autenticarse correctamente en Windows Virtual Desktop:
 
@@ -346,9 +367,10 @@ Si está ejecutando la plantilla de GitHub Azure Resource Manager, proporcione v
 
 - Para obtener información general sobre cómo solucionar problemas de Windows Virtual Desktop y las pistas de escalación, consulte [Introducción, comentarios y soporte técnico para solucionar problemas](troubleshoot-set-up-overview.md).
 - Para solucionar problemas al configurar una máquina virtual (VM) en Windows Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
-- Para solucionar problemas con conexiones de cliente de Windows Virtual Desktop, consulte [Conexiones de cliente de Escritorio remoto](troubleshoot-client-connection.md).
+- Para solucionar problemas con conexiones de cliente de Windows Virtual Desktop, consulte [Conexiones de servicios de Windows Virtual Desktop](troubleshoot-service-connection.md).
+- Para solucionar problemas con los clientes de Escritorio remoto, consulte [Solucionar problemas con el cliente de Escritorio remoto](troubleshoot-client.md).
 - Para solucionar problemas al usar PowerShell con Windows Virtual Desktop, consulte [PowerShell para Windows Virtual Desktop](troubleshoot-powershell.md).
-- Para más información sobre el servicio, consulte [Entorno de Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- Para más información sobre el servicio, consulte [Entorno de Windows Virtual Desktop](environment-setup.md).
+- Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
+- Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](../azure-resource-manager/resource-group-audit.md).
+- Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](../azure-resource-manager/resource-manager-deployment-operations.md).

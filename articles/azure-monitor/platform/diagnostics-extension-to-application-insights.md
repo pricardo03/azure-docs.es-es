@@ -4,15 +4,15 @@ description: Actualice la configuración pública de Diagnósticos de Azure para
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 03/19/2016
-ms.openlocfilehash: 6165ff13f489f9f23b9ece677b3643641150130d
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: b89e7d93113990e032f526d1f32e4e6acddffa75
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285990"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450577"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Envío de datos de diagnóstico de Cloud Services, Virtual Machines o Service Fabric a Application Insights
 Cloud Services, Virtual Machines, los conjuntos de escalado de máquinas virtuales y Service Fabric usan la extensión Azure Diagnostics para recopilar datos.  Esta extensión envía los datos a las tablas de Azure Storage.  Sin embargo, también puede canalizar todos los datos o un subconjunto de ellos a otras ubicaciones mediante la versión 1.5 o una posterior de la extensión Azure Diagnostics.
@@ -57,7 +57,7 @@ Ejemplo de configuración de un receptor para Application Insights:
     ]
 }
 ```
-- El atributo de *name* del **receptor** es un valor de cadena que identifica de forma única el receptor.
+- El atributo *name* del **receptor** es un valor de cadena que identifica de forma única el receptor.
 
 - El elemento **ApplicationInsights** especifica la clave de instrumentación del recurso de Application Insights donde se enviarán los datos de Azure Diagnostics.
     - Si no tiene un recurso existente de Application Insights, consulte [Creación de recursos en Application Insights](../../azure-monitor/app/create-new-resource.md ) para más información sobre cómo crear un recurso y obtener la clave de instrumentación.
@@ -66,8 +66,8 @@ Ejemplo de configuración de un receptor para Application Insights:
 - El elemento **Channels** contiene uno o varios elementos **Channel**.
     - El atributo *name* identifica de forma única el atributo a ese canal.
     - Con el atributo *loglevel* se puede especificar el nivel de registro que permitirá el canal. Estos son los niveles de registro disponibles, en orden de más a menos información:
-        - Detallado
-        - Información
+        - Verbose
+        - Information
         - Advertencia
         - Error
         - Crítico

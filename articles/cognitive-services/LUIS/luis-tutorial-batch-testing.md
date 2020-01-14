@@ -9,77 +9,79 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 12/19/2019
 ms.author: diberry
-ms.openlocfilehash: 68a0016e034f4642c4e4ff166a1456f7ecf1ee3c
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 54beb26554fd823c46f961b4cc7057f347ad343c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904231"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447976"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutorial: Pruebas en lote de conjuntos de datos
 
-En este tutorial se muestra cómo usar las pruebas por lotes para encontrar problemas de predicción de expresiones en la aplicación y corregirlos.  
+En este tutorial se muestra cómo usar las pruebas por lotes para encontrar problemas de predicción de expresiones en la aplicación y corregirlos.
 
-Las pruebas por lotes permiten validar el estado del modelo entrenado activo con un conjunto conocido de entidades y expresiones etiquetadas. En el archivo por lotes con formato JSON, agregue las expresiones y establezca las etiquetas de entidad que necesita predecir dentro de la expresión. 
+Las pruebas por lotes permiten validar el estado del modelo entrenado activo con un conjunto conocido de entidades y expresiones etiquetadas. En el archivo por lotes con formato JSON, agregue las expresiones y establezca las etiquetas de entidad que necesita predecir dentro de la expresión.
 
 Requisitos de las pruebas por lotes:
 
-* Máximo de 1000 expresiones por prueba. 
-* Sin duplicados. 
+* Máximo de 1000 expresiones por prueba.
+* Sin duplicados.
 * Tipos de entidad permitidos: solo entidades de aprendizaje automático de entidades simples y compuestas. Las pruebas por lotes solo son útiles para las entidades e intenciones de aprendizaje automático.
 
-Cuando use una aplicación que no sea este tutorial, asegúrese de *no* usar las expresiones de ejemplo que ya están agregadas en una intención. 
+Cuando use una aplicación que no sea este tutorial, asegúrese de *no* usar las expresiones de ejemplo que ya están agregadas en una intención.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 
 **En este tutorial, aprenderá a:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Importar la aplicación de ejemplo
-> * Crear un archivo de prueba por lotes 
+> * Crear un archivo de prueba por lotes
 > * Ejecutar una prueba por lotes
 > * Revisar los resultados de la prueba
-> * Corregir errores 
+> * Corregir errores
 > * Volver a realizar la prueba por lotes
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="import-example-app"></a>Importar la aplicación de ejemplo
 
-Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**. 
+Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**.
 
-Para ello, siga los pasos que se describen a continuación:
+Siga estos pasos:
 
-1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
+1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json?raw=true).
+
 
 2. Importe el archivo JSON en una aplicación nueva.
 
-3. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `batchtest`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL. 
+3. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `batchtest`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL.
 
 4. Entrene la aplicación.
 
 ## <a name="batch-file"></a>Filtro por lotes
 
-1. Cree `HumanResources-jobs-batch.json` en un editor de texto o [descárguelo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json). 
+1. Cree `HumanResources-jobs-batch.json` en un editor de texto o [descárguelo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json?raw=true).
 
-2. En el archivo por lotes con formato JSON, agregue expresiones con la **intención** que quiere predecir en la prueba. 
+2. En el archivo por lotes con formato JSON, agregue expresiones con la **intención** que quiere predecir en la prueba.
 
    [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
 
 ## <a name="run-the-batch"></a>Ejecute el lote
 
-1. Haga clic en **Probar** en la barra de navegación superior. 
+1. Haga clic en **Probar** en la barra de navegación superior.
 
-2. Seleccione el **panel Prueba por lotes** en el panel de la derecha. 
+2. Seleccione el **panel Prueba por lotes** en el panel de la derecha.
 
     [![Captura de pantalla de una aplicación de LUIS con el panel Prueba por lotes resaltado](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
 
 3. Seleccione **Importar conjunto de datos**.
 
-    [![Captura de pantalla de una aplicación de LUIS con Importar conjunto de datos resaltado](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de una aplicación de LUIS con Importar conjunto de datos resaltado](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)
 
 4. Elija la ubicación de archivo del archivo `HumanResources-jobs-batch.json`.
 
@@ -87,7 +89,7 @@ Para ello, siga los pasos que se describen a continuación:
 
     ![Selección del archivo](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
-6. Haga clic en el botón **Ejecutar**. 
+6. Haga clic en el botón **Ejecutar**.
 
 7. Seleccione **Ver resultados**.
 
@@ -97,41 +99,41 @@ Para ello, siga los pasos que se describen a continuación:
 
 ## <a name="review-batch-results"></a>Revisar los resultados de lote
 
-El gráfico por lotes muestra cuatro cuadrantes de resultados. Hay un filtro a la derecha del gráfico. El filtro contiene intenciones y entidades. Cuando se selecciona una [sección del gráfico](luis-concept-batch-test.md#batch-test-results) o un punto dentro del gráfico, las expresiones asociadas se muestra debajo del gráfico. 
+El gráfico por lotes muestra cuatro cuadrantes de resultados. Hay un filtro a la derecha del gráfico. El filtro contiene intenciones y entidades. Cuando se selecciona una [sección del gráfico](luis-concept-batch-test.md#batch-test-results) o un punto dentro del gráfico, las expresiones asociadas se muestra debajo del gráfico.
 
-Si mantiene el mouse sobre el gráfico y gira la rueda del mouse, puede agrandar o disminuir la visualización del gráfico. Esto resulta útil cuando hay muchos puntos en el gráfico estrechamente agrupados. 
+Si mantiene el mouse sobre el gráfico y gira la rueda del mouse, puede agrandar o disminuir la visualización del gráfico. Esto resulta útil cuando hay muchos puntos en el gráfico estrechamente agrupados.
 
-El gráfico está en cuatro cuadrantes, donde dos de las secciones aparecen en rojo. **Estas son las secciones a las que debe prestar atención**. 
+El gráfico está en cuatro cuadrantes, donde dos de las secciones aparecen en rojo. **Estas son las secciones a las que debe prestar atención**.
 
 ### <a name="getjobinformation-test-results"></a>Resultados de las pruebas GetJobInformation
 
-Los resultados de las pruebas **GetJobInformation** que aparecen en el filtro muestran que dos de las cuatro predicciones se realizaron correctamente. Seleccione el nombre **Falso negativo** en el cuadrante inferior izquierdo para ver las expresiones debajo del gráfico. 
+Los resultados de las pruebas **GetJobInformation** que aparecen en el filtro muestran que dos de las cuatro predicciones se realizaron correctamente. Seleccione el nombre **Falso negativo** en el cuadrante inferior izquierdo para ver las expresiones debajo del gráfico.
 
-Use el teclado, Ctrl + E, para cambiar a la vista de etiqueta a fin de ver el texto exacto de la expresión del usuario. 
+Use el teclado, Ctrl + E, para cambiar a la vista de etiqueta a fin de ver el texto exacto de la expresión del usuario.
 
-La expresión `Is there a database position open in Los Colinas?` se etiqueta como _GetJobInformation_, pero el modelo actual ha predicho la expresión como _ApplyForJob_. 
+La expresión `Is there a database position open in Los Colinas?` se etiqueta como _GetJobInformation_, pero el modelo actual ha predicho la expresión como _ApplyForJob_.
 
-Hay casi tres veces más ejemplos para **ApplyForJob** que para **GetJobInformation**. Esta desigualdad de las expresiones de ejemplo influye a favor de la intención **ApplyForJob**, lo que da lugar a la predicción incorrecta. 
+Hay casi tres veces más ejemplos para **ApplyForJob** que para **GetJobInformation**. Esta desigualdad de las expresiones de ejemplo influye a favor de la intención **ApplyForJob**, lo que da lugar a la predicción incorrecta.
 
-Observe que ambas intenciones tienen la misma cantidad de errores. Una predicción incorrecta en una intención afecta también a la otra intención. Ambas tienen errores porque las expresiones se predijeron de manera incorrecta para una intención y también de manera incorrecta no se predijeron para la otra intención. 
+Observe que ambas intenciones tienen la misma cantidad de errores. Una predicción incorrecta en una intención afecta también a la otra intención. Ambas tienen errores porque las expresiones se predijeron de manera incorrecta para una intención y también de manera incorrecta no se predijeron para la otra intención.
 
 <a name="fix-the-app"></a>
 
 ## <a name="how-to-fix-the-app"></a>Procedimiento para corregir la aplicación
 
-El objetivo de esta sección es predecir correctamente todas las expresiones para **GetJobInformation** mediante la corrección de la aplicación. 
+El objetivo de esta sección es predecir correctamente todas las expresiones para **GetJobInformation** mediante la corrección de la aplicación.
 
-Una corrección aparentemente rápida sería agregar estas expresiones de archivos por lotes a la intención correcta. Eso no es lo que quiere hacer. Quiere que LUIS prediga de manera correcta estas expresiones sin agregarlas como ejemplos. 
+Una corrección aparentemente rápida sería agregar estas expresiones de archivos por lotes a la intención correcta. Eso no es lo que quiere hacer. Quiere que LUIS prediga de manera correcta estas expresiones sin agregarlas como ejemplos.
 
-Tal vez también se pregunte sobre cómo eliminar expresiones de **ApplyForJob** hasta que la cantidad de expresiones sea igual a **GetJobInformation**. Eso puede corregir los resultados de las pruebas, pero impediría que LUIS pueda predecir dicha intención con precisión la próxima vez. 
+Tal vez también se pregunte sobre cómo eliminar expresiones de **ApplyForJob** hasta que la cantidad de expresiones sea igual a **GetJobInformation**. Eso puede corregir los resultados de las pruebas, pero impediría que LUIS pueda predecir dicha intención con precisión la próxima vez.
 
 La corrección consiste en agregar más expresiones a **GetJobInformation**. Recuerde variar la longitud de la expresión, la elección y la organización de palabras, al tiempo que mantiene la intención de buscar información del trabajo, _no_ de solicitarlo.
 
 ### <a name="add-more-utterances"></a>Adición de más declaraciones
 
-1. Seleccione el botón **Probar** que se encuentra en el panel de navegación superior para cerrar el panel de pruebas por lotes. 
+1. Seleccione el botón **Probar** que se encuentra en el panel de navegación superior para cerrar el panel de pruebas por lotes.
 
-2. Seleccione **GetJobInformation** en la lista de intenciones. 
+2. Seleccione **GetJobInformation** en la lista de intenciones.
 
 3. Agregue más expresiones que varíen en longitud, elección de palabras y disposición de palabras, y asegúrese de incluir los términos `resume`, `c.v.` y `apply`:
 
@@ -161,34 +163,34 @@ La corrección consiste en agregar más expresiones a **GetJobInformation**. Rec
 
 Para comprobar que las expresiones en la prueba por lotes se predicen correctamente, vuelva a ejecutar la prueba por lotes.
 
-1. Haga clic en **Probar** en la barra de navegación superior. Si los resultados por lotes todavía están abiertos, seleccione **Back to list** (Volver a la lista).  
+1. Haga clic en **Probar** en la barra de navegación superior. Si los resultados por lotes todavía están abiertos, seleccione **Back to list** (Volver a la lista).
 
 1. Seleccione el botón de puntos suspensivos (***...***) a la derecha del nombre del lote y luego **Ejecutar**. Espere hasta que se realice la prueba por lotes. Tenga en cuenta que el botón **Ver resultados** ahora aparece en color verde. Esto significa que todo el lote se ejecutó correctamente.
 
-1. Seleccione **Ver resultados**. Todas las intenciones deben tener un icono verde a la izquierda de los nombres de la intención. 
+1. Seleccione **Ver resultados**. Todas las intenciones deben tener un icono verde a la izquierda de los nombres de la intención.
 
-## <a name="create-batch-file-with-entities"></a>Creación de archivo por lotes con entidades 
+## <a name="create-batch-file-with-entities"></a>Creación de archivo por lotes con entidades
 
-A fin de comprobar las entidades de una prueba por lotes, es necesario etiquetar las entidades en el archivo JSON por lotes. 
+A fin de comprobar las entidades de una prueba por lotes, es necesario etiquetar las entidades en el archivo JSON por lotes.
 
-La variación de entidades para el número total de palabras ([token](luis-glossary.md#token)) puede afectar a la calidad de la predicción. Asegúrese de que los datos de entrenamiento proporcionados a la intención con expresiones etiquetadas incluyen una variedad de longitudes de entidad. 
+La variación de entidades para el número total de palabras ([token](luis-glossary.md#token)) puede afectar a la calidad de la predicción. Asegúrese de que los datos de entrenamiento proporcionados a la intención con expresiones etiquetadas incluyen una variedad de longitudes de entidad.
 
-Cuando escriba y pruebe archivos por lotes por primera vez, se recomienda empezar con algunas expresiones y entidades que sabe que funcionan, así como con algunas que considere que se pueden predecir de manera incorrecta. Esto le permite centrarse rápidamente en las áreas problemáticas. Después de probar las intenciones **GetJobInformation** y **ApplyForJob** con varios nombres de trabajo distintos, que no se pueden predecir, este archivo de prueba por lotes se desarrolló para ver si hay un problema de predicción con ciertos valores para la entidad **Job** (Trabajo). 
+Cuando escriba y pruebe archivos por lotes por primera vez, se recomienda empezar con algunas expresiones y entidades que sabe que funcionan, así como con algunas que considere que se pueden predecir de manera incorrecta. Esto le permite centrarse rápidamente en las áreas problemáticas. Después de probar las intenciones **GetJobInformation** y **ApplyForJob** con varios nombres de trabajo distintos, que no se pueden predecir, este archivo de prueba por lotes se desarrolló para ver si hay un problema de predicción con ciertos valores para la entidad **Job** (Trabajo).
 
 El valor de una entidad **Job** (Trabajo), que se proporciona en las expresiones de prueba, suele ser una o dos palabras, con algunos ejemplos que son más que palabras. Si _su propia_ aplicación de recursos humanos habitualmente tiene nombres de trabajo de muchas palabras, las expresiones de ejemplo etiquetadas con la entidad **Job** (Trabajo) en esta aplicación no funcionarían correctamente.
 
-1. Cree `HumanResources-entities-batch.json` en un editor de texto como [VSCode](https://code.visualstudio.com/) o [descárguelo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json).
+1. Cree `HumanResources-entities-batch.json` en un editor de texto como [VSCode](https://code.visualstudio.com/) o [descárguelo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json?raw=true).
 
-2. En el archivo por lotes con formato JSON, agregue una matriz de objetos que incluyen expresiones con la **intención** que quiere predecir en la prueba, así como las ubicaciones de las entidades en la expresión. Como una entidad se basa en token, asegúrese de empezar y detener cada entidad en un carácter. No empiece ni detenga la expresión en un espacio. Esto genera un error durante la importación del archivo por lotes.  
+2. En el archivo por lotes con formato JSON, agregue una matriz de objetos que incluyen expresiones con la **intención** que quiere predecir en la prueba, así como las ubicaciones de las entidades en la expresión. Como una entidad se basa en token, asegúrese de empezar y detener cada entidad en un carácter. No empiece ni detenga la expresión en un espacio. Esto genera un error durante la importación del archivo por lotes.
 
    [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
 
 
 ## <a name="run-the-batch-with-entities"></a>Ejecución del lote con entidades
 
-1. Haga clic en **Probar** en la barra de navegación superior. 
+1. Haga clic en **Probar** en la barra de navegación superior.
 
-2. Seleccione el **panel Prueba por lotes** en el panel de la derecha. 
+2. Seleccione el **panel Prueba por lotes** en el panel de la derecha.
 
 3. Seleccione **Importar conjunto de datos**.
 
@@ -202,30 +204,30 @@ El valor de una entidad **Job** (Trabajo), que se proporciona en las expresiones
 
 ## <a name="review-entity-batch-results"></a>Revisión de los resultados de lote de las entidades
 
-El gráfico se abre con todas las intenciones que se predicen correctamente. Desplácese hacia abajo en el filtro de la derecha para buscar las predicciones de entidades con error. 
+El gráfico se abre con todas las intenciones que se predicen correctamente. Desplácese hacia abajo en el filtro de la derecha para buscar las predicciones de entidades con error.
 
 1. Seleccione la entidad **Job** (Trabajo) en el filtro.
 
     ![Predicciones de entidades con error en el filtro](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
-    El gráfico cambia para mostrar las predicciones de la entidad. 
+    El gráfico cambia para mostrar las predicciones de la entidad.
 
-2. Seleccione **False Negative** (Falso negativo) en el cuadrante inferior izquierdo del gráfico. A continuación, use el control de combinación de teclado + E para cambiar a la vista del token. 
+2. Seleccione **False Negative** (Falso negativo) en el cuadrante inferior izquierdo del gráfico. A continuación, use el control de combinación de teclado + E para cambiar a la vista del token.
 
     [![Vista del token de predicciones de entidad](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
-    
+
     Revisar las expresiones debajo del gráfico muestra un error de coherencia cuando el nombre del trabajo incluye `SQL`. Al revisar las expresiones de ejemplo y la lista de frases de trabajo, SQL solo se usa una vez y solo como parte de un nombre de trabajo más grande, `sql/oracle database administrator`.
 
 ## <a name="fix-the-app-based-on-entity-batch-results"></a>Corrección de la aplicación en función de los resultados de lotes
 
-Corregir la aplicación requiere que LUIS determine correctamente las variaciones de los trabajos de SQL. Hay varias opciones para esa corrección. 
+Corregir la aplicación requiere que LUIS determine correctamente las variaciones de los trabajos de SQL. Hay varias opciones para esa corrección.
 
-* Agregar explícitamente más expresiones de ejemplo, que utilizan SQL, y etiquetar esas palabras como una entidad de trabajo. 
+* Agregar explícitamente más expresiones de ejemplo, que utilizan SQL, y etiquetar esas palabras como una entidad de trabajo.
 * Agregar explícitamente más trabajos de SQL a la lista de frases.
 
 Estas tareas se dejan para que las haga el usuario.
 
-Agregar un [patrón](luis-concept-patterns.md) antes de que la entidad se prediga correctamente no va a corregir el problema. Esto es porque el patrón no coincidirá hasta que se detecten todas las entidades del patrón. 
+Agregar un [patrón](luis-concept-patterns.md) antes de que la entidad se prediga correctamente no va a corregir el problema. Esto es porque el patrón no coincidirá hasta que se detecten todas las entidades del patrón.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

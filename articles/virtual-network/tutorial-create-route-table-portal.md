@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7e7a01b7fdc1a508fa19397900f8fd4f52d49c53
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: be4a47d26bcfc407734956a3d9bf8778c5afcfb4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164006"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350293"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Enrutamiento del tráfico de red con una tabla de rutas mediante Azure Portal
 
@@ -44,7 +44,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com).
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-route-table"></a>Creación de una tabla de rutas
 
@@ -52,13 +52,13 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 1. En **Crear tabla de rutas**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
-    | NOMBRE | Escriba *myRouteTablePublic*. |
+    | Nombre | Escriba *myRouteTablePublic*. |
     | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y seleccione *Aceptar*. |
     | Location | Deje el valor predeterminado **Este de EE. UU.**
-    | Propagación de rutas BGP | Deje el valor predeterminado **Habilitado**. |
+    | Propagación de rutas de puerta de enlace de red virtual | Deje el valor predeterminado **Habilitado**. |
 
 1. Seleccione **Crear**.
 
@@ -74,7 +74,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 1. En **Agregar ruta**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre de ruta | Escriba *ToPrivateSubnet*. |
     | Prefijo de dirección | Escriba *10.0.1.0/24*. |
@@ -93,9 +93,9 @@ Para poder asociar una tabla de rutas a una subred, debe crear una red virtual y
 
 1. En **Creación de una red virtual**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
-    | NOMBRE | Escriba *myVirtualNetwork*. |
+    | Nombre | Escriba *myVirtualNetwork*. |
     | Espacio de direcciones | Escriba *10.0.0.0/16*. |
     | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione ***Seleccionar existente*** > **myResourceGroup**. |
@@ -117,18 +117,18 @@ Para poder asociar una tabla de rutas a una subred, debe crear una red virtual y
 
 1. En **Agregar subred**, especifique esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
-    | NOMBRE | Escriba *Privada*. |
+    | Nombre | Escriba *Privada*. |
     | Espacio de direcciones | Escriba *10.0.1.0/24*. |
 
 1. Deje el resto de valores predeterminados y seleccione **Aceptar**.
 
 1. Seleccione de nuevo **+ Subred**. Esta vez, especifique esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
-    | NOMBRE | Escriba *DMZ*. |
+    | Nombre | Escriba *DMZ*. |
     | Espacio de direcciones | Escriba *10.0.2.0/24*. |
 
 1. Al igual que la última vez, deje el resto de valores predeterminados y seleccione **Aceptar**.
@@ -151,7 +151,7 @@ Las aplicaciones virtuales de red son máquinas virtuales que ayudan con las fun
 
 1. En **Creación de una máquina virtual: conceptos básicos**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
     | Subscription | Seleccione su suscripción. |
@@ -164,7 +164,7 @@ Las aplicaciones virtuales de red son máquinas virtuales que ayudan con las fun
     | Size | Deje el valor predeterminado **Estándar DS1 v2**. |
     | **CUENTA DE ADMINISTRADOR** |  |
     | Nombre de usuario | Escriba un nombre de usuario de su elección. |
-    | Password | Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Contraseña | Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirm Password | Vuelva a escribir la contraseña. |
     | **REGLAS DE PUERTO DE ENTRADA** |  |
     | Puertos de entrada públicos | Deje el valor predeterminado **Ninguno**.
@@ -179,7 +179,7 @@ Las aplicaciones virtuales de red son máquinas virtuales que ayudan con las fun
 
 1. En **Creación de una máquina virtual: Redes**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Virtual network | Deje el valor predeterminado **myVirtualNetwork**. |
     | Subnet | Seleccione **DMZ (10.0.2.0/24)** . |
@@ -191,9 +191,9 @@ Las aplicaciones virtuales de red son máquinas virtuales que ayudan con las fun
 
 1. En **Crear cuenta de almacenamiento**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
-    | NOMBRE | Escriba *mynvastorageaccount*. |
+    | Nombre | Escriba *mynvastorageaccount*. |
     | Tipo de cuenta | Deje el valor predeterminado **Storage (uso general v1)** . |
     | Rendimiento | Deje el valor predeterminado **Estándar**. |
     | Replicación | Deje el valor predeterminado **Almacenamiento con redundancia local (LRS)** .
@@ -230,7 +230,7 @@ Cree una máquina virtual pública y una máquina virtual privada en la red virt
 
 Realice los pasos 1 a 12 de [Creación de una aplicación virtual de red](#create-an-nva). Use la mayoría de los mismos valores. Estos valores son los que tienen que ser diferentes:
 
-| Configuración | Valor |
+| Configuración | Value |
 | ------- | ----- |
 | **VM PÚBLICA** | |
 | ASPECTOS BÁSICOS |  |

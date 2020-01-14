@@ -1,6 +1,6 @@
 ---
 title: Puntos de conexión de servicio de red virtual para Azure Service Bus
-description: Agregue un punto de conexión de servicio Microsoft.ServiceBus a una red virtual.
+description: En este artículo se proporciona información sobre cómo agregar un punto de conexión de servicio de Microsoft.ServiceBus a una red virtual.
 services: service-bus
 documentationcenter: ''
 author: axisc
@@ -8,14 +8,14 @@ editor: spelluru
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 99a705c3923821739ddc1dedd8f7c079dc534a1a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5446ee12a6933a916444d4f64a0eb983a35a59f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277303"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462062"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Uso de puntos de conexión de servicio de red virtual con Azure Service Bus
 
@@ -73,10 +73,10 @@ Parámetros de plantilla:
 * **virtualNetworkingSubnetId**: ruta de acceso completa de Resource Manager para la subred de la red virtual; por ejemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para la subred predeterminada de una red virtual.
 
 > [!NOTE]
-> Si bien no hay reglas de denegación posibles, la plantilla de Azure Resource Manager tiene la acción predeterminada establecida en **"Permitir"** , lo que no restringe las conexiones.
+> Si bien no hay reglas de denegación posibles, la plantilla de Azure Resource Manager tiene la acción predeterminada establecida en **"Permitir"** , que no restringe las conexiones.
 > Cuando se realizan las reglas de Virtual Network o de firewall, es necesario cambiar el valor ***"defaultAction"***
 > 
-> De
+> desde
 > ```json
 > "defaultAction": "Allow"
 > ```

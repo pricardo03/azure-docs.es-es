@@ -1,5 +1,6 @@
 ---
-title: 'Ejemplo de script de la CLI de Azure: Uso con pares clave-valor en un almacén de Azure App Configuration | Microsoft Docs'
+title: 'Ejemplo de script de la CLI de Azure: trabajo con pares clave-valor en un almacén de Azure App Configuration'
+titleSuffix: Azure App Configuration
 description: Proporciona información sobre cómo trabajar con pares clave-valor en un almacén de Azure App Configuration
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 11/08/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 51697aa426a638ad536390c4114df5faa18a41ef
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 366485c8c735af5689e1b2c2e63eb192218f5ce0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184867"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433575"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Uso de pares clave-valor en un almacén de Azure App Configuration
 

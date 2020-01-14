@@ -1,27 +1,17 @@
 ---
-title: Conmutación por error y escalado de una aplicación de contenedores de Service Fabric en Azure | Microsoft Docs
+title: Conmutación por error y escalado de una aplicación de contenedores
 description: En este tutorial, aprenderá a administrar la conmutación por error en una aplicación de contenedores de Azure Service Fabric.  Asimismo, obtenga información sobre cómo escalar los contenedores y servicios en ejecución en un clúster.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, Containers, microservicios, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a13ce98eeebf60a6b61ee9aff01107c61fa94641
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bef1c42712c881296c5ab7b8096deb50fe94ee55
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385109"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614101"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Tutorial: Demostración de la conmutación por error y el escalado de servicios de contenedor con Service Fabric
 
@@ -31,7 +21,7 @@ Este tutorial es la tercera parte de una serie. En este tutorial, obtiene inform
 > * Obtener información sobre la conmutación por error del contenedor en un clúster de Service Fabric
 > * Escalar los contenedores de front-end web en una aplicación
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 La aplicación de [Parte 2](service-fabric-tutorial-package-containers.md) se ejecuta en un clúster de Service Fabric activo.
 

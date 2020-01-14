@@ -1,26 +1,17 @@
 ---
-title: Implementación de una aplicación de Service Fabric en un clúster en Azure | Microsoft Docs
-description: Aprenda a implementar una aplicación en un clúster desde Visual Studio.
-services: service-fabric
-documentationcenter: .net
+title: Implementación de una aplicación de Service Fabric en un clúster de Azure
+description: Aprenda a implementar una aplicación existente en un clúster de Azure Service Fabric recién creado desde Visual Studio.
 author: athinanthny
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 37c27ae71eddcb5a35b9baeae250bee232c7acb7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9951610732cbb1c5884a7b7e830033f427db0ab1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213197"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646014"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implementación de una aplicación de Service Fabric en un clúster en Azure
 
@@ -39,7 +30,7 @@ En esta serie de tutoriales, se aprende a:
 > * [Configuración de CI/CD con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 > * [Configurar la supervisión y el diagnóstico de la aplicación](service-fabric-tutorial-monitoring-aspnet.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar este tutorial:
 
@@ -60,7 +51,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 Abra la aplicación en Visual Studio, que se ejecuta como administrador, y compile la aplicación.
 
-## <a name="create-a-cluster"></a>Creación de un clúster
+## <a name="create-a-cluster"></a>Crear un clúster
 
 Ahora que la aplicación está lista, cree un clúster de Service Fabric e implemente la aplicación en él. Un [clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios.
 
@@ -87,19 +78,19 @@ En **Punto de conexión**, seleccione **Crear nuevo clúster**.  Si va a realiza
 
 En la pestaña **Clúster**, escriba el **nombre del clúster** (por ejemplo, "mytestcluster"), seleccione su suscripción, seleccione una región para el clúster (como Centro-sur de EE. UU.), escriba el número de nodos del clúster (se recomiendan tres nodos para un clúster de prueba) y escriba un grupo de recursos (como "mytestclustergroup"). Haga clic en **Next**.
 
-![Creación de un clúster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
+![Crear un clúster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
 En la pestaña **Certificado**, escriba la contraseña y la ruta de acceso de salida del certificado del clúster. Los certificados autofirmados se crean como los archivos PFX y se guardan en la ruta de acceso de salida especificada.  El certificado se usa tanto para la seguridad de nodo a nodo como para la de cliente a nodo.  No use un certificado autofirmado para clústeres de producción.  Este certificado lo usa Visual Studio para autenticarse con el clúster e implementar aplicaciones. Seleccione **Importar certificado** para instalar el archivo PFX en el almacén CurrentUser\My certificate del equipo.  Haga clic en **Next**.
 
-![Creación de un clúster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
+![Crear un clúster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 
-En la pestaña **Detalle de máquina virtual**, escriba el **nombre de usuario** y la **contraseña** de la cuenta de administrador del clúster.  Seleccione la **imagen de máquina virtual** de los nodos del clúster y el **tamaño de máquina virtual** de cada uno de los nodos del clúster.  Haga clic en la pestaña **Advanced** (Opciones avanzadas).
+En la pestaña **Detalle de máquina virtual**, escriba el **nombre de usuario** y la **contraseña** de la cuenta de administrador del clúster.  Seleccione la **imagen de máquina virtual** de los nodos del clúster y el **tamaño de máquina virtual** de cada uno de los nodos del clúster.  Haga clic en la pestaña **Opciones avanzadas**.
 
-![Creación de un clúster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
+![Crear un clúster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
 
 En **Puertos**, escriba el punto de conexión de servicio VotingWeb del paso anterior (por ejemplo, 8080).  Cuando se crea el clúster, se abren estos puertos en Azure Load Balancer para reenviar el tráfico al clúster.  Haga clic en **Crear** para crear el clúster, lo que tarda varios minutos.
 
-![Creación de un clúster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png)
+![Crear un clúster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png)
 
 ## <a name="publish-the-application-to-the-cluster"></a>Publicación de la aplicación en el clúster
 

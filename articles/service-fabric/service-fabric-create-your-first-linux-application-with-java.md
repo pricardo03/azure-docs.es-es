@@ -1,25 +1,14 @@
 ---
-title: Creación de una aplicación Java de Reliable Actors de Azure Service Fabric en Linux | Microsoft Docs
+title: Creación de una aplicación de Java de Reliable Actors de Azure Service Fabric en Linux
 description: Aprenda a crear e implementar una aplicación Java de Reliable Actors de Service Fabric en cinco minutos.
-services: service-fabric
-documentationcenter: java
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/18/2018
-ms.author: atsenthi
-ms.openlocfilehash: 4b008c001e1c4749b6ab6f9f21eff479f007c05c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 82d4446d76254657adfe64ed41386c06a0a873eb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599685"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458168"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Creación de su primera aplicación Java de Reliable Actors de Service Fabric en Linux
 > [!div class="op_single_selector"]
@@ -30,7 +19,7 @@ ms.locfileid: "68599685"
 
 Este inicio rápido le ayuda a crear su primera aplicación Java de Azure Service Fabric en un entorno de desarrollo de Linux en tan solo unos minutos.  Cuando haya terminado, tendrá una sencilla aplicación Java con un único servicio en el clúster de desarrollo local.  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Antes de comenzar, instale el SDK de Service Fabric, la CLI de Service Fabric y Yeoman; asimismo, configure el entorno de desarrollo de Java y un clúster de desarrollo en su [entorno de desarrollo de Linux](service-fabric-get-started-linux.md). Si usa Mac OS X, puede [configurar un entorno de desarrollo en Mac mediante Docker](service-fabric-get-started-mac.md).
 
 Instale también la [CLI de Service Fabric](service-fabric-cli.md).
@@ -282,7 +271,7 @@ Compatibilidad con Reliable Actor de Service Fabric para la aplicación.
   }
   ```
 
-### <a name="services"></a>Services
+### <a name="services"></a>Servicios
 
 Compatibilidad con Reliable Services de Service Fabric para la aplicación.
 

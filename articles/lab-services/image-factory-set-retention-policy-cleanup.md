@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: cf1c18fc799014ad862c93076d695f2516c6363d
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 5c407edfedd6eb1156a0fec5719cc9435858bd4a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560166"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456924"
 ---
-# <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Creación de un generador de imágenes personalizadas en Azure DevTest Labs
+# <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Configuración de la directiva de retención en Azure DevTest Labs
 Este artículo abarca el establecimiento de una directiva de retención, la limpieza de la fábrica y la retirada de las imágenes anteriores de todos los otros laboratorios de DevTes Labs de la organización. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Asegúrese de que ha seguidos los artículos que tratan los temas siguientes:
 
 - [Crear un generador de imágenes](image-factory-create.md)

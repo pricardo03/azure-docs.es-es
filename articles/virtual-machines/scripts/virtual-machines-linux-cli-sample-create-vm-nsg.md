@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplo de script de la CLI de Azure: creación de dos máquinas virtuales con un grupo de seguridad de red interno y externo'
-description: 'Ejemplo de script de CLI de Azure: creación de dos máquinas virtuales con un NSG interno y externo'
+title: 'CLI de ejemplo: Creación de dos máquinas virtuales con un grupo de seguridad de red interno y externo'
+description: Cree dos máquinas virtuales con grupos de seguridad de red internos y externos para proteger el tráfico de red mediante la CLI de Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 857a2862a7ddf515567f96b2e688e54a957cd3d9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 3e3d1fe3bf464892934198d06b602a5b8bcafb67
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039579"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458396"
 ---
-# <a name="secure-network-traffic-between-virtual-machines"></a>Protección del tráfico de red entre máquinas virtuales
+# <a name="secure-network-traffic-between-virtual-machines-using-an-nsg"></a>Protección del tráfico de red entre máquinas virtuales mediante un grupo de seguridad de red
 
 Este script crea dos máquinas virtuales y protege el tráfico entrante en ambas. Una máquina virtual es accesible en Internet y tiene un grupo de seguridad de red (NSG) configurado para permitir el tráfico en el puerto 80 y el puerto 22. La segunda máquina virtual no es accesible en Internet, y tiene un NSG configurado para permitir el tráfico únicamente a la primera máquina virtual.
 

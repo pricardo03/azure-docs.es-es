@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 012b13c440b8d0873e387c7d185803dc07852bf7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 340017a121d12c95c7c04bbfe67b336638209e9c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683014"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439013"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Compilación de la primera instancia de Data Factory mediante Azure Portal
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "73683014"
 > Este artículo se aplica a la versión 1 de Azure Data Factory, que está disponible con carácter general. Si utiliza la versión actual del servicio Data Factory, consulte el artículo [Inicio rápido: Creación de una factoría de datos con Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 > [!WARNING]
-> El editor de JSON de Azure Portal para crear e implementar canalizaciones de ADF v1 se desactivará el 31 de julio de 2019. Después del 31 de julio de 2019, puede seguir usando los [cmdlets de PowerShell de ADF v1](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), el [SDK de .Net para ADF v1](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet), las [API REST de ADF v1](https://docs.microsoft.com/rest/api/datafactory/) para crear las canalizaciones de ADF v1.
+> El editor de JSON de Azure Portal para crear e implementar canalizaciones de ADF v1 se desactivará el 31 de julio de 2019. Después del 31 de julio de 2019, puede seguir usando los [cmdlets de PowerShell de ADF v1](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), el [SDK de .Net para ADF v1](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet), las [API REST de ADF v1](https://docs.microsoft.com/rest/api/datafactory/) para crear las canalizaciones de ADF v1.
 
 En este artículo, aprenderá a usar [Azure Portal](https://portal.azure.com/) para crear su primera factoría de datos. Si desea realizar el tutorial con otras herramientas o SDK, seleccione una de las opciones de la lista desplegable. 
 
@@ -42,7 +42,7 @@ La canalización de este tutorial tiene una sola actividad: una actividad de Azu
 > 
 > pero cualquier canalización puede tener más de una actividad. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Lea el [tutorial introductorio](data-factory-build-your-first-pipeline.md) y siga los pasos de la sección de requisitos previos.
 
 En este artículo no se ofrece información general conceptual sobre el servicio Data Factory. Para más información acerca del servicio, consulte [Introducción a Azure Data Factory](data-factory-introduction.md).  
@@ -52,7 +52,7 @@ Una factoría de datos puede tener una o más canalizaciones. Una canalización 
 
 Para crear una factoría de datos, siga estos pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Seleccione **Nuevo** > **Data + Analytics** > **Data Factory**.
 
@@ -63,7 +63,7 @@ Para crear una factoría de datos, siga estos pasos:
    ![Hoja Nueva Factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
    > [!IMPORTANT]
-   > El nombre de la factoría de datos debe ser globalmente único. Si aparece el error "El nombre GetStartedDF de factoría de datos no está disponible", cambie dicho nombre. Por ejemplo, use yournameGetStartedDF y vuelva a crear la factoría de datos. Para más información acerca de las reglas de nomenclatura, consulte [Azure Data Factory: reglas de nomenclatura](data-factory-naming-rules.md).
+   > El nombre de la factoría de datos debe ser globalmente único. Si aparece el error "El nombre GetStartedDF de factoría de datos no está disponible", cambie dicho nombre. Por ejemplo, use yournameGetStartedDF y vuelva a crear la factoría de datos. Para más información acerca de las reglas de nomenclatura, consulte [Azure Data Factory: Reglas de nomenclatura](data-factory-naming-rules.md).
    >
    > El nombre de la factoría de datos se puede registrar como nombre DNS en el futuro y puede convertirse en visible públicamente.
    >
@@ -110,7 +110,7 @@ En este paso, vinculará su cuenta de almacenamiento con su factoría de datos. 
 
    ![Servicio vinculado de Storage](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Reemplace **account name** por el nombre de su cuenta de almacenamiento. Reemplace **account key** por la clave de acceso de la cuenta de almacenamiento. Para aprender a obtener la clave de acceso de almacenamiento, consulte cómo ver, copiar y regenerar las claves de acceso de almacenamiento en [Administración de la cuenta de almacenamiento](../../storage/common/storage-account-manage.md#access-keys).
+1. Reemplace **account name** por el nombre de su cuenta de almacenamiento. Reemplace **account key** por la clave de acceso de la cuenta de almacenamiento. Para aprender a obtener la clave de acceso de almacenamiento, consulte [Administración de claves de acceso de la cuenta de almacenamiento](../../storage/common/storage-account-keys-manage.md).
 
 1. Seleccione **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
@@ -147,7 +147,7 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
     En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se usan en el fragmento de código.
 
-   | Propiedad | DESCRIPCIÓN |
+   | Propiedad | Descripción |
    |:--- |:--- |
    | clusterSize |Especifica el tamaño del clúster de HDInsight. |
    | timeToLive | Especifica el tiempo de inactividad del clúster de HDInsight antes de que se elimine. |
@@ -165,7 +165,7 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
      Para más información, consulte [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
-1. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
+1. Seleccione **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
     ![Opción Implementar](./media/data-factory-build-your-first-pipeline-using-editor/ondemand-hdinsight-deploy.png)
 
@@ -208,7 +208,7 @@ En este paso, creará conjuntos de datos que representan los datos de entrada y 
     ```
     En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se usan en el fragmento de código.
 
-   | Propiedad | Anidada en | DESCRIPCIÓN |
+   | Propiedad | Anidada en | Descripción |
    |:--- |:--- |:--- |
    | type | properties |La propiedad type se establece en **AzureBlob**, ya que los datos residen en el almacenamiento de blobs. |
    | linkedServiceName | format |Hace referencia al servicio AzureStorageLinkedService que creó anteriormente. |
@@ -261,7 +261,7 @@ Ahora, cree el conjunto de datos de salida que representa los datos de salida al
 ## <a name="create-a-pipeline"></a>Crear una canalización
 En este paso, creará la primera canalización con una actividad de Hive de HDInsight. El segmento de entrada está disponible de forma mensual (la frecuencia es Mes y el intervalo es 1). El segmento de salida se genera mensualmente. La propiedad del programador de la actividad también se establece en mensual. La configuración del conjunto de datos de salida y la del programador de la actividad deben coincidir. Actualmente, el conjunto de datos de salida es lo que controla la programación, por lo que debe crear un conjunto de datos de salida aunque la actividad no genere ninguna salida. Si la actividad no toma ninguna entrada, puede omitir la creación del conjunto de datos de entrada. Al final de esta sección se explican las propiedades que se usan en el siguiente fragmento de código JSON.
 
-1. En Data Factory Editor, seleccione **Más** > **Nueva canalización**.
+1. En Data Factory Editor, seleccione **More** > **New pipeline** (Nueva canalización).
 
     ![Opción Nueva canalización](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 
@@ -434,10 +434,10 @@ En este tutorial, ha creado una factoría de datos para procesar datos mediante 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha creado una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver como usar una actividad de copia para copiar datos del almacenamiento de blobs a una base de datos SQL, consulte [Tutorial: Copia de datos de Blob Storage en SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="see-also"></a>Otras referencias
-| Tema | DESCRIPCIÓN |
+## <a name="see-also"></a>Consulte también
+| Tema | Descripción |
 |:--- |:--- |
-| [Procesos](data-factory-create-pipelines.md) |Este artículo le ayuda a conocer las canalizaciones y actividades de Data Factory y cómo usarlas para construir flujos de trabajo controlados por datos de un extremo a otro para su escenario o negocio. |
+| [Canalizaciones](data-factory-create-pipelines.md) |Este artículo le ayuda a conocer las canalizaciones y actividades de Data Factory y cómo usarlas para construir flujos de trabajo controlados por datos de un extremo a otro para su escenario o negocio. |
 | [Conjuntos de datos](data-factory-create-datasets.md) |Este artículo le ayuda a conocer los conjuntos de datos de Data Factory. |
 | [Programación y ejecución con Data Factory](data-factory-scheduling-and-execution.md) |En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Data Factory. |
 | [Supervisión y administración de canalizaciones mediante la aplicación Supervisión y administración](data-factory-monitor-manage-app.md) |En este artículo se describe cómo supervisar, administrar y depurar canalizaciones mediante la aplicación Supervisión y administración. |

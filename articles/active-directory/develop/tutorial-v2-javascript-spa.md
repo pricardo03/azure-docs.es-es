@@ -1,5 +1,5 @@
 ---
-title: Guía de aplicaciones de página única de JavaScript para la plataforma de identidad de Microsoft | Azure
+title: 'Tutorial de aplicaciones de página única de JavaScript: Plataforma de identidad de Microsoft | Azure'
 description: Cómo pueden llamar las aplicaciones SPA de JavaScript a una API que requiera tokens de acceso mediante el punto de conexión de Azure Active Directory v2.0
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3576c015fcca7eb9c390f38c6527d76353efe06
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 995210e720040448927b2aaac2c2eb590e3de981
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919399"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423370"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript
 
@@ -46,7 +46,7 @@ La aplicación de ejemplo que se crea con esta guía permite que una aplicación
 
 Esta guía utiliza la siguiente biblioteca:
 
-|Biblioteca|DESCRIPCIÓN|
+|Biblioteca|Descripción|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de autenticación de Microsoft para la vista preliminar de JavaScript|
 
@@ -66,7 +66,7 @@ Esta guía utiliza la siguiente biblioteca:
 >
 > Para configurar el ejemplo de código antes de ejecutarlo, vaya al [paso de configuración](#register-your-application).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Para ejecutar este tutorial, necesita un servidor web local, como [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) o la integración de IIS Express con [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
@@ -326,7 +326,7 @@ Agregue el siguiente código al archivo `index.html`, dentro de las etiquetas `<
 
 ## <a name="register-your-application"></a>Registrar su aplicación
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Si la cuenta proporciona acceso a más de un inquilino, selecciónela en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD que desee utilizar.
 1. Vaya a la página [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) de la plataforma de identidad de Microsoft para desarrolladores.
@@ -338,7 +338,7 @@ Agregue el siguiente código al archivo `index.html`, dentro de las etiquetas `<
 
 1. Seleccione **Registrar**.
 1. En la página de **información general** de la aplicación, anote el valor del **Identificador de aplicación (cliente)** para su uso posterior.
-1. Para esta guía, se requiere que habilite el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md). En el panel de navegación izquierdo de la aplicación registrada, seleccione **Autenticación**.
+1. Para esta guía, se requiere que habilite el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md). En el panel izquierdo de la aplicación registrada, seleccione **Autenticación**.
 1. En **Configuración avanzada**, en **Concesión implícita**, active las casillas **Tokens de id.** y **Tokens de acceso**. Los tokens de identificador y los tokens de acceso son obligatorios, ya que esta aplicación tiene que iniciar la sesión de los usuarios y llamar a una API.
 1. Seleccione **Guardar**.
 

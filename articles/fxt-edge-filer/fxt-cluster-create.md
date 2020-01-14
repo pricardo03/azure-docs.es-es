@@ -1,17 +1,17 @@
 ---
-title: Creación de clústeres de Microsoft Azure FXT Edge Filer
+title: 'Tutorial: Creación del clúster de caché de Azure FXT Edge Filer'
 description: Cómo crear un clúster de caché de almacenamiento híbrido con Azure FXT Edge Filer
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: rohogue
-ms.openlocfilehash: 54d70f60d4b7290b60c864817c756648fef1f481
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: bfe1d1aeeac55039acf0c7eb295001277be9cd2e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256089"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551274"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Tutorial: Creación de clústeres de Azure FXT Edge Filer
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 
 Este procedimiento tarda entre 15 y 45 minutos, según cuánta investigación se deba llevar a cabo para identificar las direcciones IP y los recursos de red.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar este tutorial, complete estos requisitos previos:
 
@@ -131,7 +131,7 @@ Deje en blanco los campos **Username** (Nombre de usuario) y **Password** (Contr
 
 ![Pantalla de la configuración inicial de un nodo no configurado en el panel de control de la interfaz gráfica de usuario basada en explorador. Muestra opciones para actualizar el software, configurar un clúster de forma manual o configurar un clúster a partir de un archivo de configuración.](media/fxt-cluster-create/setup-first-screen.png)
 
-## <a name="create-the-cluster"></a>Creación de clústeres
+## <a name="create-the-cluster"></a>Creación del clúster
 
 La herramienta de configuración del clúster le guía por un conjunto de pantallas para crear el clúster de Azure FXT Edge Filer. Asegúrese de tener preparada la [información necesaria](#gather-information-for-the-cluster) antes de comenzar. 
 

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 337ac2f60809370e6a07b2b0403d21ef7230b034
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6ff732888e416fcd51216070b3b30ed37b79e92c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976713"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434574"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: Configuración del dispositivo para el aprovisionamiento mediante el servicio Azure IoT Hub Device Provisioning
 
@@ -34,12 +34,13 @@ Si no está familiarizado con el proceso de aprovisionamiento automático, no ol
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o posterior con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
+Los siguientes requisitos previos corresponden a un entorno de desarrollo de Windows. En el caso de Linux o macOS, consulte la sección correspondiente en [Preparación del entorno de desarrollo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) en la documentación del SDK.
+
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
+
 * Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
-
-
 
 ## <a name="build-a-platform-specific-version-of-the-sdk"></a>Compilación de una versión específica de la plataforma del SDK
 
@@ -49,23 +50,26 @@ El SDK de cliente del servicio Device Provisioning le ayuda a implementar el sof
 
     **Antes** de comenzar la instalación de `CMake`, es importante que los requisitos previos de Visual Studio (Visual Studio y la carga de trabajo de desarrollo de escritorio con C++) estén instalados en la máquina. Una vez que los requisitos previos están en su lugar, y se ha comprobado la descarga, instale el sistema de compilación de CMake.
 
-1. Abra un símbolo del sistema o el shell de Bash de Git. Ejecute el siguiente comando para clonar el repositorio de GitHub del [SDK para C de Azure IoT](https://github.com/Azure/azure-iot-sdk-c):
-    
+2. Busque el nombre de etiqueta de la [versión más reciente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) del SDK.
+
+3. Abra un símbolo del sistema o el shell de Bash de Git. Ejecute los siguientes comandos para clonar la versión más reciente del repositorio de GitHub del [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c). Use la etiqueta que encontró en el paso anterior como valor del parámetro `-b`:
+
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
+
     Esta operación puede tardar varios minutos en completarse.
 
-
-1. Cree un subdirectorio `cmake` en el directorio raíz del repositorio de Git y vaya a esa carpeta. 
+4. Cree un subdirectorio `cmake` en el directorio raíz del repositorio de Git y vaya a esa carpeta. Ejecute los siguientes comandos desde el directorio `azure-iot-sdk-c`:
 
     ```cmd/sh
-    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
-1. Compile el SDK para su plataforma de desarrollo según los mecanismos de atestación que vaya a usar. Utilice uno de los siguientes comandos (observe también los dos caracteres de punto finales de cada comando). Al finalizar, CMake crea el subdirectorio `/cmake` con contenido específico para su dispositivo:
+5. Compile el SDK para su plataforma de desarrollo según los mecanismos de atestación que vaya a usar. Utilice uno de los siguientes comandos (observe también los dos caracteres de punto finales de cada comando). Al finalizar, CMake crea el subdirectorio `/cmake` con contenido específico para su dispositivo:
  
     - Para dispositivos que usan el simulador de TPM para la atestación:
 
@@ -96,8 +100,9 @@ Dependiendo de si ha compilado el SDK para usar la atestación para un dispositi
 
 - Para un dispositivo X.509, deberá obtener los certificados emitidos para los dispositivos. El servicio de aprovisionamiento expone dos tipos de entradas de inscripción que controlan el acceso de los dispositivos mediante el mecanismo de atestación de X.509. Los certificados necesarios dependen de los tipos de inscripción que vaya a usar.
 
-    1. Inscripciones individuales: inscripción de un dispositivo individual concreto. Este tipo de entrada de inscripción requiere [certificados de entidad final o de "hoja"](concepts-security.md#end-entity-leaf-certificate).
-    1. Grupos de inscripción: este tipo de entrada de inscripción requiere certificados intermedios o de raíz. Para más información, consulte [Control del acceso de dispositivo al servicio de aprovisionamiento con certificados X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    - Inscripciones individuales: inscripción de un dispositivo individual concreto. Este tipo de entrada de inscripción requiere [certificados de entidad final o de "hoja"](concepts-security.md#end-entity-leaf-certificate).
+    
+    - Grupos de inscripción: este tipo de entrada de inscripción requiere certificados intermedios o de raíz. Para más información, consulte [Control del acceso de dispositivo al servicio de aprovisionamiento con certificados X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Dispositivos simulados
 
@@ -201,7 +206,7 @@ En este momento, los servicios Device Provisioning e IoT Hub se ejecutan en el p
 1. Desde el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione su centro de IoT. En la parte superior de la hoja **Todos los recursos**, haga clic en **Eliminar**.  
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Compilar un SDK de cliente del servicio Device Provisioning específico de la plataforma

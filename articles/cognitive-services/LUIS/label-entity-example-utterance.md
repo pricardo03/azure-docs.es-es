@@ -8,33 +8,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: 58e813d30273db4e011039aa43cd59c61507895e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: f7d6e98205afad2ed2c4aea30e635254f79acaa1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74383703"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448085"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Etiquetado de una entidad de aprendizaje automático en una expresión de ejemplo
 
-Etiquetar una entidad en una expresión de ejemplo da a LUIS un ejemplo de qué es la entidad y dónde puede aparecer la entidad en la expresión. 
+Etiquetar una entidad en una expresión de ejemplo da a LUIS un ejemplo de qué es la entidad y dónde puede aparecer la entidad en la expresión.
 
 ## <a name="labeling-machine-learned-entity"></a>Etiquetado de una entidad de aprendizaje automático
 
-Analice en la frase `hi, please I want a cheese pizza in 20 minutes`. 
+Analice en la frase `hi, please I want a cheese pizza in 20 minutes`.
 
 1. Seleccione el texto situado más a la izquierda y, a continuación, seleccione el texto situado más a la derecha de la entidad y, después, elija la entidad con la que desea etiquetar, en este caso, Orden completo. El _pedido completo_ aparece etiquetado en la siguiente imagen.
 
     > [!div class="mx-imgBorder"]
     > ![Etiqueta completa de la entidad de aprendizaje automático](media/label-utterances/example-1-label-machine-learned-entity-complete-order.png)
 
-1. Seleccione la entidad en la ventana emergente. La entidad completa etiquetada de pedido de pizza incluye todas las palabras (de izquierda a derecha en inglés) que están etiquetadas. 
+1. Seleccione la entidad en la ventana emergente. La entidad completa etiquetada de pedido de pizza incluye todas las palabras (de izquierda a derecha en inglés) que están etiquetadas.
 
 ## <a name="review-labeled-text"></a>Revisión del texto etiquetado
 
-Después del etiquetado, revise la expresión de ejemplo y asegúrese de que el intervalo de texto seleccionado se ha subrayado con la entidad elegida. La línea sólida indica que el texto se ha etiquetado. 
+Después del etiquetado, revise la expresión de ejemplo y asegúrese de que el intervalo de texto seleccionado se ha subrayado con la entidad elegida. La línea sólida indica que el texto se ha etiquetado.
 
 > [!div class="mx-imgBorder"]
 > ![Entidad de aprendizaje automático etiquetada por completo](media/label-utterances/example-1-label-machine-learned-entity-complete-order-labeled.png)
@@ -55,12 +55,12 @@ Como alternativa, puede seleccionar el nombre de la entidad que se encuentra sob
 
 La paleta de entidades ofrece una alternativa a la experiencia de etiquetado anterior. Permite cambiar el texto para etiquetarlo al instante con una entidad.
 
-1. Abra la paleta de entidades seleccionando el icono de marcador de resaltado situado en la parte superior derecha de la tabla de expresiones. 
+1. Abra la paleta de entidades seleccionando el icono de marcador de resaltado situado en la parte superior derecha de la tabla de expresiones.
 
     > [!div class="mx-imgBorder"]
     > ![Paleta de entidades para la entidad de aprendizaje automático](media/label-utterances/example-1-label-machine-learned-entity-palette.png)
 
-2. Seleccione el componente de la entidad. Esta acción se indica visualmente con un nuevo cursor. El cursor sigue al mouse mientras se mueve por el portal. 
+2. Seleccione el componente de la entidad. Esta acción se indica visualmente con un nuevo cursor. El cursor sigue al mouse mientras se mueve por el portal.
 
     > [!div class="mx-imgBorder"]
     > ![Paleta de entidades para la entidad de aprendizaje automático](media/label-utterances/example-1-label-machine-learned-entity-palette-menu.png)
@@ -77,11 +77,20 @@ Los subcomponentes de las entidades se etiquetan exactamente de la misma manera 
 > [!div class="mx-imgBorder"]
 > ![Paleta de entidades para la entidad de aprendizaje automático](media/label-utterances/example-1-label-machine-learned-entity-subcomponent.png)
 
-Los subcomponentes solo se pueden etiquetar si el elemento primario también está etiquetado. 
+Los subcomponentes solo se pueden etiquetar si el elemento primario también está etiquetado.
+
+## <a name="labeling-entity-roles"></a>Etiquetado de roles de entidad
+
+Los roles de entidad se etiquetan mediante la paleta de entidades.
+
+1. En la página Intent detail (Detalle de intención), seleccione la **paleta de entidades** de la barra de herramientas contextual.
+1. Una vez que se abra la paleta de entidades, seleccione la entidad en la lista de entidades.
+1. Vaya al **inspector de entidades** y seleccione un rol existente o cree uno nuevo.
+1. En el texto de la expresión de ejemplo, etiquete el texto con el rol de entidad. 
 
 ## <a name="unlabel-entities"></a>Anulación de etiquetas de entidades
 
-Para anular la etiqueta de una entidad, seleccione el nombre de la entidad debajo del texto y seleccione **Anular etiqueta**. Si la entidad a la que está intentando anular la etiqueta tiene subcomponentes etiquetados, los subcomponentes no deben etiquetarse en primer lugar. 
+Para anular la etiqueta de una entidad, seleccione el nombre de la entidad debajo del texto y seleccione **Anular etiqueta**. Si la entidad a la que está intentando anular la etiqueta tiene subcomponentes etiquetados, los subcomponentes no deben etiquetarse en primer lugar.
 
 ## <a name="editing-labels-using-the-entity-palette"></a>Edición de las etiquetas mediante la paleta de entidades
 
@@ -98,7 +107,6 @@ Por ejemplo:
 
     > [!div class="mx-imgBorder"]
     > ![Paleta de entidades para la entidad de aprendizaje automático](media/label-utterances/edit-label-with-palette-2.png)
-
 
 ## <a name="labels-for-matching-text-entities"></a>Etiquetas para entidades de texto coincidentes
 

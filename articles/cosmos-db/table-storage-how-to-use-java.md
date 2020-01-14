@@ -1,5 +1,5 @@
 ---
-title: Uso de Azure Table Storage o Table API de Azure Cosmos DB desde Java
+title: Uso de Azure Storage Table o Table API de Azure Cosmos DB desde Java
 description: Almacene datos estructurados en la nube mediante Azure Table Storage o Table API de Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 6b8b2d2d035183861f367c9425ec54d1c9babf34
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 9e5f9d3fbd7fcf12271329ec324b38b03b4dcd7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286557"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444823"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Uso de Azure Table Storage y Table API de Azure Cosmos DB desde Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -38,7 +38,7 @@ En este artículo se muestra cómo llevar a cabo escenarios comunes mediante el 
 ## <a name="create-a-java-application"></a>Creación de una aplicación Java
 En esta guía utilizará funciones del almacenamiento que puede ejecutar en una aplicación Java localmente o bien mediante código a través de un rol web o un rol de trabajo de Azure.
 
-Para usar los ejemplos de este artículo, deberá instalar el Kit de desarrollo de Java (JDK) y crear una cuenta de Azure Storage o una cuenta de Azure Cosmos DB en su suscripción a Azure. Después de esto, compruebe que su sistema de desarrollo satisface los requisitos mínimos y las dependencias que se indican en el repositorio del [SDK de Azure Storage para Java][Azure Storage SDK for Java] en GitHub. Si su sistema cumple esos requisitos, puede seguir las instrucciones para descargar e instalar las bibliotecas de Azure Storage para Java en su sistema desde ese repositorio. Después de completar esas tareas puede crear una aplicación Java que use los ejemplos de este artículo.
+Para usar los ejemplos de este artículo, deberá instalar el Kit de desarrollo de Java (JDK) y crear una cuenta de Azure Storage o una cuenta de Azure Cosmos DB en su suscripción a Azure. Después de esto, compruebe que su sistema de desarrollo cumple los requisitos mínimos y las dependencias que se indican en el repositorio del [SDK de Azure Storage para Java][Azure Storage SDK for Java] en GitHub. Si su sistema cumple esos requisitos, puede seguir las instrucciones para descargar e instalar las bibliotecas de Azure Storage para Java en su sistema desde ese repositorio. Después de completar esas tareas puede crear una aplicación Java que use los ejemplos de este artículo.
 
 ## <a name="configure-your-application-to-access-table-storage"></a>Configuración de la aplicación para acceder al almacenamiento de tablas
 Agregue las siguientes instrucciones de importación en la parte superior del archivo Java en el que desea utilizar las API de Azure Storage o Table API de Azure Cosmos DB para obtener acceso a las tablas:
@@ -565,7 +565,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="delete-a-table"></a>Eliminación de una tabla
+## <a name="delete-a-table"></a>Eliminar una tabla
 Finalmente, el código siguiente elimina una tabla de una cuenta de almacenamiento. Aproximadamente 40 segundos después de eliminar una tabla, no puede volver a crearla. 
 
 ```java
@@ -595,7 +595,7 @@ catch (Exception e)
 * [Getting Started with Azure Table service in Java](https://github.com/Azure-Samples/storage-table-java-getting-started) (Introducción a Azure Table service en Java)
 * El [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.
 * [SDK de Azure Storage para Java][Azure Storage SDK for Java]
-* [Referencia del SDK del cliente de Azure Storage][Referencia del SDK del cliente de Azure Storage]
+* [Referencia del SDK del cliente de Azure Storage][Azure Storage Client SDK Reference]
 * [API de REST de Azure Storage][Azure Storage REST API]
 * [Blog del equipo de Azure Storage] [Blog del equipo de Azure Storage]
 

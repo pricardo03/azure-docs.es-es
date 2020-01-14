@@ -1,26 +1,15 @@
 ---
-title: Creación de un clúster de Service Fabric que ejecuta Windows en Azure | Microsoft Docs
+title: Creación de un clúster de Service Fabric que ejecuta Windows en Azure
 description: En este tutorial, aprenderá a implementar un clúster de Azure Service Fabric con Windows en una instancia de Azure Virtual Network mediante PowerShell.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 28571584fbd82b245e85e2ebe5b1d282ab5ae979
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 086379e788966b300f988e06ec42c94b880b8281
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177991"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551733"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster de Service Fabric con Windows una red virtual de Azure
 
@@ -40,7 +29,7 @@ En este tutorial, aprenderá a:
 > * Crear un clúster de Service Fabric seguro en Azure PowerShell
 > * Protección del clúster con un certificado X.509
 > * Conexión a un clúster con PowerShell
-> * Eliminación de un clúster
+> * Quitar un clúster
 
 En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
@@ -53,7 +42,7 @@ En esta serie de tutoriales, se aprende a:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar este tutorial:
 
@@ -112,6 +101,7 @@ Las siguientes reglas de tráfico de entrada están habilitadas en el recurso **
 
 * ClientConnectionEndpoint (TCP): 19000
 * HttpGatewayEndpoint (HTTP/TCP): 19080
+* SMB: 445
 * Internodecommunication: 1025, 1026, 1027
 * Intervalo de puertos efímeros: 49152 a 65534 (necesita un mínimo de 256 puertos).
 * Puertos para el uso de las aplicaciones: 80 y 443
@@ -158,7 +148,7 @@ El archivo de parámetros [azuredeploy.parameters.json][parameters] permite decl
 |adminUserName|vmadmin| Nombre de usuario del administrador de las máquinas virtuales del clúster. [Requisitos de nombre de usuario para la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
 |adminPassword|Password#1234| Contraseña del administrador de las máquinas virtuales del clúster. [Requisitos de contraseña para la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
 |clusterName|mysfcluster123| Nombre del clúster. Solo puede contener letras y números. Puede tener entre 3 y 23 caracteres.|
-|location|southcentralus| Ubicación del clúster. |
+|ubicación|southcentralus| Ubicación del clúster. |
 |certificateThumbprint|| <p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados.</p><p>Para usar un certificado existente cargado previamente en un almacén de claves, rellene el valor de huella digital SHA1 del certificado. Por ejemplo, "6190390162C988701DB5676EB81083EA608DCCF3".</p> |
 |certificateUrlValue|| <p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados. </p><p>Para usar un certificado existente cargado previamente en un almacén de claves, especifique la dirección URL del certificado. Por ejemplo, "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados.</p><p>Para usar un certificado existente cargado previamente en un almacén de claves, especifique el valor del almacén de claves de origen. Por ejemplo, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
@@ -177,7 +167,7 @@ Un clúster de Service Fabric ofrece diversos puntos de entrada a su funcionalid
 
 En este artículo, se supone que ya ha creado un inquilino. En caso de que no lo haya hecho, lea [Obtención de un inquilino de Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md).
 
-Para simplificar los pasos necesarios para configurar Azure AD con un clúster de Service Fabric, hemos creado un conjunto de scripts de Windows PowerShell. [Descargue los scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) en el equipo.
+Para simplificar los pasos necesarios para configurar Azure AD con un clúster de Service Fabric, hemos creado un conjunto de scripts de Windows PowerShell. [Descargue los scripts](https://github.com/Azure-Samples/service-fabric-aad-helpers) en el equipo.
 
 ### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Creación de aplicaciones de Azure AD y asignación de usuarios a roles
 Cree dos aplicaciones de Azure AD para controlar el acceso al clúster: una aplicación web y una aplicación nativa. Una vez que haya creado las aplicaciones para representar el clúster, debe asignar los usuarios a los [roles compatibles con Service Fabric](service-fabric-cluster-security-roles.md): solo lectura y administrador.
@@ -729,7 +719,7 @@ Avance hasta el tutorial siguiente para obtener información sobre cómo escalar
 > * Crear un clúster de Service Fabric seguro en Azure PowerShell
 > * Protección del clúster con un certificado X.509
 > * Conexión a un clúster con PowerShell
-> * Eliminación de un clúster
+> * Quitar un clúster
 
 Luego, avance hasta el tutorial siguiente para obtener información sobre cómo supervisar el clúster.
 > [!div class="nextstepaction"]

@@ -4,16 +4,16 @@ description: En este artículo se explican las tareas comunes que un administrad
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: c53a051df0a0100d9209530490d910612be2f30d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4db710dc93b0a1fc3c85d24e9d79fb2e2d552cd1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849928"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644552"
 ---
 # <a name="azure-ea-portal-administration"></a>Administración del portal del Contrato Enterprise de Azure
 
@@ -117,6 +117,8 @@ La oferta Desarrollo/pruebas no es aplicable a los clientes de Azure Gov en este
 
 ## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Transferencia de una cuenta empresarial a una nueva inscripción
 
+Una transferencia de cuenta mueve un propietario de la cuenta de una inscripción a otra. Todas las suscripciones relacionadas en el propietario de la cuenta se moverán a la inscripción de destino. Esto se realiza cuando tiene varias inscripciones activas y solo desea trasladar a los propietarios de la cuenta seleccionada.
+
 Tenga en cuenta los puntos siguientes cuando transfiera una cuenta de empresa a una nueva inscripción:
 
 - Solo se transfieren las cuentas especificadas en la solicitud. Si se eligen todas las cuentas, se transfieren todas.
@@ -124,44 +126,37 @@ Tenga en cuenta los puntos siguientes cuando transfiera una cuenta de empresa a 
 
 ### <a name="effective-transfer-date"></a>Fecha de transferencia efectiva
 
-La fecha de transferencia efectiva puede ser la fecha de inicio o una fecha posterior de la inscripción a la que desea realizar la transferencia. La inscripción a la que está transfiriendo es la _inscripción de destino_. Después de la transferencia de la cuenta, toda la información de uso de la cuenta antes de la fecha de transferencia efectiva permanece en la inscripción desde la que se está realizando la transferencia. La inscripción desde la que está transfiriendo es la _inscripción de origen_.  El uso de la inscripción de origen se cobra en el compromiso monetario o como uso por encima del límite. El uso que se produce después de la fecha de transferencia efectiva se transfiere a la nueva inscripción y se cobra en consecuencia.
+Puede atrasar la transferencia de una cuenta a la fecha de inicio de la inscripción de destino, o a la fecha de inicio de la cuenta, la que sea posterior. Después de la transferencia de la cuenta, toda la información de uso de la cuenta antes de la fecha de transferencia efectiva permanece en la inscripción desde la que se está realizando la transferencia. La información de uso después de la fecha de transferencia se trasladará a la inscripción de destino.
 
-Puede atrasar la transferencia de una inscripción a la fecha de inicio de la inscripción de destino. También puede atrasarla a la fecha de inicio efectiva de la inscripción de origen.
-
-### <a name="monetary-commitment"></a>Compromiso monetario
-
-El compromiso monetario no se transfiere entre inscripciones. Los saldos de compromiso monetario se asocian contractualmente a la inscripción en la que se solicitaron. El compromiso monetario no se transfiere como parte del proceso de transferencia de la cuenta o inscripción.
-
-### <a name="services-affected"></a>Servicios afectados
-
-No hay ningún tiempo de inactividad durante la transferencia de la cuenta. Se puede completar el mismo día de la solicitud si se proporciona toda la información necesaria.
-
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 Al solicitar una transferencia de cuentas, proporcione la siguiente información:
 
-
-- Nombre de cuenta e identificador del propietario de la cuenta que se va a transferir
+- El número de la inscripción de destino, el nombre de cuenta y el correo electrónico del propietario de la cuenta que se va a transferir.
 - Para la inscripción de origen, el número de inscripción y la cuenta que se va a transferir
-- Para la inscripción de destino, el número de inscripción al que se va a transferir
-- Para la fecha de vigencia de la transferencia de cuentas, puede ser la fecha de inicio de la inscripción de destino o después de ella.
+- Para la fecha de vigencia de la transferencia de cuenta, se puede retrasar hasta la fecha de inicio de la inscripción de destino o hasta la fecha de inicio de la cuenta, la que sea posterior.
 
 Otros puntos que hay que tener en cuenta antes de transferir una cuenta:
 
 - Es necesaria la aprobación de un administrador del Contrato Enterprise para la inscripción de origen y destino.
 - Si la transferencia de una cuenta no cumple los requisitos, considere la posibilidad de realizar una transferencia de inscripción.
 - La transferencia de la cuenta transfiere todos los servicios y suscripciones relacionados con las cuentas específicas.
-- Una vez completada la operación, la cuenta transferida aparece como inactiva en la inscripción de origen.
-- Las transferencias de cuentas se pueden retroceder a cualquier fecha dentro de la fecha de inicio de la inscripción de destino.
+- Una vez completada la transferencia, la cuenta transferida aparece como inactiva en la inscripción de origen y como activa en la inscripción de destino.
 - La cuenta muestra la fecha de finalización correspondiente a la fecha de transferencia efectiva en la inscripción de origen y la fecha de inicio en la inscripción de destino.
 - Cualquier uso que se produzca en la cuenta antes de la fecha de transferencia efectiva permanece bajo la inscripción de origen.
 
 
 ## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Transferencia de la inscripción empresarial a una nueva
 
+Una transferencia de inscripción se tiene en cuenta cuando:
+
+- El plazo de compromiso de la inscripción actual ha llegado a su fin.
+- Una inscripción está en estado expirado o extendido y se negocia un nuevo contrato.
+- Si tiene varias inscripciones y desea consolidar todas las cuentas y la facturación en una sola inscripción.
+
 Cuando se solicita la transferencia de una inscripción empresarial completa a una inscripción, se producen las siguientes acciones:
 
-- Se transfieren todos los servicios, suscripciones, cuentas, departamentos y toda la estructura de inscripción de Azure, incluidos todos los administradores de departamento del Contrato Enterprise.
+- Todos los servicios, suscripciones, cuentas, departamentos y toda la estructura de inscripción de Azure, incluidos todos los administradores de departamento del Contrato Enterprise, se transfieren a una nueva inscripción de destino.
 - El estado de inscripción se establece en _Transferido_. La inscripción transferida solo está disponible con fines de informe de historial de uso.
 - No se pueden agregar roles o suscripciones a una inscripción transferida. El estado transferido evita el uso adicional en la inscripción.
 - Se pierde cualquier saldo de compromiso monetario restante del contrato, incluidos los términos futuros.
@@ -171,27 +166,17 @@ Cuando se solicita la transferencia de una inscripción empresarial completa a u
 
 ### <a name="effective-transfer-date"></a>Fecha de transferencia efectiva
 
-La fecha de transferencia efectiva puede ser la fecha de inicio de la inscripción o una fecha posterior a la que desea realizar la transferencia a la suscripción de destino.
+La fecha de transferencia efectiva puede ser la fecha de inicio de la suscripción de destino o una fecha posterior.
 
 El uso de la inscripción de origen se cobra en el compromiso monetario o como uso por encima del límite. El uso que se produce después de la fecha de transferencia efectiva se transfiere a la nueva inscripción y se cobra en consecuencia.
 
-### <a name="effective-transfer-date-in-the-past"></a>Fecha de transferencia efectiva en el pasado
+Se admite una transferencia atrasada a la fecha de inicio de la inscripción de destino. Proporcionar la fecha de transferencia elegida no afecta al uso de una factura por encima del límite que ya se ha emitido.
 
-Puede atrasar la transferencia de una cuenta a la fecha de inicio de la inscripción de destino. También puede atrasarla a la fecha de inicio efectiva de la inscripción de origen.
-
-### <a name="monetary-commitment"></a>Compromiso monetario
-
-El compromiso monetario no se transfiere entre inscripciones. Los saldos de compromiso monetario se asocian contractualmente a la inscripción en la que se solicitaron. El compromiso monetario no se transfiere como parte del proceso de transferencia de la cuenta o inscripción.
-
-### <a name="services-affected"></a>Servicios afectados
-
-No hay ningún tiempo de inactividad durante la transferencia de la cuenta. Se puede completar el mismo día de la solicitud si se proporciona toda la información necesaria.
-
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 Al solicitar una transferencia de inscripciones, proporcione la siguiente información:
 
-- Para la inscripción de origen, el número de inscripción y la cuenta que se va a transferir.
+- Para la inscripción de origen, el número de inscripción.
 - Para la inscripción de destino, el número de inscripción al que se va a transferir.
 - Para la fecha de vigencia de la transferencia de inscripción, puede ser la fecha de inicio de la inscripción de destino o después de ella. La fecha elegida no puede afectar al uso de ninguna factura por uso por encima del límite ya emitida.
 
@@ -199,8 +184,15 @@ Otros puntos que hay que tener en cuenta antes de una transferencia de inscripci
 
 - Es necesaria la aprobación de un administrador del Contrato Enterprise para la inscripción de origen y destino.
 - Si una transferencia de inscripción no cumple sus requisitos, considere la posibilidad de transferir una cuenta.
-- Solo se transfieren las cuentas que especifique. Puede solicitar la transferencia de todas las cuentas.
-- La inscripción de origen conserva su estado como activo o extendido. Puede seguir usando la inscripción hasta que expire.
+- El estado de inscripción de origen se actualizará al estado transferido y solo estará disponible para fines de informes de uso históricos.
+
+### <a name="monetary-commitment"></a>Compromiso monetario
+
+El compromiso monetario no se transfiere entre inscripciones. Los saldos de compromiso monetario se asocian contractualmente a la inscripción en la que se solicitaron. El compromiso monetario no se transfiere como parte del proceso de transferencia de la cuenta o inscripción.
+
+### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>No hay servicios afectados para las transferencias de cuentas e inscripciones.
+
+No hay ningún tiempo de inactividad durante la transferencia de la cuenta o inscripción. Se puede completar el mismo día de la solicitud si se proporciona toda la información necesaria.
 
 ## <a name="change-account-owner"></a>Cambiar el propietario de la cuenta
 
@@ -218,13 +210,13 @@ Para ver los usuarios con acceso RBAC a la suscripción:
 
 Si transfiere la suscripción a una cuenta en otro inquilino de Azure AD, todos los usuarios, grupos y entidades de servicio que tenían [RBAC](../role-based-access-control/overview.md) para administrar recursos _perderán_ el acceso. Aunque el acceso RBAC no está presente, el acceso a la suscripción puede estar disponible a través de mecanismos de seguridad, entre los que se incluyen:
 
-- Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para más información, consulte [Create and Upload a Management Certificate for Azure](../cloud-services/cloud-services-certs-create.md) (Creación y actualización de un certificado de administración para Azure).
+- Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para obtener más información, consulte [Crear y cargar un certificado de administración para Azure](../cloud-services/cloud-services-certs-create.md).
 - Claves de acceso para servicios como Almacenamiento. Para más información, vea [Introducción a las cuentas de Azure Storage](../storage/common/storage-account-overview.md).
 - Credenciales de acceso remoto para servicios como Azure Virtual Machines.
 
 El destinatario debe restringir el acceso a los recursos de Azure y considerar la actualización de todos los secretos asociados al servicio. La mayoría de los recursos se pueden actualizar mediante el uso de los siguientes pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. En el menú Concentrador, seleccione **Todos los recursos**.
 3. Seleccione el recurso.
 4. En la página de recursos, haga clic en **Settings** (Configuración) para ver y actualizar los secretos existentes.
@@ -384,4 +376,4 @@ Para crear una suscripción del tipo de oferta Contrato Enterprise, debe tener d
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información acerca de cómo las [reservas de máquinas virtuales](billing-ea-portal-vm-reservations.md) pueden ayudarle a ahorrar dinero.
-- Si necesita ayuda para solucionar problemas del portal del Contrato Enterprise de Azure, consulte [Solución de problemas de acceso al portal del Contrato Enterprise de Azure](billing-ea-portal-troubleshoot.md).
+- Si necesita ayuda para solucionar problemas con el portal del Contrato Enterprise de Azure, consulte [Solución de problemas de acceso al portal del Contrato Enterprise de Azure](billing-ea-portal-troubleshoot.md).

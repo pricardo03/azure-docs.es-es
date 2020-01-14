@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Conexión al servicio Text Analytics con Servicios conectados en Visual Studio'
 titleSuffix: Azure Cognitive Services
-description: En este artículo y sus artículos complementarios se proporcionan detalles acerca del uso de la característica de servicios conectados de Visual Studio para el servicio Text Analytics.
+description: Aprenda a usar la característica de servicio conectado de Visual Studio para el servicio Text Analytics.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: b094a6917892dfff58c49435de4dc42551be19df
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 317a5f4ae642dc2306ae84c42a042206b9059ba7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837200"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446155"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Tutorial: Conexión al servicio Text Analytics con Servicios conectados en Visual Studio
 
@@ -23,9 +23,9 @@ Al usar el servicio Text Analytics, puede extraer información muy completa para
 
 En este artículo y sus artículos complementarios se proporcionan detalles acerca del uso de la característica de servicios conectados de Visual Studio para el servicio Text Analytics. La funcionalidad está disponible en Visual Studio 2019 o posterior, con la extensión Cognitive Services instalada.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Una suscripción de Azure. Si no tiene, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Suscripción a Azure. Si no tiene, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Visual Studio 2019 con la carga de trabajo Desarrollo web instalada. [Descárguelo ahora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
@@ -49,7 +49,7 @@ En este artículo y sus artículos complementarios se proporcionan detalles acer
 
 1. Seleccione la suscripción que desea utilizar y, a continuación, elija un nombre para el servicio Text Analytics, o elija el vínculo **Editar** para modificar el nombre generado automáticamente, elija el grupo de recursos y el plan de tarifa.
 
-   ![Captura de pantalla del grupo de recursos y los campos del plan de tarifa](media/vs-text-connected-service/Cog-Text-Connected-Service-2.PNG)
+   ![Captura de pantalla de los campos de grupo de recursos y plan de tarifa](media/vs-text-connected-service/Cog-Text-Connected-Service-2.PNG)
 
    Siga el vínculo para obtener más información sobre los planes de tarifa.
 

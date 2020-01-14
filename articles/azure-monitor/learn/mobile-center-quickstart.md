@@ -1,6 +1,6 @@
 ---
-title: Guía de inicio rápido con Azure Application Insights | Microsoft Docs
-description: Proporciona instrucciones para configurar rápidamente una aplicación móvil para la supervisión con Application Insights y App Center.
+title: Supervisión de aplicaciones móviles con Azure Monitor Application Insights
+description: Proporciona instrucciones para configurar rápidamente la supervisión de una aplicación móvil con Application Insights y App Center
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
@@ -9,22 +9,22 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: fe514e7a05701901759ab5453e1c1d02870da91d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 07e162dc74a514c9e7e6c82c38b51460a2f797fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900534"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398881"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Comience a analizar la aplicación móvil con App Center y Application Insights.
 
 Esta guía de inicio rápido le orienta a través de la conexión de la instancia de App Center de la aplicación a Application Insights. Con Application Insights, puede consultar, segmentar, filtrar y analizar la telemetría con herramientas más eficaces que las disponibles en el servicio [Analytics](https://docs.microsoft.com/mobile-center/analytics/) de App Center.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este inicio rápido necesita instalar:
 
-- Una suscripción de Azure.
+- Suscripción a Azure.
 - Una aplicación iOS, Android, Xamarin, Universal Windows o React Native.
  
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
@@ -68,7 +68,7 @@ Para asegurarse de que se reciben los eventos personalizados, vaya a la pestaña
 
 Cuando la aplicación envía eventos personalizados y App Center los recibe, tiene que crear un recurso de Application Insights para App Center en Azure Portal:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Seleccione **Crear un recurso** > **Herramientas de desarrollo** > **Application Insights**.
 
     > [!NOTE]
@@ -76,13 +76,13 @@ Cuando la aplicación envía eventos personalizados y App Center los recibe, tie
 
     Aparecerá un cuadro de configuración. Use la tabla siguiente para rellenar los campos de entrada.
 
-    | Configuración        |  Valor           | DESCRIPCIÓN  |
+    | Configuración        |  Value           | Descripción  |
    | ------------- |:-------------|:-----|
    | **Nombre**      | Algún valor único global, como "myApp-iOS" | Nombre que identifica la aplicación que se está supervisando |
      | **Grupo de recursos**     | Un grupo de recursos nuevo o uno existente desde el menú | El grupo de recursos en que se va a crear el recurso de Application Insights |
    | **Ubicación** | Una ubicación en el menú | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
 
-3. Haga clic en **Create**(Crear).
+3. Haga clic en **Crear**.
 
 Si la aplicación admite varias plataformas (iOS, Android, etc.), es mejor crear recursos de Application Insights independientes, uno para cada plataforma.
 

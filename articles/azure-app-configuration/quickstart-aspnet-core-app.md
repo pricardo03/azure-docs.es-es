@@ -1,42 +1,39 @@
 ---
 title: Inicio rápido de Azure App Configuration con ASP.NET Core | Microsoft Docs
-description: Un inicio rápido para el uso de Azure App Configuration con aplicaciones de ASP.NET Core
+description: Inicio rápido para usar Azure App Configuration con aplicaciones de ASP.NET Core
 services: azure-app-configuration
-documentationcenter: ''
-author: yegu-ms
-manager: balans
-editor: ''
-ms.assetid: ''
+author: jpconnock
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET Core
-ms.workload: tbd
-ms.date: 10/11/2019
-ms.author: yegu
-ms.openlocfilehash: 91712b3f730317e65cda7b48c8f5636b2fb9ab2c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.date: 01/04/2020
+ms.author: jeconnoc
+ms.openlocfilehash: f625135f036ec8fc816bc3c3eb6c76c635c51fe9
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185085"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690215"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación ASP.NET Core con Azure App Configuration
 
-En este inicio rápido incorporará Azure App Configuration a una aplicación de ASP.NET Core para centralizar el almacenamiento y la administración de la configuración de la aplicación de forma independiente del código. ASP.NET Core genera un objeto de configuración basado en un par clave-valor, para lo que usa la configuración de uno o varios orígenes de datos, que una aplicación especifica. Estos orígenes de datos se conocen como *proveedores de configuración*. Dado que el cliente .NET Core de App Configuration se implementa como un proveedor, el servicio aparece igual que cualquier otro origen de datos.
+En este inicio rápido usará Azure App Configuration para centralizar el almacenamiento y la administración de la configuración de la aplicación de una aplicación de ASP.NET Core. ASP.NET Core genera un solo objeto de configuración basado en un par clave-valor mediante el uso de la configuración de uno o varios orígenes de datos especificados por una aplicación. Estos orígenes de datos se conocen como *proveedores de configuración*. Dado que el cliente .NET Core de App Configuration se implementa como un proveedor de configuraciones, el servicio parece como cualquier otro origen de datos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [SDK de .NET Core](https://dotnet.microsoft.com/download)
+
+>[!TIP]
+> Azure Cloud Shell es un shell interactivo gratuito que se puede usar para ejecutar las instrucciones de línea de comandos en este artículo.  Tiene herramientas comunes de Azure preinstaladas, lo que incluye el SDK de .NET Core. Si ha iniciado sesión en su suscripción de Azure, inicie [Azure Cloud Shell](https://shell.azure.com) desde shell.azure.com.  Para más información sobre Azure Cloud Shell, [lea la documentación](../cloud-shell/overview.md).
 
 ## <a name="create-an-app-configuration-store"></a>Creación de un almacén de App Configuration
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Seleccione **Explorador de configuración** >  **+ Crear** para agregar los siguientes pares clave-valor:
+6. Seleccione **Explorador de configuración** > **Crear** para agregar los siguientes pares clave-valor:
 
-    | Clave | Valor |
+    | Clave | Value |
     |---|---|
     | TestApp:Settings:BackgroundColor | Blanco |
     | TestApp:Settings:FontSize | 24 |
@@ -47,24 +44,29 @@ En este inicio rápido incorporará Azure App Configuration a una aplicación de
 
 ## <a name="create-an-aspnet-core-web-app"></a>Cree una aplicación web ASP.NET Core
 
-Va a utilizar la [interfaz de la línea de comandos (CLI) de .NET Core](https://docs.microsoft.com/dotnet/core/tools/) para crear un proyecto de aplicación web de ASP.NET Core MVC. La ventaja de usar la CLI de .NET Core frente a Visual Studio es que está disponible en las plataformas Windows, macOS y Linux.
+Utilice la [interfaz de la línea de comandos (CLI) de .NET Core](https://docs.microsoft.com/dotnet/core/tools/) para crear un proyecto de aplicación web de ASP.NET Core MVC. [Azure Cloud Shell](https://shell.azure.com) proporciona estas herramientas.  También están disponibles en las plataformas Windows, macOS y Linux.
 
 1. Cree una carpeta nueva para su proyecto. En este inicio rápido, lo llamaremos *TestAppConfig*.
 
-2. En la nueva carpeta, ejecute el siguiente comando para crear un nuevo proyecto de aplicación web de ASP.NET Core MVC:
+1. En la nueva carpeta, ejecute el siguiente comando para crear un nuevo proyecto de aplicación web de ASP.NET Core MVC:
 
-    ```CLI
-        dotnet new mvc --no-https
-    ```
+```dotnetcli
+dotnet new mvc --no-https
+```
 
 ## <a name="add-secret-manager"></a>Incorporación de Secret Manager
 
 Para usar Secret Manager, agregue un elemento `UserSecretsId` al archivo *.csproj*.
 
-- Abra el archivo *.csproj*. Agregue un elemento `UserSecretsId` como se muestra aquí. Puede usar el mismo identificador único global, o bien puede reemplazar este valor por el suyo propio. Guarde el archivo.
+Abra el archivo *.csproj*. Agregue un elemento `UserSecretsId` como se muestra aquí. Puede usar el mismo identificador único global, o bien puede reemplazar este valor por el suyo propio. Guarde el archivo.
 
-    ```xml
-    <Project Sdk="Microsoft.NET.Sdk.Web">
+> [!IMPORTANT]
+> `CreateHostBuilder` reemplaza a `CreateWebHostBuilder` en .NET Core 3.0.  Seleccione la sintaxis correcta en función de su entorno.
+
+#### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
         <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -76,8 +78,22 @@ Para usar Secret Manager, agregue un elemento `UserSecretsId` al archivo *.cspro
         <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     </ItemGroup>
 
-    </Project>
-    ```
+</Project>
+```
+
+#### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+    </PropertyGroup>
+
+</Project>
+```
+---
 
 La herramienta Secret Manager almacena información confidencial para el trabajo de desarrollo fuera de su árbol de proyecto. Este enfoque ayuda a evitar el uso compartido accidental de secretos de la aplicación en el código fuente. Para más información sobre Secret Manager, consulte [Almacenamiento seguro de secretos de aplicación en el desarrollo en ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets)
 
@@ -85,43 +101,43 @@ La herramienta Secret Manager almacena información confidencial para el trabajo
 
 1. Para agregar una referencia al paquete NuGet `Microsoft.Azure.AppConfiguration.AspNetCore`, ejecute el comando siguiente:
 
-    ```CLI
-        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-010560002-1165
     ```
-2. Ejecute el siguiente comando para restaurar los paquetes para el proyecto:
+1. Ejecute el siguiente comando para restaurar los paquetes para el proyecto:
 
-    ```CLI
-        dotnet restore
+    ```dotnetcli
+    dotnet restore
     ```
-3. Agregue un secreto llamado *ConnectionStrings:AppConfig* a Secret Manager.
+1. Agregue un secreto llamado *ConnectionStrings:AppConfig* a Secret Manager.
 
     Este secreto contiene la cadena de conexión necesaria para acceder a su almacén de App Configuration. Sustituya el valor en el comando siguiente por la cadena de conexión de su almacén de App Configuration.
 
     Este comando debe ejecutarse en el mismo directorio que el archivo *.csproj*.
 
-    ```CLI
-        dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+    ```dotnetcli
+    dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
     ```
 
     > [!IMPORTANT]
     > Algunos shells truncarán la cadena de conexión, salvo que esté entre comillas. Asegúrese de que la salida del comando `dotnet user-secrets` muestra toda la cadena de conexión. Si no lo hace, vuelva a ejecutar el comando y escriba la cadena de conexión entre comillas.
 
-    Secret Manager solo se utiliza para probar la aplicación web localmente. Cuando la aplicación se implementa (por ejemplo, en [Azure App Service](https://azure.microsoft.com/services/app-service/web)), usará una configuración de la aplicación (por ejemplo, **Cadenas de conexión** en App Service), en lugar de almacenar la cadena de conexión con Secret Manager.
+    Secret Manager solo se utiliza para probar la aplicación web localmente. Cuando la aplicación se implementa por ejemplo en [Azure App Service](https://azure.microsoft.com/services/app-service/web), usará el valor de la aplicación configuración de la aplicación **Connection Strings** (Cadenas de conexión) en App Service, en lugar de Secret Manager (Administrador de secretos) para almacenar la cadena de conexión.
 
-    Se accede a este secreto con la API de configuración. Un signo de dos puntos (:) funciona en el nombre de configuración con la API de configuración en todas las plataformas compatibles. Consulte [Configuración en ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
+    Acceda a este secreto mediante la API de configuración. Un signo de dos puntos (:) funciona en el nombre de configuración con la API de configuración en todas las plataformas compatibles. Consulte [Configuración en ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Abra *Program.cs* y agregue una referencia al proveedor de configuración de la aplicación .NET Core.
+1. Abra *Program.cs* y agregue una referencia al proveedor de configuración de la aplicación .NET Core.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-5. Actualice el método `CreateWebHostBuilder` para usar App Configuration; para ello, llame al método `config.AddAzureAppConfiguration()`.
+1. Actualice el método `CreateWebHostBuilder` para usar App Configuration; para ello, llame al método `config.AddAzureAppConfiguration()`.
     
     > [!IMPORTANT]
     > `CreateHostBuilder` reemplaza a `CreateWebHostBuilder` en .NET Core 3.0.  Seleccione la sintaxis correcta en función de su entorno.
 
-    ### <a name="update-createwebhostbuilder-for-net-core-2x"></a>Actualización `CreateWebHostBuilder` para .NET Core 2.x
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -134,8 +150,8 @@ La herramienta Secret Manager almacena información confidencial para el trabajo
             .UseStartup<Startup>();
     ```
 
-    ### <a name="update-createhostbuilder-for-net-core-3x"></a>Actualización `CreateHostBuilder` para .NET Core 3.x
-
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
@@ -147,8 +163,9 @@ La herramienta Secret Manager almacena información confidencial para el trabajo
         })
         .UseStartup<Startup>());
     ```
+    ---
 
-6. Abra el archivo *Index.cshtml*, que se encuentra en el directorio Views > Home, y sustituya su contenido por el siguiente código:
+1. Vaya a *<app root>/Views/Home* y abra *Index.cshtml*. Sustituya su contenido por el código siguiente:
 
     ```HTML
     @using Microsoft.Extensions.Configuration
@@ -167,7 +184,7 @@ La herramienta Secret Manager almacena información confidencial para el trabajo
     <h1>@Configuration["TestApp:Settings:Message"]</h1>
     ```
 
-7. Abra el archivo *_Layout.cshtml*, que se encuentra en el directorio Views > Shared, y sustituya su contenido por el siguiente código:
+1. Vaya a *<app root>/Views/shared* y abra *_Layout.cshtml*. Sustituya su contenido por el código siguiente:
 
     ```HTML
     <!DOCTYPE html>
@@ -196,19 +213,25 @@ La herramienta Secret Manager almacena información confidencial para el trabajo
 
 ## <a name="build-and-run-the-app-locally"></a>Compilación y ejecución de la aplicación en un entorno local
 
-1. Para compilar la aplicación mediante la CLI de .NET Core, ejecute el siguiente comando en el shell de comandos:
+1. Para compilar la aplicación mediante la CLI de .NET Core, vaya al directorio raíz de la aplicación y ejecute el siguiente comando en el shell de comandos:
 
-    ```CLI
-       dotnet build
+    ```dotnetcli
+    dotnet build
     ```
 
-2. Una vez que la compilación se haya realizado correctamente, ejecute el siguiente comando para ejecutar la aplicación web localmente:
+1. Una vez que la compilación se haya realizado correctamente, ejecute el siguiente comando para ejecutar la aplicación web localmente:
 
-    ```CLI
-        dotnet run
+    ```dotnetcli
+    dotnet run
     ```
 
-3. Inicie una ventana del explorador y vaya a `http://localhost:5000`, que es la dirección URL predeterminada de la aplicación web hospedada localmente.
+1. Si trabaja en un equipo local, use un explorador para ir a `http://localhost:5000`. Esta es la dirección URL predeterminada de la aplicación web hospedada localmente.  
+
+Si trabajando en Azure Cloud Shell, seleccione el botón *Vista previa web* y después *Configurar*.  
+
+![Busque el botón Vista previa web](./media/quickstarts/cloud-shell-web-preview.png)
+
+Cuando se le pida que configure el puerto para la versión preliminar, escriba "5000" y seleccione *Abrir y examinar*.  En la página web aparecerá "Data from Azure App Configuration" (Datos de Azure App Configuration).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de script de Azure PowerShell: agregar certificado de aplicación a un clúster | Microsoft Docs'
+title: Adición de un certificado de aplicación a un clúster en PowerShell
 description: 'Ejemplo de script de Azure PowerShell: agregar un certificado de aplicación a un clúster de Service Fabric.'
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 1ef48f5dd7fabd724dee2c2910e44f47979258b5
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 069ad55136101c0b57c9faee95578f816b5efef4
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547471"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614883"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Incorporación de un certificado de aplicación a un clúster de Service Fabric
 

@@ -4,15 +4,15 @@ description: Configure los valores que se aplican a todo el entorno de Azure App
 author: stefsch
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 12/19/2019
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 36208b4662242b37c135eaffc745a819c11fa015
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 42a06724274288955b11c3daf9cbf33d72ddf75d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687324"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430500"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Opciones de configuración personalizada para Entornos de App Service
 ## <a name="overview"></a>Información general
@@ -57,6 +57,19 @@ Como alternativa, puede actualizar el entorno de App Service mediante el [Explor
 Una vez enviado el cambio, tarda en aplicarse aproximadamente 30 minutos multiplicado por el número de front-ends en el entorno de App Service.
 Por ejemplo, si un entorno de App Service tiene cuatro front-ends, tardará aproximadamente dos horas en finalizar la actualización de la configuración. Mientras se implementa el cambio de configuración, no será posible realizar otras operaciones de escalado o de cambio de configuración en el entorno de App Service.
 
+## <a name="enable-internal-encryption"></a>Habilitación del cifrado interno
+
+App Service Environment funciona como sistema de caja negra en el que no se pueden ver los componentes internos ni la comunicación dentro del sistema. Para permitir mayor capacidad de proceso, no se habilita el cifrado de forma predeterminada entre los componentes internos. El sistema es seguro, ya que no se puede acceder al tráfico ni supervisarlo de manera alguna. En cambo, si tiene un requisito de cumplimiento normativo que requiera un cifrado completo de la ruta de acceso a los datos de un extremo a otro, existe una manera de habilitarlo con clusterSetting.  
+
+        "clusterSettings": [
+            {
+                "name": "InternalEncryption",
+                "value": "1"
+            }
+        ],
+ 
+La habilitación de clusterSetting de InternalEncryption puede afectar al rendimiento del sistema. Al realizar el cambio para habilitar InternalEncryption, ASE tendrá un estado inestable hasta que se propague el cambio totalmente. La propagación completa del cambio puede tardar unas horas en completarse, en función de cuántas instancias tenga en ASE. Es muy recomendable no habilitar esto en ASE si este se encuentra en uso. Si es necesaria la hablitación en un ASE en uso, lo mejor es desviar el tráfico a un entorno de copia de seguridad hasta que se complete la operación. 
+
 ## <a name="disable-tls-10-and-tls-11"></a>Deshabilitación de TLS 1.0 y TLS 1.1
 
 Si desea administrar la configuración de TLS aplicación por aplicación, luego puede usar la guía que se proporciona en el tutorial [Enlazar un certificado SSL personalizado a Azure App Service](../configure-ssl-bindings.md#enforce-tls-versions). 
@@ -87,7 +100,7 @@ Otra pregunta de los clientes es si pueden modificar la lista de cifrados negoci
 > 
 > 
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 El sitio de inicio rápido de plantillas de Azure Resource Manager incluye una plantilla con la definición base para [crear un entorno de App Service](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 <!-- LINKS -->

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 0dde7bd9bd3372f0f5eddbbd56727eca3ae4a9dd
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 78678474430792eb7fe419ef4f15828d461c1fec
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950465"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647414"
 ---
 # <a name="what-is-azure-iot-hub"></a>¿Qué es Azure IoT Hub?
 
@@ -111,7 +111,7 @@ Si la solución no puede usar ninguno de los protocolos compatibles, puede ampli
 
 Cada suscripción de Azure tiene límites de cuota predeterminados para impedir el abuso del servicio y pueden afectar al ámbito de la solución de IoT. El límite actual es de 50 de centros de IoT Hub por suscripción. Puede solicitar un aumento de la cuota si se pone en contacto con el soporte técnico. Para obtener más información, consulte las [cuotas y limitaciones de IoT Hub](iot-hub-devguide-quotas-throttling.md). Para obtener más información sobre los límites de cuota, vea alguno de los siguientes artículos:
 
-* [Límites de servicio de suscripción de Azure](../azure-subscription-service-limits.md)
+* [Límites de servicio de suscripción de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 * [IoT Hub throttling and you](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/) (Limitación de IoT Hub)
 
@@ -120,3 +120,7 @@ Cada suscripción de Azure tiene límites de cuota predeterminados para impedir 
 Para probar una solución de IoT de un extremo a otro, consulte los siguientes inicios rápidos de IoT Hub:
 
 * [Inicio rápido: Enviar telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-node.md)
+
+Para más información sobre las distintas formas en que puede compilar e implementar soluciones de IoT con IoT de Azure, visite:
+
+* [Aspectos básicos: Soluciones y tecnologías de IoT de Azure](../iot-fundamentals/iot-services-and-technologies.md).

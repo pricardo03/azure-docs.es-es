@@ -1,5 +1,5 @@
 ---
-title: Solución Monitor de rendimiento de red en Azure Log Analytics | Microsoft Docs
+title: 'Conectividad de servicio de la solución Monitor de rendimiento de red: Azure Log Analytics'
 description: Use la funcionalidad del Monitor de conectividad de servicio en Network Performance Monitor para supervisar la conectividad de red con cualquier punto de conexión que tenga un puerto TCP abierto.
 ms.service: azure-monitor
 ms.subservice: logs
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dd02dad6d0f5b42181ad0bb27201384a6336ed6e
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 11975a86b5d9135b42dd51bdd787c2f76cabe259
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898817"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551512"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de conectividad de servicio
 
@@ -58,7 +58,7 @@ Comience a crear las pruebas para supervisar la conectividad de red con los punt
 
     * Seleccione **Web** para supervisar la conectividad con un servicio que responde a las solicitudes HTTP/S, como outlook.office365.com o bing.com.<br>
     * Seleccione **Red** para supervisar la conectividad con un servicio que responde a solicitudes TCP pero no a solicitudes HTTP/S, como SQL Server, servidor FTP o puerto SSH. 
-    * Por ejemplo:  Para crear una prueba web con una cuenta de Blob Storage, seleccione **Web** y especifique el destino como *yourstorageaccount*. blob.core.windows.net. De forma similar, puede crear pruebas para Table Storage, Queue Storage y Azure Files mediante [este vínculo](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints).
+    * Por ejemplo: Para crear una prueba web con una cuenta de Blob Storage, seleccione **Web** y especifique el destino como *yourstorageaccount*. blob.core.windows.net. De forma similar, puede crear pruebas para Table Storage, Queue Storage y Azure Files mediante [este vínculo](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints).
 4. Si no desea realizar mediciones de red, como la latencia de la red, la pérdida de paquetes y la detección de topología, desactive la casilla **Realizar mediciones de red**. Manténgala activada para aprovechar al máximo la funcionalidad. 
 5. En **Destino**, escriba la dirección IP, el FQDN o la dirección URL en que desea supervisar la conectividad de red.
 6. En **Número de puerto**, escriba el número de puerto del servicio de destino. 

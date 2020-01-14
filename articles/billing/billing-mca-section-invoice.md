@@ -1,5 +1,5 @@
 ---
-title: 'Creación de secciones en la factura para organizar los costos: Azure'
+title: 'Creación de secciones en la factura para organizar costos: Azure'
 description: Aprenda a organizar los costos con secciones de factura.
 author: amberbhargava
 manager: amberb
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: d70460f5a492c9699a6110d5ba164283934c584b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ff8b2da353d623cd9f05c8d0b0317587d7093ce3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226132"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389288"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Creación de secciones en la factura para organizar los costos
 
@@ -27,7 +27,7 @@ Este artículo se aplica a una cuenta de facturación para un contrato de client
 
 Para crear una sección de factura, debe ser **propietario del perfil de facturación** o **colaborador de perfil de facturación**. Para más información, consulte [Administración de las secciones de factura para el perfil de facturación](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Busque **Administración de costos + facturación**.
 
@@ -39,7 +39,7 @@ Para crear una sección de factura, debe ser **propietario del perfil de factura
 
 4. En la parte superior de la página, seleccione **Agregar**.
 
-5. Escriba un nombre para la sección de factura y seleccione un perfil de facturación. Verá la sección en esta factura del perfil de facturación que refleja el uso de cada suscripción y las compras que ha asignado a la sección. 
+5. Escriba un nombre para la sección de factura y seleccione un perfil de facturación. Verá la sección en esta factura del perfil de facturación que refleja el uso de cada suscripción y las compras que ha asignado a la sección.
 
    ![Captura de pantalla que muestra la página de creación de secciones de factura](./media/billing-mca-section-invoice/mca-create-invoice-section.png)
 

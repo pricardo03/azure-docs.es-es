@@ -7,12 +7,12 @@ ms.date: 11/19/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 0a6d7ce8f1f6b81c3dbae3d41842345be5d2e551
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 089cda74740d3934c76a3b0ca8803a30654feccf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422022"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465117"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>Inicio rápido: Biblioteca cliente de Azure Blob Storage v12 para JavaScript
 
@@ -29,11 +29,11 @@ Use la biblioteca cliente de Azure Blob Storage v12 para JavaScript para:
 * Descargar el blob en el equipo local
 * Eliminación de un contenedor
 
-[Documentación de referencia de API](/javascript/api/@azure/storage-blob) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Paquete (administrador de paquetes de Node)](https://www.npmjs.com/package/@azure/storage-blob/v/12.0.0) | [Ejemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
+[Documentación de referencia de API](/javascript/api/@azure/storage-blob) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Paquete (administrador de paquetes de Node)](https://www.npmjs.com/package/@azure/storage-blob) | [Ejemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -82,7 +82,7 @@ Cree una aplicación de JavaScript llamada *blob-quickstart-v12*.
     
     Puede poner su propio nombre en el campo `author`, si lo desea.
    
-### <a name="install-the-package"></a>Instalación del paquete
+### <a name="install-the-package"></a>Instalar el paquete
 
 Mientras sigue en el directorio *blob-quickstart-v12*, instale el paquete de la biblioteca cliente de Azure Blob Storage para JavaScript con el comando `npm install`. Este comando lee el archivo *package.json* e instala el paquete de la biblioteca cliente de Azure Blob Storage v12 para JavaScript y todas las bibliotecas de las que depende.
 
@@ -114,7 +114,7 @@ Desde el directorio del proyecto:
 
 1. Guarde el nuevo archivo como *blob-quickstart-v12.js* en el directorio *blob-quickstart-v12*.
 
-[!INCLUDE [storage-quickstart-connection-string-include](../../../includes/storage-quickstart-credentials-include.md)]
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## <a name="object-model"></a>Modelo de objetos
 
@@ -154,11 +154,11 @@ Agregue este código dentro de la función `main`:
 ```javascript
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
-// running the application called CONNECT_STR. If the environment variable is
-// created after the application is launched in a console or with Visual Studio,
-// the shell or application needs to be closed and reloaded to take the
-// environment variable into account.
-const CONNECT_STR = process.env.CONNECT_STR;
+// running the application called AZURE_STORAGE_CONNECTION_STRING. If the
+// environment variable is created after the application is launched in a
+// console or with Visual Studio, the shell or application needs to be closed
+// and reloaded to take the environment variable into account.
+const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
 ```
 
 ### <a name="create-a-container"></a>Crear un contenedor
@@ -174,7 +174,7 @@ Agregue este código al final de la función `main`:
 
 ```javascript
 // Create the BlobServiceClient object which will be used to create a container client
-const blobServiceClient = await BlobServiceClient.fromConnectionString(CONNECT_STR);
+const blobServiceClient = await BlobServiceClient.fromConnectionString(AZURE_STORAGE_CONNECTION_STRING);
 
 // Create a unique name for the container
 const containerName = 'quickstart' + uuidv1();
@@ -308,16 +308,16 @@ Deleting container...
 Done
 ```
 
-Recorra el código en el depurador y compruebe Azure Portal a lo largo del proceso. Consulte para ver si el contenedor se está creando. Puede abrir el blob dentro del contenedor y ver el contenido.
+Recorra el código en el depurador y compruebe [Azure Portal](https://portal.azure.com) a lo largo del proceso. Consulte para ver si el contenedor se está creando. Puede abrir el blob dentro del contenedor y ver el contenido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha aprendido a cargar, descargar y enumerar blobs mediante JavaScript.
 
-Para ver las aplicaciones de ejemplo de Blob Storage, siga estos pasos:
+Para ver tutoriales, ejemplos, artículos de inicio rápido y otra documentación, visite:
 
 > [!div class="nextstepaction"]
-> [Ejemplos de Azure Blob Storage v12 para JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
+> [Documentación de Azure para JavaScript](/azure/javascript/)
 
-* Para más información, consulte el [SDK de Azure para JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/README.md).
-* Para ver tutoriales, ejemplos, guías de inicio rápido y otra documentación, visite [Documentación de Azure SDK para JavaScript](/azure/javascript/).
+* Para más información, consulte [Uso de la biblioteca cliente de Azure Blob Storage para JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
+* Para ver las aplicaciones de ejemplo de Blob Storage, continúe con los [ejemplos de la biblioteca cliente de Azure Blob Storage para JavaScript v12](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).

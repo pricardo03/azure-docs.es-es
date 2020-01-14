@@ -1,18 +1,20 @@
 ---
-title: Inicio de sesión en Azure Notebooks
-description: Inicie sesión rápidamente en Azure Notebooks y configure un identificador de usuario, lo que le ofrece la posibilidad de acceder a proyectos guardados y compartir cuadernos con otras personas.
+title: Inicio de sesión en Azure Notebooks (versión preliminar)
+description: Inicie sesión rápidamente en Azure Notebooks (versión preliminar) y configure un identificador de usuario, lo que le ofrece la posibilidad de acceder a proyectos guardados y compartir cuadernos con otras personas.
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.openlocfilehash: 234703da9662380a59c7673ca3b34a1b01b7dbef
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: b6572a7c0b965b2b72916db577b47eff4f1921c0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277434"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647023"
 ---
-# <a name="quickstart-sign-in-and-set-a-user-id"></a>Inicio rápido: Inicio de sesión y establecimiento de un identificador de usuario
+# <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>Inicio rápido: Inicio de sesión y establecimiento de un identificador de usuario para Azure Notebooks (versión preliminar)
 
 Aunque siempre puede ver Azure Notebooks sin iniciar sesión, sí que deberá iniciar sesión para ejecutar cuadernos, acceder a proyectos y cuadernos guardados, y para compartir cuadernos con otras personas.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="sign-in"></a>Iniciar sesión
 

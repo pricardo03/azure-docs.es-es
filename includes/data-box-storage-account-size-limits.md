@@ -5,14 +5,14 @@ ms.subservice: heavy
 ms.topic: include
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 0975df8ee9da4a239dbd72e468b967c88ab3feed
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 6a9c31eb46a457433834d5940b3f7e190ebe1476
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277461"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469664"
 ---
-Estos son los límites del tamaño de los datos que se copian en la cuenta de almacenamiento. Asegúrese de que los datos que carga se ajustan a estos límites. Para tener la información más actualizada sobre estos límites, vaya a [Objetivos de escalabilidad de Azure Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) y [Objetivos de escalabilidad de Azure Files](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Estos son los límites del tamaño de los datos que se copian en la cuenta de almacenamiento. Asegúrese de que los datos que carga se ajustan a estos límites. Para obtener la información más actualizada sobre estos límites, consulte [Objetivos de rendimiento y escalabilidad de Blob Storage](../articles/storage/blobs/scalability-targets.md) y [Objetivos de rendimiento y escalabilidad de Azure Files](../articles/storage/files/storage-files-scale-targets.md).
 
 | Tamaño de los datos que se copian en la cuenta de almacenamiento de Azure                      | Límite predeterminado          |
 |---------------------------------------------------------------------|------------------------|

@@ -8,45 +8,47 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b84b0a8e09bf739ce62dee167ff751b491765c66
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: bf107da82fb3f772a341e70ce472f08ea674a450
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186851"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75692565"
 ---
 ### <a name="create-a-storage-account-for-event-processor-host"></a>Creación de una cuenta de almacenamiento para el host de procesador de eventos
 El host de procesador de eventos es un agente inteligente que simplifica la recepción de eventos desde Event Hubs mediante la administración de puntos de control persistentes y recepciones paralelas. Para los puntos de comprobación, el host de procesador de eventos requiere una cuenta de almacenamiento. El ejemplo siguiente muestra cómo crear una cuenta de almacenamiento y cómo obtener sus claves para el acceso:
 
-1. En Azure Portal, seleccione **Crear un recurso** en la parte superior izquierda de la pantalla.
+1. En el menú de Azure Portal, seleccione **Crear un recurso**.
 
-2. Seleccione **Storage** y, a continuación, seleccione **Storage account - blob, file, table, queue** (Cuenta de almacenamiento: blob, archivo, tabla, cola).
+    ![Crear un elemento del menú de recursos, Microsoft Azure Portal](./media/event-hubs-create-storage/create-resource.png)
+
+2. Seleccione **Storage** > **Cuenta de Storage**.
    
-    ![Seleccionar Cuenta de almacenamiento](./media/event-hubs-create-storage/create-storage1.png)
+    ![Creación de una cuenta de almacenamiento, Microsoft Azure Portal](./media/event-hubs-create-storage/select-storage-account.png)
 
 3. En la página **Crear cuenta de almacenamiento**, realice los pasos siguientes: 
 
-   1. Escriba un nombre para la cuenta de almacenamiento. 
-   2. Elija una suscripción de Azure que contenga el centro de eventos.
-   3. Seleccione el grupo de recursos que tenga el centro de eventos.
-   4. Seleccione una ubicación en la que crear el recurso. 
-   5. Después, haga clic en **Revisar + crear**.
+   1. Escriba el **nombre de la cuenta de almacenamiento**.
+   2. Elija una **suscripción** de Azure que contenga el centro de eventos.
+   3. Elija o cree el **grupo de recursos** que tenga el centro de eventos.
+   4. Seleccione la **ubicación** en la que va a crear el recurso. 
+   5. Seleccione **Revisar + crear**.
    
-      ![Página Crear cuenta de almacenamiento](./media/event-hubs-create-storage/create-storage2.png)
+        ![Revisar y crear, Crear cuenta de almacenamiento, Microsoft Azure Portal](./media/event-hubs-create-storage/review-create.png)
 
 4. En la página **Revisar + crear**, revise los valores y seleccione **Crear**. 
 
-    ![Revisión de la configuración de la cuenta de almacenamiento y creación](./media/event-hubs-create-storage/review-create-storage-account.png)
-5. Una vez que aparezca el mensaje **Implementaciones correctas**, seleccione **Ir al recurso** en la parte superior de la página. También puede iniciar la página Cuenta de almacenamiento seleccionando la cuenta de almacenamiento en la lista de recursos.  
+    ![Revisión de la configuración de la cuenta de almacenamiento y creación, Microsoft Azure Portal](./media/event-hubs-create-storage/create-storage-account.png)
+5. Después de ver el mensaje **Correcto** en las notificaciones, seleccione **Ir al recurso** para abrir la página de la cuenta de almacenamiento. Como alternativa, puede expandir **Detalles de la implementación** y, después, seleccionar el nuevo recurso en la lista de recursos.  
 
-    ![Selección de la cuenta de almacenamiento desde la implementación](./media/event-hubs-create-storage/select-storage-deployment.png) 
-7. En la ventana **Información esencial**, haga clic en **Blobs**. 
+    ![Ir al recurso, implementación de la cuenta de almacenamiento, Microsoft Azure Portal](./media/event-hubs-create-storage/go-to-resource.png) 
+6. Seleccione **Contenedores**.
 
-    ![Selección del servicio Blobs](./media/event-hubs-create-storage/select-blobs-service.png)
-1. Seleccione **+ Contenedor** en la parte superior, escriba un **nombre** para el contenedor y seleccione **Aceptar**. 
+    ![Seleccionar el servicio de contenedor de blobs, cuentas de almacenamiento, Microsoft Azure Portal](./media/event-hubs-create-storage/select-blob-container-service.png)
+7. Seleccione **+ Contenedor** en la parte superior, escriba un **nombre** para el contenedor y seleccione **Aceptar**. 
 
-    ![Creación de un contenedor de blobs](./media/event-hubs-create-storage/create-blob-container.png)
-1. Seleccione **Claves de acceso** en el menú de la izquierda y copie el valor de **key1**. 
+    ![Crear un contenedor de blobs, cuentas de almacenamiento, Microsoft Azure Portal](./media/event-hubs-create-storage/create-new-blob-container.png)
+8. Elija **Claves de acceso** en el menú de la página **Cuenta de almacenamiento** y copie el valor de **key1**.
 
     Guarde los valores siguientes en el Bloc de notas o en cualquier otra ubicación temporal.
     - Nombre de la cuenta de almacenamiento

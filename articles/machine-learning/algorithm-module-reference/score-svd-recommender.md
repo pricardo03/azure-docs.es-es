@@ -1,7 +1,7 @@
 ---
 title: 'Recomendador puntuado SVD: Referencia del módulo'
-titleSuffix: Azure Machine Learning service
-description: Aprenda a usar el módulo Score SVD Recommender (Puntuar recomendador de SVD) en Azure Machine Learning Service para puntuar las predicciones de recomendación para un conjunto de datos.
+titleSuffix: Azure Machine Learning
+description: Obtenga más información sobre cómo usar el módulo Score SVD Recommender (Puntuar recomendador de SVD) en Azure Machine Learning para puntuar las predicciones de recomendación de un conjunto de datos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: be590ba04de5c8ee671e7e865d04b4ea6c638c00
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 554101ac70f01f1dd92337a8cf424f8b26ca0fc9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717223"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456334"
 ---
 # <a name="score-svd-recommender"></a>Puntuación del recomendador SVD
 
@@ -33,7 +33,7 @@ A la hora de crear el segundo tipo de predicciones, puede funcionar en uno de es
 
 - **El modo de evaluación** que funciona en un conjunto reducido de usuarios o elementos que se pueden evaluar. Normalmente se usa durante las operaciones de canalización.
 
-Para más información sobre el algoritmo recomendador de SVD, consulte el artículo de investigación sobre [técnicas de factorización matricial para sistemas recomendadores](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
+Para más información sobre el algoritmo recomendador de SVD, consulte el artículo de investigación [técnicas de factorización de matriz para sistemas de recomendador](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
 
 ## <a name="how-to-configure-score-svd-recommender"></a>Cómo configurar el Recomendador puntuado SVD
 
@@ -45,9 +45,9 @@ Cuando se predicen las clasificaciones, el modelo calcula el modo en que un usua
 
 1. Agregue un modelo de recomendación capacitado a su canalización y conéctelo al **Recomendador capacitado SVD**. Tiene que crear el modelo con el módulo [Train SVD Recommender](train-SVD-recommender.md) (Entrenar recomendador de SVD).
 
-2. En **Recommender prediction kind** (Tipo de predicción de recomendador) seleccione **Rating Prediction** (Predicción de clasificación). No se necesita ningún otro parámetro.
+2. En **Recommender prediction kind** (Tipo de predicción recomendada) seleccione **Rating Prediction** (Predicción de clasificación). No se necesita ningún otro parámetro.
 
-3. Agregue los datos para los que quiera realizar las predicciones y conéctela a **Dataset to score** (Conjunto de datos para puntuar).
+3. Agregue los datos para los que quiera realizar las predicciones y conéctela al **Conjunto de datos para puntuar**.
 
    Para que el modelo pueda predecir las clasificaciones, el conjunto de datos de entrada tiene que contener pares de usuario-elemento.
 
@@ -65,7 +65,7 @@ Para recomendar elementos para los usuarios, debe proporcionar una lista de usua
 
 1. Agregue un modelo de recomendación capacitado a su canalización y conéctelo al **Recomendador capacitado SVD**.  Tiene que crear el modelo con el módulo [Train SVD Recommender](train-svd-recommender.md) (Entrenar recomendador de SVD).
 
-2. Para recomendar elementos para una lista de usuarios, establezca **Recommender prediction kind** (Tipo de predicción de recomendador) en **Item Recommendation** (Recomendación de elemento).
+2. Para recomendar elementos para una lista de usuarios, establezca **Recommender prediction kind** (Tipo de predicción recomendada) en **Item Recommendation** (Recomendación de elemento).
 
 3. En **Recommended item selection** (Selección de elementos recomendados), indique si está usando el módulo de puntuación en producción o para la evaluación de modelos. Elija uno de los valores siguientes:
 
@@ -81,11 +81,11 @@ Para recomendar elementos para los usuarios, debe proporcionar una lista de usua
 
       El conjunto de datos puede incluir dos columnas extra de identificadores de elementos y clasificaciones, pero estas dos columnas se omiten. 
 
-    - Para **From Rated Items (for model evaluation)** [De los elementos calificados (para la evaluación de modelos)], el conjunto de datos de entrada debe constar de pares de usuario-elemento. La primera columna debe contener el identificador de usuario. La segunda columna debe contener los identificadores de elemento correspondientes.
+    - Para **From Rated Items (for model evaluation)** (De los elementos calificados [para la evaluación de modelos]), el conjunto de datos de entrada debe constar de pares de usuario-elemento. La primera columna debe contener el identificador de usuario. La segunda columna debe contener los identificadores de elemento correspondientes.
 
       El conjunto de datos puede incluir una tercera columna de clasificaciones de usuario-elemento, pero esta columna se omite.
 
-    - Para **From Unrated Items (to suggest new items to users)** [De elementos sin clasificación (para sugerir nuevos elementos a los usuarios)], el conjunto de datos de entrada debe constar de pares usuario-elemento. La primera columna debe contener el identificador de usuario. La segunda columna debe contener los identificadores de elemento correspondientes.
+    - Para **From Unrated Items (to suggest new items to users)** (De elementos sin clasificación [para sugerir nuevos elementos a los usuarios]), el conjunto de datos de entrada debe constar de pares usuario-elemento. La primera columna debe contener el identificador de usuario. La segunda columna debe contener los identificadores de elemento correspondientes.
 
      El conjunto de datos puede incluir una tercera columna de clasificaciones de usuario-elemento, pero esta columna se omite.
 
@@ -123,4 +123,4 @@ Cuando se pone en operación el modelo, normalmente se cambia el modo de predicc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

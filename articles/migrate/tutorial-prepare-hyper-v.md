@@ -8,23 +8,23 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f93528e2a35661f8a233aea476a958a079d7cd59
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 78e8a42c4f1e101f8d083c8d58bb452aadfa3a87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196257"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454577"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparación de la evaluación y migración de máquinas virtuales de Hyper-V a Azure
 
 En este artículo se indica cómo prepararse para la evaluación y migración de máquinas virtuales de Hyper-V locales a Azure mediante [Azure Migrate](migrate-services-overview.md).
 
-[Azure Migrate](migrate-overview.md) proporciona un centro de herramientas que le ayudan a detectar, evaluar y migrar aplicaciones, infraestructura y cargas de trabajo en Microsoft Azure. Dicho centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros.
+[Azure Migrate](migrate-overview.md) proporciona un centro de herramientas que le ayuda a detecta las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Este centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros.
 
 Este tutorial es el primero de una serie que muestra cómo evaluar máquinas virtuales de Hyper-V y migrarlas a Azure. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Prepare Azure. Configure los permisos de la cuenta y los recursos de Azure para trabajar con Azure Migrate.
+> * Prepare Azure. Configure los permisos de la cuenta y los recursos de Azure para poder usar Azure Migrate.
 > * Prepare los hosts y las máquinas virtuales de Hyper-V locales para la evaluación de los servidores.
 > * Prepare los hosts y las máquinas virtuales de Hyper-V locales para la migración de los servidores.
 
@@ -62,7 +62,7 @@ Compruebe que tenga permiso para crear un proyecto de Azure Migrate.
 
 ### <a name="assign-permissions-to-register-the-appliance"></a>Asignación de permisos para registrar el dispositivo
 
-Puede asignar permisos para Azure Migrate para crear estas aplicaciones de Azure AD durante el registro del dispositivo mediante uno de los métodos siguientes:
+Puede asignar permisos para Azure Migrate con el fin de crear las aplicaciones de Azure AD durante el registro del dispositivo mediante uno de los métodos siguientes:
 
 - Un administrador de inquilinos o administrador global puede conceder permisos a los usuarios del inquilino para crear y registrar aplicaciones de Azure AD.
 - Un administrador de inquilinos o administrador global puede asignar el rol de desarrollador de aplicaciones (que tiene los permisos) a la cuenta.
@@ -195,7 +195,7 @@ Antes de configurar el dispositivo de Azure Migrate y comenzar la evaluación en
 1. [Compruebe](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) los requisitos del dispositivo.
 2. [Revise](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) las direcciones URL de Azure a las que tendrá acceso el dispositivo.
 3. Revise los datos que el dispositivo va a recopilar durante la detección y la evaluación.
-4. [Tenga en cuenta](migrate-support-matrix-hyper-v.md#assessment-port-requirements) los puertos a los que el dispositivo necesita acceder.
+4. [Tenga en cuenta](migrate-support-matrix-hyper-v.md#assessment-port-requirements) los requisitos de acceso a puertos del dispositivo.
 
 
 ### <a name="set-up-an-account-for-vm-discovery"></a>Configuración de una cuenta para la detección de máquinas virtuales

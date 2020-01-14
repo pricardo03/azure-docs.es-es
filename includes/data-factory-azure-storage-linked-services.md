@@ -4,24 +4,24 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: ee368b58195d61a1c6792a3a3655122af7104d58
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 37917e0ed663675677f1d0452b5796120ca2694e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012272"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466856"
 ---
-### <a name="azure-storage-linked-service"></a>Servicio vinculado Azure Storage
-El servicio vinculado de **Azure Storage** le permite vincular una cuenta de Azure Storage a una instancia de Azure Data Factory con una **clave de cuenta**, que proporciona a la instancia de Azure Data Factory acceso global a Azure Storage. En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado Azure Storage.
+### <a name="azure-storage-linked-service"></a>Servicio vinculado de Azure Storage
+El servicio vinculado de **Azure Storage** le permite vincular una cuenta de Azure Storage a una instancia de Azure Data Factory con una **clave de cuenta**, que proporciona a la instancia de Azure Data Factory acceso global a Azure Storage. En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de Azure Storage.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type |La propiedad type debe establecerse en: **AzureStorage** |Sí |
 | connectionString |Especifique la información necesaria para conectarse a Almacenamiento de Azure para la propiedad connectionString. |Sí |
 
-Vea la siguiente sección para conocer los pasos para ver o copiar la clave de cuenta de Azure Storage: [Claves de acceso](../articles/storage/common/storage-account-manage.md#access-keys).
+Para obtener más información sobre cómo recuperar las claves de acceso de la cuenta de almacenamiento, consulte [Administración de claves de acceso de la cuenta de almacenamiento](../articles/storage/common/storage-account-keys-manage.md).
 
-**Ejemplo:**  
+**Ejemplo**:  
 
 ```json
 {
@@ -36,7 +36,7 @@ Vea la siguiente sección para conocer los pasos para ver o copiar la clave de c
 ```
 
 ### <a name="azure-storage-sas-linked-service"></a>Servicio vinculado de SAS Azure Storage
-Una Firma de acceso compartido (SAS) ofrece acceso delegado a los recursos en la cuenta de almacenamiento. Esto le permite conceder a un cliente permisos limitados a objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos sin tener que compartir las claves de acceso a las cuentas. La SAS es un URI que incluye en sus parámetros de consulta toda la información necesaria para el acceso autenticado a un recurso de almacenamiento. Para obtener acceso a los recursos de almacenamiento con la SAS, el cliente solo tiene que pasar la SAS al método o constructor adecuados. Para más información sobre las firmas de acceso compartido, consulte [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../articles/storage/common/storage-sas-overview.md) (Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido [SAS]).
+Una Firma de acceso compartido (SAS) ofrece acceso delegado a los recursos en la cuenta de almacenamiento. Esto le permite conceder a un cliente permisos limitados a objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos sin tener que compartir las claves de acceso a las cuentas. La SAS es un URI que incluye en sus parámetros de consulta toda la información necesaria para el acceso autenticado a un recurso de almacenamiento. Para obtener acceso a los recursos de almacenamiento con la SAS, el cliente solo tiene que pasar la SAS al método o constructor adecuados. Para obtener más información sobre las firmas de acceso compartido, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../articles/storage/common/storage-sas-overview.md).
 
 > [!IMPORTANT]
 > Ahora Azure Data Factory solo admite **SAS de servicio**, pero no SAS de cuenta. Tenga en cuenta que la dirección URL de SAS generable desde Azure Portal o el Explorador de Storage es una SAS de cuenta, que no es compatible.
@@ -45,14 +45,14 @@ Una Firma de acceso compartido (SAS) ofrece acceso delegado a los recursos en la
 > Puede ejecutar a continuación los comandos de PowerShell para generar una SAS de servicio para la cuenta de almacenamiento (reemplace los marcadores de posición y conceda el permiso necesario): `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
-El servicio vinculado de SAS de Azure Storage le permite vincular una cuenta de Azure Storage a una factoría de datos Azure con una Firma de acceso compartido (SAS). Proporciona a la instancia de Data Factory acceso restringido o limitado por el tiempo a todos los recursos o a algunos específicos (blob o contenedor) del almacenamiento. En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de SAS Azure Storage. 
+El servicio vinculado de SAS de Azure Storage le permite vincular una cuenta de Azure Storage a una factoría de datos Azure con una Firma de acceso compartido (SAS). Proporciona a la instancia de Data Factory acceso restringido o limitado por el tiempo a todos los recursos o a algunos específicos (blob o contenedor) del almacenamiento. En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de SAS de Azure Storage. 
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type |La propiedad type debe establecerse en: **AzureStorageSas** |Sí |
 | sasUri |Especifique el URI de Firma de acceso compartido a los recursos de Azure Storage como blob, contenedor o tabla.  |Sí |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {

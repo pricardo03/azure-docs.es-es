@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Compilación de una aplicación de Bing Video Search de página única'
 titleSuffix: Azure Cognitive Services
-description: Aquí se indica cómo utilizar Bing Video Search API en una aplicación web de una sola página.
+description: En este tutorial se indica cómo utilizar Bing Video Search API en una aplicación web de una sola página.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: d2cd3d37801fc1a42a9bcbd5f70a6a55e78aaf08
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 7c8485a5521709452217fb4ab1832b6a42cce9ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500074"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382470"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicación de Video Search de página única
 Bing Video Search API permite buscar en la Web y obtener resultados de vídeo correspondientes a la consulta de búsqueda. En este tutorial, crearemos una aplicación web de una sola página que usa Bing Video Search API para mostrar los resultados de la búsqueda en la página. La aplicación incluye componentes HTML, CSS y JavaScript.
@@ -35,11 +35,11 @@ En esta aplicación de tutorial se muestra cómo:
 > * Pasar opciones de búsqueda a Bing Search API
 > * Mostrar resultados de búsqueda de vídeo u, opcionalmente, incluir páginas web, noticias o imágenes
 > * Buscar en intervalos de tiempo de búsqueda de 24 horas, la semana o el mes pasados o todo el tiempo disponible
-> * Navegar por las páginas de resultados de la búsqueda
+> * Navegar por las páginas de resultados de la búsqueda.
 > * Administrar el identificador de cliente de Bing y la clave de suscripción de la API
 > * Controlar los errores que se puedan producir.
 
-La página del tutorial es completamente independiente: no utiliza marcos, hojas de estilo ni archivos de imagen externos. Usa solo características del lenguaje JavaScript totalmente compatibles y funciona con las versiones actuales de los principales exploradores web.
+La página del tutorial es completamente independiente: no utiliza marcos, hojas de estilo ni archivos de imagen externos. Usa solo características del lenguaje JavaScript ampliamente compatibles y funciona con las versiones actuales de los principales exploradores web.
 
 En este tutorial, solo se describen determinadas partes del código fuente. Tiene disponible todo el [código fuente](tutorial-bing-video-search-single-page-app-source.md). Para ejecutar el ejemplo, copie y pegue el código fuente en un editor de texto y guárdelo como `bing.html`.
 
@@ -56,9 +56,9 @@ La mayor parte del código HTML y CSS es convencional, por lo que el tutorial no
 ```html
 <form name="bing" onsubmit="return bingWebSearch(this)">
 ```
-El controlador `onsubmit` devuelve `false`, que impide que el formulario que se envíe a un servidor. El código de JavaScript se encarga de recopilar la información necesaria del formulario y realizar la búsqueda.
+El controlador `onsubmit` devuelve `false`, lo que impide que el formulario que se envíe a un servidor. El código de JavaScript se encarga de recopilar la información necesaria del formulario y realizar la búsqueda.
 
-El código HTML también contiene las divisiones (etiquetas `<div>` HTML) donde aparecen los resultados de búsqueda.
+El HTML también contiene las divisiones (etiquetas `<div>` HTML) en que aparecen los resultados de la búsqueda.
 
 ## <a name="managing-subscription-key"></a>Administrar la clave de suscripción
 
@@ -93,14 +93,14 @@ La etiqueta `<form>` HTML `onsubmit` llama a la función `bingWebSearch` para de
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
     bingSearchOptions(this), getSubscriptionKey())">
 ```
-## <a name="selecting-search-options"></a>Seleccionar opciones de búsqueda
+## <a name="selecting-search-options"></a>Selección de las opciones de búsqueda
 En la siguiente ilustración se muestra el cuadro de texto de la consulta y las opciones que definen una búsqueda.
 
 ![Opciones de Bing News Search](media/video-search-options.png)
 
 El formulario HTML incluye elementos con los nombres siguientes:
 
-|Elemento|DESCRIPCIÓN|
+|Elemento|Descripción|
 |-|-|
 | `where` | Un menú desplegable para seleccionar el mercado (ubicación e idioma) que se usa en la búsqueda. |
 | `query` | El campo de texto en el que se especifican los términos de búsqueda. |
@@ -141,7 +141,7 @@ function bingSearchOptions(form) {
 Por ejemplo, el parámetro `SafeSearch` de una llamada API real puede ser `strict`, `moderate` o `off`, pero `moderate` es el valor predeterminado. Sin embargo, nuestro formulario usa una casilla que solo tiene dos estados. El código JavaScript convierte este valor en `strict` u `off` (`moderate` no se usa).
 
 ## <a name="performing-the-request"></a>Realizar la solicitud
-Dada la consulta, la cadena de opciones y la clave de API, la función `BingWebSearch` utiliza un objeto `XMLHttpRequest` para enviar la solicitud al punto de conexión de Bing Search.
+Dada la consulta, la cadena de opciones y la clave de API, la función `BingWebSearch` utiliza un objeto `XMLHttpRequest` para enviar la solicitud al punto de conexión de Bing Search. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
 ```javascript
 // Search on the query, using search options, authenticated by the key.
@@ -259,7 +259,7 @@ function handleOnLoad() {
 > Si se produce un error en la operación de búsqueda, Bing News Search API devuelve un código de estado HTTP distinto de 200 e incluye información del error en la respuesta JSON. Además, si la solicitud tenía limitación de frecuencia, la API devuelve una respuesta vacía.
 Una solicitud HTTP correcta *no* indica necesariamente que la búsqueda se haya realizado correctamente. 
 
-Gran parte del código de las dos funciones anteriores está dedicada al control de errores. Pueden producirse errores en las siguientes fases:
+Gran parte del código de las dos funciones anteriores está dedicado al control de errores. Pueden producirse errores en las siguientes fases:
 
 |Fase|Errores posibles|Controlado por|
 |-|-|-|
@@ -269,7 +269,7 @@ Gran parte del código de las dos funciones anteriores está dedicada al control
 
 Los errores se controlan mediante una llamada a `renderErrorMessage()` con los detalles que se conocen sobre el error. Si la respuesta pasa todas las pruebas de error, llamamos a `renderSearchResults()` para mostrar los resultados de la búsqueda en la página.
 
-## <a name="displaying-search-results"></a>Mostrar los resultados de búsqueda
+## <a name="displaying-search-results"></a>Presentación de los resultados de la búsqueda
 La función principal para mostrar los resultados de búsqueda es `renderSearchResults()`. Esta función utiliza el valor de JSON que devuelve el servicio Bing News Search y procesa los resultados de noticias y las búsquedas relacionadas, si los hay.
 
 ```javascript
@@ -308,7 +308,7 @@ Se devuelven los resultados de búsqueda como el objeto `value` de nivel superio
 
 Bing News Search API devuelve hasta cuatro tipos distintos de resultados relacionados, cada uno en su propio objeto de nivel superior. Son las siguientes:
 
-|Relación|DESCRIPCIÓN|
+|Relación|Descripción|
 |-|-|
 |`pivotSuggestions`|Consultas que reemplazan una palabra dinámica de la búsqueda original por otra. Por ejemplo, si busca "flores rojas", una palabra dinámica podría ser "rojas", y una sugerencia dinámica podría ser "flores amarillas".|
 |`queryExpansions`|Consultas que limitan la búsqueda original al agregar más términos. Por ejemplo, si busca "Microsoft Surface", una expansión de consulta podría ser "Microsoft Surface Pro".|
@@ -317,7 +317,7 @@ Bing News Search API devuelve hasta cuatro tipos distintos de resultados relacio
 
 Como ya hemos visto en `renderSearchResults()`, solo representamos sugerencias de `relatedItems` y colocamos los vínculos resultantes en la barra lateral de la página.
 
-## <a name="rendering-result-items"></a>Representar elementos de resultados
+## <a name="rendering-result-items"></a>Representación de los elementos del resultado
 
 En el código de JavaScript, el objeto, `searchItemRenderers`, puede contener *representadores:* funciones que generan código HTML para cada tipo de resultado de búsqueda. La página de búsqueda de vídeo solo usa `videos`. Consulte en otros tutoriales los distintos tipos de representadores.
 
@@ -332,7 +332,7 @@ searchItemRenderers = {
 ```
 Una función de representador puede aceptar los parámetros siguientes:
 
-|Parámetro|DESCRIPCIÓN|
+|Parámetro|Descripción|
 |-|-|
 |`item`| El objeto de JavaScript que contiene las propiedades del elemento, como su dirección URL y la descripción.|
 |`index`| El índice del elemento de resultado dentro de su colección.|
@@ -384,10 +384,10 @@ En primer lugar, permite al motor de búsqueda de Bing aplicar un contexto pasad
 
 En segundo lugar, Bing puede seleccionar aleatoriamente usuarios para disfrutar de nuevas características antes de que estén disponibles públicamente. Especificar el mismo identificador de cliente en todas las solicitudes garantiza que los usuarios que ven una característica la vean siempre. Sin el identificador de cliente, el usuario puede ver una característica aparecer y desaparecer, de forma aparentemente aleatoria, en los resultados de búsqueda.
 
-Las directivas de seguridad del explorador (CORS) pueden impedir que el encabezado `X-MSEdge-ClientID` esté disponible para JavaScript. Esta limitación tiene lugar cuando la respuesta a la búsqueda tiene un origen distinto al de la página que la solicitó. En un entorno de producción, debería abordar esta directiva mediante el hospedaje de un script de lado servidor que realice la llamada API en el mismo dominio que la página web. Puesto que el script tiene el mismo origen que la página web, el encabezado `X-MSEdge-ClientID` está disponible para JavaScript.
+Las directivas de seguridad del explorador (CORS) pueden impedir que el encabezado `X-MSEdge-ClientID` esté disponible para JavaScript. Esta limitación tiene lugar cuando la respuesta a la búsqueda tiene un origen distinto al de la página que la solicitó. En un entorno de producción, debería abordar esta directiva mediante el hospedaje de un script de lado servidor que realice la llamada API en el mismo dominio que la página web. Como el script tiene el mismo origen que la página web, el encabezado `X-MSEdge-ClientID` está disponible para JavaScript.
 
 > [!NOTE]
-> En una aplicación web de producción, debe realizar la solicitud del lado servidor. En caso contrario, es necesario incluir la clave de Bing Search API en la página web, donde está disponible para cualquiera que vea el origen. Se le facturará todo el uso bajo su clave de suscripción a API, incluso las solicitudes que realicen partes no autorizadas, por lo que es importante no exponer su clave.
+> En una aplicación web de producción, debe realizar la solicitud del lado servidor. En caso contrario, es preciso incluir la clave de Bing Search API en la página web, donde está disponible para cualquiera que vea el origen. Se le facturará todo el uso bajo su clave de suscripción a API, incluso las solicitudes que realicen partes no autorizadas, por lo que es importante no exponer su clave.
 
 Para fines de desarrollo, puede realizar la solicitud de Bing Web Search API a través de un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que permite los encabezados de respuesta y hace que estén disponibles para JavaScript.
 

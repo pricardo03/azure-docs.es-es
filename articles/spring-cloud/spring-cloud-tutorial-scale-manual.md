@@ -1,63 +1,67 @@
 ---
 title: 'Tutorial: Escalado de una aplicación en Azure Spring Cloud | Microsoft Docs'
-description: En este tutorial aprenderá a escalar una aplicación en Azure Spring Cloud desde Azure Portal
+description: En este tutorial aprenderá a escalar una aplicación con Azure Spring Cloud en Azure Portal.
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.author: jeconnoc
 author: jpconnock
 ms.date: 10/06/2019
-ms.openlocfilehash: cce7562c74577f6fd545bcaed3ee3e0968fd40b4
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: eaf7e7ec39555e5b933020835f3bb96429e3aa81
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132883"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461433"
 ---
-# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Tutorial: Escalado de una aplicación en Azure Spring Cloud
+# <a name="scale-an-application-in-azure-spring-cloud"></a>Escalado de una aplicación en Azure Spring Cloud
 
-En este tutorial se muestra cómo escalar cualquier aplicación de microservicios mediante el panel de Azure Spring Cloud de Azure Portal. Escale y reduzca verticalmente la aplicación al modificar el número de CPU virtuales (vCPU) y la cantidad de memoria. Escale y reduzca horizontalmente la aplicación al modificar el número de instancias de esta. Cuando haya terminado, sabrá cómo realizar ajustes manuales rápidos en cada aplicación del servicio. El escalado surte efecto en segundos y no requiere cambios en el código ni la reimplementación.
+En este tutorial se muestra cómo escalar cualquier aplicación de microservicios mediante el panel de Azure Spring Cloud de Azure Portal.
 
-## <a name="prerequisites"></a>Requisitos previos
+Escale y reduzca verticalmente la aplicación mediante la modificación de su número de CPU virtuales (vCPU) y la cantidad de memoria. Escale y reduzca horizontalmente la aplicación mediante la modificación de su número de instancias.
+
+Cuando termine, sabrá cómo realizar cambios manuales rápidos en cada aplicación del servicio. El escalado surte efecto en segundos y no requiere cambios en el código o nuevas implementaciones.
+
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesita:
-* Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
-* Una instancia del servicio Azure Spring Cloud implementada.  Siga nuestro [inicio rápido](spring-cloud-quickstart-launch-app-cli.md) para comenzar.
-* Al menos una aplicación ya creada en esa instancia de servicio.
 
+* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
+* Una instancia del servicio Azure Spring Cloud implementada.  Para comenzar, siga nuestro [inicio rápido sobre la implementación de una aplicación mediante la CLI de Azure](spring-cloud-quickstart-launch-app-cli.md).
+* Al menos una aplicación ya creada en su instancia de servicio.
 
 ## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Vaya a la página Escalar de Azure Portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. Vaya a la página de **Introducción a Azure Spring Cloud**.
+1. Vaya a la página **Información general** de Azure Spring Cloud.
 
 1. Seleccione el grupo de recursos que contiene el servicio.
 
-1. Vaya a la pestaña **Aplicaciones** del encabezado **Configuración** del menú del lado izquierdo.
+1. En el menú del lado izquierdo de la página, en **Settings** (Configuración), seleccione la pestaña **Apps** (Aplicaciones).
 
-1. Seleccione la aplicación que desea escalar. En este ejemplo se escalará la aplicación denominada "account-service". Esto le llevará a la página **Introducción** de la aplicación.
+1. Seleccione la aplicación que desea escalar. En este ejemplo, seleccione la aplicación llamada **account-service**. A continuación, verá la página **Overview** (Información general) de la aplicación.
 
-1. Vaya a la pestaña **Escalar** del encabezado **Configuración** del menú del lado izquierdo. Debería ver las opciones de los atributos de escalado que se muestran en la sección siguiente.
+1. En el menú del lado izquierdo de la página, en **Settings** (Configuración), seleccione la pestaña **Scale** (Escalar). Verá opciones para escalar los atributos que se muestran en la sección siguiente.
 
 ## <a name="scale-your-application"></a>Escalado de la aplicación
 
-Puede modificar los atributos de escalado, pero tenga en cuenta lo siguiente.
+Si modifica los atributos de escalado, tenga en cuenta lo siguiente:
 
-* **CPU**: el número máximo de CPU permitido es 4 por instancia de aplicación. El número total de CPU de una aplicación será el valor establecido aquí multiplicado por el número de instancias de la aplicación.
+* **CPU**: el número máximo de CPU por instancia de aplicación es cuatro. El número total de CPU para una aplicación es el valor establecido aquí multiplicado por el número de instancias de la aplicación.
 
-* **Memoria/GB**: la cantidad máxima de memoria permitida es 8 GB por instancia de aplicación.  La cantidad total de memoria de una aplicación será el valor establecido aquí multiplicado por el número de instancias de la aplicación.
+* **Memoria/GB**: la cantidad máxima de memoria permitida por instancia de aplicación es 8 GB. La cantidad total de memoria para una aplicación es el valor establecido aquí multiplicado por el número de instancias de la aplicación.
 
-* **Recuento de instancias de aplicaciones**: Puede escalar horizontalmente hasta 20 instancias en el nivel estándar. Este valor cambia el número de instancias independientes en ejecución de la aplicación de microservicios.
+* **Recuento de instancias de aplicaciones**: en el nivel estándar, puede escalar horizontalmente hasta 20 instancias como máximo. Este valor cambia el número de instancias independientes en ejecución de la aplicación de microservicios.
 
-Asegúrese de hacer clic en el botón **Guardar** para aplicar la configuración del escalado.
+Asegúrese de seleccionar **Save** (Guardar) para aplicar la configuración de escalado.
 
-![Escalado de servicios en Azure Portal](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
+![El servicio Scale en Azure Portal](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
-Tras unos segundos se mostrarán los cambios realizados en la página **Introducción** con más detalles disponibles en la pestaña**Instancias de la aplicación**. El escalado no requiere cambios en el código ni la reimplementación.
+Tras unos segundos, se muestran los cambios realizados en la página **Overview** (Información general), y puede encontrar más detalles en la pestaña **Application instances** (Instancias de la aplicación). El escalado no requiere cambios en el código ni nuevas implementaciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha aprendido a escalar manualmente las aplicaciones de Azure Spring Cloud.  Para aprender a supervisar la aplicación, continúe con el siguiente tutorial.
+En este tutorial ha aprendido a escalar manualmente las aplicaciones de Azure Spring Cloud. Para aprender a supervisar la aplicación, continúe con el siguiente tutorial.
 
 > [!div class="nextstepaction"]
-> [Aprenda a supervisar la aplicación](spring-cloud-tutorial-distributed-tracing.md).
+> [Aprender a supervisar una aplicación](spring-cloud-tutorial-distributed-tracing.md)

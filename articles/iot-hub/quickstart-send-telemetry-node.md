@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 92d6af41e55429f1b788de68940bc9b033c51ad6
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: e37ce216bf1928785ef9052115599bbd4ab2a603
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167035"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690863"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (Node.js)
 
@@ -29,9 +29,9 @@ El inicio rápido usa dos aplicaciones Node.js escritas previamente: una para en
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido están escritas en Node.js. Necesitará Node.js v10.x.x o una versión posterior en la máquina de desarrollo.
+Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido están escritas en Node.js. Necesitará Node.js v10.x.x o una versión posterior en la máquina de desarrollo. Si usa Azure Cloud Shell, no actualice la versión instalada de Node.js. Azure Cloud Shell ya tiene la versión más reciente de Node.js.
 
 Puede descargar Node.js para varias plataformas desde [nodejs.org](https://nodejs.org).
 

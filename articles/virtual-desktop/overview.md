@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 11/19/2019
+ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: 5ae6c30c595c2e3c4c7ce90d6ab208e50722bfc2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: dd5167af5f45ebae0529e16f224065627085e9b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227699"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75348807"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop? 
 
@@ -89,7 +89,7 @@ Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben cum
 Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben tener acceso a TCP 443 de salida a las siguientes direcciones URL:
 
 * *.wvd.microsoft.com
-* \* .blob.core.windows.net
+* *.blob.core.windows.net
 * *.core.windows.net
 * *.servicebus.windows.net
 * prod.warmpath.msftcloudes.com
@@ -110,8 +110,11 @@ Para obtener un rendimiento óptimo, asegúrese de que la red cumple los requisi
 
 Los clientes de Escritorio remoto siguientes admiten Windows Virtual Desktop:
 
-* [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
-* [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
+* [Windows](connect-windows-7-and-10.md)
+* [Web](connect-web.md)
+* [Mac](connect-macos.md)
+* [iOS](connect-ios.md)
+* [Android (versión preliminar)](connect-android.md)
 
 ## <a name="supported-virtual-machine-os-images"></a>Imágenes de SO de máquinas virtuales admitidas
 
@@ -131,13 +134,13 @@ Las opciones de automatización y de implementación disponibles dependen del si
 |Sistema operativo|Galería de imágenes de Azure|Implementación manual de la máquina virtual|Integración de la plantilla de Azure Resource Manager|Aprovisionamiento de grupos host en Azure Marketplace|Actualizaciones del agente de Windows Virtual Desktop|
 |--------------------------------------|:------:|:------:|:------:|:------:|:------:|
 |Sesión múltiple de Windows 10, versión 1903|Sí|Sí|Sí|Sí|Automático|
-|Sesión múltiple de Windows 10, versión 1809|Sí|Sí|No|Sin|Automático|
+|Sesión múltiple de Windows 10, versión 1809|Sí|Sí|No|No|Automático|
 |Windows 10 Enterprise, versión 1903|Sí|Sí|Sí|Sí|Automático|
-|Windows 10 Enterprise, versión 1809|Sí|Sí|No|Sin|Automático|
-|Windows 7 Enterprise|Sí|Sí|No|Sin|Manual|
-|Windows Server 2019|Sí|Sí|No|Sin|Automático|
+|Windows 10 Enterprise, versión 1809|Sí|Sí|No|No|Automático|
+|Windows 7 Enterprise|Sí|Sí|No|No|Manual|
+|Windows Server 2019|Sí|Sí|No|No|Automático|
 |Windows Server 2016|Sí|Sí|Sí|Sí|Automático|
-|Windows Server 2012 R2|Sí|Sí|No|Sin|Automático|
+|Windows Server 2012 R2|Sí|Sí|No|No|Automático|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

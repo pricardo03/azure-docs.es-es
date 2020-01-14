@@ -643,7 +643,7 @@ Para configurar un clúster de conmutación por error de Windows Server para una
    _**Figura 17:** Escriba el segundo nombre de host del nodo de clúster_
 
    > [!IMPORTANT]
-   > Asegúrese de que la casilla **Agregar todo el almacenamiento apto al clúster***no* esté activada.  
+   > Asegúrese de que la casilla **Agregar todo el almacenamiento apto al clúster** *no* esté activada.  
    >
    >
 

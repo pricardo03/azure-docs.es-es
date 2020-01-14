@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de script de Azure PowerShell: actualización del nombre de usuario y la contraseña RDP | Microsoft Docs'
+title: Actualización del nombre de usuario y la contraseña de RDP en PowerShell
 description: 'Ejemplo de script de Azure PowerShell: actualización del nombre de usuario RDP y la contraseña para todos los nodos de clúster de Service Fabric de un tipo de nodo específico.'
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 03/19/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 2618d9100c81cdb35b4a3a82436e94068a9f9bf0
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0cf9f8362d3fa683084aef840cf35cd9a843608a
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035528"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614815"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>Actualización del nombre de usuario y la contraseña de administración de las VM en un clúster
 

@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Creación, publicación y respuesta en QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Cree una nueva base de conocimiento con preguntas y respuestas de una página pública de preguntas más frecuentes basada en web. Guarde, entrene y publique la base de conocimiento. Una vez publicada la base de conocimiento, envíe una pregunta y reciba una respuesta con un comando cURL. A continuación, cree un bot y pruébelo con la misma pregunta.
+description: En este tutorial se muestra cómo crear una base de conocimiento con preguntas y respuestas de una página pública de preguntas más frecuentes basada en web. Guarde, entrene y publique la base de conocimiento. Una vez publicada la base de conocimiento, envíe una pregunta y reciba una respuesta con un comando cURL. A continuación, cree un bot y pruébelo con la misma pregunta.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 51d051fee1da1f9bb0c89ea9123748b512f84007
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5b2f2decf3d070da2fb58bebd424b4209f353316
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327988"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447386"
 ---
 # <a name="tutorial-from-the-qna-maker-portal-create-a-knowledge-base"></a>Tutorial: En el portal de QnA Maker, creación de una base de conocimiento
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 > [!NOTE]
 > La versión basada en programación de este tutorial está disponible con una solución completa en el repositorio [**Azure-Samples/cognitive-services-qnamaker-csharp** de GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Este tutorial requiere que exista un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). 
 

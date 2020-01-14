@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: a8132735d1af08055e9341608dcac0564ed4b927
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e00de295a7f41bf0ff768c4f948a667bc188616
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236678"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456952"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Uso de las herramientas de la línea de comandos para iniciar y detener las máquinas virtuales en Azure DevTest Labs
 En este artículo se muestra cómo usar Azure PowerShell o la CLI de Azure para iniciar o detener las máquinas virtuales en un laboratorio de Azure DevTest Labs. Puede crear scripts de PowerShell o CLI para automatizar estas operaciones. 
@@ -34,6 +34,10 @@ Sin embargo, en algunos escenarios, puede que desee automatizar el inicio y la d
 - Usarlo como una tarea dentro de un flujo de trabajo de CI/CD para comenzar al principio del flujo, usar las máquinas virtuales como equipos de compilación, equipos de prueba o infraestructura y luego detener dichas máquinas virtuales cuando el proceso se completa. Un ejemplo de esto sería la fábrica de imágenes personalizada con Azure DevTest Labs.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
+
+> [!NOTE]
+> El script siguiente usa el módulo Az de Azure PowerShell. 
+
 El siguiente script de PowerShell inicia una máquina virtual de un laboratorio. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) es el enfoque principal para este script. El parámetro **ResourceId** es el identificador de recurso completo para la máquina virtual del laboratorio. El parámetro **Action** es donde las opciones **Start** o **Stop** se establecen según lo que se necesite.
 
 ```powershell
@@ -53,11 +57,7 @@ $vmAction = "Start"
 Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Get the lab information
-if ($(Get-Module -Name AzureRM).Version.Major -eq 6) {
-    $devTestLab = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -Name $devTestLabName
-} else {
-    $devTestLab = Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $devTestLabName
-}
+$devTestLab = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceName $devTestLabName
 
 # Start the VM and return a succeeded or failed status
 $returnStatus = Invoke-AzResourceAction `

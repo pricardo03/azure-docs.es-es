@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido de Azure: Creación y uso de un recurso compartido de Azure Files en máquinas virtuales Windows | Microsoft Docs'
+title: Creación y uso de un recurso compartido de Azure Files para máquinas virtuales Windows
 description: En este inicio rápido, configurará un recurso compartido de Azure Files en Azure Portal y lo conectará a una máquina virtual Windows. Se conectará al recurso compartido de Files y cargará un archivo en él. A continuación, tomará una instantánea del recurso compartido de Files, modificará el archivo en el él y restaurará una instantánea anterior del recurso.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 22c2f3b91b650bcdbf8eb7368023e068a397323f
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 6bbab0ee2eefe6e86c150d5bddab4f8e91a7c92d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305819"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463900"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Inicio rápido: Creación y administración de un recurso compartido de Azure Files con Windows Virtual Machines
 
@@ -22,7 +22,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com).
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Preparación del entorno
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4b21d6aa95a38df402cf7a2640467c7a060a7f49
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3c6fd3de43f80c4cbe8f1f822faebad861c64d64
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496387"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610614"
 ---
 # <a name="connect-data-sources"></a>Conexión con orígenes de datos
 
@@ -43,7 +43,8 @@ Para incorporar Azure Sentinel, primero debe conectarse a sus orígenes de datos
 
 Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel:
 
-- **Servicios Microsoft**:<br> Los servicios Microsoft se conectan de forma nativa, aprovechando la base de Azure de la integración lista para usar. Con solo unos clics, se pueden conectar las soluciones siguientes:
+- **Integración de servicio a servicio**:<br> Algunos servicios se conectan de forma nativa, como los servicios de AWS y Microsoft, y aprovechan la base de Azure de la integración lista para usar. Con solo unos clics, se pueden conectar las soluciones siguientes:
+    - [Amazon Web Services: CloudTrail](connect-aws.md)
     - [Office 365](connect-office-365.md)
     - [Azure AD audit logs and sign-ins](connect-azure-active-directory.md) (Inicios de sesión y pistas de auditoría de Azure AD)
     - [Azure Activity](connect-azure-activity.md) (Actividad de Azure)

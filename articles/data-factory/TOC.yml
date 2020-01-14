@@ -617,6 +617,8 @@
           href: solution-template-copy-new-files-lastmodifieddate.md
         - name: Copia masiva desde base de datos
           href: solution-template-bulk-copy-with-control-table.md
+        - name: Copia masiva desde archivos a una base de datos
+          href: solution-template-bulk-copy-from-files-to-database.md
         - name: Copia diferencial desde base de datos
           href: solution-template-delta-copy-with-control-table.md
         - name: "Migración de datos de AWS\_S3 a Azure Storage"

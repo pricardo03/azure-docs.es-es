@@ -1,6 +1,6 @@
 ---
-title: Uso de grandes conjuntos de escalado de máquinas virtuales de Azure | Microsoft Docs
-description: Qué necesita saber para usar grandes conjuntos de escalado de máquinas virtuales de Azure
+title: Uso de grandes conjuntos de escalado de máquinas virtuales de Azure
+description: Lo que necesita saber sobre los grandes conjuntos de escalado de máquinas virtuales de Azure para poder usarlos en la aplicación.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: rajsqr
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/9/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 46ca46c99187b14974b78ccc4acc134a5f716b05
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 839d889783a7ef3bcd602c37a4975ddeea4e2a16
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326700"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459345"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Uso de grandes conjuntos de escalado de máquinas virtuales
 Ahora puede crear [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/) de Azure con una capacidad de hasta 1000 máquinas virtuales. En este documento, un _conjunto de escalado de máquinas virtuales grande_ se define como un conjunto de escalado capaz de escalar a más de 100 máquinas virtuales. Esta funcionalidad se establece con una propiedad de conjunto de escalado (_singlePlacementGroup=False_). 
@@ -50,7 +50,7 @@ Al crear un conjunto de escalado en Azure Portal, simplemente especifique un val
 
 ![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
-Puede crear un conjunto de escalado de máquinas virtuales grande con el comando _az vmss create_ de la [CLI de Azure](https://github.com/Azure/azure-cli). Este comando establece valores predeterminados inteligentes, como el tamaño de la subred, en función del argumento _instance-count_:
+Puede crear un conjunto de escalado de máquinas virtuales de gran tamaño con el comando _az vmss create_ de la [CLI de Azure](https://github.com/Azure/azure-cli). Este comando establece valores predeterminados inteligentes, como el tamaño de la subred, en función del argumento _instance-count_:
 
 ```bash
 az group create -l southcentralus -n biginfra

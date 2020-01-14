@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Biblioteca de cliente de Bing Custom Search para Java | Microsoft Docs'
-description: Empiece a trabajar con la biblioteca de cliente de Bing Custom Search para Java solicitando los resultados de la búsqueda de la instancia de Bing Custom Search.
+title: 'Inicio rápido: Biblioteca de cliente de Bing Custom Search para Java'
+description: Empiece a trabajar con la biblioteca de cliente de Bing Custom Search para Java solicitando los resultados de la búsqueda de la instancia de Bing Custom Search con este inicio rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: f0a3008dace4e9382bbb6b6d9465ce1c9b4ddc6c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1060cceb9241d9c1c490f7e7f12490c734b0a78d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976067"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384560"
 ---
 # <a name="quickstart-bing-custom-search-client-library-for-java"></a>Inicio rápido: Biblioteca de cliente de Bing Custom Search para Java
 
@@ -26,7 +26,7 @@ Use la biblioteca de cliente de Bing Custom Search para Java para:
 
 [Documentación de referencia](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch) | [Artifact (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 * La versión actual del [kit de desarrollo de Java (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html).

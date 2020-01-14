@@ -1,25 +1,16 @@
 ---
-title: Arquitectura de Resource Manager | Microsoft Docs
-description: Información general de la arquitectura de Service Fabric Cluster Resource Manager
-services: service-fabric
-documentationcenter: .net
+title: Arquitectura de Resource Manager
+description: Introducción e información arquitectónica sobre el servicio de Cluster Resource Manager de Azure Service Fabric.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 6c4421f9-834b-450c-939f-1cb4ff456b9b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: bfbdb05e8d2764d2b878e22d236cae30519da176
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 94ed906533d108081d620e9b183ecfee249d85ca
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62113980"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551699"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Información general de la arquitectura del Administrador de recursos de clúster
 Cluster Resource Manager de Service Fabric es un servicio centralizado que se ejecuta en el clúster. Administra el estado deseado de los servicios del clúster, concretamente con respecto al consumo de recursos y las reglas de selección de ubicación. 

@@ -1,19 +1,19 @@
 ---
-title: 'Configuración del clúster de Microsoft Azure FXT Edge Filer: agregar los nodos'
+title: 'Tutorial: Incorporación de nodos a un clúster de Azure FXT Edge Filer'
 description: Cómo agregar nodos a la caché de almacenamiento de Azure FXT Edge Filer
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: 85ab9aaa3e184af7aa71a31eb3d8de1a20639c2a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 6251fe8f88b7db25e3c09898540e07754d72fb0d
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254931"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551954"
 ---
-# <a name="tutorial-add-cluster-nodes"></a>Tutorial: Agregar nodos de clúster 
+# <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Tutorial: Incorporación de nodos de clúster a un clúster de Azure FXT Edge Filer
 
 Se crea un clúster de Azure FXT Edge Filer con un solo nodo. Debe agregar al menos dos nodos más y habilitar la alta disponibilidad antes de realizar otra configuración. 
 

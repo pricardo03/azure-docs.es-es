@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Integración de Power BI con Text Analytics de Cognitive Services'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a usar Text Analytics API para extraer las frases clave del texto almacenado en Power BI.
+description: Aprenda a usar la API Text Analytics para extraer frases clave de texto almacenado en Power BI.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 97245a10602f763c3269218d87c6b1a5ba309817
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 2398bfa2ce828e716831cc7ce438bd1c241ca5f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241028"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378541"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integración de Power BI con Text Analytics de Cognitive Services
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 > * Usar Text Analytics Key Phrases API para extraer las frases más importantes de los comentarios de clientes
 > * Crear una nube de palabras de los comentarios de clientes
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [Descarga gratuita](https://powerbi.microsoft.com/get-started/).
@@ -168,7 +168,7 @@ Haga clic en **Editar credenciales** y asegúrese de que esté seleccionado `Ano
 > [!div class="mx-imgBorder"]
 > ![[configuración de la autenticación como anónima]](../media/tutorials/power-bi/access-web-content.png)
 
-Si ve el mensaje emergente Editar credenciales incluso después de elegir acceso anónimo, es posible que haya olvidado pegar la clave de acceso de Text Analytics en el código de la [función personalizada](#CreateCustomFunction) `KeyPhrases`.
+Si ve el banner Editar credenciales incluso después de elegir acceso anónimo, es posible que haya olvidado pegar la clave de acceso de Text Analytics en el código de la `KeyPhrases` [función personalizada](#CreateCustomFunction).
 
 A continuación, puede aparecer un mensaje emergente que le pide que proporcione información sobre la privacidad de sus orígenes de datos. 
 

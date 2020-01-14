@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/08/2018
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: 8b08e0ced0c7094890a80c37452c7f1b001fe511
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d694a7030f96ef8e652d76cfb6036674aaa71249
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888686"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660227"
 ---
 | | SKU Estándar | SKU Básico |
 | --- | --- | --- |
@@ -24,7 +24,7 @@ ms.locfileid: "73888686"
 | Zonas de disponibilidad | Servidores front-end con redundancia de zona y zonas para el tráfico entrante y saliente. Las asignaciones de flujos salientes sobreviven a errores de zona. Equilibrio de carga entre zonas. | No disponible |
 | Diagnóstico | Azure Monitor. Métricas multidimensionales, incluidos los contadores de bytes y paquetes. Estado del sondeo de mantenimiento. Intentos de conexión (TCP SYN). Mantenimiento de la conexión saliente (los flujos de SNAT correctos y con errores). Medidas activas del plano de datos. | Análisis de registros Azure solo para Load Balancer público. Alerta de agotamiento de SNAT. Recuento de mantenimiento del grupo de back-end. |
 | Puertos HA | Equilibrador de carga interno | No disponible |
-| Seguro de forma predeterminada | Las direcciones IP públicas, los puntos de conexión de Load Balancer públicos y los puntos de conexión de Load Balancer internos se cierran en los flujos de entrada a menos que los permita un grupo de seguridad de red. | Abrir de forma predeterminada. Grupo de seguridad de red opcional. |
+| Seguro de forma predeterminada | Las direcciones IP públicas, los puntos de conexión de Load Balancer públicos y los puntos de conexión de Load Balancer internos se cierran en los flujos de entrada a menos que los permita un grupo de seguridad de red. Tenga en cuenta que se permite el tráfico interno de la red virtual al equilibrador de carga interno. | Abrir de forma predeterminada. Grupo de seguridad de red opcional. |
 | [Conexiones salientes](../articles/load-balancer/load-balancer-outbound-connections.md) | Puede definir explícitamente un protocolo NAT de salida basado en grupos con [reglas de salida](../articles/load-balancer/load-balancer-outbound-rules-overview.md). Puede usar varios servidores front-end con la exclusión voluntaria de la regla de equilibrio de carga. Para usar la conectividad de salida, _debe_ crearse explícitamente un escenario de salida para la máquina virtual, o el conjunto de disponibilidad y el conjunto de escalado de máquinas virtuales. Los puntos de conexión de servicio de red virtual son accesibles sin conectividad de salida y no se cuentan como datos procesados. Las direcciones IP públicas, incluidos los servicios de PaaS de Azure que no están disponibles como puntos de conexión de servicio de red virtual, deben ser accesibles mediante conectividad de salida y cuentan como datos procesados. Si solo hay una instancia de Load Balancer interno que atiende una máquina virtual, un conjunto de disponibilidad o un conjunto de escalado de máquinas virtuales, no habrá conexiones de salida disponibles mediante el protocolo SNAT predeterminado. Use [reglas de salida](../articles/load-balancer/load-balancer-outbound-rules-overview.md) en su lugar. La programación de SNAT saliente depende del Protocolo de transporte de la regla de equilibrio de carga de entrada. | Único front-end, seleccionado de forma aleatoria, cuando hay varios front-ends. Cuando solo Load Balancer interno atiende una máquina virtual, un conjunto de disponibilidad o un conjunto de escalado de máquinas virtuales, se usa SNAT de forma predeterminada. |
 | [Reglas de salida](../articles/load-balancer/load-balancer-outbound-rules-overview.md) | Configuración de NAT de salida declarativa, mediante direcciones IP públicas o prefijos de dirección IP pública o ambos. Tiempo de espera de inactividad de salida configurable (4-120 minutos). Asignación de puerto SNAT personalizada | No disponible |
 | [Restablecimiento de TCP en tiempo de espera de inactividad](../articles/load-balancer/load-balancer-tcp-reset.md) | Habilite en cualquier regla el restablecimiento de TCP (TCP RST) en tiempo de espera de inactividad. | No disponible |

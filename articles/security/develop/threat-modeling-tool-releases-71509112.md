@@ -1,30 +1,22 @@
 ---
-title: 'Versiones de Threat Modeling Tool: Microsoft Threat Modeling Tool en Azure | Microsoft Docs'
+title: 'Microsoft Threat Modeling Tool, versión 9/12/2018: Azure'
 description: Documentación de las notas de la versión de la herramienta de modelado de amenazas
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
-ms.author: jegeib
-ms.openlocfilehash: ce5f2b5541da3b3a3db046ba0dc768e3fbe2431e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ad489d6de222380e85a962c7b50c63a5c2122c72
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928109"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548809"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Threat Modeling Tool, versión de disponibilidad general 7.1.50911.2: 12 de septiembre de 2018
 
-Nos complace anunciar que Microsoft Threat Modeling Tool ya está disponible para descargar como versión admitida disponible con carácter general (GA). Esta versión contiene importantes actualizaciones de privacidad y seguridad, así como correcciones de errores, actualizaciones de características y mejoras de estabilidad. Los usuarios existentes de la versión preliminar de 2017 recibirán la solicitud de actualizarse a la versión más reciente mediante la tecnología ClickOnce al abrir al cliente. Los nuevos usuarios de la herramienta pueden [hacer clic aquí para descargar el cliente](https://aka.ms/threatmodelingtool).
+Nos complace anunciar que Microsoft Threat Modeling Tool ya está disponible para descargar como versión admitida disponible con carácter general (GA). Esta versión contiene importantes actualizaciones de privacidad y seguridad, así como correcciones de errores, actualizaciones de características y mejoras de estabilidad. Los usuarios existentes de la versión preliminar de 2017 recibirán la solicitud de actualizarse a la versión más reciente mediante la tecnología ClickOnce al abrir al cliente. Para los nuevos usuarios de la herramienta, puede [descargar el cliente](https://aka.ms/threatmodelingtool).
 
 Con esta versión, se da por finalizado el soporte técnico de la versión preliminar de 2017 y se recomienda a todos los usuarios de dicha versión actualizarse a la versión de disponibilidad general (GA). El 15 de octubre, o con posterioridad a esta fecha, estableceremos la versión mínima de ClickOnce necesaria a partir de la cual Threat Modeling Tool y todos los clientes de la versión preliminar deberán actualizarse.
 

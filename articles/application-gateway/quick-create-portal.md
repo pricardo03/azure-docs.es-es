@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4f5a20f80ea8eafa73cbef394dcfdde75087326b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a9719ec7db4dead94478225cc47130b289a539c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074574"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442337"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway: Azure Portal
 
@@ -48,7 +48,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azur
 
     En **Configurar la red virtual**, seleccione **Crear nuevo** para crear una nueva red virtual. En la ventana **Crear red virtual** que se abre, escriba los valores siguientes para crear la red virtual y dos subredes:
 
-    - **Nombre**: Escriba *myVnet* como nombre de la red virtual.
+    - **Name**: Escriba *myVnet* como nombre de la red virtual.
 
     - **Nombre de subred** (subred de Application Gateway): La cuadrícula **Subredes** mostrará una subred llamada *Predeterminada*. Cambie el nombre de esta subred a *myAGSubnet*.<br>La subred de la puerta de enlace de aplicaciones solo puede contener puertas de enlace de aplicaciones. No se permite ningún otro recurso.
 
@@ -66,7 +66,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azur
 
 1. En la pestaña **Front-end**, compruebe que **Tipo de dirección IP de front-end** esté establecido en **Pública**. <br>Puede configurar la dirección IP de front-end para que sea pública o privada, según el caso de uso. En este ejemplo, elegimos una IP de front-end pública.
    > [!NOTE]
-   > Para la SKU de Application Gateway v2, solo puede elegir la configuración IP de front-end **pública**. Actualmente solo la configuración IP de front-end privada no está habilitada para esta SKU de V2. Puede tener una configuración de IP de front-end pública y privada.
+   > Para la SKU de Application Gateway v2, solo puede elegir la configuración IP de front-end **pública**. Actualmente solo la configuración IP de front-end privada (solo el modo ILB) no está habilitada para esta SKU de V2. Puede tener una configuración de IP de front-end pública y privada.
 
 2. Elija **Crear nuevo** para la **Dirección IP pública** y escriba *myAGPublicIPAddress* para el nombre de dirección IP pública y seleccione **Aceptar**. 
 
@@ -82,7 +82,7 @@ El grupo de back-end se usa para enrutar las solicitudes a los servidores back-e
 
 2. En la ventana **Agregar un grupo de back-end**, escriba los valores siguientes para crear un grupo de back-end vacío:
 
-    - **Nombre**: Escriba *myBackendPool* para el nombre del grupo de back-end.
+    - **Name**: Escriba *myBackendPool* para el nombre del grupo de back-end.
     - **Agregar grupo de back-end sin destinos**: Seleccione **Sí** para crear un grupo de back-end sin destinos. Agregará destinos de back-end después de crear la puerta de enlace de aplicaciones.
 
 3. En la ventana **Agregar un grupo de back-end**, seleccione **Agregar** para guardar la configuración del grupo de back-end y vuelva a la pestaña **Back-end**.
