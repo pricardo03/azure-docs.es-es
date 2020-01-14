@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: de36f760fb637ad02446265927e7df7aa91b2abf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d5e78c3ab08e791a5f484e45d487c3a85dc95de7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928375"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613098"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
@@ -166,7 +166,9 @@ public void keepAlive(
 
 En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
-El constructor del atributo toma una expresión CRON o `TimeSpan`. Puede usar `TimeSpan` solamente si la aplicación de función se ejecuta en un plan de App Service. En el ejemplo siguiente se muestra una expresión CRON:
+El constructor del atributo toma una expresión CRON o `TimeSpan`. Puede usar `TimeSpan` solamente si la aplicación de funciones se ejecuta en un plan de App Service. No se admite `TimeSpan` para las funciones premium de consumo o elásticas.
+
+En el ejemplo siguiente se muestra una expresión CRON:
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
@@ -213,7 +215,7 @@ public void keepAlive(
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `TimerTrigger`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
 |**type** | N/D | Debe establecerse en "timerTrigger". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
 |**direction** | N/D | Debe establecerse en "in". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
@@ -338,7 +340,7 @@ El desencadenador de temporizador utiliza un bloqueo de almacenamiento para aseg
 
 A diferencia del desencadenador de cola, el desencadenador de temporizador no vuelve a realizar el intento después de que se produce un error en una función. Cuando se produce un error en una función, no se la llamará nuevamente hasta la próxima vez en la programación.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Para obtener información sobre qué hacer cuando el desencadenador del temporizador no funcione según lo esperado, consulte [Investigating and reporting issues with timer triggered functions not firing](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing) (Investigación y notificación de problemas en que las funciones desencadenadas por el temporizador no se activan).
 

@@ -10,33 +10,29 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: 2e162b30a0227c5f04c74dae01413177d1623235
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 26bd6ddb9d8255b8e2510133fc4b6aa645f89f68
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901236"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75615064"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnóstico de la solución de problemas de rendimiento de Hiperescala de SQL
 
-
 Para solucionar problemas de rendimiento en una base de datos de Hiperescala, las [metodologías generales de ajuste del rendimiento](sql-database-monitor-tune-overview.md) en el nodo de proceso de Azure SQL Database es el punto de partida de una investigación del rendimiento. Sin embargo, dada la [arquitectura distribuida](sql-database-service-tier-hyperscale.md#distributed-functions-architecture) de Hiperescala, se agregaron diagnósticos adicionales para ayudar. En este artículo se describen los datos de diagnóstico específicos de Hiperescala.
 
-
 ## <a name="log-rate-throttling-waits"></a>Esperas de limitación de la velocidad de registro
-
 
 Cada nivel de servicio de Azure SQL Database tiene límites de velocidad de generación de registros que se aplican a través de la [gobernanza de las velocidades de registros](sql-database-resource-limits-database-server.md#transaction-log-rate-governance). En Hiperescala, el límite de generación de registros está establecido actualmente en 100 MB/s, independientemente del nivel de servicio. Sin embargo, hay ocasiones en las que la velocidad de generación de registros en la réplica de proceso principal debe limitarse para mantener los SLA de capacidad de recuperación. Esta limitación se produce cuando un [servidor de páginas u otra réplica de proceso](sql-database-service-tier-hyperscale.md#distributed-functions-architecture) está significativamente detrás de la aplicación de registros nuevos desde el servidor de registro.
 
 Los tipos de espera siguientes (en [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) describen los motivos por los que se puede limitar la velocidad de registros en la réplica de proceso principal:
 
-|Tipo de espera    |DESCRIPCIÓN                         |
+|Tipo de espera    |Descripción                         |
 |-------------          |------------------------------------|
 |RBIO_RG_STORAGE        | Se produce cuando se limita la velocidad de generación de registros del nodo de proceso principal de una base de datos de Hiperescala debido al consumo de registro retrasado en los servidores de páginas.         |
 |RBIO_RG_DESTAGE        | Se produce cuando se limita la velocidad de generación de registros del nodo de proceso de una base de datos de Hiperescala debido al consumo de registro retrasado por parte del almacenamiento de registros a largo plazo.         |
 |RBIO_RG_REPLICA        | Se produce cuando se limita la velocidad de generación de registros del nodo de proceso de una base de datos de Hiperescala debido al consumo de registro retrasado por parte de las réplicas secundarias legibles.         |
 |RBIO_RG_LOCALDESTAGE   | Se produce cuando se limita la velocidad de generación de registros del nodo de proceso de una base de datos de Hiperescala debido al consumo de registro retrasado por parte del servicio de registro.         |
-
 
 ## <a name="page-server-reads"></a>Lecturas del servidor de páginas
 
@@ -65,30 +61,26 @@ Varias DMV y eventos extendidos tienen columnas y campos que especifican el núm
 `<RunTimeCountersPerThread Thread="8" ActualRows="90466461" ActualRowsRead="90466461" Batches="0" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row" ActualElapsedms="133645" ActualCPUms="85105" ActualScans="1" ActualLogicalReads="6032256" ActualPhysicalReads="0" ActualPageServerReads="0" ActualReadAheads="6027814" ActualPageServerReadAheads="5687297" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobPageServerReads="0" ActualLobReadAheads="0" ActualLobPageServerReadAheads="0" />`
 
 > [!NOTE]
-> Para ver estos atributos en la ventana de propiedades del plan de consulta en SSMS, necesitará SSMS 18.3 o posterior.
-
+> Para ver estos atributos en la ventana de propiedades del plan de consulta, necesitará SSMS 18.3 o posterior.
 
 ## <a name="virtual-file-stats-and-io-accounting"></a>Estadísticas de archivos virtuales y cuentas de E/S
 
-En Azure SQL Database, la DMF [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) es la principal forma de supervisar la E/S de SQL Server. Las características de E/S en Hiperescala son diferentes debido a su [arquitectura distribuida](sql-database-service-tier-hyperscale.md#distributed-functions-architecture). En esta sección, nos centramos en la E/S (lecturas y escrituras) en los archivos de datos que se muestran en esta DMF. En Hiperescala, cada archivo de datos visible en esta DMF corresponde a un servidor de páginas remoto. La memoria caché de RBPEX mencionada aquí es una caché basada en SSD local que es una memoria caché sin cobertura en la réplica de proceso.
-
+En Azure SQL Database, la DMF [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) es la principal forma de supervisar la E/S de SQL Server. Las características de E/S en Hiperescala son diferentes debido a su [arquitectura distribuida](sql-database-service-tier-hyperscale.md#distributed-functions-architecture). En esta sección, nos centramos en la E/S (lecturas y escrituras) en los archivos de datos que se muestran en esta DMF. En Hiperescala, cada archivo de datos visible en esta DMF corresponde a un servidor de páginas remoto. La caché de RBPEX mencionada aquí es una caché basada en SSD local que es una caché sin cobertura en la réplica de proceso.
 
 ### <a name="local-rbpex-cache-usage"></a>Uso de la caché de RBPEX local
 
-La caché de RBPEX local existe en el nodo de proceso en el almacenamiento SSD local. Por lo tanto, la E/S en esta caché de RBPEX es más rápida que la E/S en servidores de páginas remotos. Actualmente, [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) en una base de datos de Hiperescala tiene una fila especial que informa de la E/S realizada en la caché de RBPEX local en la réplica de proceso. Esta fila tiene el valor 0 para las columnas `database_id` y `file_id`. Por ejemplo, la consulta siguiente devuelve las estadísticas de uso de RBPEX desde el inicio de la base de datos.
+La caché de RBPEX local existe en la réplica de proceso en el almacenamiento SSD local. Por lo tanto, la E/S de esta caché es más rápida que la E/S de los servidores de páginas remotos. Actualmente, [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) en una base de datos de Hiperescala tiene una fila especial que informa de la E/S de la caché de RBPEX local en la réplica de proceso. Esta fila tiene el valor 0 para las columnas `database_id` y `file_id`. Por ejemplo, la consulta siguiente devuelve las estadísticas de uso de RBPEX desde el inicio de la base de datos.
 
 `select * from sys.dm_io_virtual_file_stats(0,NULL);`
 
-Una proporción de las lecturas realizadas en RBPEX a las lecturas agregadas realizadas en todos los demás archivos de datos brinda la proporción de aciertos de caché de RBPEX.
-
+Una proporción de las lecturas realizadas en RBPEX a las lecturas agregadas realizadas en todos los demás archivos de datos indica la proporción de aciertos de caché de RBPEX.
 
 ### <a name="data-reads"></a>Lecturas de datos
 
 - Cuando el motor de SQL Server emite las lecturas en una réplica de proceso, pueden ser atendidas por la caché de RBPEX local, por servidores de páginas remotos o por una combinación de ambos, si se leen varias páginas.
 - Cuando la réplica de proceso lee algunas páginas de un archivo concreto, por ejemplo, file_id 1, si estos datos residen únicamente en la memoria caché de RBPEX local, toda la E/S de esta lectura se contabiliza en file_id 0 (RBPEX). Si alguna parte de esos datos se encuentra en la memoria caché de RBPEX local y otra en un servidor de páginas remoto, la E/S se contabiliza en file_id 0 para la parte que se atiende desde RBPEX y la parte que se atiende desde el servidor de páginas remoto se contabiliza como file_id 1. 
-- Cuando una réplica de proceso solicita una página en un [LSN](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide/) determinado desde un servidor de páginas, si el servidor de páginas no ha detectado la LSN solicitada, la lectura en la réplica de proceso esperará hasta que el servidor de páginas se ponga al día antes de que se devuelva la página a la réplica de proceso. Para cualquier lectura de un servidor de páginas en la réplica de proceso, verá el tipo de espera PAGEIOLATCH_* si está esperando en esa E/S. Este tiempo de espera incluye el tiempo necesario para capturar la página solicitada en el servidor de páginas en la LSN requerida y el tiempo necesario para transferir la página del servidor de páginas a la réplica de proceso.
+- Cuando una réplica de proceso solicita una página en un [LSN](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide/) determinado desde un servidor de páginas, si el servidor de páginas no ha detectado la LSN solicitada, la lectura en la réplica de proceso esperará hasta que el servidor de páginas se ponga al día antes de que se devuelva la página a la réplica de proceso. Para cualquier lectura de un servidor de páginas en la réplica de proceso, verá el tipo de espera PAGEIOLATCH_* si está esperando en esa E/S. En Hiperescala, este tiempo de espera incluye el tiempo necesario para capturar la página solicitada en el servidor de páginas en el LSN requerido y el tiempo necesario para transferir la página del servidor de páginas a la réplica de proceso.
 - Las lecturas de gran tamaño, como la lectura anticipada, se realizan a menudo mediante [ lecturas de "dispersión o recopilación"](/sql/relational-databases/reading-pages/). Esto permite lecturas de hasta 4 MB de páginas a la vez, lo que se considera una lectura única en el motor de SQL Server. Sin embargo, cuando los datos que se leen se encuentran en RBPEX, estas lecturas se contabilizan como varias lecturas de 8 KB individuales, ya que el grupo de búferes y RBPEX siempre usan páginas de 8 KB. Como resultado, el número de E/S de lectura que se han encontrado en RBPEX puede ser mayor que el número real de E/S realizadas por el motor.
-
 
 ### <a name="data-writes"></a>Escrituras de datos
 
@@ -99,11 +91,20 @@ Una proporción de las lecturas realizadas en RBPEX a las lecturas agregadas rea
 ### <a name="log-writes"></a>Escrituras de registro
 
 - En el proceso principal, una escritura de registro se contabiliza en file_id 2 de sys.dm_io_virtual_file_stats. Una escritura de registro en el proceso principal es una escritura en la zona de aterrizaje del registro.
-- Las entradas de registro no se protegen en la réplica secundaria durante una confirmación ("commit"). En Hiperescala, el servicio Xlog aplica el registro a las réplicas remotas. Dado que las escrituras en el registro no suceden realmente en las réplicas secundarias, los recuentos de E/S de registro en las réplicas secundarias solo tienen fines de seguimiento.
+- Las entradas de registro no se protegen en la réplica secundaria durante una confirmación ("commit"). En Hiperescala, el servicio de registro aplica el registro a las réplicas secundarias de forma asincrónica. Dado que las escrituras en el registro no suceden realmente en las réplicas secundarias, los recuentos de E/S de registro en las réplicas secundarias solo tienen fines de seguimiento.
+
+## <a name="data-io-in-resource-utilization-statistics"></a>E/S de datos en estadísticas de uso de recursos
+
+En una base de datos que no sea de Hiperescala, las IOPS de lectura y escritura combinadas con los archivos de datos, en relación con el límite de IOPS de datos de [gobernanza de recursos](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance), se muestran en las vistas [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) y [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), en la columna `avg_data_io_percent`. El mismo valor se muestra en el portal como _Media de porcentaje de E/S de datos_. 
+
+En una base de datos de Hiperescala, esta columna informa del uso de IOPS de datos en relación con el límite para el almacenamiento local solo en la réplica de proceso, específicamente la E/S de RBPEX y `tempdb`. Un valor del 100% en esta columna indica que la gobernanza de recursos está limitando las IOPS del almacenamiento local. Si está correlacionado con un problema de rendimiento, ajuste la carga de trabajo para generar menos E/S, o bien aumente el objetivo del servicio de base de datos para aumentar el [límite](sql-database-vcore-resource-limits-single-databases.md) _Max Data IOPS (IOPS de datos máximo)_ . Para la gobernanza de recursos de lecturas y escrituras de RBPEX, el sistema cuenta E/S individuales de 8 KB, en lugar de las E/S más grandes que puede indicar el motor de SQL Server. 
+
+La E/S de datos en los servidores de páginas remotos no se notifica en las vistas de uso de recursos o en el portal, pero se notifica en la DMF [sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/), como se indicó anteriormente.
+
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- En el caso de los límites de recursos de núcleo virtual para una base de datos única de hiperescala, consulte los [límites de núcleos virtuales del nivel de servicio de Hiperescala](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5).
+- En el caso de los límites de recursos de núcleo virtual para una base de datos única de Hiperescala, consulte los [límites de núcleos virtuales del nivel de servicio de Hiperescala](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5).
 - Para optimizar el rendimiento de Azure SQL Database, consulte [Ajuste manual del rendimiento de consultas en Azure SQL Database](sql-database-performance-guidance.md).
 - Para optimizar el rendimiento mediante el Almacén de consultas, consulte [Supervisión de rendimiento mediante el Almacén de consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store/).
 - Para los scripts de supervisión de DMV, consulte [Supervisión del rendimiento en Azure SQL Database con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md).

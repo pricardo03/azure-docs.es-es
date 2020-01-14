@@ -1,20 +1,20 @@
 ---
 title: Conexión a Bing Search
-description: Búsqueda de noticias con las API REST de Bing Search y Azure Logic Apps
+description: Automatizar tareas y flujos de trabajo que encuentren resultados en Bing Search mediante Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: c3b6cb61e2f7b91b3b1e3595da2d105c5cdb01c8
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e547ae59f7b3260f46756825bca2bef1c10bcc97
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789954"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665894"
 ---
-# <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Búsqueda de noticias con Bing Search y Azure Logic Apps
+# <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Buscar resultados en Bing Search mediante Azure Logic Apps
 
 En este artículo se muestra cómo se pueden buscar noticias, vídeos y otros artículos mediante Bing Search desde dentro de una aplicación lógica con el conector de Bing Search. De este modo, puede crear aplicaciones lógicas que automatizan las tareas y los flujos de trabajo para procesar los resultados de búsqueda y hacer que esos elementos estén disponibles para otras acciones. 
 
@@ -23,7 +23,7 @@ Por ejemplo, puede encontrar noticias basadas en criterios de búsqueda y hacer 
 Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Para obtener información técnica específica del conector, consulte la [referencia sobre el conector de Bing Search](https://docs.microsoft.com/connectors/bingsearch/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una [cuenta de Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md)
 
@@ -50,13 +50,13 @@ O bien, si la conexión ya existe, especifique la información necesaria para el
 
    Para este ejemplo, proporcione criterios para devolver artículos de noticias coincidentes de Bing Search.
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | Search Query (Consulta de búsqueda) | Sí | <*search-words*> | Escriba las palabras clave de búsqueda que desee usar. |
    | Market | Sí | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. |
    | Safe Search | Sí | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. |
-   | Count | Sin | <*results-count*> | Devuelve solo el número especificado de mensajes. El valor predeterminado es 20, pero puede especificar otro valor. El número real de los resultados devueltos puede ser menor que el número especificado. |
-   | Offset | Sin | <*skip-value*> | El número de resultados que se van a omitir antes de devolver resultados |
+   | Count | No | <*results-count*> | Devuelve solo el número especificado de mensajes. El valor predeterminado es 20, pero puede especificar otro valor. El número real de los resultados devueltos puede ser menor que el número especificado. |
+   | Offset | No | <*skip-value*> | El número de resultados que se van a omitir antes de devolver resultados |
    |||||
 
    Por ejemplo:
@@ -101,13 +101,13 @@ En la lista de acciones, seleccione la que desee.
 
    Para este ejemplo, proporcione los criterios para devolver un subconjunto de los resultados del desencadenador.
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | Search Query (Consulta de búsqueda) | Sí | <*search-expression*> | Escriba una expresión para consultar los resultados del desencadenador. Puede seleccionar entre los campos de la lista de contenido dinámico o crear una expresión con el generador de expresiones. |
    | Market | Sí | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. |
    | Safe Search | Sí | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. |
-   | Count | Sin | <*results-count*> | Devuelve solo el número especificado de mensajes. El valor predeterminado es 20, pero puede especificar otro valor. El número real de los resultados devueltos puede ser menor que el número especificado. |
-   | Offset | Sin | <*skip-value*> | El número de resultados que se van a omitir antes de devolver resultados |
+   | Count | No | <*results-count*> | Devuelve solo el número especificado de mensajes. El valor predeterminado es 20, pero puede especificar otro valor. El número real de los resultados devueltos puede ser menor que el número especificado. |
+   | Offset | No | <*skip-value*> | El número de resultados que se van a omitir antes de devolver resultados |
    |||||
 
    Por ejemplo, supongamos que desea aquellos resultados cuyo nombre de categoría incluya la palabra "tech".
@@ -148,7 +148,7 @@ En la lista de acciones, seleccione la que desee.
 
 1. Cuando se le solicite la información de conexión, proporcione estos detalles:
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | Nombre de la conexión | Sí | <*connection-name*> | El nombre que se va a crear para su conexión |
    | Versión de API | Sí | <*Versión de API*> | De forma predeterminada, la versión de la API de Bing Search se establece en la versión actual. Puede seleccionar una versión anterior si es necesario. |
@@ -163,7 +163,7 @@ En la lista de acciones, seleccione la que desee.
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener datos técnicos, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo OpenAPI (antes Swagger) del conector, consulte la [página de referencia del conector](/connectors/bingsearch/).
+Para obtener datos técnica, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo Swagger del conector, consulte la [página de referencia del conector](/connectors/bingsearch/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

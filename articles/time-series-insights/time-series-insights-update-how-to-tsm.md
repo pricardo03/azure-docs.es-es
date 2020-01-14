@@ -8,127 +8,163 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: fb1bfb30d531f8b93489c8fc1dfbc6b8172339a3
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 268973f27336e97fe85e493da18714df46171f8a
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006454"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497664"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modelado de datos en la versión preliminar de Azure Time Series Insights
 
 En este artículo se describe cómo usar el modelo de serie temporal de la versión preliminar de Azure Time Series Insights. Aquí se detallan varios escenarios comunes de datos.
 
-Para obtener más información acerca de cómo usar la actualización, lea [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md) (Explorador de versión preliminar de Azure Time Series Insights).
-
-## <a name="types"></a>Tipos
-
-### <a name="create-a-single-type"></a>Crear un solo tipo
-
-1. Vaya al panel de selección del modelos de serie temporal y seleccione **Types** (Tipos) en el menú. Contraiga el panel para centrarse en los tipos del modelo de serie temporal.
-
-    [![Panel "Types" (Tipos)](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
-
-1. Seleccione **+Agregar**.
-1. Escriba todos los detalles referentes a los tipos y seleccione **Create** (Crear). Esta acción crea tipos en el entorno.
-
-    [![Selecciones para agregar un tipo](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
-
-### <a name="bulk-upload-one-or-more-types"></a>Carga en bloque de uno o más tipos
-
-1. Seleccione **Upload JSON** (Cargar JSON).
-1. Seleccione el archivo que contiene el tipo de carga útil.
-1. Seleccione **Cargar**.
-
-    [![Selecciones para la carga masiva de uno o varios tipos](media/v2-update-how-to-tsm/portal-three.png)](media/v2-update-how-to-tsm/portal-three.png#lightbox)
-
-### <a name="edit-a-single-type"></a>Editar un solo tipo
-
-1. Seleccione el tipo y seleccione **Edit** (Editar). 
-1. Realice los cambios necesarios y seleccione **Save** (Guardar).
-
-    [![Selecciones para editar un tipo](media/v2-update-how-to-tsm/portal-four.png)](media/v2-update-how-to-tsm/portal-four.png#lightbox)
-
-### <a name="delete-a-type"></a>Eliminar un tipo
-
-1. Seleccione el tipo y **Delete** (Eliminar).
-1. Si no hay instancias asociadas a los tipos, este se elimina.
-
-    [![Botón "Delete"](media/v2-update-how-to-tsm/portal-five.png)](media/v2-update-how-to-tsm/portal-five.png#lightbox) (Eliminar)
-
-## <a name="hierarchies"></a>Jerarquías
-
-### <a name="create-a-single-hierarchy"></a>Crear una sola jerarquía
-
-1. Vaya al panel de selección del modelo de serie temporal y seleccione **Hierarchies** (Jerarquías) en el menú. Contraiga el panel para centrarse en las jerarquías del modelo de serie temporal.
-
-    [![Panel "Hierarchies"](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox) (Jerarquías)
-
-1. Seleccione **+Agregar**.
-
-    [![Botón "Add"](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox) (Agregar)
-
-1. Seleccione **+Add Level** (Agregar nivel) en el panel derecho.
-
-    [![Botón "Add Level"](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox) (Agregar nivel)
-
-1. Escriba los detalles de la jerarquía y seleccione **Create** (Crear).
-
-    [![Detalles de la jerarquía y botón "Create" (Crear)](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
-
-### <a name="bulk-upload-one-or-more-hierarchies"></a>Carga en bloque de una o más jerarquías
-
-1. Seleccione **Upload JSON** (Cargar JSON).
-1. Seleccione el archivo que contiene la carga útil de la jerarquía.
-1. Seleccione **Cargar**.
-
-    [![Selecciones para la carga masiva de jerarquías](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
-
-### <a name="edit-a-single-hierarchy"></a>Editar una sola jerarquía
-
-1. Seleccione la jerarquía y seleccione **Edit** (Editar).
-1. Realice los cambios necesarios y seleccione **Save** (Guardar).
-
-    [![Selecciones para la edición de una sola jerarquía](media/v2-update-how-to-tsm/portal-eleven.png)](media/v2-update-how-to-tsm/portal-eleven.png#lightbox)
-
-### <a name="delete-a-hierarchy"></a>Eliminar una jerarquía
-
-1. Seleccione la jerarquía y, después, **Delete** (Eliminar). 
-1. Si no hay instancias asociadas a la jerarquía, esta se elimina.
-
-    [![Botón "Delete"](media/v2-update-how-to-tsm/portal-twelve.png)](media/v2-update-how-to-tsm/portal-twelve.png#lightbox) (Eliminar)
+> [!TIP]
+> * Lea sobre la versión preliminar del [modelo de serie temporal](time-series-insights-update-tsm.md).
+> * Obtenga más información acerca de la interfaz de usuario de la versión preliminar en [Explorador de Azure Time Series Insights (versión preliminar)](./time-series-insights-update-explorer.md).
 
 ## <a name="instances"></a>Instancias
 
+El explorador de Azure Time Series Insights admite las operaciones de instancia **CREATE**, **READ**, **UPDATE** y **DELETE** dentro del explorador. 
+
+Para comenzar, seleccione la vista **Modelo** en la vista **Analizar** del explorador de Time Series Insights.
+
 ### <a name="create-a-single-instance"></a>Crear una sola instancia
 
-1. Vaya al panel de selección del modelos de serie temporal y seleccione **Instances** (Instancias) en el menú. Contraiga el panel para centrarse en las instancias del modelo de serie temporal.
+1. Vaya al panel de selección del modelos de serie temporal y seleccione **Instances** (Instancias) en el menú. Se mostrarán todas las instancias asociadas con el entorno de Time Series Insights seleccionado.
 
-    [![Panel "Instances"](media/v2-update-how-to-tsm/portal-thirteen.png)](media/v2-update-how-to-tsm/portal-thirteen.png#lightbox) (Instancias)
+    [![Cree una instancia única al seleccionar primero la opción Instancias.](media/v2-update-how-to-tsm/how-to-tsm-instances-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-instances-panel.png#lightbox)
 
-1. Seleccione **Agregar**.
+1. Seleccione **+Agregar**.
 
-    [![Selecciones para agregar una instancia](media/v2-update-how-to-tsm/portal-fourteen.png)](media/v2-update-how-to-tsm/portal-fourteen.png#lightbox)
+    [![Agregue una instancia al seleccionar el botón + Agregar.](media/v2-update-how-to-tsm/how-to-tsm-add-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-add-instance.png#lightbox)
 
 1. Escriba los detalles de la instancia, seleccione la asociación de tipo y de jerarquía y seleccione **Create** (Crear).
 
 ### <a name="bulk-upload-one-or-more-instances"></a>Carga en bloque de una o más instancias
 
+> [!TIP]
+> Puede guardar las instancias en el escritorio en formato JSON. Después, se puede cargar el archivo JSON descargado mediante los pasos siguientes.
+
 1. Seleccione **Upload JSON** (Cargar JSON).
 1. Seleccione el archivo que contiene la carga útil de la instancia.
 
-    [![Selecciones para la carga masiva de una o varias instancias](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
+    [![Cargue de forma masiva las instancias mediante JSON.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-instances.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-instances.png#lightbox)
 
 1. Seleccione **Cargar**.
 
 ### <a name="edit-a-single-instance"></a>Editar una sola instancia
 
-1. Seleccione la instancia y seleccione **Edit** (Editar). 
+1. Seleccione la instancia y después el icono **Editar** o **de lápiz**. 
 1. Realice los cambios necesarios y seleccione **Save** (Guardar).
 
-    [![Selecciones para la edición de una sola instancia](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
+    [![Edite una sola instancia.](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png#lightbox)
+
+### <a name="delete-an-instance"></a>Eliminar una instancia
+
+1. Seleccione la instancia y después el icono **Eliminar**  o **de papelera**.
+
+   [![Elimine un tipo al seleccionar la opción Eliminar.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
+
+1. Para confirmar la eliminación, seleccione **Eliminar**.
+
+> [!NOTE]
+> Para eliminarse, la instancia debe superar satisfactoriamente una comprobación de validación de campo.
+
+## <a name="hierarchies"></a>Jerarquías
+
+El explorador de Azure Time Series Insights admite las operaciones de jerarquía **CREATE**, **READ**, **UPDATE**, y **DELETE** dentro del explorador. 
+
+Para comenzar, seleccione la vista **Modelo** en la vista **Analizar** del explorador de Time Series Insights.
+
+### <a name="create-a-single-hierarchy"></a>Crear una sola jerarquía
+
+1. Vaya al panel de selección del modelo de serie temporal y seleccione **Hierarchies** (Jerarquías) en el menú. Se mostrarán todas las jerarquías asociadas con el entorno de Time Series Insights seleccionado.
+
+    [![Use el panel para crear una jerarquía.](media/v2-update-how-to-tsm/how-to-tsm-hierarchy-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-hierarchy-panel.png#lightbox)
+
+1. Seleccione **+Agregar**.
+
+    [![Botón + Agregar para las jerarquías.](media/v2-update-how-to-tsm/how-to-tsm-add-new-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-hierarchy.png#lightbox)
+
+1. Seleccione **+Agregar nivel** en el panel derecho.
+
+    [![Agregue un nivel a la jerarquía.](media/v2-update-how-to-tsm/how-to-tsm-save-hierarchy-levels.png)](media/v2-update-how-to-tsm/how-to-tsm-save-hierarchy-levels.png#lightbox)
+
+1. Escriba los detalles de la jerarquía y seleccione **Guardar**.
+
+    [![Especifique los detalles de la jerarquía.](media/v2-update-how-to-tsm/how-to-tsm-add-hierarchy-level.png)](media/v2-update-how-to-tsm/how-to-tsm-add-hierarchy-level.png#lightbox)
+
+### <a name="bulk-upload-one-or-more-hierarchies"></a>Carga en bloque de una o más jerarquías
+
+> [!TIP]
+> Puede guardar las jerarquías en formato JSON en el escritorio. Después, se puede cargar el archivo JSON descargado mediante los pasos siguientes.
+
+1. Seleccione **Upload JSON** (Cargar JSON).
+1. Seleccione el archivo que contiene la carga útil de la jerarquía.
+1. Seleccione **Cargar**.
+
+    [![Selecciones para la carga masiva de jerarquías.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-hierarchies.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-hierarchies.png#lightbox)
+
+### <a name="edit-a-single-hierarchy"></a>Editar una sola jerarquía
+
+1. Seleccione la jerarquía y después el icono **Editar** o **de lápiz**.
+1. Realice los cambios necesarios y seleccione **Save** (Guardar).
+
+    [![Selecciones para la edición de una sola jerarquía.](media/v2-update-how-to-tsm/how-to-tsm-edit-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-hierarchy.png#lightbox)
+
+### <a name="delete-a-hierarchy"></a>Eliminar una jerarquía
+
+1. Seleccione la jerarquía y después el icono **Eliminar** o **de papelera**. 
+
+    [![Para eliminar una jerarquía, seleccione el botón Eliminar.](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png#lightbox)
+
+1. Para confirmar la eliminación, seleccione **Eliminar**.
+
+## <a name="types"></a>Tipos
+
+El explorador de Azure Time Series Insights admite las operaciones de tipo **CREATE**, **READ**, **UPDATE** y **DELETE** dentro del explorador. 
+
+Para comenzar, seleccione la vista **Modelo** en la vista **Analizar** del explorador de Time Series Insights.
+
+### <a name="create-a-single-type"></a>Crear un solo tipo
+
+1. Vaya al panel de selección del modelos de serie temporal y seleccione **Types** (Tipos) en el menú. Se mostrarán todas las instancias asociadas con el entorno de Time Series Insights seleccionado.
+
+    [![Panel de los tipos de modelo de serie temporal.](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png#lightbox)
+
+1. Seleccione **+ Agregar** para mostrar el elemento emerge+ modal **Agregar un nuevo tipo**.
+1. Escriba las propiedades y las variables del tipo. Una vez escritas, seleccione **Guardar**. 
+
+    [![Valores de configuración para agregar un tipo.](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png#lightbox)
+
+### <a name="bulk-upload-one-or-more-types"></a>Carga en bloque de uno o más tipos
+
+> [!TIP]
+> Puede guardar los tipos en el escritorio en formato JSON. Después, se puede cargar el archivo JSON descargado mediante los pasos siguientes.
+
+1. Seleccione **Upload JSON** (Cargar JSON).
+1. Seleccione el archivo que contiene el tipo de carga útil.
+1. Seleccione **Cargar**.
+
+    [![Opciones de carga masiva de tipos.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-types-json.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-types-json.png#lightbox)
+
+### <a name="edit-a-single-type"></a>Editar un solo tipo
+
+1. Seleccione el tipo y seleccione el icono **Editar** o **de lápiz**.
+1. Realice los cambios necesarios y seleccione **Save** (Guardar).
+
+    [![Edite un tipo en el panel.](media/v2-update-how-to-tsm/how-to-tsm-edit-type.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-type.png#lightbox)
+
+### <a name="delete-a-type"></a>Eliminar un tipo
+
+1. Seleccione la instancia y después el icono **Eliminar**  o **de papelera**. .
+
+   [![Elimine un tipo al seleccionar la opción Eliminar.](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png#lightbox)
+
+1. Para confirmar la eliminación, seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,18 +2,18 @@
 title: 'Seguridad: Migración de Apache Hadoop local a Azure HDInsight'
 description: Obtenga información acerca de las prácticas recomendadas de DevOps y seguridad para migrar clústeres locales de Apache Hadoop a Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
-ms.author: hrasheed
-ms.openlocfilehash: 1cebe425e323eefda6e26b0f32ddeda0118a70d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/19/2019
+ms.openlocfilehash: 441c45d0f77ab825c35e24056b09d0d33b675eea
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494969"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496397"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Prácticas recomendadas de DevOps y seguridad para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -23,7 +23,7 @@ En este artículo se proporcionan recomendaciones de DevOps y seguridad en siste
 
 Enterprise Security Package (ESP) admite la autenticación basada en Active Directory multiusuario y control de acceso basado en roles. Con la opción de ESP elegida, el clúster de HDInsight se une al dominio de Active Directory y el administrador de empresa puede configurar el control de acceso basado en roles (RBAC) para la seguridad de Apache Hive mediante el uso de Apache Ranger. El administrador también puede auditar el acceso a los datos de los empleados y todos los cambios que se realizan en las directivas de control de acceso.
 
-ESP está disponible en los siguientes tipos de clúster: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka e Interactive Query (Hive LLAP). 
+ESP está disponible en los siguientes tipos de clúster: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka e Interactive Query (Hive LLAP).
 
 Para implementar el clúster de HDInsight unido a un dominio, siga estos pasos:
 
@@ -37,23 +37,23 @@ Para implementar el clúster de HDInsight unido a un dominio, siga estos pasos:
 - Habilite LDAPS para AAD DS.
 - Cree una cuenta de servicio en Azure Active Directory con permisos de administrador de lectura y escritura delegados a la unidad organizativa. Esta cuenta de servicio podrá unir las máquinas al dominio y colocar las entidades de seguridad de la máquina en la unidad organizativa. También puede crear entidades de servicio dentro de la unidad organizativa que especifique durante la creación del clúster.
 
-
     > [!Note]
     > No es necesario que la cuenta de servicio sea una cuenta de administrador de dominio de AD.
 
-
 - Implemente el clúster de HDInsight ESP estableciendo los parámetros siguientes:
-    - **Nombre de dominio**: nombre de dominio asociado con Azure AD DS.
-    - **Nombre de usuario de dominio**: cuenta de servicio del dominio administrado del controlador de dominio de Azure AD DS que creó en la sección anterior, por ejemplo: `hdiadmin@contoso.onmicrosoft.com`. Este usuario de dominio será el administrador de este clúster de HDInsight.
-    - **Contraseña de dominio**: contraseña de la cuenta de servicio.
-    - **Unidad organizativa**: nombre distintivo de la unidad organizativa que quiere utilizar con el clúster de HDInsight; por ejemplo, `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Si no existe esta unidad organizativa, el clúster de HDInsight intenta crearla mediante los privilegios que tiene la cuenta de servicio.
-    - **LDAPS URL**: por ejemplo, `ldaps://contoso.onmicrosoft.com:636`.
-    - **Grupo de usuarios de acceso**: grupos de seguridad cuyos usuarios quiere que se sincronicen con el clúster; por ejemplo, `HiveUsers`. Si desea especificar varios grupos de usuarios, sepárelos con un punto y coma ";". Los grupos deben existir en el directorio antes de crear el clúster de ESP.
+
+    |Parámetro |Descripción |
+    |---|---|
+    |Nombre de dominio|nombre de dominio asociado con Azure AD DS.|
+    |Nombre de usuario de dominio|cuenta de servicio del dominio administrado del controlador de dominio de Azure AD DS que creó en la sección anterior, por ejemplo: `hdiadmin@contoso.onmicrosoft.com`. Este usuario de dominio será el administrador de este clúster de HDInsight.|
+    |Contraseña de dominio|contraseña de la cuenta de servicio.|
+    |Unidad organizativa|nombre distintivo de la unidad organizativa que quiere utilizar con el clúster de HDInsight; por ejemplo, `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Si no existe esta unidad organizativa, el clúster de HDInsight intenta crearla mediante los privilegios que tiene la cuenta de servicio.|
+    |Dirección URL de LDAPS|Por ejemplo: `ldaps://contoso.onmicrosoft.com:636`.|
+    |Grupo de usuarios de acceso|grupos de seguridad cuyos usuarios quiere que se sincronicen con el clúster; por ejemplo, `HiveUsers`. Si desea especificar varios grupos de usuarios, sepárelos con un punto y coma ";". Los grupos deben existir en el directorio antes de crear el clúster de ESP.|
 
 Para más información, consulte los siguientes artículos.
 
 - [Introducción a la seguridad de Apache Hadoop con clústeres de HDInsight unidos a un dominio](../domain-joined/hdinsight-security-overview.md)
-
 - [Planeamiento de clústeres de Apache Hadoop unidos a un dominio de Azure en HDInsight](../domain-joined/apache-domain-joined-architecture.md)
 - [Configuración de un clúster de HDInsight unido a un dominio mediante Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 - [Sincronización de los usuarios de Azure Active Directory en un clúster de HDInsight](../hdinsight-sync-aad-users-to-cluster.md)
@@ -64,22 +64,22 @@ Para más información, consulte los siguientes artículos.
 
 La seguridad empresarial de extremo a extremo puede lograrse con los controles siguientes:
 
-- **Canalización de datos privados y protegidos (seguridad a nivel de perímetro)**
+**Canalización de datos privados y protegidos (seguridad a nivel de perímetro)**
     - La seguridad a nivel de perímetro se puede lograr a través de redes virtuales de Azure, grupos de seguridad de red y el servicio de puerta de enlace
 
-- **Autenticación y autorización para acceso a datos**
+**Autenticación y autorización para acceso a datos**
     - Cree clústeres de HDInsight unidos a un dominio con Azure Active Directory Domain Services. (Enterprise Security Package).
     - Use Ambari para proporcionar acceso basado en roles a los recursos de clúster para los usuarios de AD.
     - Use Apache Ranger para establecer las directivas de control de acceso para Hive a nivel de tabla, columna y fila.
     - El acceso SSH al clúster puede estar restringido a solo el administrador.
 
-- **Auditoría**
+**Auditoría**
     - Vea y notifique todos los accesos a los recursos y los datos del clúster de HDInsight.
     - Vea y notifique todos los cambios en las directivas de control de acceso.
 
-- **Cifrado**
+**Cifrado**
     - Cifrado del lado servidor transparente con claves administradas por Microsoft o claves administradas por el cliente.
-    - Cifrado en tránsito con cifrado en el cliente, HTTPS y TLS.
+    - Cifrado en tránsito mediante el cifrado en el cliente, HTTPS y TLS.
 
 Para más información, consulte los siguientes artículos.
 
@@ -104,7 +104,7 @@ Actualice regularmente a la última versión de HDInsight para aprovechar las ú
 1. Modifique los trabajos, las aplicaciones o las cargas de trabajo según sea necesario.
 1. Haga copia de seguridad de todos los datos transitorios almacenados localmente en los nodos del clúster.
 1. Elimine el clúster existente.
-1. Cree un clúster en la versión más reciente de HDInsight en la misma subred de VNET, con los mismos datos y almacén predeterminados que usaba el clúster anterior.
+1. Cree un clúster en la versión más reciente de HDInsight en la misma subred de red virtual, con los mismos datos y almacén predeterminados que usaba el clúster anterior.
 1. Importe los datos transitorios cuya copia de seguridad realizó.
 1. Inicie trabajos o continúe el procesamiento con el nuevo clúster.
 
@@ -124,4 +124,4 @@ Para obtener más información, consulte el artículo: [Aplicación de revisión
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información acerca de [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction)
+Más información acerca de [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction)

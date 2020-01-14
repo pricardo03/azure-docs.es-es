@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 6dee7642ac7ac0544db5b88981483bd1ea0f745e
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 2f316e57e407a0588e77f56d6e1fbe8c19ba5fee
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539307"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562126"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveles de servicio en el modelo de compra basado en DTU
 
@@ -67,7 +67,7 @@ Los tamaños de proceso se expresan como unidades de transacción de base de dat
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Límites de eDTU de grupo elástico, almacenamiento y base de datos agrupada
 
-| | **Básico** | **Estándar** | **Premium** |
+| | **Basic** | **Estándar** | **Premium** |
 | :-- | --: | --: | --: |
 | Tamaño máximo de almacenamiento por base de datos  | 2 GB | 1 TB | 1 TB |
 | Tamaño máximo de almacenamiento por grupo | 156 GB | 4 TB | 4 TB |
@@ -109,7 +109,7 @@ La base de datos se dimensiona basándose en un “factor de escala”. El facto
 
 La carga de trabajo consta de nueve tipos de transacciones, como se muestra en la tabla siguiente. Cada transacción se diseño para destacar un conjunto determinado de características del sistema en el motor de la base de datos y en el hardware del sistema, con un elevado contraste con respecto a las otras transacciones. Este enfoque facilita la evaluación del impacto de diferentes componentes sobre el rendimiento global. Por ejemplo, la transacción “Lectura intensa” produce un número significativo de operaciones de lectura de disco.
 
-| Tipo de transacción | DESCRIPCIÓN |
+| Tipo de transacción | Descripción |
 | --- | --- |
 | Lectura ligera |SELECT; en memoria; solo lectura |
 | Lectura mediana |SELECT; principalmente en memoria; solo lectura |

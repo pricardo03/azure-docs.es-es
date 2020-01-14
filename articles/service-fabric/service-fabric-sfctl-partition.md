@@ -1,32 +1,23 @@
 ---
-title: 'CLI de Azure Service Fabric: sfctl partition | Microsoft Docs'
-description: Describe los comandos de sfctl partition de la CLI Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: 'CLI de Azure Service Fabric: partición sfctl'
+description: Más información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para administrar las particiones de un servicio.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 2c2ebb7cb08cb6b6b2130290c81fa9e07766b5e2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c50fcb348dad7960be81f80ecb7c455dbffaadb3
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901077"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646065"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Consulte y administre las particiones para cualquier servicio.
 
 ## <a name="commands"></a>Comandos:
 
-|Get-Help|DESCRIPCIÓN|
+|Get-Help|Descripción|
 | --- | --- |
 | data-loss | Esta API inducirá la pérdida de datos para la partición especificada. |
 | data-loss-status | Obtiene el progreso de una operación de pérdida de datos de partición que se ha iniciado mediante la API StartDataLoss. |
@@ -53,7 +44,7 @@ Desencadenará una llamada a la API OnDataLossAsync de la partición.  Esta API 
 > Una vez que se ha llamado a esta API, la acción no se puede revertir. Una llamada a CancelOperation solo detiene la ejecución y limpia el estado interno del sistema. No restaurará datos si el comando ha progresado lo suficiente para provocar la pérdida de datos. Llame a la API GetDataLossProgress con el mismo OperationId para devolver información sobre la operación iniciada con esta API.
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --data-loss-mode [obligatorio] | Esta enumeración se pasa a la API StartDataLoss para indicar qué tipo de pérdida de datos se inducirá. |
 | --operation-id   [obligatorio] | Un GUID que identifica una llamada de esta API.  Se pasa a la API GetProgress correspondiente. |
@@ -63,13 +54,13 @@ Desencadenará una llamada a la API OnDataLossAsync de la partición.  Esta API 
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-partition-data-loss-status"></a>sfctl partition data-loss-status
 Obtiene el progreso de una operación de pérdida de datos de partición que se ha iniciado mediante la API StartDataLoss.
@@ -78,7 +69,7 @@ Obtiene el progreso de una operación de pérdida de datos que se ha iniciado co
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --operation-id [obligatorio] | Un GUID que identifica una llamada de esta API.  Se pasa a la API GetProgress correspondiente. |
 | --partition-id [Obligatorio] | La identidad de la partición. |
@@ -87,13 +78,13 @@ Obtiene el progreso de una operación de pérdida de datos que se ha iniciado co
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-partition-health"></a>sfctl partition health
 Obtiene el estado de la partición de Service Fabric especificada.
@@ -102,7 +93,7 @@ Use EventsHealthStateFilter para filtrar la colección de eventos de estado noti
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --partition-id [Obligatorio] | La identidad de la partición. |
 | --events-health-state-filter | Permite filtrar la colección de objetos HealthEvent devueltos según el estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit "OR". Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
@@ -112,13 +103,13 @@ Use EventsHealthStateFilter para filtrar la colección de eventos de estado noti
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-partition-info"></a>sfctl partition info
 Obtiene la información sobre una partición de Service Fabric.
@@ -127,20 +118,20 @@ Obtiene la información sobre la partición especificada. La respuesta incluye e
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --partition-id [Obligatorio] | La identidad de la partición. |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-partition-list"></a>sfctl partition list
 Obtiene la lista de particiones de un servicio de Service Fabric.
@@ -149,7 +140,7 @@ La respuesta incluye el identificador de partición, la información de esquemas
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --service-id [Obligatorio] | La identidad del servicio. Este suele ser el nombre completo del servicio sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre del servicio es "fabric\:/myapp/app1/svc1", la identidad del servicio sería "myapp\~app1\~svc1" en 6.0+ y "myapp/svc1/svc1" en las versiones anteriores. |
 | --continuation-token | El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada. |
@@ -157,13 +148,13 @@ La respuesta incluye el identificador de partición, la información de esquemas
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-partition-load"></a>sfctl partition load
 Obtiene la información de la carga de la partición de Service Fabric especificada.
@@ -172,20 +163,20 @@ Devuelve información sobre la carga de una partición especificada. La respuest
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --partition-id [Obligatorio] | La identidad de la partición. |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-partition-load-reset"></a>sfctl partition load-reset
 Restablece la carga actual de una partición de Service Fabric.
@@ -194,20 +185,20 @@ Restablece la carga actual de una partición de Service Fabric a la carga de for
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --partition-id [Obligatorio] | La identidad de la partición. |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-partition-quorum-loss"></a>sfctl partition quorum-loss
 Induce la pérdida de cuórum para una partición determinada del servicio con estado.
@@ -216,7 +207,7 @@ Esta API es útil en una situación de pérdida de cuórum temporal en el servic
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --operation-id         [obligatorio] | Un GUID que identifica una llamada de esta API.  Se pasa a la API GetProgress correspondiente. |
 | --partition-id         [obligatorio] | La identidad de la partición. |
@@ -227,13 +218,13 @@ Esta API es útil en una situación de pérdida de cuórum temporal en el servic
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-partition-quorum-loss-status"></a>sfctl partition quorum-loss-status
 Obtiene el progreso de una operación de pérdida de cuórum en una partición iniciada mediante la API StartQuorumLoss.
@@ -242,7 +233,7 @@ Obtiene el progreso de una operación de pérdida de cuórum iniciada mediante S
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --operation-id [obligatorio] | Un GUID que identifica una llamada de esta API.  Se pasa a la API GetProgress correspondiente. |
 | --partition-id [Obligatorio] | La identidad de la partición. |
@@ -251,13 +242,13 @@ Obtiene el progreso de una operación de pérdida de cuórum iniciada mediante S
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-partition-recover"></a>sfctl partition recover
 Indica al clúster de Service Fabric que debería intentar recuperar una partición específica que actualmente está atascada en pérdida de cuórum.
@@ -266,20 +257,20 @@ Esta operación solo debe realizarse si se sabe que no pueden recuperarse las r�
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --partition-id [Obligatorio] | La identidad de la partición. |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-partition-recover-all"></a>sfctl partition recover-all
 Indica al clúster de Service Fabric que debería intentar recuperar cualquier servicio (incluidos los servicios del sistema) que actualmente esté atascado en pérdida de cuórum.
@@ -288,19 +279,19 @@ Esta operación solo debe realizarse si se sabe que no pueden recuperarse las r�
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-partition-report-health"></a>sfctl partition report-health
 Envía un informe de estado sobre la partición de Service Fabric.
@@ -309,7 +300,7 @@ Informa del estado de mantenimiento de la partición de Service Fabric especific
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --health-property [Obligatorio] | La propiedad de la información de mantenimiento. <br><br> Una entidad puede tener informes de mantenimiento para diferentes propiedades. La propiedad es una cadena y no una enumeración fija para permitir al informador la flexibilidad de categorizar la condición de estado que desencadena el informe. Por ejemplo, un informador con SourceId "LocalWatchdog" puede supervisar el estado del disco disponible en un nodo, por lo que puede informar de la propiedad "AvailableDisk" en ese nodo. El mismo informador puede supervisar la conectividad del nodo, por lo que puede informar de una propiedad "Connectivity" en el mismo nodo. En el almacén de estado, estos informes se tratan como eventos de mantenimiento independientes del nodo especificado. Junto con SourceId, la propiedad identifica la información de mantenimiento de manera única. |
 | --health-state    [Obligatorio] | Los valores posibles incluyen\: 'Invalid', 'Ok', 'Warning', 'Error', 'Unknown'. |
@@ -324,13 +315,13 @@ Informa del estado de mantenimiento de la partición de Service Fabric especific
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-partition-restart"></a>sfctl partition restart
 Esta API reiniciará algunas o todas las réplicas o instancias de la partición especificada.
@@ -339,7 +330,7 @@ Esta API es útil para probar la conmutación por error. Si se utilizan como des
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --operation-id [Obligatorio] | Un GUID que identifica una llamada de esta API.  Se pasa a la API GetProgress correspondiente. |
 | --partition-id [Obligatorio] | La identidad de la partición. |
@@ -349,13 +340,13 @@ Esta API es útil para probar la conmutación por error. Si se utilizan como des
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-partition-restart-status"></a>sfctl partition restart-status
 Obtiene el progreso de una operación PartitionRestart iniciada mediante StartPartitionRestart.
@@ -364,7 +355,7 @@ Obtiene el progreso de una operación PartitionRestart iniciada mediante StartPa
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --operation-id [obligatorio] | Un GUID que identifica una llamada de esta API.  Se pasa a la API GetProgress correspondiente. |
 | --partition-id [Obligatorio] | La identidad de la partición. |
@@ -373,13 +364,13 @@ Obtiene el progreso de una operación PartitionRestart iniciada mediante StartPa
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-partition-svc-name"></a>sfctl partition svc-name
 Obtiene el nombre del servicio de Service Fabric para una partición.
@@ -388,20 +379,20 @@ Obtiene el nombre del servicio para la partición especificada. Si el identifica
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --partition-id [Obligatorio] | La identidad de la partición. |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -3,12 +3,12 @@ title: Desarrollo de Azure Functions con Visual Studio Code
 description: Aprenda a desarrollar y probar Azure Functions mediante la extensión de Azure Functions para Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: cf96a0630440904282f076de2f916fb3dbf3eb1c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 54bbc46c703646f4680f6dc22d5c4b6781614ae7
+ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975591"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75667551"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desarrollo de Azure Functions con Visual Studio Code
 
@@ -38,7 +38,7 @@ En este artículo se dan detalles sobre cómo usar la extensión de Azure Functi
 > [!IMPORTANT]
 > No mezcle el desarrollo local con el desarrollo del portal en una aplicación de funciones individual. Al publicar desde un proyecto local en una aplicación de la función, el proceso de implementación sobrescribe todas las funciones que ha desarrollado en el portal.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de instalar y ejecutar la [extensión de Azure Functions][extensión de azure functions para visual studio code], es necesario cumplir estos requisitos:
 
@@ -94,10 +94,6 @@ También puede [agregar una nueva función al proyecto](#add-a-function-to-your-
 
 Excepto los desencadenadores HTTP y del temporizador, los enlaces se implementan como paquetes de extensión. Tiene que instalar los paquetes de extensión para los desencadenadores y enlaces que los necesiten. El proceso de instalar las extensiones de enlace depende del lenguaje del proyecto.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
 # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Ejecute el comando [dotnet add package](/dotnet/core/tools/dotnet-add-package) en la ventana del terminal para instalar los paquetes de extensión que necesita en el proyecto. El siguiente comando instala la extensión de Azure Storage, que implementa los enlaces para el almacenamiento de Blob, Cola y Tabla.
@@ -105,6 +101,10 @@ Ejecute el comando [dotnet add package](/dotnet/core/tools/dotnet-add-package) e
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
+
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ---
 
@@ -114,13 +114,13 @@ Puede agregar una nueva función a un proyecto existente mediante una de las pla
 
 Los resultados de esta acción dependen del lenguaje del proyecto:
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
-
-Se crea una nueva carpeta en el proyecto. La carpeta contiene un nuevo archivo function.json y el nuevo archivo de código de JavaScript.
-
 # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Un nuevo archivo de biblioteca de clases (. cs) de C# se agrega al proyecto.
+
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+
+Se crea una nueva carpeta en el proyecto. La carpeta contiene un nuevo archivo function.json y el nuevo archivo de código de JavaScript.
 
 ---
 
@@ -130,6 +130,24 @@ Puede expandir la función mediante la adición de enlaces de entrada y de salid
 
 Los ejemplos siguientes se conectan a una cola de almacenamiento denominada `outqueue`, en la que está establecida la cadena de conexión para la cuenta de almacenamiento en valor de aplicación `MyStorageConnection` en local.settings.json.
 
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+
+Actualice el método de función para agregar el siguiente parámetro a la definición de método `Run`:
+
+```cs
+[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
+```
+
+Este código requiere que agregue la siguiente instrucción `using`:
+
+```cs
+using Microsoft.Azure.WebJobs.Extensions.Storage;
+```
+
+El parámetro `msg` es de tipo `ICollector<T>`, que representa una colección de mensajes escritos en un enlace de salida cuando se completa la función. Agregue uno o varios mensajes a la colección. Estos mensajes se envían a la cola cuando se completa la función.
+
+Para más información, consulte la documentación de [Enlace de salida de Queue Storage](functions-bindings-storage-queue.md#output---c-example).
+
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 Visual Studio Code le permite agregar enlaces a su archivo function.json siguiendo un conjunto práctico de mensajes. Para crear un enlace, haga clic con el botón derecho (Ctrl + clic en macOS) en el **archivo function.json** de la carpeta de función y seleccione **Agregar enlace**:
@@ -138,13 +156,13 @@ Visual Studio Code le permite agregar enlaces a su archivo function.json siguie
 
 Los siguientes son mensajes de ejemplo para definir un nuevo enlace de salida de almacenamiento:
 
-| Prompt | Valor | DESCRIPCIÓN |
+| Prompt | Value | Descripción |
 | -------- | ----- | ----------- |
 | **Select binding direction** (Seleccionar dirección de enlace) | `out` | El enlace es un enlace de salida. |
 | **Select binding with direction** (Seleccionar enlace con dirección) | `Azure Queue Storage` | El enlace es un enlace de cola de Azure Storage. |
 | **The name used to identify this binding in your code** (Nombre identificativo del enlace en el código) | `msg` | Nombre que identifica el parámetro de enlace al que se hace referencia en el código. |
 | **The queue to which the message will be sent** (Cola donde se enviará el mensaje) | `outqueue` | El nombre de la cola en la que escribe el enlace. Cuando no existe *queueName*, el enlace lo crea durante el primer uso. |
-| **Select setting from "local.setting.json"** (Seleccionar configuración de "local.setting.json") | `MyStorageConnection` | El nombre de una configuración de la aplicación que contiene la cadena de conexión de la cuenta de almacenamiento. El valor `AzureWebJobsStorage` contiene la cadena de conexión de la cuenta de almacenamiento que creó con la aplicación de función. |
+| **Seleccione la configuración en "local.settings.json"** | `MyStorageConnection` | El nombre de una configuración de la aplicación que contiene la cadena de conexión de la cuenta de almacenamiento. El valor `AzureWebJobsStorage` contiene la cadena de conexión de la cuenta de almacenamiento que creó con la aplicación de función. |
 
 En este ejemplo, se agrega el siguiente enlace a la matriz `bindings` en el archivo function.json:
 
@@ -168,25 +186,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
 Para más información, consulte la referencia sobre [enlace de salida de Queue Storage](functions-bindings-storage-queue.md#output---javascript-example).
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
-
-Actualice el método de función para agregar el siguiente parámetro a la definición de método `Run`:
-
-```cs
-[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
-```
-
-Este código requiere que agregue la siguiente instrucción `using`:
-
-```cs
-using Microsoft.Azure.WebJobs.Extensions.Storage;
-```
-
 ---
-
-El parámetro `msg` es de tipo `ICollector<T>`, que representa una colección de mensajes escritos en un enlace de salida cuando se completa la función. Agregue uno o varios mensajes a la colección. Estos mensajes se envían a la cola cuando se completa la función.
-
-Para más información, consulte la documentación de [Enlace de salida de Queue Storage](functions-bindings-storage-queue.md#output---c-example).
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
@@ -218,7 +218,7 @@ Los pasos siguientes publican el proyecto en una nueva aplicación de funciones 
 
 1. Siguiendo las indicaciones, proporcione esta información:
 
-    | Prompt | Valor | DESCRIPCIÓN |
+    | Prompt | Value | Descripción |
     | ------ | ----- | ----------- |
     | Selección de una aplicación de funciones en Azure | Crear una aplicación de funciones en Azure | En el siguiente aviso, escriba un nombre único global que identifique la nueva aplicación de funciones y seleccione ENTRAR. Los siguientes son caracteres válidos para un nombre de aplicación de función: `a-z`, `0-9` y `-`. |
     | Seleccione un sistema operativo | Windows | La aplicación de funciones se ejecuta en Windows. |
@@ -330,7 +330,7 @@ También puede publicar la configuración mediante el comando **Azure Functions:
 > [!TIP]
 > Asegúrese de guardar el archivo local.settings.json antes de publicarlo.
 
-Si el archivo local está cifrado, se descifra, se publica y se cifra de nuevo. Si alguna configuración tienen valores en conflicto en las dos ubicaciones, se le pedirá que elija cómo proceder.
+Si el archivo local está cifrado, se descifra, se publica y se cifra de nuevo. Si hay configuraciones con valores en conflicto en las dos ubicaciones, se le pedirá que elija cómo proceder.
 
 Visualice la configuración de la aplicación en el área **Azure: Funciones** expandiendo su suscripción, la aplicación de funciones, y **Configuración de aplicaciones**.
 
@@ -340,7 +340,7 @@ Visualice la configuración de la aplicación en el área **Azure: Funciones** e
 
 Si ha creado la configuración de la aplicación en Azure, puede descargarla en el archivo local.settings.json mediante el comando **Azure Functions: Descargar configuración remota**.
 
-Como en el caso de las cargas, si el archivo local está cifrado, se descifra, se actualiza y se cifra de nuevo. Si alguna configuración tienen valores en conflicto en las dos ubicaciones, se le pedirá que elija cómo proceder.
+Como en el caso de las cargas, si el archivo local está cifrado, se descifra, se actualiza y se cifra de nuevo. Si hay configuraciones con valores en conflicto en las dos ubicaciones, se le pedirá que elija cómo proceder.
 
 ## <a name="monitoring-functions"></a>Supervisión de funciones
 
@@ -383,7 +383,7 @@ Después de haber completado estos pasos, las llamadas realizadas a la instancia
 
 La extensión de Azure Functions proporciona una interfaz gráfica útil en el área de Azure para interactuar con las aplicación de funciones en Azure. La misma funcionalidad también está disponible como comandos en la paleta de comandos (F1). Están disponibles estos comandos Azure Functions:
 
-|Comando de Azure Functions  | DESCRIPCIÓN  |
+|Comando de Azure Functions  | Descripción  |
 |---------|---------|
 |**Add new settings** (Agregar nueva configuración)  |  Crea una nueva configuración de aplicación en Azure. Para más información, consulte [Publicación de la configuración de la aplicación](#publish-application-settings). También es posible que tenga que [descargar esta configuración en la configuración local](#download-settings-from-azure). |
 | **Configure Deployment Source** (Configurar origen de implementación) | Conecta la aplicación de funciones de Azure con un repositorio Git local. Para más información consulte [Implementación continua para Azure Functions](functions-continuous-deployment.md). |

@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: a57d1c85384204c26e75f7138b9514f2b3297bef
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 41dd336bdb74fbe745ab48ebd3c168af0492ae2c
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823309"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75691016"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replicación transaccional con bases de datos únicas, agrupadas y de instancia en Azure SQL Database
 
@@ -51,9 +51,9 @@ El **suscriptor** es una instancia o un servidor que recibe los cambios realizad
 
 | Role | Bases de datos únicas y agrupadas | Bases de datos de instancia |
 | :----| :------------- | :--------------- |
-| **Publicador** | Sin | Sí | 
-| **Distribuidor** | Sin | Sí|
-| **Suscriptor de extracción** | Sin | Sí|
+| **Publicador** | No | Sí | 
+| **Distribuidor** | No | Sí|
+| **Suscriptor de extracción** | No | Sí|
 | **Suscriptor de inserción**| Sí | Sí|
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -67,10 +67,10 @@ Existen distintos [tipos de replicación](https://docs.microsoft.com/sql/relatio
 | :----| :------------- | :--------------- |
 | [**Transaccional estándar**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sí (solo como suscriptor) | Sí | 
 | [**Instantánea**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sí (solo como suscriptor) | Sí|
-| [**Replicación de mezcla**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Sin | Sin|
-| [**Punto a punto**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Sin | Sin|
-| [**Bidireccional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Sin | Sí|
-| [**Suscripciones actualizables**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Sin | Sin|
+| [**Replicación de mezcla**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | No | No|
+| [**Punto a punto**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No | No|
+| [**Bidireccional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Sí|
+| [**Suscripciones actualizables**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No | No|
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
@@ -80,13 +80,14 @@ Existen distintos [tipos de replicación](https://docs.microsoft.com/sql/relatio
   ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>Matriz de compatibilidad para bases de datos de instancia y sistemas locales
   La matriz de compatibilidad de replicación para bases de datos de instancia es la misma que para SQL Server local. 
   
-  | **Publicador**   | **Distribuidor** | **Suscriptor** |
+| **Publicador**   | **Distribuidor** | **Suscriptor** |
 | :------------   | :-------------- | :------------- |
-| SQL Server 2017 | SQL Server 2017 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
-| SQL Server 2016 | SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
-| SQL Server 2014 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
-| SQL Server 2012 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | 
-| SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
+| SQL Server 2019 | SQL Server 2019 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/>  |
+| SQL Server 2017 | SQL Server 2019 <br/>SQL Server 2017 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
+| SQL Server 2016 | SQL Server 2019 <br/>SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2019 <br/> SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
+| SQL Server 2014 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
+| SQL Server 2012 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | 
+| SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |  SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="requirements"></a>Requisitos
@@ -95,18 +96,20 @@ Existen distintos [tipos de replicación](https://docs.microsoft.com/sql/relatio
 - Un recurso compartido de cuenta de Azure Storage para el directorio de trabajo empleado para la replicación. 
 - El puerto 445 (salida TCP) debe estar abierto en las reglas de seguridad de la subred de la instancia administrada para acceder al recurso compartido de archivos de Azure. 
 - El puerto 1433 (salida TCP) debe estar abierto si el publicador o distribuidor se encuentran en una instancia administrada y el suscriptor es local.
+- Todos los tipos de participantes de la replicación (editor, distribuidor, suscriptor de extracción y suscriptor de inserción) se pueden colocar en instancias administradas, pero el editor y el distribuidor deben estar tanto en la nube como en el entorno local.
+- Si el publicador, el distribuidor o el suscriptor existen en redes virtuales diferentes, se debe establecer el emparejamiento de VPN entre cada entidad, de modo que haya un emparejamiento de VPN entre el publicador y el distribuidor, y/o el emparejamiento de VPN entre el distribuidor y el suscriptor. 
 
 
 >[!NOTE]
 > - Podría producirse el error 53 al conectarse a un archivo de Azure Storage si el puerto 445 del grupo de seguridad de red (NSG) saliente está bloqueado cuando el distribuidor es una base de datos de instancia y el suscriptor es local. [Actualice el NSG de la red virtual](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) para resolver este problema. 
-> - Si las bases de datos del publicador y del distribuidor de una instancia administrada usan [grupos de conmutación por error automática](sql-database-auto-failover-group.md), el administrador de la instancia administrada debe [eliminar todas las publicaciones de la base de datos principal anterior y volver a configurarlas en la nueva principal después de producirse una conmutación por error](sql-database-managed-instance-transact-sql-information.md#replication).
+
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>Comparación de Data Sync con replicación transaccional
 
 | | Sincronización de datos | Replicación transaccional |
 |---|---|---|
 | Ventajas | - Compatibilidad activo-activo<br/>- Bidireccional entre el entorno local y Azure SQL Database | - Menor latencia<br/>- Coherencia transaccional<br/>- Reutilización de la topología existente después de la migración |
-| Desventajas | - 5 minutos o más de latencia<br/>- Sin coherencia transaccional<br/>- Mayor impacto en el rendimiento | - No se puede publicar desde una base de datos única ni agrupada de Azure SQL Database<br/>- Alto costo de mantenimiento |
+| Inconvenientes | - 5 minutos o más de latencia<br/>- Sin coherencia transaccional<br/>- Mayor impacto en el rendimiento | - No se puede publicar desde una base de datos única ni agrupada de Azure SQL Database<br/>- Alto costo de mantenimiento |
 | | | |
 
 ## <a name="common-configurations"></a>Configuraciones comunes
@@ -137,17 +140,57 @@ El publicador y el distribuidor se configuran en dos Instancias administradas. E
  
 En esta configuración, el suscriptor es una base de datos de Azure SQL (base de datos única, agrupada o de instancia). Esta configuración admite la migración desde el entorno local a Azure. Si un suscriptor está en una base de datos única o agrupada, debe estar en modo de inserción.  
 
+## <a name="with-failover-groups"></a>Con grupos de conmutación por error
+
+Si la replicación geográfica está habilitada en un **publicador** o instancia del **distribuidor** en un [grupo de conmutación por error](sql-database-auto-failover-group.md), el administrador de instancia administrada debe limpiar todas las publicaciones de la base de datos principal anterior y volver a configurarlas en el nuevo servidor principal después de que se produzca una conmutación por error. En este escenario, debe llevar a cabo las siguientes acciones:
+
+1. Detenga todos los trabajos de replicación que se ejecutan en la base de datos, si hay alguno.
+2. Quite los metadatos de suscripción del publicador. Para ello, ejecute el siguiente script en la base de datos del publicador:
+
+   ```sql
+   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
+   ```             
+ 
+1. Quite los metadatos de suscripción del suscriptor. Ejecute el siguiente script en la base de datos de suscripciones en la instancia del suscriptor:
+
+   ```sql
+   EXEC sp_subscription_cleanup
+      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
+      @publisher_db = N'<publisher database>', 
+      @publication = N'<name of publication>'; 
+   ```                
+
+1. Quite forzosamente todos los objetos de replicación del publicador. Para ello, ejecute el siguiente script en la base de datos publicada:
+
+   ```sql
+   EXEC sp_removedbreplication
+   ```
+
+1. Quite forzosamente el distribuidor anterior de la instancia principal original (si realiza la conmutación por recuperación a una base de datos principal anterior que solía tener un distribuidor). Ejecute el siguiente script en la base de datos maestra en la instancia administrada anterior del distribuidor:
+
+   ```sql
+   EXEC sp_dropdistributor 1,1
+   ```
+
+Si la replicación geográfica está habilitada en una instancia de **suscriptor** de un grupo de conmutación por error, la publicación debe configurarse para conectarse al punto de conexión del cliente de escucha del grupo de conmutación por error para la instancia administrada del suscriptor. En el caso de una conmutación por error, la acción posterior por parte del administrador de instancia administrada depende del tipo de conmutación por error que se produjo: 
+
+- Para una conmutación por error sin pérdida de datos, la replicación seguirá funcionando después de la conmutación por error. 
+- En el caso de una conmutación por error con pérdida de datos, la replicación también funcionará. Se replicarán de nuevo los cambios perdidos. 
+- Para una conmutación por error con pérdida de datos, pero la pérdida de datos está fuera del período de retención de la base de datos de distribución, el administrador de instancia administrada tendrá que reinicializar la base de datos de suscripciones. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-1. [Configure la replicación entre dos instancias administradas](replication-with-sql-database-managed-instance.md). 
-1. [Cree una publicación](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
-1. [Cree una suscripción de inserción](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) mediante el nombre del servidor de Azure SQL Database como suscriptor (por ejemplo, `N'azuresqldbdns.database.windows.net`) y el nombre de Azure SQL Database como base de datos de destino (por ejemplo, **AdventureWorks**. )
-1. Obtenga información sobre las [limitaciones de la replicación transaccional para una instancia administrada](sql-database-managed-instance-transact-sql-information.md#replication).
+- [Configurar la replicación entre un suscriptor y un publicador de MI](replication-with-sql-database-managed-instance.md)
+- [Configurar la replicación entre el publicador de MI, el distribuidor de MI y el suscriptor de SQL Server](sql-database-managed-instance-configure-replication-tutorial.md)
+- [Cree una publicación](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
+- [Cree una suscripción de inserción](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) mediante el nombre del servidor de Azure SQL Database como suscriptor (por ejemplo, `N'azuresqldbdns.database.windows.net`) y el nombre de Azure SQL Database como base de datos de destino (por ejemplo, **AdventureWorks**. )
+
+
+Para más información sobre la configuración de la replicación transaccional, vea los siguientes tutoriales:
 
 
 
-## <a name="see-also"></a>Otras referencias  
+## <a name="see-also"></a>Consulte también  
 
 - [Replicación con una instancia administrada y un grupo de conmutación por error](sql-database-managed-instance-transact-sql-information.md#replication)
 - [Replicación en SQL Database](replication-to-sql-database.md)

@@ -1,5 +1,5 @@
 ---
-title: Conversión de almacenamiento de Azure Managed Disks de estándar a Premium o de Premium a estándar
+title: Conversión del almacenamiento de Managed Disks entre SSD estándar y Premium
 description: Conversión de Azure Managed Disks de estándar a Premium o de Premium a estándar mediante Azure PowerShell.
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b63d4d0247fd640e961d03d336d6b211473c48fb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: cbc2d09429c0a36992167b8c8251d0a570ffbae3
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033921"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563316"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Actualizar el tipo de almacenamiento de un disco administrado
 
@@ -22,7 +22,7 @@ Esta funcionalidad no se admite para discos no administrados. Sin embargo, puede
 
  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Debido a que la conversión requiere reiniciar la máquina virtual, debería programar la migración del almacenamiento de discos durante una ventana de mantenimiento existente previamente.
 * Si el disco es no administrado, primero [debe convertirlo en un disco administrado](convert-unmanaged-to-managed-disks.md) para poder cambiar entre las opciones de almacenamiento.
@@ -113,7 +113,7 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 
 Siga estos pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione la máquina virtual de la lista de **Virtual Machines** en el portal.
 3. Si la máquina virtual no se detiene, seleccione la opción **Detener** que se encuentra en la parte superior del panel **Información general** de la máquina virtual y espere a que se detenga.
 3. En el panel de la máquina virtual, seleccione **Discos** del menú.
@@ -122,7 +122,7 @@ Siga estos pasos:
 6. Cambie el **Tipo de cuenta** de **HDD estándar** a **SSD Premium**.
 7. Haga clic en **Guardar** y cierre el panel de discos.
 
-La conversión del tipo de disco es instantánea. Puede reiniciar la máquina virtual después de la conversión.
+La conversión del tipo de disco es instantánea. Puede iniciar la máquina virtual después de la conversión.
 
 ## <a name="switch-managed-disks-between-standard-hdd-and-standard-ssd"></a>Cambio de discos administrados entre HDD estándar y SSD estándar 
 

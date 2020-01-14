@@ -1,25 +1,16 @@
 ---
-title: Desarrollo de aplicaciones de .NET Core para Azure Service Fabric con Visual Studio Code | Microsoft Docs
+title: Desarrollo de aplicaciones de .NET Core con Visual Studio Code
 description: En este artículo se muestra cómo compilar, implementar y depurar aplicaciones de .NET Core para Service Fabric con Visual Studio Code.
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 60b634b0b927804249148737ee7a99c0e86dd7d6
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 1d7478e6b81ef2c53ca6194197336e91d3ff250b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537781"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614530"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Desarrollo de aplicaciones C# de Service Fabric con Visual Studio Code
 
@@ -27,7 +18,7 @@ La [extensión Service Fabric Reliable Services para VS Code](https://marketplac
 
 En este artículo se muestra cómo compilar, implementar y depurar una aplicación de .NET Core para Service Fabric con Visual Studio Code.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En este artículo se da por supuesto que ya ha instalado VS Code, la extensión Service Fabric Reliable Services para VS Code y todas las dependencias necesarias para el entorno de desarrollo. Para obtener más información, consulte la [introducción](./service-fabric-get-started-vs-code.md#prerequisites).
 

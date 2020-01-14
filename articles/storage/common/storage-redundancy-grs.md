@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c44c13f268a561e3094ae76757504a86627e1f58
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6bb93c3fb6599a05978e11ef5fbc179ccfaa9ec2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895220"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614900"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Almacenamiento con redundancia geográfica (GRS): replicación entre regiones para Azure Storage
 
@@ -31,7 +31,7 @@ Tenga en cuenta lo siguiente cuando use RA-GRS:
 
 - La aplicación tiene que administrar el punto de conexión con el que interactúa al usar RA-GRS.
 - Como la replicación asincrónica implica un retraso, los cambios que todavía no se hayan replicado a la región secundaria pueden perderse si los datos no se pueden recuperar desde la región principal.
-- Puede comprobar la hora de última sincronización de la cuenta de almacenamiento. La hora de la última sincronización es un valor de fecha y hora GMT. Todas las escrituras primarias anteriores a la hora de la última sincronización se han escrito correctamente en la ubicación secundaria, lo que significa que están disponibles para leerse desde la ubicación secundaria. Las escrituras primarias posteriores a la hora de última sincronización pueden o no estar disponibles para lecturas todavía. Puede consultar este valor utilizando [Azure Portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md) o una de las bibliotecas cliente de Azure Storage.
+- Puede comprobar la propiedad **Hora de la última sincronización** de la cuenta de almacenamiento. La **Hora de la última sincronización** es un valor de fecha y hora GMT. Todas las escrituras primarias realizadas antes de la **hora de la última sincronización** se han escrito correctamente en la ubicación secundaria, lo que significa que están disponibles para leerse desde la ubicación secundaria. Las escrituras primarias posteriores a la **hora de la última sincronización** pueden o no estar todavía disponibles para las lecturas. Puede consultar este valor utilizando PowerShell, la CLI de Azure o una de las bibliotecas de cliente de Azure Storage. Para obtener más información, vea **Obtener la hora de última sincronización** en [Diseño de aplicaciones de alta disponibilidad mediante almacenamiento con redundancia geográfica con acceso de lectura](storage-designing-ha-apps-with-ragrs.md#getting-the-last-sync-time).
 - Si inicia una conmutación por error (versión preliminar) de una cuenta GRS o RA-GRS que tenga como destino la región secundaria, el acceso de escritura a esa cuenta se restaurará una vez que se complete la conmutación por error. Para más información, consulte [Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento (versión preliminar)](storage-disaster-recovery-guidance.md).
 - RA-GRS está pensado para fines de alta disponibilidad. Para obtener instrucciones sobre escalabilidad, revise la [lista de comprobación de rendimiento](storage-performance-checklist.md).
 - Para sugerencias sobre cómo diseñar la alta disponibilidad con RA-GRS, consulte [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](storage-designing-ha-apps-with-ragrs.md).

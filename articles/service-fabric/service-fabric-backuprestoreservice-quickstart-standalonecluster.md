@@ -1,27 +1,18 @@
 ---
 title: Restauración y copia de seguridad periódicas de Azure Service Fabric independiente
 description: Use la característica de copia de seguridad periódica y restauración de Service Fabric para habilitar la copia de seguridad periódica de los datos de su aplicación.
-services: service-fabric
-documentationcenter: .net
 author: hrushib
-manager: chackdan
-editor: hrushib
-ms.assetid: FAADBCAB-F0CF-4CBC-B663-4A6DCCB4DEE1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: feec830a81b9afe572e05bb6be21ad39edd7af04
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 938cbbde9f53c52350ef64715f6c61c4aa961057
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232490"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526250"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Restauración y copia de seguridad periódicas de Azure Service Fabric
+# <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Restauración y copia de seguridad periódicas de Service Fabric independiente
 > [!div class="op_single_selector"]
 > * [Clústeres en Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Clústeres independientes](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -53,7 +44,7 @@ Service Fabric proporciona un conjunto de API para lograr la siguiente funcional
 - Suspensión temporal de las copias de seguridad
 - Administración de la retención de copias de seguridad (próximamente)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * Clúster de Service Fabric con la versión 6.4 de Fabric y versiones posteriores. Consulte este [artículo](service-fabric-cluster-creation-for-windows-server.md) para ver los pasos para descargar el paquete necesario.
 * Se requiere el certificado X.509 para el cifrado de secretos a fin de conectarse al almacenamiento y almacenar las copias de seguridad. Consulte este [artículo](service-fabric-windows-cluster-x509-security.md) para saber cómo adquirir o crear un certificado X.509 autofirmado.
 

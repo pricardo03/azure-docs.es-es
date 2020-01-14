@@ -9,12 +9,12 @@ ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8025228275afeb3f23268db759eb7659b9887132
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: cdddf284028c6fc9749082e1991e5b9dee4acf99
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670795"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560375"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -35,22 +35,24 @@ En la tabla siguiente se ofrece una rápida información general del ámbito de 
 | Escenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (versión preliminar)                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Falta de disponibilidad del nodo en un centro de datos                                                                 | Sí                             | Sí                              | Sí                                  | Sí                                  |
-| Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | Sin                              | Sí                              | Sí                                  | Sí                                  |
-| Una interrupción en toda la región                                                                                     | Sin                              | No                               | Sí                                  | Sí                                  |
-| Acceso de lectura a los datos (en una región remota y con replicación geográfica) en caso de no disponibilidad en toda la región. | Sin                              | Sin                               | Sí (con RA-GRS)                                   | Sí (con RA-GZRS)                                 |
-| Diseñado para proporcionar una \_\_ durabilidad de objetos a lo largo de un año determinado.                                          | Como mínimo 99.999999999 % (once nueves) | Como mínimo 99.9999999999 % (doce nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) |
-| Tipos de cuenta de almacenamiento admitidos                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2                     |
-| SLA de disponibilidad para las solicitudes de lectura | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) para GRS<br /><br />Al menos un 99,9 % (99,99 % para el nivel de acceso esporádico) para RA-GRS | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) para GZRS<br /><br />Al menos un 99,9 % (99,99 % para el nivel de acceso esporádico) para RA-GZRS |
-| SLA de disponibilidad para las solicitudes de escritura | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) |
+| Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | No                              | Sí                              | Sí                                  | Sí                                  |
+| Una interrupción en toda la región                                                                                     | No                              | No                               | Sí                                  | Sí                                  |
+| Acceso de lectura a los datos (en una región remota y con replicación geográfica) en caso de no disponibilidad en toda la región. | No                              | No                               | Sí (con RA-GRS)                                   | Sí (con RA-GZRS)                                 |
+| Diseñado para proporcionar una \_\_ durabilidad de objetos a lo largo de un año determinado<sup>1</sup>                                          | Como mínimo 99.999999999 % (once nueves) | Como mínimo 99.9999999999 % (doce nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) |
+| Tipos de cuenta de almacenamiento admitidos<sup>2</sup>                                                                   | GPv2, GPv1, BlockBlobStorage, BlobStorage, FileStorage                | GPv2, BlockBlobStorage, FileStorage                             | GPv2, GPv1, BlobStorage                     | GPv2                     |
+| SLA de disponibilidad para las solicitudes de lectura<sup>1</sup>  | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) para GRS<br /><br />Al menos un 99,9 % (99,99 % para el nivel de acceso esporádico) para RA-GRS | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) para GZRS<br /><br />Al menos un 99,9 % (99,99 % para el nivel de acceso esporádico) para RA-GZRS |
+| SLA de disponibilidad para las solicitudes de escritura<sup>1</sup>  | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) |
 
-Se replican todos los datos de la cuenta de almacenamiento, incluidos los blobs en bloques y los blobs en anexos, blobs en páginas, colas, tablas y archivos. Todos los tipos de cuentas de almacenamiento se replican, aunque ZRS requiere una cuenta de almacenamiento de uso general v2.
+<sup>1</sup> Para obtener información sobre las garantías de durabilidad y disponibilidad de Azure Storage, vea el [Acuerdo de Nivel de Servicio de Azure](https://azure.microsoft.com/support/legal/sla/storage/).   
 
-Para obtener información sobre los precios de las diferentes opciones de redundancia, vea [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/). 
+<sup>2</sup> Para obtener información sobre los tipos de cuentas de almacenamiento, consulte [Introducción a las cuentas de almacenamiento](storage-account-overview.md).
 
-Para obtener información acerca de las garantías de durabilidad y disponibilidad de Azure Storage, vea [Acuerdo de Nivel de Servicio de Azure](https://azure.microsoft.com/support/legal/sla/storage/).
+Se replican todos los datos de todos los tipos de cuenta de almacenamiento, incluidos los blobs en bloques, los blobs en anexos, los blobs en páginas, las colas, las tablas y los archivos.
+
+Para obtener información sobre los precios de las diferentes opciones de redundancia, vea [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 > [!NOTE]
-> Azure Premium Storage solo admite actualmente almacenamiento con redundancia local (LRS).
+> Azure Premium Disk Storage solo admite actualmente almacenamiento con redundancia local (LRS). Azure Premium Block Blob Storage admite el almacenamiento con redundancia local (LRS) y el almacenamiento con redundancia de zona (ZRS) en determinadas regiones.
 
 ## <a name="changing-replication-strategy"></a>Cambio de estrategia de replicación
 
@@ -67,8 +69,9 @@ Si migra la cuenta de almacenamiento de GRS a LRS no hay ningún costo adicional
 
 Si migra la cuenta de almacenamiento de RA-GRS a GRS o LRS, esa cuenta se factura como RA-GRS durante 30 días más después de la fecha de conversión.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
+- [Introducción a las cuentas de almacenamiento](storage-account-overview.md)
 - [Almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage](storage-redundancy-lrs.md)
 - [Almacenamiento con redundancia de zona (ZRS): aplicaciones de Azure Storage de alta disponibilidad](storage-redundancy-zrs.md)
 - [Almacenamiento con redundancia geográfica (GRS): replicación entre regiones para Azure Storage](storage-redundancy-grs.md)

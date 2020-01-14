@@ -1,25 +1,16 @@
 ---
-title: Avisos y temporizadores de Reliable Actors | Microsoft Docs
-description: Introducción a los temporizadores y avisos de Reliable Actors de Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Reliable Actors temporizadores y recordatorios
+description: Introducción a los temporizadores y avisos de Service Fabric Reliable Actors, incluidas instrucciones sobre cuándo usar cada uno.
 author: vturecek
-manager: chackdan
-editor: amanbha
-ms.assetid: 00c48716-569e-4a64-bd6c-25234c85ff4f
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 323de842645cced3c6f490e98112fcbcd184aa64
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02d6220b31ee9c991e8450759bf46759af6177a3
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726815"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639622"
 ---
 # <a name="actor-timers-and-reminders"></a>Recordatorios y temporizadores de los actores
 Los actores pueden programar el trabajo periódico mediante el registro de temporizadores o recordatorios. En este artículo se muestra cómo utilizar temporizadores y recordatorios. Además, se explican las diferencias entre ellos.

@@ -1,18 +1,14 @@
 ---
 title: Supervisión de Kubernetes con Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo puede ver y analizar el rendimiento de un clúster de Kubernetes con Azure Monitor para contenedores.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 1cd0223a16a6308e777e4a0167154e975202df7b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3fc8d8d1f8c214c3bebe7af2cf670732b20529d3
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872985"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690040"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Supervisión del rendimiento del clúster de Kubernetes con Azure Monitor para contenedores
 
@@ -28,13 +24,14 @@ Estas son las principales diferencias al supervisar los contenedores de un clús
 
 - La métrica RSS de memoria no está disponible para los contenedores y nodos de Windows.
 - La información sobre la capacidad de almacenamiento del disco no está disponible para los nodos de Windows.
+- Los registros de contenedor no están disponibles para los contenedores que se ejecutan en nodos de Windows.
 - La compatibilidad con registros dinámicos está disponible, con la excepción de los registros de contenedores de Windows.
 - Solo se supervisan los entornos de pods, no los entornos de Docker.
 - Con la versión preliminar, se admite un máximo de 30 contenedores de Windows Server. Esta limitación no se aplica a los contenedores de Linux. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+Inicie sesión en [Azure Portal](https://portal.azure.com). 
 
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Vista de varios clústeres desde Azure Monitor
 
@@ -90,7 +87,7 @@ En la tabla siguiente se proporciona un desglose del cálculo que controla los e
 | |Desconocido |Si no se notifica en los últimos 30 minutos |
 |**Node** | | |
 | |Healthy |>85 % |
-| |Advertencia |60 - 84 % |
+| |Advertencia |60 - 84 % |
 | |Crítico |<60 % |
 | |Desconocido |Si no se notifica en los últimos 30 minutos |
 
@@ -114,7 +111,7 @@ Se abre la página predeterminada y se muestran cuatro gráficos de rendimiento 
 
 Los gráficos de rendimiento muestran cuatro métricas de rendimiento:
 
-- **Uso de la CPU del nodo&nbsp;%** : Una perspectiva agregada del uso de la CPU para todo el clúster. Para filtrar los resultados según el intervalo de tiempo, seleccione **Promedio**, **Mínimo**, **50.º**, **90.º**, **95.º** o **Máximo** en el selector de percentiles sobre el gráfico. Los filtros se pueden usar de forma individual o combinada. 
+- **Uso de la CPU del nodo&nbsp;%** : Una perspectiva agregada del uso de la CPU para todo el clúster. Para filtrar los resultados según el intervalo de tiempo, seleccione **Promedio**, **Mínimo**, **50.º**, **90.º**, **95.º** o **Máximo** en el selector de percentiles situado encima del gráfico. Los filtros se pueden usar de forma individual o combinada. 
 - **Node memory utilization&nbsp;%** (Utilización de memoria del nodo): Una perspectiva agregada del uso de la memoria para todo el clúster. Para filtrar los resultados según el intervalo de tiempo, seleccione **Promedio**, **Mínimo**, **50.º**, **90.º**, **95.º** o **Máximo** en el selector de percentiles situado encima del gráfico. Los filtros se pueden usar de forma individual o combinada. 
 - **Node count** (Número de nodos): Número y estado de los nodos de Kubernetes. Los estados de los nodos de clúster que se representan son Total, Ready (Listo) y Not Ready (No está listo). Se pueden filtrar de forma individual o combinada en el selector situado encima del gráfico. 
 - **Número de pods activos**: Número y estado de los pods de Kubernetes. Los estados de los pods se representan como Total, Pending (Pendiente), Running (En ejecución), Unknown (Desconocido), Succeeded (Correcto) o Failed (Con errores). Se pueden filtrar de forma individual o combinada en el selector situado encima del gráfico. 
@@ -127,7 +124,7 @@ Azure Monitor para contenedores también es compatible con el [Explorador de mé
 
 En el Explorador de métricas se pueden ver el nodo agregado y las métricas de utilización de pods de Azure Monitor para contenedores. En la tabla siguiente se resumen los detalles que le ayudarán a aprender a usar los gráficos de métricas para visualizar las métricas de contenedor.
 
-|Espacio de nombres | Métrica | DESCRIPCIÓN | 
+|Espacio de nombres | Métrica | Descripción | 
 |----------|--------|-------------|
 | insights.container/nodes | |
 | | cpuUsageMillicores | Medida agregada del uso de CPU en el clúster. Se trata de un núcleo de CPU dividido en 1000 unidades (mili equivale a 1000). Se usa para determinar el uso de los núcleos de un contenedor en el que muchas aplicaciones podrían estar utilizando un solo núcleo.| 
@@ -199,9 +196,9 @@ Esta información puede ayudarle a identificar rápidamente si tiene el equilibr
 
 La información que se presenta al ver la pestaña **Nodos** se describe en la siguiente tabla.
 
-| Columna | DESCRIPCIÓN | 
+| Columna | Descripción | 
 |--------|-------------|
-| NOMBRE | El nombre del host. |
+| Nombre | El nombre del host. |
 | Status | Vista de Kubernetes del estado del nodo. |
 | %&nbsp;mínimo, %&nbsp;promedio, 50&nbsp;%, 90&nbsp;%, 95&nbsp;%, %&nbsp;máximo  | Porcentaje medio de nodos basado en el percentil durante la duración seleccionada. |
 | Mínimo, Promedio, 50.º, 90.º, 95.º, Máximo | Valor real de promedio de nodos basado en el percentil para la duración seleccionada. El valor promedio se mide a partir del límite de CPU o memoria establecido para un pod. En el caso de los pods y los contenedores, es el valor promedio indicado por el host. |
@@ -228,9 +225,9 @@ Seleccione el valor de la columna **Nodo** del nodo específico.
 
 La información que se muestra al ver los controladores se describe en la siguiente tabla.
 
-| Columna | DESCRIPCIÓN | 
+| Columna | Descripción | 
 |--------|-------------|
-| NOMBRE | El nombre del controlador.|
+| Nombre | El nombre del controlador.|
 | Status | Estado de la acumulación de los contenedores cuando han terminado de ejecutarse con un estado, como *OK (Correcto)* , *Terminated (Finalizado)* , *Failed (Error)* *Stopped (Detenido)* o *Paused (En pausa)* . Si el contenedor se está ejecutando, pero el estado no se mostró correctamente o el agente no lo seleccionó, y no ha respondido durante más de 30 minutos, el estado es *Unknown* (Desconocido). En la tabla siguiente se proporcionan detalles adicionales del icono de estado.|
 | %&nbsp;mínimo, %&nbsp;promedio, 50&nbsp;%, 90&nbsp;%, 95&nbsp;%, %&nbsp;máximo| Promedio resumen del porcentaje medio de cada entidad para la métrica y el percentil seleccionados. |
 | Mínimo, Promedio, 50.º, 90.º, 95.º, Máximo  | Resumen del rendimiento medio de memoria o CPU de millares de núcleos del contenedor para el percentil seleccionado. El valor medio se mide a partir del límite de CPU o memoria establecido para un pod. |
@@ -265,9 +262,9 @@ En un contenedor, puede explorar en profundidad un pod o un nodo para ver los da
 
 La información que se muestra al ver los contenedores se describe en la siguiente tabla.
 
-| Columna | DESCRIPCIÓN | 
+| Columna | Descripción | 
 |--------|-------------|
-| NOMBRE | El nombre del controlador.|
+| Nombre | El nombre del controlador.|
 | Status | Estado de los contenedores, si lo hay. En la tabla siguiente se proporcionan detalles adicionales del icono de estado.|
 | %&nbsp;mínimo, %&nbsp;promedio, 50&nbsp;%, 90&nbsp;%, 95&nbsp;%, %&nbsp;máximo | El resumen del porcentaje medio de cada entidad para la métrica y el percentil seleccionados. |
 | Mínimo, Promedio, 50.º, 90.º, 95.º, Máximo | Resumen del rendimiento medio de memoria o CPU de millares de núcleos del contenedor para el percentil seleccionado. El valor medio se mide a partir del límite de CPU o memoria establecido para un pod. |

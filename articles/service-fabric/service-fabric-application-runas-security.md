@@ -1,25 +1,14 @@
 ---
-title: Ejecución de un servicio de Azure Service Fabric en cuentas de seguridad del sistema y locales | Microsoft Docs
+title: Ejecución de un servicio en cuentas de seguridad locales y del sistema
 description: Aprenda cómo ejecutar una aplicación de Service Fabric en cuentas de seguridad del sistema y locales.  Cree entidades de seguridad y aplique la directiva RunAs para ejecutar los servicios de forma segura.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/29/2018
-ms.author: atsenthi
-ms.openlocfilehash: 8b0ddc619a7e840b0379a790bd21e7beae812109
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 53212f8636602705899834b6db1d3f0d80b5fe4f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600056"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610135"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Ejecución de un servicio como cuenta de usuario local o cuenta de sistema local
 Azure Service Fabric le permite proteger aplicaciones que se ejecutan en distintas cuentas de usuario en el clúster. De forma predeterminada, las aplicaciones de Service Fabric se ejecutan en la misma cuenta en que se ejecuta el proceso Fabric.exe. Service Fabric también proporciona la funcionalidad de ejecutar aplicaciones con una cuenta de usuario o sistema local. Los tipos de cuenta de sistema local compatibles son **LocalUser**, **NetworkService**, **LocalService** y **LocalSystem**.  Si va a ejecutar Service Fabric en un clúster de Windows independiente, puede ejecutar un servicio en [cuentas de dominio de Active Directory](service-fabric-run-service-as-ad-user-or-group.md) o en [cuentas de servicio administradas de grupo](service-fabric-run-service-as-gmsa.md).

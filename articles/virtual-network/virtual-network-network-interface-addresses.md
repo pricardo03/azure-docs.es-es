@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: 7df58c3f866ffd28348ecfa2e43bdccbd1d96001
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 1a6fb5d2b27996d67e0bf27eb57d16f4d2fb2797
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965691"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647261"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Incorporación, cambio o eliminación de direcciones IP para una interfaz de red de Azure
 
@@ -43,7 +43,7 @@ La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener as
 
 ## <a name="add-ip-addresses"></a>Incorporación de direcciones IP
 
-Puede agregar a una interfaz de red tantas direcciones [privadas](#private) y [públicas](#public) [IPv4](#ipv4) como sea necesario, dentro de los límites indicados en el artículo sobre los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Puede agregar una dirección IPv6 privada a una [configuración IP secundaria](#secondary) (siempre que no haya ninguna configuración IP secundaria existente) para una interfaz de red existente. Cada interfaz de red puede tener como máximo una dirección IPv6 privada. Opcionalmente, puede agregar una dirección IPv6 pública a una configuración de interfaz de red IPv6. Consulte [IPv6](#ipv6) para detalles sobre cómo usar las direcciones IPv6.
+Puede agregar a una interfaz de red tantas direcciones [privadas](#private) y [públicas](#public)[IPv4](#ipv4) como sea necesario, dentro de los límites indicados en el artículo sobre los [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Puede agregar una dirección IPv6 privada a una [configuración IP secundaria](#secondary) (siempre que no haya ninguna configuración IP secundaria existente) para una interfaz de red existente. Cada interfaz de red puede tener como máximo una dirección IPv6 privada. Opcionalmente, puede agregar una dirección IPv6 pública a una configuración de interfaz de red IPv6. Consulte [IPv6](#ipv6) para detalles sobre cómo usar las direcciones IPv6.
 
 1. En el cuadro que contiene el texto *Buscar recursos*, en la parte superior de Azure Portal, escriba *interfaces de red*. Cuando aparezcan las **interfaces de red** en los resultados de búsqueda, selecciónelas.
 2. En la lista, seleccione la interfaz de red para la que quiere agregar una dirección IPv4.
@@ -53,10 +53,10 @@ Puede agregar a una interfaz de red tantas direcciones [privadas](#private) y [p
 
    |Configuración|¿Necesario?|Detalles|
    |---|---|---|
-   |NOMBRE|Sí|Debe ser único para la interfaz de red|
-   |type|Sí|Debido a que agrega una configuración IP a una interfaz de red existente y cada interfaz de red debe tener una configuración IP [principal](#primary), la única opción es **Secundaria**.|
+   |Nombre|Sí|Debe ser único para la interfaz de red|
+   |Tipo|Sí|Debido a que agrega una configuración IP a una interfaz de red existente y cada interfaz de red debe tener una configuración IP [principal](#primary), la única opción es **Secundaria**.|
    |Método de asignación de direcciones IP privadas|Sí|[**Dinámica**](#dynamic): Azure asigna la siguiente dirección disponible para el intervalo de dirección de subred en el que se implementa la interfaz de red. [**Estática**](#static): asigna una dirección o usada para el intervalo de dirección de subred en el que se implementa la interfaz de red.|
-   |Dirección IP pública|Sin|**Deshabilitado:** ningún recurso de dirección IP pública está asociado actualmente a la configuración de IP. **Habilitada:** seleccione una dirección IP pública IPv4 existente o cree una nueva. Para más información sobre cómo crear una dirección IP pública, lea el artículo [Direcciones IP públicas](virtual-network-public-ip-address.md#create-a-public-ip-address).|
+   |Dirección IP pública|No|**Deshabilitado:** ningún recurso de dirección IP pública está asociado actualmente a la configuración de IP. **Habilitada:** seleccione una dirección IP pública IPv4 existente o cree una nueva. Para más información sobre cómo crear una dirección IP pública, lea el artículo [Direcciones IP públicas](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 6. Agregue manualmente las direcciones IP privadas secundarias al sistema operativo de la máquina virtual siguiendo las instrucciones que aparecen en el artículo [Asignación de varias direcciones IP a sistemas operativos de máquinas virtuales](virtual-network-multiple-ip-addresses-portal.md#os-config). Consulte las direcciones IP [privadas](#private) para ver consideraciones especiales antes de agregar manualmente direcciones IP a un sistema operativo de máquina virtual. No agregue ninguna dirección IP pública al sistema operativo de máquina virtual.
 
 **Comandos**
@@ -111,14 +111,14 @@ Las direcciones IP [privadas](#private) y (opcionalmente) [públicas](#public) s
 
 Cada interfaz de red tiene asignada una configuración IP principal. Una configuración IP principal:
 
-- Tiene asignada una dirección [IPv4](#private) [privada](#ipv4). No puede asignar una dirección [IPv6](#ipv6) privada a una configuración IP principal.
+- Tiene asignada una dirección [IPv4](#private)[privada](#ipv4). No puede asignar una dirección [IPv6](#ipv6) privada a una configuración IP principal.
 - También puede tener asignada una dirección IPv4 [pública](#public). No puede asignar una dirección IPv6 pública a una configuración IP principal (IPv4). 
 
 ### <a name="secondary"></a>Secundario
 
 Además de una configuración IP principal, una interfaz de red puede tener ninguna o más configuraciones IP secundarias asignadas. Una configuración IP secundaria:
 
-- Debe tener asignada una dirección IPv4 o IPv6 privada. Si la dirección es IPv6, la interfaz de red solo puede tener una configuración IP secundaria. Si la dirección es IPv4, la interfaz de red puede tener asignadas varias configuraciones IP secundarias. Para más información sobre cuántas direcciones IPv4 privadas y públicas se pueden asignar a una interfaz de red, consulte el artículo sobre los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- Debe tener asignada una dirección IPv4 o IPv6 privada. Si la dirección es IPv6, la interfaz de red solo puede tener una configuración IP secundaria. Si la dirección es IPv4, la interfaz de red puede tener asignadas varias configuraciones IP secundarias. Para más información sobre cuántas direcciones IPv4 privadas y públicas se pueden asignar a una interfaz de red, consulte el artículo sobre los [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - También puede tener asignada una dirección IPv6 o IPv4 pública. Asignar varias direcciones IPv4 a una interfaz de red resulta útil en escenarios como:
   - Hospede varios sitios web o servicios con direcciones IP y certificados SSL diferentes en un único servidor.
   - Una máquina virtual que actúa como una aplicación virtual de red, por ejemplo, un firewall o un equilibrador de carga.
@@ -154,7 +154,7 @@ Además de permitir que una máquina virtual se comunique con otros recursos den
 
 Las direcciones IP públicas asignadas a través de un recurso de dirección IP pública permiten la conectividad entrante a una máquina virtual desde Internet. Las conexiones salientes a Internet usan una dirección IP predecible. Consulte [Comprender las conexiones salientes en Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para detalles. Puede asignar una dirección IP pública a una configuración de IP, pero no es obligatorio. Si no asigna una dirección IP pública a una máquina virtual mediante la asociación de un recurso de direcciones IP públicas, la máquina virtual puede seguir estableciendo una comunicación saliente a Internet. En este caso, la dirección IP privada es la dirección de red de origen que Azure traduce a una dirección IP pública impredecible. Para más información sobre los recursos de direcciones IP públicas, vea [Recurso de direcciones IP públicas](virtual-network-public-ip-address.md).
 
-Hay límites en el número de direcciones IP privadas y públicas que se pueden asignar a una interfaz de red. Para más información, lea el artículo acerca de los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Hay límites en el número de direcciones IP privadas y públicas que se pueden asignar a una interfaz de red. Para más información, lea el artículo acerca de los [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 > [!NOTE]
 > Azure traduce la dirección IP privada de una máquina virtual a una dirección IP pública. Como resultado, el sistema operativo de una máquina virtual no detecta ninguna de las direcciones IP públicas que tiene asignada, por lo que no es necesario asignar manualmente una dirección IP pública dentro del sistema operativo.
@@ -183,7 +183,7 @@ Puede especificar las versiones siguientes cuando asigna direcciones:
 
 ### <a name="ipv4"></a>IPv4
 
-Cada interfaz de red debe tener una configuración IP [principal](#primary) con una dirección [IPv4](#private) [privada](#ipv4)asignada. Puede agregar una o más configuraciones IP [secundarias](#secondary) en que cada una tenga una dirección IPv4 privada y, de manera opcional, una dirección IP [pública](#public) IPv4.
+Cada interfaz de red debe tener una configuración de IP [principal](#primary) con una dirección [IPv4](#private) [privada](#ipv4) asignada. Puede agregar una o más configuraciones IP [secundarias](#secondary) en que cada una tenga una dirección IPv4 privada y, de manera opcional, una dirección IP [pública](#public) IPv4.
 
 ### <a name="ipv6"></a>IPv6
 

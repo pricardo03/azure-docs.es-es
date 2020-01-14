@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: d37333c0ca3f8acab7a35c23bbab67beef056b72
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9c776a32b4a35c72fc40a16afb87db9896a763cf
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664386"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611073"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalización de la directiva de SQL Information Protection en Azure Security Center (versión preliminar)
  
-En Azure Security Center, puede definir y personalizar una directiva de SQL Information Protection para todo el inquilino de Azure.
+En Azure Security Center, puede definir y personalizar una directiva de SQL Information Protection para todo un inquilino de Azure.
 
-Information Protection es una funcionalidad de seguridad avanzada para detectar, clasificar, etiquetar y proteger datos confidenciales en los recursos de datos de Azure. Las funciones de detección y clasificación de la información confidencial más importante (empresarial, financiera, médica, personal, etc.) desempeñan un rol fundamental en el modo en que se protege la información de su organización. Puede servir como infraestructura para:
-- Ayudar a cumplir los requisitos de cumplimiento de normas y los estándares relacionados con la privacidad de datos
-- Escenarios de seguridad como la supervisión (auditorías) y las alertas cuando hay accesos anómalos a información confidencial
+La protección de la información es una funcionalidad de seguridad avanzada para descubrir, clasificar, etiquetar y proteger datos confidenciales en los recursos de datos de Azure. Las funciones de detección y clasificación de la información confidencial más importante (empresarial, financiera, médica, personal, etc.) desempeñan un rol fundamental en el modo en que se protege la información de su organización. Puede servir como infraestructura para lo siguiente:
+- Ayudar a cumplir los requisitos de cumplimiento reglamentario y los estándares de privacidad de datos
+- Varios escenarios de seguridad, como la supervisión (auditorías) y las alertas cuando hay accesos anómalos a información confidencial
 - Controlar el acceso y mejorar la seguridad de los almacenes de datos que contienen información altamente confidencial.
  
 [SQL Information Protection](../sql-database/sql-database-data-discovery-and-classification.md) implementa este paradigma para los almacenes de datos SQL, actualmente es compatible con Azure SQL Database. SQL Information Protection detecta y clasifica automáticamente los datos potencialmente confidenciales, proporciona un mecanismo de etiquetado para los datos confidenciales con atributos de clasificación de forma persistente y proporciona un panel detallado que muestra el estado de clasificación de la base de datos. Además, calcula la confidencialidad del conjunto de resultados de las consultas SQL, para que las consultas que extraen datos confidenciales se puedan auditar explícitamente y se protejan los datos. Para más información acerca de SQL Information Protection, consulte [Clasificación y detección de datos de Azure SQL Database](../sql-database/sql-database-data-discovery-and-classification.md).
@@ -35,7 +35,7 @@ El mecanismo de clasificación se basa en dos construcciones principales que con
 - **Etiquetas**: atributos de clasificación principales, que se utilizan para definir el nivel de confidencialidad de los datos almacenados en la columna. 
 - **Tipos de información**: proporcionan una granularidad adicional en el tipo de datos almacenados en la columna.
  
-Information Protection incluye un conjunto integrado de etiquetas y tipos de información que se usan de forma predeterminada. Para personalizar estas etiquetas y tipos puede personalizar la directiva de protección de la información de Security Center.
+Information Protection incluye un conjunto integrado de etiquetas y tipos de información que se usan de forma predeterminada. Para personalizarlos estas etiquetas y tipos puede personalizar la directiva de protección de la información de Azure Security Center.
  
 ## <a name="customize-the-information-protection-policy"></a>Personalización de la directiva de protección de la información
 Para personalizar la directiva de protección de información de su inquilino de Azure, deberá tener [privilegios administrativos en el grupo de administración raíz del inquilino](security-center-management-groups.md). 

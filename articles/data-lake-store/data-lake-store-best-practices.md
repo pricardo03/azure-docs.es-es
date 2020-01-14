@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 50d0ed644b5afa744e8bce478199079fd4fb7432
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8ca67d1ff3100aee02ed473c9cc2180de3973b8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60878957"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638942"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Procedimientos recomendados para usar Azure Data Lake Storage Gen1
 
@@ -33,7 +33,7 @@ Suponga que tiene una carpeta con 100 000 objetos secundarios. Si tomamos el l�
 
 Cuando se trabaja con macrodatos en Data Lake Storage Gen1, lo más probable es que se use una entidad de servicio para permitir que servicios como Azure HDInsight puedan trabajar con los datos. Sin embargo, puede haber casos en que los usuarios individuales también necesiten acceder a los datos. En estos casos, debe usar [grupos de seguridad](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) de Azure Active Directory en lugar de asignar usuarios individuales a las carpetas y los archivos.
 
-Una vez que se asignan permisos a un grupo de seguridad, agregar o quitar usuarios del grupo no requiere ninguna actualización de Data Lake Storage Gen1. Esto también ayuda a garantizar que no supera el límite de [32 ACL de acceso predeterminadas](../azure-subscription-service-limits.md#data-lake-store-limits) (incluye las cuatro ACL estilo POSIX que siempre se asocian a los archivos y carpetas: [usuario propietario](data-lake-store-access-control.md#the-owning-user), [grupo propietario](data-lake-store-access-control.md#the-owning-group), [máscara](data-lake-store-access-control.md#the-mask) y otros).
+Una vez que se asignan permisos a un grupo de seguridad, agregar o quitar usuarios del grupo no requiere ninguna actualización de Data Lake Storage Gen1. Esto también ayuda a garantizar que no supera el límite de [32 ACL de acceso predeterminadas](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits) (incluye las cuatro ACL estilo POSIX que siempre se asocian a los archivos y carpetas: [usuario propietario](data-lake-store-access-control.md#the-owning-user), [grupo propietario](data-lake-store-access-control.md#the-owning-group), [máscara](data-lake-store-access-control.md#the-mask) y otros).
 
 ### <a name="security-for-groups"></a>Seguridad de los grupos
 
@@ -47,7 +47,7 @@ Azure HDInsight suele usar entidades de servicio de Azure Active Directory para 
 
 Data Lake Storage Gen1 admite la opción de activar un firewall y limitar el acceso solo a los servicios de Azure, lo que se recomienda para reducir los vectores de ataque procedentes de intrusiones externas. El firewall se puede habilitar en la cuenta de Data Lake Storage Gen1 en Azure Portal a través de las opciones **Firewall** > **Habilitar firewall (ON)**  > **Permitir el acceso a servicios de Azure**.
 
-![Configuración del firewall en Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Firewall settings in Data Lake Storage Gen1")
+![Configuración del firewall en Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Configuración del firewall en Data Lake Storage Gen1")
 
 Una vez habilitado el firewall, solo los servicios de Azure como HDInsight, Data Factory, SQL Data Warehouse, etc., podrán acceder a Data Lake Storage Gen1. Debido a la traducción interna de direcciones de red que usa Azure, el firewall de Data Lake Storage Gen1 no admite la restricción de servicios concretos por IP y solo está diseñado para restringir puntos de conexión externos de Azure como, por ejemplo, los locales.
 
@@ -101,7 +101,7 @@ A continuación se indican las tres opciones principales recomendadas para orque
 |  |Distcp  |Azure Data Factory  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Límites de escalado**     | Limitado por los nodos de trabajo        | Limitado por el número máximo de unidades de movimiento de datos en la nube        | Limitado por las unidades de análisis        |
-|**Admite la copia de valores delta**     |   Sí      | No         | Sin         |
+|**Admite la copia de valores delta**     |   Sí      | No         | No         |
 |**Orquestación integrada**     |  No (use Oozie Airflow o trabajos cron)       | Sí        | No (use Azure Automation o el programador de tareas de Windows)         |
 |**Sistemas de archivos admitidos**     | ADL, HDFS, WASB, S3, GS, CFS        |Varios, consulte [Conectores](../data-factory/connector-azure-blob-storage.md).         | ADL a ADL, WASB a ADL (solo en la misma región)        |
 |**SO compatible**     |Cualquier sistema operativo que ejecute Hadoop         | N/D          | Windows 10         |

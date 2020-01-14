@@ -15,12 +15,12 @@ ms.workload: ''
 ms.date: 07/16/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: c8b25858556538835d6a84bf0d6699f9906f1438
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 98f5269c27643e7ce6c0aaf9b359503a124d9232
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68322652"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663097"
 ---
 ### <a name="general-requirements"></a>Requisitos generales
 
@@ -46,7 +46,7 @@ Los requisitos adicionales de red virtual difieren en función de si el grupo de
 
 **Permisos**: compruebe si sus directivas de seguridad o bloqueos del grupo de recursos o la suscripción de la red virtual restringen los permisos de un usuario para administrar la red virtual.
 
-**Recursos de red adicionales**: Batch asigna automáticamente los recursos de red adicionales del grupo de recursos que contiene la red virtual. Por cada 50 nodos dedicados (o cada 20 nodos de prioridad baja), Batch asigna: 1 grupo de seguridad de red (NSG), 1 dirección IP pública y 1 equilibrador de carga. Estos recursos están limitados por las [cuotas de recursos](../articles/azure-subscription-service-limits.md) de la suscripción. Para los grupos grandes puede que deba solicitar un aumento de cuota para uno o más de estos recursos.
+**Recursos de red adicionales**: Batch asigna automáticamente los recursos de red adicionales del grupo de recursos que contiene la red virtual. Por cada 50 nodos dedicados (o cada 20 nodos de prioridad baja), Batch asigna: 1 grupo de seguridad de red (NSG), 1 dirección IP pública y 1 equilibrador de carga. Estos recursos están limitados por las [cuotas de recursos](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción. Para los grupos grandes puede que deba solicitar un aumento de cuota para uno o más de estos recursos.
 
 #### <a name="network-security-groups"></a>Grupos de seguridad de red
 
@@ -64,14 +64,14 @@ No es necesario especificar los grupos de seguridad de red a nivel de subred, po
 
 **Reglas de seguridad de entrada**
 
-| Direcciones IP de origen | Etiqueta de servicio de origen | Puertos de origen | Destino | Puertos de destino | Protocolo | . |
+| Direcciones IP de origen | Etiqueta de servicio de origen | Puertos de origen | Destination | Puertos de destino | Protocolo | Acción |
 | --- | --- | --- | --- | --- | --- | --- |
-| N/D | `BatchNodeManagement` [Etiqueta de servicio](../articles/virtual-network/security-overview.md#service-tags) | * | Any | 29876-29877 | TCP | Allow |
+| N/D | `BatchNodeManagement`[Etiqueta de servicio](../articles/virtual-network/security-overview.md#service-tags) | * | Any | 29876-29877 | TCP | Allow |
 | Las direcciones IP de origen de usuario para tener acceso remoto a los nodos de ejecución o la subred de nodo de ejecución para tareas de instancias múltiples de Linux, si es necesario. | N/D | * | Any | 3389 (Windows), 22 (Linux) | TCP | Allow |
 
 **Reglas de seguridad de salida**
 
-| Source | Puertos de origen | Destino | Etiqueta de servicio de destino | Puertos de destino | Protocolo | . |
+| Source | Puertos de origen | Destination | Etiqueta de servicio de destino | Puertos de destino | Protocolo | Acción |
 | --- | --- | --- | --- | --- | --- | --- |
 | Any | * | [Etiqueta de servicio](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (en la misma región que la cuenta de Batch y la red virtual) | 443 | TCP | Allow |
 
@@ -97,13 +97,13 @@ Configure el tráfico entrante en el puerto 3389 para Windows si tiene que permi
 
 **Reglas de seguridad de entrada**
 
-| Direcciones IP de origen | Puertos de origen | Destino | Puertos de destino | Protocolo | . |
+| Direcciones IP de origen | Puertos de origen | Destination | Puertos de destino | Protocolo | Acción |
 | --- | --- | --- | --- | --- | --- |
 Any <br /><br />Aunque esto requiere "permitir todo" realmente, el servicio Batch aplica una regla de lista de control de acceso a nivel de cada nodo que filtra todas las direcciones IP de servicio que no sean de Batch. | * | Any | 10100, 20100, 30100 | TCP | Allow |
 | Opcional, para permitir el acceso RDP en nodos de ejecución. | * | Any | 3389 | TCP | Allow |
 
 **Reglas de seguridad de salida**
 
-| Source | Puertos de origen | Destino | Puertos de destino | Protocolo | . |
+| Source | Puertos de origen | Destination | Puertos de destino | Protocolo | Acción |
 | --- | --- | --- | --- | --- | --- |
 | Any | * | Any | 443  | Any | Allow |

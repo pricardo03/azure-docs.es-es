@@ -1,19 +1,19 @@
 ---
 title: Phoenix Query Server REST SDK en Azure HDInsight
 description: Instale y utilice Phoenix Query Server REST SDK en Azure HDInsight.
-ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 12/04/2017
-ms.openlocfilehash: c9e9258fb7ace93d0866463563d328456cbd1daa
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 01/01/2020
+ms.openlocfilehash: 84c2bad1004029fe61dcfc19321957a170284587
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311679"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612264"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>SDK de REST de Apache Phoenix Query Server
 
@@ -71,20 +71,20 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 Estas son algunas propiedades que pueden interesarle:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | -- | -- |
 | AutoCommit | Valor booleano que indica si la propiedad `autoCommit` está habilitada para las transacciones de Phoenix. |
 | ReadOnly | Valor booleano que indica si la conexión es de solo lectura. |
 | TransactionIsolation | Valor entero que indica el nivel de aislamiento de la transacción por la especificación de JDBC, consulte la tabla siguiente.|
 | Catálogo | Nombre del catálogo que se usará al capturar propiedades de conexión. |
-| Esquema | Nombre del esquema que se usará al capturar propiedades de conexión. |
+| Schema | Nombre del esquema que se usará al capturar propiedades de conexión. |
 | IsDirty | Valor booleano que indica si se han modificado las propiedades. |
 
 A continuación, se muestran los valores `TransactionIsolation`:
 
-| Valor de aislamiento | DESCRIPCIÓN |
+| Valor de aislamiento | Descripción |
 | -- | -- |
-| 0 | No se admiten las transacciones. |
+| 0 | Las transacciones no se admiten. |
 | 1 | Pueden producirse lecturas de datos sucios, no repetibles y fantasma. |
 | 2 | Se evitan las lecturas de datos sucios, pero pueden producirse lecturas no repetibles y fantasma. |
 | 4 | Se evitan las lecturas de datos sucios y no repetibles, pero pueden producirse lecturas fantasma. |
@@ -277,7 +277,7 @@ finally
 }
 ```
 
-La estructura para ejecutar una instrucción INSERT es similar a crear una nueva tabla. Tenga en cuenta que al final del bloque `try`, la transacción se confirma explícitamente. En este ejemplo se repite una transacción de inserción 300 veces. En el ejemplo siguiente se muestra un proceso de inserción de lote más eficaz.
+La estructura para ejecutar una instrucción INSERT es similar a crear una nueva tabla. Al final del bloque `try`, la transacción se confirma explícitamente. En este ejemplo se repite una transacción de inserción 300 veces. En el ejemplo siguiente se muestra un proceso de inserción de lote más eficaz.
 
 ## <a name="batch-insert-data"></a>Datos de inserción de lote
 
@@ -537,7 +537,7 @@ MH: 6
 FM: 5
 ```
 
-## <a name="next-steps"></a>Pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Apache Phoenix en HDInsight](../hdinsight-phoenix-in-hdinsight.md)
 * [Uso del SDK de REST para Apache HBase](apache-hbase-rest-sdk.md)

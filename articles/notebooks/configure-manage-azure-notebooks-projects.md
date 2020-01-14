@@ -1,18 +1,22 @@
 ---
-title: Configuración y administración de proyectos de Azure Notebook
-description: Administración de los metadatos de proyecto, los archivos de proyecto, el entorno del proyecto y los pasos de configuración a través tanto de la interfaz de usuario de Azure Notebooks como del acceso al terminal directo.
-ms.topic: article
+title: Configurar y administrar Azure Notebooks Preview
+description: Más información sobre cómo administrar metadatos del proyecto, archivos de proyecto, el entorno del proyecto y los pasos de configuración a través de la interfaz de usuario de Azure Notebooks y el acceso directo a terminal.
+ms.topic: how-to
 ms.date: 05/13/2019
-ms.openlocfilehash: 56c265122894412e79b3d5a7b256964c49ab81a6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5c97372133315e6f0bcd3b854793b6b4746b5ba5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277635"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646269"
 ---
-# <a name="manage-and-configure-projects"></a>Administración y configuración de proyectos
+# <a name="a-idmanage-and-configure-projects--manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Administrar y configurar proyectos en Azure Notebooks Preview
 
-Esencialmente, un proyecto en Azure Notebooks es una configuración de la máquina virtual Linux subyacente donde se ejecutan las instancias de Jupyter Notebook, junto con metadatos descriptivos y una carpeta de archivos. El panel del proyecto de Azure Notebooks permite administrar los archivos y configurar las características del proyecto:
+Un proyecto en Azure Notebooks Preview es esencialmente una configuración de la máquina virtual de Linux subyacente en la que se ejecutan los cuadernos de Jupyter Notebook, junto con una carpeta de archivos y metadatos descriptivos. 
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+El panel del proyecto de Azure Notebooks permite administrar los archivos y configurar las características del proyecto:
 
 - Nivel de proceso en el que se ejecuta el proyecto, que puede ser el nivel Gratis o una máquina virtual de Azure.
 - Los metadatos del proyecto, que incluyen un nombre, una descripción, un identificador que se usa al compartir el proyecto e información de si el proyecto es público o privado.
@@ -33,10 +37,10 @@ De forma predeterminada, los proyectos se ejecutan en el nivel **Free Compute** 
 
 En el panel del proyecto, seleccione **Configuración del proyecto** y la pestaña **Información**, que contiene los metadatos del proyecto que se describen en la tabla siguiente. Puede cambiar los metadatos del proyecto en cualquier momento.
 
-| Configuración | DESCRIPCIÓN |
+| Configuración | Descripción |
 | --- | --- |
 | Nombre de proyecto | Un nombre descriptivo para el proyecto que usa Azure Notebooks para fines de presentación. Por ejemplo, "Hola mundo en Python". |
-| Identificador del proyecto | Un identificador personalizado que se vuelve parte de la dirección URL que usa para compartir un proyecto. Este identificador solo puede usar letras, números y guiones, se limita a 30 caracteres y no puede ser un [identificador de proyecto reservado](create-clone-jupyter-notebooks.md#reserved-project-ids). Si no está seguro de qué usar, una convención común es usar una versión en minúsculas del nombre del proyecto, donde los espacios se convierten en guiones, como "mi-proyecto-de-cuaderno" (truncado si es necesario para que se ajuste al límite de longitud). |
+| Identificador de proyecto | Un identificador personalizado que se vuelve parte de la dirección URL que usa para compartir un proyecto. Este identificador solo puede usar letras, números y guiones, se limita a 30 caracteres y no puede ser un [identificador de proyecto reservado](create-clone-jupyter-notebooks.md#reserved-project-ids). Si no está seguro de qué usar, una convención común es usar una versión en minúsculas del nombre del proyecto, donde los espacios se convierten en guiones, como "mi-proyecto-de-cuaderno" (truncado si es necesario para que se ajuste al límite de longitud). |
 | Proyecto público | Si se establece, permite a cualquier usuario con el vínculo acceder al proyecto. Al crear un proyecto privado, desactive esta opción. |
 | Ocultar clones | Si se establece, otros usuario no podrán ver una lista de los clones que se han realizado para este proyecto. Ocultar clones resulta útil para los proyectos que se comparten con muchas personas que no forman parte de la misma organización, como cuando se usa un cuaderno para impartir una clase. |
 
@@ -52,7 +56,7 @@ El panel del proyecto muestra el contenido del sistema de carpetas del proyecto.
 
 El comando **+ Nuevo** (método abreviado de teclado: n) crea archivos o carpetas. Cuando use el comando, primero seleccione el tipo de elemento que se va a crear:
 
-| Tipo de elemento | DESCRIPCIÓN | Comportamiento del comando |
+| Tipo de elemento | Descripción | Comportamiento del comando |
 | --- | --- | --- |
 | **Cuaderno** | Un cuaderno de Jupyter | Muestra un elemento emergente en el que se especifica el nombre de archivo y el lenguaje del cuaderno. |
 | **Carpeta** | Una subcarpeta | Crea un campo de edición en la lista de archivos del proyecto donde se escribe el nombre de la carpeta. |
@@ -69,7 +73,7 @@ Cada elemento de la lista de archivos del proyecto proporciona comandos a travé
 
 ![Comandos en el menú contextual de un archivo](media/project-file-commands.png)
 
-| Get-Help | Métodos abreviados de teclado | . |
+| Get-Help | Métodos abreviados de teclado | Acción |
 | --- | --- | --- |
 | Ejecute | r (o clic) | Ejecuta un archivo de Notebook. Otros tipos de archivo se abren para su visualización.  |
 | Copiar vínculo | y | Copia un vínculo al archivo en el Portapapeles. |
@@ -87,10 +91,10 @@ La vista previa de un archivo o cuaderno es una vista de solo lectura del conten
 
 La página de vista previa admite varios comandos de barra de herramientas con métodos abreviados de teclado:
 
-| Get-Help | Métodos abreviados de teclado | . |
+| Get-Help | Métodos abreviados de teclado | Acción |
 | --- | --- | --- |
 | Compartir | s | Muestra la ventana emergente de uso compartido donde puede obtener un vínculo, compartir en las redes sociales, obtener el código HTML para insertarlo y enviar un correo electrónico. |
-| Clon | c  | Clone el cuaderno en su cuenta. |
+| Clonar | c  | Clone el cuaderno en su cuenta. |
 | Ejecute | r | Ejecute el cuaderno si tiene permiso para hacerlo. |
 | Descargar | d | Descarga una copia del cuaderno. |
 
@@ -181,5 +185,5 @@ También puede usar el comando desde una celda de código de un cuaderno de Pyth
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Procedimientos: Work with project data files](work-with-project-data-files.md) (Trabajo con archivos de datos de proyecto)
+- [Cómo: trabajo con archivos de datos de proyecto](work-with-project-data-files.md)
 - [Access cloud data in a notebook](access-data-resources-jupyter-notebooks.md) (Acceso a los datos en la nube en un cuaderno)

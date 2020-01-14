@@ -1,10 +1,10 @@
 ---
 title: Creación mediante programación de paneles de Azure | Microsoft Docs
-description: En este artículo se explica cómo crear mediante programación paneles de Azure.
+description: Puede usar un panel en el Azure Portal como una plantilla para crear paneles de Azure mediante programación. Incluye referencia JSON.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
-manager: dougeby
+manager: mtillman
 editor: tysonn
 ms.service: azure-portal
 ms.devlang: NA
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: kfollis
-ms.openlocfilehash: b24a0397a1365479907fedc6348caa54508dbbb0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mblythe
+ms.openlocfilehash: 498e0255cfa289f7d8ccb93040980c362cf510a0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60552235"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640353"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creación mediante programación de paneles de Azure
 

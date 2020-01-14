@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: memildin
-ms.openlocfilehash: 2a22039b3499f1ba0f2d7acb2e86a1991d35a380
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b2ab769fc2595af9fd1ea41f1ef492944cb5e7fa
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202123"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665775"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Administración de incidentes de seguridad en Azure Security Center
 
@@ -55,9 +55,9 @@ Los temas siguientes le guiarán a través de las diferentes alertas según los 
 Los temas siguientes explican cómo Security Center usa los diferentes datos de telemetría que recopila de la integración con la infraestructura de Azure a fin de aplicar capas de protección adicionales para los recursos implementados en Azure:
 
 * [Alertas de la capa de servicios](security-center-alerts-service-layer.md)
-* [Integración con productos de seguridad de Azure](security-center-alerts-integration.md)
+* [Detección de amenazas para Azure WAF y Azure DDoS Protection](security-center-alerts-integration.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 En este documento, aprendió a usar la funcionalidad de incidente de seguridad en el Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * [Alertas de seguridad en Azure Security Center](security-center-alerts-overview.md)

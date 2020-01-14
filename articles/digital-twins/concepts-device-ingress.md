@@ -1,19 +1,19 @@
 ---
 title: 'Entrada de datos de telemetría y conectividad de dispositivo: Azure Digital Twins | Microsoft Docs'
-description: Aprenda a conectar e incorporar un dispositivo en Azure Digital Twins.
+description: Aprenda a conectar, incorporar y enviar telemetría desde un dispositivo IoT en Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: 529baf6a3eedf1d7490e8138642e90928a209876
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 01/03/2020
+ms.openlocfilehash: f9f0a74a6ca57f90ed8bd217d0d2f57e4bc16749
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010125"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660348"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Entrada de datos de telemetría y conectividad de dispositivo
 
@@ -67,12 +67,12 @@ Puede personalizar la carga y el formato del mensaje del dispositivo para ajusta
 
  El contenido de la carga de un **mensaje** pueden ser datos arbitrarios con un tamaño de hasta 256 KB. Se esperan algunos requisitos para las propiedades del tipo [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet). La tabla muestra las propiedades obligatorias y opcionales admitidas por el sistema.
 
-| Nombre de propiedad | Valor | Obligatorio | DESCRIPCIÓN |
+| Nombre de propiedad | Value | Obligatorio | Descripción |
 |---|---|---|---|
 | **DigitalTwins-Telemetry** | 1.0 | Sí | Valor constante que identifica un mensaje en el sistema. |
 | **DigitalTwins-SensorHardwareId** | `string(72)` | Sí | Identificador único del sensor que envía el **mensaje**. Este valor debe coincidir con la propiedad **HardwareId** de un objeto para que el sistema lo procese. Por ejemplo, `00FF0643BE88-CO2`. |
-| **CreationTimeUtc** | `string` | Sin | Cadena de fecha con formato según [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que identifica el tiempo de muestreo de la carga. Por ejemplo, `2018-09-20T07:35:00.8587882-07:00`. |
-| **CorrelationId** | `string` | Sin | UUID que puede usarse para el seguimiento de eventos en todo el sistema. Por ejemplo, `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
+| **CreationTimeUtc** | `string` | No | Cadena de fecha con formato según [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) que identifica el tiempo de muestreo de la carga. Por ejemplo, `2018-09-20T07:35:00.8587882-07:00`. |
+| **CorrelationId** | `string` | No | UUID que puede usarse para el seguimiento de eventos en todo el sistema. Por ejemplo, `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
 
 ### <a name="send-your-message-to-digital-twins"></a>Envío de mensajes a Digital Twins
 

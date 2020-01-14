@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 5/30/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 6dc846ab6af0ed4d6d48c6f6db0abbce06427c36
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: e1db978dbb7b63aaa4e9d189486faa0dfef520d1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035890"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75662903"
 ---
 Azure Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Para elevar los límites al máximo de la suscripción, póngase en contacto con el servicio de soporte técnico.
 
@@ -34,6 +34,7 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 | Parámetros máximos por canalización | 50 | 50 |
 | Elementos ForEach | 100 000 | 100 000 |
 | Paralelismo de ForEach | 20 | 50 |
+| Número máximo de ejecuciones en cola por canalización | 100 | 100 |
 | Caracteres por expresión | 8192 | 8192 |
 | Intervalo mínimo del desencadenador de ventana de saltos de tamaño constante | 15 minutos | 15 minutos |
 | Número máximo de tiempos de expiración de ejecuciones de actividad de canalización | 7 días | 7 días |
@@ -42,7 +43,7 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 | Unidades de integración de datos<sup>1</sup> por ejecución de la actividad de copia | 256 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Llamadas API de escritura | 1200/h<br/><br/> Este límite lo impone Azure Resource Manager, no Azure Data Factory. | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Llamadas API de lectura | 12 500/h<br/><br/> Este límite lo impone Azure Resource Manager, no Azure Data Factory. | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Supervisión de consultas por minuto | 1000 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Supervisión de consultas por minuto | 1,000 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Operaciones CRUD de entidad por minuto | 50 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Tiempo máximo de la sesión de depuración de flujo de datos | 8 h | 8 h |
 | Número simultáneo de flujos de datos por fábrica | 50 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
@@ -51,7 +52,7 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 
 <sup>1</sup> La unidad de integración de datos (DIU) se usa en una operación de copia de nube a nube, obtenga más información en [Unidades de integración de datos (versión 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units). Para obtener información sobre facturación, vea [Precios de Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
 
-<sup>2</sup> [Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) está [disponible globalmente](https://azure.microsoft.com/global-infrastructure/services/) para garantizar el cumplimiento de los datos, la eficacia y los costos de salida de red reducidos. 
+<sup>2</sup> [Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) está [ disponible globalmente](https://azure.microsoft.com/global-infrastructure/services/) para garantizar el cumplimiento de los datos, la eficacia y los costos de salida de red reducidos. 
 
 | Grupo de regiones | Regions | 
 | -------- | ------ |
@@ -65,7 +66,6 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 
 | **Recurso** | **Límite predeterminado** | **Límite máximo** |
 | --- | --- | --- |
-| Factorías de datos en una suscripción de Azure |50 |[Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Canalizaciones dentro de una factoría de datos |2500 |[Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Conjuntos de datos dentro de una factoría de datos |5\.000 |[Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Fragmentos simultáneos por conjunto de datos |10 |10 |
@@ -73,7 +73,7 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 | Bytes por objeto para objetos de conjunto de datos y de servicio vinculado<sup>1</sup> |100 KB |2000 KB |
 | Núcleos de clúster a petición de Azure HDInsight con una suscripción<sup>2</sup> |60 |[Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Unidades de movimiento de datos en la nube por ejecución de actividad de copia<sup>3</sup> |32 |[Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Número de reintentos de ejecuciones de la actividad Canalización |1000 |MaxInt (32 bits) |
+| Número de reintentos de ejecuciones de la actividad Canalización |1,000 |MaxInt (32 bits) |
 
 <sup>1</sup> Los objetos de canalización, de conjunto de datos y de servicio vinculado representan una agrupación lógica de la carga de trabajo. Los límites de estos objetos no se corresponden con la cantidad de datos que se pueden mover y procesar con Azure Data Factory. Data Factory está diseñado para escalarse a fin de manejar petabytes de datos.
 
@@ -88,4 +88,4 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 | Valor de tiempo de espera de reintento |1 segundo |1 segundo |
 
 #### <a name="web-service-call-limits"></a>Límites de llamadas de servicio web
-Azure Resource Manager tiene límites para las llamadas de API. Se pueden realizar llamadas API a un ritmo que esté dentro de los [límites de la API del Administrador de recursos de Azure](../articles/azure-subscription-service-limits.md#resource-group-limits).
+Azure Resource Manager tiene límites para las llamadas de API. Se pueden realizar llamadas API a un ritmo que esté dentro de los [límites de la API del Administrador de recursos de Azure](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).

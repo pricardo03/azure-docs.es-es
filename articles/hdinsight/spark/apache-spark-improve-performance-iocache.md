@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/29/2019
-ms.openlocfilehash: 3ef2def6329dc31eb1b175133b4525f87de9181c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/23/2019
+ms.openlocfilehash: 43875b87d26f144b85454077fd3c044c820132bf
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494652"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494990"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Mejora del rendimiento de las cargas de trabajo de Apache Spark con la memoria caché de E/S de Azure HDInsight
 
@@ -22,7 +22,7 @@ La mayoría de discos SSD proporciona más de 1 GB por segundo de ancho de banda
 
 > [!Note]  
 > La memoria caché de E/S actualmente usa RubiX como un componente de almacenamiento en caché, pero esto podría cambiar en futuras versiones del servicio. Use las interfaces de la memoria caché de E/S y no tome las dependencias directamente en la implementación de RubiX.
->Actualmente, la memoria caché de E/S solo es compatible con Azure Blob Storage. 
+>Actualmente, la memoria caché de E/S solo es compatible con Azure Blob Storage.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Ventajas de la memoria caché de E/S de Azure HDInsight
 
@@ -32,24 +32,22 @@ No tiene que realizar ningún cambio en los trabajos de Spark para ver un aument
 
 ## <a name="getting-started"></a>Introducción
 
-La memoria caché de E/S de Azure HDInsight está desactivada de forma predeterminada en la versión preliminar. La memoria caché de E/S está disponible en los clústeres de Spark de Azure HDInsight 3.6 +, que ejecutan Apache Spark 2.3.  Para activar la memoria caché de E/S, realice lo siguiente:
+La memoria caché de E/S de Azure HDInsight está desactivada de forma predeterminada en la versión preliminar. La memoria caché de E/S está disponible en los clústeres de Spark de Azure HDInsight 3.6 +, que ejecutan Apache Spark 2.3.  Para activar la caché de E/S en HDInsight 4.0, realice los pasos siguientes:
 
-1. En [Azure Portal](https://portal.azure.com), seleccione el clúster de HDInsight.
-
-1. En la página **Introducción** (que se abre de manera predeterminada cuando se selecciona el clúster), seleccione **Inicio de Ambari** en **Paneles de clúster**.
+1. Desde un explorador web, vaya a `https://CLUSTERNAME.azurehdinsight.net`, donde `CLUSTERNAME` es el nombre del clúster.
 
 1. Seleccione el servicio **Memoria caché de E/S** a la izquierda.
 
-1. Seleccione **Acciones** y **Activar**.
+1. Seleccione **Acciones** (**Acciones de servicio** en HDI 3.6) y **Activar**.
 
     ![Habilitación del servicio de la memoria caché de E/S en Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Habilitación del servicio de la memoria caché de E/S en Ambari")
 
 1. Confirme el reinicio de todos los servicios afectados en el clúster.
 
->[!NOTE]  
+> [!NOTE]  
 > Aunque la barra de progreso la muestre activada, la memoria caché de E/S no está habilitada realmente hasta que reinicie los otros servicios afectados.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
   
 Es posible que aparezcan errores de espacio en disco al ejecutar trabajos de Spark después de habilitar la memoria caché de E/S. Estos errores se producen porque Spark también usa el almacenamiento en disco local para almacenar datos durante el orden aleatorio de las operaciones. Spark puede quedarse sin espacio en el disco SSD una vez que la memoria caché de E/S esté habilitada y se reduzca el espacio de almacenamiento de Spark. La cantidad de espacio utilizado por la memoria caché de E/S se establece de manera predeterminada en la mitad del espacio total de SSD. El uso de espacio en disco para la memoria caché de E/S es configurable en Ambari. Si recibe errores de espacio en disco, reduzca la cantidad de espacio de SSD usado para la memoria caché de E/S y reinicie el servicio. Para cambiar el espacio configurado para la memoria caché de E/S, realice los pasos siguientes:
 
@@ -71,7 +69,7 @@ Es posible que aparezcan errores de espacio en disco al ejecutar trabajos de Spa
 
 1. Seleccione **Restart** (Reiniciar)  > **Restart All Affected** (Reiniciar todos los servicios afectados).
 
-    ![Reinicio de todas las entradas afectadas en Apache Ambari](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Reinicio de todas las entradas afectadas")
+    ![Se reinician todos los elementos afectados en Apache Ambari](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Reinicio de todas las entradas afectadas")
 
 1. Seleccione **Confirm Restart All** (Confirmar reinicio de todo).
 
@@ -79,4 +77,4 @@ Si esto no funciona, deshabilite la memoria caché de E/S.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Lea más acerca de la memoria caché de E/S, incluidas las pruebas comparativas de rendimiento, en esta entrada de blog: [Los trabajos de Apache Spark obtienen hasta 9 veces más velocidad con la memoria caché de E/S HDInsight](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)
+Lea más acerca de la memoria caché de E/S, incluidas las pruebas comparativas de rendimiento, en esta entrada de blog: [Los trabajos de Apache Spark obtienen hasta 9 veces más velocidad con la memoria caché de E/S HDInsight](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)

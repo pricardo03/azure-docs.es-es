@@ -1,25 +1,16 @@
 ---
-title: Comunicación de servicio con ASP.NET Core | Microsoft Docs
-description: Aprenda a usar ASP.NET Core en Reliable Services con y sin estado.
-services: service-fabric
-documentationcenter: .net
+title: Comunicación de servicio con el ASP.NET Core
+description: Aprenda a usar ASP.NET Core en aplicaciones de Azure Service Fabric Reliable Services con estado y sin estado.
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: b2a1b1426af3e72756a7a85a173ef4a2a5671b02
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 0d432bd19d0689ef508fca0bf24eed4406929f82
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900193"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639639"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core en Reliable Services de Azure Service Fabric
 
@@ -481,7 +472,7 @@ Cuando se expone a Internet, un servicio sin estado debe usar un punto de conexi
 
 |  |  | **Notas** |
 | --- | --- | --- |
-| Servidor web | Kestrel | Kestrel es el servidor web preferido, porque se admite en Windows y Linux. |
+| Servidor Web | Kestrel | Kestrel es el servidor web preferido, porque se admite en Windows y Linux. |
 | Configuración de puerto | estática | Se debe configurar un puerto estático conocido en la configuración `Endpoints` de ServiceManifest.xml, como 80 para HTTP o 443 para HTTPS. |
 | ServiceFabricIntegrationOptions | None | Use la opción `ServiceFabricIntegrationOptions.None` al configurar el middleware de integración de Service Fabric para que el servicio no intente validar solicitudes entrantes para un identificador único. Los usuarios externos de la aplicación no conocerán la información de identificación única que usa el middleware. |
 | Recuento de instancias | -1 | En los casos de uso típicos, la configuración de recuento de instancias se debe establecer en *-1*. Esto se hace para que haya disponible una instancia en todos los nodos que reciben tráfico de un equilibrador de carga. |
@@ -506,7 +497,7 @@ Los servicios sin estado a los que solo se llama desde dentro del clúster deben
 
 |  |  | **Notas** |
 | --- | --- | --- |
-| Servidor web | Kestrel | Aunque puede usar HTTP.sys para servicios sin estado internos, Kestrel es el mejor servidor para permitir que varias instancias de servicio compartan un host.  |
+| Servidor Web | Kestrel | Aunque puede usar HTTP.sys para servicios sin estado internos, Kestrel es el mejor servidor para permitir que varias instancias de servicio compartan un host.  |
 | Configuración de puerto | asignado de forma dinámica | Varias réplicas de un servicio con estado pueden compartir un proceso de host o un sistema operativo host y, por tanto, necesitarán puertos únicos. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Con la asignación dinámica de puertos, esta configuración evita el problema de identidad equivocada descrito antes. |
 | InstanceCount | cualquiera | La configuración de recuento de instancias se puede establecer en cualquier valor necesario para hacer funcionar el servicio. |
@@ -516,7 +507,7 @@ Los servicios con estado a los que solo se llama desde dentro del clúster deben
 
 |  |  | **Notas** |
 | --- | --- | --- |
-| Servidor web | Kestrel | `HttpSysCommunicationListener` no está diseñado para usarse en servicios con estado en los que las réplicas comparten un proceso de host. |
+| Servidor Web | Kestrel | `HttpSysCommunicationListener` no está diseñado para usarse en servicios con estado en los que las réplicas comparten un proceso de host. |
 | Configuración de puerto | asignado de forma dinámica | Varias réplicas de un servicio con estado pueden compartir un proceso de host o un sistema operativo host y, por tanto, necesitarán puertos únicos. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Con la asignación dinámica de puertos, esta configuración evita el problema de identidad equivocada descrito antes. |
 

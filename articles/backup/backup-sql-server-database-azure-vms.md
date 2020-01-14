@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a realizar copias de seguridad de bas
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 3d6875d8c466400da79e1b749d11914b3bf77d86
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 52a7e98702299e790ee097cca871332ebb6a52c5
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172099"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611396"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
 
@@ -25,7 +25,7 @@ En este artículo, aprenderá a:
 > * Detectar bases de datos y configurar copias de seguridad.
 > * Configurar la protección automática de las bases de datos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para poder realizar copias de seguridad de la base de datos de SQL Server, primero debe comprobar si reúne los siguientes criterios:
 
@@ -43,32 +43,47 @@ Para todas las operaciones, la VM con SQL Server necesita conectividad a las dir
 
 Establezca la conectividad con una de las siguientes opciones:
 
-* **Allow the Azure datacenter IP ranges** (Permitir los intervalos IP del centro de datos de Azure). Esta opción permite los [intervalos IP](https://www.microsoft.com/download/details.aspx?id=41653) en la descarga. Para acceder a un grupo de seguridad de red (NSG), use el cmdlet Set-AzureNetworkSecurityRule. Si está en la lista de destinatarios seguros de las direcciones IP específicas de la región, también tendrá que actualizar la lista de destinatarios seguros con la etiqueta de servicio de Azure Active Directory (Azure AD) para habilitar la autenticación.
+#### <a name="allow-the-azure-datacenter-ip-ranges"></a>Allow the Azure datacenter IP ranges (Permitir los intervalos IP del centro de datos de Azure)
 
-* **Allow access using NSG tags** (Permitir el acceso mediante etiquetas NSG).  Si usa NSG para restringir la conectividad, debe usar la etiqueta de servicio AzureBackup para permitir el acceso saliente a Azure Backup. Además, debe permitir la conectividad para la autenticación y la transferencia de datos mediante [reglas](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) de Azure AD y Azure Storage. Esto se puede hacer desde el portal o desde PowerShell.
+Esta opción permite los [intervalos IP](https://www.microsoft.com/download/details.aspx?id=41653) en el archivo descargado. Para acceder a un grupo de seguridad de red (NSG), use el cmdlet Set-AzureNetworkSecurityRule. Si su lista de destinatarios seguros incluye direcciones IP específicas de una región, también tendrá que actualizar la lista de destinatarios seguros con la etiqueta de servicio de Azure Active Directory (Azure AD) para habilitar la autenticación.
 
-    Para crear una regla mediante el portal:
+#### <a name="allow-access-using-nsg-tags"></a>Allow access using NSG tags (Permitir el acceso mediante etiquetas de NSG)
 
-  * En **Todos los servicios**, vaya a **Grupos de seguridad de red** y seleccione el grupo de seguridad de red.
-  * En **Configuración**, seleccione **Reglas de seguridad de salida**.
-  * Seleccione **Agregar**. Escriba todos los detalles necesarios para crear una nueva regla, como se explica en [Configuración de reglas de seguridad](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Asegúrese de que la opción **Destino** esté establecida en **Etiqueta de servicio** y de que **Etiqueta de servicio de destino** esté establecida en **AzureBackup**.
-  * Haga clic en **Agregar** para guardar la regla de seguridad de salida recién creada.
+Si usa NSG para restringir la conectividad, debe usar la etiqueta de servicio AzureBackup para permitir el acceso saliente a Azure Backup. Además, debe permitir la conectividad para la autenticación y la transferencia de datos mediante [reglas](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) de Azure AD y Azure Storage. Esto puede realizarse desde Azure Portal o a través de PowerShell.
 
-   Para crear una regla mediante PowerShell:
+Para crear una regla mediante el portal:
 
-  * Agregue las credenciales de la cuenta de Azure y actualice las nubes nacionales.<br/>
-    ``Add-AzureRmAccount``
-  * Seleccione la suscripción a NSG.<br/>
-    ``Select-AzureRmSubscription "<Subscription Id>"``
-  * Seleccione el NSG.<br/>
-    ```$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"```
-  * Agregue el permiso de la regla de salida para la etiqueta de servicio de Azure Backup.<br/>
-   ```Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"```
-  * Guarde el NSG.<br/>
-    ```Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg```
+  1. En **Todos los servicios**, vaya a **Grupos de seguridad de red** y seleccione el grupo de seguridad de red.
+  2. En **Configuración**, seleccione **Reglas de seguridad de salida**.
+  3. Seleccione **Agregar**. Escriba todos los detalles necesarios para crear una nueva regla, como se explica en [Configuración de reglas de seguridad](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Asegúrese de que la opción **Destino** esté establecida en **Etiqueta de servicio** y de que **Etiqueta de servicio de destino** esté establecida en **AzureBackup**.
+  4. Haga clic en **Agregar** para guardar la regla de seguridad de salida recién creada.
 
-* **Allow access by using Azure Firewall tags** (Permitir el acceso mediante el uso de etiquetas de Azure Firewall). Si usa Azure Firewall, cree una regla de aplicación mediante la [etiqueta de nombre de dominio completo](https://docs.microsoft.com/azure/firewall/fqdn-tags) AzureBackup. Esto permite el acceso de salida a Azure Backup.
-* **Deploy an HTTP proxy server to route traffic** (Implementar un servidor proxy HTTP para enrutar el tráfico). Cuando hace copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure, la extensión de copia de seguridad en la máquina virtual usa las API HTTPS para enviar comandos de administración a Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure AD para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. Las extensiones son el único componente configurado para el acceso a la red pública de Internet.
+Para crear una regla mediante PowerShell:
+
+ 1. Agregue las credenciales de la cuenta de Azure y actualice las nubes nacionales.<br/>
+      `Add-AzureRmAccount`<br/>
+
+ 2. Seleccione la suscripción a NSG.<br/>
+      `Select-AzureRmSubscription "<Subscription Id>"`
+
+ 3. Seleccione el NSG.<br/>
+    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
+
+ 4. Agregue el permiso de la regla de salida para la etiqueta de servicio de Azure Backup.<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 5. Agregue el permiso de la regla de salida para la etiqueta de servicio de Storage.<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 6. Agregue el permiso de la regla de salida para la etiqueta de servicio de Azure Active Directory.<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"`
+
+ 7. Guarde el NSG.<br/>
+    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
+
+**Allow access by using Azure Firewall tags** (Permitir el acceso mediante el uso de etiquetas de Azure Firewall). Si usa Azure Firewall, cree una regla de aplicación mediante la [etiqueta de nombre de dominio completo](https://docs.microsoft.com/azure/firewall/fqdn-tags) AzureBackup. Esto permite el acceso de salida a Azure Backup.
+
+**Deploy an HTTP proxy server to route traffic** (Implementar un servidor proxy HTTP para enrutar el tráfico). Cuando hace copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure, la extensión de copia de seguridad en la máquina virtual usa las API HTTPS para enviar comandos de administración a Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure AD para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. Las extensiones son el único componente configurado para el acceso a la red pública de Internet.
 
 Las opciones de conectividad incluyen las siguientes ventajas y desventajas:
 
@@ -176,7 +191,7 @@ Detección de las bases de datos que se ejecutan en la máquina virtual:
 
     ![Área de notificaciones](./media/backup-azure-sql-database/notifications-area.png)
 
-### <a name="create-a-backup-policy"></a>Creación de una directiva de copia de seguridad
+### <a name="create-a-backup-policy"></a>Crear una directiva de copia de seguridad
 
 Una directiva de copia de seguridad define cuándo se realizan las copias de seguridad y cuánto tiempo se conservan.
 
@@ -232,11 +247,12 @@ Para crear una directiva de copia de seguridad:
 
     ![Editar la directiva de copia de seguridad de registros](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-13. En el menú **Directiva de copia de seguridad**, elija si desea habilitar la **compresión de copia de seguridad de SQL**.
-    * La compresión está deshabilitada de manera predeterminada.
-    * En el back-end, Azure Backup usa la compresión de copia de seguridad nativa de SQL.
+13. En el menú **Directiva de copia de seguridad**, elija si quiere habilitar la **compresión de copia de seguridad de SQL** o no. Esta opción está deshabilitada de manera predeterminada. Si está habilitada, SQL Server enviará una secuencia de copia de seguridad comprimida a VDI.  Tenga en cuenta que Azure Backup invalida los valores predeterminados de nivel de instancia con la cláusula COMPRESSION/NO_COMPRESSION según el valor de este control.
 
 14. Después de completar las modificaciones en la directiva de copia de seguridad, seleccione **Aceptar**.
+
+> [!NOTE]
+> Cada copia de seguridad de registros está encadenada a la copia de seguridad completa anterior para formar una cadena de recuperación. Esta copia de seguridad completa se conservará hasta que expire la retención de la última copia de seguridad de registros. Esto puede significar que la copia de seguridad completa se conservará durante un período adicional para asegurarse de que se pueden recuperar todos los registros. Supongamos que el usuario tiene una copia de seguridad completa semanal, una copia diferencial diaria y registros de 2 horas. Todos ellos se conservan 30 días. Sin embargo, la copia completa semanal puede limpiarse o eliminarse en realidad solo después de que esté disponible la siguiente copia de seguridad completa, es decir, después de 30+7 días. Por ejemplo, una copia de seguridad completa semanal se produce el 16 de noviembre. Según la directiva de retención, debe conservarse hasta el 16 de diciembre. La última copia de seguridad de registros de esta copia completa se produce antes de la siguiente copia completa programada, el 22 de noviembre. Hasta que este registro esté disponible el 22 de diciembre, no se puede eliminar la copia completa del 16 de noviembre. Por lo tanto, la copia completa del 16 de noviembre se conserva hasta el 22 de diciembre.
 
 ## <a name="enable-auto-protection"></a>Habilitación de la protección automática  
 

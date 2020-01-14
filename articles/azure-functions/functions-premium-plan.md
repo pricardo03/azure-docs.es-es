@@ -5,16 +5,16 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 9c1a9a9e3b9e1c12c3960a8586c25436c8d937e0
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5f6825243b7e410b49b54d04a028b5d71610ea68
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532896"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561961"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan prémium de Azure Functions
 
-El plan Premium de Azure Functions es una opción de hospedaje de las aplicaciones de funciones. El plan Premium cuenta con características como la conectividad de red virtual, arranques no en frío y hardware Premium.  Pueden implementarse varias aplicaciones de funciones en el mismo plan Premium. Este plan permite configurar el tamaño de la instancia de proceso, el tamaño del plan base y el tamaño del plan máximo.  Para ver una comparación del plan Premium y otros tipos de planes y hospedajes, consulte [Escalado y hospedaje de Azure Functions](functions-scale.md).
+El plan Premium de Azure Functions (a veces denominado plan Elástico Premium) es una opción de hospedaje de las aplicaciones de funciones. El plan Premium cuenta con características como la conectividad de red virtual, arranques no en frío y hardware Premium.  Pueden implementarse varias aplicaciones de funciones en el mismo plan Premium. Este plan permite configurar el tamaño de la instancia de proceso, el tamaño del plan base y el tamaño del plan máximo.  Para ver una comparación del plan Premium y otros tipos de planes y hospedajes, consulte [Escalado y hospedaje de Azure Functions](functions-scale.md).
 
 ## <a name="create-a-premium-plan"></a>Creación de un plan Premium
 
@@ -76,7 +76,7 @@ Cuando se crea un plan, hay que configurar dos opciones: el número mínimo de i
 
 Si la aplicación necesita instancias que superan el tamaño del plan, puede seguir realizando el escalado horizontal hasta que el número de instancias alcance el límite máximo de ráfaga.  Las instancias que superen el tamaño del plan solo se cobrarán cuando estén en ejecución y las tenga alquiladas.  Haremos todo lo posible para escalar horizontalmente la aplicación con arreglo al límite máximo definido y garantizaremos siempre que el uso de las instancias mínimas del plan para la aplicación.
 
-Puede configurar el tamaño del plan y establecer valores máximos en Azure Portal en función de las opciones de **Escalar horizontalmente** seleccionadas o de una aplicación de funciones implementada en el plan (en **Características de la plataforma**).
+Puede configurar el tamaño del plan y establecer valores máximos en Azure Portal seleccionando las opciones **Escalar horizontalmente** en el plan o una aplicación de funciones implementada en el plan (en **Características de la plataforma**).
 
 También puede aumentar el límite máximo de ráfaga mediante la CLI de Azure:
 
@@ -103,27 +103,28 @@ A continuación se muestran las regiones admitidas actualmente para cada SO.
 |Centro de Australia| ✔<sup>1</sup> | |
 |Centro de Australia 2| ✔<sup>1</sup> | |
 |Este de Australia| ✔ | |
-|Sudeste de Australia | ✔ | ✔ |
+|Sudeste de Australia | ✔ | ✔<sup>1</sup> |
 |Sur de Brasil| ✔<sup>2</sup> |  |
 |Centro de Canadá| ✔ |  |
 |Centro de EE. UU.| ✔ |  |
 |Asia oriental| ✔ |  |
-|East US | ✔ | ✔ |
+|East US | ✔ | ✔<sup>1</sup> |
 |Este de EE. UU. 2| ✔ |  |
 |Centro de Francia| ✔ |  |
-|Este de Japón| ✔ | ✔ |
+|Centro-oeste de Alemania| ✔ | |
+|Este de Japón| ✔ | ✔<sup>1</sup> |
 |Oeste de Japón| ✔ | |
 |Corea Central| ✔ |  |
 |Centro-Norte de EE. UU| ✔ |  |
-|Europa del Norte| ✔ | ✔ |
-|Centro-Sur de EE. UU| ✔ |  |
+|Europa del Norte| ✔ | ✔<sup>1</sup> |
+|Centro-Sur de EE. UU| ✔ | ✔<sup>1</sup> |
 |Sur de la India | ✔ | |
-|Sudeste asiático| ✔ | ✔ |
+|Sudeste asiático| ✔ | ✔<sup>1</sup> |
 |Sur de Reino Unido 2| ✔ | |
 |Oeste de Reino Unido| ✔ |  |
-|Europa occidental| ✔ | ✔ |
+|Europa occidental| ✔ | ✔<sup>1</sup> |
 |Oeste de la India| ✔ |  |
-|Oeste de EE. UU.| ✔ | ✔ |
+|Oeste de EE. UU.| ✔ | ✔<sup>1</sup> |
 |Oeste de EE. UU. 2| ✔ |  |
 
 <sup>1</sup>Escalado horizontal máximo limitado a 20 instancias.  

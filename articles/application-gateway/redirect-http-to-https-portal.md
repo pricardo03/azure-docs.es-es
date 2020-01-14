@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: d67270896792ea506d2df04dcc3745a43d3d8251
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: dcbc20f768ae80404979d47f23e7e08098757b41
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012877"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613336"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con redirección de HTTP a HTTPS mediante Azure Portal
 
 Puede usar Azure Portal para crear una [puerta de enlace de aplicaciones](overview.md) con un certificado para la terminación SSL. Para redirigir el tráfico HTTP al puerto HTTPS en la puerta de enlace de aplicaciones se usa una regla de enrutamiento. En este ejemplo, también crea un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para el grupo de back-end de la puerta de enlace de aplicaciones que contiene dos instancias de máquina virtual.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Creación de un certificado autofirmado
@@ -118,15 +118,15 @@ En primer lugar, agregue un agente de escucha llamado *myListener* para el puert
 
 ### <a name="add-a-routing-rule-with-a-redirection-configuration"></a>Adición de una regla de enrutamiento con una configuración de redireccionamiento
 
-1. En **myAppGateway**, seleccione **Reglas** y, a continuación, seleccione **+ Básica**.
-2. En **Nombre**, escriba *Rule2*.
+1. En **myAppGateway**, seleccione **Reglas** y, a continuación, seleccione **+Regla de enrutamiento de solicitud**.
+2. En **Nombre de la regla**, escriba *Rule2*.
 3. Asegúrese de que **MyListener** está seleccionado para el agente de escucha.
-4. Seleccione la casilla de verificación **Configurar redireccionamiento**.
+4. Haga clic en la pestaña **Destinos de back-end** y seleccione **Tipo de destino** como *Redirección*.
 5. En **Tipo de redireccionamiento**, seleccione **Permanente**.
 6. En **Destino del redireccionamiento**, seleccione **Agente de escucha**.
 7. Asegúrese de que **Agente de escucha de destino** está establecido en **appGatewayHttpListener**.
-8. Seleccione las casillas de verificación **Incluir cadena de consulta** e **Incluir ruta de acceso**.
-9. Seleccione **Aceptar**.
+8. Para **Cadena de consulta de inclusión** y **Ruta de acceso de inclusión** seleccione *Sí*.
+9. Seleccione **Agregar**.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Crear un conjunto de escalado de máquinas virtuales
 

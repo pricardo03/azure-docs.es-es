@@ -4,17 +4,17 @@ description: archivo de inclusión
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/06/2019
+ms.date: 12/31/2019
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: be46a0dda24dc990e895a3e983c730337f9cf31d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 90e6e5c8d6d4f10e2d63f80b9c0840854424f5a7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981393"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75616219"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>Comparación entre disponibilidad general y versión preliminar
 
@@ -25,11 +25,11 @@ En la tabla siguiente se resumen varias diferencias clave entre las instancias d
 | Ciudadano de primera clase | Centrada en eventos | Centrada en series temporales |
 | Razonamiento semántico | Bajo nivel (datos de referencia) | Alto nivel (modelos) |
 | Contextualización de datos | Nivel no de dispositivo | Nivel de dispositivo y no de dispositivo |
-| Almacenamiento de lógica de proceso | Sin | Almacenado en la parte de variables de tipo del modelo |
-| Control de almacenamiento y acceso | Sin | Habilitado a través del modelo |
-| Agregaciones/muestreo | Sin | Evento ponderado y tiempo ponderado |
-| Reconstrucción de señal | Sin | Interpolación |
-| Producción de series temporales derivadas | Sin | Sí, combinaciones y uniones |
+| Almacenamiento de lógica de proceso | No | Almacenado en la parte de variables de tipo del modelo |
+| Control de almacenamiento y acceso | No | Habilitado a través del modelo |
+| Agregaciones/muestreo | No | Evento ponderado y tiempo ponderado |
+| Reconstrucción de señal | No | Interpolación |
+| Producción de series temporales derivadas | No | Sí, combinaciones y uniones |
 | Flexibilidad de lenguaje | No admite composición | Admite composición |
 | Lenguaje de expresiones | Cadena de predicados | Expresiones de series temporales (cadenas de predicado, valores, expresiones y funciones) |
 
@@ -49,6 +49,8 @@ Se admite un máximo de dos orígenes de evento por instancia.
 
 * Obtenga información sobre cómo [agregar un origen de Event Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 * Configure [un origen de centro de IoT](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
+
+De forma predeterminada, [los entornos de versión preliminar admiten tasas de entrada](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress) de hasta **1 megabyte por segundo (MB/s) por entorno** . Los clientes pueden escalar sus entornos de versión preliminar hasta un rendimiento de **16 MB/s** si es necesario. Además, hay un límite por partición de **0,5 MB/s**. 
 
 ### <a name="api-limits"></a>Límites de API
 

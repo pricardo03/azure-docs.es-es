@@ -1,21 +1,21 @@
 ---
-title: Creación, edición o extensión para definiciones de aplicaciones lógicas
-description: Escritura, edición y extensión de JSON para definiciones de aplicaciones lógicas en Azure Logic Apps
+title: Creación, edición o extensión de definiciones de flujo de trabajo JSON de la aplicación lógica
+description: Cómo escribir, editar y ampliar las definiciones de flujo de trabajo JSON de la aplicación lógica en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: bffbc29322a57d6bb9b8497299add5dbb0478d2c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 95e9f7211c8cd6cb4edd59d099ae9c189bae3780
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792595"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666931"
 ---
-# <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Creación, edición o extensión de JSON para definiciones de aplicaciones lógicas en Azure Logic Apps
+# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Creación, edición o extensión de JSON para definiciones de flujo de trabajo de aplicaciones lógicas en Azure Logic Apps
 
-Al crear soluciones de integración empresarial con flujos de trabajo automatizados en [Azure Logic Apps](../logic-apps/logic-apps-overview.md), las definiciones de aplicaciones lógicas subyacentes usan una notación de objetos JavaScript (JSON) sencilla y declarativa con el [esquema del lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md) para su descripción y validación. Estos formatos facilitan la lectura y comprensión de las definiciones de aplicaciones lógicas sin necesidad de saber mucho sobre el código. Si desea automatizar la creación e implementación de aplicaciones lógicas, puede incluir las definiciones de aplicaciones lógicas como [recursos de Azure](../azure-resource-manager/resource-group-overview.md) en las [plantillas de Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md). Para crear, administrar e implementar las aplicaciones lógicas, puede usar [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), la [CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) o las [API de REST de Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/).
+Al crear soluciones de integración empresarial con flujos de trabajo automatizados en [Azure Logic Apps](../logic-apps/logic-apps-overview.md), las definiciones de aplicaciones lógicas subyacentes usan una notación de objetos JavaScript (JSON) sencilla y declarativa con el [esquema del lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md) para su descripción y validación. Estos formatos facilitan la lectura y comprensión de las definiciones de aplicaciones lógicas sin necesidad de saber mucho sobre el código. Si desea automatizar la creación e implementación de aplicaciones lógicas, puede incluir las definiciones de aplicaciones lógicas como [recursos de Azure](../azure-resource-manager/management/overview.md) en las [plantillas de Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md). Para crear, administrar e implementar las aplicaciones lógicas, puede usar [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), la [CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) o las [API de REST de Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/).
 
 Para trabajar con definiciones de aplicaciones lógicas en JSON, abra el editor de la vista Código cuando trabaje en Azure Portal o en Visual Studio, o bien copie la definición en cualquier editor que desee. Si es la primera vez que interactúa con las aplicaciones lógicas, consulte el artículo sobre [cómo crear la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -25,7 +25,7 @@ Para trabajar con definiciones de aplicaciones lógicas en JSON, abra el editor 
 
 ## <a name="edit-json---azure-portal"></a>Edición de JSON: Azure Portal
 
-1. Inicie sesión en el <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
+1. Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
 2. En el menú de la izquierda, elija **Todos los servicios**. En el cuadro de búsqueda, busque "Logic Apps" y, a continuación, en los resultados, seleccione la aplicación lógica.
 
@@ -39,11 +39,11 @@ Para poder trabajar en la definición de aplicación lógica en Visual Studio, a
 
 En Visual Studio, puede abrir las aplicaciones lógicas creadas e implementadas directamente desde Azure Portal o como proyectos de Azure Resource Manager desde Visual Studio.
 
-1. Abra la solución de Visual Studio o el proyecto del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) que contiene la aplicación lógica.
+1. Abra la solución de Visual Studio o el proyecto del [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) que contiene la aplicación lógica.
 
 2. Busque y abra la definición de la aplicación lógica, que aparece de forma predeterminada en una [plantilla de Resource Manager](../azure-resource-manager/template-deployment-overview.md) denominada **LogicApp.json**. Puede usar y personalizar esta plantilla para implementarla en diferentes entornos.
 
-3. Abra el menú contextual para la definición de la aplicación lógica o la plantilla. Seleccione **Open with Logic App Designer** (Abrir con diseñador de aplicación lógica).
+3. Abra el menú contextual para la definición de la aplicación lógica o la plantilla. Seleccione **Open with Logic App Designer** (Abrir con Diseñador de aplicación lógica).
 
    ![Abrir la aplicación lógica en una solución de Visual Studio](./media/logic-apps-author-definitions/open-logic-app-designer.png)
 
@@ -58,7 +58,7 @@ En Visual Studio, puede abrir las aplicaciones lógicas creadas e implementadas 
 
 ## <a name="parameters"></a>Parámetros
 
-Por lo general, el ciclo de vida de una implementación tiene distintos entornos para el desarrollo, las pruebas, el almacenamiento provisional y la producción. Cuando tenga valores que desee reutilizar en la aplicación lógica sin codificar o que varían en función de sus necesidades de implementación, puede crear una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para la definición de flujo de trabajo, con el fin de que también pueda automatizar la implementación de aplicaciones lógicas. 
+Por lo general, el ciclo de vida de una implementación tiene distintos entornos para el desarrollo, las pruebas, el almacenamiento provisional y la producción. Cuando tenga valores que desee reutilizar en la aplicación lógica sin codificar o que varían en función de sus necesidades de implementación, puede crear una [plantilla de Azure Resource Manager](../azure-resource-manager/management/overview.md) para la definición de flujo de trabajo, con el fin de que también pueda automatizar la implementación de aplicaciones lógicas. 
 
 Siga estos pasos generales para *parametrizar*, o definir y usar parámetros para esos valores en su lugar. Después, puede proporcionar los valores en un archivo de parámetros independiente que pase esos valores a la plantilla. De esa forma puede cambiar estos valores más fácilmente sin tener que actualizar y volver a implementar la aplicación lógica. Para más información, consulte [Introducción: Implementación automatizada de aplicaciones lógicas con plantillas de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
@@ -72,7 +72,7 @@ Siga estos pasos generales para *parametrizar*, o definir y usar parámetros par
 
    Al especificar los valores de los parámetros de la definición de flujo de trabajo, puede hacer referencia a los parámetros de plantilla mediante el uso de la sección de parámetros que está fuera de la definición de flujo de trabajo, pero dentro de la definición de recurso de su aplicación lógica. De este modo, podrá pasar valores de parámetros de plantilla a los parámetros de definición de flujo de trabajo.
 
-1. Almacene los valores de los parámetros en un [archivo de parámetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) independiente e inclúyalo en la implementación.
+1. Almacene los valores de los parámetros en un [archivo de parámetros](../azure-resource-manager/templates/parameter-files.md) independiente e inclúyalo en la implementación.
 
 ## <a name="process-strings-with-functions"></a>Procesamiento de cadenas con funciones
 
@@ -285,6 +285,6 @@ Para dar formato a las fechas, puede usar formateadores de cadena. Por ejemplo, 
 * [Realización de pasos en función de los diferentes valores (instrucciones switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Ejecución y repetición de pasos (bucles)](../logic-apps/logic-apps-control-flow-loops.md)
 * [Ejecución o combinación de pasos en paralelo (ramas)](../logic-apps/logic-apps-control-flow-branches.md)
-* [Run steps based on grouped action status (scopes)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) (Ejecución de pasos según un estado de acciones agrupadas [ámbitos])
+* [Ejecución de pasos en función del estado de las acciones agrupadas (ámbitos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * Más información sobre el [esquema del lenguaje de definición de flujo de trabajo para Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md)
 * Más información [sobre los desencadenadores y las acciones de flujo de trabajo para Logic Apps](../logic-apps/logic-apps-workflow-actions-triggers.md)

@@ -1,22 +1,18 @@
 ---
-title: 'Azure Service Fabric: implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el sistema | Microsoft Docs'
+title: Implementar una aplicación de Service Fabric con una instancia administrada asignada por el sistema
 description: En este artículo se muestra cómo asignar una identidad administrada asignada por el sistema a una aplicación de Azure Service Fabric.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: cf971d71c2566d91bc5a2490d47521725c62b17d
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: d5a14722363d642957904f9c7c699d3cf1d66c0f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973422"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614832"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Implementación de una aplicación de Service Fabric con una identidad administrada asignada por el sistema (versión preliminar)
 
-Para acceder a la característica de identidad administrada para las aplicaciones de Azure Service Fabric, primero debe habilitar el servicio de token de identidad administrada en el clúster. Este servicio es responsable de la autenticación de aplicaciones de Service Fabric que usan sus identidades administradas y de la obtención de los tokens de acceso en su nombre. Una vez habilitado el servicio, puede verlo en Service Fabric Explorer, bajo la sección **Sistema** del panel izquierdo. Se ejecuta con el nombre **fabric:/System/ManagedIdentityTokenService** junto a otros servicios del sistema.
+Para acceder a la característica de identidad administrada para las aplicaciones de Azure Service Fabric, primero debe habilitar el servicio de token de identidad administrada en el clúster. Este servicio es responsable de la autenticación de aplicaciones de Service Fabric que usan sus identidades administradas y de la obtención de los tokens de acceso en su nombre. Una vez habilitado el servicio, puede verlo en Service Fabric Explorer, bajo la sección **Sistema** del panel izquierdo. Se ejecuta con el nombre **fabric:/System/ManagedIdentityTokenService** junto a otros servicios del sistema.
 
 > [!NOTE] 
 > La implementación de aplicaciones de Service Fabric con identidades administradas se admite a partir de la versión de API `"2019-06-01-preview"`. También puede usar la misma versión de API para el tipo de aplicación, la versión del tipo de aplicación y los recursos de servicio. La versión mínima admitida del runtime de Service Fabric es 6.5 CU2. Además, el entorno o paquete de compilación también debe tener el SDK de .NET para SF en CU2 o superior.

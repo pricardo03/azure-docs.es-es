@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: a3df48115dde27478446614c0446d64709adbc6f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1a9c058e590e5df9ab9ec82d900e22f7154d00a0
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226793"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561939"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de redes de Azure Functions
 
@@ -32,8 +32,8 @@ Puede hospedar aplicaciones de funciones de dos formas:
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Restricciones de IP de entrada y acceso al sitio privado](#inbound-ip-restrictions)|✅Sí|✅Sí|✅Sí|✅Sí|
 |[Integración de redes virtuales](#virtual-network-integration)|❌No|✅Sí (regional)|✅Sí (regional y puerta de enlace)|✅Sí|
-|[Desencadenadores de red virtual (no HTTP)](#virtual-network-triggers-non-http)|❌No| ❌No|✅Sí|✅Sí|
-|[Conexiones híbridas](#hybrid-connections)|❌No|✅Sí|✅Sí|✅Sí|
+|[Desencadenadores de red virtual (no HTTP)](#virtual-network-triggers-non-http)|❌No| ✅Sí |✅Sí|✅Sí|
+|[Conexiones híbridas](#hybrid-connections) (solo Windows)|❌No|✅Sí|✅Sí|✅Sí|
 |[Restricciones de IP de salida](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Sí|
 
 ## <a name="inbound-ip-restrictions"></a>Restricciones de IP de entrada
@@ -123,19 +123,51 @@ Actualmente las [referencias de almacén de claves](../app-service/app-service-k
 
 ## <a name="virtual-network-triggers-non-http"></a>Desencadenadores de red virtual (no HTTP)
 
-Actualmente, para usar desencadenadores de funciones que no sean HTTP desde una red virtual, debe ejecutar la aplicación de funciones en un plan de App Service o en App Service Environment.
+Actualmente, puede usar funciones de desencadenador no HTTP desde una red virtual de una de estas dos formas: 
++ Ejecute la aplicación de funciones en un plan Premium y habilite la compatibilidad con el desencadenador de red virtual.
++ Ejecute una aplicación de funciones en un plan de App Service o App Service Environment.
 
-Por ejemplo, imagine que quiere configurar Azure Cosmos DB para aceptar el tráfico solo desde una red virtual. Necesitaría implementar la aplicación de funciones en un plan de App Service que proporcione integración de red virtual con esa red virtual para configurar desencadenadores de Azure Cosmos DB desde de ese recurso. Durante la versión preliminar, la configuración de la integración de red virtual no permite que el plan Premium desencadene ese recurso de Azure Cosmos DB.
+### <a name="premium-plan-with-virtual-network-triggers"></a>Plan Premium con desencadenadores de red virtual
 
-Vea [esta lista de todos los desencadenares que no son HTTP](./functions-triggers-bindings.md#supported-bindings) para volver a comprobar la compatibilidad.
+Cuando se ejecuta en un plan Premium, puede conectar funciones de desencadenador no HTTP a los servicios que se ejecutan en una red virtual. Para ello, debe habilitar la compatibilidad con el desencadenador de red virtual para la aplicación de funciones. La configuración de la **compatibilidad del desencadenador de red virtual** se encuentra en [Azure Portal](https://portal.azure.com) en **Configuración de aplicación de funciones**.
+
+![VNETToggle](media/functions-networking-options/virtual-network-trigger-toggle.png)
+
+También puede habilitar los desencadenadores de red virtual mediante el siguiente comando de la CLI de Azure:
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <premium_plan_name> --set properties.functionsRuntimeScaleMonitoringEnabled=1
+```
+
+Los desencadenadores de red virtual se admiten en la versión 2.x y superior del tiempo de ejecución de Functions. Se admiten los siguientes tipos de desencadenador no HTTP.
+
+| Extensión | Versión mínima |
+|-----------|---------| 
+|[Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 o superior |
+|[Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 o superior|
+|[Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 o superior|
+|[Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 o superior|
+|[Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 o superior|
+
+> [!IMPORTANT]
+> Al habilitar la compatibilidad con el desencadenador de red virtual, solo los tipos de desencadenador anteriores se escalan dinámicamente con la aplicación. Puede usar desencadenadores no indicados anteriormente, pero no se escalan más allá de su recuento de instancias activadas previamente. Consulte los [desencadenadores y enlaces](./functions-triggers-bindings.md#supported-bindings) para obtener una lista completa de los desencadenadores.
+
+### <a name="app-service-plan-and-app-service-environment-with-virtual-network-triggers"></a>Plan de App Service y App Service Environment con desencadenadores de red virtual
+
+Cuando la aplicación de funciones se ejecuta en un plan de App Service o App Service Environment, puede usar funciones de desencadenador no HTTP. Para que las funciones se desencadenen correctamente, debe estar conectado a una red virtual con acceso al recurso definido en la conexión del desencadenador. 
+
+Por ejemplo, imagine que quiere configurar Azure Cosmos DB para aceptar el tráfico solo desde una red virtual. En este caso, debe implementar la aplicación de funciones en un plan de App Service que proporcione integración de red virtual con esa red virtual. Esto permite que un recurso de Azure Cosmos DB desencadene una función. 
 
 ## <a name="hybrid-connections"></a>conexiones híbridas
 
-[Conexiones híbridas](../service-bus-relay/relay-hybrid-connections-protocol.md) es una característica de Azure Relay que se puede usar para acceder a recursos de la aplicación en otras redes. Proporciona acceso desde la aplicación a un punto de conexión de la aplicación. No se puede usar para acceder a la aplicación. Conexiones híbridas está disponible en todos los planes de Functions excepto el plan Consumo.
+[Conexiones híbridas](../service-bus-relay/relay-hybrid-connections-protocol.md) es una característica de Azure Relay que se puede usar para acceder a recursos de la aplicación en otras redes. Proporciona acceso desde la aplicación a un punto de conexión de la aplicación. No se puede usar para acceder a la aplicación. Las conexiones híbridas están disponibles en todos los planes de Functions en Windows, excepto el plan Consumo.
 
 Dado que se usa en Azure Functions, cada conexión híbrida se correlaciona con una combinación única de host y puerto TCP. Esto significa que el punto de conexión de la conexión híbrida puede estar en cualquier sistema operativo y en cualquier aplicación, siempre que se acceda a un puerto de escucha TCP. La característica Conexiones híbridas no sabe lo que es el protocolo de aplicación ni a qué se accede. Simplemente ofrece acceso a la red.
 
 Para obtener más información, vea la [documentación de App Service para Conexiones híbridas](../app-service/app-service-hybrid-connections.md). Estos mismos pasos de configuración sirven para Azure Functions.
+
+>[!IMPORTANT]
+> Las conexiones híbridas solo se admiten en los planes de Windows. No se admite Linux
 
 ## <a name="outbound-ip-restrictions"></a>Restricciones de IP de salida
 

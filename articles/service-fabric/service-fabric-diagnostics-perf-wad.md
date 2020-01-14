@@ -1,25 +1,16 @@
 ---
-title: 'Azure Service Fabric: Supervisión del rendimiento con la extensión de Microsoft Azure Diagnostics | Microsoft Docs'
+title: Supervisión del rendimiento con Windows Azure Diagnostics
 description: Utilice Windows Azure Diagnostics para recopilar contadores de rendimiento para los clústeres de Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: e29c32c27e7f6c62eb2c6a9cbe2e4d3f1294f038
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 0819ca02d088aeb9ada5de1269467f70242bbcca
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155156"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609917"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Supervisión del rendimiento con la extensión de Microsoft Azure Diagnostics
 

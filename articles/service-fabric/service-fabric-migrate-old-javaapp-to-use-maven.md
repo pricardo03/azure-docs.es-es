@@ -1,30 +1,21 @@
 ---
-title: 'Migración del SDK de Java a Maven: actualización de las aplicaciones Java anteriores de Azure Service Fabric para usar Maven | Microsoft Docs'
+title: Migración del SDK de Java a Maven
 description: Actualice las aplicaciones de Java anteriores que usaban el SDK de Java de Service Fabric para capturar las dependencias de Java de Service Fabric desde Maven. Después de completar esta instalación, sus aplicaciones de Java anteriores podrían compilarse.
-services: service-fabric
-documentationcenter: java
 author: rapatchi
-manager: chackdan
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: dbd85b3647a60ce873c1a55b851bd47ece103282
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5e126ebdf3b89470472391c59d378c7a6d39b86
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718401"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609815"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Actualice la aplicación de Java de Service Fabric anterior para capturar las bibliotecas de Java desde Maven
 Recientemente, se han transferido los archivos binarios de Java de Service Fabric desde el SDK de Java de Service Fabric al hospedaje de Maven. Ahora puede usar **mavencentral** para capturar las dependencias de Java de Service Fabric más recientes. Esta guía de inicio rápido le ayuda a actualizar las aplicaciones de Java existentes, que creó anteriormente para usarse con el SDK de Java de Service Fabric, utilizando cualquier plantilla Yeoman o Eclipse, para ser compatibles con la compilación basada en Maven.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 1. Primero debe desinstalar el SDK de Java existente.
 
    ```bash
@@ -67,7 +58,7 @@ Compatibilidad con Reliable Actor de Service Fabric para la aplicación.
   }
   ```
 
-### <a name="services"></a>Services
+### <a name="services"></a>Servicios
 
 Compatibilidad con el servicio sin estado de Service Fabric para la aplicación.
 

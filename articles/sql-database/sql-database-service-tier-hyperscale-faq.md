@@ -1,5 +1,5 @@
 ---
-title: Preguntas más frecuentes sobre Hiperescala (Citus) en Azure Database for PostgreSQL
+title: Preguntas más frecuentes sobre Hiperescala de Azure SQL Database
 description: Da respuesta a las preguntas más habituales que los clientes formulan sobre las bases de datos de Azure SQL en el nivel de servicio Hiperescala, normalmente conocidas como bases de datos de hiperescala.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: 377de93733d94d8cff5518eebb8ebba38154d10d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6a25d5197746e04ffa25ee397e6d8451e24ae176
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974026"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75615003"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Preguntas más frecuentes sobre Hiperescala de Azure SQL Database
 
@@ -44,12 +44,12 @@ Los niveles de servicio basados en núcleos virtuales se diferencian en función
 | **Más adecuado para** |All|Ofrece opciones de proceso y almacenamiento equilibradas adecuadas para un presupuesto limitado.|La mayoría de las cargas de trabajo empresariales. Escalado automático del tamaño de almacenamiento hasta 100 TB, escalado de procesos vertical y horizontal rápido, restauración rápida de bases de datos.|Aplicaciones de OLTP con una alta tasa de transacciones y latencia de E/S baja. Ofrece mayor resistencia a los errores y rapidez en las conmutaciones por error mediante varias réplicas actualizadas sincrónicamente.|
 |  **Tipo de recurso** ||Base de datos única / grupo elástico / instancia administrada | Base de datos única | Base de datos única / grupo elástico / instancia administrada |
 | **Tamaño de proceso**|Base de datos única / grupo elástico * | 1 a 80 núcleos virtuales | 1 a 80 núcleos virtuales* | 1 a 80 núcleos virtuales |
-| |Instancia administrada | 8, 16, 24, 32, 40, 64, 80 núcleos virtuales | N/D | 8, 16, 24, 32, 40, 64, 80 núcleos virtuales |
+| |instancia administrada | 8, 16, 24, 32, 40, 64, 80 núcleos virtuales | N/D | 8, 16, 24, 32, 40, 64, 80 núcleos virtuales |
 | **Tipo de almacenamiento** | All |Almacenamiento remoto Premium (por instancia) | Almacenamiento desacoplado con caché de SSD local (por instancia) | Almacenamiento SSD local extremadamente rápido (por instancia) |
 | **Tamaño de almacenamiento** | Base de datos única / grupo elástico *| 5 GB – 4 TB | Hasta 100 TB | 5 GB – 4 TB |
-| | Instancia administrada  | 32 GB–8 TB | N/D | 32 GB – 4 TB |
+| | instancia administrada  | 32 GB–8 TB | N/D | 32 GB – 4 TB |
 | **E/S** | Base de datos única | 500 IOPS por núcleo virtual con 7000 IOPS como máximo | Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. Los IOPS efectivos dependen de la carga de trabajo. | 5000 IOPS hasta un máximo de 200 000 IOPS|
-| | Instancia administrada | Depende del tamaño de archivo | N/D | 1375 IOPS/núcleo virtual |
+| | instancia administrada | Depende del tamaño de archivo | N/D | 1375 IOPS/núcleo virtual |
 |**Disponibilidad**|All|1 réplica, sin escalado horizontal de lectura, sin caché local | Varias réplicas, hasta 4 escalados horizontales de lectura, caché local parcial | 3 replicas, 1 escalado horizontal de lectura, alta disponibilidad con redundancia de zona, caché local completa |
 |**Copias de seguridad**|All|RA-GRS, retención de 7 a 35 días (7 días de manera predeterminada)| RA-GRS, retención de 7 días, recuperación a un momento dado (PITR) en un tiempo constante | RA-GRS, retención de 7 a 35 días (7 días de manera predeterminada) |
 
@@ -157,7 +157,7 @@ El registro de transacciones con Hiperescala es prácticamente infinito. No es n
 
 ### <a name="does-my-tempdb-scale-as-my-database-grows"></a>¿Escala mi `tempdb` a medida que crece mi base de datos?
 
-La base de datos `tempdb` está ubicada en el almacenamiento SSD local y está configurada según el tamaño de proceso que aprovisione. La `tempdb` se ha optimizado para proporcionar ventajas de rendimiento máximo. No puede configurar el tamaño de `tempdb` porque no es usted quien lo administra.
+La base de datos `tempdb` está ubicada en el almacenamiento SSD local y tiene un tamaño proporcional al tamaño de proceso que aprovisione. La `tempdb` se ha optimizado para proporcionar ventajas de rendimiento máximo. No puede configurar el tamaño de `tempdb` porque no es usted quien lo administra.
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-data-files"></a>¿Crece automáticamente el tamaño de mi base de datos o tengo que administrar el tamaño de los archivos de datos?
 
@@ -165,7 +165,7 @@ El tamaño de la base de datos crece automáticamente a medida que inserta o ing
 
 ### <a name="what-is-the-smallest-database-size-that-hyperscale-supports-or-starts-with"></a>¿Cuál es el tamaño de base de datos más pequeño que admite Hiperescala?
 
-10 GB.
+40 GB. Una base de datos de Hiperescala se crea con un tamaño inicial de 10 GB. Después, comienza a crecer 10 GB cada 10 minutos, hasta que alcanza el tamaño de 40 GB. Cada uno de estos bloques de 10 GB se asigna en un servidor de páginas diferente para proporcionar más IOPS y más paralelismo de E/S. Debido a esta optimización, incluso si elige un tamaño de base de datos inicial inferior a 40 GB, la base de datos crecerá automáticamente al menos 40 GB.
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>¿En cuantos GB se incrementa el tamaño de mi base de datos cada vez?
 
@@ -268,13 +268,13 @@ Sí.
 
 El RPO es 0 minutos. El objetivo de RTO es inferior a 10 minutos, sin importar el tamaño de la base de datos. 
 
-### <a name="do-backups-of-large-databases-affect-compute-performance-on-my-primary"></a>¿Afectan las copias de seguridad de las bases de datos de gran tamaño al rendimiento de proceso del nodo principal?
+### <a name="does-database-backup-affect-compute-performance-on-my-primary-or-secondary-replicas"></a>¿La copia de seguridad de bases de datos afecta al rendimiento de proceso en mis réplicas principales o secundarias?
 
-No. El subsistema de almacenamiento administra las copias de seguridad y estas aprovechan las instantáneas de almacenamiento. Estas no afectan la carga de trabajo del usuario en el nodo principal.
+No. El subsistema de almacenamiento administra las copias de seguridad y estas aprovechan las instantáneas de almacenamiento. No afectan la carga de trabajo del usuario.
 
-### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>¿Puedo realizar la restauración geográfica con una base de datos de Hiperescala?
+### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>¿Puedo realizar una restauración geográfica con una base de datos de Hiperescala?
 
-Sí.  La restauración geográfica es totalmente compatible.
+Sí.  La restauración geográfica es totalmente compatible. A diferencia de la restauración a un punto concreto, la restauración geográfica puede requerir una operación de tamaño de datos de larga duración.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>¿Puedo configurar la replicación geográfica con la base de datos de Hiperescala?
 
@@ -296,7 +296,7 @@ No. Polybase no se admite en Azure SQL Database.
 
 ### <a name="does-hyperscale-have-support-for-r-and-python"></a>¿Hiperescala es compatible con R y Python?
 
-No. R y Python no se admiten en Azure SQL Database.
+De momento, no.
 
 ### <a name="are-compute-nodes-containerized"></a>¿Están los nodos de proceso en contenedores?
 
@@ -310,7 +310,7 @@ El límite de rendimiento del registro de transacciones se establece en 100 MB/
 
 ### <a name="how-many-iops-do-i-get-on-the-largest-compute"></a>¿Cuántas IOPS obtengo en el proceso más grande?
 
-Las IOPS y la latencia de E/S variarán según los patrones de carga de trabajo. Si los datos a los que se tiene acceso se almacenan en caché en la réplica de proceso, verá el mismo rendimiento de E/S que con el almacenamiento SSD local.
+Las IOPS y la latencia de E/S variarán según los patrones de carga de trabajo. Si los datos a los que se accede se almacenan en caché en la réplica de proceso, verá un rendimiento similar de E/S que con el almacenamiento SSD local.
 
 ### <a name="does-my-throughput-get-affected-by-backups"></a>¿Afectan las copias de seguridad a mi rendimiento?
 
@@ -318,7 +318,11 @@ No. El proceso no está acoplado con la capa de almacenamiento. Esto elimina el 
 
 ### <a name="does-my-throughput-get-affected-as-i-provision-additional-compute-replicas"></a>¿Se ve afectado el rendimiento cuando aprovisiono réplicas de proceso adicionales?
 
-Dado que el almacenamiento se comparte y no hay ninguna replicación física directa que tenga lugar entre la réplica de proceso principal y las secundarias, técnicamente, el rendimiento de la réplica principal no se verá afectado al agregar réplicas secundarias. Sin embargo, podemos limitar las cargas de trabajo de escritura intensivas continuas para permitir que la aplicación del registro en las réplicas secundarias y en los servidores de páginas se ponga al día y evite un rendimiento de lectura insuficiente en las réplicas secundarias.
+Dado que el almacenamiento se comparte y no hay ninguna replicación física directa que tenga lugar entre la réplica de proceso principal y las secundarias, el rendimiento de la réplica principal no se verá afectado directamente al agregar réplicas secundarias. Sin embargo, podemos limitar las cargas de trabajo de escritura intensivas continuas en la principal para permitir que la aplicación del registro en las réplicas secundarias y en los servidores de páginas se ponga al día y evitar un rendimiento de lectura insuficiente en las réplicas secundarias.
+
+### <a name="how-do-i-diagnose-and-troubleshoot-performance-problems-in-a-hyperscale-database"></a>¿Cómo diagnostico y soluciono los problemas de rendimiento en una base de datos de Hiperescala?
+
+Para la mayoría de los problemas de rendimiento, especialmente los que no tienen el origen en el rendimiento del almacenamiento, se aplican los pasos de diagnóstico y solución de problemas habituales de SQL Server. Para obtener información sobre el diagnóstico de almacenamiento específico de Hiperescala, vea [Diagnóstico de la solución de problemas de rendimiento de Hiperescala de SQL](sql-database-hyperscale-performance-diagnostics.md).
 
 ## <a name="scalability-questions"></a>Preguntas sobre escalabilidad
 
@@ -367,7 +371,7 @@ No. Solo puede conectarse a la réplica de escalado horizontal de lectura si esp
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>¿Realiza el sistema un equilibrio de carga inteligente de la carga de trabajo de lectura?
 
-No. Una conexión con intención de solo lectura se redirige a una réplica de escalado horizontal de lectura arbitraria.
+No. Una nueva conexión con intención de solo lectura se redirige a una réplica de escalado horizontal de lectura arbitraria.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-replicas-independently-of-the-primary-replica"></a>¿Se puede realizar un escalado y reducción vertical de las réplicas de proceso secundarias independientemente de la réplica principal?
 
@@ -383,7 +387,7 @@ No. Las bases de datos de Hiperescala tienen el almacenamiento compartido, lo qu
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-replicas"></a>¿Cuánto retraso va a haber entre la réplica de proceso principal y las secundarias?
 
-Desde el momento en que se confirma una transacción en la réplica principal, y según la velocidad de generación del registro actual, puede ser instantáneo o tener un retraso de milisegundos.
+La latencia de los datos desde el momento en que se confirma una transacción en la réplica principal hasta el momento en que es visible en la secundaria depende de la velocidad de generación de registro actual. La latencia de datos típica es de pocos milisegundos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

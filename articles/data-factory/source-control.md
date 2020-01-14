@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: 1f31bb78fced6db2a26559cbd098407823161dfc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: fc38dce3deaa601c9ed36f60439a08bb89cc7630
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928762"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646904"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 
@@ -70,7 +70,7 @@ Ambos métodos abren el panel de configuración del repositorio.
 
 El panel de configuración muestra la siguiente configuración del repositorio de código de Azure Repos:
 
-| Configuración | DESCRIPCIÓN | Valor |
+| Configuración | Descripción | Value |
 |:--- |:--- |:--- |
 | **Tipo de repositorio** | Tipo de repositorio de código de Azure Repos.<br/> | Git o GitHub de Azure DevOps |
 | **Azure Active Directory** | El nombre de su inquilino de Azure AD. | `<your tenant name>` |
@@ -156,6 +156,8 @@ En el panel configuración se muestra la siguiente configuración del repositori
 - GitHub Enterprise con una versión anterior a 2.14.0 no funciona en el explorador Microsoft Edge.
 
 - La integración de GitHub con las herramientas de creación visual de Data Factory solo funciona con la versión de Data Factory disponible con carácter general.
+
+- Se puede capturar un máximo de 1 000 entidades por tipo de recurso (por ejemplo, canalizaciones y conjuntos de valores) desde una sola rama de GitHub. Si se alcanza este límite, se recomienda dividir los recursos en factorías independientes.
 
 ## <a name="switch-to-a-different-git-repo"></a>Cambie a otro repositorio de Git diferente
 

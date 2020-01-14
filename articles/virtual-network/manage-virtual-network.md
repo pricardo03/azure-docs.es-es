@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 2c2994c310369a0a6fe26ccc2c1e2e5de6680349
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 10da1c8e1a4516e3346e5a93cb9fffdac12e23ae
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084692"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638636"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Crear, cambiar o eliminar una red virtual
 
@@ -39,7 +39,7 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 
 1. Seleccione **+ Crear un recurso** > **Redes** > **Red virtual**.
 2. Escriba o seleccione valores para las siguientes opciones y seleccione **Crear**:
-   - **Nombre**: tiene que ser único en el [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) dentro del que seleccione crear la red virtual. No se puede cambiar el nombre una vez creada la red virtual. Puede crear varias redes virtuales con el tiempo. Vea [Convenciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources) para obtener sugerencias de nombres. El uso de una convención de nomenclatura puede facilitar la administración de varias redes virtuales.
+   - **Name**: tiene que ser único en el [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) dentro del que seleccione crear la red virtual. No se puede cambiar el nombre una vez creada la red virtual. Puede crear varias redes virtuales con el tiempo. Vea [Convenciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources) para obtener sugerencias de nombres. El uso de una convención de nomenclatura puede facilitar la administración de varias redes virtuales.
    - **Espacio de direcciones**: el espacio de direcciones de una red virtual se compone de uno o varios intervalos de direcciones no superpuestos que se especifican en la notación CIDR. El rango de direcciones que defina puede ser público o privado (RFC 1918). Tanto si se define el rango de direcciones como público o como privado, el rango de direcciones es accesible solo desde dentro de la red virtual, desde redes virtuales conectadas entre sí y desde las redes locales que se hayan conectado a la red virtual. No se pueden agregar los siguientes rangos de direcciones:
      - 224.0.0.0/4 (multidifusión)
      - 255.255.255.255/32 (difusión)
@@ -62,7 +62,7 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 
      - **Rango de direcciones de subred**: el intervalo debe estar dentro del espacio de direcciones que especificó para la red virtual. El menor intervalo que se puede especificar es /29, lo que proporciona ocho direcciones IP de subred. De conformidad con el protocolo, Azure reserva la primera y la última dirección de cada subred. Otras tres direcciones están reservadas para el uso del servicio de Azure. Como resultado, una red virtual con un intervalo de direcciones de subred de /29 tiene solo tres direcciones IP utilizables. Si planea conectar una red virtual a una puerta de enlace VPN, debe crear una subred de puerta de enlace. Más información sobre las [consideraciones específicas del intervalo de direcciones de las subredes de puerta de enlace](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). En determinadas circunstancias se puede cambiar el intervalo de direcciones una vez creada la subred. Para obtener información sobre cómo cambiar un rango de direcciones de subred, consulte [Administrar subredes](virtual-network-manage-subnet.md).
      - **Suscripción**: Seleccione una [suscripción](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). No se puede usar la misma red virtual en más de una suscripción de Azure. Sin embargo, puede conectar la red virtual de una suscripción a las redes virtuales de otras suscripciones mediante el [emparejamiento de redes virtuales](virtual-network-peering-overview.md). Cualquier recurso de Azure que se conecte a la red virtual debe estar en la misma suscripción que la red virtual.
-     - **Grupo de recursos**: Seleccione un [grupo de recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) existente, o bien cree uno. Un recurso de Azure que se conecta a la red virtual puede estar en el mismo grupo de recursos que la red virtual o en otro diferente.
+     - **Grupo de recursos**: Seleccione un [grupo de recursos](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) existente, o bien cree uno. Un recurso de Azure que se conecta a la red virtual puede estar en el mismo grupo de recursos que la red virtual o en otro diferente.
      - **Ubicación**: seleccione una [ubicación](https://azure.microsoft.com/regions/) de Azure, también conocida como región. Una red virtual solo puede estar en una ubicación de Azure. Pero se puede conectar una red virtual en una ubicación a una red virtual en otra ubicación mediante el uso de VPN Gateway. Cualquier recurso de Azure que se conecte a la red virtual debe estar en la misma ubicación que la red virtual.
 
 **Comandos**
@@ -92,7 +92,7 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
      - [Control de acceso (IAM)](../role-based-access-control/overview.md)
      - [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Bloqueos](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-     - [Script de Automation](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
+     - [Script de Automation](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **Comandos**
 
@@ -103,9 +103,9 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 
 Puede agregar y quitar rangos de direcciones de una red virtual. Un rango de direcciones tiene que especificarse en una notación CIDR y no puede superponerse con otros rangos de direcciones dentro de la misma red virtual. Los rangos de direcciones que defina pueden ser públicos o privados (RFC 1918). Tanto si se define el rango de direcciones como público o como privado, el rango de direcciones es accesible solo desde dentro de la red virtual, desde redes virtuales conectadas entre sí y desde las redes locales que se hayan conectado a la red virtual. 
 
-Puede reducir el intervalo de direcciones de una red virtual si no tiene ninguna subred asociada con él. En caso contrario, solo puede extender el intervalo de direcciones, por ejemplo, cambiar de /16 a /8. Podría comenzar con un intervalo de direcciones pequeño y ampliarlo más adelante o agregar intervalos de direcciones adicionales.
+Puede disminuir el intervalo de direcciones de una red virtual siempre y cuando siga incluyendo los intervalos de las subredes asociadas. Además, puede extender el intervalo de direcciones, por ejemplo, cambiar de /16 a /8. 
 
-<!-- the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+<!-- the above statement has been edited to reflect the most recent comments on the reopened issue: https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
 
 No se pueden agregar los siguientes rangos de direcciones:
 
@@ -139,7 +139,7 @@ Todas las máquinas virtuales que están conectadas a la red virtual se registra
 3. Seleccione **Servidores DNS**, en **CONFIGURACIÓN**.
 4. Seleccione una de las siguientes opciones:
    - **Predeterminado (proporcionado por Azure)** : todos los nombres de los recursos y las direcciones IP privadas se registran automáticamente en los servidores DNS de Azure. Puede resolver nombres entre los recursos conectados a la misma red virtual. No se puede usar esta opción para resolver nombres entre redes virtuales. Para resolver nombres de otras redes virtuales, tiene que usar un servidor DNS personalizado.
-   - **Personalizado**: puede agregar uno o varios servidores, hasta el límite de Azure para una red virtual. Para obtener más información sobre los límites de servidor DNS, vea [Límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Tiene las siguientes opciones:
+   - **Personalizado**: puede agregar uno o varios servidores, hasta el límite de Azure para una red virtual. Para obtener más información sobre los límites de servidor DNS, vea [Límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Tiene las siguientes opciones:
    - **Agregar una dirección**: agrega el servidor a la lista de servidores DNS de la red virtual. Esta opción también registra el servidor DNS con Azure. Si ya ha registrado un servidor DNS con Azure, puede seleccionarlo en la lista.
    - **Quitar una dirección**: junto al servidor que quiere quitar, seleccione **...** y, a continuación, **Quitar**. Eliminar el servidor solo lo quita de esta lista de redes virtuales. El servidor DNS seguirá registrado en Azure para que lo usen otras redes virtuales.
    - **Reordenar direcciones de servidor DNS**: es importante comprobar que se enumeran los servidores DNS en el orden correcto para su entorno. Las listas de servidores DNS se usan en el orden en que se especifican. No funcionan como una instalación round robin. Si se puede acceder al primer servidor DNS de la lista, el cliente usa ese servidor DNS, con independencia de si el servidor DNS funciona correctamente. Quite todos los servidores DNS que aparecen y vuelva a agregarlos en el orden que desee.
@@ -171,7 +171,7 @@ Solo se puede eliminar una red virtual si no tiene recursos conectados. Si hay r
 
 Para realizar tareas en redes virtuales, su cuenta debe estar asignada al rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un rol [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignadas las acciones adecuadas que se muestran en la tabla siguiente:
 
-| .                                  |   NOMBRE                                |
+| Acción                                  |   Nombre                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft.Network/virtualNetworks/read   |   Leer una red virtual              |
 |Microsoft.Network/virtualNetworks/write  |   Crear o actualizar una red virtual  |

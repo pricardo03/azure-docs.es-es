@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: 40b277f0b1bfb3501bb246e555d46db5e1ee9f95
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: da8c194b7911d2eeda8e0c903cb7412186aacfcb
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279303"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638262"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>Límites y regulación de recursos de SQL Database
 
@@ -79,7 +79,7 @@ Al encontrar un uso elevado de sesión o de trabajo, las opciones de mitigación
 - Aumentar el nivel de servicio o el tamaño de proceso de la base de datos o del grupo elástico. Consulte [Scale single database resources](sql-database-single-database-scale.md) (Escala de recursos de bases de datos únicas) y [Scale elastic pool resources](sql-database-elastic-pool-scale.md) (Escala de recursos de grupos elásticos).
 - Optimizar las consultas para reducir el uso de recursos de cada consulta si la causa del mayor uso de trabajo es debida a la contención de los recursos de proceso. Para más información, consulte [Optimización y sugerencias de consultas](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-## <a name="resource-governance"></a>Gobernanza de recursos
+## <a name="resource-governance"></a>Regulación de recursos
 
 Para aplicar límites de recursos, Azure SQL Database usa una implementación de regulación de recursos basada en [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) de SQL Server, modificada y extendida para ejecutar un servicio de base de datos de SQL Server en Azure. En cada instancia de SQL Server del servicio, hay varios [grupos de recursos](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor-resource-pool) y [grupos de cargas de trabajo](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor-workload-group), con límites de recursos que se establecen en el nivel de grupo para proporcionar una [base de datos como servicio equilibrada](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/). La carga de trabajo de usuario y las cargas de trabajo internas se clasifican en grupos de recursos y grupos de cargas de trabajo distintos. La carga de trabajo de usuario de las réplicas primarias y secundarias legibles, incluidas las réplicas geográficas, se clasifica en el grupo de recursos `SloSharedPool1` y en el grupo de cargas de trabajo `UserPrimaryGroup.DBId[N]`, donde `N` representa el valor del identificador de base de datos. Además, hay varios grupos de recursos y grupos de cargas de trabajo para varias cargas de trabajo internas.
 
@@ -99,7 +99,9 @@ El número de IOPS y los valores mínimo y máximo de rendimiento que devuelve l
 
 En las bases de datos Básica, Estándar y De uso general, que usan archivos de datos de Azure Storage, es posible que el valor de `primary_group_max_io` no sea factible si una base de datos no tiene suficientes archivos de datos para proporcionar de forma acumulativa este número de IOPS; si los datos no se distribuyen uniformemente entre los archivos; o si el nivel de rendimiento de los blobs subyacentes limita el número de IOPS o el rendimiento por debajo del límite de regulación de los recursos. Igualmente, con E/S de registros pequeños generadas por la confirmación frecuente de transacciones, puede que el valor `primary_max_log_rate` no sea factible para una carga de trabajo debido al límite de IOPS en el blob de almacenamiento de Azure subyacente.
 
-Los valores de uso de recursos, como `avg_data_io_percent` y `avg_log_write_percent`, notificados en las vistas [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database),  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)y [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database), se calculan como porcentajes de los límites máximos de regulación de recursos. Por lo tanto, cuando otros factores que no son la regulación de recursos limitan el número de IOPS o el rendimiento, es posible que se reduzcan estos y que aumenten las latencias a medida que se incrementa la carga de trabajo, incluso aunque la utilización de los recursos notificados permanezca por debajo del 100 %. Para ver el número de IOPS, el rendimiento y la latencia de lectura y escritura por archivo de base de datos, utilice la función [sys.dm_io_virtual_file_stats()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql). Esta función muestra toda la E/S en la base de datos, incluida la que tiene lugar en segundo plano que no se tiene en cuenta en `avg_data_io_percent`, pero usa el número de IOPS y el rendimiento del almacenamiento subyacente y puede afectar a la latencia de almacenamiento observada.
+Los valores de uso de recursos, como `avg_data_io_percent` y `avg_log_write_percent`, notificados en las vistas [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database),  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)y [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database), se calculan como porcentajes de los límites máximos de regulación de recursos. Por lo tanto, cuando otros factores que no son la regulación de recursos limitan el número de IOPS o el rendimiento, es posible que se reduzcan estos y que aumenten las latencias a medida que se incrementa la carga de trabajo, incluso aunque la utilización de los recursos notificados permanezca por debajo del 100 %. 
+
+Para ver el número de IOPS, el rendimiento y la latencia de lectura y escritura por archivo de base de datos, utilice la función [sys.dm_io_virtual_file_stats()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql). Esta función muestra toda la E/S en la base de datos, incluida la que tiene lugar en segundo plano que no se tiene en cuenta en `avg_data_io_percent`, pero usa el número de IOPS y el rendimiento del almacenamiento subyacente y puede afectar a la latencia de almacenamiento observada. La función también muestra una latencia adicional que puede ser introducida por el gobierno de recursos de e/s para lecturas y escrituras, en las columnas `io_stall_queued_read_ms` y `io_stall_queued_write_ms`, respectivamente.
 
 ### <a name="transaction-log-rate-governance"></a>Regulación de la tasa de registro de transacciones
 
@@ -132,6 +134,6 @@ Cuando encuentre un límite para las tasas de registros que dificulte la alcanza
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre los límites generales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
+- Para más información sobre los límites generales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Para más información sobre las DTU y eDTU, consulte [DTU y eDTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
 - Para más información sobre los límites de tamaño de tempdb, consulte [Base de datos tempdb en Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

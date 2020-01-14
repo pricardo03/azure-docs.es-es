@@ -1,28 +1,19 @@
 ---
-title: 'Resource Manager para el clúster de Service Fabric: costo de movimiento | Microsoft Docs'
-description: Información general del costo de movimiento de los servicios de Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: 'Resource Manager para el clúster de Service Fabric: Costo del movimiento'
+description: Obtenga información sobre el costo del movimiento de los servicios de Service Fabric y cómo puede especificarse para ajustarse a las necesidades arquitectónicas, incluida la configuración dinámica.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 80845fca8d163a4ebe9257f19825624acef3a815
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: af3e01d0d5a605c052be24eed8e14ee3449e2c79
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243016"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563350"
 ---
 # <a name="service-movement-cost"></a>Costo del movimiento del servicio
-Un factor que Cluster Resource Manager de Service Fabric toma en cuenta al intentar determinar qué cambios se deben realizar en un clúster es el costo de esos cambios. La noción de "costo" se valora frente a la cantidad de mejora que se puede introducir en el clúster. El costo se tiene en cuenta al mover los servicios por cuestiones de equilibrio, desfragmentación y otros requisitos. El objetivo es cumplir los requisitos de la forma menos perjudicial o costosa. 
+Un factor que Cluster Resource Manager de Service Fabric toma en cuenta al intentar determinar qué cambios se deben realizar en un clúster es el costo de esos cambios. La noción de "costo" se valora frente a la cantidad de mejora que se puede introducir en el clúster. El costo se tiene en cuenta al mover los servicios por cuestiones de equilibrio, desfragmentación y otros requisitos. El objetivo es cumplir los requisitos de la forma menos perjudicial o costosa.
 
 Mover servicios supone unos costos mínimos de tiempo de CPU y ancho de banda de red. Para los servicios con estado, requiere copiar el estado de dichos servicios, consumiendo memoria y espacio en disco adicionales. Minimizar el costo de las soluciones que Cluster Resource Manager de Azure Service Fabric proporciona ayuda a garantizar que los recursos del clúster no se utilizan de forma innecesaria. De todas formas, tampoco deben pasar por alto soluciones que mejorarían significativamente la asignación de recursos en el clúster.
 

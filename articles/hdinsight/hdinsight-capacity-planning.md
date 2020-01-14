@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: d8d5ecd64ba689dc9cce342513702d8359038162
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9080a0f327aae50a87b5e69ec157a46181a38a65
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682252"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640948"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamiento de la capacidad de los clústeres de HDInsight
 
@@ -47,7 +47,7 @@ Si ya tiene una cuenta de almacenamiento o un recurso de Data Lake Storage que c
 
 Una vez que un clúster de HDInsight ya está implementado, puede adjuntar cuentas adicionales de Azure Storage o acceder a recursos de Data Lake Storage. Todas las cuentas de almacenamiento deben residir en la misma ubicación que el clúster. Un almacén de Data Lake Storage puede estar en una ubicación distinta, aunque esto puede ocasionar algo de latencia de lectura y escritura de datos.
 
-Azure Storage tiene algunos [límites de capacidad](../azure-subscription-service-limits.md#storage-limits), mientras que Data Lake Storage Gen1 tiene una capacidad prácticamente ilimitada.
+Azure Storage tiene algunos [límites de capacidad](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits), mientras que Data Lake Storage Gen1 tiene una capacidad prácticamente ilimitada.
 
 Un clúster puede acceder a una combinación de distintas cuentas de almacenamiento. Estos son ejemplos típicos:
 
@@ -92,9 +92,19 @@ A veces, los errores pueden producirse debido a la ejecución en paralelo de var
 
 ## <a name="quotas"></a>Cuotas
 
-Después de determinar el tamaño, la escala y el tipo de la máquina virtual del clúster de destino, compruebe los límites de capacidad de cuota actual de la suscripción. Cuando alcance un límite de cuota, puede que no sea capaz de implementar clústeres nuevos o de escalar horizontalmente los clústeres con la adición de más nodos de trabajo. El límite de cuota única es la cuota de núcleos de CPU que existe en el nivel de región para cada suscripción. Por ejemplo, la suscripción puede tener el límite de 30 núcleos en la región Este de EE. UU. Si fuera necesario solicitar un aumento de la cuota, siga estos pasos:
+Después de determinar el tamaño, la escala y el tipo de la máquina virtual del clúster de destino, compruebe los límites de capacidad de cuota actual de la suscripción. Cuando alcance un límite de cuota, puede que no sea capaz de implementar clústeres nuevos o de escalar horizontalmente los clústeres con la adición de más nodos de trabajo. El límite de cuota única es la cuota de núcleos de CPU que existe en el nivel de región para cada suscripción. Por ejemplo, la suscripción puede tener el límite de 30 núcleos en la región Este de EE. UU. 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Siga estos pasos para comprobar los núcleos disponibles:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+2. Vaya a la página **información general** para el clúster de HDInsight. 
+3. En el menú de la izquierda, haga clic en **Límites de cuota**.
+
+   La página muestra el número de núcleos en uso, el número de núcleos disponibles y el total de núcleos.
+
+Si fuera necesario solicitar un aumento de la cuota, siga estos pasos:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. Seleccione **Ayuda y soporte técnico** de la parte inferior izquierda de la página.
 1. Seleccione **Nueva solicitud de soporte técnico**.
 1. En la página **Nueva solicitud de soporte técnico**, en la pestaña **Fundamentos**, seleccione las opciones siguientes:
@@ -115,7 +125,7 @@ Después de determinar el tamaño, la escala y el tipo de la máquina virtual de
 
 Puede [ponerse en contacto con el servicio de soporte técnico para solicitar un aumento de la cuota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-Sin embargo, hay algunos límites de cuota fijos; por ejemplo, una única suscripción de Azure puede tener como máximo diez mil núcleos. Para obtener información detallada sobre estos límites, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+Sin embargo, hay algunos límites de cuota fijos; por ejemplo, una única suscripción de Azure puede tener como máximo diez mil núcleos. Para obtener información detallada sobre estos límites, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 932540c830940ec18c439352d54f671db7387b94
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7e0339f5118d4745b6abe0268f021f8284a5f11f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379159"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689114"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solución de problemas de dispositivos híbridos unidos a Azure Active Directory 
 
@@ -96,13 +96,14 @@ Revise los siguientes campos y asegúrese de que tengan los valores esperados:
 
 Este campo indica si el dispositivo está unido o no a una implementación local de Active Directory. Si el valor es **NO**, el dispositivo no puede realizar una unión a Azure AD híbrido.  
 
-#### <a name="workplacejoined--no"></a>WorkplaceJoined: NO  
+#### <a name="workplacejoined--no"></a>WorkplaceJoined: No  
 
 Este campo indica si el dispositivo está registrado con Azure AD, pero como un dispositivo personal (marcado como *Unido al área de trabajo*). Este valor debe ser **NO** para un equipo unido a un dominio que esté también unido a Azure AD híbrido. Si el valor es **SÍ**, se agrega una cuenta profesional o educativa antes de la finalización de la unión a Azure AD híbrido. En este caso, la cuenta se omite cuando se usa la versión de actualización de aniversario de Windows 10 (1607).
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined : SÍ  
 
-En este campo se indica si el dispositivo está unido a Azure AD. Si el valor es **NO**, aún no ha finalizado la unión a Azure AD. 
+Este campo indica si el dispositivo está unido. El valor será **SÍ** si el dispositivo es un dispositivo unido a un Azure AD o un dispositivo híbrido de Azure AD Unido.
+Si el valor es **NO**, aún no ha finalizado la unión a Azure AD. 
 
 Continúe con los pasos siguientes para más información.
 
@@ -371,13 +372,13 @@ Use registros de Visor de eventos para buscar la fase y el código de error para
 
 ##### <a name="federated-join-server-errors"></a>Errores del servidor de unión federado
 
-| Código de error del servidor | Mensaje de error del servidor | Razones posibles | Resolución |
+| Código de error del servidor | Mensaje de error del servidor | Razones posibles | Solución |
 | --- | --- | --- | --- |
 | DirectoryError | La solicitud está limitada temporalmente. Vuelva a intentarlo después de 300 segundos. | Error previsto. Posiblemente debido a la realización de varias solicitudes de registro en una sucesión rápida. | Vuelva a intentar la unión tras el tiempo de enfriamiento. |
 
 ##### <a name="sync-join-server-errors"></a>Errores del servidor de unión sincronizado
 
-| Código de error del servidor | Mensaje de error del servidor | Razones posibles | Resolución |
+| Código de error del servidor | Mensaje de error del servidor | Razones posibles | Solución |
 | --- | --- | --- | --- |
 | DirectoryError | AADSTS90002: no se ha encontrado del inquilino <UUID>. Este error puede producirse si no hay suscripciones activas para el inquilino. Compruébelo con el administrador de la suscripción. | El identificador de inquilino en el objeto SCP es incorrecto. | Asegúrese de que el objeto SCP está configurado con el identificador de inquilino de Azure AD correcto y suscripciones activas en el inquilino. |
 | DirectoryError | No se encuentra el objeto de dispositivo por el identificador especificado. | Error previsto para la unión de sincronización. El objeto de dispositivo no se ha sincronizado de AD a Azure AD. | Espere a que se complete la sincronización de Azure AD Connect y el siguiente intento de unión después de la finalización de la sincronización resolverá el problema. |

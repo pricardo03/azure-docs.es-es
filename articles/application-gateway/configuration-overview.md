@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 79867bd048be882414e247af11c133ed481788a0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: ce6f07a20044efed43cf24b3f0652691dff8b8aa
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996662"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658345"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -25,7 +25,7 @@ Esta imagen muestra una aplicación que tiene tres clientes de escucha. Los dos 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Red virtual de Azure y subred dedicada
 
@@ -46,9 +46,9 @@ Se recomienda que utilice un tamaño /28 como mínimo. Este tamaño le ofrece 11
 
 #### <a name="network-security-groups-on-the-application-gateway-subnet"></a>Grupos de seguridad de red en la subred de Application Gateway
 
-Los grupos de seguridad se admiten en Application Gateway. Sin embargo, hay varias restricciones:
+Los grupos de seguridad se admiten en Application Gateway. Pero hay algunas restricciones:
 
-- Debe permitir el tráfico entrante de Internet en los puertos TCP 65503-65534 para la SKU de Application Gateway v1 y en los puertos TCP 65200-65535 para la SKU de v2 con la subred de destino como *Any* (Cualquiera). Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Estos puertos están protegidos (bloqueados) mediante certificados de Azure. Las entidades externas, incluidos los clientes de esas puertas de enlace, no podrán iniciar ningún cambio en esos puntos de conexión sin los certificados adecuados en vigor.
+- Debe permitir el tráfico entrante de Internet en los puertos TCP 65503-65534 para la SKU de Application Gateway v1, y los puertos TCP 65200-65535 para la SKU de V2 con la subred de destino como **cualquiera** y origen como la etiqueta de servicio de **GatewayManager**. Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Estos puertos están protegidos (bloqueados) mediante certificados de Azure. Las entidades externas, incluidos los clientes de esas puertas de enlace, no pueden comunicarse en estos puntos de conexión.
 
 - No puede bloquearse la conectividad saliente de Internet. Las reglas de salida predeterminadas del grupo de seguridad de red permiten la conectividad a Internet. Se recomienda que:
 
@@ -57,12 +57,12 @@ Los grupos de seguridad se admiten en Application Gateway. Sin embargo, hay vari
 
 - Se debe permitir el tráfico de la etiqueta **AzureLoadBalancer**.
 
-##### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Permitir que Application Gateway acceda a varias direcciones IP de origen
+#### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Permitir que Application Gateway acceda a varias direcciones IP de origen
 
 En este escenario, puede usar grupos de seguridad de red en la subred de Application Gateway. Ponga las restricciones siguientes en la subred en este orden de prioridad:
 
-1. Permita el tráfico entrante desde una IP o un intervalo IP de origen y el destino como toda la subred de Application Gateway o la dirección IP de front-end privada específica configurada. El grupo de seguridad de red no funciona en una dirección IP pública.
-2. Permita las solicitudes entrantes de todos los orígenes a los puertos 65503-65534 para la SKU de Application Gateway v1 y a los puertos 65200-65535 para la SKU v2 para la [comunicación de mantenimiento de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Estos puertos están protegidos (bloqueados) mediante certificados de Azure. Sin los certificados adecuados en vigor, las entidades externas no podrán iniciar cambios en esos puntos de conexión.
+1. Permita el tráfico entrante desde una dirección IP de origen o intervalo de direcciones IP con el destino como el intervalo de direcciones de subred Application Gateway completo y el puerto de destino como puerto de acceso de entrada, por ejemplo, el puerto 80 para el acceso HTTP.
+2. Permita solicitudes entrantes desde el origen como **GatewayManager** etiqueta de servicio y destino como **Cualquiera** y puertos de destino como 65503-65534 para el SKU de Application Gateway v1, y puertos 65200-65535 para SKU v2 para [ comunicación de estado de salud de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Estos puertos están protegidos (bloqueados) mediante certificados de Azure. Sin los certificados adecuados en vigor, las entidades externas no podrán iniciar cambios en esos puntos de conexión.
 3. Permitir sondeos entrantes de Azure Load Balancer (con la etiqueta *AzureLoadBalancer*) y el tráfico de red virtual entrante (con la etiqueta *VirtualNetwork*) en el [grupo de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Bloquear todo el tráfico entrante restante mediante una regla Denegar todo.
 5. Permitir el tráfico saliente a Internet para todos los destinos.
@@ -74,10 +74,10 @@ Para la SKU v1, las rutas definidas por el usuario (UDR) se admiten en la subred
 Las UDR en la subred de Application Gateway no son compatibles con la SKU v2. Para más información, consulte [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
 
 > [!NOTE]
-> Las UDR no son compatibles con la SKU v2.  Si necesita UDR, debe seguir implementando la SKU v1.
+> No se admiten UDR para la SKU V2 desde ahora.
 
 > [!NOTE]
-> El uso de rutas definidas por el usuario en la subred de Application Gateway hace que el estado de mantenimiento en la [vista de mantenimiento de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) aparezca como "Desconocido". Esto también hace que se produzcan errores en la generación de registros y métricas de Application Gateway. Se recomienda que no use rutas definidas por el usuario en la subred de Application Gateway para que pueda ver el estado, los registros y las métricas del back-end.
+> El uso de UDR en la subred Application Gateway podría hacer que el estado de mantenimiento en la [Vista de mantenimiento de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) aparezca como "desconocido". También podría provocar un error en la generación de registros y métricas de Application Gateway. Se recomienda que no use rutas definidas por el usuario en la subred de Application Gateway para que pueda ver el estado, los registros y las métricas del back-end.
 
 ## <a name="front-end-ip"></a>Dirección IP de front-end
 
@@ -165,7 +165,7 @@ Para configurar una página de error personalizada global, consulte [Configuraci
 
 Puede centralizar la administración de certificados SSL y reducir la sobrecarga de cifrado y descifrado de una granja de servidores back-end. El control centralizado de SSL también le permite especificar una directiva SSL central que se adapte a los requisitos de seguridad. Puede elegir la directiva SSL *predeterminada*, *predefinida* o *personalizada*.
 
-Puede configurar la directiva SSL para controlar las versiones del protocolo SSL. Puede configurar una puerta de enlace de aplicaciones para que use una versión de protocolo mínima para los protocolos de enlace TLS a partir de TLS 1.0, TLS 1.1 y TLS 1.2. De forma predeterminada, SSL 2.0 y 3.0 están deshabilitadas y no se pueden configurar. Para más información, consulte [Introducción a la directiva SSL de Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
+Puede configurar la directiva SSL para controlar las versiones del protocolo SSL. Puede configurar una puerta de enlace de aplicaciones para que use una versión de protocolo mínima para los protocolos de enlace TLS desde TLS 1.0, TLS 1.1 y TLS 1.2. De forma predeterminada, SSL 2.0 y 3.0 están deshabilitadas y no se pueden configurar. Para más información, consulte [Introducción a la directiva SSL de Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
 
 Después de crear un cliente de escucha, puede asociarlo a una regla de enrutamiento de solicitud. Esta regla determina cómo se enrutan las solicitudes que se reciben en el cliente de escucha hacia el back-end.
 
@@ -256,7 +256,7 @@ Esta característica es útil cuando se quiere mantener una sesión de usuario e
 
 ### <a name="connection-draining"></a>Purga de la conexión
 
-La purga de conexión ayuda a la correcta eliminación de miembros del grupo de servidores back-end durante las actualizaciones de servicio planeadas. Puede aplicar esta configuración a todos los miembros de un grupo de servidores back-end durante la creación de reglas. Garantiza que todas las instancias de anulación del registro de un grupo de back-end sigan manteniendo las conexiones existentes y atiendan las solicitudes en curso durante un tiempo de espera configurable y no reciban solicitudes o conexiones nuevas. La única excepción a esto son las solicitudes enlazadas para las instancias de cancelación del registro, debido a la afinidad de la sesión administrada por la puerta de enlace y seguirán siendo procesadas por el proxy hasta las instancias de cancelación del registro. La purga de conexión se aplica a instancias de back-end que se eliminan explícitamente del grupo de servidores back-end.
+La purga de conexión ayuda a la correcta eliminación de miembros del grupo de servidores back-end durante las actualizaciones de servicio planeadas. Puede aplicar esta configuración a todos los miembros de un grupo de servidores back-end durante la creación de reglas. Garantiza que todas las instancias de anulación del registro de un grupo de back-end sigan manteniendo las conexiones existentes y atiendan las solicitudes en curso durante un tiempo de espera configurable y no reciban solicitudes o conexiones nuevas. La única excepción a esto son las solicitudes enlazadas para cancelar el registro de instancias debido a la afinidad de la sesión administrada por la puerta de enlace y que se seguirán reenviando a las instancias de cancelación del registro. La purga de conexión se aplica a instancias de back-end que se eliminan explícitamente del grupo de servidores back-end.
 
 ### <a name="protocol"></a>Protocolo
 

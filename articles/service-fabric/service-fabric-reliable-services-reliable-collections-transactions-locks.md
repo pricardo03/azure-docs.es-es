@@ -1,35 +1,24 @@
 ---
-title: Transacciones y modos de bloqueo en Reliable Collections de Azure Service Fabric | Microsoft Docs
+title: Transacciones y modos de bloqueo en las colecciones de confianza
 description: Transacciones y registros de Reliable State Manager y Reliable Collections de Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 5/1/2017
-ms.author: atsenthi
-ms.openlocfilehash: 8e77e488a3c0a40a714a0e8efffba0a2947454bf
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: f27381aa0979b37c759f66d0e873126edc006d6d
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599316"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614186"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transacciones y modos de bloqueo en Reliable Collections de Azure Service Fabric
 
 ## <a name="transaction"></a>Transacción
-Una transacción es una secuencia de operaciones realizadas como una única unidad lógica de trabajo.
+Una transacción es una secuencia de operaciones realizadas como una sola unidad lógica de trabajo.
 Una transacción debe presentar las siguientes propiedades ACID. (vea: https://technet.microsoft.com/library/ms190612)
 * **Atomicidad**: una transacción debe ser una unidad atómica de trabajo. Es decir, o se modifican todos sus datos o ninguno de ellos.
-* **Coherencia**: cuando ha finalizado, una transacción debe dejar todos los datos en un estado coherente. Todas las estructuras de datos internos deben ser correctas al final de la transacción.
-* **Aislamiento**: las modificaciones realizadas por transacciones simultáneas se deben aislar de las modificaciones realizadas por otras transacciones simultáneas. El nivel de aislamiento usado para una operación dentro de ITransaction viene determinado por el elemento IReliableState que realiza la operación.
-* **Durabilidad**: una vez concluida una transacción, sus efectos son permanentes en el sistema. Las modificaciones persisten incluso si se produce un error del sistema.
+* **Coherencia**: Cuando finaliza, una transacción debe dejar todos los datos en un estado coherente. Todas las estructuras de datos internos deben ser correctas al final de la transacción.
+* **Aislamiento**: Las modificaciones realizadas por transacciones simultáneas se deben aislar de las modificaciones llevadas a cabo por otras transacciones simultáneas. El nivel de aislamiento usado para una operación dentro de ITransaction viene determinado por el elemento IReliableState que realiza la operación.
+* **Durabilidad**: una vez concluida una transacción, sus efectos son permanentes en el sistema. Las modificaciones persisten aún en el caso de producirse un error del sistema.
 
 ### <a name="isolation-levels"></a>Niveles de aislamiento
 Un nivel de aislamiento define el grado en el que debe aislarse la transacción de las modificaciones que realicen otras transacciones.
@@ -38,7 +27,7 @@ Hay dos niveles de aislamiento que se admiten en Colecciones confiables:
 * **Lectura repetible**: especifica que las instrucciones no puedan leer datos que se hayan modificado, pero que otras transacciones aún no han confirmado y que ninguna otra puede modificar los datos leídos por la actual hasta que esta finalice. Para obtener información, vea [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 * **Instantánea**: especifica que los datos que ha leído cualquier instrucción de una transacción sean la versión coherente, desde el punto de vista transaccional, de los datos existentes al comienzo de la transacción.
   La transacción solo puede reconocer las modificaciones de datos que se confirmaron antes del inicio de la transacción.
-  Las modificaciones de datos realizadas por otras transacciones después del inicio de la transacción actual no son visibles para las instrucciones que se ejecutan en la transacción actual.
+  Las instrucciones que se ejecuten en la transacción actual no verán las modificaciones de datos efectuadas por otras transacciones después del inicio de la transacción actual.
   El efecto es como si las instrucciones de una transacción obtienen una instantánea de los datos confirmados tal como se encontraban al inicio de la transacción.
   Las instantáneas son coherentes entre colecciones confiables.
   Para obtener información, vea [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).

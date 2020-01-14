@@ -2,18 +2,18 @@
 title: 'Comprensión y resolución de errores de WebHCat en HDInsight: Azure'
 description: Aprenda cómo tratar errores comunes devueltos por WebHCat en HDInsight y cómo resolverlos.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
-ms.author: hrasheed
-ms.openlocfilehash: 5c103482771b829730d009d65283a54ec1d8eb8a
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.custom: hdinsightactive
+ms.date: 01/01/2020
+ms.openlocfilehash: 011ef4f192bbae12be7d2464d5b0526f584821a6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555012"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638857"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Entender y resolver errores recibidos de WebHCat en HDInsight
 
@@ -21,17 +21,11 @@ Obtener información acerca de los errores recibidos al utilizar WebHCat con HDI
 
 ## <a name="what-is-webhcat"></a>¿Qué es WebHCat?
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) es una API REST para [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), una capa de administración de almacenamiento y tablas para Apache Hadoop. WebHCat está habilitado de manera predeterminada en los clústeres de HDInsight y se usa por diversas herramientas para enviar trabajos, obtener el estado de los trabajos, etc. sin iniciar sesión en el clúster.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) es una API REST para [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), una capa de administración de almacenamiento y tablas para Apache Hadoop. WebHCat está habilitado de forma predeterminada en los clústeres de HDInsight y se usa en varias herramientas para enviar trabajos, obtener el estado del trabajo, etc., sin iniciar sesión en el clúster.
 
 ## <a name="modifying-configuration"></a>Modificación de la configuración
 
-> [!IMPORTANT]  
-> Algunos de los errores que se muestran en este documento se producen porque se ha superado un máximo configurado. Cuando el paso de la resolución menciona que puede cambiar un valor, debe usar una de las acciones siguientes para realizar el cambio:
-
-* En clústeres de **Windows**: use una acción de script para configurar el valor durante la creación del clúster. Para obtener más información, vea [Desarrollar acciones de script](hdinsight-hadoop-script-actions-linux.md).
-
-* En clústeres de **Linux**: use Apache Ambari (web o API REST) para modificar el valor. Para más información, consulte [Administración de HDInsight mediante Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-
+Algunos de los errores que se muestran en este documento se producen porque se ha superado un máximo configurado. Cuando el paso de resolución mencione que puede cambiar un valor, use Apache Ambari (web o API de REST) para modificar el valor. Para más información, consulte [Administración de HDInsight mediante Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
 ### <a name="default-configuration"></a>Configuración predeterminada
 
@@ -47,15 +41,15 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 **Código de estado HTTP**: 429
 
-| Causa | Resolución |
+| Causa | Solución |
 | --- | --- |
-| Ha superado el máximo de solicitudes simultáneas atendidas por WebHCat por minuto (el valor predeterminado es 20). |Reduzca la carga de trabajo para asegurarse de que no envía más que el número máximo de solicitudes simultáneas o aumente el límite de solicitudes simultáneas modificando `templeton.exec.max-procs`. Consulte [Modificación de la configuración](#modifying-configuration) para más información. |
+| Ha superado el número máximo de solicitudes simultáneas atendidas por WebHCat por minuto (el valor predeterminado es 20) |Reduzca la carga de trabajo para asegurarse de que no envía más del número máximo de solicitudes simultáneas o aumenta el límite de solicitudes simultáneas al modificar `templeton.exec.max-procs`. Consulte [Modificación de la configuración](#modifying-configuration) para más información. |
 
 ## <a name="server-unavailable"></a>Servidor no disponible
 
 **Código de estado HTTP**: 503
 
-| Causa | Resolución |
+| Causa | Solución |
 | --- | --- |
 | Este código de estado suele producirse durante la conmutación por error entre el nodo principal primario y secundario para el clúster. |Espere dos minutos y vuelva a intentar la operación. |
 
@@ -63,7 +57,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 **Código de estado HTTP**: 400
 
-| Causa | Resolución |
+| Causa | Solución |
 | --- | --- |
 | Los detalles de los trabajos se han limpiado con el limpiador del historial de trabajos |El período de retención predeterminado para el historial de trabajos es de 7 días. El período de retención predeterminado puede cambiarse modificando `mapreduce.jobhistory.max-age-ms`. Consulte [Modificación de la configuración](#modifying-configuration) para más información. |
 | Se ha suprimido el trabajo debido a una conmutación por error |Vuelva a intentar el envío de trabajos durante un tiempo máximo de dos minutos |
@@ -73,7 +67,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 **Código de estado HTTP**: 502
 
-| Causa | Resolución |
+| Causa | Solución |
 | --- | --- |
 | La recolección de elementos no utilizados internos se está produciendo en el proceso de WebHCat |Espere a que termine la recolección de elementos no utilizados o reinicie el servicio de WebHCat |
 | Tiempo de espera de una respuesta desde el servicio de ResourceManager. Este error se puede producir cuando el número de aplicaciones activas alcanza el máximo configurado (el valor predeterminado es 10.000) |Espere a que finalice los trabajos actualmente en ejecución o aumente el límite de trabajos simultáneos modificando `yarn.scheduler.capacity.maximum-applications`. Consulte [Modificación de la configuración](#modifying-configuration) para más información. |

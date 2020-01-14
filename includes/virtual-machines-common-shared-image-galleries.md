@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 067ac0f7f000f749f61d302db4c5c6b856e698a2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 5618757f4bf5eaf1afc5ef0ce1735eb4ae94e1d2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74875540"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663050"
 ---
 La galería de imágenes compartidas es un servicio que ayuda a crear la estructura y la organización en torno a las imágenes administradas. Las galerías de imágenes compartidas proporcionan:
 
 - Replicación global administrada de las imágenes.
 - Control de versiones y agrupación de las imágenes para facilitar la administración.
-- Imágenes de alta disponibilidad con cuentas de almacenamiento con redundancia de zona (ZRS) en las regiones donde esté disponible Availability Zones. ZRS ofrece más resistencia a errores de zona.
+- Imágenes de alta disponibilidad con cuentas de almacenamiento con redundancia de zona (ZRS) en las regiones donde esté disponible Availability Zones. ZRS ofrece mejor resistencia a errores de zona.
 - Imágenes compartidas entre suscripciones e, incluso, entre inquilinos de Active Directory (AD) mediante RBAC.
 - Escalado de las implementaciones con réplicas de imagen en cada región.
 
@@ -31,7 +31,7 @@ Si tiene un gran número de imágenes administradas que se deben mantener y quie
 
 La característica de galería de imágenes compartidas tiene varios tipos de recursos:
 
-| Resource | DESCRIPCIÓN|
+| Resource | Descripción|
 |----------|------------|
 | **Imagen administrada** | Una imagen básica que se puede usar por sí sola o para crear una **versión de imagen** de una galería de imágenes. Las imágenes administradas se crean a partir de máquinas virtuales [generalizadas](#generalized-and-specialized-images). Una imagen administrada es un tipo de VHD especial que se puede usar para crear varias máquinas virtuales y que ahora se puede usar para crear versiones de imágenes compartidas. |
 | **Instantánea** | Una copia de un disco duro virtual que se puede usar para crear una **versión de imagen**. Se pueden tomar instantáneas de una máquina virtual [especializada](#generalized-and-specialized-images) (que no se ha generalizado) y, después, usarse por sí solas o con instantáneas de discos de datos para crear una versión de imagen especializada.
@@ -71,7 +71,7 @@ Los siguientes son otros parámetros que se pueden establecer en la definición 
 
 ## <a name="generalized-and-specialized-images"></a>Imágenes generalizadas y especializadas
 
-Hay dos estados del sistema operativo compatibles con Shared Image Gallery. Normalmente, las imágenes requieren que la máquina virtual usada para crear la imagen se haya generalizado antes de tomar la imagen. La generalización es un proceso que quita la información específica del equipo y del usuario de la máquina virtual. En Windows, se usa también Sysprep. En el caso de Linux, puede usar los parámetros [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` o `-deprovision+user`.
+Hay dos estados del sistema operativo compatibles con Shared Image Gallery. Normalmente, las imágenes requieren que la máquina virtual usada para crear la imagen se haya generalizado antes de tomar la imagen. La generalización es un proceso que quita la información específica del equipo y del usuario de la máquina virtual. En Windows, se usa también Sysprep. En el caso de Linux, puede usar [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` o `-deprovision+user` parámetros.
 
 Las máquinas virtuales especializadas no han pasado por un proceso para quitar la información y las cuentas específicas de la máquina. Además, las máquinas virtuales creadas a partir de imágenes especializadas no tienen un `osProfile` asociado a ellas. Esto significa que las imágenes especializadas tendrán algunas limitaciones.
 
@@ -83,7 +83,7 @@ Las máquinas virtuales especializadas no han pasado por un proceso para quitar 
 > Las imágenes especializadas están actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> **Limitaciones conocidas de la versión preliminar** Las máquinas virtuales solo se pueden crear a partir de imágenes especializadas desde Azure Portal o la API. No hay compatibilidad con la CLI ni con PowerShell para la versión preliminar.
+> **Limitaciones conocidas de la versión preliminar** Las máquinas virtuales solo se pueden crear a partir de imágenes especializadas desde Azure Portal o la API. La versión preliminar no es compatible con la CLI ni con PowerShell.
 
 
 ## <a name="regional-support"></a>Compatibilidad regional
@@ -117,7 +117,7 @@ Hay límites por suscripción, para implementar los recursos con las galerías d
 
 Para más información, consulte [Comparación del uso de recursos con los límites](https://docs.microsoft.com/azure/networking/check-usage-against-limits) para obtener ejemplos sobre cómo comprobar el uso actual.
  
-## <a name="scaling"></a>Escalado
+## <a name="scaling"></a>Ampliación
 La galería de imágenes compartidas le permite especificar el número de réplicas de las imágenes que quiere que Azure mantenga. Esto ayuda en los escenarios de implementación de varias VM, ya que las implementaciones de VM se pueden distribuir a las distintas réplicas, lo que reduce la probabilidad de que el proceso de creación de instancias quede limitado por la sobrecarga de una única réplica.
 
 Con la galería de imágenes compartidas, ahora puede implementar hasta 1000 instancias de máquinas virtuales en una conjunto de escalado de máquinas virtuales (a partir de 600 con imágenes administradas). Las réplicas de imágenes proporcionan un mejor rendimiento de implementación, confiabilidad y coherencia.  Puede establecer un número de réplicas diferente en cada región de destino, en función de las necesidades de escala de la región. Dado que cada réplica es una copia en profundidad de la imagen, esto ayuda a escalar las implementaciones linealmente con cada réplica adicional. Aunque entendemos que no hay dos imágenes o regiones iguales, he aquí nuestra guía general sobre cómo usar réplicas en una región:
@@ -144,14 +144,14 @@ Las regiones donde puede replicarse la versión de una imagen compartida se pued
 
 ![Gráfico que muestra cómo puede replicar imágenes](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Access
+## <a name="access"></a>Acceso
 
 Dado que la galería de imágenes compartidas, la definición de la imagen y la versión de la imagen son recursos, pueden compartirse con los controles integrados nativos de Azure RBAC. Con RBAC puede compartir estos recursos con otros usuarios, entidades de servicio y grupos. Incluso se puede compartir el acceso a personas ajenas al inquilino en el que se crearon. Cuando el usuario tiene acceso a la versión de las imágenes compartidas, puede implementar una máquina virtual o un conjunto de escalado de máquinas virtuales.  Aquí está la matriz de uso compartido que ayuda a entender a lo que el usuario tiene acceso:
 
 | Compartido con el usuario     | Galería de imágenes compartidas | Definición de imágenes | Versión de la imagen |
 |----------------------|----------------------|--------------|----------------------|
 | Galería de imágenes compartidas | Sí                  | Sí          | Sí                  |
-| Definición de imágenes     | Sin                   | Sí          | Sí                  |
+| Definición de imágenes     | No                   | Sí          | Sí                  |
 
 Se recomienda el uso compartido en el nivel de la galería para una mejor experiencia. No se recomienda compartir las versiones individuales de la imagen. Para más información, consulte [Administración del acceso a los recursos de Azure mediante RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
@@ -167,12 +167,12 @@ No hay ningún cargo adicional por usar el servicio de la galería de imágenes 
 Una vez creados, puede realizar algunos cambios en los recursos de la galería de imágenes. Estos se limitan a:
  
 Galería de imágenes compartidas:
-- DESCRIPCIÓN
+- Descripción
 
 Definición de la imagen:
 - vCPU recomendadas:
 - Memoria recomendada
-- DESCRIPCIÓN
+- Descripción
 - Fecha final del ciclo de vida
 
 Versión de la imagen:
@@ -239,9 +239,9 @@ Para enumerar todos los recursos de Shared Image Gallery en las suscripciones a 
  
 Sí. Hay tres escenarios basados en los tipos de imagen que pueda tener.
 
- Escenario 1: Si tiene una imagen administrada, puede crear una definición de la imagen y versión de la imagen a partir de ella.
+ Escenario 1: Si tiene una imagen administrada en la misma suscripción que su SIG, puede crear una definición de imagen y una versión de imagen a partir de ella.
 
- Escenario 2: Si tiene una imagen no administrada, puede crear una imagen administrada a partir de ella y, luego, crear una definición de la imagen y una versión de la imagen a partir de ella. 
+ Escenario 2: Si tiene una imagen no administrada en la misma suscripción que su SIG, puede crear una imagen administrada a partir de ella y, a continuación, crear una definición de imagen y una versión de imagen a partir de ella. 
 
  Escenario 3: Si tiene un VHD en el sistema de archivos local, deberá cargar el VHD en una imagen administrada y, luego, crear una definición de la imagen y una versión de la imagen a partir de ella.
 

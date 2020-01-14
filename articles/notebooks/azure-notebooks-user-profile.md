@@ -1,16 +1,16 @@
 ---
-title: Perfil e identificador de usuario para su uso con Azure Notebooks
+title: Perfil e identificador de usuario para su uso con la versión preliminar de Azure Notebooks
 description: Cómo crear y administrar su perfil de usuario y el identificador de usuario con Azure Notebooks, que pasa a formar parte de la dirección URL de los cuadernos compartidos.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 0874fe8223ae9c49ccfe4e8efedf2620117a0f8c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d90eebf1b7b463e038bc5e54f51df0eb6ca746c4
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277608"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646286"
 ---
-# <a name="your-profile-and-user-id-for-azure-notebooks"></a>Perfil e identificador de usuario de Azure Notebooks
+# <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Perfil e identificador de usuario para la versión preliminar de Azure Notebooks
 
 En el espacio eficaz y de colaboración de Azure Notebooks, su perfil de usuario presenta su imagen pública a otros usuarios:
 
@@ -23,6 +23,8 @@ El identificador de usuario forma parte de las direcciones URL que usa para comp
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>`: Archivos de proyecto.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Clones de un proyecto específico.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: Vista previa en HTML de un cuaderno o archivo específico.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="your-user-id"></a>Su identificador de usuario
 

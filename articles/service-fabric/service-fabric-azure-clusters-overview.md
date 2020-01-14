@@ -1,25 +1,18 @@
 ---
-title: Creación de clústeres de Service Fabric de Azure en Windows Server y Linux | Microsoft Docs
+title: Creación de clústeres en Windows Server y Linux
 description: Los clústeres de Service Fabric se ejecutan en Windows Server y Linux, lo que significa que podrá implementar y hospedar aplicaciones de Service Fabric en cualquier lugar donde sea posible ejecutar Windows Server y Linux.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: edb6a84762ce65e65ff33492f3a7bcebbce60777
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390380"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614679"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Introducción a los clústeres de Service Fabric en Azure
 Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Una máquina física o virtual que forma parte de un clúster se denomina nodo del clúster. Los clústeres pueden escalarse a miles de nodos. Si agrega nuevos nodos al clúster, Service Fabric reequilibra las réplicas e instancias de la partición del servicio en el número aumentado de nodos. El rendimiento general de la aplicación mejora y se reduce la contención para el acceso a la memoria. Si los nodos del clúster no se usan de forma eficaz, puede reducir su número de nodos. Service Fabric vuelve a reequilibrar las réplicas e instancias de la partición en el número reducido de nodos para aprovechar mejor el hardware de cada nodo.
@@ -57,7 +50,7 @@ Para más información, consulte los [tipos de nodos y conjuntos de escalado de 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 Las instancias de máquina virtual se unen detrás de una instancia de [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), que está asociada a una [dirección IP pública](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) y una etiqueta DNS.  Cuando aprovisiona un clúster con un *&lt;nombreclúster&gt;* , el nombre DNS, *&lt;nombreclúster&gt;.&lt;ubicación&gt;.cloudapp.azure.com* es la etiqueta DNS asociada con el equilibrador de carga delante del conjunto de escalado.
 
-Las máquinas virtuales en un clúster solo tienen [direcciones IP privadas](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  El tráfico de administración y el tráfico del servicio se enrutan a través del equilibrador de carga orientado al público.  El tráfico de red se enruta a estas máquinas a través de las reglas NAT (los clientes se conectan a instancias o nodos específicos) o las reglas de equilibrio de carga (el tráfico se dirige a las máquinas virtuales en round robin).  Un equilibrador de carga tiene una dirección IP pública asociada con un nombre DNS en el formato: *&lt;nombreclúster&gt;.&lt; ubicación&gt;.cloudapp.azure.com*.  Una dirección IP pública es otro recurso de Azure en el grupo de recursos.  Si define varios tipos de nodo en un clúster, se crea un equilibrador de carga para cada conjunto de escalado o tipo de nodo. O bien, puede configurar un solo equilibrador de carga para varios tipos de nodo.  El tipo de nodo principal tiene la etiqueta DNS *&lt;nombreclúster&gt;.&lt;ubicación&gt;.cloudapp.azure.com*, otros tipos de nodos tienen la etiqueta DNS  *&lt;nombreclúster&gt;-&lt;tiponodo&gt;.&lt;ubicación&gt;.cloudapp.azure.com*.
+Las máquinas virtuales en un clúster solo tienen [direcciones IP privadas](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  El tráfico de administración y el tráfico del servicio se enrutan a través del equilibrador de carga orientado al público.  El tráfico de red se enruta a estas máquinas a través de las reglas NAT (los clientes se conectan a instancias o nodos específicos) o las reglas de equilibrio de carga (el tráfico se dirige a las máquinas virtuales en round robin).  Un equilibrador de carga tiene una dirección IP pública asociada con un nombre DNS en el formato: *&lt;nombreclúster&gt;.&lt; ubicación&gt;.cloudapp.azure.com*.  Una dirección IP pública es otro recurso de Azure en el grupo de recursos.  Si define varios tipos de nodo en un clúster, se crea un equilibrador de carga para cada conjunto de escalado o tipo de nodo. O bien, puede configurar un solo equilibrador de carga para varios tipos de nodo.  El tipo de nodo principal tiene la etiqueta DNS *&lt;nombreclúster&gt;.&lt;ubicación&gt;.cloudapp.azure.com*, otros tipos de nodos tienen la etiqueta DNS *&lt;nombreclúster&gt;-&lt;tiponodo&gt;.&lt;ubicación&gt;.cloudapp.azure.com*.
 
 ### <a name="storage-accounts"></a>Cuentas de almacenamiento
 Cada tipo de nodo de clúster es compatible con una [cuenta de almacenamiento de Azure](/azure/storage/common/storage-introduction) y discos administrados.
@@ -66,21 +59,21 @@ Cada tipo de nodo de clúster es compatible con una [cuenta de almacenamiento de
 Un clúster de Service Fabric es un recurso que usted posee.  Tiene la responsabilidad de proteger los clústeres para impedir que usuarios no autorizados se conecten a ellos. Proteger el clúster es especialmente importante si en él se ejecutan cargas de trabajo de producción. 
 
 ### <a name="node-to-node-security"></a>Seguridad de nodo a nodo
-La seguridad de nodo a nodo protege la comunicación entre las máquinas virtuales o los equipos de un clúster. Este escenario de seguridad garantiza que solo los equipos autorizados a unirse al clúster pueden participar en el hospedaje de aplicaciones y servicios en el clúster. Service Fabric usa certificados X.509 para proteger un clúster y proporcionar características de seguridad de las aplicaciones.  Se necesita un certificado de clúster para proteger el tráfico de clúster y proporcionar autenticación de servidor y clúster.  Los certificados autofirmados se pueden usar para los clústeres de prueba, pero se debe utilizar un certificado de una entidad de certificación de confianza para proteger los clústeres de producción.
+La seguridad de nodo a nodo protege la comunicación entre las máquinas virtuales o los equipos de un clúster. Este escenario de seguridad garantiza que solo los equipos autorizados a unirse al clúster pueden participar en el hospedaje de aplicaciones y servicios en el clúster. Service Fabric usa certificados X.509 para proteger un clúster y proporcionar características de seguridad de las aplicaciones.  Se necesita un certificado de clúster para proteger el tráfico de clúster y proporcionar autenticación de servidor y clúster.  Los certificados autofirmados se pueden usar para los clústeres de prueba, pero para proteger los de producción se debe utilizar un certificado de una entidad de certificación de confianza.
 
-Para obtener más información, lea sobre la [seguridad de nodo a nodo](service-fabric-cluster-security.md#node-to-node-security)
+Para más información, lea [Seguridad de nodo a nodo](service-fabric-cluster-security.md#node-to-node-security)
 
 ### <a name="client-to-node-security"></a>Seguridad de cliente a nodo
 La seguridad de cliente a nodo autentica los clientes y ayuda a proteger la comunicación entre un cliente y los nodos individuales del clúster. Este tipo de seguridad ayuda a garantizar que solo los usuarios autorizados accedan al clúster y a las aplicaciones implementadas en él. Los clientes se identifican de forma exclusiva mediante sus credenciales de seguridad del certificado X.509. Puede utilizarse cualquier número de certificados de cliente opcionales para autenticar a los clientes administradores o usuarios con el clúster.
 
 Además de los certificados de cliente, Azure Active Directory también puede configurarse para autenticar a los clientes con el clúster.
 
-Para obtener más información, lea sobre la [seguridad de cliente a nodo](service-fabric-cluster-security.md#client-to-node-security).
+Para más información, lea [Seguridad de cliente a nodo](service-fabric-cluster-security.md#client-to-node-security)
 
 ### <a name="role-based-access-control"></a>Control de acceso basado en roles
 El control de acceso basado en rol (RBAC) le permite asignar controles de acceso específicos en los recursos de Azure.  Puede asignar diferentes reglas de acceso a las suscripciones, los grupos de recursos y los recursos.  A menos que se reemplacen a un nivel inferior, se heredan las reglas de RBAC a lo largo de la jerarquía de recursos.  Puede asignar reglas RBAC a cualquier usuario o grupo de usuarios de su entorno AAD para que los usuarios y grupos designados puedan modificar el clúster.  Para obtener más información, lea la [introducción a RBAC en Azure](/azure/role-based-access-control/overview).
 
-Service Fabric también admite el control de acceso para limitarlo a determinadas operaciones de clúster para los diferentes grupos de usuarios. Esto ayuda a que el clúster esté más protegido. Se admiten dos tipos de control de acceso para los clientes que se conectan a un clúster: rol de administrador y rol de usuario.  
+Service Fabric también admite el control de acceso para limitar este a determinadas operaciones de clúster para los diferentes grupos de usuarios. Esto ayuda a que el clúster esté más protegido. Se admiten dos tipos de control de acceso para los clientes que se conectan a un clúster: Rol de administrador y rol de usuario.  
 
 Para obtener más información, consulte [Control de acceso basado en rol (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
@@ -89,18 +82,18 @@ Los grupos de seguridad de red (NSG) controlan el tráfico entrante y saliente d
 
 Para obtener más información, consulte la información sobre [grupos de seguridad](/azure/virtual-network/security-overview).
 
-## <a name="scaling"></a>Escalado
+## <a name="scaling"></a>Ampliación
 
 Las necesidades de las aplicaciones cambian a lo largo del tiempo. Puede necesitar aumentar los recursos del clúster para cumplir con aumentos del tráfico de red o de la carga de trabajo de la aplicación o reducir los recursos del clúster cuando la demanda baja. Después de crear un clúster de Service Fabric, puede escalar el clúster horizontalmente (cambiar el número de nodos) o verticalmente (cambiar los recursos de los nodos). Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster. Según se escala el clúster, las aplicaciones se escalan automáticamente.
 
 Para obtener más información, lea [Escalado de clústeres de Azure](service-fabric-cluster-scaling.md).
 
 ## <a name="upgrading"></a>Actualizando
-Un clúster de Azure Service Fabric es un recurso de su propiedad que está parcialmente administrado por Microsoft. Microsoft es responsable de la aplicación de revisiones del sistema operativo subyacente y de realizar actualizaciones del entorno de ejecución de Service Fabric en el clúster. Puede configurar el clúster para recibir las actualizaciones automáticas del entorno de ejecución cuando Microsoft publique una versión nueva, o bien seleccionar una versión del entorno de ejecución compatible que desee. Además de las actualizaciones del entorno de ejecución, también puede actualizar la configuración de clúster, como los certificados o los puertos de la aplicación.
+Un clúster de Azure Service Fabric es un recurso de su propiedad que está parcialmente administrado por Microsoft. Microsoft es responsable de la aplicación de revisiones del sistema operativo subyacente y de realizar actualizaciones del entorno de ejecución de Service Fabric en el clúster. Puede configurar el clúster para recibir las actualizaciones automáticas del entorno de ejecución cuando Microsoft publique una nueva versión, o bien seleccionar la versión compatible que desee del entorno de ejecución. Además de las actualizaciones del entorno de ejecución, también puede actualizar la configuración de clúster, como los certificados o los puertos de la aplicación.
 
 Para obtener más información, lea sobre la [actualización de clústeres](service-fabric-cluster-upgrade.md).
 
-## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
+## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 Puede crear clústeres en máquinas virtuales que ejecuten estos sistemas operativos:
 
 | Sistema operativo | Versión más antigua admitida de Service Fabric |
@@ -108,7 +101,7 @@ Puede crear clústeres en máquinas virtuales que ejecuten estos sistemas operat
 | Windows Server 2012 R2 | Todas las versiones |
 | Windows Server 2016 | Todas las versiones |
 | Windows Server 1709 | 6.0 |
-| Windows Server 1803 | 6.4. |
+| Windows Server 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6.0 |

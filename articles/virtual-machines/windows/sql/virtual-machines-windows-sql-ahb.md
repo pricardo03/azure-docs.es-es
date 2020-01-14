@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0aa2cbad75319de93c34128a09f94971e5c70216
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 00262b48b8fa2fd1292554155e8ec8e933d886e6
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790618"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690908"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Cambio del modelo de licencia en una máquina virtual con SQL Server en Azure
 En este artículo se describe cómo cambiar el modelo de licencia de una máquina virtual con SQL Server en Azure mediante el nuevo proveedor de recursos de máquina virtual con SQL, **Microsoft.SqlVirtualMachine**.
@@ -41,7 +41,7 @@ Existen tres opciones para indicar el uso de la Ventaja híbrida de Azure para S
 
 El tipo de licencia de SQL Server se establece cuando se aprovisiona la máquina virtual. Puede cambiarlo en cualquier momento con posterioridad. El cambio entre los modelos de licencia no genera ningún tiempo de inactividad, no reinicia la máquina virtual ni el servicio SQL Server, no agrega ningún costo adicional y es efectivo inmediatamente. De hecho, activar la Ventaja híbrida de Azure *reduce* el costo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 El cambio del modelo de licencia de la máquina virtual con SQL Server tiene los siguientes requisitos: 
 
@@ -115,11 +115,11 @@ Solo puede instalar automáticamente SQL Server en una máquina virtual de Azur
 
 Solo puede cambiar el tipo de licencia de una máquina virtual con SQL Server que sea de pago por uso o Ventaja híbrida de Azure si dicha máquina virtual está registrada con el proveedor de recursos de máquina virtual con SQL.
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 
 - Para que los clientes del Proveedor de soluciones en la nube de Azure (CSP) puedan usar la Ventaja híbrida de Azure, deben implementar primero una máquina virtual de "pago por uso" y, después, convertirla al modo "traiga su propia licencia" si tienen una instancia activa de Software Assurance.
 - Si coloca el recurso de VM con SQL Server, volverá al valor de la licencia codificada de forma rígida de la imagen. 
-- La posibilidad de cambiar el modelo de licencia es una característica del proveedor de recursos de máquina virtual de SQL. Al implementarse una imagen de Azure Marketplace mediante Azure Portal se registra de forma automática una VM con SQL Server con el proveedor de recursos. Sin embargo, los clientes que instalen automáticamente SQL Server deberán [registrar su VM con SQL Server](virtual-machines-windows-sql-register-with-resource-provider.md) de forma manual. 
+- La posibilidad de cambiar el modelo de licencia es una característica del proveedor de recursos de máquina virtual de SQL. Al implementar una imagen de Azure Marketplace desde Azure Portal, se registra automáticamente una VM con SQL Server en el proveedor de recursos. Sin embargo, los clientes que instalen automáticamente SQL Server deberán [registrar su VM con SQL Server](virtual-machines-windows-sql-register-with-resource-provider.md) de forma manual. 
 - Para agregar una VM con SQL Server a un conjunto de disponibilidad, es necesario volver a crear la máquina virtual. Por tanto, todas las máquinas virtuales que se agreguen a un conjunto de disponibilidad volverán a tener el tipo de licencia predeterminado de pago por uso. También será necesario habilitar de nuevo la Ventaja híbrida de Azure. 
 
 
@@ -129,7 +129,7 @@ El cambio del modelo de licencia:
    - Solo está disponible para los clientes que cuentan con [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-overview).
    - Solo se admite en las ediciones Standard Edition y Enterprise Edition de SQL Server. No se admiten los cambios de licencia para Express, Web ni Developer. 
    - Solo se admite en máquinas virtuales implementadas mediante el modelo de Azure Resource Manager. No se admiten las máquinas virtuales implementadas con el modelo clásico. 
-   - Solo está disponible para instalaciones en la nube pública. 
+   - Solo está disponible para las nubes públicas o Azure Government. 
    - Solo se admite en máquinas virtuales que tienen una sola interfaz de red (NIC). 
 
 
@@ -144,7 +144,7 @@ Este error se produce al intentar cambiar el modelo de licencia en una máquina 
 Tendrá que registrar la suscripción con el proveedor de recursos y, después, [registrar la máquina virtual de SQL Server con el proveedor de recursos](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 
-## <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>La máquina virtual "\<vmname\>" tiene más de una NIC asociada
+### <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>La máquina virtual "\<vmname\>" tiene más de una NIC asociada
 
 Este error se produce en máquinas virtuales que tienen más de una NIC. Quite una de las NIC antes de cambiar el modelo de licencia. Aunque puede volver a agregar la NIC a la máquina virtual después de cambiar el modelo de licencia, ya no se admitirán operaciones en Azure Portal como la copia de seguridad y la revisión automáticas. 
 

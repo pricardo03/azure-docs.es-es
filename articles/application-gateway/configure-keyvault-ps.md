@@ -8,18 +8,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: c40c4cf9f25ce17bc7042191324aeb864696995f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 50608365adcef47971a18589dce3a07abbeb7e8b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074596"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640557"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configuración de la terminación SSL con certificados de Key Vault mediante Azure PowerShell
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) es un almacén de secretos administrado por la plataforma que puede usar para proteger los secretos, las claves y los certificados SSL. Azure Application Gateway admite la integración con Key Vault (en versión preliminar pública) para certificados de servidor que se adjuntan a los clientes de escucha con HTTPS habilitado. Esta compatibilidad está limitada a la versión 2 de la SKU de Application Gateway.
+[Azure Key Vault](../key-vault/key-vault-overview.md) es un almacén de secretos administrado por la plataforma que puede usar para proteger los secretos, las claves y los certificados SSL. Azure Application Gateway admite la integración con Key Vault (en versión preliminar pública) para certificados de servidor que se adjuntan a los clientes de escucha con HTTPS habilitado. Esta compatibilidad está limitada a la versión 2 de la SKU de Application Gateway.
 
-Para obtener más información, consulte [Terminación SSL con certificados de Key Vault](key-vault-certs.md).
+Para obtener más información, consulte [Terminación SSL con certificados de Key Vault](key-vault-certs.md).
 
 Este artículo muestra cómo usar un script de Azure PowerShell para integrar el almacén de claves con la puerta de enlace de aplicaciones para los certificados de terminación SSL.
 
@@ -27,7 +27,7 @@ En este artículo se requiere la versión 1.0.0 del módulo de Azure PowerShell 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, debe tener instalado el módulo ManagedServiceIdentity:
 
@@ -65,10 +65,13 @@ Set-AzKeyVaultAccessPolicy -VaultName $kv -PermissionsToSecrets get -ObjectId $i
 $policy = New-AzKeyVaultCertificatePolicy -ValidityInMonths 12 `
   -SubjectName "CN=www.contoso11.com" -IssuerName self `
   -RenewAtNumberOfDaysBeforeExpiry 30
+Set-AzKeyVaultAccessPolicy -VaultName $kv -EmailAddress <your email address> -PermissionsToCertificates create,get,list
 $certificate = Add-AzKeyVaultCertificate -VaultName $kv -Name "cert1" -CertificatePolicy $policy
 $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
+> [!NOTE]
+> La marca -EnableSoftDelete debe usarse para que la terminación SSL funcione correctamente.
 
 ### <a name="create-a-virtual-network"></a>Creación de una red virtual
 

@@ -1,6 +1,6 @@
 ---
 title: Procesamiento por lotes de mensajes como grupo
-description: Envíe y reciba mensajes como lotes en Azure Logic Apps
+description: Enviar y recibir mensajes en grupos entre los flujos de trabajo mediante el procesamiento por lotes en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 813c625fc72fa7c1440b5d1b9147af9a44c2260f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e48d2bb2ffce0dd4f9293417534165165d426784
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791560"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666761"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Envío, recepción y procesamiento por lotes de mensajes en Azure Logic Apps
 
@@ -29,11 +29,11 @@ Para enviar y procesar mensajes juntos de forma específica como grupos, puede c
 
 Asegúrese de que la receptora de lotes y la remitente de lotes compartan la misma suscripción a Azure *y* región de Azure. Si no es así, no puede seleccionar la receptora de lotes al crear la remitente de lotes, ya que no se verán entre ellas.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir este ejemplo, necesita estos elementos:
 
-* Una suscripción de Azure. Si no tiene una suscripción, puede [comenzar con una cuenta de Azure gratuita](https://azure.microsoft.com/free/). También puede [registrarse para obtener una suscripción de pago por uso](https://azure.microsoft.com/pricing/purchase-options/).
+* Suscripción a Azure. Si no tiene una suscripción, puede [comenzar con una cuenta de Azure gratuita](https://azure.microsoft.com/free/). También puede [registrarse para obtener una suscripción de pago por uso](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Una cuenta de correo electrónico con cualquier [proveedor de correo electrónico compatible con Azure Logic Apps](../connectors/apis-list.md)
 
@@ -55,10 +55,10 @@ Antes de poder enviar mensajes a un lote, ese lote debe existir como el destino 
 
 3. Establezca las siguientes propiedades para la receptora de lotes: 
 
-   | Propiedad | DESCRIPCIÓN | 
+   | Propiedad | Descripción | 
    |----------|-------------|
    | **Batch Mode** | - **Inline**: para definir los criterios de versión en el desencadenador de lotes <br>- **Cuenta de integración**: para definir varias configuraciones de criterios de lanzamiento a través de una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Con una cuenta de integración, puede mantener todas estas configuraciones en un mismo lugar, en lugar de en aplicaciones lógicas independientes. | 
-   | **Nombre del lote** | El nombre del lote, que es "TestBatch" en este ejemplo, y solo se aplica al modo por lotes **Inline** |  
+   | **Batch Name** | El nombre del lote, que es "TestBatch" en este ejemplo, y solo se aplica al modo por lotes **Inline** |  
    | **Release Criteria** | Solo se aplica al modo por lotes **Inline** y selecciona los criterios que deben cumplirse antes de procesar cada lote: <p>- **Basado en el número de mensajes**: se publica el lote en función del número de mensajes recopilados por el lote. <br>- **Basado en el tamaño**: se publica el lote en función del tamaño total en bytes de todos los mensajes recopilados por el lote. <br>- **Programación**: se publica el lote según la periodicidad de la programación, que especifica un intervalo y una frecuencia. En las opciones avanzadas, también puede seleccionar una zona horaria y proporcionar una fecha y hora de inicio. <br>- **Seleccionar todo**: se usan todos los criterios especificados. | 
    | **Message Count** | Número de mensajes que se recopilan en el lote, por ejemplo, 10 mensajes. El límite de un lote es de 8000 mensajes. | 
    | **Tamaño de lote** | Tamaño total en bytes que se recolectará en el lote, por ejemplo, 10 MB. El límite de tamaño de lote es de 80 MB. | 
@@ -168,10 +168,10 @@ Ahora cree una o más aplicaciones lógicas remitentes de lotes que envíen mens
 
 3. Establezca las propiedades de la remitente de lotes:
 
-   | Propiedad | DESCRIPCIÓN | 
+   | Propiedad | Descripción | 
    |----------|-------------| 
    | **Batch Name** | El nombre de lote definido por la aplicación lógica receptora, "TestBatch" en este ejemplo <p>**Importante**: el nombre del lote se valida en tiempo de ejecución y debe coincidir con el nombre especificado por la aplicación lógica receptora. Si cambia el nombre del lote, provocará un error en la remitente de lotes. | 
-   | **Contenido del mensaje** | El contenido del mensaje que desea enviar | 
+   | **Message Content** | El contenido del mensaje que desea enviar | 
    ||| 
 
    En este ejemplo, agregue esta expresión, que inserta la fecha y hora actuales en el contenido del mensaje que envía al lote:
@@ -186,7 +186,7 @@ Ahora cree una o más aplicaciones lógicas remitentes de lotes que envíen mens
 
 4. Ahora debe configurar una partición para el lote. En la acción "BatchReceiver", elija **Mostrar opciones avanzadas** y establezca estas propiedades:
 
-   | Propiedad | DESCRIPCIÓN | 
+   | Propiedad | Descripción | 
    |----------|-------------| 
    | **Nombre de la partición** | Una clave de partición única opcional utilizada para dividir el lote de destino en subconjuntos lógicos y recopilar mensajes basándose en esa clave | 
    | **Id. de mensaje** | Un identificador de mensaje opcional que es un identificador único global (GUID) generado cuando está vacío | 

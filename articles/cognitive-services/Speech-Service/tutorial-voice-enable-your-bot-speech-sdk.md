@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: dcohen
-ms.openlocfilehash: b42314d1c8c1bd734181f02c36ae3f43507e9b79
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 0c26f94d0a51b7912d3f964e3cc96ec392fec69b
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815211"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495181"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: Habilitación del bot con voz mediante el SDK de voz
 
@@ -50,7 +50,7 @@ Este tutorial abarca lo siguiente:
 > * Agregar la activación de la palabra clave personalizada
 > * Aprender cómo cambiar el idioma de la voz hablada y reconocida
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -65,14 +65,14 @@ Para completar este tutorial, necesitará lo siguiente:
 
 La aplicación cliente que creará en este tutorial utiliza una serie de servicios de Azure. Para reducir el tiempo de ida y vuelta de las respuestas del bot, deberá asegurarse de que estos servicios se encuentran en la misma región de Azure. En esta sección, se crea un grupo de recursos en la región **Oeste de EE. UU.** Este grupo de recursos se usará al crear recursos individuales para Bot-Framework, el canal Direct Line Speech y el servicio de voz.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. En el panel de la izquierda, seleccione **Grupos de recursos**. Después, haga clic en **Agregar** para agregar un nuevo grupo de recursos.
 1. Se le pedirá que proporcione algo de información:
    * Establezca **Suscripción** en **Evaluación gratuita** (también puede usar una suscripción existente).
    * Escriba un nombre para el **grupo de recursos**. Se recomienda **SpeechEchoBotTutorial-ResourceGroup**.
    * En la lista desplegable **Región**, seleccione **Oeste de EE. UU.**
 1. Haga clic en **Revisar y crear**. Debería ver un banner que indica **Validación superada**.
-1. Haga clic en **Create**(Crear). La creación del grupo de recursos tardará unos minutos.
+1. Haga clic en **Crear**. La creación del grupo de recursos tardará unos minutos.
 1. Al igual que con los recursos que creará más adelante en este tutorial, es una buena idea anclar este grupo de recursos al panel para facilitar el acceso. Si desea anclar este grupo de recursos, haga clic en el icono de anclaje en la esquina superior derecha del panel.
 
 ### <a name="choosing-an-azure-region"></a>Elección de una región de Azure
@@ -107,7 +107,7 @@ Para crear un recurso de voz, siga estas instrucciones:
 
 En este momento, compruebe que el grupo de recursos (**SpeechEchoBotTutorial-ResourceGroup**) tiene un recurso de voz:
 
-| NOMBRE | TIPO  | LOCATION |
+| NAME | TYPE  | LOCATION |
 |------|-------|----------|
 | SpeechEchoBotTutorial-Speech | Cognitive Services | Oeste de EE. UU. |
 
@@ -117,7 +117,7 @@ El primer paso consiste en crear un plan de App Service. Un plan de App Service 
 
 1. Vaya a [Azure Portal](https://portal.azure.com) y seleccione **Crear un recurso** en el panel de navegación izquierdo.
 2. En la barra de búsqueda, escriba **Plan de App Service**. A continuación, busque y seleccione la tarjeta **Plan del servicio de aplicaciones** en los resultados de la búsqueda.
-3. Haga clic en **Create**(Crear).
+3. Haga clic en **Crear**.
 4. Se le pedirá que proporcione algo de información:
    * Establezca **Suscripción** en **Evaluación gratuita** (también puede usar una suscripción existente).
    * En **Grupo de recursos**, seleccione **SpeechEchoBotTutorial-ResourceGroup**.
@@ -126,11 +126,11 @@ El primer paso consiste en crear un plan de App Service. Un plan de App Service 
    * En **Región**, seleccione **Oeste de EE. UU.**
    * En **Plan de tarifa**, asegúrese de que está seleccionado **Estándar S1**. Este debería ser el valor predeterminado. Si no es así, asegúrese de establecer el **Sistema operativo** en **Windows** tal y como se describió anteriormente.
 5. Haga clic en **Revisar y crear**. Debería ver un banner que indica **Validación superada**.
-6. Haga clic en **Create**(Crear). La creación del grupo de recursos tardará unos minutos.
+6. Haga clic en **Crear**. La creación del grupo de recursos tardará unos minutos.
 
 En este momento, compruebe que el grupo de recursos (**SpeechEchoBotTutorial-ResourceGroup**) tiene dos recursos:
 
-| NOMBRE | TIPO  | LOCATION |
+| NAME | TYPE  | LOCATION |
 |------|-------|----------|
 | SpeechEchoBotTutorial-AppServicePlan | Plan de servicio de aplicación | Oeste de EE. UU. |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | Oeste de EE. UU. |
@@ -187,7 +187,7 @@ El siguiente paso es implementar el bot de eco en Azure. Hay varias maneras de i
    samples\csharp_dotnetcore\02.echo-bot\EchoBot.sln
    ```
 
-1. En el **Explorador de soluciones**, haga clic con el botón derecho en la solución **EchoBot** y seleccione **Publicar...**
+1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **EchoBot** y seleccione **Publicar...**
 1. Se abrirá una nueva ventana denominada **Elegir un destino de publicación**.
 1. Seleccione **App Service** en el panel de navegación izquierdo, seleccione **Crear nuevo** y haga clic en **Publicar**.
 1. Cuando aparece la ventana **Crear servicio de aplicaciones**:
@@ -207,7 +207,7 @@ El siguiente paso es implementar el bot de eco en Azure. Hay varias maneras de i
 1. Debería abrirse el explorador predeterminado y mostrar una página que diga: "El bot está listo".
 1. En este punto, compruebe el grupo de recursos **SpeechEchoBotTutorial-ResourceGroup** en Azure Portal y confirme que hay tres recursos:
 
-| NOMBRE | TIPO  | LOCATION |
+| NAME | TYPE  | LOCATION |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | Oeste de EE. UU. |
 | SpeechEchoBotTutorial-AppServicePlan | Plan de App Service | Oeste de EE. UU. |
@@ -235,9 +235,9 @@ Ahora que ha creado una instancia de Azure App Service para hospedar el bot, el 
 
 1. El primer paso consiste en crear un nuevo recurso para el registro. En [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso**.
 2. En la barra de búsqueda, escriba **bot**; después de que aparezcan los resultados, seleccione **Bot Channels Registration** (Registro de canales de bot).
-3. Haga clic en **Create**(Crear).
+3. Haga clic en **Crear**.
 4. Se le pedirá que proporcione algo de información:
-   * En **Nombre del bot**, escriba **SpeechEchoBotTutorial-BotRegistration**.
+   * En **Identificador de bot**, escriba **SpeechEchoBotTutorial-BotRegistration**.
    * En **Suscripción**, seleccione **Evaluación gratuita**.
    * En **Grupo de recursos**, seleccione **SpeechEchoBotTutorial-ResourceGroup**.
    * En **Ubicación**, seleccione **Oeste de EE. UU.**
@@ -245,11 +245,11 @@ Ahora que ha creado una instancia de Azure App Service para hospedar el bot, el 
      * En **Messaging endpoint** (Punto de conexión de mensajería), escriba la dirección URL de la aplicación web con la ruta de acceso `/api/messages` anexada al final. Por ejemplo, si el nombre de la aplicación globalmente único era **EchoBot20190805125647**, el punto de conexión de mensajería sería `https://EchoBot20190805125647.azurewebsites.net/api/messages/`.
      * En **Application Insights**, puede establecerlo en **Desconectar**. Para más información, consulte [Análisis del bot](https://docs.microsoft.com/azure/bot-service/bot-service-manage-analytics?view=azure-bot-service-4.0).
      * Ignore **Auto create App ID and password** (Creación automática del identificador y contraseña de la aplicación).
-5. Vuelva a **Bot Channels Registration** (Registro de canales de bot) y haga clic en **Crear**.
+5. En la parte inferior de la hoja **Registro de canales de bot**, haga clic en **Crear**.
 
 En este punto, compruebe el grupo de recursos **SpeechEchoBotTutorial-ResourceGroup** en Azure Portal. Ahora debería mostrar cuatro recursos:
 
-| NOMBRE | TIPO  | LOCATION |
+| NAME | TYPE  | LOCATION |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | Oeste de EE. UU. |
 | SpeechEchoBotTutorial-AppServicePlan | Plan de App Service | Oeste de EE. UU. |
@@ -383,29 +383,50 @@ En el código fuente del cliente Direct Line Speech, eche un vistazo a estos a
 1. [`DLSpeechClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/Models.cs) incluye una llamada al método [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-) del SDK de voz, que se usa para crear una instancia del modelo a partir de un archivo local en el disco.
 1. [`DLSpeechClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs) incluye una llamada al método [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync) del SDK de Voz, que activa la detección continua de la palabra clave.
 
-## <a name="optional-change-the-language-and-redeploy-your-bot"></a>(Opcional) Cambio del idioma y nueva implementación del bot
+## <a name="optional-change-the-language-and-bot-voice"></a>(Opcional) Cambio del idioma y la voz del bot
 
-El bot que ha creado escuchará y responderá en inglés. Sin embargo, no está limitado a usar el idioma inglés. En esta sección, aprenderá a cambiar el idioma en el que el bot escuchará y responderá, y volverá a implementar el bot.
+El bot que creó escuchará y responderá en inglés, y la voz predeterminada para la conversión de texto a voz será en inglés estadounidense. Sin embargo, no está limitado a usar el idioma inglés ni una voz predeterminada. En esta sección, aprenderá a cambiar el idioma en el que el bot escuchará y responderá. También aprenderá a seleccionar una voz diferente para ese idioma.
 
 ### <a name="change-the-language"></a>Cambio del idioma
 
-1. Comencemos por abrir `samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs`.
-2. A continuación, busque el SSML. Es fácil de encontrar, ya que se incluye en las etiquetas `<speak></speak>`.
-3. En la cadena SSML, busque la etiqueta `<voice name>`, reemplácela por `<voice name='de-DE-Stefan-Apollo'>` y guárdela. Esta cadena con formato indica al servicio de conversión de texto a voz que devuelva una respuesta de voz sintetizada mediante la voz `de-DE-Stefan-Apollo`, que está optimizada para alemán.
+Puede elegir uno de los idiomas que se mencionan en la tabla [voz a texto](language-support.md#speech-to-text). En el ejemplo siguiente, se cambiará el idioma a alemán.
 
->[!NOTE]
-> No está limitado al alemán y puede elegir otro idioma en la lista de voces disponibles del [servicio de voz](language-support.md#text-to-speech).
+1. Abra la aplicación cliente de Direct Line Speech, haga clic en el botón de configuración (icono de engranaje en la parte superior derecha) y escriba `de-de` en el campo Idioma (este es el valor de configuración regional que se menciona en la tabla [voz a texto](language-support.md#speech-to-text)). Esto establece el idioma hablado para que se reconozca y se sustituya el valor predeterminado `en-us`. Esta acción también indica al canal de Direct Line Speech que use una voz alemana predeterminada para la respuesta del bot.
+2. Cierre la página Configuración y haga clic en el botón Volver a conectar para establecer una nueva conexión con el bot de eco.
+3. Haga clic en el botón de micrófono y diga una frase en alemán. Verá el texto reconocido y el bot de eco responderá con la voz alemana predeterminada.
+
+
+### <a name="change-the-default-bot-voice"></a>Cambio de la voz de bot predeterminada
+
+Puede seleccionar la voz de conversión de texto a voz y controlar la pronunciación si el bot especifica la respuesta en forma de [lenguaje de marcado de síntesis de voz](speech-synthesis-markup.md) (SSML) en lugar de texto simple. El bot de eco no usa SSML, pero se puede modificar fácilmente el código para que lo use. En el ejemplo siguiente, se agrega SSML a la respuesta del bot de eco. De este modo, se utilizará la voz alemana de Stefan Apollo (una voz de hombre) en lugar de la voz de mujer predeterminada. Consulte la lista de [voces estándar](language-support.md#standard-voices) y [voces neuronales](language-support.md#neural-voices) compatibles con su idioma.
+
+1. Comencemos por abrir `samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs`.
+2. Busque estas dos líneas:
+    ```csharp
+    var replyText = $"Echo: {turnContext.Activity.Text}";
+    await turnContext.SendActivityAsync(MessageFactory.Text(replyText, replyText), cancellationToken);
+    ```
+3. Reemplácelas por:
+    ```csharp
+    var replyText = $"Echo: {turnContext.Activity.Text}";
+    var replySpeak = @"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='de-DE'>
+                    <voice name='Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo)'>" +
+                    $"{replyText}" + "</voice></speak>";
+    await turnContext.SendActivityAsync(MessageFactory.Text(replyText, replySpeak), cancellationToken);
+    ```
+4. Compile la solución en Visual Studio y corrija los errores de compilación.
+
+El segundo argumento del método "MessageFactory.Text" establece el [campo Texto hablado de la actividad](https://github.com/Microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) en la respuesta del bot. Con el cambio anterior, se realizó el cambio de texto simple a SSML para especificar una voz alemana no predeterminada.
 
 ### <a name="redeploy-your-bot"></a>Reimplementación del bot
 
 Ahora que ha realizado el cambio necesario en el bot, el paso siguiente consiste en volver a publicarlo en la instancia de Azure App Service y probarlo:
 
-1. Compile la solución en Visual Studio y corrija los errores de compilación.
-2. En la ventana Explorador de soluciones, haga clic con el botón derecho en el proyecto **EchoBot** y seleccione **Publicar**.
-3. La configuración de implementación anterior ya se ha cargado como valor predeterminado. Simplemente haga clic en **Publicar** junto a **EchoBot20190805125647 - Web Deploy**.
-4. El mensaje **Publicación correcta** aparecerá en la ventana de salida de Visual Studio y se iniciará una página web con el mensaje "Your bot is ready!" (El bot está listo).
-5. Abra la aplicación cliente de Direct Line Speech, haga clic en el botón de configuración (icono de engranaje en la parte superior derecha) y escriba `de-de` en el campo Language (Idioma). Esto establece el idioma hablado para que se reconozca y se sustituya el valor predeterminado `en-us`.
-6. Siga las instrucciones de [Creación del cliente de Direct Line Speech](#build-the-direct-line-speech-client) para volver a conectar con el bot recién implementado, hablar en el nuevo idioma y escuchar la respuesta del bot en ese idioma con la nueva voz.
+1. En la ventana Explorador de soluciones, haga clic con el botón derecho en el proyecto **EchoBot** y seleccione **Publicar**.
+2. La configuración de implementación anterior ya se ha cargado como valor predeterminado. Simplemente haga clic en **Publicar** junto a **EchoBot20190805125647 - Web Deploy**.
+3. El mensaje **Publicación correcta** aparecerá en la ventana de salida de Visual Studio y se iniciará una página web con el mensaje "Your bot is ready!" (El bot está listo).
+4. Abra la aplicación cliente de Direct Line Speech, haga clic en el botón de configuración (icono de engranaje en la parte superior derecha) y asegúrese de que aún se encuentra el valor `de-de` en el campo Idioma.
+5. Siga las instrucciones de [Creación del cliente de Direct Line Speech](#build-the-direct-line-speech-client) para volver a conectar con el bot recién implementado, hablar en el nuevo idioma y escuchar la respuesta del bot en ese idioma con la nueva voz.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

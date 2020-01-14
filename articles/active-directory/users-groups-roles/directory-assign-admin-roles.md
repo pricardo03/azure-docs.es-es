@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d4bdd554fb7c8817ada80a294f3ecb1c6c85b00
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 2b6d9a394971e59abaeb48e058b05cd52da69626
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707028"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529735"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -70,7 +70,7 @@ los usuarios con este rol pueden crear registros de aplicaciones cuando la opci�
 
 ### <a name="authentication-administratorauthentication-administrator-permissions"></a>[Administrador de autenticación](#authentication-administrator-permissions)
 
-los usuarios con este rol pueden establecer o restablecer credenciales sin contraseña y pueden actualizar contraseñas para todos los usuarios. Los administradores de autenticación pueden requerir que los usuarios vuelvan a registrase con una credencial existente distinta de contraseña (por ejemplo, MFA o FIDO) y revocar **recordar MFA en el dispositivo**, por lo que se solicitará la MFA en el siguiente inicio de sesión de todos los usuarios que no sean administradores o que estén asignados a los siguientes roles:
+El rol Administrador de autenticación está actualmente en versión preliminar pública. los usuarios con este rol pueden establecer o restablecer credenciales sin contraseña y pueden actualizar contraseñas para todos los usuarios. Los administradores de autenticación pueden requerir que los usuarios vuelvan a registrase con una credencial existente distinta de contraseña (por ejemplo, MFA o FIDO) y revocar **recordar MFA en el dispositivo**, por lo que se solicitará la MFA en el siguiente inicio de sesión de todos los usuarios que no sean administradores o que estén asignados a los siguientes roles:
 
 * Administrador de autenticación
 * Lectores de directorios
@@ -190,7 +190,7 @@ Los usuarios que tienen este rol pueden leer la información básica del directo
 
 ### <a name="directory-synchronization-accountsdirectory-synchronization-accounts-permissions"></a>[Cuentas de sincronización de directorios](#directory-synchronization-accounts-permissions)
 
-No usar. Este rol se asigna automáticamente al servicio de Azure AD Connect y no está previsto ni se admite para ningún otro uso.
+No debe usarse. Este rol se asigna automáticamente al servicio de Azure AD Connect y no está previsto ni se admite para ningún otro uso.
 
 ### <a name="directory-writersdirectory-writers-permissions"></a>[Escritores de directorios](#directory-writers-permissions)
 
@@ -308,11 +308,11 @@ Los usuarios de este rol pueden administrar la configuración de la nube de las 
 
 ### <a name="partner-tier1-supportpartner-tier1-support-permissions"></a>[Soporte para asociados de nivel 1](#partner-tier1-support-permissions)
 
-No usar. Este rol está en desuso y se quitará de Azure AD en el futuro. Este rol está diseñado para que lo usen un pequeño número de asociados de reventa de Microsoft, no para un uso general.
+No debe usarse. Este rol está en desuso y se quitará de Azure AD en el futuro. Este rol está diseñado para que lo usen un pequeño número de asociados de reventa de Microsoft, no para un uso general.
 
 ### <a name="partner-tier2-supportpartner-tier2-support-permissions"></a>[Soporte para asociados de nivel 2](#partner-tier2-support-permissions)
 
-No usar. Este rol está en desuso y se quitará de Azure AD en el futuro. Este rol está diseñado para que lo usen un pequeño número de asociados de reventa de Microsoft, no para un uso general.
+No debe usarse. Este rol está en desuso y se quitará de Azure AD en el futuro. Este rol está diseñado para que lo usen un pequeño número de asociados de reventa de Microsoft, no para un uso general.
 
 ### <a name="password-administratorpassword-administrator-permissions"></a>[Administrador de contraseñas](#password-administrator-permissions)
 
@@ -445,7 +445,7 @@ los usuarios con este rol pueden solucionar problemas de comunicación de Micros
 
 ### <a name="user-administratoruser-administrator-permissions"></a>[Administrador de usuarios](#user-administrator-permissions)
 
-los usuarios con este rol pueden crear y administrar todos los aspectos de los usuarios con algunas restricciones (véase la información siguiente) y pueden actualizar las directivas de expiración de las contraseñas. Además, los usuarios con este rol pueden crear y administrar todos los grupos. Este rol también incluye la capacidad de crear y administrar vistas de usuarios, administrar las incidencias de soporte técnico y supervisar el estado del servicio. Los administradores de usuarios no tienen permiso para administrar algunas propiedades de usuario en la mayoría de los roles de administrador. En la tabla siguiente se indican los roles que son excepciones a esta restricción.
+los usuarios con este rol pueden crear y administrar todos los aspectos de los usuarios con algunas restricciones (véase la información siguiente) y pueden actualizar las directivas de expiración de las contraseñas. Además, los usuarios con este rol pueden crear y administrar todos los grupos. Este rol también incluye la capacidad de crear y administrar vistas de usuarios, administrar las incidencias de soporte técnico y supervisar el estado del servicio. Los administradores de usuarios no tienen permiso para administrar algunas propiedades de usuario en la mayoría de los roles de administrador. El usuario con este rol no tiene los permisos para administrar MFA. En la tabla siguiente se indican los roles que son excepciones a esta restricción.
 
 | | |
 | --- | --- |
@@ -687,7 +687,7 @@ Acceso total para administrar los dispositivos de Azure AD.
 
 ### <a name="company-administrator-permissions"></a>Permisos de administrador de empresa
 
-Puede administrar todos los aspectos de los servicios de Azure AD y Microsoft que usan identidades de Azure AD.
+Puede administrar todos los aspectos de los servicios de Azure AD y Microsoft que usan identidades de Azure AD. Este rol también se conoce como el rol de administrador global. 
 
 > [!NOTE]
 > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
@@ -1525,6 +1525,7 @@ Puede leer la información y los informes de seguridad de Azure AD y Office 365.
 | --- | --- |
 | microsoft.directory/auditLogs/allProperties/read | Lee todas las propiedades (incluidas las propiedades con privilegios) en auditLogs en Azure Active Directory. |
 | microsoft.directory/devices/bitLockerRecoveryKeys/read | Lee la propiedad devices.bitLockerRecoveryKeys en Azure Active Directory. |
+| microsoft.directory/policies/conditionalAccess/basic/read | Lee la propiedad policies.conditionalAccess en Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Lee todas las propiedades (incluidas las propiedades con privilegios) en signInReports en Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Lee todos los recursos en microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Lee todos los recursos de microsoft.aad.privilegedIdentityManagement. |

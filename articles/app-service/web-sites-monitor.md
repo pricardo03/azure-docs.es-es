@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 4c0d3822b5000611d1b5229924cb44d055795468
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 2bca4521184fa42002e6649a90bb9101fded595c
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688274"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658447"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Supervisión de aplicaciones en Azure App Service
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) proporciona una funcionalidad de supervisión integrada para aplicaciones web, back ends móviles y aplicaciones de API en [Azure Portal](https://portal.azure.com).
+[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) proporciona funciones de supervisión integradas para aplicaciones Web, móviles y aplicaciones de API en el [Azure Portal](https://portal.azure.com).
 
-En Azure Portal, puede revisar *cuotas* y *métricas*, para una aplicación, y el plan de App Service, así como configurar *alertas* y el *escalado automático*, que se basan en las métricas.
+En el Azure Portal, puede revisar *cuotas* y *métricas* para una aplicación y un plan de App Service, y configurar *alertas* y *escalado* automático basadas en métricas.
 
 ## <a name="understand-quotas"></a>Información sobre las cuotas
 
@@ -31,7 +31,7 @@ Si la aplicación está hospedada en un plan *Básico*, *Estándar* o *Premium*,
 
 Las cuotas de las aplicaciones gratis o compartidas son:
 
-| Quota | DESCRIPCIÓN |
+| Quota | Descripción |
 | --- | --- |
 | **CPU (breve)** | Cantidad de CPU permitida para esta aplicación en un intervalo de cinco minutos. Esta cuota se restablece cada cinco minutos. |
 | **CPU (día)** | Cantidad total de CPU permitida para esta aplicación en un día. Esta cuota se restablece cada 24 horas a medianoche (UTC). |
@@ -41,7 +41,7 @@ Las cuotas de las aplicaciones gratis o compartidas son:
 
 La única cuota aplicable a las aplicaciones que se hospedan en un plan *Básico*, *Estándar* o *Premium* es la del sistema de archivos.
 
-Para más información sobre cuotas específicas, límites y características disponibles para las distintas SKU de App Service, consulte los [límites del servicio de suscripción de Azure](../azure-subscription-service-limits.md#app-service-limits).
+Para más información sobre cuotas específicas, límites y características disponibles para las distintas SKU de App Service, consulte los [límites del servicio de suscripción de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
 ### <a name="quota-enforcement"></a>Aplicación de cuotas
 
@@ -65,7 +65,7 @@ Las métricas proporcionan información acerca de la aplicación o el comportami
 
 Para una aplicación, estas son las métricas disponibles:
 
-| Métrica | DESCRIPCIÓN |
+| Métrica | Descripción |
 | --- | --- |
 | **Tiempo de respuesta promedio** | Tiempo promedio en segundos necesario para que la aplicación atienda solicitudes. |
 | **Espacio de trabajo de memoria promedio** | Cantidad media de memoria que utiliza la aplicación, en megabytes (MiB). |
@@ -74,7 +74,7 @@ Para una aplicación, estas son las métricas disponibles:
 | **Ensamblados actuales** | Número actual de los ensamblados cargados en todos los dominios de aplicación de esta aplicación. |
 | **Entrada de datos** | Cantidad de ancho de banda entrante consumido por la aplicación, en MiB. |
 | **Salida de datos** | Cantidad de ancho de banda saliente consumido por la aplicación, en MiB. |
-| **Uso del sistema de archivos** | Porcentaje de la cuota de sistema de archivos que ha consumido la aplicación. |
+| **Uso del sistema de archivos** | Porcentaje de la cuota de sistema de archivos consumida por la aplicación. |
 | **Recolección de elementos no utilizados de gen. 0** | Número de veces que los objetos de generación 0 son elementos no utilizados recopilados desde el inicio del proceso de la aplicación. Los elementos no utilizados de última generación incluyen los de generaciones anteriores.|
 | **Recolección de elementos no utilizados de gen. 1** | Número de veces que los objetos de generación 1 son elementos no utilizados recopilados desde el inicio del proceso de la aplicación. Los elementos no utilizados de última generación incluyen los de generaciones anteriores.|
 | **Recolección de elementos no utilizados de gen. 2** | Número de veces que los objetos de generación 2 son elementos no utilizados recopilados desde el inicio del proceso de la aplicación.|
@@ -87,14 +87,14 @@ Para una aplicación, estas son las métricas disponibles:
 | **Http 406** | Cantidad total de solicitudes que devuelven el código de estado HTTP 406. |
 | **Http 4xx** | Cantidad total de solicitudes que devuelven un código de estado HTTP >= 400, pero < 500. |
 | **Errores de servidor HTTP** | Cantidad total de solicitudes que devuelven un código de estado HTTP >= 500, pero < 600. |
-| **Otros bytes de E/S por segundo** | Velocidad a la que el proceso de la aplicación está emitiendo bytes a las operaciones de E/S que implican datos, como las operaciones de control.|
-| **Otras operaciones de E/S por segundo** | Velocidad a la que el proceso de la aplicación está realizando operaciones de E/S que no son de lectura ni de escritura.|
+| **Otros bytes de E/S por segundo** | La velocidad a la que el proceso de la aplicación emite bytes en las operaciones de E/S que no implican datos, como las operaciones de control.|
+| **Otras operaciones de E/S por segundo** | La velocidad a la que el proceso de la aplicación emite operaciones de E/S que no son operaciones de lectura o escritura.|
 | **Bytes de lectura de E/S por segundo** | Velocidad a la que el proceso de la aplicación está leyendo bytes de las operaciones de E/S.|
 | **Operaciones de lectura de E/S por segundo** | Velocidad a la que el proceso de la aplicación está realizando operaciones de lectura de E/S.|
 | **Bytes de escritura de E/S por segundo** | Velocidad a la que el proceso de la aplicación está escribiendo bytes de las operaciones de E/S.|
 | **Operaciones de escritura de E/S por segundo** | Velocidad a la que el proceso de la aplicación está realizando operaciones de escritura de E/S.|
 | **Espacio de trabajo de memoria** | Cantidad actual de memoria utilizada por la aplicación, en MiB. |
-| **Bytes privados** | Los bytes privados son el tamaño actual, en bytes, de la memoria asignada por el proceso de la aplicación que no se puede compartir con otros procesos.|
+| **Bytes privados** | Bytes privados es el tamaño actual, en bytes, de la memoria asignada por el proceso de la aplicación que no se puede compartir con otros procesos.|
 | **Solicitudes** | Número total de solicitudes, independientemente de su código de estado HTTP resultante. |
 | **Solicitudes en la cola de la aplicación** | Número de solicitudes en la cola de solicitudes de la aplicación.|
 | **Número de subprocesos** | Número de subprocesos activos actualmente en el proceso de la aplicación.|
@@ -108,13 +108,13 @@ Para un plan de App Service, estas son las métricas disponibles:
 > Las métricas de plan de App Service solo están disponibles para planes *Básico*, *Estándar* o *Premium*.
 > 
 
-| Métrica | DESCRIPCIÓN |
+| Métrica | Descripción |
 | --- | --- |
 | **Porcentaje de CPU** | Uso promedio de CPU de todas las instancias del plan. |
 | **Porcentaje de memoria** | Uso promedio de memoria entre todas las instancias del plan. |
 | **Entrada de datos** | Uso promedio de ancho de banda entrante entre todas las instancias del plan. |
 | **Salida de datos** | Uso promedio de ancho de banda saliente entre todas las instancias del plan. |
-| **Longitud de la cola de disco** | Cantidad media de solicitudes de lectura y escritura en cola en Storage. Una longitud de la cola de disco elevada es un indicio de que una aplicación puede estar ralentizándose debido a una excesiva E/S de disco. |
+| **Longitud de la cola de disco** | Cantidad media de solicitudes de lectura y escritura en cola en Storage. Una longitud de cola de disco alta es una indicación de que una aplicación podría ralentizarse debido a una excesiva E/S de disco. |
 | **Longitud de la cola HTTP** | Promedio de solicitudes HTTP que estuvieron en cola antes de realizarse. Una longitud de la cola HTTP elevada o creciente indica que un plan está sobrecargado. |
 
 ### <a name="cpu-time-vs-cpu-percentage"></a>Tiempo de CPU y porcentaje de CPU
@@ -144,19 +144,16 @@ Para buscar las cuotas, seleccione **Configuración** > **Cuotas**. En el gráfi
 1. Su límite actual.
 1. Su valor actual.
 
-![Gráfico de métricas en Azure Portal][metrics] Puede tener acceso a las métricas directamente desde la página **Recursos**. Para personalizar el gráfico: 
-1. Seleccione el gráfico.
-1. Seleccione **Editar gráfico**.
-1. Modifique el **intervalo de tiempo**.
-1. Edición del **tipo de gráfico**.
-1. Modifique las métricas que desea mostrar.  
+![Gráfico de métricas en el Azure Portal][metrics] Puede acceder a las métricas directamente desde la **página de información general** de recursos. Aquí verá los gráficos que representan algunas de las métricas de aplicaciones.
+
+Al hacer clic en cualquiera de estos gráficos, irá a la vista de métricas, donde puede crear gráficos personalizados, consultar diferentes métricas y mucho más. 
 
 Para más información sobre las métricas, consulte [Supervisión de las métricas del servicio](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## <a name="alerts-and-autoscale"></a>Alertas y escalabilidad automática
 Las métricas para una aplicación o un plan de App Service pueden enlazarse con las alertas. Para más información, consulte [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Las aplicaciones de App Service hospedadas en planes de App Service Básico, Estándar o Premium admiten la escalabilidad automática. Con la escalabilidad automática puede configurar reglas que supervisan las métricas del plan de App Service. Las reglas pueden aumentar o disminuir el recuento de instancias que pueden proporcionar recursos adicionales, según sea necesario. Las reglas también le ayudan a ahorrar dinero cuando la aplicación se aprovisiona en exceso.
+Las aplicaciones de App Service hospedadas en los planes de App Service básico o superior admiten el escalado automático. Con la escalabilidad automática puede configurar reglas que supervisan las métricas del plan de App Service. Las reglas pueden aumentar o disminuir el recuento de instancias que pueden proporcionar recursos adicionales, según sea necesario. Las reglas también le ayudan a ahorrar dinero cuando la aplicación se aprovisiona en exceso.
 
 Para más información acerca de la escalabilidad automática, consulte [Escalado](../monitoring-and-diagnostics/insights-how-to-scale.md) y [Procedimientos recomendados de escalado automático en Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
 

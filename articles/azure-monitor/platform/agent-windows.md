@@ -4,15 +4,15 @@ description: En este artículo se describe la manera de conectar equipos Windows
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 42183ca7b02ba75b241ee1a83b5a0dc936a8c1c8
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 8918c18c9356c583b9ea23138f0d0a0fb4dcd845
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420422"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689990"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Conexión de equipos Windows a Azure Monitor
 
@@ -38,7 +38,7 @@ Para comprender la configuración compatible, revise los [sistemas operativos Wi
 ## <a name="obtain-workspace-id-and-key"></a>Obtención de la clave y el identificador de área de trabajo
 Antes de instalar el agente Log Analytics para Windows, necesita la clave y el identificador de área de trabajo para el área de trabajo de Log Analytics.  Esta información es necesaria durante la configuración de cada método de instalación para configurar de forma correcta el agente y garantizar que puede comunicarse correctamente con Azure Monitor en la nube Gobierno de EE. UU. y comercial de Azure. 
 
-1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
+1. En Azure Portal, busque y seleccione **Áreas de trabajo de Log Analytics**.
 2. En la lista de áreas de trabajo de Log Analytics, seleccione el área de trabajo que quiera configurar para informar al agente.
 3. Seleccione **Configuración avanzada**.<br><br> ![Configuración avanzada de Log Analytics](media/agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
 4. Seleccione **Orígenes conectados** y **Servidores Windows**.   
@@ -188,9 +188,9 @@ En el **Panel de control** del equipo, busque el elemento **Microsoft Monitoring
 
 También puede realizar una consulta de registros sencilla en Azure Portal.  
 
-1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Azure Monitor**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Azure Monitor**.  
-2. Seleccione **Registros** en el menú. 
-2. Escriba lo siguiente en el campo de consulta del panel Registros:  
+1. En Azure Portal, busque y seleccione **Monitor**.
+1. Seleccione **Registros** en el menú.
+1. En el panel de**Registros**, en el campo tipo de consulta:  
 
     ```
     Heartbeat 

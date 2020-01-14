@@ -1,5 +1,6 @@
 ---
-title: P+F sobre configuración y problemas de administración de Microsoft Azure Cloud Services | Microsoft Docs
+title: Preguntas más frecuentes sobre problemas de configuración y administración
+titleSuffix: Azure Cloud Services
 description: En este artículo se enumeran las preguntas frecuentes sobre la configuración y administración de Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 704d6d4a12550507a8e38be4777e5abc7b57fe74
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 47a75d10f6016eb49061f9e7158b00899a387f2f
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161755"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660620"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuración y problemas de administración de Microsoft Azure Cloud Services: Preguntas más frecuentes (P+F)
 
@@ -27,7 +28,7 @@ En este artículo se incluyen las preguntas frecuentes sobre la configuración y
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-**Certificates**
+**Certificados**
 
 - [¿Por qué está incompleta la cadena de certificados SSL de mi servicio de nube?](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
 - [¿Cuál es el propósito del "Windows Azure Tools Encryption Certificate for Extensions" (certificado de cifrado para extensiones de Windows Azure Tools)?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
@@ -230,7 +231,7 @@ Este error puede producirse si usa el archivo RDP desde un equipo replicado en A
 1. Haga clic en el archivo RDP que ha descargado y seleccione **Editar**.
 2. Agregue "&#92;" delante del nombre de usuario. Por ejemplo, utilice **. \nombre de usuario**, en lugar de **nombre de usuario**.
 
-## <a name="scaling"></a>Escalado
+## <a name="scaling"></a>Ampliación
 
 ### <a name="i-cannot-scale-beyond-x-instances"></a>No puedo escalar más allá de X instancias
 La suscripción de Azure tiene un límite en el número de núcleos que se pueden usar. El escalado no funcionará si ha usado todos los núcleos disponibles. Por ejemplo, si tiene un límite de 100 núcleos, significa que puede tener 100 instancias de máquina virtual de tamaño A1 para su servicio en la nube, o bien 50 instancias de máquina virtual de tamaño A2.
@@ -276,7 +277,7 @@ También puede agregarlo como un ajuste en IIS. Use el comando siguiente con el 
 Use el script de inicio de IIS del artículo [common startup tasks](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) (tareas comunes de inicio).
 
 ### <a name="what-is-the-quota-limit-for-my-cloud-service"></a>¿Cuál es el límite de cuota para un servicio en la nube?
-Consulte los [Límites específicos del servicio](../azure-subscription-service-limits.md#subscription-limits).
+Consulte los [Límites específicos del servicio](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
 
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>¿Por qué la unidad de mi máquina virtual del servicio en la nube muestra muy poco espacio libre en disco?
 Este es el comportamiento esperado y que no debería causar ningún problema para la aplicación. El registro en diario está activado para la unidad %approot% en las máquinas virtuales de Azure PaaS, que esencialmente consume el doble de espacio que suelen ocupar los archivos. De todas formas, hay varios aspectos a tener en cuenta que básicamente hacen que esto no sea un problema.
@@ -310,7 +311,7 @@ El enlace de SNI se puede configurar mediante el cmdlet de PowerShell **New-WebB
     
 Como se describe [aquí](https://technet.microsoft.com/library/ee790567.aspx), $sslFlags puede ser uno de los valores del tipo:
 
-|Valor|Significado|
+|Value|Significado|
 ------|------
 |0|Sin SNI|
 |1|SNI habilitada|

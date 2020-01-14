@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 3b692ed697d69deca4c50a0595cc54251bac4990
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 0ba21fe3789fba03cd4814d19fb103c3a2559c13
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74175009"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75662907"
 ---
 | Resource | Límite predeterminado/máximo | Nota: |
 | --- | --- | --- |
@@ -36,7 +36,7 @@ ms.locfileid: "74175009"
 | Longitud máxima de dirección URL|32 KB| |
 | Tamaño de encabezado máximo para HTTP/2 |4 KB| |
 | Tamaño máximo de carga de archivos (estándar) |2 GB | |
-| Tamaño máximo de carga de archivos WAF |Puertas de enlace WAF medianas (100 MB)<br>Puertas de enlace WAF grandes (500 MB)| |
+| Tamaño máximo de carga de archivos WAF |Puertas de enlaces v1 medianas WAF, 100 MB<br>Puertas de enlace v1 grandes WAF 500 MB<br>v2 WAF, 750 MB| |
 | Límite de tamaño de cuerpo de WAF (sin archivos)|128 KB||
 | Máximo de reglas personalizadas de WAF|100||
 | Exclusiones máximas de WAF|100||

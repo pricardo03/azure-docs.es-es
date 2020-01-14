@@ -2,26 +2,26 @@
 title: Habilitación de volcados de montón de los servicios de Apache Hadoop en HDInsight (Azure)
 description: Habilite los volcados de montón de los servicios de Apache Hadoop en los clústeres de HDInsight basados en Linux para la depuración y el análisis.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: hrasheed
-ms.openlocfilehash: 90de0b4bfad4c5096ebc38eb3d31fc41bca6649b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 01/02/2020
+ms.openlocfilehash: 9134eb6922b0ed37bbe6051b138da2c7c082b175
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494844"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658804"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Habilitar los volcados de montón de los servicios de Apache Hadoop en HDInsight basado en Linux
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-Los volcados de montón contienen una instantánea de la memoria de la aplicación, incluidos los valores de variables en el momento en el que se creó el volcado de memoria. Por ello, estos volcados resultan útiles a la hora de diagnosticar cualquier problema que ocurra en tiempo de ejecución.
+Los volcados de montón contienen una instantánea de la memoria de la aplicación, incluidos los valores de variables en el momento en el que se creó el volcado de memoria. Por lo tanto, son útiles para diagnosticar los problemas que se producen en tiempo de ejecución.
 
-## <a name="whichServices"></a>Servicios
+## <a name="services"></a>Servicios
 
 Puede habilitar los volcados de montón en los siguientes servicios:
 
@@ -33,11 +33,11 @@ Puede habilitar los volcados de montón en los siguientes servicios:
 
 También puede habilitar los volcados de montón para los procesos de asignación y ejecución que ejecuta HDInsight.
 
-## <a name="configuration"></a>Información sobre cómo configurar el volcado de montón
+## <a name="understanding-heap-dump-configuration"></a>Información de la configuración del volcado de montón
 
 Son las opciones de paso (también conocidas como opciones o parámetros) las que habilitan los volcados de montón en JVM cuando se inicia un servicio. En la mayoría de los servicios de [Apache Hadoop](https://hadoop.apache.org/), puede modificar el script de shell empleado para iniciar el servicio para pasar estas opciones.
 
-En cada script hay una exportación de **\*\_OPTS** que contiene las opciones que se pasan a JVM. Por ejemplo, en el script **hadoop env.sh**, la línea que comienza con `export HADOOP_NAMENODE_OPTS=` contiene las opciones del servicio NameNode.
+En cada script, hay una exportación para **\*\_OPTS**, que contiene las opciones que se pasan a JVM. Por ejemplo, en el script **hadoop env.sh**, la línea que comienza con `export HADOOP_NAMENODE_OPTS=` contiene las opciones del servicio NameNode.
 
 La asignación y reducción de procesos son tareas ligeramente diferentes, ya que se tratan de procesos secundarios del servicio MapReduce. Cada proceso de asignación o reducción se ejecuta en un contenedor secundario y existen dos entradas que contienen las opciones de JVM. Ambos están en **mapred-site.xml**:
 
@@ -81,12 +81,7 @@ También puede desencadenar un script cuando se produzca un error **OutOfMemoryE
 
 Para modificar la configuración de un servicio, siga estos pasos:
 
-1. Abra la interfaz de usuario web Ambari del clúster. La dirección URL es https://YOURCLUSTERNAME.azurehdinsight.net.
-
-    Cuando se le solicite, deberá autenticarse en el sitio mediante el nombre de cuenta HTTP (nombre predeterminado: admin) y la contraseña del clúster.
-
-   > [!NOTE]  
-   > Es posible que Ambari le pida de nuevo que escriba el nombre de usuario y la contraseña. Si es así, escriba el mismo nombre de cuenta y la contraseña.
+1. En un explorador web, vaya a `https://CLUSTERNAME.azurehdinsight.net`, donde `CLUSTERNAME` es el nombre del clúster.
 
 2. En la lista de la izquierda, seleccione el área de servicio que desea modificar. Por ejemplo, **HDFS**. En el área central, seleccione la ficha **Configuraciones** .
 
@@ -121,4 +116,3 @@ Para modificar la configuración de un servicio, siga estos pasos:
    > Es posible que las entradas del botón **Reiniciar** sean diferentes en otros servicios.
 
 8. Una vez haya reiniciado los servicios, pulse el botón **Acciones de servicio** para **Desactivar el modo de mantenimiento**. Esto hará que Ambari reanude la supervisión de alertas para el servicio.
-

@@ -3,12 +3,12 @@ title: 'Copias de seguridad de archivos y carpetas: preguntas comunes'
 description: Responde las preguntas habituales acerca de la realización de copias de seguridad de archivos y carpetas con Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: b66eb7bca3c9a57f6b44697aa0340cd852fc3db4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: d2049036d52eea29b03a2ca3cea29e3d6c52e9cc
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173059"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611635"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas
 
@@ -98,7 +98,7 @@ El tamaño de la carpeta de caché determina la cantidad de datos de los que se 
 1. De forma predeterminada, la carpeta temporal se encuentra en `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`.
 2. Asegúrese de que la ruta de acceso de la ubicación de la carpeta temporal coincide con los valores de las entradas de clave del Registro que se muestran a continuación:
 
-  | Ruta de acceso del Registro | Clave del Registro | Valor |
+  | Ruta de acceso del Registro | Clave del Registro | Value |
   | --- | --- | --- |
   | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |
   | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |
@@ -113,7 +113,7 @@ El tamaño de la carpeta de caché determina la cantidad de datos de los que se 
 3. No mueva los archivos. En su lugar, copie la carpeta de espacio en caché en otra unidad que tenga suficiente espacio.
 4. Actualice las siguientes entradas del Registro con la ruta de acceso de la nueva carpeta de la caché.
 
-    | Ruta de acceso del Registro | Clave del Registro | Valor |
+    | Ruta de acceso del Registro | Clave del Registro | Value |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |
@@ -141,7 +141,7 @@ No se admiten los siguientes atributos ni sus combinaciones para la carpeta de c
 
 * Cifrados
 * Desduplicados
-* Comprimidos
+* Compressed
 * Dispersos
 * Punto de reanálisis
 
@@ -152,10 +152,43 @@ Ni la carpeta de caché ni los metadatos del disco duro virtual tienen los atrib
 Sí, puede usar la opción **Cambiar propiedades** del agente de MARS para ajustar el ancho de banda y el tiempo. [Más información](backup-configure-vault.md#enable-network-throttling).
 
 ## <a name="restore"></a>Restauración
+### <a name="manage"></a>Administrar
+**¿Puedo recuperar mi frase de contraseña si la olvidé?**<br>
+El agente de Azure Backup requiere una frase de contraseña (que proporcionó durante el registro) para descifrar los datos de los que se ha realizado una copia de seguridad durante la restauración. Revise los escenarios siguientes para conocer las opciones de control de una frase de contraseña perdida:<br>
+
+| Máquina original <br> *(máquina de origen donde se realizaron las copias de seguridad)* | Passphrase | Opciones disponibles |
+| --- | --- | --- |
+| Disponible |Perdida |Si la máquina original (donde se realizaron las copias de seguridad) está disponible y aún está registrada en el mismo almacén de Recovery Services, podrá volver a generar la frase de contraseña siguiendo estos [pasos](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase).  |
+| Perdida |Perdida |No es posible recuperar los datos o los datos no están disponibles |
+
+Tenga en cuenta las siguientes condiciones:
+- Si desinstala y vuelve a registrar el agente en el mismo equipo original con
+  - *la misma frase de contraseña*, podrá restaurar los datos de copia de seguridad.<br>
+  - *una frase de contraseña diferente*, no podrá restaurar los datos de copia de seguridad.
+-   Si instala el agente en una *máquina diferente* con<br>
+  - la misma frase de contraseña (usada en la máquina original), podrá restaurar los datos de copia de seguridad.<br>
+  - una frase de contraseña diferente, no podrá restaurar los datos de copia de seguridad.<br>
+-   Además, si la máquina original está dañada (lo que le impide volver a generar la frase de contraseña a través de la consola de MARS), pero puede restaurar o tener acceso a la carpeta temporal original utilizada por el agente de MARS, entonces es posible que pueda realizar una restauración (si olvidó la contraseña). Para obtener más ayuda, póngase en contacto con el servicio de soporte al cliente.
+
+**¿Cómo recupero las copias de seguridad si perdí mi máquina original (donde se realizaban las copias de seguridad)?**<br>
+
+Si tiene la misma frase de contraseña (que proporcionó durante el registro) del equipo original, puede restaurar los datos de copia de seguridad en una máquina alternativa. Revise los escenarios siguientes para conocer las opciones de restauración.
+
+| Máquina original | Passphrase | Opciones disponibles |
+| --- | --- | --- |
+| Perdida |Disponible |Puede instalar y registrar el agente de MARS en otro equipo con la misma frase de contraseña que proporcionó durante el registro de la máquina original. Elija **Opción de recuperación** > **Otra ubicación** para realizar la restauración. Para más información, consulte [este artículo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Perdida |Perdida |No es posible recuperar los datos o los datos no están disponibles |
+
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>¿Qué ocurre si se cancela un trabajo de restauración en curso?
 
 Si se cancela un trabajo de restauración en curso, se detiene el proceso de restauración. Todos los archivos restaurados antes de la cancelación permanecen en el destino configurado (ubicación original o alternativa) sin las reversiones.
+
+### <a name="does-the-mars-agent-back-up-and-restore-acls-set-on-files-folders-and-volumes"></a>¿El agente de MARS realiza copias de seguridad y restauraciones de las ACL establecidas en archivos, carpetas y volúmenes?
+
+* El agente de MARS realiza copias de seguridad y restauraciones de las ACL establecidas en archivos, carpetas y volúmenes.
+* Para la opción de recuperación de restauración de volumen, el agente de MARS proporciona una opción para omitir la restauración de los permisos de ACL al archivo o la carpeta que se va a recuperar.
+* Para la opción de recuperación de archivos y carpetas individuales, el agente de MARS se restaurará con permisos de ACL (no hay ninguna opción para omitir la restauración de ACL).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

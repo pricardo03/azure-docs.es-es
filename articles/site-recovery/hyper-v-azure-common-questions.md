@@ -1,18 +1,14 @@
 ---
 title: Preguntas comunes sobre la recuperación ante desastres en Hyper-V con Azure Site Recovery
 description: En este artículo se resumen preguntas comunes sobre la configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V locales a Azure con el sitio de Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 8f3a04c70b88987fc91dbed3c186d04826b75726
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 7c5f55fbea67567ddf7a2afa6a61f6c76568d829
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954056"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498195"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Preguntas comunes: recuperación ante desastres de Hyper-V a Azure
 
@@ -202,14 +198,17 @@ Site Recovery no instala nada explícitamente en las máquinas virtuales de Hype
 ### <a name="how-do-i-fail-over-to-azure"></a>¿Cómo puedo realizar la conmutación por error en Azure?
 
 Puede ejecutar una conmutación por error, planeada o no, desde máquinas virtuales de Hyper-V locales en Azure.
-    - Si ejecuta una conmutación por error planeada, las máquinas virtuales de origen se apagan para garantizar que no se pierdan datos.
-    - Puede ejecutar una conmutación por error no planeada, si el sitio primario no está accesible.
-    - Puede conmutar por error una única máquina o crear planes de recuperación para organizar la conmutación por error de varias máquinas.
-    - Ejecuta una conmutación por error. Una vez que se completa la primera fase de la conmutación por error, debería poder ver las máquinas virtuales de la réplica creadas en Azure. Puede asignar una dirección IP pública a la máquina virtual si es necesario. Después, confirme la conmutación por error, para iniciar el acceso a la carga de trabajo desde la máquina virtual de Azure de la réplica.
+
+- Si ejecuta una conmutación por error planeada, las máquinas virtuales de origen se apagan para garantizar que no se pierdan datos.
+- Puede ejecutar una conmutación por error no planeada, si el sitio primario no está accesible.
+- Puede conmutar por error una única máquina o crear planes de recuperación para organizar la conmutación por error de varias máquinas.
+- La conmutación por error consta de dos partes:
+    - Una vez que se completa la primera fase de la conmutación por error, debería poder ver las máquinas virtuales de la réplica creadas en Azure. Puede asignar una dirección IP pública a la máquina virtual si es necesario.
+    - Después, confirme la conmutación por error, para iniciar el acceso a la carga de trabajo desde la máquina virtual de Azure de la réplica.
    
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>¿Cómo accedo a las máquinas virtuales de Azure después de la conmutación por error?
-Después de la conmutación por error, puede tener acceso a las máquinas virtuales de Azure a través de una conexión segura a Internet o a través de una VPN de sitio a sitio o mediante Azure ExpressRoute. Debe preparar algunas cosas para la conexión. [Más información](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+Después de la conmutación por error, puede tener acceso a las máquinas virtuales de Azure a través de una conexión segura a Internet o a través de una VPN de sitio a sitio o mediante Azure ExpressRoute. Debe preparar algunas cosas para la conexión. [Más información](failover-failback-overview.md#connect-to-azure-after-failover).
 
 ### <a name="is-failed-over-data-resilient"></a>¿Son resistentes los datos conmutados por error?
 Azure está diseñado para la resistencia. Site Recovery está diseñado para la conmutación por error en un centro de datos de Azure secundario según el Acuerdo de Nivel de Servicio de Azure. Cuando se produce una conmutación por error, nos aseguramos de que los metadatos y los almacenes permanecen en la misma región geográfica que eligió para el almacén.
@@ -232,4 +231,4 @@ Una vez que la infraestructura local está activa y ejecutándose, puede conmuta
 5. Una vez que las cargas de trabajo han conmutado por recuperación, habilite la replicación inversa, para que las máquinas virtuales locales se repliquen en Azure de nuevo.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>¿Es posible conmutar por recuperación en otra ubicación?
-Sí, si conmutó por error en Azure, puede conmutar por recuperación en otra ubicación si la ubicación original no está disponible. [Más información](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
+Sí, si conmutó por error en Azure, puede conmutar por recuperación en otra ubicación si la ubicación original no está disponible. [Más información](hyper-v-azure-failback.md#fail-back-to-an-alternate-location).

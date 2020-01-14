@@ -5,17 +5,17 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 01/03/2020
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: b1252c455c2dfad2963f914ee746bcb932e59aa9
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6d8f29e9272f3e05bb585c032240cce67c37d2bf
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74451534"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665138"
 ---
-1. Para ver las etiquetas de un recurso o un grupo de recursos, busque las etiquetas existentes en la introducción. Si no ha aplicado etiquetas anteriormente, la lista está vacía.
+1. Para ver las etiquetas de un recurso o un grupo de recursos, busque etiquetas existentes en la información general. Si no ha aplicado etiquetas anteriormente, la lista está vacía.
    
      ![Visualización de las etiquetas por recurso o grupo de recursos](./media/resource-manager-tag-resources/view-tags.png)
 1. Para agregar una etiqueta, seleccione **Haga clic aquí para agregar etiquetas**.
@@ -63,11 +63,3 @@ Para ver todos los recursos con una etiqueta:
 1. Se muestran todos los recursos que contienen esa etiqueta.
 
      ![Visualización de recursos por etiqueta](./media/resource-manager-tag-resources/view-resources-by-tag.png)
-
-1. Para un acceso rápido, ancle la vista al panel.
-
-     ![Anclar al panel](./media/resource-manager-tag-resources/pin-to-dashboard.png)
-
-1. La vista está disponible desde el panel.
-
-     ![panel](./media/resource-manager-tag-resources/dashboard-with-view.png)

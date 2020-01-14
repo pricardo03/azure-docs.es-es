@@ -1,25 +1,25 @@
 ---
-title: Adición, retirada y orden de favoritos en Azure Portal | Microsoft Docs
-description: Obtenga información sobre cómo agregar o quitar elementos de la lista de favoritos y establecer su orden.
+title: Agregar, quitar y organizar favoritos en Azure Portal | Microsoft Docs
+description: Obtenga información sobre cómo agregar o quitar elementos de la lista de favoritos y reorganizar el orden de los elementos
 services: azure-portal
-keywords: favoritos
-author: kfollis
-ms.author: kfollis
-ms.date: 11/01/2019
+keywords: favoritos, portal
+author: mblythe
+ms.author: mblythe
+ms.date: 12/20/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.openlocfilehash: 51228f4a28b5c6e19bf341b5576540d36bcaae64
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 57ce053f268558886dad33d450d48f9a0889a10a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579535"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640574"
 ---
-# <a name="add-remove-and-sort-favorites"></a>Adición, eliminación y ordenación de favoritos
+# <a name="add-remove-and-rearrange-favorites"></a>Agregar, quitar y reorganizar favoritos
 
-Agregue o quite elementos de su lista de **favoritos** de modo que pueda ir rápidamente a los servicios que utiliza con mayor frecuencia. Ya se han agregado algunos servicios comunes a su lista de **favoritos**, pero probablemente deseará personalizarla. Usted es la única persona que ve los cambios que realiza en los **favoritos**.
+Agregue o quite elementos de la lista de **Favoritos** para poder ir rápidamente a los servicios que usa con más frecuencia. Ya se han agregado algunos servicios comunes a su lista de **favoritos**, pero probablemente deseará personalizarla. Usted es la única persona que ve los cambios que realiza en los **favoritos**.
 
 ## <a name="add-a-favorite"></a>Adición de un favorito
 
@@ -51,7 +51,7 @@ Ahora puede quitar un elemento directamente de la lista **Favoritos**.
 
 2. En la tarjeta de información, seleccione la estrella para que cambie de rellenada a no rellenada. El servicio se quita de la lista **Favoritos**.
 
-## <a name="sort-favorites"></a>Orden de favoritos
+## <a name="rearrange-favorites"></a>Reorganizar favoritos
 
 Puede cambiar el orden de sus servicios favoritos. Simplemente arrastre y coloque el elemento de menú a otra ubicación en **Favoritos**.
 

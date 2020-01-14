@@ -1,19 +1,14 @@
 ---
-title: 'Azure Service Fabric: uso de identidades administradas con aplicaciones de Service Fabric | Microsoft Docs'
-description: Cómo usar identidades administradas en el código de la aplicación de Service Fabric
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Uso de una identidad administrada con una aplicación
+description: Cómo usar identidades administradas en el código de una aplicación de Azure Service Fabric para acceder a los servicios de Azure. Esta característica está en versión preliminar pública.
 ms.topic: article
-ms.date: 7/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: 6a3d33954bda0605e752555922914a9fd432d8c1
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.date: 10/09/2019
+ms.openlocfilehash: 59680ec7911f55c3dc49d8834b410a039aa435dc
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968233"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610325"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Cómo usar la identidad administrada de una aplicación de Service Fabric para acceder a los servicios de Azure (versión preliminar)
 
@@ -55,7 +50,7 @@ GET 'http://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01
 ```
 donde:
 
-| Elemento | DESCRIPCIÓN |
+| Elemento | Descripción |
 | ------- | ----------- |
 | `GET` | El verbo HTTP, indicando que se van a recuperar datos desde el punto de conexión. En este caso, el token de acceso de OAuth. | 
 | `http://localhost:2377/metadata/identity/oauth2/token` | Punto de conexión de identidad administrada de las aplicaciones de Service Fabric, facilitado a través de la variable de entorno MSI_ENDPOINT. |
@@ -77,7 +72,7 @@ Content-Type: application/json
 ```
 donde:
 
-| Elemento | DESCRIPCIÓN |
+| Elemento | Descripción |
 | ------- | ----------- |
 | `token_type` | Tipo de token; en este caso, es un token de acceso de tipo portador ("Bearer"), que significa que el portador de este token es el asunto previsto del token. |
 | `access_token` | El token de acceso solicitado. Al llamar a una API de REST protegida, el token se inserta en el campo `Authorization` del encabezado de la solicitud como un token de "portador", lo que permite a la API autenticar el llamador. | 
@@ -326,7 +321,7 @@ El campo "status code" del encabezado de respuesta HTTP indica un estado correct
 
 Si se produce un error, el cuerpo de respuesta HTTP correspondiente contiene un objeto JSON con estos detalles del error:
 
-| Elemento | DESCRIPCIÓN |
+| Elemento | Descripción |
 | ------- | ----------- |
 | código | Código de error. |
 | correlationId | Identificador de correlación que se puede usar en la depuración. |
@@ -339,7 +334,7 @@ Error de ejemplo:
 
 Aquí se muestra una lista de los errores de Service Fabric habituales específicos de las identidades administradas:
 
-| Código | Message | DESCRIPCIÓN | 
+| Código | Message | Descripción | 
 | ----------- | ----- | ----------------- |
 | SecretHeaderNotFound | No se encuentra el secreto en los encabezados de la solicitud. | No se ha facilitado el código de autenticación con la solicitud. | 
 | ManagedIdentityNotFound | No se encontró la identidad administrada del host de aplicación especificado. | La aplicación no tiene ninguna identidad, o se desconoce el código de autenticación. |

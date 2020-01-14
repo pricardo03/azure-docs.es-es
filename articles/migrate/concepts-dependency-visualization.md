@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: hamusa
-ms.openlocfilehash: 17ba06d6ac09f220b4343092292275a1cc315377
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 828f3078c992bed4fa556a374468e69dd58ebc04
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489210"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494511"
 ---
 # <a name="dependency-visualization"></a>Visualización de dependencia
 
@@ -32,8 +32,8 @@ La visualización de dependencias le permite comprender las dependencias en las 
 
 Hay dos opciones para implementar la visualización de dependencias:
 
-- **Visualización de dependencias sin agentes**: Esta opción se encuentra actualmente en versión preliminar. No es necesario que instale ningún agente en las máquinas. 
-    - Funciona capturando los datos de conexión TCP de las máquinas para los que está habilitada. [Más información](how-to-create-group-machine-dependencies-agentless.md).
+- **Visualización de dependencias sin agentes**: Esta opción está actualmente en versión preliminar y solo está disponible para máquinas virtuales de VMware. No es necesario que instale ningún agente en las máquinas. 
+    - Funciona capturando los datos de conexión TCP de las máquinas para las que está habilitada. [Más información](how-to-create-group-machine-dependencies-agentless.md).
 Una vez iniciada la detección de dependencias, el dispositivo recopila datos de las máquinas en un intervalo de sondeo de cinco minutos.
     - Se pueden recopilar los siguientes datos:
         - Conexiones TCP

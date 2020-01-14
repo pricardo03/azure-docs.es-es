@@ -3,26 +3,26 @@ title: ¿Qué es el Proceso de ciencia de datos en equipo (TDSP)?
 description: Se proporciona una metodología de ciencia de datos que ofrece soluciones de análisis predictivo y aplicaciones inteligentes.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 1/04/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3b4e8c78d7402c254c91c3e100814e1f3eafc41b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 124fe4f69396286dbe383f8823a36b4ba52d346c
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429440"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665080"
 ---
 # <a name="what-is-the-team-data-science-process"></a>¿Qué es el Proceso de ciencia de datos en equipo (TDSP)?
 
-El proceso de ciencia de datos en equipo (TDSP) es una metodología de ciencia de datos ágil e iterativa para proporcionar soluciones de análisis predictivo y aplicaciones inteligentes de manera eficiente. TDSP ayuda a mejorar la colaboración en equipo y el aprendizaje. Contiene una extracción de los mejores procedimientos y estructuras de Microsoft y otros fabricantes del sector que facilitan la correcta implementación de iniciativas de ciencia de datos. El objetivo es ayudar a las empresas a que se den cuenta de las ventajas de su programa de análisis.
+El proceso de ciencia de datos en equipo (TDSP) es una metodología de ciencia de datos ágil e iterativa para proporcionar soluciones de análisis predictivo y aplicaciones inteligentes de manera eficiente. TDSP ayuda a mejorar la colaboración y el aprendizaje en equipo al sugerir cómo los roles de equipo funcionan mejor juntos. TDSP incluye procedimientos recomendados y estructuras de Microsoft y otros líderes del sector para ayudar a implementar correctamente iniciativas de ciencia de datos. El objetivo es ayudar a las empresas a que se den cuenta de las ventajas de su programa de análisis.
 
-En este artículo se proporciona una introducción a TDSP y sus componentes principales. Aquí se ofrece una descripción genérica del proceso que se puede implementar con diversas herramientas. En vínculos a temas adicionales, se incluye una descripción más detallada de las tareas del proyecto y de los roles implicados en el ciclo de vida del proceso. También se proporcionan instrucciones sobre cómo implementar el TDSP mediante un conjunto específico de herramientas de Microsoft y la infraestructura que se usa para implementar el TDSP en nuestros equipos.
+En este artículo se proporciona una introducción a TDSP y sus componentes principales. Aquí se proporciona una descripción genérica del proceso que se puede implementar con distintos tipos de herramientas. En vínculos a temas adicionales, se incluye una descripción más detallada de las tareas del proyecto y de los roles implicados en el ciclo de vida del proceso. También se proporcionan instrucciones sobre cómo implementar el TDSP mediante un conjunto específico de herramientas de Microsoft y la infraestructura que se usa para implementar el TDSP en nuestros equipos.
 
 ## <a name="key-components-of-the-tdsp"></a>Principales componentes del TDSP
 
@@ -86,7 +86,7 @@ La estructura de directorio se puede clonar desde [GitHub](https://github.com/Az
 TDSP proporciona recomendaciones para administrar análisis compartido e infraestructura de almacenamiento, por ejemplo:
 
 - sistemas de archivos en la nube para almacenar conjuntos de datos 
-- bases de datos
+- databases
 - clústeres de macrodatos (Hadoop o Spark) 
 - servicio de aprendizaje automático 
 

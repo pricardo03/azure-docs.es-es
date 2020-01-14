@@ -1,25 +1,16 @@
 ---
-title: 'Azure Service Fabric: configuración de la supervisión con registros de Azure Monitor | Microsoft Docs'
+title: Configuración de la supervisión con registros de Azure Monitor
 description: Aprenda a configurar registros de Azure Monitor para visualizar y analizar eventos con el fin de supervisar los clústeres de Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: c8f7198b59a0fe7ed6775736f8b97f5b5a262640
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf0fab9942dcbb7ee09e554f2c9ba8738f208009
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306864"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609934"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configuración de registros de Azure Monitor para un clúster
 

@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: ab16fc959a332076cac1d615b86d37e8c66e2f67
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c3c94805c18b0a7a3052158871c5fafce2dd5a33
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933696"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660722"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula automática para escalar nodos de ejecución en un grupo de Batch
 
@@ -34,7 +34,7 @@ En este artículo se describen las distintas entidades que conforman las fórmul
 > [!IMPORTANT]
 > Al crear una cuenta de Batch puede especificar la [configuración de la cuenta](batch-api-basics.md#account), que determina si se asignan grupos en una suscripción de servicio de Batch (opción predeterminada) o en su suscripción de usuario. Si ha creado su cuenta de Batch con la configuración predeterminada del servicio de Batch, la cuenta estará limitada a un máximo de núcleos que se pueden usar para el procesamiento. El servicio de Batch escala nodos de ejecución solo hasta ese límite de núcleos. Por este motivo, puede que el servicio de Batch no alcance el número de nodos de ejecución que se especifiquen con una fórmula de escalado automático. Consulte [Cuotas y límites del servicio Azure Batch](batch-quota-limit.md) para más información sobre la visualización y aumento de las cuotas de la cuenta.
 >
->Si ha creado su cuenta con la configuración de suscripción de usuario, su cuenta comparte la cuota de núcleos de la suscripción. Para más información, consulte [Límites de Virtual Machines](../azure-subscription-service-limits.md#virtual-machines-limits) en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
+>Si ha creado su cuenta con la configuración de suscripción de usuario, su cuenta comparte la cuota de núcleos de la suscripción. Para más información, consulte [Límites de Virtual Machines](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 >
 >
 
@@ -102,7 +102,7 @@ En las siguientes tablas se muestran las variables de lectura y escritura y de s
 
 Puede obtener y establecer los valores de estas variables definidas por el servicio para administrar el número de nodos de ejecución de un grupo:
 
-| Variables definidas por el servicio de solo escritura | DESCRIPCIÓN |
+| Variables definidas por el servicio de solo escritura | Descripción |
 | --- | --- |
 | $TargetDedicatedNodes |Número objetivo de nodos de ejecución dedicados para el grupo. El número de nodos dedicados se especifica como destino porque un grupo podría no lograr siempre el número de nodos deseado. Por ejemplo, podría pasar que el grupo no alcanzara el número de destino si el número de nodos dedicados se modifica con una evaluación de escalado automático antes de que el grupo haya alcanzado el valor de destino inicial. <br /><br /> Podría pasar que un grupo de una cuenta creada con la configuración del servicio de Batch no alcanzara su valor de destino si el destino supera una cuota de núcleos o de nodos de la cuenta de Batch. Podría pasar que un grupo de una cuenta creada con la configuración de suscripción de usuario no alcanzara su valor de destino si el destino supera la cuota de núcleos compartidos de la suscripción.|
 | $TargetLowPriorityNodes |Número objetivo de nodos de ejecución de prioridad baja para el grupo. El número de nodos de prioridad baja se especifica como destino porque un grupo podría no lograr siempre el número de nodos deseado. Por ejemplo, podría pasar que el grupo no alcanzara el número de destino si el número de nodos de prioridad baja se modifica con una evaluación de escalado automático antes de que el grupo haya alcanzado el valor de destino inicial. Además, también podría pasar que un grupo no alcanzara el valor de destino si el destino supera una cuota de núcleos o de nodos de la cuenta de Batch. <br /><br /> Para obtener más información sobre los nodos de ejecución de prioridad baja, consulte [Uso de máquinas virtuales de prioridad baja con Batch](batch-low-pri-vms.md). |
@@ -115,7 +115,7 @@ Puede obtener y establecer los valores de estas variables definidas por el servi
 
 Puede obtener el valor de estas variables definidas por el servicio para efectuar ajustes basados en las métricas del servicio de Batch:
 
-| Variables definidas por el servicio de solo lectura | DESCRIPCIÓN |
+| Variables definidas por el servicio de solo lectura | Descripción |
 | --- | --- |
 | $CPUPercent |El porcentaje medio de uso de CPU. |
 | $WallClockSeconds |El número de segundos consumidos. |
@@ -200,7 +200,7 @@ Cuando se prueba un valor double con un operador ternario (`double ? statement1 
 ## <a name="functions"></a>Functions
 Estas **funciones** predefinidas están disponibles para que las use al definir fórmulas de escalado automático.
 
-| Función | Tipo de valor devuelto | DESCRIPCIÓN |
+| Función | Tipo de valor devuelto | Descripción |
 | --- | --- | --- |
 | avg(doubleVecList) |double |Devuelve el valor medio de todos los valores de doubleVecList. |
 | len(doubleVecList) |double |Devuelve la longitud del vector creado a partir de doubleVecList. |
@@ -236,7 +236,7 @@ Las fórmulas de escalado automático actúan en datos de métricas (muestras) p
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
 ```
 
-| Método | DESCRIPCIÓN |
+| Método | Descripción |
 | --- | --- |
 | GetSample() |El método `GetSample()` devuelve un vector de muestras de datos.<br/><br/>Un ejemplo tiene un valor de 30 segundos de datos de métrica. En otras palabras, las muestras se obtienen cada 30 segundos. No obstante, tal como se mencionó anteriormente, hay un retraso entre cuándo se recopila una muestra y cuándo está disponible para una fórmula. Por lo tanto, puede que no todos los ejemplos durante un período de tiempo determinado estén disponibles para la evaluación a través de una fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica el número de muestras que se obtienen a partir de las muestras recogidas más recientes.<br/><br/>`GetSample(1)` devuelve la última muestra disponible. Para métricas como `$CPUPercent`, sin embargo, esto no debe usarse porque es imposible saber *cuándo* se recopiló la muestra. Puede ser reciente o, debido a problemas del sistema, puede ser mucho más antiguo. En estos casos es mejor usar un intervalo de tiempo como se muestra a continuación.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica un período de tiempo para recopilar datos de muestra. Opcionalmente, también especifica el porcentaje de muestras que deben estar disponibles en el marco de tiempo solicitado.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` debería devolver 20 muestras si todas las muestras de los últimos 10 minutos están presentes en el historial de CPUPercent. Si el último minuto del historial no estaba disponible, solo se devolverán, no obstante, 18 muestras. En este caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` daría error porque solo el 90 por ciento de las muestras están disponibles.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` se realizaría correctamente.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica un período de tiempo para recopilar datos, con una hora de inicio y una hora de finalización.<br/><br/>Como se mencionó anteriormente, hay un retraso entre cuando se recopila un ejemplo y cuando está disponible para una fórmula. Tenga en cuenta este retraso a la hora de usar el método `GetSample`. Consulte `GetSamplePercent` a continuación. |
 | GetSamplePeriod() |Devuelve el período de las muestras tomadas en un conjunto de datos de muestras históricos. |
@@ -295,7 +295,7 @@ Puede usar tanto métricas de recurso como de tarea al definir una fórmula. El 
 <table>
   <tr>
     <th>Métrica</th>
-    <th>DESCRIPCIÓN</th>
+    <th>Descripción</th>
   </tr>
   <tr>
     <td><b>Recurso</b></td>
@@ -382,7 +382,7 @@ $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 
 ## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Creación de un grupo habilitado para el escalado automático con SDK de Batch
 
-El escalado automático de grupos se puede configurar con cualquiera de los [SDK de Batch](batch-apis-tools.md#azure-accounts-for-batch-development), la [API REST de Batch](https://docs.microsoft.com/rest/api/batchservice/), los [cmdletsde PowerShell de Batch](batch-powershell-cmdlets-get-started.md) y la [CLI de Batch](batch-cli-get-started.md). En esta sección, puede ver ejemplos de .NET y Python.
+El escalado automático de grupo se puede configurar con cualquiera de los [SDK de Batch](batch-apis-tools.md#azure-accounts-for-batch-development), la [API de REST de Batch](https://docs.microsoft.com/rest/api/batchservice/), los [cmdlets de PowerShell de Batch](batch-powershell-cmdlets-get-started.md)y la [CLI de Batch](batch-cli-get-started.md). En esta sección, puede ver ejemplos de .NET y Python.
 
 ### <a name="net"></a>.NET
 

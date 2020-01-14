@@ -1,32 +1,23 @@
 ---
-title: 'CLI de Azure Service Fabric: sfctl cluster | Microsoft Docs'
-description: Describe los comandos de sfctl cluster de la CLI Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: 'CLI de Azure Service Fabric: clúster de sfctl'
+description: Más información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para administrar clústeres.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: a42062f6f6b671d853f47e3f170b366799829a62
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 807457f3edaef8e0edcdbf53b482e2e4ffee174c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901486"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639163"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Seleccione, administre y opere clústeres de Service Fabric.
 
 ## <a name="commands"></a>Comandos:
 
-|Get-Help|DESCRIPCIÓN|
+|Get-Help|Descripción|
 | --- | --- |
 | code-versions | Obtiene una lista de versiones de código de tejido que se aprovisionan en un clúster de Service Fabric. |
 | config-versions | Obtiene una lista de versiones de configuración de tejido que se aprovisionan en un clúster de Service Fabric. |
@@ -53,20 +44,20 @@ Obtiene una lista de información sobre las versiones de código de tejido que s
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --code-version | La versión del producto de Service Fabric. |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-cluster-config-versions"></a>sfctl cluster config-versions
 Obtiene una lista de versiones de configuración de tejido que se aprovisionan en un clúster de Service Fabric.
@@ -75,20 +66,20 @@ Obtiene una lista de versiones de configuración de Fabric que se aprovisionan e
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --config-version | La versión de configuración de Service Fabric. |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-cluster-health"></a>sfctl cluster health
 Obtiene el estado de un clúster de Service Fabric.
@@ -97,7 +88,7 @@ Use EventsHealthStateFilter para filtrar la colección de eventos de estado noti
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --applications-health-state-filter | Permite el filtrado de los objetos de estado de mantenimiento de aplicaciones devueltos en el resultado de la consulta de mantenimiento del clúster en función de su estado de mantenimiento. Los valores posibles para este parámetro incluyen un valor entero obtenido de los miembros u operaciones bit a bit en miembros de la enumeración HealthStateFilter. Solo se devuelven las aplicaciones que coinciden con el filtro. Todas las aplicaciones se usan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit 'OR'. Por ejemplo, si el valor proporcionado es 6, se devuelve el estado de mantenimiento de las aplicaciones con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
 | --events-health-state-filter | Permite filtrar la colección de objetos HealthEvent devueltos según el estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit "OR". Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
@@ -108,13 +99,13 @@ Use EventsHealthStateFilter para filtrar la colección de eventos de estado noti
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-cluster-manifest"></a>sfctl cluster manifest
 Obtiene el manifiesto de clúster de Service Fabric.
@@ -123,19 +114,19 @@ Obtiene el manifiesto de clúster de Service Fabric. El manifiesto de clúster c
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl cluster operation-cancel
 Cancela una operación de error provocada por el usuario.
@@ -144,7 +135,7 @@ Las siguientes API inician operaciones de error que se pueden cancelar mediante 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --operation-id [obligatorio] | Un GUID que identifica una llamada de esta API.  Se pasa a la API GetProgress correspondiente. |
 | --force | Indica si se debe revertir correctamente y limpiar el estado interno del sistema modificado mediante la ejecución de la operación inducida por el usuario. |
@@ -152,13 +143,13 @@ Las siguientes API inician operaciones de error que se pueden cancelar mediante 
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-cluster-operation-list"></a>sfctl cluster operation-list
 Obtiene una lista de operaciones de error provocada por el usuario, filtrada por la entrada proporcionada.
@@ -167,7 +158,7 @@ Obtiene la lista de operaciones de error provocada por el usuario, filtrada por 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --state-filter | Se utiliza para filtrar por OperationState para operaciones inducidas por el usuario. - 65535 - select All - 1 - select Running - 2 - select RollingBack - 8 - select Completed - 16 - select Faulted - 32 - select Canceled - 64 - select ForceCancelled.  Valor predeterminado\: 65535. |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
@@ -175,13 +166,13 @@ Obtiene la lista de operaciones de error provocada por el usuario, filtrada por 
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-cluster-provision"></a>sfctl cluster provision
 Aprovisiona el código o los paquetes de configuración de un clúster de Service Fabric.
@@ -190,7 +181,7 @@ Valida y aprovisiona el código o los paquetes de configuración de un clúster 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --cluster-manifest-file-path | La ruta de acceso del archivo de manifiesto de clúster. |
 | --code-file-path | La ruta del archivo del paquete de código del clúster. |
@@ -198,13 +189,13 @@ Valida y aprovisiona el código o los paquetes de configuración de un clúster 
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-cluster-recover-system"></a>sfctl cluster recover-system
 Indica al clúster de Service Fabric que debería intentar recuperar los servicios del sistema que actualmente están atascados en pérdida de cuórum.
@@ -213,19 +204,19 @@ Indica al clúster de Service Fabric que debería intentar recuperar los servici
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-cluster-report-health"></a>sfctl cluster report-health
 Envía un informe de estado sobre el clúster de Service Fabric.
@@ -234,7 +225,7 @@ Envía un informe de mantenimiento sobre un clúster de Service Fabric. El infor
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --health-property [Obligatorio] | La propiedad de la información de mantenimiento. <br><br> Una entidad puede tener informes de mantenimiento para diferentes propiedades. La propiedad es una cadena y no una enumeración fija para permitir al informador la flexibilidad de categorizar la condición de estado que desencadena el informe. Por ejemplo, un informador con SourceId "LocalWatchdog" puede supervisar el estado del disco disponible en un nodo, por lo que puede informar de la propiedad "AvailableDisk" en ese nodo. El mismo informador puede supervisar la conectividad del nodo, por lo que puede informar de una propiedad "Connectivity" en el mismo nodo. En el almacén de estado, estos informes se tratan como eventos de mantenimiento independientes del nodo especificado. Junto con SourceId, la propiedad identifica la información de mantenimiento de manera única. |
 | --health-state    [Obligatorio] | Los valores posibles incluyen\: 'Invalid', 'Ok', 'Warning', 'Error', 'Unknown'. |
@@ -248,13 +239,13 @@ Envía un informe de mantenimiento sobre un clúster de Service Fabric. El infor
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
 Se conecta a un punto de conexión del clúster de Service Fabric.
@@ -263,7 +254,7 @@ Si se conecta al clúster seguro, especifique una ruta de acceso absoluta a un a
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --aad | Utilice Azure Active Directory para la autenticación. |
 | --ca | Ruta de acceso absoluta al directorio de certificados de la entidad emisora de certificados que se tratará como válido o al archivo de paquete de entidades emisoras de certificados. Si usa un directorio de certificados de CA, `c_rehash <directory>` proporcionado por OpenSSL, se debe ejecutar en primer lugar para calcular los valores hash del certificado y crear los vínculos simbólicos adecuados. Se usa para comprobar que el certificado que devuelve el clúster es válido. |
@@ -275,26 +266,26 @@ Si se conecta al clúster seguro, especifique una ruta de acceso absoluta a un a
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-cluster-show-connection"></a>sfctl cluster show-connection
 Muestra el clúster de Service Fabric al que está conectada esta instancia de sfctl.
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-cluster-unprovision"></a>sfctl cluster unprovision
 Deshace el aprovisionamiento del código o los paquetes de configuración de un clúster de Service Fabric.
@@ -303,7 +294,7 @@ Es posible deshacer el aprovisionamiento de código y la configuración por sepa
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --code-version | La versión del paquete de código del clúster. |
 | --config-version | La versión del manifiesto de clúster. |
@@ -311,13 +302,13 @@ Es posible deshacer el aprovisionamiento de código y la configuración por sepa
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-cluster-upgrade"></a>sfctl cluster upgrade
 Comienza a actualizar la versión del código o de la configuración de un clúster de Service Fabric.
@@ -326,7 +317,7 @@ Valida los parámetros de actualización suministrados e inicia la actualizació
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --app-health-map | Diccionario codificado en JSON de pares de nombres de aplicación y porcentaje máximo con estado incorrecto antes de producirse el error. |
 | --app-type-health-map | Diccionario codificado en JSON de pares de nombres de tipo de aplicación y porcentaje máximo con estado incorrecto antes de producirse el error. |
@@ -336,7 +327,7 @@ Valida los parámetros de actualización suministrados e inicia la actualizació
 | --delta-unhealthy-nodes | El porcentaje máximo permitido de degradación del mantenimiento de los nodos durante las actualizaciones del clúster.  Valor predeterminado\: 10. <br><br> El delta se mide entre el estado de los nodos al principio de la actualización y el estado de los nodos en el momento de la evaluación de mantenimiento. La comprobación se realiza después de que finaliza la actualización de cada dominio de actualización para asegurarse de que el estado global del clúster está dentro de los límites permitidos. |
 | --failure-action | Los valores posibles son\: "Invalid", "Rollback", "Manual". |
 | --force-restart | Los procesos se reinician de forma forzosa durante la actualización incluso si no ha cambiado la versión del código. <br><br> La actualización solo cambia la configuración o los datos. |
-| --health-check-retry | El período de tiempo entre intentos para realizar comprobaciones de mantenimiento si la aplicación o el clúster no son correctos. |
+| --health-check-retry | El período de tiempo entre intentos para realizar comprobaciones de mantenimiento si la aplicación o el clúster no funcionan correctamente. |
 | --health-check-stable | La cantidad de tiempo que la aplicación o el clúster deben tener un estado correcto antes de que la actualización continúe con el siguiente dominio de actualización. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
 | --health-check-wait | El período de tiempo de espera después de completar un dominio de actualización antes de iniciar el proceso de comprobaciones de mantenimiento. |
 | --replica-set-check-timeout | El período de tiempo máximo para bloquear el procesamiento de un dominio de actualización y evitar la pérdida de disponibilidad cuando hay problemas inesperados. <br><br> Cuando este tiempo de espera expire, el procesamiento del dominio de actualización se llevará a cabo independientemente de los problemas de pérdida de disponibilidad. El tiempo de espera se restablece al principio de cada dominio de actualización. Los valores válidos oscilan entre 0 y 42949672925, ambos inclusive. |
@@ -351,13 +342,13 @@ Valida los parámetros de actualización suministrados e inicia la actualizació
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-cluster-upgrade-resume"></a>sfctl cluster upgrade-resume
 Hace que la actualización del clúster avance al siguiente dominio de actualización.
@@ -366,20 +357,20 @@ Hace que el código del clúster o la actualización de configuración avance al
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --upgrade-domain [Requerido] | El siguiente dominio de actualización para esta actualización de clúster. |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-cluster-upgrade-rollback"></a>sfctl cluster upgrade-rollback
 Revierte la actualización de un clúster de Service Fabric.
@@ -388,19 +379,19 @@ Revierte el código o la actualización de configuración de un clúster de Serv
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-cluster-upgrade-status"></a>sfctl cluster upgrade-status
 Obtiene el progreso de la actualización del clúster actual.
@@ -409,26 +400,26 @@ Obtiene el progreso actual de la actualización del clúster en curso. Si no hay
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-cluster-upgrade-update"></a>sfctl cluster upgrade-update
 Actualiza los parámetros de actualización de una actualización de clúster de Service Fabric.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --app-health-map | Diccionario codificado en JSON de pares de nombres de aplicación y porcentaje máximo con estado incorrecto antes de producirse el error. |
 | --app-type-health-map | Diccionario codificado en JSON de pares de nombres de tipo de aplicación y porcentaje máximo con estado incorrecto antes de producirse el error. |
@@ -436,7 +427,7 @@ Actualiza los parámetros de actualización de una actualización de clúster de
 | --delta-unhealthy-nodes | El porcentaje máximo permitido de degradación del mantenimiento de los nodos durante las actualizaciones del clúster.  Valor predeterminado\: 10. <br><br> El delta se mide entre el estado de los nodos al principio de la actualización y el estado de los nodos en el momento de la evaluación de mantenimiento. La comprobación se realiza después de que finaliza la actualización de cada dominio de actualización para asegurarse de que el estado global del clúster está dentro de los límites permitidos. |
 | --failure-action | Los valores posibles son\: "Invalid", "Rollback", "Manual". |
 | --force-restart | Los procesos se reinician de forma forzosa durante la actualización incluso si no ha cambiado la versión del código. <br><br> La actualización solo cambia la configuración o los datos. |
-| --health-check-retry | El período de tiempo entre intentos para realizar comprobaciones de mantenimiento si la aplicación o el clúster no son correctos. |
+| --health-check-retry | El período de tiempo entre intentos para realizar comprobaciones de mantenimiento si la aplicación o el clúster no funcionan correctamente. |
 | --health-check-stable | La cantidad de tiempo que la aplicación o el clúster deben tener un estado correcto antes de que la actualización continúe con el siguiente dominio de actualización. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
 | --health-check-wait | El período de tiempo de espera después de completar un dominio de actualización antes de iniciar el proceso de comprobaciones de mantenimiento. |
 | --replica-set-check-timeout | El período de tiempo máximo para bloquear el procesamiento de un dominio de actualización y evitar la pérdida de disponibilidad cuando hay problemas inesperados. <br><br> Cuando este tiempo de espera expire, el procesamiento del dominio de actualización se llevará a cabo independientemente de los problemas de pérdida de disponibilidad. El tiempo de espera se restablece al principio de cada dominio de actualización. Los valores válidos oscilan entre 0 y 42949672925, ambos inclusive. |
@@ -452,13 +443,13 @@ Actualiza los parámetros de actualización de una actualización de clúster de
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

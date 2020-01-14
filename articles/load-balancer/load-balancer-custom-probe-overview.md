@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: fdc7254b4c6e798c0f32f5fac3575474ed6ec1d0
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c093cea9f8719722cc44c9d6424c06039360e90f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077069"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690403"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
-Al usar reglas de equilibrio de carga con Azure Load Balancer, debe especificar un sondeo de estado para permitir que Load Balancer detecte el estado del punto de conexión de back-end.  La configuración del sondeo de estado y las respuestas de sondeo determinan qué instancias del grupo de back-end recibirán nuevos flujos. Puede usar los sondeos de estado para detectar el error de una aplicación en un punto de conexión de back-end. También se puede generar una respuesta personalizada para un sondeo de estado y usar el sondeo de estado para el control de flujo con el fin de administrar la carga o el tiempo de inactividad planeado. Cuando se genera un error en el sondeo de estado, Load Balancer deja de enviar nuevos flujos a la instancia con estado incorrecto respectiva.
+Al usar reglas de equilibrio de carga con Azure Load Balancer, debe especificar un sondeo de estado para permitir que Load Balancer detecte el estado del punto de conexión de back-end.  La configuración del sondeo de estado y las respuestas de sondeo determinan qué instancias del grupo de back-end recibirán nuevos flujos. Puede usar los sondeos de estado para detectar el error de una aplicación en un punto de conexión de back-end. También se puede generar una respuesta personalizada para un sondeo de estado y usar el sondeo de estado para el control de flujo con el fin de administrar la carga o el tiempo de inactividad planeado. Cuando se genera un error en el sondeo de estado, Load Balancer deja de enviar nuevos flujos a la instancia con estado incorrecto respectiva. La conectividad saliente no se ve afectada, solo se ve afectada la conectividad entrante.
 
 Los sondeos de estado admiten varios protocolos. La disponibilidad de un protocolo específico de sondeo de estado varía en función de la SKU de Load Balancer.  Además, el comportamiento del servicio varía según la SKU de Load Balancer, como se muestra en esta tabla:
 
@@ -49,8 +49,8 @@ La configuración del sondeo de estado se compone de los siguientes elementos:
 - Puerto del sondeo
 - Ruta de acceso HTTP que se va a usar para HTTP GET al utilizar sondeos HTTP(S)
 
-> [!NOTE]
-> No se requiere una definición de sondeo ni se comprueba cuando se usa Azure PowerShell, la CLI de Azure, plantillas o una API. Las pruebas de validación de sondeos solo se realizan cuando se usa Azure Portal.
+>[!NOTE]
+>No se requiere una definición de sondeo ni se comprueba cuando se usa Azure PowerShell, la CLI de Azure, plantillas o una API. Las pruebas de validación de sondeos solo se realizan cuando se usa Azure Portal.
 
 ## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>Descripción de la señal de aplicación, detección de la señal y reacción de la plataforma
 
@@ -112,7 +112,7 @@ A continuación se muestra cómo puede expresar este tipo de configuración de s
       },
 ```
 
-### <a name="httpprobe"></a> <a name="httpsprobe"></a> Sondeo HTTP / HTTPS
+### <a name="httpprobe"></a> <a name="httpsprobe"></a> Sondeo HTTP/HTTPS
 
 >[!NOTE]
 >El sondeo HTTPS solo está disponible para [Standard Load Balancer](load-balancer-standard-overview.md).
@@ -120,6 +120,9 @@ A continuación se muestra cómo puede expresar este tipo de configuración de s
 Los sondeos HTTP y HTTPS se basan en el sondeo TCP y emiten una solicitud HTTP GET con la ruta de acceso especificada. Ambos sondeos admiten rutas de acceso relativas para la solicitud HTTP GET. Los sondeos HTTPS son lo mismo que los sondeos de HTTP con un contenedor de Seguridad de la capa de transporte (TLS, conocida anteriormente como SSL) añadido. El sondeo de estado se marca cuando la instancia responde con un código de estado 200 de HTTP dentro del período de tiempo de espera.  De forma predeterminada, el sondeo de estado intenta comprobar cada 15 segundos el puerto de sondeo de estado configurado. El intervalo de sondeo mínimo es 5 segundos. La duración total de todos los intervalos no puede superar los 120 segundos.
 
 Los sondeos HTTP/HTTPS también pueden ser útiles para implementar su propia lógica para quitar instancias de la rotación del equilibrador de carga si el puerto de sondeo es también el agente de escucha para el propio servicio. Por ejemplo, podría decidir quitar una instancia si está por encima del 90 % de la CPU y devolver un estado que no es 200. 
+
+> [!NOTE] 
+> El sondeo HTTPS requiere el uso de certificados basados en que tienen un hash de firma mínimo de SHA256 en toda la cadena.
 
 Si usa Cloud Services y tiene roles web que utilizan w3wp.exe, también obtiene una supervisión automática de su sitio web. Los errores en el código del sitio web devuelven un estado distinto de 200 para el sondeo del equilibrador de carga.
 

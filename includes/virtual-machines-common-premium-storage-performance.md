@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 289100afe825c14ce9964f39e3f583078f51da1d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 32c1ca95c01edec74f22fc051e453f2ac0dbd03f
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73182285"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564714"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores del rendimiento de las aplicaciones
 
@@ -53,7 +53,7 @@ Las siguientes operaciones de plano de control en Managed Disks pueden implicar 
 - Crear un disco administrado a partir de una instantánea.
 - Convertir discos no administrados en discos administrados.
 
-# <a name="performance-application-checklist-for-disks"></a>Lista de comprobación del rendimiento de las aplicaciones para los discos
+## <a name="performance-application-checklist-for-disks"></a>Lista de comprobación del rendimiento de las aplicaciones para los discos
 
 El primer paso para diseñar aplicaciones de alto rendimiento que se ejecutan en Azure Premium Storage es entender los requisitos de rendimiento de las aplicaciones. Después de reunir los requisitos de rendimiento, puede optimizar la aplicación para lograr un rendimiento óptimo.
 
@@ -92,14 +92,14 @@ La mejor forma de medir los requisitos de rendimiento de las aplicaciones es usa
 
 Los contadores de rendimiento están disponibles para el procesador y la memoria, así como en cada disco lógico y físico del servidor. Al usar discos de Almacenamiento premium con una máquina virtual, los contadores del disco físico son para cada disco de Almacenamiento premium y los contadores del disco lógico son para cada volumen creado en los discos de Almacenamiento premium. Debe capturar los valores de los discos que hospedan la carga de trabajo de la aplicación. Si hay una asignación uno a uno entre los discos lógicos y físicos, puede hacer referencia a los contadores del disco físico; de lo contrario, haga referencia a los contadores del disco lógico. En Linux, el comando iostat genera un informe de uso de CPU y disco. El informe de uso del disco proporciona estadísticas por cada dispositivo físico o partición. Si tiene un servidor de bases de datos con sus datos y registros en discos independientes, recopile estos datos para ambos discos. En la tabla siguiente se describen los contadores para discos, procesadores y memoria:
 
-| Contador | DESCRIPCIÓN | PerfMon | Iostat |
+| Contador | Descripción | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **E/S por segundo o transacciones por segundo** |Número de solicitudes de E/S emitidas en el disco de almacenamiento por segundo. |Lecturas de disco/s <br> Escrituras en disco/s |tps <br> r/s <br> w/s |
 | **Escrituras y lecturas de disco** |Porcentaje de operaciones de lectura y escritura realizadas en el disco. |% de tiempo de lectura de disco <br> % de tiempo de escritura de disco |r/s <br> w/s |
 | **Rendimiento** |Cantidad de datos que se leen o escriben en el disco por segundo. |Bytes de lectura de disco/s <br> Bytes de escritura en disco/s |kB_read/s <br> kB_wrtn/s |
 | **Latency** |Tiempo total para completar una solicitud de E/S del disco. |Promedio de segundos de disco/lectura <br> Promedio de segundos de disco/escritura |await <br> svctm |
 | **Tamaño de E/S** |El tamaño de E/S las solicitudes en los discos de almacenamiento. |Promedio de bytes de disco/lectura <br> Promedio de bytes de disco/escritura |avgrq-sz |
-| **Profundidad de la cola** |Número de solicitudes de E/S pendientes de lectura de o escritura en el disco de almacenamiento. |Longitud actual de cola de disco |avgqu-sz |
+| **Profundidad de la cola** |Número de solicitudes de E/S pendientes de lectura de o escritura en el disco de almacenamiento. |Current Disk Queue Length |avgqu-sz |
 | **Máx. memoria** |Cantidad de memoria necesaria para ejecutar la aplicación sin problemas |% de bytes confirmados en uso |Use vmstat |
 | **Máx. CPU** |Cantidad de CPU necesaria para ejecutar la aplicación sin problemas |% de tiempo de procesador |%util |
 
@@ -170,9 +170,9 @@ Para ver los efectos del tamaño de E/S en el rendimiento de las aplicaciones, p
 
 ## <a name="high-scale-vm-sizes"></a>Tamaños de máquina virtual a gran escala
 
-Al empezar a diseñar una aplicación, una de las primeras cosas que hay que hacer es elegir una máquina virtual para hospedar la aplicación. Premium Storage viene con tamaños de máquina virtual a gran escala que pueden ejecutar aplicaciones que requieren una mayor capacidad de proceso y un alto rendimiento de E/S del disco local Estas máquinas virtuales proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco local. Algunos ejemplos de máquinas virtuales a gran escala que admiten Premium Storage son las de las series DS, DSv2 y GS.
+Al empezar a diseñar una aplicación, una de las primeras cosas que hay que hacer es elegir una máquina virtual para hospedar la aplicación. Premium Storage viene con tamaños de máquina virtual a gran escala que pueden ejecutar aplicaciones que requieren una mayor capacidad de proceso y un alto rendimiento de E/S del disco local Estas máquinas virtuales proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco local. Algunos ejemplos de máquinas virtuales a gran escala que admiten Premium Storage son las de las series DS y GS.
 
-Las máquinas virtuales a gran escala están disponibles en distintos tamaños con un número diferente de núcleos de CPU, memoria, sistema operativo y tamaño del disco temporal. Cada tamaño de máquina virtual también tiene el número máximo de discos de datos que se puede conectar a la máquina virtual. Por lo tanto, el tamaño de máquina virtual seleccionado afectará al procesamiento, la memoria y la capacidad de almacenamiento que están disponibles para su aplicación. También afecta al proceso y los costos de almacenamiento. Por ejemplo, a continuación se proporcionan las especificaciones del mayor tamaño de máquina virtual en una serie DS, una serie DSv2 y una serie GS:
+Las máquinas virtuales a gran escala están disponibles en distintos tamaños con un número diferente de núcleos de CPU, memoria, sistema operativo y tamaño del disco temporal. Cada tamaño de máquina virtual también tiene el número máximo de discos de datos que se puede conectar a la máquina virtual. Por lo tanto, el tamaño de máquina virtual seleccionado afectará al procesamiento, la memoria y la capacidad de almacenamiento que están disponibles para su aplicación. También afecta al proceso y los costos de almacenamiento. Por ejemplo, a continuación se proporcionan las especificaciones del mayor tamaño de máquina virtual en una serie DS y una serie GS:
 
 | Tamaño de VM | Núcleos de CPU | Memoria | Tamaños de disco de VM | Máx. discos de datos | Tamaño de memoria caché | E/S | Límites de E/S de la memoria caché de ancho de banda |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -292,29 +292,31 @@ Algunas de las versiones requieren Linux Integration Services (LIS) v4.0 para Az
 
 | Distribución | Versión | Kernel compatible | Detalles |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 o más reciente| 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
-| Ubuntu | 14.04 o más reciente| 3.13.0-44.73+  | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
+| Ubuntu | 12.04 o más reciente| 3.2.0-75.110+ | &nbsp; |
+| Ubuntu | 14.04 o más reciente| 3.13.0-44.73+  | &nbsp; |
 | Debian | 7.x, 8.x o más reciente| 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12 o más reciente| 3.12.36-38.1+ | suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 12 o más reciente| 3.12.36-38.1+ | &nbsp; |
 | SUSE | SLES 11 SP4 o más reciente| 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+ o más reciente| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 o más reciente| &nbsp; | [LIS4 requerido](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Vea la nota en la siguiente sección* |
-| CentOS | 7.1+ o más reciente| 3.10.0-229.1.2.el7+ | [LIS4 recomendado](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Vea la nota en la siguiente sección* |
+| CoreOS | 584.0.0+ o más reciente| 3.18.4+ | &nbsp; |
+| CentOS | 6.5, 6.6, 6.7, 7.0 o más reciente| &nbsp; | [LIS4 requerido](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Vea la nota en la siguiente sección* |
+| CentOS | 7.1+ o más reciente| 3.10.0-229.1.2.el7+ | [LIS4 recomendado](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Vea la nota en la siguiente sección* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ o más reciente | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+ o más reciente | &nbsp; | UEK4 o RHCK |
-| Oracle | 7.0-7.1 o más reciente | &nbsp; | UEK4 o RHCK con[LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
-| Oracle | 6.4-6.7 o más reciente | &nbsp; | UEK4 o RHCK con[LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
+| Oracle | 7.0-7.1 o más reciente | &nbsp; | UEK4 o RHCK con[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
+| Oracle | 6.4-6.7 o más reciente | &nbsp; | UEK4 o RHCK con[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Controladores de LIS para CentOS Openlogic
 
 Si tiene máquinas virtuales de OpenLogic CentOS, ejecute el comando siguiente para instalar a los controladores más recientes:
 
 ```
-sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
+sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
 sudo yum install microsoft-hyper-v
+sudo reboot
 ```
 
-Para activar los nuevos controladores, reinicie la máquina virtual.
+En algunos casos, el comando anterior también actualizará el kernel. Si se requiere una actualización del kernel, puede que tenga que volver a ejecutar los comandos anteriores después del reinicio para instalar completamente el paquete microsoft-hyper-v.
+
 
 ## <a name="disk-striping"></a>Seccionamiento del disco
 
@@ -382,4 +384,3 @@ Para un volumen seccionado, mantenga una profundidad de la cola lo suficientemen
 Azure Premium Storage aprovisiona un número especificado de IOPS y rendimiento de acuerdo con los tamaños de la máquina virtual y de disco que elija. Cada vez que la aplicación intenta que la IOPS o el rendimiento estén por encima de los límites que puede administrar la máquina virtual o el disco, Premium Storage lo limitará. Esto se manifiesta en forma de una disminución del rendimiento de la aplicación. Esto puede significar una latencia mayor, un rendimiento menor o una IOPS menor. Si Premium Storage no lo limita, la aplicación podría fallar completamente al exceder lo que sus recursos son capaces de conseguir. Por lo tanto, para evitar problemas de rendimiento debido a la limitación,  aprovisione siempre suficientes recursos para su aplicación. Tenga en cuenta lo que hemos explicado en las secciones anteriores sobre los tamaños de la máquina virtual y el disco. Las pruebas comparativas son la mejor forma de averiguar qué recursos necesitará para hospedar su aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
-

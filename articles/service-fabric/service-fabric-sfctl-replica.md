@@ -1,32 +1,23 @@
 ---
-title: 'CLI de Azure Service Fabric: réplica de sfctl | Microsoft Docs'
-description: Se describen los comandos de réplica de sfctl de la CLI de Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: 'CLI de Azure Service Fabric: réplica sfctl'
+description: Más información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para administrar réplicas.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 34e53311e5338e540c1d987896112de39890de3b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: a0588d84a79407b5df5033f0a32851fc708d598b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901049"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646048"
 ---
 # <a name="sfctl-replica"></a>réplica de sfctl
 Administre las réplicas que pertenecen a las particiones del servicio.
 
 ## <a name="commands"></a>Comandos:
 
-|Get-Help|DESCRIPCIÓN|
+|Get-Help|Descripción|
 | --- | --- |
 | deployed | Obtiene los detalles de la réplica implementada en un nodo de Service Fabric. |
 | deployed-list | Obtiene la lista de réplicas implementadas en un nodo de Service Fabric. |
@@ -44,7 +35,7 @@ Obtiene los detalles de la réplica implementada en un nodo de Service Fabric. L
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --node-name [Obligatorio] | El nombre del nodo. |
 | --partition-id [Obligatorio] | La identidad de la partición. |
@@ -53,13 +44,13 @@ Obtiene los detalles de la réplica implementada en un nodo de Service Fabric. L
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-replica-deployed-list"></a>sfctl replica deployed-list
 Obtiene la lista de réplicas implementadas en un nodo de Service Fabric.
@@ -68,7 +59,7 @@ Obtiene la lista que contiene la información sobre las réplicas implementadas 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --node-name [Obligatorio] | El nombre del nodo. |
@@ -78,13 +69,13 @@ Obtiene la lista que contiene la información sobre las réplicas implementadas 
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-replica-health"></a>sfctl replica health
 Obtiene el mantenimiento de una réplica de servicio con estado o de una instancia de servicio sin estado de Service Fabric.
@@ -93,7 +84,7 @@ Obtiene el estado de una réplica de Service Fabric. Use EventsHealthStateFilter
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --partition-id [Obligatorio] | La identidad de la partición. |
 | --replica-id [Obligatorio] | El identificador de la réplica. |
@@ -102,13 +93,13 @@ Obtiene el estado de una réplica de Service Fabric. Use EventsHealthStateFilter
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
 Obtiene la información sobre una réplica de una partición de Service Fabric.
@@ -117,7 +108,7 @@ La respuesta incluye el identificador, el rol, el estado, el estado, el nombre d
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --partition-id [Obligatorio] | La identidad de la partición. |
 | --replica-id [Obligatorio] | El identificador de la réplica. |
@@ -125,13 +116,13 @@ La respuesta incluye el identificador, el rol, el estado, el estado, el nombre d
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-replica-list"></a>sfctl replica list
 Obtiene la información sobre las réplicas de una partición de servicio de Service Fabric.
@@ -140,7 +131,7 @@ El punto de conexión de GetReplicas devuelve información sobre las réplicas d
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --partition-id [Obligatorio] | La identidad de la partición. |
 | --continuation-token | El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada. |
@@ -148,13 +139,13 @@ El punto de conexión de GetReplicas devuelve información sobre las réplicas d
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-replica-remove"></a>sfctl replica remove
 Quita una réplica de servicio que se ejecuta en un nodo.
@@ -163,7 +154,7 @@ Esta API simula un error de réplica de Service Fabric mediante la eliminación 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --node-name [Obligatorio] | El nombre del nodo. |
 | --partition-id [Obligatorio] | La identidad de la partición. |
@@ -173,22 +164,22 @@ Esta API simula un error de réplica de Service Fabric mediante la eliminación 
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-replica-report-health"></a>sfctl replica report-health
 Envía un informe de mantenimiento sobre la réplica de Service Fabric.
 
-Informa del estado de mantenimiento de la réplica de Service Fabric especificada. El informe debe contener la información sobre el origen del informe de mantenimiento y la propiedad sobre la cual se informa. El informe se envía a una réplica de puerta de enlace de Service Fabric, que lo reenvía al almacén de estado. El portal puede aceptar el informe, pero el almacén de estado puede rechazarlo después de una validación adicional. Por ejemplo, el almacén de estado puede rechazar el informe debido a un parámetro no válido, como un número de secuencia obsoleto. Para ver si el informe se ha aplicado en el almacén de estado, ejecute get replica health y compruebe que aparece en la sección HealthEvents.
+Informa del estado de mantenimiento de la réplica de Service Fabric especificada. El informe debe contener la información sobre el origen del informe de mantenimiento y la propiedad sobre la cual se informa. El informe se envía a una réplica de puerta de enlace de Service Fabric, que lo reenvía al almacén de estado. La puerta de enlace puede aceptar el informe, pero el almacén de estado puede rechazarlo después de una validación adicional. Por ejemplo, el almacén de estado puede rechazar el informe debido a un parámetro no válido, como un número de secuencia obsoleto. Para ver si el informe se ha aplicado en el almacén de estado, ejecute get replica health y compruebe que aparece en la sección HealthEvents.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --health-property [Obligatorio] | La propiedad de la información de mantenimiento. <br><br> Una entidad puede tener informes de mantenimiento para diferentes propiedades. La propiedad es una cadena y no una enumeración fija para permitir al informador la flexibilidad de categorizar la condición de estado que desencadena el informe. Por ejemplo, un informador con SourceId "LocalWatchdog" puede supervisar el estado del disco disponible en un nodo, por lo que puede informar de la propiedad "AvailableDisk" en ese nodo. El mismo informador puede supervisar la conectividad del nodo, por lo que puede informar de una propiedad "Connectivity" en el mismo nodo. En el almacén de estado, estos informes se tratan como eventos de mantenimiento independientes del nodo especificado. Junto con SourceId, la propiedad identifica la información de mantenimiento de manera única. |
 | --health-state    [Obligatorio] | Los valores posibles incluyen\: 'Invalid', 'Ok', 'Warning', 'Error', 'Unknown'. |
@@ -205,13 +196,13 @@ Informa del estado de mantenimiento de la réplica de Service Fabric especificad
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-replica-restart"></a>sfctl replica restart
 Reinicia una réplica de servicio de un servicio persistente que se ejecuta en un nodo.
@@ -220,7 +211,7 @@ Reinicia una réplica de servicio de un servicio persistente que se ejecuta en u
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --node-name [Obligatorio] | El nombre del nodo. |
 | --partition-id [Obligatorio] | La identidad de la partición. |
@@ -229,13 +220,13 @@ Reinicia una réplica de servicio de un servicio persistente que se ejecuta en u
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

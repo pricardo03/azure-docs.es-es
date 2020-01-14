@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 178fa7d5f129a12736ec068fca605ba24cd37839
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 0c04e7812d023cd394b54cf03bcca11a5589b18a
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955879"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564769"
 ---
 Los errores que se producen en una instancia de Azure Functions pueden provenir de cualquiera de los orígenes siguientes:
 
@@ -37,6 +37,6 @@ Los siguientes desencadenadores admiten el reintento integrado:
 * [Azure Queue Storage](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Azure Service Bus (cola/tema)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-De forma predeterminada, estos desencadenadores reintentan las solicitudes hasta cinco veces. Después del quinto reintento, ambos desencadenadores escriben un mensaje en una [cola de mensajes dudosos](..\articles\azure-functions\functions-bindings-storage-queue.md#trigger---poison-messages).
+De forma predeterminada, estos desencadenadores reintentan las solicitudes hasta cinco veces. Después del quinto reintento, los desencadenadores de Azure Queue Storage como Azure Service Bus escriben un mensaje en una [cola de mensajes dudosos](..\articles\azure-functions\functions-bindings-storage-queue.md#trigger---poison-messages).
 
 Debe implementar manualmente las directivas de reintento para cualquier otro desencadenador o tipo de enlace. Las implementaciones manuales pueden incluir la escritura de información de error en una [cola de mensajes dudosos](..\articles\azure-functions\functions-bindings-storage-blob.md#trigger---poison-blobs). Al escribir en una cola de mensajes dudosos, tiene la oportunidad de reintentar las operaciones más adelante. El desencadenador de Blob Storage usa este mismo enfoque.

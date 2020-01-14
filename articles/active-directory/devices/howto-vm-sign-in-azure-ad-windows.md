@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba8f4f715856538b9555b1bcb8c8a812503fabd2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 77e24fa41c5f716460d82e1079659e6aee5e9a9b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842414"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561157"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
 
@@ -36,6 +36,9 @@ Usar la autenticación de Azure AD para iniciar sesión en VM Windows en Azure i
    - Multi-Factor Authentication
    - Comprobación de riesgo de inicio de sesión
 - Automatice y escale la unión a Azure AD de las máquinas virtuales Windows de Azure que forman parte de las implementaciones de VDI.
+
+> [!NOTE]
+> Una vez habilitada esta funcionalidad, las máquinas virtuales de Windows en Azure se unirán a Azure AD. No se puede unir a otro dominio, como AD local o Azure AD DS. Si tiene que hacerlo, tendrá que desconectar la máquina virtual del inquilino de Azure AD desinstalando la extensión.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -200,7 +203,7 @@ Puede aplicar directivas de acceso condicional, como la autenticación multifact
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Inicio de sesión mediante las credenciales de Azure AD en una VM Windows
 
 > [!IMPORTANT]
-> La conexión remota a las VM unidas a Azure AD solo se permite desde equipos con Windows 10 que están unidos a Azure AD o a Azure AD en entornos híbridos al **mismo** directorio que la VM. Además, a través de RDP con credenciales de Azure AD, el usuario debe pertenecer a uno de los dos roles de RBAC, Inicio de sesión de administrador de máquina virtual o Inicio de sesión de usuario de máquina virtual.
+> La conexión remota a las VM unidas a Azure AD solo se permite desde equipos con Windows 10 que están unidos a Azure AD o a Azure AD en entornos híbridos al **mismo** directorio que la VM. Además, a través de RDP con credenciales de Azure AD, el usuario debe pertenecer a uno de los dos roles de RBAC, Inicio de sesión de administrador de máquina virtual o Inicio de sesión de usuario de máquina virtual. En este momento, no se puede usar Azure Bastion para iniciar sesión mediante la autenticación de Azure Active Directory con la extensión AADLoginForWindows. Solo se admite RDP directo.
 
 Para iniciar sesión en la máquina virtual de Windows Server 2019 mediante Azure AD: 
 

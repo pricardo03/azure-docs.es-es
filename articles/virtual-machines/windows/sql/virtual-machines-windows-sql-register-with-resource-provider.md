@@ -14,16 +14,16 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6b2430b5135a5d3f7ad1f9ef0bd17d9149bf48ee
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b59470a187fe060bd5e9a2c1bd84e63f598770df
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793456"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690796"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registro de una máquina virtual con SQL Server en Azure con el proveedor de recursos de máquina virtual con SQL
 
-En este artículo se describe cómo registrar una máquina virtual con SQL Server en Azure con el proveedor de recursos de máquina virtual con SQL. Al registrarse con el proveedor de recursos, se crea el _recurso_ de **máquina virtual con SQL** dentro de la suscripción, que es un recurso independiente del recurso de máquina virtual. Al anular el registro de la máquina virtual con SQL Server del proveedor de recursos, se quitará el _recurso_ de **máquina virtual con SQL**, pero no se quitará la propia máquina virtual. 
+En este artículo se describe cómo registrar una máquina virtual con SQL Server en Azure con el proveedor de recursos de máquina virtual con SQL. Al registrarse con el proveedor de recursos, se crea el **recurso** de _la máquina virtual SQL_ dentro de la suscripción, que es un recurso independiente del recurso de máquina virtual. Al anular el registro de la máquina virtual SQL Server del proveedor de recursos, se eliminará el **recurso** de la _máquina virtual SQL_ pero no se eliminará la máquina virtual real. 
 
 La implementación de una imagen de Azure Marketplace de una máquina virtual con SQL Server mediante Azure Portal registra la máquina virtual con SQL Server con el proveedor de recursos. Sin embargo, si elige instalar automáticamente SQL Server en una máquina virtual de Azure, o aprovisionar una máquina virtual de Azure desde un disco duro virtual personalizado, debe registrar la VM con SQL Server con el proveedor de recursos para:
 
@@ -57,12 +57,12 @@ Para más información sobre las ventajas de usar el proveedor de recursos de m�
 <iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Ventajas del proveedor de recursos de máquina virtual de SQL al instalar automáticamente SQL Server en Azure: vídeo de Microsoft Channel 9"></iframe>
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para registrar una máquina virtual con SQL Server con el proveedor de recursos, necesita lo siguiente: 
 
 - Una [suscripción de Azure](https://azure.microsoft.com/free/).
-- Una [máquina virtual con SQL Server](virtual-machines-windows-portal-sql-server-provision.md) del modelo de recursos de Azure implementada en la nube pública. 
+- Un modelo de recursos de Azure [máquina virtual SQL Server ](virtual-machines-windows-portal-sql-server-provision.md) implementado en la nube pública o de Azure Government. 
 - La versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli) o [PowerShell](/powershell/azure/new-azureps-module-az). 
 
 ## <a name="management-modes"></a>Modos de administración
@@ -208,7 +208,7 @@ Registre la máquina virtual con SQL Server en modo NoAgent con PowerShell:
 
 ## <a name="upgrade-to-full-management-mode"></a>Actualización al modo de administración completa 
 
-Las máquinas virtuales con SQL Server que tienen instalada la extensión IaaS *ligera* pueden actualizar al modo _completo_ mediante Azure Portal, la CLI de Azure o PowerShell. Las máquinas virtuales con SQL Server en el modo _NoAgent_ pueden actualizar al modo _completo_ tras actualizar el sistema operativo a Windows 2008 R2 y versiones posteriores. No es posible cambiar a un modo inferior: para ello, deberá [anular el registro](#unregister-vm-from-rp) de la máquina virtual con SQL Server del proveedor de recursos de máquina virtual con SQL. Esto quitará el _recurso_ de la **máquina virtual con SQL**, pero no eliminará la máquina virtual. 
+Las máquinas virtuales con SQL Server que tienen instalada la extensión IaaS *ligera* pueden actualizar al modo _completo_ mediante Azure Portal, la CLI de Azure o PowerShell. Las máquinas virtuales con SQL Server en el modo _NoAgent_ pueden actualizar al modo _completo_ tras actualizar el sistema operativo a Windows 2008 R2 y versiones posteriores. No es posible cambiar a un modo inferior: para ello, deberá [anular el registro](#unregister-vm-from-rp) de la máquina virtual con SQL Server del proveedor de recursos de máquina virtual con SQL. Al hacerlo, se quitará el **recurso** de la _máquina virtual SQL_, pero no se eliminará la máquina virtual real. 
 
 Puede ver el modo actual del Agente de IaaS de SQL Server mediante PowerShell: 
 
@@ -223,7 +223,7 @@ Para actualizar el modo del agente a Full:
 
 ### <a name="azure-portal"></a>Portal de Azure
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Vaya al recurso [Máquinas virtuales SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource). 
 1. Seleccione la máquina virtual con SQL Server y seleccione **Introducción**. 
 1. En el caso de las VM con SQL Server con los modos de IaaS NoAgent o Lightweight, seleccione el mensaje **Only license type and edition updates are available with the SQL IaaS extension** (Solo las actualizaciones de la edición y el tipo de licencia están disponibles con la extensión IaaS de SQL).
@@ -265,7 +265,7 @@ Puede comprobar si su máquina virtual con SQL Server ya se ha registrado con e
 
 ### <a name="azure-portal"></a>Portal de Azure 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 1. Vaya a [Máquinas virtuales SQL Server](virtual-machines-windows-sql-manage-portal.md).
 1. Seleccione la máquina con SQL Server en la lista. Si la máquina virtual con SQL Server no aparece en la lista, es probable que no se haya registrado con el proveedor de recursos de máquina virtual con SQL. 
 1. Vea el valor de **Estado**. Si el valor de **Estado** es **Correcto**, la máquina virtual con SQL Server se ha registrado con el proveedor de recursos de máquina virtual con SQL correctamente. 
@@ -286,8 +286,7 @@ Compruebe el estado actual del registro de una máquina virtual con SQL Server 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
   ```powershell-interactive
-  Get-AzResource -ResourceName <vm_name> -ResourceGroupName <resource_group> `
-  -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines
+  Get-AzSqlVM -Name <vm_name> -ResourceGroupName <resource_group>
   ```
 
 ---
@@ -349,7 +348,7 @@ Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
 
 El proveedor de recursos de máquina virtual con SQL solo admite:
 - Máquinas virtuales con SQL Server implementadas mediante Azure Resource Manager. No se admiten las máquinas virtuales con SQL Server implementadas con el modelo clásico. 
-- Máquinas virtuales con SQL Server implementadas en la nube pública. No se admiten implementaciones en la nube privada ni en la nube de administración pública. 
+- Las máquinas virtuales SQL Server implementadas en la nube pública o Azure Government. No se admiten las implementaciones en otras nubes públicas o privadas. 
 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes 
