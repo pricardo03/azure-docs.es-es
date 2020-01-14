@@ -1,5 +1,6 @@
 ---
-title: Supervisión de API con Azure API Management, Event Hubs y Moesif | Microsoft Docs
+title: Supervisión de las API con Azure API Management, Event Hubs y Moesif
+titleSuffix: Azure API Management
 description: Aplicación de ejemplo que muestra la directiva log-to-eventhub que conecta Azure API Management, Azure Event Hubs y Moesif para el registro y la supervisión HTTP
 services: api-management
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: c52a1942bda9881f8f782a227c81feaa4813722d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4a0717bf7a284668af4808acae3050cc7f42f836
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60656748"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442525"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Supervisión de las API con Azure API Management, Event Hubs y Moesif
 El [servicio Administración de API](api-management-key-concepts.md) proporciona muchas capacidades para mejorar el procesamiento de solicitudes de HTTP enviadas a la API HTTP. Sin embargo, la existencia de las solicitudes y respuestas es transitoria. Se realiza la solicitud y fluye a través del servicio Administración de API a la API de back-end. La API procesa la solicitud y se pasa una respuesta al consumidor de API. El servicio API Management mantiene algunas estadísticas importantes acerca de las API que se muestran en el panel de Azure Portal, pero aparte de eso, los detalles desaparecen.

@@ -5,12 +5,12 @@ author: stevelasker
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
-ms.openlocfilehash: 2d407f041456ea3856fbeedf98147356eaeb61d6
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455000"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445749"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Recomendaciones para el etiquetado y el control de versiones de las imágenes de contenedor
 
@@ -38,6 +38,10 @@ Cuando las actualizaciones de la imagen base están disponibles, o cualquier tip
 
 En este caso, se proporciona servicio continuamente a las etiquetas principales y secundarias. En un escenario de imagen base, esto permite al propietario de la imagen proporcionar imágenes con servicio.
 
+### <a name="delete-untagged-manifests"></a>Eliminar manifiestos sin etiquetas
+
+Si se actualiza una imagen con una etiqueta estable, se elimina la etiqueta de la imagen etiquetada previamente, con lo que se obtiene una imagen huérfana. El manifiesto de la imagen anterior y los datos únicos de la capa permanecen en el Registro. Para mantener el tamaño del Registro, puede eliminar periódicamente los manifiestos no etiquetados resultantes de actualizaciones de imagen estables. Por ejemplo, [purgue automáticamente](container-registry-auto-purge.md) los manifiestos sin etiquetas con una antigüedad superior a una duración especificada o defina una [directiva de retención](container-registry-retention-policy.md) para manifiestos no etiquetados.
+
 ## <a name="unique-tags"></a>Etiquetas únicas
 
 **Recomendación:** Utilice etiquetas únicas para **implementaciones**, especialmente en un entorno que pueda escalar en varios nodos. Es probable que desee realizar implementaciones deliberadas de una versión coherente de los componentes. Si el contenedor se reinicia o un orquestador se escala horizontalmente con más instancias, los hosts no extraerán accidentalmente una versión más nueva, incoherente con los otros nodos.
@@ -50,6 +54,12 @@ El etiquetado único simplemente significa que cada imagen que se inserta en un 
 * **Id. de compilación**: esta opción puede ser la mejor ya que es probablemente incremental, y le permite correlacionarse con la compilación específica para buscar todos los artefactos y registros. Sin embargo, como un hash de manifiesto, puede ser difícil para un humano leerlo.
 
   Si la organización tiene varios sistemas de compilación, el prefijo de la etiqueta con el nombre del sistema de compilación es una variación de esta opción: `<build-system>-<build-id>`. Por ejemplo, puede diferenciar las compilaciones del sistema de compilación Jenkins del equipo de API y del sistema de compilación de Azure Pipelines del equipo web.
+
+### <a name="lock-deployed-image-tags"></a>Bloquear etiquetas de imágenes implementadas
+
+Como práctica recomendada, es recomendable [bloquear](container-registry-image-lock.md) cualquier etiqueta de imagen implementada definiendo su atributo `write-enabled` como `false`. Esta práctica evita la eliminación accidental de una imagen del Registro y, posiblemente, la interrupción de las implementaciones. Puede incluir el paso de bloqueo en la canalización de versión.
+
+El bloqueo de una imagen implementada le permite igualmente quitar otras imágenes no implementadas del Registro mediante características de Azure Container Registry para el mantenimiento del registro. Por ejemplo, [purgue automáticamente](container-registry-auto-purge.md) los manifiestos sin etiquetas o las imágenes sin bloquear con una antigüedad superior a una duración especificada o defina una [directiva de retención](container-registry-retention-policy.md) para manifiestos no etiquetados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

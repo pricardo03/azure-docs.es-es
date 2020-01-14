@@ -1,5 +1,5 @@
 ---
-title: Uso de Python con archivos y listas de control de acceso (ACL) en Azure Data Lake Storage Gen2 (versión preliminar)
+title: SDK de Python para Azure Data Lake Storage Gen2 para archivos y ACL (versión preliminar)
 description: Use Python para administrar directorios y listas de control de acceso (ACL) de archivos y directorios en cuentas de almacenamiento que tengan habilitado un espacio de nombres jerárquico (HNS).
 author: normesta
 ms.service: storage
@@ -8,14 +8,14 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: a65e8b2c5fbcdd4f6df0f8f39b24fa97b8deeca3
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: e07bb6aa9d1fe22baaebb7bc7239ce03a728c6b9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534427"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431807"
 ---
-# <a name="use-python-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Uso de Python con archivos y listas de control de acceso (ACL) en Azure Data Lake Storage Gen2 (versión preliminar)
+# <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Uso de Python para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2 (versión preliminar)
 
 En este artículo se muestra cómo usar Python para crear y administrar directorios, archivos y permisos en cuentas de almacenamiento que tengan habilitado un espacio de nombres jerárquico (HNS). 
 
@@ -24,10 +24,10 @@ En este artículo se muestra cómo usar Python para crear y administrar director
 
 [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-file-datalake/) | [Muestras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples) | [Referencia de API](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html) | [Asignación de Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Envíenos sus comentarios](https://github.com/Azure/azure-sdk-for-python/issues)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 > [!div class="checklist"]
-> * Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+> * Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 > * Una cuenta de almacenamiento que tenga habilitado el espacio de nombres jerárquico (HNS). Siga [estas](data-lake-storage-quickstart-create-account.md) instrucciones para crear uno.
 
 ## <a name="set-up-your-project"></a>Configurar su proyecto
@@ -70,7 +70,7 @@ except Exception as e:
 
 Un sistema de archivos actúa como contenedor de los archivos. Puede crear uno llamando al método **FileSystemDataLakeServiceClient.create_file_system**.
 
-En este ejemplo se crea una máquina virtual llamada `my-file-system`.
+En este ejemplo se crea un sistema de archivos llamado `my-file-system`.
 
 ```python
 def create_file_system():
@@ -84,7 +84,7 @@ def create_file_system():
 ```
 
 
-## <a name="create-a-directory"></a>Creación de directorios
+## <a name="create-a-directory"></a>Creación de un directorio
 
 Cree una referencia de directorio llamando al método **FileSystemClient.create_directory**.
 
@@ -123,7 +123,7 @@ def rename_directory():
 
 Elimine un directorio o muévalo llamando al método **DataLakeDirectoryClient.rename_directory**.
 
-En este ejemplo se elimina un directorio denominado `my-directory`.  
+En este ejemplo se elimina un directorio denominado `my-directory`.  
 
 ```python
 def delete_directory():
@@ -268,7 +268,7 @@ def list_directory_contents():
      print(e) 
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Documentación de referencia de API](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html)
 * [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-file-datalake/)

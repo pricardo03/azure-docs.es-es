@@ -1,5 +1,6 @@
 ---
-title: 'Azure VMware Solution by CloudSimple: administración de actividades de CloudSimple'
+title: Administración de una actividad de CloudSimple
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Describe los conceptos de actividad en VMware Solution by CloudSimple
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ad7905244ca190badf73c9a812a8f72282cbcdf3
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 985fcc0aa99723fde5e0c11babe3777c31cbd4c3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563175"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430255"
 ---
 # <a name="activity-management-overview"></a>Introducción a la administración de actividad
 

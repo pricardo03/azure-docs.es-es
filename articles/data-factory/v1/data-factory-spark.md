@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d5f5da4811a9551f687fed6ab317bb3d33041622
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d30b2001889a2555f736de0685fe23de1ea0e055
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666175"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438833"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocación de programas Spark desde canalizaciones de Azure Data Factory
 
@@ -51,7 +51,7 @@ Estos son los pasos habituales para crear una canalización de Data Factory con 
 * Creación de un conjunto de datos que haga referencia al servicio vinculado de Azure Storage. Actualmente, debe especificar un conjunto de datos de salida para una actividad incluso si no se produce ninguna salida. 
 * Creación de una canalización con la actividad de Spark que haga referencia al servicio vinculado de HDInsight que ha creado. La actividad se configura con el conjunto de datos que creó en el paso anterior como un conjunto de datos de salida. El conjunto de datos de salida es lo que impulsa la programación (cada hora o cada día). Por lo tanto, debe especificar el conjunto de datos de salida aunque la actividad no produzca realmente una salida.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 1. Cree una cuenta de almacenamiento de uso general siguiendo las instrucciones de [Crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md).
 
 1. Cree un clúster de Spark en HDInsight siguiendo las instrucciones del tutorial: [Creación de un clúster de Spark en HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Asocie la cuenta de almacenamiento creada en el paso 1 con este clúster.
@@ -63,7 +63,7 @@ Estos son los pasos habituales para crear una canalización de Data Factory con 
 ### <a name="create-a-data-factory"></a>Crear una factoría de datos
 Para crear una factoría de datos, siga estos pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Seleccione **Nuevo** > **Data + Analytics** > **Data Factory**.
 
@@ -95,7 +95,7 @@ En este paso, creará dos servicios vinculados. Un servicio vincula su clúster 
 #### <a name="create-a-storage-linked-service"></a>Creación de un servicio vinculado de Storage
 En este paso, vinculará su cuenta de almacenamiento con su factoría de datos. Un conjunto de datos creado en un paso más adelante en este tutorial hace referencia a este servicio vinculado. El servicio vinculado de HDInsight que se define en el paso siguiente también hace referencia a este servicio vinculado. 
 
-1. En la hoja **Factoría de datos**, haga clic en el icono **Crear e implementar**. Aparecerá Data Factory Editor.
+1. En la hoja **Factoría de datos**, haga clic en el icono **Crear e implementar**. Aparece Data Factory Editor.
 
 1. Seleccione **Nuevo almacén de datos** y elija **Azure Storage**.
 
@@ -105,7 +105,7 @@ En este paso, vinculará su cuenta de almacenamiento con su factoría de datos. 
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Reemplace **nombre de cuenta** y **clave de cuenta** por el nombre y la clave de acceso de su cuenta de almacenamiento. Para aprender a obtener la clave de acceso de almacenamiento, consulte cómo ver, copiar y regenerar las claves de acceso de almacenamiento en [Administración de la cuenta de almacenamiento](../../storage/common/storage-account-manage.md#access-keys).
+1. Reemplace **nombre de cuenta** y **clave de cuenta** por el nombre y la clave de acceso de su cuenta de almacenamiento. Para aprender a obtener la clave de acceso de almacenamiento, consulte [Administración de claves de acceso de la cuenta de almacenamiento](../../storage/common/storage-account-keys-manage.md).
 
 1. Para implementar el servicio vinculado, seleccione **Implementar** en la barra de comandos. Después de que el servicio vinculado se haya implementado correctamente, la ventana Borrador-1 desaparece. **AzureStorageLinkedService** aparece en la vista de árbol de la izquierda.
 
@@ -267,13 +267,13 @@ En este paso, crea una canalización con una actividad de HDInsightSpark. Actual
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
 Para obtener instrucciones detalladas, consulte la sección [Ejecución de una consulta de Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
-### <a name="troubleshooting"></a>solución de problemas
+### <a name="troubleshooting"></a>Solución de problemas
 Puesto que establece getDebugInfo en **Siempre**, aparece una subcarpeta de registro en la carpeta pyFiles del contenedor de blobs. El archivo de registro en la carpeta de registro proporciona información adicional. Este archivo de registro es especialmente útil cuando se produce un error. En un entorno de producción, podría ser recomendable establecerlo en **Error**.
 
 Para solucionar problemas, realice los pasos siguientes:
 
 
-1. Vaya a `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
+1. Ir a `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
 
     ![Aplicación de IU de YARN](media/data-factory-spark/yarnui-application.png)
 
@@ -324,35 +324,35 @@ Esta es la definición JSON de ejemplo de una canalización con una actividad de
 
 En la siguiente tabla se describen las propiedades JSON que se usan en la definición de JSON.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | -------- | ----------- | -------- |
 | name | Nombre de la actividad en la canalización. | Sí |
-| description | Texto que describe para qué se usa la actividad. | Sin |
+| description | Texto que describe para qué se usa la actividad. | No |
 | type | Esta propiedad debe establecerse en HDInsightSpark. | Sí |
 | linkedServiceName | Nombre del servicio vinculado de HDInsight en el que se ejecuta el programa de Spark. | Sí |
 | rootPath | Contenedor de blobs y carpeta que contiene el archivo de Spark. El nombre de archivo distingue entre mayúsculas y minúsculas. | Sí |
 | entryFilePath | Ruta de acceso relativa a la carpeta raíz del código o el paquete de Spark. | Sí |
-| className | Clase principal de Spark o Java de la aplicación. | Sin |
-| argumentos | Lista de argumentos de línea de comandos del programa de Spark. | Sin |
-| proxyUser | Cuenta de usuario de suplantación para ejecutar el programa de Spark. | Sin |
-| sparkConfig | Especifique valores para las propiedades de configuración de Spark indicadas en el tema [Spark configuration: Application properties](https://spark.apache.org/docs/latest/configuration.html#available-properties) (Configuración de Spark: Propiedades de aplicación). | Sin |
-| getDebugInfo | Especifica si se copian los archivos de registro de Spark en el almacenamiento que usa el clúster de HDInsight que especifica sparkJobLinkedService. Los valores permitidos son Ninguno, Siempre o Error. El valor predeterminado es Ninguno. | Sin |
-| sparkJobLinkedService | El servicio vinculado de Storage que contiene los registros, las dependencias y los archivos de trabajos de Spark. Si no especifica un valor para esta propiedad, se usa el almacenamiento asociado con el clúster de HDInsight. | Sin |
+| className | Clase principal de Spark o Java de la aplicación. | No |
+| argumentos | Lista de argumentos de línea de comandos del programa de Spark. | No |
+| proxyUser | Cuenta de usuario de suplantación para ejecutar el programa de Spark. | No |
+| sparkConfig | Especifique valores para las propiedades de configuración de Spark indicadas en el tema [Spark configuration: Application properties](https://spark.apache.org/docs/latest/configuration.html#available-properties) (Configuración de Spark: Propiedades de aplicación). | No |
+| getDebugInfo | Especifica si se copian los archivos de registro de Spark en el almacenamiento que usa el clúster de HDInsight que especifica sparkJobLinkedService. Los valores permitidos son Ninguno, Siempre o Error. El valor predeterminado es Ninguno. | No |
+| sparkJobLinkedService | El servicio vinculado de Storage que contiene los registros, las dependencias y los archivos de trabajos de Spark. Si no especifica un valor para esta propiedad, se usa el almacenamiento asociado con el clúster de HDInsight. | No |
 
 ## <a name="folder-structure"></a>Estructura de carpetas
 La actividad de Spark no es compatible con un script en línea, al contrario que las actividades de Pig y Hive. Los trabajos de Spark también son más ampliable que los de Pig y Hive. En los trabajos de Spark, puede proporcionar varias dependencias como paquetes JAR (ubicados en la CLASSPATH de Java), archivos de Python (ubicados en la ruta PYTHONPATH) y cualquier otro archivo.
 
 Cree la siguiente estructura de carpetas en la instancia de Blob Storage a la que hace referencia el servicio vinculado de HDInsight. Luego, cargue los archivos dependientes en las subcarpetas adecuadas de la carpeta raíz que representa **entryFilePath**. Por ejemplo, cargue los archivos de Python en la subcarpeta pyFiles y los archivos JAR en la subcarpeta jars de la carpeta raíz. En el entorno de tiempo de ejecución, el servicio Data Factory espera la siguiente estructura de carpetas en la instancia de Blob Storage: 
 
-| Path | DESCRIPCIÓN | Obligatorio | type |
+| Path | Descripción | Obligatorio | Tipo |
 | ---- | ----------- | -------- | ---- |
 | . | Ruta de acceso raíz del trabajo de Spark en el servicio vinculado de almacenamiento. | Sí | Carpeta |
 | &lt;Definida por el usuario&gt; | Ruta de acceso que apunta al archivo de entrada del trabajo de Spark. | Sí | Archivo |
-| ./jars | Todos los archivos de esta carpeta se cargan y se colocan en la ruta CLASSPATH de Java del clúster. | Sin | Carpeta |
-| ./pyFiles | Todos los archivos de esta carpeta se cargan y se colocan en la ruta PYTHONPATH del clúster. | Sin | Carpeta |
-| ./files | Todos los archivos de esta carpeta se cargan y se colocan en el directorio de trabajo del ejecutor. | Sin | Carpeta |
-| ./archives | Todos los archivos de esta carpeta están sin comprimir. | Sin | Carpeta |
-| ./logs | Carpeta donde se almacenan los registros del clúster de Spark.| Sin | Carpeta |
+| ./jars | Todos los archivos de esta carpeta se cargan y se colocan en la ruta CLASSPATH de Java del clúster. | No | Carpeta |
+| ./pyFiles | Todos los archivos de esta carpeta se cargan y se colocan en la ruta PYTHONPATH del clúster. | No | Carpeta |
+| ./files | Todos los archivos de esta carpeta se cargan y se colocan en el directorio de trabajo del ejecutor. | No | Carpeta |
+| ./archives | Todos los archivos de esta carpeta están sin comprimir. | No | Carpeta |
+| ./logs | Carpeta donde se almacenan los registros del clúster de Spark.| No | Carpeta |
 
 Este es un ejemplo de un almacenamiento que contiene dos archivos de trabajos de Spark en la instancia de Blob Storage a la que hace referencia el servicio vinculado de HDInsight:
 

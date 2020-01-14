@@ -1,5 +1,6 @@
 ---
-title: Modificación del contenido de una página en el portal para desarrolladores de Azure API Management | Microsoft Docs
+title: Modificación del contenido de una página en el portal para desarrolladores de API Management
+titleSuffix: Azure API Management
 description: Aprenda a editar el contenido de una página en el portal para desarrolladores de Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
-ms.openlocfilehash: 0a333b1fac78889b61829b869c23efea5e312adf
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ebf2cbd430339378a09d10d91ad61327d24842e4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072256"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430632"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificación del contenido y el diseño de páginas en el portal para desarrolladores de Azure API Management
 Existen tres maneras fundamentales de personalizar el portal para desarrolladores en Azure API Management:
@@ -29,7 +30,7 @@ Existen tres maneras fundamentales de personalizar el portal para desarrolladore
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="page-structure"></a>Estructura de las páginas del portal para desarrolladores
+## <a name="page-structure"> </a>Estructura de las páginas del portal para desarrolladores
 
 El portal para desarrolladores se basa en el sistema de administración de contenido. El diseño de cada página se compila en función de un conjunto de pequeños elementos de página conocidos como widgets:
 
@@ -41,7 +42,7 @@ Todos los widgets son editables.
 
 En las páginas del día a día, a menudo solo se modificaría el widget Contenido, que tendrá contenido diferente para cada página.
 
-## <a name="modify-layout-widget"></a>Modificación del contenido de un widget de diseño
+## <a name="modify-layout-widget"> </a>Modificación del contenido de un widget de diseño
 
 El portal para desarrolladores es accesible desde Azure Portal.
 

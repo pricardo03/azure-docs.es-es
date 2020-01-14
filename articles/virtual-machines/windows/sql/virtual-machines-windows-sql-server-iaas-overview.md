@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: baa3444773c41bc91de7e35d2c80f066b96b9ed5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7d8d1505a268976161636abd0ed2d24398978284
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790418"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374321"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>¿Qué es SQL Server en máquinas virtuales de Azure? (Windows)
 
@@ -57,7 +57,7 @@ Para empezar, elija una imagen de máquina virtual con SQL Server con la versió
 ### <a id="payasyougo"></a> Pago por uso
 En la tabla siguiente se proporciona la matriz de imágenes de SQL SErver de pago por uso.
 
-| Versión | Sistema operativo | Edition |
+| Versión | Sistema operativo | Edición |
 | --- | --- | --- |
 | **SQL Server 2019** | Windows Server 2019 | [Enterprise](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019enterprise), [Standard](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019standard), [Web](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019web), [Developer](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019sqldev) | 
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016) |
@@ -76,7 +76,7 @@ También puede traer su propia licencia (BYOL). En este escenario, solo paga por
 
 Para usar su propia licencia, puede convertir una VM con SQL de pago por uso existente, o bien implementar una imagen con **{BYOL}** con prefijo. Para más información acerca de cómo cambiar el modelo de licencia entre pago por uso y BYOL, consulte [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md) (Cambio del modelo de licencia de una máquina virtual con SQL). 
 
-| Versión | Sistema operativo | Edition |
+| Versión | Sistema operativo | Edición |
 | --- | --- | --- |
 | **SQL Server 2019** | Windows Server 2019 | [Enterprise BYOL](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019-byolenterprise), [Standard BYOL](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019-byolstandard)| 
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016) |
@@ -103,20 +103,22 @@ Si tiene una base de datos existente, debe moverla a la máquina virtual de SQL 
 
 Azure Portal proporciona una sola página donde puede administrar [todos los recursos de Azure SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql), incluidas las máquinas virtuales de SQL.
 
-Para acceder a la página **Recursos de Azure SQL**, seleccione **Azure SQL** en el menú de la izquierda de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y, a continuación, escriba *Azure SQL* en el cuadro de búsqueda.
+Para acceder a la página **Recursos SQL de Azure**, en el menú de Azure Portal, seleccione **Azure SQL** o busque y seleccione **Azure SQL** en cualquier página.
+
+![Búsqueda de Azure SQL](./media/quickstart-sql-vm-create-portal/search-for-azure-sql.png)
 
 > [!NOTE]
 > **Azure SQL** proporciona una manera rápida y sencilla de acceder a todas las bases de datos SQL, grupos elásticos, servidores de bases de datos, instancias administradas de SQL y máquinas virtuales SQL. SQL de Azure no es un servicio ni un recurso. 
 
 Para administrar los recursos existentes, seleccione el elemento deseado en la lista. Para crear nuevos recursos de Azure SQL, seleccione **+ Agregar**. 
 
-![Página del portal de Azure SQL](./media/quickstart-sql-vm-create-portal/azure-sql.png)
+![Creación de un recurso de Azure SQL](./media/quickstart-sql-vm-create-portal/create-azure-sql-resource.png)
 
 Después de seleccionar **+ Agregar**, vea información adicional sobre las diferentes opciones al seleccionar **Mostrar detalles** en cualquier icono.
 
 ![detalles del icono de bases de datos](./media/quickstart-sql-vm-create-portal/sql-vm-details.png)
 
-Para obtener información, consulte:
+Para obtener detalles, consulte:
 
 - [Creación de una base de datos única](../../../sql-database/sql-database-single-database-get-started.md)
 - [Creación de un grupo elástico](../../../sql-database/sql-database-elastic-pool.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)

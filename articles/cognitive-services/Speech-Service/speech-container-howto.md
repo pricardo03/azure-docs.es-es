@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: dapine
 ms.openlocfilehash: d5ecc104c7845a1881cbcdecfbccb75148f6e070
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 12/28/2019
 ms.locfileid: "74815364"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalación y ejecución de contenedores del servicio de voz (versión preliminar)
@@ -35,7 +35,7 @@ Los contenedores de Voz permiten a los clientes compilar una arquitectura de apl
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Requisitos previos para poder usar los contenedores de Voz:
 
@@ -43,7 +43,7 @@ Requisitos previos para poder usar los contenedores de Voz:
 |--|--|
 | Motor de Docker | Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br> |
 | Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos. |
-| Recurso de Voz | Para usar estos contenedores, debe tener:<br><br>Recurso de _Voz_ de Azure para obtener la clave de API y el URI de punto de conexión asociados. Ambos valores están disponibles en las páginas Introducción y Claves de **Voz** de Azure Portal. Los dos son necesarios para iniciar el contenedor.<br><br>**{API_KEY}** : una de las dos claves de recurso disponibles en la página **Claves**<br><br>**{ENDPOINT_URI}** : punto de conexión tal como se proporciona en la página de **Introducción**. |
+| Recurso de Voz | Para usar estos contenedores, debe tener:<br><br>Recurso de _Voz_ de Azure para obtener la clave de API y el URI de punto de conexión asociados. Ambos valores están disponibles en las páginas Introducción y Claves de **Voz** de Azure Portal. Los dos son necesarios para iniciar el contenedor.<br><br>**{API_KEY}** : una de las dos claves de recurso disponibles en la página **Claves**<br><br>**{ENDPOINT_URI}** : el punto de conexión tal como se proporciona en la página de **Información general**. |
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitud de acceso al registro de contenedor
 
@@ -273,7 +273,7 @@ Obtenga el **identificador de modelo** que se va a usar como argumento para el p
 
 En la tabla siguiente se representan los diversos parámetros de `docker run` y las descripciones correspondientes:
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |---------|---------|
 | `{VOLUME_MOUNT}` | El [montaje de volumen](https://docs.docker.com/storage/volumes/) del equipo host, que docker usa para conservar el modelo personalizado. Por ejemplo, *C:\CustomSpeech* donde la *unidad C* está en la máquina host. |
 | `{MODEL_ID}` | El **identificador de modelo** de Voz personalizada de la página de **entrenamiento** del portal de Voz personalizada. |
@@ -335,7 +335,7 @@ Obtenga el **identificador de modelo** que se va a usar como argumento para el p
 
 En la tabla siguiente se representan los diversos parámetros de `docker run` y las descripciones correspondientes:
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |---------|---------|
 | `{VOLUME_MOUNT}` | El [montaje de volumen](https://docs.docker.com/storage/volumes/) del equipo host, que docker usa para conservar el modelo personalizado. Por ejemplo, *C:\CustomSpeech* donde la *unidad C* está en la máquina host. |
 | `{MODEL_ID}` | El **identificador de modelo** de Voz personalizada de la página de **entrenamiento** del portal de Voz personalizada. |
@@ -396,7 +396,7 @@ Puede tener este contenedor y un contenedor de Azure Cognitive Services diferent
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Puede encontrar algunos problemas al iniciar o ejecutar el contenedor. Use un [montaje](speech-container-configuration.md#mount-settings) de salida y habilite el registro. Si lo hace, permitirá que el contenedor genere archivos de registro que son útiles para solucionar problemas.
 

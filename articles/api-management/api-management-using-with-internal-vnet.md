@@ -1,5 +1,6 @@
 ---
-title: Uso de Azure API Management con redes virtuales internas | Microsoft Docs
+title: Uso de Azure API Management con redes virtuales internas
+titleSuffix: Azure API Management
 description: Aprenda a instalar y configurar Azure API Management en una red virtual interna.
 services: api-management
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: 29c86363842299870179b35a0466d2e44d2e56e0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c4607a2dce995e554f0426f1beb810fe213015de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072196"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430592"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servicio Azure API Management con una red virtual interna
 Con Azure Virtual Network, Azure API Management puede administrar las API que no están accesibles desde Internet. Para establecer la conexión, hay una serie de tecnologías de VPN disponibles. API Management puede implementarse de dos modos en una red virtual:
@@ -38,7 +39,7 @@ Si utiliza API Management en modo interno, puede conseguir los siguientes escena
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir los pasos que se describen en este artículo, debe tener:
 
@@ -129,8 +130,8 @@ Si utiliza un servidor DNS personalizado en una red virtual, también puede crea
 * Las direcciones IP privadas y públicas con equilibrio de carga pueden encontrarse en la hoja de información general de Azure Portal.
 * Si el servicio se quitó de la red virtual y luego se volvió a agregar a ella, pueden cambiar las direcciones IP asignadas para el acceso público y privado. Si esto sucede, puede ser necesario actualizar los registros de DNS, las reglas de enrutamiento y las listas de restricciones de IP dentro de la red virtual.
 
-## <a name="related-content"></a>Contenido relacionado
-Para obtener más información, consulte los artículos siguientes:
+## <a name="related-content"> </a>Contenido relacionado
+Para más información, vea los siguientes artículos:
 * [Problemas comunes de configuración de red al establecer Azure API Management en una red virtual][Common network configuration problems]
 * [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](../virtual-network/virtual-networks-faq.md)
 * [Creating a record in DNS](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10)) (Creación de un registro en DNS)

@@ -3,12 +3,12 @@ title: Recuperación de archivos y carpetas desde una copia de seguridad de máq
 description: En este artículo, aprenderá a recuperar archivos y carpetas desde un punto de recuperación de la máquina virtual de Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 3fff957e542a039fcc5121f13c062f710f9292c9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4fd5de0c199bfe104b8bb4f5b33b9ed8a86924f6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172861"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392558"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -60,7 +60,7 @@ Para restaurar archivos o carpetas desde el punto de recuperación, vaya a la m�
     Si lo hace en un equipo con acceso restringido, asegúrese de que hay acceso a los siguientes recursos:
 
     - download.Microsoft.com
-    - Direcciones URL de Recovery Services (el nombre geográfico hace referencia a la región en la que reside el almacén de Recovery Services) - <https://pod01-rec2.geo-name.backup.windowsazure.com> (para zonas geográficas públicas Azure) - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (para Azure China 21Vianet) - <https://pod01-rec2.geo-name.backup.windowsazure.us> (para Azure Gobierno de EE. UU.) - <https://pod01-rec2.geo-name.backup.windowsazure.de> (para Azure Alemania)
+    - Direcciones URL de Recovery Services (el nombre geográfico hace referencia a la región en la que reside el almacén de Recovery Services)       - <https://pod01-rec2.geo-name.backup.windowsazure.com> (para zonas geográficas públicas Azure)       - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (para Azure China 21Vianet)       - <https://pod01-rec2.geo-name.backup.windowsazure.us> (para Azure Gobierno de EE. UU.)       - <https://pod01-rec2.geo-name.backup.windowsazure.de> (para Azure Alemania)
     - Puerto de salida 3260
 
 > [!Note]
@@ -211,9 +211,9 @@ El script también requiere los componentes Python y Bash para realizar la ejecu
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Recuperación de archivos de copias de seguridad de máquinas virtuales con discos de gran tamaño
 
-En esta sección se explica cómo recuperar archivos a partir de copias de seguridad de máquinas virtuales de Azure cuyo número de discos es superior a 16 y cada tamaño de disco tiene más de 4 TB.
+En esta sección se explica cómo recuperar archivos a partir de copias de seguridad de máquinas virtuales de Azure cuyo número de discos es superior a 16 y cada tamaño de disco tiene más de 32 TB.
 
-Dado que el proceso de recuperación de archivos asocia todos los discos de la copia de seguridad, cuando se usa un gran número de discos (más de 16) o discos de gran tamaño (más de 4 TB cada uno), se recomiendan los siguientes puntos de acción:
+Dado que el proceso de recuperación de archivos asocia todos los discos de la copia de seguridad, cuando se usa un gran número de discos (más de 16) o discos de gran tamaño (más de 32 TB cada uno), se recomiendan los siguientes puntos de acción:
 
 - Mantenga un servidor de restauración independiente (máquinas virtuales D2v3 de Azure VM) para la recuperación de archivos. Puede usar esa única recuperación de archivos y, a continuación, apagarla cuando no sea necesaria. No se recomienda realizar la restauración en el equipo original, ya que tendrá un impacto significativo en la propia máquina virtual.
 - Después, ejecute el script una vez para comprobar si la operación de recuperación de archivos se realiza correctamente.
@@ -238,7 +238,7 @@ Dado que el proceso de recuperación de archivos asocia todos los discos de la c
 - Cada vez que el usuario descarga un script, Azure Backup inicia el proceso de preparación del punto de recuperación para su descarga. Con discos de gran tamaño, se tardará un tiempo considerable. Si hay ráfagas sucesivas de solicitudes, la preparación de destino pasará a un espiral de descarga. Por lo tanto, se recomienda descargar un script desde el portal, PowerShell o la CLI, esperar 20-30 minutos (una heurística) y, a continuación, ejecutarlo. En este momento, el destino debería estar listo para conectarse desde el script.
 - Después de la recuperación de archivos, asegúrese de volver al portal para hacer clic en "Desmontar discos" en los puntos de recuperación en los que no se pudieron montar los volúmenes. En esencia, este paso limpiará cualquier proceso o sesión y aumentará la posibilidad de recuperación.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si tiene problemas al tratar de recuperar archivos de las máquinas virtuales, compruebe la siguiente tabla para obtener más información.
 

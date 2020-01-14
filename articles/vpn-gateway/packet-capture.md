@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: radwiv
-ms.openlocfilehash: 41c36d302605bb619899131a8ace649b0f1439b2
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 2429a8d08baa34aed120cffa069abae1fb9a3df9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151842"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353518"
 ---
 # <a name="configure-packet-captures-for-vpn-gateways"></a>Configuración de captura de paquetes para VPN Gateways
 
@@ -24,11 +24,13 @@ Hay algunas herramientas disponibles comúnmente para la capturas de paquetes. S
 
 Las capturas de paquetes de VPN Gateway se pueden ejecutar en la puerta de enlace o en una conexión específica según las necesidades del cliente. También puede ejecutar capturas de paquetes en varios túneles al mismo tiempo. Puede capturar el tráfico único o bidireccional, el tráfico de IKE y ESP y los paquetes internos junto con el filtrado en una VPN Gateway.
 
-El uso de 5 filtros de tupla (subred de origen, subred de destino, puerto de origen, puerto de destino, protocolo) y marcas TCP (SYN, ACK, FIN, URG, PSH, RST) resultan útiles al aislar problemas en un tráfico de gran volumen.
+El uso de 5 filtros de tupla (subred de origen, subred de destino, puerto de origen, puerto de destino, protocolo) y marcas TCP (SYN, ACK, FIN, URG, PSH, RST) resulta útil al aislar problemas en un tráfico de gran volumen.
+
+Puede usar solo una opción por propiedad mientras ejecuta la captura de paquetes.
 
 ## <a name="setup-packet-capture-using-powershell"></a>Configuración de la captura de paquetes con PowerShell
 
-Consulte los siguientes ejemplos de comandos de PowerShell para iniciar y detener capturas de paquetes. Para más información sobre las opciones de parámetros (por ejemplo, cómo crear filtros), consulte este [documento](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture) de PowerShell.
+Consulte los siguientes ejemplos de comandos de PowerShell para iniciar y detener capturas de paquetes. Para más información sobre las opciones de parámetros (por ejemplo, cómo crear un filtro), consulte este [documento](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture) de PowerShell.
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>Iniciar la captura de paquetes para una VPN Gateway
 
@@ -36,7 +38,7 @@ Consulte los siguientes ejemplos de comandos de PowerShell para iniciar y detene
 Start-AzVirtualnetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayName"
 ```
 
-Se puede usar el parámetro opcional **-FilterData** para aplicar filtros.
+Se puede usar el parámetro opcional **-FilterData** para aplicar el filtro.
 
 ### <a name="stop-packet-capture-for-a-vpn-gateway"></a>Detener la captura de paquetes para una VPN Gateway
 
@@ -50,7 +52,7 @@ Stop-AzVirtualNetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupN
 Start-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName"
 ```
 
-Se puede usar el parámetro opcional **-FilterData** para aplicar filtros.
+Se puede usar el parámetro opcional **-FilterData** para aplicar el filtro.
 
 ### <a name="stop-packet-capture-on-a-vpn-gateway-connection"></a>Detener la captura de paquetes en una conexión de VPN Gateway
 
@@ -62,7 +64,7 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 
 - La ejecución de capturas de paquetes puede afectar al rendimiento. Recuerde detener la captura de paquetes cuando no sea necesaria.
 - La duración de la captura de paquetes mínima sugerida es de 600 segundos. Una duración de captura de paquetes más corta no proporciona datos completos debido a la sincronización de problemas entre varios componentes de la ruta de acceso.
-- Los archivos de datos de captura de paquetes se generan en formatos PCAP o ETL. Puede que necesite el analizador de Netmon para reconocer los datos.
+- Los archivos de datos de captura de paquetes se generan en formato PCAP. Use Wireshark u otras aplicaciones disponibles habitualmente para abrir archivos PCAP.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

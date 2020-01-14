@@ -1,5 +1,5 @@
 ---
-title: Uso de exploradores web con MSAL.NET | Azure
+title: Uso de exploradores web (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Obtenga información sobre las consideraciones específicas al usar Xamarin Android con Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
@@ -14,14 +14,15 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5b8c8e78c554994b71f9e246f8bacc39828b17f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 44698bc88b87aa76dd55ab5d632ad7276a49aea5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921598"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424170"
 ---
-# <a name="using-web-browsers-in-msalnet"></a>Uso de los exploradores web en MSAL.NET
+# <a name="using-web-browsers-msalnet"></a>Uso de exploradores web (MSAL.NET)
+
 Se requieren exploradores web para la autenticación no interactiva. De forma predeterminada, MSAL.NET admite el [explorador web del sistema](#system-web-browser-on-xamarinios-xamarinandroid) en Xamarin.iOS y Xamarin.Android. Pero [también puede habilitar el explorador web insertado](#enable-embedded-webviews-on-ios-and-android) en función de los necesidades (UX, necesidad de inicio de sesión único (SSO), seguridad) en aplicaciones [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) y [Xamarin.Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid). E incluso puede [elegir dinámicamente](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) qué explorador web utilizar en función de la presencia de Chrome o de un explorador compatible con las pestañas personalizadas de Chrome en Android. MSAL.NET solo admite el explorador del sistema en aplicaciones de escritorio de .NET Core.
 
 ## <a name="web-browsers-in-msalnet"></a>Exploradores web en MSAL.NET
@@ -48,12 +49,12 @@ En general, se recomienda que use la plataforma predeterminada, que suele ser el
 | marco        | Insertado | Sistema | Valor predeterminado |
 | ------------- |-------------| -----| ----- |
 | .NET Classic     | Sí | Sí ^ | Insertado |
-| .NET Core     | Sin | Sí ^ | Sistema |
-| .NET Standard | Sin | Sí ^ | Sistema |
-| UWP | Sí | Sin | Insertado |
+| .NET Core     | No | Sí ^ | Sistema |
+| .NET Standard | No | Sí ^ | Sistema |
+| UWP | Sí | No | Insertado |
 | Xamarin.Android | Sí | Sí  | Sistema |
 | Xamarin.iOS | Sí | Sí  | Sistema |
-| Xamarin.Mac| Sí | Sin | Insertado |
+| Xamarin.Mac| Sí | No | Insertado |
 
 ^ La URI de redireccionamiento necesita "http://localhost"
 
@@ -211,7 +212,7 @@ Si desea utilizar el explorador web del sistema para habilitar el inicio de sesi
 
 Según el valor devuelto por este método y sus requisitos, puede tomar una decisión:
 
-- Puede devolver un mensaje de error personalizado al usuario. Por ejemplo:  "Instale Chrome para continuar con la autenticación", o bien
+- Puede devolver un mensaje de error personalizado al usuario. Por ejemplo: "Instale Chrome para continuar con la autenticación", o bien
 - puede recurrir a la opción de vista previa insertada e iniciar la interfaz de usuario como una vista web insertada.
 
 El código siguiente muestra la opción de vista web insertada:

@@ -1,6 +1,6 @@
 ---
-title: 'Creación de una API web que permite iniciar sesión a los usuarios: Plataforma de identidad de Microsoft | Azure'
-description: Obtenga información sobre cómo compilar una aplicación web que permita iniciar sesión a los usuarios (inicio de sesión)
+title: 'Escritura de una aplicación web que permita iniciar o cerrar sesión a los usuarios: Plataforma de identidad de Microsoft | Azure'
+description: Obtenga información sobre cómo compilar una aplicación web que permita iniciar o cerrar sesión a los usuarios
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d7d5737a8332416a225154709ab7d66e447764
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6bb32ae29c533b8ea27bf68e012040a17bb36355
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961988"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423486"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicación web que inicia sesión de usuarios: Inicio y cierre de sesión
 
@@ -118,7 +118,7 @@ El código para `AccountController` está disponible en el repositorio de ASP.NE
 
 En ASP.NET, el cierre de sesión se desencadena desde el método `SignOut()` en un controlador (por ejemplo, [AccountController.cs#L16-L23](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L16-L23)). Este método no forma parte del marco de ASP.NET (lo contrario a lo que sucede en ASP.NET Core). Envía un desafío de inicio de sesión OpenID tras proponer un URI de redirección.
 
-```CSharp
+```csharp
 public void SignIn()
 {
     // Send an OpenID Connect sign-in request.
@@ -342,7 +342,7 @@ En ASP.NET, el cierre de sesión se desencadena desde el método `SignOut()` en 
 - Elimina la caché.
 - Redirige a la página que quiere.
 
-```CSharp
+```csharp
 /// <summary>
 /// Send an OpenID Connect sign-out request.
 /// </summary>
@@ -396,7 +396,7 @@ El URI posterior al cierre de sesión permite a las aplicaciones participar en e
 
 El middleware OpenID Connect de ASP.NET Core permite a la aplicación interceptar la llamada al punto de conexión `logout` de la Plataforma de identidad de Microsoft al proporcionar un evento de OpenID Connect denominado `OnRedirectToIdentityProviderForSignOut`. Para obtener un ejemplo de cómo suscribirse a este evento (para borrar la caché de tokens), consulte [Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156).
 
-```CSharp
+```csharp
     // Handling the global sign-out
     options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
     {
@@ -408,7 +408,7 @@ El middleware OpenID Connect de ASP.NET Core permite a la aplicación intercepta
 
 En ASP.NET, se delega en el middleware la ejecución del cierre de sesión, borrando la cookie de sesión:
 
-```CSharp
+```csharp
 public class AccountController : Controller
 {
  ...

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 828e8ae68286d7c208462d77a31a764427c79637
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 16cfb6c15a4d17ff3fb4f7f41f59f9f80af1e9e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755264"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382130"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderar con listas de términos personalizadas en la consola de API
 
@@ -40,21 +40,21 @@ Se puede utilizar List Management API para realizar las tareas siguientes:
 
 Antes de probar la API en la consola en línea, necesita la clave de suscripción. Esta clave está ubicada en la pestaña **Configuración**, en el cuadro **Ocp-Apim-Subscription-Key**. Para más información, consulte [Información general](overview.md).
 
-## <a name="refresh-search-index"></a>Actualizar el índice de búsqueda
+## <a name="refresh-search-index"></a>Actualización del índice de búsqueda
 
-Después de realizar cambios en una lista de términos, debe actualizar su índice para que los cambios se incluyan en análisis futuros. Este paso es similar a cómo un motor de búsqueda de escritorio (si está habilitado) o un motor de búsqueda en Web actualiza continuamente su índice para incluir nuevos archivos o páginas.
+Después de realizar cambios en una lista de términos, debe actualizar su índice para que los cambios se incluyan en análisis futuros. Este paso es similar a cómo un motor de búsqueda de escritorio (si está habilitado) o un motor de búsqueda en web actualiza continuamente su índice para incluir nuevos archivos o páginas.
 
 1. En la [referencia de Term List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), en el menú de la izquierda, seleccione **Term Lists** (Listas de términos) y, a continuación, seleccione **Refresh Search Index** (Actualizar índice de búsqueda). 
 
    Se abre la página **Term Lists - Refresh Search Index** (Listas de términos: actualizar índice de búsqueda).
 
-2. En **Open API testing console** (Abrir consola de prueba de API), seleccione la región que mejor describa su ubicación. 
+2. En **Open API testing console** (Abrir consola de pruebas de API), seleccione la región que mejor describa su ubicación. 
 
    ![Selección de la región en la página Term Lists - Refresh Search Index (Listas de términos: actualizar índice de búsqueda)](images/test-drive-region.png)
 
    Se abre la consola de API **Term Lists - Refresh Search Index** (Listas de términos: actualizar índice de búsqueda).
 
-3. En el cuadro **listId**, escriba la id. de lista. Escriba la clave de suscripción y, a continuación, seleccione **Enviar**.
+3. En el cuadro **listId**, escriba el identificador de lista. Escriba la clave de suscripción y, a continuación, seleccione **Enviar**.
 
    ![Cuadro de contenido de la respuesta de la consola de API Term Lists - Refresh Search Index (Listas de términos: actualizar índice de búsqueda)](images/try-terms-list-refresh-1.png)
 
@@ -63,7 +63,7 @@ Después de realizar cambios en una lista de términos, debe actualizar su índi
 
    Se abre la página **Term Lists - Create** (Listas de términos: crear).
 
-2. En **Open API testing console** (Abrir consola de prueba de API), seleccione la región que mejor describa su ubicación. 
+2. En **Open API testing console** (Abrir consola de pruebas de API), seleccione la región que mejor describa su ubicación. 
 
    ![Selección de la región en la página Term Lists - Create (Listas de términos: crear)](images/test-drive-region.png)
 
@@ -97,7 +97,7 @@ Después de realizar cambios en una lista de términos, debe actualizar su índi
 
    Se abre la página **Term - Add Term** (Término: agregar término). 
 
-8. En **Open API testing console** (Abrir consola de prueba de API), seleccione la región que mejor describa su ubicación. 
+8. En **Open API testing console** (Abrir consola de pruebas de API), seleccione la región que mejor describa su ubicación. 
 
    ![Selección de región en la página Term - Add Term (Término: agregar término)](images/test-drive-region.png)
 
@@ -133,7 +133,7 @@ En este ejemplo se elimina un único término.
 
    Se abre **Term - Delete** (Término: eliminar).
 
-2. En **Open API testing console** (Abrir consola de prueba de API), seleccione la región que mejor describa su ubicación. 
+2. En **Open API testing console** (Abrir consola de pruebas de API), seleccione la región que mejor describa su ubicación. 
 
    ![Selección de la región en la página Term - Delete (Término: eliminar)](images/test-drive-region.png)
 
@@ -149,7 +149,7 @@ En este ejemplo se elimina un único término.
 
    ![Cuadro de contenido de la respuesta de la consola Term Lists - Get All (Listas de términos: obtener todos) que muestra que el término se ha eliminado](images/try-terms-list-delete-2.png)
  
-## <a name="change-list-information"></a>Cambiar la información de la lista
+## <a name="change-list-information"></a>Cambio de la información de la lista
 
 Puede editar el nombre y la descripción de una lista y agregar elementos de metadatos.
 
@@ -157,13 +157,13 @@ Puede editar el nombre y la descripción de una lista y agregar elementos de met
 
    Se abre la página **Term Lists - Update Details** (Listas de términos: actualizar detalles).
 
-2. En **Open API testing console** (Abrir consola de prueba de API), seleccione la región que mejor describa su ubicación. 
+2. En **Open API testing console** (Abrir consola de pruebas de API), seleccione la región que mejor describa su ubicación. 
 
    ![Selección de la región en la página Term Lists - Update Details (Listas de términos: actualizar detalles)](images/test-drive-region.png)
 
    Se abre la consola de API **Term Lists - Update Details** (Listas de términos: actualizar detalles).
 
-3. En el cuadro **listId**, escriba la id. de lista y, a continuación, escriba la clave de suscripción.
+3. En el cuadro **listId**, escriba el identificador de lista y, a continuación, escriba la clave de suscripción.
 
 4. En el **Cuerpo de la solicitud**, realice las ediciones y, a continuación, seleccione **Enviar**.
 

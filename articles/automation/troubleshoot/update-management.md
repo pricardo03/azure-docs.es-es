@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: a42b05239ae1ddf8909e288486694bf57595b195
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f5346f2f11df2282a1cd2592db930f7ff829a2d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849248"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75416777"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solución de problemas relacionados con Update Management
 
@@ -45,7 +45,7 @@ Es posible que tenga que volver a registrar y reinstalar Hybrid Runbook Worker.
 
 Es posible que se haya alcanzado una cuota definida en el área de trabajo y que impida el almacenamiento de datos adicional.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 * Ejecute el solucionador de problemas para [Windows](update-agent-issues.md#troubleshoot-offline) o [Linux](update-agent-issues-linux.md#troubleshoot-offline), según el sistema operativo.
 
@@ -86,7 +86,7 @@ Error details: Unable to register Automation Resource Provider for subscriptions
 
 El proveedor de recursos de Automation no está registrado en la suscripción.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Para registrar el proveedor de recursos de Automation, realice los pasos siguientes en Azure Portal:
 
@@ -113,7 +113,7 @@ Este error puede ocurrir debido a uno de los siguientes motivos:
 - Está bloqueada la comunicación con la cuenta de Automation.
 - La máquina virtual que se incorpora puede provenir de una máquina clonada que no estaba preparada con sysprep con Microsoft Monitoring Agent (MMA) instalado.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 1. Vaya a [Network planning](../automation-hybrid-runbook-worker.md#network-planning) (Planeamiento de red) para obtener información acerca de qué direcciones y puertos deben permitirse para que Update Management funcione.
 2. Si usa una imagen clonada:
@@ -136,7 +136,7 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 Este error se produce cuando se crea una implementación de actualización que tiene máquinas virtuales de Azure en otro inquilino que se incluye en una implementación de actualización.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Use la solución alternativa siguiente para programar estos elementos. Puede usar el cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) con el conmutador `-ForUpdate` para crear una programación. A continuación, use el cmdlet [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) y pase las máquinas del otro inquilino al parámetro `-NonAzureComputer`. El ejemplo siguiente muestra cómo hacerlo:
@@ -161,7 +161,7 @@ Aunque haya establecido la opción **Reboot Control** (Control de reinicio) en *
 
 Windows Update se puede modificar mediante varias claves del Registro, cualquiera de ellas puede modificar el comportamiento del reinicio.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Revise las claves del Registro enumeradas en [Configuración de actualizaciones automáticas mediante la edición del Registro](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) y [Claves del Registro usadas para administrar reinicios](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) para asegurarse de que las máquinas estén configuradas correctamente.
 
@@ -185,7 +185,7 @@ Este problema puede ocurrir debido a uno de los siguientes motivos:
 * Ha habido una actualización de MMA que ha cambiado el valor de SourceComputerId.
 * La ejecución de actualizaciones se ha regulado si se ha alcanzado el límite de 2000 trabajos simultáneos en una cuenta de Automation. Cada implementación se considera un trabajo y cada máquina de una implementación de actualizaciones se cuenta como un trabajo. Cualquier otro trabajo de automatización o implementación de actualizaciones actualmente en ejecución en la cuenta de Automation cuenta para el límite de trabajos simultáneos.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Cuando proceda, use [grupos dinámicos](../automation-update-management-groups.md) para las implementaciones de actualizaciones. Además:
 
@@ -208,7 +208,7 @@ Al inscribir una máquina Windows en Update Management, puede ver las actualizac
 
 En Windows, las actualizaciones se instalan automáticamente en cuanto están disponibles. Este comportamiento puede producir confusión si no ha programado que una actualización se implemente en la máquina.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 La clave del Registro `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` tiene el valor predeterminado de la configuración 4: **auto download and install** (descargar e instalar automáticamente).
 
@@ -230,7 +230,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 La máquina ya se ha incorporado a otra área de trabajo para Update Management.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 1. Siga los pasos de [Las máquinas no se muestran en el portal en Update Management](#nologs) para asegurarse de que la máquina envía notificaciones al área de trabajo adecuada.
 2. Limpie los artefactos antiguos en la máquina mediante la [eliminación del grupo Hybrid Runbook](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group) y vuelva a intentarlo.
@@ -253,11 +253,15 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
+```error
+Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
+```
+
 ### <a name="cause"></a>Causa
 
-Un proxy, una puerta de enlace o un firewall pueden estar bloqueando la comunicación de red.
+Un proxy, una puerta de enlace o un firewall pueden estar bloqueando la comunicación de red. 
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Revise la red y asegúrese de que están permitidas las direcciones y los puertos adecuados. Consulte los [requisitos de red](../automation-hybrid-runbook-worker.md#network-planning) para obtener una lista de puertos y direcciones que Update Management necesita y las instancias de Hybrid Runbook Worker.
 
@@ -275,7 +279,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 Hybrid Runbook Worker no pudo generar un certificado autofirmado.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Verifique que la cuenta del sistema tiene acceso de lectura a la carpeta **C:\ProgramData\Microsoft\Crypto\RSA** e inténtelo de nuevo.
 
@@ -285,7 +289,7 @@ Verifique que la cuenta del sistema tiene acceso de lectura a la carpeta **C:\Pr
 
 La ventana de mantenimiento predeterminada para las actualizaciones es de 120 minutos. Puede aumentar la ventana de mantenimiento a un máximo de seis 6 horas o 360 minutos.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Edite las implementaciones de actualizaciones programadas con errores y aumente la ventana de mantenimiento.
 
@@ -303,7 +307,7 @@ Para más información sobre las ventanas de mantenimiento, consulte la [instala
 
 El agente de actualización (Agente de Windows Update en Windows, el administrador de paquetes para la distribución de Linux) no está configurado correctamente. Update Management se basa en el agente de actualización de la máquina para proporcionar las actualizaciones necesarias, el estado de la revisión y los resultados de las revisiones implementadas. Sin esta información, Update Management no puede informar correctamente de las revisiones que son necesarias o que están instaladas.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Intente realizar actualizaciones de forma local en la máquina. Si no puede, suele deberse a un error de configuración con el agente de actualización.
 
@@ -325,9 +329,10 @@ Si se muestra un código de error HRESULT, haga doble clic en la excepción que 
 |`0x8024402C`     | Si usa un servidor WSUS, asegúrese de que los valores del Registro para `WUServer` y `WUStatusServer` en la clave del Registro `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` especifican el servidor WSUS correcto.        |
 |`0x80072EE2`|Existe un problema de conectividad de red o un problema al comunicarse con un servidor WSUS configurado. Compruebe la configuración de WSUS y asegúrese de que se puede acceder al servicio desde el cliente.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Asegúrese de que el servicio Windows Update (wuauserv) se está ejecutando y no está deshabilitado.        |
+|`0x80070005`| Un error de acceso denegado puede deberse a cualquiera de las siguientes razones:<br> Equipo infectado<br> Windows Update no está configurado correctamente.<br> Error de permiso de archivo en la carpeta %WinDir%\SoftwareDistribution<br> Espacio en disco insuficiente en la unidad del sistema (C:).
 |Cualquier otra excepción genérica     | Ejecute una búsqueda en Internet para ver las soluciones posibles y colabore con el equipo de soporte técnico de TI local.         |
 
-Revisar el archivo Windowsupdate.log también puede ayudar a determinar los posibles motivos. Para más información sobre cómo leer el registro, consulte [Cómo leer el archivo Windowsupdate.log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
+Revisar el archivo %Windir%\Windowsupdate.log también puede ayudar a determinar los posibles motivos. Para más información sobre cómo leer el registro, consulte [Cómo leer el archivo Windowsupdate.log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
 
 También puede descargar y ejecutar el [solucionador de problemas de Windows Update](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) para comprobar si hay algún problema con Windows Update en el equipo.
 
@@ -350,7 +355,7 @@ Causas posibles:
 * La máquina es inaccesible.
 * Las actualizaciones tenían dependencias que no se resolvieron.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Si se producen errores durante una ejecución de actualizaciones después de que se haya iniciado correctamente, [compruebe el trabajo de salida](../manage-update-multi.md#view-results-of-an-update-deployment) desde la máquina afectada en la ejecución. Puede encontrar mensajes de error específicos procedentes de las máquinas que puede investigar e intentar solucionar. Update Management requiere que el administrador de paquetes tenga un estado correcto para que las implementaciones de actualizaciones se realicen con éxito.
 

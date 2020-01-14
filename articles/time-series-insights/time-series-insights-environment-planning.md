@@ -1,6 +1,6 @@
 ---
 title: 'Planeamiento de un entorno de disponibilidad general (GA): Azure Time Series Insights | Microsoft Docs'
-description: Conozca los procedimientos recomendados que debe seguir al planear su entorno de disponibilidad general.
+description: Prácticas recomendadas para preparar, configurar e implementar el entorno de Azure Time Series de disponibilidad general.
 services: time-series-insights
 ms.service: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: f75c84aeb1893008832635cf93cd634d96653dd3
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 13bff4abcb308e4d5ea55f360d979e3e67d313c4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561553"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452863"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planificación del entorno de Azure Time Series Insights de disponibilidad general
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 12/17/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7305976060cb5df01f683b3310e59644d7e45b35
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 55433efabea516151cfb858bb61f504e180f5fb7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975098"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353603"
 ---
 # <a name="about-point-to-site-vpn"></a>Acerca de las conexiones VPN de punto a sitio
 
@@ -51,11 +51,11 @@ Con la autenticación de Azure AD nativa, puede aprovechar el acceso condiciona
 
 En un nivel alto, para configurar la autenticación de Azure AD es preciso seguir estos pasos:
 
-[1. Configure un inquilino de Azure AD](openvpn-azure-ad-tenant.md)
+1. [Configurar un inquilino de Azure AD](openvpn-azure-ad-tenant.md)
 
-[2. Habilite la autenticación de Azure AD en la puerta de enlace](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
+2. [Habilitar la autenticación de Azure AD en la puerta de enlace](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
 
-[3. Descargue y configure el Cliente VPN de Azure (versión preliminar)](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)
+3. [Descargar y configurar el Cliente VPN de Azure (versión preliminar)](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)
 
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Autenticación mediante el servidor de dominio de Active Directory (AD)
@@ -67,10 +67,6 @@ El servidor RADIUS puede implementarse de forma local o en la red virtual de Azu
 El servidor RADIUS también se integra con los servicios de certificados de AD. Esto le permite usar el servidor RADIUS y la implementación de certificados de empresa para la autenticación de certificados de P2S como alternativa a la autenticación de certificados de Azure. La ventaja es que no es necesario cargar certificados raíz y revocados en Azure.
 
 Los servidores RADIUS también se integran con otros sistemas de identidad externos. Esto abre una gran cantidad de opciones de autenticación para VPN P2S, incluidas las opciones de multifactor.
-
->[!NOTE]
->No se admite el **protocolo OpenVPN®** con la autenticación RADIUS.
->
 
 ![point-to-site](./media/point-to-site-about/p2s.png "De punto a sitio")
 

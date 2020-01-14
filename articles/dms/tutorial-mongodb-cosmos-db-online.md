@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: Uso de Azure Database Migration Service para migrar MongoDB a la API de Azure Cosmos DB para MongoDB en línea | Microsoft Docs'
+title: 'Tutorial: Migración de MongoDB en línea a la API de Azure Cosmos DB para MongoDB'
+titleSuffix: Azure Database Migration Service
 description: Aprenda a migrar desde el entorno local de MongoDB a la API de Azure Cosmos DB para MongoDB en línea mediante Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: a73f3eefbf76b2ea24f34ed496ff45c5d2467e3e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 1090a7f75bd5dc2200dd619a785a0e389259040a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266353"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437647"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Tutorial: Migración de MongoDB a la API de Azure Cosmos DB para MongoDB en línea mediante DMS
 
@@ -43,7 +44,7 @@ En este tutorial, migrará un conjunto de datos de MongoDB hospedado en una máq
 
 En este artículo se describe una migración en línea desde MongoDB a la API de Azure Cosmos DB para MongoDB. Para realizar una migración sin conexión, consulte [Migración de MongoDB a la API de Azure Cosmos DB para MongoDB sin conexión mediante DMS](tutorial-mongodb-cosmos-db.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesita:
 
@@ -115,7 +116,7 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
 
     ![Búsqueda de todas las instancias de Azure Database Migration Service](media/tutorial-mongodb-to-cosmosdb-online/dms-search.png)
 
-2. En la pantalla **Azure Database Migration Services**, busque el nombre de la instancia de Azure Database Migration Service que creó y, después, seleccione la instancia.
+2. En la pantalla **Azure Database Migration Services**, busque el nombre de la instancia de Azure Database Migration Service que creó y, después, seleccione la instancia.
 
     Como alternativa, puede detectar la instancia de Azure Database Migration Service desde el panel de búsqueda de Azure Portal.
 

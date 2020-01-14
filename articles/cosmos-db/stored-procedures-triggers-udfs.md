@@ -1,5 +1,5 @@
 ---
-title: Uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB
+title: Trabajo con procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB
 description: En este artículo se introducen conceptos como procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 700cd6c0c75b25d56e812a394d6bdd193e4fb57c
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 706f52a6cda2bbcb0e5ca1cfe9372600fa6709d0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614058"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441236"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimientos almacenados, desencadenadores y funciones definidas por el usuario
 

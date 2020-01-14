@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 3fcb777969f7d29b0e8698156dbdd0724f16f0b5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1c8f56810edb39db66cbb83750e5cff02e22662a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232866"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433284"
 ---
 # <a name="http-features"></a>Características de HTTP
 
@@ -32,7 +32,8 @@ Se admiten los siguientes tipos de API HTTP integradas.
 * [Enviar un evento externo a una orquestación](durable-functions-http-api.md#raise-event)
 * [Purgar el historial de orquestación](durable-functions-http-api.md#purge-single-instance-history)
 * [Enviar un evento de operación](durable-functions-http-api.md#signal-entity)
-* [Consultar el estado de una entidad](durable-functions-http-api.md#query-entity)
+* [Obtener el estado de una entidad](durable-functions-http-api.md#get-entity)
+* [Consultar la lista de entidades](durable-functions-http-api.md#list-entities)
 
 Consulte el [artículo API HTTP](durable-functions-http-api.md) para obtener una descripción completa de todas las API de HTTP integradas que expone la extensión de Durable Functions.
 
@@ -178,7 +179,7 @@ public static async Task RunOrchestrator(
 }
 ```
 
-En el ejemplo anterior, el parámetro `tokenSource` se configura para adquirir tokens de Azure AD para [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Los tokens se identifican mediante el URI de recurso `https://management.core.windows.net`. En el ejemplo se da por supuesto que la aplicación de funciones actual se está ejecutando localmente o se ha implementado como una aplicación de función con una identidad administrada. Se supone que la identidad local o la identidad administrada tienen permiso para administrar las máquinas virtuales en el grupo de recursos especificado `myRG`.
+En el ejemplo anterior, el parámetro `tokenSource` se configura para adquirir tokens de Azure AD para [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Los tokens se identifican mediante el URI de recurso `https://management.core.windows.net`. En el ejemplo se da por supuesto que la aplicación de funciones actual se está ejecutando localmente o se ha implementado como una aplicación de función con una identidad administrada. Se supone que la identidad local o la identidad administrada tienen permiso para administrar las máquinas virtuales en el grupo de recursos especificado `myRG`.
 
 En runtime, el origen de token configurado devuelve automáticamente un token de acceso de OAuth 2.0. Después, el origen agrega el token como un token de portador al encabezado de Authorization de la solicitud saliente. Este modelo es una mejora respecto a la adición manual de encabezados de autorización a las solicitudes HTTP por los siguientes motivos:
 

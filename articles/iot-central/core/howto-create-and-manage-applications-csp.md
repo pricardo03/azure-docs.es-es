@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: d74bd67dedb70308061e54c05d23a4bb63adc8f8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0e49a5c8edd074c71d5972ee8d9c2e81f9c512ea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851339"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453976"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Creación y administración de una aplicación de Azure IoT Central desde el portal de CSP
 
@@ -33,7 +33,7 @@ Va a la página Administrador de aplicaciones de Azure IoT Central. Azure IoT Ce
 
 ![Creación de un administrador para los CSP](media/howto-create-application-csp/image3.png)
 
-Para crear una aplicación de Azure IoT Central, seleccione **Compilar** en el menú izquierdo. Elija una de las plantillas del sector o **Aplicación personalizada** para crear una aplicación desde cero. De esta manera se cargará la página de creación de aplicaciones. Debe completar todos los campos de esta página y luego eligir **Crear**. A continuación encontrará más información sobre cada uno de los campos.
+Para crear una aplicación de Azure IoT Central, seleccione **Compilar** en el menú izquierdo. Elija una de las plantillas del sector o **Aplicación heredada** para crear una aplicación desde cero. De esta manera se cargará la página de creación de aplicaciones. Debe completar todos los campos de esta página y luego eligir **Crear**. A continuación encontrará más información sobre cada uno de los campos.
 
 ![Página Crear aplicación para los CSP](media/howto-create-application-csp/image4.png)
 
@@ -85,13 +85,12 @@ Puede ver las regiones en las que Azure IoT Central está disponible en la pági
 
 ## <a name="application-template"></a>Plantilla de la aplicación
 
-Puede elegir una de las plantillas de aplicación disponibles para la nueva aplicación de Azure IoT Central. Una plantilla de aplicación puede contener elementos predefinidos, como plantillas de dispositivos y paneles que le ayudarán a empezar a trabajar.
+Puede elegir la siguiente plantilla de aplicación para la nueva aplicación de Azure IoT Central.
 
-| Plantilla de la aplicación | DESCRIPCIÓN |
+| Plantilla de la aplicación | Descripción |
 | -------------------- | ----------- |
-| Aplicación personalizada   | Permite crear una aplicación vacía para que pueda rellenarla con sus propias plantillas de dispositivo y dispositivos. |
-| Ejemplo Contoso       | Permite crear una aplicación que incluye una plantilla de dispositivo para un dispositivo conectado simple. Utilice esta plantilla para empezar a explorar Azure IoT Central. |
-| Ejemplo Devkits       | Permite crear una aplicación con plantillas de dispositivo preparadas para que se conecte a un dispositivo MXChip o Raspberry Pi. Utilice esta plantilla si es un desarrollador de dispositivos que experimenta con código en uno de estos dispositivos. |
+| Aplicación heredada   | Permite crear una aplicación vacía para que pueda rellenarla con sus propias plantillas de dispositivo y dispositivos. |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

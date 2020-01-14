@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 32ab81d618cb0a6ee40814b644ad934008ee7719
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 54cb06f1c77ab68818d8531b57d6eb936deda8d7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927949"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438823"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -42,14 +42,14 @@ En el siguiente tutorial se proporcionan instrucciones paso a paso para crear un
 > - No es posible usar una puerta de enlace de administración de datos procedente de una actividad personalizada para acceder a orígenes de datos locales. Actualmente, la [puerta de enlace de administración de datos](data-factory-data-management-gateway.md) solo admite las actividades de copia y de procedimiento almacenado en Data Factory.
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Tutorial: creación de una actividad personalizada
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 * Visual Studio 2012/2013/2015/2017
 * Descargue e instale el [SDK de .NET de Azure](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Requisitos previos de Azure Batch
 En el tutorial, ejecutará sus actividades de .NET personalizadas con Azure Batch como recurso de proceso. **Azure Batch** es un servicio de plataforma para ejecutar aplicaciones en paralelo a gran escala y de informática de alto rendimiento (HPC) de manera eficaz en la nube. Azure Batch programa el trabajo de proceso intensivo para que se ejecute en una **colección administrada de máquinas virtuales** y puede escalar automáticamente los recursos de proceso para satisfacer las necesidades de sus trabajos. Consulte el artículo [Datos básicos de Azure Batch][batch-technical-overview] para ver una descripción detallada del servicio Azure Batch.
 
-Para el tutorial, cree una cuenta de Azure Batch con un grupo de máquinas virtuales. Estos son los pasos que se deben seguir:
+Para el tutorial, cree una cuenta de Azure Batch con un grupo de máquinas virtuales. He aquí los pasos:
 
 1. Cree una **cuenta de Azure Batch** en [Azure Portal](https://portal.azure.com). Para obtener instrucciones, consulte el artículo [Creación y administración de una cuenta de Azure Batch][batch-create-account].
 2. Anote el nombre y la clave de la cuenta de Azure Batch el URI y el nombre del grupo. Los necesita para crear un servicio vinculado de Azure Batch.
@@ -440,7 +440,7 @@ Los servicios vinculados vinculan almacenes de datos o servicios de proceso con 
 2. Haga clic en **Nuevo almacén de datos** en la barra de comandos y elija **Almacenamiento de Azure**. Debería ver el script JSON para crear un servicio vinculado de Azure Storage en el editor.
 
     ![Nuevo almacén de datos: Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Reemplace `<accountname>` por el nombre de la cuenta de Azure Storage y `<accountkey>` por la clave de acceso de la cuenta de Azure Storage. Para aprender a obtener una clave de acceso de almacenamiento, consulte [Acerca de las cuentas de almacenamiento de Azure](../../storage/common/storage-account-manage.md#access-keys).
+3. Reemplace `<accountname>` por el nombre de la cuenta de Azure Storage y `<accountkey>` por la clave de acceso de la cuenta de Azure Storage. Para aprender a obtener la clave de acceso de almacenamiento, consulte [Administración de claves de acceso de la cuenta de almacenamiento](../../storage/common/storage-account-keys-manage.md).
 
     ![Servicio vinculado de Azure Storage](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.

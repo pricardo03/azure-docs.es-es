@@ -1,5 +1,5 @@
 ---
-title: Compatibilidad para AD FS en la biblioteca de autenticación de Microsoft para Java
+title: Compatibilidad con AD FS (MSAL para Java)
 titleSuffix: Microsoft identity platform
 description: Aprenda sobre la compatibilidad para los Servicios de federación de Active Directory (AD FS) en la biblioteca de autenticación de Microsoft para Java (MSAL4j).
 services: active-directory
@@ -14,16 +14,16 @@ ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 665cef55965f6871a654b9baceaad3e4f5d196c7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 04079a6e284deac076d7e296cc44774c97462534
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916662"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424362"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Compatibilidad para los Servicios de federación de Active Directory (AD FS) en MSAL para Java
 
-Los Servicios de federación de Active Directory (AD FS) en Windows Server le permiten agregar autenticación y autorización basadas en OpenID Connect y OAuth 2.0 a la aplicación de la biblioteca de autenticación de Microsoft para Java (MSAL para Java). Una vez integrada, la aplicación puede autenticar usuarios en AD FS federada mediante Azure AD. Para obtener más información sobre los escenarios, consulte [Escenarios de AD FS para desarrolladores](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
+Los Servicios de federación de Active Directory (AD FS) en Windows Server le permiten agregar autenticación y autorización basadas en OpenID Connect y OAuth 2.0 a la aplicación de la biblioteca de autenticación de Microsoft para Java (MSAL para Java). Una vez integrada, la aplicación puede autenticar usuarios en AD FS federada mediante Azure AD. Para obtener más información sobre los escenarios, consulte [Escenarios de AD FS para desarrolladores](/windows-server/identity/ad-fs/ad-fs-development).
 
 Una aplicación que usa MSAL para Java se comunicará con Azure Active Directory (Azure AD), que luego se federa con AD FS.
 

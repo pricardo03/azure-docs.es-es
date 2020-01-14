@@ -3,14 +3,14 @@ title: Procedimientos recomendados de Azure Functions
 description: Información acerca de los procedimientos recomendados y los patrones de Azure Functions.
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
-ms.date: 10/16/2017
+ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa85f636233a067713d127938d674b359bd03696
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 19674cb024bd9b9c9ea9f510080e30614fad8b60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227380"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433309"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimización del rendimiento y confiabilidad de Azure Functions
 
@@ -70,7 +70,11 @@ Hay una serie de factores que afectan a cómo se escalan las instancias de la ap
 
 ### <a name="share-and-manage-connections"></a>Compartir y administrar conexiones
 
-Vuelva a usar las conexiones con los recursos externos, siempre que le sea posible.  Consulte [Administración de conexiones en Azure Functions](./manage-connections.md).
+Vuelva a usar las conexiones con los recursos externos, siempre que le sea posible. Consulte [Administración de conexiones en Azure Functions](./manage-connections.md).
+
+### <a name="avoid-sharing-storage-accounts"></a>Evitar compartir cuentas de almacenamiento
+
+Al crear una aplicación de función, debe asociarla a una cuenta de almacenamiento. La conexión de la cuenta de almacenamiento se mantiene en [el ajuste de la aplicación AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). Para maximizar el rendimiento, use una cuenta de almacenamiento independiente para cada aplicación de función. Esto es especialmente importante si tiene funciones desencadenadas por Durable Functions o Event Hubs, que generan un gran volumen de transacciones de almacenamiento. Cuando la lógica de la aplicación interactúa con Azure Storage, ya sea directamente (con el SDK de Storage) o a través de uno de los enlaces de almacenamiento, debe usar una cuenta de almacenamiento dedicada. Por ejemplo, si tiene una función desencadenada por Event Hubs que escribe datos en Blob Storage, use dos cuentas de almacenamiento: una para la aplicación de función y otra para los blobs que almacena la función.
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>No mezclar código de prueba y producción en la misma aplicación de función
 
@@ -84,9 +88,17 @@ No use el registro detallado en el código de producción, ya que afecta negativ
 
 ### <a name="use-async-code-but-avoid-blocking-calls"></a>Uso del código asincrónico pero evitar las llamadas de bloqueo
 
-La programación asincrónica es una práctica recomendada. Sin embargo, evite siempre las referencias a la propiedad `Result` o las llamadas al método `Wait` en una instancia `Task`. Este enfoque puede provocar el agotamiento de subprocesos.
+La programación asincrónica es un procedimiento recomendado, especialmente cuando implica operaciones de bloqueo de E/S.
+
+En C#, evite siempre las referencias a la propiedad `Result` o las llamadas al método `Wait` en una instancia `Task`. Este enfoque puede provocar el agotamiento de subprocesos.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+### <a name="use-multiple-worker-processes"></a>Uso de varios procesos de trabajo
+
+De forma predeterminada, cualquier instancia de host de Functions utiliza un único proceso de trabajo. Para mejorar el rendimiento, especialmente con los tiempos de ejecución de un solo subproceso, como Python, use [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) para aumentar el número de procesos de trabajo por host (hasta 10). Al hacerlo, Azure Functions intenta distribuir uniformemente las invocaciones de función simultáneas en estos trabajos. 
+
+FUNCTIONS_WORKER_PROCESS_COUNT se aplica a cada host que Functions crea al escalar horizontalmente la aplicación para satisfacer la demanda. 
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Recepción de mensajes en lotes siempre que sea posible
 

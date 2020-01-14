@@ -1,5 +1,6 @@
 ---
-title: Administración de cuentas de desarrollador mediante grupos en Azure API Management | Microsoft Docs
+title: Administración de cuentas de desarrollador mediante grupos de Azure API Management
+titleSuffix: Azure API Management
 description: Obtenga información acerca de cómo administrar cuentas de desarrollador mediante los grupos en Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -12,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: f83b91933e2aca4bf77fcab4a30f2123f4eb4ed0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 182f0ea93ddfb2ab64de1c15b36958537fa5431f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073634"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430724"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Creación y uso de grupos para administrar cuentas de desarrollador en Azure API Management
 
-En Administración de API, los grupos se usan para administrar la visibilidad de productos para los desarrolladores. Los productos son visibles en primer lugar para los grupos y luego los desarrolladores de dichos grupos pueden ver y suscribirse a los productos asociados a los grupos. 
+En API Management, los grupos se usan para administrar la visibilidad de productos para los desarrolladores. Los productos son visibles en primer lugar para los grupos y luego los desarrolladores de dichos grupos pueden ver y suscribirse a los productos asociados a los grupos. 
 
 API Management tiene los siguientes grupos invariables del sistema:
 
@@ -37,13 +38,13 @@ Además de crear y administrar grupos en el portal del editor, puede crear y adm
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Complete las tareas de este artículo: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-group"></a>Creación de un grupo
+## <a name="create-group"> </a>Creación de un grupo
 
 En esta sección se explica cómo agregar un nuevo grupo a la cuenta de API Management.
 
@@ -58,7 +59,7 @@ Una vez creado el grupo, se agrega a la lista **Grupos**. <br/>Para editar el **
 
 Ahora que se ha creado el grupo, se puede asociar a productos y desarrolladores.
 
-## <a name="associate-group-product"></a>Asociación de un grupo a un producto
+## <a name="associate-group-product"> </a>Asociación de un grupo a un producto
 
 1. Seleccione la pestaña **Productos** a la izquierda.
 2. Haga clic en el nombre del producto deseado.
@@ -79,7 +80,7 @@ Una vez asociado un producto a un grupo, los desarrolladores del grupo pueden ve
 > [!NOTE]
 > Para agregar grupos de Azure Active Directory, consulte [Autorización de las cuentas de desarrollador con Azure Active Directory en Azure API Management](api-management-howto-aad.md).
 
-## <a name="associate-group-developer"></a>Asociación de grupos a desarrolladores
+## <a name="associate-group-developer"> </a>Asociación de grupos a desarrolladores
 
 En esta sección se explica cómo asociar grupos con miembros.
 

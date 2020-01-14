@@ -1,5 +1,5 @@
 ---
-title: Protocolos de autorización compatibles con la Plataforma de identidad de Microsoft | Azure
+title: Protocolos OAuth 2.0 y OpenID Connect - Plataforma de identidad de Microsoft | Azure
 description: Una guía a los protocolos OAuth 2.0 y OpenID Connect compatibles con el punto de conexión de la Plataforma de identidad de Microsoft.
 services: active-directory
 author: rwike77
@@ -14,14 +14,14 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f04ba26f592c02814412493cf4811e30aefa6ee3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7b25f1753e6dcb415927ee6278c36b3b179dd353
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918295"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424727"
 ---
-# <a name="microsoft-identity-platform-protocols"></a>Protocolos de la Plataforma de identidad de Microsoft
+# <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Protocolos OAuth 2.0 y OpenID Connect en la Plataforma de identidad de Microsoft
 
 El punto de conexión de la Plataforma de identidad de Microsoft para identidad como servicio con los protocolos estándar del sector, OpenID Connect y OAuth 2.0. Aunque el servicio sea compatible con el estándar, puede haber diferencias sutiles entre dos implementaciones cualquiera de estos protocolos. La información que aquí se describe será útil si decide escribir su código mediante el envío y la administración directos de solicitudes HTTP o mediante el uso de una biblioteca de código abierto de terceros, en lugar de usar una de nuestras [bibliotecas de código abierto](reference-v2-libraries.md).
 
@@ -60,7 +60,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 Donde `{tenant}` puede adoptar uno de cuatro valores:
 
-| Valor | DESCRIPCIÓN |
+| Value | Descripción |
 | --- | --- |
 | `common` | Permite que los usuarios con cuentas personales de Microsoft y con cuentas profesionales o educativas de Azure AD inicien sesión en la aplicación. |
 | `organizations` | Permite que solo los usuarios con cuentas profesionales o educativas de Azure AD inicien sesión en la aplicación. |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d37d1ae3871e8b14a44540883b1d03c29b58d27e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 5879bbda9dba0d5484ffe6e7083243a299347f9c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950568"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367493"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configuración de los requisitos de complejidad de contraseñas de Azure Active Directory B2C
 
@@ -37,16 +37,16 @@ Si usa directivas personalizadas, puede ([configurar la complejidad de la contra
 
 ## <a name="configure-password-complexity"></a>Configurar la complejidad de la contraseña
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. Seleccione **Flujos de usuario**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+2. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+3. En Azure Portal, busque y seleccione **Azure AD B2C**.
+4. Seleccione **Flujos de usuario (directivas)** .
 2. Seleccione un flujo de usuario y haga clic en **Propiedades**.
 3. En **Complejidad de la contraseña**, cambie la complejidad de contraseña de este flujo de usuario a **Simple**, **Segura** o **Personalizada**.
 
 ### <a name="comparison-chart"></a>Gráfico de comparación
 
-| Complejidad | DESCRIPCIÓN |
+| Complejidad | Descripción |
 | --- | --- |
 | Simple | Una contraseña que tenga al menos de 8 a 64 caracteres. |
 | Alta | Una contraseña que tenga al menos de 8 a 64 caracteres. Requiere 3 de 4 de minúsculas, mayúsculas, números o símbolos. |

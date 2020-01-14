@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1eea9cc738897c6de86c2fd73a0967e39b8afd4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e6a6714a1a9e7a2724d07584dd7b548ada2f201b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275058"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430222"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Creación de informes sobre el aprovisionamiento automático de cuentas de usuario
 
@@ -55,8 +55,8 @@ Desde aquí, puede acceder a la barra de progreso de aprovisionamiento y a los r
 La [barra de progreso de aprovisionamiento](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) está visible en la **pestaña Aprovisionamiento** de la aplicación específica. Se encuentra en la sección **Estado actual** bajo **Configuración**, y muestra el estado del ciclo inicial o incremental actual. En esta sección también se muestra lo siguiente:
 
 * El número total de usuarios y grupos que se han sincronizado y están actualmente en el ámbito para el aprovisionamiento entre el sistema de origen y el sistema de destino.
-* La última vez que se ejecutó la sincronización. Las sincronizaciones suelen producirse cada 20-40 minutos, una vez que haya finalizado un [ciclo inicial](user-provisioning.md#what-happens-during-provisioning).
-* Tanto si ha finalizado un [ciclo inicial](user-provisioning.md#what-happens-during-provisioning) como si no.
+* La última vez que se ejecutó la sincronización. Las sincronizaciones suelen producirse cada 20-40 minutos, una vez que haya finalizado un [ciclo inicial](how-provisioning-works.md#provisioning-cycles-initial-and-incremental).
+* Tanto si ha finalizado un [ciclo inicial](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) como si no.
 * Tanto si el proceso de aprovisionamiento se ha puesto en cuarentena como si no, y sea cual sea la razón para el estado de cuarentena (por ejemplo, error al comunicarse con el sistema de destino debido a que las credenciales del administrador no son válidas).
 
 El **Estado actual** debe ser el primer lugar en el que busquen los administradores para comprobar el estado operativo del trabajo de aprovisionamiento.
@@ -67,7 +67,7 @@ El **Estado actual** debe ser el primer lugar en el que busquen los administrado
 
 Todas las actividades realizadas por el servicio de aprovisionamiento se registran en los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) de Azure AD. Para acceder a los registros de aprovisionamiento en Azure Portal, seleccione **Azure Active Directory** &gt; **Aplicaciones empresariales** &gt; **Registros de aprovisionamiento (versión preliminar)** en la sección **Actividad**. Puede buscar los datos de aprovisionamiento por el nombre del usuario o el identificador en el sistema de origen o en el sistema de destino. Para más información, consulte [Registros de aprovisionamiento (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Los tipos de eventos de actividades registradas incluyen:
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 El informe de resumen de aprovisionamiento y los registros de aprovisionamiento desempeñan un papel clave a la hora de ayudar a los administradores a solucionar diversos problemas de aprovisionamiento de cuentas de usuario.
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 36bd05940644b62bc3e58b642bfe6c00238383fa
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7113fd7f17fd7695e25489931d7a6cbf35e334ec
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472473"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442818"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Actualización de un clúster de Azure Kubernetes Service (AKS)
 
@@ -26,6 +26,7 @@ Para este artículo es preciso usar la versión 2.0.65 de la CLI de Azure, o cua
 
 > [!WARNING]
 > Una actualización del clúster de AKS desencadena un acordonamiento y purga de los nodos. Si tiene una cuota de proceso baja disponible, se puede producir un error en la actualización.  Consulte el [aumento de cuotas](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) para más información.
+> Si está ejecutando su propia implementación del escalador automático del clúster, deshabilítela (puede escalarla a cero réplicas) durante la actualización, ya que existe la posibilidad de que interfiera con el proceso de actualización. El escalador administrado lo controla automáticamente. 
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Compruebe las actualizaciones disponibles del clúster de AKS
 

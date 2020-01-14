@@ -7,14 +7,14 @@ ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
+manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 4a583f77aac036028fd75d3c05af805031f08ebd
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 56d9a9a629e64430c97cf392ee4381e1ad7ca906
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480555"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433031"
 ---
 # <a name="clustering-point-data"></a>Agrupación en clústeres de datos de punto
 
@@ -48,11 +48,11 @@ var datasource = new atlas.source.DataSource(null, {
 
 La clase `DataSource` también tiene los siguientes métodos relacionados con la agrupación en clústeres:
 
-| Método | Tipo de valor devuelto | DESCRIPCIÓN |
+| Método | Tipo de valor devuelto | Descripción |
 |--------|-------------|-------------|
-| getClusterChildren(clusterId: number) | Promesa&lt;Matriz&lt;Característica&lt;Geometría, cualquiera&gt; \| Forma&gt;&gt; | Recupera los elementos secundarios del clúster especificado en el siguiente nivel de zoom. Estos elementos secundarios pueden ser una combinación de formas y subclústeres. Los subclústeres serán características con propiedades que coincidan con ClusteredProperties. |
+| getClusterChildren(clusterId: number) | Promesa&lt;Matriz&lt;Característica&lt;Geometría, cualquiera&gt;\| Forma&gt;&gt; | Recupera los elementos secundarios del clúster especificado en el siguiente nivel de zoom. Estos elementos secundarios pueden ser una combinación de formas y subclústeres. Los subclústeres serán características con propiedades que coincidan con ClusteredProperties. |
 | getClusterExpansionZoom(clusterId: number) | Promesa&lt;número&gt; | Calcula un nivel de zoom en el que el clúster empezará a expandirse o separarse. |
-| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promesa&lt;Matriz&lt;Característica&lt;Geometría, cualquiera&gt; \| Forma&gt;&gt; | Recupera todos los puntos de un clúster. Establezca `limit` para que devuelva un subconjunto de los puntos y use `offset` para paginar a través de los puntos. |
+| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promesa&lt;Matriz&lt;Característica&lt;Geometría, cualquiera&gt;\| Forma&gt;&gt; | Recupera todos los puntos de un clúster. Establezca `limit` para que devuelva un subconjunto de los puntos y use `offset` para paginar a través de los puntos. |
 
 ## <a name="display-clusters-using-a-bubble-layer"></a>Mostrar clústeres con una capa de burbujas
 
@@ -88,12 +88,12 @@ Consulte el Pen <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>Cluster weigh
 
 Cuando se producen eventos del mouse en una capa que contiene puntos de datos agrupados en clúster, se devolverá el punto de datos agrupados en clúster para el evento como un objeto de característica de punto de GeoJSON. La característica de punto tendrá las siguientes propiedades:
 
-| Nombre de propiedad | type | DESCRIPCIÓN |
-|---------------|------|-------------|
-| cluster | boolean | Indica si la característica representa un clúster. |
-| cluster_id | string | Un id. exclusivo para el clúster que se puede usar con los métodos `getClusterExpansionZoom`, `getClusterChildren` y `getClusterLeaves` de DataSource. |
-| point_count | número | El número de puntos que contiene el clúster. |
-| point_count_abbreviated | string | Una cadena que abrevia el valor de `point_count`, si es largo (por ejemplo, 4000 se convierte en 4 K). |
+| Nombre de propiedad             | Tipo    | Descripción   |
+|---------------------------|---------|---------------|
+| `cluster`                 | boolean | Indica si la característica representa un clúster. |
+| `cluster_id`              | string  | Un id. exclusivo para el clúster que se puede usar con los métodos `getClusterExpansionZoom`, `getClusterChildren` y `getClusterLeaves` de DataSource. |
+| `point_count`             | number  | El número de puntos que contiene el clúster.  |
+| `point_count_abbreviated` | string  | Una cadena que abrevia el valor de `point_count`, si es largo (por ejemplo, 4000 se convierte en 4 K).  |
 
 En este ejemplo, se toma una capa de burbujas que representa los puntos de clúster y agrega un evento de clic que, cuando se desencadena, calcula y acerca el mapa al siguiente nivel de zoom en el que el clúster se separará con el método `getClusterExpansionZoom` de la clase `DataSource` y la propiedad `cluster_id` del punto de datos agrupados en clústeres en el que se ha hecho clic. 
 

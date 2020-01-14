@@ -1,20 +1,16 @@
 ---
-title: Terminología de Azure Service Fabric Mesh | Microsoft Docs
+title: Terminología de Azure Service Fabric Mesh
 description: En este artículo se describe la terminología que se usa en Azure Service Fabric Mesh para ayudarlo a entender mejor los términos que se utilizan en la documentación.
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: cacf3a7419982e8c0e8d55700c903e3414cfcbb4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6df7a6b708bca81f1390ac879f24ea4c22c38bee
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663005"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351970"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminología de Service Fabric Mesh
 

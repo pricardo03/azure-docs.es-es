@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 11/27/2019
-ms.openlocfilehash: 816cf7cc78d3dfcb783b09f039f468ef3b23a06b
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 90f39a5edd32225b7fed259ca48dcf4802d0ced3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548365"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443823"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a los límites de recursos de instancia administrada de Azure SQL Database
 
@@ -87,7 +87,7 @@ Instancia administrada tiene dos niveles de servicio: [De uso general](sql-datab
 > - Tanto los datos como el tamaño de archivo de registro en las bases de datos del usuario y las del sistema se incluyen en el tamaño de almacenamiento de la instancia que se compara con el límite de tamaño de almacenamiento máximo. Utilice la vista del sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> para determinar el espacio total utilizado por las bases de datos. Los registros de errores no se mantienen y no se incluyen en el tamaño. Las copias de seguridad no se incluyen en el tamaño del almacenamiento.
 > - El rendimiento e IOPS en el nivel de uso general también dependen del [tamaño de página](#file-io-characteristics-in-general-purpose-tier), que no está limitado explícitamente por la instancia administrada.
 > - Puede crear otra réplica legible en diferentes regiones de Azure mediante grupos de conmutación por error automática.
-> - El número máximo de IOPS por instancia depende del diseño del archivo y la distribución de la carga de trabajo. Por ejemplo, si crea siete archivos de 1 GB con un máximo de 5000 IOPS cada uno y siete archivos pequeños (menos de 128 GB) con 500 IOPS cada uno, puede obtener 38 500 IOPS por instancia (7 x 5000 + 7 x 500) si la carga de trabajo puede usar todos los archivos. Tenga en cuenta que también se usa una determinada cantidad de IOPS para las copias de seguridad automáticas.
+> - El número máximo de IOPS por instancia depende del diseño del archivo y la distribución de la carga de trabajo. Por ejemplo, si crea siete archivos de 1 TB con un máximo de 5000 IOPS cada uno y siete archivos pequeños (menos de 128 GB) con 500 IOPS cada uno, puede obtener 38500 IOPS por instancia (7 x 5000 + 7 x 500) si la carga de trabajo puede usar todos los archivos. Tenga en cuenta que también se usa una determinada cantidad de IOPS para las copias de seguridad automáticas.
 
 > [!NOTE]
 > Encuentre más información sobre los [límites de recursos en grupos de instancias administradas en este artículo](sql-database-instance-pools.md#instance-pools-resource-limitations).
@@ -142,7 +142,7 @@ En la tabla siguiente se muestran los **límites regionales predeterminados** de
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional y plataformas de MSDN|2|32|
 
-\* En el planeamiento de las implementaciones, tenga en cuenta que el nivel de servicio Crítico para la empresa (BC) requiere cuatro (4) veces más capacidad de núcleo virtual que el nivel de servicio De uso general (GP). Por ejemplo:  1 núcleo virtual de GP = 1 unidad de núcleo virtual y 1 núcleo virtual de BC = 4 unidades de núcleo virtual. Para simplificar el análisis de consumo frente a los límites predeterminados, resuma las unidades de núcleo virtual de todas las subredes de la región en la que se implementan instancias administradas y compare los resultados con los límites de la unidad de instancia del tipo de suscripción. El límite **Número máximo de unidades de núcleo virtual** se aplica a cada suscripción en una región. No hay ningún límite por subredes individuales, salvo que la suma de todos los núcleos virtuales implementados en varias subredes debe ser inferior o igual al **número máximo de unidades de núcleo virtual**.
+\* En el planeamiento de las implementaciones, tenga en cuenta que el nivel de servicio Crítico para la empresa (BC) requiere cuatro (4) veces más capacidad de núcleo virtual que el nivel de servicio De uso general (GP). Por ejemplo: 1 núcleo virtual de GP = 1 unidad de núcleo virtual y 1 núcleo virtual de BC = 4 unidades de núcleo virtual. Para simplificar el análisis de consumo frente a los límites predeterminados, resuma las unidades de núcleo virtual de todas las subredes de la región en la que se implementan instancias administradas y compare los resultados con los límites de la unidad de instancia del tipo de suscripción. El límite **Número máximo de unidades de núcleo virtual** se aplica a cada suscripción en una región. No hay ningún límite por subredes individuales, salvo que la suma de todos los núcleos virtuales implementados en varias subredes debe ser inferior o igual al **número máximo de unidades de núcleo virtual**.
 
 \*\* En las regiones siguientes hay más límites de subred y núcleo virtual: Este de Australia, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de Europa, Oeste de EE. UU. 2.
 
@@ -178,7 +178,7 @@ Para iniciar el proceso de obtención de una cuota mayor:
 
 5. Haga clic en **Next**.
 6. En la pestaña Información de contacto de la nueva solicitud de soporte técnico, especifique el método de contacto preferido (teléfono o correo electrónico) y los detalles de contacto.
-7. Haga clic en **Create**(Crear).
+7. Haga clic en **Crear**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

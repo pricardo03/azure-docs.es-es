@@ -1,5 +1,6 @@
 ---
-title: Configuración de notificaciones y plantillas de correo electrónico en Azure API Management | Microsoft Docs
+title: Configurar notificaciones y plantillas de correo electrónico
+titleSuffix: Azure API Management
 description: Obtenga información acerca de cómo configurar notificaciones y plantillas de correo electrónico en Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -12,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: d49e861a529f3b2265f65c53cc0ee2f6feb151da
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e0477b1ba044004eaf95cc138bc2e19f40379566
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072475"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442675"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuración de notificaciones y plantillas de correo electrónico en Azure API Management
 Administración de API ofrece la posibilidad de configurar notificaciones de eventos específicos, así como plantillas de correo electrónico que se usan para comunicarse con los administradores y desarrolladores de una instancia de API Management. Este artículo muestra cómo configurar las notificaciones de los eventos disponibles y ofrece información general sobre la configuración de plantillas de correo electrónico que se usan para estos eventos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Si no tiene una instancia del servicio API Management, realice el inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="publisher-notifications"> </a>Configuración de notificaciones
+## <a name="publisher-notifications"></a>Configuración de notificaciones
 
 1. Seleccione su instancia de **API MANAGEMENT**.
 2. Haga clic en **Notificaciones** para ver las notificaciones disponibles.
@@ -52,7 +53,7 @@ Si no tiene una instancia del servicio API Management, realice el inicio rápido
     ![Notification recipients][api-management-email-addresses]
 4. Presione **Agregar**.
 
-## <a name="email-templates"> </a>Plantillas Configurar notificación
+## <a name="email-templates"> </a>Configuración de plantillas de notificación
 API Management proporciona plantillas de notificación para los mensajes de correo electrónico que se envían durante la administración y el uso del servicio. Se incluyen las siguientes plantillas de correo electrónico.
 
 * Envío de la galería de aplicaciones aprobado

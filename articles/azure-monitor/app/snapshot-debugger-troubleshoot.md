@@ -8,12 +8,12 @@ author: brahmnes
 ms.author: mbullwin
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: ded4a1a718d2cb061aba5f0d27565633e6cb603a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4544f42e7c024b21c4ae050d9b11e0f9e2786d57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932089"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432338"
 ---
 # <a id="troubleshooting"></a> Solucionar problemas de habilitación de Application Insights Snapshot Debugger o ver instantáneas
 Si habilitó Application Insights Snapshot Debugger para la aplicación, pero no puede ver las instantáneas para las excepciones, puede usar estas instrucciones para solucionar problemas. Puede haber muchas razones diferentes de por qué no se generan las instantáneas. Puede ejecutar la comprobación de estado de instantáneas para identificar algunas de las posibles causas comunes.
@@ -219,4 +219,4 @@ Si sigue sin ver una excepción con ese identificador de instantánea, significa
 
 ## <a name="edit-network-proxy-or-firewall-rules"></a>Edición de reglas de firewall o proxy de red
 
-Si la aplicación se conecta a Internet a través de un proxy o un firewall, es posible que tenga que editar las reglas para permitir que la aplicación se comunique con el servicio de Snapshot Debugger. A continuación, se incluye [una lista de puertos y direcciones IP que usa Snapshot Debugger](../../azure-monitor/app/ip-addresses.md#snapshot-debugger).
+Si la aplicación se conecta a Internet a través de un proxy o un firewall, es posible que tenga que editar las reglas para permitir que la aplicación se comunique con el servicio de Snapshot Debugger. Las direcciones IP que se usan en Snapshot Debugger se incluyen en la etiqueta de servicio de Azure Monitor.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
-ms.openlocfilehash: 465d44ea823c99afbb4f25541d64770c114ba7e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13d74fbb4a7c133ca2365fd2cbfce4b3d2bea72e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64730496"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350598"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnóstico de problemas de enrutamiento en una máquina virtual
 
@@ -30,19 +30,15 @@ En este artículo, aprenderá a diagnosticar un problema de enrutamiento mediant
 
 Intenta conectarse a una máquina virtual, pero se produce un error en la conexión. Para determinar por qué no puede conectarse a la máquina virtual, puede ver las rutas eficaces para una interfaz de red mediante [Azure Portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell) o la [CLI de Azure](#diagnose-using-azure-cli).
 
-En los pasos que vienen a continuación se da por hecho que tiene una máquina virtual para la que ver las rutas eficaces. Si no tiene una máquina virtual, implemente primero una máquina virtual [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para completar las tareas de este artículo. Los ejemplos de este artículo son para una máquina virtual denominada *myVM* con una interfaz de red llamada *myVMVMNic*. La máquina virtual y la interfaz de red están en un grupo de recursos llamado *myResourceGroup* y en la región *Este de EE. UU*. Cambie los valores de los pasos, según corresponda, por los de la máquina virtual cuyos problemas va a diagnosticar.
+En los pasos que vienen a continuación se da por hecho que tiene una máquina virtual para la que ver las rutas eficaces. Si no tiene una máquina virtual, implemente primero una máquina virtual [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para completar las tareas de este artículo. Los ejemplos de este artículo son para una VM denominada *myVM* con una interfaz de red llamada *myVMNic1*. La máquina virtual y la interfaz de red están en un grupo de recursos llamado *myResourceGroup* y en la región *Este de EE. UU*. Cambie los valores de los pasos, según corresponda, por los de la máquina virtual cuyos problemas va a diagnosticar.
 
 ## <a name="diagnose-using-azure-portal"></a>Diagnóstico mediante Azure Portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de Azure que disponga de los [permisos necesarios](virtual-network-network-interface.md#permissions).
 2. En la parte superior de Azure Portal, vaya al cuadro de búsqueda y escriba el nombre de una máquina virtual que se encuentre en estado de ejecución. Cuando el nombre de la máquina virtual aparezca en los resultados de búsqueda, selecciónela.
-3. Seleccione **Diagnose and solve problems** (Diagnosticar y resolver problemas) y, en **Pasos recomendados**, seleccione **Rutas eficaces** en el elemento 7, como se muestra en la imagen siguiente:
-
-    ![Vista de las rutas eficaces](./media/diagnose-network-routing-problem/view-effective-routes.png)
-
-4. Se muestran las rutas eficaces de una interfaz de red llamada **myVMVMNic**, como se ilustra en la imagen siguiente:
-
-     ![Vista de las rutas eficaces](./media/diagnose-network-routing-problem/effective-routes.png)
+3. En **Configuración** a la izquierda, seleccione **Redes** y navegue hasta el recurso de interfaz de red seleccionando su nombre.
+     ![Visualización de las interfaces de red](./media/diagnose-network-routing-problem/view-nics.png)
+4. A la izquierda, seleccione **Rutas eficaces**. Se muestran las rutas eficaces de una interfaz de red llamada **myVMNic1**, como se ilustra en la imagen siguiente: ![Visualización de las rutas eficaces](./media/diagnose-network-routing-problem/view-effective-routes.png)
 
     Si hay varias interfaces de red asociadas a la máquina virtual, puede ver las rutas eficaces de cada interfaz de red; para ello, basta con seleccionarla. Puesto que cada interfaz de red puede estar en una subred diferente, también puede tener cada una diferentes rutas eficaces.
 
@@ -58,11 +54,11 @@ Aunque las rutas eficaces se vieron mediante la máquina virtual en los pasos an
 
 Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/powershell), o mediante la ejecución de PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta PowerShell desde el equipo, necesita el módulo Azure PowerShell versión 1.0.0 o posterior. Ejecute `Get-Module -ListAvailable Az` en el equipo para encontrar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-Az-ps). Si ejecuta PowerShell localmente, también debe ejecutar `Connect-AzAccount` para iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
 
-Obtenga rutas eficaces para una interfaz de red con [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). En el ejemplo siguiente se obtienen las rutas eficaces de una interfaz de red llamada *myVMVMNic*, que se encuentra en un grupo de recursos llamado *myResourceGroup*:
+Obtenga rutas eficaces para una interfaz de red con [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). En el ejemplo siguiente se obtienen las rutas eficaces de una interfaz de red llamada *myVMNic1*, que se encuentra en un grupo de recursos denominado *myResourceGroup*:
 
 ```azurepowershell-interactive
 Get-AzEffectiveRouteTable `
-  -NetworkInterfaceName myVMVMNic `
+  -NetworkInterfaceName myVMNic1 `
   -ResourceGroupName myResourceGroup `
   | Format-Table
 ```
@@ -82,20 +78,20 @@ Recibirá una salida similar a la del ejemplo siguiente:
 ```powershell
 NetworkInterfaces
 -----------------
-{/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic
+{/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMNic1
 ```
 
-En la salida anterior, el nombre de la interfaz de red es *myVMVMNic*.
+En la salida anterior, el nombre de la interfaz de red es *myVMNic1*.
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnóstico mediante la CLI de Azure
 
 Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/bash), o mediante la ejecución de la CLI en el equipo. En este artículo se requiere la CLI de Azure versión 2.0.32 o posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Si ejecuta la CLI de Azure localmente, también debe ejecutar `az login` e iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
 
-Obtenga las rutas eficaces de una interfaz de red con [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). En el ejemplo siguiente se obtienen las rutas eficaces de una interfaz de red llamada *myVMVMNic*, que se encuentra en un grupo de recursos llamado *myResourceGroup*:
+Obtenga las rutas eficaces de una interfaz de red con [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). En el ejemplo siguiente se obtienen las rutas eficaces de una interfaz de red llamada *myVMNic1*, que se encuentra en un grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli-interactive
 az network nic show-effective-route-table \
-  --name myVMVMNic \
+  --name myVMNic1 \
   --resource-group myResourceGroup
 ```
 

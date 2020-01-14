@@ -3,12 +3,12 @@ title: Posibilidades de copia de seguridad de Azure Backup Server
 description: En este artículo se incluye una matriz de compatibilidad en la que se indican todas las cargas de trabajo, los tipos de datos y las instalaciones que protege Azure Backup Server.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e34ba81ad20b2d6a4e89995ab8b834f5f7dc725
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 8f1ae1432f619dafc5084d250e3f89707405e08b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449886"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matriz de protección de Azure Backup Server
 
@@ -82,9 +82,23 @@ En este artículo se indican los diferentes servidores y cargas de trabajo que p
 
 ## <a name="azure-expressroute-support"></a>Compatibilidad con Azure ExpressRoute
 
-Si Azure ExpressRoute se configura con emparejamiento de Microsoft o privado, no se puede usar para realizar una copia de seguridad de los datos en Azure.
+Puede realizar una copia de seguridad de los datos mediante Azure ExpressRoute con emparejamiento público (disponible para circuitos antiguos) y emparejamiento de Microsoft. La copia de seguridad por emparejamiento privado no se admite.
 
-Si Azure ExpressRoute se configura con emparejamiento público, no se puede usar para realizar una copia de seguridad de los datos en Azure.
+Con el emparejamiento público: asegúrese de tener acceso a los siguientes dominios y direcciones:
+
+* `http://www.msftncsi.com/ncsi.txt`
+* `microsoft.com`
+* `.WindowsAzure.com`
+* `.microsoftonline.com`
+* `.windows.net`
+
+Con el emparejamiento de Microsoft, seleccione los siguientes servicios o regiones y los valores de comunidad correspondientes:
+
+* Azure Active Directory (12076:5060)
+* Región de Microsoft Azure (según la ubicación del almacén de Recovery Services)
+* Azure Storage (según la ubicación del almacén de Recovery Services)
+
+Para obtener más información, consulte los [requisitos de enrutamiento de ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 
 >[!NOTE]
 >El emparejamiento público está en desuso para circuitos nuevos.
@@ -93,17 +107,17 @@ Si Azure ExpressRoute se configura con emparejamiento público, no se puede usa
 
 Azure Backup Server puede proteger datos en las siguientes aplicaciones agrupadas en clúster:
 
-- Servidores de archivos
+* Servidores de archivos
 
-- SQL Server
+* SQL Server
 
-- Hyper-V: si se protege un clúster de Hyper-V mediante el agente de protección MABS escalado horizontalmente, no es posible agregar protección secundaria a las cargas de trabajo de Hyper-V protegidas.
+* Hyper-V: si se protege un clúster de Hyper-V mediante el agente de protección MABS escalado horizontalmente, no es posible agregar protección secundaria a las cargas de trabajo de Hyper-V protegidas.
 
     Si se ejecuta Hyper-V en Windows Server 2008 R2, asegúrese de instalar la actualización descrita en el artículo de KB [975354](https://support.microsoft.com/kb/975354).
     Si se ejecuta Hyper-V en Windows Server 2008 R2 en una configuración de clúster, asegúrese de instalar SP2 y el archivo del artículo KB [971394](https://support.microsoft.com/kb/971394).
 
-- Exchange Server: Azure Backup Server puede proteger clústeres de discos no compartidos para versiones de Exchange Server admitidas (replicación continua en clúster) y también puede proteger instancias de Exchange Server configuradas para replicación continua local.
+* Exchange Server: Azure Backup Server puede proteger clústeres de discos no compartidos para versiones de Exchange Server admitidas (replicación continua en clúster) y también puede proteger instancias de Exchange Server configuradas para replicación continua local.
 
-- SQL Server : Azure Backup Server no admite la realización de copias de seguridad de bases de datos de SQL Server hospedadas en volúmenes compartidos de clúster (CSV).
+* SQL Server : Azure Backup Server no admite la realización de copias de seguridad de bases de datos de SQL Server hospedadas en volúmenes compartidos de clúster (CSV).
 
 Azure Backup Server puede proteger cargas de trabajo de clúster que se encuentren en el mismo dominio que el servidor MABS y en un dominio secundario o de confianza. Si quiere proteger los orígenes de datos de dominios o grupos de trabajo que no son de confianza, use NTLM o una autenticación de certificado para un único servidor, o bien una autenticación de certificado para un único clúster.

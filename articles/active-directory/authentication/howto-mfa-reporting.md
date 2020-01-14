@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed35abd5b9bfb8b9a74d598f1fa93d8f1a985bfb
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 52d9f7a0b2a7cebefdb5ade8e16417043c5c83d3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848279"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425290"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Informes en Azure Multi-Factor Authentication
 
 Azure Multi-Factor Authentication proporciona varios tipos de informes que usted o su organización pueden usar a través de Azure Portal. En la tabla siguiente se muestran los informes disponibles:
 
-| Informe | Location | DESCRIPCIÓN |
+| Informe | Location | Descripción |
 |:--- |:--- |:--- |
 | Historial de usuarios bloqueados | Azure AD > Seguridad > MFA > Bloquear y desbloquear usuarios | Muestra el historial de solicitudes para bloquear o desbloquear usuarios. |
 | Alertas de fraude y de uso | Azure AD > Inicios de sesión | Proporciona información sobre el uso general, el resumen del usuario, detalles del usuario; así como un historial de alertas de fraude enviadas durante el intervalo de fechas especificado. |
@@ -32,7 +32,7 @@ Azure Multi-Factor Authentication proporciona varios tipos de informes que usted
 
 ## <a name="view-mfa-reports"></a>Visualización de informes de MFA
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la parte izquierda, seleccione **Azure Active Directory** > **Seguridad** > **MFA**.
 3. Seleccione el informe que desee ver.
 
@@ -134,11 +134,21 @@ Identifique los usuarios que no se han registrado en MFA mediante el PowerShell 
 
 ```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
+Identifique los usuarios y los métodos de salida registrados. 
+
+```PowerShell
+Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
+
+@{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},
+
+@{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
+```
+
 ## <a name="possible-results-in-activity-reports"></a>Posibles resultados de los informes de actividad
 
 La siguiente tabla puede utilizarse para solucionar problemas de autenticación multifactor mediante la versión descargada del informe de actividad de autenticación multifactor. No aparecerá directamente en Azure Portal.
 
-| Resultado de la llamada | DESCRIPCIÓN | Descripción amplia |
+| Resultado de la llamada | Descripción | Descripción amplia |
 | --- | --- | --- |
 | SUCCESS_WITH_PIN | PIN especificado | El usuario ha especificado un PIN.  Si la autenticación se realizó correctamente, significa que ha escrito el PIN correcto.  Si se deniega la autenticación, ha escrito un PIN incorrecto o el usuario está establecido en modo estándar. |
 | SUCCESS_NO_PIN | Solo # especificado | Si el usuario está establecido en modo PIN y se deniega la autenticación, esto significa que el usuario no ha escrito el PIN y solo ha escrito el carácter #.  Si el usuario está establecido en modo estándar y la autenticación se ha realizado correctamente, esto significa que el usuario solo ha escrito el carácter #, que es lo que se debe hacer en modo estándar. |

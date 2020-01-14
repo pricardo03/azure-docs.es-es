@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 37a8799ca1ea986d5b47dad6e17781d7dfbacfab
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 786b21e7571ed173d2da90f587a5b76d8c92a13d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261682"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450883"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Administración de Protección contra DDoS de Azure estándar mediante Azure Portal
 
@@ -42,9 +42,9 @@ En la mayoría de las organizaciones, no es necesario crear más de un plan. Un 
 3. Seleccione **Crear**.
 4. Escriba o seleccione sus propios valores, o bien escriba o seleccione los valores de ejemplo siguientes y, luego, seleccione **Crear**:
 
-    |Configuración        |Valor                                              |
+    |Configuración        |Value                                              |
     |---------      |---------                                          |
-    |NOMBRE           | myDdosProtectionPlan                              |
+    |Nombre           | myDdosProtectionPlan                              |
     |Subscription   | Seleccione su suscripción.                         |
     |Resource group | Seleccione **Crear nuevo** y escriba *myResourceGroup* |
     |Location       | East US                                           |
@@ -55,9 +55,9 @@ En la mayoría de las organizaciones, no es necesario crear más de un plan. Un 
 2. Seleccione **Redes** y **Red virtual**.
 3. Escriba o seleccione sus propios valores, o bien escriba o seleccione los valores de ejemplo siguientes, acepte el resto de los valores predeterminados y, luego, seleccione **Crear**:
 
-    | Configuración         | Valor                                                        |
+    | Configuración         | Value                                                        |
     | ---------       | ---------                                                    |
-    | NOMBRE            | myVirtualNetwork                                             |
+    | Nombre            | myVirtualNetwork                                             |
     | Subscription    | Seleccione su suscripción.                                    |
     | Resource group  | Seleccione **Usar existente** y, luego, seleccione **myResourceGroup** |
     | Location        | East US                                                      |
@@ -73,11 +73,20 @@ No puede mover una red virtual a otro grupo de recursos ni a otra suscripción s
 4. Seleccione **Protección DDoS** en **CONFIGURACIÓN**.
 5. Seleccione **Estándar**. En **Plan de protección contra DDoS**, seleccione un plan de protección contra DDoS existente o el plan que creó en el paso 1 y, luego, seleccione **Guardar**. El plan que selecciona puede estar en la misma suscripción que la red virtual, o una suscripción distinta, pero ambas suscripciones deben estar asociadas al mismo inquilino de Azure Active Directory.
 
+**Comandos** 
+- CLI de Azure: [az network ddos-protection create](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-create)
+- Powershell: [New-AzDdosProtectionPlan](https://docs.microsoft.com/powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0)
+ 
+
 ## <a name="disable-ddos-for-a-virtual-network"></a>Deshabilitación de DDoS para una red virtual
 
 1. Escriba el nombre de la red virtual para la que desea deshabilitar DDoS Protection Standard en el cuadro **Buscar recursos, servicios y documentos** en la parte superior del portal. Seleccione el nombre de la red virtual cuando aparezca en los resultados de la búsqueda.
 2. Seleccione **Protección DDoS** en **CONFIGURACIÓN**.
 3. Seleccione **Básico** en **Plan de protección contra DDoS** y, luego, seleccione **Guardar**.
+
+**Comandos** 
+- CLI de Azure: [az network ddos-protection delete](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-delete)
+- Powershell: [Remove-AzDdosProtectionPlan](https://docs.microsoft.com/powershell/module/az.network/remove-azddosprotectionplan?view=azps-3.2.0)
 
 ## <a name="work-with-ddos-protection-plans"></a>Trabajo con planes de protección contra DDoS
 
@@ -96,9 +105,9 @@ Puede seleccionar cualquiera de las métricas de protección contra DDoS disponi
 3. Seleccione **Métricas** en **SERVICIOS COMPARTIDOS**.
 4. Escriba o seleccione sus propios valores, o bien escriba los valores de ejemplo siguientes, acepte el resto de los valores predeterminados y, luego, seleccione **Aceptar**:
 
-    |Configuración                  |Valor                                                                                               |
+    |Configuración                  |Value                                                                                               |
     |---------                |---------                                                                                           |
-    |NOMBRE                     | myDdosAlert                                                                                        |
+    |Nombre                     | myDdosAlert                                                                                        |
     |Subscription             | Seleccione la suscripción que contiene la dirección IP pública para la que desea recibir alertas.        |
     |Resource group           | Seleccione el grupo de recursos que contiene la dirección IP pública para la que desea recibir alertas.      |
     |Resource                 | Seleccione la dirección IP pública que contiene la dirección IP pública para la que desea recibir alertas. DDoS supervisa las direcciones IP públicas asignadas a los recursos dentro de una red virtual. Si no tiene ningún recurso con direcciones IP públicas en la red virtual, primero debe crear un recurso con una dirección IP pública. Puede supervisar la dirección IP pública de todos los recursos implementados a través de Resource Manager (no clásico) que aparecen en [Red virtual para servicios de Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), excepto para entornos de Azure App Service y Azure VPN Gateway. Para continuar con este tutorial, puede crear rápidamente una máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).                   |
@@ -197,7 +206,7 @@ Los registros de flujo tienen los siguientes campos:
 
 ## <a name="validate-ddos-detection"></a>Validación de la detección de DDoS
 
-Microsoft se ha asociado con [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud) para crear una interfaz en la que se puede generar tráfico destinado a las direcciones IP públicas que tengan habilitado el servicio DDoS Protection con fines de simulación. La simulación de BreakPoint Cloud le permite:
+Microsoft se ha asociado con [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud) para crear una interfaz en la que pueda generar tráfico destinado a las direcciones IP públicas que tengan habilitado el servicio DDoS Protection con fines de simulación. La simulación de BreakPoint Cloud le permite:
 
 - Comprobar en qué medida Microsoft Azure DDoS Protection protege sus recursos de Azure frente a ataques de DDoS.
 - Optimizar el proceso de respuesta a incidentes durante el ataque de DDoS.
@@ -221,7 +230,7 @@ Las alertas incluyen información general sobre la dirección IP pública que es
 
 Para trabajar con planes de protección contra DDoS, su cuenta debe estar asignada al rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un rol [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignadas las acciones adecuadas que se muestran en la tabla siguiente:
 
-| .                                            | NOMBRE                                     |
+| Acción                                            | Nombre                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | Obtención de un plan de protección contra DDoS              |
 | Microsoft.Network/ddosProtectionPlans/write       | Creación o actualización de un plan de protección contra DDoS  |

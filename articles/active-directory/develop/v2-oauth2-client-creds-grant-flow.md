@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 12/17/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae50c7cfcb5087903edd8dadca08c38ab1775e20
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 17538d383d7f796803c88d9490aa68ed75351445
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919297"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423282"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>La Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0
 
@@ -65,7 +65,7 @@ Este tipo de autorización es común para las cuentas de servicio y los demonios
 
 ### <a name="application-permissions"></a>Permisos de aplicación
 
-En lugar de usar ACL, puede usar las API para exponer un conjunto de permisos de aplicación. El administrador de una organización concede un permiso de aplicación a una aplicación, el que solo se puede usar para obtener acceso a los datos que pertenecen a esa organización y sus empleados. Por ejemplo, Microsoft Graph expone varios permisos de aplicación para hacer lo siguiente:
+En lugar de usar las ACL, puede usar las API para exponer un conjunto de **permisos de aplicación**. El administrador de una organización concede un permiso de aplicación a una aplicación, el que solo se puede usar para obtener acceso a los datos que pertenecen a esa organización y sus empleados. Por ejemplo, Microsoft Graph expone varios permisos de aplicación para hacer lo siguiente:
 
 * Leer correo en todos los buzones de correo
 * Leer y escribir correo en todos los buzones de correo
@@ -75,6 +75,11 @@ En lugar de usar ACL, puede usar las API para exponer un conjunto de permisos de
 Para más información sobre los permisos de aplicación, vaya a [Microsoft Graph](https://developer.microsoft.com/graph).
 
 Para usar permisos de aplicación en la aplicación, siga los pasos que se describen en las secciones siguientes.
+
+
+> [!NOTE]
+> Al realizar la autenticación como una aplicación, en lugar de hacerlo con un usuario, no se pueden usar "permisos delegados" (ámbitos concedidos por un usuario).  Debe usar "permisos de aplicación", también conocidos como "roles", que un administrador (o la API web mediante autorización previa) concede para la aplicación.    
+
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitud de los permisos en el portal de registro de aplicaciones
 
@@ -113,7 +118,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Parámetro | Condición | DESCRIPCIÓN |
+| Parámetro | Condición | Descripción |
 | --- | --- | --- |
 | `tenant` | Obligatorio | El inquilino de directorio al que quiere solicitar permiso. Puede estar en formato de nombre descriptivo o GUID. Si no sabe a qué inquilino pertenece el usuario y desea permitirle iniciar sesión con cualquier inquilino, use `common`. |
 | `client_id` | Obligatorio | El **identificador de aplicación (cliente)** que la experiencia [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
@@ -130,7 +135,7 @@ Si el administrador aprueba los permisos para la aplicación, la respuesta corre
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | `tenant` | El inquilino de directorio que concedió los permisos solicitados a la aplicación, en formato GUID. |
 | `state` | Un valor incluido en la solicitud que también se devuelve en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
@@ -144,7 +149,7 @@ Si el administrador no aprueba los permisos de la aplicación, la respuesta de e
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | `error` | Una cadena de código de error que puede usar para clasificar los tipos de errores y que puede usar para reaccionar ante los errores. |
 | `error_description` | Un mensaje de error específico que puede ayudarle a identificar la causa raíz de un error. |
@@ -176,7 +181,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
-| Parámetro | Condición | DESCRIPCIÓN |
+| Parámetro | Condición | Descripción |
 | --- | --- | --- |
 | `tenant` | Obligatorio | El inquilino del directorio en el que va a funcionar la aplicación, con el formato de GUID o de nombre de dominio. |
 | `client_id` | Obligatorio | El identificador de la aplicación que está asignado a la aplicación. Puede encontrar esta información en el portal donde registró la aplicación. |
@@ -198,7 +203,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-| Parámetro | Condición | DESCRIPCIÓN |
+| Parámetro | Condición | Descripción |
 | --- | --- | --- |
 | `tenant` | Obligatorio | El inquilino del directorio en el que va a funcionar la aplicación, con el formato de GUID o de nombre de dominio. |
 | `client_id` | Obligatorio |El identificador de aplicación (cliente) que se asigna a la aplicación. |
@@ -221,7 +226,7 @@ Una respuesta correcta tiene el siguiente aspecto:
 }
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | `access_token` | El token de acceso solicitado. La aplicación puede usar este token para autenticarse en el recurso protegido, como una API web. |
 | `token_type` | Indica el valor de tipo de token. El único tipo que la Plataforma de identidad de Microsoft admite es `bearer`. |
@@ -244,7 +249,7 @@ Una respuesta de error tiene el aspecto siguiente:
 }
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | `error` | Una cadena de código de error que puede usar para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | `error_description` | Un mensaje de error específico que podría ayudarlo a identificar la causa raíz de un error de autenticación. |
@@ -275,7 +280,7 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph
 
 Lea la [documentación en la que se describen de forma general las credenciales del cliente](https://aka.ms/msal-net-client-credentials) en la Biblioteca de autenticación de Microsoft
 
-| Muestra | Plataforma |DESCRIPCIÓN |
+| Muestra | Plataforma |Descripción |
 |--------|----------|------------|
 |[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | Consola de .NET Core 2.1 | Una aplicación de .NET Core sencilla que muestra los usuarios de un inquilino que consultan Microsoft Graph mediante la identidad de la aplicación, en lugar hacerlo en nombre de un usuario. El ejemplo también muestra la variación del uso de certificados para la autenticación. |
 |[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Una aplicación web que sincroniza datos de Microsoft Graph mediante la identidad de la aplicación, en lugar hacerlo en nombre de un usuario. |

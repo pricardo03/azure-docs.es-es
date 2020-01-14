@@ -1,5 +1,5 @@
 ---
-title: Códigos de error de autenticación y autorización de Azure AD | Azure
+title: Códigos de error de autenticación y autorización de Azure AD
 description: Obtenga información sobre los códigos de error AADSTS que devuelve el servicio de token de seguridad (STS) de Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/30/2019
+ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02ed0b84a29ea0c3ce3b58db1c029798655bfb06
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8979481452b0c4e8bf862c306a7916ddcabf1307
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965813"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423963"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización de Azure AD
 
@@ -36,11 +36,11 @@ ms.locfileid: "74965813"
 ## <a name="lookup-current-error-code-information"></a>Búsqueda de información actual sobre códigos de error
 Los códigos y los mensajes de error están sujetos a cambios.  Para tener la información más actualizada, eche un vistazo a la página [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) para encontrar descripciones de errores de AADSTS, correcciones y algunas soluciones recomendadas.  
 
-Busque en la parte numérica del código de error devuelto.  Por ejemplo, si ha recibido el código de error "AADSTS16000", busque "16000" en [https://login.microsoftonline.com/error ](https://login.microsoftonline.com/error).  También puede agregar el número de código de error a la dirección URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000) para crear un vínculo directo a un error específico.
+Busque en la parte numérica del código de error devuelto.  Por ejemplo, si ha recibido el código de error "AADSTS16000", busque "16000" en [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error).  También puede agregar el número de código de error a la dirección URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000) para crear un vínculo directo a un error específico.
 
 ## <a name="aadsts-error-codes"></a>Códigos de error AADSTS
 
-| Error | DESCRIPCIÓN |
+| Error | Descripción |
 |---|---|
 | AADSTS16000 | SelectUserAccount: esta es una interrupción iniciada por Azure AD, que hace que la interfaz de usuario permita al usuario elegir entre varias sesiones SSO válidas. Este error es bastante habitual y puede devolverse a la aplicación si se especifica `prompt=none`. |
 | AADSTS16001 | UserAccountSelectionInvalid: verá este error si el usuario hace clic en un icono que indica que la lógica de selección de sesión se ha rechazado. Cuando se desencadena, este error permite al usuario solucionarlo; para ello, selecciona en una lista de iconos o sesiones, o elige otra cuenta. Este error puede producirse debido a una condición de carrera o a defectos de código. |
@@ -133,6 +133,8 @@ Busque en la parte numérica del código de error devuelto.  Por ejemplo, si ha 
 | AADSTS50178 | SessionControlNotSupportedForPassthroughUsers: no se admite el control de sesión para los usuarios de acceso directo. |
 | AADSTS50180 | WindowsIntegratedAuthMissing: es obligatoria la autenticación de Windows integrada. Habilite el inquilino para un inicio de sesión único de conexión directa. |
 | AADSTS50187 | DeviceInformationNotProvided: el servicio no pudo realizar la autenticación de dispositivos. |
+| AADSTS50196 | LoopDetected: se ha detectado un bucle de cliente. Compruebe la lógica de la aplicación para asegurarse de que el almacenamiento en caché de tokens está implementado y de que las condiciones de error se controlan correctamente.  La aplicación ha realizado demasiadas veces la misma solicitud en un período demasiado corto, lo que indica que se encuentra en un estado defectuoso o que solicita tokens de forma abusiva. |
+| AADSTS50199 | CmsiInterrupt: la interacción del usuario es necesaria para esta autenticación.  Dado que se trata de un error "interaction_required", el cliente debe realizar la autenticación interactiva.  Esto se debe a que se ha usado una vista web del sistema para solicitar un token para una aplicación nativa. Se debe pedir al usuario que pregunte si realmente se trata de la aplicación en la que pretendía iniciar sesión.|
 | AADSTS51000 | RequiredFeatureNotEnabled: la característica está deshabilitada. |
 | AADSTS51001 | DomainHintMustbePresent: la sugerencia de dominio debe estar presente con el identificador de seguridad local o UPN local. |
 | AADSTS51004 | UserAccountNotInDirectory: la cuenta de usuario no existe en el directorio. |

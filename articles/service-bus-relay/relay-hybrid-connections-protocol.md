@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: clemensv
-ms.openlocfilehash: e96d0103a03e841f39e8adb88215f6d6e24a305a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45ba78645f754072c7f75b5b4f457c76bb9895b6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706080"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355019"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de conexiones híbridas de Azure Relay
 
@@ -144,16 +144,16 @@ El canal de control se abre al crearse una conexión de WebSocket en:
 
 Las opciones de los parámetros de cadena de consulta son las siguientes:
 
-| Parámetro        | Obligatorio | DESCRIPCIÓN
+| Parámetro        | Obligatorio | Descripción
 | ---------------- | -------- | -------------------------------------------
 | `sb-hc-action`   | Sí      | Con el rol de agente de escucha, el parámetro debe ser **sb-hc-action=listen**.
 | `{path}`         | Sí      | La ruta de acceso del espacio de nombres codificada con la dirección URL de la conexión híbrida preconfigurada en la que se registrará este agente de escucha. Esta expresión se anexa a la parte de la ruta de acceso `$hc/` fija.
 | `sb-hc-token`    | Sí\*    | El agente de escucha debe proporcionar un token de acceso compartido de Service Bus válido y codificado para URL al espacio de nombres o a la conexión híbrida que concede el derecho de **escucha**.
-| `sb-hc-id`       | Sin       | Este id. opcional especificado por el cliente permite realizar un seguimiento de diagnósticos completo.
+| `sb-hc-id`       | No       | Este id. opcional especificado por el cliente permite realizar un seguimiento de diagnósticos completo.
 
 Si se produce un error en la conexión de WebSocket porque la ruta de acceso de la conexión híbrida no está registrada, porque que falta un token, o no es válido, o por cualquier otro error, se utilizará el modelo de comentarios de estado normal de HTTP 1.1. La descripción del estado contiene un identificador de seguimiento de errores que se pueda comunicar al equipo de soporte técnico de Azure:
 
-| Código | Error          | DESCRIPCIÓN
+| Código | Error          | Descripción
 | ---- | -------------- | -------------------------------------------------------------------
 | 404  | No encontrado      | La ruta de acceso de la conexión híbrida no es válida o el formato de la URL base no es correcto.
 | 401  | No autorizado   | Falta el token de seguridad, tiene una estructura incorrecta o no es válido.
@@ -162,7 +162,7 @@ Si se produce un error en la conexión de WebSocket porque la ruta de acceso de 
 
 Si el servicio cierra intencionadamente la conexión de WebSocket después de haberse configurado inicialmente, el motivo se comunica mediante un código de error adecuado de protocolo WebSocket, junto con un mensaje de error descriptivo, que también incluye un identificador de seguimiento. El servicio no cerrará el canal de control si no se produce una condición de error. Todos los cierres "limpios" los controla el cliente.
 
-| Estado de WS | DESCRIPCIÓN
+| Estado de WS | Descripción
 | --------- | -------------------------------------------------------------------------------
 | 1001      | La ruta de acceso de Conexión híbrida se ha eliminado o deshabilitado.
 | 1008      | El token de seguridad ha expirado, por lo que se ha infringido la directiva de autorización.
@@ -204,11 +204,11 @@ Lo mismo sucede con el encabezado `Sec-WebSocket-Extensions`. Si el marco admite
 
 La URL debe utilizarse tal cual para establecer el socket de aceptación, pero debe contener los parámetros siguientes:
 
-| Parámetro      | Obligatorio | DESCRIPCIÓN
+| Parámetro      | Obligatorio | Descripción
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | Sí      | Para aceptar un socket, el parámetro tiene que ser `sb-hc-action=accept`
 | `{path}`       | Sí      | (vea el párrafo siguiente)
-| `sb-hc-id`     | Sin       | Consulte la descripción anterior del **identificador**.
+| `sb-hc-id`     | No       | Consulte la descripción anterior del **identificador**.
 
 `{path}` es la ruta de acceso del espacio de nombres con codificación URL de la conexión híbrida preconfigurada en la que se registra este agente de escucha. Esta expresión se anexa a la parte de la ruta de acceso `$hc/` fija.
 
@@ -219,14 +219,14 @@ Para más información, consulte la sección "Protocolo del remitente", que enco
 
 Si hay un error, el servicio puede responder como se indica a continuación:
 
-| Código | Error          | DESCRIPCIÓN
+| Código | Error          | Descripción
 | ---- | -------------- | -----------------------------------
 | 403  | Prohibido      | La URL no es válida.
 | 500  | Error interno | Se produjo un error en el servicio.
 
  Una vez que se establece la conexión, el servidor apaga el WebSocket cuando se apaga el WebSocket remitente, o cuando el estado es el siguiente:
 
-| Estado de WS | DESCRIPCIÓN                                                                     |
+| Estado de WS | Descripción                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
 | 1001      | El cliente remitente cierra la conexión.                                    |
 | 1001      | La ruta de acceso de Conexión híbrida se ha eliminado o deshabilitado.                        |
@@ -241,7 +241,7 @@ Si hay un error, el servicio puede responder como se indica a continuación:
 
  Para rechazar el socket, el cliente toma el URI de dirección del mensaje `accept` y le anexa dos parámetros de cadena de consulta como se muestra a continuación:
 
-| Parámetro                   | Obligatorio | DESCRIPCIÓN                              |
+| Parámetro                   | Obligatorio | Descripción                              |
 | ----------------------- | -------- | ---------------------------------------- |
 | sb-hc-statusCode        | Sí      | Código de estado HTTP numérico.                |
 | sb-hc-statusDescription | Sí      | Motivo del rechazo en lenguaje natural. |
@@ -250,7 +250,7 @@ El URI resultante se utiliza luego para establecer una conexión WebSocket.
 
 Cuando se completa correctamente, este protocolo de enlace genera un error de forma intencionada con el código HTTP 410, ya que no se ha establecido ningún WebSocket. Si algo falla, los siguientes códigos describen el error:
 
-| Código | Error          | DESCRIPCIÓN                          |
+| Código | Error          | Descripción                          |
 | ---- | -------------- | ------------------------------------ |
 | 403  | Prohibido      | La URL no es válida.                |
 | 500  | Error interno | Se ha producido un error en el servicio. |
@@ -376,13 +376,13 @@ Las respuestas que superen los 64 kB se deben entregar mediante un socket de enc
 
 La URL `address` del objeto `request` debe usarse tal cual para establecer el socket de encuentro, pero es necesario que contenga los parámetros siguientes:
 
-| Parámetro      | Obligatorio | DESCRIPCIÓN
+| Parámetro      | Obligatorio | Descripción
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | Sí      | Para aceptar un socket, el parámetro tiene que ser `sb-hc-action=request`
 
 Si hay un error, el servicio puede responder como se indica a continuación:
 
-| Código | Error           | DESCRIPCIÓN
+| Código | Error           | Descripción
 | ---- | --------------- | -----------------------------------
 | 400  | Solicitud no válida | Acción no reconocida o dirección URL no válida.
 | 403  | Prohibido       | La dirección URL ha caducado.
@@ -390,7 +390,7 @@ Si hay un error, el servicio puede responder como se indica a continuación:
 
  Una vez que se establece la conexión, el servidor apaga el WebSocket cuando se apaga el socket HTTP del cliente, o cuando el estado es el siguiente:
 
-| Estado de WS | DESCRIPCIÓN                                                                     |
+| Estado de WS | Descripción                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
 | 1001      | El cliente remitente cierra la conexión.                                    |
 | 1001      | La ruta de acceso de Conexión híbrida se ha eliminado o deshabilitado.                        |
@@ -415,7 +415,7 @@ Cuando el token del agente de escucha está a punto de expirar, puede reemplazar
 
 Si se produce un error en la validación del token, se deniega el acceso y el servicio en la nube cierra el WebSocket del canal de control con un error. En caso contrario, no se produce ninguna respuesta.
 
-| Estado de WS | DESCRIPCIÓN                                                                     |
+| Estado de WS | Descripción                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
 | 1008      | El token de seguridad ha expirado, por lo que se ha infringido la directiva de autorización. |
 
@@ -434,12 +434,12 @@ La solicitud puede contener más encabezados HTTP arbitrarios, incluidos los def
 
 Estas son las opciones de los parámetros de cadena de consulta:
 
-| Parámetro          | ¿Necesario? | DESCRIPCIÓN
+| Parámetro          | ¿Necesario? | Descripción
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | Sí       | En el caso del rol de remitente, el parámetro debe ser `sb-hc-action=connect`.
 | `{path}`       | Sí       | (vea el párrafo siguiente)
 | `sb-hc-token`  | Sí\*     | El agente de escucha necesita proporcionar un token de acceso compartido de Service Bus válido y codificado para URL al espacio de nombres o a la conexión híbrida que concede el derecho de **envío**.
-| `sb-hc-id`     | Sin        | Un id. opcional que permite realizar el seguimiento de diagnóstico completo y que puede usarlo el agente de escucha durante el protocolo de enlace de aceptación.
+| `sb-hc-id`     | No        | Un id. opcional que permite realizar el seguimiento de diagnóstico completo y que puede usarlo el agente de escucha durante el protocolo de enlace de aceptación.
 
  `{path}` es la ruta de acceso del espacio de nombres codificado para la dirección URL de la conexión híbrida preconfigurada en la que se registrará este agente de escucha. La expresión `path` se puede ampliar con un sufijo y una expresión de cadena de consulta para comunicarse de nuevo. Si la conexión híbrida se registra en la ruta de acceso `hyco`, la expresión `path` puede ser `hyco/suffix?param=value&...`, seguida de los parámetros de cadena de consulta que se definen aquí. Una expresión completa puede ser como la siguiente:
 
@@ -451,7 +451,7 @@ La expresión `path` se pasa al agente de escucha del identificador URI de direc
 
 Si se produce un error en la conexión de WebSocket porque la ruta de acceso de la conexión híbrida no está registrada, porque que falta un token, o no es válido, o por cualquier otro error, se utilizará el modelo de comentarios de estado normal de HTTP 1.1. La descripción del estado contiene un identificador de seguimiento de errores que se pueda comunicar al equipo de soporte técnico de Azure:
 
-| Código | Error          | DESCRIPCIÓN
+| Código | Error          | Descripción
 | ---- | -------------- | -------------------------------------------------------------------
 | 404  | No encontrado      | La ruta de acceso de la conexión híbrida no es válida o el formato de la URL base no es correcto.
 | 401  | No autorizado   | Falta el token de seguridad, tiene una estructura incorrecta o no es válido.
@@ -460,7 +460,7 @@ Si se produce un error en la conexión de WebSocket porque la ruta de acceso de 
 
 Si el servicio cierra intencionadamente la conexión de WebSocket después de haberse configurado inicialmente, el motivo se comunica mediante un código de error adecuado de protocolo WebSocket, junto con un mensaje de error descriptivo, que también incluye un identificador de seguimiento.
 
-| Estado de WS | DESCRIPCIÓN
+| Estado de WS | Descripción
 | --------- | ------------------------------------------------------------------------------- 
 | 1000      | El agente de escucha cierra el socket.
 | 1001      | La ruta de acceso de Conexión híbrida se ha eliminado o deshabilitado.
@@ -482,7 +482,7 @@ La solicitud puede contener más encabezados HTTP arbitrarios, incluidos los def
 
 Estas son las opciones de los parámetros de cadena de consulta:
 
-| Parámetro          | ¿Necesario? | DESCRIPCIÓN
+| Parámetro          | ¿Necesario? | Descripción
 | -------------- | --------- | ---------------- |
 | `sb-hc-token`  | Sí\*     | El agente de escucha necesita proporcionar un token de acceso compartido de Service Bus válido y codificado para URL al espacio de nombres o a la conexión híbrida que concede el derecho de **envío**.
 
@@ -491,14 +491,14 @@ El token también se transporta en `ServiceBusAuthorization` o en el encabezado 
 Dado que el servicio actúa eficazmente como proxy, aunque no sea de verdad un proxy HTTP, agrega un encabezado `Via` o anota el encabezado `Via` existente compatible con [RFC7230, sección 5.7.1](https://tools.ietf.org/html/rfc7230#section-5.7.1).
 El servicio agrega el nombre de host del espacio de nombres de retransmisión a `Via`.
 
-| Código | Message  | DESCRIPCIÓN                    |
+| Código | Message  | Descripción                    |
 | ---- | -------- | ------------------------------ |
-| 200  | OK       | Al menos un agente de escucha atiende la solicitud.  |
+| 200  | Aceptar       | Al menos un agente de escucha atiende la solicitud.  |
 | 202  | Accepted | Al menos un agente de escucha ha aceptado la solicitud. |
 
 Si hay un error, el servicio puede responder como se indica a continuación: Si la respuesta se origina desde el servicio o desde el agente de escucha, se puede identificar a través de la presencia del encabezado `Via`. Si el encabezado está presente, la respuesta procede del agente de escucha.
 
-| Código | Error           | DESCRIPCIÓN
+| Código | Error           | Descripción
 | ---- | --------------- |--------- |
 | 404  | No encontrado       | La ruta de acceso de la conexión híbrida no es válida o el formato de la URL base no es correcto.
 | 401  | No autorizado    | Falta el token de seguridad, tiene una estructura incorrecta o no es válido.

@@ -1,5 +1,5 @@
 ---
-title: Introducción a las solicitudes HTTP de Conexiones híbridas de Azure Relay en .NET | Microsoft Docs
+title: Conexiones híbridas de Azure Relay - Solicitudes HTTP en .NET
 description: Escriba una aplicación de consola en C# para las solicitudes HTTP de Conexiones híbridas de Azure Relay en .NET.
 services: service-bus-relay
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 37227b7d0ea1b3630a3c2ce991a61543e6a1503d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c984876c4338b4f6802ba55752c8f612c390e94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428252"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355164"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Introducción a las solicitudes HTTP de Conexiones híbridas de Relay en .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -34,12 +34,12 @@ En esta guía de inicio rápido, realizará los siguientes pasos:
 4. Escritura de una aplicación de consola de cliente (remitente) para enviar mensajes.
 5. Ejecución de aplicaciones. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
 * [Visual Studio 2015 o posterior](https://www.visualstudio.com). En los ejemplos de este tutorial se usa Visual Studio 2017.
-* Una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* Suscripción a Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="create-a-namespace"></a>Creación de un espacio de nombres
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]

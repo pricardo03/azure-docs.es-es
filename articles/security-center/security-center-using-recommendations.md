@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: 69fa9d24d24c26a7d945c27e86739475f9883b27
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5b496523f6205532ea7a4278671e3be6986935a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200703"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355279"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Uso de las recomendaciones de Azure Security Center para mejorar la seguridad
 Puede reducir las posibilidades de que se produzca un incidente de seguridad importante configurando una directiva de seguridad y, luego, implementando las recomendaciones de Azure Security Center. En este artículo se muestra cómo usar las recomendaciones y directivas de seguridad de Security Center para ayudar a mitigar un ataque de seguridad. 
@@ -63,7 +63,7 @@ Como parte de sus actividades de supervisión diarias, Jeff inicia sesión en Az
 
 5. Cuando hace clic en **Procesos y aplicaciones**, ve una lista de recomendaciones y se encarga de ellas según el impacto de la puntuación segura.
 
-6. Jeff tiene varias máquinas virtuales que apuntan a Internet y, dado que sus puertos están expuestos, le preocupa que un atacante pueda obtener el control de los servidores. Por lo que Jeff decide usar (**acceso a VM Just-In-Time**) [security-center-just-in-time.md].
+6. Jeff tiene varias máquinas virtuales que apuntan a Internet y, dado que sus puertos están expuestos, le preocupa que un atacante pueda obtener el control de los servidores. Por tanto, Jeff opta por usar el [**acceso de VM Just-in-Time**](security-center-just-in-time.md).
 
 Jeff continúa explorando las recomendaciones de prioridad alta y media, y toma decisiones de implementación. Para cada recomendación, Jeff examina la información detallada proporcionada por Security Center para comprender qué recursos se ven afectados, cuál es el impacto de la puntuación segura, qué significa cada recomendación y los pasos de corrección para saber cómo mitigar cada problema.
 

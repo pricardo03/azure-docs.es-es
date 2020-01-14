@@ -14,20 +14,22 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6b2546226d31334592034cfe0455fc32644a3900
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 7c93538982b7fd7bb2f5ac25027ed92cc6ccbfa3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132780"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357856"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Ampliar la compatibilidad de SQL Server 2008 y SQL Server 2008 R2 con Azure
 
-SQL Server 2008 y SQL Server 2008 R2 están llegando el [fin de ciclo de vida de soporte (EOS)](https://www.microsoft.com/sql-server/sql-server-2008). Dado que muchos de nuestros clientes siguen usando ambas versiones, ofrecemos varias opciones para seguir recibiendo soporte técnico. Puede migrar las instancias de SQL Server locales a máquinas virtuales (VM) de Azure, migrar a Azure SQL Database o mantener el entorno local y comprar actualizaciones de seguridad ampliadas.
+SQL Server 2008 y SQL Server 2008 R2 han alcanzado el [fin del ciclo de vida de soporte (EOS)](https://www.microsoft.com/sql-server/sql-server-2008). Dado que muchos de nuestros clientes siguen usando ambas versiones, ofrecemos varias opciones para seguir recibiendo soporte técnico. Puede migrar las instancias de SQL Server locales a máquinas virtuales (VM) de Azure, migrar a Azure SQL Database o mantener el entorno local y comprar actualizaciones de seguridad ampliadas.
 
 A diferencia de una instancia administrada, la migración a una VM de Azure no requiere la recertificación de sus aplicaciones. Además, a diferencia de lo que ocurre al mantener un entorno local, al migrar a una máquina virtual de Azure, recibirá revisiones de seguridad ampliadas gratuitas.
 
 En el resto de este artículo se proporcionan consideraciones sobre la migración de la instancia de SQL Server a una VM de Azure.
+
+Para obtener más información sobre las opciones de fin del soporte, consulte [Fin del soporte](/sql/sql-server/end-of-support/sql-server-end-of-life-overview).
 
 ## <a name="provisioning"></a>Aprovisionamiento
 
@@ -87,3 +89,7 @@ Introducción a SQL Server en Azure Virtual Machines:
 Obtenga respuestas a las preguntas más habituales acerca de las máquinas virtuales con SQL Server:
 
 * [Preguntas más frecuentes para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-faq.md)
+
+Obtenga más información sobre las opciones de fin del soporte y las actualizaciones de seguridad ampliadas:
+
+* [Fin del soporte](/sql/sql-server/end-of-support/sql-server-end-of-life-overview) & [Actualizaciones de seguridad ampliadas](/sql/sql-server/end-of-support/sql-server-extended-security-updates)

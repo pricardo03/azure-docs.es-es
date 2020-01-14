@@ -2,19 +2,15 @@
 title: Solución Start/Stop VMs during off-hours
 description: Esta solución de administración de máquinas virtuales inicia y detiene las máquinas virtuales de Azure Resource Manager según una programación y realiza una supervisión proactiva desde los registros de Azure Monitor.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/04/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: c0b022ed759837fc6d922386dd48a2f3a109527a
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: e37b6b800cbe0b4272df227e1411257b33a3e0cb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951503"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420809"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solución Start/Stop VMs during off-hours en Azure Automation
 
@@ -41,7 +37,7 @@ Las siguientes son limitaciones a la solución actual:
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Los runbooks para esta solución funcionan con una [cuenta de ejecución de Azure](automation-create-runas-account.md). La cuenta de ejecución es el método de autenticación preferido, ya que emplea la autenticación mediante certificado, en lugar de una contraseña que puede expirar o cambiar con frecuencia.
 
@@ -81,7 +77,7 @@ Para implementar la solución Start/Stop VMs during off-hours en una cuenta de A
 Para implementar la solución Start/Stop VMs during off-hours en una nueva cuenta de Automation y un área de trabajo de Log Analytics, el usuario que implementa la solución necesita los permisos que se han definido en la sección anterior, así como los siguientes permisos:
 
 - Coadministrador de la suscripción: solo es necesario para crear la cuenta de ejecución clásica si va a administrar máquinas virtuales clásicas. Las [cuentas de ejecución clásicas](automation-create-standalone-account.md#classic-run-as-accounts) ya no se crean de forma predeterminada.
-- Formar parte del rol **Desarrollador de aplicaciones** de [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Para obtener más información sobre cómo configurar las cuentas de ejecución, consulte [Permisos para configurar cuentas de ejecución](manage-runas-account.md#permissions).
+- Miembro del rol **Desarrollador de aplicaciones** de [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Para obtener más información sobre cómo configurar las cuentas de ejecución, consulte [Permisos para configurar cuentas de ejecución](manage-runas-account.md#permissions).
 - Colaborador de la suscripción o los siguientes permisos.
 
 | Permiso |Ámbito|
@@ -247,22 +243,22 @@ En la tabla siguiente se enumeran los runbooks implementados en su cuenta de Aut
 
 Todos los runbooks primarios incluyen el parámetro All _WhatIf_. Cuando se establece en **True**, _Whatif_ permite detallar el comportamiento exacto del runbook cuando se ejecuta sin el parámetro _WhatIf_ y valida que el destino son las máquinas virtuales correctas. Los runbooks solo realizan sus acciones definidas cuando el parámetro _WhatIf_ está establecido en **False**.
 
-|Runbook | Parámetros | DESCRIPCIÓN|
+|Runbook | Parámetros | Descripción|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Se llama desde el runbook primario. Este runbook crea alertas según el recurso para el escenario de AutoStop.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Verdadero o falso  | Crea o actualiza las reglas de alerta de Azure en las máquinas virtuales de los grupos de recursos o la suscripción de destino. <br> VMList: lista de máquinas virtuales separadas por comas. Por ejemplo, _vm1, vm2, vm3_.<br> *WhatIf* valida la lógica de runbook sin ejecución.|
 |AutoStop_Disable | None | Deshabilita la programación predeterminada y las alertas de AutoStop.|
 |AutoStop_StopVM_Child | WebHookData | Se llama desde el runbook primario. Las reglas de alertas llaman a este runbook para detener la máquina virtual.|
 |Bootstrap_Main | None | Se usa una vez para realizar configuraciones de arranque como webhookURI, a las que normalmente no se puede acceder desde Azure Resource Manager. Este runbook se quita automáticamente tras la implementación correcta.|
-|ScheduledStartStop_Child | VMName <br> Acción: Start o Stop <br> ResourceGroupName | Se llama desde el runbook primario. Ejecuta una acción de inicio o detención para la detención programada.|
-|ScheduledStartStop_Parent | Acción: Start o Stop <br>VMList <br> WhatIf: Verdadero o falso | Este valor afecta a todas las máquinas virtuales de la suscripción. Edite **External_Start_ResourceGroupNames** y **External_Stop_ResourceGroupNames** para que se ejecute solo en estos grupos de recursos de destino. También puede excluir máquinas virtuales específicas si actualiza la variable **External_ExcludeVMNames**.<br> VMList: lista de máquinas virtuales separadas por comas. Por ejemplo, _vm1, vm2, vm3_.<br> _WhatIf_ valida la lógica de runbook sin ejecución.|
-|SequencedStartStop_Parent | Acción: Start o Stop <br> WhatIf: Verdadero o falso<br>VMList| Cree etiquetas denominadas **sequencestart** y **sequencestop** en todas las máquinas virtuales en las que quiera secuenciar la actividad de inicio y detención. Estos nombres de etiqueta distinguen entre mayúsculas y minúsculas. El valor de la etiqueta debe ser un entero positivo (1, 2, 3) que se corresponda con el orden en que se desee que se realice el inicio o la detención. <br> VMList: lista de máquinas virtuales separadas por comas. Por ejemplo, _vm1, vm2, vm3_. <br> _WhatIf_ valida la lógica de runbook sin ejecución. <br> **Nota**: Las máquinas virtuales deben estar en grupos de recursos definidos como External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames y External_ExcludeVMNames, en las variables de Azure Automation. Para que las acciones surtan efecto, deben tener las etiquetas correspondientes.|
+|ScheduledStartStop_Child | VMName <br> Acción: Iniciar o detener <br> ResourceGroupName | Se llama desde el runbook primario. Ejecuta una acción de inicio o detención para la detención programada.|
+|ScheduledStartStop_Parent | Acción: Iniciar o detener <br>VMList <br> WhatIf: Verdadero o falso | Este valor afecta a todas las máquinas virtuales de la suscripción. Edite **External_Start_ResourceGroupNames** y **External_Stop_ResourceGroupNames** para que se ejecute solo en estos grupos de recursos de destino. También puede excluir máquinas virtuales específicas si actualiza la variable **External_ExcludeVMNames**.<br> VMList: lista de máquinas virtuales separadas por comas. Por ejemplo, _vm1, vm2, vm3_.<br> _WhatIf_ valida la lógica de runbook sin ejecución.|
+|SequencedStartStop_Parent | Acción: Iniciar o detener <br> WhatIf: Verdadero o falso<br>VMList| Cree etiquetas denominadas **sequencestart** y **sequencestop** en todas las máquinas virtuales en las que quiera secuenciar la actividad de inicio y detención. Estos nombres de etiqueta distinguen entre mayúsculas y minúsculas. El valor de la etiqueta debe ser un entero positivo (1, 2, 3) que se corresponda con el orden en que se desee que se realice el inicio o la detención. <br> VMList: lista de máquinas virtuales separadas por comas. Por ejemplo, _vm1, vm2, vm3_. <br> _WhatIf_ valida la lógica de runbook sin ejecución. <br> **Nota**: Las máquinas virtuales deben estar en grupos de recursos definidos como External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames y External_ExcludeVMNames, en las variables de Azure Automation. Para que las acciones surtan efecto, deben tener las etiquetas correspondientes.|
 
 ### <a name="variables"></a>variables
 
 En la tabla siguiente se enumeran las variables creadas en su cuenta de Automation. Modifique solo las variables cuyo prefijo sea **External**. La modificación de variables con el prefijo **Internal** produce efectos no deseados.
 
-|Variable | DESCRIPCIÓN|
+|Variable | Descripción|
 |---------|------------|
 |External_AutoStop_Condition | El operador condicional necesario para configurar la condición antes de desencadenar una alerta. Los valores que se aceptan son **GreaterThan**, **GreaterThanOrEqual**, **LessThan** y **LessThanOrEqual**.|
 |External_AutoStop_Description | Alerta para detener la máquina virtual si el porcentaje de CPU supera el umbral.|
@@ -287,7 +283,7 @@ En la tabla siguiente se enumera cada una de las programaciones predeterminadas 
 
 No se deben habilitar todas las programaciones, ya que ello podría crear acciones de programación que se superpongan. Lo mejor es determinar las optimizaciones que se desean y realizar las modificaciones oportunas. Vea los escenarios de ejemplo en la sección de información general para obtener una explicación.
 
-|Nombre de programación | Frecuencia | DESCRIPCIÓN|
+|Nombre de programación | Frecuencia | Descripción|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Cada ocho horas | Ejecuta el runbook AutoStop_CreateAlert_Parent cada ocho horas, que a su vez detiene los valores basados en la máquina virtual en External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames y External_ExcludeVMNames en las variables de Azure Automation. Como alternativa, puede especificar una lista separada por comas de las máquinas virtuales mediante el parámetro VMList.|
 |Scheduled_StopVM | Definido por el usuario, diario | Ejecuta el runbook Scheduled_Parent con un parámetro de _Stop_ cada día a la hora especificada. Detiene automáticamente todas las máquinas virtuales que cumplan las reglas definidas por las variables de los recursos. Habilite la programación relacionada, **Scheduled-StartVM**.|
@@ -301,7 +297,7 @@ Automation crea dos tipos de registros en el área de trabajo de Log Analytics: 
 
 ### <a name="job-logs"></a>Registros de trabajo
 
-|Propiedad | DESCRIPCIÓN|
+|Propiedad | Descripción|
 |----------|----------|
 |Autor de llamada |  La persona que inicia la operación. Los valores posibles son una dirección de correo electrónico o el sistema para los trabajos programados.|
 |Category | Clasificación del tipo de datos. Para Automation, el valor será JobLogs.|
@@ -316,13 +312,13 @@ Automation crea dos tipos de registros en el área de trabajo de Log Analytics: 
 |resultDescription | Describe el estado de resultado del trabajo de Runbook. Los valores posibles son:<br>- Se inicia el trabajo<br>- Error del trabajo<br>- Trabajo completado|
 |RunbookName | Especifica el nombre del Runbook.|
 |SourceSystem | Especifica el sistema de origen para los datos enviados. En Automation, el valor es OpsManager|
-|StreamType | Especifica el tipo de evento. Los valores posibles son:<br>- Detallado<br>- Salida<br>error<br>Warning (Advertencia)|
+|StreamType | Especifica el tipo de evento. Los valores posibles son:<br>- Detallado<br>- Salida<br>Error<br>Warning (Advertencia)|
 |SubscriptionId | Especifica el identificador de suscripción del trabajo.
-|Hora | Fecha y hora en que se ejecuta el trabajo de Runbook.|
+|Time | Fecha y hora en que se ejecuta el trabajo de Runbook.|
 
 ### <a name="job-streams"></a>Transmisiones de trabajo
 
-|Propiedad | DESCRIPCIÓN|
+|Propiedad | Descripción|
 |----------|----------|
 |Autor de llamada |  La persona que inicia la operación. Los valores posibles son una dirección de correo electrónico o el sistema para los trabajos programados.|
 |Category | Clasificación del tipo de datos. Para Automation, el valor es JobStreams.|
@@ -337,7 +333,7 @@ Automation crea dos tipos de registros en el área de trabajo de Log Analytics: 
 |RunbookName | El nombre del Runbook.|
 |SourceSystem | Especifica el sistema de origen para los datos enviados. En Automation, el valor es OpsManager.|
 |StreamType | El tipo de flujo de trabajo. Los valores posibles son:<br>- Progreso<br>- Salida<br>Warning (Advertencia)<br>Error<br>DEBUG<br>- Detallado|
-|Hora | Fecha y hora en que se ejecuta el trabajo de Runbook.|
+|Time | Fecha y hora en que se ejecuta el trabajo de Runbook.|
 
 Cuando se realiza cualquier búsqueda de registros que devuelve registros de la categoría **JobLogs** o **JobStreams**, puede seleccionar las vistas **JobLogs** o **JobStreams**, que muestran un conjunto de iconos que resumen las actualizaciones devueltas en la búsqueda.
 
@@ -345,7 +341,7 @@ Cuando se realiza cualquier búsqueda de registros que devuelve registros de la 
 
 En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para los registros de trabajo recopilados por esta solución.
 
-|Consultar | DESCRIPCIÓN|
+|Consultar | Descripción|
 |----------|----------|
 |Búsqueda de trabajos del runbook ScheduledStartStop_Parent que hayan finalizado correctamente | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 |Búsqueda de trabajos del runbook SequencedStartStop_Parent que hayan finalizado correctamente | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|

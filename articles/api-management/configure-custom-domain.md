@@ -1,5 +1,6 @@
 ---
-title: Configuración de un nombre de dominio personalizado para la instancia de API Management | Microsoft Docs
+title: Configuración de un nombre de dominio personalizado para la instancia de Azure API Management
+titleSuffix: Azure API Management
 description: En este tema, se explica cómo configurar un nombre de dominio personalizado para la instancia de Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -11,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: ba2288fa4add6df6b7861b5f8a99bcd3ee8b4c12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8fe07318d33980ad3ec9fc3d6e8749c6c9aed42e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472201"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442541"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar un nombre de dominio personalizado
 
@@ -25,7 +26,7 @@ Cuando se crea una instancia del servicio Azure API Management (APIM), Azure le 
 > [!WARNING]
 > Los clientes que deseen usar la asignación de certificados para mejorar la seguridad de sus aplicaciones deben usar un nombre de dominio personalizado > y el certificado que administran, no el certificado predeterminado. Los clientes que asignen el certificado predeterminado en su lugar tendrán > una gran dependencia de las propiedades del certificado que no controlen, no siendo esto una práctica recomendada.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir los pasos que se describen en este artículo, debe tener:
 

@@ -17,12 +17,12 @@ ms.date: 12/09/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc996c7b5d8a63834f548689c83f7a72685120d2
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 256194d8b0b5e6b08210e9338d945774603ac328
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951180"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429803"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -37,7 +37,7 @@ La arquitectura de los informes de Azure Active Directory (Azure AD) consta de l
 
 En este artículo se ofrece una visión general del reporte de inicios de sesión.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
 
@@ -57,9 +57,15 @@ El informe de inicios de sesión de usuario proporciona respuestas a las pregunt
 * ¿Cuántos usuarios han iniciado sesión en una semana?
 * ¿Cuál es el estado de estos inicios de sesión?
 
-Comience con [Azure Portal](https://portal.azure.com). Para acceder al informe de inicios de sesión, seleccione **Inicios de sesión** y siga a **Supervisión**. Algunos registros de inicio de sesión pueden tardar hasta dos horas antes de aparecer en el portal.
+En el menú de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** o busque y seleccione **Azure Active Directory** desde cualquier página.
 
-![Actividad de inicio de sesión](./media/concept-sign-ins/reporting-azure-sign-in-screen.png "Actividad de inicio de sesión")
+![Seleccionar Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+
+En **Supervisión**, seleccione **Inicios de sesión** para abrir el [informe de inicios de sesión](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+
+![Actividad de inicio de sesión](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Actividad de inicio de sesión")
+
+Algunos registros de inicio de sesión pueden tardar hasta dos horas antes de aparecer en el portal.
 
 > [!IMPORTANT]
 > El informe de inicios de sesión solo muestra los inicios de sesión **interactivos**, es decir, los inicios de sesión donde un usuario inicia sesión manualmente con su nombre de usuario y contraseña. Los inicios de sesión no interactivos, como la autenticación de servicio a servicio, no se muestran en el informe de inicios de sesión. 
@@ -79,7 +85,7 @@ Puede personalizar la vista de lista, haga clic en **Columnas** en la barra de h
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/19.png "Actividad de inicio de sesión")
 
-En el cuadro de diálogo **Columnas** se proporciona acceso a los atributos seleccionables. En un informe de inicio de sesión, solo puede tener atributos que no tengan una relación de uno a varios con otros atributos como columna.
+En el cuadro de diálogo **Columnas** se proporciona acceso a los atributos seleccionables. En un informe de inicio de sesión, no puede tener campos que tengan más de un valor para una solicitud de inicio de sesión determinada como columna. Esto es así, por ejemplo, para los detalles de autenticación, los datos de acceso condicional y la ubicación de red.   
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/columns.png "Actividad de inicio de sesión")
 
@@ -190,7 +196,7 @@ Si hace clic en un elemento, obtendrá más detalles sobre la operación de inic
 - Nombre de usuario
 - Identificador de aplicación
 - Application
-- Cliente
+- Remoto
 - Location
 - Dirección IP
 - Date
@@ -222,7 +228,7 @@ Agregaciones semanales de los gráficos de uso de la aplicación de inicios de s
 
 Si lo desea, puede establecer el foco en una aplicación específica.
 
-![Informes](./media/concept-sign-ins/single-app-usage-graph.png "Informes")
+![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "Notificación")
 
 Al hacer clic en un día del gráfico de uso de la aplicación, obtendrá una lista detallada de las actividades de inicio de sesión.
 

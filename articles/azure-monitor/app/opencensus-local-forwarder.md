@@ -1,5 +1,5 @@
 ---
-title: Reenviador local de seguimiento distribuido de Azure Application Insights OpenCensus (versión preliminar)| Microsoft Docs
+title: Reenviador local OpenCensus de Azure Application Insights (versión preliminar)
 description: Reenvío de seguimientos e intervalos distribuidos desde lenguajes como Python y Go a Azure Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
-ms.openlocfilehash: b0d0bc4d711b05dd2206b7437f1f4c7b3444a0c6
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 25c6c82fa1179a9173f42c3a5a4e95a371dd49c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819206"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406603"
 ---
 # <a name="local-forwarder-preview"></a>Reenviador local (versión preliminar)
 

@@ -8,18 +8,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4a5d61d9434a73556d81010da7c7b3e96139a9e4
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 831da237c06657981e402fc1f8fd09ccd67f85fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824322"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427214"
 ---
 # <a name="office-365-dynamics-365-power-apps-and-power-bi-offer-publishing-guide"></a>Guía de publicación de ofertas de Office 365, Dynamics 365, Power Apps y Power BI
 
 El escaparate de AppSource incluye ofertas que se basan en Dynamics 365, Office 365, Power BI y Power Apps o los amplían. Cada uno de estos productos tiene documentación específica para orientarle durante el proceso de publicación. Consulte los vínculos siguientes para obtener información más detallada sobre cada tipo de oferta. 
 
-AppSource tiene ofertas de evaluación y venta, con la llamada a la acción "Ponerse en contacto conmigo" o "Probar ahora". Actualmente, no hay ninguna funcionalidad de transacción en AppSource.
+AppSource tiene ofertas de pago, lista y prueba, con la llamada a la acción "Obtener ahora", "Ponerse en contacto conmigo" o "Probar ahora". 
 
 ## <a name="product-specific-guides"></a>Guías específicas del producto
 

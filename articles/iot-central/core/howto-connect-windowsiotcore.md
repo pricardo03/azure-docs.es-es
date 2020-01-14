@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 43e99c54249738436f24369ed3525e78ff971a12
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 452d18908406214bb7e1253363a42d8ba8287d96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930207"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454026"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo Windows IoT Core a una aplicación de Azure IoT Central
 
@@ -25,19 +25,24 @@ En este artículo se describe cómo conectar, en tanto que desarrollador de disp
 
 Necesitará lo siguiente para completar los pasos de este artículo:
 
-- Una aplicación de Azure IoT Central creada a partir de la plantilla de aplicación **Ejemplo Devkits**. Para más información, consulte la [guía de inicio rápido para crear una aplicación](quick-deploy-iot-central.md).
+- Una aplicación de Azure IoT Central creada a partir de la plantilla de la **Aplicación heredada**. Para más información, consulte la [guía de inicio rápido para crear una aplicación](quick-deploy-iot-central.md).
 
 - Un dispositivo en el que se ejecuta el sistema operativo Windows 10 IoT Core. Para obtener más información, vea [Configuración del dispositivo Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
 - Un equipo de desarrollo que tenga instalado [Node.js](https://nodejs.org/) versión 8.0.0 o posterior. Puede ejecutar `node --version` en la línea de comandos para comprobar la versión. Node.js está disponible para una amplia variedad de sistemas operativos.
 
-## <a name="the-sample-devkits-application"></a>La aplicación Ejemplo Devkits
+## <a name="add-a-device-template"></a>Incorporación de una plantilla de dispositivo
 
-Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits** incluye una plantilla de dispositivo **Windows IoT Core** con las siguientes características:
+En la aplicación de Azure IoT Central, agregue una nueva plantilla de dispositivo **Windows IoT Core** con las siguientes características:
 
 - Medidas de telemetría del dispositivo: **Humedad**, **Temperatura** y **Presión**.
 - Valor para controlar la **Velocidad del ventilador**.
 - Una propiedad de dispositivo **Fecha de anulación** y una propiedad de nube **Ubicación**.
+
+1. Seleccione **+Nuevo** desde ![Plantilla de dispositivo](media/howto-connect-windowsiotcore/adddevicetemplate.png) en las plantillas de dispositivo
+   
+
+2. Seleccione **Windows IoT Core** y cree la plantilla de dispositivo Windows IoT Core ![Agregar plantilla de dispositivo](media/howto-connect-windowsiotcore/newdevicetemplate.png)
 
 Para obtener todos los detalles sobre la configuración de la plantilla de dispositivo, vea [Detalles de la plantilla de dispositivo de Windows IoT Core](#device-template-details).
 
@@ -114,16 +119,16 @@ Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits
 
 Valores numéricos
 
-| Nombre para mostrar | Nombre del campo | Unidades | Posiciones decimales | Mínima | Máxima | Inicial |
+| Nombre para mostrar | Nombre del campo | Unidades | Posiciones decimales | Mínima | Máxima | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
-### <a name="properties"></a>properties (Propiedades)
+### <a name="properties"></a>Propiedades
 
-| type            | Nombre para mostrar | Nombre del campo | Tipo de datos |
+| Tipo            | Nombre para mostrar | Nombre del campo | Tipo de datos |
 | --------------- | ------------ | ---------- | --------- |
-| Propiedad de dispositivo | Die number   | dieNumber  | número    |
-| Texto            | Location     | location   | N/D       |
+| Propiedad de dispositivo | Die number   | dieNumber  | number    |
+| Texto            | Location     | ubicación   | N/D       |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

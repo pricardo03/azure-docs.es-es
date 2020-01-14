@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: b9b0ba85aed4d63fe6bb939c9ed3b99d3e789397
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/11/2019
+ms.openlocfilehash: 53fd02856a805f8bb5d7261cc9e6e32861b2b4fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932213"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426985"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-cognitive-search"></a>Implementación del análisis del tráfico de búsqueda en Azure Cognitive Search
 
@@ -56,7 +56,7 @@ Necesita la clave de instrumentación para crear el cliente de telemetría para 
 
 En este paso se instrumenta su propia aplicación de búsqueda con el recurso de Application Insights creado en el paso anterior. Existen cuatro pasos para este proceso:
 
-**Paso 1: Creación de un cliente de telemetría**
+**Paso 1: Creación de un cliente de telemetría**
 
 Este es el objeto que envía eventos al recurso de Application Insights.
 
@@ -76,7 +76,7 @@ Este es el objeto que envía eventos al recurso de Application Insights.
 
 Para otros lenguajes y plataformas, vea la [lista](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) completa.
 
-**Paso 2: Solicitud de un identificador de búsqueda para la correlación**
+**Paso 2: Solicitud de un identificador de búsqueda para la correlación**
 
 Para correlacionar las solicitudes de búsqueda con clics, es necesario tener un identificador de correlación que relacione estos dos eventos distintos. Azure Cognitive Search proporciona un identificador de búsqueda cuando lo solicita con un encabezado:
 
@@ -99,7 +99,7 @@ Para correlacionar las solicitudes de búsqueda con clics, es necesario tener un
     request.setRequestHeader("Access-Control-Expose-Headers", "x-ms-azs-searchid");
     var searchId = request.getResponseHeader('x-ms-azs-searchid');
 
-**Paso 3: Eventos de búsqueda de registros**
+**Paso 3: Eventos de búsqueda de registros**
 
 Cada vez que un usuario emite una solicitud de búsqueda, debe registrarla como un evento de búsqueda con el esquema siguiente en un evento personalizado de Application Insights:
 
@@ -136,7 +136,7 @@ Cada vez que un usuario emite una solicitud de búsqueda, debe registrarla como 
     ScoringProfile: <scoring profile used>
     });
 
-**Paso 4: Registro de eventos de clic**
+**Paso 4: Registro de eventos de clic**
 
 Cada vez que un usuario hace clic en un documento, es una señal de que debe registrarse para fines de análisis de búsqueda. Utilice eventos personalizados de Application Insights para registrar estos eventos con el siguiente esquema:
 
@@ -167,9 +167,7 @@ Cada vez que un usuario hace clic en un documento, es una señal de que debe reg
 
 ## <a name="3---analyze-in-power-bi"></a>3- Análisis en Power BI
 
-Una vez que haya instrumentado la aplicación y comprobado que la aplicación se ha conectado correctamente a Application Insights, puede usar una plantilla predefinida creada por Azure Cognitive Search para Power BI Desktop. 
-
-Azure Cognitive Search proporciona un [paquete de contenido de Power BI](https://app.powerbi.com/getdata/services/azure-search) para la supervisión de forma que pueda analizar los datos del registro. El paquete de contenido agrega tablas y gráficos predefinidos útiles para analizar los datos adicionales que se capturaron para los análisis de tráfico de búsqueda. Para más información, consulte la [página de ayuda del paquete de contenido](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/). 
+Una vez que haya instrumentado la aplicación y comprobado que esta se ha conectado correctamente a Application Insights, debe descargar una plantilla de informe predefinida para analizar los datos en Power BI Desktop. El informe contiene tablas y gráficos predefinidos útiles para analizar los datos adicionales que se capturaron para los análisis de tráfico de búsqueda. 
 
 1. En el panel de navegación izquierdo de Azure Cognitive Search, en **Configuración**, haga clic en **Análisis de tráfico de búsqueda**.
 
@@ -179,7 +177,7 @@ Azure Cognitive Search proporciona un [paquete de contenido de Power BI](https:
 
 2. En la misma página, haga clic en **Descargar informe de Power BI**.
 
-3. El informe se abre en Power BI Desktop y se le pedirá que conecte a Application Insights. Puede encontrar esta información en las páginas de Azure Portal para el recurso de Application Insights.
+3. El informe se abrirá en Power BI Desktop y se le pedirá que se conecte a Application Insights y proporcione las credenciales. Puede encontrar la información de conexión en las páginas de Azure Portal para el recurso de Application Insights. Para obtener las credenciales, proporcione el mismo nombre de usuario y la misma contraseña que usa para iniciar sesión en el portal.
 
    ![Conexión a Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Conexión a Application Insights")
 
@@ -189,11 +187,8 @@ El informe contiene gráficos y tablas que le ayudarán a tomar decisiones más 
 
 Las métricas incluyen los siguientes elementos:
 
-* Haga clic para valorar (CTR): proporción de usuarios que hacen clic en un documento específico para el número de número total de búsquedas.
+* Busque los pares de términos y documentos más populares: términos resultantes en el mismo documento en el que se hizo clic, ordenados por clics.
 * Búsquedas sin clics: términos de las consultas principales que no registran ningún clic
-* Documentos con más clics: documentos con más clics por identificador en las últimas 24 horas, 7 días y 30 días.
-* Pares de documentos de términos populares: términos resultantes en el mismo documento en el que se hizo clic, ordenados por clics.
-* Tiempo para hacer clic : clics divididos por tiempo transcurrido desde la consulta de búsqueda
 
 La siguiente captura de pantalla muestra los gráficos e informes integrados para analizar el análisis de tráfico de búsqueda.
 

@@ -1,5 +1,6 @@
 ---
-title: Uso de Azure API Management en una red virtual con Application Gateway | Microsoft Docs
+title: Uso de API Management en una red virtual con Application Gateway
+titleSuffix: Azure API Management
 description: Aprenda a instalar y configurar Azure API Management en una red virtual interna con Application Gateway (WAF) como front-end.
 services: api-management
 documentationcenter: ''
@@ -13,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: d1ab7089ba76890488aa73d03e0fd9fc8efbe4d5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4e4d4c69eb51e0058d3b6b561b5167051079bf89
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176744"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442707"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integración de API Management en una red virtual interna con Application Gateway
 
-## <a name="overview"></a> Información general
+## <a name="overview"> </a> Información general
 
 El servicio API Management se puede configurar en una red virtual en modo interno, para que sea accesible únicamente desde dentro de la red virtual. Azure Application Gateway es un servicio PAAS que proporciona un equilibrador de carga de nivel 7. Actúa como un servicio de proxy inverso y proporciona entre su oferta un firewall de aplicaciones web (WAF).
 
@@ -34,7 +35,7 @@ La combinación de una instancia de API Management aprovisionada en una red virt
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -46,7 +47,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 
 * Certificados pfx y cer para el nombre de host de API y pfx para el nombre de host del portal para desarrolladores.
 
-## <a name="scenario"></a> Escenario
+## <a name="scenario"> </a> Escenario 9:
 
 En este artículo se explica cómo usar un único servicio de API Management para los consumidores tanto internos como externos y hacer que actúe como un único servidor de front-end para las API locales y en la nube. También verá cómo exponer solamente un subconjunto de las API (resaltado en verde en el ejemplo) para permitir su uso externo, usando para ello la funcionalidad de enrutamiento disponible en Application Gateway.
 
@@ -54,7 +55,7 @@ En el primer ejemplo de la configuración, todas las API se administran únicame
 
 ![ruta de dirección URL](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
-## <a name="before-you-begin"></a> Antes de empezar
+## <a name="before-you-begin"> </a> Antes de empezar
 
 * Asegúrese de que está usando la versión más reciente de Azure PowerShell. Consulte las instrucciones de instalación en [Instalación de Azure PowerShell](/powershell/azure/install-az-ps). 
 
@@ -359,7 +360,7 @@ El nombre DNS de Application Gateway se debe utilizar para crear un registro CNA
 Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-## <a name="summary"></a>Resumen
+## <a name="summary"> </a> Resumen
 El servicio Azure API Management configurado en una red virtual proporciona una interfaz de puerta de enlace única para todas las API configuradas, independientemente de si están hospedadas de forma local o en la nube. La integración de Application Gateway con API Management proporciona la flexibilidad de habilitar de manera selectiva API determinadas para que estén accesibles en Internet, así como la provisión de un firewall de aplicación web como front-end para la instancia de API Management.
 
 ## <a name="next-steps"> </a> Pasos siguientes

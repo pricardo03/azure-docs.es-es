@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 4d44598bd1352ac6d4d98ae73838fbfc9e2485e7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ac3aa0dc619ec05dcd79a4f8740026b1eabc19aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838431"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427715"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Elegir parámetros para optimizar los algoritmos de Azure Machine Learning Studio (clásico)
 
@@ -23,7 +23,7 @@ En este tema se describe cómo elegir el hiperparámetro adecuado establecido pa
 
 
 
-Existen varias maneras de realizar la selección del modelo. En Machine Learning, la validación cruzada es uno de los métodos más utilizados para la selección de modelos y es el mecanismo de selección de modelos predeterminado en la versión clásica de Azure Machine Learning Studio. Como R y Python son compatibles con la versión clásica de Azure Machine Learning Studio, siempre puede implementar sus propios mecanismos de selección de modelos mediante R o Python.
+Existen varias maneras de realizar la selección del modelo. En Machine Learning, la validación cruzada es uno de los métodos más utilizados para la selección de modelos y es el mecanismo de selección de modelos predeterminado en Azure Machine Learning Studio (clásico). Dado que R y Python son compatibles con Azure Machine Learning Studio (clásico), siempre puede implementar sus propios mecanismos de selección de modelos mediante R o Python.
 
 Hay cuatro pasos en el proceso de encontrar el mejor conjunto de parámetros:
 
@@ -32,7 +32,7 @@ Hay cuatro pasos en el proceso de encontrar el mejor conjunto de parámetros:
 3. **Definir la métrica**: Decida qué métrica se va a usar para determinar el mejor conjunto de parámetros; por ejemplo, la precisión, el error cuadrático medio, la precisión, la recuperación o la puntuación f.
 4. **Formar, evaluar y comparar**: Para cada combinación única de los valores de parámetro, se lleva a cabo la validación cruzada y se basa en la métrica de error que defina. Después de la evaluación y la comparación, puede elegir el modelo de máximo rendimiento.
 
-En la imagen siguiente se muestra cómo se puede hacer en la versión clásica de Azure Machine Learning Studio.
+En la imagen siguiente se muestra cómo lograrlo en Azure Machine Learning Studio (clásico).
 
 ![Encontrar el mejor conjunto de parámetros](./media/algorithm-parameters-optimize/fig1.png)
 

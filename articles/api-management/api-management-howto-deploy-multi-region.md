@@ -1,5 +1,6 @@
 ---
-title: Implementación de servicios de Azure API Management en varias regiones de Azure | Microsoft Docs
+title: Implementación de servicios de Azure API Management en varias regiones de Azure
+titleSuffix: Azure API Management
 description: Aprenda a implementar una instancia del servicio Azure API Management en varias regiones de Azure.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 7cd0533dcbc9b367fa9a1e138b1aa1257989a3d7
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5c71f37741de06b8633e7eafaae2f29823214f74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072422"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442664"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Implementación de una instancia del servicio Azure API Management en varias regiones de Azure
 
@@ -30,7 +31,7 @@ Inicialmente, un nuevo servicio Azure API Management contiene solo una [unidad][
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="add-region"></a>Implementación de una instancia del servicio Administración de API en una nueva región
+## <a name="add-region"> </a>Implementación de una instancia del servicio Administración de API en una nueva región
 
 > [!NOTE]
 > Si todavía no ha creado una instancia del servicio API Management, consulte [Creación de una instancia del servicio API Management][create an api management service instance].
@@ -51,7 +52,7 @@ Haga clic en **Agregar** para colocar la selección en la tabla de ubicaciones.
 
 Repita este proceso hasta que haya configurado todas las ubicaciones y haga clic en **Guardar** en la barra de herramientas para iniciar el proceso de implementación.
 
-## <a name="remove-region"></a>Eliminación de una instancia de servicio de API Management de una ubicación
+## <a name="remove-region"> </a>Eliminación de una instancia de servicio de API Management de una ubicación
 
 En Azure Portal, vaya a la página de **escala y precios** de su instancia de servicio de API Management.
 

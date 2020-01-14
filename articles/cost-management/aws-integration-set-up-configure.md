@@ -1,21 +1,21 @@
 ---
-title: Instalar y configurar la integración de informes de uso y costo de AWS con Azure Cost Management
+title: Configuración de la integración de AWS con Azure Cost Management
 description: En este artículo se le guiará a través de la instalación y configuración de la integración de informes de uso y costo de AWS con Azure Cost Management.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/15/2019
+ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 66dbe45ff1a8ee773fdf7fcb0aa7cfe8e6ad6437
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 77bc7772e1d9b8144199c865a8d82f818d5e1963
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74219690"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444609"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Instalar y configurar la integración de informes de uso y costo de AWS
 
@@ -68,7 +68,7 @@ Use el Asistente para crear un nuevo rol:
 4. En la siguiente página, seleccione **Otra cuenta de AWS**.
 5. En **ID de cuenta**, escriba **432263259397**.
 6. En **Opciones**, seleccione **Requerir un ID externo (practica recomendada si un tercero va a adoptar este rol)** .
-7. En **ID externo**, escriba el id. externo. El id. externo es un código de acceso compartido entre el rol AWS y Azure Cost Management. También se usa el mismo id. externo en la página **Nuevo conector** de Cost Management. Por ejemplo, un id. externo se parece a _Nombrecompañía1234567890123_.
+7. En **Id. externo**, escriba el identificador externo, que es un código de acceso compartido entre el rol de AWS y Azure Cost Management. También se usa el mismo id. externo en la página **Nuevo conector** de Cost Management. Microsoft recomienda que use una directiva de código de acceso segura al especificar el identificador externo.
 
     > [!NOTE]
     > No cambie la selección de **Require MFA (Requerir MFA)** . Debe permanecer desactivado.
@@ -150,7 +150,7 @@ El JSON de la directiva debe ser similar al ejemplo siguiente. Reemplace _bucket
 
 Use la siguiente información para crear un conector de AWS y comenzar a supervisar los costos de AWS:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Vaya a **Administración de costos + facturación** > **Cost Management**.
 3. En **Configuración**, seleccione **Conectores en la nube (versión preliminar)** .  
     ![Ejemplo que muestra la configuración de los conectores en la nube (versión preliminar)](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
@@ -214,7 +214,7 @@ El nivel de acceso se administra mediante la página **Nivel de acceso** de la c
 
 La cuenta vinculada de AWS es donde se crean y administran los recursos de AWS. Una cuenta vinculada también actúa como límite de seguridad.
 
-En esta página, puede realizar las siguientes acciones:
+En esta página puede realizar las siguientes acciones:
 
 - Seleccione **Actualizar** para la actualización de la asociación de una cuenta vinculada de AWS con un grupo de administración.
 - Seleccione **Access Control** para establecer una asignación de roles para el ámbito.

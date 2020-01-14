@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: 5f5fc4ecc0949f2f224c1d6a05742900a751ef45
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ac62ec49803bf55bbe61e08e60b648dd6c268510
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756239"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358012"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines
 
@@ -38,7 +38,7 @@ Entre las tecnologías HADR de SQL Server compatibles con Azure se incluyen:
 * [Grupos de disponibilidad AlwaysOn (SQL Server)](https://technet.microsoft.com/library/hh510230.aspx)
 * [Instancias de clúster de conmutación por error de AlwaysOn (SQL Server)](https://technet.microsoft.com/library/ms189134.aspx)
 * [Trasvase de registros](https://technet.microsoft.com/library/ms187103.aspx)
-* [Copia de seguridad y restauración de SQL Server con el servicio Azure Blob Storage](https://msdn.microsoft.com/library/jj919148.aspx)
+* [Copia de seguridad y restauración de SQL Server con el servicio Azure Blob Storage](https://msdn.microsoft.com/library/jj919148.aspx)
 * [Creación de reflejo de la base de datos](https://technet.microsoft.com/library/ms189852.aspx): en desuso en SQL Server 2016
 
 Es posible combinar las tecnologías para implementar una solución SQL Server que posea alta disponibilidad y, al mismo tiempo, capacidades de recuperación ante desastres. Según la tecnología que se use, una implementación híbrida puede requerir un túnel VPN con la red virtual de Azure. Las secciones siguientes muestran algunas de las arquitecturas de implementación de ejemplo.
@@ -50,7 +50,7 @@ Puede tener una solución de alta disponibilidad para SQL Server en un nivel de 
 | Technology | Arquitecturas de ejemplo |
 | --- | --- |
 | **Grupos de disponibilidad** |Todas las réplicas de disponibilidad que se ejecutan en Azure Virtual Machines de la misma región proporcionan alta disponibilidad.  Debe configurar una máquina virtual de controlador de dominio, ya que los clústeres de conmutación por error de Windows requieren un dominio de Active Directory.<br/><br/> Para una mayor redundancia y disponibilidad, las máquinas virtuales de Azure se pueden implementar en diferentes [zonas de disponibilidad](../../../availability-zones/az-overview.md), tal como se documenta en la [información general de la disponibilidad](virtual-machines-windows-portal-sql-availability-group-overview.md). Si las máquinas virtuales de SQL Server de un grupo de disponibilidad se implementan en zonas de disponibilidad, use [Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) para el cliente de escucha, como se documenta en estos artículos: [CLI en una máquina virtual para SQL de Azure](virtual-machines-windows-sql-availability-group-cli.md) & [Plantillas de inicio rápido de Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).<br/> ![Grupos de disponibilidad](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-ha-always-on.png)<br/>Para más información, vea [Configuración de grupos de disponibilidad en Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). |
-| **Instancias de clúster de conmutación por error** |Las instancias de clúster de conmutación por error (FCI), que requieren almacenamiento compartido, se pueden crear de cuatro maneras distintas.<br/><br/>1. Un clúster de conmutación por error de dos nodos que se ejecuta en Azure Virtual Machines con almacenamiento conectado con [Espacios de almacenamiento directo de Windows Server 2016 \(S2D\)](virtual-machines-windows-portal-sql-create-failover-cluster.md) para ofrecer una SAN virtual basada en software.<br/><br/> 2. Un clúster de conmutación por error de dos nodos que se ejecuta en Azure Virtual Machines mediante [Recurso compartido de archivos Premium](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md). Los recursos compartidos de archivos Premium son recursos compartidos de archivos de baja latencia constante con respaldo de SSD que son totalmente compatibles para utilizarlos con la instancia del clúster de conmutación por error.<br/><br/>3. Un clúster de conmutación por error de dos nodos que se ejecuta en Azure Virtual Machines con almacenamiento posibilitado por una solución de clústeres de terceros. Si desea obtener un ejemplo específico con SIOS DataKeeper, vea [High availability for a file share using failover clustering and 3rd party software SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/) (Alta disponibilidad de un recurso compartido de archivos con clúster de conmutación por error y el software de terceros SIOS DataKeeper).<br/><br/>4. Un clúster de conmutación por error de dos nodos que se ejecuta en Azure Virtual Machines con almacenamiento en bloque compartido de destino iSCSI remoto a través de ExpressRoute. Por ejemplo, NetApp Private Storage (NPS) expone un destino iSCSI a través de ExpressRoute con Equinix a las máquinas virtuales de Azure.<br/><br/>Para las soluciones de almacenamiento compartido y de replicación de datos de terceros, debe ponerse en contacto con el proveedor en caso de que surja cualquier problema relacionado con el acceso a datos en la conmutación por error.<br/><br/>|
+| **Instancias de clúster de conmutación por error** |Las instancias de clúster de conmutación por error (FCI), que requieren almacenamiento compartido, se pueden crear de cuatro maneras distintas.<br/><br/>1. Un clúster de conmutación por error de dos nodos que se ejecuta en Azure Virtual Machines con almacenamiento conectado con [Espacios de almacenamiento directo de Windows Server 2016 \(S2D\)](virtual-machines-windows-portal-sql-create-failover-cluster.md) para ofrecer una SAN virtual basada en software.<br/><br/> 2. Un clúster de conmutación por error de dos nodos que se ejecuta en Azure Virtual Machines mediante [Recurso compartido de archivos Premium](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md). Los recursos compartidos de archivos Premium son recursos compartidos de archivos de baja latencia constante con respaldo de SSD que son totalmente compatibles para utilizarlos con la instancia del clúster de conmutación por error.<br/><br/>3. Un clúster de conmutación por error de dos nodos que se ejecuta en Azure Virtual Machines con almacenamiento posibilitado por una solución de clústeres de terceros. Si desea obtener un ejemplo específico con SIOS DataKeeper, vea [High availability for a file share using failover clustering and third party software SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/) (Alta disponibilidad de un recurso compartido de archivos con clúster de conmutación por error y el software de terceros SIOS DataKeeper).<br/><br/>4. Un clúster de conmutación por error de dos nodos que se ejecuta en Azure Virtual Machines con almacenamiento en bloque compartido de destino iSCSI remoto a través de ExpressRoute. Por ejemplo, NetApp Private Storage (NPS) expone un destino iSCSI a través de ExpressRoute con Equinix a las máquinas virtuales de Azure.<br/><br/>Para las soluciones de almacenamiento compartido y de replicación de datos de terceros, debe ponerse en contacto con el proveedor en caso de que surja cualquier problema relacionado con el acceso a datos en la conmutación por error.<br/><br/>|
 
 ## <a name="azure-only-disaster-recovery-solutions"></a>Solo Azure: Soluciones de recuperación ante desastres
 Puede tener una solución de recuperación ante desastres para las bases de datos de SQL Server en Azure con grupos de disponibilidad, creación de reflejo de bases de datos o copias de seguridad y restauración con blobs de almacenamiento.
@@ -73,6 +73,22 @@ Puede tener una solución de recuperación ante desastres para las bases de dato
 | **Trasvase de registros** |Un servidor se ejecuta en una máquina virtual de Azure y  otro localmente para la recuperación ante desastres a través de sitios. El trasvase de registros depende del uso compartido de archivos de Windows, de modo que se requiere una conexión VPN entre la red virtual de Azure y la red local.<br/>![Trasvase de registros](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-log-shipping.png)<br/>Para que se produzca una recuperación ante desastres correcta de las bases de datos, también debe instalar un controlador de dominio de réplica en el sitio de recuperación ante desastres. |
 | **Copia de seguridad y restauración con el servicio Azure Blob Storage** |Bases de datos de producción locales con copia de seguridad directa en el almacenamiento de blobs de Azure para la recuperación ante desastres.<br/>![Copia de seguridad y restauración](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-backup-restore.png)<br/>Para más información, consulte [Copias de seguridad y restauración para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md). |
 | **Replicación y conmutación por error de SQL Server en Azure con Azure Site Recovery** |SQL Server de producción local replicado directamente en una instancia de Azure Storage para la recuperación ante desastres.<br/>![Replicación con Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-standalone-sqlserver-asr.png)<br/>Para obtener más información, consulte [Proteger SQL Server con la recuperación ante desastres de SQL Server y Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
+
+
+## <a name="free-dr-replica-in-azure"></a>Réplica de DR gratuita en Azure
+
+Si tiene [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), puede implementar planes de recuperación ante desastres (DR) híbridos con SQL Server mediante Grupos de disponibilidad Always On o instancias de clúster de conmutación por error sin incurrir en costos de licencias adicionales para la instancia de DR pasiva.
+
+En la imagen siguiente, el programa de instalación usa una instancia de SQL Server que se ejecuta en una máquina virtual de Azure con 12 núcleos como réplica de recuperación ante desastres para una implementación de SQL Server local con 12 núcleos. Antiguamente, tendría que licenciar 12 núcleos de SQL Server para la implementación de la máquina virtual local y la de Azure. La nueva ventaja ofrece ventajas de réplica pasivas que se ejecutan en una máquina virtual de Azure. Ahora solo tiene que licenciar 12 núcleos de una instancia de SQL Server que se ejecuta de forma local, siempre y cuando se cumplan los criterios de recuperación ante desastres para la réplica pasiva en la máquina virtual de Azure.
+
+![Réplica de DR gratuita en Azure](media/virtual-machines-windows-sql-high-availability-dr/free-dr-replica-azure.png)
+
+Para más información, consulte [Términos de licencia del producto](https://www.microsoft.com/licensing/product-licensing/products). 
+
+Para habilitar esta ventaja, vaya a su [recurso de máquina virtual de SQL Server](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource), seleccione **Configurar** en las opciones de configuración y, a continuación, elija la opción **Recuperación ante desastres** en **Licencia de SQL Server**. Active la casilla para confirmar que esta VM con SQL Server se usará como una réplica pasiva y, a continuación, seleccione **Aplicar** para guardar la configuración. 
+
+![Configurar la réplica de DR en Azure](media/virtual-machines-windows-sql-high-availability-dr/dr-replica-in-portal.png)
+
 
 ## <a name="important-considerations-for-sql-server-hadr-in-azure"></a>Consideraciones importantes para HADR de SQL Server en Azure
 Las máquinas virtuales de Azure, el almacenamiento y la conexión de red tienen características operativas diferentes de las de una infraestructura TI local y no virtualizada. Para implementar correctamente una solución HADR de SQL Server en Azure es necesario conocer estas diferencias y diseñar la solución adaptada a ellas.
@@ -140,7 +156,7 @@ Para obtener el mejor rendimiento de SQL Server en una máquina virtual de Azure
 
 Para ver otros temas sobre la ejecución de SQL Server en Azure Virtual Machines, consulte [SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-### <a name="other-resources"></a>Otros recursos:
+### <a name="other-resources"></a>Otros recursos
 * [Instalación de un nuevo bosque de Active Directory en Azure](../../../active-directory/active-directory-new-forest-virtual-machine.md)
 * [Creación del clúster de conmutación por error para grupos de disponibilidad en la VM de Azure](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 

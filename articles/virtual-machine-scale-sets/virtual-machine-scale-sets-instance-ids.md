@@ -1,6 +1,6 @@
 ---
-title: Identificadores de instancia de máquinas virtuales del conjunto de escalado de máquinas virtuales de Azure | Microsoft Docs
-description: Identificadores de instancia de máquinas virtuales del conjunto de escalado de máquinas virtuales de Azure
+title: Identificadores de instancia de máquinas virtuales del conjunto de escalado de máquinas virtuales de Azure
+description: Identificadores de instancia de máquinas virtuales de los conjuntos de escalado de VM de Azure y las distintas formas en que se muestran.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: 6aeba722a0661979664f8d61efdb9b2bf47ad801
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1eb0cf1de3b0ebffac8810e19d69515224147bc7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618511"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356004"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Identificadores de instancia de máquinas virtuales del conjunto de escalado de máquinas virtuales de Azure
 En este artículo se describen los identificadores de instancia de los conjuntos de escalado y las distintas formas en que se muestran.

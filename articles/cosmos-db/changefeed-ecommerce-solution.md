@@ -1,18 +1,18 @@
 ---
 title: Uso de la fuente de cambios de Azure Cosmos DB para visualizar análisis de datos en tiempo real
-description: En este artículo se describe cómo una empresa minorista puede utilizar la fuente de cambios para reconocer patrones de usuario, realizar análisis de datos en tiempo real y obtener su visualización.
+description: En este artículo se describe cómo una empresa minorista puede utilizar la fuente de cambios para reconocer patrones de usuario, realizar análisis de datos en tiempo real y visualizarlos.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 86d4dd706b097891db155214e4edb7e85e054858
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 50517db6a5bb1fc458ab2f563e905fca34f70cf4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616943"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442068"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Uso de la fuente de cambios de Azure Cosmos DB para visualizar análisis de datos en tiempo real
 
@@ -53,7 +53,7 @@ El siguiente diagrama representa el flujo de datos y los componentes implicados 
 
 7. **Power BI:** Power BI se usa para visualizar los datos enviados por Azure Stream Analytics. Puede crear un panel para ver cómo cambian las métricas en tiempo real.  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Microsoft .NET Framework 4.7.1 o superior
 

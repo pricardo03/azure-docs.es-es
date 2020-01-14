@@ -1,6 +1,6 @@
 ---
-title: Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure | Microsoft Docs
-description: Obtenga respuestas a preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales.
+title: Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
+description: Obtenga respuestas a preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales en Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 429e201ba1d15103ae130ee2fb767cd1b4fa909a
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 47ea23f3018e9d28c0ccfd6640b3d365103ab9ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779429"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356215"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -229,11 +229,11 @@ Puede proporcionar claves públicas SSH en texto sin formato al crear una máqui
 }
 ```
 
-Nombre del elemento de linuxConfiguration | Obligatorio | type | DESCRIPCIÓN
+Nombre del elemento de linuxConfiguration | Obligatorio | Tipo | Descripción
 --- | --- | --- | ---
-ssh | Sin | Colección | Especifica la configuración de la clave SSH para un sistema operativo Linux
-path | Sí | Cadena | Especifica la ruta de acceso de Linux en donde se deben colocar las claves SSH o el certificado
-keyData | Sí | Cadena | Especifica una clave pública SSH codificada en base64
+ssh | No | Colección | Especifica la configuración de la clave SSH para un sistema operativo Linux
+path | Sí | String | Especifica la ruta de acceso de Linux en donde se deben colocar las claves SSH o el certificado
+keyData | Sí | String | Especifica una clave pública SSH codificada en base64
 
 Para ver un ejemplo, consulte [la plantilla de inicio rápido de GitHub 101-vm-sshkey ](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -343,6 +343,13 @@ Para más información, consulte el [Centro de confianza de Microsoft](https://w
 
 Sí. Puede ver algunas plantillas MSI de ejemplo en las plantillas de inicio rápido de Azure para  [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) y [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
+## <a name="deleting"></a>Eliminando 
+
+### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>¿Se respetarán los bloqueos que establezca en las instancias del conjunto de escalado de máquinas virtuales al eliminar las instancias?
+
+En Azure Portal, puede eliminar una instancia individual o realizar una eliminación masiva mediante la selección de varias instancias. Si intenta eliminar una única instancia que tiene un bloqueo, se respeta el bloqueo y la instancia no se puede eliminar. Sin embargo, si selecciona de forma masiva varias instancias y cualquiera de esas instancias tiene un bloqueo, no se respetarán los bloqueos y se eliminarán todas las instancias seleccionadas. 
+ 
+En la CLI de Azure, solo puede eliminar una instancia individual. Si intenta eliminar una única instancia que tiene un bloqueo, se respeta el bloqueo y la instancia no se puede eliminar. 
 
 ## <a name="extensions"></a>Extensiones
 
@@ -521,7 +528,7 @@ Para implementar un conjunto de escalado de máquinas virtuales en una red virtu
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>¿Puedo usar conjuntos de escalado con redes aceleradas?
 
-Sí. Para usar las redes aceleradas, establezca enableAcceleratedNetworking en true en los ajustes de networkInterfaceConfigurations de su conjunto de escalado. Por ejemplo:
+Sí. Para usar las redes aceleradas, establezca enableAcceleratedNetworking en true en los ajustes de networkInterfaceConfigurations de su conjunto de escalado. Por ejemplo
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -650,7 +657,7 @@ Puede encontrar los elementos workspaceId y workspaceKey requeridos en el área 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>¿Cómo se activa el diagnóstico de arranque?
 
@@ -686,7 +693,7 @@ Para informarse sobre propiedad de cada máquina virtual sin realizar varias lla
 
 No, no puede pasar diferentes argumentos de extensión a diferentes máquinas virtuales de un conjunto de escalado de máquinas virtuales. De todas formas, las extensiones pueden actuar en función de propiedades únicas de la máquina virtual en la que se ejecutan, como el nombre de la máquina. Además, las extensiones pueden consultar metadatos de instancias en http://169.254.169.254 para más información sobre la máquina virtual.
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>¿Por qué hay huecos entre los nombres de máquina virtual de mi conjunto de escalado de máquinas virtuales y los identificadores de máquina virtual? Por ejemplo:  0, 1, 3...
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>¿Por qué hay huecos entre los nombres de máquina virtual de mi conjunto de escalado de máquinas virtuales y los identificadores de máquina virtual? Por ejemplo: 0, 1, 3...
 
 Hay huecos entre los nombres de máquina virtual del conjunto de escalado de máquinas virtuales y el identificador de la máquina virtual porque la propiedad **overprovision** del conjunto de escalado de máquinas virtuales está establecida en el valor predeterminado de **true**. Si la propiedad overprovision se establece en **true**, se crean más máquinas de las solicitadas. Las máquinas virtuales adicionales se eliminan a continuación. En este caso, lo que consigue es una mayor confiabilidad en la implementación a cambio de reglas de traducción de direcciones de red (NAT) contiguas y de nomenclatura contiguas.
 

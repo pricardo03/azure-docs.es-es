@@ -1,5 +1,5 @@
 ---
-title: 'Creación de una revisión de acceso de grupos o aplicaciones: Azure Active Directory | Microsoft Docs'
+title: Realización de una revisión de acceso de grupos y aplicaciones - Azure AD
 description: Obtenga información sobre cómo completar una revisión de acceso de los miembros del grupo o de la aplicación en las revisiones de acceso de Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -16,20 +16,20 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97c405032368ffd06f5808bc4518302d2f6d66b9
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 0c6f3405354136e11600ae059f3e05890d3534ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489146"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422723"
 ---
-# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Creación de una revisión de acceso de los grupos o las aplicaciones en las revisiones de acceso de Azure AD
+# <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Realización de una revisión de acceso de los grupos y las aplicaciones en las revisiones de acceso de Azure AD
 
 Como administrador, [debe crear una revisión de acceso de grupos o aplicaciones](create-access-review.md). Los revisores se encargan de [realizar la revisión de acceso](perform-access-review.md). En este artículo se describe cómo ver los resultados de la revisión de acceso y se aplican los resultados.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure AD Premium P2
 - Administrador global, administrador de usuarios, administrador de seguridad o lector de seguridad

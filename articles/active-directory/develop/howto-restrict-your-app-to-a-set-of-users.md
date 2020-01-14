@@ -1,5 +1,5 @@
 ---
-title: Restricción de usuarios en aplicaciones registradas en Azure Active Directory | Azure
+title: Restricción de la aplicación de Azure AD a un conjunto de usuarios | Azure
 titleSuffix: Microsoft identity platform
 description: Aprenda a restringir el acceso a las aplicaciones registradas en Azure AD a un conjunto de usuarios seleccionado.
 services: active-directory
@@ -14,14 +14,14 @@ ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1cd52a62d5ab8185e18c849f6009e4632c96ede
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ff6e9d101159af33a05a2dc50e227bc97970b12d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917631"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424459"
 ---
-# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>Procedimientos para: Restricción de la aplicación de Azure AD a un conjunto de usuarios
+# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>Procedimientos: Restricción de la aplicación de Azure AD a un conjunto de usuarios
 
 Las aplicaciones registradas en un inquilino de Azure Active Directory (Azure AD) están disponibles de forma predeterminada para todos los usuarios del inquilino que se autentica correctamente.
 
@@ -46,7 +46,7 @@ La opción para restringir una aplicación a un conjunto específico de usuarios
 
 Hay dos maneras de crear una aplicación con la asignación de usuarios habilitada. Una necesita el rol **Administrador global**, la otra no.
 
-### <a name="enterprise-applications-requires-the-global-adminstrator-role"></a>Aplicaciones empresariales (necesita el rol Administrador global)
+### <a name="enterprise-applications-requires-the-global-administrator-role"></a>Aplicaciones empresariales (necesita el rol Administrador global)
 
 1. Vaya a [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **Administrador global**.
 1. En la barra superior, seleccione la cuenta con sesión iniciada. 

@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 571d4cd395cd0cec0982fedf267a88143fd73872
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5ee07e5b0ac9c73a686a0f8c7d489ecc7ee96425
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805746"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422194"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configuración de una aplicación de Java en Linux para Azure App Service
 
@@ -30,7 +30,7 @@ Puede usar el [complemento Maven para Azure App Service](/java/api/overview/azur
 De lo contrario, el método de implementación dependerá del tipo de archivo:
 
 - Para implementar archivos .war en Tomcat, utilice el punto de conexión `/api/wardeploy/` para realizar el conjunto de rutinas POST en el archivo. Para obtener más información sobre esta API, consulte [este documento](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
-- Para implementar archivos .jar en las imágenes de Java SE, use el punto de conexión `/api/zipdeploy/` del sitio de Kudu. Para obtener más información sobre la API, consulte [este documento](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
+- Para implementar archivos .jar en las imágenes de Java SE, use el punto de conexión `/api/zipdeploy/` del sitio de Kudu. Para obtener más información sobre esta API, consulte [este documento](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
 
 No implemente el archivo .war o .jar con el FTP. La herramienta FTP está diseñada para cargar los scripts de inicio, dependencias u otros archivos en tiempo de ejecución. Tenga en cuenta que no es la opción óptima para realizar la implementación de aplicaciones web.
 
@@ -248,8 +248,7 @@ Puede ser necesaria una configuración adicional para el cifrado de la conexión
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
-- [Cassandra](https://docs.datastax.com/developer/java-driver/4.3/)
-
+- [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
 #### <a name="manually-initialize-and-load-the-key-store"></a>Inicialización y carga manual del almacén de claves
 
@@ -663,7 +662,7 @@ Los pasos siguientes explican los requisitos para conectarse a una instancia de 
 
 La próxima vez que App Service se reinicie, ejecutará el script de inicio y dará los pasos de configuración necesarios. Para comprobar que esta configuración se realiza correctamente, puede acceder a App Service mediante SSH y, después, ejecutar el script de inicio usted mismo desde el símbolo del sistema de Bash. También puede examinar los registros de App Service. Para más información acerca de estas opciones, consulte [Registro y depuración de aplicaciones](#logging-and-debugging-apps).
 
-A continuación, deberá actualizar la configuración de WildFly para la aplicación y volver a implementarla. Para ello, siga los pasos que se describen a continuación:
+A continuación, deberá actualizar la configuración de WildFly para la aplicación y volver a implementarla. Siga estos pasos:
 
 1. Abra el archivo *src/main/resources/META-INF/persistence.xml* de su aplicación y busque el elemento `<jta-data-source>`. Reemplace su contenido como se muestra aquí:
 
@@ -709,7 +708,7 @@ En los pasos siguientes se describe la configuración y el código necesarios. E
 
 1. Abra un terminal de Bash y use los siguientes comandos para guardar la información de los recursos de Azure en variables de entorno. Reemplace los marcadores de posición (incluidos los corchetes angulares) por los valores indicados.
 
-    | Variable            | Valor                                                                      |
+    | Variable            | Value                                                                      |
     |---------------------|----------------------------------------------------------------------------|
     | RESOURCEGROUP_NAME  | Nombre del grupo de recursos que contiene la instancia de App Service.       |
     | WEBAPP_NAME         | Nombre de la instancia de App Service.                                     |
@@ -993,7 +992,7 @@ Para usar Tomcat con Redis, debe configurar la aplicación para que use una impl
 
 1. Abra un terminal de Bash y use `<variable>=<value>` para establecer cada una de las siguientes variables de entorno.
 
-    | Variable                 | Valor                                                                      |
+    | Variable                 | Value                                                                      |
     |--------------------------|----------------------------------------------------------------------------|
     | RESOURCEGROUP_NAME       | Nombre del grupo de recursos que contiene la instancia de App Service.       |
     | WEBAPP_NAME              | Nombre de la instancia de App Service.                                     |

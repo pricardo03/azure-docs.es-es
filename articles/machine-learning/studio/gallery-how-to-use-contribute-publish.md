@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 9fe52fc16b763a03738442bb49a4969244a1d3c6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 492f6ed2775004c6fb013c6a9ead602cb3d2cea0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837577"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427553"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Comparta y descubra recursos en la Galería de Azure AI.
 
@@ -59,15 +59,15 @@ Para descargar un recurso de AI Gallery:
 
 ![Abrir un elemento en AI Gallery](./media/gallery-how-to-use-contribute-publish/open-experiment-from-gallery.png)
 
-Para descargar un recurso desde la versión clásica de Studio:
+Para descargar un recurso de Studio (clásico):
 
-1. En la versión clásica de Studio, seleccione **NUEVO**.
+1. En Studio (clásico), seleccione **NUEVO**.
 1. Seleccione **Module** (Módulo), **Experiment** (Experimento) o **Notebook** (Cuaderno).
 1. Examine o busque un recurso de la galería.
 1. Sitúe el ratón en el recurso y luego seleccione **Open in Studio** (Abrir en Studio).
     ![Abrir el experimento de la galería desde dentro de Machine Learning Studio (clásico)](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
 
-Una vez que el recurso está en el área de trabajo, puede personalizarlo y usarlo como cualquier otro elemento creado en la versión clásica de Studio.
+Una vez que el recurso esté en el área de trabajo, puede personalizarlo y usarlo como cualquier otro elemento creado en Studio (clásico).
 
 Para usar un módulo personalizado importado:
 
@@ -77,12 +77,12 @@ Para usar un módulo personalizado importado:
 
 ## <a name="contribute-experiments"></a>Contribuir con experimentos
 
-Para demostrar técnicas de análisis o para ofrecer soluciones a otros usuarios, puede aportar **experimentos** que haya desarrollado en la versión clásica de Studio.
+Para demostrar técnicas de análisis o para ofrecer soluciones a otros usuarios, puede aportar **experimentos** que haya desarrollado en Studio (clásico).
 Cuando otros usuarios vean su contribución en la galería, puede seguir el número de visitas y las descargas de su contribución.
 Los usuarios también pueden agregar comentarios y compartir su contribución con otros miembros de la comunidad de ciencia de datos.
 Además, puede iniciar sesión con una herramienta de análisis como Disqus para recibir notificaciones de los comentarios de sus contribuciones.
 
-1. Abra el experimento en la versión clásica de Studio.
+1. Abra el experimento en Studio (clásico).
 
 1. En la lista de acciones debajo del lienzo del experimento, seleccione **Publish to Gallery** (Publicar en la galería).
 

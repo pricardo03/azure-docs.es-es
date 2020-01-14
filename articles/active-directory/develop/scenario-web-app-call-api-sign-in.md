@@ -1,5 +1,5 @@
 ---
-title: 'Quitar cuentas de la memoria caché en el cierre de sesión: plataforma de identidad de Microsoft | Azure'
+title: 'Quitar cuentas de la memoria caché de tokens en el cierre de sesión: Plataforma de identidad de Microsoft | Azure'
 description: Obtenga información sobre cómo quitar una cuenta de la memoria caché de tokens en el cierre de sesión
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 375382b1245186197657c5067e3c5b4ec2b15655
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5472b424f7d2b44b62e6e4495afaf7bdfbbc8439
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961665"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423505"
 ---
 # <a name="remove-accounts-from-the-cache-on-global-sign-out"></a>Quitar cuentas de la memoria caché en el cierre de sesión global
 
@@ -38,7 +38,7 @@ Este mecanismo se ilustra en el método `AddMsal()` de [WebAppServiceCollectionE
 
 La **dirección URL de cierre de sesión** que ha registrado para la aplicación le permite implementar el cierre de sesión único. El punto de conexión `logout` de la Plataforma de identidad de Microsoft llamará a la **URL de cierre de sesión** registrada en la aplicación. Esta llamada se produce si el cierre de sesión se ha iniciado desde la aplicación web, o desde otra aplicación web o el explorador. Para más información, consulte [Cierre de sesión único](v2-protocols-oidc.md#single-sign-out).
 
-```CSharp
+```csharp
 public static class WebAppServiceCollectionExtensions
 {
  public static IServiceCollection AddMsal(this IServiceCollection services, IConfiguration configuration, IEnumerable<string> initialScopes, string configSectionName = "AzureAd")

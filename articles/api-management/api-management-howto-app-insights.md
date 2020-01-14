@@ -1,5 +1,6 @@
 ---
-title: Cómo integrar Azure API Management con Azure Application Insights | Microsoft Docs
+title: Integración de Azure API Management con Azure Application Insights
+titleSuffix: Azure API Management
 description: Obtenga información acerca de cómo registrar y ver los eventos de Azure API Management en Azure Application Insights.
 services: api-management
 documentationcenter: ''
@@ -12,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: ae467e3def65d446a8c331c4f15033b4c01886ae
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 12aeea8393a00d7d2662c826f847265bdbdc0119
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219496"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442708"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Cómo integrar Azure API Management con Azure Application Insights
 
 Azure API Management le permite una integración sencilla con Azure Application Insights, un servicio extensible para desarrolladores web que compilan y administran aplicaciones en varias plataformas. En esta guía, verá todos los pasos para dicha integración; además, se describen las estrategias para reducir el impacto en el rendimiento en la instancia de servicio de API Management.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir esta guía, debe tener una instancia de Azure API Management. Si no tiene una, complete antes el [tutorial](get-started-create-service-instance.md).
 
@@ -36,7 +37,7 @@ Antes de poder usar Azure Application Insights, debe crear una instancia del ser
 2. Haga clic en **+ Agregar**.  
     ![Creación de App Insights](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
 3. Rellene el formulario. Seleccione **General** como **Tipo de aplicación**.
-4. Haga clic en **Create**(Crear).
+4. Haga clic en **Crear**.
 
 ## <a name="create-a-connection-between-azure-application-insights-and-azure-api-management-service-instance"></a>Creación de una conexión entreAzure Application Insights y la instancia de servicio de Azure API Management
 
@@ -45,7 +46,7 @@ Antes de poder usar Azure Application Insights, debe crear una instancia del ser
 3. Haga clic en **+ Agregar**.  
     ![Registrador de App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
 4. Seleccione la instancia de **Application Insights** creada anteriormente y escriba una descripción breve.
-5. Haga clic en **Create**(Crear).
+5. Haga clic en **Crear**.
 6. Acaba de crear un registrador de Azure Application Insights con una clave de instrumentación. Ahora debería aparecer en la lista.  
     ![Registrador de App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
@@ -71,11 +72,11 @@ Antes de poder usar Azure Application Insights, debe crear una instancia del ser
 > [!NOTE]
 > En segundo plano, se crea una entidad de [diagnóstico](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) denominada "applicationinsights" en el nivel de API.
 
-| Nombre del valor                        | Tipo de valor                        | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                      |
+| Nombre del valor                        | Tipo de valor                        | Descripción                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Habilitar                              | boolean                           | Especifica si el registro de esta API está habilitado.                                                                                                                                                                                                                                                                                                |
-| Destino                         | Registrador de Azure Application Insights | Especifica el registrador de Azure Application Insights que se usará                                                                                                                                                                                                                                                                                           |
-| Sampling (%) [Muestreo (%)]                        | decimal                           | Valores de 0 a 100 (porcentaje). <br/> Especifica el porcentaje de solicitudes que se registrarán en Azure Application Insights. Un muestreo del 0 % significa que no se registrará ninguna solicitud, mientras que un muestreo del 100 % se traduce en que se registrarán todas las solicitudes. <br/> Este valor se usa para reducir las consecuencias que tiene en el rendimiento registrar solicitudes en Azure Application Insights (consulte la sección siguiente). |
+| Destination                         | Registrador de Azure Application Insights | Especifica el registrador de Azure Application Insights que se usará                                                                                                                                                                                                                                                                                           |
+| Sampling (%) [Muestreo (%)]                        | Decimal                           | Valores de 0 a 100 (porcentaje). <br/> Especifica el porcentaje de solicitudes que se registrarán en Azure Application Insights. Un muestreo del 0 % significa que no se registrará ninguna solicitud, mientras que un muestreo del 100 % se traduce en que se registrarán todas las solicitudes. <br/> Este valor se usa para reducir las consecuencias que tiene en el rendimiento registrar solicitudes en Azure Application Insights (consulte la sección siguiente). |
 | Always log errors (Registrar errores siempre)                   | boolean                           | Si se selecciona esta opción, se registrarán todos los errores en Azure Application Insights, independientemente del valor de **Sampling**.                                                                                                                                                                                                                  |
 | Opciones básicas: encabezados              | list                              | Especifica los encabezados que se registrarán en Azure Application Insights para las solicitudes y las respuestas.  Predeterminado: no se registra ningún encabezado.                                                                                                                                                                                                             |
 | Opciones básicas: Primeros bytes del cuerpo  | integer                           | Especifica cuántos primeros bytes del cuerpo se registrarán en Azure Application Insights para las solicitudes y las respuestas.  Predeterminado: el cuerpo no se registra.                                                                                                                                                                                                    |

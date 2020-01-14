@@ -1,5 +1,6 @@
 ---
-title: Implementación de la recuperación ante desastres mediante copias de seguridad y restauración en Azure API Management | Microsoft Docs
+title: Implementación de la recuperación ante desastres mediante copias de seguridad y restauración en API Management
+titleSuffix: Azure API Management
 description: Obtenga información acerca de cómo usar las tareas de copias de seguridad y restauración para llevar a cabo la recuperación ante desastres en Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 9c97723687484e8af82d63b6fb4999401a69fb2c
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: fccb9dfe88d39849fb87bdce4b81ac9ee22fada5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958531"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430696"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -54,7 +55,7 @@ Todas las tareas que se realizan en los recursos mediante Azure Resource Manager
 
 ### <a name="create-an-azure-active-directory-application"></a>Creación de una aplicación de Azure Active Directory
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Mediante la suscripción que contiene la instancia del servicio API Management, vaya a la pestaña **Registros de aplicaciones** de **Azure Active Directory** (Azure Active Directory > Administrar/Registros de aplicaciones).
 
     > [!NOTE]
@@ -67,7 +68,7 @@ Todas las tareas que se realizan en los recursos mediante Azure Resource Manager
 4. Escriba un nombre para la aplicación.
 5. En el tipo de aplicación, seleccione **Nativa**.
 6. Escriba una dirección URL de marcador de posición como `http://resources` para el **URI de redireccionamiento**, ya que es un campo obligatorio, pero el valor no se utiliza más adelante. Haga clic en la casilla para guardar la aplicación.
-7. Haga clic en **Create**(Crear).
+7. Haga clic en **Crear**.
 
 ### <a name="add-an-application"></a>Adición de una aplicación
 
@@ -124,7 +125,7 @@ Reemplace `{tenant id}`, `{application id}` y `{redirect uri}` mediante las sigu
 
     Una vez especificados los valores, el ejemplo de código debe devolver un token similar al ejemplo siguiente:
 
-    ![Se necesita el cifrado de tokens][api-management-arm-token]
+    ![Token][api-management-arm-token]
 
     > [!NOTE]
     > El token puede expirar tras un período determinado. Vuelva a ejecutar el ejemplo de código para generar un token nuevo.
@@ -139,7 +140,7 @@ Antes de llamar a las operaciones de "copia de seguridad y restauración" descri
 request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ```
 
-### <a name="step1"></a>Crear una copia de seguridad del servicio API Management
+### <a name="step1"> </a>Crear una copia de seguridad del servicio API Management
 
 Para crear una copia de seguridad del servicio API Management, emita esta solicitud HTTP:
 
@@ -180,7 +181,7 @@ Tenga en cuenta las siguientes restricciones al realizar una solicitud de copia 
 -   Es posible que los **cambios** que se realicen en la configuración del servicio (por ejemplo, las API, las directivas y la apariencia del portal para desarrolladores) mientras se está realizando la operación de copia de seguridad **no se incluyan en la copia de seguridad y se pierdan**.
 -   **Permita** el acceso desde el plano de control a la cuenta de Azure Storage. El cliente debe abrir el siguiente conjunto de direcciones IP de entrada en la cuenta de almacenamiento para la copia de seguridad. 
     > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
-### <a name="step2"></a>Restaurar el servicio Administración de API
+### <a name="step2"> </a>Restaurar el servicio API Management
 
 Para restaurar el servicio API Management de una copia de seguridad anterior, realice esta solicitud HTTP:
 

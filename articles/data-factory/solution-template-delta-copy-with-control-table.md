@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 4c72bd37a636ec31c13737705c22aaa895b9ad72
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3c077e2c04cae94d2e1a2a84ccd7d09c7a0829b4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928207"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439695"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Copia diferencial desde una base de datos con una tabla de control
 
@@ -38,10 +38,13 @@ La plantilla contiene cuatro actividades:
 - **Copia** copia solo los cambios de la base de datos de origen en el almacén de destino. La consulta que identifica los cambios de la base de datos de origen es similar a 'SELECT * FROM Data_Source_Table WHERE TIMESTAMP_Column > “last high-watermark” and TIMESTAMP_Column <= “current high-watermark”'.
 - **SqlServerStoredProcedure** escribe el valor de límite máximo actual en una tabla de control externa para la copia diferencial de la próxima vez.
 
-La plantilla define cinco parámetros:
+La plantilla define los parámetros siguientes:
 - *Data_Source_Table_Name* es la tabla de la base de datos de origen de donde desea cargar los datos.
 - *Data_Source_WaterMarkColumn* es el nombre de columna en la tabla de origen que se usa para identificar las filas nuevas o actualizadas. El tipo de esta columna suele ser *datetime*, *INT* o similar.
-- *Data_Destination_Folder_Path* o *Data_Destination_Table_Name* es el lugar donde los datos se copian en el almacén de destino.
+- *Data_Destination_Container* es la ruta de acceso raíz del lugar donde los datos se copian en el almacén de destino.
+- *Data_Destination_Directory* es la ruta de acceso del directorio en la raíz del lugar donde los datos se copian en el almacén de destino.
+- *Data_Destination_Table_Name* es el lugar en el que se copian los datos en el almacén de destino (aplicable cuando se selecciona "Azure Synapse Analytics (anteriormente, SQL DW)" como destino de los datos).
+- *Data_Destination_Folder_Path* es el lugar en el que se copian los datos en el almacén de destino (aplicable cuando se selecciona "Sistema de archivos" o "Azure Data Lake Storage Gen1" como destino de los datos).
 - *Control_Table_Table_Name* es la tabla de control externa que almacena el valor de límite máximo.
 - *Control_Table_Column_Name* es la columna en la tabla de control externa que almacena el valor de límite máximo.
 
@@ -100,20 +103,18 @@ La plantilla define cinco parámetros:
     ![Creación de una nueva conexión al almacén de datos de la tabla de control](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
 7. Seleccione **Usar esta plantilla**.
-
-     ![Uso de esta plantilla](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
     
 8. Verá la canalización disponible, como se muestra en el ejemplo siguiente:
+  
+    ![Revisión de la canalización](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-     ![Revisión de la canalización](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
+9. Seleccione **Procedimiento almacenado**. En **Nombre del procedimiento almacenado**, elija **[dbo].[update_watermark]** . Seleccione **Importar parámetro** y, a continuación, seleccione **Agregar contenido dinámico**.  
 
-9. Seleccione **Procedimiento almacenado**. En **Nombre del procedimiento almacenado**, elija **[update_watermark]** . Seleccione **Importar parámetro** y, a continuación, seleccione **Agregar contenido dinámico**.  
-
-     ![Establecimiento de la actividad de procedimiento almacenado](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png) 
+    ![Establecimiento de la actividad de procedimiento almacenado](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
 
 10. Escriba el contenido **\@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}** y, a continuación, seleccione **Finalizar**.  
 
-     ![Escritura del contenido para los parámetros del procedimiento almacenado](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)      
+    ![Escritura del contenido para los parámetros del procedimiento almacenado](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
      
 11. Seleccione **Depurar**, escriba los **parámetros** y, a continuación, seleccione **Finalizar**.
 
@@ -132,13 +133,12 @@ La plantilla define cinco parámetros:
             INSERT INTO data_source_table
             VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
     ```
+
 14. Para volver a ejecutar la canalización, seleccione **Depurar**, escriba los **parámetros** y, a continuación, seleccione **Finalizar**.
 
-    ![Selección de **Depurar**](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+    Verá que solo se copiaron en el destino las filas nuevas.
 
-    Verá que solo las filas nuevas se copiaron en el destino.
-
-15. (Opcional): Si seleccionó SQL Data Warehouse como destino de datos, también debe proporcionar una conexión a una instancia de Azure Blob Storage como almacenamiento provisional, porque así lo requiere SQL Data Warehouse Polybase. Asegúrese de que ya ha creado el contenedor en Blob Storage.
+15. (Opcional): Si selecciona Azure Synapse Analytics (antes, SQL DW) como destino de datos, también debe proporcionar una conexión a una instancia de Azure Blob Storage como almacenamiento provisional, porque así lo requiere SQL Data Warehouse Polybase. La plantilla generará una ruta de acceso del contenedor automáticamente. Después de la ejecución de la canalización, compruebe si el contenedor se ha creado en Blob Storage.
     
     ![Configuración de PolyBase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     

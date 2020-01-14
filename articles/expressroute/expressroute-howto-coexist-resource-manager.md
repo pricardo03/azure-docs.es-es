@@ -5,15 +5,15 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 12/11/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 0628de7c436836a8fdb5b00cac1d8e85963ba48e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a1dc089e1b64ed8d71db4c09405c8cc9a07d8bea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423585"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436972"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configuración de conexiones ExpressRoute y de sitio a sitio coexistentes con PowerShell
 > [!div class="op_single_selector"]
@@ -41,6 +41,7 @@ En este artículo, se explican los pasos para configurar ambos escenarios. Este 
 * **Solo se admite la VPN Gateway basada en rutas.** Debe usar una [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) basada en rutas. También puede usar una VPN Gateway basada en rutas con una conexión VPN configurada para "selectores de tráfico basados en directivas", tal y como se describe en [Conexión a varios dispositivos VPN basados en directivas](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 * **Se debe configurar una ruta estática para VPN Gateway.** Si la red local está conectada tanto a ExpressRoute como a una VPN de sitio a sitio, debe tener configurada una ruta estática en la red local para enrutar la conexión VPN de sitio a sitio a la red pública de Internet.
 * **VPN Gateway se configura de manera predeterminada en ASN 65515 si no se especifica.** Azure VPN Gateway admite el protocolo de enrutamiento de BGP. Para especificar el ASN (número AS) de la red virtual, agregue el modificador - Asn. Si no se especifica este parámetro, el número AS predeterminado es 65515. Puede usar cualquier ASN para la configuración, pero si selecciona un valor distinto de 65515, debe restablecer la puerta de enlace para que la configuración surta efecto.
+* **La subred de la puerta de enlace debe ser /27 o un prefijo más corto**, (como /26, /25). De lo contrario, recibirá un mensaje de error al agregar la puerta de enlace de red virtual de ExpressRoute.
 
 ## <a name="configuration-designs"></a>Diseños de configuración
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Configuración de una VPN de sitio a sitio como una ruta de acceso de conmutación por error para ExpressRoute

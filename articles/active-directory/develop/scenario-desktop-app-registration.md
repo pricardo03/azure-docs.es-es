@@ -1,5 +1,5 @@
 ---
-title: 'Registro de una aplicación de escritorio que llama a las API web: Plataforma de identidad de Microsoft | Azure'
+title: 'Registro de aplicaciones de escritorio que llaman a las API web: Plataforma de identidad de Microsoft | Azure'
 description: Obtenga información sobre cómo compilar una aplicación de escritorio que llame a las API web (registro de la aplicación).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94f7f2dfdbf404a092773857a0f7727618cd429a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: dabc96ef669f0c0c61a7bca4a16828294cf404df
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965541"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423855"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>Aplicación de escritorio que llama a las API web: registro de la aplicación
 

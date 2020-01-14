@@ -1,18 +1,18 @@
 ---
-title: 'Detección inteligente: Security Detection Pack con Azure Application Insights | Microsoft Docs'
-description: Supervise las aplicaciones con Azure Application Insights para detectar posibles problemas de seguridad.
+title: Security Detection Pack con Azure Application Insights
+description: Supervise las aplicaciones con Azure Application Insights y Detección inteligente para detectar posibles problemas de seguridad.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
-ms.openlocfilehash: 10c8a38af9e4f04b874bfa75e9e78d241b093117
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: ba35b3a3e1985f49ade468c4d2e82ca579fdac2a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820652"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432470"
 ---
 # <a name="application-security-detection-pack-preview"></a>Application Security Detection Pack (versión preliminar)
 
@@ -30,16 +30,16 @@ Se detectan tres tipos de problemas de seguridad:
 No, una notificación no significa que la aplicación tenga un problema de seguridad. En muchos casos, una detección de cualquiera de los escenarios anteriores puede indicar un problema de seguridad. Sin embargo, la detección puede tener una justificación comercial natural y se puede omitir.
 
 ## <a name="how-do-i-fix-the-insecure-url-access-detection"></a>¿Cómo se soluciona una detección de "Acceso a direcciones URL no seguro"?
-1. **Evaluación de errores.** La notificación proporciona el número de usuarios que accedieron a direcciones URL no seguras y la dirección URL más afecta por acceso no seguro. Esto puede ayudarlo a asignar una prioridad al problema.
+1. **Evaluación de prioridades**. La notificación proporciona el número de usuarios que accedieron a direcciones URL no seguras y la dirección URL más afecta por acceso no seguro. Esto puede ayudarlo a asignar una prioridad al problema.
 2. **Ámbito.** ¿Qué porcentaje de usuarios obtienen acceso a direcciones URL no seguras? ¿Cuántas direcciones URL se vieron afectadas? Esta información puede obtenerse de la notificación.
 3. **Diagnóstico.** La detección proporciona la lista de solicitudes no seguras y la lista de direcciones URL y usuarios que se vieron afectados, para ayudar a efectuar un diagnóstico exhaustivo del problema.
 
 ## <a name="how-do-i-fix-the-insecure-form-detection"></a>¿Cómo se soluciona la detección "Formulario no seguro"?
-1. **Evaluación de errores.** La notificación informa del número de formularios no seguros y del número de usuarios cuyos datos estuvieron potencialmente en peligro. Esto puede ayudarlo a asignar una prioridad al problema.
+1. **Evaluación de prioridades**. La notificación informa del número de formularios no seguros y del número de usuarios cuyos datos estuvieron potencialmente en peligro. Esto puede ayudarlo a asignar una prioridad al problema.
 2. **Ámbito.** ¿Qué formulario estuvo implicado en el mayor número de transmisiones no seguras y cuál es la distribución de las transmisiones no seguras a lo largo del tiempo? Esta información puede obtenerse de la notificación.
 3. **Diagnóstico.** La detección proporciona la lista de formularios no seguros y desglosa el número de transmisiones no seguras de cada formulario, para ayudar a efectuar un diagnóstico exhaustivo del problema.
 
 ## <a name="how-do-i-fix-the-suspicious-user-activity-detection"></a>¿Cómo se soluciona la detección "Actividad del usuario sospechosa"?
-1. **Evaluación de errores.** La notificación proporciona el número de los diferentes usuarios que exhibieron este comportamiento sospechoso. Esto puede ayudarlo a asignar una prioridad al problema.
+1. **Evaluación de prioridades**. La notificación proporciona el número de los diferentes usuarios que exhibieron este comportamiento sospechoso. Esto puede ayudarlo a asignar una prioridad al problema.
 2. **Ámbito.** ¿Desde qué países o regiones se originó la solicitud sospechosa? ¿Qué usuario era más sospechoso? Esta información puede obtenerse de la notificación.
 3. **Diagnóstico.** La detección proporciona la lista de usuarios sospechosos y la lista de países o regiones para cada usuario, para ayudarle a efectuar un diagnóstico exhaustivo del problema.

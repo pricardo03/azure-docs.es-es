@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: c5c7883295a30aa217e722abd905f54b982761d3
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: d57f1e87c503a86a522fdb3004b021fbcb5c6ff1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547554"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351396"
 ---
 # <a name="vcore-model-overview"></a>Introducción al modelo de núcleos virtuales
 
@@ -131,6 +131,52 @@ En el caso de una base de datos, en la página de información general, seleccio
 En la página de información general, seleccione **Configurar**.
 
 Siga los pasos para cambiar la configuración y seleccione la generación de hardware como se describe en los pasos anteriores.
+
+**Selección de una generación de hardware al crear una instancia administrada**
+
+Para obtener información detallada, consulte [Creación de una instancia administrada](sql-database-managed-instance-get-started.md).
+
+En la pestaña **Aspectos básicos**, seleccione el vínculo **Configurar base de datos** en la sección **Compute + storage** (Proceso y almacenamiento) y, a continuación, seleccione la generación de hardware deseada:
+
+  ![Configurar la instancia administrada](media/sql-database-service-tiers-vcore/configure-managed-instance.png)
+  
+**Cambio de la generación de hardware de una instancia administrada existente**
+
+Use el siguiente script de PowerShell:
+
+```powershell-interactive
+$subscriptionId = "**************"
+Select-AzSubscription -Subscription $subscriptionId
+
+$instanceName = "********"
+$resourceGroup = "****"
+
+# THIS IS IMPORTANT PARAMETER:
+$sku = @{name = "GP_Gen5" }
+
+# NOTE: These properties are not necessary, but it would be good to set them to the current values:
+# You might want to change vCores or storage with hardware generation
+# $admin_login = "******"
+# $admin_pass = "******"
+# $location = "***** # for example: ""northeurope"
+# $vCores = 8
+# $maxStorage = 1024
+# $license = "BasePrice"
+# $subnetId = "/subscriptions/****/subnets/*******"
+
+## NOTE: Uncomment some of the properties below if you have set them.
+$properties = New-Object System.Object
+# $properties | Add-Member -type NoteProperty -name subnetId -Value $subnetId
+# $properties | Add-Member -type NoteProperty -name administratorLogin -Value $admin_login
+# $properties | Add-Member -type NoteProperty -name administratorLoginPassword -Value $admin_pass
+# $properties | Add-Member -type NoteProperty -name vCores -Value $vCores
+# $properties | Add-Member -type NoteProperty -name storageSizeInGB -Value $maxStorage
+# $properties | Add-Member -type NoteProperty -name licenseType -Value $license
+
+Set-AzResource -Properties $properties -ResourceName $instanceName -ResourceType "Microsoft.SQL/managedInstances" -Sku $sku -ResourceGroupName $resourceGroup -Force -ApiVersion "2015-05-01-preview"
+```
+
+Asegúrese de escribir el identificador de la suscripción, el nombre y el grupo de recursos de la instancia administrada.
 
 ### <a name="hardware-availability"></a>Disponibilidad de hardware
 

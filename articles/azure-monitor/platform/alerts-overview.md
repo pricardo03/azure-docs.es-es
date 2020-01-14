@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: b655181f41aeda71364edd061b7c81db23e59990
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 26516b99f3ffd9a16a24a4d5d1906ed781a8034a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951146"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396517"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Información general sobre las alertas en Microsoft Azure 
 
@@ -79,7 +79,7 @@ Puede establecer el estado de una alerta para especificar dónde se encuentra en
 
 Se admiten los siguientes estados de alerta.
 
-| State | DESCRIPCIÓN |
+| State | Descripción |
 |:---|:---|
 | Nuevo | Se acaba de detectar el problema y todavía no se ha revisado. |
 | Confirmado | Un administrador revisó la alerta y empezó a trabajar en ella. |
@@ -106,15 +106,15 @@ No muestra ni realiza un seguimiento de las alertas clásicas. Puede cambiar las
 
 Para filtrar esta vista, seleccione los valores en los menús desplegables que aparecen en la parte superior de la página.
 
-| Columna | DESCRIPCIÓN |
+| Columna | Descripción |
 |:---|:---|
 | Subscription | Seleccione las suscripciones a Azure de las que quiere ver las alertas. Si lo desea, puede seleccionar todas las suscripciones. Solo las alertas a las que tiene acceso de las suscripciones seleccionadas se incluyen en la vista. |
 | Resource group | Seleccione un solo grupo de recursos. Solo las alertas con destinos en el grupo de recursos seleccionado se incluyen en la vista. |
-| Intervalo de tiempo | Solo las alertas activadas dentro del intervalo de tiempo seleccionado se incluyen en la vista. Los valores compatibles son Última hora, Últimas 24 horas, Últimos 7 días y Últimos 30 días. |
+| Intervalo de horas | Solo las alertas activadas dentro del intervalo de tiempo seleccionado se incluyen en la vista. Los valores compatibles son Última hora, Últimas 24 horas, Últimos 7 días y Últimos 30 días. |
 
 Seleccione los valores siguientes en la parte superior de la página de alertas para abrir otra página:
 
-| Valor | DESCRIPCIÓN |
+| Value | Descripción |
 |:---|:---|
 | Total de alertas | Número total de las alertas que coinciden con los criterios seleccionados. Seleccione este valor para abrir sin ningún filtro la vista Todas las alertas. |
 | Grupos inteligentes | Número total de grupos inteligentes creados a partir de las alertas que coinciden con los criterios seleccionados. Seleccione este valor para abrir la lista de grupos inteligentes en la vista Todas las alertas.
@@ -149,7 +149,7 @@ Haga clic en **Total de alertas** para ver la página de **todas las alertas**. 
 
 Para filtrar la vista, seleccione los valores siguientes en los menús desplegables que aparecen en la parte superior de la página:
 
-| Columna | DESCRIPCIÓN |
+| Columna | Descripción |
 |:---|:---|
 | Subscription | Seleccione las suscripciones a Azure de las que quiere ver las alertas. Si lo desea, puede seleccionar todas las suscripciones. Solo las alertas a las que tiene acceso de las suscripciones seleccionadas se incluyen en la vista. |
 | Resource group | Seleccione un solo grupo de recursos. Solo las alertas con destinos en el grupo de recursos seleccionado se incluyen en la vista. |
@@ -159,7 +159,7 @@ Para filtrar la vista, seleccione los valores siguientes en los menús desplegab
 | Condición de supervisión | Seleccione una condición de supervisión o seleccione **Todo** para incluir alertas de todas las condiciones. |
 | Estado de alerta | Seleccione un estado de alerta o seleccione **Todo** para incluir alertas de todos los estados. |
 | Servicio de supervisión | Seleccione un servicio o seleccione **Todo** para incluir todos los servicios. Solo se incluyen las alertas que se crean mediante las reglas que usan ese servicio como destino. |
-| Intervalo de tiempo | Solo las alertas activadas dentro del intervalo de tiempo seleccionado se incluyen en la vista. Los valores compatibles son Última hora, Últimas 24 horas, Últimos 7 días y Últimos 30 días. |
+| Intervalo de horas | Solo las alertas activadas dentro del intervalo de tiempo seleccionado se incluyen en la vista. Los valores compatibles son Última hora, Últimas 24 horas, Últimos 7 días y Últimos 30 días. |
 
 Seleccione **Columnas** en la parte superior de la página para seleccionar las columnas que quiere mostrar. 
 
@@ -170,7 +170,7 @@ Cuando seleccione una alerta, esta página le proporcionará detalles de la aler
 
 La página de detalles de alertas incluye las secciones siguientes:
 
-| Sección | DESCRIPCIÓN |
+| Sección | Descripción |
 |:---|:---|
 | Resumen | Muestra las propiedades y otra información importante sobre la alerta. |
 | Historial | Muestra cada acción que realiza la alerta y los cambios hechos en la alerta. Actualmente se limita a cambios de estado. |
@@ -184,23 +184,23 @@ El consumo y la administración de instancias de alertas requiere que el usuario
 
 Es posible que quiera consultar mediante programación las alertas generadas en la suscripción. Esto podría llevarse a cabo para crear vistas personalizadas fuera de Azure Portal, o bien para analizar las alertas a fin de identificar patrones y tendencias.
 
-Puede consultar las alertas generadas en sus suscripciones, ya sea mediante la [API REST de Alert Management](https://aka.ms/alert-management-api) o la [API REST de Azure Resource Graph para alertas](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources).
+Puede consultar las alertas generadas en sus suscripciones, ya sea mediante la [API de REST de Alert Management](https://aka.ms/alert-management-api), [Azure Resource Graph](../../governance/resource-graph/overview.md) o la [API de REST de Recursos](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources).
 
-La [API REST de Azure Resource Graph para alertas](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) permite consultar instancias de alertas a escala. Esto se recomienda cuando tiene que administrar las alertas generadas en muchas suscripciones. 
+La API de REST de Resource Graph para Recursos permite consultar instancias de alertas a escala. Esto se recomienda cuando tiene que administrar las alertas generadas en muchas suscripciones. 
 
-La siguiente solicitud a la API de ejemplo devuelve el recuento de alertas de una suscripción:
+La siguiente solicitud de ejemplo a la API de REST de Resource Graph devuelve el recuento de alertas de una suscripción:
 
 ```json
 {
   "subscriptions": [
     <subscriptionId>
   ],
-  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
-  "options": {
-            "dataset":"alerts"
-  }
+  "query": "AlertsManagementResources | where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()"
 }
 ```
+
+También puede ver el resultado de esta consulta de Resource Graph en el portal con el explorador de Azure Resource Graph: [portal.azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AlertsManagementResources%20%7C%20where%20type%20%3D~%20%27Microsoft.AlertsManagement%2Falerts%27%20%7C%20summarize%20count()).
+
 Las alertas se pueden consultar para sus campos [básicos](alerts-common-schema-definitions.md#essentials).
 
 Puede usar la [API de REST de Alert Management](https://aka.ms/alert-management-api) para obtener más información sobre alertas específicas, incluidos los campos [contexto de alerta](alerts-common-schema-definitions.md#alert-context) correspondientes.

@@ -1,6 +1,6 @@
 ---
-title: Conversión de una plantilla de conjunto de escalado de Azure Resource Manager para usar un disco administrado | Microsoft Docs
-description: Conversión de una plantilla de conjunto de escalado en una plantilla de conjunto de escalado de un disco administrado.
+title: Conversión de una plantilla de conjunto de escalado para que use un disco administrado
+description: Convierta una plantilla de conjunto de escalado de máquinas virtuales de Azure Resource Manager en una plantilla de conjunto de escalado de discos administrados.
 keywords: conjuntos de escalado de máquinas virtuales
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: manayar
-ms.openlocfilehash: b2d1738b85799079b3af7ab39c5cb1799a38d382
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6419da8e87ac32e763e3e796bb49daa562d68030
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731744"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359620"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Conversión de una plantilla de conjunto de escalado en una plantilla de conjunto de escalado de un disco administrado
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 90084864f9a93117a0f94dc1d36e6119e88ee335
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bb77182489e08795e5eb482740eed6c67d2f1627
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682942"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438942"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Compilación de la primera canalización para transformar datos mediante el clúster de Hadoop
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "73682942"
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
 > [!NOTE]
@@ -76,12 +76,12 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 
 De las líneas de ejemplo mostradas anteriormente, la primera de ellas (con 2016-01-01) se escribirá en el archivo 000000_0 en la carpeta month=1. De igual manera, la segunda se escribirá en el archivo de la carpeta month=2 y la tercera en el archivo de la carpeta month=3.  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
 1. **Suscripción de Azure** : si no tiene ninguna, puede crear una cuenta de evaluación gratuita en un par de minutos. Consulte el artículo [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) sobre cómo puede obtener una cuenta de evaluación gratuita.
-2. **Azure Storage** : para almacenar los datos de este tutorial usará una cuenta de Azure Storage. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md) . Después de haber creado la cuenta de almacenamiento, anote el **nombre de la cuenta** y la **clave de acceso**. Consulte [Visualización y copia de las claves de acceso de almacenamiento](../../storage/common/storage-account-manage.md#access-keys).
-3. Descargue y revise el archivo de consulta de Hive (**HQL**) ubicado en: [ https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql ](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Esta consulta transforma los datos de entrada para generar datos de salida. 
+2. **Azure Storage** : para almacenar los datos de este tutorial usará una cuenta de Azure Storage. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md) . Después de haber creado la cuenta de almacenamiento, anote el **nombre de la cuenta** y la **clave de acceso**. Para obtener más información sobre cómo recuperar las claves de acceso de las cuentas de almacenamiento, vea [Administración de claves de acceso de cuentas de almacenamiento](../../storage/common/storage-account-keys-manage.md).
+3. Descargue y revise el archivo de consulta de Hive (**HQL**) ubicado en: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Esta consulta transforma los datos de entrada para generar datos de salida. 
 4. Descargue y revise el archivo de entrada de ejemplo (**input.log**) ubicado en: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Crear un contenedor de blobs denominado **adfgetstarted** en Azure Blob Storage. 
 6. Cargue el archivo **partitionweblogs.hql** en la carpeta **script** del contenedor **adfgetstarted**. Use herramientas como el [Explorador de Microsoft Azure Storage](https://storageexplorer.com/). 
@@ -92,7 +92,7 @@ Una vez que se cumplan los requisitos previos, seleccione uno de los siguientes 
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-- [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 Visual Studio proporciona una forma de generar factorías de datos mediante GUI. Mientras que las opciones de PowerShell, la plantilla de Resource Manager y la API de REST proporcionan una forma de generar factorías de datos mediante scripts/programación.
 

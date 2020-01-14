@@ -8,20 +8,20 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3477bac051346e4b334ff3437085c402090b2c98
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 6143f50b9f1f6738daf3e69d4cc0e00742e1e35a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765468"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356351"
 ---
 # <a name="coarse-relocalization"></a>Relocalización general
 
 La relocalización general es una característica que proporciona una respuesta inicial a la pregunta: *¿Dónde está mi dispositivo ahora/qué contenido debo observar?* La respuesta no es precisa, pero tiene el formato: *Está cerca de estos delimitadores, intente localizar uno de ellos*.
 
-La relocalización general funciona al asociar varias lecturas de sensores en el dispositivo con la creación y la consulta de los delimitadores. En el caso de los escenarios exteriores, los datos del sensor suelen ser la posición GPS (sistema de posición global) del dispositivo. Cuando el GPS no está disponible o no es confiable (por ejemplo, en interiores), los datos del sensor están en los puntos de acceso WiFi y las balizas Bluetooth al alcance. Todos los datos del sensor recopilados contribuyen a mantener un índice espacial. El servicio delimitador aprovecha el índice espacial para determinar rápidamente los delimitadores que se encuentran a aproximadamente 100 metros de su dispositivo.
+La relocalización general funciona al asociar varias lecturas de sensores en el dispositivo con la creación y la consulta de los delimitadores. En el caso de los escenarios exteriores, los datos del sensor suelen ser la posición GPS (sistema de posición global) del dispositivo. Cuando el GPS no está disponible o no es confiable (por ejemplo, en interiores), los datos del sensor están formados por los puntos de acceso Wi-Fi y las balizas Bluetooth al alcance. Todos los datos recopilados del sensor contribuyen al mantenimiento de un índice espacial que Azure Spatial Anchors usa para determinar rápidamente los delimitadores que se encuentran a una distancia máxima de unos 100 metros del dispositivo.
 
-La búsqueda rápida de los delimitadores habilitados por la relocalización general simplifica el desarrollo de aplicaciones respaldadas por colecciones a escala mundial de, por ejemplo, millones de delimitadores distribuidos geográficamente. La complejidad de la administración de delimitadores está oculta, lo que le permite concentrarse más en la increíble lógica de su aplicación. El servicio se encarga de que todo el trabajo pesado de delimitador se realice en segundo plano.
+La búsqueda rápida de los delimitadores habilitados por la relocalización general simplifica el desarrollo de aplicaciones respaldadas por colecciones a escala mundial de, por ejemplo, millones de delimitadores distribuidos geográficamente. La complejidad de la administración de delimitadores está oculta, lo que le permite concentrarse más en la increíble lógica de su aplicación. Azure Spatial Anchors se encarga de que todo el trabajo pesado de delimitador se realice en segundo plano.
 
 ## <a name="collected-sensor-data"></a>Datos del sensor recopilados
 
@@ -118,7 +118,7 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 ```
 ---
 
-A continuación, deberá decidir qué sensores desea usar para la relocalización general. Esta decisión es, en general, específica de la aplicación que está desarrollando, pero las recomendaciones de la tabla siguiente deben proporcionarle un buen punto de partida:
+A continuación, deberá decidir qué sensores desea usar para la relocalización general. Esta decisión es específica de la aplicación que está desarrollando, pero las recomendaciones de la tabla siguiente deben proporcionarle un buen punto de partida:
 
 
 |             | Interiores | Exteriores |
@@ -182,8 +182,9 @@ Al usar el GPS en la aplicación, tenga en cuenta que las lecturas proporcionada
 
 En general, tanto el sistema operativo del dispositivo como los Spatial Anchors de Azure realizarán algún filtrado y extrapolación en la señal GPS sin procesar en un intento de mitigar estos problemas. Este procesamiento adicional requiere un tiempo adicional para la convergencia, por lo que para obtener mejores resultados debe intentar:
 
-* cree el proveedor de huellas digitales del sensor lo antes posible en su aplicación
-* mantenga el proveedor de huellas dactilares activo y compartido entre varias sesiones
+* Crear el proveedor de huellas digitales del sensor lo antes posible en su aplicación.
+* Mantener el proveedor de huellas digitales del sensor activo entre varias sesiones.
+* Compartir el proveedor de huellas digitales del sensor entre varias sesiones.
 
 Si tiene previsto usar el proveedor de huellas digitales del sensor fuera de una sesión de delimitador, asegúrese de iniciarlo antes de solicitar las estimaciones del sensor. Por ejemplo, el código siguiente se encargará de actualizar la posición del dispositivo en el mapa en tiempo real:
 
@@ -418,7 +419,7 @@ sensors.BluetoothEnabled(true);
 
 ---
 
-Las balizas suelen ser dispositivos versátiles en los que se puede configurar todo, incluidos los UUID y las direcciones MAC. Esta flexibilidad puede ser problemática para los Spatial Anchors de Azure que consideran que las balizas se identifican de forma única por su UUID. Si no se garantiza esta singularidad, lo más probable es que se traduzca en agujeros de gusano espaciales. Para obtener mejores resultados, debe intentar:
+Las balizas suelen ser dispositivos versátiles en los que se puede configurar todo, incluidos los UUID y las direcciones MAC. Esta flexibilidad puede ser problemática para Azure Spatial Anchors, que considera que las balizas se identifican de forma única por sus UUID. Si no se garantiza esta singularidad, lo más probable es que se produzcan agujeros de gusano espaciales. Para obtener mejores resultados, debe intentar:
 
 * Asignar UUID únicos a las balizas.
 * implementarlos, normalmente en un patrón normal, como una cuadrícula.
@@ -490,13 +491,13 @@ sensors.KnownBeaconProximityUuids(uuids);
 
 ---
 
-Los Spatial Anchors de Azure solo realizarán un seguimiento de las balizas Bluetooth que se encuentran en la lista. Las balizas maliciosas programadas para tener UUID en la lista de permitidos aún pueden afectar negativamente a la calidad del servicio. Por ese motivo, solo debe usar balizas en espacios seleccionados en los que pueda controlar su implementación.
+Azure Spatial Anchors solo realizará un seguimiento de las balizas Bluetooth que se encuentran en la lista de UUID conocidos de proximidad de las balizas. Las balizas maliciosas programadas para tener UUID en la lista de permitidos aún pueden afectar negativamente a la calidad del servicio. Por ese motivo, solo debe usar balizas en espacios seleccionados en los que pueda controlar su implementación.
 
 ## <a name="querying-with-sensor-data"></a>Consulta con datos de sensor
 
-Una vez que haya creado los delimitadores con los datos del sensor asociados, puede empezar a recuperarlos con las lecturas del sensor que el dispositivo ha proporcionado. Ya no es necesario proporcionar el servicio con una lista de los anclajes conocidos que espera encontrar; en su lugar, simplemente deje que el servicio conozca la ubicación del dispositivo, tal y como lo notifican los sensores incorporados. Después, el servicio de Spatial Anchors descifrará el conjunto de delimitadores cerca del dispositivo e intentará hacerlo visualmente.
+Una vez que haya creado los delimitadores con los datos del sensor asociados, puede empezar a recuperarlos con las lecturas del sensor que el dispositivo ha proporcionado. Ya no es necesario proporcionar el servicio con una lista de los anclajes conocidos que espera encontrar; en su lugar, simplemente deje que el servicio conozca la ubicación del dispositivo, tal y como lo notifican los sensores incorporados. Después, Azure Spatial Anchors descifrará el conjunto de delimitadores cerca del dispositivo e intentará relacionarlos visualmente.
 
-Para que las consultas utilicen los datos del sensor, empiece por crear un criterio de búsqueda:
+Para que las consultas utilicen los datos del sensor, empiece por crear un criterio de proximidad de dispositivo:
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -593,7 +594,7 @@ anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 
 El parámetro `DistanceInMeters` controla hasta qué punto exploraremos el gráfico delimitador para recuperar el contenido. Supongamos, por ejemplo, que ha rellenado algún espacio con delimitadores a una densidad constante de 2 cada medidor. Además, la cámara del dispositivo está observando un solo delimitador y el servicio lo ha encontrado correctamente. Lo más probable es que esté interesado en recuperar todos los anclajes que haya colocado cerca en lugar del único delimitador que está observando actualmente. Suponiendo que los delimitadores que ha colocado están conectados en un gráfico, el servicio puede recuperar todos los delimitadores cercanos automáticamente siguiendo los bordes del gráfico. `DistanceInMeters` controla la cantidad de recorrido del gráfico realizado, se le darán todos los delimitadores conectados al que ha localizado, que están más cerca de `DistanceInMeters`.
 
-Tenga en cuenta que los valores grandes de `MaxResultCount` pueden afectar de manera negativa al rendimiento. Intente establecerlo en un valor razonable que tenga sentido para su aplicación.
+Tenga en cuenta que los valores grandes de `MaxResultCount` pueden afectar de manera negativa al rendimiento. Establézcalo en un valor razonable para su aplicación.
 
 Por último, debe indicar a la sesión que use la búsqueda basada en sensor:
 
@@ -661,7 +662,7 @@ En la tabla siguiente se resumen los datos de sensor recopilados en cada una de 
 |             | HoloLens | Android | iOS |
 |-------------|----------|---------|-----|
 | GPS         | N/D | Compatible con las API [LocationManager][3] (tanto GPS como NETWORK) | Compatible con las API [CLLocationManager][4] |
-| Wi-Fi        | Compatible con una frecuencia de aproximadamente un escaneo cada 3 segundos | Se admite. Comenzando con el nivel 28 de API, los escaneos WiFi se aceleran a 4 llamadas cada 2 minutos. Desde Android 10, la limitación se puede deshabilitar desde el menú de configuración del Desarrollador. Para más información, consulte la [documentación de Android][5]. | N/A: sin API pública |
+| Wi-Fi        | Compatible con una frecuencia de aproximadamente un escaneo cada 3 segundos | Compatible. Comenzando con el nivel 28 de API, los escaneos WiFi se aceleran a 4 llamadas cada 2 minutos. Desde Android 10, la limitación se puede deshabilitar desde el menú de configuración del Desarrollador. Para más información, consulte la [documentación de Android][5]. | N/A: sin API pública |
 | Las balizas de BLE | Limitado a [Eddystone][1] y [iBeacon][2] | Limitado a [Eddystone][1] y [iBeacon][2] | Limitado a [Eddystone][1] y [iBeacon][2] |
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 42378c4377057902937b718555489636bc5dcbaa
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 74375fdb5bf8d571cbdbc778c3c6e7b7b93f59ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900011"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368016"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Usar Graph API de Azure AD
 
@@ -30,10 +30,7 @@ Para los inquilinos de B2C, existen dos modos de comunicación principales con G
 
 En este artículo, aprenderá a realizar el caso de uso automatizado. Compilará un `B2CGraphClient` de .NET 4.5, que realiza operaciones de crear, leer, actualizar y eliminar. El cliente tendrá una interfaz de línea de comandos (CLI) de Windows que permite invocar diversos métodos. Sin embargo, el código se escribe para que se comporte de forma no interactiva y automatizada.
 
->[!IMPORTANT]
-> **Debe** utilizar [Graph API de Azure AD](../active-directory/develop/active-directory-graph-api-quickstart.md) para administrar los usuarios de un directorio de Azure AD B2C. Graph API de Azure AD es diferente de Microsoft Graph API. Encontrará más información en esta entrada de blog de MSDN: [Microsoft Graph o Azure AD Graph](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para poder crear aplicaciones o usuarios, necesita un inquilino de Azure AD B2C. Si todavía no tienen ninguno, [Cree un inquilino de Azure Active Directory B2C](tutorial-create-tenant.md).
 
@@ -63,8 +60,9 @@ El permiso *Leer y escribir datos de directorio* que concedió antes **NO** perm
 
 Si quiere que la aplicación pueda eliminar usuarios o actualizar contraseñas, debe concederle el rol *Administrador de usuarios*.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y cambie al directorio que contiene su inquilino de Azure AD B2C.
-1. Seleccione **Azure AD B2C** en el menú izquierdo. O bien, seleccione **Todos los servicios** y, luego, busque y seleccione **Azure AD B2C**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. En **Administrar**, seleccione **Roles y administradores**.
 1. Seleccione el rol **Administrador de usuarios**.
 1. Seleccione **Agregar asignación**.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 12/13/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27753d965949d3e677606111139a5d86ccf26dbf
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: c5191f05752c177aa29d121abe9d1aa29fde265a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382118"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430980"
 ---
 # <a name="how-to-investigate-risk"></a>Instrucciones: Investigación de riesgos
 
@@ -30,7 +30,7 @@ Los tres informes se encuentran en **Azure Portal** > **Azure Active Directory**
 
 ## <a name="navigating-the-reports"></a>Navegación por los informes
 
-Cada informe se inicia con una lista de todas las detecciones correspondientes al período mostrado en la parte superior del informe. Cada informe permite agregar o quitar columnas en función de la preferencia del administrador. Los administradores pueden elegir descargar los datos en formato .CSV. Los informes se pueden filtrar con los filtros de la parte superior del informe.
+Cada informe se inicia con una lista de todas las detecciones correspondientes al período mostrado en la parte superior del informe. Cada informe permite agregar o quitar columnas en función de la preferencia del administrador. Los administradores pueden elegir descargar los datos en formato CSV o JSON. Los informes se pueden filtrar con los filtros de la parte superior del informe.
 
 La selección de entradas individuales puede habilitar entradas adicionales en la parte superior del informe, como la capacidad de confirmar que un inicio de sesión es de riesgo o seguro, confirmar que un usuario está en peligro o descartar el riesgo del usuario.
 
@@ -44,7 +44,7 @@ Con la información que proporciona el informe de usuarios de riesgo, los admini
 
 - ¿Qué usuarios están en riesgo, lo han corregido o lo han descartado?
 - Detalles sobre las detecciones
-- Historial de inicios de sesión de riesgo
+- Historial de todos los inicios de sesión de riesgo
 - Historial de riesgos
  
 A continuación, los administradores pueden elegir tomar medidas en estos eventos. Los administradores pueden optar por:
@@ -92,4 +92,4 @@ Los administradores pueden elegir volver al informe de riesgo del usuario o de i
 
 - [Directivas disponibles para mitigar los riesgos](concept-identity-protection-policies.md)
 
-- [Habilitar directivas de riesgo de inicios de sesión y de usuarios](howto-identity-protection-configure-risk-policies.md)
+- [Habilitación de las directivas de riesgo de inicios de sesión y de usuarios](howto-identity-protection-configure-risk-policies.md)

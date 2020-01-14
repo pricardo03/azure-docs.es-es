@@ -1,7 +1,7 @@
 ---
 title: Aplicación de operación matemática
-titleSuffix: Azure Machine Learning service
-description: Aprenda a usar el módulo Aplicación de operación matemática en Azure Machine Learning Service para aplicar una operación matemática a los valores de columna de una canalización.
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar el módulo Aplicación de operación matemática en Azure Machine Learning para aplicar una operación matemática a los valores de columna de una canalización.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: a2f3665355cc2023aaf4b66c9207aaff4a3bc6db
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: af7431dd808a7d5eb106eff96a790eb876a20026
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493934"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428601"
 ---
 # <a name="apply-math-operation"></a>Aplicación de operación matemática
 
@@ -32,7 +32,7 @@ Después de definir una operación y ejecutar la canalización, los valores se a
 
 Busque la operación que necesita en estas categorías:  
 
-- [Básico](#basic-math-operations)  
+- [Basic](#basic-math-operations)  
   
      Las funciones de la categoría **Básicas** se pueden usar para manipular un solo valor o una columna de valores. Por ejemplo, puede obtener el valor absoluto de todos los números de una columna o calcular la raíz cuadrada de cada valor de una columna.  
   
@@ -266,7 +266,7 @@ Especifique las columnas de origen mediante **Column set** (Conjunto de columnas
 
 Para sumar los valores de dos columnas, elija una columna o columnas mediante **Column set** (Conjunto de columnas) y, a continuación, seleccione una segunda columna mediante **Second argument** (Segundo argumento).  
 
-### <a name="divide"></a>Dividir
+### <a name="divide"></a>Divide
 
 Divide los valores de **Column set** (Conjunto de columnas) entre una constante o entre los valores de columna definidos en **Second argument** (Segundo argumento).  En otras palabras, primero seleccionará el divisor y después el dividendo. El valor de salida es el cociente.
 
@@ -338,7 +338,7 @@ Trunca los valores de **Column set** (Conjunto de columnas) quitando todos los d
 
 Esta categoría incluye funciones matemáticas especializadas que se suelen usar en ciencia de datos. A menos que se indique lo contrario, la función es unaria y devuelve el cálculo especificado para cada valor de la columna o columnas seleccionadas.  
 
-### <a name="beta"></a>Versión beta
+### <a name="beta"></a>Beta
 
 Devuelve el valor de la función beta de Euler.  
 
@@ -590,4 +590,4 @@ También puede usar uno de los siguientes módulos para realizar todos los cálc
   
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

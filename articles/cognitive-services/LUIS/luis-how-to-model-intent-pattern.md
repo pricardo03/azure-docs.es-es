@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 4432aecee882ff2e312587baa543dd66c0372a78
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: eb3e473535c394818772ac949808023254087555
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968925"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448045"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Incorporación de patrones para mejorar la precisión de las predicciones
 Después de que una aplicación de LUIS reciba expresiones de punto de conexión, use un [patrón](luis-concept-patterns.md) para mejorar la precisión de las predicciones para las expresiones que revelan un patrón en el orden y la elección de las palabras. Los patrones utilizan [sintaxis](luis-concept-patterns.md#pattern-syntax) específica para indicar la ubicación de: [entidades](luis-concept-entity-types.md), [roles](luis-concept-roles.md) de entidad y texto opcional.
@@ -26,7 +26,27 @@ Después de que una aplicación de LUIS reciba expresiones de punto de conexión
 > [!CAUTION]
 > Los patrones solo incluyen elementos primarios de la entidad de aprendizaje automático, no los subcomponentes.
 
-## <a name="add-template-utterance-to-create-pattern"></a>Agregar expresiones de plantilla para crear el patrón
+## <a name="adding-example-utterances-as-pattern"></a>Agregar expresiones de ejemplo como patrón
+
+Si quiere agregar un patrón para una entidad, la forma _más sencilla_ es crear el patrón a partir de la página de detalles de la intención. Esto garantiza que la sintaxis coincidirá con la expresión de ejemplo.
+
+1. En el [portal de LUIS en versión preliminar](https://preview.luis.ai), seleccione la aplicación en la página **Mis aplicaciones**.
+1. En la página de lista **Intenciones**, seleccione el nombre de intención de la expresión de ejemplo a partir de la que quiere crear una expresión de plantilla.
+1. En la página Detalles de intención, seleccione la fila para la expresión de ejemplo que quiera usar como expresión de plantilla y, a continuación, seleccione **+ Agregar como patrón** en la barra de herramientas de contexto.
+
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la selección de la expresión de ejemplo como patrón de plantilla en la página de detalles de intención.](./media/luis-how-to-model-intent-pattern/add-example-utterances-as-pattern-template-utterance-from-intent-detail-page.png)
+
+1. En el cuadro emergente, seleccione **Listo** en la página **Confirmar patrones**. No es necesario definir subcomponentes, restricciones o descriptores de las entidades. Solo necesita mostrar la entidad de aprendizaje automático.
+
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de confirmación de la expresión de ejemplo como patrón de plantilla en la página de detalles de intención.](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)
+
+1. Si necesita editar la plantilla; por ejemplo, para seleccionar texto como opcional, con los corchetes `[]` (cuadrados), debe hacer esta edición desde la página **Patrones**.
+
+1. En la barra de navegación, seleccione **Entrenar** para entrenar la aplicación con el nuevo patrón.
+
+## <a name="add-template-utterance-using-correct-syntax"></a>Agregar una expresión de plantilla con la sintaxis correcta
 
 1. Para abrir la aplicación, seleccione su nombre en la página **My Apps** (Mis aplicaciones) y, después, haga clic en **Patterns** (Patrones) en el panel de la izquierda, en **Improve app performance** (Mejorar el rendimiento de la aplicación).
 

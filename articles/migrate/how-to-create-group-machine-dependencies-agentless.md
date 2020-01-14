@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: d0e002f0f1e620c108b23790dfc81574bee23795
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: b13ad375adf20a606b48755a6d57851abf89e549
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158438"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454654"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configuración de la visualización de dependencias sin agente para la evaluación
 
@@ -19,7 +19,7 @@ En este artículo se describe cómo configurar la asignación de dependencias si
 
 > [!IMPORTANT]
 > La visualización de dependencias sin agente se encuentra actualmente en versión preliminar para las VM de Azure VMware detectadas mediante un dispositivo con Azure Migrate.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Esta versión preliminar está incluida en el soporte al cliente y se puede usar para cargas de trabajo de producción.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="about-dependency-mapping"></a>Acerca de la asignación de dependencias
@@ -57,7 +57,7 @@ La visualización de dependencias sin agente no requiere la instalación de ning
 - Asegúrese de que las VM de VMware se admiten para la visualización de dependencias sin agente, como se resume en la tabla siguiente.
 
 
-### <a name="supported-operating-systems"></a>Sistemas operativos compatibles
+### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
 Los sistemas operativos compatibles para la visualización de dependencias sin agente son los siguientes.
 

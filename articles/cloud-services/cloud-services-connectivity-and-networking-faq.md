@@ -1,5 +1,6 @@
 ---
-title: P+F sobre los problemas de conectividad y redes en Microsoft Azure Cloud Services | Microsoft Docs
+title: Problemas de conectividad y redes
+titleSuffix: Azure Cloud Services
 description: En este artículo se enumeran las preguntas frecuentes sobre conectividad y redes para Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: c6d470b9c14f53558d09e6876701cb25ddc15183
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: e41c2424e970c9493d612da99b64b8c2d649002f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154867"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386755"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de conectividad y redes en Azure Cloud Services: Preguntas más frecuentes (P+F)
 

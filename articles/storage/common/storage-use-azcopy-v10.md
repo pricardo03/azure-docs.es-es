@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 0572a18e530eaff2b5a2d8aa8ced5af26f762aa8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c4e2681121a15e0b84a11c7cf35119c3f1b69f11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873937"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443720"
 ---
 # <a name="get-started-with-azcopy"></a>Introducción a AzCopy
 
@@ -34,14 +34,7 @@ En primer lugar, descargue el archivo ejecutable de AzCopy V10 en cualquier dir
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-Estos archivos se comprimen como un archivo ZIP (Windows y Mac) o un archivo TAR (Linux).
-
-Puede usar estos comandos para descargar y descomprimir el archivo TAR en Linux.
-
-```bash
-wget -O azcopy.tar.gz https://aka.ms/downloadazcopy-v10-linux
-tar -xf azcopy.tar.gz
-```
+Estos archivos se comprimen como un archivo ZIP (Windows y Mac) o un archivo TAR (Linux). Para descargar y descomprimir el archivo tar en Linux, consulte la documentación de su distribución de Linux.
 
 > [!NOTE]
 > Si desea copiar datos desde y hacia su servicio de [almacenamiento de Azure Table](https://docs.microsoft.com/azure/storage/tables/table-storage-overview), instale [AzCopy versión 7.3](https://aka.ms/downloadazcopynet).

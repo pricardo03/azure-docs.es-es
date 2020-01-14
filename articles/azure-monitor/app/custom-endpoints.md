@@ -1,18 +1,18 @@
 ---
-title: 'Azure Monitor: reemplazo de los puntos de conexión de SDK predeterminados con Azure Application Insights | Microsoft Docs'
-description: Modifique los puntos de conexión de SDK predeterminados de Azure Application Insights para regiones como Azure Government.
+title: Reemplazo de los puntos de conexión de SDK predeterminados con Azure Application Insights
+description: Modifique los puntos de conexión de SDK predeterminados de Azure Monitor Application Insights para regiones como Azure Government.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/26/2019
-ms.openlocfilehash: e1db9782fe923f7a5759f4e001cd0db970606fed
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: c04b793512eccf6aaff7d3ed3cc65efdd3dfc303
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677494"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432586"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Reemplazo de puntos de conexión predeterminados de Application Insights
 
@@ -195,7 +195,7 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 Actualmente, las únicas regiones que requieren modificaciones de punto de conexión son [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) y [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
 
-|Region |  Nombre del punto de conexión | Valor |
+|Region |  Nombre del punto de conexión | Value |
 |-----------------|:------------|:-------------|
 | Azure China | Canal de telemetría | `https://dc.applicationinsights.azure.cn/v2/track` |
 | Azure China | QuickPulse (Live Metrics) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
@@ -207,7 +207,7 @@ Actualmente, las únicas regiones que requieren modificaciones de punto de conex
 Si actualmente usa la [API REST de Application Insights](https://dev.applicationinsights.io/
 ), a la que normalmente se accede a través de "api.applicationinsights.io", deberá usar un punto de conexión local a su región:
 
-|Region |  Nombre del punto de conexión | Valor |
+|Region |  Nombre del punto de conexión | Value |
 |-----------------|:------------|:-------------|
 | Azure China | API DE REST | `api.applicationinsights.azure.cn` |
 | Azure Government | API DE REST | `api.applicationinsights.us`|

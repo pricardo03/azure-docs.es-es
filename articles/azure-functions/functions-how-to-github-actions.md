@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 18ba99077592a7d03e19fda86bc61e5839b82b5e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f30211b2b5863294976420d3f903a36abe76deba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226926"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433160"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega continua con Acciones de GitHub
 
@@ -64,18 +64,11 @@ Ahora GitHub puede autenticarse en su aplicación de funciones de Azure.
 
 ## <a name="set-up-the-environment"></a>Configuración del entorno 
 
-La configuración del entorno puede realizarse mediante una de las acciones de configuración de publicación.
+La configuración del entorno se realiza mediante una acción de configuración de publicación específica del lenguaje.
 
-|Idioma | Acción de configuración |
-|---------|---------|
-|**.NET**     | `actions/setup-dotnet` |
-|**Java**    | `actions/setup-java` |
-|**JavaScript**     | `actions/setup-node` |
-|**Python**   | `actions/setup-python` |
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-En los siguientes ejemplos se muestra la parte del flujo de trabajo que configura el entorno para los diversos lenguajes admitidos:
-
-**JavaScript**
+En el ejemplo siguiente se muestra la parte del flujo de trabajo que usa la acción `actions/setup-node` para configurar el entorno:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -88,7 +81,9 @@ En los siguientes ejemplos se muestra la parte del flujo de trabajo que configur
         node-version: '10.x'
 ```
 
-**Python**
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+En el ejemplo siguiente se muestra la parte del flujo de trabajo que usa la acción `actions/setup-python` para configurar el entorno:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -101,7 +96,9 @@ En los siguientes ejemplos se muestra la parte del flujo de trabajo que configur
         python-version: 3.6
 ```
 
-**.NET**
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+En el ejemplo siguiente se muestra la parte del flujo de trabajo que usa la acción `actions/setup-dotnet` para configurar el entorno:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -114,7 +111,9 @@ En los siguientes ejemplos se muestra la parte del flujo de trabajo que configur
         dotnet-version: '2.2.300'
 ```
 
-**Java**
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+En el ejemplo siguiente se muestra la parte del flujo de trabajo que usa la acción `actions/setup-java` para configurar el entorno:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -128,14 +127,15 @@ En los siguientes ejemplos se muestra la parte del flujo de trabajo que configur
         # Please change the Java version to match the version in pom.xml <maven.compiler.source>
         java-version: '1.8.x'
 ```
+---
 
 ## <a name="build-the-function-app"></a>Creación de la aplicación de funciones
 
 Esto depende del lenguaje y, para los lenguajes admitidos por Azure Functions, esta sección deben ser los pasos de compilación estándar de cada lenguaje.
 
-En los siguientes ejemplos se muestra la parte del flujo de trabajo que crea la aplicación de funciones, en los diversos lenguajes admitidos:
+En el ejemplo siguiente se muestra la parte del flujo de trabajo que compila la aplicación de funciones, que es específica del lenguaje:
 
-**JavaScript**
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```yaml
     - name: 'Run npm'
@@ -150,7 +150,7 @@ En los siguientes ejemplos se muestra la parte del flujo de trabajo que crea la 
         popd
 ```
 
-**Python**
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 ```yaml
     - name: 'Run pip'
@@ -164,7 +164,7 @@ En los siguientes ejemplos se muestra la parte del flujo de trabajo que crea la 
         popd
 ```
 
-**.NET**
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'
@@ -177,7 +177,7 @@ En los siguientes ejemplos se muestra la parte del flujo de trabajo que crea la 
         popd
 ```
 
-**Java**
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```yaml
     - name: 'Run mvn'
@@ -190,6 +190,7 @@ En los siguientes ejemplos se muestra la parte del flujo de trabajo que crea la 
         mvn azure-functions:package
         popd
 ```
+---
 
 ## <a name="deploy-the-function-app"></a>Implementación de la aplicación de función
 

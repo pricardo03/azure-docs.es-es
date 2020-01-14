@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: fde3ddf052e47e7550d15aba4ff26d32c91e34b9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8d9a6664caa7d0d84de54de232d6f8d0eab0a793
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972395"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356242"
 ---
 # <a name="set-up-msix-app-attach"></a>Configuración de la asociación de aplicaciones en formato .MSIX
 
@@ -172,8 +172,8 @@ En el entorno de Windows Virtual Desktop, cree un recurso compartido de red y mu
 Si la aplicación usa un certificado que no es de confianza pública o que fue autofirmado, puede instalarlo de esta manera:
 
 1. Haga clic con el botón derecho en el paquete y seleccione **Propiedades**.
-2. En la ventana que aparece, seleccione la pestaña **Firmas digitales**. Solo habrá un elemento en la lista en la pestaña, tal como se muestra en la imagen siguiente. Seleccione ese elemento para resaltar el elemento y, luego, seleccione **De
-3. Cuando aparezca la ventana de detalles de señal digital, seleccione la pestaña **General** y, luego, **Instalar certificado**.
+2. En la ventana que aparece, seleccione la pestaña **Firmas digitales**. Solo habrá un elemento en la lista en la pestaña, tal como se muestra en la imagen siguiente. Seleccione ese elemento para resaltar el elemento y, luego, seleccione **Detalles**.
+3. Cuando aparezca la ventana de detalles de firma digital, seleccione la pestaña **General** y, luego, **Instalar certificado**.
 4. Cuando se abra el instalador, seleccione **máquina local** como su ubicación de almacenamiento y, luego, seleccione **Siguiente**.
 5. Si el instalador le pregunta si quiere permitir que la aplicación haga cambios en el dispositivo, seleccione **Sí**.
 6. Seleccione **Colocar todos los certificados en el siguiente almacén** y, después, **Examinar**.
@@ -199,12 +199,12 @@ Antes de actualizar los scripts de PowerShell, asegúrese de que tiene el GUID d
 
 2.  Haga clic con el botón derecho y seleccione **Montar**. De este modo, el disco duro virtual se montará en una letra de unidad.
 
-3.  Después de montar el disco duro virtual, se abrirá la ventana **Explorador de archivos**. Capture la carpeta principal y actualice la variable **\$parentFolder**.
+3.  Después de montar el disco duro virtual, se abrirá la ventana **Explorador de archivos**. Capture la carpeta principal y actualice la variable **$parentFolder**.
 
     >[!NOTE]
     >Si no ve una carpeta principal, significa que MSIX no se expandió de manera correcta. Rehaga la sección anterior y vuelva a intentarlo.
 
-4.  Abra la carpeta principal. Si se expandió correctamente, verá una carpeta con el mismo nombre del paquete. Actualice la variable **\$packageName** para que coincida con el nombre de esta carpeta.
+4.  Abra la carpeta principal. Si se expandió correctamente, verá una carpeta con el mismo nombre del paquete. Actualice la variable **$packageName** para que coincida con el nombre de esta carpeta.
 
     Por ejemplo, `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
 
@@ -227,7 +227,7 @@ Antes de actualizar los scripts de PowerShell, asegúrese de que tiene el GUID d
     ```
 
 
-6.  Actualice la variable **\$volumeGuid** con el GUID del volumen que acaba de copiar.
+6.  Actualice la variable **$volumeGuid** con el GUID del volumen que acaba de copiar.
 
 7. Abra un símbolo del sistema de administrador de PowerShell y actualice el script de PowerShell siguiente con las variables que se aplican al entorno.
 
@@ -256,9 +256,9 @@ Antes de actualizar los scripts de PowerShell, asegúrese de que tiene el GUID d
 
     {
 
-    Mount-Diskimage -ImagePath \$vhdSrc -NoDriveLetter -Access ReadOnly
+    Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
 
-    Write-Host ("Mounting of " + \$vhdSrc + " was completed!") -BackgroundColor Green
+    Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
 
     }
 
@@ -266,7 +266,7 @@ Antes de actualizar los scripts de PowerShell, asegúrese de que tiene el GUID d
 
     {
 
-    Write-Host ("Mounting of " + \$vhdSrc + " has failed!") -BackgroundColor Red
+    Write-Host ("Mounting of " + $vhdSrc + " has failed!") -BackgroundColor Red
 
     }
 
@@ -298,8 +298,8 @@ Antes de actualizar los scripts de PowerShell, asegúrese de que tiene el GUID d
     Add-Type -AssemblyName System.Runtime.WindowsRuntime
 
     $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where {
-    $_.ToString() -eq 'System.Threading.Tasks.Task\`1[TResult]
-    AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress\`2[TResult,TProgress])'})[0]
+    $_.ToString() -eq 'System.Threading.Tasks.Task`1[TResult]
+    AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress`2[TResult,TProgress])'})[0]
 
     $asTaskAsyncOperation =
     $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult],
@@ -344,7 +344,7 @@ Add-AppxPackage -Path $path -DisableDevelopmentMode -Register
 
 ### <a name="deregister-powershell-script"></a>Eliminar el registro del script de PowerShell
 
-Para este script, reemplace el marcador de posición para **\$packageName** por el nombre del paquete que está probando.
+Para este script, reemplace el marcador de posición de **$packageName** por el nombre del paquete que está probando.
 
 ```powershell
 #MSIX app attach deregistration sample
@@ -364,7 +364,7 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 
 ### <a name="destage-powershell-script"></a>Quitar el script de PowerShell del "stage"
 
-Para este script, reemplace el marcador de posición para **\$packageName** por el nombre del paquete que está probando.
+Para este script, reemplace el marcador de posición de **$packageName** por el nombre del paquete que está probando.
 
 ```powershell
 #MSIX app attach de staging sample

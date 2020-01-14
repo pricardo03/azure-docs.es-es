@@ -1,19 +1,14 @@
 ---
-title: Reducción de los costos de servicio con Azure Advisor | Microsoft Docs
+title: Reducción de los costos de servicio con Azure Advisor
 description: Utilice Azure Advisor para optimizar el costo de las implementaciones de Azure.
-services: advisor
-documentationcenter: NA
-author: saket-ms
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: sagupt
-ms.openlocfilehash: 9f074c8077f41392fa9d45022a6a7a537964afa9
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: afa5a4068d2ec5f4730d261801760fe68d7a330e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74180580"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443128"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reducción de los costos de servicio con Azure Advisor
 
@@ -50,13 +45,15 @@ Advisor identifica las direcciones IP públicas que no están asociadas actualme
 Azure Advisor detectará las canalizaciones de Azure Data Factory que produzcan un error repetidamente y recomienda resolver los problemas o eliminar dichas canalizaciones si ya no son necesarias. Se le facturará por estas canalizaciones aunque no le presten servicio mientras que produzcan errores. 
 
 ## <a name="use-standard-snapshots-for-managed-disks"></a>Uso de instantáneas estándar para Managed Disks
-Para ahorrar el 60 % del costo, se recomienda almacenar las instantáneas en Standard Storage, independientemente del tipo de almacenamiento del disco principal. Se trata de la opción predeterminada para las instantáneas de Managed Disks. Azure Advisor identificará las instantáneas de Premium Storage y se recomienda migrar la instantánea de Premium Storage a Standard Storage. [Más información sobre los precios de Managed Disks](https://aka.ms/aa_manageddisksnapshot_learnmore)
+Para ahorrar el 60 % del costo, se recomienda almacenar las instantáneas en Standard Storage, independientemente del tipo de almacenamiento del disco principal. Esta opción es la predeterminada para las instantáneas de Managed Disks. Azure Advisor identificará las instantáneas de Premium Storage y se recomienda migrar la instantánea de Premium Storage a Standard Storage. [Más información sobre los precios de Managed Disks](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Obtención de acceso a las recomendaciones sobre el costo en Azure Advisor
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después abra [Azure Advisor](https://aka.ms/azureadvisordashboard).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2.  En el panel de Advisor, haga clic en la pestaña **Costo**.
+1. Busque y seleccione [**Advisor**](https://aka.ms/azureadvisordashboard) desde cualquier página.
+
+1. En el panel **Advisor**, seleccione la pestaña **Costo**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,12 +3,12 @@ title: Acerca de la copia de seguridad de máquina virtual de Azure
 description: En este artículo, aprenderá cómo el servicio Azure Backup realiza copias de seguridad de las máquinas virtuales de Azure y cómo seguir los procedimientos recomendados.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 4bd42acbf682b51e17f60702e5695cfb29db812b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: b38c61adaf334eacb7d85292d4174189d6fddc46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806446"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391900"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Información general sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -109,7 +109,6 @@ Al configurar las copias de seguridad de VM, se recomienda seguir estos procedim
 - Modificar las horas de programación predeterminadas que se establecen en una directiva. Por ejemplo, si la hora predeterminada en la directiva es 00:00 h, incremente el tiempo en varios minutos para que los recursos se usen de forma óptima.
 - Si va a restaurar las VM desde un solo almacén, recomendamos encarecidamente que use diferentes [cuentas de almacenamiento de uso general v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) para asegurarse de que no se vea limitada la cuenta de almacenamiento de destino. Por ejemplo, cada VM debe tener una cuenta de almacenamiento diferente. Por ejemplo, si se restauran 10 máquinas virtuales, use 10 cuentas de almacenamiento diferentes.
 - Para la copia de seguridad de VM que usan almacenamiento Premium, con restauración instantánea, se recomienda asignar un espacio libre del *50 %* , del espacio de almacenamiento total asignado, que **solo** es necesario para la primera copia de seguridad. El espacio libre del 50 % no es un requisito para las copias de seguridad una vez completada la primera copia de seguridad.
-- Las restauraciones de una capa de almacenamiento de uso general v1 (instantánea) se completará en cuestión de minutos, porque la instantánea está en la misma cuenta de almacenamiento. Las restauraciones de la capa de almacenamiento de uso general v2 (almacén) pueden tardar horas. En los casos en los que los datos están disponibles en el almacenamiento de uso general v1, recomendamos que use la característica de [restauración instantánea](backup-instant-restore-capability.md) para lograr restauraciones más rápidas. (Si los datos deben restaurarse desde un almacén, se tardará más tiempo).
 - El límite del número de discos por cuenta de almacenamiento es relativo a la frecuencia de acceso a los discos de parte de las aplicaciones que se ejecutan en una VM de infraestructura como servicio (IaaS). Como práctica general, si hay entre 5 y 10 o más en una única cuenta de almacenamiento, mueva algunos discos a cuentas de almacenamiento separadas para equilibrar la carga.
 
 ## <a name="backup-costs"></a>Costos de la copia de seguridad
@@ -124,14 +123,14 @@ El cálculo del tamaño de instancia protegida se basa en el tamaño *real* de l
 
 De forma similar, la factura de almacenamiento de copia de seguridad se basa en la cantidad de datos almacenados en Azure Backup, que es la suma de los datos reales de cada punto de recuperación.
 
-Por ejemplo, veamos una VM de tamaño estándar A2 con dos discos de datos adicionales con un tamaño máximo de 4 TB cada uno. En la tabla siguiente se proporcionan los datos almacenados en cada uno de estos discos:
+Por ejemplo, veamos una VM de tamaño estándar A2 con dos discos de datos adicionales con un tamaño máximo de 32 TB cada uno. En la tabla siguiente se proporcionan los datos almacenados en cada uno de estos discos:
 
 **Disco** | **Tamaño máximo** | **Datos reales presentes**
 --- | --- | ---
-Disco del sistema operativo | 4095 GB | 17 GB
+Disco del sistema operativo | 32 TB | 17 GB
 Disco local/temporal | 135 GB | 5 GB (no incluidos en la copia de seguridad)
-Disco de datos 1 | 4095 GB | 30 GB
-Disco de datos 2 | 4095 GB | 0 GB
+Disco de datos 1 | 32 TB| 30 GB
+Disco de datos 2 | 32 TB | 0 GB
 
 El tamaño real de la máquina virtual en este caso es de 17 GB + 30 GB + 0 GB = 47 GB. Este tamaño de instancias protegidas (47 GB) se convierte en la base de la factura mensual. A medida que crece la cantidad de datos en la VM, el tamaño de instancia protegida usado para la facturación también cambia para que coincida.
 

@@ -1,5 +1,5 @@
 ---
-title: Adición o actualización de la información de perfil de un usuario en Azure Active Directory | Microsoft Docs
+title: Agregar o actualizar la información del perfil de usuario - Azure AD
 description: Instrucciones sobre cómo agregar información a un perfil de usuario en Azure Active Directory, incluidos una imagen y los detalles del trabajo.
 services: active-directory
 author: msaburnley
@@ -12,12 +12,12 @@ ms.date: 04/11/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c416d7279dd558b8a793064e295b7654925b1c8
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 8ba51b0ad7f314058f34092dff4e26411020086a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034894"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422875"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Adición o actualización de la información de perfil de un usuario mediante Azure Active Directory
 Agregue información de perfil de usuario, como la imagen de perfil, información específica del trabajo y algunos valores de configuración mediante Azure Active Directory (Azure AD). Para obtener más información acerca de la adición de nuevos usuarios, consulte [cómo agregar o eliminar usuarios en Azure Active Directory](add-users-azure-active-directory.md).
@@ -55,7 +55,7 @@ Como verá, hay más información disponible en un perfil de usuario que la que 
     Todos los cambios se guardan para el usuario.
 
     >[!Note]
-    >Debe usar Windows Server Active Directory para actualizar la identidad, la información de contacto o la información del trabajo para los usuarios cuya fuente de autoridad es Windows Server Active Directory. Después de completar la actualización, debe esperar a que se complete el próximo ciclo de sincronización antes de poder ver los cambios.
+    >Debe usar Windows Server Active Directory para actualizar la identidad, la información de contacto o la información del trabajo para los usuarios cuyo origen de autoridad es Windows Server Active Directory. Después de completar la actualización, debe esperar a que se complete el próximo ciclo de sincronización antes de poder ver los cambios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de actualizar los perfiles de los usuarios, puede realizar los siguientes procesos básicos:

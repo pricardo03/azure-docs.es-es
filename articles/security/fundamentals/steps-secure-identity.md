@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: 9ea9bea83de0a177fa37d9a186f8962bac1394a4
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: d62704feaaa46f6780c302f5564b112dd1badbc1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73101419"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353230"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
@@ -112,9 +112,14 @@ Las aplicaciones que usan sus propios métodos heredados para autenticarse con A
 
 Al usar los recursos de vulneración de seguridad, debe reducir el impacto de las credenciales de usuario comprometidas cuando se produce un ataque. Teniendo en cuenta cada aplicación del entorno, considere los casos de uso válidos: qué grupos, qué redes, qué dispositivos y qué más elementos están autorizados y, a continuación, bloquee el resto. Mediante el [acceso condicional de Azure AD](../../active-directory/conditional-access/overview.md), puede controlar la manera en que los usuarios autorizados acceden a aplicaciones y recursos, en función de las condiciones específicas que defina.
 
-### <a name="block-end-user-consent"></a>Consentimiento del usuario final del bloqueo
+### <a name="restrict-user-consent-operations"></a>Restricción de las operaciones de consentimiento del usuario
 
-De forma predeterminada, todos los usuarios de Azure AD pueden conceder a las aplicaciones que utilizan OAuth 2.0 y el [marco de consentimiento](../../active-directory/develop/consent-framework.md) de identidades de Microsoft permisos para acceder a los datos de la compañía. Como este consentimiento permite que los usuarios puedan adquirir fácilmente aplicaciones útiles que se integren con Microsoft 365 y Azure, puede representar un riesgo si no se usa o se supervisa con precaución. [Deshabilitar todas las operaciones de consentimiento del usuario futuras](../../active-directory/manage-apps/methods-for-removing-user-access.md) puede ayudar a reducir el área expuesta y a mitigar este riesgo. Si el consentimiento del usuario final se deshabilita antes de que entren en vigor los privilegios del consentimiento, todas las operaciones de consentimiento futuras tendrá que realizarlas un administrador. Antes de deshabilitar esta funcionalidad, se recomienda que compruebe que los usuarios saben cómo deben solicitar la aprobación del administrador para las nueva aplicaciones. De este modo, reducirá las desavenencias de los usuarios, minimizará el volumen de peticiones de asistencia y se asegurará de que los usuarios no se registren en aplicaciones que utilizan otras credenciales distintas a las de Azure AD.
+Es importante comprender las distintas [experiencias de consentimiento de la aplicación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience), los [tipos de permisos y consentimiento](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent), y sus implicaciones en la postura de seguridad de la organización. De forma predeterminada, todos los usuarios de Azure AD pueden conceder acceso a los datos de su organización a las aplicaciones que utilizan la Plataforma de identidad de Microsoft. Aunque permitir que los usuarios den su consentimiento por su cuenta les permite adquirir fácilmente aplicaciones útiles que se integran con Microsoft 365, Azure y otros servicios, puede representar un riesgo si no se utiliza y supervisa con precaución.
+
+Microsoft recomienda [deshabilitar las operaciones futuras de consentimiento del usuario](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) para ayudar a reducir el área expuesta y a mitigar este riesgo. Si el consentimiento del usuario final se deshabilita, se seguirán respetando las concesiones de consentimiento anteriores, pero todas las operaciones de consentimiento futuras tendrá que realizarlas un administrador. Los usuarios pueden solicitar el consentimiento del administrador a través de un [flujo de trabajo de solicitud de consentimiento del administrador](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) integrado o a través de sus propios procesos de soporte técnico. Antes de deshabilitar esta funcionalidad, se recomienda revisar el registro de auditoría para comprender qué aplicaciones consienten los usuarios y planear el cambio en consecuencia. En el caso de las aplicaciones a las que desea permitir el acceso a todos los usuarios, considere la posibilidad de [conceder consentimiento en nombre de todos los usuarios](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent) y asegúrese de que los usuarios que todavía no hayan dado su consentimiento de forma individual podrán acceder a la aplicación. Si no desea que estas aplicaciones estén disponibles para todos los usuarios en todos los escenarios, use [asignación de aplicación](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) y [acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) para restringir el acceso de los usuarios a las aplicaciones.
+
+Asegúrese de que los usuarios pueden solicitar la aprobación del administrador para las nuevas aplicaciones a fin de reducir la fricción del usuario, minimizar el volumen de soporte técnico y evitar que los usuarios se registren en las aplicaciones con credenciales que no sean de Azure AD. Una vez que haya regulado las operaciones de consentimiento, los administradores deben auditar los permisos de la aplicación y consentidos con regularidad.
+
 
 ### <a name="implement-azure-ad-privileged-identity-management"></a>Implementar Azure AD Privileged Identity Management
 
@@ -173,7 +178,9 @@ Azure AD Identity Protection dispone de dos informes importantes que debe superv
 
 ### <a name="audit-apps-and-consented-permissions"></a>Aplicaciones de auditoría y permisos consentidos
 
-Es posible que los usuarios sean víctimas de un engaño y sean conducidos a aplicaciones o sitios web comprometidos que podrían obtener acceso a la información de perfil y los datos del usuario, como el correo electrónico. Un individuo malintencionado podría usar los permisos consentidos que ha recibido para cifrar el contenido del buzón y pedir un rescate para recuperar los datos. [Los administradores deben revisar y auditar](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) los permisos proporcionados por los usuarios.
+Es posible que los usuarios sean víctimas de un engaño y sean conducidos a aplicaciones o sitios web comprometidos que podrían obtener acceso a la información de perfil y los datos del usuario, como el correo electrónico. Un individuo malintencionado podría usar los permisos consentidos que ha recibido para cifrar el contenido del buzón y pedir un rescate para recuperar los datos. [Los administradores deben revisar y auditar](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) los permisos proporcionados por los usuarios o deshabilitar la capacidad de los usuarios de dar su consentimiento de forma predeterminada. 
+
+Además de auditar los permisos concedidos por los usuarios, puede ayudar a probar y, en concreto, a [localizar aplicaciones OAuth de riesgo o no deseadas](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth), que es una funcionalidad disponible para los entornos prémium.
 
 ## <a name="step-5---enable-end-user-self-service"></a>Paso 5: habilitar la autoayuda del usuario final
 

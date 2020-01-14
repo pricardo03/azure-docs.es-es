@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 090a066afb24c4776f9844b8850264ffad842c59
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 57bc60cab7e6980f7051af6fc4685bd2a426f4ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60350153"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422413"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operaciones de Azure Active Directory Connect Health
 Este tema describe las distintas operaciones que se pueden realizar mediante Azure Active Directory (Azure AD) Connect Health.
@@ -32,7 +32,6 @@ Puede configurar el servicio de Azure AD Connect Health para enviar notificacion
 > [!NOTE]
 > Las notificaciones de correo electrónico están habilitadas de forma predeterminada.
 >
->
 
 ### <a name="to-enable-azure-ad-connect-health-email-notifications"></a>Para habilitar las notificaciones de correo electrónico de Azure AD Connect Health
 1. Abra la hoja **Alertas** del servicio para el que desea recibir una notificación de correo electrónico.
@@ -41,6 +40,13 @@ Puede configurar el servicio de Azure AD Connect Health para enviar notificacion
 4. Seleccione la casilla si desea que todos los administradores globales reciban notificaciones de correo electrónico.
 5. Si desea recibir notificaciones de correo electrónico en otras direcciones de correo electrónico, puede especificarlas en el cuadro **Destinatario de correo electrónico adicional**. Para quitar una dirección de correo electrónico de esta lista, haga clic con el botón derecho en la entrada y seleccione **Eliminar**.
 6. Para finalizar los cambios, haga clic en **Guardar**. Los cambios surtirán efecto después de guardar.
+
+>[!NOTE] 
+> Cuando hay problemas para procesar solicitudes de sincronización en nuestro servicio de back-end, este servicio envía un correo electrónico de notificación con los detalles del error a las direcciones de correo electrónico de los contactos administrativos de su inquilino. Hemos recibido comentarios de clientes en los que afirman que, en determinados casos, el volumen de estos mensajes es excesivo, por lo que estamos cambiando la forma en que se envían. 
+>
+> En lugar de enviar un mensaje para cada error de sincronización cada vez que se produce, enviaremos un resumen diario de todos los errores que el servicio back-end ha devuelto. De este modo, los clientes pueden procesar estos errores de una manera más eficaz y reduce el número de mensajes de error duplicados.
+>
+> Tenemos previsto que este cambio se implemente el 15 de enero de 2020.
 
 ## <a name="delete-a-server-or-service-instance"></a>Eliminación de una instancia de servidor o servicio
 
@@ -67,7 +73,7 @@ Azure AD Connect Health para Servicios de federación de Active Directory (AD FS
 2. En la hoja **Servidor**, en la barra de acciones, haga clic en **Eliminar**.
 ![Captura de pantalla de eliminación de servidor de Azure AD Connect Health](./media/how-to-connect-health-operations/DeleteServer2.png)
 3. Confirme el nombre del servidor; para ello, escríbalo en el cuadro de confirmación.
-4. Hacer clic en **Eliminar**.
+4. Haga clic en **Eliminar**.
 
 Azure AD Connect Health para Azure Active Directory Domain Services:
 
@@ -75,7 +81,7 @@ Azure AD Connect Health para Azure Active Directory Domain Services:
 2. Seleccione el controlador de dominio que va a quitar.
 3. En la barra de acciones, haga clic en **Eliminar selección**.
 4. Confirme la acción para eliminar el servidor.
-5. Hacer clic en **Eliminar**.
+5. Haga clic en **Eliminar**.
 
 ### <a name="delete-a-service-instance-from-azure-ad-connect-health-service"></a>Eliminación de una instancia de servicio del Servicio de Azure AD Connect Health
 En algunos casos, es posible que desee quitar una instancia de servicio. Siga estas instrucciones para quitar una instancia de servicio del Servicio de Azure AD Connect Health.
@@ -92,7 +98,7 @@ Cuando elimine una instancia de servicio, tenga en cuenta lo siguiente:
 2. En la hoja **Servicio**, en la barra de acciones, haga clic en **Eliminar**. 
 ![Captura de pantalla de eliminación de servicio de Azure AD Connect Health](./media/how-to-connect-health-operations/DeleteServer.png)
 3. Confirme el nombre del servicio. Para ello, escríbalo en el cuadro de confirmación (por ejemplo: sts.contoso.com).
-4. Hacer clic en **Eliminar**.
+4. Haga clic en **Eliminar**.
    <br><br>
 
 [//]: # (Inicio de la sección de RBAC)
@@ -102,7 +108,7 @@ El [control de acceso basado en rol (RBAC)](../../role-based-access-control/role
 ### <a name="roles"></a>Roles
 Azure AD Connect Health admite los siguientes roles integrados:
 
-| Rol | Permisos |
+| Role | Permisos |
 | --- | --- |
 | Propietario |Los propietarios pueden *administrar el acceso* (por ejemplo, asignar roles a un usuario o grupo), *ver toda la información* (por ejemplo, ver las alertas) desde el portal y *cambiar la configuración* (por ejemplo, notificaciones de correo electrónico) dentro de Azure AD Connect Health. <br>De forma predeterminada, a los administradores globales de Azure AD se les asigna este rol y esto no se puede cambiar. |
 | Colaborador |Los colaboradores pueden *ver toda la información* (por ejemplo, ver las alertas) desde el portal y *cambiar la configuración* (por ejemplo, notificaciones de correo electrónico) dentro de Azure AD Connect Health. |
