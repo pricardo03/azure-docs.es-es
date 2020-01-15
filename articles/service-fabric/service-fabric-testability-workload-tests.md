@@ -1,25 +1,16 @@
 ---
-title: Simulación de errores en aplicaciones de Azure Service Fabric | Microsoft Docs
-description: Protección de los servicios contra errores correctos/incorrectos
-services: service-fabric
-documentationcenter: .net
+title: Simulación de errores en aplicaciones de Azure Service Fabric
+description: Protección de los servicios de Azure Service Fabric contra errores correctos/incorrectos.
 author: anmolah
-manager: chackdan
-editor: ''
-ms.assetid: 44af01f0-ed73-4c31-8ac0-d9d65b4ad2d6
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: bbb89b66231c949627c7ffbf99ebe9b5dd379ca2
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: d3d9f6478336c59adb875bf21438d5ffa457b1d4
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348711"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645997"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simulación de errores durante las cargas de trabajo del servicio
 Los escenarios de capacidad de prueba en Service Fabric de Azure permiten a los desarrolladores dejar de preocuparse por tratar los errores individuales. Sin embargo, hay escenarios donde se necesita una intercalación explícita de la carga de trabajo de cliente y de los errores. La intercalación de la carga de trabajo de cliente y de los errores garantiza que el servicio realmente realiza alguna acción cuando se produce el error. Dado el nivel de control que ofrece la capacidad de prueba, podrían encontrarse en puntos precisos de la ejecución de la carga de trabajo. Esta inducción de errores en los distintos estados de la aplicación puede buscar errores y mejorar la calidad.

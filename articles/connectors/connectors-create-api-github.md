@@ -1,20 +1,20 @@
 ---
-title: Conexión a GitHub
-description: Supervisar los eventos de GitHub con las API REST de GitHub y Azure Logic Apps
+title: Acceder, supervisar y administrar el repositorio de GitHub
+description: Supervise los eventos de GitHub y administre el repositorio de GitHub mediante la creación de flujos de trabajo automatizados con Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/02/2018
 tags: connectors
-ms.openlocfilehash: 7dc865f520b6f4667ace720e656a210e0252d1a1
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b67d2e860e8c69f6f2f43441144ef2f60ed3a104
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789757"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378456"
 ---
-# <a name="connect-to-github-from-azure-logic-apps"></a>Conexión a GitHub desde Azure Logic Apps
+# <a name="monitor-and-manage-your-github-repo-by-using-azure-logic-apps"></a>Supervisar y administrar el repositorio de GitHub mediante Azure Logic Apps
 
 GitHub es un servicio de almacenaje de repositorios Git basado en web. Ofrece toda la funcionalidad de control de revisión distribuido y de administración de código fuente (SCM) en Git, además de otras características.
 
@@ -24,9 +24,9 @@ Para empezar a trabajar con el conector de GitHub, [cree primero una aplicación
 
 Para usar el conector de GitHub en una aplicación de lógica, debe crear primero una *conexión* y luego especificar los detalles de estas propiedades: 
 
-| Propiedad | Obligatorio | DESCRIPCIÓN | 
+| Propiedad | Obligatorio | Descripción | 
 | -------- | -------- | ----------- | 
-| Se necesita el cifrado de tokens | Sí | Proporcione las credenciales de GitHub. |
+| Token | Sí | Proporcione las credenciales de GitHub. |
 
 Después de crear la conexión, puede ejecutar las acciones y escuchar los desencadenadores descritos en este artículo.
 

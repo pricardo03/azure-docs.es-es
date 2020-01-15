@@ -1,21 +1,21 @@
 ---
 title: Activación del contraste alto en Azure Portal | Microsoft Docs
-description: Aprenda a activar el contraste alto o cambiar el tema de Azure Portal.
+description: Cambie el tema de Azure Portal para elegir los colores de fondo y la fuente que se muestran. Active el contraste alto para que Azure Portal se pueda leer de manera más rápida y fácil.
 services: azure-portal
 keywords: ''
-author: kfollis
-ms.author: kfollis
-ms.date: 04/08/2019
+author: mblythe
+ms.author: mblythe
+ms.date: 12/20/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: accessibility
 manager: mtillman
-ms.openlocfilehash: 59824c4a10c50265ea0a15be69755748b87d4a3f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: db0b010d1adcf4f5178390913bedf773580dbb80
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60690413"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640387"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Activación del contraste alto o cambio del tema en Azure Portal
 

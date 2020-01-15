@@ -1,18 +1,18 @@
 ---
 title: Intercambio de mensajes con Azure Service Bus
-description: Envío y recepción de mensajes con Azure Service Bus en Azure Logic Apps
+description: Creación de tareas y flujos de trabajo automatizados que envíen y reciban mensajes mediante Azure Service Bus en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
-ms.openlocfilehash: c83e2bc0411c9bec3c3a5fa35dcc6565ed7f44f9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 26609bc95bf6fd49ded23d8f117911a02577405a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789414"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445893"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Intercambio de mensajes en la nube con Azure Logic Apps y Azure Service Bus
 
@@ -29,9 +29,9 @@ Puede usar desencadenadores que obtengan respuestas de Service Bus y hagan que l
 
 [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Un espacio de nombres de Service Bus y una entidad de mensajería, como una cola. Estos elementos y la aplicación lógica deben usar la misma suscripción de Azure. Si no tiene estos elementos, aprenda a [crear el espacio de nombres de Service Bus y una cola](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
@@ -45,7 +45,7 @@ Puede usar desencadenadores que obtengan respuestas de Service Bus y hagan que l
 
 Confirme que la aplicación lógica tiene permiso para acceder al espacio de nombres de Service Bus.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Vaya al *espacio de nombres* de Service Bus. En la página del espacio de nombres, en **Configuración**, seleccione **Directivas de acceso compartido**. En **Notificaciones**, compruebe que tenga permisos de **Administrador** para ese espacio de nombres.
 

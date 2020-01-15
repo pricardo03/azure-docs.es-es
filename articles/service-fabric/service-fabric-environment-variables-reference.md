@@ -1,29 +1,22 @@
 ---
-title: Variables de entorno de Azure Service Fabric | Microsoft Docs
-description: Documentación de referencia de las variables de entorno de Service Fabric
-documentationcenter: .net
+title: Variables de entorno de Azure Service Fabric
+description: Obtenga información sobre las variables de entorno en Azure Service Fabric. Contiene una referencia de una lista completa de variables y sus usos.
 author: mikkelhegn
-manager: msfussell
-editor: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: reference
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
-ms.openlocfilehash: 1c8400898dba59f312ba9d994ee711a5e241973a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b13522b1d9f2acd2aa3f7923c1b623fab696056d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60946729"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645691"
 ---
 # <a name="service-fabric-environment-variables"></a>Variables de entorno de Service Fabric
 
 Service Fabric tiene variables de entorno integradas que se establecen para cada instancia del servicio. A continuación se muestra la lista completa de variables de entorno:
 
-| Variable de entorno                         | DESCRIPCIÓN                                                            | Ejemplo                                                              |
+| Variable de entorno                         | Descripción                                                            | Ejemplo                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Fabric_ApplicationName                       | Nombre de identificador URI de Service Fabric de la aplicación                                 | fabric:/MyApplication                                                |
 | Fabric_CodePackageName                       | Nombre del paquete de código al que pertenece el proceso              | Código                                                                 |

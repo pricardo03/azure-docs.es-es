@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 33ae3f9f928a55f50f4ecd0c6c98790a384e880b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 11df1557fdcad059910dd2a87e9056e19a90bf01
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684180"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640857"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -19,7 +19,7 @@ En este artículo se muestra cómo usar Visual Studio 2019 para crear un proyect
 
 En este artículo se muestra cómo implementar WebJobs como una aplicación de consola de .NET Core. Para implementar WebJobs como una aplicación de consola de .NET Framework, consulte [WebJobs as .NET Framework console apps](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps) (WebJobs como aplicaciones de consola de .NET Framework). Si está interesado en la versión 2.x del SDK de WebJobs, que solo es compatible con .NET Framework, consulte [Desarrollo e implementación de WebJobs mediante Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Instale Visual Studio 2019](/visualstudio/install/) con la carga de trabajo de **desarrollo de Azure**. Si ya tiene Visual Studio pero no tiene esa carga de trabajo, agréguela mediante la selección de **Herramientas > Obtener herramientas y características**.
 
@@ -320,13 +320,13 @@ En esta sección, realiza las tareas siguientes para configurar el registro de A
 
 1. En el cuadro de diálogo **Cadenas de conexión**, agregue la entrada siguiente.
 
-   |NOMBRE  |Cadena de conexión  |Tipo de base de datos|
+   |Nombre  |Cadena de conexión  |Tipo de base de datos|
    |---------|---------|------|
    |AzureWebJobsStorage | {cadena de conexión de almacenamiento copiada anteriormente}|Personalizado|
 
 1. Si el cuadro de diálogo **Configuración de la aplicación** no tiene una clave de instrumentación de Application Insights, agregue la que ha copiado anteriormente. (Es posible que la clave de instrumentación ya esté allí, en función de cómo haya creado la aplicación de App Service).
 
-   |NOMBRE  |Valor  |
+   |Nombre  |Value  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {clave de instrumentación} |
 
@@ -399,15 +399,17 @@ Para aprovechar el registro de [Application Insights](../azure-monitor/app/app-i
 
 En esta sección, volverá a realizar una ejecución local para comprobar que los datos de registro van ahora a Application Insights, así como a la consola.
 
-1. Use el **Explorador de servidores** en Visual Studio para crear un mensaje de cola, de la misma manera que lo hizo [anteriormente](#trigger-the-function-in-azure), excepto en que va a escribir *¡Hola App Insights!* como texto del mensaje.
+1. Use el **Explorador de servidores** en Visual Studio para crear un mensaje de cola, de la misma manera que lo hizo [anteriormente](#test-locally), excepto en que va a escribir *¡Hola, App Insights!* como texto del mensaje.
 
 1. Ejecute el proyecto.
 
-   El SDK de WebJobs procesa el mensaje de cola y ve los registros en la ventana de la consola.
+   El SDK de WebJobs procesa el mensaje de cola y le permite ver los registros en la ventana de la consola.
 
 1. Cierre la ventana de la consola.
 
-1. Abra [Azure Portal](https://portal.azure.com/) y vaya al recurso de Application Insights.
+1. Vaya a [Azure Portal](https://portal.azure.com/) para ver el recurso de Application Insights. Busque y seleccione **Application Insights**.
+
+1. Elija una instancia de Application Insights.
 
 1. Seleccione **Buscar**.
 

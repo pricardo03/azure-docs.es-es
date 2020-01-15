@@ -1,25 +1,16 @@
 ---
-title: Creación de un clúster de Azure Service Fabric independiente | Microsoft Docs
+title: Creación de un clúster de Azure Service Fabric independiente
 description: Cree un clúster de Azure Service Fabric en cualquier máquina (física o virtual) que ejecute Windows Server, ya sea local o en una nube.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 6fce1957101050c6ff3a2c3aba2b4b87d4f66f1d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: fbaea9324d82e22a1ab3c6c03a9ebec045bea64b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554651"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463240"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creación de un clúster independiente con Windows Server
 Puede usar Azure Service Fabric para crear clústeres de Service Fabric en las máquinas virtuales o los equipos que ejecutan Windows Server. Es decir, podrá implementar y ejecutar aplicaciones de Service Fabric en cualquier entorno donde haya un conjunto de equipos con Windows Server que estén conectados entre sí, ya sea de manera local o con algún proveedor de servicios en la nube. Service Fabric proporciona un paquete de instalación para crear clústeres de Service Fabric, llamado paquete independiente de Windows Server. Los clústeres tradicionales de Service Fabric en Azure están disponibles como un servicio administrado, mientras que los clústeres independientes son de autoservicio.
@@ -56,12 +47,12 @@ Puede encontrar ejemplos de configuración de clúster independiente en: <br>
 
 <a id="createcluster"></a>
 
-## <a name="create-the-cluster"></a>Creación de clústeres
+## <a name="create-the-cluster"></a>Creación del clúster
 Se instalan varios archivos de configuración de clúster de ejemplo con el paquete de instalación. *ClusterConfig.Unsecure.DevCluster.json* es la configuración de clúster más sencilla: un clúster no seguro de tres nodos que se ejecuta en un único equipo.  Otros archivos de configuración describen clústeres de una o varias máquinas con certificados X.509 o seguridad de Windows.  No es necesario modificar los valores de configuración predeterminados para este tutorial, pero eche un vistazo al archivo de configuración y familiarícese con la configuración.  En la sección **nodos** se describen los tres nodos del clúster: nombre, dirección IP, [tipo de nodo, dominio de error y dominio de actualización](service-fabric-cluster-manifest.md#nodes-on-the-cluster).  En la sección **propiedades** se define la [seguridad, el nivel de confiabilidad, la recopilación de diagnósticos y los tipos de nodos](service-fabric-cluster-manifest.md#cluster-properties) para el clúster.
 
 El clúster creado en este artículo no es seguro.  Cualquiera puede conectarse de forma anónima y realizar operaciones de administración, por lo que los clústeres de producción siempre deben protegerse mediante certificados X.509 o la seguridad de Windows.  La configuración solo se configura en el momento de creación del clúster y no es posible habilitar la seguridad una vez creado. Al actualizar el archivo de configuración, se habilita la [seguridad basada en certificados](service-fabric-windows-cluster-x509-security.md) o la [seguridad de Windows](service-fabric-windows-cluster-windows-security.md). Lea [Protección de un clúster](service-fabric-cluster-security.md) para más información sobre la seguridad en los clústeres de Service Fabric.
 
-### <a name="step-1-create-the-cluster"></a>Paso 1: Creación de clústeres
+### <a name="step-1-create-the-cluster"></a>Paso 1: Creación del clúster
 
 #### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>Escenario A: Creación de un clúster de desarrollo local poco seguro
 Service Fabric se puede implementar en un clúster de desarrollo de una máquina mediante el archivo *ClusterConfig.Unsecure.DevCluster.json* que se incluye en los [ejemplos](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
@@ -126,7 +117,7 @@ El paquete en tiempo de ejecución se puede descargar por separado desde otra m�
 
 *.\ClusterConfig.json* y *.\MicrosoftAzureServiceFabric.cab* son las rutas de acceso a la configuración del clúster y el archivo .cab en tiempo de ejecución, respectivamente.
 
-### <a name="step-2-connect-to-the-cluster"></a>Paso 2: Conexión al clúster
+### <a name="step-2-connect-to-the-cluster"></a>Paso 2: Conectarse al clúster
 Conéctese al clúster para verificar que el clúster se está ejecutando y está disponible. El módulo ServiceFabric PowerShell está instalado con el paquete en tiempo de ejecución.  Puede conectarse al clúster desde uno de los nodos del clúster o desde un equipo remoto con el entorno de tiempo de ejecución de Service Fabric.  El cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) establece una conexión con el clúster.
 
 Para conectarse a un clúster no seguro, ejecute el siguiente comando de PowerShell:
@@ -163,7 +154,7 @@ El panel del clúster proporciona información general del clúster, incluido un
 Puede agregar o quitar nodos del clúster de Service Fabric independiente a medida que cambien las necesidades empresariales. Lea [Incorporación o eliminación de nodos de un clúster de Service Fabric independiente](service-fabric-cluster-windows-server-add-remove-nodes.md) para obtener pasos detallados.
 
 <a id="removecluster" name="removecluster_anchor"></a>
-## <a name="remove-a-cluster"></a>Eliminación de un clúster
+## <a name="remove-a-cluster"></a>Quitar un clúster
 Para quitar un clúster, ejecute el script de PowerShell *RemoveServiceFabricCluster.ps1* desde la carpeta del paquete y proporcione la ruta al archivo de configuración JSON. También puede especificar una ubicación para el registro que se va a eliminar.
 
 Este script puede ejecutarse en cualquier máquina que tenga acceso de administrador a todas las máquinas que se muestran como nodos en el archivo de configuración del clúster. La máquina donde se ejecuta este script no tiene que formar parte del clúster.

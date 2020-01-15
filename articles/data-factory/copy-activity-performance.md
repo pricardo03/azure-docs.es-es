@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/24/2019
-ms.openlocfilehash: 1b1b02e310c98a78006d258333c0ec10e89e3b31
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 28d0da369083d75bc175111d808828e186a366fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927466"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444133"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guía de escalabilidad y rendimiento de la actividad de copia
 
@@ -151,7 +151,7 @@ El número de unidades de integración de datos utilizadas en cada ejecución de
 > [!NOTE]
 > Actualmente, un valor de DIU superior a cuatro solo se aplica cuando se copian varios archivos desde Azure Blob/ADLS Gen1/ADLS Gen2/Amazon S3/Google Cloud Storage/FTP en la nube/SFTP en la nube o desde un almacén de datos relacional en la nube con la opción de partición habilitada (incluidos [Oracle](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)) a cualquier otro almacén de datos en la nube.
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 "activities":[
@@ -198,7 +198,7 @@ Para controlar la carga en las máquinas que hospedan los almacenes de datos o p
 - La propiedad **parallelCopies** es ortogonal para **dataIntegrationUnits**. La información anterior se cuenta en todas las unidades de integración de datos.
 - Cuando especifique un valor para la propiedad **parallelCopies**, tenga en cuenta el aumento de la carga en los almacenes de datos de origen y receptor. Tenga también en cuenta el aumento de carga para IR autohospedado si la actividad de copia tiene autorización, por ejemplo, para la copia híbrida. Dicho aumento sucede especialmente si tiene varias actividades o ejecuciones simultáneas de las mismas actividades que se ejecutan en el mismo almacén de datos. Si observa que el almacén de datos o Integration Runtime autohospedado están sobrecargados, disminuya el valor de **parallelCopies** para aliviar la carga.
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 "activities":[
@@ -242,12 +242,12 @@ Actualmente, no es posible copiar datos entre dos almacenes de datos que estén 
 
 Configure el valor **enableStaging** de la actividad de copia para especificar si desea que los datos se almacenen provisionalmente en Blob Storage antes de cargarlos en un almacén de datos de destino. Cuando establezca **enableStaging** en `TRUE`, especifique las propiedades adicionales que se muestran en la tabla siguiente. Si no tiene un servicio vinculado a la firma de acceso compartido de Azure Storage o de Storage, debe crearlo.
 
-| Propiedad | Description | Valor predeterminado | Obligatorio |
+| Propiedad | Descripción | Valor predeterminado | Obligatorio |
 | --- | --- | --- | --- |
-| enableStaging |Especifique si desea copiar los datos a través de un almacén provisional. |False |Sin |
+| enableStaging |Especifique si desea copiar los datos a través de un almacén provisional. |False |No |
 | linkedServiceName |Especifique el nombre de un servicio vinculado [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) que haga referencia a la instancia de Storage que se usa como almacenamiento provisional. <br/><br/> Storage no se puede usar con una firma de acceso compartido para cargar datos en SQL Data Warehouse mediante PolyBase. Puede usarlo en todos los demás casos. |N/D |Sí, cuando el valor de **enableStaging** está establecido en True. |
-| path |Especifique la ruta de acceso de Almacenamiento de blobs que quiere que contenga los datos almacenados provisionalmente. Si no se proporciona una ruta de acceso, el servicio crea un contenedor para almacenar los datos temporales. <br/><br/> Especifique una ruta de acceso solo si usa Almacenamiento con una firma de acceso compartido o si necesita que los datos temporales estén en una ubicación específica. |N/D |Sin |
-| enableCompression |Especifica si se deben comprimir los datos antes de copiarlos en el destino. Esta configuración reduce el volumen de datos que se va a transferir. |False |Sin |
+| path |Especifique la ruta de acceso de Almacenamiento de blobs que quiere que contenga los datos almacenados provisionalmente. Si no se proporciona una ruta de acceso, el servicio crea un contenedor para almacenar los datos temporales. <br/><br/> Especifique una ruta de acceso solo si usa Almacenamiento con una firma de acceso compartido o si necesita que los datos temporales estén en una ubicación específica. |N/D |No |
+| enableCompression |Especifica si se deben comprimir los datos antes de copiarlos en el destino. Esta configuración reduce el volumen de datos que se va a transferir. |False |No |
 
 >[!NOTE]
 > Si usa una copia almacenada provisionalmente con la compresión habilitada, no se admite la autenticación de MSI o de la entidad de servicio para el almacenamiento provisional de un servicio vinculado de blob.
@@ -293,11 +293,12 @@ Los cargos que se le realizan se basan en dos pasos: duración de la copia y tip
 
 Estas son algunas referencias para la supervisión y la optimización del rendimiento para algunos de los almacenes de datos admitidos:
 
-* Azure Storage, que incluye Blob Storage y Table Storage: [Objetivos de escalabilidad de Azure Storage](../storage/common/storage-scalability-targets.md) y [Lista de comprobación de rendimiento y escalabilidad de Azure Storage](../storage/common/storage-performance-checklist.md).
+* Azure Blob Storage: [Objetivos de escalabilidad y rendimiento de Blob Storage](../storage/blobs/scalability-targets.md) y [Lista de comprobación de escalabilidad y rendimiento para Blob Storage](../storage/blobs/storage-performance-checklist.md).
+* Azure Table Storage: [Objetivos de escalabilidad y rendimiento de Blob Storage](../storage/tables/scalability-targets.md) y [Lista de comprobación de rendimiento y de escalabilidad para Table Storage](../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database: puede [supervisar el rendimiento](../sql-database/sql-database-single-database-monitor.md) y comprobar el porcentaje de la unidad de transacción de base de datos (DTU).
 * Azure SQL Data Warehouse: su funcionalidad se mide en unidades de Data Warehouse (DWU). Consulte [Administración de la potencia de proceso en Azure SQL Data Warehouse (información general)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [Niveles de rendimiento en Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx).
+* SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx)
 * Servidor de archivos local: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx) (Ajuste del rendimiento para los servidores de archivos).
 
 ## <a name="next-steps"></a>Pasos siguientes

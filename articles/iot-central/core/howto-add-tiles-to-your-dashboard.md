@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: affd5b58c312e07177fbfdaaf88f689b1a8caebd
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b13349ae4293f6377429e9dc72b6c2cb43f92348
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72942877"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435125"
 ---
 # <a name="configure-the-application-dashboard"></a>Configuración del panel de la aplicación
 
-El **panel** es la página que se carga cuando los usuarios que tienen acceso a la aplicación van a la dirección URL de la aplicación. Si ha creado una aplicación a partir de una de las **plantillas de aplicación**, la aplicación tendrá un panel predefinido para iniciar. Si ha creado la aplicación a partir de la plantilla de aplicación **Aplicación personalizada**, el panel estará en blanco para iniciarse.
+El **panel** es la página que se carga cuando los usuarios que tienen acceso a la aplicación van a la dirección URL de la aplicación. Si ha creado una aplicación a partir de una de las **plantillas de aplicación**, la aplicación tendrá un panel predefinido para iniciar. Si ha creado la aplicación a partir de la plantilla de aplicación con el nombre **Aplicación heredada**, el panel estará en blanco para iniciarse.
 
 > [!NOTE]
 > Los usuarios pueden [crear varios paneles](howto-create-personal-dashboards.md) además del panel de aplicación predeterminado. Estos paneles pueden ser personales solo para el usuario o se pueden compartir entre todos los usuarios de la aplicación. 
@@ -70,7 +70,7 @@ También puede cambiar la visualización del gráfico haciendo clic en el icono 
 
 En la tabla siguiente se resume el uso de iconos en Azure IoT Central:
  
-| Icono | panel | DESCRIPCIÓN
+| Icono | Panel | Descripción
 | ----------- | ------- | ------- |
 | Contenido | Paneles de conjunto de dispositivos y paneles de aplicación |Los iconos admitidos de Markdown son iconos clicables que muestran texto para el encabezado y la descripción. También puede usar este icono como icono de vínculo para que los usuarios puedan navegar a una dirección URL relacionada con la aplicación.|
 | Imagen | Paneles de conjunto de dispositivos y paneles de aplicación |Los iconos de imagen muestran una imagen personalizada y se puede hacer clic en ellos. Use un icono de imagen para agregar gráficos a un panel y, opcionalmente, permitir a los usuarios navegar a una dirección URL que es relevante para la aplicación.|

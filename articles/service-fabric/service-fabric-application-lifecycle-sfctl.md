@@ -1,25 +1,22 @@
 ---
-title: Administración de aplicaciones de Azure Service Fabric mediante la CLI de Azure Service Fabric (sfctl)
+title: Administración de aplicaciones de Azure Service Fabric mediante sfctl
 description: Aprenda a implementar y quitar aplicaciones de un clúster de Azure Service Fabric mediante la CLI de Azure Service Fabric.
-services: service-fabric
 author: Christina-Kang
-manager: chackdan
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 9b0f785a6a43f984708645084a8a8036326d3d24
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: db271d479fd84e5338d53cc25ecc0122d856c442
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60621384"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610240"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Administración de una aplicación de Azure Service Fabric mediante la CLI de Azure Service Fabric (sfctl)
 
 Aprenda cómo crear y eliminar aplicaciones que se ejecutan en un clúster de Azure Service Fabric.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Instale la CLI de Service Fabric. A continuación, seleccione su clúster de Service Fabric. Para más información, consulte [Introducción a la CLI de Service Fabric](service-fabric-cli.md).
 

@@ -1,22 +1,22 @@
 ---
 title: Planeamiento de una implementación de Azure Files | Microsoft Docs
-description: Conozca los puntos que debe tener en cuenta al planear una implementación de Azure Files.
+description: Conozca los aspectos que debe tener en cuenta al planear una implementación de Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fdfa01a45c0dd35da65b2ad7ce8b0d291148af1a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a315b012cf103840eae6b141fe5177dfa709896d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931103"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463940"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
-[Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante el protocolo SMB estándar. Dado que Azure Files está totalmente administrado, su implementación en escenarios de producción resulta mucho más sencilla que la implementación y administración de un servidor de archivos o un dispositivo NAS. En este artículo se tratan las cuestiones que deben tenerse en cuenta al implementar un recurso compartido de archivos de Azure para su uso en producción dentro de la organización.
+[Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el protocolo SMB estándar. Dado que Azure Files está totalmente administrado, su implementación en escenarios de producción resulta mucho más sencilla que la implementación y administración de un servidor de archivos o un dispositivo NAS. En este artículo se tratan las cuestiones que deben tenerse en cuenta al implementar un recurso compartido de archivos de Azure para su uso en producción dentro de la organización.
 
 ## <a name="management-concepts"></a>Conceptos de administración
 
@@ -212,14 +212,19 @@ Los recursos compartidos de archivos estándar están disponibles en todas las r
 |India Central  |LRS     |
 |Centro de EE. UU.*   |LRS     |
 |Asia oriental      |LRS     |
-|Este de EE. UU.*        |LRS     |
+|Este de EE. UU.*        |LRS, ZRS|
 |Este de EE. UU. 2*      |LRS     |
 |Centro de Francia |LRS, ZRS|
 |Sur de Francia   |LRS     |
-|Centro-Norte de EE. UU |LRS     |
+|Este de Japón     |LRS     |
+|Centro-Norte de EE. UU |LRS   |
 |Europa del Norte   |LRS     |
 |Sur de la India    |LRS     |
+|Centro-Sur de EE. UU |LRS     |
 |Sudeste asiático |LRS, ZRS|
+|Centro de Emiratos Árabes Unidos    |LRS     |
+|Sur de Reino Unido 2   |LRS     |
+|Oeste de Reino Unido    |LRS     |
 |Centro occidental de EE.UU.|LRS     |
 |Oeste de Europa*    |LRS, ZRS|
 |Oeste de EE. UU.*        |LRS     |

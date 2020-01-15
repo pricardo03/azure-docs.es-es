@@ -1,26 +1,26 @@
 ---
 title: Búsqueda en datos de Azure Cosmos DB
 titleSuffix: Azure Cognitive Search
-description: Rastree un origen de datos de Azure Cosmos DB e introduzca los datos en un índice de búsqueda de texto completo en Azure Cognitive Search. Los indexadores automatizan la ingesta de datos para orígenes de datos seleccionados, como Azure Cosmos DB.
+description: Importe datos de Azure Cosmos DB a un índice que permite búsquedas en Azure Cognitive Search. Los indexadores automatizan la ingesta de datos para orígenes de datos seleccionados, como Azure Cosmos DB.
 author: mgottein
 manager: nitinme
 ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 616e5dc5ac6416d2efe1d9338b99c2b400fe572a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 01/02/2020
+ms.openlocfilehash: ef136345c7c41c720efd3c79923b6ce646de41e2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977121"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75642172"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Indexación de datos de Cosmos DB mediante un indizador en Azure Cognitive Search 
 
 > [!IMPORTANT] 
 > SQL API está disponible con carácter general.
-> MongoDB API, Gremlin API y Cassandra API se encuentran actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para solicitar acceso a las versiones preliminares, rellene [este formulario](https://aka.ms/azure-cognitive-search/indexer-preview). En la [API REST, versión 2019-05-06-Preview](search-api-preview.md), se ofrecen características de versión preliminar. Actualmente hay compatibilidad limitada con el portal y no la hay con el SDK de .NET.
+> MongoDB API, Gremlin API y Cassandra API se encuentran actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para solicitar acceso a las versiones preliminares, rellene [este formulario](https://aka.ms/azure-cognitive-search/indexer-preview). En la [API REST versión 2019-05-06-Preview](search-api-preview.md) se proporcionan características en versión preliminar. Actualmente hay compatibilidad limitada con el portal y no la hay con el SDK de .NET.
 
 > [!WARNING]
 > Solo las colecciones de Cosmos DB con una [directiva de indexación](https://docs.microsoft.com/azure/cosmos-db/index-policy) establecida en [Coherente](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) son compatibles con Azure Cognitive Search. La indexación de colecciones con una directiva de indexación diferida no se recomienda y puede dar lugar a la pérdida de datos. No se admiten las colecciones con indexación deshabilitada.
@@ -103,7 +103,7 @@ Dedique un momento a la revisión de las selecciones. Una vez que se ejecuta al 
 
 Con todas las especificaciones agregadas, el asistente crea tres objetos distintos en el servicio de búsqueda. Un objeto de origen de datos y un objeto de índice se guardan como recursos con nombre en el servicio Azure Cognitive Search. El último paso crea un objeto de indizador. Al asignarle un nombre al indizador, este puede existir como un recurso independiente que se puede programar y administrar independientemente de los objetos de origen de datos y del de índice que se crearon en la misma secuencia del asistente.
 
-Si no está familiarizado con los indizadores, un *indizador* es un recurso en Azure Cognitive Search que rastrea un origen de datos externo en busca de contenido utilizable en búsquedas. La salida del asistente **Importar datos** es un indizador que se rastrea el origen de datos de Cosmos DB, extrae el contenido utilizable en búsquedas y lo importa a un índice en Azure Cognitive Search.
+Si no está familiarizado con los indexadores, un *indexador* es un recurso en Azure Cognitive Search que rastrea un origen de datos externo en busca de contenido utilizable en búsquedas. La salida del asistente **Importar datos** es un indizador que se rastrea el origen de datos de Cosmos DB, extrae el contenido utilizable en búsquedas y lo importa a un índice en Azure Cognitive Search.
 
 En la siguiente captura se muestra la configuración del indexador predeterminado. Puede cambiar a **Una vez** si desea ejecutar el indexador una vez. Haga clic en **Enviar** para ejecutar el asistente y crear todos los objetos. La indexación comienza inmediatamente.
 
@@ -148,7 +148,7 @@ Encontrará estos valores en el portal:
 
 3. Cambie a las páginas del portal para la cuenta de almacenamiento de Cosmos. En el panel de navegación de la izquierda, en **Configuración**, haga clic en **Claves**. En esta página se proporciona un URI, dos conjuntos de cadenas de conexión y dos conjuntos de claves. En el Bloc de notas, copie una de las cadenas de conexión.
 
-### <a name="2---create-a-data-source"></a>2\. Creación de un origen de datos
+### <a name="2---create-a-data-source"></a>2\. Crear un origen de datos
 
 A **origen de datos** especifica los datos para indexar, las credenciales y las directivas para identificar cambios en los datos (por ejemplo, los documentos modificados o eliminados dentro de la colección). El origen de datos se define como un recurso independiente para que puedan usarlo múltiples indizadores.
 
@@ -173,7 +173,7 @@ Para crear un origen de datos, formule una solicitud POST:
 
 El cuerpo de la solicitud contiene la definición del origen de datos, que debe incluir los siguientes campos:
 
-| Campo   | DESCRIPCIÓN |
+| Campo   | Descripción |
 |---------|-------------|
 | **name** | Necesario. Elija un nombre para representar el objeto de origen de datos. |
 |**type**| Necesario. Debe ser `cosmosdb`. |
@@ -252,12 +252,12 @@ Asegúrese de que el esquema del índice de destino es compatible con el de los 
 > Para las colecciones de MongoDB, Azure Cognitive Search cambia el nombre de la propiedad `_id` automáticamente a `id`.  
 
 ### <a name="mapping-between-json-data-types-and-azure-cognitive-search-data-types"></a>Asignación entre tipos de datos de JSON y de Azure Cognitive Search
-| Tipo de datos de JSON | Tipos de campos de índice de destino compatibles |
+| Tipo de datos JSON | Tipos de campos de índice de destino compatibles |
 | --- | --- |
 | Bool |Edm.Boolean, Edm.String |
 | Números que parecen enteros |Edm.Int32, Edm.Int64, Edm.String |
 | Números que parecen puntos flotantes |Edm.Double, Edm.String |
-| Cadena |Edm.String |
+| String |Edm.String |
 | Matrices de tipos primitivos, por ejemplo ["a", "b", "c"] |Collection(Edm.String) |
 | Cadenas que parecen fechas |Edm.DateTimeOffset, Edm.String |
 | Objetos GeoJSON, por ejemplo {"type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |

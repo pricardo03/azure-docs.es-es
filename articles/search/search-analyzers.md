@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 32ac91df042eb29c39cc54b738dbb96aff3104f3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/10/2019
+ms.openlocfilehash: 2e4a6ab8825982969ffa4654c2418f7a9d168d2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496500"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460721"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizadores para procesamientos textuales en Búsqueda cognitiva de Azure
 
@@ -39,7 +39,7 @@ Se usa automáticamente en cada campo que permite búsquedas. Puede invalidar el
 
 En la lista siguiente se describen los analizadores que están disponibles en Búsqueda cognitiva de Azure.
 
-| Category | DESCRIPCIÓN |
+| Category | Descripción |
 |----------|-------------|
 | [Analizador Lucene estándar](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Predeterminada. No se requieren ninguna especificación ni configuración. Este analizador de uso general funciona bien en la mayoría de lenguajes y escenarios.|
 | Analizadores predefinidos | Se ofrecen como un producto acabado concebido para usarse tal cual. <br/>Hay dos tipos: especializados y de lenguaje. Lo que hace que sean "predefinidos" es que se hace referencia a ellos por su nombre, sin configuración ni personalización alguna. <br/><br/>Los [analizadores especializados (independientes del idioma)](index-add-custom-analyzers.md#AnalyzerTable) se usan cuando las entradas de texto requieren procesamiento especializado o un procesamiento mínimo. Los analizadores predefinidos sin lenguaje incluyen **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop** y **Whitespace**.<br/><br/>Los [analizadores de lenguaje](index-add-language-analyzers.md) se utilizan cuando se necesita compatibilidad lingüística enriquecida con lenguajes individuales. Búsqueda cognitiva de Azure admite 35 analizadores de lenguaje de Lucene y 50 analizadores de procesamiento de lenguaje natural de Microsoft. |
@@ -54,6 +54,9 @@ Algunos analizadores predefinidos, como **Pattern** o **Stop**, admiten un conju
 2. En una [definición de campo](https://docs.microsoft.com/rest/api/searchservice/create-index) del índice, establezca la propiedad **analyzer** del campo en el nombre de un analizador de destino (por ejemplo, `"analyzer" = "keyword"`. Los valores válidos incluyen el nombre de un analizador predefinido, un analizador del lenguaje o un analizador personalizado también definido en el esquema de índice. Planee la asignación del analizador en la fase de definición del índice antes de que este se cree en el servicio.
 
 3. Opcionalmente, en lugar de una propiedad **analyzer**, puede establecer diferentes analizadores para indexación y consulta mediante los parámetros de campo **indexAnalyzer** y **searchAnalyzer**. Si una de esas actividades requiere una transformación específica que otras no necesitan, usará diferentes analizadores para la recuperación y la preparación de los datos.
+
+> [!NOTE]
+> No es posible usar un [analizador de lenguaje](index-add-language-analyzers.md) distinto en el momento de la indización que en el momento de la consulta para un campo. Esta capacidad está reservada para [analizadores personalizados](index-add-custom-analyzers.md). Por esta razón, si intenta establecer las propiedades **searchAnalyzer** o **indexAnalyzer** en el nombre de un analizador de lenguaje, la API de REST devolverá una respuesta de error. En su lugar, debe usar la propiedad del **analizador**.
 
 No se permite asignar **analyzer** o **indexAnalyzer** a un campo que ya se ha creado físicamente. Si alguno de estos puntos no está claro, revise la siguiente tabla para ver un desglose de las acciones necesarias en una recompilación y porqué.
  
@@ -344,7 +347,7 @@ Cree un objeto [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.
 
 + [Configure analizadores personalizados](index-add-custom-analyzers.md) para un procesamiento mínimo o un procesamiento especializado en los campos individuales.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
  [API de REST de documentos de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

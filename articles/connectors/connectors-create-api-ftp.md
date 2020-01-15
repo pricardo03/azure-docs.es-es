@@ -1,18 +1,18 @@
 ---
 title: Conexión a un servidor FTP
-description: Creación, supervisión y administración de archivos en un servidor FTP con Azure Logic Apps
+description: Automatice tareas y flujos de trabajo que crean, supervisan y administran archivos en un servidor FTP mediante Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 12/15/2019
 tags: connectors
-ms.openlocfilehash: c7b8c1ac94fd35a4a0cb30ad32d8c6ce39edc058
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 71f768506d7cec575c6bd765447397d8d0406859
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789786"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446107"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Creación, supervisión y administración de archivos FTP mediante Azure Logic Apps
 
@@ -23,7 +23,7 @@ Con Azure Logic Apps y el conector FTP, puede crear tareas y flujos de trabajo a
 * Obtener contenido de archivos y metadatos
 * Extraer archivos en carpetas
 
-Puede usar desencadenadores que obtengan respuestas de su servidor FTP y permitan que la salida esté disponible para otras acciones. Puede usar las acciones de ejecución en las aplicaciones lógicas para administrar los archivos del servidor FTP. También puede hacer que otras acciones usen la salida de las acciones de FTP. Por ejemplo, si recupera archivos del servidor FTP habitualmente, puede enviar un correo electrónico sobre esos archivos y su contenido mediante el conector Office 365 Outlook o el conector Outlook.com. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Puede usar desencadenadores que obtengan respuestas de su servidor FTP y permitan que la salida esté disponible para otras acciones. Puede usar las acciones de ejecución en las aplicaciones lógicas para administrar los archivos del servidor FTP. También puede hacer que otras acciones usen la salida de las acciones de FTP. Por ejemplo, si recupera archivos del servidor FTP habitualmente, puede enviar un correo electrónico sobre esos archivos y su contenido mediante el conector Office 365 Outlook o el conector Outlook.com. Si no está familiarizado con las aplicaciones lógicas, vea [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="limits"></a>límites
 
@@ -41,7 +41,7 @@ Puede usar desencadenadores que obtengan respuestas de su servidor FTP y permita
 
 Los desencadenadores de FTP funcionan al sondear el sistema de archivos FTP y buscar archivos que se hayan modificado desde el último sondeo. Algunas herramientas le permiten conservar la marca de tiempo cuando cambian los archivos. En estos casos, tiene que deshabilitar esta característica para que el desencadenador funcione. Estas son algunas opciones de configuración habituales:
 
-| Cliente SFTP | . |
+| Cliente SFTP | Acción |
 |-------------|--------|
 | WinSCP | Vaya a **Options** > **Preferences** > **Transfer** > **Edit** > **Preserve timestamp** > **Disable** (Opciones > Preferencias > Transferir > Editar > Conservar marca de tiempo >Deshabilitar). |
 | FileZilla | Vaya a **Transfer** > **Preserve timestamps of transferred files** > **Disable** (Transferir > Conservar marca de tiempo de archivos transferidos > Deshabilitar). |
@@ -49,9 +49,9 @@ Los desencadenadores de FTP funcionan al sondear el sistema de archivos FTP y bu
 
 Cuando un desencadenador encuentra un nuevo archivo, el desencadenador comprueba que el nuevo archivo se ha escrito por completo y no parcialmente. Por ejemplo, un archivo podría tener los cambios en curso cuando el desencadenador comprueba el servidor de archivos. Para evitar devolver un archivo parcialmente escrito, el desencadenador anota la marca de tiempo del archivo que tiene cambios recientes, pero no devuelve inmediatamente dicho archivo. El desencadenador devuelve el archivo solo al volver a sondear el servidor. En ocasiones, este comportamiento puede provocar un retraso de hasta dos veces el intervalo de sondeo del desencadenador.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Las credenciales de la cuenta y la dirección del servidor host FTP
 
@@ -65,81 +65,107 @@ Cuando un desencadenador encuentra un nuevo archivo, el desencadenador comprueba
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el diseñador de aplicaciones lógicas, si aún no lo ha hecho.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el Diseñador de aplicación lógica.
 
-1. Para las aplicaciones lógicas en blanco, en el cuadro de búsqueda, escriba "ftp" como filtro. En la lista de desencadenadores, seleccione el que desee.
+1. Para las aplicaciones lógicas en blanco, en el cuadro de búsqueda, escriba `ftp` como filtro. En la lista **Desencadenadores**, seleccione el desencadenador que quiera usar.
 
    O bien
 
-   Para las aplicaciones lógicas existentes, en el último paso donde quiere agregar una acción, elija **Nuevo paso** y seleccione **Agregar una acción**. En el cuadro de búsqueda, escriba "ftp" como filtro. En la lista de acciones, seleccione la que desee.
+   Para las aplicaciones lógicas existentes, en el último paso donde quiere agregar una acción, elija **Nuevo paso** y seleccione **Agregar una acción**. En el cuadro de búsqueda, escriba `ftp` como filtro. En la lista **Acciones**, seleccione la que quiera usar.
 
-   Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. Elija el signo más ( **+** ) que aparece y seleccione **Agregar una acción**.
+   Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. Seleccione el signo más ( **+** ) que aparece y, luego, seleccione **Agregar una acción**.
 
-1. Proporcione la información necesaria para la conexión y, a continuación, seleccione **Crear**:
+1. Proporcione su información de conexión y seleccione **Crear**.
 
-1. Proporcione los detalles necesarios para el desencadenador o la acción seleccionados y continúe con la compilación del flujo de trabajo de la aplicación lógica.
+1. Proporcione la información necesaria para el desencadenador o la acción seleccionados y continúe con la compilación del flujo de trabajo de la aplicación lógica.
 
 ## <a name="examples"></a>Ejemplos
 
 <a name="file-added-modified"></a>
 
-### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>Desencadenador FTP: When a file is added or modified (Cuando se agrega o modifica un archivo)
+### <a name="add-ftp-trigger"></a>Agregar desencadenador FTP
 
-Este desencadenador inicia un flujo de trabajo de aplicación lógica cuando detecta que se ha agregado o cambiado un archivo en un servidor FTP. Por ejemplo, puede agregar una condición que compruebe el contenido del archivo y decida si obtener ese contenido, en función de si cumple una condición especificada. Por último, puede agregar una acción que obtenga el contenido del archivo y lo coloque en una carpeta en el servidor SFTP.
+El desencadenador **Cuando se agrega o modifica un archivo (solo propiedades)** inicia un flujo de trabajo de aplicación lógica cuando el desencadenador detecta que se ha agregado o cambiado un archivo en un servidor FTP. Por ejemplo, puede agregar una condición que compruebe el contenido del archivo y decida si obtener ese contenido, en función de si cumple una condición especificada. Por último, puede agregar una acción que obtenga el contenido del archivo y lo coloque en una carpeta diferente en el servidor FTP.
 
-**Ejemplo Enterprise**: Puede usar este desencadenador para supervisar nuevos archivos en una carpeta de SFTP que describen los pedidos de los clientes. Luego, puede usar una acción de FTP, como **Obtener contenido de archivo** para obtener el contenido del pedido para su posterior procesamiento y almacenar ese pedido en una base de datos de pedidos.
+Por ejemplo, puede usar este desencadenador para supervisar los nuevos archivos de una carpeta FTP que describen los pedidos de los clientes. Después, puede usar una acción de FTP como **Obtener metadatos del archivo** para obtener las propiedades de ese nuevo archivo y, después, usar **Obtener contenido del archivo** para obtener el contenido de ese archivo para su posterior procesamiento y almacenarlo en una base de datos de pedidos.
 
-Este es un ejemplo que muestra este desencadenador: **When a file is added or modified**
+Este es un ejemplo que muestra cómo usar el desencadenador **Cuando se agrega o modifica un archivo (solo propiedades)** .
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el diseñador de aplicaciones lógicas, si aún no lo ha hecho.
 
-1. Para las aplicaciones lógicas en blanco, en el cuadro de búsqueda, escriba "ftp" como filtro. En la lista de desencadenadores, seleccione este desencadenador: **When a filed is added or modified - FTP**
+1. Para las aplicaciones lógicas en blanco, en el cuadro de búsqueda, escriba `ftp` como filtro. En la lista de desencadenadores, seleccione este desencadenador: **Cuando se agrega o modifica un archivo (solo propiedades)**
 
-   ![Busque y seleccione el desencadenador de FTP](./media/connectors-create-api-ftp/select-ftp-trigger.png)  
+   ![Buscar y seleccionar el desencadenador de FTP](./media/connectors-create-api-ftp/select-ftp-trigger-logic-app.png)
 
-1. Proporcione la información necesaria para la conexión y, a continuación, seleccione **Crear**:
+1. Proporcione la información necesaria para la conexión y seleccione **Crear**.
 
-   De forma predeterminada, este conector transfiere los archivos en formato de texto. Para transferir archivos en formato binario, por ejemplo, cuando se use la codificación, seleccione **Transporte binario**.
+   De forma predeterminada, este conector transfiere los archivos en formato de texto. Para transferir archivos en formato binario, por ejemplo, cuando se use codificación, seleccione **Transporte binario**.
 
-   ![Creación de una conexión al servidor FTP](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
+   ![Creación de una conexión a un servidor FTP](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)
 
-1. Junto al cuadro **Carpeta**, seleccione el icono de carpeta para que aparezca una lista. Para buscar la carpeta donde quiere supervisar los archivos nuevos o modificados, seleccione la flecha de ángulo derecho ( **>** ), vaya a esa carpeta y, luego, seleccione la carpeta.
+1. En el cuadro **Carpeta**, seleccione el icono de la carpeta para que aparezca una lista. Para buscar la carpeta donde quiere supervisar los archivos nuevos o modificados, seleccione la flecha de ángulo derecho ( **>** ), vaya a esa carpeta y, luego, seleccione la carpeta.
 
-   ![Busque y seleccione la carpeta para supervisar](./media/connectors-create-api-ftp/select-folder.png)  
+   ![Busque y seleccione la carpeta para supervisar](./media/connectors-create-api-ftp/select-folder-ftp-trigger.png)
 
    La carpeta seleccionada aparece en el cuadro **Carpeta**.
 
-   ![Carpeta seleccionada](./media/connectors-create-api-ftp/selected-folder.png)  
+   ![La carpeta seleccionada aparece en el cuadro "Carpeta".](./media/connectors-create-api-ftp/selected-folder-ftp-trigger.png)
+
+1. Guarde la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
 Ahora que la aplicación lógica tiene un desencadenador, agregue las acciones que quiera ejecutar cuando la aplicación lógica encuentre un archivo nuevo o modificado. En este ejemplo, puede agregar una acción de FTP que obtiene el contenido nuevo o actualizado.
 
 <a name="get-content"></a>
 
-### <a name="ftp-action-get-content"></a>Acción de FTP: Obtener contenido
+### <a name="add-ftp-action"></a>Agregar acción de FTP
 
-Esta acción obtiene el contenido de un archivo en un servidor FTP cuando ese archivo se agrega o actualiza. Por ejemplo, puede agregar el desencadenador del ejemplo anterior y una acción que obtiene el contenido del archivo después de que se agregue o modifique el archivo.
+La acción **Obtener metadatos del archivo** obtiene las propiedades de un archivo que está en el servidor FTP y la acción **Obtener contenido del archivo** obtiene el contenido del archivo según la información sobre ese archivo en el servidor FTP. Por ejemplo, puede agregar el desencadenador del ejemplo anterior y una acción que obtiene el contenido del archivo después de que se agregue o modifique el archivo.
 
-Este es un ejemplo que muestra esta acción: **Obtener contenido**
+1. En el desencadenador o en cualquiera de las otras acciones, seleccione **Nuevo paso**.
 
-1. En el desencadenador o en cualquiera de las otras acciones, elija **Nuevo paso**.
+1. En el cuadro de búsqueda, escriba `ftp` como filtro. En la lista de acciones, seleccione esta acción: **Obtener metadatos de archivo**
 
-1. En el cuadro de búsqueda, escriba "ftp" como filtro. En la lista de acciones, seleccione esta acción: **Get file content - FTP**
+   ![Seleccione la acción "Obtener metadatos del archivo".](./media/connectors-create-api-ftp/select-get-file-metadata-ftp-action.png)
 
-   ![Selección de la acción de FTP](./media/connectors-create-api-ftp/select-ftp-action.png)  
-
-1. Si ya tiene una conexión con el servidor FTP y la cuenta, vaya al paso siguiente. De lo contrario, proporcione la información necesaria para la conexión y, luego, seleccione **Crear**.
+1. Si ya tiene una conexión con el servidor FTP y la cuenta, vaya al paso siguiente. De lo contrario, proporcione la información necesaria para la conexión y luego seleccione **Crear**.
 
    ![Creación de una conexión al servidor FTP](./media/connectors-create-api-ftp/create-ftp-connection-action.png)
 
-1. Después de que se abra la acción **Obtener contenido de archivo**, haga clic dentro del cuadro **Archivo** para que aparezca la lista de contenido dinámico. Ahora puede seleccionar propiedades para las salidas de los pasos anteriores. En la lista de contenido dinámico, seleccione la propiedad **Contenido del archivo**, que tiene el contenido del archivo agregado o actualizado.  
+1. Después de mostrarse la acción **Obtener metadatos del archivo**, haga clic dentro del cuadro **Archivo** para que aparezca la lista de contenido dinámico. Ahora puede seleccionar propiedades para las salidas de los pasos anteriores. En la lista de contenido dinámico, en **Obtener metadatos del archivo**, seleccione la propiedad **List of Files Id** (Id. de lista de archivos), que hace referencia a la colección en la que se agregó o actualizó el archivo.
 
-   ![Buscar y seleccionar el archivo](./media/connectors-create-api-ftp/ftp-action-get-file-content.png)
+   ![Buscar y seleccionar la propiedad List of Files Id (Id. de lista de archivos)](./media/connectors-create-api-ftp/select-list-of-files-id-output.png)
 
-   La propiedad **Contenido del archivo** aparece ahora en el cuadro **Archivo**.
+   La propiedad **List of Files Id** (Id. de lista de archivos) aparece ahora en el cuadro **Archivo**.
 
-   ![Propiedad "Contenido del archivo" seleccionada](./media/connectors-create-api-ftp/ftp-action-selected-file-content-property.png)
+   ![Propiedad List of Files Id (Id. de lista de archivos) seleccionada](./media/connectors-create-api-ftp/selected-list-file-ids-ftp-action.png)
 
-1. Guarde la aplicación lógica. Para probar el flujo de trabajo, agregue un archivo a la carpeta FTP que ahora supervisa la aplicación lógica.
+1. Ahora agregue esta acción de FTP: **Obtener contenido de archivo**
+
+   ![Busque y seleccione la acción "Obtener contenido del archivo".](./media/connectors-create-api-ftp/select-get-file-content-ftp-action.png)
+
+1. Después de mostrarse la acción **Obtener contenido del archivo**, haga clic dentro del cuadro **Archivo** para que aparezca la lista de contenido dinámico. Ahora puede seleccionar propiedades para las salidas de los pasos anteriores. En la lista de contenido dinámico, en **Obtener metadatos del archivo**, seleccione la propiedad **Id.** , que hace referencia al archivo que se agregó o actualizó.
+
+   ![Buscar y seleccionar la propiedad "Id."](./media/connectors-create-api-ftp/get-file-content-id-output.png)
+
+   La propiedad **Id.** aparece ahora en el cuadro **Archivo**.
+
+   ![Propiedad "Id." seleccionada](./media/connectors-create-api-ftp/selected-get-file-content-id-ftp-action.png)
+
+1. Guarde la aplicación lógica.
+
+## <a name="test-your-logic-app"></a>Comprobación de la aplicación lógica
+
+Para comprobar que el flujo de trabajo devuelve el contenido que espera, agregue otra acción que envíe el contenido del archivo cargado o actualizado.
+
+1. En la acción **Obtener contenido del archivo**, agregue una acción que pueda enviarle el contenido del archivo. En este ejemplo se agrega la acción **Enviar un correo electrónico** para Office 365 Outlook.
+
+   ![Agregar una acción para enviar correo electrónico](./media/connectors-create-api-ftp/select-send-email-action.png)
+
+1. Después de mostrarse la acción, proporcione la información e incluya las propiedades que quiere probar. Por ejemplo, incluya la propiedad **Archivo de contenido**, que aparece en la lista de contenido dinámico después de seleccionar **Ver más** en la sección **Obtener contenido del archivo**.
+
+   ![Proporción de información sobre la acción del correo electrónico](./media/connectors-create-api-ftp/selected-send-email-action.png)
+
+1. Guarde la aplicación lógica. Para ejecutar y desencadenar la aplicación lógica, seleccione **Ejecutar** en la barra de herramientas y, después, agregue un archivo a la carpeta FTP que la aplicación lógica supervisa ahora.
 
 ## <a name="connector-reference"></a>Referencia de conectores
 

@@ -3,18 +3,18 @@ title: Copia de seguridad de máquinas virtuales de Azure en un almacén de Reco
 description: Aquí se describe cómo realizar una copia de seguridad de VM de Azure en un almacén de Recovery Services con Azure Backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: dc47aa2b4da08a0fc2c9a91b4d547a0d19e1869a
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f2954ad2693d7b4f56e3f1b33e804a6936cf8a65
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450142"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
 
 En este artículo se describe cómo realizar una copia de seguridad de VM de Azure en un almacén de Recovery Services con el servicio [Azure Backup](backup-overview.md).
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 >
@@ -42,7 +42,7 @@ Además, hay un par de cosas que puede que deba hacer en algunas circunstancias:
 
  Un almacén almacena las copias de seguridad y los puntos de recuperación creados con el tiempo y almacena las directivas de copia de seguridad asociadas a máquinas de las que se han realizado copias de seguridad. Cree un almacén como se indica a continuación:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. En la búsqueda, escriba **Recovery Services**. En **Servicios**, haga clic en **Almacenes de Recovery Services**.
 
      ![Busque los almacenes de Recovery Services.](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
@@ -63,9 +63,8 @@ Una vez que se crea el almacén, aparece en la lista de almacenes de Recovery Se
 
 ![Lista de copias de seguridad](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-> [!NOTE]
-> El servicio Azure Backup crea un grupo de recursos independiente (que no sea el grupo de recursos de VM) para almacenar la instantánea con el formato de nomenclatura **AzureBackupRG_geography_number** (ejemplo: AzureBackupRG_northeurope_1). Los datos de este grupo de recursos se conservarán durante el intervalo de días especificado en la sección *Conservar las instantáneas de recuperación instantánea* de la directiva de copia de seguridad de la máquina virtual de Azure.  Si se aplica un bloqueo a este grupo de recursos, pueden producirse errores de copia de seguridad.<br>
-Este grupo de recursos también debe excluirse de todas las restricciones de nombre o etiqueta, ya que una directiva de restricción podría bloquear la creación de colecciones de puntos de recursos en el grupo, lo que provocaría errores de copia de seguridad.
+>[!NOTE]
+> Azure Backup ahora permite personalizar el nombre del grupo de recursos creado por el servicio Azure Backup. Para más información, vea [Grupo de recursos de Azure Backup para máquinas virtuales](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
 ### <a name="modify-storage-replication"></a>Modificar la replicación de almacenamiento
 
@@ -170,7 +169,7 @@ El estado del trabajo puede variar según los siguientes escenarios:
 **Instantánea** | **Transferir los datos al almacén** | **Estado del trabajo**
 --- | --- | ---
 Completed | En curso | En curso
-Completed | Skipped | Completed
+Completed | Omitido | Completed
 Completed | Completed | Completed
 Completed | Con error | Completado con advertencia
 Con error | Con error | Con error

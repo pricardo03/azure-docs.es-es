@@ -1,25 +1,16 @@
 ---
-title: Presentación de Service Fabric Cluster Resource Manager | Microsoft Docs
-description: Una introducción a Service Fabric Cluster Resource Manager.
-services: service-fabric
-documentationcenter: .net
+title: Presentación de Cluster Resource Manager de Service Fabric
+description: Conozca Cluster Resource Manager de Service Fabric, una manera de administrar la orquestación de los servicios de la aplicación.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e9b1cc8b66be36a0a77118f4de672c9411433ba5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da9205f5d95eaf1b4dc655ee727ab8a4fe90893d
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743671"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563333"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Presentación del Administrador de recursos de clúster de Service Fabric
 Tradicionalmente, administrar sistemas de TI o servicios en línea significaba dedicar máquinas físicas o virtuales específicas a esos servicios o sistemas específicos. Los servicios se diseñaban como capas. Podía haber una capa "web" y una capa "datos" o "almacenamiento". Las aplicaciones tenían un nivel de mensajería donde había solicitudes de flujo de entrada y salida, así como un conjunto de máquinas dedicado al almacenamiento en caché. Cada nivel o tipo de carga de trabajo tenía máquinas específicas dedicadas a ello: la base de datos contaba con un par de máquinas dedicadas, y los servidores web tenían algunas más. Si un tipo determinado de carga de trabajo provocaba que las máquinas en las que estaba se sobrecalentaran, se agregaban más máquinas con esa misma configuración a esa capa. Sin embargo, no todas las cargas de trabajo se podían escalar horizontalmente tan fácilmente, especialmente con la capa de datos tenía normalmente que reemplazar las máquinas con máquinas de mayor tamaño. Así de sencillo. Si se producía un error en una máquina, la parte afectada de la aplicación general se ejecutaba con una capacidad inferior hasta que pudiera restaurarse la máquina. Esto sigue siendo sencillo (aunque no necesariamente divertido).

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 8387e41d57edfa0e54ac930c9462714aca571f2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95272956da4567ec21e1c4603b88472e45373a39
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60848289"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351179"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Diseño de tablas escalables y eficaces
 
@@ -49,7 +49,7 @@ En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacen
 <tr>
 <th>Nombre</th>
 <th>Apellidos</th>
-<th>Edad</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -69,7 +69,7 @@ En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacen
 <tr>
 <th>Nombre</th>
 <th>Apellidos</th>
-<th>Edad</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -98,7 +98,7 @@ En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacen
 </td>
 </tr>
 <tr>
-<td>Ventas</td>
+<td>Sales</td>
 <td>00010</td>
 <td>2014-08-22T00:50:44Z</td>
 <td>
@@ -106,7 +106,7 @@ En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacen
 <tr>
 <th>Nombre</th>
 <th>Apellidos</th>
-<th>Edad</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -128,7 +128,7 @@ La elección de **PartitionKey** y **RowKey** es fundamental para un buen diseñ
 Una tabla consta de una o varias particiones, y muchas de las decisiones de diseño que tome estarán relacionadas con la elección de un valor adecuado de **PartitionKey** y **RowKey** para optimizar la solución. Una solución puede constar de una única tabla que contenga todas las entidades organizadas en particiones, pero normalmente las soluciones tendrán varias tablas. Tablas le ayuda a organizar las entidades de manera lógica, le ayudará a administrar el acceso a los datos mediante listas de control de acceso y puede quitar una tabla completa mediante una sola operación de almacenamiento.  
 
 ## <a name="table-partitions"></a>Particiones de tabla
-El nombre de la cuenta, el nombre de la tabla y **PartitionKey** juntos identifican la partición dentro del servicio de almacenamiento donde Table service almacena la entidad. Además de ser parte del esquema de direccionamiento de las entidades, las particiones definen un ámbito para las transacciones (vea [Transacciones de grupo de entidad](#entity-group-transactions) a continuación) y forman la base de cómo escala Table service. Para más información sobre las particiones, consulte [Objetivos de rendimiento y escalabilidad de Azure Storage](../../storage/common/storage-scalability-targets.md).  
+El nombre de la cuenta, el nombre de la tabla y **PartitionKey** juntos identifican la partición dentro del servicio de almacenamiento donde Table service almacena la entidad. Además de ser parte del esquema de direccionamiento de las entidades, las particiones definen un ámbito para las transacciones (vea [Transacciones de grupo de entidad](#entity-group-transactions) a continuación) y forman la base de cómo escala Table service. Para más información sobre las particiones, consulte [Lista de comprobación de escalabilidad y rendimiento para Table Storage](storage-performance-checklist.md).  
 
 En Table service, un nodo individual da servicio a una o más particiones completas y el servicio se escala equilibrando dinámicamente la carga de las particiones entre los nodos. Si un nodo está bajo carga, Table Service puede *dividir* el intervalo de particiones atendidas por ese nodo en nodos diferentes; cuando el tráfico disminuye, el servicio puede *combinar* los intervalos de la partición de nodos silenciosos a un único nodo.  
 
@@ -137,7 +137,7 @@ Para más información sobre los detalles internos de Table service y saber en p
 ## <a name="entity-group-transactions"></a>Transacciones de grupo de entidad
 En Table service, las transacciones de grupo de entidad (EGT) son el único mecanismo integrado para realizar actualizaciones atómicas en varias entidades. Las EGT se conocen en ocasiones como *transacciones por lotes*. Las EGT solo pueden funcionar en entidades almacenadas en la misma partición (es decir, que comparten la misma clave de partición en una tabla determinada). Así que cada vez que necesite un comportamiento de transacciones atómico entre varias entidades, debe asegurarse de que esas entidades estén en la misma partición. Este suele ser un motivo para mantener varios tipos de entidad en la misma tabla (y partición) y no utilizar varias tablas para diferentes tipos de entidad. Una sola EGT puede operar en 100 entidades como máximo.  Si envía varias EGT simultáneas para procesamiento, es importante asegurarse de que esas EGT no se usan en las entidades que son comunes a todas las EGT, ya que de lo contrario se puede retrasar el procesamiento.
 
-Las EGT también presentan posibles ventajas e inconvenientes que es necesario evaluar en el diseño. Es decir, usar más particiones aumenta la escalabilidad de la aplicación, porque Azure tiene más oportunidades para equilibrar la carga de solicitudes entre los nodos. Sin embargo, también podría ser un inconveniente al limitar la capacidad de la aplicación para realizar transacciones atómicas y mantener una fuerte coherencia de los datos. Además, existen objetivos de escalabilidad específicos en el nivel de una partición que podrían limitar el rendimiento de las transacciones que se puede esperar de un único nodo. Para más información sobre los objetivos de escalabilidad en cuentas de almacenamiento de Azure y sobre Table service, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](../../storage/common/storage-scalability-targets.md).   
+Las EGT también presentan posibles ventajas e inconvenientes que es necesario evaluar en el diseño. Es decir, usar más particiones aumenta la escalabilidad de la aplicación, porque Azure tiene más oportunidades para equilibrar la carga de solicitudes entre los nodos. Sin embargo, también podría ser un inconveniente al limitar la capacidad de la aplicación para realizar transacciones atómicas y mantener una fuerte coherencia de los datos. Además, existen objetivos de escalabilidad específicos en el nivel de una partición que podrían limitar el rendimiento de las transacciones que se puede esperar de un único nodo. Para obtener más información sobre los objetivos de escalabilidad de cuentas de almacenamiento estándar, consulte [Objetivos de escalabilidad para cuentas de almacenamiento estándar](../common/scalability-targets-standard-account.md). Para más información acerca de los objetivos de escalabilidad de Table service, consulte [Objetivos de escalabilidad y rendimiento para Table Storage](scalability-targets.md).
 
 ## <a name="capacity-considerations"></a>Consideraciones de capacidad
 En la tabla siguiente se describen algunos de los valores de clave a tener en cuenta al diseñar una solución de Table service:  
@@ -152,7 +152,7 @@ En la tabla siguiente se describen algunos de los valores de clave a tener en cu
 | Tamaño de la **RowKey** |Una cadena de hasta 1 KB |
 | Tamaño de una transacción de un grupo de entidades |Una transacción puede incluir como máximo 100 entidades y la carga debe ser inferior a 4 MB. Un EGT solo puede actualizar una entidad una vez. |
 
-Para más información, consulte [Descripción del modelo de datos de Table service](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
+Para obtener más información, consulte [Descripción del modelo de datos del servicio Tabla](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
 
 ## <a name="cost-considerations"></a>Consideraciones sobre el costo
 El almacenamiento en tablas es relativamente económico, pero debe incluir las estimaciones de costos por el uso de capacidad y la cantidad de transacciones, como parte de la evaluación de cualquier solución de Table service. Sin embargo, en muchos escenarios, el almacenamiento de datos duplicados o sin normalizar para mejorar el rendimiento o la escalabilidad de su solución es un enfoque válido. Para obtener más información sobre los precios, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  

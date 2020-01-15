@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6520f205d0a9c1a33d0cb4911a58a5e680bdadb7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6b8f5708aa14b4cc7cffa62da055f92f8d99dee5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929731"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409099"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escalado y hospedaje de Azure Functions
 
@@ -126,7 +126,9 @@ Cuando el resultado de este comando es `dynamic`, la aplicación de función est
 
 En cualquier plan, una aplicación de funciones requiere una cuenta de Azure Storage general que admita almacenamiento de Azure en blobs, colas, archivos y tablas. Esto es porque las Functions basa en Azure Storage para operaciones como la administración de desencadenadores y el registro de las ejecuciones de funciones, pero algunas cuentas de almacenamiento no admiten colas y tablas. Estas cuentas, que incluyen las cuentas de almacenamiento solo para blobs (incluido almacenamiento Premium) y las cuentas de almacenamiento de uso general con replicación de almacenamiento con redundancia de zona, se filtran horizontalmente de las selecciones de **Cuenta de almacenamiento** existentes cuando se crea una aplicación de función.
 
-Los desencadenadores y enlaces para almacenar los datos de la aplicación también pueden usar la misma cuenta de almacenamiento que usa la aplicación de función. Sin embargo, para las operaciones que consumen muchos recursos de almacenamiento, debe usar una cuenta de almacenamiento independiente.   
+Los desencadenadores y enlaces para almacenar los datos de la aplicación también pueden usar la misma cuenta de almacenamiento que usa la aplicación de función. Sin embargo, para las operaciones que consumen muchos recursos de almacenamiento, debe usar una cuenta de almacenamiento independiente.  
+
+Es muy posible que varias aplicaciones de función compartan la misma cuenta de almacenamiento sin problemas. (Un buen ejemplo es cuando se desarrollan varias aplicaciones en el entorno local mediante el Emulador de Azure Storage, que actúa como una cuenta de almacenamiento). 
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
@@ -161,6 +163,8 @@ Diferentes desencadenadores pueden también tener distintos límites de escalado
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Procedimientos recomendados y patrones para aplicaciones escalables
 
 Hay muchos aspectos de una aplicación de función que afectarán a cómo se escala esta, incluida la configuración del host, la superficie del sistema de tiempo de ejecución y la eficacia de los recursos.  Para obtener más información, consulte la [sección de escalabilidad del artículo sobre consideraciones de rendimiento](functions-best-practices.md#scalability-best-practices). También debe tener en cuenta cómo se comportan las conexiones a medida que la aplicación de función se escala. Para más información, consulte [How to manage connections in Azure Functions](manage-connections.md) (Administración de conexiones en Azure Functions).
+
+Para más información sobre el escalado en Python y Node.js, vea [Guía de Azure Functions para desarrolladores de Python: Simultaneidad](functions-reference-python.md#scaling-and-concurrency) y [Guía para el desarrollador de JavaScript para Azure Functions: Escalado y simultaneidad](functions-reference-node.md#scaling-and-concurrency).
 
 ### <a name="billing-model"></a>Modelo de facturación
 

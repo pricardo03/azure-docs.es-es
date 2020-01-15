@@ -9,26 +9,32 @@
   items:
     - name: 'Con C#'
       href: Quickstart.md
+    - name: Uso de Node.js
+      href: quickstart-nodejs.md
     - name: Uso de Swift (iOS)
       href: ios-quickstart.md
 - name: Tutoriales
   items:
-    - name: Inicio del Lector inmersivo (Node.js)
-      href: tutorial-nodejs.md
     - name: Inicio del Lector inmersivo (Python)
       href: tutorial-python.md
-    - name: Imagen para Lector inmersivo (Swift)
-      href: tutorial-ios-picture-immersive-reader.md
 - name: Procedimiento
   items:
-    - name: Autenticación con Azure Active Directory
-      href: azure-active-directory-authentication.md
+    - name: Creación de un recurso del Lector inmersivo
+      href: how-to-create-immersive-reader.md
+    - name: Establecimiento de la directiva de cookies
+      href: how-to/set-cookie-policy.md
+    - name: Mostrar matemáticas
+      href: how-to/display-math.md
+    - name: Iniciar el Lector inmersivo con contenido HTML
+      href: how-to-launch-with-html.md
+    - name: Personalización del botón del Lector inmersivo
+      href: how-to-customize-launch-button.md
+    - name: Almacenamiento en caché del token de autenticación
+      href: how-to-cache-token.md
 - name: Referencia
   items:
     - name: Referencia del SDK
       href: reference.md
-    - name: Referencia de SDK de iOS
-      href: ios-reference.md
 - name: Recursos
   items:
     - name: Azure Roadmap

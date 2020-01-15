@@ -1,24 +1,24 @@
 ---
 title: La estructura de los paneles de Azure | Microsoft Docs
-description: En este artículo se explica la estructura JSON de un panel de Azure.
+description: Recorra la estructura JSON de un Panel de Azure mediante un panel de ejemplo. Incluye una referencia a las propiedades de los recursos.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
-manager: dougeby
+manager: mtillman
 editor: tysonn
 ms.service: azure-portal
 ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/01/2017
-ms.author: kfollis
-ms.openlocfilehash: 5933521993b598ae3758df6e2e7dbf61bf424779
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 12/20/2019
+ms.author: mblythe
+ms.openlocfilehash: 18125e119e7ffdd2f8fa8ca3c5c1b12c8c9a94e0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832792"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640370"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>La estructura de los paneles de Azure
 Este documento le guía a través de la estructura de un panel de Azure con el panel siguiente como ejemplo:
@@ -293,9 +293,9 @@ Como los [paneles de Azure compartidos son recursos](https://docs.microsoft.com/
 
 Vamos a desglosar las secciones relevantes de JSON.  Las propiedades de nivel superior, __id__, __name__, __type__, __location__ y __tags__ se comparten entre todos los tipos de recursos de Azure. Es decir, no tienen mucho que ver con el contenido del panel.
 
-### <a name="the-id-property"></a>La propiedad id
+### <a name="the-id-property"></a>La propiedad ID
 
-El identificador de recurso de Azure está sujeto a las [convenciones de nomenclatura de recursos de Azure](/azure/architecture/best-practices/resource-naming). Cuando el portal crea un panel, elige generalmente un id. en forma de identificador único pero se puede utilizar cualquier nombre válido cuando se crean mediante programación. 
+El identificador de recurso de Azure está sujeto a las [convenciones de nomenclatura de recursos de Azure](/azure/architecture/best-practices/resource-naming). Cuando el portal crea un panel, elige generalmente un identificador en forma de identificador único global, pero se puede usar cualquier nombre válido cuando se crea mediante programación. 
 
 ### <a name="the-name-property"></a>La propiedad name
 El nombre es el segmento del identificador de recurso que no incluye la suscripción, el tipo de recurso o la información del grupo de recursos. Básicamente, es el último segmento del identificador de recurso.
@@ -312,13 +312,13 @@ Las etiquetas son una característica común de los recursos de Azure que le per
 `"tags": { "hidden-title": "Created via API" }`
 
 ### <a name="the-properties-object"></a>El objeto properties
-El objeto properties contiene dos propiedades, __lenses__ y __metadata__. La propiedad __lenses__ contiene información acerca de los iconos (conocidos como elementos) del panel.  La propiedad __metadata__ existe para posibles características futuras.
+El objeto properties contiene dos propiedades, __lenses__ y __metadata__. La propiedad __lenses__ contiene información sobre los iconos del panel.  La propiedad __metadata__ existe para posibles características futuras.
 
 ### <a name="the-lenses-property"></a>La propiedad lenses
 La propiedad __lenses__ contiene el panel. Tenga en cuenta que el objeto lenses de este ejemplo contiene una propiedad única denominada "0". Lenses son un concepto de agrupación que no está implementado actualmente en los paneles. Por ahora, todos los paneles tienen esta propiedad en el objeto lens, que también se llama "0".
 
 ### <a name="the-lens-object"></a>El objeto lens
-El objeto que hay debajo de "0" contiene dos propiedades, __order__ y __parts__.  En la versión actual de los paneles, __order__ es siempre 0. La propiedad __parts__ contiene un objeto que define los elementos individuales (conocidos como iconos) del panel.
+El objeto que hay debajo de "0" contiene dos propiedades, __order__ y __parts__.  En la versión actual de los paneles, __order__ es siempre 0. La propiedad __parts__ contiene un objeto que define los elementos individuales (también denominados iconos) del panel.
 
 El objeto __parts__ contiene una propiedad para cada elemento, donde el nombre de la propiedad es un número. Este número no es significativo. 
 
@@ -344,7 +344,7 @@ Cada elemento tiene una propiedad metadata, un objeto solo tiene una propiedad n
 Cada tipo de elemento tiene su propia configuración. Las posibles propiedades de configuración se denominan __inputs__, __settings__ y __asset__. 
 
 ### <a name="the-inputs-object"></a>El objeto inputs
-El objeto inputs generalmente contiene información que enlaza un icono con una instancia del recurso.  El elementos de máquina virtual en el panel de ejemplo contiene una sola entrada que usa el identificador de recurso de Azure para expresar el enlace.  Este formato de identificador de recurso es coherente en todos los recursos de Azure.
+El objeto inputs generalmente contiene información que enlaza un icono con una instancia del recurso.  El elemento de máquina virtual en el panel de ejemplo contiene una sola entrada que usa el identificador de recurso de Azure para expresar el enlace.  Este formato de identificador de recurso es coherente en todos los recursos de Azure.
 
 ```json
 "inputs":

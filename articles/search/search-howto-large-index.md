@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: bd158eaf22025a64d7464c632d3f0fa510a4b5a3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/17/2019
+ms.openlocfilehash: b4b6c57b08de07cae431f015c8d8f53cdf3a50a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793761"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460726"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Indexación de grandes conjuntos de datos en Azure Cognitive Search
 
@@ -74,7 +74,7 @@ El procesamiento paralelo tiene los siguientes elementos:
 + Programe todos los indexadores para que se ejecuten al mismo tiempo.
 
 > [!NOTE]
-> Azure Cognitive Search no permite dedicar réplicas o particiones a cargas de trabajo específicas. El riesgo de una indexación simultánea intensa sobrecarga el sistema y perjudica el rendimiento de las consultas. Si tiene un entorno de prueba, implemente la indexación en paralelo ahí primero para comprender las ventajas y los inconvenientes.
+> En Azure Cognitive Search, no se pueden asignar réplicas o particiones individuales al procesamiento de indexación o consulta. El sistema determina cómo se usan los recursos. Para comprender el impacto en el rendimiento de las consultas, puede probar la indexación paralela en un entorno de prueba antes de implementarlo en producción.  
 
 ### <a name="how-to-configure-parallel-indexing"></a>Cómo configurar la indexación en paralelo
 
@@ -99,7 +99,7 @@ A la hora programada, todos los indexadores empezarán a ejecutarse, cargarán l
 > [!Note]
 > Cuando aumente las réplicas, considere aumentar el número de particiones si se espera que el tamaño del índice aumente de manera considerable. Las particiones almacenan segmentos del contenido indexado: cuantas más particiones tenga, más pequeño será el segmento que cada una debe almacenar.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 + [Información general del indexador](search-indexer-overview.md)
 + [Indexing in the portal](search-import-data-portal.md) (Indexación en el portal)

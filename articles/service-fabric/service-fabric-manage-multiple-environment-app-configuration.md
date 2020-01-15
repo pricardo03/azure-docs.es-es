@@ -1,25 +1,16 @@
 ---
-title: Administración de aplicaciones en varios entornos en Azure Service Fabric | Microsoft Docs
+title: Administración de aplicaciones para varios entornos
 description: Las aplicaciones de Service Fabric se pueden ejecutar en clústeres cuyo tamaño oscila entre una y miles de máquinas. En algunos casos, deseará configurar su aplicación de forma diferente para cada uno de los entornos. Este artículo explica cómo definir distintos parámetros de aplicación por entorno.
-services: service-fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: msfussell
-editor: ''
-ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: dac96ef6fce38a0557444e181fa6eccb649cfb9a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33dfc91381b23bf1ac33bef5274e1098df411f4a
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60719233"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609849"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Administración de aplicaciones en varios entornos
 

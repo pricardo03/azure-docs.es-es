@@ -1,25 +1,16 @@
 ---
-title: 'Cluster Resource Manager de Service Fabric: integración de la administración | Microsoft Docs'
+title: 'Cluster Resource Manager: integración de la administración'
 description: Una visión general de los puntos de integración entre el Administrador de recursos de clúster y la administración de Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2b3ccf16aca04ebd398e2f97007b817cc0a6ef8d
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196495"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614628"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integración del Administrador de recursos de clúster con la administración de clústeres de Service Fabric
 Cluster Resource Manager de Service Fabric no impulsa las actualizaciones en Service Fabric, pero participa. Cluster Resource Manager contribuye a la administración, en primer lugar, realizando un seguimiento del estado deseado del clúster y los servicios que contiene. Además, envía informes de mantenimiento cuando no puede colocar el clúster en la configuración deseada. Por ejemplo, si no hay capacidad suficiente, Cluster Resource Manager envía advertencias y errores de estado que indican el problema. Otro aspecto de la integración tiene que ver con el funcionamiento de las actualizaciones. Durante ellas, Cluster Resource Manager modifica ligeramente su comportamiento.  
@@ -77,7 +68,7 @@ Esto es lo que nos dice este mensaje de mantenimiento:
 2. Actualmente se está infringiendo la restricción de distribución de dominios de actualización. Esto significa que un dominio de actualización concreto tiene más réplicas de esta partición de lo que debería.
 3. El nodo que contiene la réplica que produce la infracción. En este caso, es el nodo con el nombre "Node.8".
 4. Si se está produciendo una actualización en esta partición ("Currently Upgrading -- false")
-5. La directiva de distribución para este servicio: "Distribution Policy -- Packing". Esta se rige por la `RequireDomainDistribution` [directiva de colocación](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). "Packing" indica que, en este caso, DomainDistribution _no_ era necesario, así que sabemos que no se especificó una directiva de colocación para este servicio. 
+5. La directiva de distribución para este servicio: "Distribution Policy -- Packing". Esta se rige por la `RequireDomainDistribution`[directiva de colocación](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). "Packing" indica que, en este caso, DomainDistribution _no_ era necesario, así que sabemos que no se especificó una directiva de colocación para este servicio. 
 6. Cuándo se produjo el informe (el 08/10/2015 a las 19:13:02).
 
 La información de este tipo genera alertas que se activan durante la producción para advertirle de que hay un problema, y también se usa para detectar y detener las actualizaciones incorrectas. En este caso, queremos ver si podemos averiguar por qué Resource Manager tuvo que empaquetar las réplicas en el dominio de actualización. Por lo habitual, el empaquetado es transitorio porque, por ejemplo, los nodos de los demás dominios de actualización estaban inactivos.
@@ -183,7 +174,7 @@ a través de ClusterConfig.json para las implementaciones independientes o Templ
 ## <a name="fault-domain-and-upgrade-domain-constraints"></a>Restricciones de dominio de error y dominio de actualización
 Cluster Resource Manager desea mantener los servicios repartidos entre dominios de error y de actualización. Y este requisito lo modela como una restricción dentro del motor de Cluster Resource Manager. Para más información sobre cómo se usan y su comportamiento específico, consulte el artículo sobre la [configuración del clúster](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior).
 
-Cluster Resource Manager puede necesitar empaquetar un par de réplicas en un dominio de actualización para administrar actualizaciones, errores u otras infracciones de restricción. El empaquetado en dominios de error o de actualización solo sucede cuando hay varios errores u otras renovaciones en el sistema que impiden la correcta colocación. Si desea evitar el empaquetado incluso durante estas situaciones, puede usar la [directiva de colocación](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing) `RequireDomainDistribution` . Sin embargo, considere detenidamente esta decisión, ya que puede afectar a la disponibilidad del servicio y a la confiabilidad, como efecto secundario.
+Cluster Resource Manager puede necesitar empaquetar un par de réplicas en un dominio de actualización para administrar actualizaciones, errores u otras infracciones de restricción. El empaquetado en dominios de error o de actualización solo sucede cuando hay varios errores u otras renovaciones en el sistema que impiden la correcta colocación. Si desea evitar el empaquetado incluso durante estas situaciones, puede usar la `RequireDomainDistribution`[directiva de colocación](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). Sin embargo, considere detenidamente esta decisión, ya que puede afectar a la disponibilidad del servicio y a la confiabilidad, como efecto secundario.
 
 Si el entorno está configurado correctamente, todas las restricciones se respetan completamente, incluso durante las actualizaciones. Lo que realmente importa es que Cluster Resource Manager vigila las restricciones y, cuando detecta una infracción, lo notifica inmediatamente e intenta corregir el problema.
 

@@ -1,6 +1,6 @@
 ---
 title: Envío y recepción de mensajes AS2 para B2B
-description: Intercambio de mensajes AS2 para escenarios de integración empresarial B2B mediante Azure Logic Apps
+description: Intercambio de mensajes AS2 para escenarios de integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 08/22/2019
-ms.openlocfilehash: b2d7c8840da3bb44f9e220f2963dc4fee63176e2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 9f72edecc07c34a0f176e52f6b70644f9ceb16e0
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790717"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666710"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes AS2 para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 
@@ -49,9 +49,9 @@ En este artículo se muestra cómo agregar la codificación AS2 y las acciones d
 > [!IMPORTANT]
 > El conector AS2 original va a quedar en desuso, por lo que debe asegurarse de usar el conector **AS2 (v2)** en su lugar. Esta versión proporciona las mismas funcionalidades que la versión original, es nativa en el entorno de tiempo de ejecución de Logic Apps y proporciona mejoras de rendimiento significativas en cuanto al rendimiento y el tamaño de los mensajes. Además, el conector v2 nativo no requiere la creación de una conexión a la cuenta de integración. En su lugar, tal y como se describe en los requisitos previos, asegúrese de vincular la cuenta de integración a la aplicación lógica donde planea usar el conector.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si aún no tiene ninguna suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si aún no tiene ninguna suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * La aplicación lógica desde la que quiere usar el conector AS2 y un desencadenador que inicie el flujo de trabajo de la aplicación lógica. El conector AS2 proporciona únicamente las acciones, no los desencadenadores. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -81,7 +81,7 @@ En este artículo se muestra cómo agregar la codificación AS2 y las acciones d
 
 1. Ahora, proporcione la información de las siguientes propiedades:
 
-   | Propiedad | DESCRIPCIÓN |
+   | Propiedad | Descripción |
    |----------|-------------|
    | **Mensaje que se codificará** | Carga útil del mensaje. |
    | **AS2 desde** | Identificador del remitente del mensaje según lo especificado por su contrato AS2. |

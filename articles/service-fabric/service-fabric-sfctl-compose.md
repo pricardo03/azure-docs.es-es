@@ -1,32 +1,23 @@
 ---
-title: 'CLI de Azure Service Fabric: sfctl compose | Microsoft Docs'
-description: Describe los comandos de sfctl compose de la CLI Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: 'CLI de Azure Service Fabric: compose de sfctl'
+description: Más información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para aplicaciones Docker Compose.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 561616fca7401f5251c4fbac67173260a665b602
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 3a9fa142dd45674e4a3e88745acffef225b80a64
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901668"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645402"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Cree, elimine y administre aplicaciones de Docker Compose.
 
 ## <a name="commands"></a>Comandos:
 
-|Get-Help|DESCRIPCIÓN|
+|Get-Help|Descripción|
 | --- | --- |
 | create | Crea una implementación de Compose de Service Fabric. |
 | list | Obtiene la lista de implementaciones de Compose creadas en el clúster de Service Fabric. |
@@ -41,7 +32,7 @@ Crea una implementación de Compose de Service Fabric.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --deployment-name [Obligatorio] | Nombre de la implementación. |
 | --file-path       [obligatorio] | Ruta de acceso al archivo de destino de Docker Compose. |
@@ -52,13 +43,13 @@ Crea una implementación de Compose de Service Fabric.
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-compose-list"></a>sfctl compose list
 Obtiene la lista de implementaciones de Compose creadas en el clúster de Service Fabric.
@@ -67,7 +58,7 @@ Obtiene el estado sobre las implementaciones de Compose que se crearon o están 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --continuation-token | El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada. |
 | --max-results | El número máximo de resultados que se devuelven como parte de las consultas paginadas. Este parámetro define el límite superior en el número de resultados devueltos. Los resultados devueltos pueden ser menos que el número máximo de resultados especificado si no caben en el mensaje según las restricciones del tamaño máximo del mensaje definidas en la configuración. Si este parámetro es cero o no se especifica, la consulta paginada incluye tantos resultados como quepan en el mensaje devuelto. |
@@ -75,13 +66,13 @@ Obtiene el estado sobre las implementaciones de Compose que se crearon o están 
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-compose-remove"></a>sfctl compose remove
 Elimina una implementación existente de Compose de Service Fabric del clúster.
@@ -90,20 +81,20 @@ Elimina una implementación existente de Compose de Service Fabric.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --deployment-name [Obligatorio] | La identidad de la implementación. |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-compose-status"></a>sfctl compose status
 Obtiene información sobre una implementación de Compose de Service Fabric.
@@ -112,20 +103,20 @@ Devuelve el estado de la implementación de Compose que se creó o está en proc
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --deployment-name [Obligatorio] | La identidad de la implementación. |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-compose-upgrade"></a>sfctl compose upgrade
 Inicia la actualización de una implementación de Compose en el clúster de Service Fabric.
@@ -134,7 +125,7 @@ Valida los parámetros de actualización proporcionados e inicia la actualizaci�
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --deployment-name [Obligatorio] | Nombre de la implementación. |
 | --file-path [Obligatorio] | Ruta de acceso al archivo de destino de Docker Compose. |
@@ -143,7 +134,7 @@ Valida los parámetros de actualización proporcionados e inicia la actualizaci�
 | --failure-action | Los valores posibles son\: "Invalid", "Rollback", "Manual". |
 | --force-restart | Los procesos se reinician de forma forzosa durante la actualización incluso si no ha cambiado la versión del código. <br><br> La actualización solo cambia la configuración o los datos. |
 | --has-pass | Solicitará una contraseña para el registro de contenedor. |
-| --health-check-retry | El período de tiempo entre intentos para realizar comprobaciones de mantenimiento si la aplicación o el clúster no son correctos. |
+| --health-check-retry | El período de tiempo entre intentos para realizar comprobaciones de mantenimiento si la aplicación o el clúster no funcionan correctamente. |
 | --health-check-stable | La cantidad de tiempo que la aplicación o el clúster deben tener un estado correcto antes de que la actualización continúe con el siguiente dominio de actualización. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
 | --health-check-wait | El período de tiempo de espera después de completar un dominio de actualización antes de iniciar el proceso de comprobaciones de mantenimiento. |
 | --replica-set-check | El período de tiempo máximo para bloquear el procesamiento de un dominio de actualización y evitar la pérdida de disponibilidad cuando hay problemas inesperados. <br><br> Cuando este tiempo de espera expire, el procesamiento del dominio de actualización se llevará a cabo independientemente de los problemas de pérdida de disponibilidad. El tiempo de espera se restablece al principio de cada dominio de actualización. Los valores válidos oscilan entre 0 y 42949672925, ambos inclusive. |
@@ -159,13 +150,13 @@ Valida los parámetros de actualización proporcionados e inicia la actualizaci�
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-compose-upgrade-rollback"></a>sfctl compose upgrade-rollback
 Inicia el proceso de reversión la actualización de una implementación de Compose en el clúster de Service Fabric.
@@ -174,20 +165,20 @@ Revierte una actualización de la implementación de Compose de Service Fabric.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --deployment-name [Obligatorio] | La identidad de la implementación. |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-compose-upgrade-status"></a>sfctl compose upgrade-status
 Obtiene detalles de la actualización más reciente realizada en esta implementación de Compose de Service Fabric.
@@ -196,20 +187,20 @@ Devuelve la información sobre el estado de la actualización de la implementaci
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --deployment-name [Obligatorio] | La identidad de la implementación. |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

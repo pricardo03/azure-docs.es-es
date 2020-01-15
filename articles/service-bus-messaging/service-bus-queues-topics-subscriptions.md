@@ -1,5 +1,5 @@
 ---
-title: Información general sobre colas de mensajes, temas y suscripciones de Azure Service Bus | Microsoft Docs
+title: 'Mensajería de Azure Service Bus: colas, temas y suscripciones'
 description: Información general de las entidades de mensajería de Service Bus.
 services: service-bus-messaging
 documentationcenter: na
@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: aschhab
-ms.openlocfilehash: 7cacabf4f171189810e943043b5513e20113d962
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc549f9bfbb48da9263493c21ec38735b3cc0c24
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125821"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426925"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Colas, temas y suscripciones de Service Bus
 

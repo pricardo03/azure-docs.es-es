@@ -1,25 +1,16 @@
 ---
-title: 'Cluster Resource Manager de Service Fabric: directivas de colocación | Microsoft Docs'
+title: 'Cluster Resource Manager de Service Fabric: directivas de colocación'
 description: Información general sobre las reglas y directivas de colocación adicionales para los servicios de Service Fabric
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: d5aea441f15cbf7a2a444439c06cd5f74a559d3f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f9861faeaf4ab4049de7404a9e6f8b59a9445fe5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60386464"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452182"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Directivas de colocación de servicios de Service Fabric
 Las directivas de colocación son reglas adicionales que pueden usarse para controlar la colocación del servicio en algunos escenarios específicos menos comunes. Algunos ejemplos de esos escenarios son:

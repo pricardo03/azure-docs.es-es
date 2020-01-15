@@ -1,25 +1,16 @@
 ---
-title: Administración de la carga de aplicaciones de Azure Service Fabric mediante métricas | Microsoft Docs
+title: Administración de la carga de aplicaciones de Azure Service Fabric mediante métricas
 description: Aprenda cómo configurar y usar las métricas en Service Fabric para administrar el consumo de recursos del servicio.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 1a61de6b0b6f73e112dd69108272ded3a67497e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ea21502cdab35b261e20af7f23b7b522f77c6667
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516760"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451995"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Administración de consumo y carga de recursos en Service Fabric con métricas
 *Métricas* son los recursos por los que se interesan sus servicios y que proporcionan los nodos del clúster. Una métrica es cualquier cosa que debe administrar para mejorar o supervisar el rendimiento de los servicios. Por ejemplo, podría observar el consumo de memoria para saber si el servicio está sobrecargado. Otro uso es averiguar si el servicio se podría mover a cualquier otro lugar en el que la memoria esté menos restringida, para poder obtener un mejor rendimiento.
@@ -36,8 +27,8 @@ Supongamos que desea empezar a escribir e implementar un servicio. En este momen
 | Métrica | Carga de instancia sin estado | Carga secundaria con estado | Carga principal con estado | Peso |
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |Alto |
-| ReplicaCount |0 |1 |1 |Mediano |
-| Recuento |1 |1 |1 |Bajo |
+| ReplicaCount |0 |1 |1 |Media |
+| Count |1 |1 |1 |Bajo |
 
 
 Para cargas de trabajo básicas, las métricas predeterminadas proporcionan una distribución apropiada del trabajo en el clúster. En el siguiente ejemplo, vamos a ver lo que sucede cuando se crean dos servicios y se confía en las métricas predeterminadas para mantener el equilibrio. El primero es un servicio con estado con tres particiones y un conjunto de tres réplicas de destino. El segundo es un servicio sin estado con una partición y un recuento de instancias de tres.
@@ -49,7 +40,7 @@ Esto es lo que obtiene:
 ![Diseño de clúster con métricas predeterminadas][Image1]
 </center>
 
-Algunos puntos a tener en cuenta:
+Cosas que tener en cuenta:
   - Las réplicas principales para el servicio con estado se distribuyen entre varios nodos
   - Las réplicas de la misma partición están en distintos nodos
   - El número total de réplicas principales y secundarias está distribuido en el clúster.
@@ -57,7 +48,7 @@ Algunos puntos a tener en cuenta:
 
 ¡Bien!
 
-Las métricas predeterminadas funcionan correctamente como lugar de partida. Pero estas métricas predeterminadas tienen una utilidad limitada. Por ejemplo:  ¿Cuál es la probabilidad de que el esquema de partición que elija dé como resultado una utilización perfectamente uniforme de todas las particiones? ¿Cuál es la probabilidad de que la carga de un servicio dado se mantenga constante en el tiempo, o incluso que sea la misma en varias particiones ahora mismo?
+Las métricas predeterminadas funcionan correctamente como lugar de partida. Pero estas métricas predeterminadas tienen una utilidad limitada. Por ejemplo: ¿Cuál es la probabilidad de que el esquema de partición que elija dé como resultado una utilización perfectamente uniforme de todas las particiones? ¿Cuál es la probabilidad de que la carga de un servicio dado se mantenga constante en el tiempo, o incluso que sea la misma en varias particiones ahora mismo?
 
 Puede trabajar solo con las métricas predeterminadas. De todas forma, si lo hace, normalmente significa que la utilización del clúster será inferior y más desigual de lo deseable. Esto se debe a que las métricas predeterminadas no son adaptables y presuponen que todo es equivalente. Por ejemplo, un elemento principal que está ocupado y otro que no lo está, ambos contribuyen con "1" en la métrica de PrimaryCount. En el peor de los casos, usar solo las métricas predeterminadas puede producir una sobrecarga en los nodos y problemas de rendimiento. Si está interesado en obtener el máximo partido de su clúster y evitar problemas de rendimiento, tiene que usar métricas personalizadas e informes de carga dinámica.
 
@@ -143,7 +134,7 @@ Recuerde: si solo desea utilizar las métricas predeterminadas, no necesita toca
 
 Ahora, vamos a analizar en detalle cada uno de estos valores y a hablar sobre los comportamientos en los que influyen.
 
-## <a name="load"></a>Carga
+## <a name="load"></a>Cargar
 La razón fundamental de la definición de las métricas es la representación de cierta carga. *Carga* es la cantidad de una determinada métrica que alguna instancia del servicio o réplica consume en un nodo específico. El valor Carga puede configurarse prácticamente en cualquier momento. Por ejemplo:
 
   - Carga se puede definir cuando se crea un servicio. Esto se denomina _carga predeterminada_.

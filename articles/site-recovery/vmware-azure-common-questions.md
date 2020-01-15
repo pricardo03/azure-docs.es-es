@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 508fa7e33cd8572d70b7ebf261edba67fd40dd93
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 16892ec729f56f8c8e1713379285e07fbc0dd4d1
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084162"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495435"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Preguntas frecuentes sobre la replicación de VMware en Azure
 
@@ -176,7 +176,7 @@ Sí, puede agregar nuevas máquinas virtuales a un grupo de replicación existen
 
 ### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>¿Puedo modificar máquinas virtuales que se replican mediante la adición o el cambio de tamaño de discos?
 
-En la replicación de VMware en Azure, el tamaño del disco se puede modificar. Si desea agregar discos nuevos, debe agregar el disco y volver a habilitar la protección de la máquina virtual.
+Para realizar una replicación de VMware en Azure, el tamaño del disco de las VM de origen se puede modificar. Si desea agregar discos nuevos, debe agregar el disco y volver a habilitar la protección de la máquina virtual.
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>¿Puedo migrar máquinas locales a una nueva instancia de vCenter Server sin que ello repercuta en la replicación en curso?
 
@@ -344,9 +344,6 @@ Sí. Si conmutó por error en Azure, puede conmutar por recuperación en otra ub
 
 Cuando se conmuta por recuperación desde Azure, los datos provenientes de Azure se copian de nuevo en la máquina virtual local y se requiere acceso privado.
 
-### <a name="can-i-resize-the-azure-vm-after-failover"></a>¿Puedo cambiar el tamaño de la máquina virtual de Azure después de la conmutación por error?
-
-No, no se puede cambiar el tamaño ni el tipo de la máquina virtual de destino después de la conmutación por error.
 
 ## <a name="automation-and-scripting"></a>Automatización y scripts
 

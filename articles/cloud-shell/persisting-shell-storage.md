@@ -14,18 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2019
 ms.author: damaerte
-ms.openlocfilehash: 8e04e7c1919deaf60e083aba4588943147ebd6bf
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 0b3b0b2cc97c86fefe37055e0744b747d4f31687
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284826"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385563"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistencia de archivos en Azure Cloud Shell
 Cloud Shell utiliza Azure File Storage para conservar los archivos entre sesiones. En el primer inicio, Cloud Shell le pedirá que asocie un recurso compartido de archivos nuevo o existente para conservar los archivos entre sesiones.
 
 > [!NOTE]
 > Bash y PowerShell comparten el mismo recurso compartido de archivos. Solo un recurso compartido de archivos se puede asociar con el montaje automático en Cloud Shell.
+
+> [!NOTE]
+> El firewall de Azure Storage no es compatible con las cuentas de almacenamiento de Cloud Shell.
 
 ## <a name="create-new-storage"></a>creación de nuevo almacenamiento
 
@@ -63,7 +66,7 @@ Las cuentas de almacenamiento de Azure asociadas tienen que residir en la misma 
 
 Las máquinas de Cloud Shell existen en las regiones siguientes:
 
-|Ámbito|Region|
+|Área|Region|
 |---|---|
 |América|Este de EE. UU., centro-sur de EE. UU. y oeste de EE. UU.|
 |Europa|Norte de Europa y Oeste de Europa|

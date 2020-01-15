@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: f861303b7f3bc8d37caf6da0eaf2f4cef4b36ee5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd0ec46d224e68f92b5d042826633d1efc7c336e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74234393"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425432"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: creación de una confianza de bosque de salida en un dominio local en Azure Active Directory Domain Services (versión preliminar)
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
@@ -43,6 +43,9 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Un dominio administrado de Azure Active Directory Domain Services creado mediante un bosque de recursos y configurado en su inquilino de Azure AD.
     * Si es necesario, [cree y configure una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
+    
+    > [!IMPORTANT]
+    > Asegúrese de crear un dominio administrado de Azure AD DS con un bosque de *recursos*. La opción predeterminada crea un bosque de *usuarios*. Solo los bosques de recursos pueden crear confianzas con entornos de AD DS locales.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -82,6 +85,10 @@ Para configurar la confianza de entrada en el dominio de AD DS local, complete l
 1. Seleccione **Inicio | Herramientas administrativas | Dominios y confianzas de Active Directory**.
 1. Haga clic derecho en el dominio, como *onprem.contoso.com*, y seleccione **Propiedades**.
 1. Elija la pestaña **Confianzas** y, a continuación, **Nueva confianza**.
+
+   > [!NOTE]
+   > Si no ve la opción de menú **Confianzas**, compruebe bajo **Propiedades** el *Tipo de bosque*. Solo los bosques de *recursos* pueden crear confianzas. Si el bosque es de tipo *Usuario*, no se pueden crear confianzas. Actualmente no hay ninguna manera de cambiar el tipo de bosque de un dominio administrado de Azure AD DS. Debe eliminar y volver a crear el dominio administrado como un bosque de recursos.
+
 1. Escriba el nombre en el nombre de dominio de Azure AD DS, como *aadds.contoso.com*, y después seleccione **Siguiente**.
 1. Seleccione la opción para crear una **Confianza de bosque** y, a continuación, para crear una confianza **Unidireccional: de entrada**.
 1. Elija la opción para crear la confianza **Solo para este dominio**. En el paso siguiente, creará la confianza en Azure Portal para el dominio administrado de Azure AD DS.
@@ -197,7 +204,7 @@ Con la máquina virtual de Windows Server unida al bosque de recursos de Azure A
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Configurar DNS en un entorno de AD DS local para admitir la conectividad de Azure AD DS.

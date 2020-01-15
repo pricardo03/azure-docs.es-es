@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4e04ae7d9594ac064c9f3707c797fb2709a79cb6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 270f92365823fb0f9378a9daae77dbbe08b53b14
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582970"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435061"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central
 
@@ -25,12 +25,12 @@ En este artículo se describe cómo conectar, en tanto que desarrollador de disp
 
 Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
-1. Una aplicación de Azure IoT Central creada a partir de la plantilla de aplicación **Ejemplo Devkits**. Para más información, consulte la [guía de inicio rápido para crear una aplicación](quick-deploy-iot-central.md).
+1. Una aplicación de Azure IoT Central creada a partir de la plantilla de aplicación con el nombre **Aplicación heredada**. Para más información, consulte la [guía de inicio rápido para crear una aplicación](quick-deploy-iot-central.md).
 1. Un dispositivo DevKit. Para adquirir un dispositivo DevKit, visite [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/).
 
-## <a name="sample-devkits-application"></a>Aplicación de Devkits de ejemplo
+## <a name="add-a-device-template"></a>Incorporación de una plantilla de dispositivo
 
-Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits** incluye una plantilla de dispositivo **MXChip** que define las siguientes características de dos`psotovp:
+En la aplicación de Azure IoT Central, agregue una nueva plantilla de dispositivo **MXChip** que defina las siguientes características del dispositivo:
 
 - Medidas de telemetría para **Humidity** (Humedad), **Temperature** (Temperatura), **Pressure** (Presión), **Magnetometer** (Magnetómetro) (medido en los ejes X, Y y Z), **Accelerometer** (Acelerómetro) (medido en los ejes X, Y y Z) y **Gyroscope** (Giroscopio) (medido en los ejes X, Y y Z).
 - Estado de la medida para **Device State** (Estado del dispositivo).
@@ -40,6 +40,11 @@ Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits
 - Propiedad de la nube **Manufactured In** (Fabricado en).
 - Comandos **Echo** (Eco) y **Countdown** (Cuenta atrás). Cuando un dispositivo real recibe un comando **Echo** (Eco), muestra el valor enviado en la pantalla del dispositivo. Cuando un dispositivo real recibe un comando **Countdown** (Cuenta atrás), el indicador LED pasa por un patrón y el dispositivo envía los valores de cuenta atrás a IoT Central.
 
+1. Seleccione **+Nuevo** desde ![Plantilla de dispositivo](media/howto-connect-devkit/adddevicetemplate.png) en las plantillas de dispositivo.
+   
+
+2. Seleccione **MXChip** y cree la plantilla de dispositivo MXChip ![Agregar plantilla de dispositivo](media/howto-connect-devkit/newtemplate.png).
+
 Para obtener detalles completos sobre la configuración, consulte [Detalles de la plantilla de dispositivo MXChip](#mxchip-device-template-details).
 
 ## <a name="add-a-real-device"></a>Adición de un dispositivo real
@@ -48,7 +53,7 @@ Para obtener detalles completos sobre la configuración, consulte [Detalles de l
 
 En la aplicación de Azure IoT Central, agregue un dispositivo real desde la plantilla de dispositivos **MXChip** y tome nota de los detalles de conexión del dispositivo: **id. de ámbito, id. de dispositivo y clave principal**:
 
-1. Agregue un **dispositivo real** desde el Explorador de dispositivos, seleccione **+ Nuevo > Real** para agregar un dispositivo real.
+1. Agregue un **dispositivo real** desde Dispositivos, seleccione **+Nuevo > Real** para agregar un dispositivo real.
 
     * Especifique un **id. de dispositivo** en minúsculas o use el **id. de dispositivo** sugerido.
     * Especifique un **nombre de dispositivo** o use el nombre sugerido.
@@ -210,12 +215,12 @@ Una aplicación creada a partir de la plantilla de aplicación Ejemplo Devkits i
 | gyroscopeZ (giróscopo Z)     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>States 
-| NOMBRE          | Nombre para mostrar   | NORMAL | PRECAUCIÓN | PELIGRO | 
+| Nombre          | Nombre para mostrar   | NORMAL | PRECAUCIÓN | PELIGRO | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Device State (Estado del dispositivo)   | Verde  | Naranja  | Rojo    | 
 
 #### <a name="events"></a>Eventos 
-| NOMBRE             | Nombre para mostrar      | 
+| Nombre             | Nombre para mostrar      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Button B Pressed (Botón B presionado)  | 
 
@@ -223,7 +228,7 @@ Una aplicación creada a partir de la plantilla de aplicación Ejemplo Devkits i
 
 Valores numéricos
 
-| Nombre para mostrar | Nombre del campo | Unidades | Posiciones decimales | Mínima | Máxima | Inicial |
+| Nombre para mostrar | Nombre del campo | Unidades | Posiciones decimales | Mínima | Máxima | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltage (Voltaje)      | setVoltage | Voltios | 0              | 0       | 240     | 0       |
 | Current      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
@@ -231,16 +236,16 @@ Valores numéricos
 
 Cambiar configuración
 
-| Nombre para mostrar | Nombre del campo | Texto activado | Texto desactivado | Inicial |
+| Nombre para mostrar | Nombre del campo | Texto activado | Texto desactivado | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | ACTIVAR      | Apagado      | Off     |
 
-### <a name="properties"></a>properties (Propiedades)
+### <a name="properties"></a>Propiedades
 
-| type            | Nombre para mostrar | Nombre del campo | Tipo de datos |
+| Tipo            | Nombre para mostrar | Nombre del campo | Tipo de datos |
 | --------------- | ------------ | ---------- | --------- |
-| Propiedad de dispositivo | Die number   | dieNumber  | número    |
-| Propiedad de dispositivo | Ubicación del dispositivo   | location  | location    |
+| Propiedad de dispositivo | Die number   | dieNumber  | number    |
+| Propiedad de dispositivo | Ubicación del dispositivo   | ubicación  | ubicación    |
 | Texto            | Fabricado en     | manufacturedIn   | N/D       |
 
 ### <a name="commands"></a>Comandos:
@@ -248,7 +253,7 @@ Cambiar configuración
 | Nombre para mostrar | Nombre del campo | Tipo de valor devuelto | Nombre para mostrar del campo de entrada | Nombre del campo de entrada | Tipo de campo de entrada |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | Eco         | echo       | text        | valor para mostrar         | displayedValue   | text             |
-| Cuenta atrás    | countdown  | número      | Recuento de               | countFrom        | número           |
+| Cuenta atrás    | countdown  | number      | Recuento de               | countFrom        | number           |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

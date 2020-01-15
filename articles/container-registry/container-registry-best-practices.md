@@ -3,16 +3,18 @@ title: Procedimientos recomendados del registro
 description: Obtenga información sobre cómo de forma eficaz Azure Container Registry mediante los siguientes procedimientos recomendados.
 ms.topic: article
 ms.date: 09/27/2018
-ms.openlocfilehash: 4b0512674358d4db2e29596408ebbf44af4ea2a9
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 7efea468a6c5c042f709d8a5bb493516458ce52b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455316"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445801"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Procedimientos recomendados para Azure Container Registry
 
 Si sigue estos procedimientos recomendados, puede ayudar a maximizar el rendimiento y rentabilizar el uso del registro de Docker privado en Azure.
+
+Vea también [Recomendaciones para el etiquetado y el control de versiones de las imágenes de contenedor](container-registry-image-tag-version.md) para las estrategias de etiquetado y versión de las imágenes en el registro. 
 
 ## <a name="network-close-deployment"></a>Implementación cercana a la red
 
@@ -31,7 +33,7 @@ Para aprender a usar la replicación geográfica, vea el tutorial de tres partes
 
 Al aprovechar los espacios de nombres del repositorio, puede permitir el uso compartido de un registro único por varios grupos dentro de su organización. Los registros se pueden compartir por las implementaciones y los equipos. Azure Container Registry admite espacios de nombres anidados, lo que permite el aislamiento del grupo.
 
-Por ejemplo, considere las siguientes etiquetas de imagen de contenedor. Las imágenes que se usan en toda la organización, como `aspnetcore`, se colocan en el espacio de nombres raíz, mientras que las imágenes del contenedor que pertenecen a los grupos de producción y marketing usan sus propios espacios de nombres.
+Por ejemplo, considere las siguientes etiquetas de imagen de contenedor. Las imágenes que se usan en toda la organización, como `aspnetcore`, se colocan en el espacio de nombres raíz, mientras que las imágenes de contenedor que pertenecen a los grupos de producción y marketing usan sus propios espacios de nombres.
 
 ```
 contoso.azurecr.io/aspnetcore:2.0
@@ -50,7 +52,7 @@ Aunque puede experimentar con un tipo de host específico, como Azure Container 
 
 Al autenticar con un registro de contenedor de Azure, hay dos escenarios principales: la autenticación individual y la autenticación de servicio (o "sin periféricos"). En la tabla siguiente se proporciona una breve descripción de estos escenarios y el método recomendado de autenticación para cada uno.
 
-| type | Escenario de ejemplo | Método recomendado |
+| Tipo | Escenario de ejemplo | Método recomendado |
 |---|---|---|
 | Identidad individual | Un desarrollador que extrae imágenes de su máquina de desarrollo, o las inserta en ella. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Identidad de servicio o sin periféricos | Canalizaciones de compilación e implementación donde el usuario no está directamente implicado. | [Entidad de servicio](container-registry-authentication.md#service-principal) |

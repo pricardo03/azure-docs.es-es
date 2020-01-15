@@ -1,25 +1,16 @@
 ---
-title: Administrar el estado de Azure Service Fabric | Microsoft Docs
-description: Aprenda a acceder al estado de Reliable Actors de Service Fabric, y a guardarlo y quitarlo.
-services: service-fabric
-documentationcenter: .net
+title: Administrar el estado de Azure Service Fabric
+description: Obtenga información sobre el acceso, el guardado y la eliminación del estado de un Reliable Actor de Azure Service Fabric y sobre las consideraciones que se deben tener en cuenta al diseñar una aplicación.
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 7c10d00916ef65767c98616c7337bfa444c339a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 788c337a37ec66c5aa1521c5cd9f2816ed7a8bf9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725404"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645640"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Acceder al estado de Reliable Actors, guardarlo y quitarlo
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) son objetos de subproceso único que encapsulan la lógica y el estado, y mantienen el estado de forma confiable. Cada instancia de actor tiene su propio [administrador de estado](service-fabric-reliable-actors-state-management.md): una estructura de datos similar a un diccionario que almacena de manera confiable los pares clave-valor. El administrador de estado es un contenedor alrededor de un proveedor de estado. Se puede utilizar para almacenar datos, con independencia de la [configuración de persistencia](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) que se utilice.

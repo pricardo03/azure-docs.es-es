@@ -1,6 +1,6 @@
 ---
-title: Evento completo de cambio de tamaño de grupo de Azure Batch | Microsoft Docs
-description: Referencia del evento completo de cambio de tamaño de grupo de Batch.
+title: Evento completo de cambio de tamaño de grupo de Azure Batch
+description: Referencia del evento completo de cambio de tamaño de grupo de Batch. Vea un ejemplo de un grupo que aumentó de tamaño y se completó correctamente.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 8c0843db216ff99aabfda9074ee751597b43a2a2
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 44d7aaa60ee89a1ec6b0b98c38b83038fc4e70d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258402"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449770"
 ---
 # <a name="pool-resize-complete-event"></a>Evento de finalización de cambio de tamaño del grupo
 
@@ -43,8 +43,8 @@ ms.locfileid: "70258402"
 
 |Elemento|Tipo|Notas|
 |-------------|----------|-----------|
-|`id`|Cadena|El identificador del grupo.|
-|`nodeDeallocationOption`|Cadena|Especifica cuándo se pueden quitar los nodos del grupo, si disminuye el tamaño del grupo.<br /><br /> Los valores posibles son:<br /><br /> **requeue**: finalizar las tareas en ejecución y volver a ponerlas en cola. Las tareas volverán a ejecutarse cuando se habilite el trabajo. Elimine los nodos en cuanto finalicen las tareas.<br /><br /> **terminate**: finalizar las tareas en ejecución. Las tareas no se ejecutarán de nuevo. Elimine los nodos en cuanto finalicen las tareas.<br /><br /> **taskcompletion**: permita que finalicen las tareas actualmente en ejecución. No programe ninguna tarea nueva mientras espera. Elimine los nodos cuando se hayan completado todas las tareas.<br /><br /> **Retaineddata**: permite que finalicen las tareas actualmente en ejecución, luego espera que caduquen los períodos de retención de datos de todas las tareas. No programe ninguna tarea nueva mientras espera. Elimine los nodos cuando hayan caducado los períodos de retención de todas las tareas.<br /><br /> El valor predeterminado es requeue.<br /><br /> Si aumenta el tamaño del grupo, entonces el valor se establece en **invalid**.|
+|`id`|String|El identificador del grupo.|
+|`nodeDeallocationOption`|String|Especifica cuándo se pueden quitar los nodos del grupo, si disminuye el tamaño del grupo.<br /><br /> Los valores posibles son:<br /><br /> **requeue**: finalizar las tareas en ejecución y volver a ponerlas en cola. Las tareas volverán a ejecutarse cuando se habilite el trabajo. Elimine los nodos en cuanto finalicen las tareas.<br /><br /> **terminate**: finalizar las tareas en ejecución. Las tareas no se ejecutarán de nuevo. Elimine los nodos en cuanto finalicen las tareas.<br /><br /> **taskcompletion**: permita que finalicen las tareas actualmente en ejecución. No programe ninguna tarea nueva mientras espera. Elimine los nodos cuando se hayan completado todas las tareas.<br /><br /> **Retaineddata**: permite que finalicen las tareas actualmente en ejecución, luego espera que caduquen los períodos de retención de datos de todas las tareas. No programe ninguna tarea nueva mientras espera. Elimine los nodos cuando hayan caducado los períodos de retención de todas las tareas.<br /><br /> El valor predeterminado es requeue.<br /><br /> Si aumenta el tamaño del grupo, entonces el valor se establece en **invalid**.|
 |`currentDedicatedNodes`|Int32|El número de nodos de proceso dedicados asignados actualmente al grupo.|
 |`targetDedicatedNodes`|Int32|El número de nodos de proceso dedicados solicitados para el grupo.|
 |`currentLowPriorityNodes`|Int32|El número de nodos de proceso de baja prioridad asignados al grupo.|
@@ -53,5 +53,5 @@ ms.locfileid: "70258402"
 |`isAutoPool`|Bool|Especifica si se ha creado el grupo a través del mecanismo AutoPool de un trabajo.|
 |`startTime`|DateTime|La hora en que se inició el cambio de tamaño del grupo.|
 |`endTime`|DateTime|La hora en que finalizó el cambio de tamaño del grupo.|
-|`resultCode`|Cadena|El resultado del cambio de tamaño.|
-|`resultMessage`|Cadena| Mensaje detallado sobre el resultado.<br /><br /> Si el cambio de tamaño finalizó sin problemas, esto indica que la operación se completó correctamente.|
+|`resultCode`|String|El resultado del cambio de tamaño.|
+|`resultMessage`|String| Mensaje detallado sobre el resultado.<br /><br /> Si el cambio de tamaño finalizó sin problemas, esto indica que la operación se completó correctamente.|

@@ -1,17 +1,17 @@
 ---
-title: Adición de autenticación a API personalizadas
-description: Configuración de la autenticación para las llamadas a las API personalizadas desde Azure Logic Apps
+title: Agregar autenticación para proteger las llamadas a las API personalizadas
+description: Configuración de la autenticación para proteger las llamadas a las API personalizadas desde Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: f6dfa98550dcfb092ca1fb52a5cf0bed32e697ad
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2f8b1cc002fe3f340ff6d5329329507316577885
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793144"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666914"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Protección de las llamadas a las API personalizadas desde Azure Logic Apps
 
@@ -40,7 +40,7 @@ Estos son los pasos generales para este método:
 
 3. Incluya los identificadores de aplicación en la definición de la aplicación lógica.
 
-#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Parte 1: Creación de una identidad de aplicación de Azure AD para la aplicación lógica
+#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Parte 1: Creación de una identidad de aplicación de Azure AD para la aplicación lógica
 
 La aplicación lógica usa esta identidad de aplicación de Azure AD para autenticarse en Azure AD. Solo tiene que establecer esta identidad una vez para el directorio. Por ejemplo, puede usar la misma identidad para todas las aplicaciones lógicas, aunque puede crear identidades únicas para cada una. Puede configurar estas identidades en Azure Portal o usar [PowerShell](#powershell).
 
@@ -107,7 +107,7 @@ Puede realizar esta tarea mediante Azure Resource Manager con PowerShell. En Pow
 
 Para más información, consulte cómo [crear una entidad de servicio con PowerShell para acceder a recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
-#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Parte 2: Creación de una identidad de aplicación de Azure AD para la aplicación web o de API
+#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Parte 2: Creación de una identidad de aplicación de Azure AD para la aplicación web o de API
 
 Si ya se ha implementado la aplicación web o de API, puede activar la autenticación y crear la identidad de aplicación en Azure Portal. En caso contrario, puede [activar la autenticación cuando implemente con una plantilla de Azure Resource Manager](#authen-deploy). 
 
@@ -181,7 +181,7 @@ Para implementar automáticamente una aplicación web en blanco y una aplicació
 
 [![Implementación en Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
-#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Parte 3: Relleno de la sección de autorización en la aplicación lógica
+#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Parte 3: Relleno de la sección de autorización en la aplicación lógica
 
 La plantilla anterior ya tiene esta sección de autorización configurada pero, si va a crear la aplicación lógica directamente, debe incluir la sección de autorización completa.
 
@@ -197,7 +197,7 @@ Abra la definición de aplicación lógica en la vista de código, vaya a la def
 }
 ```
 
-| Propiedad | Obligatorio | DESCRIPCIÓN | 
+| Propiedad | Obligatorio | Descripción | 
 | -------- | -------- | ----------- | 
 | tenant | Sí | El GUID para el inquilino de Azure AD | 
 | audience | Sí | El GUID para el recurso de destino al que desea acceder, que es el identificador de cliente de la identidad de aplicación para su aplicación web o de API | 
@@ -234,7 +234,7 @@ Por ejemplo:
 
 <a name="certificate"></a>
 
-#### <a name="certificate-authentication"></a>Autenticación de certificados
+#### <a name="certificate-authentication"></a>Autenticación de certificado
 
 Para validar las solicitudes entrantes desde la aplicación lógica hacia la aplicación web o de API, puede usar certificados de cliente. Para configurar su código, aprenda a [configurar la autenticación mutua de TLS](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
@@ -248,10 +248,10 @@ En la sección **Autorización**, incluya estas propiedades:
 } 
 ```
 
-| Propiedad | Obligatorio | DESCRIPCIÓN |
+| Propiedad | Obligatorio | Descripción |
 | -------- | -------- | ----------- |
 | `type` | Sí | El tipo de autenticación. Para los certificados de cliente SSL, el valor debe ser `ClientCertificate`. |
-| `password` | Sin | La contraseña para acceder al certificado de cliente (archivo PFX) |
+| `password` | No | La contraseña para acceder al certificado de cliente (archivo PFX) |
 | `pfx` | Sí | Contenido con codificación base64 del certificado del cliente (archivo PFX) |
 ||||
 
@@ -271,7 +271,7 @@ En la sección **Autorización**, incluya estas propiedades:
 }
 ```
 
-| Propiedad | Obligatorio | description | 
+| Propiedad | Obligatorio | Descripción | 
 | -------- | -------- | ----------- | 
 | type | Sí | El tipo de autenticación que desea utilizar. Para la autenticación básica, el valor debe ser `Basic`. | 
 | username | Sí | El nombre de usuario que quiere usar en la autenticación | 

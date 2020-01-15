@@ -1,17 +1,17 @@
 ---
 title: Solución de problemas del lado cliente de Redis Cache
-description: Más información sobre cómo resolver problemas comunes del lado cliente con Redis Cache
+description: Obtenga información sobre cómo resolver problemas comunes del lado cliente con Azure Cache for Redis, como la presión de memoria del cliente de Redis, las ráfagas de tráfico, un uso elevado de la CPU, el ancho de banda limitado, las solicitudes grandes o el tamaño de respuesta grande.
 author: yegu-ms
-ms.service: cache
-ms.topic: conceptual
-ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: a4fdbe9c0943e77719a9ee9da7dc358696284d99
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.service: cache
+ms.topic: troubleshooting
+ms.date: 10/18/2019
+ms.openlocfilehash: abb73f93116fae217f527e0a9faaf61e2b42ba6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122621"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433374"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Solución de problemas del lado cliente de Redis Cache
 

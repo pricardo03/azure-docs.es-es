@@ -1,25 +1,16 @@
 ---
-title: Creación de pruebas de conmutación por error y caos para Azure Service Fabric | Microsoft Docs
+title: Creación de pruebas de conmutación por error y caos para Azure Service Fabric
 description: Uso de los escenarios de prueba de conmutación por error y pruebas de caos de Service Fabric para inducir acciones de error y comprobar la confiabilidad de los servicios.
-services: service-fabric
-documentationcenter: .net
 author: motanv
-manager: rsinha
-editor: toddabel
-ms.assetid: 8eee7e89-404a-4605-8f00-7e4d4fb17553
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/1/2019
 ms.author: motanv
-ms.openlocfilehash: 2ea30b59e3195a0229c2584212e2897aaff4ee31
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 206b02024ad052a12e87cfdf1773815027e8aec4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718229"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465537"
 ---
 # <a name="testability-scenarios"></a>Escenarios de Testability
 Los grandes sistemas distribuidos, como infraestructuras de nube, son inherentemente poco confiables. Azure Service Fabric ofrece a los desarrolladores la capacidad de escribir servicios para ejecutarse sobre infraestructuras poco confiables. Para poder escribir servicios de alta calidad, los desarrolladores deben poder inducir tal infraestructura confiable para probar la estabilidad de sus servicios.

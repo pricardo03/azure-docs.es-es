@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 8fd88c3bfad962f264efa030d0a3aea44e95dc8c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: cc7ce8a8725e3cbc5c4f0d4db8bfcc3f1b1d657b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839762"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427684"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Análisis de la pérdida de clientes mediante Azure Machine Learning Studio (clásico)
 ## <a name="overview"></a>Información general
@@ -71,7 +71,7 @@ Un interesante aporte aquí es el análisis de Big Data. Las empresas de telecom
  
 
 ## <a name="implementing-the-modeling-archetype-in-machine-learning-studio-classic"></a>Implementación del arquetipo de modelado en Machine Learning Studio (clásico)
-Con el problema que hemos descrito, ¿cuál es la mejor forma de implementar un enfoque integrado de modelos y puntuación? En esta sección, demostraremos cómo lo hemos conseguido mediante la versión clásica de Azure Machine Learning Studio.  
+Con el problema que hemos descrito, ¿cuál es la mejor forma de implementar un enfoque integrado de modelos y puntuación? En esta sección, demostraremos cómo lo hemos conseguido mediante Azure Machine Learning Studio (clásico).  
 
 El enfoque de varios modelos es imprescindible a la hora de diseñar un arquetipo global para el abandono. Incluso la parte de puntuación (predictiva) del enfoque debe basarse en varios modelos.  
 
@@ -135,7 +135,7 @@ También enviamos el conjunto de datos de puntuaciones a un modelo comparable cr
 En esta sección, presentamos nuestros hallazgos sobre la exactitud de los modelos, según el conjunto de datos de puntuación.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>Exactitud y precisión de la puntuación
-Por lo general, la implementación de la versión clásica de Azure Machine Learning Studio está, aproximadamente, entre un 10 % y un 15 % por debajo de SAS en cuanto a precisión (área bajo la curva o AUC).  
+Por lo general, la implementación de Azure Machine Learning Studio (clásico) está, aproximadamente, entre un 10 y un 15 % por debajo de SAS en cuanto a precisión (área bajo la curva o AUC).  
 
 Sin embargo, la estadística más importante en el abandono es el índice de clasificaciones incorrectas: es decir, de los N primeros usuarios que el clasificador predijo que abandonarían, ¿cuáles de ellos **no** han abandonado realmente y, a pesar de todo, han recibido un tratamiento especial? En el diagrama siguiente se compara este índice de clasificaciones incorrectas para todos los modelos:  
 
@@ -200,13 +200,13 @@ Esta importante observación con frecuencia se pasa por alto en las empresas, qu
 
 Sin embargo, la promesa del análisis de autoservicio mediante Machine Learning Studio (clásico) es que las cuatro categorías de información, clasificadas por división o departamento, se convierten en una valiosa fuente de aprendizaje automático sobre el abandono.  
 
-Otra capacidad interesante disponible en la versión clásica de Azure Machine Learning Studio es la capacidad de agregar un módulo personalizado al repositorio de módulos predefinidos que ya están disponibles. Esa función crea básicamente una oportunidad para seleccionar bibliotecas y crear plantillas para los mercados verticales. Es un elemento diferenciador importante de la versión clásica de Azure Machine Learning Studio en el mercado.  
+Otra capacidad interesante disponible en Azure Machine Learning Studio (clásico) es la capacidad de agregar un módulo personalizado al repositorio de módulos predefinidos que ya están disponibles. Esa función crea básicamente una oportunidad para seleccionar bibliotecas y crear plantillas para los mercados verticales. Es un elemento diferenciador importante de Azure Machine Learning Studio (clásico) en el mercado.  
 
 Esperamos seguir con este tema en el futuro, especialmente en lo relacionado con el análisis de macrodatos.
   
 
 ## <a name="conclusion"></a>Conclusión
-En este documento se describe un enfoque sensato para abordar el problema común del abandono de clientes mediante el uso de un marco genérico. Hemos considerado un prototipo para puntuar modelos y lo hemos implementado mediante la versión clásica de Azure Machine Learning Studio. Finalmente, hemos evaluado la exactitud y el rendimiento del prototipo con respecto a algoritmos comparables en SAS.  
+En este documento se describe un enfoque sensato para abordar el problema común del abandono de clientes mediante el uso de un marco genérico. Hemos considerado un prototipo para puntuar modelos y lo hemos implementado mediante Azure Machine Learning Studio (clásico). Finalmente, hemos evaluado la exactitud y el rendimiento del prototipo con respecto a algoritmos comparables en SAS.  
 
  
 
@@ -222,7 +222,7 @@ En este documento se describe un enfoque sensato para abordar el problema común
 [5] [Telco churn model template](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) (Plantilla de modelo de abandono de clientes de telecomunicaciones) en [Azure AI Gallery](https://gallery.azure.ai/) 
  
 
-## <a name="appendix"></a>Anexo
+## <a name="appendix"></a>Apéndice
 ![Instantánea de una presentación sobre un prototipo de abandono](./media/azure-ml-customer-churn-scenario/churn-10.png)
 
 *Ilustración 12: Instantánea de una presentación sobre un prototipo de abandono*

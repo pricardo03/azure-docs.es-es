@@ -6,19 +6,19 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2259343d2c7bca1f60a5256efcd572e6cc21b565
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a744ac2574f54b0c2934d440ddf5c48e54304595
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706047"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445111"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Creación de contenedores y bases de datos de Azure Cosmos en modo Autopilot (versión preliminar)
 
 Azure Cosmos DB le permite aprovisionar el rendimiento de los contenedores en modo manual o Autopilot. En este artículo se describen las ventajas y los casos de uso del modo Autopilot.
 
 > [!NOTE]
-> El modo Autopilot está disponible actualmente en versión preliminar pública. Para habilitar la característica Autopilot en la cuenta de Azure Cosmos, consulte la sección [Habilitación de Autopilot](#enable-autopilot) de este artículo. Solo puede habilitar Autopilot para los nuevos contenedores y bases de datos; no está disponible para los contenedores y bases de datos existentes.
+> El modo Autopilot está disponible actualmente en versión preliminar pública. Puede [habilitar Autopilot solo para bases de datos y contenedores nuevos](#create-a-database-or-a-container-with-autopilot-mode). No está disponible para las bases de datos y los contenedores existentes.
 
 Además del aprovisionamiento manual del rendimiento, ahora puede configurar contenedores de Azure Cosmos en el modo Autopilot. Los contenedores y las bases de datos de Azure Cosmos configurados en el modo Autopilot **escalarán de forma automática e instantánea el rendimiento aprovisionado en función de las necesidades de la aplicación sin poner en peligro los SLA.**
 
@@ -68,31 +68,21 @@ Las soluciones a los problemas anteriores no solo requieren una cantidad enorme 
 | **Precios** | RU/s por hora aprovisionadas manualmente. | En el caso de las cuentas de una sola región de escritura, se paga por el rendimiento que se usa cada hora, con la tarifa de RU/s por hora de Autopilot. <br/><br/>En el caso de las cuentas con varias regiones de escritura, no se aplica ningún cargo adicional por Autopilot. Paga por el rendimiento que se usa por hora con la misma tarifa de RU/s por hora de la arquitectura multimaestro. |
 | **Adecuado para los tipos de carga de trabajo** |  Cargas de trabajo predecibles y estables|   Cargas de trabajo impredecibles y variables  |
 
-## <a id="enable-autopilot"></a> Habilitación de Autopilot desde Azure Portal
-
-Puede probar el modo Autopilot en las cuentas de Azure Cosmos si lo habilita desde Azure Portal. Siga estos pasos para habilitar la opción Autopilot:
-
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-
-2. Vaya a la cuenta de Azure Cosmos y abra la pestaña **Nuevas características**. Seleccione **Auto Pilot** y **Registrar**, tal como se muestra en la siguiente captura de pantalla:
-
-![Creación de un contenedor en modo Autopilot](./media/provision-throughput-autopilot/enable-autopilot-azure-portal.png)
-
 ## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>Creación de una base de datos o un contenedor con el modo Autopilot
 
-Puede configurar Autopilot para bases de datos o contenedores mientras los crea. Siga los pasos que se indican a continuación para una base de datos o un contenedor nuevos, habilite Autopilot y especifique el rendimiento máximo.
+Puede configurar Autopilot para bases de datos o contenedores nuevos mientras los crea a través de Azure Portal. Siga los pasos que se indican a continuación para crear una base de datos o un contenedor nuevos, habilite Autopilot y especifique el rendimiento máximo (RU/s).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [explorador de Azure Cosmos](https://cosmos.azure.com/).
 
 1. Vaya a la cuenta de Azure Cosmos y abra la pestaña **Explorador de datos**.
 
-1. Seleccione **Nuevo contenedor**, escriba un nombre para el contenedor y una clave de partición. Seleccione la opción **Autopilot** y elija la capacidad máxima de proceso que el contenedor no podrá superar cuando se use la opción Autopilot.
+1. Seleccione **Nuevo contenedor**. Escriba un nombre para la base de datos, el contenedor y una clave de partición. Seleccione la opción **Autopilot** y elija el rendimiento máximo de proceso (RU/s) que la base de datos o el contenedor no podrá superar cuando se use la opción Autopilot.
 
    ![Creación de un contenedor en modo Autopilot](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
 
 1. Seleccione **Aceptar**.
 
-Con pasos similares, también puede crear una base de datos con capacidad de proceso aprovisionada en modo Autopilot.
+Para crear una base de datos de rendimiento compartida con el modo Autopilot, seleccione la opción de **Rendimiento de la base de datos de aprovisionamiento**.
 
 ## <a id="autopilot-limits"></a> Límites de rendimiento y almacenamiento para AutoPilot
 
@@ -107,6 +97,7 @@ En la tabla siguiente se muestran los límites de rendimiento y almacenamiento m
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Revise las [preguntas más frecuentes sobre Autopilot](autopilot-faq.md).
 * Más información sobre las [particiones lógicas](partition-data.md).
 * Obtenga más información sobre el [aprovisionamiento del rendimiento de un contenedor de Azure Cosmos](how-to-provision-container-throughput.md).
 * Obtenga más información sobre el [aprovisionamiento del rendimiento de una base de datos de Azure Cosmos](how-to-provision-database-throughput.md).

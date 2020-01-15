@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 618216208b61051d5446f96fb5b28a451b188c35
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5c22e29e51d9f2fc58720c555b8ad3b03d791db6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72942693"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435028"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Ampliación de Azure IoT Central con análisis personalizados mediante Azure Databricks
 
@@ -27,7 +27,7 @@ En esta guía paso a paso, aprenderá a:
 * Hacer streaming de datos de telemetría desde una aplicación de IoT Central mediante la *exportación de datos continua*.
 * Cree un entorno de Azure Databricks para analizar y representar los datos de telemetría del dispositivo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Recuerde que para completar los pasos de esta guía paso a paso, necesita una suscripción activa a Azure.
 
@@ -37,17 +37,17 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Cree una aplicación de IoT Central desde el sitio web del [administrador de aplicaciones de Azure IoT Central](https://aka.ms/iotcentral) con la configuración siguiente:
 
-| Configuración | Valor |
+| Configuración | Value |
 | ------- | ----- |
 | Plan de pago | Pay-As-You-Go |
-| Plantilla de la aplicación | Ejemplo Contoso |
+| Plantilla de la aplicación | Aplicación heredada |
 | Nombre de la aplicación | Acepte el valor predeterminado o elija su propio nombre. |
 | URL | Acepte el valor predeterminado o elija un prefijo de dirección URL único. |
 | Directorio | El inquilino de Azure Active Directory |
 | Suscripción de Azure | Su suscripción de Azure |
-| Region | East US |
+| Region | Estados Unidos |
 
-Los ejemplos y capturas de pantalla de este artículo utilizan la región **Este de EE. UU.** . Elija una ubicación cercana a usted y asegúrese de que crea todos los recursos en la misma región.
+En los ejemplos y las capturas de pantalla de este artículo se usa la región **Estados Unidos**. Elija una ubicación cercana a usted y asegúrese de que crea todos los recursos en la misma región.
 
 ### <a name="resource-group"></a>Resource group
 
@@ -57,9 +57,9 @@ Use [Azure Portal para crear un grupo de recursos](https://portal.azure.com/#cre
 
 Use [Azure Portal para crear un espacio de nombres de Event Hubs](https://portal.azure.com/#create/Microsoft.EventHub) con la siguiente configuración:
 
-| Configuración | Valor |
+| Configuración | Value |
 | ------- | ----- |
-| NOMBRE    | Elija el nombre del espacio de nombres |
+| Nombre    | Elija el nombre del espacio de nombres |
 | Plan de tarifa | Básica |
 | Subscription | Su suscripción |
 | Resource group | IoTCentralAnalysis |
@@ -70,7 +70,7 @@ Use [Azure Portal para crear un espacio de nombres de Event Hubs](https://portal
 
 Use [Azure Portal para crear un servicio de Azure Databricks](https://portal.azure.com/#create/Microsoft.Databricks) con la siguiente configuración:
 
-| Configuración | Valor |
+| Configuración | Value |
 | ------- | ----- |
 | Nombre del área de trabajo    | Elija el nombre del área de trabajo. |
 | Subscription | Su suscripción |
@@ -104,7 +104,7 @@ En el sitio web del [administrador de aplicaciones de Azure IoT Central](https:/
 1. Vaya a la página **Exportación de datos continua**, seleccione **+ Nuevo** y, a continuación, **Azure Event Hubs**.
 1. Utilice los siguientes valores para configurar la exportación y, luego, seleccione **Guardar**:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Display Name (Nombre para mostrar) | Exportar a Event Hubs |
     | habilitado | Por |
@@ -122,19 +122,19 @@ Espere hasta que el estado de la exportación sea **En ejecución** antes de con
 
 En Azure Portal, vaya al servicio Azure Databricks y seleccione **Launch Workspace** (Iniciar área de trabajo). Se abre una nueva pestaña en el explorador y se inicia sesión en el área de trabajo.
 
-### <a name="create-a-cluster"></a>Creación de un clúster
+### <a name="create-a-cluster"></a>Crear un clúster
 
 En la página **Azure Databricks**, en la lista de tareas comunes, seleccione **Nuevo clúster**.
 
 Use la información de la tabla siguiente para crear el clúster:
 
-| Configuración | Valor |
+| Configuración | Value |
 | ------- | ----- |
 | Cluster Name | centralanalysis |
 | Modo de clúster | Estándar |
 | Versión de Databricks Runtime | 5.3 (Scala 2.11, Spark 2.4.0) |
-| versión de Python | 3 |
-| Habilitar escalado automático | Sin |
+| Versión de Python | 3 |
+| Habilitar escalado automático | No |
 | Terminar después de estos minutos de inactividad | 30 |
 | Tipo de trabajo | Standard_DS3_v2 |
 | Trabajos | 1 |

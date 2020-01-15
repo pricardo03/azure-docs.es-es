@@ -1,19 +1,14 @@
 ---
-title: Mejora de la excelencia operativa para las suscripciones de Azure con Azure Advisor | Microsoft Docs
-description: Use Advisor para optimizar y obtener experiencia en la excelencia operativa de sus suscripciones de Azure.
-services: advisor
-documentationcenter: NA
-author: sagupt
-ms.service: advisor
+title: Mejora de la excelencia operativa para las suscripciones de Azure con Azure Advisor
+description: Uso de Advisor para optimizar y obtener experiencia en la excelencia operativa de sus suscripciones de Azure
 ms.topic: article
 ms.date: 10/24/2019
-ms.author: sagupt
-ms.openlocfilehash: 7cf3d3b34d0921cd111f8111bc2008ef0eced962
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: f34284ba62bd5dea98345ebe73365b332d38ee78
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033207"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443072"
 ---
 # <a name="achieve-operational-excellence-with-azure-advisor"></a>Obtención de la excelencia operacional con Azure Advisor
 

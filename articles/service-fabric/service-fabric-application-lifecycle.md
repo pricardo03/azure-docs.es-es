@@ -1,25 +1,14 @@
 ---
-title: Ciclo de vida de aplicaciones de Service Fabric | Microsoft Docs
+title: Ciclo de vida de aplicaciones de Service Fabric
 description: Describe el desarrollo, la implementación, las pruebas, la actualización, el mantenimiento y la eliminación de aplicaciones de Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 08837cca-5aa7-40da-b087-2b657224a097
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 1/19/2018
-ms.author: atsenthi
-ms.openlocfilehash: 53cab3591ea11721e36b48438f35df016e2a9f3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: beeb1f1512cf94582dd561fa768f2e8e6649d686
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60621501"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378011"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo de vida de la aplicación de Service Fabric
 Al igual que sucede con otras plataformas, una aplicación en Azure Service Fabric normalmente pasa las siguientes fases: diseño, desarrollo, prueba, implementación, actualización, mantenimiento y eliminación. Service Fabric ofrece compatibilidad de primera clase para todo el ciclo de vida de aplicación de las aplicaciones de nube: desde el desarrollo hasta la implementación, la administración diaria, el mantenimiento y, finalmente, la retirada. El modelo de servicio habilita varios roles distintos para participar de manera independiente en el ciclo de vida de la aplicación. Este artículo proporciona información general de las API y cómo son usadas por los distintos roles durante todas las fases del ciclo de vida de aplicación de Service Fabric.
@@ -34,7 +23,7 @@ Los roles del modelo de servicio son:
 * **Administrador de aplicaciones**: toma decisiones sobre la configuración de las aplicaciones (relleno de los parámetros de la plantilla de configuración), implementación (asignación a recursos disponibles) y calidad de servicio. Por ejemplo, un administrador de aplicaciones decide la configuración regional de idioma (por ejemplo, inglés para Estados Unidos o japonés para Japón) de la aplicación. Una aplicación implementada diferente puede tener configuraciones distintas.
 * **Operador**: implementa aplicaciones basadas en la configuración de la aplicación y los requisitos especificados por el administrador de aplicaciones. Por ejemplo, un operador aprovisiona e implementa la aplicación y garantiza que se ejecuta en Azure. Los operadores supervisan la información de rendimiento y estado de la aplicación y mantiene la infraestructura física, según corresponda.
 
-## <a name="develop"></a>Desarrollo
+## <a name="develop"></a>Desarrollar
 1. Un *desarrollador de servicios* desarrolla los distintos tipos de servicios con el modelo de programación [Reliable Actors](service-fabric-reliable-actors-introduction.md) o [Reliable Services](service-fabric-reliable-services-introduction.md).
 2. Un *desarrollar de servicio* describe, mediante declaración, los tipos de servicio desarrollados en un archivo de manifiesto de servicio que consta de uno o más paquetes de código, configuración y datos.
 3. Un *desarrollador de aplicaciones* luego crea una aplicación con distintos tipos de servicio.
@@ -46,7 +35,7 @@ Consulte [Introducción a Reliable Actors](service-fabric-reliable-actors-get-st
 1. Un *administrador de aplicaciones* adapta el tipo de aplicación a una aplicación específica para su implementación en un clúster de Service Fabric mediante la especificación de los parámetros adecuados del elemento **ApplicationType** en el manifiesto de aplicación.
 2. Un *operador* carga el paquete de aplicación en el almacén de imágenes del clúster mediante el método [**CopyApplicationPackage** o el cmdlet ](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient)[**Copy-ServiceFabricApplicationPackage**](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps). El paquete de aplicación contiene el manifiesto de aplicación y la recopilación de los paquetes de servicio. Service Fabric implementa aplicaciones desde el paquete de aplicación almacenado en ImageStore, que puede ser un almacenamiento de blobs de Azure o el servicio de sistema de Service Fabric.
 3. Luego el *operador* aprovisiona el tipo de aplicación en el clúster de destino desde el paquete de aplicación cargado mediante el método [**ProvisionApplicationAsync**](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), el cmdlet [**Register-ServiceFabricApplicationType**](https://docs.microsoft.com/powershell/module/servicefabric/register-servicefabricapplicationtype) o la operación de REST [**Aprovisionar una aplicación**](https://docs.microsoft.com/rest/api/servicefabric/provision-an-application).
-4. Después de realizar el aprovisionamiento de la aplicación, un *operador* inicia la aplicación con los parámetros que suministra el *administrador de aplicaciones* mediante el método [**CreateApplicationAsync**](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), el cmdlet [**New-ServiceFabricApplication**](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication)[**o la operación de REST**Crear aplicación](https://docs.microsoft.com/rest/api/servicefabric/create-an-application).
+4. Después de realizar el aprovisionamiento de la aplicación, un *operador* inicia la aplicación con los parámetros que suministra el *administrador de aplicaciones* mediante el método [**CreateApplicationAsync**](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), el cmdlet [**New-ServiceFabricApplication**](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication)[**o la operación de REST** Crear aplicación](https://docs.microsoft.com/rest/api/servicefabric/create-an-application).
 5. Una vez implementada la aplicación, un *operador* usa el método [**CreateServiceAsync**](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient), el cmdlet [**New-ServiceFabricService**](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice) o la operación de REST [**Crear servicio**](https://docs.microsoft.com/rest/api/servicefabric/create-a-service) para crear nuevas instancias de servicio de la aplicación basándose en tipos de servicio disponibles.
 6. La aplicación ahora se ejecuta en el clúster de Service Fabric.
 

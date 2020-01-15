@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: a4258b51acfa603c156bc35cdb2cbc3b16f37ab0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 85b1d6b532ba11819947558226291e62af6b5119
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278356"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690923"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Supervise visualmente Azure Data Factory
 
@@ -113,6 +113,12 @@ Puede volver a ejecutar las actividades en una canalización. Seleccione **Ver e
 ![Ver ejecuciones de actividad](media/monitor-visually/rerun-activities-image1.png)
 
 ![Seleccionar una ejecución de actividad](media/monitor-visually/rerun-activities-image2.png)
+
+### <a name="rerun-from-failed-activity"></a>Volver a ejecutar desde la actividad con errores
+
+Si se produce un error en una actividad, se agota el tiempo de espera o se cancela, puede seleccionar **Volver a ejecutar desde la actividad con errores** para volver a ejecutar la canalización desde esa actividad con errores.
+
+![Volver a ejecutar la actividad con errores](media/monitor-visually/rerun-failed-activity.png)
 
 ### <a name="view-rerun-history"></a>Ver el historial de repetición de ejecuciones
 

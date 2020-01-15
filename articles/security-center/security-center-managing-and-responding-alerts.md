@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: c3134988452efe16044ab7b7740cafd02e8cf27a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 46ed2af51f34a25c1cdc1abb6152169feedd989e
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201927"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666302"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Administración y respuesta a alertas de seguridad en Azure Security Center
 
@@ -76,9 +76,9 @@ Security Center recopila, analiza e integra automáticamente los datos de regist
     Los temas siguientes explican cómo Security Center usa los diferentes datos de telemetría que recopila de la integración con la infraestructura de Azure a fin de aplicar capas de protección adicionales para los recursos implementados en Azure:
     
     * [Alertas de la capa de servicios](security-center-alerts-service-layer.md)
-    * [Integración con productos de seguridad de Azure](security-center-alerts-integration.md)
+    * [Detección de amenazas para Azure WAF y Azure DDoS Protection](security-center-alerts-integration.md)
     
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 En este documento ha aprendido a configurar directivas de seguridad en el Centro de seguridad. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
@@ -86,4 +86,4 @@ En este documento ha aprendido a configurar directivas de seguridad en el Centro
 * [Control de incidentes de seguridad en Azure Security Center](security-center-incident.md)
 * [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md)
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
-* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/) : encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
+* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/) :  encuentre entradas de blog sobre el cumplimiento y la seguridad en Azure.

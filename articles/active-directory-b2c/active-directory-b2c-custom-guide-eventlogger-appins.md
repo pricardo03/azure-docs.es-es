@@ -1,7 +1,7 @@
 ---
 title: Seguimiento del comportamiento del usuario con Application Insights
 titleSuffix: Azure AD B2C
-description: Aprenda a habilitar registros de eventos en Application Insights a partir de recorridos de usuario de Azure AD B2C mediante directivas personalizadas (versión preliminar).
+description: Aprenda a habilitar registros de eventos en Application Insights a partir de recorridos del usuario de Azure AD B2C mediante directivas personalizadas.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,33 +11,33 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6643759688817811890fd022c7aa061607270b9e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 8376deecb5e184c01b41495b868b57bd8fd745d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948953"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367967"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Seguimiento del comportamiento del usuario en Azure Active Directory B2C mediante Application Insights
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Cuando se usa Azure Active Directory B2C (Azure AD B2C) junto con Azure Application Insights, se pueden obtener registros de eventos detallados y personalizados de los recorridos del usuario. En este artículo, aprenderá a:
+Cuando se usa Azure Active Directory B2C (Azure AD B2C) junto con Azure Application Insights, se pueden obtener registros de eventos detallados y personalizados de los recorridos del usuario. En este artículo aprenderá a:
 
 * Obtener información detallada sobre el comportamiento del usuario.
 * Solucionar problemas con sus propias directivas durante la fase de desarrollo o producción.
 * Medir el rendimiento.
 * Crear notificaciones de Application Insights.
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 El marco de experiencia de identidad de Azure AD B2C incluye ahora el proveedor `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`. Este proveedor envía los datos de eventos directamente a Application Insights mediante la clave de instrumentación proporcionada a Azure AD B2C.
 
-Un perfil técnico usa este proveedor para definir un evento desde Azure AD B2C. El perfil especifica el nombre del evento, las notificaciones que se registran y la clave de instrumentación. Para publicar un evento, el perfil técnico se agrega entonces como `orchestration step` o `validation technical profile` en un recorrido del usuario personalizado.
+Un perfil técnico usa este proveedor para definir un evento desde Azure AD B2C. El perfil especifica el nombre del evento, las notificaciones que se registran y la clave de instrumentación. Para publicar un evento, el perfil técnico se agrega entonces como `orchestration step` en un recorrido del usuario personalizado.
 
 Application Insights puede unificar los eventos por medio de un identificador de correlación para registrar una sesión de usuario. Application Insights permite que el evento y la sesión estén disponibles en cuestión de segundos y presenta muchas herramientas de visualización, exportación y análisis.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Realice los pasos del artículo [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md). En este artículo se da por supuesto que está usando el módulo de inicio de la directiva personalizada. Pero el módulo de inicio no es necesario.
 
@@ -45,14 +45,14 @@ Realice los pasos del artículo [Introducción a las directivas personalizadas](
 
 Cuando usa Application Insights con Azure AD B2C, todo lo que necesita hacer es crear un recurso y obtener la clave de instrumentación.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Asegúrese de usar el directorio que contiene la suscripción de Azure. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y elija el directorio que contiene la suscripción. Este inquilino no es el inquilino de Azure AD B2C.
 3. Elija **Crear un recurso** en la esquina superior izquierda de Azure Portal y, a continuación, busque y seleccione **Application Insights**.
-4. Haga clic en **Create**(Crear).
+4. Haga clic en **Crear**.
 5. En **Nombre**, escriba un nombre para el recurso.
 6. En **Tipo de aplicación**, seleccione **Aplicación web ASP.NET**.
 7. En **Grupo de recursos**, seleccione un grupo existente o escriba un nombre para un nuevo grupo.
-8. Haga clic en **Create**(Crear).
+8. Haga clic en **Crear**.
 4. Después de crear el recurso de Application Insights, ábralo, expanda **Información esencial** y copie la clave de instrumentación.
 
 ![Introducción a Application Insights y la clave de instrumentación](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-insights.png)

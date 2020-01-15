@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/01/2019
-ms.author: kfollis
-ms.openlocfilehash: 8dd1349ca9ab62484eb6693291e3b869ff079dc1
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.author: mblythe
+ms.openlocfilehash: a3b4d7cb33bf0da0c4431d76a54644208ea6468f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537216"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640463"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Creación y uso compartido de paneles en Azure Portal
 
@@ -29,7 +29,7 @@ Los paneles proporcionan una manera de crear una vista organizada y centrada en 
 
 En este ejemplo, se crea un nuevo panel privado y se le asigna un nombre. Para comenzar, siga estos pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione **Panel** en la parte superior de la barra lateral izquierda. Es posible que la vista predeterminada ya esté definida en el panel.
 1. Seleccione **+ Nuevo panel**.
 

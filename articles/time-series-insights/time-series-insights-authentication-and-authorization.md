@@ -10,18 +10,23 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/14/2019
+ms.date: 12/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: d47f846f77d3552288dfea43b417d8c60856f41a
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: b54034dc8828fb8a96f488197e517ef07ed55ab5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327882"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460429"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticación y autorización para la API de Azure Time Series Insights
 
 En este documento se describe cómo registrar una aplicación en Azure Active Directory mediante la nueva hoja de Azure Active Directory. Las aplicaciones registradas en Azure Active Directory permiten a los usuarios autenticarse y recibir permiso para usar la API de Azure Time Series Insight asociada a un entorno de Time Series Insights.
+
+> [!IMPORTANT]
+> Azure Time Series Insights admite ambas bibliotecas de autenticación siguientes:
+> * La [Biblioteca de autenticación de Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) más reciente
+> * La [Biblioteca de autenticación de Azure Active Directory (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
 ## <a name="service-principal"></a>Entidad de servicio
 
@@ -76,74 +81,83 @@ Según el **paso 3**, distinguir entre las credenciales de la aplicación y las 
 
 ### <a name="client-app-initialization"></a>Inicialización de la aplicación cliente
 
-1. Use el **identificador de la aplicación** y el **secreto de cliente** (clave de aplicación) de la sección de registro de la aplicación de Azure Active Directory para obtener el token en nombre de la aplicación.
+* Los desarrolladores pueden usar la [biblioteca de autenticación de Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) o la [biblioteca de autenticación de Azure Active Directory (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) para autenticarse con Azure Time Series Insights.
 
-    En C#, puede emplear el siguiente código para conseguir el token en nombre de la aplicación. Para obtener un ejemplo completo, vea [Consulta de datos mediante C#](time-series-insights-query-data-csharp.md).
+* Por ejemplo, para autenticarse mediante ADAL:
 
-    ```csharp
-    // Enter your Active Directory tenant domain name
-    var tenant = "YOUR_AD_TENANT.onmicrosoft.com";
-    var authenticationContext = new AuthenticationContext(
-        $"https://login.microsoftonline.com/{tenant}",
-        TokenCache.DefaultShared);
+   1. Use el **identificador de la aplicación** y el **secreto de cliente** (clave de aplicación) de la sección de registro de la aplicación de Azure Active Directory para obtener el token en nombre de la aplicación.
 
-    AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
-        // Set the resource URI to the Azure Time Series Insights API
-        resource: "https://api.timeseries.azure.com/",
-        clientCredential: new ClientCredential(
-            // Application ID of application registered in Azure Active Directory
-            clientId: "YOUR_APPLICATION_ID",
-            // Application key of the application that's registered in Azure Active Directory
-            clientSecret: "YOUR_CLIENT_APPLICATION_KEY"));
+   1. En C#, puede emplear el siguiente código para conseguir el token en nombre de la aplicación. Para obtener un ejemplo completo, vea [Consulta de datos mediante C#](time-series-insights-query-data-csharp.md).
 
-    string accessToken = token.AccessToken;
-    ```
+        [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
 
-1. Luego el token se puede pasar en el encabezado `Authorization` cuando la aplicación llame a la API de Time Series Insights.
+   1. Luego el token se puede pasar en el encabezado `Authorization` cuando la aplicación llame a la API de Time Series Insights.
+
+* Como alternativa, los desarrolladores pueden optar por autenticarse con MSAL. Lea acerca de la [Migración a MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) para obtener más información. 
 
 ## <a name="common-headers-and-parameters"></a>Parámetros y encabezados comunes
 
 En esta sección, se describen los encabezados y parámetros comunes de la solicitud HTTP que se usan para realizar consultas basadas en las API de Time Series Insights GA y de versión preliminar. Los requisitos específicos de las API se describen con mayor detalle en la [documentación de referencia de la API de REST de Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/).
 
+> [!TIP]
+> Lea la [Referencia de la API de REST de Azure](https://docs.microsoft.com/rest/api/azure/) para obtener más información sobre cómo usar las API de REST, realizar solicitudes HTTP y manipular las respuestas HTTP.
+
 ### <a name="authentication"></a>Authentication
 
 Para realizar consultas autenticadas en las [API de REST de Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), se debe pasar un token de portador OAuth 2.0 válido en el [Encabezado de autorización](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) mediante un cliente de REST de su elección (Postman, JavaScript, C#). 
-
-> [!IMPORTANT]
-> El token se debe emitir exactamente en el recurso `https://api.timeseries.azure.com/` (también conocido como "audiencia" del token).
-> * El elemento **AuthURL** de [ Cartero ](https://www.getpostman.com/) se ajusta por lo tanto a: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
 
 > [!TIP]
 > Consulte la [visualización de muestra del SDK de cliente](https://tsiclientsample.azurewebsites.net/) hospedado de Azure Time Series Insights para ver cómo autenticarse con las API de Time Series Insights mediante programación, usando el [SDK de cliente de JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) junto con gráficos.
 
 ### <a name="http-headers"></a>Encabezados HTTP
 
-Encabezados de solicitud necesarios:
+A continuación se describen los encabezados de solicitud obligatorios.
 
-- `Authorization` para la autenticación y la autorización; es necesario pasar un token de portador de OAuth 2.0 válido en el encabezado de autorización. El token se debe emitir exactamente en el recurso `https://api.timeseries.azure.com/` (también conocido como "audiencia" del token).
+| Encabezado de solicitud obligatorio | Descripción |
+| --- | --- |
+| Authorization | Para la autenticación y la autorización con Time Series Insights, es necesario pasar un token de portador de OAuth 2.0 válido en el encabezado de **autorización**. | 
 
-Encabezados de solicitud opcionales:
+> [!IMPORTANT]
+> El token se debe emitir exactamente en el recurso `https://api.timeseries.azure.com/` (también conocido como "audiencia" del token).
+> * Por lo tanto, [Postman](https://www.getpostman.com/) **AuthURL** será: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+> * `https://api.timeseries.azure.com/` es válido, pero `https://api.timeseries.azure.com` no.
 
-- `Content-type`: solo se admite `application/json`.
-- `x-ms-client-request-id`: id. de solicitud de cliente. El servicio registra este valor. Permite que el servicio realice el seguimiento de la operación en todos los servicios.
-- `x-ms-client-session-id`: id. de sesión de cliente. El servicio registra este valor. Permite que el servicio realice el seguimiento de un grupo de operaciones relacionadas en todos los servicios.
-- `x-ms-client-application-name`: nombre de la aplicación que generó esta solicitud. El servicio registra este valor.
+A continuación se describen los encabezados de solicitud opcionales.
 
-Encabezados de respuesta:
+| Encabezado de solicitud opcional | Descripción |
+| --- | --- |
+| Content-type | Solo se admite `application/json`. |
+| x-ms-client-request-id | Un id. de solicitud de cliente. El servicio registra este valor. Permite que el servicio realice el seguimiento de la operación en todos los servicios. |
+| x-ms-client-session-id | Un id. de sesión de cliente. El servicio registra este valor. Permite que el servicio realice el seguimiento de un grupo de operaciones relacionadas en todos los servicios. |
+| x-ms-client-application-name | Nombre de la aplicación que generó esta solicitud. El servicio registra este valor. |
 
-- `Content-type`: solo se admite `application/json`.
-- `x-ms-request-id`: id. de solicitud que creó el servidor. Se puede usar para ponerse en contacto con Microsoft para investigar una solicitud.
+A continuación se describen los encabezados de respuesta opcionales, pero recomendados.
+
+| Encabezado de respuesta | Descripción |
+| --- | --- |
+| Content-type | Solo se admite `application/json`. |
+| x-ms-request-id | Id. de solicitud que creó el servidor. Se puede usar para ponerse en contacto con Microsoft para investigar una solicitud. |
+| x-ms-property-not-found-behavior | Encabezado de respuesta opcional de la API GA. Los valores posibles son `ThrowError` (valor predeterminado) o `UseNull`. |
 
 ### <a name="http-parameters"></a>Parámetros de HTTP
 
-Parámetros de la cadena de consulta la dirección URL necesarios:
+> [!TIP]
+> Encontrará más detalles sobre la información de consulta necesaria y opcional en la [documentación de referencia](https://docs.microsoft.com/rest/api/time-series-insights/).
 
-- `api-version=2016-12-12`
-- `api-version=2018-11-01-preview`
+Los parámetros de la cadena de consulta de la URL obligatorios dependen de la versión de la API.
 
-Parámetros de la cadena de consulta de la dirección URL opcionales:
+| Release | Posibles valores de versión de API |
+| --- |  --- |
+| Disponibilidad general | `api-version=2016-12-12`|
+| Vista previa | `api-version=2018-11-01-preview` |
+| Vista previa | `api-version=2018-08-15-preview` |
 
-- `timeout=<timeout>`: tiempo de espera del lado servidor para la ejecución de la solicitud. Esto es aplicable solo a las API [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) y [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api). El valor del tiempo de espera debe estar en un formato de duración de tipo ISO 8601, por ejemplo `"PT20S"`, y debe estar en el intervalo `1-30 s`. El valor predeterminado es `30 s`.
+Los parámetros de cadena de consulta de dirección URL opcionales incluyen establecer un tiempo de espera para los tiempos de ejecución de la solicitud HTTP.
+
+| Parámetro de consulta opcional | Descripción | Versión |
+| --- |  --- | --- |
+| `timeout=<timeout>` | Tiempo de espera del lado servidor para la ejecución de la solicitud. Esto es aplicable solo a las API [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) y [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api). El valor del tiempo de espera debe estar en un formato de duración de tipo ISO 8601, por ejemplo `"PT20S"`, y debe estar en el intervalo `1-30 s`. El valor predeterminado es `30 s`. | GA |
+| `storeType=<storeType>` | En el caso de los entornos de versión preliminar con la tienda en caliente habilitada, la consulta se puede ejecutar en `WarmStore` o `ColdStore`. Este parámetro de la consulta define en qué almacén debe ejecutarse la consulta. Si no se define, la consulta se ejecutará en el almacén frío. Para consultar la tienda en caliente, **storeType** debe establecerse en `WarmStore`. Si no se define, la consulta se ejecutará en el almacén frío. | Vista previa |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -151,6 +165,6 @@ Parámetros de la cadena de consulta de la dirección URL opcionales:
 
 - Para obtener ejemplos de código de la API de Time Series Insights (versión preliminar), vea [Consulta de datos de versión preliminar mediante C#](./time-series-insights-update-query-data-csharp.md).
 
-- Para obtener información de referencia de la API, vea la [referencia sobre la API de consulta](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
+- Para obtener información de referencia de la API, vea la documentación de [referencia sobre la API de consulta](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
 
 - Sepa cómo [crear una entidad de servicio](../active-directory/develop/howto-create-service-principal-portal.md).

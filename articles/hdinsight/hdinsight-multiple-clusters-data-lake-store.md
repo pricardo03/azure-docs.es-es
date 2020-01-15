@@ -1,20 +1,19 @@
 ---
 title: Varios clústeres de HDInsight y la misma cuenta de Azure Data Lake Storage
 description: Obtenga información sobre cómo usar más de un clúster de HDInsight con una sola cuenta de Data Lake Storage
-keywords: almacenamiento para hdinsight,hdfs,datos estructurados,datos no estructurados, data lake store
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: hrasheed
-ms.openlocfilehash: ba0c26d87f2161af514c9430eae5c9949ef92b15
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/18/2019
+ms.openlocfilehash: cc67acca11e7e0f24dc0597dcd19672a38a7bf28
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498194"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495749"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Uso de varios clústeres de HDInsight con una cuenta de Azure Data Lake Storage
 
@@ -23,16 +22,15 @@ Data Lake Storage admite almacenamiento ilimitado, lo cual es idóneo no solo pa
 
 En este artículo se proporcionan recomendaciones para que el administrador de Data Lake Storage configure una única cuenta compartida de Data Lake Storage que pueda usarse en varios clústeres **activos** de HDInsight. Estas recomendaciones se aplican al hospedaje de varios clústeres de Apache Hadoop seguros y no seguros en una cuenta compartida de Data Lake Storage.
 
-
 ## <a name="data-lake-storage-file-and-folder-level-acls"></a>Listas de control de acceso de nivel de archivo y de carpeta de Data Lake Storage
 
 En el resto de este artículo se da por supuesto que tiene un conocimiento profundo de las listas de control de acceso de nivel de archivo y de carpeta en Azure Data Lake Storage, que se describen en detalle en [Control de acceso en Azure Data Lake Storage](../data-lake-store/data-lake-store-access-control.md).
 
 ## <a name="data-lake-storage-setup-for-multiple-hdinsight-clusters"></a>Configuración de Data Lake Storage para varios clústeres de HDInsight
+
 Empecemos por una jerarquía de carpetas de dos niveles para explicar las recomendaciones de uso de varios clústeres de HDInsight con una cuenta de Data Lake Storage. Supongamos que tiene una cuenta de Data Lake Storage con la estructura de carpetas **/clusters/finance**. Con esta estructura, todos los clústeres requeridos por la organización de Finanzas pueden usar /clusters/finance como la ubicación de almacenamiento. En el futuro, si otra organización (por ejemplo, Marketing) desea crear clústeres de HDInsight con la misma cuenta de Data Lake Storage, podría crear /clusters/marketing. De momento, usaremos simplemente **/clusters/finance**.
 
-Para que los clústeres de HDInsight puedan utilizar esta estructura de carpetas eficazmente, el administrador de Data Lake Storage debe asignar los permisos adecuados, tal como se describe en la tabla. Los permisos mostrados en la tabla corresponden a las ACL de acceso, y no a las ACL predeterminadas. 
-
+Para que los clústeres de HDInsight puedan utilizar esta estructura de carpetas eficazmente, el administrador de Data Lake Storage debe asignar los permisos adecuados, tal como se describe en la tabla. Los permisos mostrados en la tabla corresponden a las ACL de acceso, y no a las ACL predeterminadas.
 
 |Carpeta  |Permisos  |usuario propietario  |grupo propietario  | Usuario con nombre | Permisos de usuario con nombre | Grupo con nombre | Permisos de grupo con nombre |
 |---------|---------|---------|---------|---------|---------|---------|---------|
@@ -57,9 +55,7 @@ Algunos puntos que se deben tener en cuenta:
 
     |Carpeta  |Permisos  |usuario propietario  |grupo propietario  | Usuario con nombre | Permisos de usuario con nombre | Grupo con nombre | Permisos de grupo con nombre |
     |---------|---------|---------|---------|---------|---------|---------|---------|
-    |/clusters/finance/ fincluster01 | rwxr-x---  |Entidad de servicio |FINGRP  |- |-  |-   |-  | 
-   
-
+    |/clusters/finance/ fincluster01 | rwxr-x---  |Entidad de servicio |FINGRP  |- |-  |-   |-  |
 
 ## <a name="recommendations-for-job-input-and-output-data"></a>Recomendaciones para los datos de entrada y salida de trabajos
 
@@ -88,9 +84,10 @@ Se sabe que esta configuración afecta a un caso de uso de HDInsight específico
 Como se indica en el JIRA YARN vinculado anteriormente, al localizar recursos públicos el localizador valida que todos los recursos solicitados son realmente públicos comprobando sus permisos en el sistema de archivos remoto. Se rechaza la localización de cualquier recurso local que no se ajuste a esa condición. La comprobación de permisos incluye acceso de lectura al archivo para otros usuarios. Este escenario no funciona en principio al hospedar clústeres de HDInsight en Azure Data Lake, ya que Azure Data Lake deniega el acceso a otros usuarios en el nivel de la carpeta raíz.
 
 #### <a name="workaround"></a>Solución alternativa
+
 Configure los permisos de lectura y ejecución para **otros** mediante la jerarquía (por ejemplo, en **/** , **/clusters** y **/clusters/finance**), como se muestra en la tabla anterior.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
-* [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) (Guía de inicio rápido: Configuración de clústeres en HDInsight).
-* [Uso de Data Lake Storage Gen2 con clústeres de Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)
+- [Inicio rápido: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) (Guía de inicio rápido: Configuración de clústeres en HDInsight).
+- [Uso de Data Lake Storage Gen2 con clústeres de Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)

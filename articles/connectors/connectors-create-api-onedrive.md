@@ -1,22 +1,22 @@
 ---
-title: Conexión a OneDrive
-description: Cargar y administrar archivos con las API REST de OneDrive y Azure Logic Apps
+title: Acceso y administración de archivos en Microsoft OneDrive
+description: Cargue y administre archivos en OneDrive mediante la creación de flujos de trabajo automatizados en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 93528e257ab45644a79c58fbf600dca10317eb0b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: edfbf090c3409d583cda6fd2c9957c37be5dfb7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789686"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378439"
 ---
-# <a name="get-started-with-the-onedrive-connector"></a>Introducción al conector de OneDrive
+# <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Acceda a archivos y adminístrelos en el conector de OneDrive mediante Azure Logic Apps
 
-Conéctese a OneDrive para administrar los archivos, incluyendo las tareas de carga, obtención y eliminación de archivos, y muchas más. Con OneDrive, puede realizar estas tareas:
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el [conector de OneDrive](/connectors/onedriveconnector/), puede crear tareas automatizadas y flujos de trabajo para administrar los archivos, como cargar, obtener, eliminar archivos, etc. Con OneDrive, puede realizar estas tareas:
 
 * Crear un flujo de trabajo almacenando archivos en OneDrive o actualizar las archivos que ya tenga en OneDrive. 
 * Usar desencadenadores para iniciar el flujo de trabajo cuando se crea o se actualiza un archivo en OneDrive.
@@ -38,7 +38,7 @@ Antes de que la aplicación lógica pueda acceder a cualquier servicio, cree pri
 
 Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. Los desencadenadores "sondean" el servicio en el intervalo y la frecuencia que desee. [Más información sobre los desencadenadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. En la aplicación lógica, escriba "onedrive" para obtener una lista de los desencadenadores:  
+1. En el Diseñador de aplicación lógica, escriba `onedrive` para obtener una lista de los desencadenadores:  
 
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 
@@ -66,7 +66,7 @@ Una acción es una operación que se lleva a cabo mediante el flujo de trabajo d
 
 2. Elija **Add an action**(Agregar una acción).
 
-3. En el cuadro de texto, escriba "onedrive" para obtener una lista de todas las acciones disponibles.
+3. En el cuadro de búsqueda, escriba `onedrive` para obtener una lista de todas las acciones disponibles.
 
    ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 

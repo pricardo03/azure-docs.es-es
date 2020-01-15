@@ -1,25 +1,16 @@
 ---
-title: Información general sobre la comunicación de Reliable Services | Microsoft Docs
+title: Introducción a la comunicación de Reliable Services
 description: Información general sobre el modelo de comunicación de Reliable Services, incluidos los agentes de escucha de apertura en los servicios, la resolución de puntos de conexión y la comunicación entre servicios.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: BharatNarasimman
-ms.assetid: 36217988-420e-409d-b0a4-e0e875b6eac8
-ms.service: service-fabric
-ms.devlang: csharp, java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 4d3deb7f3b7e7fb6334525886c6d5b8787a8f940
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3c1a6cfa5227369bf1cde4af087019727c22c0c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036775"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462958"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Uso de las API de comunicación de Reliable Services
 Azure Service Fabric como una plataforma es completamente independiente de la comunicación entre los servicios. Todos los protocolos y las pilas son aceptables, desde UDP hasta HTTP. El desarrollador del servicio es quien debe elegir cómo deberían comunicarse los servicios. El marco de trabajo de aplicaciones de Reliable Services ofrece pilas de comunicación integradas, además de varias API que puede usar para compilar los componentes de comunicación personalizados.

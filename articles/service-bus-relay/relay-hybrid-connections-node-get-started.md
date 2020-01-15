@@ -1,5 +1,5 @@
 ---
-title: Introducción a los Websockets de Conexiones híbridas de Azure Relay en Node | Microsoft Docs
+title: WebSockets de Conexiones híbridas de Azure Relay en Node
 description: Escritura de una aplicación de consola en Node.js para Websockets de Conexiones híbridas de Azure Relay
 services: service-bus-relay
 documentationcenter: node
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: b4864673e25ba4f5a1f2e8629e0889863051bc07
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 818db4db082a441877b573fd52361e63becce374
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60553918"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352669"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Introducción a WebSockets de Conexiones híbridas de Relay en Node.js
 
@@ -35,10 +35,10 @@ En esta guía de inicio rápido, realizará los siguientes pasos:
 4. Escritura de una aplicación de consola de cliente (remitente) para enviar mensajes.
 5. Ejecución de aplicaciones. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Node.js](https://nodejs.org/en/).
-- Una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+- Suscripción a Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="create-a-namespace"></a>Creación de un espacio de nombres
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]

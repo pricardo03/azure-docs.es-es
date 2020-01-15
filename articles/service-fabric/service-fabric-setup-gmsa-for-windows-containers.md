@@ -1,25 +1,14 @@
 ---
-title: Configuración de gMSA para servicios de contenedor de Azure Service Fabric | Microsoft Docs
-description: Aprenda ahora a configurar gMSA para un contenedor que se ejecuta en Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
+title: Configuración de gMSA para servicios de contenedor de Azure Service Fabric
+description: Aprenda ahora a configurar cuentas de servicio administradas de grupo (gMSA) para un contenedor que se ejecuta en Azure Service Fabric.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/20/2019
-ms.author: atsenthi
-ms.openlocfilehash: 45fc4c924a8fb794ad81529de74b98ee812f46c5
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 9873e2d7672412b0e1e22c6c2a774cf629fd728a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170437"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639214"
 ---
 # <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>Configuración de gMSA para contenedores de Windows que se ejecutan en Service Fabric
 

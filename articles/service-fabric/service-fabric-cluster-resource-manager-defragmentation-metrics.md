@@ -1,25 +1,16 @@
 ---
-title: Desfragmentación de métricas en Azure Service Fabric | Microsoft Docs
-description: Información general del uso de la desfragmentación o el empaquetado como estrategia para métricas en Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Desfragmentación de métricas en Azure Service Fabric
+description: Conozca cómo usar la desfragmentación o el empaquetado como estrategia para métricas en Service Fabric. Esta técnica es útil para servicios de gran tamaño.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 6e041e41372c72c6792c1fb4a1fbdc3bbe475b21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bba459be4408f4a4bc438bb33b0570a91e84f2cd
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60844410"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563367"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Desfragmentación de métricas y carga en Service Fabric
 La estrategia predeterminada de Cluster Resource Manager de Service Fabric para administrar métricas de carga en el clúster es distribuir la carga. Al tener la seguridad de que los nodos se utilizan por igual, se evitan zonas activas e inactivas que conducen a la contención y el desperdicio de recursos. La distribución de las cargas de trabajo en el clúster es también lo más seguro si se quiere sobrevivir a los errores dado que de esta forma se garantiza que un error no se llevará un gran porcentaje de una carga de trabajo dada. 

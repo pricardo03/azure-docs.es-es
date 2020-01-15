@@ -1,25 +1,16 @@
 ---
-title: Reentrada de actores de Azure Service Fabric | Microsoft Docs
-description: Introducción a la reentrada de Reliable Actors de Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Reentrada de actores en Azure Service Fabric
+description: Introducción a la reentrada Reliable Actors de Azure Service Fabric, una manera de evitar mediante lógica el bloqueo según el contexto de llamada.
 author: vturecek
-manager: chackdan
-editor: amanbha
-ms.assetid: be23464a-0eea-4eca-ae5a-2e1b650d365e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 46682787bac2d60d188384a4078ca2fa1f46ae7a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46ce91e607341e2fbdc0b6a3018e74cb24e76839
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725421"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645538"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reentrada de Reliable Actors
 El runtime de Reliable Actors permite, de manera predeterminada, la reentrada basada en el contexto de llamadas lógicas. Esto permite que los actores sean reentrantes si están en la misma cadena de contexto de llamada. Por ejemplo, si el actor A envía un mensaje al actor B, quien envía el mensaje al actor C; como parte del procesamiento del mensaje, si el actor C llama al actor A, el mensaje es reentrante y, por los tanto, se permitirá. Los demás mensajes que formen parte de un contexto de llamada distinto se bloquearán en el actor A hasta que complete el procesamiento.

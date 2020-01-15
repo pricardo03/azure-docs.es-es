@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: eef950c4e8c4a880d331022ed60477bebce65b5d
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: bf36c0697b5e30c77610d30475be20adc18810cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689087"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445591"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Fuente de cambios en Azure Cosmos DB: introducción
 
@@ -35,10 +35,10 @@ La característica actualmente es compatible con los siguientes SDK de cliente y
 
 | **Controladores cliente** | **CLI de Azure** | **SQL API** | **API de Azure Cosmos DB para Cassandra** | **API de Azure Cosmos DB para MongoDB** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | N/D | Sí | Sí | Sí | Sí | Sin |
-|Java|N/D|Sí|Sí|Sí|Sí|Sin|
-|Python|N/D|Sí|Sí|Sí|Sí|Sin|
-|Node/JS|N/D|Sí|Sí|Sí|Sí|Sin|
+| .NET | N/D | Sí | Sí | Sí | Sí | No |
+|Java|N/D|Sí|Sí|Sí|Sí|No|
+|Python|N/D|Sí|Sí|Sí|Sí|No|
+|Node/JS|N/D|Sí|Sí|Sí|Sí|No|
 
 ## <a name="change-feed-and-different-operations"></a>Fuente de cambios y operaciones diferentes
 

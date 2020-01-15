@@ -1,21 +1,21 @@
 ---
-title: Automatización de la implementación de recursos para una aplicación de funciones en Azure Functions
+title: Automatización de la implementación de recursos de la aplicación de función en Azure
 description: Obtenga información sobre cómo crear una plantilla de Azure Resource Manager que implemente su aplicación de función.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 9c222937831c0e8017a390b16ef192783e9e564a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 10efe5d09771f4c5f3a2564ef99ff9cae8cf06c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230521"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433154"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatización de la implementación de recursos para una aplicación de función en Azure Functions
 
 Puede usar una plantilla de Azure Resource Manager para implementar una aplicación de función. En este artículo se describen los recursos y los parámetros necesarios para hacerlo. Es posible que tenga que implementar recursos adicionales, dependiendo de los [desencadenadores y enlaces](functions-triggers-bindings.md) de la aplicación de función.
 
-Para más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Para más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 Para obtener las plantillas de ejemplo, vea:
 - [Aplicación de función en el plan de consumo]
@@ -135,7 +135,7 @@ El recurso de aplicación de funciones se define mediante un recurso de tipo **M
 
 Una aplicación de funciones debe incluir esta configuración de la aplicación:
 
-| Nombre del valor                 | DESCRIPCIÓN                                                                               | Valores de ejemplo                        |
+| Nombre del valor                 | Descripción                                                                               | Valores de ejemplo                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | Cadena de conexión a una cuenta de almacenamiento que el tiempo de ejecución de Functions usará para la cola interna. | Consulte [Cuenta de almacenamiento](#storage).       |
 | FUNCTIONS_EXTENSION_VERSION  | Versión del entorno de ejecución de Azure Functions.                                                | `~2`                                  |
@@ -640,7 +640,7 @@ Puede usar cualquiera de los siguientes métodos para implementar la plantilla:
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
 * [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
-* [API DE REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Botón Implementación en Azure
 

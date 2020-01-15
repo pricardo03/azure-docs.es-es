@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 1abfd8af7e0ef18d4e7bcf05b4726c5d0bcb0a84
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 57351ccf0c6155a1a3532ec9e6481a724e3219aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151699"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462442"
 ---
 # <a name="workflow-automation-preview"></a>Automatización de flujos de trabajo (versión preliminar)
 
@@ -87,6 +87,9 @@ Para ejecutar manualmente una aplicación lógica, abra una recomendación y hag
 
 [![Desencadenar manualmente una aplicación lógica](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
+## <a name="data-types-schemas"></a>Esquemas de tipos de datos
+
+Para ver los esquemas de eventos sin procesar de las alertas de seguridad o los eventos de recomendaciones que se pasan a la instancia de aplicación lógica, consulte los [Esquemas de tipos de datos de automatización de flujo de trabajo](https://aka.ms/ASCAutomationSchemas). Puede resultar útil en los casos en que no se usan los conectores de aplicación lógica integrados de Security Center mencionados anteriormente, sino que alternativamente se usa el conector HTTP genérico de la aplicación lógica; puede usar el esquema JSON del evento para analizarlo manualmente como considere oportuno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -98,3 +101,4 @@ Para obtener material relacionado, consulte los siguientes artículos:
 - [Alertas de seguridad en el Centro de seguridad de Azure](security-center-alerts-overview.md)
 - [Acerca de Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
 - [Conectores de Aplicaciones lógicas](https://docs.microsoft.com/connectors/)
+- [Esquemas de tipos de datos de automatización de flujo de trabajo](https://aka.ms/ASCAutomationSchemas)

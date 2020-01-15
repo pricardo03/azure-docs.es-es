@@ -1,24 +1,14 @@
 ---
-title: Habilitación del cifrado de disco para clústeres con Linux de Azure Service Fabric | Microsoft Docs
+title: Habilitar cifrado de discos para clústeres de Linux
 description: En este artículo se describe cómo habilitar el cifrado de disco para los nodos de un clúster de Azure Service Fabric en Linux mediante Azure Resource Manager y Azure Key Vault.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: navya
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/22/2019
-ms.author: atsenthi
-ms.openlocfilehash: 5bcfad63df69010851dde66b0c8935e63a509455
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d990cfdee9a497135c67d99431807a85f8105b3b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599596"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609900"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Habilitación del cifrado de disco para nodos de clústeres de Azure Service Fabric en Linux 
 > [!div class="op_single_selector"]
@@ -39,11 +29,11 @@ En esta guía se tratan los temas siguientes:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
  **Registro automático**
 
-La versión preliminar del cifrado de disco de un conjunto de escalado de máquinas virtuales requiere el registro automático. Para ello, siga los pasos que se describen a continuación:
+La versión preliminar del cifrado de disco de un conjunto de escalado de máquinas virtuales requiere el registro automático. Siga estos pasos:
 
 1. Ejecute el siguiente comando: 
     ```powershell

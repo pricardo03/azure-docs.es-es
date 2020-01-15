@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 7c942661beea34e7a49223f4a8e4a4d6c0eb66e1
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7532db883b6267c402e380d865c917d16a7052da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929315"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440632"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copia de datos desde un punto de conexión HTTP mediante Azure Data Factory
 
@@ -28,7 +28,7 @@ En este artículo se explica el uso de la actividad de copia de Azure Data Facto
 
 Las diferencias entre este conector HTTP, el [conector REST](connector-rest.md) y el [conector de tabla web](connector-web-table.md) son:
 
-- El **conector REST** admite específicamente la copia de datos desde API RESTful. 
+- El **conector REST** admite específicamente la copia de datos desde API RESTful; 
 - El **conector HTTP** es genérico y puede recuperar datos desde cualquier punto de conexión HTTP, por ejemplo, para descargar archivos. Antes de que esté disponible el conector REST, puede usar el conector HTTP para copiar datos de la API RESTful, lo cual se admite, pero es menos funcional en comparación con el conector REST.
 - El **conector de tabla web** extrae contenido de la tabla de una página web HTML.
 
@@ -50,11 +50,11 @@ Puede usar este conector HTTP para:
 > [!TIP]
 > Para probar una solicitud HTTP para la recuperación de datos antes de configurar el conector HTTP en Data Factory, obtenga información acerca de la especificación de API para los requisitos del cuerpo y del encabezado. Puede usar herramientas como Postman o un explorador web para validar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -64,19 +64,19 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que p
 
 Las siguientes propiedades son compatibles con el servicio vinculado de HTTP:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad **type** debe establecerse en: **HttpServer**. | Sí |
 | url | La dirección URL base para el servidor web. | Sí |
-| enableServerCertificateValidation | Especifique si desea habilitar la validación de certificados SSL al conectarse al punto de conexión HTTP. Si el servidor HTTPS usa un certificado autofirmado, establezca esta propiedad en **false**. | Sin<br /> (El valor predeterminado es: **true**) |
+| enableServerCertificateValidation | Especifique si desea habilitar la validación de certificados SSL al conectarse al punto de conexión HTTP. Si el servidor HTTPS usa un certificado autofirmado, establezca esta propiedad en **false**. | No<br /> (El valor predeterminado es: **true**) |
 | authenticationType | Especifica el tipo de autenticación. Los valores permitidos son: **Anonymous**, **Basic**, **Digest**, **Windows** y **ClientCertificate**. <br><br> Consulte las secciones que se encuentran después de esta tabla para obtener más propiedades y ejemplos de JSON para estos tipos de autenticación. | Sí |
-| connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |Sin |
+| connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |No |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Uso de la autenticación Basic, Digest o Windows
 
 Establezca la propiedad **authenticationType** en **Basic**, **Digest** o **Windows**. Además de las propiedades genéricas descritas en las secciones anteriores, especifique las siguientes:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | userName | El nombre de usuario para acceder al punto de conexión HTTP. | Sí |
 | password | Contraseña del usuario (valor **userName**). Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
@@ -109,11 +109,11 @@ Establezca la propiedad **authenticationType** en **Basic**, **Digest** o **Wind
 
 Para usar la autenticación ClientCertificate, establezca la propiedad **authenticationType** en **ClientCertificate**. Además de las propiedades genéricas descritas en las secciones anteriores, especifique las siguientes:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | embeddedCertData | Datos del certificado con codificación Base64. | Especifique **embeddedCertData** o **certThumbprint**. |
 | certThumbprint | La huella digital del certificado que se instaló en el almacén de certificados de la máquina Integration Runtime (autohospedado). Solo se aplica cuando se especifica el tipo autohospedado de un entorno Integration Runtime en la propiedad **connectVia**. | Especifique **embeddedCertData** o **certThumbprint**. |
-| password | La contraseña asociada con el certificado. Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin |
+| password | La contraseña asociada con el certificado. Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | No |
 
 Si utiliza **certThumbprint** para la autenticación y el certificado está instalado en el almacén personal del equipo local, conceda permisos de lectura al entorno Integration Runtime (autohospedado):
 
@@ -122,7 +122,7 @@ Si utiliza **certThumbprint** para la autenticación y el certificado está inst
 3. Haga clic con el botón derecho en el certificado del almacén personal y seleccione **Todas las tareas** > **Administrar claves privadas**.
 3. En la pestaña **Seguridad**, agregue la cuenta de usuario en que se ejecuta el servicio de host del entorno Integration Runtime (DIAHostService) con acceso de lectura al certificado.
 
-**Ejemplo 1: Uso de certThumbprint**
+**Ejemplo 1: Uso de certThumbprint**
 
 ```json
 {
@@ -142,7 +142,7 @@ Si utiliza **certThumbprint** para la autenticación y el certificado está inst
 }
 ```
 
-**Ejemplo 2: Uso de embeddedCertData**
+**Ejemplo 2: Uso de embeddedCertData**
 
 ```json
 {
@@ -174,15 +174,15 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Las propiedades siguientes se admiten para HTTP en la configuración `location` del conjunto de datos basado en formato:
 
-| Propiedad    | DESCRIPCIÓN                                                  | Obligatorio |
+| Propiedad    | Descripción                                                  | Obligatorio |
 | ----------- | ------------------------------------------------------------ | -------- |
 | type        | La propiedad type de `location` en el conjunto de datos se debe establecer en **HttpServerLocation**. | Sí      |
-| relativeUrl | Dirección URL relativa al recurso que contiene los datos. El conector de HTTP copia datos de la dirección URL combinada: `[URL specified in linked service]/[relative URL specified in dataset]`.   | Sin       |
+| relativeUrl | Dirección URL relativa al recurso que contiene los datos. El conector HTTP copia los datos de la dirección URL combinada: `[URL specified in linked service]/[relative URL specified in dataset]`.   | No       |
 
 > [!NOTE]
 > El tamaño de carga de la solicitud HTTP admitido es aproximadamente 500 KB. Si el que desea pasar al punto de conexión web supera los 500 KB, considere la posibilidad de agrupar la carga en fragmentos menores.
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -208,63 +208,6 @@ Las propiedades siguientes se admiten para HTTP en la configuración `location` 
 }
 ```
 
-### <a name="legacy-dataset-model"></a>Modelo de conjunto de datos heredado
-
->[!NOTE]
->El siguiente modelo de conjunto de datos se sigue admitiendo tal cual para la compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado en la sección anterior; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
-
-| Propiedad | DESCRIPCIÓN | Obligatorio |
-|:--- |:--- |:--- |
-| type | La propiedad **type** del conjunto de datos debe establecerse en **HttpFile**. | Sí |
-| relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la propiedad, solo se usa la dirección URL especificada en la definición del servicio vinculado. | Sin |
-| requestMethod | Método HTTP. Los valores permitidos son **Get** (valor predeterminado) y **Post**. | Sin |
-| additionalHeaders | Encabezados de solicitud HTTP adicionales. | Sin |
-| requestBody | Cuerpo de la solicitud HTTP. | Sin |
-| format | Si desea recuperar datos tal cual desde el punto de conexión HTTP sin analizarlos y, después, copiarlos en un almacén basado en archivos, ignore la sección de **formato** de las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si desea analizar el contenido de la respuesta HTTP durante la copia, se admiten los siguientes tipos de formato de archivos: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. En **formato**, establezca la propiedad **type** de formato en uno de los siguientes valores. Para obtener más información, consulte las secciones sobre [formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format) y [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Sin |
-| compression | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Tipos admitidos: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Niveles que se admiten:  **Optimal** y **Fastest**. |Sin |
-
-> [!NOTE]
-> El tamaño de carga de la solicitud HTTP admitido es aproximadamente 500 KB. Si el que desea pasar al punto de conexión web supera los 500 KB, considere la posibilidad de agrupar la carga en fragmentos menores.
-
-**Ejemplo 1: Uso del método Get (valor predeterminado)**
-
-```json
-{
-    "name": "HttpSourceDataInput",
-    "properties": {
-        "type": "HttpFile",
-        "linkedServiceName": {
-            "referenceName": "<HTTP linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-        }
-    }
-}
-```
-
-**Ejemplo 2: Uso del método POST**
-
-```json
-{
-    "name": "HttpSourceDataInput",
-    "properties": {
-        "type": "HttpFile",
-        "linkedServiceName": {
-            "referenceName": "<HTTP linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "requestMethod": "Post",
-            "requestBody": "<body for POST HTTP request>"
-        }
-    }
-}
-```
-
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 
 En esta sección se proporciona una lista de las propiedades que admite el origen de HTTP.
@@ -277,16 +220,16 @@ Para ver una lista completa de las secciones y propiedades que hay disponibles p
 
 Las propiedades siguientes se admiten para HTTP en la configuración `storeSettings` del origen de copia basado en formato:
 
-| Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio |
+| Propiedad                 | Descripción                                                  | Obligatorio |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La propiedad type de `storeSettings` se debe establecer en **HttpReadSetting**. | Sí      |
-| requestMethod            | Método HTTP. <br>Los valores permitidos son **Get** (valor predeterminado) y **Post**. | Sin       |
-| addtionalHeaders         | Encabezados de solicitud HTTP adicionales.                             | Sin       |
-| requestBody              | Cuerpo de la solicitud HTTP.                               | Sin       |
-| httpRequestTimeout           | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. El valor predeterminado es **00:01:40**. | Sin       |
-| maxConcurrentConnections | Número de conexiones para conectarse al almacén de almacenamiento de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | Sin       |
+| requestMethod            | Método HTTP. <br>Los valores permitidos son **Get** (valor predeterminado) y **Post**. | No       |
+| addtionalHeaders         | Encabezados de solicitud HTTP adicionales.                             | No       |
+| requestBody              | Cuerpo de la solicitud HTTP.                               | No       |
+| httpRequestTimeout           | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. El valor predeterminado es **00:01:40**. | No       |
+| maxConcurrentConnections | Número de conexiones para conectarse al almacén de almacenamiento de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | No       |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 "activities":[
@@ -327,15 +270,75 @@ Las propiedades siguientes se admiten para HTTP en la configuración `storeSetti
 ]
 ```
 
-#### <a name="legacy-source-model"></a>Modelo de origen heredado
+## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
+
+Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
+
+## <a name="legacy-models"></a>Modelos heredados
 
 >[!NOTE]
->El siguiente modelo de origen de copia se sigue admitiendo tal cual para la compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado anteriormente; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
+>Estos modelos siguen siendo compatibles con versiones anteriores. Se recomienda usar el nuevo modelo mencionado en la sección anterior de ahora en adelante; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+### <a name="legacy-dataset-model"></a>Modelo de conjunto de datos heredado
+
+| Propiedad | Descripción | Obligatorio |
+|:--- |:--- |:--- |
+| type | La propiedad **type** del conjunto de datos debe establecerse en **HttpFile**. | Sí |
+| relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la propiedad, solo se usa la dirección URL especificada en la definición del servicio vinculado. | No |
+| requestMethod | Método HTTP. Los valores permitidos son **Get** (valor predeterminado) y **Post**. | No |
+| additionalHeaders | Encabezados de solicitud HTTP adicionales. | No |
+| requestBody | Cuerpo de la solicitud HTTP. | No |
+| format | Si desea recuperar datos tal cual desde el punto de conexión HTTP sin analizarlos y, después, copiarlos en un almacén basado en archivos, ignore la sección de **formato** de las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si desea analizar el contenido de la respuesta HTTP durante la copia, se admiten los siguientes tipos de formato de archivos: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. En **formato**, establezca la propiedad **type** de formato en uno de los siguientes valores. Para obtener más información, consulte las secciones sobre [formato JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs-legacy.md#text-format), [formato Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format) y [formato Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |No |
+| compression | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/><br/>Tipos que se admiten: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Niveles que se admiten:  **Optimal** y **Fastest**. |No |
+
+> [!NOTE]
+> El tamaño de carga de la solicitud HTTP admitido es aproximadamente 500 KB. Si el que desea pasar al punto de conexión web supera los 500 KB, considere la posibilidad de agrupar la carga en fragmentos menores.
+
+**Ejemplo 1: Uso del método Get (valor predeterminado)**
+
+```json
+{
+    "name": "HttpSourceDataInput",
+    "properties": {
+        "type": "HttpFile",
+        "linkedServiceName": {
+            "referenceName": "<HTTP linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "typeProperties": {
+            "relativeUrl": "<relative url>",
+            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+        }
+    }
+}
+```
+
+**Ejemplo 2: Uso del método POST**
+
+```json
+{
+    "name": "HttpSourceDataInput",
+    "properties": {
+        "type": "HttpFile",
+        "linkedServiceName": {
+            "referenceName": "<HTTP linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "typeProperties": {
+            "relativeUrl": "<relative url>",
+            "requestMethod": "Post",
+            "requestBody": "<body for POST HTTP request>"
+        }
+    }
+}
+```
+
+### <a name="legacy-copy-activity-source-model"></a>Modelo de origen de la actividad de copia heredada
+
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad **type** del origen de la actividad de copia debe establecerse en: **HttpSource**. | Sí |
-| httpRequestTimeout | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. El valor predeterminado es **00:01:40**.  | Sin |
+| httpRequestTimeout | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. El valor predeterminado es **00:01:40**.  | No |
 
 **Ejemplo**
 
@@ -368,11 +371,6 @@ Las propiedades siguientes se admiten para HTTP en la configuración `storeSetti
     }
 ]
 ```
-
-## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
-
-Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 8331d74528703df1d7c56f25af7df0f53cd1f9be
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 255c18144fe0089a3f630d90f527a57d2b4ed68b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996279"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391846"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -28,6 +28,7 @@ El agente de máquina virtual de Azure podría estar detenido, obsoleto, en un e
 - **Abra Azure Portal > VM > Configuración > hoja Propiedades** > asegúrese de que el valor de **Estado** sea **En ejecución** y que **Estado del agente** sea **Listo**. Si el agente de máquina virtual está detenido o se encuentra en un estado incoherente, reinicie el agente.<br>
   - Para máquinas virtuales Windows, siga estos [pasos](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) para reiniciar el agente invitado.<br>
   - En el caso de las máquinas virtuales Linux, siga estos [pasos](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) para reiniciar el agente invitado.
+- Abra **Azure Portal > Máquina virtual > Configuración > Extensiones** y asegúrese de que el estado de todas las extensiones sea **Aprovisionamiento realizado correctamente**. Si no se resuelve la incidencia, siga estos [pasos](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state).
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError: No se pudo comunicar con el agente de máquina virtual para el estado de la instantánea
 
@@ -53,7 +54,7 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 
 Este error se produce cuando uno de los errores de extensión deja a la máquina virtual en un estado de aprovisionamiento con errores.<br>Abra **Azure Portal > VM > Configuración > Extensiones > Estado de las extensiones** y compruebe que el estado de todas las extensiones es **Aprovisionamiento realizado correctamente**.
 
-- Si la extensión VMSnapshot está en un estado con errores, haga clic con el botón derecho en la extensión con errores y elimínela. Desencadene una copia de seguridad ad-hoc, esto volverá a instalar las extensiones y ejecutará el trabajo de copia de seguridad.  <br>
+- Si la extensión VMSnapshot está en un estado con errores, haga clic con el botón derecho en la extensión con errores y elimínela. Desencadene una copia de seguridad a petición: se reinstalarán las extensiones y se ejecutará el trabajo de copia de seguridad.  <br>
 - Si cualquier otra extensión está en un estado con errores, puede interferir con la copia de seguridad. Asegúrese que se resuelven esos problemas de extensiones y vuelva a intentar la operación de copia de seguridad.  
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached: Se ha alcanzado el límite máximo de colecciones del punto de restauración
@@ -229,7 +230,7 @@ Para desinstalar la extensión, siga estos pasos:
 1. En [Azure Portal](https://portal.azure.com/), vaya a la máquina virtual que experimenta los errores de copia de seguridad.
 2. Seleccione **Configuración**.
 3. Seleccione **Extensiones**.
-4. Seleccione **Extensión Vmsnapshot**.
+4. Seleccione **Extensión de instantánea**.
 5. Seleccione **Desinstalar**.
 
 Para las VM de Linux, si la extensión VMSnapshot no aparece en Azure Portal, [actualice el agente Linux de Azure](../virtual-machines/linux/update-agent.md) y, a continuación, ejecute la copia de seguridad.
@@ -238,7 +239,7 @@ La realización de estos pasos hace que se vuelva a instalar la extensión duran
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Eliminación del bloqueo del grupo de recursos de punto de restauración
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Vaya a la opción **Todos los recursos**, seleccione el grupo de recursos de la colección de puntos de restauración en el siguiente formato AzureBackupRG_`<Geo>`_`<number>`.
 3. En la sección **Configuración**, seleccione **Bloqueos** para mostrar los bloqueos.
 4. Para quitar el bloqueo, seleccione los puntos suspensivos y haga clic en **Eliminar**.
@@ -267,7 +268,7 @@ Después de quitar el bloqueo, desencadene una copia de seguridad a petición. E
 
 Para borrar manualmente la colección de puntos de restauración que no se han borrado debido al bloqueo del grupo de recursos, pruebe con los siguientes pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. En el menú **central**, haga clic en **Todos los recursos**, seleccione el grupo de recursos con el siguiente formato AzureBackupRG_`<Geo>`_`<number>` donde se encuentra la máquina virtual.
 
     ![Eliminación del bloqueo](./media/backup-azure-arm-vms-prepare/resource-group.png)

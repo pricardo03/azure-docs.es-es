@@ -2,17 +2,17 @@
 title: Actualización de un servicio en la nube | Microsoft Docs
 description: Aprenda a actualizar servicios en la nube en Azure. Obtenga información acerca de cómo se realiza una actualización en un servicio en la nube para garantizar la disponibilidad.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: ae9d124391a1b17187ca98964874f681352498da
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.author: tagore
+ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945347"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360351"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Actualización de un servicio en la nube
 
@@ -53,7 +53,7 @@ La siguiente tabla muestra los cambios permitidos en un servicio durante una act
 | Configuración de almacenamiento local |Solo aumentar<sup>2</sup> |Sí |Sí |
 | Agregar o quitar roles en un servicio |Sí |Sí |Sí |
 | Número de instancias de un rol concreto |Sí |Sí |Sí |
-| Número o tipo de puntos de conexión de un servicio |Sí<sup>2</sup> |Sin |Sí |
+| Número o tipo de puntos de conexión de un servicio |Sí<sup>2</sup> |No |Sí |
 | Nombres y valores de configuración |Sí |Sí |Sí |
 | Valores (pero no nombres) de configuración |Sí |Sí |Sí |
 | Incorporación de nuevos certificados |Sí |Sí |Sí |
@@ -84,11 +84,11 @@ Puede decidir si desea actualizar todos los roles en el servicio o un único rol
 
 El siguiente diagrama ilustra cómo funciona la actualización si está actualizando todos los roles en el servicio:
 
-![Actualizar servicio](media/cloud-services-update-azure-service/IC345879.png "Actualizar servicio")
+![Actualización de servicio](media/cloud-services-update-azure-service/IC345879.png "Actualización de servicio")
 
 El diagrama a continuación ilustra cómo tiene lugar la actualización si actualiza un único rol:
 
-![Actualizar rol](media/cloud-services-update-azure-service/IC345880.png "Actualizar rol")  
+![Actualización de rol](media/cloud-services-update-azure-service/IC345880.png "Actualización de rol")  
 
 Durante una actualización automática, el controlador de tejido de Azure evalúa periódicamente el estado del servicio en la nube para determinar cuándo es seguro introducir el siguiente UD. Esta evaluación de estado se realiza por rol y tiene en cuenta únicamente las instancias de la versión más reciente (es decir, instancias de las UD que ya se han introducido). Comprueba que un número mínimo de instancias de rol, para cada rol, hayan alcanzado un estado terminal satisfactorio.
 
@@ -183,3 +183,6 @@ El siguiente diagrama ilustra cómo se distribuyen los dos roles que contiene un
 [Administración de Cloud Services](cloud-services-how-to-manage-portal.md)  
 [Supervisión de Cloud Services](cloud-services-how-to-monitor.md)  
 [Configuración de Cloud Services](cloud-services-how-to-configure-portal.md)  
+
+
+

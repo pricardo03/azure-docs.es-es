@@ -3,12 +3,12 @@ title: Administración de bases de datos de SAP HANA con copia de seguridad en m
 description: En este artículo, aprenderá las tareas comunes para administrar y supervisar las bases de datos de SAP HANA que se ejecutan en máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: f76054c7c78c55a9754975267ee4fa3caab968a3
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: a9462f8608fc5ae35255ac321a0742b3f1834fde
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287522"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390630"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Administración y supervisión de bases de datos de SAP HANA de las que se ha realizado copia de seguridad
 
@@ -32,7 +32,7 @@ Para obtener más información sobre la supervisión, vaya a [Supervisión en Az
 
 Las alertas son un medio sencillo de supervisar las copias de seguridad de bases de datos de SAP HANA. Las alertas le ayudan a centrarse en los eventos que más le interesan sin perderse en la multitud de eventos que genera una copia de seguridad. Azure Backup permite establecer alertas y se pueden supervisar de la siguiente manera:
 
-* Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+* Inicie sesión en [Azure Portal](https://portal.azure.com/).
 * En el panel del almacén, seleccione **Alertas de copia de seguridad**.
 
   ![Alertas de copia de seguridad en el panel del almacén](./media/sap-hana-db-manage/backup-alerts-dashboard.png)
@@ -75,25 +75,38 @@ Si quiere hacer una copia de seguridad local (mediante HANA Studio/Cockpit) de u
 3. Para ello, haga doble clic en **systemdb** > **Configuración** > **Seleccionar base de datos** > **Filtro (registro)** .
 4. Establezca **enable_auto_log_backup** en **No**.
 5. Establezca **log_backup_using_backint** en **False**.
-6. A continuación, haga una copia de seguridad completa ad hoc de la base de datos.
+6. A continuación, haga una copia de seguridad completa a petición de la base de datos.
 7. Espere a que finalicen la copia de seguridad completa y la copia de seguridad de catálogos.
 8. Revierta la configuración anterior a las opciones de Azure:
    * Establezca **enable_auto_log_backup** en **Sí**.
    * Establezca **log_backup_using_backint** en **True**.
 
-### <a name="edit-underlying-policy"></a>Edición de directivas subyacentes
+### <a name="change-policy"></a>Cambiar la directiva
 
-Modifique la directiva para cambiar la frecuencia de las copias de seguridad o la duración de retención:
+Puede cambiar la directiva subyacente para un elemento de copia de seguridad de SAP HANA.
 
-* En el panel del almacén, vaya a **Administrar** > **Directivas de copia de seguridad**.
+* En el panel del almacén, vaya a **Elementos de copia de seguridad**:
 
-  ![Directivas de copia de seguridad en el panel del almacén](./media/sap-hana-db-manage/backup-policies-dashboard.png)
+  ![Selección de elementos de copia de seguridad](./media/sap-hana-db-manage/backup-items.png)
 
-* Elija la directiva que quiere editar:
+* Elija **SAP HANA en Azure VM**.
 
-  ![Lista de directivas de copia de seguridad](./media/sap-hana-db-manage/backup-policies-list.png)
+  ![Elección de SAP HANA en Azure VM](./media/sap-hana-db-manage/sap-hana-in-azure-vm.png)
 
-  ![Detalles de la directiva de copia de seguridad](./media/sap-hana-db-manage/backup-policy-details.png)
+* Elija el elemento de copia de seguridad cuya directiva subyacente desea cambiar.
+* Haga clic en la directiva de copia de seguridad existente.
+
+  ![Selección de la directiva de copia de seguridad existente](./media/sap-hana-db-manage/existing-backup-policy.png)
+
+* Cambie la directiva, realizando una elección en la lista. [Cree una nueva directiva de copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database#create-a-backup-policy), si es necesario.
+
+  ![Elección de una directiva en la lista desplegable](./media/sap-hana-db-manage/choose-backup-policy.png)
+
+* Guarde los cambios.
+
+  ![Guarde los cambios.](./media/sap-hana-db-manage/save-changes.png)
+
+* La modificación de directivas afectará a todos los elementos de Backup asociados y al desencadenador de los trabajos de **configuración de la protección** correspondientes.
 
 >[!NOTE]
 > Cualquier cambio en el período de retención se aplicará de manera retrospectiva a todos los puntos de recuperación más antiguos, además de los nuevos.
@@ -175,4 +188,3 @@ Anule el registro de una instancia de SAP HANA después de deshabilitar la prote
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información acerca de cómo [solucionar problemas comunes al realizar copias de seguridad de bases de datos de SAP HANA](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot).
-

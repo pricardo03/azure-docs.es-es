@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 87e1d94fe9f86f5916219feac732bf80af1f3121
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: a197f95963e5a4138136f5d336e276ec1c7f7af7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769037"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407630"
 ---
 # <a name="azure-maps-weather-coverage"></a>Cobertura de meteorología de Azure Maps
 
-En este artículo se proporciona información sobre la cobertura de Azure Maps [Weather Services](https://aka.ms/AzureMapsWeatherService). Los servicios de datos meteorológicos de Azure Maps pueden ser detalles devueltos como, por ejemplo, mosaicos de radar, condiciones meteorológicas actuales, previsiones meteorológicas y tiempo durante una ruta.
+En este artículo se proporciona información sobre la cobertura de Azure Maps [Weather Services](https://aka.ms/AzureMapsWeatherService). Los servicios de datos meteorológicos de Azure Maps pueden devolver detalles como, por ejemplo, mosaicos de radar, condiciones meteorológicas actuales, previsiones meteorológicas y tiempo durante una ruta.
 
 Azure Maps no tiene el mismo nivel de información y precisión en todos los países y regiones.
 
@@ -86,8 +86,8 @@ La tabla siguiente proporciona información acerca de qué tipo de información 
 | Surinam                                 | ✓ |   |  ✓| 
 | Trinidad y Tobago                      | ✓ |   |  ✓| 
 | Islas Turcas y Caicos                 | ✓ |   |  ✓| 
-| Datos de agencias y alejadas de los EE.UU.                    | ✓ |   |  ✓| 
-| Datos de agencias y Islas Vírgenes                      | ✓ |   |  ✓| 
+| EE. UU. alejadas de los EE.UU.                    | ✓ |   |  ✓| 
+| EE. UU. Vírgenes de EE. UU.                      | ✓ |   |  ✓| 
 | Estados Unidos                            | ✓ | ✓ |  ✓| 
 | Uruguay                                  | ✓ |   |  ✓| 
 | Venezuela                                | ✓ |   |  ✓| 

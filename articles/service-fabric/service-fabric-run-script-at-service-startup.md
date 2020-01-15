@@ -1,25 +1,16 @@
 ---
-title: Ejecución de un script cuando se inicia un servicio de Azure Service Fabric | Microsoft Docs
+title: Ejecución de un script cuando se inicia un servicio de Azure Service Fabric
 description: Aprenda a configurar una directiva para un punto de entrada del programa de instalación del servicio de Service Fabric y a ejecutar un script durante el inicio del servicio.
-services: service-fabric
-documentationcenter: .net
 author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/21/2018
 ms.author: atsenthi
-ms.openlocfilehash: 76be814e0dd4c054fc3a873716dbfe395eeeb2dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a25f16f08ab8ae9564363f179d19d4b30c5315fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837797"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464275"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Ejecución de un script de inicio de servicio como cuenta de usuario local o del sistema
 Antes de que se inicie el ejecutable de un servicio de Service Fabric, puede ser necesario llevar a cabo algún trabajo de configuración o instalación.  Por ejemplo, configurar las variables de entorno. Antes de que se inicie el ejecutable del servicio, puede especificar que se ejecute un script en el manifiesto del servicio. Mediante la configuración de una directiva RunAs para el punto de entrada del programa de instalación del servicio, puede cambiar la cuenta con la que se ejecuta el ejecutable de instalación.  Un punto de entrada del programa de instalación independiente le permite ejecutar una configuración con privilegios elevados durante un corto período de tiempo, de forma que no hay necesidad de ejecutar el ejecutable del host de servicios con privilegios elevados durante períodos de tiempo prolongados.

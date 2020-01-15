@@ -1,25 +1,16 @@
 ---
-title: Configuración de Reliable Services de Azure Service Fabric | Microsoft Docs
-description: Obtenga información sobre cómo configurar Reliable Services con estado en Service Fabric.
-services: Service-Fabric
-documentationcenter: .net
+title: Configuración de Reliable Services en Azure Service Fabric
+description: Conozca cómo configurar Reliable Services con estado en una aplicación de Azure Service Fabric de manera global y para un único servicio.
 author: sumukhs
-manager: chackdan
-editor: vturecek
-ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 60a4669e20aa8aaf80ae174c88631f3dc572656d
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 9743213394b59af701b25b8be9dd48cf4310b499
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242892"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645521"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar Reliable Services con estado
 Hay dos conjuntos de valores de configuración para los servicios de confianza. Un conjunto es global para todos los servicios de confianza del clúster, mientras que el otro conjunto es específico para un servicio de confianza determinado.
@@ -27,8 +18,8 @@ Hay dos conjuntos de valores de configuración para los servicios de confianza. 
 ## <a name="global-configuration"></a>Configuración global
 La configuración global de los servicios de confianza se especifica en el manifiesto de clúster para el clúster de la sección KtlLogger. Permite configurar el tamaño y la ubicación del registro compartido, así como los límites de memoria global que usa el registrador. El manifiesto de clúster es un único archivo XML que contiene los valores y las configuraciones que se aplican a todos los nodos y servicios del clúster. El archivo suele llamarse ClusterManifest.xml. Puede ver el manifiesto de clúster para su clúster usando el comando de PowerShell Get-ServiceFabricClusterManifest.
 
-### <a name="configuration-names"></a>Nombres de configuración
-| NOMBRE | Unidad | Valor predeterminado | Comentarios |
+### <a name="configuration-names"></a>Nombres de la configuración
+| Nombre | Unidad | Valor predeterminado | Observaciones |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobytes |8388608 |Número mínimo de KB que se van a asignar en modo kernel al grupo de memoria del búfer de escritura del registrador. Este grupo de memoria se usa para almacenar en caché la información de estado antes de escribir en el disco. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobytes |Ilimitado |Tamaño máximo al que puede aumentar el grupo de memoria del búfer de escritura del registrador. |
@@ -59,7 +50,7 @@ Si desea cambiar este valor en su entorno de desarrollo local, debe editar el ar
    </Section>
 ```
 
-### <a name="remarks"></a>Comentarios
+### <a name="remarks"></a>Observaciones
 El registrador tiene un grupo global de memoria asignado desde la memoria del kernel no paginada que está disponible para todos los servicios de confianza en un nodo para almacenar en caché los datos de estado antes de que se escriban en el registro específico asociado con la réplica del servicio de confianza. El tamaño del grupo se controla mediante las opciones WriteBufferMemoryPoolMinimumInKB y WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB especifica el tamaño inicial de este grupo de memoria y el tamaño mínimo al que se puede reducir el grupo de memoria. WriteBufferMemoryPoolMaximumInKB es el tamaño máximo que puede alcanzar el grupo de memoria. Cada réplica de un servicio de confianza que está abierta puede aumentar el tamaño del grupo de memoria en una cantidad que determina el sistema hasta WriteBufferMemoryPoolMaximumInKB. Si el grupo de memoria demanda más memoria de la que hay disponible, las solicitudes de memoria se retrasarán hasta que haya memoria disponible. Por lo tanto, si el grupo de memoria del búfer de escritura es demasiado pequeño para una configuración concreta, el rendimiento se puede ver afectado.
 
 Los parámetros SharedLogId y SharedLogPath siempre se usan juntos para definir el GUID y la ubicación del registro compartido predeterminado de todos los nodos del clúster. El registro compartido predeterminado se usa para todos los servicios de confianza que no especifican los valores de configuración en el archivo settings.xml para el servicio específico. Para obtener un mejor rendimiento, los archivos de registro compartidos deben colocarse en discos que se usen únicamente para el archivo de registro compartido, de modo que se reduzca la contención.
@@ -108,8 +99,8 @@ ReplicatorConfig
 > 
 > 
 
-### <a name="configuration-names"></a>Nombres de configuración
-| NOMBRE | Unidad | Valor predeterminado | Comentarios |
+### <a name="configuration-names"></a>Nombres de la configuración
+| Nombre | Unidad | Valor predeterminado | Observaciones |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Segundos |0.015 |Período de tiempo durante el que el replicador del secundario espera después de recibir una operación antes de enviar una confirmación al principal. El resto de confirmaciones que se enviarán para las operaciones que se procesan dentro de este intervalo se envían como una respuesta. |
 | ReplicatorEndpoint |N/D |Ningún valor predeterminado: parámetro obligatorio |Dirección IP y puerto que usará el replicador principal y secundario para comunicarse con otros replicadores del conjunto de réplicas. Esto debe hacer referencia a un punto de conexión de recursos de TCP en el manifiesto de servicio. Consulte [Especificación de los recursos en un manifiesto de servicio](service-fabric-service-manifest-resources.md) para obtener más información sobre cómo definir los recursos de punto de conexión en un manifiesto de servicio. |
@@ -181,7 +172,7 @@ class MyStatefulService : StatefulService
 ```
 
 
-### <a name="remarks"></a>Comentarios
+### <a name="remarks"></a>Observaciones
 BatchAcknowledgementInterval controla la latencia de replicación. Un valor de "0" ofrecerá la menor latencia posible, a costa del rendimiento (como deben enviarse y procesarse más mensajes de confirmación, cada uno con menos confirmaciones).
 Cuanto mayor sea el valor de BatchAcknowledgementInterval, mayor será el rendimiento general de la replicación a costa de una mayor latencia de la operación. Esto se traduce directamente en la latencia de transacciones confirmadas.
 

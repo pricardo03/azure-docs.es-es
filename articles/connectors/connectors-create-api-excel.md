@@ -1,22 +1,22 @@
 ---
-title: Conexión a Excel Online
-description: Administración de datos con las API REST de Excel Online y Azure Logic Apps
+title: Administración de datos, hojas de cálculo y tablas en Excel Online
+description: Administre datos en hojas de cálculo y tablas en Excel Online para empresas o Excel Online para OneDrive mediante Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: a4356b4f88df3fc457917be563a79e9054a1638e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b1df1219590aa94331a4404b1315eb7231c59699
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789807"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445875"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Administración de datos de Excel Online con Azure Logic Apps
 
-Con Azure Logic Apps y el conector de Excel Online puede crear tareas automatizadas y flujos de trabajo basados en los datos de Excel Online para empresas o OneDrive. Este conector ofrece acciones que le ayudarán a trabajar con los datos y a administrar las hojas de cálculo, por ejemplo:
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector de [Excel Online para empresas](/connectors/excelonlinebusiness/) o [Excel Online para OneDrive](/connectors/excelonline/), puede crear tareas automatizadas y flujos de trabajo basados en los datos de Excel Online para empresas o OneDrive. Este conector ofrece acciones que le ayudarán a trabajar con los datos y a administrar las hojas de cálculo, por ejemplo:
 
 * Crear tablas y hojas de cálculo.
 * Obtener y administrar hojas de cálculo, tablas y filas.
@@ -29,9 +29,9 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 > [!NOTE]
 > Los conectores de [Excel Online para empresas](/connectors/excelonlinebusiness/) y [Excel Online para OneDrive](/connectors/excelonline/) funcionan con Azure Logic Apps y difieren del [conector de Excel para PowerApps](/connectors/excel/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Una [cuenta de Office 365](https://www.office.com/) para la cuenta Microsoft personal o la profesional.
 

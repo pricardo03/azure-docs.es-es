@@ -7,12 +7,12 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 6526f27177b5fb8640deb5302d8cb3aa4acf1a97
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e5b1880a12cda440a5772de80b8ec67b8f7ed5c3
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824268"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665378"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo de bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -127,20 +127,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="afs-files-excluded"></a>
    **¿Qué archivos o carpetas excluye automáticamente Azure File Sync?**  
-    De forma predeterminada, Azure File Sync excluye los archivos siguientes:
-  * desktop.ini
-  * thumbs.db
-  * ehthumbs.db
-  * ~$\*.\*
-  * \*.laccdb
-  * \*.tmp
-  * 635D02A9D91C401B97884B82B3BCDAEA.\*
-
-    Las siguientes carpetas también se excluyen de forma predeterminada:
-
-  * \System Volume Information
-  * \$RECYCLE.BIN
-  * \SyncShareState
+  Ver [Archivos omitidos](storage-sync-files-planning.md#files-skipped).
 
 * <a id="afs-os-support"></a>
    **¿Puedo usar Azure File Sync con Windows Server 2008 R2, Linux o un dispositivo de almacenamiento conectado a la red (NAS)?**  
@@ -384,7 +371,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
  **¿Cómo se usa Azure Files con IBM MQ?**  
     IBM ha publicado un documento que ayuda a los clientes de IBM MQ a la hora de configurar Azure Files con el servicio IBM. Para obtener más información, vea [How to set up an IBM MQ multi-instance queue manager with Microsoft Azure Files service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)(Configuración del administrador de colas de varias instancias de IBM MQ con el servicio Microsoft Azure Files).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Solución de problemas de Azure Files en Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Solución de problemas de Azure Files en Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Solución de problemas de Azure File Sync](storage-sync-files-troubleshoot.md)

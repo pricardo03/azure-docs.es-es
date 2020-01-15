@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: 00d8546cb20d12c5f1a94bdcababa04a77c73133
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 9c2da82034a3742f789c736d8c0410f005f20edb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134220"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422295"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotación de certificados en Azure Kubernetes Service (AKS)
 
@@ -22,20 +22,7 @@ En este artículo se muestra cómo rotar los certificados en el clúster de AKS.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para este artículo es preciso usar la versión 2.0.76 de la CLI de Azure, o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
-
-
-### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
-
-Para usar esta característica, necesitará la versión 0.4.21 de la extensión de CLI *aks-preview* o una posterior. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+Para este artículo, es preciso usar la versión 2.0.77 de la CLI de Azure o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
 ## <a name="aks-certificates-certificate-authorities-and-service-accounts"></a>Certificados de AKS, entidades de certificación y cuentas de servicio
 
@@ -51,7 +38,13 @@ AKS genera y usa los siguientes certificados, entidades de certificación y cuen
 * El cliente `kubectl` tiene un certificado para comunicarse con el clúster de AKS.
 
 > [!NOTE]
-> Los clústeres de AKS creados antes de marzo de 2019 tienen certificados que expiran después de dos años. Los clústeres creados después de marzo del 2019 o cualquier clúster que tenga rotados sus certificados tienen certificados que expiran luego de 30 años.
+> Los clústeres de AKS creados antes de marzo de 2019 tienen certificados que expiran después de dos años. Los clústeres creados después de marzo del 2019 o cualquier clúster que tenga rotados sus certificados tienen certificados que expiran luego de 30 años. Para comprobar cuándo se creó el clúster, use `kubectl get nodes` para ver la *Antigüedad* de los grupos de nodos.
+> 
+> Además, puede comprobar la fecha de expiración del certificado del clúster. Por ejemplo, el comando siguiente muestra los detalles del certificado para el clúster *myAKSCluster*.
+> ```console
+> kubectl config view --raw -o jsonpath='{.clusters[?(@.name == "myAKSCluster")].cluster.certificate-authority-data}' | base64 -d > my-cert.crt
+> openssl x509 -in my-cert.crt -text
+> ```
 
 ## <a name="rotate-your-cluster-certificates"></a>Rotar los certificados de clúster
 

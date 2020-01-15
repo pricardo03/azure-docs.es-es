@@ -1,5 +1,5 @@
 ---
-title: Guía de migración de ADAL a MSAL para Python | Azure
+title: Guía de migración de Python ADAL a MSAL | Azure
 description: Obtenga información sobre cómo migrar la aplicación para Python de la Biblioteca de autenticación de Azure Active Directory (ADAL) a la Biblioteca de autenticación de Microsoft (MSAL).
 services: active-directory
 titleSuffix: Microsoft identity platform
@@ -15,12 +15,12 @@ ms.author: rayluo
 ms.reviewer: rayluo, nacanuma, twhitney
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72a4af690a1433f6a185ab17f06748d67927edea
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 110c719eaf68e8be618e5c865f1ac7a2cf917719
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917240"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424417"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guía de migración de ADAL a MSAL para Python
 
@@ -30,7 +30,7 @@ En este artículo se resaltan los cambios que debe realizar para migrar una apli
 
 ADAL funciona con el punto de conexión de Azure Active Directory (Azure AD) v1.0. La biblioteca de autenticación de Microsoft (MSAL) funciona con la Plataforma de identidad de Microsoft, que anteriormente se conocía como punto de conexión de Azure Active Directory v2.0. La Plataforma de identidad de Microsoft se diferencia de Azure AD v1.0 en lo siguiente:
 
-Admite:
+Es compatible con:
   - Cuentas profesionales y educativas (cuentas aprovisionadas por Azure AD).
   - Cuentas personales (como Outlook.com o Hotmail.com)
   - Los clientes que traen su propio correo electrónico o identidad social (como LinkedIn, Facebook, Google) a través de la oferta de Azure AD B2C

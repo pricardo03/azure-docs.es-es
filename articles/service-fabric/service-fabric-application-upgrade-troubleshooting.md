@@ -1,25 +1,14 @@
 ---
-title: Solución de problemas de las actualizaciones de aplicaciones | Microsoft Docs
+title: Solución de problemas de actualización de aplicaciones
 description: En este artículo se tratan algunos de los problemas comunes de actualización de una aplicación de Service Fabric y cómo resolverlos.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: 19ad152e-ec50-4327-9f19-065c875c003c
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: f5df528c7e46a5cb2a5df98f0088a451eb08cd6a
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167534"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377929"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Solucionar problemas de actualizaciones de aplicaciones
 
@@ -233,7 +222,7 @@ El tiempo de actualización de un dominio de actualización está limitado por *
 
 [actualización de aplicaciones usando Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.
 
-[actualización de aplicaciones mediante PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) se explica en detalle lo que tiene que hacer para actualizar una aplicación mediante PowerShell.
+[Actualización de aplicaciones de Service Fabric con PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) se explica en detalle lo que tiene que hacer para actualizar una aplicación mediante PowerShell.
 
 Puede controlar cómo se actualiza una aplicación usando [parámetros de actualización](service-fabric-application-upgrade-parameters.md).
 

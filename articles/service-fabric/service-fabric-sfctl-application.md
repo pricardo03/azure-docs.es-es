@@ -1,32 +1,23 @@
 ---
-title: 'CLI de Azure Service Fabric: aplicación de sfctl | Microsoft Docs'
-description: Se describen los comandos de aplicación de sfctl de la CLI de Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: 'CLI de Azure Service Fabric: aplicación de sfctl'
+description: Más información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para administrar aplicaciones.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 163faaab8fa2503458503d9f2b72d27a3e5856f0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 4d416408fd83d7bc316c7045c2a0031fe50d36f5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901284"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645419"
 ---
 # <a name="sfctl-application"></a>aplicación de sfctl
 Cree, elimine y administre aplicaciones y tipos de aplicaciones.
 
 ## <a name="commands"></a>Comandos:
 
-|Get-Help|DESCRIPCIÓN|
+|Get-Help|Descripción|
 | --- | --- |
 | create | Crea una aplicación de Service Fabric con la descripción especificada. |
 | delete | Elimina una aplicación existente de Service Fabric. |
@@ -54,7 +45,7 @@ Crea una aplicación de Service Fabric con la descripción especificada.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --app-name [Obligatorio] | El nombre de la aplicación, incluido el esquema URI 'fabric\:'. |
 | --app-type [Obligatorio] | El nombre del tipo de aplicación que se encuentra en el manifiesto de aplicación. |
@@ -67,13 +58,13 @@ Crea una aplicación de Service Fabric con la descripción especificada.
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-delete"></a>sfctl application delete
 Elimina una aplicación existente de Service Fabric.
@@ -82,7 +73,7 @@ Una aplicación debe crearse para poder eliminarla. Al eliminar una aplicación,
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --force-remove | Elimina una aplicación o un servicio de Service Fabric de manera forzada sin pasar por la secuencia de apagado correcta. Este parámetro puede usarse para forzar la eliminación de una aplicación o un servicio cuya eliminación normal requiere un tiempo de espera a causa de problemas del código del servicio que impiden el cierre correcto de las réplicas. |
@@ -90,13 +81,13 @@ Una aplicación debe crearse para poder eliminarla. Al eliminar una aplicación,
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-deployed"></a>sfctl application deployed
 Obtiene la información sobre una aplicación implementada en un nodo de Service Fabric.
@@ -105,7 +96,7 @@ Esta consulta devuelve información de la aplicación del sistema si el identifi
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --node-name [Obligatorio] | El nombre del nodo. |
@@ -114,13 +105,13 @@ Esta consulta devuelve información de la aplicación del sistema si el identifi
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-deployed-health"></a>sfctl application deployed-health
 Obtiene la información sobre el mantenimiento de una aplicación implementada en un nodo de Service Fabric.
@@ -129,7 +120,7 @@ Obtiene la información sobre el mantenimiento de una aplicación implementada e
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-id                     [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --node-name                          [Obligatorio] | El nombre del nodo. |
@@ -140,13 +131,13 @@ Obtiene la información sobre el mantenimiento de una aplicación implementada e
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-deployed-list"></a>sfctl application deployed-list
 Obtiene la lista de las aplicaciones implementadas en un nodo de Service Fabric.
@@ -155,7 +146,7 @@ Obtiene la lista de las aplicaciones implementadas en un nodo de Service Fabric.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --node-name [Obligatorio] | El nombre del nodo. |
 | --continuation-token | El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada. |
@@ -165,13 +156,13 @@ Obtiene la lista de las aplicaciones implementadas en un nodo de Service Fabric.
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-health"></a>sfctl application health
 Obtiene el estado de la aplicación de Service Fabric.
@@ -180,7 +171,7 @@ Devuelve el estado de mantenimiento de la aplicación de Service Fabric. La resp
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --deployed-applications-health-state-filter | Permite filtrar los objetos de estado de mantenimiento de las aplicaciones implementadas devueltos en el resultado de la consulta de mantenimiento de las aplicaciones según su estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Solo se devolverán las aplicaciones implementadas que coincidan con el filtro. Todas las aplicaciones implementadas se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit "OR". Por ejemplo, si el valor proporcionado es 6, se devuelve el estado de mantenimiento de las aplicaciones implementadas con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
@@ -191,13 +182,13 @@ Devuelve el estado de mantenimiento de la aplicación de Service Fabric. La resp
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-info"></a>sfctl application info
 Obtiene la información sobre una aplicación de Service Fabric.
@@ -206,7 +197,7 @@ Devuelve la información sobre la aplicación que se creó o que está en proces
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --exclude-application-parameters | La marca que especifica si los parámetros de la aplicación se excluirán del resultado. |
@@ -214,13 +205,13 @@ Devuelve la información sobre la aplicación que se creó o que está en proces
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-list"></a>sfctl application list
 Obtiene la lista de aplicaciones creadas en el clúster de Service Fabric que coinciden con los filtros especificados.
@@ -229,7 +220,7 @@ Obtiene la información sobre las aplicaciones que se crearon o que están en pr
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-definition-kind-filter | Se usa para filtrar según ApplicationDefinitionKind que es el mecanismo utilizado para definir una aplicación de Service Fabric.  <br> - Default: valor predeterminado que realiza la misma función que la selección de "All". El valor es 0.  <br> - All: filtro que asocia la entrada con cualquier valor de ApplicationDefinitionKind. El valor es 65535.  <br> -ServiceFabricApplicationDescription: filtro que asocia la entrada con el valor ServiceFabricApplicationDescription de ApplicationDefinitionKind. El valor es 1.  <br> - All: filtro que asocia la entrada con el valor Compose de ApplicationDefinitionKind. El valor es 2. |
 | --application-type-name | El nombre del tipo de aplicación utilizado para filtrar las aplicaciones que se van a consultar. Este valor no debe contener la versión del tipo de aplicación. |
@@ -240,13 +231,13 @@ Obtiene la información sobre las aplicaciones que se crearon o que están en pr
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-load"></a>sfctl application load
 Obtiene la información de carga sobre una aplicación de Service Fabric.
@@ -255,20 +246,20 @@ Devuelve la información de carga sobre la aplicación que se creó o que está 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-manifest"></a>sfctl application manifest
 Obtiene el manifiesto que describe un tipo de aplicación.
@@ -277,7 +268,7 @@ La respuesta contiene el manifiesto de aplicación XML como una cadena.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-type-name [Obligatorio] | Nombre del tipo de aplicación. |
 | --application-type-version [Obligatorio] | La versión del tipo de aplicación. |
@@ -285,13 +276,13 @@ La respuesta contiene el manifiesto de aplicación XML como una cadena.
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-provision"></a>sfctl application provision
 Aprovisiona o registra un tipo de aplicación de Service Fabric con el clúster mediante el paquete ".sfpkg" en el almacén externo o mediante el paquete de aplicación en el almacén de imágenes.
@@ -300,7 +291,7 @@ Aprovisiona un tipo de aplicación de Service Fabric con el clúster. El aprovis
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-package-download-uri | La ruta al paquete de aplicación '.sfpkg' desde la que puede descargar el paquete de aplicación mediante los protocolos HTTP o HTTPS. <br><br> Solo para aprovisionamiento de un almacén externo de tipo. El paquete de aplicación puede almacenarse en un almacén externo que proporcione la operación GET para descargar el archivo. Los protocolos compatibles son HTTP y HTTPS, y la ruta de acceso debe permitir un acceso de lectura. |
 | --application-type-build-path | Solo para aprovisionamiento de un almacén de imágenes de tipo. La ruta de acceso relativa para el paquete de aplicación en el almacén de imágenes especificado durante la operación de carga anterior. |
@@ -312,22 +303,22 @@ Aprovisiona un tipo de aplicación de Service Fabric con el clúster. El aprovis
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-report-health"></a>sfctl application report-health
 Envía un informe de estado sobre la aplicación de Service Fabric.
 
-Informa del estado de mantenimiento de la aplicación de Service Fabric especificada. El informe debe contener la información sobre el origen del informe de mantenimiento y la propiedad sobre la cual se informa. Se envía el informe a una aplicación de puerta de enlace de Service Fabric, que la reenvía al almacén de estado. El portal puede aceptar el informe, pero el almacén de estado puede rechazarlo después de una validación adicional. Por ejemplo, el almacén de estado puede rechazar el informe debido a un parámetro no válido, como un número de secuencia obsoleto. Para ver si el informe se ha aplicado en el almacén de estado, obtenga el mantenimiento de la aplicación y compruebe que aparece el informe.
+Informa del estado de mantenimiento de la aplicación de Service Fabric especificada. El informe debe contener la información sobre el origen del informe de mantenimiento y la propiedad sobre la cual se informa. Se envía el informe a una aplicación de puerta de enlace de Service Fabric, que la reenvía al almacén de estado. La puerta de enlace puede aceptar el informe, pero el almacén de estado puede rechazarlo después de una validación adicional. Por ejemplo, el almacén de estado puede rechazar el informe debido a un parámetro no válido, como un número de secuencia obsoleto. Para ver si el informe se ha aplicado en el almacén de estado, obtenga el mantenimiento de la aplicación y compruebe que aparece el informe.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. <br><br> Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --health-property [Obligatorio] | La propiedad de la información de mantenimiento. <br><br> Una entidad puede tener informes de mantenimiento para diferentes propiedades. La propiedad es una cadena y no una enumeración fija para permitir al informador la flexibilidad de categorizar la condición de estado que desencadena el informe. Por ejemplo, un informador con SourceId "LocalWatchdog" puede supervisar el estado del disco disponible en un nodo, por lo que puede informar de la propiedad "AvailableDisk" en ese nodo. El mismo informador puede supervisar la conectividad del nodo, por lo que puede informar de una propiedad "Connectivity" en el mismo nodo. En el almacén de estado, estos informes se tratan como eventos de mantenimiento independientes del nodo especificado. Junto con SourceId, la propiedad identifica la información de mantenimiento de manera única. |
@@ -342,13 +333,13 @@ Informa del estado de mantenimiento de la aplicación de Service Fabric especifi
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-type"></a>sfctl application type
 Obtiene la lista de tipos de aplicaciones del clúster de Service Fabric que coinciden exactamente con el nombre especificado.
@@ -357,7 +348,7 @@ Devuelve la información sobre los tipos de aplicaciones aprovisionados o en pro
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-type-name [Obligatorio] | Nombre del tipo de aplicación. |
 | --application-type-version | La versión del tipo de aplicación. |
@@ -368,13 +359,13 @@ Devuelve la información sobre los tipos de aplicaciones aprovisionados o en pro
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-type-list"></a>sfctl application type-list
 Obtiene la lista de tipos de aplicaciones del clúster de Service Fabric.
@@ -383,7 +374,7 @@ Devuelve la información sobre los tipos de aplicaciones aprovisionados o en pro
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-type-definition-kind-filter | Se usa para filtrar según ApplicationTypeDefinitionKind, que es el mecanismo utilizado para definir un tipo de aplicación de Service Fabric.  <br> - Default: valor predeterminado que realiza la misma función que la selección de "All". El valor es 0.  <br> - All: filtro que asocia la entrada con cualquier valor de ApplicationTypeDefinitionKind. El valor es 65535.  <br> - ServiceFabricApplicationPackage: filtro que asocia la entrada con el valor ApplicationTypeDefinitionKind de ServiceFabricApplicationPackage. El valor es 1.  <br> - Compose: filtro que asocia la entrada con el valor Compose de ApplicationTypeDefinitionKind. El valor es 2. |
 | --continuation-token | El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada. |
@@ -393,13 +384,13 @@ Devuelve la información sobre los tipos de aplicaciones aprovisionados o en pro
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-unprovision"></a>sfctl application unprovision
 Elimina un tipo de aplicación de Service Fabric del clúster o anula su registro.
@@ -408,7 +399,7 @@ Esta operación solo puede realizarse si se han eliminado todas las instancias d
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-type-name [Obligatorio] | Nombre del tipo de aplicación. |
 | --application-type-version [Obligatorio] | La versión del tipo de aplicación, tal como se define en el manifiesto de aplicación. |
@@ -417,13 +408,13 @@ Esta operación solo puede realizarse si se han eliminado todas las instancias d
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-upgrade"></a>sfctl application upgrade
 Inicia la actualización de una aplicación en el clúster de Service Fabric.
@@ -432,7 +423,7 @@ Valida los parámetros de actualización de la aplicación proporcionados e inic
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. <br><br> Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --application-version [Obligatorio] | La versión del tipo de aplicación de destino (que se encuentra en el manifiesto de aplicación) para la actualización de la aplicación. |
@@ -440,7 +431,7 @@ Valida los parámetros de actualización de la aplicación proporcionados e inic
 | --default-service-health-policy | Especificación codificada en JSON de la directiva de mantenimiento que se usa de forma predeterminada para evaluar el estado de un tipo de servicio. |
 | --failure-action | La acción para realizar cuando una actualización supervisada detecta infracciones de directivas de mantenimiento o supervisión. |
 | --force-restart | Reinicia de forma forzosa los procesos durante la actualización incluso si no ha cambiado la versión de código. |
-| --health-check-retry-timeout | El período de tiempo entre intentos para realizar comprobaciones de mantenimiento si la aplicación o el clúster no son correctos.  Valor predeterminado\: PT0H10M0S. |
+| --health-check-retry-timeout | El período de tiempo entre intentos para realizar comprobaciones de mantenimiento si la aplicación o el clúster no funcionan correctamente.  Valor predeterminado\: PT0H10M0S. |
 | --health-check-stable-duration | La cantidad de tiempo que la aplicación o el clúster deben tener un estado correcto antes de que la actualización continúe con el siguiente dominio de actualización.  Valor predeterminado\: PT0H2M0S. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
 | --health-check-wait-duration | El período de tiempo de espera después de completar un dominio de actualización antes de iniciar el proceso de comprobaciones de mantenimiento.  Valor predeterminado\: 0. |
 | --max-unhealthy-apps | El porcentaje máximo permitido de aplicaciones implementadas con un estado incorrecto. Se representa como un número entre 0 y 100. |
@@ -454,13 +445,13 @@ Valida los parámetros de actualización de la aplicación proporcionados e inic
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-upgrade-resume"></a>sfctl application upgrade-resume
 Reanuda la actualización de una aplicación en el clúster de Service Fabric.
@@ -469,7 +460,7 @@ Reanuda la actualización de una aplicación de Service Fabric manual no supervi
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --upgrade-domain-name [Obligatorio] | El nombre de dominio de actualización en la que se va a reanudar la actualización. |
@@ -477,13 +468,13 @@ Reanuda la actualización de una aplicación de Service Fabric manual no supervi
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-upgrade-rollback"></a>sfctl application upgrade-rollback
 Inicia la reversión de la actualización en curso de una aplicación en el clúster de Service Fabric.
@@ -492,20 +483,20 @@ Comienza a revertir la actualización de la aplicación actual a la versión ant
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-upgrade-status"></a>sfctl application upgrade-status
 Obtiene los detalles de la última actualización de esta aplicación.
@@ -514,20 +505,20 @@ Devuelve información sobre el estado de la última actualización de la aplicac
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-upload"></a>sfctl application upload
 Copia un paquete de aplicación de Service Fabric en el almacén de imágenes.
@@ -536,7 +527,7 @@ Opcionalmente, se muestra el progreso de carga de cada archivo en el paquete. El
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --path   [Obligatorio] | Ruta de acceso al paquete de aplicación local. |
 | --imagestore-string | Almacén de imágenes de destino en el que cargar el paquete de aplicación.  Predeterminado\: fabric\:ImageStore. <br><br> Para la carga en una ubicación de archivo, inicie este parámetro con "file\:". De lo contrario, el valor debe ser la cadena de conexión del almacén de imágenes, como el valor predeterminado. |
@@ -545,13 +536,13 @@ Opcionalmente, se muestra el progreso de carga de cada archivo en el paquete. El
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

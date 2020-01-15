@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: f2e9387af3c5922ec5eb0dded3d0d1d4bcee6a01
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084142"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376297"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -26,7 +26,7 @@ Cuando se usa [Azure Site Recovery](site-recovery-overview.md) para realizar la 
 
 El servidor de configuración debe configurarse como una máquina virtual de VMware de alta disponibilidad con ciertos requisitos mínimos de hardware y tamaño. Para realizar una implementación cómoda y fácil, Site Recovery proporciona una plantilla de OVA (Open Virtualization Application) descargable para configurar el servidor de configuración que cumple con todos los requisitos obligatorios que se enumeran en este documento.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En las secciones siguientes se resumen los requisitos mínimos de hardware necesarios para un servidor de configuración.
 
@@ -42,7 +42,7 @@ Necesita un usuario con uno de los siguientes permisos establecidos en Azure AD
     - Compruebe si el rol de desarrollador de aplicaciones está asignado al usuario. Si no lo está, utilice un usuario con este permiso o póngase en contacto con un [administrador para que habilite el permiso](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
     
 2. Si no se puede asignar el rol de desarrollador de aplicaciones, asegúrese de que la marca **Los usuarios pueden registrar aplicaciones** está establecida en **true** para que el usuario pueda crear la identidad. Para habilitar estos permisos, siga estos pasos:
-    - Inicie sesión en el Portal de Azure.
+    - Inicie sesión en Azure Portal.
     - Vaya a **Azure Active Directory** > **Configuración de usuario**.
     - En **Registros de aplicaciones**, **Los usuarios pueden registrar aplicaciones**, seleccione **Sí**.
 
@@ -109,7 +109,7 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 7. La herramienta realiza algunas tareas de configuración y, a continuación, se reinicia.
 8. Inicie sesión de nuevo en la máquina. En pocos segundos, el Asistente para administración del servidor de configuración se inicia automáticamente.
 
-### <a name="configure-settings"></a>Definición de la configuración
+### <a name="configure-settings"></a>Definición de configuración
 
 1. En el Asistente para administración del servidor de configuración, seleccione **Setup connectivity** (Conectividad de configuración). En los cuadros desplegables, seleccione primero la NIC que el servidor de procesos integrado utiliza para la detección y la instalación de extracción de Mobility Service en las máquinas de origen. A continuación, seleccione la NIC que el servidor de configuración usa para la conectividad con Azure. Seleccione **Guardar**. Una vez configurada, esta opción no se puede cambiar. No cambie la dirección IP del servidor de configuración. Asegúrese de que la dirección IP asignada al servidor de configuración sea una dirección IP estática y no una dirección IP de DHCP.
 2. En **Selección de almacén de Recovery Services**, inicie sesión en Microsoft Azure con las credenciales usadas en el paso 6 de [Registrar el servidor de configuración con los servicios de Azure Site Recovery](#register-the-configuration-server-with-azure-site-recovery-services).
@@ -141,6 +141,10 @@ Para actualizar el servidor de configuración a la versión más reciente, consu
 ## <a name="manage-the-configuration-server"></a>Administración del servidor de configuración
 
 Para evitar interrupciones en la replicación en curso, asegúrese de que la dirección IP del servidor de configuración no cambie cuando el servidor de configuración esté registrado en un almacén. Para obtener más información sobre las tareas comunes de administración del servidor de configuración, consulte [Administración del servidor de configuración para la recuperación ante desastres de la VM de VMware](vmware-azure-manage-configuration-server.md).
+
+## <a name="troubleshoot-deployment-issues"></a>Solución de problemas de implementación
+
+Consulte el [artículo Solucionar problemas](vmware-azure-troubleshoot-configuration-server.md) para resolver problemas de conectividad e implementación.
 
 ## <a name="faqs"></a>Preguntas más frecuentes
 
@@ -183,13 +187,11 @@ Para evitar interrupciones en la replicación en curso, asegúrese de que la dir
 
     Configure el servidor de configuración en el entorno local con una línea de vista directa con vCenter para reducir las latencias de transferencia de datos. Puede realizar copias de seguridad programadas del servidor de configuración con [fines de conmutación por recuperación](vmware-azure-manage-configuration-server.md#failback-requirements).
 
+* ¿Puedo cambiar el controlador de caché en un servidor de configuración o en un servidor de procesos de escalabilidad horizontal?
+
+    No, el controlador de caché no se puede cambiar una vez que se haya configurado.
+
 Para ver más preguntas más frecuentes sobre los servidores de configuración, consulte [Preguntas comunes sobre el servidor de configuración](vmware-azure-common-questions.md#configuration-server).
-
-## <a name="troubleshoot-deployment-issues"></a>Solución de problemas de implementación
-
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

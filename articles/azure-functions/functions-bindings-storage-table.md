@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 1308463694754231aa6d770bf716fd3def219981
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: bca3c246db25e86772a7009bf85e7d302b4b17b2
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925323"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562075"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de Azure Table Storage para Azure Functions
 
@@ -491,19 +491,19 @@ En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overvi
 
 ## <a name="input---configuration"></a>Entrada: configuración
 
-En la siguiente tabla se explican las propiedades de configuración de enlace que establece en el archivo *function.json* y el atributo `Table`.
+En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `Table`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
 |**type** | N/D | Se debe establecer en `table`. Esta propiedad se establece automáticamente cuando se crea el enlace en Azure Portal.|
 |**direction** | N/D | Se debe establecer en `in`. Esta propiedad se establece automáticamente cuando se crea el enlace en Azure Portal. |
 |**name** | N/D | Nombre de la variable que representa la tabla o la entidad en el código de la función. | 
-|**tableName** | **TableName** | El nombre de la tabla.| 
+|**tableName** | **TableName** | Nombre de la tabla.| 
 |**partitionKey** | **PartitionKey** |Opcional. Clave de partición de la entidad de tabla que se va a leer. Consulte la sección acerca del [uso](#input---usage) para obtener información acerca de cómo usar esta propiedad.| 
 |**rowKey** |**RowKey** | Opcional. Clave de fila de la entidad de tabla que se va a leer. Consulte la sección acerca del [uso](#input---usage) para obtener información acerca de cómo usar esta propiedad.| 
 |**take** |**Take** | Opcional. Número máximo de entidades que se van a leer en JavaScript. Consulte la sección acerca del [uso](#input---usage) para obtener información acerca de cómo usar esta propiedad.| 
 |**filter** |**Filter** | Opcional. Expresión de filtro de OData en la entrada de la tabla en JavaScript. Consulte la sección acerca del [uso](#input---usage) para obtener información acerca de cómo usar esta propiedad.| 
-|**conexión** |**Connection** | El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.|
+|**connection** |**Connection** | El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -531,7 +531,7 @@ El enlace de entrada de Table Storage admite los siguientes escenarios:
 Use un enlace de salida de Azure Table Storage para escribir entidades en una tabla de una cuenta de Azure Storage.
 
 > [!NOTE]
-> Este enlace de salida no permite actualizar las entidades existentes. Use la operación `TableOperation.Replace`[del SDK de Azure Storage](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-table-dotnet#delete-an-entity) para actualizar una entidad existente.   
+> Este enlace de salida no permite actualizar las entidades existentes. Use el [`TableOperation`](/dotnet/api/microsoft.azure.cosmos.table.tableoperation?view=azure-dotnet) adecuado del [SDK de Azure Storage](/azure/cosmos-db/tutorial-develop-table-dotnet#insert-or-merge-an-entity) para actualizar una entidad existente según sea necesario.   
 
 ## <a name="output---example"></a>Salida: ejemplo
 
@@ -753,15 +753,15 @@ Puede usar el atributo `StorageAccount` para especificar la cuenta de almacenami
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `Table`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
 |**type** | N/D | Se debe establecer en `table`. Esta propiedad se establece automáticamente cuando se crea el enlace en Azure Portal.|
 |**direction** | N/D | Se debe establecer en `out`. Esta propiedad se establece automáticamente cuando se crea el enlace en Azure Portal. |
 |**name** | N/D | Nombre de la variable que se usa en el código de la función que representa la tabla o entidad. Se establece en `$return` para hacer referencia al valor devuelto de la función.| 
-|**tableName** |**TableName** | El nombre de la tabla.| 
+|**tableName** |**TableName** | Nombre de la tabla.| 
 |**partitionKey** |**PartitionKey** | Clave de partición de la entidad de tabla que se va a escribir. Consulte la [sección acerca del uso](#output---usage) para obtener información acerca de cómo usar esta propiedad.| 
 |**rowKey** |**RowKey** | Clave de fila de la entidad de tabla que se va a escribir. Consulte la [sección acerca del uso](#output---usage) para obtener información acerca de cómo usar esta propiedad.| 
-|**conexión** |**Connection** | El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.|
+|**connection** |**Connection** | El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

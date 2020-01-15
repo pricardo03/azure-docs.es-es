@@ -1,25 +1,14 @@
 ---
-title: Descripción de los servicios y las aplicaciones de Service Fabric | Microsoft Docs
+title: Descripción de los servicios y las aplicaciones de Azure Service Fabric
 description: Describe cómo se utilizan los manifiestos para describir los servicios y las aplicaciones de Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
-ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/12/2019
-ms.author: atsenthi
-ms.openlocfilehash: a5e452bf3dc9f35c345a5f27af829904b4839ece
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977126"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349975"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifiestos de servicio y de aplicación de Service Fabric
 En este artículo se describe cómo se definen y tienen versiones los servicios y las aplicaciones de Service Fabric mediante los archivos ApplicationManifest.xml y ServiceManifest.xml.  Para obtener más ejemplos, consulte los [ejemplos de aplicaciones y manifiesto de servicio](service-fabric-manifest-examples.md).  El esquema XML para estos archivos de manifiesto se documenta en la [documentación del esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -173,7 +162,7 @@ Las **restricciones de posición** son las instrucciones que definen dónde debe
 **Policies** (sin establecer en el ejemplo anterior) describe las directivas que se establecerán en el nivel de la aplicación sobre recopilación de registros, [ejecución predeterminada](service-fabric-application-runas-security.md), [mantenimiento](service-fabric-health-introduction.md#health-policies) y [acceso de seguridad](service-fabric-application-runas-security.md), incluido el acceso de los servicios al tiempo de ejecución de Service Fabric.
 
 > [!NOTE] 
-> De forma predeterminada, las aplicaciones de Service Fabric tienen acceso al tiempo de ejecución de Service Fabric en forma de punto de conexión que acepta solicitudes específicas de la aplicación y variables de entorno que apuntan a las rutas de acceso de los archivos del host que contienen archivos específicos de la aplicación y de Fabric. Considere la posibilidad de deshabilitar este acceso cuando la aplicación hospede código inseguro (es decir, código cuya procedencia sea desconocida o que el propietario de la aplicación sepa que no es seguro ejecutarlo). Para más información, consulte los [procedimientos recomendados de seguridad en Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
+> De forma predeterminada, las aplicaciones de Service Fabric tienen acceso al tiempo de ejecución de Service Fabric en forma de punto de conexión que acepta solicitudes específicas de la aplicación y variables de entorno que apuntan a las rutas de acceso de los archivos del host que contienen archivos específicos de la aplicación y de Fabric. Considere la posibilidad de deshabilitar este acceso cuando la aplicación hospede código inseguro (es decir, código cuya procedencia sea desconocida o que el propietario de la aplicación sepa que no es seguro ejecutarlo). Para obtener más información, consulte los [Procedimientos recomendados de seguridad de Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
 >
 
 **Principals** (sin establecer en el ejemplo anterior) describen las entidades de seguridad (usuarios o grupos) necesarias para [ejecutar servicios y asegurar recursos de servicio](service-fabric-application-runas-security.md).  Se hace referencia a las entidades de seguridad en las secciones **Policies**.

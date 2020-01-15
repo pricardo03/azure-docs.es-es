@@ -1,25 +1,16 @@
 ---
-title: Visualización del mantenimiento agregado de entidades de Azure Service Fabric | Microsoft Docs
+title: Visualización del mantenimiento agregado de entidades de Azure Service Fabric
 description: Se describe cómo consultar, ver y evaluar el mantenimiento agregado de entidades de Azure Service Fabric, a través de consultas de mantenimiento y consultas generales.
-services: service-fabric
-documentationcenter: .net
 author: oanapl
-manager: chackdan
-editor: ''
-ms.assetid: fa34c52d-3a74-4b90-b045-ad67afa43fe5
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: c4a312654fb54660a229c334071d33a5d6bc172f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d02d8f717801bf51e43c9dafa5eb9379d0737674
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496365"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464134"
 ---
 # <a name="view-service-fabric-health-reports"></a>Vista de los informes de estado de Service Fabric
 Azure Service Fabric presenta un [modelo de mantenimiento](service-fabric-health-introduction.md) con entidades de estado en las que componentes y guardianes del sistema pueden notificar las condiciones locales que están supervisando. El [almacén de estado](service-fabric-health-introduction.md#health-store) agrega todos los datos de mantenimiento para determinar si las entidades son correctas.

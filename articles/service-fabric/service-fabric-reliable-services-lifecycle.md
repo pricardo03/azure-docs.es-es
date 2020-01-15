@@ -1,25 +1,16 @@
 ---
-title: Información general del ciclo de vida de Reliable Services de Azure Service Fabric | Microsoft Docs
-description: Obtenga más información sobre los distintos eventos de ciclo de vida en los servicios de Reliable Services de Service Fabric
-services: Service-Fabric
-documentationcenter: .net
+title: Información general sobre el ciclo de vida de Reliable Services
+description: Conozca los eventos de ciclo de vida de una aplicación de Reliable Services en Azure Service Fabric para servicios con estado y sin estado.
 author: masnider
-manager: chackdan
-editor: vturecek;
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ebc7aec63b34630b606178aa17e2ae7fdd0fc87f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe338ca3f25cd606da7f95f6c9437a3cd3dc4e69
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723579"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645504"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Información general del ciclo de vida de Reliable Services
 > [!div class="op_single_selector"]

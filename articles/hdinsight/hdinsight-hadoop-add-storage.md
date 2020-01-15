@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: e29041942157e720cce3414f7b6e6904667c1894
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 86b9230dbdca82c5599c1839fd64bd3df4725051
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665473"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435586"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adición de más cuentas de almacenamiento a HDInsight
 
@@ -21,16 +21,16 @@ Aprenda a usar acciones de script para agregar *cuentas* de Azure Storage adicio
 > [!IMPORTANT]  
 > La información de este documento trata sobre cómo agregar cuentas de almacenamiento adicionales a un clúster después de que se ha creado. Para información sobre cómo agregar cuentas de almacenamiento durante la creación de clústeres, consulte [Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Un clúster de Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
-* Nombre y clave de la cuenta de almacenamiento. Consulte [Administración de la configuración de cuentas de almacenamiento en Azure Portal](../storage/common/storage-account-manage.md).
+* Nombre y clave de la cuenta de almacenamiento. Vea [Administración de las claves de acceso de la cuenta de almacenamiento](../storage/common/storage-account-keys-manage.md)
 * [Nombre del clúster con las mayúsculas y minúsculas correctas](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name).
 * Si usa PowerShell, necesitará el módulo AZ.  Consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 * Si no tiene instalada la CLI de Azure, consulte [Interfaz de la línea de comandos de Azure (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
-* Si usa bash o un símbolo del sistema de Windows, también necesitará **jq**, un procesador JSON de la línea de comandos.  Consulte [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/). Consulte la [Guía de instalación del subsistema de Windows para Linux para Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para bash en Ubuntu en Windows 10.
+* Si usa bash o un símbolo del sistema de Windows, también necesitará **jq**, un procesador JSON de la línea de comandos.  Vea [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/). Consulte la [Guía de instalación del subsistema de Windows para Linux para Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para bash en Ubuntu en Windows 10.
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 Este script toma los parámetros siguientes:
 
@@ -55,7 +55,7 @@ Durante el procesamiento, el script realiza las siguientes acciones:
 > [!WARNING]  
 > No se admite el uso de una cuenta de almacenamiento en una ubicación diferente a la del clúster de HDInsight.
 
-## <a name="the-script"></a>La secuencia de comandos
+## <a name="the-script"></a>El script
 
 __Ubicación del script__: [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
 
@@ -86,7 +86,7 @@ Submit-AzHDInsightScriptAction `
     -Parameters $parameters
 ```
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Con [az hdinsight script-action execute](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).  Reemplace `CLUSTERNAME`, `RESOURCEGROUP`, `ACCOUNTNAME` y `ACCOUNTKEY` por los valores adecuados.
 

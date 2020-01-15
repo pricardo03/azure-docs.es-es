@@ -1,31 +1,20 @@
 ---
-title: Implementación rápida de una aplicación existente en un clúster de Azure Service Fabric
+title: Implementar rápidamente una aplicación existente en un clúster
 description: Use un clúster de Azure Service Fabric para hospedar una aplicación existente de Node.js con Visual Studio.
-services: service-fabric
-documentationcenter: nodejs
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: atsenthi
-ms.openlocfilehash: 6cf9594e6e1db3e163d25843b1fec0c0ff98c250
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 9153fc4cd60cb892532db49bf4339b517320b1a6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592453"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614849"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hospedaje de una aplicación de Node.js en Azure Service Fabric
 
 Esta guía de inicio rápido le ayudará a implementar una aplicación existente (Node.js en este ejemplo) en un clúster de Service Fabric que se ejecuta en Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, asegúrese de haber [configurado el entorno de desarrollo](service-fabric-get-started.md). Esto también incluye la instalación del SDK de Service Fabric y Visual Studio 2019 o 2015.
 
@@ -52,7 +41,7 @@ Puede crear cualquier tipo de servicio de Service Fabric en el cuadro de diálog
 
 Asigne al servicio el nombre **MyGuestService** y elija los siguientes valores en las opciones de la derecha:
 
-| Configuración                   | Valor |
+| Configuración                   | Value |
 | ------------------------- | ------ |
 | Carpeta del paquete de código       | _&lt;la carpeta con la aplicación de Node.js&gt;_ |
 | Comportamiento del paquete de código     | Copie el contenido de la carpeta al proyecto |

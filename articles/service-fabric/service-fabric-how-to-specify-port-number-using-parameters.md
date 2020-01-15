@@ -1,23 +1,16 @@
 ---
-title: Cómo especificar el número de puerto de un servicio mediante parámetros en Azure Service Fabric | Microsoft Docs
+title: Especificación de número de puerto de un servicio mediante parámetros
 description: Se muestra cómo usar los parámetros para especificar el puerto de una aplicación en Service Fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: markfuss
-editor: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: d69e02126564388bf045693b9960e6e574307641
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a53626b8fd362397ba89df30b099fa3c9ff7b0a2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60720253"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609866"
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Cómo especificar el número de puerto de un servicio mediante parámetros en Service Fabric
 

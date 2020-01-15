@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: c3300338ab37d502646c55411d658ad30581019f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 528684031404dbd907205e69f3565155fa1856b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531825"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454305"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnóstico de la conectividad local a través de puertas de enlace de VPN
 
-Azure VPN Gateway le permite crear soluciones híbridas que dan soluciones a la necesidad de una conexión segura entre su red local y la red virtual de Azure. Como sus necesidades son únicas, también lo es la elección del dispositivo VPN local. Azure admite actualmente [varios dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) que se validan constantemente en asociación con los proveedores de los dispositivos. Revise los valores de configuración específicos del dispositivo antes de configurar el dispositivo VPN local. Igualmente, Azure VPN Gateway está configurado con un conjunto de [parámetros de IPsec admitidos](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) que se utilizan para establecer conexiones. Actualmente no hay ninguna manera de especificar o seleccionar una combinación específica de parámetros de IPsec desde Azure VPN Gateway. Para establecer una conexión correcta entre la red local y Azure, la configuración del dispositivo VPN local debe estar de acuerdo con los parámetros de IPsec prescritos por Azure VPN Gateway. Si la configuración es incorrecta, se produce una pérdida de conectividad y además, hasta ahora, solucionar estos problemas no era algo trivial y normalmente se tardaban horas en identificar y corregir el problema.
+Azure VPN Gateway le permite crear soluciones híbridas que dan soluciones a la necesidad de una conexión segura entre su red local y la red virtual de Azure. Como sus necesidades son únicas, también lo es la elección del dispositivo VPN local. Azure admite actualmente [varios dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) que se validan constantemente en asociación con los proveedores de los dispositivos. Revise los valores de configuración específicos del dispositivo antes de configurar el dispositivo VPN local. Igualmente, Azure VPN Gateway está configurado con un conjunto de [parámetros de IPsec admitidos](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) que se utilizan para establecer conexiones. Actualmente no hay ninguna manera de especificar o seleccionar una combinación específica de parámetros de IPsec desde Azure VPN Gateway. Para establecer una conexión correcta entre la red local y Azure, la configuración del dispositivo VPN local debe estar de acuerdo con los parámetros de IPsec prescritos por Azure VPN Gateway. Si la configuración es incorrecta, se produce una pérdida de conectividad y además, hasta ahora, solucionar estos problemas no era algo trivial y normalmente se tardaban horas en identificar y corregir la incidencia.
 
 Con la característica de solución de problemas de Azure Network Watcher, es posible diagnosticar cualquier problema de la puerta de enlace y las conexiones y, en cuestión de minutos, disponer de información suficiente para tomar una decisión informada para rectificar el problema.
 
@@ -85,13 +85,13 @@ La característica de solución de problemas de Azure Network Watcher le permite
 | Tipo de error | Motivo | Log|
 |---|---|---|
 | NoFault | Cuando no se detecta ningún error. |Sí|
-| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin|
-| PlannedMaintenance |  La instancia de puerta de enlace está en mantenimiento.  |Sin|
-| UserDrivenUpdate | Cuando hay una actualización del usuario en curso. Podría tratarse de una operación de cambio de tamaño. | Sin |
-| VipUnResponsive | No se puede alcanzar la instancia principal de la puerta de enlace. Esto sucede cuando se produce un error en el sondeo de estado. | Sin |
-| PlatformInActive | Hay un problema con la plataforma. | Sin|
-| ServiceNotRunning | No se está ejecutando el servicio subyacente. | Sin|
-| NoConnectionsFoundForGateway | No existe ninguna conexión en la puerta de enlace. Esto es solo una advertencia.| Sin|
+| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |No|
+| PlannedMaintenance |  La instancia de puerta de enlace está en mantenimiento.  |No|
+| UserDrivenUpdate | Cuando hay una actualización del usuario en curso. Podría tratarse de una operación de cambio de tamaño. | No |
+| VipUnResponsive | No se puede alcanzar la instancia principal de la puerta de enlace. Esto sucede cuando se produce un error en el sondeo de estado. | No |
+| PlatformInActive | Hay un problema con la plataforma. | No|
+| ServiceNotRunning | No se está ejecutando el servicio subyacente. | No|
+| NoConnectionsFoundForGateway | No existe ninguna conexión en la puerta de enlace. Esto es solo una advertencia.| No|
 | ConnectionsNotConnected | No está conectada ninguna de las conexiones. Esto es solo una advertencia.| Sí|
 | GatewayCPUUsageExceeded | El uso de CPU de la puerta de enlace actual es >95 %. | Sí |
 
@@ -100,12 +100,12 @@ La característica de solución de problemas de Azure Network Watcher le permite
 | Tipo de error | Motivo | Log|
 |---|---|---|
 | NoFault | Cuando no se detecta ningún error. |Sí|
-| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin|
-| PlannedMaintenance | La instancia de puerta de enlace está en mantenimiento.  |Sin|
-| UserDrivenUpdate | Cuando hay una actualización del usuario en curso. Podría tratarse de una operación de cambio de tamaño.  | Sin |
-| VipUnResponsive | No se puede alcanzar la instancia principal de la puerta de enlace. Sucede cuando se produce un error en el sondeo de estado. | Sin |
-| ConnectionEntityNotFound | Falta una configuración de conexión. | Sin |
-| ConnectionIsMarkedDisconnected | La conexión está marcada como "desconectada". |Sin|
+| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |No|
+| PlannedMaintenance | La instancia de puerta de enlace está en mantenimiento.  |No|
+| UserDrivenUpdate | Cuando hay una actualización del usuario en curso. Podría tratarse de una operación de cambio de tamaño.  | No |
+| VipUnResponsive | No se puede alcanzar la instancia principal de la puerta de enlace. Sucede cuando se produce un error en el sondeo de estado. | No |
+| ConnectionEntityNotFound | Falta una configuración de conexión. | No |
+| ConnectionIsMarkedDisconnected | La conexión está marcada como "desconectada". |No|
 | ConnectionNotConfiguredOnGateway | El servicio subyacente no tiene configurada la conexión. | Sí |
 | ConnectionMarkedStandby | El servicio subyacente está marcado como en espera activa.| Sí|
 | Authentication | Error de coincidencia de clave previamente compartida. | Sí|

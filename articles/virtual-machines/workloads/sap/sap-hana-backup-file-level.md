@@ -12,12 +12,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 8860c943dafdb9d166510519d0fb058f523537b3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e8ad1a9468c52fd120360827ed3a08f8f53ec3d1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078897"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426002"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Azure Backup de SAP HANA en el nivel de archivo
 
@@ -137,7 +137,7 @@ Por lo tanto, funciona. Sin embargo, el rendimiento no fue bueno para la prueba 
 
 ## <a name="copy-sap-hana-backup-files-to-azure-files"></a>Copia de archivos de copia de seguridad de SAP HANA en Azure Files
 
-Es posible montar un recurso compartido de archivos de Azure Files dentro de una máquina virtual Linux de Azure. En el artículo [Uso de Azure File Storage con Linux](../../../storage/files/storage-how-to-use-files-linux.md) encontrará información sobre cómo hacerlo. Tenga en cuenta que actualmente hay un límite de cuota de 5 TB de un recurso compartido de archivos de Azure y un límite de tamaño de archivo de 1 TB por cada archivo. Vea [Objetivos de escalabilidad y rendimiento de Azure Storage](../../../storage/common/storage-scalability-targets.md) para obtener más información sobre los límites de almacenamiento.
+Es posible montar un recurso compartido de archivos de Azure Files dentro de una máquina virtual Linux de Azure. En el artículo [Uso de Azure File Storage con Linux](../../../storage/files/storage-how-to-use-files-linux.md) encontrará información sobre cómo hacerlo. Tenga en cuenta que actualmente hay un límite de cuota de 5 TB de un recurso compartido de archivos de Azure y un límite de tamaño de archivo de 1 TB por cada archivo. Para más información, consulte [Objetivos de escalabilidad y rendimiento de Azure Files](../../../storage/files/storage-files-scale-targets.md).
 
 Sin embargo, las pruebas demuestran que la copia de seguridad de SAP HANA no funciona hoy en día directamente con este tipo de montaje CIFS. También se estableció en la [nota 1820529 de SAP](https://launchpad.support.sap.com/#/notes/1820529) que no se recomienda CIFS.
 

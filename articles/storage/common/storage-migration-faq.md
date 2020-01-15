@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 1e2c899e0ef98266b5afd2f1bf21443a2debd281
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 8b805f01722c58d60e994a3a6b2440bb115b1bfa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666433"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351279"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Preguntas más frecuentes sobre la migración en Azure Storage
 
@@ -24,7 +24,7 @@ En este artículo se responden a preguntas habituales sobre la migración en Azu
 
 **¿Cómo puedo crear un script para copiar archivos de un contenedor a otro?**
 
-Para copiar archivos entre contenedores, puede utilizar AzCopy. Consulte el ejemplo siguiente:
+Para copiar archivos entre contenedores, puede utilizar AzCopy. Vea el ejemplo siguiente:
 
     AzCopy /Source:https://xxx.blob.core.windows.net/xxx
     /Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
@@ -171,7 +171,7 @@ Cuando crea una cuenta de almacenamiento, selecciona la región principal de la 
 
 **¿Dónde puedo obtener más información sobre el cifrado del servicio Azure Storage (SSE)?**  
   
-Consulte los artículos siguientes:
+Vea los artículos siguientes:
 
 -  [Guía de seguridad de Azure Storage](storage-security-guide.md)
 
@@ -259,7 +259,7 @@ Para permitir que otras personas accedan a los recursos de almacenamiento, siga 
 
 -   Use un token de firma de acceso compartido (SAS) para proporcionar acceso a un recurso. 
 
--   Proporcione a un usuario la clave principal o secundaria de la cuenta de almacenamiento. Para obtener más información, consulte la sección [Administración de la cuenta de almacenamiento](storage-account-manage.md#access-keys).
+-   Proporcione a un usuario la clave principal o secundaria de la cuenta de almacenamiento. Para obtener más información, consulte [Administración de las claves de acceso de la cuenta de almacenamiento](storage-account-keys-manage.md).
 
 -   Cambie la directiva de acceso para permitir el acceso anónimo. Para obtener más información, consulte [Concesión de permisos a usuarios anónimos a contenedores y blobs](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
@@ -275,7 +275,7 @@ Para permitir que otras personas accedan a los recursos de almacenamiento, siga 
 
 -   Si usa un almacenamiento con redundancia de zona o con redundancia geográfica, no podrá acceder a los datos desde la región secundaria, salvo que inicie una conmutación por error que tenga como destino esa región. Para más información sobre el proceso de conmutación por error, consulte [Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento (versión preliminar) en Azure Storage](storage-disaster-recovery-guidance.md).
 
--   Si usa el almacenamiento con redundancia geográfica con acceso de lectura, puede acceder a datos de la región secundaria en cualquier momento. Use uno de los siguientes métodos:  
+-   Si usa el almacenamiento con redundancia geográfica con acceso de lectura, puede acceder a datos de la región secundaria en cualquier momento. Utilice uno de los métodos siguientes:  
       
     - **AzCopy**: anexe **-secondary** al nombre de la cuenta de almacenamiento en la dirección URL para obtener acceso al punto de conexión secundario. Por ejemplo:  
      

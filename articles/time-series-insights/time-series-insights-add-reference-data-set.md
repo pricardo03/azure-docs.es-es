@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: d1bbfb43c6e2319706f5eeac15fa1d60791b62b9
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a810076c8836acccf83733df02fbd0a29a8eba9b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807257"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460310"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Creación de un conjunto de datos de referencia para el entorno de Time Series Insights mediante Azure Portal
 
@@ -34,7 +34,7 @@ Los datos de referencia no se combinan de manera retroactiva. Por lo tanto, solo
 
 ## <a name="add-a-reference-data-set"></a>Adición de un conjunto de datos de referencia
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Busque su entorno de Azure Time Series Insights existente. Seleccione **Todos los recursos** en el menú izquierdo de Azure Portal. Seleccione el entorno de Time Series Insights.
 
@@ -68,9 +68,9 @@ Los datos de referencia no se combinan de manera retroactiva. Por lo tanto, solo
 
    Si hay un error al analizar los valores de datos, el error aparece en rojo en la parte inferior de la página, como `CSV parsing error, no rows extracted`.
 
-1. Una vez que los datos se analizan correctamente, aparece una cuadrícula de datos que muestra las columnas y las filas que representan los datos.  Revise la cuadrícula de datos para asegurarse de que esté correcta.
+1. Una vez que los datos se analizan correctamente, aparece una cuadrícula de datos que muestra las columnas y las filas que representan los datos. Revise la cuadrícula de datos para asegurarse de que esté correcta.
 
-   [![Agregar datos de referencia](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
+   [![Referencia de revisiones](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
 1. Revise cada columna para ver el tipo de datos asumido y cambie el tipo de datos en caso de ser necesario.  Seleccione el símbolo del tipo de datos en el encabezado de columna: **#** para doble (datos numéricos), **T|F** para booleano o **Abc** para cadena.
 
@@ -116,4 +116,4 @@ Los datos de referencia no se combinan de manera retroactiva. Por lo tanto, solo
 
 * [Administración de datos de referencia](time-series-insights-manage-reference-data-csharp.md) mediante programación.
 
-* Para obtener una referencia completa a la API, consulte el documento [API de datos de referencia](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
+* Para obtener una referencia completa de la API, consulte el documento [API de datos de referencia](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).

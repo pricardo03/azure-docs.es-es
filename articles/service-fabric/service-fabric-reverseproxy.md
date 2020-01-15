@@ -1,25 +1,16 @@
 ---
-title: Proxy inverso de Azure Service Fabric | Microsoft Docs
+title: Proxy inverso de Azure Service Fabric
 description: Utilice un proxy inverso de Service Fabric para comunicarse de manera interna y externa con los microservicios a través del clúster.
-services: service-fabric
-documentationcenter: .net
 author: BharatNarasimman
-manager: chackdan
-editor: vturecek
-ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 6ce6f1f6559b43a64fb7edd0773a20f8ee0cf8a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4fa4c6e46dd786b833087f892d995e85b5d2ea47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837970"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464301"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso en Azure Service Fabric
 El servidor proxy inverso creado en Azure Service Fabric ayuda a que los microservicios que se ejecutan en un clúster de Service Fabric detecten otros servicios que tienen puntos de conexión HTTP y se comuniquen con estos servicios.

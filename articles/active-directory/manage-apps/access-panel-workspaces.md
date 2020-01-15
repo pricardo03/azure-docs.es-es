@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 12/19/2019
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a986c2032fc41bbd34230c5b0ead745f88b000f
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: e8e1fd51e0190e0f8889112b17b58680ed9329e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199831"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443445"
 ---
 # <a name="create-workspaces-on-the-my-apps-preview-portal"></a>Creación de áreas de trabajo en el portal de Mis aplicaciones (versión preliminar)
 
@@ -45,7 +45,7 @@ Los usuarios pueden usar el portal Mis aplicaciones (versión preliminar) para v
    ![Otras características en versión preliminar](media/access-panel-workspaces/user-preview-features.png)
 
 > [!NOTE]
-> Para abrir el portal de Mis aplicaciones, los usuarios pueden usar el vínculo `https://myapps.microsoft.com` o el vínculo personalizado de la organización, como `https://myapps.microsoft.com/contoso.com`. Si los usuarios no se redirigen a la versión de versión preliminar de Mis aplicaciones, los usuarios deben intentar `https://myapplications.microsoft.com` o `https://myapplications.microsoft.com/contoso.com`.
+> Para abrir el portal de Mis aplicaciones, los usuarios pueden usar el vínculo `https://myapps.microsoft.com` o el vínculo personalizado de la organización, como `https://myapps.microsoft.com/contoso.com`. Después de habilitar la nueva experiencia de Mis aplicaciones, se mostrará un banner similar a **Una experiencia actualizada de Mis aplicaciones está disponible** en la parte superior de la página Mis aplicaciones y los usuarios podrán seleccionar **Probarlo** para ver la nueva experiencia. Para dejar de usar la nueva experiencia, los usuarios pueden seleccionar **Sí** en el banner similar a **Salir de la nueva experiencia** de la parte superior de la página.
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 
@@ -98,6 +98,15 @@ Puede obtener acceso a los registros de auditoría de [Azure Portal](https://po
 
    ![Asignación de roles a usuarios y grupos](media/access-panel-workspaces/audit-log-myapps.png)
 
+## <a name="get-support-for-my-account-pages"></a>Obtener soporte técnico para las páginas de Mi cuenta
+
+En la página Mis aplicaciones, un usuario puede seleccionar **Mi cuenta** > **Ver mi cuenta** para abrir la configuración de su cuenta. En la página de Azure AD **Mi cuenta**, los usuarios pueden administrar la información de seguridad, los dispositivos, las contraseñas, etc. También pueden tener acceso a la configuración de su cuenta de Office.
+
+En caso de que necesite enviar una solicitud de soporte técnico por un problema con la página de la cuenta de Azure AD o la cuenta de Office, siga estos pasos para que la solicitud se gestione correctamente: 
+
+* En caso de tener problemas con la página **"Mi cuenta" de Azure AD**, abra una solicitud de soporte técnico desde Azure Portal. Vaya a **Azure Portal** > **Azure Active Directory** > **Nueva solicitud de soporte técnico**.
+
+* En caso de tener problemas con la página **"Mi cuenta" de Office**, abra una solicitud de soporte técnico desde el centro de administración de Microsoft 365. Vaya a **Centro de administración de Microsoft 365** > **Soporte técnico**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Experiencias de usuario final para aplicaciones en Azure Active Directory](end-user-experiences.md)

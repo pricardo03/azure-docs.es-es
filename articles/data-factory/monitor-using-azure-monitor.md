@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 67709ef96ffb8190812d625c04cd9749c0ebb900
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: aaa67c5e48c6246e94410bdbf2eb8509b6810001
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684618"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645198"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Alerta y supervisión de factorías de datos mediante Azure Monitor
 
@@ -112,15 +112,15 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | --- | --- | --- |
-| **storageAccountId** |Cadena | El identificador de recurso de la cuenta de almacenamiento en la que quiere enviar los registros de diagnóstico. |
-| **serviceBusRuleId** |Cadena | El identificador de regla de Service Bus para el espacio de nombres de Service Bus donde quiere tener los centros de eventos creados para la transmisión de los registros de diagnóstico. El identificador de la regla tiene el formato `{service bus resource ID}/authorizationrules/{key name}`.|
+| **storageAccountId** |String | El identificador de recurso de la cuenta de almacenamiento en la que quiere enviar los registros de diagnóstico. |
+| **serviceBusRuleId** |String | El identificador de regla de Service Bus para el espacio de nombres de Service Bus donde quiere tener los centros de eventos creados para la transmisión de los registros de diagnóstico. El identificador de la regla tiene el formato `{service bus resource ID}/authorizationrules/{key name}`.|
 | **workspaceId** | Tipo complejo | Una matriz de intervalos de agregación de métricas y sus directivas de retención. El valor de esta propiedad está vacío. |
 |**métricas**| Valores de parámetros de la ejecución de canalización que se pasan a la canalización invocada| Objeto JSON que asigna nombres de parámetro a los valores de argumento. |
 | **logs**| Tipo complejo| El nombre de una categoría de registro de diagnóstico para un tipo de recurso. Para obtener la lista de categorías de registro de diagnóstico para un recurso, realice una operación de configuración de diagnóstico GET. |
-| **category**| Cadena| Una matriz de las categorías de registro y sus directivas de retención. |
-| **timeGrain** | Cadena | La granularidad de las métricas que se capturan en formato de duración ISO 8601. El valor de propiedad debe ser `PT1M`, que especifica un minuto. |
+| **category**| String| Una matriz de las categorías de registro y sus directivas de retención. |
+| **timeGrain** | String | La granularidad de las métricas que se capturan en formato de duración ISO 8601. El valor de propiedad debe ser `PT1M`, que especifica un minuto. |
 | **enabled**| Boolean | Especifica si la colección de la categoría de métrica o registro está habilitada para este recurso. |
 | **retentionPolicy**| Tipo complejo| Describe la directiva de retención para una categoría de métrica o registro. Esta propiedad se usa solo para las cuentas de almacenamiento. |
 |**days**| Int| El número de días para retener las métricas o registros. Si el valor de propiedad es 0, los registros se mantienen indefinidamente. Esta propiedad se usa solo para las cuentas de almacenamiento. |
@@ -287,21 +287,21 @@ Para más información, consulte [Configuración de diagnóstico](https://docs.m
 }
 ```
 
-| Propiedad | Escriba | DESCRIPCIÓN | Ejemplo |
+| Propiedad | Tipo | Descripción | Ejemplo |
 | --- | --- | --- | --- |
-| **Level** |Cadena | El nivel de los registros de diagnóstico. En el caso de los registros de ejecución de actividad, establezca el valor de la propiedad en 4. | `4` |
-| **correlationId** |Cadena | El identificador único para realizar el seguimiento de una solicitud determinada. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **time** | Cadena | La hora del evento en formato UTC de intervalo de tiempo`YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
-|**activityRunId**| Cadena| El identificador de la ejecución de actividad. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
-|**pipelineRunId**| Cadena| El identificador de la ejecución de canalización. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|**resourceId**| Cadena | El identificador asociado con el recurso de la fábrica de datos. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**category**| Cadena | La categoría de los registros de diagnóstico. Establezca el valor de propiedad en `ActivityRuns`. | `ActivityRuns` |
-|**level**| Cadena | El nivel de los registros de diagnóstico. Establezca el valor de propiedad en `Informational`. | `Informational` |
-|**operationName**| Cadena | El nombre de la actividad con su estado. Si la actividad es el latido de inicio, el valor de propiedad es `MyActivity -`. Si la actividad es el latido final, el valor de propiedad es `MyActivity - Succeeded`. | `MyActivity - Succeeded` |
-|**pipelineName**| Cadena | El nombre de la canalización. | `MyPipeline` |
-|**activityName**| Cadena | El nombre de la actividad. | `MyActivity` |
-|**start**| Cadena | La hora de inicio de las ejecuciones de actividad en formato UTC del intervalo de tiempo. | `2017-06-26T20:55:29.5007959Z`|
-|**end**| Cadena | La hora de finalización de las ejecuciones de actividad en formato UTC del intervalo de tiempo. Si el registro de diagnóstico muestra que una actividad se ha iniciado pero aún no ha finalizado, el valor de propiedad es `1601-01-01T00:00:00Z`. | `2017-06-26T20:55:29.5007959Z` |
+| **Level** |String | El nivel de los registros de diagnóstico. En el caso de los registros de ejecución de actividad, establezca el valor de la propiedad en 4. | `4` |
+| **correlationId** |String | El identificador único para realizar el seguimiento de una solicitud determinada. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **time** | String | La hora del evento en formato UTC de intervalo de tiempo`YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
+|**activityRunId**| String| El identificador de la ejecución de actividad. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
+|**pipelineRunId**| String| El identificador de la ejecución de canalización. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|**resourceId**| String | El identificador asociado con el recurso de la fábrica de datos. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**category**| String | La categoría de los registros de diagnóstico. Establezca el valor de propiedad en `ActivityRuns`. | `ActivityRuns` |
+|**level**| String | El nivel de los registros de diagnóstico. Establezca el valor de propiedad en `Informational`. | `Informational` |
+|**operationName**| String | El nombre de la actividad con su estado. Si la actividad es el latido de inicio, el valor de propiedad es `MyActivity -`. Si la actividad es el latido final, el valor de propiedad es `MyActivity - Succeeded`. | `MyActivity - Succeeded` |
+|**pipelineName**| String | El nombre de la canalización. | `MyPipeline` |
+|**activityName**| String | El nombre de la actividad. | `MyActivity` |
+|**start**| String | La hora de inicio de las ejecuciones de actividad en formato UTC del intervalo de tiempo. | `2017-06-26T20:55:29.5007959Z`|
+|**end**| String | La hora de finalización de las ejecuciones de actividad en formato UTC del intervalo de tiempo. Si el registro de diagnóstico muestra que una actividad se ha iniciado pero aún no ha finalizado, el valor de propiedad es `1601-01-01T00:00:00Z`. | `2017-06-26T20:55:29.5007959Z` |
 
 #### <a name="pipeline-run-log-attributes"></a>Atributos de registro de la ejecución de la canalización
 
@@ -333,20 +333,20 @@ Para más información, consulte [Configuración de diagnóstico](https://docs.m
 }
 ```
 
-| Propiedad | Escriba | DESCRIPCIÓN | Ejemplo |
+| Propiedad | Tipo | Descripción | Ejemplo |
 | --- | --- | --- | --- |
-| **Level** |Cadena | El nivel de los registros de diagnóstico. En el caso de los registros de ejecución de actividad, establezca el valor de la propiedad en 4. | `4` |
-| **correlationId** |Cadena | El identificador único para realizar el seguimiento de una solicitud determinada. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **time** | Cadena | La hora del evento en formato UTC de intervalo de tiempo`YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
-|**runId**| Cadena| El identificador de la ejecución de canalización. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|**resourceId**| Cadena | El identificador asociado con el recurso de la fábrica de datos. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**category**| Cadena | La categoría de los registros de diagnóstico. Establezca el valor de propiedad en `PipelineRuns`. | `PipelineRuns` |
-|**level**| Cadena | El nivel de los registros de diagnóstico. Establezca el valor de propiedad en `Informational`. | `Informational` |
-|**operationName**| Cadena | El nombre de la canalización junto con su estado. Una vez finalizada la ejecución de la canalización, el valor de propiedad es `Pipeline - Succeeded`. | `MyPipeline - Succeeded`. |
-|**pipelineName**| Cadena | El nombre de la canalización. | `MyPipeline` |
-|**start**| Cadena | La hora de inicio de las ejecuciones de actividad en formato UTC del intervalo de tiempo. | `2017-06-26T20:55:29.5007959Z`. |
-|**end**| Cadena | La hora de finalización de las ejecuciones de actividad en formato UTC del intervalo de tiempo. Si el registro de diagnóstico muestra que una actividad se ha iniciado pero aún no ha finalizado, el valor de propiedad es `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
-|**status**| Cadena | El estado final de la ejecución de canalización. Los valores de propiedad posibles son `Succeeded` y `Failed`. | `Succeeded`|
+| **Level** |String | El nivel de los registros de diagnóstico. En el caso de los registros de ejecución de actividad, establezca el valor de la propiedad en 4. | `4` |
+| **correlationId** |String | El identificador único para realizar el seguimiento de una solicitud determinada. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **time** | String | La hora del evento en formato UTC de intervalo de tiempo`YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
+|**runId**| String| El identificador de la ejecución de canalización. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|**resourceId**| String | El identificador asociado con el recurso de la fábrica de datos. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**category**| String | La categoría de los registros de diagnóstico. Establezca el valor de propiedad en `PipelineRuns`. | `PipelineRuns` |
+|**level**| String | El nivel de los registros de diagnóstico. Establezca el valor de propiedad en `Informational`. | `Informational` |
+|**operationName**| String | El nombre de la canalización junto con su estado. Una vez finalizada la ejecución de la canalización, el valor de propiedad es `Pipeline - Succeeded`. | `MyPipeline - Succeeded`. |
+|**pipelineName**| String | El nombre de la canalización. | `MyPipeline` |
+|**start**| String | La hora de inicio de las ejecuciones de actividad en formato UTC del intervalo de tiempo. | `2017-06-26T20:55:29.5007959Z`. |
+|**end**| String | La hora de finalización de las ejecuciones de actividad en formato UTC del intervalo de tiempo. Si el registro de diagnóstico muestra que una actividad se ha iniciado pero aún no ha finalizado, el valor de propiedad es `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
+|**status**| String | El estado final de la ejecución de canalización. Los valores de propiedad posibles son `Succeeded` y `Failed`. | `Succeeded`|
 
 #### <a name="trigger-run-log-attributes"></a>Atributos de registro de la ejecución del desencadenador
 
@@ -377,21 +377,21 @@ Para más información, consulte [Configuración de diagnóstico](https://docs.m
 
 ```
 
-| Propiedad | Escriba | DESCRIPCIÓN | Ejemplo |
+| Propiedad | Tipo | Descripción | Ejemplo |
 | --- | --- | --- | --- |
-| **Level** |Cadena | El nivel de los registros de diagnóstico. En el caso de los registros de ejecución de actividad, establezca el valor de la propiedad en 4. | `4` |
-| **correlationId** |Cadena | El identificador único para realizar el seguimiento de una solicitud determinada. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **time** | Cadena | La hora del evento en formato UTC de intervalo de tiempo`YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
-|**triggerId**| Cadena| El identificador de la ejecución del desencadenador. | `08587023010602533858661257311` |
-|**resourceId**| Cadena | El identificador asociado con el recurso de la fábrica de datos. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**category**| Cadena | La categoría de los registros de diagnóstico. Establezca el valor de propiedad en `PipelineRuns`. | `PipelineRuns` |
-|**level**| Cadena | El nivel de los registros de diagnóstico. Establezca el valor de propiedad en `Informational`. | `Informational` |
-|**operationName**| Cadena | El nombre del desencadenador con su estado final, que indica si el desencadenador se activó correctamente. Si el latido se realizó correctamente, el valor de la propiedad es `MyTrigger - Succeeded`. | `MyTrigger - Succeeded` |
-|**triggerName**| Cadena | El nombre del desencadenador. | `MyTrigger` |
-|**triggerType**| Cadena | Tipo de desencadenador. Los valores de propiedad posibles son `Manual Trigger` y `Schedule Trigger`. | `ScheduleTrigger` |
-|**triggerEvent**| Cadena | El evento del desencadenador. | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|**start**| Cadena | La hora de inicio del desencadenador que se activa en formato UTC del intervalo de tiempo. | `2017-06-26T20:55:29.5007959Z`|
-|**status**| Cadena | El estado final que indica si el desencadenador se activó correctamente. Los valores de propiedad posibles son `Succeeded` y `Failed`. | `Succeeded`|
+| **Level** |String | El nivel de los registros de diagnóstico. En el caso de los registros de ejecución de actividad, establezca el valor de la propiedad en 4. | `4` |
+| **correlationId** |String | El identificador único para realizar el seguimiento de una solicitud determinada. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **time** | String | La hora del evento en formato UTC de intervalo de tiempo`YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
+|**triggerId**| String| El identificador de la ejecución del desencadenador. | `08587023010602533858661257311` |
+|**resourceId**| String | El identificador asociado con el recurso de la fábrica de datos. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**category**| String | La categoría de los registros de diagnóstico. Establezca el valor de propiedad en `PipelineRuns`. | `PipelineRuns` |
+|**level**| String | El nivel de los registros de diagnóstico. Establezca el valor de propiedad en `Informational`. | `Informational` |
+|**operationName**| String | El nombre del desencadenador con su estado final, que indica si el desencadenador se activó correctamente. Si el latido se realizó correctamente, el valor de la propiedad es `MyTrigger - Succeeded`. | `MyTrigger - Succeeded` |
+|**triggerName**| String | El nombre del desencadenador. | `MyTrigger` |
+|**triggerType**| String | El tipo del desencadenador. Los valores de propiedad posibles son `Manual Trigger` y `Schedule Trigger`. | `ScheduleTrigger` |
+|**triggerEvent**| String | El evento del desencadenador. | `ScheduleTime - 2017-07-06T01:50:25Z` |
+|**start**| String | La hora de inicio del desencadenador que se activa en formato UTC del intervalo de tiempo. | `2017-06-26T20:55:29.5007959Z`|
+|**status**| String | El estado final que indica si el desencadenador se activó correctamente. Los valores de propiedad posibles son `Succeeded` y `Failed`. | `Succeeded`|
 
 ### <a name="log-analytics-schema"></a>Esquema de Log Analytics
 
@@ -401,7 +401,7 @@ Log Analytics hereda el esquema de Monitor con las excepciones siguientes:
 * No hay ninguna columna "Level".
 * La columna de "propiedades" dinámicas se conservará como el tipo de blob de JSON dinámico siguiente.
 
-    | Columna de Azure Monitor | Columna de Log Analytics | type |
+    | Columna de Azure Monitor | Columna de Log Analytics | Tipo |
     | --- | --- | --- |
     | $.properties.UserProperties | UserProperties | Dinámica |
     | $.properties.Annotations | anotaciones | Dinámica |
@@ -431,6 +431,9 @@ La versión 2 de Azure Data Factory emite las siguientes métricas.
 | TriggerFailedRuns    | Métricas de ejecuciones de desencadenador erróneas     | Count    | Total                | El número total de ejecuciones de desencadenador en las que se produjo un error dentro de un período de minutos.      |
 
 Para acceder a las métricas, complete las instrucciones que aparecen en la [plataforma de datos de Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
+
+> [!NOTE]
+> Solo se emiten eventos de ejecución de canalización y actividad desencadenada. Las ejecuciones de espacio aislado y depuración que están en curso **no** se emiten. 
 
 ## <a name="monitor-data-factory-metrics-with-azure-monitor"></a>Supervisión de las métricas de Data Factory con Azure Monitor
 
@@ -469,7 +472,7 @@ Cree o agregue la configuración de diagnóstico de su factoría de datos.
 Transcurridos unos instantes, el nuevo valor de configuración aparece en la lista de configuraciones para esta factoría de datos. Los registros de diagnóstico se transmiten en esa área de trabajo en cuanto se generan nuevos datos de evento. Pueden pasar hasta 15 minutos entre el momento en que se emite un evento y cuando aparece en Log Analytics.
 
 * En el modo _específico del recurso_, los registros de diagnóstico de Azure Data Factory fluyen a las tablas _ADFPipelineRun_, _ADFTriggerRun_ y _ADFActivityRun_
-* En el modo _Azure Diagnostics_, los registros de diagnóstico fluyen a la tabla _AzureDiagnostics_
+* En el modo _Azure Diagnostics_, los registros de diagnóstico fluyen a la tabla _AzureDiagnostics_.
 
 > [!NOTE]
 > Como una tabla de registro de Azure no puede tener más de 500 columnas, se recomienda encarecidamente seleccionar el modo específico de recursos. Para más información, consulte las [limitaciones conocidas de Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md#column-limit-in-azurediagnostics).

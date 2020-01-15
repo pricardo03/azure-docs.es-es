@@ -1,25 +1,14 @@
 ---
 title: Implementación de Azure Service Fabric con PowerShell
-description: Cómo implementar y quitar aplicaciones de Service Fabric con PowerShell.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
-ms.service: service-fabric
-ms.devlang: dotnet
+description: Descubra cómo quitar e implementar aplicaciones en Azure Service Fabric y cómo realizar estas acciones en PowerShell.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/19/2018
-ms.author: atsenthi
-ms.openlocfilehash: 0080ba0807a4cb31fedeb132932e2e08137dd40b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013287"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614509"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Implementación y eliminación de aplicaciones con PowerShell
 
@@ -35,7 +24,7 @@ Una vez que un [tipo de aplicación se ha empaquetado][10], está listo para la 
 
 1. Carga del paquete de aplicación en el almacén de imágenes.
 2. Registro del tipo de aplicación con la ruta relativa al almacén de imágenes.
-3. Creación de la instancia de aplicación.
+3. Cree la instancia de aplicación.
 
 Una vez que ya no se requiera la aplicación implementada, puede eliminar la instancia de aplicación y el tipo de aplicación. Para quitar completamente una aplicación del clúster, realice los siguientes pasos:
 
@@ -58,7 +47,7 @@ Para realizar la limpieza, elimine las instancias de aplicación y anule el regi
 
  
 
-## <a name="connect-to-the-cluster"></a>Conexión al clúster
+## <a name="connect-to-the-cluster"></a>Conectarse al clúster
 
 Antes de ejecutar los comandos de PowerShell en este artículo, empiece siempre usando [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) para conectarse al clúster de Service Fabric. Para conectarse al clúster de desarrollo local, ejecute lo siguiente:
 
@@ -323,7 +312,7 @@ Ejecute [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabr
 Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
 ```
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage pide una ImageStoreConnectionString
 

@@ -1,25 +1,14 @@
 ---
-title: Asignación de directivas de acceso a los puntos de conexión del servicio de Azure Service Fabric | Microsoft Docs
+title: Asignación de directivas de acceso a puntos de conexión de servicio
 description: Obtenga información acerca de cómo asignar directivas de acceso de seguridad a los puntos de conexión HTTP o HTTPS del servicio de Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/21/2018
-ms.author: atsenthi
-ms.openlocfilehash: 3e892e443f5e3309add48f939f26ba14eaf5a51b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c7d30e85848f045b5724bb8bdc6e5c810102c044
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60614184"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614662"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Asignación de una directiva de acceso de seguridad a los puntos de conexión HTTP y HTTPS
 Si aplica una directiva de RunAs y el manifiesto de servicio declara los recursos de punto de conexión HTTP, debe especificar **SecurityAccessPolicy**.  El elemento **SecurityAccessPolicy** garantiza que los puertos asignados a estos puntos de conexión se restrinjan correctamente a la cuenta de usuario que el servicio ejecuta. En caso contrario, **http.sys** no tendrá acceso al servicio y aparecerán errores en las llamadas del cliente. En el ejemplo siguiente se aplica la cuenta Customer1 a un punto de conexión denominado **EndpointName**, que le concede derechos de acceso total.

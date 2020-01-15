@@ -1,5 +1,5 @@
 ---
-title: Serialización de la memoria caché de tokens personalizados en MSAL para Python | Azure
+title: Serialización de la memoria caché de tokens personalizados (MSAL Python) | Azure
 titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo serializar la memoria caché de tokens en MSAL para Python
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: rayluo
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb77d05070543e35ac0addae933c5ca864e68dbc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0b5dc00f1aeb6b4fba987295ff5fc7dfd389b790
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74915372"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424083"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-python"></a>Serialización de la memoria caché de tokens personalizados en MSAL para Python
 

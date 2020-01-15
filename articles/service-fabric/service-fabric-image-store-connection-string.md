@@ -1,25 +1,16 @@
 ---
-title: Cadena de conexión del almacén de imágenes de Azure Service Fabric | Microsoft Docs
-description: Descripción de la cadena de conexión del almacén de imágenes
-services: service-fabric
-documentationcenter: .net
+title: Cadena de conexión del almacén de imágenes de Azure Service Fabric
+description: Obtenga información sobre la cadena de conexión del almacén de imágenes, incluidos sus usos y aplicaciones en un clúster de Service Fabric.
 author: alexwun
-manager: chackdan
-editor: ''
-ms.assetid: 00f8059d-9d53-4cb8-b44a-b25149de3030
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 4a56b48c0041e963b89312c59335b45cabacc1bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3395248188c2a16736cfc8cea262fe163a6944b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60720202"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645674"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Descripción del valor ImageStoreConnectionString
 

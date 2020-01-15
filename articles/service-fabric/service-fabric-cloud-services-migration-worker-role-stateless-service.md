@@ -1,25 +1,16 @@
 ---
-title: Conversión de aplicaciones de Azure Cloud Services a Service Fabric | Microsoft Docs
+title: Conversión de aplicaciones de Azure Cloud Services a Service Fabric
 description: Esta guía compara los roles web y de trabajo de Cloud Services y los servicios sin estado de Service Fabric para ayudar a la migración desde Cloud Services a Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: e82abd6a7915123a94b4355e24cb94f13f9693c8
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: caf067f793ca2086bc068907e86a82266627d128
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550383"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463347"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guía de conversión de roles web y de trabajo a servicios sin estado de Service Fabric
 Este artículo describe cómo migrar los roles web y de trabajo de Cloud Services a los servicios sin estado de Service Fabric. Se trata de la ruta de migración más sencilla desde Cloud Services a Service Fabric para aquellas aplicaciones cuya arquitectura global va a permanecer más o menos igual.
@@ -41,7 +32,7 @@ Igual que el rol de trabajo, un rol web también representa una carga de trabajo
 
 | **Aplicación** | **Compatible** | **Ruta de migración** |
 | --- | --- | --- |
-| Formularios Web Forms ASP.NET |Sin |Conversión a ASP.NET Core 1 MVC |
+| Formularios Web Forms ASP.NET |No |Conversión a ASP.NET Core 1 MVC |
 | ASP.NET MVC |Con migración |Actualización a ASP.NET Core 1 MVC |
 | ASP.NET Web API |Con migración |Uso de servidor autohospedado o ASP.NET Core 1 |
 | ASP.NET Core 1 |Sí |N/D |
@@ -126,7 +117,7 @@ La API del entorno de Cloud Services proporciona información y funcionalidad pa
 | Emulación de entorno |`RoleEnvironment.IsEmulated` |N/D |
 | Evento de cambio simultáneo |`RoleEnvironment` |N/D |
 
-## <a name="configuration-settings"></a>Valores de configuración
+## <a name="configuration-settings"></a>Parámetros de configuración
 Los valores de configuración de Cloud Services se establecen para un rol de VM y se aplican a todas las instancias de ese rol de VM. Estos valores son pares de clave-valor establecidos en los archivos Serviceconfiguration.*.cscfg a los que se puede acceder directamente a través de RoleEnvironment. En Service Fabric, la configuración se aplica individualmente a cada servicio y a cada aplicación, en lugar de a una máquina virtual, ya que una máquina virtual puede hospedar varios servicios y aplicaciones. Un servicio se compone de tres paquetes:
 
 * **Código:** contiene los archivos ejecutables de servicio, los archivos binarios, los archivos DLL y cualquier otro archivo necesario para que se ejecute un servicio.

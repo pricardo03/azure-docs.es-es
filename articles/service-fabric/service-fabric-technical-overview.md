@@ -1,25 +1,16 @@
 ---
-title: Información sobre la terminología de Azure Service Fabric | Microsoft Docs
+title: Información sobre la terminología de Azure Service Fabric
 description: Descripción sobre la terminología de Service Fabric. Describe la terminología y los conceptos clave que se emplean en el resto de la documentación.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: chackdan;subramar
-ms.assetid: 3a970679-e19e-43b3-9be8-71773f307c57
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/17/2018
 ms.author: masnider
-ms.openlocfilehash: 82672114722db843fcb5d0bdff28cf14cddb1aef
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: cf2cfdad10d93bb4f28345d75a86fdcd94587410
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68811928"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465612"
 ---
 # <a name="service-fabric-terminology-overview"></a>Información general sobre la terminología de Service Fabric
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables.  Puede [hospedar clústeres de Service Fabric en cualquier lugar](service-fabric-deploy-anywhere.md): Azure, en un centro de datos local o en cualquier proveedor de nube.  Service Fabric es el orquestador que sustenta a [Azure Service Fabric Mesh](/azure/service-fabric-mesh). Puede usar cualquier marco de trabajo para escribir los servicios y elegir entre varias opciones de entorno desde las que ejecutar la aplicación. En este artículo se describe la terminología que se usa en Service Fabric para comprender los términos que se utilizan en la documentación.

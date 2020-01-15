@@ -1,25 +1,16 @@
 ---
-title: Diagnóstico de Reliable Services con estado en Azure Service Fabric | Microsoft Docs
+title: Diagnóstico de Reliable Services con estado en Azure Service Fabric
 description: Funcionalidad de diagnóstico para Reliable Services con estado en Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 50e3368aa8808307fa479a290eaf10ca3f22289d
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242874"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462919"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidad de diagnóstico para Reliable Services con estado
 La clase StatefulServiceBase de Reliable Services con estado de Azure Service Fabric emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) que pueden usarse para depurar el servicio, ofrecer información acerca de cómo funciona el tiempo de ejecución y ayudar a solucionar problemas.
@@ -47,10 +38,10 @@ StatefulRunAsyncFailure se genera cada vez que la tarea RunAsync() del servicio 
 
 StatefulRunAsyncSlowCancellation se genera cada vez que una solicitud de cancelación de la tarea RunAsync tarda más de cuatro segundos. Cuando un servicio tarda demasiado en completar la cancelación, afecta a la capacidad del servicio de reiniciarse rápidamente en otro nodo. Este escenario puede afectar a la disponibilidad general del servicio.
 
-## <a name="performance-counters"></a>contadores de rendimiento
+## <a name="performance-counters"></a>Contadores de rendimiento
 El tiempo de ejecución de Reliable Services define las siguientes categorías de contador de rendimiento:
 
-| Category | DESCRIPCIÓN |
+| Category | Descripción |
 | --- | --- |
 | Replicador transaccional de Service Fabric |Contadores específicos del replicador transaccional de Azure Service Fabric |
 | Service Fabric TStore |Contadores específicos de Azure Service Fabric TStore |
@@ -104,7 +95,7 @@ En el ejemplo anterior, `00d0126d-3e36-4d68-98da-cc4f7195d85e` es la representac
 
 El tiempo de ejecución de Reliable Services emite los siguientes eventos en la categoría `Service Fabric Transactional Replicator`.
 
- Nombre del contador | DESCRIPCIÓN |
+ Nombre del contador | Descripción |
 | --- | --- |
 | Operaciones de inicio de transacción/s | El número de nuevas transacciones de escritura creadas por segundo.|
 | Operaciones de transacción/s | El número de operaciones de adición/actualización/eliminación realizadas en colecciones confiables por segundo.|
@@ -117,7 +108,7 @@ El tiempo de ejecución de Reliable Services emite los siguientes eventos en la 
 
 El tiempo de ejecución de Reliable Services emite los siguientes eventos en la categoría `Service Fabric TStore`.
 
- Nombre del contador | DESCRIPCIÓN |
+ Nombre del contador | Descripción |
 | --- | --- |
 | Número de elementos | Número de elementos en el almacén.|
 | Tamaño del disco | Tamaño total del disco, en bytes, de los archivos de punto de control del almacén.|

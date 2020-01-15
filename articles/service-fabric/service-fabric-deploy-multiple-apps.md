@@ -1,25 +1,16 @@
 ---
-title: Implementación de una aplicación de Node.js que usa MongoDB en Azure Service Fabric| Microsoft Docs
+title: Implementación de una aplicación de Node.js que usa MongoDB
 description: Tutorial sobre cómo empaquetar varios ejecutables invitados para implementarlos en un clúster de Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: chackdan
-editor: ''
-ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 677a9d02493bf5fac1bfcbe8c40ce9efe2040be9
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 4538efc8a2426fc20dd20d1a85edaf6f76bfc649
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537748"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614475"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Implementación de varios ejecutables invitados
 En este artículo se muestra cómo empaquetar e implementar varios ejecutables invitados en Azure Service Fabric. Para crear e implementar un solo paquete de Service Fabric, lea el artículo sobre cómo [implementar un ejecutable invitado en Service Fabric](service-fabric-deploy-existing-app.md).

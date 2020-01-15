@@ -869,6 +869,9 @@
         - name: Buscar cargo de la unidad de solicitud
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge.md
+        - name: Escalado mediante el temporizador de Azure Functions
+          displayName: 'request units, RUs, RU, timer'
+          href: scale-on-schedule.md
     - name: Uso de contenedores y elementos
       items:
         - name: Uso de datos de Cosmos DB

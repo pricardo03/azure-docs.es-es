@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 11/19/2019
-ms.openlocfilehash: 13bced5cb692366f46032d51c3b635533110d781
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/16/2019
+ms.openlocfilehash: fe38e74d30f7eb4f0c025f14268f7d6ac7b7d88a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791980"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428668"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -23,11 +23,11 @@ En este artículo, se describen los límites y los detalles de configuración pa
 
 Estos son los límites de una definición de aplicación lógica:
 
-| NOMBRE | Límite | Notas |
+| Nombre | Límite | Notas |
 | ---- | ----- | ----- |
 | Acciones por flujo de trabajo | 500 | Para ampliar este límite, puede agregar flujos de trabajo anidados según sea necesario. |
 | Niveles de anidamiento permitidos para acciones | 8 | Para ampliar este límite, puede agregar flujos de trabajo anidados según sea necesario. |
-| Flujos de trabajo por región y suscripción | 1000 | |
+| Flujos de trabajo por región y suscripción | 1,000 | |
 | Desencadenadores por flujo de trabajo | 10 | Al trabajar en la vista Código, no en el diseñador |
 | Límite de cambio de ámbito de casos | 25 | |
 | Variables por flujo de trabajo | 250 | |
@@ -45,7 +45,7 @@ Estos son los límites de una definición de aplicación lógica:
 
 Estos son los límites de ejecución de una única aplicación lógica:
 
-| NOMBRE | Límite de multiinquilino | Límite del entorno del servicio de integración | Notas |
+| Nombre | Límite de multiinquilino | Límite del entorno del servicio de integración | Notas |
 |------|--------------------|---------------------------------------|-------|
 | Duración de la ejecución | 90 días | 366 días | Para cambiar este límite predeterminado, consulte [Cambio de la duración de ejecución](#change-duration). |
 | Retención de almacenamiento | 90 días a partir de la hora de inicio de la ejecución | 366 días | Para cambiar este límite predeterminado, consulte [Cambio de la retención de almacenamiento](#change-retention). |
@@ -60,7 +60,11 @@ Estos son los límites de ejecución de una única aplicación lógica:
 
 Para cambiar el límite predeterminado de la duración de ejecución y la retención de almacenamiento, siga estos pasos. En cambio, para aumentar el límite máximo, [póngase en contacto con el equipo de Logic Apps](mailto://logicappsemail@microsoft.com) para obtener ayuda con sus requisitos.
 
-1. En Azure Portal, en el menú de la aplicación lógica, seleccione **Configuración del flujo de trabajo**.
+1. Vaya a [Azure Portal](https://portal.azure.com). En el cuadro de búsqueda de Azure Portal, busque y seleccione **Logic Apps**.
+
+1. Elija la aplicación lógica y ábrala en Diseñador de aplicación lógica. 
+
+1. En el menú de la aplicación lógica, seleccione **Configuración del flujo de trabajo**.
 
 1. En **Opciones del entorno de ejecución**, en la lista **Retención del historial de ejecución en días**, seleccione **Personalizado**.
 
@@ -76,7 +80,7 @@ Para cambiar el límite predeterminado de la duración de ejecución y la retenc
 
 Estos son los límites de ejecución de una única aplicación lógica:
 
-| NOMBRE | Límite | Notas |
+| Nombre | Límite | Notas |
 | ---- | ----- | ----- |
 | Simultaneidad de desencadenadores | * Ilimitado cuando el control de simultaneidad está desactivado. <p><p>* 25 es el límite predeterminado cuando está activado el control de simultaneidad. No se puede revertir después de activar el control. Puede cambiar el valor predeterminado por otro entre 1 y 50, ambos incluidos. | Este límite describe el número más alto de instancias de aplicaciones lógicas que se pueden ejecutar al mismo tiempo o en paralelo. <p><p>**Nota**: Cuando se activa la simultaneidad, el límite SplitOn se reduce a 100 elementos para [desagrupación de matrices](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para cambiar el límite predeterminado a un valor comprendido entre 1 y 50 (ambos inclusive), consulte [Cambio en la simultaneidad de desencadenadores](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Desencadenamiento secuencial de instancias](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Número máximo de ejecuciones en espera | Cuando se activa el control de simultaneidad, el número mínimo de ejecuciones en espera es 10 más el número de ejecuciones simultáneas (simultaneidad del desencadenador). Puede cambiar el número máximo hasta 100, incluido. | Este límite describe el número más alto de instancias de aplicaciones lógicas que se pueden poner en espera de ejecución en caso de que la aplicación lógica ya esté ejecutando el número máximo de instancias simultáneas. <p><p>Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
@@ -94,7 +98,7 @@ Estos son los límites de una definición de aplicación lógica:
 
 ### <a name="multi-tenant-logic-apps-service"></a>Servicio Logic Apps multiinquilino
 
-| NOMBRE | Límite | Notas |
+| Nombre | Límite | Notas |
 | ---- | ----- | ----- |
 | Acción: Ejecuciones por cada 5 minutos | 100 000 es el límite predeterminado, pero 300 000 es el límite máximo. | Para cambiar el límite predeterminado, consulte [Ejecución de la aplicación lógica en modo de "alto rendimiento"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), que está en versión preliminar. O bien puede distribuir la carga de trabajo entre varias aplicaciones lógicas según sea necesario. |
 | Acción: Llamadas salientes simultáneas | Aproximadamente 2500 | Puede reducir el número de solicitudes simultáneas o la duración según sea necesario. |
@@ -108,7 +112,7 @@ Estos son los límites de una definición de aplicación lógica:
 
 Estos son los límites de rendimiento para la SKU Premium:
 
-| NOMBRE | Límite | Notas |
+| Nombre | Límite | Notas |
 |------|-------|-------|
 | Límite de ejecución de la unidad base | Sistema limitado cuando la capacidad de la infraestructura alcanza el 80 % | Proporciona unas 4000 ejecuciones de acciones por minuto, que equivale a 160 millones de ejecuciones de acciones al mes aproximadamente | |
 | Límite de ejecución de unidad de escalado | Sistema limitado cuando la capacidad de la infraestructura alcanza el 80 % | Cada unidad de escalado puede proporcionar aproximadamente 2000 ejecuciones de acciones adicionales por minuto, que equivale aproximadamente a 80 millones de ejecuciones de acciones más al mes | |
@@ -136,7 +140,7 @@ Estos son los límites de una única llamada HTTP saliente o entrante:
 
 Algunas operaciones de conector realizan llamadas asincrónicas o escuchan las solicitudes de webhook, por lo que el tiempo de expiración de estas operaciones puede ser superior a estos límites. Para obtener más información, vea los detalles técnicos del conector concreto y también [Acciones y desencadenadores de flujos de trabajo](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| NOMBRE | Límite de multiinquilino | Límite del entorno del servicio de integración | Notas |
+| Nombre | Límite de multiinquilino | Límite del entorno del servicio de integración | Notas |
 |------|--------------------|---------------------------------------|-------|
 | Solicitud saliente | 120 segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Entre los ejemplos de solicitudes salientes se incluyen las llamadas realizadas por desencadenadores HTTP. <p><p>**Sugerencia**: Para las operaciones de ejecución más largas, use un [patrón de sondeo asincrónico](../logic-apps/logic-apps-create-api-app.md#async-pattern) o un [bucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
 | Solicitud entrante | 120 segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Algunos ejemplos de solicitudes entrantes son las llamadas recibidas por los desencadenadores de solicitud y los desencadenadores de webhook. <p><p>**Nota**: Para que el autor de llamada original obtenga la respuesta, todos los pasos de la respuesta deben terminar dentro del límite, a menos que llame a otra aplicación lógica como un flujo de trabajo anidado. Para obtener más información, consulte [Llamada, desencadenamiento o anidación de aplicaciones lógicas](../logic-apps/logic-apps-http-endpoint.md). |
@@ -144,16 +148,16 @@ Algunas operaciones de conector realizan llamadas asincrónicas o escuchan las s
 
 #### <a name="message-size"></a>Tamaño del mensaje
 
-| NOMBRE | Límite de multiinquilino | Límite del entorno del servicio de integración | Notas |
+| Nombre | Límite de multiinquilino | Límite del entorno del servicio de integración | Notas |
 |------|--------------------|---------------------------------------|-------|
 | Tamaño del mensaje | 100 MB | 200 MB | Para evitar este límite, consulte [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md) (Controlar mensajes grandes con fragmentación). En cambio, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. |
-| Tamaño del mensaje con fragmentación | 1 GB | 5 GB | Este límite se aplica a las acciones que admiten la fragmentación de forma nativa o que le permiten habilitar la opción de fragmentación en la configuración del entorno de ejecución. <p>En el entorno del servicio de integración, el motor de Logic Apps admite este límite, pero los conectores tienen sus propios límites de fragmentación hasta el límite del motor; por ejemplo, consulte la [referencia de API del conector de Azure Blob Storage](https://docs.microsoft.com/connectors/azureblob/). Para más información sobre la fragmentación, consulte [Control de mensajes grandes con la fragmentación](../logic-apps/logic-apps-handle-large-messages.md). |
+| Tamaño del mensaje con fragmentación | 1 GB | 5 GB | Este límite se aplica a las acciones que admiten la fragmentación de forma nativa o que le permiten habilitar la opción de fragmentación en la configuración del entorno de ejecución. <p>En el entorno del servicio de integración, el motor de Logic Apps admite este límite, pero los conectores tienen sus propios límites de fragmentación hasta el límite del motor; por ejemplo, consulte la [referencia de API del conector de Azure Blob Storage](https://docs.microsoft.com/connectors/azureblob/). Para más información sobre la fragmentación, consulte [Control de mensajes grandes con la fragmentación](../logic-apps/logic-apps-handle-large-messages.md). |
 | Límite de evaluación de expresiones | 131 072 caracteres. | 131 072 caracteres. | Las expresiones `@concat()`, `@base64()` y `@string()` no pueden superar este límite. |
 |||||
 
 #### <a name="retry-policy"></a>Directiva de reintentos
 
-| NOMBRE | Límite | Notas |
+| Nombre | Límite | Notas |
 | ---- | ----- | ----- |
 | Número de reintentos | 90 | El valor predeterminado es 4. Para cambiar el valor predeterminado, use el [parámetro de directiva de reintentos](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Retraso máximo entre reintentos | 1 día | Para cambiar el valor predeterminado, use el [parámetro de directiva de reintentos](../logic-apps/logic-apps-workflow-actions-triggers.md). |
@@ -166,7 +170,7 @@ Algunas operaciones de conector realizan llamadas asincrónicas o escuchan las s
 
 Estos son los límites para los conectores personalizados que puede crear a partir de las API web.
 
-| NOMBRE | Límite de multiinquilino | Límite del entorno del servicio de integración | Notas |
+| Nombre | Límite de multiinquilino | Límite del entorno del servicio de integración | Notas |
 |------|--------------------|---------------------------------------|-------|
 | Número de conectores personalizados | 1000 por cada suscripción de Azure | 1000 por cada suscripción de Azure ||
 | Número de solicitudes por minuto para un conector personalizado | 500 solicitudes por minuto por conexión | 2000 solicitudes por minuto por *conector personalizado* ||
@@ -176,7 +180,7 @@ Estos son los límites para los conectores personalizados que puede crear a part
 
 ## <a name="managed-identities"></a>Identidades administradas
 
-| NOMBRE | Límite |
+| Nombre | Límite |
 | ---- | ----- |
 | Número de aplicaciones lógicas que tienen la identidad asignada por el sistema en una suscripción de Azure por región | 100 |
 |||
@@ -212,12 +216,12 @@ Estos son los límites en cuanto al número de artefactos de cada nivel de cuent
 
 | Artefacto | Gratuito | Básica | Estándar |
 |----------|------|-------|----------|
-| Acuerdos comerciales de EDI | 10 | 1 | 1000 |
-| Socios comerciales de EDI | 25 | 2 | 1000 |
-| Mapas | 25 | 500 | 1000 |
-| Esquemas | 25 | 500 | 1000 |
-| Ensamblados | 10 | 25 | 1000 |
-| Certificados | 25 | 2 | 1000 |
+| Acuerdos comerciales de EDI | 10 | 1 | 1,000 |
+| Socios comerciales de EDI | 25 | 2 | 1,000 |
+| Mapas | 25 | 500 | 1,000 |
+| Esquemas | 25 | 500 | 1,000 |
+| Ensamblados | 10 | 25 | 1,000 |
+| Certificados | 25 | 2 | 1,000 |
 | Configuraciones por lotes | 5 | 1 | 50 |
 ||||
 
@@ -228,7 +232,7 @@ Estos son los límites en cuanto al número de artefactos de cada nivel de cuent
 | Artefacto | Límite | Notas |
 | -------- | ----- | ----- |
 | Assembly | 8 MB | Para cargar archivos de más de 2 MB, use una [cuenta de almacenamiento y un contenedor de blobs de Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
-| Asignación (archivo XSLT) | 8 MB | Para cargar archivos de más de 2 MB, use las [asignaciones de la API REST de Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). |
+| Asignación (archivo XSLT) | 8 MB | Para cargar archivos de más de 2 MB, use las [asignaciones de la API REST de Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). <p><p>**Nota**: La cantidad de datos o registros que una asignación puede procesar correctamente se basa en el tamaño del mensaje y en los límites de tiempo de espera de la acción en Azure Logic Apps. Por ejemplo, si usa una acción HTTP, en función de los [límites de tamaño y tiempo de espera del mensaje HTTP](#request-limits), una asignación puede procesar los datos hasta el límite de tamaño del mensaje HTTP si la operación se completa dentro del límite de tiempo de espera de HTTP. |
 | Schema | 8 MB | Para cargar archivos de más de 2 MB, use una [cuenta de almacenamiento y un contenedor de blobs de Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
@@ -246,7 +250,7 @@ Estos son los límites en cuanto al número de artefactos de cada nivel de cuent
 
 Estos son los límites de tamaño de mensaje que se aplican a los protocolos B2B:
 
-| NOMBRE | Límite de multiinquilino | Límite del entorno del servicio de integración | Notas |
+| Nombre | Límite de multiinquilino | Límite del entorno del servicio de integración | Notas |
 |------|--------------------|---------------------------------------|-------|
 | AS2 | v2: 100 MB<br>v1: 50 MB | v2: 200 MB <br>v1: 50 MB | Se aplica a la decodificación y la codificación |
 | X12 | 50 MB | 50 MB | Se aplica a la decodificación y la codificación |
@@ -329,36 +333,36 @@ Las direcciones IP que usa Azure Logic Apps para las llamadas entrantes y sali
 
 | Region | IP de Logic Apps | IP de conectores administrados |
 |--------|---------------|-----------------------|
-| Este de Australia | 13.75.149.4, 104.210.91.55, 104.210.90.241, 52.187.227.245, 52.187.226.96, 52.187.231.184, 52.187.229.130, 52.187.226.139 | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 |
-| Sudeste de Australia | 13.73.114.207, 13.77.3.139, 13.70.159.205, 52.189.222.77, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75 | 13.70.136.174, 13.77.50.240 - 13.77.50.255, 40.127.80.34 |
-| Sur de Brasil | 191.235.82.221, 191.235.91.7, 191.234.182.26, 191.237.255.116, 191.234.161.168, 191.234.162.178, 191.234.161.28, 191.234.162.131 | 104.41.59.51, 191.232.38.129, 191.233.203.192 - 191.233.203.207 |
-| Centro de Canadá | 52.233.29.92, 52.228.39.241, 52.228.39.244, 40.85.250.135, 40.85.250.212, 13.71.186.1, 40.85.252.47, 13.71.184.150 | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.228.33.76, 52.228.34.13, 52.228.42.205, 52.233.26.83, 52.233.31.197, 52.237.24.126 |
-| Este de Canadá | 52.232.128.155, 52.229.120.45, 52.229.126.25, 40.86.203.228, 40.86.228.93, 40.86.216.241, 40.86.226.149, 40.86.217.241 | 40.69.106.240 - 40.69.106.255, 52.229.120.52, 52.229.120.131, 52.229.120.178, 52.229.123.98, 52.229.126.202, 52.242.35.152 |
-| India Central | 52.172.154.168, 52.172.186.159, 52.172.185.79, 104.211.101.108, 104.211.102.62, 104.211.90.169, 104.211.90.162, 104.211.74.145 | 52.172.211.12, 104.211.81.192 - 104.211.81.207, 104.211.98.164 |
-| Centro de EE. UU. | 13.67.236.125, 104.208.25.27, 40.122.170.198, 40.113.218.230, 23.100.86.139, 23.100.87.24, 23.100.87.56, 23.100.82.16 | 13.89.171.80 - 13.89.171.95, 40.122.49.51, 52.173.245.164 |
-| Asia oriental | 13.75.94.173, 40.83.127.19, 52.175.33.254, 40.83.73.39, 65.52.175.34, 40.83.77.208, 40.83.100.69, 40.83.75.165 | 13.75.36.64 - 13.75.36.79, 23.99.116.181, 52.175.23.169 |
-| East US | 13.92.98.111, 40.121.91.41, 40.114.82.191, 23.101.139.153, 23.100.29.190, 23.101.136.201, 104.45.153.81, 23.101.132.208 | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 |
-| Este de EE. UU. 2 | 40.84.30.147, 104.208.155.200, 104.208.158.174, 104.208.140.40, 40.70.131.151, 40.70.29.214, 40.70.26.154, 40.70.27.236 | 40.70.146.208 - 40.70.146.223, 52.232.188.154, 104.208.233.100 |
-| Centro de Francia | 52.143.164.80, 52.143.164.15, 40.89.186.30, 20.188.39.105, 40.89.191.161, 40.89.188.169, 40.89.186.28, 40.89.190.104 | 40.79.130.208 - 40.79.130.223, 40.89.135.2 |
-| Sur de Francia | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 40.79.178.240 - 40.79.178.255, 52.136.133.184 |
-| Este de Japón | 13.71.158.3, 13.73.4.207, 13.71.158.120, 13.78.18.168, 13.78.35.229, 13.78.42.223, 13.78.21.155, 13.78.20.232 | 13.71.153.19, 13.78.108.0 - 13.78.108.15, 40.115.186.96 |
-| Oeste de Japón | 40.74.140.4, 104.214.137.243, 138.91.26.45, 40.74.64.207, 40.74.76.213, 40.74.77.205, 40.74.74.21, 40.74.68.85 | 40.74.100.224 - 40.74.100.239, 40.74.130.77, 104.215.61.248 |
-| Corea Central | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 | 52.231.18.208 - 52.231.18.223, 52.141.36.214 |
-| Corea del Sur | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23 | 52.231.147.0 - 52.231.147.15, 52.231.163.10 |
-| Centro-Norte de EE. UU | 168.62.248.37, 157.55.210.61, 157.55.212.238, 52.162.208.216, 52.162.213.231, 65.52.10.183, 65.52.9.96, 65.52.8.225 | 52.162.107.160 - 52.162.107.175, 52.162.242.161, 65.52.218.230 |
-| Europa del Norte | 40.113.12.95, 52.178.165.215, 52.178.166.21, 40.112.92.104, 40.112.95.216, 40.113.4.18, 40.113.3.202, 40.113.1.181 | 13.69.227.208 - 13.69.227.223, 52.178.150.68, 104.45.93.9 |
-| Norte de Sudáfrica | 102.133.231.188, 102.133.231.117, 102.133.230.4, 102.133.227.103, 102.133.228.6, 102.133.230.82, 102.133.231.9, 102.133.231.51 | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191 |
-| Oeste de Sudáfrica | 102.133.72.98, 102.133.72.113, 102.133.75.169, 102.133.72.179, 102.133.72.37, 102.133.72.183, 102.133.72.132, 102.133.75.191 | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191 |
-| Centro-Sur de EE. UU | 104.210.144.48, 13.65.82.17, 13.66.52.232, 23.100.124.84, 70.37.54.122, 70.37.50.6, 23.100.127.172, 23.101.183.225 | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191 |
-| Sur de la India | 52.172.50.24, 52.172.55.231, 52.172.52.0, 104.211.229.115, 104.211.230.129, 104.211.230.126, 104.211.231.39, 104.211.227.229 | 13.71.125.22, 40.78.194.240 - 40.78.194.255, 104.211.227.225 |
-| Sudeste asiático | 13.76.133.155, 52.163.228.93, 52.163.230.166, 13.76.4.194, 13.67.110.109, 13.67.91.135, 13.76.5.96, 13.67.107.128 | 13.67.8.240 - 13.67.8.255, 13.76.231.68, 52.187.68.19 |
-| Sur de Reino Unido 2 | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24 | 51.140.80.51, 51.140.148.0 - 51.140.148.15 |
-| Oeste de Reino Unido | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105 |
-| Centro occidental de EE.UU. | 52.161.27.190, 52.161.18.218, 52.161.9.108, 13.78.151.161, 13.78.137.179, 13.78.148.140, 13.78.129.20, 13.78.141.75 | 13.71.195.32 - 13.71.195.47, 52.161.24.128, 52.161.26.212, 52.161.27.108, 52.161.29.35, 52.161.30.5, 52.161.102.22 |
-| Europa occidental | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126 | 13.69.64.208 - 13.69.64.223, 40.115.50.13, 52.174.88.118 |
-| Oeste de la India | 104.211.164.80, 104.211.162.205, 104.211.164.136, 104.211.158.127, 104.211.156.153, 104.211.158.123, 104.211.154.59, 104.211.154.7 | 104.211.146.224 - 104.211.146.239, 104.211.161.203, 104.211.189.218 |
-| Oeste de EE. UU. | 52.160.92.112, 40.118.244.241, 40.118.241.243, 157.56.162.53, 157.56.167.147, 104.42.49.145, 40.83.164.80, 104.42.38.32 | 40.112.243.160 - 40.112.243.175, 104.40.51.248, 104.42.122.49 |
-| Oeste de EE. UU. 2 | 13.66.210.167, 52.183.30.169, 52.183.29.132, 13.66.210.167, 13.66.201.169, 13.77.149.159, 52.175.198.132, 13.66.246.219 | 13.66.140.128 - 13.66.140.143, 13.66.218.78, 13.66.219.14, 13.66.220.135, 13.66.221.19, 13.66.225.219, 52.183.78.157 |
+| Este de Australia | 13.75.149.4, 104.210.91.55, 104.210.90.241, 52.187.227.245, 52.187.226.96, 52.187.231.184, 52.187.229.130, 52.187.226.139 | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213, 52.237.214.72 |
+| Sudeste de Australia | 13.73.114.207, 13.77.3.139, 13.70.159.205, 52.189.222.77, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75 | 13.70.136.174, 13.77.50.240 - 13.77.50.255, 40.127.80.34, 52.255.48.202 |
+| Sur de Brasil | 191.235.82.221, 191.235.91.7, 191.234.182.26, 191.237.255.116, 191.234.161.168, 191.234.162.178, 191.234.161.28, 191.234.162.131 | 104.41.59.51, 191.232.38.129, 191.233.203.192 - 191.233.203.207, 191.232.191.157 |
+| Centro de Canadá | 52.233.29.92, 52.228.39.241, 52.228.39.244, 40.85.250.135, 40.85.250.212, 13.71.186.1, 40.85.252.47, 13.71.184.150 | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.228.33.76, 52.228.34.13, 52.228.42.205, 52.233.26.83, 52.233.31.197, 52.237.24.126, 52.237.32.212 |
+| Este de Canadá | 52.232.128.155, 52.229.120.45, 52.229.126.25, 40.86.203.228, 40.86.228.93, 40.86.216.241, 40.86.226.149, 40.86.217.241 | 40.69.106.240 - 40.69.106.255, 52.229.120.52, 52.229.120.131, 52.229.120.178, 52.229.123.98, 52.229.126.202, 52.242.35.152, 52.242.30.112 |
+| India Central | 52.172.154.168, 52.172.186.159, 52.172.185.79, 104.211.101.108, 104.211.102.62, 104.211.90.169, 104.211.90.162, 104.211.74.145 | 52.172.211.12, 104.211.81.192 - 104.211.81.207, 104.211.98.164, 52.172.212.129 |
+| Centro de EE. UU. | 13.67.236.125, 104.208.25.27, 40.122.170.198, 40.113.218.230, 23.100.86.139, 23.100.87.24, 23.100.87.56, 23.100.82.16 | 13.89.171.80 - 13.89.171.95, 40.122.49.51, 52.173.245.164, 52.173.241.27 |
+| Asia oriental | 13.75.94.173, 40.83.127.19, 52.175.33.254, 40.83.73.39, 65.52.175.34, 40.83.77.208, 40.83.100.69, 40.83.75.165 | 13.75.36.64 - 13.75.36.79, 23.99.116.181, 52.175.23.169, 13.75.110.131 |
+| East US | 13.92.98.111, 40.121.91.41, 40.114.82.191, 23.101.139.153, 23.100.29.190, 23.101.136.201, 104.45.153.81, 23.101.132.208 | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52, 40.114.40.132, 40.71.249.139 |
+| Este de EE. UU. 2 | 40.84.30.147, 104.208.155.200, 104.208.158.174, 104.208.140.40, 40.70.131.151, 40.70.29.214, 40.70.26.154, 40.70.27.236 | 40.70.146.208 - 40.70.146.223, 52.232.188.154, 104.208.233.100, 104.209.247.23, 52.225.129.144 |
+| Centro de Francia | 52.143.164.80, 52.143.164.15, 40.89.186.30, 20.188.39.105, 40.89.191.161, 40.89.188.169, 40.89.186.28, 40.89.190.104 | 40.79.130.208 - 40.79.130.223, 40.89.135.2, 40.89.186.239 |
+| Sur de Francia | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 40.79.178.240 - 40.79.178.255, 52.136.133.184, 52.136.142.154 |
+| Este de Japón | 13.71.158.3, 13.73.4.207, 13.71.158.120, 13.78.18.168, 13.78.35.229, 13.78.42.223, 13.78.21.155, 13.78.20.232 | 13.71.153.19, 13.78.108.0 - 13.78.108.15, 40.115.186.96, 13.73.21.230 |
+| Oeste de Japón | 40.74.140.4, 104.214.137.243, 138.91.26.45, 40.74.64.207, 40.74.76.213, 40.74.77.205, 40.74.74.21, 40.74.68.85 | 40.74.100.224 - 40.74.100.239, 40.74.130.77, 104.215.61.248, 104.215.27.24 |
+| Corea Central | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 | 52.231.18.208 - 52.231.18.223, 52.141.36.214, 52.141.1.104 |
+| Corea del Sur | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23 | 52.231.147.0 - 52.231.147.15, 52.231.163.10, 52.231.201.173 |
+| Centro-Norte de EE. UU | 168.62.248.37, 157.55.210.61, 157.55.212.238, 52.162.208.216, 52.162.213.231, 65.52.10.183, 65.52.9.96, 65.52.8.225 | 52.162.107.160 - 52.162.107.175, 52.162.242.161, 65.52.218.230, 52.162.126.4 |
+| Europa del Norte | 40.113.12.95, 52.178.165.215, 52.178.166.21, 40.112.92.104, 40.112.95.216, 40.113.4.18, 40.113.3.202, 40.113.1.181 | 13.69.227.208 - 13.69.227.223, 52.178.150.68, 104.45.93.9, 94.245.91.93, 52.169.28.181 |
+| Norte de Sudáfrica | 102.133.231.188, 102.133.231.117, 102.133.230.4, 102.133.227.103, 102.133.228.6, 102.133.230.82, 102.133.231.9, 102.133.231.51 | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191, 102.133.168.167 |
+| Oeste de Sudáfrica | 102.133.72.98, 102.133.72.113, 102.133.75.169, 102.133.72.179, 102.133.72.37, 102.133.72.183, 102.133.72.132, 102.133.75.191 | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191, 102.133.72.85 |
+| Centro-Sur de EE. UU | 104.210.144.48, 13.65.82.17, 13.66.52.232, 23.100.124.84, 70.37.54.122, 70.37.50.6, 23.100.127.172, 23.101.183.225 | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191, 52.171.130.92 |
+| Sur de la India | 52.172.50.24, 52.172.55.231, 52.172.52.0, 104.211.229.115, 104.211.230.129, 104.211.230.126, 104.211.231.39, 104.211.227.229 | 13.71.125.22, 40.78.194.240 - 40.78.194.255, 104.211.227.225, 13.71.127.26 |
+| Sudeste asiático | 13.76.133.155, 52.163.228.93, 52.163.230.166, 13.76.4.194, 13.67.110.109, 13.67.91.135, 13.76.5.96, 13.67.107.128 | 13.67.8.240 - 13.67.8.255, 13.76.231.68, 52.187.68.19, 52.187.115.69 |
+| Sur de Reino Unido 2 | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24 | 51.140.80.51, 51.140.148.0 - 51.140.148.15, 51.140.61.124, 51.140.74.150 |
+| Oeste de Reino Unido | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.124.13, 51.141.52.185 |
+| Centro occidental de EE.UU. | 52.161.27.190, 52.161.18.218, 52.161.9.108, 13.78.151.161, 13.78.137.179, 13.78.148.140, 13.78.129.20, 13.78.141.75 | 13.71.195.32 - 13.71.195.47, 52.161.24.128, 52.161.26.212, 52.161.27.108, 52.161.29.35, 52.161.30.5, 52.161.102.22, 13.78.132.82, 52.161.101.204 |
+| Europa occidental | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126 | 13.69.64.208 - 13.69.64.223, 40.115.50.13, 52.174.88.118, 40.91.208.65, 52.166.78.89 |
+| Oeste de la India | 104.211.164.80, 104.211.162.205, 104.211.164.136, 104.211.158.127, 104.211.156.153, 104.211.158.123, 104.211.154.59, 104.211.154.7 | 104.211.146.224 - 104.211.146.239, 104.211.161.203, 104.211.189.218, 104.211.189.124 |
+| Oeste de EE. UU. | 52.160.92.112, 40.118.244.241, 40.118.241.243, 157.56.162.53, 157.56.167.147, 104.42.49.145, 40.83.164.80, 104.42.38.32 | 40.112.243.160 - 40.112.243.175, 104.40.51.248, 104.42.122.49, 40.112.195.87, 13.93.148.62 |
+| Oeste de EE. UU. 2 | 13.66.210.167, 52.183.30.169, 52.183.29.132, 13.66.210.167, 13.66.201.169, 13.77.149.159, 52.175.198.132, 13.66.246.219 | 13.66.140.128 - 13.66.140.143, 13.66.218.78, 13.66.219.14, 13.66.220.135, 13.66.221.19, 13.66.225.219, 52.183.78.157, 52.191.164.250 |
 ||||
 
 ## <a name="next-steps"></a>Pasos siguientes

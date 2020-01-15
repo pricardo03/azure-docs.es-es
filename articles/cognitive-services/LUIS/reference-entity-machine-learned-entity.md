@@ -1,93 +1,336 @@
 ---
 title: 'Tipo de entidad de aprendizaje automático: LUIS'
 titleSuffix: Azure Cognitive Services
-description: ''
+description: La entidad de aprendizaje automático es la entidad preferida para compilar aplicaciones de LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/11/2019
+ms.date: 12/30/2019
 ms.author: diberry
-ms.openlocfilehash: 2289e8ac7744a7b4cbee300e77efda89d29ee2f5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: aac4ba3ec63d425cac782f5db65bba923d24ed71
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74017209"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552005"
 ---
-# <a name="machine-learned-entity"></a>Entidad de aprendizaje automático 
+# <a name="machine-learned-entity"></a>Entidad de aprendizaje automático
 
+La entidad de aprendizaje automático es la entidad preferida para compilar aplicaciones de LUIS.
 
-
-**La entidad es la opción ideal cuando los datos de texto:**
-
-
-![entidad de lista](./media/luis-concept-entities/list-entity.png)
 
 ## <a name="example-json"></a>Ejemplo de JSON
 
-Imagine que la aplicación tiene una lista, denominada `Cities`, que permite variaciones de nombres de ciudades, incluidos la ciudad del aeropuerto (Sea-tac), el código del aeropuerto (SEA), el código postal (98101) y el código de área telefónica (206).
+Supongamos que la aplicación recoge pedidos de pizzas, como el [tutorial de entidad descomponible](tutorial-machine-learned-entity.md). Cada pedido puede incluir varias pizzas diferentes, incluyendo distintos tamaños.
 
-|Elemento de lista|Sinónimos del elemento|
-|---|---|
-|`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
-|`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
+Las expresiones de ejemplo incluyen:
 
-`book 2 tickets to paris`
+|Expresiones de ejemplo para la aplicación de pizzas|
+|--|
+|`Can I get a pepperoni pizza and a can of coke please`|
+|`can I get a small pizza with onions peppers and olives`|
+|`pickup an extra large meat lovers pizza`|
 
-En la expresión anterior, la palabra `paris` se asigna al elemento paris como parte de la entidad de lista `Cities`. La entidad de lista coincide con el nombre normalizado del elemento y con los sinónimos del elemento.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
-
-```JSON
-  "entities": [
-    {
-      "entity": "paris",
-      "type": "Cities",
-      "startIndex": 18,
-      "endIndex": 22,
-      "resolution": {
-        "values": [
-          "Paris"
-        ]
-      }
-    }
-  ]
-```
 
 #### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
+Dado que una entidad aprendida automáticamente puede tener muchos subcomponentes con restricciones y descriptores, esto solo es un ejemplo. Debe tenerse en cuenta la posibilidad de una guía para lo que devolverá la entidad.
+
+Tenga en cuenta la consulta siguiente:
+
+`deliver 1 large cheese pizza on thin crust and 2 medium pepperoni pizzas on deep dish crust`
 
 Este es el valor JSON si `verbose=false` se establece en la cadena de consulta:
 
 ```json
 "entities": {
-    "Cities": [
+    "Order": [
+        {
+            "FullPizzaWithModifiers": [
+                {
+                    "PizzaType": [
+                        "cheese pizza"
+                    ],
+                    "Size": [
+                        [
+                            "Large"
+                        ]
+                    ],
+                    "Quantity": [
+                        1
+                    ]
+                },
+                {
+                    "PizzaType": [
+                        "pepperoni pizzas"
+                    ],
+                    "Size": [
+                        [
+                            "Medium"
+                        ]
+                    ],
+                    "Quantity": [
+                        2
+                    ],
+                    "Crust": [
+                        [
+                            "Deep Dish"
+                        ]
+                    ]
+                }
+            ]
+        }
+    ],
+    "ToppingList": [
         [
-            "Paris"
+            "Cheese"
+        ],
+        [
+            "Pepperoni"
+        ]
+    ],
+    "CrustList": [
+        [
+            "Thin"
         ]
     ]
 }
+
 ```
 
 Este es el valor JSON si `verbose=true` se establece en la cadena de consulta:
 
 ```json
 "entities": {
-    "Cities": [
+    "Order": [
+        {
+            "FullPizzaWithModifiers": [
+                {
+                    "PizzaType": [
+                        "cheese pizza"
+                    ],
+                    "Size": [
+                        [
+                            "Large"
+                        ]
+                    ],
+                    "Quantity": [
+                        1
+                    ],
+                    "$instance": {
+                        "PizzaType": [
+                            {
+                                "type": "PizzaType",
+                                "text": "cheese pizza",
+                                "startIndex": 16,
+                                "length": 12,
+                                "score": 0.999998868,
+                                "modelTypeId": 1,
+                                "modelType": "Entity Extractor",
+                                "recognitionSources": [
+                                    "model"
+                                ]
+                            }
+                        ],
+                        "Size": [
+                            {
+                                "type": "SizeList",
+                                "text": "large",
+                                "startIndex": 10,
+                                "length": 5,
+                                "score": 0.998720646,
+                                "modelTypeId": 1,
+                                "modelType": "Entity Extractor",
+                                "recognitionSources": [
+                                    "model"
+                                ]
+                            }
+                        ],
+                        "Quantity": [
+                            {
+                                "type": "builtin.number",
+                                "text": "1",
+                                "startIndex": 8,
+                                "length": 1,
+                                "score": 0.999878645,
+                                "modelTypeId": 1,
+                                "modelType": "Entity Extractor",
+                                "recognitionSources": [
+                                    "model"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "PizzaType": [
+                        "pepperoni pizzas"
+                    ],
+                    "Size": [
+                        [
+                            "Medium"
+                        ]
+                    ],
+                    "Quantity": [
+                        2
+                    ],
+                    "Crust": [
+                        [
+                            "Deep Dish"
+                        ]
+                    ],
+                    "$instance": {
+                        "PizzaType": [
+                            {
+                                "type": "PizzaType",
+                                "text": "pepperoni pizzas",
+                                "startIndex": 56,
+                                "length": 16,
+                                "score": 0.999987066,
+                                "modelTypeId": 1,
+                                "modelType": "Entity Extractor",
+                                "recognitionSources": [
+                                    "model"
+                                ]
+                            }
+                        ],
+                        "Size": [
+                            {
+                                "type": "SizeList",
+                                "text": "medium",
+                                "startIndex": 49,
+                                "length": 6,
+                                "score": 0.999841452,
+                                "modelTypeId": 1,
+                                "modelType": "Entity Extractor",
+                                "recognitionSources": [
+                                    "model"
+                                ]
+                            }
+                        ],
+                        "Quantity": [
+                            {
+                                "type": "builtin.number",
+                                "text": "2",
+                                "startIndex": 47,
+                                "length": 1,
+                                "score": 0.9996054,
+                                "modelTypeId": 1,
+                                "modelType": "Entity Extractor",
+                                "recognitionSources": [
+                                    "model"
+                                ]
+                            }
+                        ],
+                        "Crust": [
+                            {
+                                "type": "CrustList",
+                                "text": "deep dish crust",
+                                "startIndex": 76,
+                                "length": 15,
+                                "score": 0.761551,
+                                "modelTypeId": 1,
+                                "modelType": "Entity Extractor",
+                                "recognitionSources": [
+                                    "model"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ],
+            "$instance": {
+                "FullPizzaWithModifiers": [
+                    {
+                        "type": "FullPizzaWithModifiers",
+                        "text": "1 large cheese pizza on thin crust",
+                        "startIndex": 8,
+                        "length": 34,
+                        "score": 0.616001546,
+                        "modelTypeId": 1,
+                        "modelType": "Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    },
+                    {
+                        "type": "FullPizzaWithModifiers",
+                        "text": "2 medium pepperoni pizzas on deep dish crust",
+                        "startIndex": 47,
+                        "length": 44,
+                        "score": 0.7395033,
+                        "modelTypeId": 1,
+                        "modelType": "Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "ToppingList": [
         [
-            "Paris"
+            "Cheese"
+        ],
+        [
+            "Pepperoni"
+        ]
+    ],
+    "CrustList": [
+        [
+            "Thin"
         ]
     ],
     "$instance": {
-        "Cities": [
+        "Order": [
             {
-                "type": "Cities",
-                "text": "paris",
-                "startIndex": 18,
-                "length": 5,
+                "type": "Order",
+                "text": "1 large cheese pizza on thin crust and 2 medium pepperoni pizzas on deep dish crust",
+                "startIndex": 8,
+                "length": 83,
+                "score": 0.6881274,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "ToppingList": [
+            {
+                "type": "ToppingList",
+                "text": "cheese",
+                "startIndex": 16,
+                "length": 6,
+                "modelTypeId": 5,
+                "modelType": "List Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "ToppingList",
+                "text": "pepperoni",
+                "startIndex": 56,
+                "length": 9,
+                "modelTypeId": 5,
+                "modelType": "List Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "CrustList": [
+            {
+                "type": "CrustList",
+                "text": "thin crust",
+                "startIndex": 32,
+                "length": 10,
                 "modelTypeId": 5,
                 "modelType": "List Entity Extractor",
                 "recognitionSources": [
@@ -98,14 +341,13 @@ Este es el valor JSON si `verbose=true` se establece en la cadena de consulta:
     }
 }
 ```
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
-* * * 
-
-|Objeto de datos|Nombre de entidad|Valor|
-|--|--|--|
-|Entidad de lista|`Cities`|`paris`|
-
+Esta entidad no está disponible en el tiempo de ejecución de predicción V2.
+* * *
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Obtenga más información acerca de la entidad de aprendizaje automático, incluyendo un [tutorial](tutorial-machine-learned-entity.md), [conceptos](luis-concept-entity-types.md#design-entities-for-decomposition) y una [guía de procedimientos](luis-how-to-add-entities.md#create-a-machine-learned-entity).
 
 Obtenga información sobre la entidad [lista](reference-entity-list.md) y la entidad [expresión regular](reference-entity-regular-expression.md).

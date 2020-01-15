@@ -1,25 +1,14 @@
 ---
-title: Directrices y recomendaciones de Reliable Collections en Azure Service Fabric | Microsoft Docs
-description: Directrices y recomendaciones para el uso de Reliable Collections de Service Fabric
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak,zhol
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Directrices para colecciones de confianza
+description: Directrices y recomendaciones para el uso de colecciones de confianza de Service Fabric en una aplicación de Azure Service Fabric.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 12/10/2017
-ms.author: atsenthi
-ms.openlocfilehash: dc7d60cb846aa16f2facd41f5b6b7ce52bcc8f41
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 37c734205877f9e0cb98ef2834462691e8e483d9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599343"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645487"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Directrices y recomendaciones de Reliable Collections en Azure Service Fabric
 Esta sección proporciona directrices para el uso de Reliable State Manager y Reliable Collections. El objetivo es ayudar a los usuarios a evitar problemas comunes.

@@ -4,33 +4,29 @@ description: Uso de implementaciones automáticas en Azure IoT Edge para adminis
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/27/2018
+ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eb45f2b929c08ce77c83af450726a00dd6af458e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 13390de8d3008907a0b55bf3a61c931dfdcd84e6
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456732"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552362"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala
 
-Los dispositivos de Azure IoT Edge siguen un [ciclo de vida](../iot-hub/iot-hub-device-management-overview.md) que es parecido al de otros dispositivos IoT:
+Las implementaciones automáticas y la implementación superpuesta le ayudan a administrar y configurar módulos en un gran número de dispositivos IoT Edge. 
 
-1. Aprovisione nuevos dispositivos de IoT mediante la creación de una imagen de un dispositivo con un sistema operativo y la instalación del [entorno de ejecución de Azure IoT Edge](iot-edge-runtime.md).
-2. Configure los dispositivos para ejecutar [módulos de IoT Edge](iot-edge-modules.md) y, a continuación, supervise su estado. 
-3. Por último, retire los dispositivos cuando se sustituyan o se vuelvan obsoletos.  
-
-Azure IoT Edge ofrece dos maneras de configurar los módulos para ejecutarse en dispositivos IoT Edge: una para el desarrollo y las iteraciones rápidas en un único dispositivo (ya se usó este método en los [tutoriales](tutorial-deploy-function.md) de Azure IoT Edge) y otra para administrar grandes flotas de dispositivos IoT Edge. Ambos enfoques están disponibles en Azure Portal y mediante programación. Si el destino son grupos o un gran número de dispositivos, puede especificar los dispositivos en los que desea implementar los módulos mediante [etiquetas](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) en el dispositivo gemelo. Los pasos siguientes hablan acerca de una implementación en un grupo de dispositivos del estado de Washington identificado a través de la propiedad tags. 
+Azure IoT Edge proporciona dos maneras de configurar los módulos para que se ejecuten en dispositivos IoT Edge. El primer método consiste en implementar módulos en cada dispositivo. Cree un manifiesto de implementación y aplíquelo a un dispositivo determinado por nombre. El segundo método consiste en implementar módulos automáticamente en cualquier dispositivo registrado que cumpla un conjunto de condiciones definidas. Cree un manifiesto de implementación y defina a qué dispositivos se aplica en función de las [etiquetas](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) en el dispositivo gemelo. 
 
 Este artículo se centra en las fases de configuración y supervisión de flotas de dispositivos, lo que se conoce en conjunto como implementaciones automáticas de IoT Edge. Los pasos de implementación general son los siguientes: 
 
 1. Un operador define una implementación que describe un conjunto de módulos, así como los dispositivos de destino. Cada implementación tiene un manifiesto de implementación que refleja esta información. 
 2. El servicio IoT Hub se comunica con todos los dispositivos de destino para configurarlos con los módulos deseados. 
 3. El servicio IoT Hub recupera el estado de los dispositivos IoT Edge y hace que estén disponibles para el operador.  Por ejemplo, un operador puede ver cuándo un dispositivo Edge no está configurado correctamente o si se produce un error en un módulo en tiempo de ejecución. 
-4. En cualquier momento, los nuevos dispositivos IoT Edge que satisfacen las condiciones de destino se configuran para la implementación. Por ejemplo, una implementación que tiene como destino todos los dispositivos IoT Edge del estado de Washington configura automáticamente un nuevo dispositivo IoT Edge una vez que se aprovisiona y se agrega al grupo de dispositivos del estado de Washington. 
+4. En cualquier momento, los nuevos dispositivos IoT Edge que satisfacen las condiciones de destino se configuran para la implementación. 
  
 Este artículo describe cada uno de los componentes que intervienen en la configuración y la supervisión de una implementación. Para ver un tutorial sobre la creación y la actualización de una implementación, consulte [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md) (Implementación y supervisión de módulos de IoT Edge a escala).
 
@@ -51,7 +47,7 @@ Un manifiesto de implementación es un documento JSON que describe los módulos 
 Los metadatos de configuración de cada módulo incluyen: 
 
 * Versión 
-* type 
+* Tipo 
 * Estado (por ejemplo, en ejecución o detenido) 
 * Directiva de reinicio 
 * Registro de contenedor e imagen
@@ -90,19 +86,90 @@ Una prioridad define si se debe aplicar una implementación a un dispositivo de 
 
 Las etiquetas son pares de clave/valor de cadena que se pueden usar para filtrar y agrupar las implementaciones. Una implementación puede tener varias etiquetas. Las etiquetas son opcionales y no afectan a la configuración real de los dispositivos IoT Edge. 
 
-### <a name="deployment-status"></a>Estado de implementación
+### <a name="metrics"></a>Métricas
 
-Una implementación se puede supervisar para determinar si se ha aplicado correctamente a algún dispositivo IoT Edge de destino.  Un dispositivo Edge de destino puede aparecer en una o varias de las siguientes categorías de estado: 
+De forma predeterminada, todas las implementaciones informan sobre cuatro métricas:
 
 * **Destino** muestra los dispositivos IoT Edge que coinciden con la condición de destino de implementación.
-* **Real** muestra los dispositivos IoT Edge de destino que no están destinados a otra implementación de mayor prioridad.
-* **Correcto** muestra los dispositivos IoT Edge que han informado al servicio que los módulos se han implementado correctamente. 
-* **Incorrecto** muestra los dispositivos IoT Edge que han informado al servicio que uno o varios módulos no se han implementado correctamente. Para investigar más el error, conéctese de forma remota a esos dispositivos para examinar los archivos de registros.
-* **Desconocido** muestra los dispositivos IoT Edge que no notificaron ningún estado relativo a esta implementación. Para investigar más a fondo, examine los archivos de registro e información del servicio.
+* **Aplicado** muestra los dispositivos IoT Edge de destino que no están destinados a otra implementación de mayor prioridad.
+* **Informe correcto** muestra los dispositivos IoT Edge que han informado al servicio que los módulos se han implementado correctamente. 
+* **Error de informe** muestra los dispositivos IoT Edge que han informado al servicio que uno o más módulos no se han implementado correctamente. Para investigar más el error, conéctese de forma remota a esos dispositivos para examinar los archivos de registros.
+
+Además, puede definir sus propias métricas personalizadas para ayudar a supervisar y administrar la implementación. 
+
+Las métricas proporcionan el número de resúmenes de los distintos estados de los que los dispositivos pueden informar como resultado de la aplicación una configuración de implementación. Las métricas pueden consultar las [propiedades sobre las que se ha informado del módulo gemelo edgeHub](module-edgeagent-edgehub.md#edgehub-reported-properties), como el último estado deseado o la hora de la última conexión. Por ejemplo: 
+
+```sql
+SELECT deviceId FROM devices
+  WHERE properties.reported.lastDesiredStatus.code = 200
+```
+
+Agregar sus propias métricas es opcional y no afecta a la configuración real de los dispositivos IoT Edge. 
+
+## <a name="layered-deployment"></a>Implementación superpuesta
+
+Las implementaciones superpuestas son implementaciones automáticas que se pueden combinar para reducir el número de implementaciones únicas que se deben crear. Las implementaciones superpuestas son útiles en escenarios en los que se reutilizan los mismos módulos en distintas combinaciones en muchas implementaciones automáticas. 
+
+Las implementaciones superpuestas tienen los mismos componentes básicos que cualquier implementación automática. Su objetivo son dispositivos en función de las etiquetas de los dispositivos gemelos y proporcionan la misma función en torno a las etiquetas, las métricas y los informes de estado. Las implementaciones superpuestas también tienen prioridades asignadas, pero en lugar de usar la prioridad para determinar qué implementación se aplica a un dispositivo, la prioridad determina cómo se clasifican varias implementaciones en un dispositivo. Por ejemplo, si dos implementaciones superpuestas tienen un módulo o una ruta con el mismo nombre, se aplicará la implementación superpuesta con la prioridad más alta mientras se sobrescribe la prioridad inferior. 
+
+Los módulos en tiempo de ejecución del sistema, edgeAgent y edgeHub no se configuran como parte de una implementación superpuesta. Cualquier dispositivo IoT Edge de destino de una implementación superpuesta necesita una implementación automática estándar aplicada primero para proporcionar la base sobre la que se pueden agregar implementaciones superpuestas. 
+
+Un dispositivo IoT Edge puede aplicar solo una implementación automática estándar, pero puede aplicar varias implementaciones automáticas superpuestas. Cualquier implementación superpuesta que tenga como destino un dispositivo debe tener una prioridad superior a la implementación automática de ese dispositivo. 
+
+Por ejemplo, considere el siguiente escenario de una empresa que administra edificios. Desarrollaron módulos IoT Edge para recopilar datos de cámaras de seguridad, sensores de movimiento y ascensores. Sin embargo, no todos los edificios pueden usar los tres módulos. Con las implementaciones automáticas estándar, la empresa debe crear implementaciones individuales para todas las combinaciones de módulos que sus edificios necesitan. 
+
+![Las implementaciones automáticas estándar deben adaptarse a cada combinación de módulos](./media/module-deployment-monitoring/standard-deployment.png)
+
+Sin embargo, una vez que la empresa cambia a las implementaciones automáticas superpuestas, observa que pueden crear las mismas combinaciones de módulos para sus edificios con menos implementaciones que administrar. Cada módulo tiene su propia implementación superpuesta y las etiquetas de dispositivo identifican los módulos que se agregan a cada edificio. 
+
+![La implementación automática superpuesta simplifica escenarios en los que los mismos módulos se combinan de maneras diferentes](./media/module-deployment-monitoring/layered-deployment.png)
+
+### <a name="module-twin-configuration"></a>Configuración de módulos gemelos
+
+Al trabajar con implementaciones superpuestas, puede tener, de forma intencionada o accidental, dos implementaciones con el mismo módulo con un dispositivo como destino. En estos casos, puede decidir si la implementación de prioridad superior debe sobrescribir el módulo gemelo o anexarlo. Por ejemplo, puede tener una implementación que aplique el mismo módulo a 100 dispositivos distintos. Sin embargo, 10 de esos dispositivos están en instalaciones seguras y necesitan una configuración adicional para comunicarse a través de servidores proxy. Puede usar una implementación superpuesta para agregar propiedades de módulos gemelos que permitan a esos 10 dispositivos comunicarse de forma segura sin sobrescribir la información del módulo gemelo existente de la implementación base. 
+
+Puede anexar las propiedades deseadas del módulo gemelo en el manifiesto de implementación. Cuando en una implementación estándar agregaría propiedades en la sección **properties.desired** del módulo gemelo, en una implementación superpuesta puede declarar un nuevo subconjunto de propiedades deseadas. 
+
+Por ejemplo, en una implementación estándar puede agregar el módulo de sensor de temperatura simulado con las siguientes propiedades deseadas que le indican que envíe datos en intervalos de 5 segundos:
+
+```json
+"SimulatedTemperatureSensor": {
+  "properties.desired": {
+    "SendData": true,
+    "SendInterval": 5
+  }
+}
+```
+
+En una implementación superpuesta que tiene como destino los mismos dispositivos, o un subconjunto de los mismos dispositivos, es posible que desee agregar una propiedad adicional que indique al sensor simulado que envíe 1000 mensajes y que posteriormente se detenga. No desea sobrescribir las propiedades existentes, por lo que debe crear una nueva sección dentro de las propiedades deseadas llamada `layeredProperties` que contenga la nueva propiedad:
+
+```json
+"SimulatedTemperatureSensor": {
+  "properties.desired.layeredProperties": {
+    "StopAfterCount": 1000
+  }
+}
+```
+
+Un dispositivo que tenga ambas implementaciones aplicadas reflejará lo siguiente en el módulo gemelo para el sensor de temperatura simulado: 
+
+```json
+"properties": {
+  "desired": {
+    "SendData": true,
+    "SendInterval": 5,
+    "layeredProperties": {
+      "StopAfterCount": 1000
+    }
+  }
+}
+```
+
+Si establece el campo `properties.desired` del módulo gemelo en una implementación superpuesta, sobrescribirá las propiedades deseadas para ese módulo en las implementaciones de prioridad inferior. 
 
 ## <a name="phased-rollout"></a>Lanzamiento por fases 
 
-Un lanzamiento por fases es un proceso global en el que un operador implementa cambios en un amplio conjunto de dispositivos IoT Edge. El objetivo consiste en realizar cambios gradualmente para reducir el riesgo de realizar cambios importantes a gran escala.  
+Un lanzamiento por fases es un proceso global en el que un operador implementa cambios en un amplio conjunto de dispositivos IoT Edge. El objetivo consiste en realizar cambios gradualmente para reducir el riesgo de realizar cambios importantes a gran escala. Las implementaciones automáticas ayudan a administrar implementaciones por fases en una flota de dispositivos IoT Edge. 
 
 Un lanzamiento por fases se ejecuta en las fases y los pasos siguientes: 
 
@@ -115,7 +182,9 @@ Un lanzamiento por fases se ejecuta en las fases y los pasos siguientes: 
 
 ## <a name="rollback"></a>Reversión
 
-Las implementaciones se pueden revertir si recibe errores o configuraciones incorrectas.  Dado que una implementación define la configuración absoluta del módulo en un dispositivo IoT Edge, las implementaciones adicionales también se deben destinar al mismo dispositivo con una prioridad inferior incluso si el objetivo es quitar todos los módulos.  
+Las implementaciones se pueden revertir si recibe errores o configuraciones incorrectas. Dado que una implementación define la configuración absoluta del módulo en un dispositivo IoT Edge, las implementaciones adicionales también se deben destinar al mismo dispositivo con una prioridad inferior incluso si el objetivo es quitar todos los módulos.  
+
+Al eliminar una implementación no se quitan los módulos de los dispositivos de destino. Debe haber otra implementación que defina una nueva configuración para los dispositivos, incluso si se trata de una implementación vacía. 
 
 Realice las reversiones siguiendo esta secuencia: 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: acdf52022d8498a186ed4cff90284cd6e299d6c0
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 2edb50910614b47aca5a4d8f7f02c2e3bc69b643
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240856"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449005"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Introducción a Azure Cloud Shell
 Azure Cloud Shell es un shell interactivo, autenticado y al que se puede acceder desde un explorador para administrar recursos de Azure.
@@ -27,7 +27,7 @@ Ofrece la flexibilidad de poder elegir la experiencia de shell que mejor se adap
 
 Pruebe desde shell.azure.com, para lo que debe hacer clic inmediatamente a continuación.
 
-[![Inicio insertado](https://shell.azure.com/images/launchcloudshell.png "Iniciar Azure Cloud Shell")](https://shell.azure.com)
+[![Insertar inicio](https://shell.azure.com/images/launchcloudshell.png "Inicio de Azure Cloud Shell")](https://shell.azure.com)
 
 Pruebe desde Azure Portal con el icono de Cloud Shell.
 
@@ -73,6 +73,9 @@ Cloud Shell es una herramienta flexible que puede utilizarse desde:
 Las máquinas de Cloud Shell son temporales, pero los archivos se conservan de dos maneras: a través de una imagen de disco y a través de un recurso compartido de archivos montado denominado `clouddrive`.  Al iniciarse por primera vez, Cloud Shell le indica que va a crear un grupo de recursos, una cuenta de almacenamiento y un recurso compartido de Azure Files en su nombre. Esto es un paso único y se adjuntará automáticamente en todas las sesiones. Se puede asignar un recurso de archivos único que Bash y PowerShell usarán en Cloud Shell.
 
 Obtenga más información sobre cómo montar una [cuenta de almacenamiento nueva o existente](persisting-shell-storage.md) o sobre los [mecanismos de persistencia usados en Cloud Shell](persisting-shell-storage.md#how-cloud-shell-storage-works).
+
+> [!NOTE]
+> El firewall de Azure Storage no es compatible con las cuentas de almacenamiento de Cloud Shell.
 
 ## <a name="concepts"></a>Conceptos
 * Cloud Shell se ejecuta en un host temporal que se proporciona por cada sesión y usuario.

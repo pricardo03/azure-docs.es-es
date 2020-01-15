@@ -4,15 +4,15 @@ description: Conozca los aspectos que debe tener en cuenta al planear una implem
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 12/18/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bb75fd8aafdc886a8753fa2e6be30d9d7f83bb6f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c81f06d924a0ba871115e0ae0164d61449855263
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927876"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665258"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -35,7 +35,7 @@ El objeto de servidor registrado representa una relación de confianza entre el 
 
 ### <a name="azure-file-sync-agent"></a>Agente de Azure File Sync
 El agente de Azure File Sync es un paquete descargable que permite la sincronización de Windows Server con un recurso compartido de archivos de Azure. El agente de Azure File Sync consta de tres componentes principales: 
-- **FileSyncSvc.exe**: el servicio de Windows en segundo plano es responsable de supervisar los cambios en los puntos de conexión de servidor y de iniciar las sesiones de sincronización en Azure.
+- **FileSyncSvc.exe**: El servicio en segundo plano es responsable de supervisar los cambios en los puntos de conexión de servidor y de iniciar las sesiones de sincronización en Azure.
 - **StorageSync.sys**: el filtro del sistema de archivos de Azure File Sync, responsable de apilar los archivos en Azure Files (cuando está habilitada la característica de nube por niveles).
 - **Cmdlets de administración de PowerShell**: cmdlets de PowerShell para la interacción con el proveedor de recursos de Azure Microsoft.StorageSync. Puede encontrar estos elementos en las siguientes ubicaciones (valor predeterminado):
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
@@ -69,7 +69,7 @@ La nube por niveles es una característica opcional de Azure File Sync por la qu
 En esta sección se tratan los requisitos del sistema del agente de Azure File Sync y la interoperabilidad con las características y roles de Windows Server y las soluciones de terceros.
 
 ### <a name="evaluation-cmdlet"></a>Cmdlet de evaluación
-Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante el cmdlet de evaluación de Azure File Sync. Este cmdlet busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Tenga en cuenta que las comprobaciones incluyen la mayoría de las características que se mencionan a continuación, pero no todas; se recomienda que lea el resto de esta sección detenidamente para asegurarse de que la implementación se realiza sin problemas. 
+Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante el cmdlet de evaluación de Azure File Sync. Este cmdlet busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Las comprobaciones incluyen la mayoría de las características que se mencionan a continuación, pero no todas; se recomienda que lea el resto de esta sección detenidamente para asegurarse de que la implementación se realiza sin problemas. 
 
 El cmdlet de evaluación se puede instalar mediante el módulo Az de PowerShell, que se puede instalar siguiendo estas instrucciones: [Instale y configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
@@ -124,14 +124,14 @@ Para mostrar los resultados en CSV:
 
 | Característica | Compatibilidad con el estado | Notas |
 |---------|----------------|-------|
-| Listas de control de acceso (ACL) | Totalmente compatible | Azure File Sync conserva las listas ACL de Windows y Windows Server las exige en los puntos de conexión de servidor. Las listas ACL de Windows no se admiten (aún) en Azure Files cuando se accede directamente a los archivos en la nube. |
-| Vínculos físicos | Skipped | |
-| Vínculos simbólicos | Skipped | |
+| Listas de control de acceso (ACL) | totalmente compatible | Azure File Sync conserva las listas ACL de Windows y Windows Server las exige en los puntos de conexión de servidor. Las listas ACL de Windows no se admiten (aún) en Azure Files cuando se accede directamente a los archivos en la nube. |
+| Vínculos físicos | Omitido | |
+| Vínculos simbólicos | Omitido | |
 | Puntos de montaje | Compatibilidad parcial | Los puntos de montaje podrían ser la raíz de un punto de conexión de servidor, pero se omiten si están incluidos en el espacio de nombres del punto de conexión de servidor. |
-| Uniones | Skipped | Por ejemplo, las carpetas DfrsrPrivate y DFSRoots del Sistema de archivos distribuido. |
-| Puntos de repetición de análisis | Skipped | |
-| Compresión NTFS | Totalmente compatible | |
-| Archivos dispersos | Totalmente compatible | Los archivos dispersos se sincronizan (no se bloquean), pero lo hacen con la nube como un archivo completo. Si se cambia el contenido del archivo en la nube (o en otro servidor), el archivo ya no estará disperso cuando el cambio se haya descargado. |
+| Uniones | Omitido | Por ejemplo, las carpetas DfrsrPrivate y DFSRoots del Sistema de archivos distribuido. |
+| Puntos de repetición de análisis | Omitido | |
+| Compresión NTFS | totalmente compatible | |
+| Archivos dispersos | totalmente compatible | Los archivos dispersos se sincronizan (no se bloquean), pero lo hacen con la nube como un archivo completo. Si se cambia el contenido del archivo en la nube (o en otro servidor), el archivo ya no estará disperso cuando el cambio se haya descargado. |
 | Flujos de datos alternativos (ADS) | Conservados, pero no sincronizados | Por ejemplo, las etiquetas de clasificación creadas por la infraestructura de clasificación de archivos no están sincronizadas. Las etiquetas de clasificación existentes en los archivos en cada uno de los puntos de conexión del servidor se dejan como están. |
 
 > [!Note]  
@@ -141,8 +141,10 @@ Para mostrar los resultados en CSV:
 
 | Archivo/carpeta | Nota: |
 |-|-|
+| pagefile.sys | Archivo específico del sistema |
 | Desktop.ini | Archivo específico del sistema |
-| ethumbs.DB$ | Archivo temporal para miniaturas |
+| thumbs.db | Archivo temporal para miniaturas |
+| ehthumbs.db | Archivo temporal para miniaturas de elementos multimedia |
 | ~$\*.\* | Archivo temporal de Office |
 | \*.tmp | Archivo temporal |
 | \*.laccdb | Archivo de bloqueo de base de datos de Access|
@@ -177,7 +179,7 @@ Azure File Sync no admite la desduplicación de datos y la nube por niveles en e
     - La directiva de espacio disponible seguirá colocando los archivos en niveles según el espacio libre en el volumen mediante el uso del mapa térmico.
     - La directiva de fecha omitirá la organización en niveles de los archivos, que podrían haber sido en otra situación aptos para niveles, ya que el trabajo de optimización por desduplicación tiene acceso a los archivos.
 - Para los trabajos de optimización por desduplicación en curso, el valor de desduplicación de datos [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps), retrasará la nube por niveles con directiva de fecha, si el archivo no está colocado ya en un nivel. 
-    - Ejemplo: Si el valor MinimumFileAgeDays es 7 días y la directiva de fecha de nube por niveles es de 30 días, la directiva de fecha colocará los archivos en niveles pasados 37 días.
+    - Ejemplo: Si el valor MinimumFileAgeDays es de siete días y la directiva de fecha de nube por niveles es de 30 días, la directiva de fecha colocará los archivos en niveles pasados 37 días.
     - Nota: Una vez que Azure File Sync haya colocado un archivo en un nivel, el trabajo de optimización por desduplicación omitirá el archivo.
 - Si un servidor que ejecuta Windows Server 2012 R2 y que tiene instalado el agente de Azure File Sync se actualiza a Windows Server 2016 o Windows Server 2019, es necesario realizar los pasos siguientes para que se pueda admitir en el mismo volumen la desduplicación de datos y la nube por niveles:  
     - Desinstalar al agente de Azure File Sync para Windows Server 2012 R2 y reiniciar el servidor.
@@ -205,7 +207,7 @@ Para que Azure File Sync y DFS-R trabajen en paralelo:
 Para más información, consulte [Introducción a Espacios de nombres DFS y Replicación DFS](https://technet.microsoft.com/library/jj127250).
 
 ### <a name="sysprep"></a>Sysprep
-No se admite el uso de sysprep en un servidor que tenga instalado el agente de Azure File Sync y puede provocar resultados inesperados. La instalación del agente y el registro del servidor se deben realizar después de implementar la imagen del servidor y completar la instalación mínima de sysprep.
+No se admite la ejecución de sysprep en un servidor que tenga instalado el agente de Azure File Sync y esto puede provocar resultados inesperados. La instalación del agente y el registro del servidor se deben realizar después de implementar la imagen del servidor y completar la instalación mínima de sysprep.
 
 ### <a name="windows-search"></a>Windows Search
 Si en un punto de conexión de un servidor están habilitados los niveles en la nube, Windows Search omite y no indexa los archivos que están en capas. Los archivos que no están en capas se indexan correctamente.
@@ -259,7 +261,7 @@ Azure File Sync solo está disponible en las siguientes regiones:
 | Asia oriental | RAE de Hong Kong |
 | East US | Virginia |
 | Este de EE. UU. 2 | Virginia |
-| Centro de Francia | París |
+| Centro de Francia | Paris |
 | Sur de Francia* | Marsella |
 | Corea Central | Seúl |
 | Corea del Sur | Busán |
@@ -272,7 +274,7 @@ Azure File Sync solo está disponible en las siguientes regiones:
 | Centro-Sur de EE. UU | Texas |
 | Sur de la India | Chennai |
 | Sudeste asiático | Singapur |
-| Sur de Reino Unido 2 | Londres |
+| Sur de Reino Unido 2 | London |
 | Oeste de Reino Unido | Cardiff |
 | Gobierno de EE. UU.: Arizona | Arizona |
 | Gobierno de EE. UU.: Texas | Texas |
@@ -289,7 +291,7 @@ Azure File Sync solo se admite la sincronización con recursos compartidos de ar
 En el caso de las regiones marcadas con asteriscos, debe ponerse en contacto con el soporte técnico de Azure para solicitar acceso a Azure Storage. El proceso se describe más adelante en[ este documento](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ### <a name="azure-disaster-recovery"></a>Azure Disaster Recovery
-Para protegerse contra la pérdida de una región de Azure, Azure File Sync se integra con la opción de [almacenamiento con redundancia geográfica](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). El almacenamiento GRS utiliza la replicación asincrónica de bloques entre el almacenamiento en la región primaria, con la que normalmente se interactúa, y el almacenamiento en la región secundaria emparejada. En caso de desastre que haga que una región de Azure se desconecte temporalmente o permanentemente, Microsoft conmutará por error el almacenamiento a la región emparejada. 
+Para protegerse contra la pérdida de una región de Azure, Azure File Sync se integra con la opción de [almacenamiento con redundancia geográfica](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). El almacenamiento GRS utiliza la replicación asincrónica de bloques entre el almacenamiento en la región primaria, con la que normalmente se interactúa, y el almacenamiento en la región secundaria emparejada. En caso de desastre que haga que una región de Azure se desconecte temporal o permanentemente, Microsoft conmutará por error el almacenamiento a la región emparejada. 
 
 > [!Warning]  
 > Si usa el recurso compartido de archivos de Azure como punto de conexión en la nube en una cuenta de almacenamiento GRS, no debe iniciar la conmutación por error de la cuenta de almacenamiento. Si lo hace, la sincronización dejará de funcionar y también podría provocar una pérdida inesperada de datos en el caso de archivos recién organizados en capas. En caso de pérdida de una región de Azure, Microsoft activará la conmutación por error de la cuenta de almacenamiento de forma que sea compatible con Azure File Sync.
@@ -333,6 +335,30 @@ Para admitir la integración de la conmutación por error entre el almacenamient
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Directiva de actualización del agente de Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="recommended-azure-file-sync-machine-configuration"></a>Configuración de máquina Azure File Sync recomendada
+
+Los requisitos de la máquina Azure File Sync se determinan por el número de objetos en el espacio de nombres y la renovación en el conjunto de datos. Se puede adjuntar un solo servidor a varios grupos de sincronización y el número de objetos enumerados en la tabla siguiente tiene en cuenta el espacio de nombres completo al que está asociado un servidor. Por ejemplo, punto de conexión del servidor A con 10 millones de objetos + punto de conexión de servidor B con 10 millones de objetos = 20 millones de objetos. Para esa implementación de ejemplo, se recomienda 8 CPU y 16 GiB de memoria para el estado estable y, si es posible, 48 GiB de memoria para la migración inicial.
+ 
+Los datos del espacio de nombres se almacenan en la memoria por motivos de rendimiento. Por eso, los espacios de nombres más grandes requieren más memoria para mantener un buen rendimiento, y una mayor renovación requiere más CPU para procesar. 
+ 
+En la tabla siguiente, se proporciona tanto el tamaño del espacio de nombres como una conversión a capacidad para los recursos compartidos de archivos de uso general típicos, donde el tamaño medio de los archivos es de 512 KiB. Si el tamaño de los archivos es menor, considere la posibilidad de agregar memoria adicional para la misma cantidad de capacidad. Base la configuración de memoria en el tamaño del espacio de nombres.
+
+| Tamaño del espacio de nombres: archivos y directorios (millones)  | Capacidad típica (TiB)  | Núcleos de CPU  | Memoria recomendada (GiB) |
+|---------|---------|---------|---------|
+| 3        | 1.4     | 2        | 8 (sincronización inicial)/2 (renovación típica)      |
+| 5        | 2.3     | 2        | 16 (sincronización inicial)/4 (renovación típica)    |
+| 10       | 4,7     | 4        | 32 (sincronización inicial)/8 (renovación típica)   |
+| 30       | 14,0    | 8        | 48 (sincronización inicial)/16 (renovación típica)   |
+| 50       | 23,3    | 16       | 64 (sincronización inicial)/32 (renovación típica)  |
+| 100*     | 46,6    | 32       | 128 (sincronización inicial)/32 (renovación típica)  |
+
+\*En este momento no se admiten más de 100 millones de archivos y directorios. Se trata de un límite flexible.
+
+> [!TIP]
+> La sincronización inicial de un espacio de nombres es una operación intensiva y se recomienda asignar más memoria hasta que se complete la sincronización inicial. Esto no es necesario, pero puede acelerar la sincronización inicial. 
+> 
+> La renovación típica es el 0,5 % del espacio de nombres que cambia por día. Para mayores niveles de renovación, considere la posibilidad de agregar más CPU. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Tenga en cuenta los valores de proxy y firewall](storage-sync-files-firewall-and-proxy.md)

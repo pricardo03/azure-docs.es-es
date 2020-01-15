@@ -12,12 +12,12 @@ ms.subservice: studio
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.openlocfilehash: 62c6488cfcb30c969c388343c766c482cff7e03b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 984d2e02ff75df459275fd10e313a4950c8d79c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466992"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432174"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Uso de los parámetros de servicio web de Azure Machine Learning Studio (clásico)
 Se crea un servicio web de Azure Machine Learning mediante la publicación de un experimento que contiene módulos con parámetros configurables. En algunos casos, puede que desee cambiar el comportamiento del módulo mientras se está ejecutando el servicio web. Los *parámetros del servicio web* le permiten realizar esta tarea. 
@@ -45,7 +45,7 @@ La documentación de API del servicio web incluye información para el usuario d
 ## <a name="example"></a>Ejemplo
 Por ejemplo, supongamos que tenemos un experimento con un módulo [Export Data][writer] (Exportar datos) que envía información a Azure Blob Storage. Definiremos un parámetro del servicio web denominado "Ruta de acceso de Blob" que permite al usuario del servicio web cambiar la ruta de acceso al almacenamiento de blobs cuando se tenga acceso al servicio.
 
-1. En la versión clásica de Machine Learning Studio, haga clic en el módulo [Export Data][writer] (Exportar datos) para seleccionarlo. Sus propiedades se muestran en el panel Propiedades a la derecha del lienzo del experimento.
+1. En Machine Learning Studio (clásico), haga clic en el módulo [Exportar datos][writer] para seleccionarlo. Sus propiedades se muestran en el panel Propiedades a la derecha del lienzo del experimento.
 2. Especifique el tipo de almacenamiento:
    
    * En **Especifique el destino de los datos**, seleccione Azure Blob Storage.

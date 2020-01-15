@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: b37844ff93ed1cfb631c2d8da12d0729f61f44ed
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2b9293e3c1ce280117ea40c43715f4dcd98de66d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837651"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427639"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Evaluación del rendimiento de un modelo en Azure Machine Learning Studio (clásico)
 
@@ -41,10 +41,10 @@ De forma alternativa, es posible usar la validación cruzada para realizar autom
 En las siguientes secciones, se crearán modelos de clasificación y regresión simples, y se evaluará su rendimiento con los módulos [Evaluar modelo][evaluate-model] y [Validar modelo de forma cruzada][cross-validate-model].
 
 ## <a name="evaluating-a-regression-model"></a>Evaluación de un modelo de regresión
-Supongamos que quiere predecir el precio de un automóvil mediante características, como sus dimensiones, caballos de potencia, especificaciones del motor, etc. Se trata de un problema de regresión típico, donde la variable objetivo (*price*) es un valor numérico continuo. Podemos generar un modelo de regresión lineal que, dados los valores de las características de un automóvil determinado, pueda predecir el precio de ese automóvil. Este modelo de regresión se puede usar para puntuar el mismo conjunto de datos con que se entrenó. Cuando se tienen los precios predichos del automóvil, se puede evaluar el rendimiento con una comparación de cuánto se desvían en promedio las predicciones de los precios reales. Para ilustrar esto, se usa el conjunto de datos *Información sobre los precios de los automóviles (datos sin procesar)* disponible en la sección **Conjuntos de datos almacenados** en ML Studio (clásico).
+Supongamos que quiere predecir el precio de un automóvil mediante características, como sus dimensiones, caballos de potencia, especificaciones del motor, etc. Se trata de un problema de regresión típico, donde la variable objetivo (*price*) es un valor numérico continuo. Podemos generar un modelo de regresión lineal que, dados los valores de las características de un automóvil determinado, pueda predecir el precio de ese automóvil. Este modelo de regresión se puede usar para puntuar el mismo conjunto de datos con que se entrenó. Cuando se tienen los precios predichos del automóvil, se puede evaluar el rendimiento con una comparación de cuánto se desvían en promedio las predicciones de los precios reales. Para ilustrar esto, se usa el conjunto de datos *Información sobre los precios de los automóviles (datos sin procesar)* disponible en la sección **Conjuntos de datos almacenados** en Machine Learning Studio (clásico).
 
 ### <a name="creating-the-experiment"></a>Creación del experimento
-Agregue los módulos siguientes al área de trabajo en la versión clásica de Azure Machine Learning Studio:
+Agregue los módulos siguientes al área de trabajo en Azure Machine Learning Studio (clásico):
 
 * Información sobre los precios de los automóviles (datos sin procesar)
 * [Regresión lineal][linear-regression]
@@ -83,10 +83,10 @@ Después de ejecutar el experimento, puede inspeccionar los resultados de la eva
 Figura 4. Resultados de la validación cruzada de un modelo de regresión.
 
 ## <a name="evaluating-a-binary-classification-model"></a>Evaluación de un modelo de clasificación binaria
-En un escenario de clasificación binaria, la variable objetivo tiene solo dos resultados posibles, por ejemplo: {0, 1} o {false, true}, {negative, positive}. Suponga que tiene un conjunto de datos de empleados adultos con algunas variables demográficas y de empleo, y se le pide que prediga el nivel de ingresos, una variable binaria con los valores {“<=50 K”, “>50 K”}. En otras palabras, la clase negativa representa a los empleados que tienen un sueldo menor o igual a 50 000 al año y la clase positiva representa a los demás empleados. Al igual que en el escenario de regresión, se entrenaría un modelo, se puntuarían algunos datos y se evaluarían los resultados. La principal diferencia es la elección de las métricas que la versión clásica de Azure Machine Learning Studio calcula y da como resultado. Para ilustrar el escenario de predicción del nivel de ingresos, se usará el conjunto de datos [Adult](https://archive.ics.uci.edu/ml/datasets/Adult) para crear un experimento de Studio (clásico) y evaluar el rendimiento de un modelo de regresión logística de dos clases, un clasificador binario que se usa con frecuencia.
+En un escenario de clasificación binaria, la variable objetivo tiene solo dos resultados posibles, por ejemplo: {0, 1} o {false, true}, {negative, positive}. Suponga que tiene un conjunto de datos de empleados adultos con algunas variables demográficas y de empleo, y se le pide que prediga el nivel de ingresos, una variable binaria con los valores {“<=50 K”, “>50 K”}. En otras palabras, la clase negativa representa a los empleados que tienen un sueldo menor o igual a 50 000 al año y la clase positiva representa a los demás empleados. Al igual que en el escenario de regresión, se entrenaría un modelo, se puntuarían algunos datos y se evaluarían los resultados. La principal diferencia es la elección de las métricas que Azure Machine Learning Studio (clásico) calcula y da como resultado. Para ilustrar el escenario de predicción del nivel de ingresos, se usará el conjunto de datos [Adult](https://archive.ics.uci.edu/ml/datasets/Adult) para crear un experimento de Studio (clásico) y evaluar el rendimiento de un modelo de regresión logística de dos clases, un clasificador binario que se usa con frecuencia.
 
 ### <a name="creating-the-experiment"></a>Creación del experimento
-Agregue los módulos siguientes al área de trabajo en la versión clásica de Azure Machine Learning Studio:
+Agregue los módulos siguientes al área de trabajo en Azure Machine Learning Studio (clásico):
 
 * Conjunto de datos de clasificación binaria de ingresos en el censo de adultos
 * [Regresión logística de dos clases][two-class-logistic-regression]
@@ -105,7 +105,7 @@ Después de ejecutar el experimento, puede hacer clic en el puerto de salida del
 
 La precisión es simplemente la proporción de instancias clasificadas correctamente. Suele ser la primera métrica que se comprueba al evaluar un clasificador. Sin embargo, si los datos de prueba están descompensados (en el caso en que la mayoría de las instancias pertenecen a una de las clases) o está más interesado en el rendimiento de una de las clases, la precisión no captura realmente la eficacia de un clasificador. En el escenario de clasificación del nivel de ingresos, suponga que está realizando pruebas en datos donde el 99 % de las instancias representan personas con un sueldo menor o igual a 50.000 al año. Es posible conseguir una precisión de 0,99 al predecir la clase "<=50.000" para todas las instancias. En este caso, el clasificador parece hacer un buen trabajo global, pero en realidad no clasifica correctamente ninguno de las personas con ingresos elevados (1 %) correctamente.
 
-Por ese motivo, es útil calcular métricas adicionales que capturen aspectos más específicos de la evaluación. Antes de entrar a los detalles de dichas métricas, es importante comprender la matriz de confusión de una evaluación de clasificación binaria. Las etiquetas de clase en el conjunto de entrenamiento pueden tomar solo dos valores posibles, a los que normalmente podemos referirnos como positivo o negativo. Las instancias positivas y negativas que un clasificador predice correctamente se denominan positivos verdaderos (TP) y negativos verdaderos (TN), respectivamente. De forma similar, las instancias clasificadas incorrectamente se denominan falsos positivos (FP) y falsos negativos (FN). La matriz de confusión es simplemente una tabla que muestra el número de instancias que se encuentran bajo cada una de estas cuatro categorías. La versión clásica de Azure Machine Learning Studio decide automáticamente cuál de las dos clases en el conjunto de datos es la clase positiva. Si las etiquetas de clase son valores booleanos o enteros, se asignan las instancias etiquetadas como 'true' o '1' a la clase positiva. Si las etiquetas son cadenas, como en el conjunto de datos de ingresos, las etiquetas se ordenan alfabéticamente y se elige que el primer nivel sea la clase negativa, mientras que el segundo nivel es la clase positiva.
+Por ese motivo, es útil calcular métricas adicionales que capturen aspectos más específicos de la evaluación. Antes de entrar a los detalles de dichas métricas, es importante comprender la matriz de confusión de una evaluación de clasificación binaria. Las etiquetas de clase en el conjunto de entrenamiento pueden tomar solo dos valores posibles, a los que normalmente podemos referirnos como positivo o negativo. Las instancias positivas y negativas que un clasificador predice correctamente se denominan positivos verdaderos (TP) y negativos verdaderos (TN), respectivamente. De forma similar, las instancias clasificadas incorrectamente se denominan falsos positivos (FP) y falsos negativos (FN). La matriz de confusión es simplemente una tabla que muestra el número de instancias que se encuentran bajo cada una de estas cuatro categorías. Azure Machine Learning Studio (clásico) decide automáticamente cuál de las dos clases en el conjunto de datos es la clase positiva. Si las etiquetas de clase son valores booleanos o enteros, se asignan las instancias etiquetadas como 'true' o '1' a la clase positiva. Si las etiquetas son cadenas, como en el conjunto de datos de ingresos, las etiquetas se ordenan alfabéticamente y se elige que el primer nivel sea la clase negativa, mientras que el segundo nivel es la clase positiva.
 
 ![Matriz de confusión de la clasificación binaria](./media/evaluate-model-performance/6a.png)
 
@@ -136,7 +136,7 @@ Figura 9. Resultados de la validación cruzada de un clasificador binario.
 En este experimento se usará el conocido conjunto de datos [Iris](https://archive.ics.uci.edu/ml/datasets/Iris "Iris"), que contiene las instancias de tres tipos (clases) distintos de la planta iris. Hay cuatro valores de características (longitud y ancho del sépalo y del pétalo) para cada instancia. En los experimentos anteriores se entrenaron y probaron los modelos con los mismos conjuntos de datos. Aquí usaremos el módulo [Dividir datos][split] para crear dos subconjuntos de los datos, con el fin de entrenar en el primero y puntuar y evaluar en el segundo. El conjunto de datos Iris está disponible públicamente en [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.html) (Repositorio de aprendizaje automático de UCI) y se puede descargar mediante un módulo [Importar datos][import-data].
 
 ### <a name="creating-the-experiment"></a>Creación del experimento
-Agregue los módulos siguientes al área de trabajo en la versión clásica de Azure Machine Learning Studio:
+Agregue los módulos siguientes al área de trabajo en Azure Machine Learning Studio (clásico):
 
 * [Import Data][import-data]
 * [Bosque de decisión multiclase][multiclass-decision-forest]

@@ -1,25 +1,16 @@
 ---
-title: Notificaciones de Reliable Services | Microsoft Docs
-description: Documentación conceptual sobre las notificaciones de servicio de Reliable Services de Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Notificaciones de Reliable Services
+description: Documentación conceptual para las notificaciones de Reliable Services de Service Fabric para el administrador de estado y el diccionario de confianza
 author: mcoskun
-manager: chackdan
-editor: masnider,vturecek
-ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: d009749b7bc31595be26124b9d1eee7666e95bd4
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 1f3239ea1da252ccd84c6572b562756c8fd1677d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551668"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639571"
 ---
 # <a name="reliable-services-notifications"></a>Notificaciones de Reliable Services
 Las notificaciones permiten que los clientes sigan los cambios que se están realizando en un objeto que les interesa. Dos tipos de objetos admiten notificaciones: *Reliable State Manager* y *Reliable Dictionary*.
@@ -35,9 +26,9 @@ Las notificaciones se desencadenan como parte de la aplicación de operaciones. 
 Reliable State Manager proporciona notificaciones para los siguientes eventos:
 
 * Transacción
-  * Confirmación
+  * Commit
 * Administrador de estado
-  * Recompilación
+  * Volver a generar
   * Adición de un estado Reliable State
   * Eliminación de un estado Reliable State
 
@@ -112,7 +103,7 @@ Reliable Dictionary proporciona notificaciones para los siguientes eventos:
 * Recompilación: se llama cuando **ReliableDictionary** ha recuperado su estado de una copia de seguridad o un estado local copiado o recuperado.
 * Clear: se llama cuando se ha borrado el estado de **ReliableDictionary** mediante el método **ClearAsync**.
 * Agregue: se llama cuando se ha agregado un elemento a **ReliableDictionary**.
-* Update: se llama cuando se ha actualizado un elemento de **IReliableDictionary**.
+* Actualización: se llama cuando se ha actualizado un elemento de **IReliableDictionary**.
 * Remove: se llama cuando se ha eliminado un elemento de **IReliableDictionary**.
 
 Para obtener notificaciones de Reliable Dictionary, se debe registrar con el controlador de eventos **DictionaryChanged** en **IReliableDictionary**. Un lugar habitual donde registrarse con estos controladores de eventos es en la notificación de adición de **ReliableStateManager.StateManagerChanged** .

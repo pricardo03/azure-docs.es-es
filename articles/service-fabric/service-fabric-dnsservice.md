@@ -1,25 +1,14 @@
 ---
-title: Servicio DNS de Azure Service Fabric | Microsoft Docs
+title: Servicio DNS en Azure Service Fabric
 description: Use el servicio DNS de Service Fabric para detectar microservicios desde dentro del clúster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
-ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 7/20/2018
-ms.author: atsenthi
-ms.openlocfilehash: 707fc9f073e37d60c6c6fca8e9a8392b2550da9f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 317aa81238ec7a0dc24b69b1d00568901b9bc34f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229303"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458033"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Servicio DNS en Azure Service Fabric
 El servicio DNS es un servicio de sistema opcional que se puede habilitar en el clúster para detectar otros servicios que usan el protocolo DNS. 
@@ -28,7 +17,7 @@ Muchos servicios, especialmente los servicios de contenedor, son direccionables 
 
 El servicio DNS asigna nombres DNS a nombres de servicio que el protocolo Servicio de nombres resuelve para devolver el punto de conexión del servicio. El nombre DNS para el servicio se proporciona en el momento de la creación. En el diagrama siguiente se muestra cómo funciona el servicio DNS para servicios sin estado.
 
-![puntos de conexión de servicio](./media/service-fabric-dnsservice/stateless-dns.png)
+![puntos de conexión del servicio](./media/service-fabric-dnsservice/stateless-dns.png)
 
 A partir de la versión 6.3 de Service Fabric, el protocolo de DNS de Service Fabric se ha ampliado para incluir un esquema de direccionamiento de servicios con estado particionados. Estas extensiones permiten resolver direcciones IP de partición específicas mediante una combinación de nombre DNS del servicio con estado y el nombre de partición. Se admiten los tres esquemas de partición:
 
@@ -138,7 +127,7 @@ Abra el proyecto en Visual Studio o en su editor favorito y luego abra el archiv
 ```
 Una vez implementada la aplicación, la instancia de servicio de Service Fabric Explorer muestra el nombre DNS de esta instancia, como se muestra en la siguiente imagen: 
 
-![puntos de conexión de servicio](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
+![puntos de conexión del servicio](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
 En el ejemplo siguiente se establece el nombre DNS para un servicio con estado en `statefulsvc.app`. El servicio utiliza un esquema de partición con nombre. Tenga en cuenta que los nombres de particiones están en minúscula. Se trata de un requisito para las particiones de destino en las consultas de DNS; para más información, vea [Realización de consultas de DNS en una partición de servicio con estado](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
 

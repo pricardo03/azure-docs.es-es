@@ -14,18 +14,18 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 196b00f1268eada20d0e35473dc6eb43c9e48df6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 68b91566a3737cf44abe0c446b71d6845ecc299d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111128"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452334"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Creación de recursos de Service Bus con las plantillas de Azure Resource Manager
 
 Este artículo describe cómo crear e implementar recursos de Service Bus y Event Hubs con plantillas de Azure Resource Manager, PowerShell y el proveedor de recursos de Service Bus.
 
-Las plantillas de Azure Resource Manager ayudan a definir los recursos que se implementarán en una solución, y a especificar parámetros y variables que permitan introducir valores de entrada para distintos entornos. La plantilla está escrita en JSON y consta de expresiones que puede usar para generar valores para su implementación. Para obtener información detallada sobre cómo escribir plantillas de Azure Resource Manager y una explicación del formato de plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Las plantillas de Azure Resource Manager ayudan a definir los recursos que se implementarán en una solución, y a especificar parámetros y variables que permitan introducir valores de entrada para distintos entornos. La plantilla está escrita en JSON y consta de expresiones que puede usar para generar valores para su implementación. Para obtener información detallada sobre cómo escribir plantillas de Azure Resource Manager y una explicación del formato de plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 > [!NOTE]
 > Los ejemplos de este artículo muestran cómo utilizar Azure Resource Manager para crear una entidad de mensajería (cola) y un espacio de nombres de Service Bus. Para obtener otros ejemplos de plantillas, visite la [Galería de plantillas de inicio rápido de Azure][Azure Quickstart Templates gallery] y busque **Service Bus**.
@@ -40,7 +40,7 @@ Estas plantillas de Service Bus y Azure Resource Manager están disponibles para
 * [Creación de un espacio de nombres de Service Bus con cola](service-bus-resource-manager-namespace-queue.md)
 * [Creación de un espacio de nombres de Service Bus con un tema y una suscripción](service-bus-resource-manager-namespace-topic.md)
 * [Creación de un espacio de nombres de Service Bus con regla de autorización y cola](service-bus-resource-manager-namespace-auth-rule.md)
-* [Creación de un espacio de nombres de Service Bus con un tema, una suscripción y una regla](service-bus-resource-manager-namespace-topic-with-rule.md)
+* [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md) (Creación de un espacio de nombres de Service Bus con tema, suscripción y regla)
 
 ## <a name="deploy-with-powershell"></a>Implementación con PowerShell
 
@@ -157,7 +157,7 @@ Para utilizar un archivo de parámetros opcional, copie el archivo [201-serviceb
 }
 ```
 
-Para obtener más información, consulte el artículo [Parámetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
+Para obtener más información, consulte el artículo [Parámetros](../azure-resource-manager/templates/parameter-files.md).
 
 ### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>Inicio de sesión en Azure y establecimiento de la suscripción de Azure
 
@@ -181,7 +181,7 @@ Set-AzContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>Configuración del grupo de recursos
 
-Si no tiene un grupo de recursos existente, cree uno nuevo con el comando **New-AzResourceGroup**. Proporcione el nombre del grupo de recursos y la ubicación que desee utilizar. Por ejemplo:
+Si no tiene un grupo de recursos existente, cree uno con el comando **New-AzResourceGroup**. Proporcione el nombre del grupo de recursos y la ubicación que desee utilizar. Por ejemplo:
 
 ```powershell
 New-AzResourceGroup -Name MyDemoRG -Location "West US"
@@ -257,9 +257,9 @@ Ahora ha visto los comandos y el flujo de trabajo básico para la implementació
 
 * [Información general sobre Azure Resource Manager][Azure Resource Manager overview]
 * [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell][Deploy resources with Azure Resource Manager templates]
-* [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/templates/template-syntax.md)
 * [Tipos de recursos de Microsoft.ServiceBus](/azure/templates/microsoft.servicebus/allversions)
 
-[Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
+[Azure Resource Manager overview]: ../azure-resource-manager/management/overview.md
 [Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/resource-group-template-deploy.md
 [Azure Quickstart Templates gallery]: https://azure.microsoft.com/documentation/templates/?term=service+bus

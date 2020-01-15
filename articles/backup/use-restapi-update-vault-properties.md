@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a actualizar la configuración del al
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: cbd958dd71d2d62f7b4c7e8d66ab7e56dc679a51
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 3739f95e3962def9ab669970c48b2d1c546fdc0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74998726"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390535"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Actualización de la configuración del almacén de Azure Recovery Services mediante la API REST
 
@@ -43,9 +43,9 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 A continuación se muestra la respuesta correcta para la operación "GET":
 
-|NOMBRE  |Tipo  |DESCRIPCIÓN  |
+|Nombre  |Tipo  |Descripción  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | Aceptar        |
 
 ##### <a name="example-response"></a>Respuesta de ejemplo
 
@@ -83,16 +83,16 @@ Para crear el cuerpo de la solicitud, se usan las siguientes definiciones comune
 
 Para obtener más información, consulte la [documentación sobre la API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body).
 
-|NOMBRE  |Obligatorio  |Tipo  |DESCRIPCIÓN  |
+|Nombre  |Obligatorio  |Tipo  |Descripción  |
 |---------|---------|---------|---------|
-|eTag     |         |   Cadena      |  eTag opcional       |
-|location     |  true       |Cadena         |   Ubicación del recurso      |
+|eTag     |         |   String      |  eTag opcional       |
+|ubicación     |  true       |String         |   Ubicación de los recursos      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propiedades del almacén       |
 |etiquetas     |         | Object        |     Etiquetas del recurso    |
 
 #### <a name="example-request-body"></a>Cuerpo de solicitud de ejemplo
 
-El ejemplo siguiente se usa para actualizar el estado de eliminación temporal "Disabled".
+El ejemplo siguiente se usa para actualizar el estado de eliminación temporal al estado deshabilitado.
 
 ```json
 {
@@ -107,9 +107,9 @@ El ejemplo siguiente se usa para actualizar el estado de eliminación temporal "
 
 A continuación se muestra la respuesta correcta para la operación "PATCH":
 
-|NOMBRE  |Tipo  |DESCRIPCIÓN  |
+|Nombre  |Tipo  |Descripción  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | Aceptar        |
 
 ##### <a name="example-response"></a>Respuesta de ejemplo
 
