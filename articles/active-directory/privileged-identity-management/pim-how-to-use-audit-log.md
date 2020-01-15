@@ -10,20 +10,31 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/13/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c4a157d8d5bcd281ca9fee488e58c455034e898
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a275b08beac842c7d435d77d6b4c1338e817fbc7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74022063"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430106"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Visualización del historial de auditoría de los roles de Azure AD en PIM
 
 Puede utilizar el historial de auditoría de Privileged Identity Management (PIM) para ver todas las asignaciones de roles y las activaciones de los últimos 30 días para todos los roles con privilegios. Si quiere ver el historial de auditoría completo de la actividad de la organización de Azure Active Directory (Azure AD), incluidos el administrador, el usuario final y la actividad de sincronización, puede usar los [informes de actividad y seguridad de Azure Active Directory](../reports-monitoring/overview-reports.md).
+
+## <a name="determine-your-version-of-pim"></a>Determinar la versión de PIM
+
+Desde noviembre de 2019, la parte de roles de Azure AD de Privileged Identity Management se está actualizando a una nueva versión que coincide con las experiencias de los roles de recursos de Azure. Esta actualización introduce características adicionales y [cambios en la API existente](azure-ad-roles-features.md#api-changes). Mientras se implementa la nueva versión, los procedimientos que seguirá en este artículo dependerán de la versión de Privileged Identity Management que tenga actualmente. Siga los pasos de esta sección para determinar la versión de Privileged Identity Management que tiene. Cuando averigüe la versión de Privileged Identity Management, puede seleccionar los procedimientos de este artículo que coincidan con esa versión.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que tenga el rol [Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
+1. Abra **Azure AD Privileged Identity Management**. Si tiene un banner en la parte superior de la página de introducción, siga las instrucciones de la pestaña **Nueva versión** de este artículo. De lo contrario, siga las instrucciones de la pestaña **Versión anterior**.
+
+    ![Nueva versión de roles de Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+
+# <a name="previous-versiontabprevious"></a>[Versión anterior](#tab/previous)
 
 ## <a name="view-audit-history"></a>Visualización del historial de auditoría
 
@@ -33,9 +44,9 @@ Siga estos pasos para ver el historial de auditoría de los roles de Azure AD.
 
 1. Abra **Azure AD Privileged Identity Management**.
 
-1. Haga clic en **Roles de Azure AD**.
+1. Seleccione **Roles de Azure AD**.
 
-1. Haga clic en **Historial de auditoría de roles de directorio**.
+1. Seleccione **Historial de auditoría de roles de directorio**.
 
     Según el historial de auditoría, se muestra un gráfico de columnas junto con el total de activaciones, el número máximo de activaciones por día y el promedio de activaciones por día.
 
@@ -43,11 +54,11 @@ Siga estos pasos para ver el historial de auditoría de los roles de Azure AD.
 
     En la parte inferior de la página se muestra una tabla con información sobre cada acción del historial de auditoría disponible. Las columnas significan lo siguiente:
 
-    | Columna | DESCRIPCIÓN |
+    | Columna | Descripción |
     | --- | --- |
-    | Hora | momento en que se produjo la acción. |
+    | Time | momento en que se produjo la acción. |
     | Solicitante | usuario que solicitó la activación o el cambio del rol. Si el valor es **Sistema de Azure**, compruebe el historial de auditoría de Azure para más información. |
-    | . | acciones realizadas por el solicitante. Las acciones pueden incluir Assign, Unassign, Activate, Deactivate o AddedOutsidePIM. |
+    | Acción | acciones realizadas por el solicitante. Las acciones pueden incluir Assign, Unassign, Activate, Deactivate o AddedOutsidePIM. |
     | Member | usuario que activa el rol o que está asignado al rol. |
     | Role | rol asignado al usuario o activado por el usuario. |
     | Razonamiento | Texto que escribió en el campo de motivo durante la activación. |
@@ -67,7 +78,43 @@ Siga estos pasos para ver el historial de auditoría de los roles de Azure AD.
 
     ![Panel Actualizar parámetros de gráfico](media/pim-how-to-use-audit-log/update-chart-parameters.png)
 
-1. Haga clic en **Listo** para ver el historial de auditoría filtrado.
+1. Seleccione **Listo** para ver el historial de auditoría filtrado.
+
+# <a name="new-versiontabnew"></a>[Nueva versión](#tab/new)
+
+Siga estos pasos para ver el historial de auditoría de los roles de Azure AD.
+
+## <a name="view-resource-audit-history"></a>Visualización del historial de auditoría de recursos
+
+La auditoría de recursos proporciona una vista de toda la actividad asociada a los roles de Azure AD.
+
+1. Abra **Azure AD Privileged Identity Management**.
+
+1. Seleccione **Roles de Azure AD**.
+
+1. Seleccione **Auditoría de recursos**.
+
+1. Filtre el historial con una fecha predefinida o un intervalo personalizado.
+
+    ![Lista de auditoría de recursos con filtros](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+
+## <a name="view-my-audit"></a>Visualización de mi auditoría
+
+Mi auditoría permite ver la actividad del rol personal.
+
+1. Abra **Azure AD Privileged Identity Management**.
+
+1. Seleccione **Roles de Azure AD**.
+
+1. Seleccione el recurso del que desea ver el historial de auditoría.
+
+1. Seleccione **Mi auditoría**.
+
+1. Filtre el historial con una fecha predefinida o un intervalo personalizado.
+
+    ![Lista de auditoría para el usuario actual](media/azure-pim-resource-rbac/my-audit-time.png)
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

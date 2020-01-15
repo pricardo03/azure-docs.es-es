@@ -2,18 +2,18 @@
 title: 'Almacenamiento: Migración de Apache Hadoop local a Azure HDInsight'
 description: Obtenga información acerca de las prácticas recomendadas de almacenamiento para migrar clústeres locales de Apache Hadoop a Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: b22c3c7e7dbbf7a93fff10ded1fbb7bef8fc5900
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/10/2019
+ms.openlocfilehash: 6fe7dfaccc3cf1c3fbe4a9ea42578c56f910ea36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494961"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435766"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migración de clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -23,7 +23,7 @@ En este artículo se proporcionan recomendaciones para el almacenamiento de dato
 
 Puede volver a crear la estructura del directorio local del sistema de archivos de Apache Hadoop (HDFS) en Azure Storage o en Azure Data Lake Storage. A continuación, podrá eliminar de forma segura los clústeres de HDInsight que se usan para el cálculo sin perder datos del usuario. Ambos servicios se pueden usar como sistema de archivos predeterminado y sistema de archivos adicional para un clúster de HDInsight. El clúster de HDInsight y la cuenta de almacenamiento deben ubicarse en la misma región.
 
-### <a name="azure-storage"></a>Almacenamiento de Azure
+### <a name="azure-storage"></a>Azure Storage
 
 Los clústeres de HDInsight pueden usar el contenedor de blobs de Azure Storage como sistema de archivos predeterminado o sistema de archivos adicional. La cuenta de almacenamiento de nivel estándar se puede usar con los clústeres de HDInsight. Sin embargo, no se admite el nivel Premier. El contenedor de blobs predeterminado almacena información específica del clúster, como registros y el historial de trabajos. No se permite compartir un contenedor de blobs como el sistema de archivos predeterminado entre varios clústeres.
 
@@ -33,18 +33,17 @@ El almacenamiento de Azure Storage se puede replicar geográficamente. Aunque la
 
 Uno de los formatos siguientes puede utilizarse para acceder a los datos almacenados en Azure Storage:
 
-|Formato de acceso a datos |DESCRIPCIÓN |
+|Formato de acceso a datos |Descripción |
 |---|---|
-|`wasb:///`|Permite acceder al almacenamiento predeterminado mediante una comunicación sin cifrar.|
-|`wasbs:///`|Permite acceder al almacenamiento predeterminado mediante una comunicación cifrada.|
-|`wasb://<container-name>@<account-name>.blob.core.windows.net/`|Se usa al comunicarse con una cuenta de almacenamiento no predeterminada. |
+|`wasb:///`|acceso al almacenamiento predeterminado mediante comunicación sin cifrar.|
+|`wasbs:///`|acceso al almacenamiento predeterminado mediante comunicación cifrada.|
+|`wasb://<container-name>@<account-name>.blob.core.windows.net/`|se usa al comunicarse con una cuenta de almacenamiento no predeterminada. |
 
-
-[Objetivos de escalabilidad y rendimiento de Azure Storage](../../storage/common/storage-scalability-targets.md) proporciona información sobre los límites actuales de las cuentas de Azure Storage. Si las necesidades de la aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, la aplicación puede compilarse de forma que use varias cuentas de almacenamiento y, después, se dividan los datos entre dichas cuentas de almacenamiento.
+En [Objetivos de escalabilidad para cuentas de almacenamiento estándar](../../storage/common/scalability-targets-standard-account.md) se indican los límites actuales de las cuentas de Azure Storage. Si las necesidades de la aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, la aplicación puede compilarse de forma que use varias cuentas de almacenamiento y, después, se dividan los datos entre dichas cuentas de almacenamiento.
 
 [Azure Storage Analytics](../../storage/storage-analytics.md) proporciona métricas para todos los servicios de almacenamiento y Azure Portal puede configurarse para recopilar métricas que se pueden visualizar a través de gráficos. Puede crear alertas para recibir notificaciones cuando se alcancen los umbrales de las métricas de los recursos de almacenamiento.
 
-Azure Storage ofrece la posibilidad de [eliminar temporalmente objetos de blob](../../storage/blobs/storage-blob-soft-delete.md), para ayudarle a recuperar datos cuando una aplicación u otro usuario de la cuenta de almacenamiento los hayan modificado o eliminado por error.
+Azure Storage ofrece la posibilidad de [eliminar temporalmente objetos de blob](../../storage/blobs/storage-blob-soft-delete.md) para ayudar a recuperar datos que una aplicación u otro usuario de la cuenta de almacenamiento han modificado o eliminado por error.
 
 También puede crear [instantáneas de blob](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob). Una instantánea es una versión de solo lectura de un blob que se ha realizado en un momento dado y proporciona una manera de realizar una copia de seguridad de dicho blob. Una vez se crea la instantánea, puede leerla, copiarla o eliminarla, pero no modificarla.
 
@@ -74,7 +73,8 @@ keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 Para más información, consulte los siguientes artículos.
 
 - [Uso de Azure Storage con clústeres de Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md)
-- [Objetivos de escalabilidad y rendimiento de Azure Storage](../../storage/common/storage-scalability-targets.md)
+- [Objetivos de escalabilidad para cuentas de almacenamiento estándar](../../storage/common/scalability-targets-standard-account.md)
+- [Objetivos de escalabilidad y rendimiento de Blob Storage](../../storage/blobs/scalability-targets.md)
 - [Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage](../../storage/common/storage-performance-checklist.md)
 - [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [Supervisión de una cuenta de almacenamiento en Azure Portal](../../storage/common/storage-monitor-storage-account.md)
@@ -120,7 +120,7 @@ Para más información, consulte los siguientes artículos.
 
 ## <a name="secure-azure-storage-keys-within-on-premises-hadoop-cluster-configuration"></a>Claves seguras de Azure Storage dentro de la configuración del clúster local de Hadoop
 
-Las claves de almacenamiento de Azure que se agregan a los archivos de configuración de Hadoop, establecen conectividad entre la instancia local de HDFS y Azure Blob Storage. Estas claves se pueden proteger mediante su cifrado con el marco de proveedores de credenciales de Hadoop. Una vez cifradas, pueden almacenarse y se puede acceder a ellas de forma segura.
+Las claves de Azure Storage agregadas a los archivos de configuración de Hadoop establecen la conectividad entre la instancia local de HDFS y Azure Blob Storage. Estas claves se pueden proteger mediante su cifrado con el marco de proveedores de credenciales de Hadoop. Una vez cifradas, pueden almacenarse y se puede acceder a ellas de forma segura.
 
 **Para aprovisionar las credenciales:**
 
@@ -147,7 +147,7 @@ hadoop credential create fs.azure.account.key.account.blob.core.windows.net -val
 hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode.xx.internal.cloudapp.net/path/to/jceks /user/user1/ wasb:<//yourcontainer@youraccount.blob.core.windows.net/>user1
 ```
 
-## <a name="restrict-azure-storage-data-access-using-sas"></a>Restricción del acceso de Azure Storage mediante SAS
+## <a name="restrict-azure-storage-data-access-using-sas"></a>Restricción del acceso a datos de Azure Storage mediante SAS
 
 Por defecto, HDInsight tiene acceso total a los datos de las cuentas de Azure Storage asociadas con el clúster. Las firmas de acceso compartido (SAS) en el contenedor de blobs pueden usarse para restringir el acceso a los datos, como por ejemplo, para proporcionar a los usuarios acceso de solo lectura a los datos.
 
@@ -155,7 +155,7 @@ Por defecto, HDInsight tiene acceso total a los datos de las cuentas de Azure St
 
 1. Abra el archivo [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) y cambie los valores siguientes:
 
-    |Propiedad del token|DESCRIPCIÓN|
+    |Propiedad del token|Descripción|
     |---|---|
     |policy_name|El nombre que se usará para la directiva almacenada que se va a crear.|
     |storage_account_name|El nombre de la cuenta de almacenamiento.|
@@ -185,9 +185,9 @@ Hay tres cosas importantes que se deben tener en cuenta sobre el uso de tokens d
 
 1. Cuando se crean tokens de SAS con permisos "READ + LIST", los usuarios que accedan al contenedor de blobs con ese token SAS no podrán escribir ni eliminar datos. Los usuarios que accedan al contenedor de blobs con ese token SAS e intenten realizar una operación de escritura o eliminación, verán un mensaje similar al siguiente `"This request is not authorized to perform this operation"`.
 
-2. Cuando los tokens de SAS se generan con permisos `READ + LIST + WRITE` (para restringir solo `DELETE`), comandos como `hadoop fs -put` escriben primero en un archivo `\_COPYING\_` y, después, intentan cambiar el nombre del archivo. Esta operación HDFS se asigna a `copy+delete` para WASB. Puesto que el permiso `DELETE` no se ha proporcionado, "put" genera un error. La operación `\_COPYING\_` es una característica de Hadoop diseñada para proporcionar cierto control de simultaneidad. Actualmente no hay ninguna manera de restringir simplemente la operación "DELETE" sin afectar a las operaciones de "WRITE".
+2. Cuando los tokens de SAS se generan con permisos `READ + LIST + WRITE` (para restringir solo `DELETE`), comandos como `hadoop fs -put` escriben primero en un archivo `\_COPYING\_` y, después, intentan cambiar el nombre del archivo. Esta operación HDFS se asigna a `copy+delete` para WASB. Puesto que el permiso `DELETE` no se ha proporcionado, "put" genera un error. La operación `\_COPYING\_` es una característica de Hadoop diseñada para proporcionar cierto control de simultaneidad. Actualmente no hay ninguna manera de restringir solo la operación "DELETE" sin que ello afecte a las operaciones "WRITE".
 
-3. Lamentablemente, el proveedor de credenciales de Hadoop y el proveedor de claves de descifrado (ShellDecryptionKeyProvider) no funcionan actualmente con los tokens de SAS y, por lo tanto, no pueden protegerse actualmente de la visibilidad.
+3. Lamentablemente, el proveedor de credenciales de Hadoop y el proveedor de claves de descifrado (ShellDecryptionKeyProvider) no funcionan actualmente con los tokens de SAS y, por lo tanto, no pueden resguardarse actualmente de la visibilidad.
 
 Para más información, consulte [Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos en HDInsight](../hdinsight-storage-sharedaccesssignature-permissions.md).
 
@@ -200,16 +200,16 @@ Todos los datos escritos en Azure Storage se cifran automáticamente con [Stora
 - [Almacenamiento con redundancia geográfica (GRS)](../../storage/common/storage-redundancy-grs.md)
 - [Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS).](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
-Azure Data Lake Storage proporciona almacenamiento con redundancia local (LRS), pero también debe copiar los datos críticos a otra cuenta de Data Lake Storage en otra región con una frecuencia orientada a las necesidades del plan de recuperación ante desastres. Hay una variedad de métodos para copiar datos entre los que se incluyen [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), DistCp, [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), o [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). También se recomienda aplicar directivas de acceso a la cuenta de Data Lake Storage para impedir la eliminación accidental.
+Azure Data Lake Storage proporciona almacenamiento con redundancia local (LRS), pero también debe copiar los datos críticos a otra cuenta de Data Lake Storage en otra región con una frecuencia orientada a las necesidades del plan de recuperación ante desastres. Existen varios métodos para copiar datos, entre los que se incluyen [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html),[Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md) o  [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). También se recomienda aplicar directivas de acceso a la cuenta de Data Lake Storage para evitar la eliminación accidental.
 
 Para más información, consulte los siguientes artículos.
 
-- [replicación de Azure Storage](../../storage/common/storage-redundancy.md)
+- [Replicación de Azure Storage](../../storage/common/storage-redundancy.md)
 - [Guía de recuperación ante desastres para datos de Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
 
-## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>Adjuntar cuentas adicionales de almacenamiento de Azure al clúster
+## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>Adjuntar cuentas de Azure Storage adicionales al clúster
 
-Durante el proceso de creación de HDInsight, se elige una cuenta de Azure Storage o de Azure Data Lake Storage como el sistema de archivos predeterminado. Además de esta cuenta de almacenamiento predeterminada, puede agregar otras desde la misma suscripción de Azure o desde otras diferentes tanto durante el proceso de creación del clúster como después de que el clúster se haya creado.
+Durante el proceso de creación de HDInsight, se elige una cuenta de Azure Storage o Azure Data Lake Storage como sistema de archivos predeterminado. Además de esta cuenta de almacenamiento predeterminada, puede agregar otras desde la misma suscripción de Azure o desde otras diferentes tanto durante el proceso de creación del clúster como después de que el clúster se haya creado.
 
 Puede agregarse una cuenta de almacenamiento adicional de una de las maneras siguientes:
 - En la configuración avanzada de Ambari HDFS, vaya al sitio principal personalizado para agregar el nombre y la clave de la cuenta de almacenamiento, y reinicie los servicios
@@ -218,11 +218,8 @@ Puede agregarse una cuenta de almacenamiento adicional de una de las maneras sig
 > [!Note]
 > En casos de uso válidos, se pueden aumentar los límites de Azure Storage a través de una solicitud realizada al  [Soporte técnico de Azure](https://azure.microsoft.com/support/faq/).
 
-Para más información, consulte los siguientes artículos.
-- [Adición de más cuentas de almacenamiento a HDInsight](../hdinsight-hadoop-add-storage.md)
+Para más información, consulte [Adición de más cuentas de almacenamiento a HDInsight](../hdinsight-hadoop-add-storage.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Lea el siguiente artículo de esta serie:
-
-- [Data migration best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-data-migration.md) (Procedimientos recomendados para migrar datos locales a Azure HDInsight Hadoop)
+Lea el siguiente artículo de esta serie: [Data migration best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-data-migration.md) (Procedimientos recomendados para migrar datos del almacenamiento local a Azure HDInsight Hadoop)

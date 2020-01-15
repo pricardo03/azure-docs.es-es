@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 611c2a36cac5a589ecd6f9063f5f1bc325860ef6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 699aab617e56ab87eb0bd6d6c4ceabf9aac4c4fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682664"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438887"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
 > [!NOTE]
@@ -86,7 +86,7 @@ La solución de ejemplo es sencilla a propósito. Se ha diseñado para mostrar c
 
 **Tiempo**: si está familiarizado con los aspectos básicos de Azure, Data Factory y Batch, y cumple los requisitos previos que se indican a continuación, esta solución tardará entre una y dos horas en completarse.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 #### <a name="azure-subscription"></a>Suscripción de Azure
 Si no tiene una suscripción a Azure, puede crear una cuenta de evaluación gratuita rápidamente. Para más información, vea cómo [obtener una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -180,7 +180,7 @@ El método tiene algunos componentes clave que debe conocer:
 
    a. Inicie Visual Studio 2012/2013/2015.
 
-   b. Seleccione **Archivo** > **Nuevo** > **Proyecto**.
+   b. Seleccione **File (Archivo)**  > **New (Nuevo)**  > **Project (Proyecto)** .
 
    c. Expanda **Plantillas** y seleccione **Visual C\#** . En este tutorial se usa C\#, pero puede usar cualquier lenguaje .NET para desarrollar la actividad personalizada.
 
@@ -190,7 +190,7 @@ El método tiene algunos componentes clave que debe conocer:
 
    f. Seleccione **C:\\ADF** para **Ubicación**. Cree la carpeta **ADF** si no existe.
 
-   g. Haga clic en **Aceptar** para crear el proyecto.
+   g. Seleccione **Aceptar** para crear el proyecto.
 
 1. Seleccione **Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**.
 
@@ -556,7 +556,7 @@ Los servicios vinculados vinculan almacenes de datos o servicios de proceso con 
 
    ![Nuevo almacén de datos](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. Reemplace **account name** por el nombre de su cuenta de almacenamiento. Reemplace **account key** por la clave de acceso de la cuenta de almacenamiento. Para aprender a obtener una clave de acceso de almacenamiento, consulte la información sobre cómo [ver, copiar y regenerar claves de acceso de almacenamiento](../../storage/common/storage-account-manage.md#access-keys).
+1. Reemplace **account name** por el nombre de su cuenta de almacenamiento. Reemplace **account key** por la clave de acceso de la cuenta de almacenamiento. Para aprender a obtener la clave de acceso de almacenamiento, consulte [Administración de claves de acceso de la cuenta de almacenamiento](../../storage/common/storage-account-keys-manage.md).
 
 1. Seleccione **Implementar** en la barra de comandos para implementar el servicio vinculado.
 

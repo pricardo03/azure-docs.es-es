@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: robinsh
-ms.openlocfilehash: a18f52f0d0979477ff8d6de6745694676f4b4d0e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: dfea53e62383409411925f2fe2f18d61a6855ec1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883165"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429382"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>SDK de dispositivo IoT de Azure para C: más información sobre el serializador
 
@@ -64,16 +64,16 @@ Lo que no se demuestra en este ejemplo son tipos de datos adicionales que se adm
 
 Se admiten los siguientes tipos de datos en modelos creados con la biblioteca de **serializador** :
 
-| type | DESCRIPCIÓN |
+| Tipo | Descripción |
 | --- | --- |
 | double |número de punto flotante de doble precisión |
-| int |entero de 32 bits |
-| float |número de punto flotante de precisión simple |
+| int |Entero de 32 bits |
+| FLOAT |número de punto flotante de precisión simple |
 | long |entero largo |
-| int8\_t |entero de 8 bits |
-| int16\_t |entero de 16 bits |
-| int32\_t |entero de 32 bits |
-| int64\_t |entero de 64 bits |
+| int8\_t |Entero de 8 bits |
+| int16\_t |Entero de 16 bits |
+| int32\_t |Entero de 32 bits |
+| int64\_t |Entero de 64 bits |
 | bool |boolean |
 | ascii\_char\_ptr |Cadena ASCII |
 | EDM\_DATE\_TIME\_OFFSET |desplazamiento de fecha y hora |
@@ -278,7 +278,7 @@ Al ejecutar el código anterior para enviar el evento de temperatura, esta forma
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-Vamos a enviar una temperatura que es de tipo **TemperatureEvent** y esa estructura contiene un miembro **Temperature** y **Time**. Esto se refleja directamente en los datos serializados.
+Vamos a enviar una temperatura que es de tipo **TemperatureEvent** y esa estructura contiene los miembros **Temperature** y **Time**. Esto se refleja directamente en los datos serializados.
 
 Del mismo modo, podemos enviar un evento de humedad con este código:
 
@@ -315,7 +315,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-En este caso hemos eliminado las macros **DECLARE\_STRUCT** y simplemente va a definir los elementos de datos de nuestro escenario con tipos simples del lenguaje de modelado.
+En este caso hemos eliminado las macros **DECLARE\_STRUCT** y simplemente definimos los elementos de datos de nuestro escenario con tipos simples del lenguaje de modelado.
 
 Solo por el momento, omitiremos el evento **Time**. Dejando este a un lado, este es el código para especificar **Temperature**:
 
@@ -408,7 +408,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-Considere este modelo en términos de orientación a objetos. En este caso, estamos modelando un dispositivo físico (un termostato) y ese dispositivo incluye atributos como **Temperature** y **Humidity**.
+Considere este modelo en términos de orientación a objetos. En este caso, estamos modelando un dispositivo físico (un termostato), que incluye atributos como **Temperature** y **Humidity**.
 
 Podemos enviar todo el estado de nuestro modelo con código como el siguiente:
 
@@ -435,7 +435,7 @@ Se genera exactamente el mismo evento serializado que si hubiéramos definido **
 
 Lo importante aquí es que si se pasan varios eventos de datos a **SERIALIZE,** , se supone que cada evento es una propiedad en un único objeto JSON.
 
-El mejor enfoque dependerá de usted y de su forma de pensar sobre el modelo. Si envía "eventos" a la nube y cada evento contiene un conjunto definido de propiedades, entonces el primer enfoque cobra mucho sentido. En ese caso, usaría **DECLARE\_STRUCT** para definir la estructura de cada evento y luego incluirlos en el modelo con la macro **WITH\_DATA**. A continuación, enviaría cada evento como hicimos en el primer ejemplo anterior. En este enfoque, solo pasaría un evento de datos a **SERIALIZADOR**.
+El mejor enfoque dependerá de usted y de su forma de pensar sobre el modelo. Si envía "eventos" a la nube y cada evento contiene un conjunto definido de propiedades, entonces el primer enfoque cobra mucho sentido. En ese caso, usaría **DECLARE\_STRUCT** para definir la estructura de cada evento y luego incluirlos en el modelo con la macro **WITH\_DATA**. A continuación, enviaría cada evento como hicimos en el primer ejemplo anterior. En este enfoque, solo pasaría un único evento de datos a **SERIALIZER**.
 
 Si piensa en su modelo como orientado a objetos, entonces el segundo enfoque puede ser adecuado para usted. En este caso, los elementos definidos mediante **WITH\_DATA** son las "propiedades" del objeto. Pasaría cualquier subconjunto de eventos de su elección a **SERIALIZE** , según la cantidad de estado del "objeto" que quiera enviar a la nube.
 
@@ -537,7 +537,7 @@ En esta sección se describe todo lo que necesita saber al enviar eventos y reci
 
 Si está usando la biblioteca de **serializador**, una parte importante del SDK que se debe tener en cuenta se encuentra en la biblioteca azure-c-shared-utility.
 
-Si ha clonado el repositorio Azure-iot-sdk-c desde GitHub con la opción --recursive, encontrará esta biblioteca de utilidad compartida aquí:
+Si ha clonado el repositorio Azure-iot-sdk-c desde GitHub y emitido el comando `git submodule update --init`, encontrará esta biblioteca de utilidad compartida aquí:
 
 ```C
 .\\c-utility

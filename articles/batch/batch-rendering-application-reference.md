@@ -1,18 +1,18 @@
 ---
 title: 'Uso de aplicaciones de representación: Azure Batch'
-description: Uso de aplicaciones de representación con Azure Batch
+description: Uso de aplicaciones de representación con Azure Batch En este artículo se proporciona una breve descripción de cómo ejecutar cada aplicación de representación.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4c93abdfb5c523d48ce115ed7d3251a346937f5f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc0ce23c90a4ba6575ba26b37d97f94ba8fa1f63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775396"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390478"
 ---
 # <a name="rendering-applications"></a>Aplicaciones de representación
 

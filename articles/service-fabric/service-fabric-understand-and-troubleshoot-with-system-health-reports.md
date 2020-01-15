@@ -1,25 +1,16 @@
 ---
-title: Solución de problemas con los informes de mantenimiento del sistema | Microsoft Docs
+title: Solución de problemas con informes de estado del sistema
 description: Describe los informes de mantenimiento enviados que envían componentes de Azure Service Fabric y su uso para solucionar problemas de los clústeres o las aplicaciones.
-services: service-fabric
-documentationcenter: .net
 author: oanapl
-manager: chackdan
-editor: ''
-ms.assetid: 52574ea7-eb37-47e0-a20a-101539177625
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: b190db401b8ae31582ea31cf59d30f20baccf8c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060369"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370382"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilización de informes de mantenimiento del sistema para solucionar problemas
 Los componentes de Azure Service Fabric proporcionan informes de mantenimiento del sistema inmediatos sobre todas las entidades del clúster. El [almacén de estado](service-fabric-health-introduction.md#health-store) crea y elimina entidades basándose en los informes del sistema. También las organiza en una jerarquía que captura las interacciones de la entidad.
@@ -36,7 +27,7 @@ Los informes de mantenimiento del sistema proporcionan visibilidad sobre la func
 > 
 > 
 
-Los informes de los componentes del sistema se identifican mediante el origen, que comienza por el prefijo "**System.** " . Los guardianes no pueden utilizar el mismo prefijo para sus orígenes, ya que los informes con parámetros no válidos se rechazan.
+Los informes de los componentes del sistema se identifican mediante el origen, que comienza por el prefijo "**System.** " Prefix. Los guardianes no pueden utilizar el mismo prefijo para sus orígenes, ya que los informes con parámetros no válidos se rechazan.
 
 Veamos algunos informes del sistema para entender qué los desencadena y cómo corregir los posibles problemas que representan.
 
@@ -57,7 +48,7 @@ El informe especifica el tiempo de expiración de concesión global como períod
 * **Propiedad**: comienza por **Neighborhood** e incluye información sobre el nodo.
 * **Pasos siguientes**: investigue por qué ha habido una pérdida del entorno. Por ejemplo, compruebe la comunicación entre los nodos de clúster.
 
-### <a name="rebuild"></a>Recompilación
+### <a name="rebuild"></a>Volver a generar
 
 El servicio Administrador de conmutación por error (FM) administra información acerca de los nodos de clúster. Cuando FM pierde los datos y entra en estado de pérdida de datos, no puede garantizar que la información que tiene sobre los nodos de clúster sea la más actualizada. En este caso, el sistema se somete a una recompilación y System.FM reúne datos de todos los nodos del clúster para recompilar su estado. En ocasiones, debido a problemas de la red o del nodo, la recompilación puede bloquearse o detenerse. Lo mismo puede suceder con el servicio Maestro administrador de conmutación por error (FMM). FMM es un servicio de sistema sin estado que realiza un seguimiento del lugar en el que se encuentran todos los FM en el clúster. El nodo principal del FMM siempre es el nodo con el identificador más cercano a 0. Si ese nodo se quita, se desencadena una recompilación.
 Cuando se produce una de las condiciones anteriores, **System.FM** o **System.FMM** la marcan mediante un informe de errores. La recompilación podría bloquearse en una de estas dos fases:
@@ -148,7 +139,7 @@ Si las capacidades de nodo definidas en el manifiesto de clúster son mayores qu
 ## <a name="application-system-health-reports"></a>Informes de mantenimiento del sistema de la aplicación
 System.CM, que representa el servicio Administrador de clústeres, es la autoridad que administra la información acerca de una aplicación.
 
-### <a name="state"></a>Estado
+### <a name="state"></a>State
 System.CM notifica un estado Correcto cuando se ha creado o actualizado la aplicación. Informa al almacén de estado de cuándo se elimina la aplicación, por lo que puede quitarse del almacén.
 
 * **SourceId**: System.CM
@@ -181,7 +172,7 @@ HealthEvents                    :
 ## <a name="service-system-health-reports"></a>Informes de mantenimiento del sistema de servicio
 System.FM, que representa el servicio Administrador de conmutación por error, es la autoridad que administra la información acerca de los servicios.
 
-### <a name="state"></a>Estado
+### <a name="state"></a>State
 System.FM notifica un estado Correcto cuando se ha creado el servicio. Elimina la entidad del almacén de estado cuando se elimina el servicio.
 
 * **SourceId**: System.FM
@@ -223,7 +214,7 @@ HealthEvents          :
 ## <a name="partition-system-health-reports"></a>Informes de mantenimiento del sistema de partición
 System.FM, que representa el servicio Administrador de conmutación por error, es la autoridad que administra la información acerca de las particiones del servicio.
 
-### <a name="state"></a>Estado
+### <a name="state"></a>State
 System.FM notifica un estado Correcto cuando la partición se ha creado y es correcta. Elimina la entidad del almacén de estado cuando se ha eliminado la partición.
 
 Si la partición es inferior al recuento mínimo de réplicas, notifica un error. Si la partición no es inferior al recuento mínimo de réplicas, pero es inferior al recuento objetivo de réplicas, notifica una advertencia. Si la partición está en situación de pérdida de cuórum, System.FM notifica un error.
@@ -400,7 +391,7 @@ En un caso similar al del ejemplo, es necesario seguir investigando. Investigue 
 ## <a name="replica-system-health-reports"></a>Informes de mantenimiento del sistema de replica
 **System.RA**, que representa el componente del agente de reconfiguración, es la autoridad para el estado de la réplica.
 
-### <a name="state"></a>Estado
+### <a name="state"></a>State
 System.RA notifica Correcto cuando se ha creado la réplica.
 
 * **SourceId**: System.RA

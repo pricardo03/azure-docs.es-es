@@ -4,15 +4,15 @@ description: Puede usar la solución System Center Operations Manager Health Che
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 33aa246e21b54aebaa902304ff92d4b74bfaac4b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 5ec0f181d9d22e9e1183a59a4fbd7d77e658862e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898766"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402862"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimización del entorno con la solución System Center Operations Manager Health Check (versión preliminar)
 
@@ -34,7 +34,7 @@ Después de agregar la solución y realizar una evaluación, se muestra informac
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalación y configuración de la solución
 
-La solución funciona con Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager y Microsoft System Center Operations Manager 1807.
+La solución funciona con Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager y Microsoft System Center Operations Manager 1807. Se debe instalar una versión compatible de .NET Framework 4.6.2 en cada servidor de administración.
 
 Utilice la siguiente información para instalar y configurar la solución.
 
@@ -83,7 +83,7 @@ La cuenta de ejecución debe cumplir los siguientes requisitos antes de continua
 4. En la página **Propiedades generales**, seleccione **Windows** en la lista **Tipo de cuenta de ejecución:** .
 5. Escriba un nombre para mostrar en el cuadro de texto **Nombre para mostrar** y, opcionalmente, escriba una descripción en el cuadro **Descripción**; a continuación, haga clic en **Siguiente**.
 6. En **Seguridad de distribución**, seleccione **Más seguro**.
-7. Haga clic en **Create**(Crear).  
+7. Haga clic en **Crear**.  
 
 Ahora que se creó la cuenta de ejecución, es necesario asignar servidores de administración de destino en el grupo de administración y asociarlos a un perfil de ejecución predefinido para que los flujos de trabajo se ejecuten con las credenciales.  
 
@@ -234,7 +234,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    Esta es una captura de pantalla que muestra la consulta de Búsqueda de registros:<br><br> ![búsqueda de registros](./media/scom-assessment/scom-log-search.png)<br>
+    En esta captura de pantalla se muestra la consulta Búsqueda de registros:<br><br> ![búsqueda de registros](./media/scom-assessment/scom-log-search.png)<br>
 
 3. Elija las recomendaciones que desea omitir. Usará los valores para RecommendationId en el procedimiento siguiente.
 

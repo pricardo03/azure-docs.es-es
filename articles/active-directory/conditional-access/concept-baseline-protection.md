@@ -5,28 +5,31 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb, rogoya
+ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9bb384045c8b2e0a5743fdc301a829792639b7e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a15b55aa3d8cc8f16a35c858d11e3d20c260bff8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420557"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425006"
 ---
 # <a name="what-are-baseline-policies"></a>¿Qué son las directivas de base de referencia?
 
-Las directivas de base de referencia son un conjunto de directivas predefinidas que ayudan a proteger a las organizaciones frente a muchos ataques comunes. Estos ataques comunes pueden incluir difusión de contraseñas, reproducción y suplantación de identidad (phishing). Las directivas de base de referencia están disponibles en todas las ediciones de Azure AD. Microsoft pone estas directivas de protección de base de referencia a disposición de todos los usuarios porque los ataques basados en la identidad han ido en aumento en los últimos años. El objetivo de estas cuatro directivas consiste en asegurarse de que todas las organizaciones gocen de un nivel básico de seguridad sin ningún costo adicional.  
+Las directivas de base de referencia son un conjunto de directivas predefinidas que ayudan a proteger a las organizaciones frente a muchos ataques comunes. Estos ataques comunes pueden incluir difusión de contraseñas, reproducción y suplantación de identidad (phishing). Las directivas de base de referencia están disponibles en todas las ediciones de Azure AD. Microsoft pone estas directivas de protección de base de referencia a disposición de todos los usuarios porque los ataques basados en la identidad han ido en aumento en los últimos años. El objetivo de estas cuatro directivas consiste en asegurarse de que todas las organizaciones gocen de un nivel básico de seguridad sin ningún costo adicional.
 
 Para administrar las directivas personalizadas de acceso condicional, se necesita una licencia de Azure AD Premium.
 
+> [!IMPORTANT]
+> Las directivas de línea de base se están dejando en desuso. Consulte [¿Cuáles son las novedades de Azure Active Directory?](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) para más información.
+
 ## <a name="baseline-policies"></a>Directivas de base de referencia
 
-![Directivas de base de referencia de acceso condicional en Azure Portal](./media/concept-baseline-protection/conditional-access-policies.png)
+![Directivas de base de referencia de acceso condicional en Azure Portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
 Hay cuatro directivas de base de referencia:
 
@@ -36,6 +39,10 @@ Hay cuatro directivas de base de referencia:
 * Requerir MFA para la administración de servicios (versión preliminar)
 
 Estas cuatro directivas de base de referencia afectarán a los flujos de autenticación heredados, como POP, IMAP y clientes de escritorio de Office anteriores.
+
+### <a name="exclusions"></a>Exclusiones
+
+Cuando las directivas de línea de base pasaban a su versión preliminar pública inicial, había una opción para excluir a los usuarios de las directivas. Esta funcionalidad evolucionó en la versión preliminar y se retiró en julio de 2019. Las organizaciones que ya habían creado exclusiones las podían continuar manteniendo y los nuevos usuarios no podían agregar exclusiones a las directivas.
 
 ### <a name="require-mfa-for-admins-preview"></a>Requerir MFA para administradores (versión preliminar)
 
@@ -60,8 +67,8 @@ Los administradores con privilegios elevados no son los únicos blancos de los a
 
 **Protección del usuario final (versión preliminar)** es una directiva de base de referencia que protege a todos los usuarios en un directorio. Habilitar esta directiva requiere que todos los usuarios se registren en Azure Multi-factor Authentication en el plazo de 14 días. Una vez registrados, se empleará MFA con los usuarios solo durante los intentos de inicio de sesión de riesgo. Las cuentas de usuario en peligro se bloquean hasta que se restablece la contraseña y se descarta el riesgo. 
 
-[!NOTE]
-Los usuarios marcados anteriormente como de riesgo se bloquean hasta que se restablezca la contraseña y se descarte el riesgo tras la activación de la directiva.
+> [!NOTE]
+> Los usuarios marcados anteriormente como de riesgo se bloquean hasta que se restablezca la contraseña y se descarte el riesgo tras la activación de la directiva.
 
 ### <a name="block-legacy-authentication-preview"></a>bloqueo de la autenticación heredada (versión preliminar)
 
@@ -77,7 +84,7 @@ Las organizaciones usan una variedad de servicios de Azure y los administran des
 
 * Portal de Azure
 * Azure PowerShell
-* CLI de Azure
+* Azure CLI
 
 Usar cualquiera de estas herramientas para la administración de recursos es una acción con privilegios elevados. Estas herramientas pueden modificar las configuraciones de toda la suscripción, como la configuración del servicio y la facturación de la suscripción.
 
@@ -87,6 +94,6 @@ Para proteger las acciones con privilegios, esta directiva **Requerir MFA para l
 
 Para más información, consulte:
 
+* [Habilitación de los valores de seguridad predeterminados](../fundamentals/concept-fundamentals-security-defaults.md)
 * [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md)
 * [Cinco pasos para asegurar su infraestructura de identidad](../../security/fundamentals/steps-secure-identity.md)
-* [¿Qué es el acceso condicional en Azure Active Directory?](overview.md)

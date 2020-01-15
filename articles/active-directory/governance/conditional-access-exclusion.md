@@ -1,5 +1,5 @@
 ---
-title: 'Uso de revisiones de acceso para administrar los usuarios excluidos de las directivas de acceso condicional: Azure Active Directory | Microsoft Docs'
+title: Administración de usuarios excluidos de las directivas de acceso condicional - Azure AD
 description: Aprenda a usar revisiones de acceso de Azure Active Directory (Azure AD) para administrar los usuarios a los que se les ha excluido de las directivas de acceso condicional.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 246503fec6436bf49dcd5fb89c2dc0ed345a43ca
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: d1d7bce940f2b614c239e8b5e5719d96da10a6c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499913"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422707"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Uso de revisiones de acceso de Azure AD para administrar los usuarios a los que se les ha excluido de las directivas de acceso condicional
 
@@ -56,7 +56,7 @@ Siga estos pasos para crear un grupo de Azure AD y una directiva de acceso cond
 
 ### <a name="create-an-exclusion-group"></a>Creación de un grupo de exclusión
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en Azure Portal.
 
 1. En el panel de navegación izquierdo, haga clic en **Azure Active Directory** y, después, en **Grupos**.
 
@@ -159,4 +159,4 @@ Como administrador de TI, sabrá que la administración de grupos de exclusión 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Creación de una revisión de acceso de grupos o aplicaciones](create-access-review.md)
-- [¿Qué es el acceso condicional de Azure Active Directory?](../conditional-access/overview.md)
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)

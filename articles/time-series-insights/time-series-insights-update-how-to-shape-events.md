@@ -1,6 +1,6 @@
 ---
 title: 'Dar forma a eventos: Azure Time Series Insights | Microsoft Docs'
-description: Aprenda a dar forma a los eventos con la versión preliminar de Azure Time Series Insights.
+description: Obtenga información sobre los procedimientos recomendados y cómo dar forma a los eventos para realizar consultas en la versión preliminar de Azure Time Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd1b59ac2037669be021dfad3bf5032b794bef4a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 37846aacd9e2c5c63cdf5d29bccb42df8e02fce9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006255"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452608"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Dar forma a los eventos con la versión preliminar de Azure Time Series Insights
 
@@ -117,7 +117,7 @@ La instancia de Time Series contiene los metadatos del dispositivo. Estos metada
 
 La versión preliminar de Time Series Insights une una tabla (después del acoplamiento) durante el tiempo de consulta. La tabla incluye columnas adicionales, como **Type**. En el ejemplo siguiente se demuestra cómo puede [dar forma](./time-series-insights-send-events.md#supported-json-shapes) a los datos de telemetría.
 
-| deviceId  | type | L1 | L2 | timestamp | series_Flow Rate ft3/s | series_Engine Oil Pressure psi |
+| deviceId  | Tipo | L1 | L2 | timestamp | series_Flow Rate ft3/s | series_Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | SIMULADOR | Sistema de batería | 2018-01-17T01:17:00Z |   1.0172575712203979 |    34.7 |
 | `FXXX` | Default_Type | SIMULADOR |   Sistema de batería |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |

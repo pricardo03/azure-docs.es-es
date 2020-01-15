@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd66df381e11582b30ded5e3b529070357f35ad2
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: abd6b13dc56f8f948d50e2b3564712ed8f5b1476
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720284"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443346"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Asignación de usuarios y grupos en una aplicación de Azure Active Directory
 En este artículo se muestra cómo asignar usuarios o grupos a una aplicación en Azure Active Directory (Azure AD). Los usuarios deben asignarse primero a una aplicación antes de que un administrador les conceda acceso para hacer lo siguiente:
@@ -34,10 +34,11 @@ En este artículo se muestra cómo asignar usuarios o grupos a una aplicación e
 
 La disponibilidad de la asignación basada en grupo viene determinada por su contrato de licencia. La asignación basada en grupo se admite en grupos de seguridad únicamente. Actualmente no se admiten las pertenencias a grupos anidados y los grupos de O365.
 
-## <a name="prerequisites"></a>Requisitos previos
-Para poder asignar usuarios y grupos a una aplicación, debe requerir la asignación de usuarios. Para requerir la asignación de usuario:
+## <a name="configure-the-application-to-require-assignment"></a>Configuración de la aplicación para que requiera asignación
 
-1. Inicie sesión en el portal de Azure con una cuenta de administrador.
+Una aplicación puede configurarse para requerir asignación antes de que se pueda tener acceso a ella. Para requerir una asignación:
+
+1. Inicie sesión en Azure Portal con una cuenta de administrador o como propietario de la aplicación en **Aplicaciones empresariales**.
 2. Haga clic en el elemento **Todos los servicios** del menú principal.
 3. Elija el directorio que está usando para la aplicación.
 4. Haga clic en la pestaña **Aplicaciones empresariales**.

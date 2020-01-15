@@ -3,7 +3,7 @@ title: Consideraciones sobre Xamarin Android (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Obtenga información sobre las consideraciones específicas al usar Xamarin Android con Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cb28b8465bf74351c5c6efe9d80dcc01137be5d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 678b581e09fe1eac49e4f2bf07eabbbc944c8d4e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74915523"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424148"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>Consideraciones específicas de Xamarin Android con MSAL.NET
 En este artículo se describen las consideraciones específicas al usar Xamarin Android con Microsoft Authentication Library for .NET (MSAL.NET).
@@ -35,7 +35,7 @@ var authResult = AcquireTokenInteractive(scopes)
 ```
 También puede establecer esto en el nivel PublicClientApplication (en MSAL4.2+) mediante una devolución de llamada.
 
-```CSharp
+```csharp
 // Requires MSAL.NET 4.2 or above
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
@@ -45,7 +45,7 @@ var pca = PublicClientApplicationBuilder
 
 Una recomendación es usar CurrentActivityPlugin [aquí](https://github.com/jamesmontemagno/CurrentActivityPlugin).  El código del compilador de PublicClientApplication presentaría un aspecto similar a este:
 
-```CSharp
+```csharp
 // Requires MSAL.NET 4.2 or above
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
@@ -83,6 +83,23 @@ Esa línea garantiza que el control se devuelva a MSAL una vez que se complete l
 </activity>
 ```
 
+O bien, puede [crear la actividad en el código](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) y no editar `AndroidManifest.xml`manualmente. Para ello, debe crear una clase que tenga los atributos `Activity` y `IntentFilter`. Una clase que representa los mismos valores del archivo XML anterior sería:
+
+```csharp
+  [Activity]
+  [IntentFilter(new[] { Intent.ActionView },
+        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        DataHost = "auth",
+        DataScheme = "msal{client_id}")]
+  public class MsalActivity : BrowserTabActivity
+  {
+  }
+```
+
+### <a name="xamarinforms-43x-manifest"></a>Manifiesto XamarinForms 4.3.X
+
+El código generado por XamarinForms 4.3.x establece el atributo `package` en `com.companyname.{appName}` en el archivo `AndroidManifest.xml`. Es posible que desee cambiar el valor para que coincida con el del espacio de nombres `MainActivity.cs`, si usa `DataScheme` como `msal{client_id}`.
+
 ## <a name="use-the-embedded-web-view-optional"></a>Uso de la vista web incrustada (opcional)
 
 De forma predeterminada, MSAL.NET usa el explorador web del sistema, que le permite obtener SSO con aplicaciones web y otras aplicaciones. En algunos casos excepcionales, es posible que prefiera especificar que desea utilizar la vista web incrustada. Para más información, consulte [MSAL.NET utiliza un explorador web](msal-net-web-browsers.md) y [Explorador del sistema Android](msal-net-system-browser-android-considerations.md).
@@ -96,7 +113,7 @@ var authResult = AcquireTokenInteractive(scopes)
  .ExecuteAsync();
 ```
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 Si crea una nueva aplicación Xamarin.Forms y agrega una referencia al paquete NuGet de MSAL.Net, funcionará.
 Sin embargo, si desea actualizar una aplicación Xamarin.Forms existente a la versión preliminar de MSAL.NET 1.1.2 o posterior, puede experimentar problemas de compilación.
 
@@ -125,6 +142,6 @@ Esto se debe probablemente a que Visual Studio no ha actualizado correctamente 
 
 Se proporcionan más detalles y ejemplos en el párrafo [Consideraciones específicas de Android](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations) del archivo readme.md del ejemplo siguiente:
 
-| Muestra | Plataforma | DESCRIPCIÓN |
+| Muestra | Plataforma | Descripción |
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | Una aplicación Xamarin Forms sencilla que muestra cómo usar MSAL para autenticar MSA y Azure AD mediante el punto de conexión de AADD 2.0 y cómo acceder a Microsoft Graph con el token resultante. <br>![Topología](media/msal-net-xamarin-android-considerations/topology.png) |

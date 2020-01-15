@@ -1,25 +1,14 @@
 ---
-title: 'Actualización de la aplicación: parámetros de actualización | Microsoft Docs'
+title: 'Actualización de la aplicación: parámetros de actualización'
 description: Describe los parámetros relacionados con la actualización de una aplicación de Service Fabric, incluida la realización de comprobaciones de estado y directivas para deshacer automáticamente la actualización.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/08/2018
-ms.author: atsenthi
-ms.openlocfilehash: 8503b3c8a630575b917e3710ce4d7c5d6fbe70cb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 42b5c52181cfb006ae57e43c183b96a059a9c63a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934031"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377980"
 ---
 # <a name="application-upgrade-parameters"></a>Parámetros de actualización de la aplicación
 En este artículo se describen los distintos parámetros que se aplican durante la actualización de una aplicación de Azure Service Fabric. Los parámetros de actualización de la aplicación controlan los tiempos de espera y las comprobaciones de estado que se aplican durante la actualización y especifican las directivas que deben aplicarse cuando se produce un error en una actualización. Los parámetros de la aplicación se aplican en las actualizaciones mediante:
@@ -29,7 +18,7 @@ En este artículo se describen los distintos parámetros que se aplican durante 
 - [REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-startapplicationupgrade)
 
 Las actualizaciones de aplicaciones se inician a través de uno de estos tres modos de actualización que el usuario puede seleccionar. Cada modo tiene su propio conjunto de parámetros de la aplicación:
-- Supervisado
+- Monitored
 - Automático no supervisado
 - Manual no supervisado
 
@@ -44,7 +33,7 @@ Los parámetros de actualización de la aplicación Service Fabric de Visual Stu
 ### <a name="required-parameters"></a>Parámetros obligatorios
 (PS = PowerShell, VS = Visual Studio)
 
-| Parámetro | Se aplica a | DESCRIPCIÓN |
+| Parámetro | Se aplica a | Descripción |
 | --- | --- | --- |
 ApplicationName |PS| Nombre de la aplicación que se actualiza. Ejemplos: fabric:/VisualObjects, fabric:/ClusterMonitor. |
 ApplicationTypeVersion|PS|La versión del tipo de aplicación al que se dirige la actualización. |
@@ -59,7 +48,7 @@ UnmonitoredManual | PS | Indica que el modo de actualización no se supervisa de
 Los parámetros de evaluación de estado son opcionales. Si no se especifican los criterios de evaluación de estado al iniciar una actualización, Service Fabric usa las directivas de mantenimiento de aplicaciones especificadas en ApplicationManifest.xml de la instancia de aplicación.
 
 > [!div class="mx-tdBreakAll"]
-> | Parámetro | Se aplica a | DESCRIPCIÓN |
+> | Parámetro | Se aplica a | Descripción |
 > | --- | --- | --- |
 > | ApplicationParameter |PS, VS| Especifica las invalidaciones de los parámetros de aplicación.<br>Los parámetros de aplicaciones de PowerShell se especifican como pares de nombre/valor de la tabla hash. Por ejemplo, @{ "VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1" }.<br>Se pueden especificar parámetros de aplicaciones de Visual Studio en el cuadro de diálogo Publicación de la aplicación de Service Fabric en el campo **Archivo de parámetros de aplicación**.
 > | Confirm |PS| Los valores permitidos son **True** y **False**. Solicita confirmación antes de ejecutar el cmdlet. |
@@ -89,15 +78,15 @@ Las actualizaciones de aplicaciones de Service Fabric mediante la CLI de Service
 
 ### <a name="required-parameters"></a>Parámetros obligatorios
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | application-id  |Identificador de la aplicación que se actualiza. <br> Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric:" A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric:/myapp/app1", la identidad de la aplicación sería "myapp\~app1' in 6.0+ and 'myapp/app1" en las versiones anteriores.|
 application-version |La versión del tipo de aplicación al que se dirige la actualización.|
-parameters  |Una lista codificada en JSON de reemplazos de parámetros de aplicación que se aplicarán al actualizar la aplicación.|
+parámetros  |Una lista codificada en JSON de reemplazos de parámetros de aplicación que se aplicarán al actualizar la aplicación.|
 
 ### <a name="optional-parameters"></a>Parámetros opcionales
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 default-service-health-policy | Especificación codificada en [JSON](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) de la directiva de mantenimiento que se usa de forma predeterminada para evaluar el estado de un tipo de servicio. La asignación está vacía de forma predeterminada. |
 failure-action | Los valores permitidos son **Rollback**, **Manual** y **Invalid**. Acción de compensación que se debe realizar cuando una actualización *supervisada* detecta infracciones de directivas de mantenimiento o supervisión. <br>**Rollback** especifica que la actualización se revertirá automáticamente a la versión previa a la actualización. <br>**Manual** indica que la actualización se cambiará al modo de actualización *UnmonitoredManual*. <br>**Invalid** indica que la acción de error no es válida.|
@@ -106,7 +95,7 @@ health-check-retry-timeout | La cantidad de tiempo que se reintentan las evaluac
 health-check-stable-duration | La cantidad de tiempo que la aplicación o el clúster deben tener un estado correcto antes de que la actualización continúe con el siguiente dominio de actualización. En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. Valor predeterminado: PT0H2M0S. |
 health-check-wait-duration | La cantidad de tiempo de espera después de completar un dominio de actualización antes de aplicar directivas de mantenimiento. En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. Valor predeterminado: 0.|
 max-unhealthy-apps | El valor predeterminado y recomendado es 0. Especifique el número máximo de aplicaciones implementadas (consulte la [sección Estado](service-fabric-health-introduction.md)) que puede ser incorrecto antes de que la aplicación se considere incorrecta y provoque un error en la actualización. Este parámetro define el estado de la aplicación en el nodo y ayuda a detecta problemas durante la actualización. Normalmente, la carga de las réplicas de la aplicación se equilibrará en el otro nodo, lo que permite que la aplicación figure como correcta y, por lo tanto, continúe la actualización. Al especificar un estado de mantenimiento *max-unhealthy-apps* estricto, Service Fabric puede encontrar un problema con el paquete de aplicación de forma rápida y hacer que la actualización fracase para responder rápido a los errores. Se representa como un número entre 0 y 100. |
-modo | Los valores permitidos son **Monitored**, **UpgradeMode**, **UnmonitoredAuto** y **UnmonitoredManual**. El valor predeterminado es **UnmonitoredAuto**. Consulte la sección *Parámetros obligatorios* de Visual Studio y PowerShell para las descripciones de estos valores.|
+mode | Los valores permitidos son **Monitored**, **UpgradeMode**, **UnmonitoredAuto** y **UnmonitoredManual**. El valor predeterminado es **UnmonitoredAuto**. Consulte la sección *Parámetros obligatorios* de Visual Studio y PowerShell para las descripciones de estos valores.|
 replica-set-check-timeout |Se mide en segundos. <br>**Servicio sin estado**: dentro de un único dominio de actualización, Service Fabric intenta garantizar la disponibilidad de instancias adicionales del servicio. Si el recuento de instancias de destino es superior a uno, Service Fabric espera la disponibilidad de más de una instancia, hasta un valor de tiempo de espera máximo. Este tiempo de espera se especifica mediante la propiedad *replica-set-check-timeout*. Si se agota el tiempo de expiración, Service Fabric continúa con la actualización, independientemente del número de instancias de servicio. Si el recuento de instancias de destino es uno, Service Fabric no espera e inmediatamente continúa con la actualización.<br><br>**Servicio con estado**: dentro de un único dominio de actualización, Service Fabric intenta garantizar que el conjunto de réplicas tenga un cuórum. Service Fabric espera la disponibilidad de un cuórum, hasta un valor de tiempo de expiración máximo (especificado por la propiedad *replica-set-check-timeout*). Si se agota el tiempo de expiración, Service Fabric continúa con la actualización, independientemente del cuórum. Este valor se establece como Nunca (infinito) si avanza, y en 1200 segundos si retrocede. |
 service-health-policy | Mapa codificado en JSON con una directiva de mantenimiento de tipo de servicio por cada nombre de tipo de servicio. El mapa está vacío de forma predeterminada. [Formato JSON del parámetro](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-applicationhealthpolicy#servicetypehealthpolicymap). Contiene el JSON de la parte "Value" **MaxPercentUnhealthyServices**, **MaxPercentUnhealthyPartitionsPerService** y **MaxPercentUnhealthyReplicasPerPartition**. Consulte la sección Parámetros opcionales de Visual Studio y PowerShell para las descripciones de estos parámetros.
 timeout | Especifica el período de tiempo de espera en segundos para la operación. Valor predeterminado: 60. |

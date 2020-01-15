@@ -3,18 +3,18 @@ title: Comunicación para roles en Cloud Services | Microsoft Docs
 description: Las instancias de rol de Cloud Services pueden tener definidos puntos de conexión (http, https, tcp y udp) que se comunican con el exterior o entre otras instancias de rol.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.topic: article
 ms.date: 12/14/2016
-ms.author: gwallace
-ms.openlocfilehash: 74ef5567becee27b4af837a6977119d7cf0f3e4b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 094e08becf4f3a60c98d89bfae7e7c3a69b677f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359091"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386347"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Habilitar la comunicación para instancias de rol en Azure
 Los roles de servicio en la nube se comunican a través de conexiones internas y externas. Las conexiones externas se denominan **puntos de conexión de entrada** mientras que conexiones internas se denominan **puntos de conexión internos**. En este tema se describe cómo modificar la [definición de servicio](cloud-services-model-and-package.md#csdef) para crear puntos de conexión.
@@ -255,7 +255,7 @@ En el siguiente ejemplo de código verá las definiciones de rol de los roles qu
 
 De forma predeterminada, una vez definido el extremo interno, la comunicación puede fluir sin restricciones desde cualquier rol hasta el extremo interno de otro rol. Para restringir la comunicación, debe agregar un elemento **NetworkTrafficRules** al elemento **ServiceDefinition** que se encuentra en el archivo de definición de servicio.
 
-### <a name="scenario-1"></a>Escenario 1.
+### <a name="scenario-1"></a>Escenario 1
 Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1**.
 
 ```xml
@@ -274,7 +274,7 @@ Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1**.
 </ServiceDefinition>
 ```
 
-### <a name="scenario-2"></a>Escenario 2.
+### <a name="scenario-2"></a>Escenario 2
 Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1** y **WorkerRole2**.
 
 ```xml
@@ -293,7 +293,7 @@ Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1** y **WorkerRol
 </ServiceDefinition>
 ```
 
-### <a name="scenario-3"></a>Escenario 3.
+### <a name="scenario-3"></a>Escenario 3
 Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1** y **WorkerRole1** a **WorkerRole2**.
 
 ```xml
@@ -322,7 +322,7 @@ Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1** y **WorkerRol
 </ServiceDefinition>
 ```
 
-### <a name="scenario-4"></a>Escenario 4.
+### <a name="scenario-4"></a>Escenario 4
 Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1**, **WebRole1** a **WorkerRole2** y **WorkerRole1** a **WorkerRole2**.
 
 ```xml
@@ -367,4 +367,7 @@ Puede encontrar una referencia del esquema XML de los elementos usados anteriorm
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre el [modelo](cloud-services-model-and-package.md)del servicio en la nube.
+
+
+
 

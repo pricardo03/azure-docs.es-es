@@ -1,20 +1,18 @@
 ---
-title: 'Recuperación ante desastres y distribución geográfica en Durable Functions: Azure'
+title: Recuperación ante desastres y distribución geográfica en Azure Durable Functions
 description: Información acerca de la recuperación ante desastres y la distribución geográfica en Durable Functions.
 author: MS-Santi
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ba459d2d2f3aaf595c1d834e2b29a231e3b2bb12
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7951f216143bef0d48a6b751beff3f8f4316b9bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232941"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433328"
 ---
-# <a name="disaster-recovery-and-geo-distribution"></a>Recuperación ante desastres y distribución geográfica
-
-## <a name="overview"></a>Información general
+# <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Recuperación ante desastres y distribución geográfica en Azure Durable Functions
 
 En Durable Functions, todos los estados se conservan en Azure Storage. Una [central de tareas](durable-functions-task-hubs.md) es un contenedor lógico para los recursos de Azure Storage que se usan para las orquestaciones. Las funciones de orquestador y actividad solo pueden interactuar entre sí si pertenecen a la misma central de tareas.
 Los escenarios descritos proponen opciones de implementación para aumentar la disponibilidad y minimizar el tiempo de inactividad durante las actividades de recuperación ante desastres.

@@ -12,20 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 12/17/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 0725b4fc80fc3a41491bdb9ed084d33b36b490b8
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 6ddadcafd4f068f6516039017a3d491095c78e30
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213097"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378269"
 ---
 # <a name="registration-management"></a>Administración de registros
-
-## <a name="overview"></a>Información general
 
 En este tema se explica cómo registrar dispositivos en los centros de notificaciones para recibir notificaciones push. El tema describe los registros en un alto nivel y, luego, presenta los dos patrones principales para registrar dispositivos: el registro desde el dispositivo directamente al centro de notificaciones y el registro a través de un back-end de aplicación.
 
@@ -42,7 +40,7 @@ Un registro asocia el identificador del Servicio de notificación de plataforma 
 
 ### <a name="installations"></a>Instalaciones
 
-Una Instalación es un registro mejorado que incluye un conjunto de propiedades relacionadas con la inserción. Sin embargo, es el mejor y más reciente enfoque al registro de los dispositivos. Sin embargo, aún no es compatible con el SDK para .NET del cliente ([SDK del centro de notificaciones para operaciones de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)).  Esto significa que si registra desde el propio dispositivo cliente, tendría que usar el enfoque [API de REST de Notification Hubs](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) para admitir las instalaciones. Si usa un servicio back-end, debe ser capaz de usar el [SDK del Centro de notificaciones para las operaciones de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Una Instalación es un registro mejorado que incluye un conjunto de propiedades relacionadas con la inserción. Sin embargo, es el mejor y más reciente enfoque al registro de los dispositivos. Sin embargo, aún no es compatible con el SDK para .NET del cliente ([SDK del centro de notificaciones para operaciones de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)).  Esto significa que si registra desde el propio dispositivo cliente, tendría que usar el enfoque [API de REST de Notification Hubs](/rest/api/notificationhubs/create-overwrite-installation) para admitir las instalaciones. Si usa un servicio back-end, debe ser capaz de usar el [SDK del Centro de notificaciones para las operaciones de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Las siguientes son algunas ventajas clave de usar las instalaciones:
 
@@ -50,7 +48,7 @@ Las siguientes son algunas ventajas clave de usar las instalaciones:
 - El modelo de instalación admite un formato de etiqueta especial (`$InstallationId:{INSTALLATION_ID}`) que permite enviar una notificación directamente al dispositivo específico. Por ejemplo, si el código de la aplicación establece un identificador de instalación de `joe93developer` para este dispositivo determinado, un desarrollador puede apuntar a este dispositivo al enviar una notificación a la etiqueta `$InstallationId:{joe93developer}`. Esto le permite dirigirse a un dispositivo específico sin tener que realizar ninguna codificación adicional.
 - El uso de las instalaciones también le permite realizar actualizaciones parciales de registros. La actualización parcial de una instalación se solicita con un método PATCH a través del [estándar JSON-Patch](https://tools.ietf.org/html/rfc6902). Esto resulta útil cuando desea actualizar las etiquetas del registro. No es necesario desplegar todo el registro y reenviar todas las etiquetas anteriores.
 
-Una instalación puede contener las siguientes propiedades. Para una lista completa de las propiedades de instalación, consulte los artículos de [creación o sobreescritura de una instalación con la API REST](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) o de [propiedades de instalación](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation).
+Una instalación puede contener las siguientes propiedades. Para una lista completa de las propiedades de instalación, consulte los artículos de [creación o sobreescritura de una instalación con la API REST](/rest/api/notificationhubs/create-overwrite-installation) o de [propiedades de instalación](/dotnet/api/microsoft.azure.notificationhubs.installation).
 
 ```json
 // Example installation format to show some supported properties
@@ -100,7 +98,7 @@ Los registros y las instalaciones deben contener un controlador PNS válido para
 
 Si desea usar [Plantillas](notification-hubs-templates-cross-platform-push-messages.md), la instalación de dispositivo también contiene todas las plantillas asociadas con ese dispositivo en un formato JSON (consulte el ejemplo anterior). Los nombres de las plantillas ayudan a dirigirse a distintas plantillas para el mismo dispositivo.
 
-Cada nombre de plantilla está asignado al cuerpo de una plantilla y a un conjunto opcional de etiquetas. Además, cada plataforma puede tener propiedades de plantilla adicionales. En el caso de Tienda Windows (con WNS) y Windows Phone 8 (con MPNS), un conjunto de encabezados adicional puede formar parte de la plantilla. En el caso de APNs, puede establecer una propiedad de expiración en una constante o en una expresión de plantilla. Para obtener una lista completa de las propiedades de la instalación, consulte el tema [Creación o sobrescritura de una instalación con REST](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) .
+Cada nombre de plantilla está asignado al cuerpo de una plantilla y a un conjunto opcional de etiquetas. Además, cada plataforma puede tener propiedades de plantilla adicionales. En el caso de Tienda Windows (con WNS) y Windows Phone 8 (con MPNS), un conjunto de encabezados adicional puede formar parte de la plantilla. En el caso de APNs, puede establecer una propiedad de expiración en una constante o en una expresión de plantilla. Para obtener una lista completa de las propiedades de la instalación, consulte el tema [Creación o sobrescritura de una instalación con REST](/rest/api/notificationhubs/create-overwrite-installation) .
 
 ### <a name="secondary-tiles-for-windows-store-apps"></a>Iconos secundarios de Aplicaciones de la Tienda Windows
 
@@ -112,7 +110,7 @@ El diccionario SecondaryTiles utiliza el mismo TileId que se usa para crear el o
 
 Cuando administra el registro del dispositivo desde las aplicaciones cliente, el back-end es el único responsable de enviar las notificaciones. Las aplicaciones cliente mantienen actualizados los identificadores de PNS y registran las etiquetas. La siguiente ilustración muestra este patrón.
 
-![](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
+![Registro desde el dispositivo](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
 El dispositivo primero recupera el identificador de PNS desde el PSN y, luego, se registra directamente con el centro de notificaciones. Una vez que el registro se realiza correctamente, el back-end de la aplicación puede enviar una notificación orientada a ese registro. Para obtener más información sobre cómo enviar notificaciones, consulte [Expresiones de etiqueta y enrutamiento](notification-hubs-tags-segment-push-message.md).
 
@@ -125,11 +123,11 @@ El registro desde el dispositivo es el método más sencillo, pero presenta algu
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Ejemplo de código para el registro en un centro de notificaciones desde un dispositivo con una instalación
 
-En este momento, esta opción solo es compatible si se usa la [API de REST de Notification Hubs](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation).
+En este momento, esta opción solo es compatible si se usa la [API de REST de Notification Hubs](/rest/api/notificationhubs/create-overwrite-installation).
 
 También puede utilizar el método PATCH con el [estándar JSON-Patch](https://tools.ietf.org/html/rfc6902) para actualizar la instalación.
 
-```
+```csharp
 class DeviceInstallation
 {
     public string installationId { get; set; }
@@ -210,7 +208,7 @@ else
 
 Estos métodos crean o actualizan un registro para el dispositivo en el que se los llamaron. Esto significa que, para actualizar el identificador o las etiquetas, debe sobrescribir todo el registro. Recuerde que los registros son transitorios, por lo que siempre debe tener un almacenamiento confiable con las etiquetas actuales que necesita un dispositivo específico.
 
-```
+```csharp
 // Initialize the Notification Hub
 NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
@@ -265,7 +263,7 @@ catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
 
 Administrar los registros desde el back-end requiere escribir código adicional. La aplicación del dispositivo debe proporcionar el identificador de PNS actualizado al back-end cada vez que se inicie la aplicación (junto con las etiquetas y las plantillas) y, además, el back-end debe actualizar este identificador en el centro de notificaciones. La siguiente ilustración muestra este diseño.
 
-![](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
+![Administración de registros](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
 
 Las ventajas que presenta la administración de registros desde el back-end incluyen la capacidad de modificar etiquetas de los registros, incluso cuando la aplicación correspondiente en el dispositivo se encuentra inactiva, y de autenticar la aplicación cliente antes de agregar una etiqueta a su registro.
 
@@ -275,7 +273,7 @@ El dispositivo cliente todavía obtiene su identificador de PNS y las propiedade
 
 También puede utilizar el método PATCH con el [estándar JSON-Patch](https://tools.ietf.org/html/rfc6902) para actualizar la instalación.
 
-```
+```csharp
 // Initialize the Notification Hub
 NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
@@ -321,7 +319,7 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 
 Desde el back-end de la aplicación, puede ejecutar operaciones de tipo CRUD en los registros. Por ejemplo:
 
-```
+```csharp
 var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
 
 // create a registration description object of the correct type, e.g.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4130b05be1a4abb2166514b730c3d21bd5ece97
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: dcdd89ba7741257443cf5e7567c59a6986e43c20
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803587"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424840"
 ---
 # <a name="conditional-access-risk-based-conditional-access"></a>Acceso condicional: Acceso condicional basado en el riesgo
 
@@ -30,7 +30,7 @@ Las organizaciones con licencias de Azure AD Premium P2 pueden crear directivas
 
 Al habilitar esta directiva, todos los usuarios deberán registrarse para Azure Multi-factor Authentication en el plazo de 14 días. 
 
-1. Inicie sesión en el **Azure Portal**.
+1. Inicie sesión en **Azure Portal**.
 1. Haga clic en **Todos los servicios** y, a continuación, vaya a **Azure AD Identity Protection**.
 1. Haga clic en **Registro de MFA**.
 1. En **Asignaciones**, seleccione **Usuarios**.
@@ -44,7 +44,7 @@ Al habilitar esta directiva, todos los usuarios deberán registrarse para Azure 
 
 Microsoft trabaja con los investigadores, las autoridades judiciales, varios equipos de seguridad de Microsoft y otros orígenes de confianza para buscar pares de nombre de usuario y contraseña. Cuando uno de estos pares encaja con una cuenta de su entorno, se puede desencadenar un cambio de contraseña en función del riesgo mediante la siguiente directiva.
 
-1. Inicie sesión en el **Azure Portal**.
+1. Inicie sesión en **Azure Portal**.
 1. Haga clic en **Todos los servicios** y, a continuación, vaya a **Azure AD Identity Protection**.
 1. Haga clic en **Directiva de riesgo de usuario**.
 1. En **Asignaciones**, seleccione **Usuarios**.
@@ -62,7 +62,7 @@ Microsoft trabaja con los investigadores, las autoridades judiciales, varios equ
 
 La mayoría de los usuarios tienen un comportamiento normal que puede seguirse, cuando se salen de esta norma, podría ser peligroso permitirles que simplemente inicien sesión. Es posible que sea conveniente bloquear a ese usuario o quizás simplemente puede pedirle que lleve a cabo la autenticación multifactor para demostrar que realmente es quien dice ser. Para habilitar una directiva que requiera MFA cuando se detecta un inicio de sesión peligroso, habilite la directiva siguiente.
 
-1. Inicie sesión en el **Azure Portal**.
+1. Inicie sesión en **Azure Portal**.
 1. Haga clic en **Todos los servicios** y, a continuación, vaya a **Azure AD Identity Protection**.
 1. Haga clic en **Directiva de riesgo de inicio de sesión**.
 1. En **Asignaciones**, seleccione **Usuarios**.
@@ -79,6 +79,8 @@ La mayoría de los usuarios tienen un comportamiento normal que puede seguirse, 
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md)
+
+[Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-report-only.md)
 
 [Simulación del comportamiento de inicio de sesión mediante la herramienta What If de acceso condicional](troubleshoot-conditional-access-what-if.md)
 

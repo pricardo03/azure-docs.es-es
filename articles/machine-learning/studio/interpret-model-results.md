@@ -10,19 +10,19 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: acac881a790644532121697e6b79e57a98b168fe
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3fc369c59626faae4c97f896650269820626b1ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839843"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454712"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretar los resultados del modelo en Azure Machine Learning Studio (clásico)
 En este tema se explica cómo ver e interpretar los resultados de predicción en Azure Machine Learning Studio (clásico). Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción.
 
 
 
-Hay cuatro tipos de modelos de Machine Learning principales en la versión clásica de Azure Machine Learning Studio:
+Hay cuatro tipos de modelos de Machine Learning principales en Azure Machine Learning Studio (clásico):
 
 * clasificación
 * Agrupación en clústeres
@@ -39,7 +39,7 @@ Este documento explica cómo interpretar los resultados de predicción para cada
 
 Este tema aborda la interpretación de predicción, pero no la evaluación de modelos. Para más información sobre cómo evaluar su modelo, consulte [Evaluación del rendimiento de un modelo en Azure Machine Learning Studio (clásico)](evaluate-model-performance.md).
 
-Si no está familiarizado con la versión clásica de Azure Machine Learning Studio y necesita ayuda para crear un experimento simple para comenzar, consulte [Crear un experimento simple en Azure Machine Learning Studio en Azure Machine Learning Studio (clásico)](create-experiment.md).
+Si no está familiarizado con Azure Machine Learning Studio (clásico) y necesita ayuda para crear un experimento simple para comenzar, consulte [Crear un experimento simple en Azure Machine Learning Studio en Azure Machine Learning Studio (clásico)](create-experiment.md).
 
 ## <a name="classification"></a>clasificación
 Existen dos subcategorías de problemas de clasificación:
@@ -52,7 +52,7 @@ Azure Machine Learning Studio (clásico) tiene diversos módulos para tratar con
 ### <a name="two-class-classification"></a>Clasificación multiclase
 **Experimento de ejemplo**
 
-Un ejemplo de un problema de clasificación de dos clases es la clasificación de flores de iris. La tarea consiste en clasificar flores de iris en función de sus características. El conjunto de datos de Iris proporcionado en la versión clásica de Azure Machine Learning Studio es un subconjunto del [conjunto de datos de Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) popular, que contiene instancias de solo dos especies de flor (clases 0 y 1). Existen cuatro características para cada flor (longitud del sépalo, ancho del sépalo, longitud del pétalo y ancho del pétalo).
+Un ejemplo de un problema de clasificación de dos clases es la clasificación de flores de iris. La tarea consiste en clasificar flores de iris en función de sus características. El conjunto de datos de Iris proporcionado en Azure Machine Learning Studio (clásico) es un subconjunto del [conjunto de datos de Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) popular, que contiene instancias de solo dos especies de flor (clases 0 y 1). Existen cuatro características para cada flor (longitud del sépalo, ancho del sépalo, longitud del pétalo y ancho del pétalo).
 
 ![Captura de pantalla del experimento de iris](./media/interpret-model-results/1.png)
 
@@ -137,7 +137,7 @@ Después de publicar y ejecutar el servicio web y especificar algunos valores de
 
 Figura 10. Resultado de servicio web de la clasificación multiclase
 
-## <a name="regression"></a>regresión
+## <a name="regression"></a>Regresión
 Los problemas de regresión son diferentes de los problemas de clasificación. En un problema de clasificación, intenta predecir clases discretas, como a qué clase pertenece una flor iris. Sin embargo, como puede ver en el siguiente ejemplo de un problema de regresión, intenta predecir una variable continua, como el precio de un automóvil.
 
 **Experimento de ejemplo**
@@ -226,7 +226,7 @@ Para los sistemas de recomendación, puede usar el problema de la recomendación
 * Datos de características de los clientes
 * Datos de características de restaurantes
 
-Hay varias tareas que podemos hacer con el módulo integrado [Train Matchbox Recommender][train-matchbox-recommender] de la versión clásica de Azure Machine Learning Studio:
+Hay varias tareas que podemos hacer con el módulo integrado [Train Matchbox Recommender][train-matchbox-recommender] de Azure Machine Learning Studio (clásico):
 
 * predecir las valoraciones para un usuario determinado y un elemento;
 * recomendar elementos a un usuario determinado;

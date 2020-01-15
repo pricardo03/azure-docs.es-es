@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: a0b0d0d95e1ffd50faba19f1665ea5dae737b124
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 5439ec0c0aab5b8c127b651147e4b25d27c58390
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796136"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379630"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configuración de contenedores de Form Recognizer
 
@@ -22,7 +22,10 @@ Con los contenedores de Azure Form Recognizer, puede crear una arquitectura de a
 
 El entorno de ejecución de los contenedores de Form Recognizer se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Para ver algunos ejemplos, consulte la sección ["Comandos de ejemplo de docker run"](#example-docker-run-commands). La configuración específica del contenedor es la configuración de facturación.
 
-## <a name="configuration-settings"></a>Valores de configuración
+> [!IMPORTANT]
+> Los contenedores de Form Recognizer usan actualmente la versión 1.0 de la API de Form Recognizer. En su lugar, puede acceder a la versión más reciente de la API mediante el servicio administrado.
+
+## <a name="configuration-settings"></a>Parámetros de configuración
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
@@ -45,9 +48,9 @@ El valor de configuración `Billing` especifica el URI de punto de conexión del
 
 Puede encontrar esta configuración en Azure Portal, en **Form Recognizer Overview** (Información general de Form Recognizer), debajo de **Punto de conexión**.
 
-|Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
+|Obligatorio| Nombre | Tipo de datos | Descripción |
 |--|------|-----------|-------------|
-|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación. Para más información sobre cómo obtener el URI de facturación, consulte la [recopilación de los parámetros necesarios](form-recognizer-container-howto.md#gathering-required-parameters). Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](../cognitive-services-custom-subdomains.md) |
+|Sí| `Billing` | String | Identificador URI del punto de conexión de facturación. Para más información sobre cómo obtener el URI de facturación, consulte la [recopilación de los parámetros necesarios](form-recognizer-container-howto.md#gathering-required-parameters). Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](../cognitive-services-custom-subdomains.md) |
 
 ## <a name="eula-setting"></a>Opción de configuración Eula
 
@@ -74,10 +77,10 @@ El contenedor Form Recognizer requiere un montaje de entrada y un montaje de sal
 
 La sintaxis exacta de la ubicación de montaje del host varía según el sistema operativo del host. Además, la ubicación de montaje del [equipo host](form-recognizer-container-howto.md#the-host-computer) puede no ser accesible debido a un conflicto entre los permisos de la cuenta de servicio de Docker y los permisos de la ubicación de montaje del host.
 
-|Opcional| NOMBRE | Tipo de datos | DESCRIPCIÓN |
+|Opcional| Nombre | Tipo de datos | Descripción |
 |-------|------|-----------|-------------|
-|Obligatorio| `Input` | Cadena | Destino del montaje de entrada. El valor predeterminado es `/input`.    <br><br>Ejemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Obligatorio| `Output` | Cadena | Destino del montaje de salida. El valor predeterminado es `/output`.  <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Obligatorio| `Input` | String | Destino del montaje de entrada. El valor predeterminado es `/input`.    <br><br>Ejemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Obligatorio| `Output` | String | Destino del montaje de salida. El valor predeterminado es `/output`.  <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run
 
@@ -88,7 +91,7 @@ Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo 
 
 Reemplace {_argument_name_} en la tabla siguiente por sus propios valores:
 
-| Marcador de posición | Valor |
+| Marcador de posición | Value |
 |-------------|-------|
 | **{FORM_RECOGNIZER_API_KEY}** | La clave que se usa para iniciar el contenedor. Está disponible en la página de claves de Form Recognizer de Azure Portal. |
 | **{FORM_RECOGNIZER_ENDPOINT_URI}** | El valor de URI del punto de conexión de facturación está disponible en Azure Portal, en la página de información general de Form Recognizer.|

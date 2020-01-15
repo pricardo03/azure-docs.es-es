@@ -10,14 +10,14 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 07/15/2019
+ms.date: 12/19/2019
 ms.author: kumud
-ms.openlocfilehash: 001a6d5ef742874698cd7a67014179a2f8528fc6
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: a44f99b5a7f25a7350e6a63cf85c6b2287647162
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053457"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75373254"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>¿Qué es IPv6 para Azure Virtual Network? (versión preliminar)
 
@@ -54,13 +54,13 @@ IPv6 para red virtual de Azure incluye las siguientes características:
     - Y las protecciones de denegación de servicio distribuido (DDoS) de la plataforma Azure se amplían a las IP públicas con conexión a Internet.
 - Personalice el enrutamiento del tráfico IPv6 en la red virtual con rutas definidas por el usuario (especialmente al utilizar aplicaciones virtuales de red para mejorar su aplicación).
 - Las máquinas virtuales Linux y Windows pueden utilizar IPv6 para la red virtual de Azure.
-- Compatibilidad con [IPv6 pública con Standard Load Balancer](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) para crear aplicaciones resistentes y escalables, lo que incluye:
+- Compatibilidad con la instancia de [IPv6 pública de Standard Load Balancer](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) para crear aplicaciones resistentes y escalables, lo que incluye:
     - Sondeo de estado de IPv6 opcional para establecer qué instancias del grupo de back-end tienen un estado correcto y, por tanto, reciben flujos nuevos.
     - Reglas de salida opciones que proporcionan un control declarativo completo sobre la conectividad de salida para escalar y ajustar esta conectividad según sus necesidades específicas.
     - Distintas configuraciones de front-end opcionales que permiten que un único equilibrador de carga use varias direcciones IP públicas IPv6: el mismo protocolo y puerto de front-end pueden usarse entre las direcciones de front-end.
     - Los puertos IPv6 opcionales se pueden reutilizar en las instancias de back-end mediante la característica de *IP flotante* de las reglas de equilibrio de carga. 
-- Compatibilidad con [IPv6 estándar con Load Balancer interno](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) para crear aplicaciones resistentes de varios niveles en redes virtuales de Azure.  
-- Compatibilidad con IPv6 pública básica con Load Balancer para la compatibilidad con implementaciones heredadas.
+- Compatibilidad con la instancia de [IPv6 interna de Standard Load Balancer](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) para crear aplicaciones resistentes de varios niveles en redes virtuales de Azure.  
+- Compatibilidad con la instancia de IPv6 pública de Basic Load Balancer para la compatibilidad con implementaciones heredadas.
 - [Las direcciones IP públicas y los intervalos de direcciones IPv6 reservadas](ipv6-public-ip-address-prefix.md) proporcionan direcciones IPv6 estables y predecibles que facilitan la inclusión en listas blancas de las aplicaciones hospedadas en Azure para su empresa y sus clientes.
 - La dirección IP pública a nivel de instancia proporciona conectividad IPv6 a Internet directamente a las máquinas virtuales individuales.
 - [Adición de IPv6 a implementaciones de solo IPv4 existentes](ipv6-add-to-existing-vnet-powershell.md): esta característica permite agregar fácilmente conectividad IPv6 a las implementaciones existentes de solo IPv4 sin necesidad de volver a crear dichas implementaciones.  El tráfico de red IPv4 no se ve afectado durante este proceso. Por ello, en función de la aplicación y del sistema operativo, es posible que pueda agregar IPv6 incluso a servicios en directo.    

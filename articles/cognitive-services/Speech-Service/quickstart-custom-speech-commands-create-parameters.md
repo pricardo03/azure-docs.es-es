@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 50132593ce3301094ea39546f5661df06a716503
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: fc859625be0706dd130cf7714d0fabf196740e91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976594"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381008"
 ---
 # <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Inicio rápido: Creación de un comando personalizado con parámetros (versión preliminar)
 
@@ -34,28 +34,28 @@ En este artículo, extenderemos esta aplicación con parámetros para que pueda 
    > [!div class="mx-imgBorder"]
    > ![Crear parámetro](media/custom-speech-commands/create-on-off-parameter.png)
 
-   | Configuración            | Valor sugerido | DESCRIPCIÓN                                                                                               |
-   | ------------------ | --------------- | --------------------------------------------------------------------------------------------------------- |
-   | NOMBRE               | OnOff           | Nombre descriptivo para el parámetro.                                                                     |
-   | Es global          | Desactivado       | Casilla que indica si el valor de este parámetro se aplica globalmente a todos los comandos del proyecto. |
-   | Obligatorio           | Activado         | Casilla que indica si es obligatorio especificar un valor para este parámetro antes de completar el comando.          |
+   | Configuración            | Valor sugerido     | Descripción                                                                                               |
+   | ------------------ | ------------------- | --------------------------------------------------------------------------------------------------------- |
+   | Nombre               | OnOff               | Nombre descriptivo para el parámetro.                                                                     |
+   | Es global          | Desactivado           | Casilla que indica si el valor de este parámetro se aplica globalmente a todos los comandos del proyecto. |
+   | Obligatorio           | Activado             | Casilla que indica si es obligatorio especificar un valor para este parámetro antes de completar el comando.          |
    | Plantilla de respuesta  | On (Encendido) u Off (Apagado)      | Pregunta para solicitar el valor de este parámetro cuando no se conoce.                                       |
-   | Tipo               | Cadena          | Tipo de parámetro, como número, cadena o fecha y hora.                                               |
-   | Configuración      | Lista de cadenas     | En el caso de las cadenas, una lista de cadenas limita las entradas a un conjunto de valores posibles.                                      |
-   | Valores de la lista de cadenas. | on, off         | Para un parámetro de lista de cadenas, el conjunto de valores posibles y sus sinónimos.                                |
+   | Tipo               | String              | Tipo de parámetro, como número, cadena o fecha y hora.                                               |
+   | Configuración      | Lista de cadenas         | En el caso de las cadenas, una lista de cadenas limita las entradas a un conjunto de valores posibles.                                      |
+   | Valores de la lista de cadenas. | on, off             | Para un parámetro de lista de cadenas, el conjunto de valores posibles y sus sinónimos.                                |
 
    - A continuación, vuelva a seleccionar el icono de `+` para agregar un segundo parámetro que represente el nombre de los dispositivos. En este ejemplo, un televisor y un ventilador.
 
-   | Configuración            | Valor sugerido   | DESCRIPCIÓN                                                                                               |
-   | ------------------ | ----------------- | --------------------------------------------------------------------------------------------------------- |
-   | NOMBRE               | SubjectDevice     | Nombre descriptivo para el parámetro.                                                                     |
-   | Es global          | Desactivado         | Casilla que indica si el valor de este parámetro se aplica globalmente a todos los comandos del proyecto. |
-   | Obligatorio           | Activado           | Casilla que indica si es obligatorio especificar un valor para este parámetro antes de completar el comando.          |
+   | Configuración            | Valor sugerido       | Descripción                                                                                               |
+   | ------------------ | --------------------- | --------------------------------------------------------------------------------------------------------- |
+   | Nombre               | SubjectDevice         | Nombre descriptivo para el parámetro.                                                                     |
+   | Es global          | Desactivado             | Casilla que indica si el valor de este parámetro se aplica globalmente a todos los comandos del proyecto. |
+   | Obligatorio           | Activado               | Casilla que indica si es obligatorio especificar un valor para este parámetro antes de completar el comando.          |
    | Plantilla de respuesta  | ¿Qué dispositivo?     | Pregunta para solicitar el valor de este parámetro cuando no se conoce.                                       |
-   | Tipo               | Cadena            | Tipo de parámetro, como número, cadena o fecha y hora.                                               |
-   | Configuración      | Lista de cadenas       | En el caso de las cadenas, una lista de cadenas limita las entradas a un conjunto de valores posibles.                                      |
-   | Valores de la lista de cadenas. | TV, ventilador           | Para un parámetro de lista de cadenas, el conjunto de valores posibles y sus sinónimos.                                |
-   | Sinónimos (TV)      | televisión, tele | Sinónimos opcionales para cada valor posible de un parámetro de lista de cadenas.                                      |
+   | Tipo               | String                | Tipo de parámetro, como número, cadena o fecha y hora.                                               |
+   | Configuración      | Lista de cadenas           | En el caso de las cadenas, una lista de cadenas limita las entradas a un conjunto de valores posibles.                                      |
+   | Valores de la lista de cadenas. | TV, ventilador               | Para un parámetro de lista de cadenas, el conjunto de valores posibles y sus sinónimos.                                |
+   | Sinónimos (TV)      | televisión, tele     | Sinónimos opcionales para cada valor posible de un parámetro de lista de cadenas.                                      |
 
 ## <a name="add-sample-sentences"></a>Adición de oraciones de ejemplo
 
@@ -112,4 +112,3 @@ Abra el panel de chat de prueba y pruebe algunas interacciones.
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 > [Inicio rápido: conexión a una aplicación de comandos personalizados con el SDK de Voz (versión preliminar)](./quickstart-custom-speech-commands-speech-sdk.md)
-

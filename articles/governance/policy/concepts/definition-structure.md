@@ -3,12 +3,12 @@ title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2126415c3ae7ecb14a47c79dacd67aee656cd745
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f1baffb60234a154df544552dba3c34ced25b518
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894301"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436411"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -19,8 +19,8 @@ El esquema de definición de Directiva se encuentra aquí: [https://schema.manag
 
 Para crear una definición de directiva se utiliza JSON. La definición de directiva contiene elementos para:
 
-- modo
-- parameters
+- mode
+- parámetros
 - nombre para mostrar
 - description
 - regla de directiva
@@ -308,7 +308,7 @@ En el ejemplo siguiente, `concat` se usa para crear una búsqueda de campos de e
 }
 ```
 
-### <a name="value"></a>Valor
+### <a name="value"></a>Value
 
 Las condiciones también se pueden formar mediante el uso de **value**. **value** comprueba las condiciones en [parámetros](#parameters), [funciones de plantilla admitidas](#policy-functions) o literales.
 **value** se empareja con cualquier [condición](#conditions) admitida.
@@ -374,9 +374,9 @@ El uso de _funciones de plantilla_ en el **valor** permite muchas funciones anid
 }
 ```
 
-La regla de directiva del ejemplo anterior usa [substring()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) para comparar los tres primeros caracteres del **nombre** con **abc**. Si el **nombre** tiene menos de tres caracteres, la función `substring()` produce un error. Este error hace que la directiva tenga el efecto de **denegar**.
+La regla de directiva del ejemplo anterior usa [substring()](../../../azure-resource-manager/templates/template-functions-string.md#substring) para comparar los tres primeros caracteres del **nombre** con **abc**. Si el **nombre** tiene menos de tres caracteres, la función `substring()` produce un error. Este error hace que la directiva tenga el efecto de **denegar**.
 
-En su lugar, use la función [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) para comprobar si los tres primeros caracteres del **nombre** son igual a **abc** sin permitir que un **nombre** menor de tres caracteres produzca un error:
+En su lugar, use la función [if()](../../../azure-resource-manager/templates/template-functions-logical.md#if) para comprobar si los tres primeros caracteres del **nombre** son igual a **abc** sin permitir que un **nombre** menor de tres caracteres produzca un error:
 
 ```json
 {
@@ -635,7 +635,7 @@ La lista de alias siempre está en aumento. Para descubrir qué alias son compat
   (Get-AzPolicyAlias -NamespaceMatch 'compute').Aliases
   ```
 
-- CLI de Azure
+- Azure CLI
 
   ```azurecli-interactive
   # Login first with az login if not using Cloud Shell

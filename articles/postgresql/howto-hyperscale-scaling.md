@@ -5,17 +5,17 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 9/17/2019
-ms.openlocfilehash: 5d8bbe493887c5340f0943a585eb6ff250bd3728
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 12/17/2019
+ms.openlocfilehash: bec2a40d8cf5fb178418ec6bb59a52a0bfe3eb8c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977563"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453054"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Escalado de un grupo de servidores Hiperescala (Citus)
 
-Azure Database for PostgreSQL:Hiperescala (Citus) proporciona escalado de autoservicio para tratar el aumento de la carga. Azure Portal permitir agregar nuevos nodos de trabajo y aumentar la capacidad de los nodos existentes.
+Azure Database for PostgreSQL:Hiperescala (Citus) proporciona escalado de autoservicio para tratar el aumento de la carga. Azure Portal permite agregar nuevos nodos de trabajo y aumentar los núcleos virtuales de los nodos existentes.
 
 ## <a name="add-worker-nodes"></a>Incorporación de nodos de trabajo
 
@@ -38,9 +38,9 @@ SELECT rebalance_table_shards('distributed_table_name');
 
 La función `rebalance_table_shards` vuelve a equilibrar todas las tablas del grupo [colocación](concepts-hyperscale-colocation.md)de la tabla nombrada en su argumento. Por lo tanto, no tiene que llamar a la función para cada tabla distribuida, simplemente llámela en una tabla representativa de cada grupo de ubicación.
 
-## <a name="increase-vcores-or-storage-space"></a>Aumento del espacio de almacenamiento o núcleos virtuales
+## <a name="increase-vcores"></a>Aumentar los núcleos virtuales
 
-Además de agregar nodos nuevos, puede aumentar las capacidades de los nodos existentes. Vaya a la pestaña **Configurar** en el grupo de servidores Hiperescala (Citus) y arrastre el control deslizante de **Núcleos virtuales** y **Almacenamiento** para cambiar estos valores para todos los nodos de trabajo. Asegúrese de hacer clic en **Guardar** para aplicar los cambios.
+Además de agregar nodos nuevos, puede aumentar las capacidades de los nodos existentes. Actualmente, esta característica se encuentra en versión preliminar: para solicitar más núcleos virtuales para los nodos del grupo de servidores, [póngase en contacto con el Soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

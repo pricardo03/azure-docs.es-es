@@ -5,15 +5,14 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 12/13/2019
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: f27a6df86ebbe2b07b73016f304ac364e88664bb
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 734bb48d1ddb50af7c28e948c8267b4cd88fcdf7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891045"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437026"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -55,38 +54,39 @@ Para más información, vea la página del [contrato de nivel de servicio de Exp
 
 ## <a name="supported-services"></a>Servicios admitidos
 
-ExpressRoute admite [tres dominios de enrutamiento](expressroute-circuit-peerings.md) para diferentes tipos de servicios: emparejamiento privado, emparejamiento de Microsoft y emparejamiento público.
+ExpressRoute admite [tres dominios de enrutamiento](expressroute-circuit-peerings.md) para diferentes tipos de servicios: emparejamiento privado, emparejamiento de Microsoft y emparejamiento público (en desuso).
 
 ### <a name="private-peering"></a>Emparejamiento privado
+
+**Se admite:**
 
 * Virtual Networks, que incluye todas las máquinas virtuales y servicios en la nube.
 
 ### <a name="microsoft-peering"></a>Emparejamiento de Microsoft
+
+Si el circuito ExpressRoute está habilitado para el emparejamiento de Microsoft de Azure, puede acceder a los [intervalos de direcciones IP públicas que se usan en Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) a través del circuito. El emparejamiento de Microsoft de Azure proporcionará acceso a los servicios hospedados actualmente en Azure (con restricciones geográficas en función de la SKU del circuito). Para validar la disponibilidad de un servicio específico, puede consultar la documentación de ese servicio a fin de comprobar si hay un intervalo reservado publicado para ese servicio. Después, busque los intervalos IP del servicio de destino y compárelos con los intervalos que se enumeran en [Etiquetas de servicio e intervalos IP de Azure: archivo XML de la nube pública](https://www.microsoft.com/download/details.aspx?id=56519). Como alternativa, puede abrir una incidencia de soporte técnico para el servicio a fin de aclararlo.
+
+**Se admite:**
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI: disponible a través de una comunidad regional de Azure, consulte [aquí](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) información sobre la región de su inquilino de Power BI.
 * Azure Active Directory
 * [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (comunidad de Servicios globales de Azure)
-* Se admiten la mayoría de los servicios de Azure. Compruébelo directamente con el servicio que desea utilizar para comprobar la compatibilidad.<br><br>**Los siguientes servicios no son compatibles**:
-    * CDN
-    * Azure Front Door
-    * Servidor de la autenticación multifactor (heredado)
-    * Traffic Manager
+* Se admiten la mayoría de los servicios de Azure. Compruébelo directamente con el servicio que desea utilizar para comprobar la compatibilidad.
+
+**No se admite:**
+
+* CDN
+* Azure Front Door
+* Servidor de la autenticación multifactor (heredado)
+* Traffic Manager
 
 ### <a name="public-peering"></a>Emparejamiento público
 
->[!NOTE]
->El emparejamiento público se ha deshabilitado en los nuevos circuitos ExpressRoute. Los servicios de Azure están disponibles en el emparejamiento de Microsoft.
->
+El emparejamiento público se ha deshabilitado en los nuevos circuitos ExpressRoute. Ahora, los servicios de Azure están disponibles en el emparejamiento de Microsoft. Si un circuito creado antes del emparejamiento público está en desuso, puede optar por usar el emparejamiento de Microsoft o el emparejamiento público, en función de los servicios que quiera.
 
-* Power BI
-* Se admiten la mayoría de los servicios de Azure. Compruébelo directamente con el servicio que desea utilizar para comprobar la compatibilidad.<br><br>
-  **Los siguientes servicios no son compatibles**:
-    * CDN
-    * Azure Front Door
-    * Servidor de la autenticación multifactor (heredado)
-    * Traffic Manager
+Para obtener más información y conocer los pasos de configuración para el emparejamiento público, consulte [Emparejamiento público de ExpressRoute](about-public-peering.md).
 
 ### <a name="why-i-see-advertised-public-prefixes-status-as-validation-needed-while-configuring-microsoft-peering"></a>¿Por qué veo el estado de "Prefijos públicos anunciados" como "Se necesita validación" mientras configuro el emparejamiento de Microsoft?
 
@@ -101,7 +101,7 @@ Si ve el mensaje "Se necesita validación", recopile los documentos que muestren
 Los entornos de Dynamics 365 y Common Data Service (CDS) se hospedan en Azure y, por tanto, los clientes se benefician de la compatibilidad de ExpressRoute subyacente con los recursos de Azure. Puede conectarse a sus puntos de conexión de servicio si el filtro del enrutador incluye las regiones de Azure en las que se hospedan los entornos de Dynamics 365 o CDS.
 
 > [!NOTE]
-> [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) **no** es necesario para la conectividad de Dynamics 365 mediante Azure ExpressRoute.
+> [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium)**no** es necesario para la conectividad de Dynamics 365 mediante Azure ExpressRoute.
 
 ## <a name="data-and-connections"></a>Datos y conexiones
 
@@ -149,7 +149,7 @@ Consulte [aquí](https://docs.microsoft.com/azure/expressroute/designing-for-hig
 
 Se puede lograr la alta disponibilidad mediante la conexión de circuitos de ExpressRoute en distintas ubicaciones de emparejamiento (por ejemplo, Singapur, Singapur2) a la red virtual. Si se bloquea un circuito ExpressRoute, la conectividad conmutará por error a otro circuito ExpressRoute. De forma predeterminada, el tráfico que sale de la red virtual se enruta en función del enrutamiento multidireccional de igual costo (ECMP). Puede usar el peso de la conexión para preferir un circuito a otro. Para obtener más información, consulte [Optimización de enrutamiento de ExpressRoute](expressroute-optimize-routing.md).
 
-### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-or-public-peering-is-preferred-on-the-expressroute-path"></a>¿Cómo me aseguro de que el tráfico destinado a los servicios públicos de Azure, como Azure Storage y Azure SQL, en el emparejamiento de Microsoft o público se prefiere en la ruta de ExpressRoute?
+### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-peering-or-public-peering-is-preferred-on-the-expressroute-path"></a>¿Cómo me aseguro de que el tráfico destinado a los servicios públicos de Azure, como Azure Storage y Azure SQL, en el emparejamiento de Microsoft o público se prefiere en la ruta de ExpressRoute?
 
 Debe implementar el atributo *Preferencia local* en los enrutadores para asegurarse de que la ruta local a Azure siempre se prefiere en los circuitos de ExpressRoute.
 

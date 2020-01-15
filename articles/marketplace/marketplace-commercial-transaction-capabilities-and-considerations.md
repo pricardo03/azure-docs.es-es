@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 5219ff94b29d4fd02edb8567ae59884ced07b37e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 969f2f6b2e25d9eb804349eccbed66e17b7fbb87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791355"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427169"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funcionalidades y consideraciones sobre transacciones comerciales de Marketplace
 
@@ -138,7 +138,7 @@ Esta opción debe configurarse para vender a través de Microsoft y puede tener 
 |*Microsoft factura al cliente*    |  *100,00 USD al mes (nota: el publicador debe tener en cuenta en el precio de las licencias los costos de infraestructura en los que se incurra o traspasados)*  |
 
 * En este escenario, Microsoft factura 100,00 USD por su licencia de software y paga 80,00 USD al publicador.
-* Los asociados que sean aptos para la tarifa reducida del servicio Marketplace verán una cuota de transacción reducida en las ofertas de SaaS desde mayo de 2019 hasta junio de 2020. En este escenario, Microsoft factura 100,00 USD por su licencia de software y paga 90,00 USD al publicador.
+* Los asociados que sean aptos para la tarifa reducida del servicio Marketplace verán una cuota de transacción reducida en las ofertas de SaaS desde mayo de 2019 hasta junio de 2020. En este escenario, Microsoft factura 100,00 USD por su licencia de software y paga 90,00 USD al anunciante.
 
 |Microsoft factura  | 100,00 USD al mes  |
 |---------|---------|
@@ -163,7 +163,7 @@ Los clientes también pueden pagar con tarjeta de crédito y una factura mensual
 
 Por ejemplo, si el cliente compra con tarjeta de crédito:
 
-|DESCRIPCIÓN    |    Date  |
+|Descripción    |    Date  |
 |----------|----------|
 |Período del pedido   | Del 15 de agosto al 30 de agosto de 2018 |
 |Final del período (mes)   | 30 de agosto de 2018 |
@@ -177,7 +177,7 @@ Por ejemplo, si el cliente compra con tarjeta de crédito:
 
 Si el cliente compra mediante un contrato Enterprise:
 
-| DESCRIPCIÓN |    Date  |
+| Descripción |    Date  |
 |----------|----------|
 |Período del pedido | Del 15 de agosto al 30 de agosto de 2018 |
 |Final del período (trimestre) | 30 de septiembre de 2018 |
@@ -223,7 +223,7 @@ En esta sección se tratan los requisitos de transacción para distintos tipos d
 - Se necesitan una cuenta de Microsoft y la información financiera para la opción de publicación de transacciones, independientemente del modelo de precios de la oferta.
 - Entre la información financiera obligatoria se incluyen el perfil fiscal y la cuenta de pago.
 
-Para obtener más información sobre cómo configurar estas cuentas, vea [Administración de la cuenta del Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details).
+Para obtener más información sobre cómo configurar estas cuentas, vea [Administración de la cuenta del Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account).
 
 
 ### <a name="requirements-for-specific-offer-types"></a>Requisitos para tipos de ofertas específicos

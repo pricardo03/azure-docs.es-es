@@ -4,15 +4,15 @@ description: Use etiquetas de servicio de HDInsight para permitir el tráfico en
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/19/2019
-ms.openlocfilehash: 7e3ce33bdf0773ababe5eb190877a9288c094c5c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.custom: hdinsightactive
+ms.date: 12/05/2019
+ms.openlocfilehash: 24ecf90c2ffc88415afbf84f54af3efa7d5f4a39
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186808"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435411"
 ---
 # <a name="network-security-group-nsg-service-tags-for-azure-hdinsight"></a>Etiquetas de servicio del grupo de seguridad de red (NSG) para Azure HDInsight
 
@@ -26,13 +26,23 @@ Tiene dos opciones para usar etiquetas de servicio en los grupos de seguridad de
 
 1. Usar una sola etiqueta de servicio de HDInsight: esta opción abrirá la red virtual en todas las direcciones IP que usa el servicio HDInsight para supervisar los clústeres en todas las regiones. Esta opción es el método más sencillo, pero puede no ser adecuada si tiene requisitos de seguridad restrictivos.
 
-1. Usar varias etiquetas de servicio regional: esta opción abrirá la red virtual solo para las direcciones IP que HDInsight usa en esa región específica. Aunque, si usa varias regiones, tendrá que agregar varias etiquetas de servicio a la red virtual.
+1. Usar varias etiquetas de servicio regional: esta opción abrirá la red virtual solo para las direcciones IP que HDInsight usa en esa región específica. No obstante, si usa varias regiones, tendrá que agregar varias etiquetas de servicio a la red virtual.
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Usar una sola etiqueta de servicio de HDInsight global
 
-La manera más fácil de empezar a usar etiquetas de servicio con el clúster de HDInsight es agregar la etiqueta global `HDInsight` a una regla de grupo de seguridad de red. Para obtener instrucciones sobre cómo agregar etiquetas de servicio al grupo de seguridad de red, consulte [Grupos de seguridad: etiquetas de servicio](../virtual-network/security-overview.md#service-tags).
+La manera más fácil de empezar a usar etiquetas de servicio con el clúster de HDInsight es agregar la etiqueta global `HDInsight` a una regla de grupo de seguridad de red.
 
-Esta etiqueta contiene las direcciones IP de los servicios de mantenimiento y administración de todas las regiones donde está disponible HDInsight y garantiza que el clúster puede comunicarse con los servicios de mantenimiento y administración necesarios, independientemente de dónde se cree.
+1. Desde [Azure Portal](https://portal.azure.com/), seleccione su grupo de seguridad de red.
+
+1. En **Configuración**, seleccione **Reglas de seguridad de entrada** y, a continuación, seleccione **+ Agregar**.
+
+1. En la lista desplegable **Origen**, seleccione **Etiqueta de servicio**.
+
+1. En la lista desplegable **Etiqueta de servicio de origen**, seleccione **HDInsight**.
+
+    ![Etiqueta de servicio Agregar de Azure Portal](./media/hdinisght-service-tags/azure-portal-add-service-tag.png)
+
+Esta etiqueta contiene las direcciones IP de los servicios de mantenimiento y administración de todas las regiones donde está disponible HDInsight y garantiza que el clúster pueda comunicarse con los servicios de mantenimiento y administración necesarios, independientemente de dónde se cree.
 
 ## <a name="use-regional-hdinsight-service-tags"></a>Uso de etiquetas de servicio de HDInsight regionales
 
@@ -63,7 +73,7 @@ Si prefiere la segunda opción de etiqueta de servicio y el clúster se encuentr
 | Japón | Oeste de Japón | HDInsight.JapanWest |
 | Francia | Centro de Francia| HDInsight.FranceCentral |
 | Reino Unido | Sur de Reino Unido 2 | HDInsight.UKSouth |
-| Azure Government (Fairfax) | Departamento de Defensa de centro de EE. UU.   | HDInsight.USDoDCentral |
+| Azure Government | Departamento de Defensa de centro de EE. UU.   | HDInsight.USDoDCentral |
 | &nbsp; | Gov (US): Texas | HDInsight.USGovTexas |
 | &nbsp; | Departamento de Defensa de este de EE. UU. | HDInsight.USDoDEast |
 
@@ -112,5 +122,5 @@ Los clústeres de las regiones de **Centro de Alemania** y **Nordeste de Alemani
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Grupos de seguridad de red: etiquetas de servicio](../virtual-network/security-overview.md#security-rules)
-* [Creación de redes virtuales para clústeres de Azure HDInsight](hdinsight-create-virtual-network.md)
+- [Grupos de seguridad de red: etiquetas de servicio](../virtual-network/security-overview.md#security-rules)
+- [Creación de redes virtuales para clústeres de Azure HDInsight](hdinsight-create-virtual-network.md)

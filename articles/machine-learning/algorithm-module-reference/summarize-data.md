@@ -1,7 +1,7 @@
 ---
 title: Resumen de datos
-titleSuffix: Azure Machine Learning service
-description: Aprenda a usar el módulo Summarize Data (Resumen de datos) en el servicio Azure Machine Learning para generar un informe básico de estadísticas descriptivas para las columnas de un conjunto de datos.
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar el módulo Resumir datos en Azure Machine Learning para generar un informe básico de estadísticas descriptivas para las columnas de un conjunto de datos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 503eb533b83cbeedcc16b73a9c1dbe821a4d4d94
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 80e2acf08960796ccb2f3ad87c16674e477c9c00
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492568"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428452"
 ---
 # <a name="summarize-data"></a>Resumen de datos
 
@@ -46,7 +46,7 @@ El módulo calcula las puntuaciones importantes de cada columna y devuelve una f
 
 El informe del módulo puede incluir las siguientes estadísticas. 
 
-|Nombre de la columna|DESCRIPCIÓN|
+|Nombre de la columna|Descripción|
 |------|------|  
 |**Característica**|Nombre de la columna|
 |**Recuento**|Recuento de filas|
@@ -73,4 +73,4 @@ El informe del módulo puede incluir las siguientes estadísticas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service.  
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning.  

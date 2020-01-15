@@ -1,19 +1,19 @@
 ---
 title: Direcciones IP de administración de HDInsight de Azure
 description: Obtenga información sobre las direcciones IP a las que debe permitir el tráfico de entrada, con el fin de configurar correctamente los grupos de seguridad de red y las rutas definidas por el usuario para la red virtual con Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+author: hol82
+ms.author: hol
+ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.openlocfilehash: 9caf0a41096a22e94aeb80ccfd0e6e6f70954a3d
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.date: 12/16/2019
+ms.openlocfilehash: 598bf677b06c5ec1f431144e7e76deee55d23f33
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185650"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435483"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Direcciones IP de administración de HDInsight
 
@@ -78,6 +78,7 @@ Permita el tráfico desde las direcciones IP enumeradas en los servicios de mant
 | &nbsp; | Centro occidental de EE.UU. | 52.161.23.15</br>52.161.10.167 | \*:443 | Entrada |
 | &nbsp; | Oeste de EE. UU. | 13.64.254.98</br>23.101.196.19 | \*:443 | Entrada |
 | &nbsp; | Oeste de EE. UU. 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Entrada |
+| &nbsp; | Norte de Emiratos Árabes Unidos | 65.52.252.96</br>65.52.252.97 | \*:443 | Entrada |
 
 Para más información sobre las direcciones IP que se van a usar para Azure Government, vea el documento [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) (Inteligencia y análisis de Azure Government).
 

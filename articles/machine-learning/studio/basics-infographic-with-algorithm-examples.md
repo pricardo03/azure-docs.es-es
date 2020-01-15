@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodc18
 ms.date: 03/04/2019
-ms.openlocfilehash: 75f1424c68f3fe78f0dbf5e729943771ff25a09d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b57728b56efc84b903ed442c0dea7e70d4eb5bb2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839709"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454849"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infografía descargable: Conceptos básicos de aprendizaje automático con ejemplos de algoritmos
 
@@ -34,8 +34,8 @@ Descargue esta introducción infográfica de comprender sobre conceptos básicos
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Más ayuda con los algoritmos para principiantes y usuarios avanzados
 
 * Para más información sobre los distintos tipos de algoritmos de aprendizaje automático, cómo se usan y cómo elegir el correcto para su solución, consulte [Elección de algoritmos para Microsoft Azure Machine Learning Studio (clásico)](algorithm-choice.md).
-* Para ver una lista por categoría de todos los algoritmos disponibles de aprendizaje automático en la versión clásica de Machine Learning Studio, consulte [Inicializar modelo][initialize-model] en la Ayuda de módulos y algoritmos de Machine Learning Studio (clásico).
-* Para ver una lista completa de todos los algoritmos de la versión clásica de Machine Learning Studio, consulte [Lista de la A a la Z de módulos de Machine Learning Studio (clásico)][a-z-list] en la Ayuda de módulos y algoritmos de Machine Learning Studio (clásico).
+* Para ver una lista por categoría de todos los algoritmos disponibles de aprendizaje automático en Machine Learning Studio (clásico), consulte [Inicializar modelo][initialize-model] en la Ayuda de módulos y algoritmos de Machine Learning Studio (clásico).
+* Para ver una lista completa de todos los algoritmos de Machine Learning Studio (clásico), consulte [Lista de la A a la Z de módulos de Machine Learning Studio (clásico)][a-z-list] en la Ayuda de módulos y algoritmos de Machine Learning Studio (clásico).
 * Para información general de la Galería de Azure AI y los numerosos recursos generados por la comunidad que allí se encuentran, vea [Uso compartido y descubrimiento de recursos en la Galería de Azure AI](gallery-how-to-use-contribute-publish.md).
 
 

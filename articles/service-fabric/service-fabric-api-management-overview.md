@@ -1,25 +1,16 @@
 ---
-title: Información general de Azure Service Fabric con API Management | Microsoft Docs
+title: Introducción a Service Fabric con API Management
 description: Este artículo es una introducción al uso de Azure API Management como puerta de enlace para las aplicaciones de Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 52f9584a2f793ff513100afcb7b7bd6acd2a4742
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 656bb6d400461c93540b77d871502b738c679f47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900500"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378117"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Información general de Service Fabric con Azure API Management
 
@@ -32,7 +23,7 @@ Este artículo es una introducción al uso de Azure API Management como puerta d
 > [!IMPORTANT]
 > Esta característica ya está disponible en los niveles **Premium** y **Developer** de API Management debido a la compatibilidad requerida con redes virtuales.
 
-## <a name="architecture"></a>Arquitectura
+## <a name="architecture"></a>Architecture
 
 Una arquitectura de Service Fabric común usa una aplicación web de una página que realiza llamadas HTTP a servicios back-end que exponen API HTTP. La [aplicación de ejemplo de inicio de Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) presenta una muestra de esta arquitectura.
 
