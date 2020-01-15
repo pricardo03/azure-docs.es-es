@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 09/19/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1fec6de65fade0bbb35907f9c69334e16d9193bf
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 63070b2c1e6adbb0149446b218e6e58023b2d409
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671749"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666469"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -23,7 +23,7 @@ La implementación de la aplicación en un espacio que no sea de producción ofr
 * La implementación de una aplicación en un espacio y su posterior paso a producción garantiza que todas las instancias del espacio están preparadas antes de dicho paso a producción. Esto elimina tiempos de inactividad a la hora de implementar la aplicación. El redireccionamiento del tráfico es perfecta y no se pierde ninguna solicitud en las operaciones de intercambio. Todo este flujo de trabajo se puede automatizar mediante la configuración del [intercambio automático](#Auto-Swap) cuando no sea necesario realizar ninguna validación antes del intercambio.
 * Después del intercambio, la ranura con la aplicación de ensayo anterior ahora ocupa la aplicación de producción anterior. Si las modificaciones que se han intercambiado en el espacio de producción no son los que esperaba, puede volver a realizar un intercambio inmediatamente para tener el "último sitio que sabe que funciona correctamente".
 
-Cada nivel del plan de App Service admite un número distinto de ranuras de implementación. El uso de las ranuras de implementación no tiene costo adicional. Para averiguar el número de ranuras que admite el nivel de la aplicación, consulte [Límites de App Service](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). 
+Cada nivel del plan de App Service admite un número distinto de ranuras de implementación. El uso de las ranuras de implementación no tiene costo adicional. Para averiguar el número de ranuras que admite el nivel de la aplicación, consulte [Límites de App Service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits). 
 
 Para escalar la aplicación a un nivel diferente, asegúrese de que el nivel de destino admite el número de ranuras que la aplicación ya usa. Por ejemplo, si la aplicación tiene más de cinco, no se puede reducir verticalmente al nivel **Estándar**, ya que este nivel solo admite cinco ranuras de implementación. 
 
@@ -32,7 +32,11 @@ Para escalar la aplicación a un nivel diferente, asegúrese de que el nivel de 
 ## <a name="add-a-slot"></a>Incorporación de una ranura
 Para poder habilitar varias espacios de implementación, la aplicación debe ejecutarse en los niveles **Estándar**, **Premium** o **Aislado**.
 
-1. En [Azure Portal](https://portal.azure.com/), abra la [página de recursos](../azure-resource-manager/manage-resources-portal.md#manage-resources) de la aplicación.
+
+1. En [Azure Portal](https://portal.azure.com/), busque y seleccione **App Services** y luego elija la aplicación. 
+   
+    ![Búsqueda de App Services](./media/web-sites-staged-publishing/search-for-app-services.png)
+   
 
 2. En el panel izquierdo, seleccione **Ranuras de implementación** > **Agregar ranura**.
    
@@ -179,7 +183,7 @@ El intercambio automático optimiza los escenarios de Azure DevOps en los que se
 
 Para configurar el intercambio automático:
 
-1. Vaya a la página de recursos de la aplicación. Seleccione **Ranuras de implementación** >  *\<ranura de origen deseada>*  > **Configuración**  >  **Configuración general**.
+1. Vaya a la página de recursos de la aplicación. Seleccione **Ranuras de implementación** >  *\<ranura de origen deseada>*  > **Configuración** > **Configuración general**.
    
 2. Para **Intercambio automático habilitado**, seleccione **Activado**. A continuación, seleccione la ranura de destino deseada como **Ranura de implementación de intercambio automático** y seleccione **Guardar** en la barra de comandos. 
    
@@ -241,7 +245,7 @@ Una vez guardado el valor, el porcentaje especificado de clientes se enruta alea
 Una vez enrutado un cliente automáticamente a una ranura concreta, permanece "anclado" en esa ranura todo el tiempo que dure su sesión. En el explorador del cliente, para ver a qué espacio está anclada la sesión debe examinar la cookie `x-ms-routing-name` en los encabezados HTTP. Las solicitudes que se enrutan a al espacio "de ensayo" tienen la cookie `x-ms-routing-name=staging`. Las solicitudes que se enrutan al espacio de producción tienen la cookie `x-ms-routing-name=self`.
 
    > [!NOTE]
-   > Junto a Azure Portal, también puede usar el comando [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) en la CLI de Azure para establecer los porcentajes de enrutamiento desde herramientas de CI/CD, como canalizaciones DevOps u otros sistemas de automatización.
+   > Junto a Azure Portal, también puede usar el comando [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) en la CLI de Azure para establecer los porcentajes de enrutamiento desde herramientas de CI/CD, como canalizaciones DevOps u otros sistemas de automatización.
    > 
 
 ### <a name="route-production-traffic-manually"></a>Enrutamiento manual del tráfico de producción
@@ -268,7 +272,7 @@ De forma predeterminada, las ranuras nuevas tienen una regla de enrutamiento del
 
 ## <a name="delete-a-slot"></a>Eliminación de una ranura
 
-Vaya a la página de recursos de la aplicación. Seleccione **Ranuras de implementación** >  *\<ranura para eliminar>*  > **Información general**. En la barra de comandos, seleccione **Eliminar**.  
+Busque y seleccione la aplicación. Seleccione **Ranuras de implementación** >  *\<ranura para eliminar>*  > **Información general**. En la barra de comandos, seleccione **Eliminar**.  
 
 ![Eliminación de una ranura de implementación](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -327,16 +331,16 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
-## <a name="automate-with-arm-templates"></a>Automatización con las plantillas de ARM
+## <a name="automate-with-resource-manager-templates"></a>Automatización con plantillas de Resource Manager
 
-Las [Plantillas ARM](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) son archivos JSON declarativos que se usan para automatizar la implementación y la configuración de los recursos de Azure. Para intercambiar ranuras mediante plantillas de ARM, establecerá dos propiedades en los recursos *Microsoft.Web/sites/slots* y *Microsoft.Web/sites*:
+Las [plantillas de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) son archivos JSON declarativos que se usan para automatizar la implementación y la configuración de los recursos de Azure. Para intercambiar ranuras mediante plantillas de Resource Manager, establecerá dos propiedades en los recursos *Microsoft.Web/sites/slots* and *Microsoft.Web/sites*:
 
 - `buildVersion`: esta es una propiedad de cadena que representa la versión actual de la aplicación implementada en la ranura. Por ejemplo: "v1", "1.0.0.1" o "2019-09-20T11:53:25.2887393-07:00".
 - `targetBuildVersion`: esta es una propiedad de cadena que especifica qué `buildVersion` debe tener la ranura. Si targetBuildVersion no es igual a la `buildVersion` actual, esto activará la operación de intercambio al encontrar la ranura que tiene la `buildVersion` especificada.
 
-### <a name="example-arm-template"></a>Ejemplo de plantilla de ARM
+### <a name="example-resource-manager-template"></a>Ejemplo de plantilla de Resource Manager
 
-La siguiente plantilla de ARM actualizará el `buildVersion` de la ranura de preparación y establecerá el `targetBuildVersion` en la ranura de producción. Esto intercambiará las dos ranuras. La plantilla supone que ya tiene una aplicación web creada con una ranura llamada "almacenamiento provisional".
+La siguiente plantilla de Resource Manager actualizará el objeto `buildVersion` del espacio de ensayo y establecerá el objeto `targetBuildVersion` en el espacio de producción. Esto intercambiará las dos ranuras. La plantilla supone que ya tiene una aplicación web creada con una ranura llamada "almacenamiento provisional".
 
 ```json
 {
@@ -380,7 +384,7 @@ La siguiente plantilla de ARM actualizará el `buildVersion` de la ranura de pre
 }
 ```
 
-Esta plantilla de ARM es idempotente, lo que significa que puede ejecutarse repetidamente y producir el mismo estado de las ranuras. Después de la primera ejecución, `targetBuildVersion` coincidirá con el `buildVersion` actual, por lo que no se activará un intercambio.
+Esta plantilla de Resource Manager es idempotente, lo que significa que puede ejecutarse repetidamente y producir el mismo estado de las ranuras. Después de la primera ejecución, `targetBuildVersion` coincidirá con el `buildVersion` actual, por lo que no se activará un intercambio.
 
 <!-- ======== Azure CLI =========== -->
 

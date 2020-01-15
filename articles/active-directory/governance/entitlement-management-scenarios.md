@@ -1,5 +1,5 @@
 ---
-title: 'Escenarios comunes de administración de derechos de Azure AD: Azure Active Directory'
+title: Escenarios comunes de administración de derechos - Azure AD
 description: Conozca los pasos de alto nivel que debe seguir en escenarios comunes de administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24d2dc82d0e81c9ac374d96387677774dc916b8c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d780e6e11d2c067261f6862e1678ef5de0aaa9bb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173489"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422504"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Escenarios comunes de administración de derechos de Azure AD
 
@@ -136,7 +136,7 @@ Hay varias formas para configurar la administración de derechos para su organiz
 
 ### <a name="access-package-manager-directly-assign-specific-users-to-an-access-package"></a>Administrador de paquetes de acceso: asignar directamente usuarios específicos a un paquete de acceso
 
-1. [Si los usuarios necesitan una configuración de ciclo de vida diferente, agregue una nueva directiva al paquete de acceso.](entitlement-management-access-package-request-policy.md#add-a-new-policy-of-request-and-approval-settings).
+1. [Si los usuarios necesitan una configuración de ciclo de vida diferente, agregue una nueva directiva al paquete de acceso](entitlement-management-access-package-request-policy.md#add-a-new-policy-of-request-and-approval-settings)
 1. [Asignar directamente usuarios específicos al paquete de acceso](entitlement-management-access-package-assignments.md#directly-assign-a-user)
 
 ## <a name="assignments-and-reports"></a>Asignaciones e informes

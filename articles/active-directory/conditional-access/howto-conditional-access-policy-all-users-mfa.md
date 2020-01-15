@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc0d22e2e6478c265ba9219ae4df5d5ddb34d481
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 52faa2b6167606a46bf189d514a1eb314b443783
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803893"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424937"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Acceso condicional: Exigir autenticación multifactor para todos los usuarios
 
@@ -57,8 +57,24 @@ Los pasos siguientes le ayudarán a crear una directiva de acceso condicional qu
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear la directiva.
 
+### <a name="named-locations"></a>Ubicaciones con nombre
+
+Las organizaciones pueden optar por incorporar ubicaciones de red conocidas, denominadas **ubicaciones con nombre**, a sus directivas de acceso condicional. Estas ubicaciones con nombre pueden incluir redes IPv4 de confianza, como las de una ubicación de oficina principal. Para obtener más información sobre la configuración de ubicaciones con nombre, consulte el artículo [¿Qué es la condición de ubicación del acceso condicional de Azure Active Directory?](location-condition.md)
+
+En la directiva de ejemplo anterior, una organización puede optar por no requerir la autenticación multifactor si tiene acceso a una aplicación en la nube desde su red corporativa. En este caso, se podría agregar la siguiente configuración a la directiva:
+
+1. En **Asignaciones**, seleccione **Condiciones** > **Ubicaciones**.
+   1. Configure **Sí**.
+   1. Incluya **Cualquier ubicación**.
+   1. Excluya **Todas las ubicaciones de confianza**.
+   1. Seleccione **Listo**.
+1. Seleccione **Listo**.
+1. **Guarde** sus cambios en la directiva.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md)
+
+[Determinación del impacto de usar el modo de solo informe de acceso condicional](howto-conditional-access-report-only.md)
 
 [Simulación del comportamiento de inicio de sesión mediante la herramienta What If de acceso condicional](troubleshoot-conditional-access-what-if.md)

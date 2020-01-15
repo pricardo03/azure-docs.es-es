@@ -1,25 +1,15 @@
 ---
-title: Configuración de un entorno de desarrollo de Windows para microservicios de Azure | Microsoft Docs
+title: Configuración de un entorno de desarrollo de Windows
 description: Instale las herramientas, el SDK y el motor en tiempo de ejecución y cree un clúster de desarrollo local. Después de completar esta instalación, estará listo para compilar aplicaciones en Windows.
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/18/2019
-ms.author: atsenthi
-ms.openlocfilehash: 1eb8e5893d93ef0261d68df4629b072876096711
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 9e055a0674804a15d307a879fd8cb609e3c2631d
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185671"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614390"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparación del entorno de desarrollo en Windows
 > [!div class="op_single_selector"]
@@ -31,8 +21,8 @@ ms.locfileid: "74185671"
 
 Para compilar y ejecutar [aplicaciones de Azure Service Fabric][1] en la máquina de desarrollo Windows, debe instalar el entorno en tiempo de ejecución de Service Fabric, el SDK y las herramientas. También es preciso que [habilite la ejecución de los scripts de Windows PowerShell](#enable-powershell-script-execution) que se incluyen en el SDK.
 
-## <a name="prerequisites"></a>Requisitos previos
-### <a name="supported-operating-system-versions"></a>Versiones de sistemas operativos compatibles
+## <a name="prerequisites"></a>Prerequisites
+### <a name="supported-operating-system-versions"></a>Versiones de sistemas operativos admitidos
 Se admiten las siguientes versiones de sistemas operativos para desarrollo:
 
 * Windows 7

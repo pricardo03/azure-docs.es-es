@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d0a1f56624314ff0cebe93a46027d3ca5b6a838
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e6c4e5d90704e847b3bcd033a20311cc6c69cfe7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803723"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424899"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>Acceso condicional: Exigir autenticación multifactor para la administración de Azure
 
@@ -24,7 +24,7 @@ Las organizaciones usan una variedad de servicios de Azure y los administran des
 
 * Portal de Azure
 * Azure PowerShell
-* CLI de Azure
+* Azure CLI
 
 Estas herramientas pueden proporcionar acceso con privilegios elevados a los recursos, que pueden modificar las configuraciones de toda la suscripción, la configuración del servicio y la facturación de la suscripción. Para proteger estos recursos con privilegios, Microsoft recomienda exigir la autenticación multifactor para cualquier usuario que tenga acceso a ellos.
 
@@ -57,5 +57,7 @@ Los pasos siguientes le ayudarán a crear una directiva de acceso condicional qu
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md)
+
+[Determinación del impacto de usar el modo de solo informe de acceso condicional](howto-conditional-access-report-only.md)
 
 [Simulación del comportamiento de inicio de sesión mediante la herramienta What If de acceso condicional](troubleshoot-conditional-access-what-if.md)

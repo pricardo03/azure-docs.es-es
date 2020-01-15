@@ -1,16 +1,16 @@
 ---
-title: solución de problemas
+title: Solución de problemas
 services: azure-dev-spaces
 ms.date: 09/25/2019
 ms.topic: conceptual
-description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
+description: Obtenga información sobre cómo solucionar problemas y resolver problemas comunes al habilitar y usar Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: 64b9cda61e5af3e8b9ea52477b5bf4fa879f48e6
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a52d27733168c55f9e34d15f6675dd7bce0f8aad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483857"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438109"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solución de problemas de Azure Dev Spaces
 
@@ -472,6 +472,6 @@ Para habilitar Azure Dev Spaces en un clúster de AKS con el fin de que el tr�
 | FQDN                                    | Port      | Uso      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS:443 | Extraer Linux Alpine y otras imágenes de Azure Dev Spaces |
-| gcr.io | HTTP: 443 | Extraer las imágenes de Helm o Tiller|
-| storage.googleapis.com | HTTP: 443 | Extraer las imágenes de Helm o Tiller|
+| gcr.io | HTTP:443 | Extraer las imágenes de Helm o Tiller|
+| storage.googleapis.com | HTTP:443 | Extraer las imágenes de Helm o Tiller|
 | azds-<guid>.<location>.azds.io | HTTPS:443 | Comunicarse con los servicios de back-end de Azure Dev Spaces para el controlador. El FQDN exacto se puede encontrar en "dataplaneFqdn" en %USERPROFILE%\.azds\settings.json|

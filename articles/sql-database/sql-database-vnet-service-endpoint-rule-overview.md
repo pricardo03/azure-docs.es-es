@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4d3c74db9a0c4e13ee7c17eb78552d8c11cd7afb
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 5669b606d7dc06483641c2bdd6ef27c82e75bf4c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422512"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431874"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usar reglas y puntos de conexión de servicio de red virtual para servidores de bases de datos
 
@@ -76,7 +76,7 @@ Para Azure SQL Database, la característica de regla de red virtual tiene las si
 
 - Cada servidor de Azure SQL Database puede tener hasta 128 entradas de ACL para cualquier red virtual proporcionada.
 
-- Las reglas de red virtual solo se aplican a las redes virtuales de Azure Resource Manager y no a las redes del [modelo de implementación clásico][arm-deployment-model-568f].
+- Las reglas de red virtual solo se aplican a las redes virtuales de Azure Resource Manager, y no a las redes del [modelo de implementación clásica][arm-deployment-model-568f].
 
 - La activación de puntos de conexión de servicio de red virtual en Azure SQL Database también habilita los puntos de conexión para los servicios MySQL y PostgreSQL de Azure. Sin embargo, con los puntos de conexión activados, se puede producir un error al intentar conectarse desde los puntos de conexión con las instancias de MySQL o PostgreSQL.
   - El motivo subyacente es que es probable que MySQL y PostgreSQL no tengan una regla de red virtual configurada. Debe configurar una regla de red virtual de Azure Database for MySQL y PostgreSQL y la conexión se realizará correctamente.
@@ -110,14 +110,14 @@ Azure Storage ha implementado la misma característica que permite limitar la co
 
 PolyBase se suele usar para cargar datos en Azure SQL Data Warehouse desde cuentas de Azure Storage. Si la cuenta de Azure Storage desde la que se cargan los datos limita el acceso a solo un conjunto de subredes de red virtual, se interrumpirá la conectividad de PolyBase a la cuenta. Para habilitar los escenarios de importación y exportación de PolyBase con la conexión de Azure SQL Data Warehouse a Azure Storage protegido para la red virtual, siga los pasos indicados a continuación:
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>Prerequisites
 
 - Instale Azure PowerShell mediante esta [guía](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Si tiene una cuenta de uso general v1 o de Blob Storage, primero debe actualizar a Uso general v2 mediante esta [guía](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 - Debe activar **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** en el menú de configuración **Firewalls y redes virtuales** de la cuenta de Azure Storage. Consulte [esta guía](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para obtener más información.
 
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para obtener más información acerca la compatibilidad, vea [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
+> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para obtener más información sobre la compatibilidad, vea [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 #### <a name="steps"></a>Pasos
 
@@ -158,15 +158,15 @@ PolyBase se suele usar para cargar datos en Azure SQL Data Warehouse desde cuent
        > - No es necesario especificar SECRET con la clave de acceso de Azure Storage porque este mecanismo usa la [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) en segundo plano.
        > - El nombre de IDENTITY debe ser **"Managed Service Identity"** (Identidad de servicio administrado) para que la conectividad de PolyBase funcione con la cuenta de Azure Storage protegida en la red virtual.
 
-   1. Cree un origen de datos externo con el esquema abfss:// para conectarse a la cuenta de almacenamiento de uso general v2 mediante PolyBase:
+   1. Cree un origen de datos externo con el esquema `abfss://` para conectarse a la cuenta de almacenamiento de uso general v2 mediante PolyBase:
 
        ```SQL
        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
        ```
 
        > [!NOTE]
-       > - Si ya tiene tablas externas asociadas con la cuenta de uso general v1 o de Blob Storage, primero debe quitarlas y, después, quitar el origen de datos externo correspondiente. Luego, cree el origen de datos externo con el esquema abfss:// para conectarse a la cuenta de almacenamiento de uso general v2 como antes, y vuelva a crear todas las tablas externas con este nuevo origen de datos externo. Puede usar el [Asistente Generar y publicar scripts](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) para generar scripts de creación para todas las tablas externas con facilidad.
-       > - Para obtener más información sobre el esquema abfss://, consulte esta [guía](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+       > - Si ya tiene tablas externas asociadas con la cuenta de uso general v1 o de Blob Storage, primero debe quitarlas y, después, quitar el origen de datos externo correspondiente. Luego, cree el origen de datos externo con el esquema `abfss://` para conectarse a la cuenta de almacenamiento de uso general v2 como antes, y vuelva a crear todas las tablas externas con este nuevo origen de datos externo. Puede usar el [Asistente Generar y publicar scripts](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) para generar scripts de creación para todas las tablas externas con facilidad.
+       > - Para obtener más información sobre el esquema `abfss://`, consulte esta [guía](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
        > - Para obtener más información sobre CREATE EXTERNAL DATA SOURCE, consulte esta [guía](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
 
    1. Realice una consulta normal con las [tablas externas](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
@@ -224,7 +224,7 @@ Internamente, los cmdlets de PowerShell para acciones de red virtual SQL llaman 
 
 - [Reglas de red virtual: Operaciones][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Ya debe tener una subred que esté etiquetada con el punto de conexión de servicio de red virtual *nombre de tipo* correspondiente a Azure SQL Database.
 
@@ -235,9 +235,9 @@ Ya debe tener una subred que esté etiquetada con el punto de conexión de servi
 
 ## <a name="azure-portal-steps"></a>Pasos de Azure Portal
 
-1. Inicie sesión en el [Azure Portal][http-azure-portal-link-ref-477t].
+1. Inicie sesión en [Azure Portal][http-azure-portal-link-ref-477t].
 
-2. A continuación, vaya al portal **Servidores SQL Server** &gt; **Firewall / Redes virtuales**.
+2. Busque y seleccione **Servidores SQL Server** y, después, seleccione el servidor. En **Seguridad**, seleccione **Firewalls y redes virtuales**.
 
 3. Establezca el control **Permitir el acceso a los servicios de Azure** en Desactivado.
 
@@ -252,7 +252,7 @@ Ya debe tener una subred que esté etiquetada con el punto de conexión de servi
 
     > [!TIP]
     > Debe incluir el **prefijo de dirección** correcto de la subred. Puede encontrar el valor en el portal.
-    > Vaya a **Todos los recursos**&gt;**Todos los tipos**&gt;**Redes virtuales**. El filtro muestra sus redes virtuales. Haga clic en su red virtual y, a continuación, haga clic en **Subredes**. La columna **INTERVALO DE DIRECCIONES** tiene el prefijo de dirección que necesita.
+    > Vaya a **Todos los recursos** &gt; Todos los tipos** &gt; **Redes virtuales**. El filtro muestra sus redes virtuales. Haga clic en su red virtual y, a continuación, haga clic en **Subredes**. La columna **INTERVALO DE DIRECCIONES** tiene el prefijo de dirección que necesita.
 
     ![Rellene los campos de la nueva regla.][image-portal-firewall-create-update-vnet-rule-20-png]
 

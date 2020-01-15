@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02bf5ba30a1fc7b4ee739cb0a591ffe084269541
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64575321"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408868"
 ---
 # <a name="glossary"></a>Glosario
 
 A continuación se incluye una lista de palabras comunes que se usan con Azure Maps.
 
-## <a name="a"></a>Una
+## <a name="a"></a>Un
 
 <a name="address-validation"></a> **Validación de direcciones**: proceso de comprobar la existencia de una dirección.
 
@@ -35,17 +35,17 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="annotation"></a> **Anotación**: texto o gráfico que se muestra en el mapa para proporcionar información al usuario. La anotación puede identificar o describir una entidad de asignación específica, proporcionar información general sobre un área en el mapa o proporcionar información acerca del propio mapa.
 
-<a name="antimeridian"></a> **Antimeridiano**: también conocido como el meridiano 180<sup></sup>, es el punto donde se encuentran los grados de longitud -180 y 180. Es el opuesto al primer meridiano en el globo.
+<a name="antimeridian"></a> **Antemeridiano**: también conocido como el meridiano 180<sup></sup>, es el punto donde se encuentran los grados de longitud -180 y 180. Es el opuesto al primer meridiano en el globo.
 
 <a name="application-programming-interface-api"></a> **Interfaz de programación de aplicaciones (API)** : especificación que permite a los desarrolladores crear aplicaciones.
 
-<a name="api-key"></a> **Clave de API**: vea Clave de Azure Maps.
+<a name="api-key"></a> **Clave de API**: Consulte [Autenticación de clave compartida](#shared-key-authentication).
 
 <a name="area-of-interest-aoi"></a> **Área de interés (AOI)** : extensión que se usa para definir un área de enfoque para la producción de un mapa o una base de datos.
 
 <a name="asset-tracking"></a> **Seguimiento de activos**: proceso de seguimiento de la ubicación de un recurso, como una persona, vehículo o algún otro objeto.
 
-<a name="asynchronous-request"></a> **Solicitud asincrónica**: solicitud HTTP que abre una conexión y realiza una solicitud al servidor que devuelve un identificador para la solicitud asincrónica. A continuación, cierra la conexión. El servidor continúa procesando la solicitud y el usuario puede comprobar el estado mediante el identificador. Cuando finaliza el procesamiento de la solicitud, el usuario puede descargar la respuesta. Este tipo de solicitud se suele usar para procesos de larga ejecución.
+<a name="asynchronous-request"></a> **Solicitud asincrónica**: solicitud HTTP que abre una conexión y realiza una solicitud al servidor que devuelve un identificador para la solicitud asincrónica. A continuación, cierra la conexión. El servidor continúa procesando la solicitud y el usuario puede comprobar el estado mediante el identificador. Cuando finaliza el procesamiento de la solicitud, el usuario puede descargar la respuesta. Este tipo de solicitud se suele usar para procesos de larga duración.
 
 <a name="autocomplete"></a> **Autocompletar**: una característica de una aplicación predice el resto de una palabra que un usuario está escribiendo. 
 
@@ -53,11 +53,13 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)** : nombre anterior de Azure Maps cuando estaba en versión preliminar.
 
-<a name="azure-maps-key"></a> **Clave de Azure Maps**: una clave de Azure Maps es una cadena única que se usa para autenticar una solicitud de servicio o aplicación de Azure Maps de un usuario. 
+<a name="azure-active-directory"></a> **Azure Active Directory (Azure AD)** : Azure AD es un servicio de administración de acceso y de identidades basado en la nube de Microsoft. La integración de Azure AD y Azure Maps está disponible actualmente en versión preliminar para todas las API de Azure Maps. Azure AD admite el control de acceso basado en rol (RBAC) para permitir el acceso específico a recursos de Azure Maps. Para obtener más información sobre la integración de Azure AD y Azure Maps, consulte [Azure Maps y Azure AD](azure-maps-authentication.md) y [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
 
-## <a name="b"></a>b
+<a name="azure-maps-key"></a> **Clave de Azure Maps**: Consulte [Autenticación de clave compartida](#shared-key-authentication).
 
-<a name="base-map"></a> **Mapa base**: parte de una aplicación de mapa que muestra información de referencia en segundo plano, como carreteras, monumentos y fronteras políticas.
+## <a name="b"></a>B
+
+<a name="base-map"></a> **Mapa base**: parte de una aplicación de mapas que muestra información de referencia en segundo plano, como carreteras, monumentos y fronteras políticas.
 
 <a name="batch-request"></a> **Solicitud por lotes**: proceso de combinar varias solicitudes en una única.
 
@@ -141,7 +143,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="feature-collection"></a> **Colección de características**: colección de objetos de características.
 
-<a name="find-along-route"></a> **Búsqueda en ruta delimitada**: consulta espacial que busca los datos que se encuentran dentro de un período o distancia de desvío especificados desde una ruta de acceso de enrutamiento.
+<a name="find-along-route"></a> **Ruta delimitada de búsqueda**: consulta espacial que busca los datos que se encuentran dentro de un período o distancia de desvío especificados desde una ruta de acceso de enrutamiento.
 
 <a name="find-nearby"></a> **Buscar cerca**: consulta espacial que busca una distancia fija en línea recta desde un punto.
 
@@ -157,7 +159,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="geocode"></a> **Código geográfico**: dirección o ubicación convertida en una coordenada que se puede usar para mostrar esa ubicación en un mapa. 
 
-<a name="geocoding"></a> **Geocodificación**: también conocida como codificación geográfica directa, es el proceso de conversión de dirección de datos de ubicación a coordenadas. 
+<a name="geocoding"></a> **Codificación geográfica**: también conocida como codificación geográfica directa, es el proceso de conversión de dirección de datos de ubicación a coordenadas. 
 
 <a name="geodesic-path"></a> **Ruta geodésica**: ruta de acceso más corta entre dos puntos en una superficie curva. Cuando se representa en Azure Maps, esta ruta de acceso aparece como una línea curva debido a la proyección de Mercator.
 
@@ -269,7 +271,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="parcel"></a> **Parcela**: trazado de límite de terreno o propiedad.
 
-<a name="pitch"></a> **R**: cantidad de inclinación del mapa respecto a la vertical, donde 0 representa directamente mirar hacia abajo el mapa.
+<a name="pitch"></a> **Buzamiento**: cantidad de inclinación del mapa respecto a la vertical, donde 0 representa directamente mirar hacia abajo el mapa.
 
 <a name="point"></a> **Punto**: geometría que representa una posición única en el mapa. 
 
@@ -281,9 +283,11 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="position"></a> **Posición**: longitud, latitud y altitud (coordenadas x, y, z) de un punto.
 
-<a name="post-code"></a> **C. P.** : vea [Código postal](#postal-code).
+<a name="post-code"></a>**C. P.** : vea [Código postal](#postal-code).
 
 <a name="postal-code"></a> **Código postal**: serie de letras o números, o ambos, en un formato específico, que usa el servicio postal de un país o región para dividir las áreas geográficas en zonas con el fin de simplificar la entrega de correo.
+
+<a name="primary-key"></a> **Clave principal**: Primera de las dos claves de suscripción proporcionadas para la autenticación de clave compartida de Azure Maps. Consulte [Autenticación de clave compartida](#shared-key-authentication).
 
 <a name="prime-meridian"></a> **Primer meridiano**: línea de longitud que representa la longitud de 0 grados. Por lo general, los valores de longitud disminuyen al desplazarse hacia el oeste hasta los 180 grados y se reducen al desplazarse hacia el este hasta los -180 grados. 
 
@@ -329,9 +333,13 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="satellite-imagery"></a> **Imágenes de satélite**: imágenes que han capturado aviones y satélites apuntando directamente hacia abajo.
 
-<a name="software-development-kit-sdk"></a> **Kit de desarrollo de software (SDK)** : colección de documentación, código de ejemplo y aplicaciones de ejemplo que ayudan a un desarrollador a utilizar una API para compilar aplicaciones.
+<a name="secondary-key"></a> **Clave secundaria**: Segunda de las dos claves de suscripción proporcionadas para la autenticación de clave compartida de Azure Maps. Consulte [Autenticación de clave compartida](#shared-key-authentication).
 
 <a name="shapefile-shp"></a> **Archivo de forma (SHP)** : también conocido como archivo de forma ESRI, es un formato de almacenamiento de datos de vector para almacenar la ubicación, forma y los atributos de las características geográficas. Un archivo de forma se almacena en un conjunto de archivos relacionados.
+
+<a name="shared-key-authentication"></a> **Autenticación de clave compartida**: La autenticación de clave compartida se basa en pasar las claves generadas por la cuenta de Azure Maps con cada solicitud a Azure Maps. Estas claves se conocen a menudo como claves de suscripción. Es recomendable que las claves se regeneren periódicamente a efectos de seguridad. Se le proporcionan dos claves de acceso para que pueda mantener las conexiones con una mientras se regenera la otra. Cuando regenere las claves, debe actualizar todas las aplicaciones que acceden a esta cuenta para usar las nuevas claves. Para obtener más información sobre la autenticación de Azure Maps, consulte [Azure Maps y Azure AD](azure-maps-authentication.md) y [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
+
+<a name="software-development-kit-sdk"></a> **Kit de desarrollo de software (SDK)** : colección de documentación, código de ejemplo y aplicaciones de ejemplo que ayudan a un desarrollador a utilizar una API para compilar aplicaciones.
 
 <a name="spherical-mercator-projection"></a> **Proyección de Mercator esférica**: vea [Web Mercator](#web-mercator). 
 
@@ -341,7 +349,9 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="sql-spatial"></a> **SQL espacial**: hace referencia a la funcionalidad espacial integrada en SQL Azure y SQL Server 2008 y versiones posteriores. Esta funcionalidad espacial también está disponible como una biblioteca de .NET que se puede usar con independencia de SQL Server. Consulte la [documentación de datos espaciales (SQL Server)](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) para obtener más información.
 
-<a name="synchronous-request"></a> **Solicitud sincrónica**: una solicitud HTTP abre una conexión y espera una respuesta. Los exploradores limitan el número de solicitudes HTTP simultáneas que se pueden realizar desde una página. Si varias solicitudes sincrónicas de larga ejecución se realizan al mismo tiempo, este límite puede alcanzarse y las solicitudes se retrasan hasta que se completa una de las otras solicitudes.
+<a name="subscription-key"></a> **Clave de suscripción**: Consulte [Autenticación de clave compartida](#shared-key-authentication).
+
+<a name="synchronous-request"></a>**Solicitud sincrónica**: una solicitud HTTP abre una conexión y espera una respuesta. Los exploradores limitan el número de solicitudes HTTP simultáneas que se pueden realizar desde una página. Si varias solicitudes sincrónicas de larga ejecución se realizan al mismo tiempo, este límite puede alcanzarse y las solicitudes se retrasan hasta que se completa una de las otras solicitudes.
 
 ## <a name="t"></a>T
 
@@ -368,7 +378,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="trilateration"></a> **Trilateración**: proceso de determinar la posición de un punto de la superficie terrestre con respecto a otros dos puntos, midiendo las distancias entre los tres puntos.
 
-<a name="turn-by-turn-navigation"></a> **Navegación turn-by-turn**: aplicación que proporciona instrucciones de ruta para cada paso de una ruta a medida que los usuarios se aproximan a la próxima maniobra.
+<a name="turn-by-turn-navigation"></a> **Navegación paso a paso**: aplicación que proporciona instrucciones de ruta para cada paso de una ruta a medida que los usuarios se aproximan a la próxima maniobra.
 
 ## <a name="v"></a>V
 
@@ -384,7 +394,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="waypoint"></a> **Punto de referencia**: un punto de referencia es una ubicación geográfica especificada definida por la longitud y latitud que se usa para fines de navegación. A menudo se usa para representar un punto a través del que alguien navega por una ruta.
 
-<a name="waypoint-optimization"></a> **Optimización de punto de referencia**: proceso de reordenación de un conjunto de puntos de referencia para minimizar el tiempo de desplazamiento o la distancia necesaria para atravesar todos los puntos de referencia proporcionados. A menudo se conoce como el [problema del vendedor ambulante](#traveling-salesmen-problem-tsp) o [problema de enrutamiento de vehículos](#vehicle-routing-problem-vrp), según la complejidad de la optimización.
+<a name="waypoint-optimization"></a> **Optimización de puntos de referencia**: proceso de reordenación de un conjunto de puntos de referencia para minimizar el tiempo de desplazamiento o la distancia necesaria para atravesar todos los puntos de referencia proporcionados. A menudo se conoce como el [problema del vendedor ambulante](#traveling-salesmen-problem-tsp) o [problema de enrutamiento de vehículos](#vehicle-routing-problem-vrp), según la complejidad de la optimización.
 
 <a name="web-map-service-wms"></a> **Web Map Service (WMS)** : WMS es un estándar de Open Geographic Consortium (OGC) que define servicios de mapas basados en imagen. Los servicios de WMS proporcionan imágenes de mapa para áreas específicas de un mapa a petición. Las imágenes incluyen una simbología representada previamente y se pueden representar en uno de varios estilos concretos, si así lo define el servicio.
 
@@ -394,9 +404,9 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 ## <a name="z"></a>Z
 
-<a name="z-coordinate"></a> **Coordenada Z**: vea [Altitud](#altitude). 
+<a name="z-coordinate"></a> **Coordenada Z**: vea [Altitud](#altitude). 
 
-<a name="zip-code"></a> **Código zip**: vea [Código postal](#postal-code).
+<a name="zip-code"></a> **Zip Code**: vea [Código postal](#postal-code).
 
 <a name="Zoom level"></a> **Nivel de zoom**: especifica el nivel de detalle y qué parte del mapa es visible. Cuando se aleja hasta un nivel 0, a menudo se verá el mapa completo del mundo, pero los detalles que se mostrarán serán limitados, como nombres de país o región y fronteras, así como nombres de océanos. Si se acerca al nivel 17, el mapa mostrará un área con algunas manzanas de una ciudad con información detallada sobre las calles. Para más información, consulte la documentación sobre [niveles de zoom y cuadrícula de cortes](zoom-levels-and-tile-grid.md).
 
