@@ -77,7 +77,7 @@
         - name: Escala de velocidad de bits adaptativa generada automáticamente
           href: autogen-bitrate-ladder.md
         - name: Codificación que tiene en cuenta el contenido
-          href: cae-experimental.md
+          href: content-aware-encoding.md
     - name: Análisis de contenido (Video Indexer)
       items:
         - name: Información general
@@ -178,9 +178,9 @@
     - name: Guía de migración de la versión v2 a v3
       href: migrate-from-v2-to-v3.md
       displayName: naming
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
-    - name: Primeros pasos
+    - name: Introducción
       items:
         - name: 'Creación de una cuenta: CLI'
           href: create-account-cli-how-to.md
@@ -301,7 +301,7 @@
       displayName: schema
     - name: REST
       href: 'https://aka.ms/ams-v3-rest-ref'
-    - name: CLI de Azure
+    - name: Azure CLI
       href: 'https://aka.ms/ams-v3-cli-ref'
     - name: SDK
       items:
@@ -338,7 +338,7 @@
       href: 'https://aka.ms/ams-v3-rest-sdk'
     - name: SDK y herramientas
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: 'https://aka.ms/ams-v3-cli'
         - name: .NET
           href: 'https://aka.ms/ams-v3-dotnet-sdk'

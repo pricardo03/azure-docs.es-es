@@ -11,12 +11,12 @@ metadata:
   author: mamccrea
   ms.author: mamccrea
   ms.date: 09/11/2019
-  ms.openlocfilehash: 3d82583617ac5ee2efc7f19bd937a01d557eb5ba
-  ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+  ms.openlocfilehash: 94fa7495feff5199c3b64903ad94feceb20d55bc
+  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/05/2019
-  ms.locfileid: "73606054"
+  ms.lasthandoff: 01/15/2020
+  ms.locfileid: "75971403"
 landingContent:
 - title: Acerca de Azure Databricks
   linkLists:
@@ -36,7 +36,7 @@ landingContent:
     links:
     - text: Introducción a Azure Databricks
       url: https://docs.microsoft.com/learn/modules/intro-to-azure-databricks
-- title: Primeros pasos
+- title: Introducción
   linkLists:
   - linkListType: quickstart
     links:
@@ -48,7 +48,7 @@ landingContent:
     links:
     - text: Creación de un clúster de Apache Spark
       url: /azure/databricks/clusters/create
-    - text: Conexión a orígenes de datos
+    - text: Conectarse a orígenes de datos
       url: databricks-connect-to-data-sources.md
     - text: Uso de la CLI de Databricks desde Azure Cloud Shell
       url: databricks-cli-from-azure-cloud-shell.md
@@ -83,7 +83,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Implementación de Azure Databricks en la red virtual
-      url: vnet-injection.md
+      url: https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject
   - linkListType: tutorial
     links:
     - text: Consulta de un contenedor de Docker de Linux para SQL Server en una red virtual mediante un cuaderno de Azure Databricks
