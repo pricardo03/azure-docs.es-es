@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/17/2019
-ms.openlocfilehash: 09d2c1d063c542583dc11fab0805a9392661426f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/02/2020
+ms.openlocfilehash: 10149c6eb06e6d2994233aa365f237e6d9330c48
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930337"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644770"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformación Combinación en el flujo de datos de asignación
 
@@ -31,6 +31,9 @@ La combinación interna solo genera filas que tienen valores coincidentes en amb
 
 La combinación externa izquierda devuelve todas las filas del flujo izquierdo y los registros coincidentes del flujo derecho. Si una fila del flujo izquierdo no tiene ninguna coincidencia, las columnas de salida del flujo derecho se establecen en NULL. La salida constará de las filas devueltas por una combinación interna más las filas sin coincidencias del flujo izquierdo.
 
+> [!NOTE]
+> En ocasiones, el motor de Spark que usan los flujos de datos puede incluir posibles productos cartesianos en las condiciones de combinación. En ese caso, puede cambiar a una combinación cruzada personalizada y escribir manualmente la condición de combinación. Esto puede dar lugar a un rendimiento más lento en los flujos de datos, ya que es posible que el motor de ejecución tenga que calcular todas las filas de ambos lados de la relación y luego filtrarlas.
+
 ### <a name="right-outer"></a>Externa derecha
 
 La combinación externa derecha devuelve todas las filas del flujo derecho y los registros coincidentes del flujo izquierdo. Si una fila del flujo derecho no tiene ninguna coincidencia, las columnas de salida del flujo izquierdo se establecen en NULL. La salida constará de las filas devueltas por una combinación interna más las filas sin coincidencias del flujo derecho.
@@ -39,9 +42,16 @@ La combinación externa derecha devuelve todas las filas del flujo derecho y los
 
 La combinación externa completa devuelve todas las columnas y filas de ambos lados con valores NULL para las columnas que no coinciden.
 
-### <a name="cross-join"></a>Combinación cruzada
+### <a name="custom-cross-join"></a>Combinación cruzada personalizada
 
-La combinación cruzada genera el producto cruzado de los dos flujos en función de una condición. Si utiliza una condición que no es de igualdad, debe especificar una expresión personalizada como condición de combinación cruzada. El flujo de salida constará de todas las filas que cumplan la condición de combinación. Para crear un producto cartesiano que genere la combinación de todas las filas, especifique `true()` como condición de combinación.
+La combinación cruzada genera el producto cruzado de los dos flujos en función de una condición. Si utiliza una condición que no es de igualdad, debe especificar una expresión personalizada como condición de combinación cruzada. El flujo de salida constará de todas las filas que cumplan la condición de combinación.
+
+Puede usar este tipo de combinación para combinaciones no equivalentes y condiciones ```OR```.
+
+Si quiere generar explícitamente un producto cartesiano completo, utilice la transformación Columna derivada en cada uno de los dos flujos independientes antes de la combinación para crear una clave sintética en la que buscar coincidencias. Por ejemplo, cree una columna en la columna derivada de cada flujo denominada ```SyntheticKey``` y establézcala como igual a ```1```. A continuación, use ```a.SyntheticKey == b.SyntheticKey``` como expresión de combinación personalizada.
+
+> [!NOTE]
+> Asegúrese de incluir al menos una columna a cada lado de la relación izquierda y derecha de una combinación cruzada personalizada. La ejecución de combinaciones cruzadas con valores estáticos en lugar de columnas a cada lado produce exámenes completos de todo el conjunto de datos, lo que provoca que el flujo de datos se realice de manera deficiente.
 
 ## <a name="configuration"></a>Configuración
 
@@ -49,7 +59,7 @@ La combinación cruzada genera el producto cruzado de los dos flujos en función
 1. Seleccione el **tipo de combinación**
 1. Elija las columnas de clave con las que quiere hacer coincidir la condición de combinación. De forma predeterminada, el flujo de datos busca la igualdad entre una columna de cada flujo. Para comparar a través de un valor de proceso, mantenga el mouse sobre la lista desplegable y seleccione **Columna calculada**.
 
-![Transformación de combinación](media/data-flow/join.png "Unión")
+![Transformación de combinación](media/data-flow/join.png "Join")
 
 ## <a name="optimizing-join-performance"></a>Optimización del rendimiento de combinación
 
@@ -104,9 +114,9 @@ TripData, TripFare
     )~> JoinMatchedData
 ```
 
-### <a name="cross-join-example"></a>Ejemplo de combinación cruzada
+### <a name="custom-cross-join-example"></a>Ejemplo de combinación cruzada personalizada
 
-El ejemplo siguiente es una transformación Combinación denominada `CartesianProduct` que toma el flujo izquierdo `TripData` y el flujo derecho `TripFare`. Esta transformación toma dos flujos y devuelve un producto cartesiano de sus filas. La condición de combinación es `true()` porque genera un producto cartesiano completo. El valor de `joinType` es `cross`. Vamos a habilitar la difusión solo en el flujo izquierdo, por lo que `broadcast` tiene el valor `'left'`.
+El ejemplo siguiente es una transformación Combinación denominada `JoiningColumns` que toma el flujo izquierdo `LeftStream` y el flujo derecho `RightStream`. Esta transformación toma dos flujos y combina todas las filas en las que la columna `leftstreamcolumn` es mayor que la columna `rightstreamcolumn`. El valor de `joinType` es `cross`. La difusión no está habilitada, `broadcast` tiene el valor `'none'`.
 
 En la experiencia de usuario de Data Factory, esta transformación es similar a la siguiente imagen:
 
@@ -115,12 +125,12 @@ En la experiencia de usuario de Data Factory, esta transformación es similar a 
 En el siguiente fragmento de código se muestra el script del flujo de datos para esta transformación:
 
 ```
-TripData, TripFare
+LeftStream, RightStream
     join(
-        true(),
+        leftstreamcolumn > rightstreamcolumn,
         joinType:'cross',
-        broadcast: 'left'
-    )~> CartesianProduct
+        broadcast: 'none'
+    )~> JoiningColumns
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

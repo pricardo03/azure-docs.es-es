@@ -1,50 +1,69 @@
 ---
 title: Opción de venta conjunta en el Centro de partners | Azure Marketplace
 description: Los equipos de ventas de Microsoft usarán la información que proporciona en la pestaña de venta conjunta de su oferta para obtener más información sobre su solución al evaluar su idoneidad para las necesidades de los clientes.
-author: qianw211
+author: ChJenk
 manager: evansma
-ms.author: v-qiwe
+ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.openlocfilehash: 027a35db9fcb6c0e95be5da276f673b9295ad436
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/06/2019
+ms.openlocfilehash: 5f5f98b908ce54624a5d73a2ed74b2e9ea8966ff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812717"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431952"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opción de venta conjunta en el Centro de partners
 
 Proporcionar información en la pestaña de venta conjunta es totalmente opcional. Es necesario para lograr los estados Co-sell Ready e IP Co-sell Ready. Los equipos de ventas de Microsoft usarán la información que proporciona para obtener más información sobre su solución al evaluar su idoneidad para las necesidades de los clientes. No está disponible directamente para los clientes. Para obtener más información, consulte [Venta mediante Microsoft](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#sell-through-microsoft).
 
-## <a name="applicable-products"></a>Productos aplicables
+La opción de venta conjunta del Centro de partners está actualmente disponible para algunos tipos de ofertas. La compatibilidad con tipos de oferta adicionales estará disponible a lo largo del tiempo.
 
-Elija cualquiera de los productos de Microsoft en los que se basa su oferta o con los que esta trabaja.
+| **Tipo de oferta** | **Página Venta conjunta disponible en el Centro de partners** |
+|    -----------------------    |    -----------------------------  |
+| Software como servicio (SaaS) |     Disponibilidad general en febrero de 2020      |
+| Dynamics 365 for Customer Engagement y PowerApps      |     Ahora disponible      |
+| Dynamics 365 for Operations     |     Ahora disponible       |
+| Dynamics 365 Business Central      |  Disponibilidad general en febrero de 2020     |
+| Aplicación de Azure     |     Disponibilidad general en febrero de 2020     |
+| Máquina virtual de Azure      |     Por confirmar       |
+| Contenedor de Azure     |     Por confirmar       |
+| Servicio de consultoría      |     Por confirmar       |
+| Módulo IoT Edge      |     Por confirmar       |
+| Aplicación del servicio Power BI     |     Por confirmar       |
+|  |
 
-## <a name="customer-segments"></a>Segmentos de cliente
+## <a name="listing"></a>Listado
 
-Seleccione el tamaño del negocio que su oferta tiene como objetivo.
+Las listas de venta conjunta ayudarán a los equipos de ventas de Microsoft a comercializar su solución para un público más amplio.
 
-## <a name="offer-type"></a>Tipo de oferta
+- Elija las plataformas de Microsoft con las que su oferta se compila, amplía o integra.
+- Seleccione los segmentos de mercado a los que se dirige su oferta.
+- Seleccione una [tipo de solución](#solution-type) para la oferta.
+- Elija hasta tres [áreas y subáreas de solución](#solution-areas).
 
-Seleccione el tipo de oferta:
+### <a name="solution-type"></a>Tipo de solución
 
-| **Tipo de oferta**    | **Descripción**  |
+Los tipos de solución ayudan a definir los escenarios para los que está diseñada su oferta.
+
+| **Tipo de solución**    | **Descripción**  |
 | :------------------- | :-------------------|
-| Dispositivo | Una oferta que implica la creación o venta de hardware de un fabricante del dispositivo. |
-| IP | Aplicaciones u otro material con copyright con licencia para el uso del cliente. Por ejemplo: un programa CRM que puede tener licencia e instalarse en el entorno local. |
+| Dispositivo (hardware) | Una oferta que implica la creación o venta de hardware de un fabricante del dispositivo. |
+| IP (aplicación) | Aplicaciones u otro material con copyright con licencia para el uso del cliente. Por ejemplo: un programa CRM que puede tener licencia e instalarse en el entorno local. |
 | Servicio | Experiencia práctica para un proyecto único específico, a menudo entregado a través de consultores. Por ejemplo: configuración de una base de datos de clientes para un cliente (con este asumiendo la responsabilidad por la puesta en marcha de la base de datos tras la entrega). |
-| Servicio administrado | Experiencia práctica para un proyecto basado en la nube, normalmente en curso. Por ejemplo:  proporcionar una plataforma y herramientas para ejecutar una base de datos en línea, con administración en curso proporcionada por el proveedor de servicios administrados. |
+| Servicio administrado | Experiencia práctica para un proyecto basado en la nube, normalmente en curso. Por ejemplo: proporcionar una plataforma y herramientas para ejecutar una base de datos en línea, con administración en curso proporcionada por el proveedor de servicios administrados. |
 
-## <a name="solution-areas"></a>Áreas de solución
+### <a name="solution-areas"></a>Áreas de solución
 
-Puede agregar hasta tres áreas de solución para su oferta.  Para cada área de solución, puede elegir hasta dos subáreas de solución. Para seleccionar varias subcategorías, use la tecla `Ctrl` (en Windows) o la tecla Comando (en Mac OS).
+Las áreas de solución ayudan a definir aún más la solución.
 
-Las áreas de solución ayudan a definir los escenarios que su oferta dirige.
+Puede agregar hasta tres áreas de solución para su oferta. Para cada área de solución, puede elegir hasta dos subáreas de solución. Para seleccionar varias subcategorías, use la tecla `Ctrl` (en Windows) o la tecla Comando (en Mac OS).
 
 ## <a name="documents"></a>Documentos
+
+Puede proporcionar garantías para que Microsoft las utilice para evaluar las necesidades de sus clientes.
 
 | **Documentos**    | **Descripción**  |
 | :------------------- | :-------------------|
@@ -60,7 +79,7 @@ Las áreas de solución ayudan a definir los escenarios que su oferta dirige.
 
 ## <a name="contacts"></a>Contactos
 
-Su información de contacto permite a los equipos de ventas de Microsoft y los revendedores del canal solicitar información adicional del recurso adecuado en su organización. La información de contacto está disponible para todos los equipos de ventas de Microsoft. Si opta por hacer que su oferta esté disponible en el programa CSP, está información de contacto también estará disponible para los revendedores del canal. 
+Su información de contacto permite a los equipos de ventas de Microsoft y los revendedores del canal solicitar información adicional del recurso adecuado en su organización. La información de contacto está disponible para todos los equipos de ventas de Microsoft. Si opta por hacer que su oferta esté disponible en el programa CSP, está información de contacto también estará disponible para los revendedores del canal.
 
 En este documento se proporcionan instrucciones sobre los diferentes roles de los asociados y cómo elegir entre ellos. Puede proporcionar sus contactos descargando la plantilla CSV desde el Centro de partners, rellenando cada fila con información sobre el contacto e importando este archivo CSV. Al importarse un archivo CSV se sobrescribirán los contactos existentes.
 

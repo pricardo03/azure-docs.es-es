@@ -3,12 +3,12 @@ title: Solución de problemas de copia de seguridad de bases de datos de SQL Se
 description: Información para solución de problemas para realizar copias de seguridad de bases de datos de SQL Server que se ejecutan en máquinas virtuales de Azure con Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 95f7966fa59f0a1f6f6a3c9c6832cc573f89e05c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: d49843e8fd96df29a7359ec639e42d312ad584e2
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172121"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659260"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solución de problemas de la copia de seguridad de base de datos de SQL Server con Azure Backup
 
@@ -20,11 +20,30 @@ Para más información sobre el proceso y las limitaciones de las copias de segu
 
 Para configurar la protección de una base de datos de SQL Server en una máquina virtual, debe instalar en ella la extensión **AzureBackupWindowsWorkload**. Si aparece el error **UserErrorSQLNoSysadminMembership**, significa que la instancia de SQL Server no tiene los permisos de copia de seguridad requeridos. Para corregir este error, siga los pasos descritos en [Establecer permisos de máquina virtual](backup-azure-sql-database.md#set-vm-permissions).
 
-## <a name="error-messages"></a>mensajes de error
+## <a name="troubleshoot-discover-and-configure-issues"></a>Solución de problemas de detección y configuración
+Después de crear y configurar un almacén de Recovery Services, la detección de bases de datos y la configuración de la copia de seguridad es un proceso de dos pasos.<br>
+
+![sql](./media/backup-azure-sql-database/sql.png)
+
+Durante la configuración de copia de seguridad, si la máquina virtual de SQL y sus instancias no están visibles en **Detección de bases de datos en máquinas virtuales** y **Configurar copia de seguridad** (consulte la imagen anterior), asegúrese de lo siguiente:
+
+### <a name="step-1-discovery-dbs-in-vms"></a>Paso 1: Detección de bases de datos en máquinas virtuales
+
+- Si la máquina virtual no aparece en la lista de máquinas virtuales detectadas ni tampoco está registrada como copia de seguridad de SQL en otro almacén, siga los pasos de [detección de copia de seguridad de SQL Server](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#discover-sql-server-databases).
+
+### <a name="step-2-configure-backup"></a>Paso 2: Configurar la copia de seguridad
+
+- Si el almacén en el que se registra la máquina virtual de SQL en el mismo almacén que se usa para proteger las bases de datos, siga los pasos de [Configuración de la copia de seguridad](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup).
+
+Si hay que registrar la máquina virtual de SQL en el nuevo almacén, se debe anular el registro del almacén anterior.  La anulación del registro de una máquina virtual de SQL del almacén requiere que se detenga la protección de todos los orígenes de datos protegidos y, después, se pueden eliminar los datos cuya copia de seguridad se ha realizado. La eliminación de datos de copia de seguridad es una operación destructiva.  Una vez que haya revisado y tomado todas las precauciones para anular el registro de la máquina virtual de SQL, registre la misma máquina virtual en un nuevo almacén y vuelva a intentar la operación de copia de seguridad.
+
+
+
+## <a name="error-messages"></a>Mensajes de error
 
 ### <a name="backup-type-unsupported"></a>Tipo de copia de seguridad no compatible
 
-| severity | DESCRIPCIÓN | Causas posibles | Acción recomendada |
+| severity | Descripción | Causas posibles | Acción recomendada |
 |---|---|---|---|
 | Advertencia | La configuración actual de esta base de datos no admite determinados tipos de copia de seguridad presentes en la directiva asociada. | <li>Solo se puede realizar una operación de copia de seguridad de bases de datos completa en la base de datos maestra. No es posible realizar una copia de seguridad diferencial ni una copia de seguridad del registro de transacciones. </li> <li>Ninguna base de datos del modelo de recuperación simple admite la copia de seguridad de registros de transacciones.</li> | Modifique la configuración de la base de datos de tal forma que se admitan todos los tipos de copia de seguridad de la directiva. O bien, cambie la directiva actual para incluir solo los tipos de copia de seguridad compatibles. De lo contrario, se omitirán los tipos de copia de seguridad no compatibles durante la copia de seguridad programada o el trabajo de copia de seguridad generará errores en caso de que se trate de una copia de seguridad a petición.
 
@@ -117,26 +136,35 @@ Para configurar la protección de una base de datos de SQL Server en una máquin
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-La operación se bloquea porque ha alcanzado el límite en el número de operaciones permitidas en 24 horas. | Este error se generará cuando haya alcanzado el límite máximo permitido para una operación en un intervalo de 24 horas. <br> Por ejemplo:  Si ha alcanzado el límite para el número de trabajos de configuración de copia de seguridad que se pueden desencadenar al día e intenta configurar la copia de seguridad de un nuevo elemento, verá este error. | Normalmente, si se vuelve a intentar la operación después de 24 horas, se resuelve este problema. Sin embargo, si el problema persiste, puede ponerse en contacto con el equipo de soporte técnico de Microsoft para obtener ayuda.
+La operación se bloquea porque ha alcanzado el límite en el número de operaciones permitidas en 24 horas. | Este error se generará cuando haya alcanzado el límite máximo permitido para una operación en un intervalo de 24 horas. <br> Por ejemplo: Si ha alcanzado el límite para el número de trabajos de configuración de copia de seguridad que se pueden desencadenar al día e intenta configurar la copia de seguridad de un nuevo elemento, verá este error. | Normalmente, si se vuelve a intentar la operación después de 24 horas, se resuelve este problema. Sin embargo, si el problema persiste, puede ponerse en contacto con el equipo de soporte técnico de Microsoft para obtener ayuda.
 
 ### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-La operación está bloqueada porque el almacén ha alcanzado su límite máximo permitido para ese tipo de operaciones en un intervalo de 24 horas. | Este error se generará cuando haya alcanzado el límite máximo permitido para una operación en un intervalo de 24 horas. Normalmente, este error se produce cuando hay operaciones a escala, como la modificación de una directiva o la protección automática. A diferencia de lo que sucede en el caso de CloudDosAbsoluteLimitReached, no hay mucho que se pueda hacer para resolver este estado; de hecho, el servicio Azure Backup volverá a intentar las operaciones internamente para todos los elementos en cuestión.<br> Por ejemplo:  si tiene un gran número de orígenes de datos protegidos con una directiva e intenta modificar esa directiva, se desencadenará la configuración de los trabajos de protección para cada uno de los elementos protegidos y, en ocasiones, puede alcanzar el límite máximo permitido para tales operaciones al día.| El servicio Azure Backup volverá a intentar esta operación automáticamente después de 24 horas.
+La operación está bloqueada porque el almacén ha alcanzado su límite máximo permitido para ese tipo de operaciones en un intervalo de 24 horas. | Este error se generará cuando haya alcanzado el límite máximo permitido para una operación en un intervalo de 24 horas. Normalmente, este error se produce cuando hay operaciones a escala, como la modificación de una directiva o la protección automática. A diferencia de lo que sucede en el caso de CloudDosAbsoluteLimitReached, no hay mucho que se pueda hacer para resolver este estado; de hecho, el servicio Azure Backup volverá a intentar las operaciones internamente para todos los elementos en cuestión.<br> Por ejemplo: si tiene un gran número de orígenes de datos protegidos con una directiva e intenta modificar esa directiva, se desencadenará la configuración de los trabajos de protección para cada uno de los elementos protegidos y, en ocasiones, puede alcanzar el límite máximo permitido para tales operaciones al día.| El servicio Azure Backup volverá a intentar esta operación automáticamente después de 24 horas.
+
+### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
+
+| Mensaje de error | Causas posibles | Acción recomendada |
+|---|---|---|
+La máquina virtual no es capaz de ponerse en contacto con el servicio Azure Backup debido a problemas de conectividad de Internet. | La máquina virtual necesita conectividad de salida con el servicio Azure Backup y los servicios Azure Storage o Azure Active Directory.| - Si usa NSG para restringir la conectividad, debe usar la etiqueta de servicio AzureBackup para permitir el acceso saliente de Azure Backup al servicio Azure Backup o los servicios Azure Storage y Azure Active Directory. Siga estos [pasos](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) para conceder acceso.<br>- Asegúrese de que DNS está resolviendo los puntos de conexión de Azure.<br>- Compruebe si la máquina virtual está detrás de un equilibrador de carga que bloquea el acceso a Internet. Mediante la asignación de una dirección IP pública a las máquinas virtuales, la detección funcionará.<br>- Compruebe que no hay ningún firewall/antivirus/proxy que esté bloqueando las llamadas a los tres servicios de destino anteriores.
+
 
 ## <a name="re-registration-failures"></a>Errores de repetición del registro
 
 Compruebe uno o varios de los siguientes síntomas antes de desencadenar la operación de repetición del registro:
 
 * Se producen errores en todas las operaciones (tales como copia de seguridad, restauración y configuración de copia de seguridad) en la máquina virtual con uno de los códigos de error siguientes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
-* El área **Estado de copia de seguridad** para el elemento de copia de seguridad se muestra en **No accesible**. Descarte todas las demás causas que podrían dar lugar al mismo estado:
+* Si el área **Estado de copia de seguridad** del elemento de copia de seguridad se muestra como **no accesible**, descarte todas las demás causas que podrían dar lugar al mismo estado:
 
-  * Falta de permiso para realizar operaciones relacionadas con la copia de seguridad en la máquina virtual  
-  * Apagado de la máquina virtual, por lo que no se pueden realizar copias de seguridad
-  * Problemas de red  
+  * Falta de permiso para realizar operaciones relacionadas con la copia de seguridad en la máquina virtual.
+  * Apagado de la máquina virtual, por lo que no se pueden realizar copias de seguridad.
+  * Problemas de red.
 
-  ![Estado "No accesible" al volver a registrar una máquina virtual](./media/backup-azure-sql-database/re-register-vm.png)
+   ![Repetición del registro de máquinas virtuales](./media/backup-azure-sql-database/re-register-vm.png)
+
+
 
 * En el caso de un grupo de disponibilidad AlwaysOn, las copias de seguridad comienzan a generar errores después de cambiar la preferencia de copia de seguridad o alterar una conmutación por error.
 

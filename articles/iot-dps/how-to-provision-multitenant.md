@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 5703db90307f679ff4728386dc24647437f9f9ba
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974979"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434753"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Cómo aprovisionar para el multiinquilinato 
 
@@ -36,7 +36,7 @@ En este artículo, se usa un ejemplo de dispositivo simulado del [SDK de C para 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Finalización de la guía de inicio rápido [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
 
@@ -51,7 +51,7 @@ En esta sección, usará Azure Cloud Shell para crear dos centros de IoT regiona
 
 1. Use Azure Cloud Shell para crear un grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
-    En el ejemplo siguiente, se crea un grupo de recursos denominado *contoso-us-resource-group* en la región *eastus*. Le recomendamos que use este grupo para todos los recursos que crearemos en este artículo. De esta forma, será más fácil limpiar al finalizar.
+    En el ejemplo siguiente, se crea un grupo de recursos denominado *contoso-us-resource-group* en la región *eastus*. Le recomendamos que use este grupo para todos los recursos que crearemos en el artículo. De esta forma, será más fácil limpiar al finalizar.
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location eastus
@@ -91,13 +91,13 @@ Para que sea más sencillo, en este artículo se usa la [atestación de clave si
 
 3. En **Agregar grupo de inscripciones**, escriba la siguiente información y haga clic en el botón **Guardar**.
 
-    **Nombre del grupo**: Escriba **contoso-us-devices**.
+    **Nombre de grupo**: Escriba **contoso-us-devices**.
 
     **Tipo de atestación**: seleccione **Clave simétrica**.
 
     **Generar claves automáticamente**: ya debe estar activada esta casilla.
 
-    **Seleccione cómo quiere asignar los dispositivos a los centros**: Seleccione **Latencia más baja**.
+    **Seleccione cómo desea asignar los dispositivos a los centros**: Seleccione **Latencia más baja**.
 
     ![Agregar grupo de inscripción multiinquilino para la atestación de clave simétrica](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
@@ -118,7 +118,7 @@ Para que sea más sencillo, en este artículo se usa la [atestación de clave si
     ![Creación del grupo de centros regionales para la inscripción](./media/how-to-provision-multitenant/enrollment-regional-hub-group.png)
 
 
-6. Después de guardar la inscripción, vuelva a abrirla y apunte la **clave principal**. Debe guardar la inscripción en primer lugar para que se generen las claves. Esta clave se usará para generar claves de dispositivo únicas para ambos dispositivos simulados más adelante.
+6. Después de guardar la inscripción, vuelva a abrirla y apunte la **clave principal**. Primero debe guardar la inscripción para que se generen las claves. Esta clave se usará para generar claves de dispositivo únicas para ambos dispositivos simulados más adelante.
 
 
 ## <a name="create-regional-linux-vms"></a>Creación de máquinas virtuales regionales de Linux
@@ -191,20 +191,21 @@ Para que la limpieza sea más sencilla, estas máquinas virtuales se agregarán 
 
 En esta sección, clonará el SDK de C para Azure IoT en cada máquina virtual. El SDK contiene un ejemplo que simulará el aprovisionamiento de dispositivos de un inquilino desde cada región.
 
-
-1. Para cada máquina virtual, instale **Cmake**, **g++** , **gcc** y [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) mediante los siguientes comandos:
+1. Para cada máquina virtual, instale **CMake**, **g++** , **gcc** y [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) mediante los siguientes comandos:
 
     ```bash
     sudo apt-get update
     sudo apt-get install cmake build-essential libssl-dev libcurl4-openssl-dev uuid-dev git-all
     ```
 
+1. Busque el nombre de etiqueta de la [versión más reciente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) del SDK.
 
-1. Clone el [SDK de C para Azure IoT](https://github.com/Azure/azure-iot-sdk-c) en ambas máquinas virtuales.
+1. Clone el [SDK de C para Azure IoT](https://github.com/Azure/azure-iot-sdk-c) en ambas máquinas virtuales.  Use la etiqueta que encontró en el paso anterior como valor del parámetro `-b`:
 
     ```bash
-    cd ~/
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     Esta operación puede tardar varios minutos en completarse.

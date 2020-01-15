@@ -1,14 +1,14 @@
 ---
 title: Cómo crear una directiva de configuración de invitados
 description: Aprenda a crear una directiva de configuración de invitado de Azure Policy para VM de Windows o Linux con Azure PowerShell.
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: d31c03f05f3a27207eb4c184b78cb531f8bb43d6
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f2e611998e42510eccde64ff6f945f58133fc4e9
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873087"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608531"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Cómo crear una directiva de configuración de invitados
 
@@ -24,6 +24,9 @@ Use las siguientes acciones para crear su propia configuración para validar el 
 ## <a name="add-the-guestconfiguration-resource-module"></a>Agregar el módulo de recursos GuestConfiguration
 
 Para crear una directiva de configuración de invitados, debe agregar el módulo de recursos. Este módulo de recursos se puede usar con la instancia de PowerShell instalada localmente, con [Azure Cloud Shell](https://shell.azure.com) o con la [imagen de Docker principal de Azure PowerShell](https://hub.docker.com/r/azuresdk/azure-powershell-core).
+
+> [!NOTE]
+> Aunque el módulo **GuestConfiguration** funciona en los entornos anteriores, se deben completar los pasos para compilar una configuración de DSC en Windows PowerShell 5.1.
 
 ### <a name="base-requirements"></a>Requisitos básicos
 
@@ -59,6 +62,12 @@ Si la configuración solo requiere recursos integrados con la instalación del a
 ### <a name="requirements-for-guest-configuration-custom-resources"></a>Requisitos para los recursos personalizados de configuración de invitados
 
 Cuando la configuración de invitados audita una máquina, primero se ejecuta `Test-TargetResource` para determinar si se encuentra en el estado correcto. El valor booleano devuelto por la función determina si el estado de Azure Resource Manager para Asignación de invitado debe ser Compatible o No compatible. Si el valor booleano es `$false` para cualquier recurso de la configuración, el proveedor ejecutará `Get-TargetResource`. Si el valor booleano es `$true`, no se llama a `Get-TargetResource`.
+
+#### <a name="configuration-requirements"></a>Requisitos de configuración
+
+El único requisito para que la configuración de invitado use una configuración personalizada es que el nombre de la configuración sea coherente en todos los lugares en que se use.  Esto incluye el nombre del archivo .zip del paquete de contenido, el nombre de la configuración en el archivo MOF almacenado en el paquete de contenido y el nombre de configuración utilizado en ARM como nombre de asignación de invitado.
+
+#### <a name="get-targetresource-requirements"></a>Requisitos de Get-TargetResource
 
 La función `Get-TargetResource` tiene requisitos especiales para la configuración de invitados que no se han necesitado para Windows Desired State Configuration.
 
@@ -96,7 +105,7 @@ La configuración de DSC para la configuración de invitados en Linux usa el rec
 
 En el siguiente ejemplo crea una configuración denominada **Línea de base**, se importa el módulo de recursos **GuestConfiguration** y se usa el conjunto de recursos `ChefInSpecResource` como nombre de la definición InSpec en **linux-patch-baseline**:
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration baseline
 {
@@ -120,7 +129,7 @@ La configuración de DSC para la configuración de invitados de Azure Policy sol
 
 En el ejemplo siguiente se crea una configuración denominada **AuditBitLocker**, se importa el módulo de recursos **GuestConfiguration** y se usa el recurso `Service` para auditar un servicio en ejecución:
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration AuditBitLocker
 {
@@ -160,7 +169,7 @@ New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}'
 
 Parámetros del cmdlet `New-GuestConfigurationPackage`:
 
-- **Nombre**: nombre del paquete de configuración de invitados.
+- **Name**: nombre del paquete de configuración de invitados.
 - **Configuración**: ruta de acceso completa del documento de configuración de DSC compilado.
 - **Ruta de acceso**: ruta de acceso de la carpeta de salida. Este parámetro es opcional. Si no se especifica, el paquete se crea en el directorio actual.
 - **ChefProfilePath**: ruta de acceso completa al perfil de InSpec. Este parámetro solo se admite cuando se crea contenido para auditar Linux.
@@ -214,7 +223,7 @@ Test-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsS
 
 Parámetros del cmdlet `Test-GuestConfigurationPackage`:
 
-- **Nombre**: nombre de la directiva de configuración de invitados.
+- **Name**: nombre de la directiva de configuración de invitados.
 - **Parámetro**: Parámetros de directiva proporcionados en formato de tabla hash.
 - **Ruta de acceso**: ruta de acceso completa del paquete de configuración de invitados.
 
@@ -298,7 +307,7 @@ New-GuestConfigurationPolicy
 
 En el caso de las directivas de Linux, incluya la propiedad **AttributesYmlContent** en la configuración y sobrescriba los valores según corresponda. El agente de configuración de invitados crea automáticamente el archivo YaML que usa InSpec para almacenar los atributos. Observe el ejemplo siguiente.
 
-```azurepowershell-interactive
+```powershell
 Configuration FirewalldEnabled {
 
     Import-DscResource -ModuleName 'GuestConfiguration'
@@ -403,7 +412,7 @@ Una buena referencia para la creación de claves GPG para usarlas con máquinas 
 
 Una vez publicado el contenido, anexe una etiqueta con el nombre `GuestConfigPolicyCertificateValidation` y el valor `enabled` a todas las máquinas virtuales en las que se debe solicitar la firma de código. Esta etiqueta se puede entregar a escala mediante Azure Policy. Consulte el ejemplo [Aplicar una etiqueta y su valor predeterminado](../samples/apply-tag-default-value.md). Una vez que esta etiqueta esté en su lugar, la definición de la directiva que se genera mediante el cmdlet `New-GuestConfigurationPolicy` habilita el requisito a través de la extensión de configuración de invitados.
 
-## <a name="preview-troubleshooting-guest-configuration-policy-assignments"></a>[Versión preliminar] Solución de problemas de asignaciones de directivas de configuración de invitados
+## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Solución de problemas de asignaciones de directivas de configuración de invitados (versión preliminar)
 
 Hay una herramienta disponible en versión preliminar para ayudarle a solucionar problemas en las asignaciones de configuración de invitados de Azure Policy. La herramienta se encuentra en versión preliminar y se ha publicado en la Galería de PowerShell con el nombre de módulo [Guest Configuration Troubleshooter](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/) (Solucionador de problemas de configuración de invitados).
 

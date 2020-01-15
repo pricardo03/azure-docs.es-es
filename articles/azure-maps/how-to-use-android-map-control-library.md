@@ -9,22 +9,24 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 934fe2219ccca917999cf49cb9c9826276545e73
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: cb79b24a37758307657c1245622fa980123cc5c9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915659"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432930"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introducción a Android SDK para Azure Maps
 
 Android SDK para Azure Maps es una biblioteca de mapas vectoriales para Android. En este artículo se ofrece orientación sobre los procesos para instalar Android SDK para Azure Maps y cargar un mapa.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps
 
-Para completar los procedimientos descritos en este artículo, primero deberá [crear una cuenta de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) en el plan de tarifa S1.
+Para completar los procedimientos descritos en este artículo, primero ha de [crear una cuenta de Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps) en el plan de tarifa S1 y [obtener la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para la cuenta.
+
+Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
 
 ### <a name="download-android-studio"></a>Descargar Android Studio
 
@@ -80,11 +82,9 @@ El siguiente paso en la creación de la aplicación es instalar el Android SDK p
         ```
         implementation "com.microsoft.azure.maps:mapcontrol:0.2"
         ```
-
-    > [!Note]
-    > El Android SDK de Azure Maps se actualiza y mejora periódicamente. Puede ver la documentación de [introducción al control de mapa de Android](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para obtener el número de versión de implementación más reciente de Azure Maps. Además, puede establecer el número de versión de "0.2" a "0+" para que apunte siempre a la versión más reciente.
-
-3. Edite **res** > **layout** > **activity_main.xml** y reemplácelo por el código:
+    
+    4. Vaya a **Archivo** en la barra de herramientas y haga clic en **Sincronizar proyecto con archivos de Gradle**.
+3. Agregue un fragmento de mapa a la actividad principal (recurso \> diseño \> activity\_main.xml):
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -201,7 +201,6 @@ El siguiente paso en la creación de la aplicación es instalar el Android SDK p
             mapControl.onSaveInstanceState(outState);
         }
     }
-
     ```
 
 ## <a name="import-classes"></a>Importación de clases
@@ -280,4 +279,4 @@ Obtenga información sobre cómo agregar datos de superposición en el mapa:
 > [Adición de formas a un mapa Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
 
 > [!div class="nextstepaction"]
-> [Cambio de estilos de mapa en mapas Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Cambio de estilos de mapa en mapas de Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)

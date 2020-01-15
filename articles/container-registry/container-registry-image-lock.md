@@ -3,12 +3,12 @@ title: Bloqueo de imágenes
 description: Establezca atributos para una imagen de contenedor o un repositorio a fin de que pueda eliminarse o sobrescribirse en una instancia de Azure Container Registry.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 9e55a6688be9f51f1c1b237ae86bd57692a86592
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8eb2a549e9d9f3a7ed4a482ac6a9ea4ba61ea4f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456331"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442231"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloqueo de una imagen de contenedor en una instancia de Azure Container Registry
 
@@ -23,7 +23,11 @@ En este artículo se requiere que ejecute la CLI de Azure en Azure Cloud Shell o
 
 De forma predeterminada, una imagen etiquetada en Azure Container Registry es *mutable*, por lo que con los permisos adecuados puede actualizar e insertar repetidamente una imagen con la misma etiqueta en un registro. Las imágenes de contenedor también se pueden [eliminar](container-registry-delete.md) según sea necesario. Este comportamiento es útil al desarrollar imágenes y es necesario mantener un tamaño para el registro.
 
-Sin embargo, cuando implemente una imagen de contenedor en producción, puede que necesite una *inmutable*. Una imagen inmutable es aquella que no puede eliminar o sobrescribir por accidente. Use el comando [az acr repository update][az-acr-repository-update] para establecer los atributos del repositorio de forma que pueda:
+Sin embargo, cuando implemente una imagen de contenedor en producción, puede que necesite una *inmutable*. Una imagen inmutable es aquella que no puede eliminar o sobrescribir por accidente.
+
+Consulte [Recomendaciones para el etiquetado y el control de versiones de las imágenes de contenedor](container-registry-image-tag-version.md) para las estrategias de etiquetado y versión de las imágenes en el registro.
+
+Use el comando [az acr repository update][az-acr-repository-update] para establecer los atributos del repositorio de forma que pueda:
 
 * Bloquear una versión de la imagen o un repositorio entero
 
@@ -31,7 +35,7 @@ Sin embargo, cuando implemente una imagen de contenedor en producción, puede qu
 
 * Evitar operaciones de lectura (extracción) en una versión de la imagen o en la totalidad del repositorio
 
-Consulte las secciones siguientes para ver ejemplos.
+Consulte las secciones siguientes para ver ejemplos. 
 
 ## <a name="lock-an-image-or-repository"></a>Bloquear una imagen o un repositorio 
 

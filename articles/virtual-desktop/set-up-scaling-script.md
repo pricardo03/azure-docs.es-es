@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/10/2019
 ms.author: helohr
-ms.openlocfilehash: 744f7d5c191180757620e87d926422c9f1e0baba
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a991a41466d216b9f245c20dbd8054f3ae5ef3d0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607459"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451333"
 ---
 # <a name="scale-session-hosts-dynamically"></a>Escalado dinámico de host de sesiones
 
@@ -20,7 +20,7 @@ En muchas implementaciones de Windows Virtual Desktop, el costo de máquina virt
 
 Este artículo usa un script de escalado simple para escalar automáticamente las máquinas virtuales del host de sesión en su entorno de Windows Virtual Desktop. Para más información acerca del funcionamiento del script de escalado, consulte la sección [Funcionamiento del script de escalado](#how-the-scaling-script-works) sección.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 El entorno en el que se ejecuta el script debe tener los siguientes elementos:
 
@@ -50,7 +50,7 @@ En primer lugar, prepare el entorno para el script de escalado:
 
 1. Inicie sesión en la máquina virtual (máquina virtual de escalado) en la que se ejecutará la tarea programada con una cuenta administrativa de dominio.
 2. Cree una carpeta en la máquina virtual de escalado que contenga el script de escalado y su configuración (por ejemplo, **C:\\scaling-HostPool1**).
-3. Descargue los archivos **basicScale.ps1**, **Config.xml**, y **Functions-PSStoredCredentials.ps1** archivos y el **PowershellModules** carpeta desde la [escalado repositorio de scripts](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) y cópielos en la carpeta que creó en el paso 2. Hay dos formas principales de obtener los archivos antes de copiarlos en la máquina virtual de escalado:
+3. Descargue los archivos **basicScale.ps1**, **Config.json**, y **Functions-PSStoredCredentials.ps1** y la carpeta **PowershellModules** del [repositorio de scripts de escalado](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) y cópielos en la carpeta que creó en el paso 2. Hay dos formas principales de obtener los archivos antes de copiarlos en la máquina virtual de escalado:
     - Clone el repositorio de Git en el equipo local.
     - Vea la versión **Sin formato** de cada archivo, copie y pegue el contenido de los archivos en un editor de texto y, después, guárdelos con el nombre y tipo de archivo correspondientes. 
 
@@ -73,15 +73,15 @@ A continuación, deberá crear las credenciales almacenadas de forma segura:
     ```
     
     Por ejemplo, **Set-Variable -Name KeyPath -Scope Global -Value "c:\\scaling-HostPool1"**
-5. Ejecute el cmdlet **New-StoredCredential -KeyPath \$KeyPath**. Cuando se le solicite, escriba las credenciales de Windows Virtual Desktop con permisos para consultar el grupo de hosts (el grupo de hosts se especifica en **config.xml**).
+5. Ejecute el cmdlet **New-StoredCredential -KeyPath \$KeyPath**. Cuando se le solicite, escriba las credenciales de Windows Virtual Desktop con permisos para consultar el grupo de hosts (el grupo de hosts se especifica en **config.json**).
     - Si utiliza diferentes entidades de servicio o una cuenta estándar, ejecute el cmdlet **New-StoredCredential -KeyPath \$KeyPath** una vez por cada cuenta crear credenciales almacenadas locales.
 6. Ejecute **Get-StoredCredential -List** para confirmar que las credenciales se han creado correctamente.
 
-### <a name="configure-the-configxml-file"></a>Configuración del archivo config.xml
+### <a name="configure-the-configjson-file"></a>Configuración del archivo config.json
 
-Escriba los valores relevantes en los campos siguientes para actualizar la configuración del script de escalado en config.xml:
+Escriba los valores correspondientes en los campos siguientes para actualizar la configuración del script de escalado en config.json:
 
-| Campo                     | DESCRIPCIÓN                    |
+| Campo                     | Descripción                    |
 |-------------------------------|------------------------------------|
 | AADTenantId                   | Identificador de inquilino de Azure AD que asocia la suscripción donde se ejecutan las máquinas virtuales del host de sesión     |
 | AADApplicationId              | Id. de aplicación de la entidad de servicio                                                       |
@@ -103,7 +103,7 @@ Escriba los valores relevantes en los campos siguientes para actualizar la confi
 
 ### <a name="configure-the-task-scheduler"></a>Configuración del Programador de tareas
 
-Después de configurar el archivo .xml de configuración, deberá configurar el Programador de tareas para ejecutar el archivo basicScaler.ps1 a intervalos regulares.
+Después de configurar el archivo JSON de configuración, tendrá que configurar el Programador de tareas para ejecutar el archivo basicScaler.ps1 a intervalos regulares.
 
 1. Inicie el **Programador de tareas**.
 2. En la ventana del **Programador de tareas** ventana, seleccione **Crear tarea...**
@@ -117,11 +117,11 @@ Después de configurar el archivo .xml de configuración, deberá configurar el 
 
 ## <a name="how-the-scaling-script-works"></a>Funcionamiento del script de escalado
 
-Este script de escalado lee la configuración de un archivo config.xml, lo que incluye el inicio y el final del período de uso máximo durante el día.
+Este script de escalado lee la configuración de un archivo config.json, lo que incluye el inicio y el final del período de uso máximo durante el día.
 
-Durante el tiempo de uso máximo, el script comprueba el número actual de sesiones y la capacidad del RDSH que se ejecuta en la actualidad para cada grupo de hosts. Calcula si las máquinas virtuales del host de sesión que se ejecuta tienen capacidad suficiente para dar soporte a las sesiones existentes basándose en el parámetro SessionThresholdPerCPU definido en el archivo config.xml. Si no, el script inicia más máquinas virtuales de los hosts de sesión en el grupo de hosts.
+Durante el tiempo de uso máximo, el script comprueba el número actual de sesiones y la capacidad del RDSH que se ejecuta en la actualidad para cada grupo de hosts. Calcula si las máquinas virtuales del host de sesión que se ejecuta tienen capacidad suficiente para admitir las sesiones existentes en función del parámetro SessionThresholdPerCPU definido en el archivo config.json. Si no, el script inicia más máquinas virtuales de los hosts de sesión en el grupo de hosts.
 
-Durante el tiempo de uso mínimo, el script determina qué máquinas virtuales de los hosts de sesión deben apagarse en función del parámetro MinimumNumberOfRDSH del archivo config.xml. El script establecerá las máquinas virtuales de los hosts de sesión en modo de purga para evitar que las nuevas sesiones se conecten a los hosts. Si establece el parámetro **LimitSecondsToForceLogOffUser** del archivo config.xml en un valor positivo distinto de cero, el script le enviará una notificación cada vez que los usuarios que tengan la sesión iniciada guarden su trabajo, esperará el tiempo predeterminado y, después, forzará a los usuarios a cerrar la sesión. Una vez que se han cerrado todas las sesiones de usuario en una máquina virtual del host de sesión, el script apagará el servidor.
+Durante el tiempo de uso mínimo, el script determina qué máquinas virtuales de los hosts de sesión deben apagarse en función del parámetro MinimumNumberOfRDSH del archivo config.json. El script establecerá las máquinas virtuales de los hosts de sesión en modo de purga para evitar que las nuevas sesiones se conecten a los hosts. Si establece el parámetro **LimitSecondsToForceLogOffUser** del archivo config.json en un valor positivo distinto de cero, el script le enviará una notificación cada vez que los usuarios que tengan la sesión iniciada guarden su trabajo, esperará el tiempo predeterminado y, después, forzará a los usuarios a cerrar la sesión. Una vez que se han cerrado todas las sesiones de usuario en una máquina virtual del host de sesión, el script apagará el servidor.
 
 Si establece el parámetro **LimitSecondsToForceLogOffUser** del archivo config.xml en cero, el script permitirá que el valor de configuración de la sesión de las propiedades del grupo de hosts controle el cierre de las sesiones de los usuarios. Si hay sesiones en una máquina virtual del host de sesión, dejará que se ejecute dicha máquina. Si no hay sesiones, el script apagará la máquina virtual del host de sesión.
 

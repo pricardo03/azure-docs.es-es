@@ -7,12 +7,12 @@ ms.date: 11/14/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b6b7d4614d3c63fe93e213fb830b85d0b7f9c474
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 87ffca1957d4ec449753f1966ed05cf3948f5ca2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974877"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453936"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Uso de directivas de asignación personalizadas
 
@@ -39,9 +39,12 @@ En este artículo, llevará a cabo los siguientes pasos:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o posterior con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
+Los siguientes requisitos previos corresponden a un entorno de desarrollo de Windows. En el caso de Linux o macOS, consulte la sección correspondiente en [Preparación del entorno de desarrollo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) en la documentación del SDK.
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
+
 * Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -96,7 +99,7 @@ En esta sección, usará Azure Cloud Shell para crear un servicio de aprovisiona
 
 En esta sección, creará una función de Azure que implementa la directiva de asignación personalizada. Esta función decide en qué centro de IoT de división se debe registrar un dispositivo según contenga su identificador de registro la cadena **-contoso-tstrsd-007** o **-contoso-HPSD-088**. También establece el estado inicial del dispositivo gemelo en función de si el dispositivo es una tostadora o una bomba de calor.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). En la página principal, seleccione **+ Crear un recurso**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). En la página principal, seleccione **+ Crear un recurso**.
 
 2. En el cuadro de búsqueda *Buscar en Marketplace*, escriba "Function App". En la lista desplegable, seleccione **Aplicación de funciones** y, luego, seleccione **Crear**.
 
@@ -308,7 +311,7 @@ En esta sección, creará un grupo de inscripciones que use la directiva de asig
 
     **Generar claves automáticamente**: ya debe estar activada esta casilla.
 
-    **Seleccione cómo quiere asignar los dispositivos a los centros**: Seleccione **Personalizado (use la función de Azure)**
+    **Seleccione cómo desea asignar los dispositivos a los centros**: Seleccione **Personalizado (use la función de Azure)**
 
     ![Adición de un grupo de inscripciones de asignación personalizado para la atestación de clave simétrica](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -318,7 +321,7 @@ En esta sección, creará un grupo de inscripciones que use la directiva de asig
 
     **Suscripción**: si tiene varias suscripciones, elija aquella en la que ha creado los centros de IoT de división.
 
-    **IoT hub**: seleccione uno de los centros de división que ha creado.
+    **Centro de IoT**: seleccione uno de los centros de división que ha creado.
 
     **Directiva de acceso**: elija **iothubowner**.
 
@@ -406,25 +409,28 @@ En esta sección, nos enfocamos en una estación de trabajo basada en Windows. P
 
 1. Descargue el [sistema de compilación CMake](https://cmake.org/download/).
 
-    **Antes** de comenzar la instalación de `CMake`, es importante que los requisitos previos de Visual Studio (Visual Studio y la carga de trabajo "Desarrollo para el escritorio con C++") estén instalados en la máquina. Cuando haya instalado los requisitos previos y haya comprobado la descarga, instale el sistema de compilación de CMake.
+    **Antes** de comenzar la instalación de `CMake`, es importante que los requisitos previos de Visual Studio (Visual Studio y la carga de trabajo de desarrollo de escritorio con C++) estén instalados en la máquina. Una vez que los requisitos previos están en su lugar, y se ha comprobado la descarga, instale el sistema de compilación de CMake.
 
-2. Abra un símbolo del sistema o el shell de Bash de Git. Ejecute el siguiente comando para clonar el repositorio de GitHub del SDK de Azure IoT para C:
+2. Busque el nombre de etiqueta de la [versión más reciente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) del SDK.
+
+3. Abra un símbolo del sistema o el shell de Bash de Git. Ejecute el siguiente comando para clonar el repositorio de GitHub del [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c). Use la etiqueta que encontró en el paso anterior como valor del parámetro `-b`:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     Esta operación puede tardar varios minutos en completarse.
 
-3. Cree un subdirectorio `cmake` en el directorio raíz del repositorio de Git y vaya a esa carpeta. 
+4. Cree un subdirectorio `cmake` en el directorio raíz del repositorio de Git y vaya a esa carpeta. Ejecute los siguientes comandos desde el directorio `azure-iot-sdk-c`:
 
     ```cmd/sh
-    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
-4. Ejecute el siguiente comando para compilar una versión del SDK específica para su plataforma de cliente de desarrollo. Se generará una solución de Visual Studio para el dispositivo simulado en el directorio `cmake`. 
+5. Ejecute el siguiente comando para compilar una versión del SDK específica para su plataforma de cliente de desarrollo. Se generará una solución de Visual Studio para el dispositivo simulado en el directorio `cmake`. 
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..

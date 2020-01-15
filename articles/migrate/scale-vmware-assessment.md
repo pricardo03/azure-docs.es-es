@@ -7,21 +7,21 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: 0d279781cdc27dbf2140c0100d84de5128c6a3d5
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: f76134ffc6a7becb9b5719dcb3d826130b7cfa86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279424"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453279"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Evaluación de grandes cantidades de VM de VMware para la migración a Azure
 
 
-En este artículo se describe cómo evaluar grandes cantidades (> 1000-35 000) de VM de VMware locales para su migración a Azure mediante la herramienta de evaluación del servidor de Azure Migrate.
+En este artículo se describe cómo evaluar grandes cantidades (> 1000-35 000) de máquinas virtuales de VMware locales para su migración a Azure mediante la herramienta de evaluación del servidor de Azure Migrate.
 
 [Azure Migrate](migrate-services-overview.md) proporciona un centro de herramientas que le ayuda a detecta las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Este centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros. 
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 > [!div class="checklist"]
 > * Planificar la evaluación a escala.
 > * Configurar los permisos de Azure y preparar VMware para la evaluación.
@@ -58,7 +58,7 @@ Teniendo en cuenta estos límites, estas son algunas implementaciones de ejemplo
 **Servidor vCenter** | **VM en el servidor** | **Recomendación** | **Acción**
 ---|---|---
 Uno | < 10 000 | Un proyecto de Azure Migrate.<br/> Un dispositivo.<br/> Una cuenta de vCenter para la detección. | Configure el dispositivo y conéctese a vCenter Server con una cuenta.
-Uno | 10 000 | Un proyecto de Azure Migrate.<br/> Varios dispositivos.<br/> Varias cuentas de vCenter. | Configure el dispositivo para cada 10 000 VM.<br/><br/> Configure cuentas de vCenter y divida el inventario para limitar el acceso de una cuenta a menos de 10 000 VM.<br/> Conecte cada dispositivo a vCenter Server con una cuenta.<br/> Puede analizar las dependencias entre las máquinas que se detectan con diferentes dispositivos.
+Uno | > 10 000 | Un proyecto de Azure Migrate.<br/> Varios dispositivos.<br/> Varias cuentas de vCenter. | Configure el dispositivo para cada 10 000 VM.<br/><br/> Configure cuentas de vCenter y divida el inventario para limitar el acceso de una cuenta a menos de 10 000 VM.<br/> Conecte cada dispositivo a vCenter Server con una cuenta.<br/> Puede analizar las dependencias entre las máquinas que se detectan con diferentes dispositivos.
 Múltiple | < 10 000 |  Un proyecto de Azure Migrate.<br/> Varios dispositivos.<br/> Una cuenta de vCenter para la detección. | Configure los dispositivos y conéctese a vCenter Server con una cuenta.<br/> Puede analizar las dependencias entre las máquinas que se detectan con diferentes dispositivos.
 Múltiple | > 10 000 | Un proyecto de Azure Migrate.<br/> Varios dispositivos.<br/> Varias cuentas de vCenter. | Si vCenter Server detectó menos de 10 000 VM, configure un dispositivo para cada instancia de vCenter Server.<br/><br/> Si vCenter Server detectó más de 10 000 VM, configure un dispositivo para cada 10 000 VM.<br/> Configure cuentas de vCenter y divida el inventario para limitar el acceso de una cuenta a menos de 10 000 VM.<br/> Conecte cada dispositivo a vCenter Server con una cuenta.<br/> Puede analizar las dependencias entre las máquinas que se detectan con diferentes dispositivos.
 
@@ -69,7 +69,7 @@ Si está planeando un entorno de varios inquilinos, puede limitar la detección 
 
 - Puede establecer el ámbito de detección del dispositivo en un centro de datos de vCenter Server, varios clústeres o una carpeta de clústeres, varios hosts o una carpeta de hosts, o VM individuales.
 - Si el entorno se comparte entre inquilinos y quiere detectar cada inquilino por separado, puede limitar el acceso a la cuenta de vCenter que el dispositivo usa para la detección. 
-    - Puede que quiera limitarse a las carpetas de VM si los inquilinos comparten hosts. Azure Migrate no puede detectar VM si a la cuenta de vCenter se le ha concedido acceso en el nivel de carpeta de VM de vCenter. Si tiene intención de limitar el ámbito de detección por carpetas de VM, asegúrese de que la cuenta de vCenter tiene asignado acceso de solo lectura asignado a nivel de VM. [Aquí](tutorial-assess-vmware.md#scoping-discovery) encontrará más información sobre el ámbito de la detección.
+    - Puede que quiera limitarse a las carpetas de VM si los inquilinos comparten hosts. Azure Migrate no puede detectar VM si a la cuenta de vCenter se le ha concedido acceso en el nivel de carpeta de VM de vCenter. Si tiene intención de limitar el ámbito de detección por carpetas de VM, asegúrese de que la cuenta de vCenter tiene asignado acceso de solo lectura asignado a nivel de VM. [Aquí](tutorial-assess-vmware.md#set-the-scope-of-discovery) encontrará más información sobre el ámbito de la detección.
 
 ## <a name="prepare-for-assessment"></a>Preparación para la evaluación
 

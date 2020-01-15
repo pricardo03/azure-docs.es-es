@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a19fdfaf70dffb7f0bcb8001475fee89b2d05086
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 1213ab4c623cb1d475dff1d71e65439b1d08f5c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665821"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429449"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparación para implementar la solución IoT Edge en producción
 
@@ -39,7 +39,7 @@ Cada dispositivo IoT Edge en producción necesita un certificado de la entidad d
 
 Para comprender el rol del certificado de entidad de certificación del dispositivo, consulte [Información de uso de los certificados de Azure IoT Edge](iot-edge-certs.md).
 
-Para más información sobre cómo instalar certificados en un dispositivo IoT Edge y hacer referencia a ellos desde el archivo config.yaml, consulte [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md). Los pasos para configurar los certificados son los mismos tanto si el dispositivo se va a utilizar como puerta de enlace como si no. Este artículo proporciona scripts para generar certificados de ejemplo solo para pruebas. No use estos certificados de ejemplo en producción. 
+Para obtener más información sobre cómo instalar certificados en un dispositivo IoT Edge y hacer referencia a ellos desde el archivo config.yaml, consulte el artículo sobre [instalación de certificados de producción en un dispositivo IoT Edge](how-to-create-transparent-gateway.md). 
 
 ### <a name="have-a-device-management-plan"></a>Disponer de un plan de administración de dispositivos
 
@@ -251,7 +251,7 @@ Puede hacerlo en el elemento **createOptions** de cada módulo. Por ejemplo:
 
 **Opciones adicionales en los sistemas Linux**
 
-* Configure el motor del contenedor para enviar registros al [diario](https://docs.docker.com/config/containers/logging/journald/) de `systemd` estableciendo `journald` como el controlador de registro predeterminado. 
+* Configure el motor del contenedor para enviar registros al [diario](https://docs.docker.com/config/containers/logging/journald/) de `systemd` estableciendo `journald` como controlador de registro predeterminado. 
 
 * Quite periódicamente los registros antiguos del dispositivo mediante la instalación de una herramienta de logrotate. Utilice la siguiente especificación de archivo: 
 

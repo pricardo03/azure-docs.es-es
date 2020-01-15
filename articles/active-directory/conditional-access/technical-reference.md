@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a3518dfcad3678dc298ba8529e731d48ec1d195
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 1023583b5527e4d565580e8f094dc2f68d38f4ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893474"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424807"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referencia de configuración del acceso condicional de Azure Active Directory
 
@@ -115,7 +115,7 @@ En la directiva de acceso condicional, puede seleccionar **Exploradores** como a
 
 Esta configuración funciona con todos los exploradores. Sin embargo, para satisfacer una directiva de dispositivo, como un requisito de dispositivo compatible, se admiten los sistemas operativos y exploradores siguientes:
 
-| OS                     | Exploradores                                        |
+| SO                     | Exploradores                                        |
 | :--                    | :--                                             |
 | Windows 10             | Microsoft Edge, Internet Explorer, Chrome       |
 | Windows 8 / 8.1        | Internet Explorer, Chrome                       |
@@ -143,18 +143,18 @@ Para implementar automáticamente esta extensión en los exploradores de Chrome,
 |    |    |
 | --- | --- |
 | Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| NOMBRE | 1 |
-| type | REG_SZ (String) |
-| Datos | ppnbnpeolgkicgegkbkbjmhlideopiji;https\://clients2.google.com/service/update2/crx |
+| Nombre | 1 |
+| Tipo | REG_SZ (String) |
+| data | ppnbnpeolgkicgegkbkbjmhlideopiji;https\://clients2.google.com/service/update2/crx |
 
 Para la compatibilidad con Chrome en **Windows 8.1 y 7**, cree la siguiente clave del Registro:
 
 |    |    |
 | --- | --- |
 | Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| NOMBRE | 1 |
-| type | REG_SZ (String) |
-| Datos | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+| Nombre | 1 |
+| Tipo | REG_SZ (String) |
+| data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 Estos exploradores admiten la autenticación de dispositivo, lo que permite identificar y validar el dispositivo con respecto a una directiva. Se produce un error en la comprobación del dispositivo si el explorador se ejecuta en modo privado.
 
@@ -235,6 +235,7 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 - Las aplicaciones cliente aprobadas admiten la característica de administración de aplicaciones móviles de Intune.
 - Requisito de la opción **Solicitar aplicación cliente aprobada**:
    - Solo admite iOS y Android como [condición de plataformas de dispositivo](#device-platform-condition).
+- El acceso condicional no puede considerar Microsoft Edge en modo InPrivate como aplicación cliente aprobada.
 
 ## <a name="app-protection-policy-requirement"></a>Requisito de la directiva de protección de aplicaciones 
 

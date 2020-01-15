@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/6/2019
 ms.author: alsin
-ms.openlocfilehash: f17b96ad880742cf1232b074e4398f3b1d15e5ba
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 11c2549d7282bae5654ede1ac34d63a43cd0f059
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129444"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451197"
 ---
 # <a name="power-options-available-from-the-azure-serial-console"></a>Opciones de energía disponibles en la consola serie de Azure
 
-La consola serie de Azure proporciona varias herramientas eficaces para la administración de energía en la máquina virtual o en el conjunto de escalado de máquinas virtuales. Estas opciones de administración de energía pueden resultar confusas, por lo que este documento es una información general de cada herramienta y su caso de uso previsto.
+La consola serie de Azure proporciona varias herramientas eficaces para la administración de energía en la máquina virtual o en el conjunto de escalado de máquinas virtuales. Estas opciones de administración de energía pueden resultar confusas, por lo que aquí se ofrece información general sobre cada herramienta y su caso de uso previsto.
 
-Característica de la consola serie | DESCRIPCIÓN | Caso de uso
+Característica de la consola serie | Descripción | Caso de uso
 :----------------------|:------------|:---------
 Reinicio de la máquina virtual | Un reinicio estable de la máquina virtual o la instancia de conjunto de escalado de máquinas virtuales. Esta operación es igual que llamar a la característica de reinicio disponible en la página de información general. | En la mayoría de los casos, esta opción debe ser la primera herramienta para intentar reiniciar la máquina virtual. La conexión a la consola serie experimentará una breve interrupción y se reanudará automáticamente en cuanto se reinicie la máquina virtual.
 Restablecimiento de la máquina virtual | Un ciclo de energía forzado de la máquina virtual o del conjunto de escalado de máquinas virtuales por parte de la plataforma Azure. | Esta opción se usa para reiniciar inmediatamente el sistema operativo, independientemente de su estado actual. Dado que esta operación no es estable, existe el riesgo de que se pierdan los datos o se dañen. No hay interrupción en la conexión de la consola serie, lo que puede ser útil para enviar comandos al principio del arranque (por ejemplo, llegar a GRUB en una máquina virtual Linux o en modo seguro en una máquina virtual Windows).

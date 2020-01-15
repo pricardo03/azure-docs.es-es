@@ -8,18 +8,18 @@ ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f5aafbb22ecbff416d90aa5b98eb027c33872b35
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 19b5635d8444c28e66bcf4c6d34f602c9914e7e4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048538"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371537"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferencia de datos con AzCopy y Blob Storage
 
 AzCopy es una utilidad de línea de comandos que puede usar para copiar datos entre cuentas de almacenamiento. Este artículo contiene comandos de ejemplo que funcionan con Blob Storage.
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 Vea el artículo [Introducción a AzCopy](storage-use-azcopy-v10.md) para descargar AzCopy y obtener información sobre las formas de proporcionar credenciales de autorización para el servicio de almacenamiento.
 
@@ -94,13 +94,13 @@ Para copiar un directorio dentro el contenedor, simplemente especifique el nombr
 
 Si especifica el nombre de un directorio que no existe en el contenedor, AzCopy crea un directorio con ese nombre.
 
-### <a name="upload-the-contents-of-a-directory"></a>Carga del contenido de un directorio
+### <a name="upload-the-contents-of-a-directory"></a>Subir el contenido de un directorio
 
 Puede cargar el contenido de un directorio sin copiar el propio directorio contenedor mediante el carácter comodín (*).
 
 |    |     |
 |--------|-----------|
-| **Sintaxis** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>` |
+| **Sintaxis** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'` |
 | **Ejemplo** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory'` |
 | **Ejemplo** (espacio de nombres jerárquico) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory'` |
 
@@ -167,13 +167,13 @@ Para obtener documentos de referencia detallados, consulte [azcopy copy](storage
 | **Ejemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt'` |
 | **Ejemplo** (espacio de nombres jerárquico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt'` |
 
-### <a name="download-a-directory"></a>Descarga de un directorio
+### <a name="download-a-directory"></a>Descargar un directorio
 
 |    |     |
 |--------|-----------|
 | **Sintaxis** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>' '<local-directory-path>' --recursive` |
 | **Ejemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
-| **Ejemplo** (espacio de nombres jerárquico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory 'C:\myDirectory'  --recursive` |
+| **Ejemplo** (espacio de nombres jerárquico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
 
 En este ejemplo se crea un directorio denominado `C:\myDirectory\myBlobDirectory` que contiene todos los archivos descargados.
 
@@ -228,12 +228,11 @@ Las opciones `--include-pattern` y `--exclude-pattern` solo se aplican a los nom
 
 Puede usar AzCopy para copiar blobs a otras cuentas de almacenamiento. La operación de copia es sincrónica, por lo que cuando el comando devuelve un resultado, eso indica que se han copiado todos los archivos. 
 
-AzCopy usa [API](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url) [de servidor a servidor](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url), por lo que los datos se copian directamente entre servidores de almacenamiento. En estas operaciones de copia no se usa el ancho de banda de red del equipo. Para aumentar el rendimiento de estas operaciones puede establecer el valor de la variable de entorno `AZCOPY_CONCURRENCY_VALUE`. Para obtener más información, consulte [Optimización del rendimiento](storage-use-azcopy-configure.md#optimize-throughput).
+AzCopy usa interfaces [API](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)[de servidor a servidor](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url), por lo que los datos se copian directamente entre servidores de almacenamiento. En estas operaciones de copia no se usa el ancho de banda de red del equipo. Para aumentar el rendimiento de estas operaciones puede establecer el valor de la variable de entorno `AZCOPY_CONCURRENCY_VALUE`. Para obtener más información, consulte [Optimización del rendimiento](storage-use-azcopy-configure.md#optimize-throughput).
 
 > [!NOTE]
 > Este escenario tiene las siguientes limitaciones en la versión actual.
 >
-> - Solo se admiten las cuentas que no tienen un espacio de nombres jerárquico.
 > - Tiene que anexar un token de SAS a cada dirección URL de origen. Si proporciona credenciales de autorización mediante Azure Active Directory (AD), puede omitir el token de SAS solo de la dirección URL de destino.
 >-  Las cuentas de almacenamiento de blobs en bloques Premium no admiten niveles de acceso. Omita el nivel de acceso de un blob de la operación de copia. Para ello, establezca `s2s-preserve-access-tier` en `false` (por ejemplo: `--s2s-preserve-access-tier=false`).
 
@@ -244,6 +243,8 @@ En esta sección se incluyen los ejemplos siguientes:
 > * Copia de un directorio a otra cuenta de almacenamiento
 > * Copia de un contenedor a otra cuenta de almacenamiento
 > * Copia de todos los contenedores, directorios y archivos a otra cuenta de almacenamiento
+
+Estos ejemplos también funcionan con las cuentas que tienen un espacio de nombres jerárquico.
 
 Para obtener documentos de referencia detallados, consulte [azcopy copy](storage-ref-azcopy-copy.md).
 
@@ -280,10 +281,10 @@ Para obtener documentos de referencia detallados, consulte [azcopy copy](storage
 
 ## <a name="synchronize-files"></a>Sincronización de archivos
 
-Puede sincronizar el contenido de un sistema de archivos local con un contenedor de blobs. También puede sincronizar los contenedores y directorios virtuales entre sí. La sincronización es unidireccional. En otras palabras, tendrá que elegir cuál de estos dos puntos de conexión es el origen y cuál es el destino. La sincronización también usa las API de servidor a servidor.
+Puede sincronizar el contenido de un sistema de archivos local con un contenedor de blobs. También puede sincronizar los contenedores y directorios virtuales entre sí. La sincronización es unidireccional. En otras palabras, tendrá que elegir cuál de estos dos puntos de conexión es el origen y cuál es el destino. La sincronización también usa las API de servidor a servidor. Los ejemplos que se presentan en esta sección también funcionan con las cuentas que tienen un espacio de nombres jerárquico. 
 
 > [!NOTE]
-> En la actualidad, este escenario solo se admite para las cuentas que no tienen un espacio de nombres jerárquico. La versión actual de AzCopy no sincroniza entre otros orígenes y destinos (por ejemplo: Almacenamiento de archivos o cubos de Amazon Web Services (AWS) S3).
+> La versión actual de AzCopy no sincroniza entre otros orígenes y destinos (por ejemplo: Almacenamiento de archivos o cubos de Amazon Web Services (AWS) S3).
 
 El comando [sync](storage-ref-azcopy-sync.md) compara nombres de archivo y las marcas de tiempo de la última modificación. Establezca la marca opcional `--delete-destination` en un valor de `true` o `prompt` para eliminar archivos en el directorio de destino si esos archivos ya no existen en el directorio de origen.
 
@@ -299,7 +300,7 @@ Para obtener documentos de referencia detallados, consulte [azcopy sync](storage
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Actualización de un contenedor con los cambios realizados en un sistema de archivos local
 
-En este caso, el contenedor es el destino y el sistema de archivos local es el origen.
+En este caso, el contenedor es el destino y el sistema de archivos local es el origen. 
 
 |    |     |
 |--------|-----------|
@@ -314,7 +315,6 @@ En este caso, el sistema de archivos local es el destino y el contenedor es el o
 |--------|-----------|
 | **Sintaxis** | `azcopy sync 'https://<storage-account-name>.blob.core.windows.net/<container-name>' 'C:\myDirectory' --recursive` |
 | **Ejemplo** | `azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myDirectory' --recursive` |
-|
 
 ### <a name="update-a-container-with-changes-in-another-container"></a>Actualización de un contenedor con cambios en otro contenedor
 

@@ -1,5 +1,5 @@
 ---
-title: Actividad de Data Flow en Azure Data Factory
+title: Actividad Data Flow
 description: Cómo ejecutar flujos de datos desde una canalización de factoría de datos.
 services: data-factory
 documentationcenter: ''
@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 10/07/2019
-ms.openlocfilehash: 47126d1cf51f4b27863bb0b11e73cfe5592b8d57
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/02/2020
+ms.openlocfilehash: d0b9c59852175b91b4bf799a366ae5124fa0ae42
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929875"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644804"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Actividad de Data Flow en Azure Data Factory
 
@@ -30,6 +30,10 @@ Utilice la actividad de Data Flow para transformar y trasladar datos a través d
       "dataflow": {
          "referenceName": "MyDataFlow",
          "type": "DataFlowReference"
+      },
+      "compute": {
+         "coreCount": 8,
+         "computeType": "General"
       },
       "staging": {
           "linkedService": {
@@ -48,12 +52,14 @@ Utilice la actividad de Data Flow para transformar y trasladar datos a través d
 
 ## <a name="type-properties"></a>Propiedades de tipo
 
-Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
+Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 dataflow | Referencia al flujo de datos que se está ejecutando. | DataFlowReference | Sí
-integrationRuntime | Entorno de proceso en el que se ejecuta el flujo de datos. | IntegrationRuntimeReference | Sí
+integrationRuntime | Entorno de proceso en el que se ejecuta el flujo de datos. Si no se especifica, se usará la resolución automática de Azure Integration Runtime. | IntegrationRuntimeReference | No
+compute.coreCount | Número de núcleos utilizados en el clúster de Spark. Solo se puede especificar si se usa la resolución automática de Azure Integration Runtime | 8, 16, 32, 48, 80, 144, 272 | No
+compute.computeType | Tipo de proceso utilizado en el clúster de Spark. Solo se puede especificar si se usa la resolución automática de Azure Integration Runtime | "General", "ComputeOptimized", "MemoryOptimized" | No
 staging.linkedService | Si usa un origen o un receptor de Azure SQL Data Warehouse, es la cuenta de almacenamiento que se utiliza como almacenamiento provisional de PolyBase. | LinkedServiceReference | Solo si el flujo de datos lee o escribe en una instancia de Azure SQL Data Warehouse.
-staging.folderPath | Si usa un origen o un receptor de Azure SQL Data Warehouse, es la ruta de la carpeta de la cuenta de almacenamiento de blobs que se utiliza como almacenamiento provisional de PolyBase. | Cadena | Solo si el flujo de datos lee o escribe en una instancia de Azure SQL Data Warehouse.
+staging.folderPath | Si usa un origen o un receptor de Azure SQL Data Warehouse, es la ruta de la carpeta de la cuenta de almacenamiento de blobs que se utiliza como almacenamiento provisional de PolyBase. | String | Solo si el flujo de datos lee o escribe en una instancia de Azure SQL Data Warehouse.
 
 ![Ejecución de flujo de datos](media/data-flow/activity-data-flow.png "Ejecución de flujo de datos")
 
@@ -85,6 +91,12 @@ Si el flujo de datos utiliza conjuntos de datos con parámetros, establezca los 
 Si el flujo de datos tiene parámetros, establezca los valores dinámicos de los parámetros de flujo de datos en la pestaña **Parámetros**. Puede usar el lenguaje de expresiones de canalización de ADF (solo para los tipos de cadena) o el lenguaje de expresión de Data Flow para asignar valores dinámicos o literales a los parámetros. Para más información, consulte [Parámetros de Data Flow](parameters-data-flow.md).
 
 ![Ejemplo de parámetros de ejecución de flujo de datos](media/data-flow/parameter-example.png "Ejemplo de parámetro")
+
+### <a name="parameterized-compute-properties"></a>Propiedades de proceso con parámetros.
+
+Puede parametrizar el número de núcleos o el tipo de proceso si usa la resolución automática de Azure Integration Runtime y especifica valores para compute.coreCount y compute.computeType.
+
+![Ejemplo de parámetros de ejecución de flujo de datos](media/data-flow/parameterize-compute.png "Ejemplo de parámetro")
 
 ## <a name="pipeline-debug-of-data-flow-activity"></a>Depuración de la canalización de actividades de Data Flow
 
@@ -142,7 +154,7 @@ Consulte las actividades de flujo de control compatibles con Data Factory:
 - [Actividad If Condition](control-flow-if-condition-activity.md)
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)
 - [Para cada actividad](control-flow-for-each-activity.md)
-- [Actividad de obtención de metadatos](control-flow-get-metadata-activity.md)
+- [Actividad GetMetadata](control-flow-get-metadata-activity.md)
 - [Actividad Lookup](control-flow-lookup-activity.md)
 - [Actividad web](control-flow-web-activity.md)
 - [Actividad Until](control-flow-until-activity.md)

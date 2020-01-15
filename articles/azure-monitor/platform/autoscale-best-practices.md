@@ -1,24 +1,21 @@
 ---
 title: Procedimientos recomendados de escalado automático
 description: Patrones de escalado automático en Azure para Web Apps, conjunto de escalado de máquinas virtuales y Cloud Services
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/07/2017
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 604cf0564039a542ec117612bcbf74601388c0f7
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: d9f04e0af4349f6b149619f13dac8ca2f59b560e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007623"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396995"
 ---
 # <a name="best-practices-for-autoscale"></a>Procedimientos recomendados de escalado automático
 La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) y los [servicios de API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## <a name="autoscale-concepts"></a>Conceptos de escalado automático
+
 * Un recurso solo puede tener *una* configuración de escalado automático.
 * Una configuración de escalado automático puede tener uno o varios perfiles y cada perfil, a su vez, puede tener una o varias reglas de escalado automático.
 * Una configuración de escalado automático escala instancias *horizontalmente* aumentando las instancias y las *reduce horizontalmente* disminuyendo el número de instancias.
@@ -29,12 +26,15 @@ La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine 
 * De forma similar, todas las acciones de escalado correctas se publican en el registro de actividad. Después, puede configurar una alerta de registro de actividad de forma que pueda recibir una notificación por correo electrónico, SMS o webhook siempre que haya una acción de escalabilidad automática correcta. Puede configurar notificaciones de correo electrónico o webhook para recibir una notificación cada vez que se lleve a cabo una acción de escalado correcta a través de la pestaña de notificaciones de la configuración de escalado automático.
 
 ## <a name="autoscale-best-practices"></a>Procedimientos recomendados de escalado automático
+
 Use los procedimientos recomendados al usar el escalado automático.
 
 ### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>Asegúrese de que los valores máximo y mínimo son diferentes y de que hay margen suficiente entre ellos
+
 Si tiene una configuración en la que el valor mínimo es 2, el valor máximo es 2 y el número de instancias es 2, no se puede ejecutar ninguna acción de escalado. Mantenga un margen suficiente entre los números de instancias máximo y mínimo, que son inclusivos. El escalado automático siempre escala entre estos límites.
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>El escalado manual se restablece al valor máximo y mínimo de escalado automático.
+
 Si actualiza manualmente el recuento de instancias a un valor superior o inferior al máximo, el motor de escalado automático se ajusta automáticamente al valor mínimo (si está por debajo) o al máximo (si está por encima). Por ejemplo, establezca el intervalo entre 3 y 6. Si tiene una instancia en ejecución, el motor de escalabilidad automática escala a tres instancias cuando vuelve a ejecutarse. Del mismo modo, si establece manualmente la escalabilidad en ocho instancias, en la siguiente ejecución de escalabilidad automática se escalará de vuelta a seis instancias.  La escalabilidad manual es temporal a menos que restablezca también las reglas de escalabilidad automática.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Use siempre una combinación de reglas de escalado horizontal y reducción horizontal que realice un aumento y una disminución.
@@ -46,7 +46,7 @@ Para las métricas de diagnóstico, puede elegir entre *Promedio*, *Mínimo*, *M
 ### <a name="choose-the-thresholds-carefully-for-all-metric-types"></a>Elija los umbrales cuidadosamente para todos los tipos de métrica
 Es recomendable tener cuidado a la hora de elegir los diferentes umbrales de escalado y reducción horizontal en función de las situaciones prácticas.
 
-*No se recomiendan* opciones de escalado automático como las de los siguientes ejemplos, con valores de umbral iguales o muy similares en condiciones de escalado o reducción horizontal:
+*No se recomiendan* opciones de escalado automático como las de los siguientes ejemplos, con valores de umbral iguales o similares en condiciones de escalado o reducción horizontal:
 
 * Aumentar las instancias en 1 cuando el número de subprocesos >= 600
 * Disminuir las instancias en 1 cuando el número de subprocesos <= 600
@@ -57,7 +57,7 @@ Veamos un ejemplo de lo que puede llevar a producir un comportamiento confuso. C
 2. La escalabilidad automática escala horizontalmente para agregar una tercera instancia.
 3. Imaginemos ahora que el número promedio de subprocesos en la instancia se reduce a 575.
 4. Antes de reducir verticalmente, el escalado automático intenta evaluar cuál será el estado final si reduce horizontalmente. Por ejemplo, 575 x 3 (número de instancias actual) = 1725/2 (número final de instancias al reducir verticalmente) = 862,5 subprocesos. Esto significa que el escalado automático tiene que volver a escalar horizontalmente de inmediato (incluso después de haber reducido horizontalmente) si el número promedio de subprocesos sigue siendo el mismo o incluso si se reduce solo una pequeña cantidad. Sin embargo, si se volviera a escalar verticalmente, todo el proceso se repetiría, dando lugar a un bucle infinito.
-5. Para evitar esta situación (conocida como "inestable"), el escalado automático nunca reduce verticalmente. En su lugar, pasa esto por alto y vuelve a evaluar la situación la siguiente vez que el trabajo del servicio se ejecuta. Esto puede ser confuso para muchos usuarios, ya que puede dar la impresión de que la escalabilidad automática no funciona cuando el número promedio de subprocesos es 575.
+5. Para evitar esta situación (conocida como "inestable"), el escalado automático nunca reduce verticalmente. En su lugar, pasa esto por alto y vuelve a evaluar la situación la siguiente vez que el trabajo del servicio se ejecuta. El estado oscilante puede ser confuso para muchos usuarios, ya que puede dar la impresión de que la escalabilidad automática no funciona cuando el número promedio de subprocesos es 575.
 
 La estimación durante una reducción horizontal está diseñada para evitar situaciones "oscilantes", donde las acciones de reducción horizontal y escalado horizontal avanzan y retroceden continuamente. Recuerde este comportamiento cuando elija los mismos umbrales de escalado horizontal y reducción horizontal.
 
@@ -101,7 +101,7 @@ Cuando el servicio de escalado automático procesa estos perfiles, siempre los c
 
 Si se cumple una condición de perfil, el escalado automático no comprobará la siguiente condición de perfil por debajo de este. El escalado automático solo procesa un perfil cada vez. Esto significa que, si queremos incluir una condición de procesamiento de un perfil de nivel inferior, tendremos que incluir también las reglas del perfil actual.
 
-Analicemos esto con un ejemplo:
+Vamos a analizarlo con un ejemplo:
 
 La siguiente imagen muestra una configuración de escalado automático con un perfil predeterminado con un número de instancias mínimo = 2 y un número de instancias máximo = 10. En este ejemplo, las reglas están configuradas para escalar horizontalmente cuando el número de mensajes en la cola sea mayor que 10 y, asimismo, reducir horizontalmente cuando el número de mensajes en la cola sea inferior a tres. Ahora el recurso puede escalar entre dos y diez instancias.
 
@@ -112,14 +112,15 @@ De forma similar, cuando el escalado automático regresa al perfil predeterminad
 ![configuración de escalado automático](./media/autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Consideraciones de escalado cuando hay varias reglas configuradas en un perfil
-Hay casos en los que puede que sea necesario establecer varias reglas en un perfil. Cuando se establecen varias reglas, los servicios usan el siguiente conjunto de reglas de escalado automático.
+
+Hay casos en los que puede que sea necesario establecer varias reglas en un perfil. Los servicios usan el siguiente conjunto de reglas de escalado automático cuando se establecen varias reglas.
 
 Al *escalar horizontalmente*, el escalado automático se ejecuta si se cumple cualquier regla.
 Al *reducir horizontalmente*, el escalado automático necesita que todas las reglas se cumplan.
 
 Para ilustrar esto, imaginemos que tiene las siguientes cuatro reglas de escalabilidad automática:
 
-* Con una CPU < 30 %, se reduce horizontalmente en 1
+* Con una CPU < 30 %, se reduce horizontalmente en 1
 * Con una memoria < 50 %, se reduce horizontalmente en 1
 * Con una CPU> 75 %, se escala horizontalmente en 1
 * Con una memoria > 75 %, se escala horizontalmente en 1
@@ -127,7 +128,7 @@ Para ilustrar esto, imaginemos que tiene las siguientes cuatro reglas de escalab
 Por tanto, sucederá lo siguiente:
 
 * Con una CPU del 76 % y una memoria del 50 %, se escala horizontalmente.
-* Con una CPU del 50 % y una memoria del 76 %, se escala horizontalmente.
+* Con una CPU del 50 % y una memoria del 76 %, se escala horizontalmente.
 
 Por otro lado, con una CPU del 25 % y una memoria del 51 %, el escalado automático **no** reduce horizontalmente. Para ello, la CPU debe ser 29 % y la memoria, 49 %.
 
@@ -148,6 +149,6 @@ También puede usar una alerta de registro de actividades para supervisar el man
 Además de utilizar alertas de registro de actividad, puede configurar notificaciones de correo electrónico o webhook para recibir una notificación cada vez que se lleve a cabo una acción de escalado correcta a través de la pestaña de notificaciones de la configuración de escalado automático.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Creación de una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Cree una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Cree una alerta de registro de actividades para supervisar todas las operaciones con errores de escalado automático y reducción horizontal en su suscripción.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

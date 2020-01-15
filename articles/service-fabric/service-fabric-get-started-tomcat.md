@@ -1,31 +1,22 @@
 ---
-title: Creación de un contenedor de Azure Service Fabric para un servidor de Apache Tomcat en Linux | Microsoft Docs
+title: Creación de un contenedor para Apache Tomcat en Linux
 description: Cree un contenedor de Linux para exponer una aplicación que se ejecuta en un servidor de Apache Tomcat en Azure Service Fabric. Compile una imagen de Docker con la aplicación y el servidor de Apache Tomcat, inserte la imagen en un registro de contenedor y compile e implemente una aplicación contenedora de Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: JimacoMS2
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/08/2018
 ms.author: pepogors
-ms.openlocfilehash: 7e14a027f17c15c83a4ce25a211ef6106f2d2eaa
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170600"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614424"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Creación de un contenedor de Service Fabric que se ejecuta en un servidor de Apache Tomcat en Linux
 Apache Tomcat es una conocida implementación de código abierto de las tecnologías Java Servlet y Java Server. En este artículo se muestra cómo crear un contenedor con Apache Tomcat y una sencilla aplicación web, cómo implementar el contenedor en un clúster de Service Fabric con Linux y cómo conectarse a la aplicación web.  
 
 Para más información sobre Apache Tomcat, consulte la [página principal de Apache Tomcat](https://tomcat.apache.org/). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * Un equipo de desarrollo en el que se ejecute:
   * [SDK y herramientas de Service Fabric](service-fabric-get-started-linux.md).
   * [Docker CE para Linux](https://docs.docker.com/engine/installation/#prior-releases). 

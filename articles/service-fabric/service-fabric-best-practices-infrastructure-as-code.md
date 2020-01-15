@@ -1,25 +1,16 @@
 ---
-title: Procedimientos recomendados de infraestructura como código de Azure Service Fabric | Microsoft Docs
-description: Procedimientos recomendados para la administración de Service Fabric como infraestructura como código.
-services: service-fabric
-documentationcenter: .net
+title: Procedimientos recomendados de infraestructura como código de Azure Service Fabric
+description: Procedimientos recomendados y consideraciones de diseño para administrar la infraestructura de Azure Service Fabric como código.
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 83439a913989875c5e26ee51901f10558e5debd5
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 1c044d5fd973d3c577088a887f2fac413d2ab79d
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955610"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551835"
 ---
 # <a name="infrastructure-as-code"></a>Infraestructura como código
 

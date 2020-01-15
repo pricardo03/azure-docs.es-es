@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0caf8e8d5e18efc0a7332f97acccc394051ed360
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 6cd3a0341d9cf041155b09d41d8ff84d0b0cc3dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452399"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424813"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instrucciones: Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional
 
@@ -24,7 +24,7 @@ En un mundo donde la nube y la movilidad son prioritarias, Azure Active Director
 
 En este artículo se explica cómo puede configurar directivas de acceso condicional que exijan dispositivos administrados para acceder a determinadas aplicaciones en la nube del entorno. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 El uso obligatorio de dispositivos administrados para acceder a las aplicaciones en la nube vincula el **acceso condicional de Azure AD** y la **administración de dispositivos de Azure AD**. Si no está familiarizado con ninguna de estas áreas, debería leer los siguientes temas en primer lugar:
 
@@ -91,8 +91,9 @@ Para un dispositivo que está marcado como compatible, puede suponer que:
 - La información empresarial está protegida al ayudar a controlar la manera en que los trabajadores acceden a ella y la comparten.
 - El dispositivo y sus aplicaciones son compatibles con los requisitos de seguridad de la empresa.
 
-> [!NOTE]
-> Si configura una directiva para que requiera dispositivos compatibles, es posible que se solicite a los usuarios de Mac, iOS y Android que seleccionen un certificado de dispositivo durante la evaluación de la directiva. Este es un comportamiento conocido.
+### <a name="known-behavior"></a>Comportamiento conocido
+
+En Windows 7, iOS, Android, macOS y algunos exploradores web de terceros, Azure AD identifica el dispositivo mediante un certificado de cliente que se aprovisiona cuando el dispositivo está registrado con Azure AD. Cuando un usuario inicia sesión por primera vez a través del explorador, se le pide que seleccione el certificado. El usuario final debe seleccionar este certificado para poder seguir usando el explorador.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

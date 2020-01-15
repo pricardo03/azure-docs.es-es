@@ -1,5 +1,5 @@
 ---
-title: Migración de datos a Azure File Sync mediante Azure Data Box y otros métodos
+title: Migración de datos a Azure File Sync con Azure Data Box
 description: Migración masiva de datos con un procedimiento compatible con Azure File Sync.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9264aa6d24256b991abefe35b41045caa2e76d67
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: b00948f8d0e1eb8538354a6c16febf81bd4d1f16
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997784"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457368"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Migración masiva de datos a Azure File Sync
 Puede migrar datos de forma masiva a Azure File Sync de dos maneras:
@@ -49,7 +49,7 @@ Aquí se indica cómo configurar Azure File Sync de una forma compatible con las
 
 ![Diagrama que muestra cómo configurar Azure File Sync](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
-| Paso | Detalles |
+| Paso | Detail |
 |---|---------------------------------------------------------------------------------------|
 | ![Paso 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Pida su Data Box](../../databox/data-box-deploy-ordered.md). La familia de herramientas de Data Box ofrece [varios productos](https://azure.microsoft.com/services/storage/databox/data) para satisfacer sus necesidades. Cuando reciba su Data Box, siga la [documentación para copiar los datos](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) en esta ruta de acceso UNC de Data Box: *\\<DeviceIPAddres\>\<StorageAccountName_AzFile\>\<ShareName\>* . Aquí, *ShareName* es el nombre del recurso compartido de almacenamiento provisional. Envíe el dispositivo Data Box a Azure. |
 | ![Paso 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Espere hasta que los archivos se muestren en los recursos compartidos de archivos de Azure que haya elegido como recursos compartidos de almacenamiento provisional temporal. *No habilite la sincronización con estos recursos compartidos.* |

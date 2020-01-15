@@ -1,6 +1,6 @@
 ---
 title: Consulta de datos de la versión preliminar de Azure Time Series Insights | Microsoft Docs
-description: Aprenda sobre la consulta de datos de la versión preliminar de Azure Time Series Insights.
+description: Información general sobre los conceptos de consulta de datos y la API REST de HTTP en Azure Time Series Insights Preview.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: f44aa5c0a412dc53f4b1a5f127887257a1b0b550
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 53693c64ff03146619e17b276a1f817e69f5ed6e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006306"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374585"
 ---
 # <a name="data-querying-in-azure-time-series-insights-preview"></a>Consulta de datos de la versión preliminar de Azure Time Series Insights
 
@@ -39,8 +39,8 @@ Se admiten los siguientes tipos de API principal.
 
 Las siguientes Environment API están disponibles:
 
-* [Get Environment API](/rest/api/time-series-insights/management/environments/get): Devuelve la lista de entornos a los que el autor de la llamada puede obtener acceso.
-* [Get Environment Availability API](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): Devuelve la distribución del recuento de eventos a través de la marca de tiempo `$ts` del evento. Esta API ayuda a determinar si hay cualquier evento en la marca de tiempo al devolver el recuento de eventos, si es que existe alguno.
+* [Get Environments API](/rest/api/time-series-insights/management/environments/get): Devuelve la lista de entornos a los que el autor de la llamada puede obtener acceso.
+* [Get Environments Availability API](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): Devuelve la distribución del recuento de eventos a través de la marca de tiempo `$ts` del evento. Esta API ayuda a determinar si hay cualquier evento en la marca de tiempo al devolver el recuento de eventos, si es que existe alguno.
 * [Get Event Schema API](/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema): Devuelve los metadatos de esquema de eventos para un intervalo de búsqueda determinado. Esta API le ayuda a recuperar todos los metadatos y propiedades disponibles en el esquema para el intervalo de búsqueda determinado.
 
 ## <a name="time-series-model-query-tsm-q-apis"></a>API de consulta de modelo de serie temporal (TSM-Q)

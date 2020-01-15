@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/29/2019
-ms.openlocfilehash: ff0896498c0270b8eb43b762228916985f924def
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 7d9c966051c2756d7936fa079a0aac68e694425d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678319"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407542"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatización de procesos de Azure Application Insights con el conector para Microsoft Flow
 
@@ -41,7 +41,7 @@ En este tutorial, obtendrá información sobre cómo crear un flujo que usa el a
 
     ![Configuración de la programación de periodicidad con la especificación de frecuencia e intervalo](./media/automate-with-flow/2-schedule.png)
 
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 
 ### <a name="step-3-add-an-application-insights-action"></a>Paso 3: Incorporación de una acción de Application Insights
 
@@ -66,7 +66,7 @@ Proporcione un nombre para la conexión, junto con el identificador de aplicaci�
 
 Si el cuadro de conexión no se muestra de inmediato y, en su lugar, va directamente a escribir la consulta, haga clic en los puntos suspensivos de la parte superior derecha del cuadro. A continuación, seleccione Mis conexiones o use una existente.
 
-Haga clic en **Create**(Crear).
+Haga clic en **Crear**.
 
 ### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Paso 5: Especificación del tipo de gráfico y consulta de análisis
 Esta consulta de ejemplo selecciona las solicitudes con error del último día y las pone en correlación con las excepciones que se han producido como parte de la operación. Analytics las correlaciona en función del identificador operation_Id. La consulta, a continuación, segmenta los resultados mediante el algoritmo de clúster automático.
@@ -119,7 +119,7 @@ Al crear sus propias consultas, asegúrese de comprobar que funcionan correctame
 
 Haga clic en **Save**(Guardar).
 
-Puede esperar a que el desencadenador ejecute esta acción o puede hacer clic en el ![icono de vaso de precipitación de prueba](./media/automate-with-flow/testicon.png) llamado **Probar** en la parte superior.
+Puede esperar a que el desencadenador ejecute esta acción o puede hacer clic en ![icono de vaso de precipitación de prueba](./media/automate-with-flow/testicon.png) **Test** (Probar) en la parte superior.
 
 Después de seleccionar **Probar**:
 

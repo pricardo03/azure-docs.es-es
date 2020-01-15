@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebe362be49995ce2cd1f4c43a5cfbee408396976
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: b8238d2b417dbe03ad0623e472f1a239940c1bc8
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900403"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681385"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Comprobación del estado de aprovisionamiento de usuarios
 
@@ -35,12 +35,12 @@ La primera vez que configure el aprovisionamiento automático, en la sección **
 - El tipo de ciclo de aprovisionamiento (inicial o incremental) que se ejecuta actualmente o que se completó por última vez.
 - Una **barra de progreso** en la que se muestra el porcentaje del ciclo de aprovisionamiento que se ha completado. El porcentaje refleja el número de páginas aprovisionadas. Tenga en cuenta que cada página podría contener varios usuarios o grupos, por lo que el porcentaje no correlaciona directamente con el número de usuarios, grupos o roles aprovisionados.
 - Un botón **Actualizar** que puede usar para mantener la vista actualizada.
-- El número de **usuarios** y **grupos** aprovisionados, así como el número de roles que se crearon. Durante el ciclo inicial, el número de **usuarios** incrementa en 1 cuando se crea o actualiza un usuario y disminuye en 1 cuando se elimina un usuario. Durante un ciclo de incremental, las actualizaciones de usuario no afectan al número de **usuarios**; el número cambia solo cuando se crean o eliminan usuarios.
+- Número de **Usuarios** y **Grupos** en el almacén de datos del conector. El recuento aumenta cada vez que se agrega un objeto al ámbito de aprovisionamiento. El recuento no dejará de funcionar si un usuario se elimina de forma temporal o se elimina permanentemente, ya que esto no quita el objeto del almacén de datos del conector. El recuento se volverá a calcular en la primera sincronización después de que el CDS se [restablezca](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). 
 - Un vínculo **Ver registros de auditoría**, que abre los registros de aprovisionamiento de Azure AD con detalles sobre todas las operaciones que haya ejecutado el servicio de aprovisionamiento de usuarios, como el estado de aprovisionamiento de los usuarios individuales (consulte la sección [Uso de registros de aprovisionamiento](#use-provisioning-logs-to-check-a-users-provisioning-status) más adelante).
 
 Una vez completado el ciclo de aprovisionamiento, en la sección **Estadísticas hasta la fecha** se muestran los números acumulativos de los usuarios y grupos que se hayan aprovisionado hasta la fecha, junto con la fecha de finalización y la duración del último ciclo. La opción **Id. de actividad** identifica de forma única el ciclo de aprovisionamiento más reciente. La opción **Id. de trabajo** es un identificador único para el trabajo de aprovisionamiento y es específico de la aplicación en el inquilino.
 
-El progreso de aprovisionamiento se puede ver en Azure Portal, en la pestaña **Azure Active Directory &gt; Aplicaciones empresariales &gt; \[nombre de la aplicación\] &gt; Aprovisionamiento**.
+El progreso de aprovisionamiento se puede ver en Azure Portal, en la pestaña **Azure Active Directory &gt; Aplicaciones empresariales &gt; \[nombre de la aplicación\] &gt; Aprovisionamiento**.
 
 ![Barra de progreso de la página de aprovisionamiento](media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
@@ -48,7 +48,7 @@ El progreso de aprovisionamiento se puede ver en Azure Portal, en la pestaña **
 
 Para ver el estado de aprovisionamiento de un usuario seleccionado, consulte los [registros de aprovisionamiento (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) de Azure AD. Todas las operaciones que ejecute el servicio de aprovisionamiento de usuarios se registran en los registros de aprovisionamiento de Azure AD. Esto incluye todas las operaciones de lectura y escritura realizadas en los sistemas de origen y de destino, así como los datos del usuario que se leyeron o escribieron durante cada operación.
 
-Para acceder a los registros de aprovisionamiento en Azure Portal, seleccione **Azure Active Directory** &gt; **Aplicaciones empresariales** &gt; **Registros de aprovisionamiento (versión preliminar)** en la sección **Actividad**. Puede buscar los datos de aprovisionamiento por el nombre del usuario o el identificador en el sistema de origen o en el sistema de destino. Para más información, consulte [Registros de aprovisionamiento (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+Para acceder a los registros de aprovisionamiento en Azure Portal, seleccione **Azure Active Directory** &gt; **Aplicaciones empresariales** &gt; **Registros de aprovisionamiento (versión preliminar)** en la sección **Actividad**. Puede buscar los datos de aprovisionamiento por el nombre del usuario o el identificador en el sistema de origen o en el sistema de destino. Para más información, consulte [Registros de aprovisionamiento (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
 Los registros de aprovisionamiento registran todas las operaciones realizadas por el servicio de aprovisionamiento, lo que incluye:
 

@@ -4,15 +4,15 @@ description: Obtenga información para eliminar el área de trabajo de Log Analy
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/28/2019
-ms.openlocfilehash: b8fdefb5e8555e90b5c9065672f4593e5bf98e06
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 2b54dd5161312a081d439b3e10d2cb4bf9014d52
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326511"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496534"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Eliminación y restauración de un área de trabajo de Azure Log Analytics
 
@@ -20,7 +20,10 @@ En este artículo se explica el concepto de eliminación temporal de áreas de t
 
 ## <a name="considerations-when-deleting-a-workspace"></a>Consideraciones al eliminar áreas de trabajo
 
-Al eliminar un área de trabajo de Log Analytics, se realiza una operación de eliminación temporal para que se pueda recuperar el área de trabajo, incluidos los datos y los agentes conectados en un plazo de 14 días, tanto si la eliminación fue accidental como intencionada. Después del período de eliminación temporal, el área de trabajo y sus datos no son recuperables: los datos se ponen en cola para su eliminación permanente en un plazo de 30 días, y el nombre del área de trabajo está disponible y se puede usar para crear una nueva área de trabajo.
+Al eliminar un área de trabajo de Log Analytics, se realiza una operación de eliminación temporal para que se pueda recuperar el área de trabajo, incluidos los datos y los agentes conectados en un plazo de 14 días, tanto si la eliminación fue accidental como intencionada. Después del período de eliminación temporal, el recurso del área de trabajo y sus datos no podrán recuperarse: los datos se pondrán en cola para su eliminación permanente en un plazo de 30 días. El nombre del área de trabajo es "released" y puede usarlo para crear una nueva área de trabajo.
+
+> [!NOTE]
+> El comportamiento de eliminación temporal no se puede desactivar. En breve, se agregará una opción para invalidar la eliminación temporal al usar una etiqueta "force" en la operación de eliminación.
 
 Debe tener cuidado al eliminar un área de trabajo porque puede haber datos importantes y una configuración que puede afectar negativamente a las operaciones de servicio. Revise qué agentes, soluciones y otros servicios y orígenes de Azure almacenan sus datos en Log Analytics. Por ejemplo:
 
@@ -41,7 +44,7 @@ La operación de eliminación del área de trabajo quita el recurso de Resource 
 
 Las áreas de trabajo se pueden eliminar un mediante [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [API REST](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) o en [Azure Portal](https://portal.azure.com).
 
-### <a name="delete-workspace-in-azure-portal"></a>Eliminación de áreas de trabajo en Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 1. Para iniciar sesión, vaya a [Azure Portal](https://portal.azure.com). 
 2. En Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Áreas de trabajo de Log Analytics**.
@@ -49,6 +52,11 @@ Las áreas de trabajo se pueden eliminar un mediante [PowerShell](https://docs.m
    ![Opción Eliminar desde el panel de propiedades del área de trabajo](media/delete-workspace/log-analytics-delete-workspace.png)
 4. Cuando aparezca de la ventana de mensaje de confirmación que le solicite que confirme la eliminación del área de trabajo, haga clic en **Sí**.
    ![Confirmación de la eliminación del área de trabajo](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
+
+### <a name="powershell"></a>PowerShell
+```PowerShell
+PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "ContosResourceGroup" -Name "MyWorkspace"
+```
 
 ## <a name="recover-workspace"></a>Recuperación de áreas de trabajo
 

@@ -1,21 +1,22 @@
 ---
-title: Introducción a la cuenta de Azure Storage | Microsoft Docs
+title: Introducción a las cuentas de almacenamiento
+titleSuffix: Azure Storage
 description: Compruebe qué opciones tiene para crear y usar una cuenta de Azure Storage.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: dc5869acffe9a42d154bca61b9de7821121c85ec
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 30f39fc72d6a96b83f57d6553db3f348c8486ee5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851643"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460617"
 ---
-# <a name="azure-storage-account-overview"></a>Información general acerca de la cuenta de Azure Storage
+# <a name="storage-account-overview"></a>Introducción a las cuentas de almacenamiento
 
 Una cuenta de Azure Storage contiene todos los objetos de datos de Azure Storage: blobs, archivos, colas, tablas y discos. La cuenta de almacenamiento proporciona un espacio de nombres único para los datos de Azure Storage que es accesible desde cualquier lugar del mundo a través de HTTP o HTTPS. Los datos de la cuenta de Azure Storage son duraderos y altamente disponibles, seguros y escalables a gran escala.
 
@@ -55,11 +56,11 @@ Las cuentas de almacenamiento de uso general v1 proporcionan acceso a todos los 
 
 En la mayoría de los casos, debe usar cuentas de uso general v2. Puede usar cuentas de uso general v1 en estos escenarios:
 
-* Sus aplicaciones requieren el modelo de implementación clásico de Azure. Las cuentas de uso general v2 y las cuentas de Blob Storage solo admiten el modelo de implementación de Azure Resource Manager.
+- Sus aplicaciones requieren el modelo de implementación clásico de Azure. Las cuentas de uso general v2 y las cuentas de Blob Storage solo admiten el modelo de implementación de Azure Resource Manager.
 
-* Sus aplicaciones realizan una gran cantidad de transacciones o utilizan un ancho de banda significativo de replicación geográfica, pero no es necesario que tengan una gran capacidad. En este caso, las cuentas de uso general v1 pueden ser la opción más económica.
+- Sus aplicaciones realizan una gran cantidad de transacciones o utilizan un ancho de banda significativo de replicación geográfica, pero no es necesario que tengan una gran capacidad. En este caso, las cuentas de uso general v1 pueden ser la opción más económica.
 
-* Usa una versión de la [API de REST de servicios de almacenamiento](https://msdn.microsoft.com/library/azure/dd894041.aspx) anterior al 14-02-2014 o una biblioteca de cliente con una versión inferior a la 4.x. No puede actualizar la aplicación.
+- Usa una versión de la [API de REST de servicios de almacenamiento](https://msdn.microsoft.com/library/azure/dd894041.aspx) anterior al 14-02-2014 o una biblioteca de cliente con una versión inferior a la 4.x. No puede actualizar la aplicación.
 
 ### <a name="blockblobstorage-accounts"></a>Cuentas BlockBlobStorage
 
@@ -86,12 +87,12 @@ Cuando especifique un nombre para la cuenta de almacenamiento, tenga en cuenta e
 
 Las cuentas de almacenamiento de uso general pueden configurarse para cada uno de los niveles de rendimiento siguientes:
 
-* Un nivel de rendimiento estándar para almacenar blobs, archivos, tablas, colas y discos de máquina virtual de Azure.
-* Un nivel de rendimiento prémium para almacenar solo los discos de máquina virtual no administrados.
+- Un nivel de rendimiento estándar para almacenar blobs, archivos, tablas, colas y discos de máquina virtual de Azure. Para obtener más información sobre los objetivos de escalabilidad de cuentas de almacenamiento estándar, consulte [Objetivos de escalabilidad para cuentas de almacenamiento estándar](scalability-targets-standard-account.md).
+- Un nivel de rendimiento prémium para almacenar solo los discos de máquina virtual no administrados. Microsoft recomienda usar discos administrados en lugar de discos no administrados con máquinas virtuales de Azure. Para obtener más información sobre los objetivos de escalabilidad del nivel de rendimiento premium, consulte [Objetivos de escalabilidad de las cuentas de almacenamiento de blob en páginas premium](../blobs/scalability-targets-premium-page-blobs.md).
 
-Las cuentas de almacenamiento BlockBlobStorage proporcionan un nivel de rendimiento premium para almacenar blobs en bloques y blobs en anexos.
+Las cuentas de almacenamiento BlockBlobStorage proporcionan un nivel de rendimiento premium para almacenar blobs en bloques y blobs en anexos. Para obtener más información, consulte [Objetivos de escalabilidad de las cuentas de almacenamiento de blob en bloques premium](../blobs/scalability-targets-premium-block-blobs.md).
 
-Las cuentas de almacenamiento FileStorage proporcionan un nivel de rendimiento prémium para los recursos compartidos de archivos de Azure.
+Las cuentas de almacenamiento FileStorage proporcionan un nivel de rendimiento prémium para los recursos compartidos de archivos de Azure. Para más información, consulte [Objetivos de escalabilidad y rendimiento de Azure Files](../files/storage-files-scale-targets.md).
 
 ## <a name="access-tiers-for-block-blob-data"></a>Niveles de acceso a datos de blob en bloques
 
@@ -99,9 +100,9 @@ Azure Storage ofrece diferentes opciones para obtener acceso a los datos de blob
 
 Los niveles de acceso disponibles son:
 
-* Nivel de acceso **frecuente**. Este nivel está optimizado para el acceso frecuente de objetos en la cuenta de almacenamiento. Obtener acceso a los datos en el nivel de acceso frecuente es más rentable, aunque los costos de almacenamiento son más altos. Las nuevas cuentas de almacenamiento se crean en el nivel de acceso frecuente de forma predeterminada.
-* Nivel de acceso **esporádico**. Este nivel está optimizado para almacenar grandes cantidades de datos a los que se accede con poca frecuencia y que llevan guardados al menos 30 días. El almacenamiento de datos en el nivel de acceso esporádico es más rentable, pero el acceso a esos datos puede ser algo más costoso que a los del nivel de acceso frecuente.
-* Nivel de **archivo**. Este nivel está disponible solo para blobs en bloques individuales. Este nivel está optimizado para los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de almacenamiento de archivo durante un mínimo de 180 días. El nivel de archivo es la opción más rentable para almacenar datos. Sin embargo, el acceso a los datos es más caro que en el caso de los niveles de acceso frecuente o esporádico.
+- Nivel de acceso **frecuente**. Este nivel está optimizado para el acceso frecuente de objetos en la cuenta de almacenamiento. Obtener acceso a los datos en el nivel de acceso frecuente es más rentable, aunque los costos de almacenamiento son más altos. Las nuevas cuentas de almacenamiento se crean en el nivel de acceso frecuente de forma predeterminada.
+- Nivel de acceso **esporádico**. Este nivel está optimizado para almacenar grandes cantidades de datos a los que se accede con poca frecuencia y que llevan guardados al menos 30 días. El almacenamiento de datos en el nivel de acceso esporádico es más rentable, pero el acceso a esos datos puede ser algo más costoso que a los del nivel de acceso frecuente.
+- Nivel de **archivo**. Este nivel está disponible solo para blobs en bloques individuales. Este nivel está optimizado para los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de almacenamiento de archivo durante un mínimo de 180 días. El nivel de archivo es la opción más rentable para almacenar datos. Sin embargo, el acceso a los datos es más caro que en el caso de los niveles de acceso frecuente o esporádico.
 
 Si hay un cambio en el patrón de uso de datos, también se puede cambiar de nivel de acceso en cualquier momento. Para más información acerca de los niveles de acceso, consulte [Azure Blob Storage: niveles de almacenamiento de archivo, esporádico y frecuente](../blobs/storage-blob-storage-tiers.md).
 
@@ -124,13 +125,13 @@ Una cuenta de almacenamiento le proporciona un espacio de nombres único en Azur
 
 Por ejemplo, si la cuenta de almacenamiento de uso general se llama *mystorageaccount*, los puntos de conexión predeterminados de la cuenta de almacenamiento serán:
 
-* Blob Storage: http://*mystorageaccount*.blob.core.windows.net
-* Table storage: http://*mystorageaccount*.table.core.windows.net
-* Queue storage: http://*mystorageaccount*.queue.core.windows.net
-* Azure Files: http://*mystorageaccount*.file.core.windows.net
+- Blob Storage: `https://*mystorageaccount*.blob.core.windows.net`
+- Table Storage: `https://*mystorageaccount*.table.core.windows.net`
+- Queue Storage: `https://*mystorageaccount*.queue.core.windows.net`
+- Azure Files: `https://*mystorageaccount*.file.core.windows.net`
 
 > [!NOTE]
-> Las cuentas de almacenamiento de blob y de blob en bloques solo exponen el punto de conexión del servicio de blob.
+> Las cuentas de almacenamiento de blob y de blob en bloques solo exponen el punto de conexión de Blob service.
 
 Construya la dirección URL para acceder a un objeto de una cuenta de almacenamiento anexando la ubicación de este al punto de conexión. Por ejemplo, una dirección de blob podría tener este formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
@@ -171,7 +172,7 @@ Azure Storage Data Movement Library for .NET se basa en el marco de movimiento d
 
 Puede crear una aplicación personalizada para migrar los datos desde una cuenta de almacenamiento de uso general v1 a una cuenta de Blob Storage. Use una de las bibliotecas de cliente de Azure o la API REST de servicios de almacenamiento de Azure. Azure Storage proporciona bibliotecas de cliente enriquecidas para varios lenguajes y aplicaciones como .NET, Java, C++, Node.JS, PHP, Ruby y Python. Las bibliotecas de cliente ofrecen capacidades avanzadas, como lógica de reintentos, registro y cargas paralelas. También se puede desarrollar directamente en la API de REST, a la que se puede llamar con cualquier lenguaje que genere solicitudes HTTP/HTTPS.
 
-Para obtener más información sobre la API REST de Azure Storage, consulte [Azure Storage Services REST API Reference](https://docs.microsoft.com/rest/api/storageservices/) (Referencia de la API REST de Azure Storage). 
+Para obtener más información sobre la API REST de Azure Storage, consulte [Azure Storage Services REST API Reference](https://docs.microsoft.com/rest/api/storageservices/) (Referencia de la API REST de Azure Storage).
 
 > [!IMPORTANT]
 > Los blobs que usan el cifrado de cliente almacenan metadatos relacionados con el cifrado junto con el blob. Si copia un blob en el que se usa un cifrado de cliente, asegúrese de que la operación de copia conserva los metadatos del blob y, especialmente, los metadatos relacionados con el cifrado. Si copia un blob sin los metadatos de cifrado, su contenido no puede volver a recuperarse. Para más información acerca de los metadatos relacionados con el cifrado, consulte [Cifrado del lado de cliente y Almacén de claves de Azure para Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
@@ -182,6 +183,5 @@ Para obtener más información sobre la API REST de Azure Storage, consulte [Azu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Cree una cuenta de almacenamiento](storage-quickstart-create-account.md)
-* [Creación de una cuenta de almacenamiento de blobs en bloques](../blobs/storage-blob-create-account-block-blob.md)
-* [Administración de cuentas de Azure Storage](storage-account-manage.md)
+- [Cree una cuenta de almacenamiento](storage-quickstart-create-account.md)
+- [Creación de una cuenta de almacenamiento de blobs en bloques](../blobs/storage-blob-create-account-block-blob.md)

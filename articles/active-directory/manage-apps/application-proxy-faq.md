@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 612b6caf47ec4764aa2bbef162592100198ed0c4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 47c1ce3391129525237566fb92cec2e9b33ca08f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832209"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443411"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy
 
@@ -53,9 +53,9 @@ Para ver más recomendaciones, consulte [Alta disponibilidad y equilibrio de car
 
 No, este escenario no se admite. Solo el conector y los servicios de actualización se pueden configurar para usar un proxy de reenvío en el tráfico saliente a Azure. Consulte [Trabajar con servidores proxy locales existentes](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
 
-### <a name="is-ssl-termination-sslhhtps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>¿Se admite la terminación SSL (inspección o aceleración de SSL/HHTPS) en el tráfico desde los servidores de conector a Azure?
+### <a name="is-ssl-termination-sslhttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>¿Se admite la terminación SSL (inspección o aceleración de SSL/HTTPS) en el tráfico desde los servidores de conector a Azure?
 
-El conector de Application Proxy realiza la autenticación basada en certificados en Azure. Asimismo, la terminación SSL (inspección o aceleración de SSL/HHTPS) interrumpe este método de autenticación y no se admite. El tráfico del conector a Azure debe omitir todos los dispositivos que realicen la terminación SSL.  
+El conector de Application Proxy realiza la autenticación basada en certificados en Azure. Asimismo, la terminación SSL (inspección o aceleración de SSL/HTTPS) interrumpe este método de autenticación y no se admite. El tráfico del conector a Azure debe omitir todos los dispositivos que realicen la terminación SSL.  
 
 ### <a name="should-i-create-a-dedicated-account-to-register-the-connector-with-azure-ad-application-proxy"></a>¿Debo crear una cuenta dedicada para registrar el conector con Azure AD Application Proxy?
 

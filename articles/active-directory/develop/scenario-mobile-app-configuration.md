@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44392882a7d3e1816b952969dbadb518e2762142
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3d7148b104c723d124a954cf858ca77ff6552f94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919960"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423793"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>Aplicación móvil que llama a las API web: configuración de código
 
@@ -30,7 +30,7 @@ Una vez creada la aplicación, aprenderá a configurar el código con los parám
 
 Las bibliotecas de Microsoft que admiten aplicaciones móviles son:
 
-  Biblioteca MSAL | DESCRIPCIÓN
+  Biblioteca MSAL | Descripción
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Para desarrollar aplicaciones portátiles. Las plataformas compatibles con MSAL.NET para compilar una aplicación móvil son UWP, Xamarin.iOS y Xamarin.Android.
   ![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Para desarrollar aplicaciones de iOS nativas con Objective-C o Swift
@@ -77,7 +77,7 @@ En el siguiente párrafo se explica cómo crear instancias de la aplicación par
 
 En Xamarin o UWP, la manera más sencilla de crear una instancia de la aplicación es la siguiente, donde `ClientId` es el GUID de la aplicación registrada.
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder.Create(clientId)
                                         .Build();
 ```
@@ -88,15 +88,15 @@ Hay otros métodos con *parámetros* que establecen el elemento primario de la i
 
 En Android, debe pasar la actividad primaria antes de realizar la autenticación interactiva. En iOS, al usar un agente, debe pasar ViewController. Del mismo modo en UWP, puede que quiera pasar la ventana primaria. Esto es posible al adquirir el token, pero también es posible especificar una devolución de llamada al crear la aplicación si un delegado devuelve UIParent.
 
-```CSharp
+```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)
   .ParentActivityOrWindowFunc(() => parentUi)
   .Build();
 ```
 
-En Android, le recomendamos que use `CurrentActivityPlugin` [aquí](https://github.com/jamesmontemagno/CurrentActivityPlugin).  A continuación, el código del compilador `PublicClientApplication` tendrá el siguiente aspecto:
+En Android, le recomendamos que usar el objeto `CurrentActivityPlugin` [aquí](https://github.com/jamesmontemagno/CurrentActivityPlugin).  A continuación, el código del compilador `PublicClientApplication` tendrá el siguiente aspecto:
 
-```CSharp
+```csharp
 // Requires MSAL.NET 4.2 or above
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
@@ -175,7 +175,7 @@ Siga estos pasos para permitir que la aplicación de Xamarin.iOS pueda hablar co
 
 La compatibilidad con el agente se habilita de forma `PublicClientApplication`. De forma predeterminada, está deshabilitada. Debe usar el parámetro `WithBroker()` (establecido en true de forma predeterminada) al crear `PublicClientApplication` con `PublicClientApplicationBuilder`.
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder
                 .Create(ClientId)
                 .WithBroker()
@@ -187,7 +187,7 @@ var app = PublicClientApplicationBuilder
 
 Cuando MSAL.NET llama al agente, el agente, a su vez, volverá a llamar a la aplicación con el método `AppDelegate.OpenUrl`. Como MSAL esperará la respuesta del agente, la aplicación debe cooperar para volver a llamar a MSAL.NET. Para ello, actualice el archivo `AppDelegate.cs` para reemplazar el método siguiente.
 
-```CSharp
+```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url,
                              string sourceApplication,
                              NSObject annotation)
@@ -219,16 +219,16 @@ Haga lo siguiente para establecer la ventana de objeto:
 **Por ejemplo:**
 
 En `App.cs`:
-```CSharp
+```csharp
    public static object RootViewController { get; set; }
 ```
 En `AppDelegate.cs`:
-```CSharp
+```csharp
    LoadApplication(new App());
    App.RootViewController = new UIViewController();
 ```
 En la llamada al token de adquisición:
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();
@@ -268,7 +268,7 @@ Anteponga a `CFBundleURLSchemes` el prefijo `msauth`. A continuación, agregue `
 
 MSAL usa `–canOpenURL:` para comprobar si el agente está instalado en el dispositivo. En iOS 9, Apple ha bloqueado los esquemas que puede consultar una aplicación.
 
-**Agregue** **`msauthv2`** a la sección `LSApplicationQueriesSchemes` del archivo `Info.plist`.
+**Agregue** **`msauthv2`** a la sección `LSApplicationQueriesSchemes` del archivo `Info.plist`.
 
 ```XML 
 <key>LSApplicationQueriesSchemes</key>

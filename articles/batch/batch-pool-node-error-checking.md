@@ -1,18 +1,18 @@
 ---
 title: 'Comprobación de errores de grupo y de nodo: Azure Batch'
-description: Errores que se deben comprobar y cómo evitarlos al crear grupos y nodos
+description: En este artículo se tratan las operaciones en segundo plano que se pueden producir, junto con los errores que deben buscarse y cómo evitarlos al crear grupos y nodos.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3c8e189e84e0a467125995b3e2d633c285eb7367
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dea45cec29101c3b085ab8098c3b05906e1049cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350070"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449782"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Comprobación de errores de grupo y de nodo
 

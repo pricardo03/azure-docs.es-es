@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/17/2018
-ms.openlocfilehash: d3cb075d5ec0607453ca21f2574df7def02a4453
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 42a8b53f8d1fee2d657ccaa2d57e72b3edfdd4f3
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553709"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531061"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas de registro de actividad 
 
@@ -31,7 +31,7 @@ Una simple analogía para comprender las condiciones en las que se pueden crear 
 
 En cualquier caso, una alerta del registro de actividad solo supervisa eventos de la suscripción en la que se ha creado la alerta.
 
-Puede configurar una alerta del registro de actividad según las propiedades de nivel superior del objeto JSON de un evento del registro de actividad. Para más información, consulte [Información general sobre el registro de actividad de Azure](./activity-logs-overview.md#categories-in-the-activity-log). Para más información acerca de los eventos de mantenimiento del servicio, consulte [Recibir alertas del registro de actividad con las notificaciones del servicio](./alerts-activity-log-service-notifications.md). 
+Puede configurar una alerta del registro de actividad según las propiedades de nivel superior del objeto JSON de un evento del registro de actividad. Para obtener más información, consulte [Categorías del Registro de actividad](activity-log-view.md#categories-in-the-activity-log). Para más información acerca de los eventos de mantenimiento del servicio, consulte [Recibir alertas del registro de actividad con las notificaciones del servicio](alerts-activity-log-service-notifications.md). 
 
 Las alertas del registro de actividad tienen algunas opciones en común:
 

@@ -1,6 +1,6 @@
 ---
-title: Trabajo con la biblioteca de procesadores de fuente de cambios en Azure Cosmos DB
-description: Aprenda a usar la biblioteca de procesadores de fuente de cambios de Azure Cosmos DB para leer la fuente de cambios, los componentes del procesador de fuente de cambios y el ciclo de vida de implementación.
+title: Biblioteca de procesadores de fuente de cambios de Azure Cosmos DB
+description: Aprenda a usar la biblioteca de procesadores de fuente de cambios de Azure Cosmos DB para leer la fuente de cambios y los componentes del procesador de fuente de cambios.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: ea2b72e926923357e9ee7dac87720292fbbf9696
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3e7f5e46068844da538864fdfaa03ca7023e4372
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872237"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445575"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesadores de fuente de cambios de Azure Cosmos DB 
 
@@ -97,4 +97,4 @@ Puede obtener más información sobre el procesador de la fuente de cambios en l
 * [Introducción a la fuente de cambios](change-feed.md)
 * [Migración desde la biblioteca de procesadores de fuente de cambios](how-to-migrate-from-change-feed-library.md)
 * [Uso del calculador de la fuente de cambios](how-to-use-change-feed-estimator.md)
-* [Hora de inicio del procesador de fuente de cambios](how-to-configure-change-feed-start-time.md)
+* [Hora de inicio del procesador de la fuente de cambios](how-to-configure-change-feed-start-time.md)

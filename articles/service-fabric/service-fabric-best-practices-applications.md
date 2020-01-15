@@ -1,25 +1,16 @@
 ---
-title: Procedimientos recomendados para el diseño de aplicaciones de Azure Service Fabric | Microsoft Docs
-description: Procedimientos recomendados para el desarrollo de aplicaciones de Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Procedimientos recomendados para el diseño de aplicaciones de Azure Service Fabric
+description: Procedimientos recomendados y consideraciones de diseño para desarrollar aplicaciones y servicios con Azure Service Fabric.
 author: markfussell
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/18/2019
 ms.author: mfussell
-ms.openlocfilehash: eec5daf0100d527886a508f5adbdb2b0e3010b09
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 755e3c1eb649bc6c8ecc084d18e9904cc90b1282
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262259"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551852"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Procedimientos recomendados para el diseño de aplicaciones de Azure Service Fabric
 

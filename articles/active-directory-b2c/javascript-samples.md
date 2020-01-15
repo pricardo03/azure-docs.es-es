@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 92ac1e6a85023d49ceb8242b93651a60da3d2166
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 996893f95b11d716feb4253688d3ab1d62d140ee
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064182"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659532"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Ejemplos de JavaScript para usar en Azure Active Directory B2C
 
@@ -26,9 +26,13 @@ Puede agregar su propio código cliente de JavaScript a las aplicaciones de Azur
 > [!NOTE]
 > Si quiere habilitar JavaScript para los flujos de usuario, consulte [Versiones de diseño de página y JavaScript en Azure Active Directory B2C](user-flow-javascript-overview.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Seleccione un diseño de página para los elementos de la interfaz de usuario de su aplicación. Si piensa usar JavaScript, deberá definir una versión del diseño de página para todas las definiciones de contenido de la directiva personalizada.
+### <a name="select-a-page-layout"></a>Selección de un diseño de página
+
+* [Seleccione un diseño de página](page-layout.md) para los elementos de la interfaz de usuario de su aplicación.
+
+    Si piensa usar JavaScript, tendrá que [definir una versión del diseño de página](page-layout.md#replace-datauri-values) para *todas* las definiciones de contenido de la directiva personalizada.
 
 ## <a name="add-the-scriptexecution-element"></a>Adición del elemento ScriptExecution
 

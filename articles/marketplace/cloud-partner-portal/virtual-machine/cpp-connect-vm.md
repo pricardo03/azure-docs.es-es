@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 256952d06e8b417be9ab2bc3c6c8c6857d50e2ea
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3256115821abf5e81d04268ffd2eb310d213ab06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817372"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432003"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>Conectarse a la máquina virtual basada en Azure
 
@@ -33,28 +33,29 @@ En el siguiente artículo se detalla cómo usar la compatibilidad integrada de W
 
 Para conectarse a la máquina virtual basada en Linux, necesita un cliente de protocolo Secure Shell (SSH).  Esta discusión usa el terminal SSH [PuTTY](https://www.ssh.com/ssh/putty/) libre.
 
-1. En la hoja **Máquinas virtuales** de [Azure Portal](https://ms.portal.azure.com), seleccione la máquina virtual a la que se quiere conectar.  
-2. **Inicie** la máquina virtual si aún no se está ejecutando.
-3. Haga clic en el nombre de la máquina virtual para abrir su página **Información general**.
-4. Anote la dirección IP pública y el nombre DNS de la máquina virtual.  (Si estos valores no están establecidos, debe [Crear una interfaz de red](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface))
+1. Vaya a [Azure Portal](https://ms.portal.azure.com). Busque y seleccione **Máquinas virtuales**. 
+2. Seleccione el nombre de la máquina virtual a la que quiere conectarse.  
+3. **Inicie** la máquina virtual si aún no se está ejecutando.
+4. Haga clic en el nombre de la máquina virtual para abrir su página **Información general**.
+5. Anote la dirección IP pública y el nombre DNS de la máquina virtual.  (Si estos valores no están establecidos, debe [Crear una interfaz de red](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface))
 
    ![Configuración de Información general de máquina virtual](./media/publishvm_019.png)
  
-5. Abra la aplicación PuTTY.  
-6. En el cuadro de diálogo Configuración de PuTTY, escriba la dirección IP o el nombre DNS de la máquina virtual. 
+6. Abra la aplicación PuTTY.  
+7. En el cuadro de diálogo Configuración de PuTTY, escriba la dirección IP o el nombre DNS de la máquina virtual. 
 
    ![Configuración de terminal PuTTY](./media/publishvm_020.png)
  
-7. Haga clic en **Abrir** para abrir un terminal PuTTY.  
-8. Cuando se le pida, escriba el nombre y la contraseña de la cuenta de máquina virtual Linux. 
+8. Haga clic en **Abrir** para abrir un terminal PuTTY.  
+9. Cuando se le pida, escriba el nombre y la contraseña de la cuenta de máquina virtual Linux. 
 
-   Si tiene problemas de conexión, vea la documentación del cliente SSH, por ejemplo el [Capítulo 10: Mensajes de error habituales](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
+Si tiene problemas de conexión, vea la documentación del cliente SSH, por ejemplo el [Capítulo 10: Mensajes de error habituales](https://www.ssh.com/ssh/putty/putty-manuals).
 
 Para obtener más información, por ejemplo cómo agregar un escritorio a una máquina virtual Linux aprovisionada, vea [Instalación y configuración del escritorio remoto para conectarse a una máquina virtual Linux en Azure](../../../virtual-machines/linux/use-remote-desktop.md).
 
 
 ## <a name="stop-unused-vms"></a>Detener máquinas virtuales sin usar
-Azure factura por el hospedaje de máquinas virtuales cuando hay una en ejecución *o inactiva*.  Por lo tanto, es recomendable detener las máquinas virtuales que no se están usando.  Por ejemplo, las máquinas virtuales de prueba, de copia de seguridad o retiradas son candidatas para la detención. Para detener una máquina virtual, realice los pasos siguientes:
+Azure factura por el hospedaje de máquinas virtuales cuando hay una en ejecución *o inactiva*.  Por lo tanto, es recomendable detener las máquinas virtuales que no se están usando.  Por ejemplo, las máquinas virtuales de prueba, de copia de seguridad o retiradas son candidatas para la detención. Para detener una máquina virtual, complete los pasos siguientes:
 
 1. En la hoja **Máquinas virtuales**, seleccione la máquina virtual que quiere detener. 
 2. En la barra de herramientas de la parte superior de la página, haga clic en el botón **Detener**.

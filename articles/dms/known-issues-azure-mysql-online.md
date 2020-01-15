@@ -1,6 +1,7 @@
 ---
-title: Artículo sobre problemas conocidos y limitaciones de migración con las migraciones en línea a Azure Database for MySQL | Microsoft Docs
-description: Información acerca de problemas conocidos y limitaciones de migración con las migraciones en línea a Azure Database for MySQL.
+title: 'Problemas conocidos: Migraciones en línea a Azure Database for MySQL'
+titleSuffix: Azure Database Migration Service
+description: Obtenga información sobre limitaciones y problemas conocidos de migración con las migraciones en línea a Azure Database for MySQL al usar Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,21 +9,24 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom:
+- seo-lt-2019
+- seo-dt-2019
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: 39c1928f1d38276418b2e1a3e766c4b9d8a0d8d2
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 905a14bd78d120e27ebc4d44ede86e9f0e3783cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73902794"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437854"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure DB for MySQL
+# <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Limitaciones y problemas de migración en línea de Azure DB for MySQL con Azure Database Migration Service
 
 Los problemas conocidos y las limitaciones relacionadas con las migraciones en línea de MySQL a Azure Database for MySQL se describen en las siguientes secciones.
 
 ## <a name="online-migration-configuration"></a>Configuración de la migración en línea
+
 
 - La versión del servidor MySQL Server de origen debe ser la 5.6.35, 5.7.18 o una posterior.
 - Azure Database for MySQL es compatible con:
@@ -121,7 +125,7 @@ Al intentar realizar una migración en línea desde AWS RDS MySQL hasta Azure Da
 - No se admite una cadena de contraseña que tenga llaves de apertura y cierre {  } al principio y al final de la cadena de contraseña. Esta limitación se aplica tanto a conectarse a MySQL de origen como a Azure Database for MySQL de destino.
 - No se admiten los DDL siguientes:
   - Todos los DDL de la partición
-  - Eliminación de una tabla
+  - Quitar tabla
   - Cambio de nombre de una tabla
 - No está admitido el uso de la instrucción *alter table <nombre_tabla> add column <nombre_columna>* para agregar columnas al principio o en medio de una tabla. La instrucción *alter table <nombre_tabla> add column <nombre_columna>* agrega la columna al final de la tabla.
 - No se admiten índices creados solo en parte de la columna de datos. La siguiente instrucción es un ejemplo que crea un índice utilizando solo parte de la columna de datos:

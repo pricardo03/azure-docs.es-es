@@ -39,7 +39,7 @@ Para agregar o quitar asignaciones de roles, debe tener:
 
 ![Hoja Control de acceso (IAM) para una suscripción](./media/role-assignments-portal/access-control-subscription.png)
 
-Para ser más eficaz con la hoja Control de acceso (IAM), es útil si puede responder las siguientes tres preguntas cuando intenta asignar un rol:
+Para ser más eficaz con la hoja Control de acceso (IAM), es útil si puede responder las siguientes tres preguntas cuando intente asignar un rol:
 
 1. **¿Quién necesita acceso?**
 

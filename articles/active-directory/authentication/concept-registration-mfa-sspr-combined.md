@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b484acc0dc1a92a857f254ed37392ffb29eddb8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 5c882d286a73900f58ef06e7c51b05c7237e39a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848636"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425340"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registro de información de seguridad combinado (vista preliminar)
 
@@ -49,15 +49,15 @@ El registro combinado admite los siguientes métodos y acciones de autenticació
 
 |   | Register | Change | Eliminar |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Sí (máximo de 5) | Sin | Sí |
-| Aplicación autenticadora distinta | Sí (máximo de 5) | Sin | Sí |
-| Token de hardware | Sin | No | Sí |
+| Microsoft Authenticator | Sí (máximo de 5) | No | Sí |
+| Aplicación autenticadora distinta | Sí (máximo de 5) | No | Sí |
+| Token de hardware | No | No | Sí |
 | Teléfono | Sí | Sí | Sí |
 | Teléfono alternativo | Sí | Sí | Sí |
-| Teléfono del trabajo | Sin | No | Sin |
+| Teléfono del trabajo | No | No | No |
 | Email | Sí | Sí | Sí |
-| Preguntas de seguridad | Sí | Sin | Sí |
-| Contraseñas de aplicación | Sí | Sin | Sí |
+| Preguntas de seguridad | Sí | No | Sí |
+| Contraseñas de aplicación | Sí | No | Sí |
 
 > [!NOTE]
 > Las contraseñas de aplicación solo están disponibles para los usuarios a los que se les ha exigido Multi-Factor Authentication. Las contraseñas de aplicación no están disponibles para los usuarios que están habilitados para Multi-Factor Authentication través de una directiva de acceso condicional.
@@ -108,7 +108,7 @@ Este diagrama de flujo describe los métodos que se muestran a un usuario cuando
 
 Si tiene Multi-Factor Authentication y SSPR habilitadas, se recomienda que aplique el registro Multi-Factor Authentication.
 
-Si la directiva SSPR requiere que los usuarios revisen su información de seguridad a intervalos normales, se interrumpe a los usuarios durante el inicio de sesión y se les muestra todos los métodos registrados. Pueden confirmar la información actual si está actualizado o realizar cambios en caso necesario.
+Si la directiva SSPR requiere que los usuarios revisen su información de seguridad a intervalos normales, se interrumpe a los usuarios durante el inicio de sesión y se les muestra todos los métodos registrados. Pueden confirmar la información actual si está actualizado o realizar cambios en caso necesario. Los usuarios deben realizar la autenticación multifactor al obtener acceso a esta página.
 
 ### <a name="manage-mode"></a>Modo de administración
 
@@ -142,7 +142,7 @@ Un usuario que previamente ha configurado al menos un método que se puede usar 
 
 [Habilitación del registro combinado en el inquilino](howto-registration-mfa-sspr-combined.md)
 
-[Uso de SSPR y MFA, y creación de informes de detalles](howto-authentication-methods-usage-insights.md)
+[Uso de SSPR y MFA, y creación de informes de información](howto-authentication-methods-usage-insights.md)
 
 [Métodos disponibles para Multi-Factor Authentication y SSPR](concept-authentication-methods.md)
 

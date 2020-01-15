@@ -1,18 +1,18 @@
 ---
-title: 'Funcionalidades de representación: Azure Batch'
-description: Uso de las funcionalidades de representación de Azure Batch
+title: 'Uso de las funcionalidades de representación: Azure Batch'
+description: Forma de usar las funcionalidades de representación de Azure Batch. Pruebe a usar la aplicación Batch Explorer, ya sea directamente o invocada desde un complemento de aplicación cliente.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2dff44f0b5b4b02c39c4c63f23ff64d55ca9d833
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d181b9b2495ebd106bb068b78131fa90c2f6d62c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337618"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449664"
 ---
 # <a name="using-azure-batch-rendering"></a>Uso de la representación de Azure Batch
 

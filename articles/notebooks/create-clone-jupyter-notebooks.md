@@ -1,18 +1,20 @@
 ---
-title: Creación y clonación de Jupyter Notebooks en Azure
-description: Los proyectos de Azure Notebooks administran una colección de cuadernos y archivos relacionados, que puede crear o clonar desde otro origen.
-ms.topic: article
+title: 'Creación y clonación de cuadernos de Jupyter: Azure Notebooks Preview'
+description: Los proyectos de Azure Notebooks Preview administran una colección de cuadernos y archivos relacionados, que puede crear o clonar desde otro origen.
+ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: fc5425312637710f0b9f94493b8cfb4a48582236
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: b29ff336c09a3bbf05a57c8a3a503b1875b76e54
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277575"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646252"
 ---
-# <a name="create-and-clone-projects"></a>Creación y clonación de proyectos
+# <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Creación y clonación de proyectos en Azure Notebooks Preview
 
 Azure Notebooks organiza sus cuadernos de Jupyter Notebooks y los archivos relacionados en grupos lógicos llamados *proyectos*. En primer lugar, crea un proyecto como contenedor, luego, crea o clona uno o más cuadernos de una carpeta junto con otros archivos del proyecto. (Este proceso se muestra en el [tutorial](tutorial-create-run-jupyter-notebook.md)).
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Un proyecto también mantiene los metadatos y otras opciones de configuración que afectan al servidor en el que se ejecutan los cuadernos, incluidos los pasos de instalación personalizados y la instalación del paquete. Para más información, consulte [Administración y configuración de proyectos](configure-manage-azure-notebooks-projects.md).
 
@@ -24,12 +26,12 @@ El panel **Mis proyectos** en `https://notebooks.azure.com/<userID>/projects` es
 
 Lo que puede hacer en el panel depende de si ha iniciado sesión con la cuenta que posee el identificador de usuario:
 
-| Get-Help | Disponible para | DESCRIPCIÓN |
+| Get-Help | Disponible para | Descripción |
 | --- | --- | --- |
-| **Run** | Propietario | Inicia el servidor del proyecto y abre la carpeta del proyecto en Jupyter. (Más comúnmente, navega primero a una carpeta del proyecto y luego inicia un cuaderno desde allí). |
+| **Ejecutar** | Propietario | Inicia el servidor del proyecto y abre la carpeta del proyecto en Jupyter. (Más comúnmente, navega primero a una carpeta del proyecto y luego inicia un cuaderno desde allí). |
 | **Descargar** | Todos | Descarga una copia del proyecto seleccionado como archivo ZIP. |
 | **Compartir** | Todos | Muestra la ventana emergente para compartir a través de la cual puede obtener una dirección URL hacia un proyecto seleccionado, compartir en medios sociales, enviar un correo electrónico con la dirección URL y obtener el código HTML o Markdown con una notificación de "iniciar cuaderno" (consulte [obtención de una notificación de inicio](#obtain-a-launch-badge)) con la dirección URL. |
-| **Eliminar** | Propietario | Elimina el proyecto seleccionado. Esta operación no se puede deshacer. |
+| **Eliminar** | Propietario | Elimina el proyecto seleccionado. No se puede deshacer esta operación. |
 | **Terminal** | Propietario | Inicia el servidor del proyecto y luego abre una nueva ventana del explorador con la terminal bash para ese servidor. |
 | **+ Nuevo proyecto** | Propietario | Crea un nuevo proyecto. Consulte [Creación de un nuevo proyecto](#create-a-new-project). |
 | **Upload GitHub Repo** | Propietario | Importa un proyecto desde GitHub. [Importe un proyecto desde GitHub](#import-a-project-from-github). |
@@ -55,10 +57,10 @@ Si no tiene un proyecto de Azure Notebooks, puede crear un vínculo que clone de
 
 Cuando usa el comando **+ Nuevo proyecto**, Azure Notebooks muestra una ventana emergente **Crear proyecto**. En esta ventana emergente, escriba la siguiente información y seleccione **Crear**:
 
-| Campo | DESCRIPCIÓN |
+| Campo | Descripción |
 | --- | --- |
 | Nombre de proyecto | Un nombre descriptivo para el proyecto que usa Azure Notebooks para fines de presentación. Por ejemplo, "Mi proyecto de cuaderno". |
-| Identificador del proyecto | Un identificador personalizado que se vuelve parte de la dirección URL que usa para compartir un proyecto (el formato es `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Este identificador solo puede usar letras, números y guiones, se limita a 30 caracteres y no puede ser un [identificador de proyecto reservado](#reserved-project-ids). Si no está seguro de qué usar, una convención común es usar una versión en minúsculas del nombre del proyecto, donde los espacios se convierten en guiones, como "mi-proyecto-de-cuaderno" (truncado si es necesario para que se ajuste al límite de longitud). |
+| Identificador de proyecto | Un identificador personalizado que se vuelve parte de la dirección URL que usa para compartir un proyecto (el formato es `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Este identificador solo puede usar letras, números y guiones, se limita a 30 caracteres y no puede ser un [identificador de proyecto reservado](#reserved-project-ids). Si no está seguro de qué usar, una convención común es usar una versión en minúsculas del nombre del proyecto, donde los espacios se convierten en guiones, como "mi-proyecto-de-cuaderno" (truncado si es necesario para que se ajuste al límite de longitud). |
 | Público | Si se establece, permite a cualquier usuario con el vínculo acceder al proyecto. Al crear un proyecto privado, desactive esta opción. |
 | Initialize this project with a README (Inicializar este proyecto con un archivo Léame) | Si se establece, se crea un archivo predeterminado *README.md* en el proyecto. Un archivo *README.md* es donde proporciona documentación para el proyecto, si lo desea. |
 
@@ -68,9 +70,9 @@ Las palabras reservadas siguientes no se puede usar por sí mismas como identifi
 
 | | | | | | |
 | --- | --- | --- | --- | --- | --- |
-| about | account | administration | api | blog | classroom |
-| contenido | dashboard | explore | faq | help | html |
-| home | importación | biblioteca | management | new | notebook |
+| acerca de | account | administration | api | blog | classroom |
+| content | dashboard | explore | faq | help | html |
+| home | importación | biblioteca | management | nuevo | notebook |
 | notebooks | pdf | Vista previa | Precios | perfile | búsqueda |
 | status | support | test | | | |
 
@@ -82,12 +84,12 @@ Dado que un identificador de proyecto también forma parte de la dirección URL 
 
 Puede importar fácilmente un repositorio de GitHub público completo como un proyecto, incluidos todos los datos y archivos *README.md*. Use el comando **Upload GitHub Repo** (Cargar repositorio de GitHub), proporcione los detalles siguientes en el menú emergente y luego seleccione **Importar**:
 
-| Campo | DESCRIPCIÓN |
+| Campo | Descripción |
 | --- | --- |
 | Repositorio de GitHub | El nombre del repositorio de origen en github.com. Por ejemplo, para clonar los cuadernos de Jupyter Notebooks para Azure Cognitive Services en [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks), escriba "Microsoft/cognitive-services-notebooks".  |
 | Clone recursively (Clonar de forma recursiva) | Los repositorios de GitHub pueden contener varias bases de datos secundarias. Establezca esta opción si desea clonar el repositorio primario y todos sus elementos secundarios. Dado que es posible que un repositorio tenga muchos elementos secundarios, deje esta opción desmarcada, a menos que sepa que la necesita. |
 | Nombre de proyecto | Un nombre descriptivo para el proyecto que usa Azure Notebooks para fines de presentación. |
-| Identificador del proyecto | Un identificador personalizado que se vuelve parte de la dirección URL que usa para compartir un proyecto (el formato es `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Este identificador solo puede usar letras, números y guiones, se limita a 30 caracteres y no puede ser un [identificador de proyecto reservado](#reserved-project-ids). Si no está seguro de qué usar, una convención común es usar una versión en minúsculas del nombre del proyecto, donde los espacios se convierten en guiones, como "mi-proyecto-de-cuaderno" (truncado si es necesario para que se ajuste al límite de longitud). |
+| Identificador de proyecto | Un identificador personalizado que se vuelve parte de la dirección URL que usa para compartir un proyecto (el formato es `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Este identificador solo puede usar letras, números y guiones, se limita a 30 caracteres y no puede ser un [identificador de proyecto reservado](#reserved-project-ids). Si no está seguro de qué usar, una convención común es usar una versión en minúsculas del nombre del proyecto, donde los espacios se convierten en guiones, como "mi-proyecto-de-cuaderno" (truncado si es necesario para que se ajuste al límite de longitud). |
 | Público | Si se establece, permite a cualquier usuario con el vínculo acceder al proyecto. Al crear un proyecto privado, desactive esta opción. |
 
 Importar un repositorio de GitHub también importa su historial. Puede usar los comandos de Git estándar desde el terminal para confirmar los cambios nuevos, extraer los cambios de GitHub, etc.
@@ -111,9 +113,9 @@ Para clonar un proyecto:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Exploración de cuadernos de ejemplo](azure-notebooks-samples.md)
-- [Procedimientos: Configure and manage projects](configure-manage-azure-notebooks-projects.md) (Configuración y administración de proyectos)
-- [Procedimientos: Instalación de paquetes en un cuaderno](install-packages-jupyter-notebook.md)
-- [Procedimientos: Presentación](present-jupyter-notebooks-slideshow.md)
-- [Procedimientos: con archivos de datos en proyectos de Azure Notebooks](work-with-project-data-files.md)
-- [How to: Access data resources](access-data-resources-jupyter-notebooks.md) (Acceso a los recursos de datos)
-- [Uso de Uso de Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Cómo: Configure and manage projects](configure-manage-azure-notebooks-projects.md) (Configuración y administración de proyectos)
+- [Cómo: Instalación de paquetes en un cuaderno](install-packages-jupyter-notebook.md)
+- [Cómo: Presentación con diapositivas](present-jupyter-notebooks-slideshow.md)
+- [Cómo: con archivos de datos en proyectos de Azure Notebooks](work-with-project-data-files.md)
+- [Cómo: Access data resources](access-data-resources-jupyter-notebooks.md) (Acceso a los recursos de datos)
+- [Cómo: Uso de Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

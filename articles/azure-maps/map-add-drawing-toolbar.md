@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6bc754c9a4f333da85e57c5ad9780da8df93e895
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: ed16d8797e541ee474b4f52f3d4379721922a734
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309734"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432883"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Agregar una barra de herramientas de dibujo a un mapa
 
@@ -99,6 +99,17 @@ Consulte el Pen <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>Cambiar el e
 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Aprenda a usar características adicionales del módulo de herramientas de dibujo:
+
+> [!div class="nextstepaction"]
+> [Obtención de datos de forma](map-get-shape-data.md)
+
+> [!div class="nextstepaction"]
+> [Reacción a eventos de dibujo](drawing-tools-events.md)
+
+> [!div class="nextstepaction"]
+> [Tipos de interacción y métodos abreviados de teclado](drawing-tools-interactions-keyboard-shortcuts.md)
 
 Más información sobre las clases y los métodos utilizados en este artículo:
 

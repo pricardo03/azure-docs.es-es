@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: af1b531ac1b38921a99284aad2108e4027d97f4c
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: aa98509ba71ec0797d4b59be9e4df1dea064c933
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091711"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351461"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
@@ -74,7 +74,7 @@ En la tabla se resumen las nuevas características para la recuperación ante de
 Para la recuperación ante desastres de máquinas virtuales de Azure en una región secundaria o de máquinas virtuales de VMware locales o servidores físicos en Azure, tenga en cuenta lo siguiente:
 
 - A partir de la versión 9.30.5407.1 de la extensión de Mobility Service (para máquinas virtuales de Azure) y del agente de Mobility Service (para máquinas físicas y de VMware), algunos sistemas operativos para máquinas deben ejecutar la actualización de la pila de servicio y SHA-2. En la tabla siguiente se muestran los detalles.
-- Instale la actualización y SHA-2 de acuerdo con el KB vinculado. SHA-1 no se admite desde septiembre de 2019 y, si la firma de código SHA-2 no está habilitada, la extensión del agente no se instalará ni actualizará según lo previsto.
+- Instale la actualización y SHA-2 de acuerdo con el KB vinculado. SHA-1 no se admite desde septiembre de 2019 y, si la firma de código SHA-2 no está habilitada, la extensión del agente no se instalará ni actualizará según lo previsto.
 - Más información sobre los [requisitos y la actualización de SHA-2](https://aka.ms/SHA-2KB).
 
 **Sistema operativo** | **MV de Azure** | **Máquina física/máquina virtual de VMware**
@@ -348,7 +348,7 @@ Las características que se agregaron este mes se resumen en la tabla.
  
 **Característica** | **Detalles**
 --- | ---
-**Soporte técnico de Linux** | Se agregó soporte para RedHat Enterprise Linux 7.6; RedHat Workstation 6/7; Oracle Linux 6.10/7.6 y nuevas versiones de kernel para Ubuntu, Debian y SUSE.
+**Soporte técnico de Linux** | Se agregó compatibilidad con RedHat Enterprise Linux 7.6; RedHat Workstation 6/7; Oracle Linux 6.10 y Oracle Linux 7.6, además de nuevas versiones de kernel para Ubuntu, Debian y SUSE.
 
 
 ### <a name="update-rollup-31"></a>Paquete acumulativo de actualizaciones 31 
@@ -364,7 +364,7 @@ El [Paquete acumulativo de actualizaciones 31](https://support.microsoft.com/hel
 Las características que se agregaron este mes se resumen en la tabla.
 **Característica** | **Detalles**
 --- | ---
-**Soporte técnico de Linux** | Se agregó compatibilidad para Oracle Linux 6.8 y 6.9/7.0 y para el kernel de UEK5.
+**Soporte técnico de Linux** |  Se ha agregado compatibilidad con Oracle Linux 6.8, Oracle Linux 6.9 y Oracle Linux 7.0 mediante Red Hat Compatible Kernel y con la versión 5 de Unbreakable Enterprise Kernel (UEK).
 **LVM** | Se agregó compatibilidad para los volúmenes LVM y LVM2.<br/><br/> Ahora se admite el directorio /boot, en una partición de disco y en volúmenes LVM.
 **Directorios** | Se agregó compatibilidad para estos directorios configurados como particiones independientes o sistemas de archivos que no están en el mismo disco del sistema:<br/><br/> /(root), /boot, /usr, /usr/local, /var, /etc.
 **Windows Server 2008** | Se agregó compatibilidad para discos dinámicos.
@@ -376,7 +376,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 
 **Característica** | **Detalles**
 --- | ---
-**Soporte técnico de Linux** | Se agregó compatibilidad para Oracle Linux 6.8 y 6.9/7.0 y para el kernel de UEK5.
+**Soporte técnico de Linux** | Se ha agregado compatibilidad con Oracle Linux 6.8, Oracle Linux 6.9 y Oracle Linux 7.0 mediante Red Hat Compatible Kernel y con la versión 5 de Unbreakable Enterprise Kernel (UEK).
 **Sistema de archivos BRTFS de Linux** | Compatibilidad con las máquinas virtuales de Azure.
 **Máquinas virtuales de Azure en zonas de disponibilidad** | Puede habilitar la replicación en otra región para VM de Azure implementadas en zonas de disponibilidad. Ahora puede habilitar la replicación de una máquina virtual de Azure y establecer el destino de una conmutación por error en una instancia de máquina virtual única, una máquina virtual en un conjunto de disponibilidad o una máquina virtual en una zona de disponibilidad. La configuración no afecta la replicación. [Lea](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/) el anuncio.
 **Almacenamiento habilitado para firewall (portal/PowerShell)** | Se agregó compatibilidad para [cuentas de almacenamiento habilitadas para firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> Puede replicar VM de Azure con discos no administrados en cuentas de almacenamiento habilitadas mediante firewall en otra región de Azure para recuperación ante desastres.<br/><br/> También puede usar cuentas de almacenamiento habilitadas mediante firewall como cuentas de almacenamiento de destino para discos no administrados.<br/><br/> Compatible con el portal y usando PowerShell.

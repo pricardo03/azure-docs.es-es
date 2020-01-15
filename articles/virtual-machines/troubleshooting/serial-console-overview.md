@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/30/2019
 ms.author: alsin
-ms.openlocfilehash: 2ae1f3769254575e33eaa5b4e3a24c47b9eb1aff
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 20bc22661f9faad1b289dbbe7200f4f83c097f0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194161"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451241"
 ---
 # <a name="azure-serial-console"></a>Consola serie de Azure
 
@@ -28,7 +28,7 @@ La consola serie de Azure Portal proporciona acceso a una consola basada en text
 La consola serie funciona de la misma manera para las máquinas virtuales y las instancias de conjunto de escalado de máquinas virtuales. En este documento, todas las menciones a las máquinas virtuales incluirán implícitamente las instancias de conjunto de escalado de máquinas virtuales, a menos que se indique lo contrario.
 
 > [!NOTE]
-> La consola serie está disponible con carácter general en regiones de Azure globales. Aún no está disponible en las nubes de Azure Government ni Azure China.
+> La consola serie está disponible con carácter general en regiones de Azure globales y en versión preliminar pública en Azure Government. Aún no está disponible en la nube de Azure en China.
 
 ## <a name="prerequisites-to-access-the-azure-serial-console"></a>Requisitos previos para acceder a la consola serie de Azure
 Para acceder a la consola serie de la máquina virtual o de la instancia de conjunto de escalado de máquinas virtuales, necesitará lo siguiente:
@@ -41,7 +41,7 @@ Para acceder a la consola serie de la máquina virtual o de la instancia de conj
 > - No se admiten las implementaciones clásicas. La máquina virtual o la instancia de conjunto de escalado de máquinas virtuales deben usar el modelo de implementación de Azure Resource Manager.
 
 ## <a name="get-started-with-the-serial-console"></a>Introducción al uso de la consola serie
-La consola serie para las máquinas virtuales y los conjuntos de escalado de máquinas virtuales solo es accesible mediante Azure Portal:
+La consola serie para las máquinas virtuales y el conjunto de escalado de máquinas virtuales solo es accesible mediante Azure Portal:
 
 ### <a name="serial-console-for-virtual-machines"></a>Consola serie para máquinas virtuales
 Usar la consola serie para máquinas virtuales es tan sencillo como hacer clic en **Consola serie** en la sección **Soporte técnico y solución de problemas** de Azure Portal.

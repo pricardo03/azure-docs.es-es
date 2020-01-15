@@ -26,7 +26,7 @@ Si su organización usa la verificación en dos pasos, puede configurar su cuent
 >[!Important]
 >Antes de agregar su cuenta, debe descargar e instalar la aplicación Microsoft Authenticator. Si no lo ha hecho aún, siga los pasos descritos en el artículo para [descargar e instalar la aplicación](user-help-auth-app-download-install.md).
 
-## <a name="add-your-work-or-school-account"></a>Adición de una cuenta profesional o educativa
+## <a name="add-your-work-or-school-account"></a>Agregar una cuenta profesional o educativa
 
 1. En el equipo, vaya a la página [Comprobación de seguridad adicional](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1).
 

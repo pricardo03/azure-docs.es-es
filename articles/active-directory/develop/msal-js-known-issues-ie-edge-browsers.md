@@ -1,5 +1,5 @@
 ---
-title: Problemas de MSAL.js en Internet Explorer y Microsoft Edge | Azure
+title: Problemas en Internet Explorer y Microsoft Edge (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: Obtenga información acerca de los problemas conocidos al usar la biblioteca de autenticación de Microsoft para JavaScript (MSAL.js) con Internet Explorer y Microsoft Edge.
 services: active-directory
@@ -14,14 +14,14 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe9f8ff420698d5afe617973abc7874256efe260
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a3a4e847bc0d297f3aa41551fbf56242ae1a566f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916390"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424324"
 ---
-# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Problemas conocidos en los exploradores Internet Explorer y Microsoft Edge con MSAL.js
+# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Problemas conocidos en los exploradores Internet Explorer y Microsoft Edge (MSAL.js)
 
 ## <a name="issues-due-to-security-zones"></a>Problemas debidos a zonas de seguridad
 Hemos recibido varios informes de problemas con la autenticación en IE y Microsoft Edge (desde la actualización de la *versión de Microsoft Edge a 40.15063.0.0*). Estamos realizando un seguimiento de estos problemas y hemos informado al equipo de Microsoft Edge. Si bien Microsoft Edge trabaja en una solución, aquí tiene una descripción de los problemas que ocurren con mayor frecuencia y las posibles soluciones que se pueden implementar.

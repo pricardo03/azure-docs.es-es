@@ -1,18 +1,20 @@
 ---
-title: Importación y exportación de datos con proyectos con Azure Notebooks
-description: Procedimiento para importar datos a un proyecto de Azure Notebooks desde orígenes externos y para exportar datos desde un proyecto.
-ms.topic: article
+title: Importación y exportación de datos en proyectos con Azure Notebooks Preview
+description: Aprenda a importar datos en un proyecto de Azure Notebooks Preview desde orígenes externos y a exportar datos desde un proyecto.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: bd7ba27859e9d05c0d57c2f78b6449c2bc48ca33
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e1d4a52ab7f4ad2ca3438af4bc87bec0b79f34d1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277383"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646983"
 ---
-# <a name="work-with-data-files-in-azure-notebook-projects"></a>Trabajar con archivos de datos en proyectos de Azure Notebooks
+# <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Trabajo con archivos de datos en proyectos de Azure Notebooks Preview
 
 Los datos son la parte esencial de muchas instancias de Jupyter Notebook, especialmente los cuadernos utilizados para la ciencia de datos. Con Azure Notebooks, puede importar fácilmente desde una variedad de orígenes en un proyecto y, a continuación, usar esos datos desde cuadernos. También puede hacer que los cuadernos generen datos que se almacenen en el proyecto, que podrá descargar más adelante para usar en otro lugar.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 El menú **Datos** de un cuaderno en ejecución también proporciona los comandos **Upload** y **Download**, que funcionan con archivos del proyecto y como archivos temporales para la sesión actual del cuaderno.
 
@@ -34,11 +36,11 @@ Puede colocar archivos en un proyecto desde el panel del proyecto o en un cuader
 
    - **From URL** (Desde dirección URL): Escriba la dirección de origen en el campo **Dirección URL del archivo** y el nombre de archivo que quiere asignar al cuaderno en el proyecto en el campo **Nombre de archivo**. A continuación, seleccione **+ Agregar archivo** para agregar la dirección URL a la lista de carga. Repita el proceso para direcciones URL adicionales y, a continuación, seleccione **Listo**.
 
-     ![Ventana emergente Upload from URL (Cargar desde dirección URL)](media/quickstarts/upload-from-url-popup.png)
+     ![Ventana emergente para cargar desde URL](media/quickstarts/upload-from-url-popup.png)
 
    - **Desde el equipo**: Arrastre y coloque los archivos en la ventana emergente o seleccione **Elegir archivos** y, a continuación, vaya a los archivos de datos y seleccione los que quiere importar. Puede colocar o elegir cualquier número de archivos de cualquier tipo y formato, ya que corresponde al código del cuaderno abrir el archivo y analizar sus datos.
 
-     ![Ventana emergente Cargar del equipo](media/quickstarts/upload-from-computer-popup.png)
+     ![Ventana emergente para cargar desde equipo](media/quickstarts/upload-from-computer-popup.png)
 
 1. Una vez importados, los archivos aparecen en el panel del proyecto y se puede obtener acceso a ellos dentro del cuaderno mediante rutas de acceso relativas a la carpeta que los contiene.
 

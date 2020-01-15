@@ -1,6 +1,7 @@
 ---
-title: 'Tutorial: Uso de Azure Database Migration Service para realizar una migración en línea de RDS SQL Server a Azure SQL Database o a una instancia administrada de Azure SQL Database | Microsoft Docs'
-description: Aprenda a realizar una migración en línea desde RDS SQL Server a Azure SQL Database o a una instancia administrada de Azure SQL Database mediante Azure Database Migration Service.
+title: 'Tutorial: Migración de RDS SQL Server en línea a SQL Database'
+titleSuffix: Azure Database Migration Service
+description: Aprenda a realizar una migración en línea de RDS SQL Server a una sola base de datos o a una instancia administrada de Azure SQL Database mediante Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 982ead69ba3d206e1aa2538597927dcbeaab70e9
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 2c10bde323f3611047fe5c5a0c06a1f2786f642a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416098"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437576"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migración de RDS SQL Server a Azure SQL Database o a una instancia administrada de Azure SQL Database en línea mediante DMS
 Azure Database Migration Service se puede usar para migrar las bases de datos de una instancia de RDS SQL Server local a [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) o a una [instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) con un tiempo de inactividad mínimo. En este tutorial migrará la base de datos **Adventureworks2012** restaurada en una instancia de RDS SQL Server de SQL 2012 (o posterior) a Azure SQL Database o a una instancia administrada de Azure SQL Database mediante Azure Database Migration Service.
@@ -41,7 +42,7 @@ En este tutorial, aprenderá a:
 
 En este artículo se describe una migración en línea desde RDS SQL Server a Azure SQL Database o a una instancia administrada de Azure SQL Database.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para completar este tutorial, necesita:
 
 * Crear una [base datos de RDS SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.SQLServer.html).
@@ -246,7 +247,7 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
 
 4. Seleccione **Guardar** después de establecer la siguiente **Configuración avanzada de la migración en línea**.
 
-    | Configuración | DESCRIPCIÓN |
+    | Configuración | Descripción |
     | ------------- | ------------- |
     | **Número máximo de tablas que se va a cargar en paralelo** | Especifica el número de tablas que DMS se ejecuta en paralelo durante la migración. El valor predeterminado es 5, pero se puede establecer en un valor óptimo para satisfacer necesidades de migración específicas en función de las migraciones de prueba de concepto. |
     | **Cuando se trunca la tabla de origen** | Especifica si DMS trunca la tabla de destino durante la migración. Este valor puede resultar útil si una o más tablas se truncan como parte del proceso de migración. |

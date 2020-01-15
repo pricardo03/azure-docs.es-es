@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: f89218b066b0a22559c00c4a53316f0df9c0bb8f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 12fb7e03062600745cd8511d37b439ce44f2ef78
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488443"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640727"
 ---
 # <a name="public-ip-address-prefix"></a>Prefijo de dirección IP pública
 
@@ -39,7 +39,7 @@ Al crear recursos de IP pública, Azure asigna una IP pública disponible de cua
 - Puede crear recursos de dirección IP pública desde un intervalo conocido.
 - Usted o sus socios comerciales pueden crear reglas de firewall con intervalos que incluyen direcciones IP públicas que ha asignado actualmente, así como direcciones que no se han asignado todavía. Esto elimina la necesidad de cambiar las reglas de firewall cuando se asignan direcciones IP a los nuevos recursos.
 - El tamaño predeterminado de un intervalo que se puede crear es /28 o 16 direcciones IP.
-- No existen límites sobre cuántos intervalos se pueden crear, sin embargo, hay límites en el número máximo de direcciones IP públicas estáticas que puede tener en una suscripción de Azure. Como resultado, el número de intervalos que se creen no puede abarcar más direcciones IP públicas de las que puede tener en la suscripción. Para más información, consulte [Límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- No existen límites sobre cuántos intervalos se pueden crear, sin embargo, hay límites en el número máximo de direcciones IP públicas estáticas que puede tener en una suscripción de Azure. Como resultado, el número de intervalos que se creen no puede abarcar más direcciones IP públicas de las que puede tener en la suscripción. Para más información, consulte [Límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Las direcciones que se crean con direcciones del prefijo se pueden asignar a cualquier recurso de Azure al que se pueda asignar una dirección IP pública.
 - Puede ver fácilmente qué direcciones IP se han asignado y las que aún no se han asignado dentro del intervalo.
 
@@ -56,7 +56,7 @@ Puede asociar los siguientes recursos a una dirección IP pública estática des
 ## <a name="constraints"></a>Restricciones
 
 - No se pueden especificar las direcciones IP del prefijo. Azure asigna las direcciones IP para el prefijo, según el tamaño que especifique.
-- Puede crear un prefijo de hasta 16 direcciones IP o un /28. Para más información, consulte [Límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- Puede crear un prefijo de hasta 16 direcciones IP o un /28. Para más información, consulte [Límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Una vez que se ha creado el prefijo no se puede cambiar el intervalo.
 - Solo se pueden asignar direcciones IP públicas estáticas del intervalo del prefijo creadas con la SKU Estándar. Para más información sobre las SKU de direcciones IP públicas, consulte [Direcciones IP publicas](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 - Las direcciones del intervalo solo se pueden asignar a recursos de Azure Resource Manager. Las direcciones no se pueden asignar a recursos creados mediante el modelo de implementación clásica.

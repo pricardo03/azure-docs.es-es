@@ -1,28 +1,19 @@
 ---
-title: Configuración de certificado de cifrado y cifrado de secretos en clústeres Windows de Azure Service Fabric | Microsoft Docs
+title: Configuración de un certificado de cifrado en clústeres de Windows
 description: Obtenga información sobre cómo configurar un certificado de cifrado y cifrado de secretos en clústeres Windows.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: 3d324c54d10433520a73f2bd836c26bd79f1b3bb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d9413a37be221adc375836719dc1f467a5571fa0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615270"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610189"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>Configuración de un certificado de cifrado y cifrado de secretos en clústeres Windows
-En este artículo se muestra cómo configurar un certificado de cifrado y usarlo para cifrar secretos en clústeres Windows. Para los clústeres Linux, consulte [Configuración de un certificado de cifrado y cifrado de secretos en clústeres Linux][secret-management-linux-specific-link].
+En este artículo se muestra cómo configurar un certificado de cifrado y usarlo para cifrar secretos en clústeres Windows. En el caso de los clústeres Linux, consulte [Configuración de un certificado de cifrado y cifrado de secretos en clústeres Linux][secret-management-linux-specific-link].
 
 [Azure Key Vault][key-vault-get-started] se usa aquí como ubicación de almacenamiento seguro para los certificados y como forma de obtener los certificados instalados en clústeres de Service Fabric en Azure. Si no va a implementar en Azure, no es necesario usar Key Vault para administrar secretos en aplicaciones de Service Fabric. Sin embargo, el *uso* de secretos en una aplicación es independiente de la plataforma de nube para permitir que las aplicaciones se implementen en un clúster hospedado en cualquier parte. 
 
@@ -52,7 +43,7 @@ Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text 
 La cadena codificada en base64 resultante contiene tanto el texto cifrado del secreto, así como la información sobre el certificado que se usó para cifrarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga información sobre cómo [especificar secretos cifrados en una aplicación.][secret-management-specify-encrypted-secrets-link]
+Obtenga información sobre cómo [especificar secretos cifrados en una aplicación][secret-management-specify-encrypted-secrets-link].
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/key-vault-overview.md

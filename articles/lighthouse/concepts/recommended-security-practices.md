@@ -3,12 +3,12 @@ title: Procedimientos de seguridad recomendados
 description: Al usar la administración de recursos delegados de Azure, es importante tener en cuenta la seguridad y el control de acceso.
 ms.date: 07/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 18decc337722c1dc64fac94679d783dd55915ee6
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 8972d6548eccb1006d90bfcbb4dba8c01b05a981
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463890"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456886"
 ---
 # <a name="recommended-security-practices"></a>Procedimientos de seguridad recomendados
 
@@ -28,7 +28,7 @@ Al crear la estructura de permisos, asegúrese de seguir el principio de privile
 
 Por ejemplo, puede que quiera usar una estructura como la siguiente:
 
-|Nombre del grupo  |type  |principalId  |Definición de roles  |Id. de definición de roles  |
+|Nombre del grupo  |Tipo  |principalId  |Definición de roles  |Id. de definición de roles  |
 |---------|---------|---------|---------|---------|
 |Arquitectos     |Grupo de usuarios         |\<principalId\>         |Colaborador         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Evaluación     |Grupo de usuarios         |\<principalId\>         |Lector         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |

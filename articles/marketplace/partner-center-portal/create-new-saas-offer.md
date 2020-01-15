@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 12372c1f00e994382338adf9bd078018ba702da1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 01/06/2020
+ms.openlocfilehash: 0c2441aaf0cffd357f917a8c600f7399b339bfb6
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213357"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689087"
 ---
 # <a name="create-a-new-saas-offer"></a>Creación de una oferta de SaaS
 
@@ -22,21 +22,21 @@ Para empezar a crear ofertas de software como servicio (SaaS), asegúrese de que
 ![Panel de Marketplace comercial en el Centro de partners](./media/new-offer-overview.png)
 
 >[!Note]
-> Una vez publicada una oferta, las modificaciones de esta realizadas en el Centro de partners solo se actualizarán en el sistema y en los escaparates después de volver a publicarla. Asegúrese de enviar la oferta para su publicación después de realizar los cambios.
+> Una vez publicada una oferta, las modificaciones de esta realizadas en el Centro de partners solo se actualizarán en el sistema y en los escaparates después de volver a publicarla. Asegúrese de enviar la oferta para su publicación después de realizar cambios.
 
-Seleccione + **Nueva oferta…** y luego seleccione el elemento de menú **Software como servicio**. 
+Seleccione + **Nueva oferta…** y luego seleccione el elemento de menú **Software como servicio**.
 
 Si selecciona otro tipo de oferta, se le puede dirigir a la versión anterior de [Cloud Partner Portal](https://cloudpartner.azure.com/). En este momento, en el portal de Marketplace comercial del Centro de partners solo hay disponibles ofertas de SaaS y de Dynamics 365.
 
 ![Crear ventana de oferta en el Centro de partners](./media/new-offer-click.png)
 
-Se muestra el cuadro de diálogo **Nueva oferta**. 
+Se muestra el cuadro de diálogo **Nueva oferta**.
 
 ![Cuadro de diálogo Nueva oferta](./media/new-offer-popup.png)
 
 ## <a name="offer-id-and-alias"></a>Identificador y alias de la oferta
 
-- **Id. de oferta**: Identificador único para cada oferta de su cuenta. Los clientes lo verán en la dirección URL de la oferta de Marketplace y en las plantillas de Azure Resource Manager (si procede). El identificador de la oferta debe ser alfanumérico y contener solo minúsculas (puede incluir guiones y caracteres de subrayado, pero no espacios en blanco). Tiene un límite de 50 caracteres y no se puede cambiar después de seleccionar *Crear*.  
+- **Id. de oferta**: Identificador único para cada oferta de su cuenta. Los clientes lo verán en la dirección URL de la oferta de Marketplace y en las plantillas de Azure Resource Manager (si procede). El identificador de la oferta debe ser alfanumérico y contener solo minúsculas (puede incluir guiones y caracteres de subrayado, pero no espacios en blanco). El **Id. de oferta** se limita a 50 caracteres y no se puede cambiar después de seleccionar *Crear*.  
 Ejemplo: test-offer-1
 <br>Lo que resulta en la siguiente dirección URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
@@ -52,14 +52,14 @@ Seleccione **Crear**.  Se crea la página **Información general de la oferta** 
 
 ## <a name="offer-overview"></a>Información general de la oferta
 
-La página **Información general de la oferta** incluye: 
+La página **Información general de la oferta** incluye:
 
-- **Estado de publicación** muestra una representación visual de los pasos necesarios para publicar esta oferta y el tiempo se tardará en completarse cada uno de ellos. Los iconos de los pasos de publicación que no se hayan completados aparecerán atenuados. 
+- **Estado de publicación** muestra una representación visual de los pasos necesarios para publicar esta oferta y el tiempo se tardará en completarse cada uno de ellos. Los iconos de los pasos de publicación que no se hayan completados aparecerán atenuados.
 
 - El menú **Información general de la oferta** contiene una lista de vínculos para realizar operaciones en esta oferta. Esta lista de operaciones cambiará en función de la selección que realice para la oferta.  
-    - Si la oferta es un borrador: eliminar borrador 
-    - Si la oferta está activa: detener venta de oferta 
-    - Si la oferta está en versión preliminar: publicar 
+    - Si la oferta es un borrador: eliminar borrador
+    - Si la oferta está activa: detener venta de oferta
+    - Si la oferta está en versión preliminar: publicar
     - Si no ha completado el cierre de sesión del anunciante: cancelar publicación
 
 ## <a name="offer-setup"></a>Configuración de la oferta
@@ -68,7 +68,7 @@ En la pestaña **Configuración de la oferta** se solicita la siguiente informac
 
 - **¿Desea vender a través de Microsoft?** (Sí/No)
     - **Sí**, desea vender su oferta a través de Microsoft y que Microsoft hospede las transacciones de Marketplace en su nombre; o bien 
-    - **No**, solo desea que su oferta aparezca en Marketplace, pero que el procesamiento de las transacciones monetarias se realice de forma independiente de Microsoft.    
+    - **No**, solo desea que su oferta aparezca en Marketplace, pero que el procesamiento de las transacciones monetarias se realice de forma independiente de Microsoft.
 
 ### <a name="sell-through-microsoft"></a>Venta mediante Microsoft
 
@@ -87,7 +87,7 @@ Con las soluciones de SaaS que se ejecutan en la suscripción de Azure del edito
 
 Las ofertas de SaaS admiten la facturación mensual o anual en función de una cuota fija, por usuario, o cargos por consumo mediante el servicio de facturación medido. Marketplace comercial de Microsoft opera según un modelo de agencia, en el que los editores establecen los precios, Microsoft factura a los clientes y Microsoft paga los ingresos al editor, a la vez que retiene una cuota correspondiente a la agencia.
 
-En la tabla siguiente se muestra un ejemplo de la división de costos y pagos para demostrar el modelo de agencia.
+En la tabla siguiente se muestra un ejemplo de desglose de costos y pagos para demostrar el modelo de agencia.
 
 |**Costo de su licencia**|**100 USD al mes**|
 |:---|:---|
@@ -102,11 +102,11 @@ En la tabla siguiente se muestra un ejemplo de la división de costos y pagos pa
 - Los asociados que se sean aptos para el **precio reducido del servicio Marketplace** verán un precio de transacción reducido en las ofertas de SaaS desde mayo de 2019 hasta junio de 2020. En este escenario, Microsoft factura 100,00 USD por su licencia de software y paga 90,00 USD al anunciante.
 
 > [!NOTE]
-> **Precio reducido del servicio Marketplace:** Para determinadas ofertas de SaaS que haya publicado en nuestro Marketplace comercial, Microsoft reducirá su precio del servicio Marketplace del 20 % (como se describe en el Acuerdo para anunciantes de Microsoft) al 10 %. Para que su oferta sea apta, Microsoft debe haber designado que al menos una de sus ofertas esté lista para realizar una venta conjunta por IP o esté clasificada orden de prioridad para realizar una venta conjunta por IP.  Para recibir este precio reducido del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco (5) días hábiles antes del final de cada mes natural.  El precio reducido del servicio Marketplace no se aplica a las máquinas virtuales, las aplicaciones administradas ni cualquier otro producto que esté disponible a través de nuestro Marketplace comercial.  El precio reducido del servicio Marketplace solo estará disponible para las ofertas aptas para los cargos de licencia recaudados por Microsoft entre el 1 de mayo de 2019 y el 30 de junio de 2020.  Transcurrido este tiempo, la tarifa del servicio Marketplace volverá a su importe normal. 
+> **Precio reducido del servicio Marketplace:** Para determinadas ofertas de SaaS que haya publicado en nuestro Marketplace comercial, Microsoft reducirá su precio del servicio Marketplace del 20 % (como se describe en el Acuerdo para anunciantes de Microsoft) al 10 %. Para que su oferta sea apta, Microsoft debe haber designado que al menos una de sus ofertas esté lista para realizar una venta conjunta por IP o esté clasificada orden de prioridad para realizar una venta conjunta por IP.  Para recibir este precio reducido del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco (5) días hábiles antes del final de cada mes natural.  El precio reducido del servicio Marketplace no se aplica a las máquinas virtuales, las aplicaciones administradas ni cualquier otro producto que esté disponible a través de nuestro Marketplace comercial.  El precio reducido del servicio Marketplace solo estará disponible para las ofertas aptas para los cargos de licencia recaudados por Microsoft entre el 1 de mayo de 2019 y el 30 de junio de 2020.  Transcurrido este tiempo, la tarifa del servicio Marketplace volverá a su importe normal.
 
 ### <a name="list-through-microsoft"></a>Listas a través de Microsoft
 
-La creación de una lista en Marketplace promocionará su negocio. Si selecciona la opción de mostrar solo su oferta, no realizar transacciones a través de Microsoft significa que Microsoft no participa directamente en las transacciones de las licencias de software. No hay precio de transacción asociado y el anunciante conserva el 100 % del precio de las licencias de software abonado por el cliente. Sin embargo, el anunciante es el responsables de dar soporte a todos los aspectos de la transacción de la licencia de software, entre los que se incluyen, entre otros: la cumplimentación del pedido, la medición, la facturación, el pago y el cobro. 
+La creación de una lista en Marketplace promocionará su negocio. Si selecciona la opción de mostrar solo su oferta, no realizar transacciones a través de Microsoft significa que Microsoft no participa directamente en las transacciones de las licencias de software. No hay precio de transacción asociado y el anunciante conserva el 100 % del precio de las licencias de software abonado por el cliente. Sin embargo, el anunciante es el responsables de dar soporte a todos los aspectos de la transacción de la licencia de software, entre los que se incluyen, entre otros: la cumplimentación del pedido, la medición, la facturación, el pago y el cobro.
 
 - **¿Cómo desea que los clientes potenciales interactúen con esta oferta en la lista?**
 
@@ -120,7 +120,7 @@ Publique la oferta para los clientes con un vínculo a una evaluación gratuita 
 > Los tokens que la aplicación recibirá a través del vínculo de evaluación gratuita solo se pueden usar para obtener información de usuario mediante Azure AD para automatizar la creación de cuentas en la aplicación. No se admiten las cuentas de Microsoft (MSA) para la autenticación con este token.
 
 ##### <a name="contact-me"></a>Ponerse en contacto conmigo
-Recopile información de contacto de los clientes mediante la conexión de su sistema de Administración de relaciones con los clientes (CRM). El cliente le pedirá permiso para compartir su información. Estos datos del cliente, junto con el nombre e identificador de la oferta y el origen de Marketplace donde la ha encontrado, se envían al sistema CRM que se ha configurado. Para más información acerca de cómo configurar CRM, consulte [Conexión de administración de clientes potenciales](#connect-lead-management). 
+Recopile información de contacto de los clientes mediante la conexión de su sistema de Administración de relaciones con los clientes (CRM). El cliente le pedirá permiso para compartir su información. Estos datos del cliente, junto con el nombre e identificador de la oferta y el origen de Marketplace donde la ha encontrado, se envían al sistema CRM que se ha configurado. Para más información acerca de cómo configurar CRM, consulte [Conexión de administración de clientes potenciales](#connect-lead-management).
 
 ## <a name="example-marketplace-offer-listing"></a>Descripción de la oferta de Marketplace de ejemplo
 
@@ -159,36 +159,64 @@ Al habilitar una versión de prueba, se le pedirá que configure un entorno de d
 
 No olvide **guardar** antes de pasar a la siguiente sección.
 
-## <a name="properties"></a>properties (Propiedades)
-La pestaña **Propiedades** le pide que defina las categorías y los sectores que se usan para agrupar su oferta en los catálogos de soluciones, los contratos legales que dan soporte a su oferta y su versión de la aplicación. 
+## <a name="properties"></a>Propiedades
 
-Después de completar estos campos seleccione **Guardar**. 
+La pestaña **Propiedades** le pide que defina las categorías y los sectores que se usan para agrupar su oferta en los catálogos de soluciones, los contratos legales que dan soporte a su oferta y su versión de la aplicación.
+
+Después de completar estos campos seleccione **Guardar**.
 
 ### <a name="category"></a>Category
-Seleccione un mínimo de una (1) y un máximo de tres (3) categorías utilizadas para agrupar la oferta en las áreas de búsqueda de Marketplace adecuadas. Indique la forma en que la oferta da soporte a estas categorías en la descripción de la oferta. 
+
+Seleccione un mínimo de una (1) y un máximo de tres (3) categorías utilizadas para agrupar la oferta en las áreas de búsqueda de Marketplace adecuadas. En la descripción de la oferta, indique la forma en que la oferta da soporte a estas categorías.
 
 ### <a name="industry"></a>Sector
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>Versión de la aplicación
-Se trata de un campo opcional que se utiliza en el Marketplace de AppSource para identificar el número de versión de la oferta. 
 
-### <a name="standard-contract"></a>Contrato estándar
+Se trata de un campo opcional que se utiliza en el Marketplace de AppSource para identificar el número de versión de la oferta.
 
-- **¿Desea usar el contrato estándar?**
+### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrato estándar para el Marketplace comercial de Microsoft
 
-Para simplificar el proceso de adquisición para los clientes y reducir la complejidad legal para los proveedores de software, Microsoft ofrece una plantilla de Contrato estándar con el fin de ayudar a facilitar una transacción en Marketplace. 
+Microsoft proporciona una plantilla de contrato estándar.
 
-En lugar de crear términos y condiciones personalizados, los editores de Azure Marketplace pueden ofrecer su software en virtud del Contrato estándar, que los clientes solo tienen que revisar y aceptar una vez. 
+- **¿Quiere usar el contrato estándar para Marketplace comercial de Microsoft?**
 
-El contrato estándar se puede encontrar aquí: https://go.microsoft.com/fwlink/?linkid=2041178.
+Para simplificar el proceso de adquisición para los clientes y reducir la complejidad legal para los proveedores de software, Microsoft ofrece un contrato estándar para el Marketplace comercial de Microsoft con el fin de ayudar a facilitar las transacciones en Marketplace. En lugar de crear términos y condiciones personalizados, los anunciantes del Marketplace comercial pueden ofrecer su software en virtud del Contrato estándar, que los clientes solo tienen que revisar y aceptar una vez. El contrato estándar se puede encontrar aquí: https://go.microsoft.com/fwlink/?linkid=2041178.
 
-#### <a name="terms-of-use"></a>Términos de uso
+Puede optar por usar el contrato estándar en lugar de proporcionar sus propios términos y condiciones personalizados activando la casilla "¿Quiere usar el contrato estándar para Marketplace comercial de Microsoft?".
 
-Si las condiciones de la licencia no coinciden con las del contrato estándar, puede optar por escribir sus propias condiciones de uso legales aquí. Se pueden escribir como texto sin formato o como una dirección URL única que vincula a los términos de licencia.
+![Uso de la casilla Contrato estándar](./media/use-standard-contract.png)
 
-Los clientes deben aceptar estos términos antes de poder probar la aplicación. 
+> [!NOTE]
+> Después de publicar una oferta con el contrato estándar para Marketplace comercial de Microsoft, no puede usar sus propios términos y condiciones personalizados. Solo puede elegir una de las dos opciones. Puede ofrecer su solución con el Contrato estándar **o** con sus propios términos y condiciones. Si quiere modificar los términos del contrato estándar, puede hacerlo a través de las modificaciones del contrato estándar.
+
+#### <a name="standard-contract-amendments"></a>Modificaciones del Contrato estándar
+
+Las modificaciones del contrato estándar permiten a los anunciantes seleccionar los términos del contrato estándar por motivos de simplicidad y personalizarlos para su producto o empresa. Los clientes solo necesitan revisar las modificaciones del contrato, si ya han revisado y aceptado el Contrato estándar de Microsoft.
+
+Hay dos tipos de modificaciones para los anunciantes de Marketplace comercial:
+
+- Modificaciones universales: Estas modificaciones se aplican universalmente al Contrato estándar para todos los clientes. Las modificaciones universales se muestran a cada cliente de la oferta en el flujo de compra. Los clientes deben aceptar los términos del Contrato estándar y la modificación antes de que puedan usar su oferta.
+- Modificaciones personalizadas: Estas son modificaciones especiales al Contrato estándar que están dirigidas a cliente únicamente a clientes específicos a través de los Id. de inquilino de Azure. Los anunciantes pueden elegir al inquilino al que desean dirigirse. Solo los clientes del inquilino recibirán los términos con modificaciones personalizadas en el flujo de compra de la oferta.  Los clientes deben aceptar los términos del Contrato estándar y las modificaciones antes de que puedan usar su oferta.
+
+>[!NOTE]
+> Estos dos tipos de modificaciones se superponen entre sí. Los clientes específicos con modificaciones personalizadas también obtendrán la modificación universal al Contrato estándar durante la compra.
+
+**Términos de modificación universales del contrato estándar de Marketplace comercial de Microsoft**: Escriba los términos de modificación universal en este cuadro. Puede proporcionar una única modificación universal por oferta. Puede escribir un número ilimitado de caracteres en este cuadro. Estos se muestran a los clientes en AppSource, Azure Marketplace y/o Azure Portal durante la detección y el flujo de compra.
+
+**Términos de modificación personalizados del contrato estándar para Marketplace comercial de Microsoft**: Comience por seleccionar **Add custom amendment terms** (Agregar términos de modificación personalizados). Puede proporcionar hasta 10 términos de modificación personalizados por oferta.
+
+- **Términos de modificación personalizados**: Escriba los términos de modificación personalizados en el cuadro Términos de modificación personalizados. Puede escribir un número ilimitado de caracteres en este cuadro. Solo los clientes de los identificadores de inquilino que especifique para estos términos personalizados recibirán los términos de modificación personalizados en el flujo de compra de la oferta en Azure Portal.  
+- **Tenant IDs** (Identificadores de inquilino) (opcional): Cada modificación personalizada puede tener como destino hasta 20 identificadores de inquilino. Si agrega una modificación personalizada, debe proporcionar al menos un identificador de inquilino. El identificador de inquilino identifica al cliente en Azure. Puede pedir a su cliente este identificador y encontrarlo si navega a portal.azure.com > Azure Active Directory > Propiedades. El valor del identificador de directorio es el identificador de inquilino (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e). También puede buscar el identificador de inquilino de la organización de su cliente mediante su dirección URL de nombre de dominio en [What is my Microsoft Azure and Office 365 tenant ID?](https://www.whatismytenantid.com) (¿Cuál es mi identificador de inquilino de Microsoft Azure y Office 365?).
+- **Descripción** (opcional): Opcionalmente, proporcione una descripción detallada del identificador de inquilino que le ayude a identificar al cliente al que está destinada la modificación.
+
+#### <a name="terms-and-conditions"></a>Términos y condiciones
+
+Si quiere proporcionar sus propios términos y condiciones personalizados, puede especificarlos en el campo Términos y condiciones. Puede escribir hasta 10 000 caracteres de texto en este campo. Si los términos y condiciones requieren una descripción más larga, escriba en este campo un vínculo de dirección URL donde se pueden encontrar los términos y condiciones. A los clientes les aparecerá como un vínculo activo.
+
+Los clientes deben aceptar estos términos para poder probar la oferta.
 
 No olvide **guardar** antes de pasar a la siguiente sección.
 
@@ -208,28 +236,28 @@ Especifique los detalles que se muestran en Marketplace, lo que incluye descripc
 - **Descripción** (se requiere): especifique una descripción de la oferta que se va a mostrar en la información general de las descripciones de Marketplace. Considere la posibilidad de incluir una propuesta de valor, los beneficios clave, todas las asociaciones de la categoría o sector, las oportunidades de compra en la aplicación, todas las divulgaciones necesarias y un vínculo para obtener más información.
 En este campo se puede escribir hasta 3000 caracteres de texto. En el artículo [Escribir una excelente descripción de la aplicación](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description) encontrará más sugerencias.
 - **Palabras clave de búsqueda**: escriba un máximo de tres palabras clave de búsqueda que los clientes puedan usar para buscar su oferta en Marketplace.
-- **Instrucciones para las Tareas iniciales**  (se requiere): se explica cómo configurar y empezar a usar la aplicación para los clientes potenciales.  Este tutorial de inicio rápido puede contener vínculos a documentación en línea más detallada. En este campo se puede escribir hasta 3000 caracteres de texto. 
+- **Instrucciones para las Tareas iniciales**  (se requiere): se explica cómo configurar y empezar a usar la aplicación para los clientes potenciales.  Este tutorial de inicio rápido puede contener vínculos a documentación en línea más detallada. En este campo se puede escribir hasta 3000 caracteres de texto.
 
 #### <a name="description"></a>**Descripción**
 
-Este campo es obligatorio. Elementos que debe incluir en la descripción: 
+Este campo es obligatorio. Elementos que debe incluir en la descripción:
 
 * Describa claramente la propuesta de valor de la oferta en las primeras frases de su descripción.  
 * Tenga en cuenta que estas primeras frases podrían mostrarse en los resultados de los motores de búsqueda.  
 * No se base exclusivamente en las características y funcionalidades para vender su producto. En su lugar, céntrese en el valor que proporciona.  
-* Use tanto como se pueda un vocabulario específico del sector o palabras relacionadas con las ventajas. 
+* Use tanto como se pueda un vocabulario específico del sector o palabras relacionadas con las ventajas.
 
-Los componentes principales de la propuesta de valor deben incluir esta información: 
+Los componentes principales de la propuesta de valor deben incluir esta información:
 
-* Descripción del producto. 
-* Tipo de usuario que se beneficia del producto. 
-* Necesidad o preocupación del cliente que aborda el producto. 
+* Descripción del producto.
+* Tipo de usuario que se beneficia del producto.
+* Necesidad o preocupación del cliente que aborda el producto.
 
-Para que la descripción de la oferta sea más atractiva, puede usar etiquetas HTML para dar formato a la descripción. 
+Para que la descripción de la oferta sea más atractiva, puede usar etiquetas HTML para dar formato a la descripción.
 
 1. Si desea crear párrafos, agregue `<p>` al comienzo del texto y agregue `</p>` al final.
 
-    **Ejemplo**: 
+    **Ejemplo**:
 
     `<p>` Este es mi primer párrafo. `</p>` <br>
     `<p>` Este es mi segundo párrafo. `</p>` <br>
@@ -239,44 +267,44 @@ Para que la descripción de la oferta sea más atractiva, puede usar etiquetas H
     <p> Este es mi primer párrafo. </p>
     <p> Este es mi segundo párrafo. </p>
 
-1. Si desea agregar una **lista con viñetas de elementos**, coloque el texto dentro de las etiquetas `<li>` siguientes. Puede copiar y pegar más elementos con viñetas (elementos entre las etiquetas `<li>` y `</li>`) dentro de las etiquetas `<ul>` y `</ul>`. Asegúrese de que agrega `<ul></ul>`. 
+1. Si desea agregar una **lista con viñetas de elementos**, coloque el texto dentro de las etiquetas `<li>` siguientes. Puede copiar y pegar más elementos con viñetas (elementos entre las etiquetas `<li>` y `</li>`) dentro de las etiquetas `<ul>` y `</ul>`. Asegúrese de que agrega `<ul></ul>`.
 
     **Ejemplo**:
 
     ```
     <ul> 
-        <li>add text here</li> 
-        <li> add text here </li> 
-        <li> add text here </li> 
-    </ul> 
+        <li>add text here</li>
+        <li> add text here </li>
+        <li> add text here </li>
+    </ul>
     ```
 
     El aspecto de lo anterior debería ser parecido a este:
     <ul> 
-        <li>agregue el texto aquí</li> 
-        <li> agregue el texto aquí </li> 
-        <li> agregue el texto aquí </li> 
+        <li>agregue el texto aquí</li>
+        <li> agregue el texto aquí </li>
+        <li> agregue el texto aquí </li>
     </ul> 
 
-1. Para poner el contenido en **negrita**, agregue `<b>` al comienzo del texto que desea poner en negrita y `</b>` al final. 
+1. Para poner el contenido en **negrita**, agregue `<b>` al comienzo del texto que desea poner en negrita y `</b>` al final.
 
     **Ejemplo**: `<b>` EVALUACIÓN GRATUITA `</b>`
     
-    Lo anterior haría que las palabras EVALUACIÓN GRATUITA estuvieran en negrita en la descripción de la oferta en el escaparate. 
+    Lo anterior haría que las palabras EVALUACIÓN GRATUITA estuvieran en negrita en la descripción de la oferta en el escaparate.
 
     **EVALUACIÓN GRATUITA**
 
-1. Para agregar **saltos de línea** en el contenido, agregue `<br>` antes del texto que desea que aparezca en una nueva línea. Si desea dejar un espacio y asegurarse de que el contenido se inicia en una nueva línea, agregue `<br><br>` antes del contenido. 
+1. Para agregar **saltos de línea** en el contenido, agregue `<br>` antes del texto que desea que aparezca en una nueva línea. Si desea dejar un espacio y asegurarse de que el contenido se inicia en una nueva línea, agregue `<br><br>` antes del contenido.
 
     **Ejemplo**:
 
-    Esta es una línea de texto. `<br>` Esta es una línea de texto que se iniciará en una nueva línea. `<br><br>` Esta es una línea que se iniciará dos líneas más abajo. 
+    Esta es una línea de texto. `<br>` Esta es una línea de texto que se iniciará en una nueva línea. `<br><br>` Esta es una línea que se iniciará dos líneas más abajo.
 
     El aspecto de lo anterior debería ser parecido a este:
 
-    Esta es una línea de texto. <br> Esta es una línea de texto que se iniciará en una nueva línea. <br><br> Esta es una línea que se iniciará dos líneas más abajo. 
+    Esta es una línea de texto. <br> Esta es una línea de texto que se iniciará en una nueva línea. <br><br> Esta es una línea que se iniciará dos líneas más abajo.
 
-1. Si desea **aumentar el tamaño del texto**, primero elija la dimensión que desea que tenga el texto. Use los siguientes ejemplos. Después de seleccionar el tamaño del texto, agregue las etiquetas `<H*></H*>` correspondientes al principio y al final del texto. 
+1. Si desea **aumentar el tamaño del texto**, primero elija la dimensión que desea que tenga el texto. Use los siguientes ejemplos. Después de seleccionar el tamaño del texto, agregue las etiquetas `<H*></H*>` correspondientes al principio y al final del texto.
 
     **Ejemplo**:
 
@@ -372,7 +400,7 @@ La pestaña **Lista del plan** muestra los idiomas (y los mercados) en los que e
 
 Si se selecciona uno de los idiomas del plan, se mostrará la información de la **lista del plan**, lo que incluye el **nombre** y la **descripción.**
 
-- **Nombre**: rellenado previamente en función de la entrada de **nuevo plan** y aparecerá como título del "Plan de software" de su oferta que aparece en Marketplace.
+- **Name**: rellenado previamente en función de la entrada de **nuevo plan** y aparecerá como título del "Plan de software" de su oferta que aparece en Marketplace.
 - **Descripción:** Esta descripción es una oportunidad para explicar lo que hace que este plan de software sea único y las diferencias con respecto a otros planes de software de su oferta. Puede contener un máximo de 500 caracteres.
 
 Después de completar estos campos seleccione **Guardar**.
@@ -447,7 +475,7 @@ Seleccione esta casilla para que el plan sea privado y solo pueda verlo el públ
 
 Asigne a la audiencia que tendrá acceso a este plan privado. El acceso se asigna mediante identificadores de inquilino y existe la opción de incluir una descripción de cada identificador de inquilino asignado. Se pueden agregar un máximo de 10 identificadores de inquilino, o 20 000 identificadores de inquilino de clientes si se importa un archivo de hoja de cálculo .csv.
 
-Un inquilino es una representación de una organización, con un identificador representado como un GUID (identificador único global, un número entero de 128 bits utilizado para identificar los recursos). Se trata de una instancia dedicada de Azure AD que una organización o el desarrollador de la aplicación reciben cuando crean una relación con Microsoft, como al registrarse en Azure, Microsoft Intune o Microsoft 365. Cada inquilino de Azure AD es distinto e independiente de los demás inquilinos de Azure AD. Para comprobar el inquilino, inicie sesión en Azure Portal con la cuenta que desee usar para administrar la aplicación. Si tiene un inquilino, iniciará sesión de forma automática y verá el nombre de este directamente bajo el nombre de la cuenta. Mantenga el puntero sobre el nombre de su cuenta en el lado superior derecho de Azure Portal para ver el nombre, el correo electrónico, el directorio e identificador de inquilino (un GUID) y el dominio. Si la cuenta está asociada a varios inquilinos, puede seleccionar el nombre de la cuenta para abrir un menú donde puede cambiar entre los inquilinos. Cada inquilino tiene su propio identificador de inquilino. El identificador de inquilino de su organización también lo puede buscar mediante una dirección URL de nombre de dominio en: [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com).
+Un inquilino es una representación de una organización, con un identificador representado como un GUID (identificador único global, un número entero de 128 bits utilizado para identificar los recursos). Se trata de una instancia dedicada de Azure AD que una organización o el desarrollador de la aplicación reciben cuando crean una relación con Microsoft, como al registrarse en Azure, Microsoft Intune o Microsoft 365. Cada inquilino de Azure AD es distinto e independiente de los demás inquilinos de Azure AD. Para comprobar el inquilino, inicie sesión en Azure Portal con la cuenta que desee usar para administrar la aplicación. Si tiene un inquilino, iniciará sesión de forma automática y verá el nombre de este directamente bajo el nombre de la cuenta. Mantenga el puntero sobre el nombre de su cuenta en el lado superior derecho de Azure Portal para ver el nombre, el correo electrónico, el directorio e identificador de inquilino (un GUID) y el dominio. Si la cuenta está asociada a varios inquilinos, puede seleccionar el nombre de la cuenta para abrir un menú donde puede cambiar entre los inquilinos. Cada inquilino tiene su propio identificador de inquilino. El identificador de inquilino de su organización también lo puede buscar mediante una dirección URL de nombre de dominio en: [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
 Mientras que las ofertas de SaaS usan identificadores de inquilino para definir un público privado, otros tipos de oferta pueden usar los identificadores de suscripción de Azure (que también se representan como GUID).
 
@@ -476,7 +504,7 @@ Si es la primera vez que publica esta oferta, puede:
 
 - Ver el estado de finalización de cada sección de la oferta.
     - *No iniciada*: significa que la sección no se ha modificado y se debe completar.
-    - *Incompleta*: significa que la sección tiene errores que deben corregirse o que requiere más información. Por favor, vuelva a las secciones y actualícelas.
+    - *Incompleta*: significa que la sección tiene errores que deben corregirse o que requiere más información. Tendrá que volver a la sección anterior y actualizarla.
     - *Completa*: significa que la sección está completa, que se han proporcionado todos los datos necesarios y que no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
 - Envíe instrucciones para la realización de pruebas al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación.
 - Enviar la oferta para su publicación, para lo que debe seleccionar **Enviar**. Le enviaremos un correo electrónico que le avise cuando haya una versión preliminar de la oferta disponible para su revisión y aprobación. Debe volver al Centro de partners y seleccionar **Transmitir** la oferta para publicar la oferta para el público (o si es una privada, al público privado).

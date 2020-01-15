@@ -73,7 +73,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-La mejor manera de optimizar este código es implementar algún tipo de procesamiento por lotes del lado cliente para estas llamadas. Pero hay una forma sencilla de aumentar el rendimiento de este código simplemente encapsulando la secuencia de llamadas en una transacción. Este es el mismo código que usa una transacción.
+La mejor manera de optimizar este código es implementar algún tipo de procesamiento por lotes del lado cliente para estas llamadas. Pero hay una forma sencilla de aumentar el rendimiento de este código simplemente encapsulando la secuencia de llamadas en una transacción. El siguiente código es el mismo que usa una transacción.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -93,7 +93,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Realmente, se usan transacciones en ambos ejemplos. En el primer ejemplo, cada llamada individual es una transacción implícita. En el segundo ejemplo, una transacción explícita encapsula todas las llamadas. Según la documentación del [registro de transacciones de escritura anticipada](https://msdn.microsoft.com/library/ms186259.aspx), las entradas del registro se vacían en el disco cuando se confirma la transacción. Por lo tanto, al incluir más llamadas en una transacción, la escritura en el registro de transacciones se puede retrasar hasta que se confirma la transacción. En efecto, está habilitando el procesamiento por lotes para las escrituras en el registro de transacciones del servidor.
 
-En la tabla siguiente se muestran algunos resultados de pruebas ad hoc. En las pruebas se realizaron las mismas inserciones secuenciales con y sin transacciones. Para obtener más perspectiva, el primer conjunto de pruebas se ejecutó de forma remota de un equipo portátil a la base de datos de Microsoft Azure. El segundo conjunto de pruebas se ejecutó de un servicio en la nube y una base de datos que residían en el mismo centro de datos de Microsoft Azure (Oeste de EE. UU.). En la tabla siguiente se muestra la duración en milisegundos de las inserciones secuenciales con y sin transacciones.
+En la tabla siguiente se muestran algunos resultados de pruebas ad hoc. En las pruebas se realizaron las mismas inserciones secuenciales con y sin transacciones. Para obtener más perspectiva, el primer conjunto de pruebas se ejecutó de forma remota de un equipo portátil a la base de datos de Microsoft Azure. El segundo conjunto de pruebas se ejecutó desde un servicio en la nube y una base de datos que residían en el mismo centro de datos de Microsoft Azure (Oeste de EE. UU.). En la tabla siguiente se muestra la duración en milisegundos de las inserciones secuenciales con y sin transacciones.
 
 **De local a Azure**:
 
@@ -301,7 +301,7 @@ Actualmente, Entity Framework no admite el procesamiento por lotes. Varios desar
 
 ### <a name="xml"></a>XML
 
-Por exhaustividad, creemos que es importante hablar de XML como estrategia de procesamiento por lotes. Sin embargo, el uso de XML no supone ninguna ventaja respecto a otros métodos, pero sí varias desventajas. El enfoque es similar a los parámetros con valores de tabla, excepto en que se pasa una cadena o un archivo XML a un procedimiento almacenado en lugar de una tabla definida por el usuario. El procedimiento almacenado analiza los comandos en el procedimiento almacenado.
+Para ofrecer una imagen completa, creemos que es importante hablar de XML como estrategia de procesamiento por lotes. Sin embargo, el uso de XML no supone ninguna ventaja respecto a otros métodos, pero sí varias desventajas. El enfoque es similar a los parámetros con valores de tabla, excepto en que se pasa una cadena o un archivo XML a un procedimiento almacenado en lugar de una tabla definida por el usuario. El procedimiento almacenado analiza los comandos en el procedimiento almacenado.
 
 Existen varias desventajas con este enfoque:
 

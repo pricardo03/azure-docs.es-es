@@ -1,6 +1,6 @@
 ---
-title: 'Detección inteligente de Azure Application Insights: Próximos cambios en los destinatarios de la notificación predeterminados | Microsoft Docs'
-description: Supervise los seguimientos de las aplicaciones con Azure Application Insights para detectar patrones poco habituales de telemetría de seguimiento.
+title: 'Cambio de notificación de detección inteligente: Azure Application Insights'
+description: Cambie a los destinatarios de notificación predeterminados de la detección inteligente. La detección inteligente le permite supervisar los seguimientos de las aplicaciones con Azure Application Insights para detectar patrones poco habituales de telemetría de seguimiento.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
@@ -8,12 +8,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: fa1f98b5a9ee592a4c702e87e365eff7941194d4
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 493deea89586347d5847895acd5eb73a866f84ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820612"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432447"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Cambio de las notificaciones por correo electrónico de detección inteligente
 

@@ -4,16 +4,16 @@ description: Use variables de entorno y cree opciones para permitir que el módu
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/15/2019
+ms.date: 11/18/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 72fb7cfad5683edeb3b3335c28c53a7e693d00d5
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 079d5845917e63fadcf0466e5a744ed637d704ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330799"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434520"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Acceso de los módulos al almacenamiento local de un dispositivo
 
@@ -23,7 +23,7 @@ Además de almacenar datos mediante los servicios de almacenamiento de Azure o e
 
 Para permitir un vínculo entre el almacenamiento del módulo y el almacenamiento del sistema host, cree una variable de entorno para el módulo que apunte a una carpeta de almacenamiento del contenedor. Después, tendrá que utilizar las opciones de creación para enlazar esa carpeta de almacenamiento con una carpeta del equipo host.
 
-Por ejemplo, si quiere permitir que el concentrador de IoT Edge almacene mensajes en el almacenamiento local del dispositivo y recuperarlos más tarde, puede configurar las variables de entorno y las opciones de creación en la sección **Configurar las opciones avanzadas del entorno en tiempo de ejecución de Edge** de Azure Portal.
+Por ejemplo, si quiere habilitar el centro de IoT Edge para almacenar mensajes en el almacenamiento local del dispositivo y recuperarlos más tarde, puede configurar las variables de entorno y las opciones de creación en la sección **Configuración del entorno de ejecución** de Azure Portal.
 
 1. Tanto para el centro de IoT Edge como para el agente de IOT Edge, agregue una variable de entorno denominada **storageFolder** que apunte a un directorio en el módulo.
 1. Tanto para el centro de IoT Edge como para el agente de IoT Edge, agregue enlaces para conectar un directorio local de la máquina host a un directorio del módulo. Por ejemplo:

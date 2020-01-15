@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d70e87a9a0c7fb9b28f2a025db15ce4ba666255
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 69086ee8d8d64ada7379bdb6af24c8d604e00aed
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379609"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665110"
 ---
-# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos para: Planeación de la implementación de la unión a Azure AD
+# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos: Planeación de la implementación de la unión a Azure AD
 
 Unión a Azure AD permite unir dispositivos directamente a Azure AD sin necesidad de unirlos a un entorno local de Active Directory, al tiempo que mantiene la productividad y la seguridad de los usuarios. La opción Unión a Azure AD está preparada para la empresa tanto para implementaciones de ámbito como a escala.   
 
 Este artículo proporciona la información que necesita para planear su implementación de Unión a Azure AD.
  
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En este artículo se da por hecho que está familiarizado con la [introducción a la administración de dispositivos en Azure Active Directory](../device-management-introduction.md).
 
@@ -75,7 +75,7 @@ Cuando use AD FS, debe habilitar los siguientes puntos de conexión de WS-Trust
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
 
-Si el proveedor de identidades no admite estos protocolos, la opción Unión a Azure AD no funcionará de forma nativa. A partir de Windows 10 1809, los usuarios pueden iniciar sesión en un dispositivo unido a Azure AD con un proveedor de identidades basado en SAML mediante el [Inicio de sesión web en Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Actualmente, el inicio de sesión web es una característica en vista previa y no se recomienda para las implementaciones de producción.
+Si el proveedor de identidades no admite estos protocolos, la opción Unión a Azure AD no funcionará de forma nativa. A partir de Windows 10 1809, los usuarios pueden iniciar sesión en un dispositivo unido a Azure AD con un proveedor de identidades basado en SAML mediante el [Inicio de sesión web en Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Actualmente, el inicio de sesión web es una característica en versión preliminar que no se ha diseñado para implementaciones de producción.
 
 >[!NOTE]
 > Actualmente, la unión de Azure AD no funciona con [AD FS 2019 configurado con proveedores de autenticación externos como método de autenticación principal](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). La unión de Azure AD tiene, de forma predeterminada, la autenticación de contraseña como método principal, lo que provoca errores de autenticación en este escenario.
@@ -197,11 +197,11 @@ A continuación se incluye una comparación de estos tres enfoques
  
 |   | Configuración de autoservicio | Windows Autopilot | Inscripción masiva |
 | --- | --- | --- | --- |
-| Requiere la interacción del usuario para la configuración | Sí | Sí | Sin |
-| Requiere un esfuerzo de TI | Sin | Sí | Sí |
+| Requiere la interacción del usuario para la configuración | Sí | Sí | No |
+| Requiere un esfuerzo de TI | No | Sí | Sí |
 | Flujos aplicables | OOBE y Configuración | Solo OOBE | Solo OOBE |
-| Derechos de administrador local para el usuario principal | Sí, de forma predeterminada | Configurable | Sin |
-| Requerir soporte técnico del OEM del dispositivo | Sin | Sí | Sin |
+| Derechos de administrador local para el usuario principal | Sí, de forma predeterminada | Configurable | No |
+| Requerir soporte técnico del OEM del dispositivo | No | Sí | No |
 | Versiones compatibles | 1511 y posteriores | 1709 y posteriores | 1703 y posteriores |
  
 Elija el enfoque o los enfoques de implementación. Para ello, revise la tabla anterior y tenga en cuenta las consideraciones siguientes a la hora de adoptar alguno:  

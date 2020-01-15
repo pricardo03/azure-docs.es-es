@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e4a5f83e3f4d26c2321ed1b4c48a385d07e6489d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ceee257cd09589fc953c2b32e978a35433b0a49b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895154"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371826"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)
 
@@ -25,7 +25,7 @@ Una firma de acceso compartido (SAS) ofrece acceso delegado a los recursos en la
 
 Azure Storage admite tres tipos de firmas de acceso compartido:
 
-- **SAS de delegación de usuarios (versión preliminar).** Una SAS de delegación de usuarios está protegida con credenciales de Azure Active Directory (Azure AD) y también con los permisos especificados para la SAS. Una SAS de delegación de usuarios solo se aplica a Blob Storage.
+- **SAS de delegación de usuarios.** Una SAS de delegación de usuarios está protegida con credenciales de Azure Active Directory (Azure AD) y también con los permisos especificados para la SAS. Una SAS de delegación de usuarios solo se aplica a Blob Storage.
 
     Para más información sobre la SAS de delegación de usuarios, consulte [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas) (Creación de una SAS de delegación de usuarios [API REST]).
 
@@ -122,9 +122,9 @@ Para comenzar a usar firmas de acceso compartido, consulte los siguientes artíc
 
 ### <a name="user-delegation-sas"></a>SAS de delegación de usuarios
 
-- [Create a user delegation SAS for a container or blob with PowerShell (preview)](../blobs/storage-blob-user-delegation-sas-create-powershell.md) (Creación de una SAS de delegación de usuarios para un contenedor o blob con PowerShell [versión preliminar])
-- [Create a user delegation SAS for a container or blob with the Azure CLI (preview)](../blobs/storage-blob-user-delegation-sas-create-cli.md) (Creación de una SAS de delegación de usuarios para un contenedor o blob con la CLI de Azure [versión preliminar])
-- [Create a user delegation SAS for a container or blob with .NET (preview)](../blobs/storage-blob-user-delegation-sas-create-dotnet.md) (Creación de una SAS de delegación de usuarios para un contenedor o blob con .NET [versión preliminar])
+- [Creación de una SAS de delegación de usuarios para un contenedor o blob con PowerShell](../blobs/storage-blob-user-delegation-sas-create-powershell.md)
+- [Creación de una SAS de delegación de usuarios para un contenedor o blob con la CLI de Azure](../blobs/storage-blob-user-delegation-sas-create-cli.md)
+- [Creación de una SAS de delegación de usuarios para un contenedor o blob con .NET](../blobs/storage-blob-user-delegation-sas-create-dotnet.md)
 
 ### <a name="service-sas"></a>SAS de servicio
 
@@ -137,6 +137,6 @@ Para comenzar a usar firmas de acceso compartido, consulte los siguientes artíc
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Delegate access with a shared access signature (REST API)](/rest/api/storageservices/delegate-access-with-shared-access-signature) (Delegación de acceso con una firma de acceso compartido [API REST])
-- [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas) (Creación de una SAS de delegación de usuarios [API REST])
+- [Creación de una SAS de delegación de usuario (API de REST)](/rest/api/storageservices/create-user-delegation-sas)
 - [Create a service SAS (REST API)](/rest/api/storageservices/create-service-sas) (Creación de una SAS de servicio [API REST])
 - [Create an account SAS (REST API)](/rest/api/storageservices/create-account-sas) (Creación de una SAS de cuenta [API REST])

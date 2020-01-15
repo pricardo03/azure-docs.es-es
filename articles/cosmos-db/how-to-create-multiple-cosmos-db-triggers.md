@@ -1,17 +1,17 @@
 ---
-title: Cómo crear varios desencadenadores independientes de Azure Functions para Cosmos DB
+title: Creación de varios desencadenadores independientes de Azure Functions para Cosmos DB
 description: Obtenga información sobre cómo configurar varios desencadenadores independientes de Azure Functions para Cosmos DB para crear arquitecturas controladas por eventos.
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 987136bf8aba1313e1bef21f58691bf9a860ea32
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fbf1e11d7a283ca6c93356f055198c35350e0332
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093376"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445351"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Cómo crear varios desencadenadores de Azure Functions para Cosmos DB
 
@@ -38,7 +38,7 @@ El objetivo de este artículo es guiarle con la segunda opción.
 
 ## <a name="configuring-a-shared-leases-container"></a>Configuración de un contenedor de concesiones compartido
 
-Para configurar el contenedor de concesiones compartido, la única configuración adicional que tiene que realizar en los desencadenadores consiste en agregar el [atributo](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---c-attributes) `LeaseCollectionPrefix` si usa C# o el [atributo](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---javascript-example) `leaseCollectionPrefix` si usa JavaScript. El valor del atributo debe ser un descriptor lógico de ese desencadenador en particular.
+Para configurar el contenedor de concesiones compartido, la única configuración adicional que tiene que realizar en los desencadenadores consiste en agregar el [atributo](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---c-attributes) `LeaseCollectionPrefix` si usa C# o el [atributo](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---javascript-example) `leaseCollectionPrefix` si usa JavaScript. El valor del atributo debe ser un descriptor lógico de ese desencadenador en particular.
 
 Por ejemplo, si tiene tres desencadenadores (uno que envía correos electrónicos, otro que realiza una agregación para crear una vista materializada y otro que envía los cambios a otro almacenamiento para su análisis posterior), puede asignar el elemento `LeaseCollectionPrefix` de "emails" al primero de ellos, "materialized"al segundo y "analytics" al tercero.
 

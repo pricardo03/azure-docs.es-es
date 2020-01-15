@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: cf826c47c61e3714a05dd81fe3eea4e6ee0b03f4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 6fd8d6187c86306840c33b3aaf334e71086b20a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012493"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452739"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedimientos recomendados al elegir un id. de serie temporal
 
@@ -23,23 +23,28 @@ En este artículo se resume la importancia del identificador de serie temporal e
 
 ## <a name="choose-a-time-series-id"></a>Elección de un identificador de Time Series
 
-Elegir un id. de serie temporal es como elegir una clave de partición para una base de datos. Se debe seleccionar cuando se crea un entorno de versión preliminar de Time Series Insights. Es una propiedad *inmutable*. En otras palabras, después de crear un entorno de versión preliminar de Time Series Insights con un identificador de serie temporal, no se puede cambiar en dicho entorno. 
+Es fundamental seleccionar un identificador de serie temporal adecuado. Elegir un id. de serie temporal es como elegir una clave de partición para una base de datos. Se requiere al crear un entorno de versión preliminar de Time Series Insights. 
 
 > [!IMPORTANT]
-> El identificador de serie temporal distingue mayúsculas de minúsculas.
+> Los identificadores de serie temporal son los siguientes:
+> * Propiedad *case-sensitive*: se hace distinción de mayúsculas y minúsculas en búsquedas, comparaciones, y actualizaciones, así como al crear particiones.
+> * Propiedad *immutable*: una vez creada, no se puede cambiar.
 
-Es fundamental seleccionar un identificador de serie temporal adecuado. Estos son algunos de los procedimientos recomendado que puede seguir:
+> [!TIP]
+> Si el origen del evento es un centro de IoT, es probable que el identificador de serie temporal sea ***iothub-connection-device-id***.
+
+Los principales procedimientos recomendados que han de seguirse incluyen lo siguiente:
 
 * Elija una clave de partición con muchos valores distintos (por ejemplo, centenares o miles). En muchos casos, puede ser el identificador de dispositivo, identificador de sensor o identificador de etiqueta de JSON.
 * El id. de serie temporal debe ser único en el nivel de nodo hoja de su [Modelo de serie temporal](./time-series-insights-update-tsm.md).
-* Si el origen del evento es un centro de IoT, lo más probable es que el identificador de serie temporal sea *iothub-connection-device-id*.
 * El límite de caracteres de la cadena de nombre de la propiedad del identificador de serie temporal es 128. En el caso del valor de la propiedad del identificador de serie temporal, el límite de caracteres es 1.024.
 * Si falta un valor de propiedad único para el identificador de serie temporal, se trata como un valor NULL y sigue la misma regla de la restricción de unicidad.
 * Puede seleccionar hasta *tres* propiedades clave como identificador de serie temporal. Su combinación será una clave compuesta que representa el identificador de serie temporal.  
-
   > [!NOTE]
   > Las tres propiedades clave deben ser cadenas.
   > Tendría que realizar consultas en esta clave compuesta, en lugar de hacerlo propiedad a propiedad.
+
+## <a name="select-more-than-one-key-property"></a>Selección de más de una propiedad de clave
 
 En los siguientes escenarios se describe cómo seleccionar más de una propiedad clave como identificador de serie temporal.  
 
@@ -67,9 +72,11 @@ Ejemplo de evento sin procesar:
 }
 ```
 
-En Azure Portal, esta clave compuesta se puede especificar así: 
+En Azure Portal, puede especificar después la clave compuesta de la manera siguiente: 
 
-`[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]`
+```JSON
+[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

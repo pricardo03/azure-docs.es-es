@@ -1,25 +1,18 @@
 ---
-title: Recomendaciones de pruebas comparativas de rendimiento para Azure NetApp Files | Microsoft Docs
-description: Se entregan recomendaciones de pruebas comparativas de rendimiento y métricas de volumen mediante Azure NetApp Files.
-services: azure-netapp-files
-documentationcenter: ''
+title: 'Banco de pruebas de rendimiento de pruebas recomendadas: Azure NetApp Files'
+description: Obtenga información sobre las recomendaciones de pruebas comparativas de rendimiento y métricas de volumen mediante Azure NetApp Files.
 author: b-juche
-manager: ''
-editor: ''
-ms.assetid: ''
+ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.author: b-juche
-ms.openlocfilehash: 1969b3c237a4133df6f53bd6426ca4d50581cbcb
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 8f354152c23dd7ad0413f27585d724f8070ca003
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881730"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551529"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Banco de pruebas de rendimiento de recomendaciones de pruebas para Azure NetApp Files
 

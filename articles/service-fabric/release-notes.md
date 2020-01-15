@@ -1,20 +1,16 @@
 ---
 title: Versiones de Azure Service Fabric
-description: Notas de la versión de las características y mejoras más recientes de Service Fabric.
-author: athinanthny
-manager: gamonroy
-ms.author: atsenthi
+description: Notas de la versión de Azure Service Fabric. Incluyen información sobre las características y mejoras más recientes de Service Fabric.
 ms.date: 06/10/2019
 ms.topic: conceptual
-ms.service: service-fabric
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 496a5babe58be4354ffb10a331d35abc8a51b04d
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 36586f93425c6583dd3be497da9f7a018ebd4c9d
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186516"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526743"
 ---
 # <a name="service-fabric-releases"></a>Versiones de Service Fabric
 
@@ -55,7 +51,7 @@ Esta es la versión más reciente de Service Fabric y está cargada con caracter
 
 Además, esta versión contiene otras características nuevas, correcciones de errores y mejoras de compatibilidad, confiabilidad y rendimiento. Para ver la lista completa de todos los cambios, consulte las [notas de la versión](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md).
 
-| Fecha de lanzamiento | Release | Más información |
+| Fecha de la versión | Release | Más información |
 |---|---|---|
 | 18 de noviembre de 2019 | [Azure Service Fabric 7.0](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Service-Fabric-7-0-Release/ba-p/1015482)  | [Notas de la versión](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md)|
 
@@ -91,7 +87,7 @@ Para obtener más información, vea las [notas de la versión de Service Fabric 
 
 ### <a name="service-fabric-65-releases"></a>Versiones de Service Fabric 6.5
 
-| Fecha de lanzamiento | Release | Más información |
+| Fecha de la versión | Release | Más información |
 |---|---|---|
 | 11 de junio de 2019 | [Azure Service Fabric 6.5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/06/11/azure-service-fabric-6-5-release/)  | [Notas de la versión](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)|
 | 2 de julio de 2019 | [Versión de actualización de Azure Service Fabric 6.5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/07/04/azure-service-fabric-6-5-refresh-release/)  | [Notas de la versión](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU1.pdf)  |
@@ -104,7 +100,7 @@ Para obtener más información, vea las [notas de la versión de Service Fabric 
 
 ### <a name="service-fabric-64-releases"></a>Versiones de Service Fabric 6.4
 
-| Fecha de lanzamiento | Release | Más información |
+| Fecha de la versión | Release | Más información |
 |---|---|---|
 | 30 de noviembre de 2018 | [Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [Notas de la versión](https://msdnshared.blob.core.windows.net/media/2018/12/Service-Fabric-6.4-Release.pdf)|
 | 12 de diciembre de 2018 | [Versión de actualización de Azure Service Fabric 6.4 para clústeres de Windows](https://blogs.msdn.microsoft.com/azureservicefabric/2018/12/12/azure-service-fabric-6-4-refresh-for-windows-clusters/)  | [Notas de la versión](https://msdnshared.blob.core.windows.net/media/2018/12/Links.pdf)  |

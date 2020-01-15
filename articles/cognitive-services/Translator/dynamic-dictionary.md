@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 5f007660b98a22ff9ffad072991a39cf59518b6a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 944bca8644da6127e73af04eb75d01697cd34399
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837351"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446710"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>Cómo usar un diccionario dinámico
 
@@ -27,15 +27,15 @@ Si ya conoce la traducción que quiere aplicar a una palabra o frase, puede prop
 
 **Requisitos:**
 
-* Los idiomas `From` y `To` deben ser diferentes. 
+* Los idiomas `From` y `To` deben incluir inglés y otro idioma compatible. 
 * Debe incluir el parámetro `From` en la solicitud de traducción de API en lugar de usar la característica de detección automática. 
 
 **Ejemplo: en-de:**
 
-Entrada de origen: La palabra <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> es una entrada de diccionario.
+Entrada de origen: `The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.`
 
-Salida de destino: Das Wort "wordomatic" ist ein Wörterbucheintrag.
+Salida de destino: `Das Wort "wordomatic" ist ein Wörterbucheintrag.`
 
 Esta característica funciona del mismo modo con y sin el modo HTML.
 
-La característica debe usarse con moderación. La mejor forma de personalización de traducción, y más adecuada, es mediante el uso de Custom Translator. Custom Translator hace un uso completo del contexto y las probabilidades estadísticas. Si tiene o puede crear datos de aprendizaje que muestren el trabajo o la frase en contexto, obtendrá resultados mucho mejores. Para más información sobre el traductor personalizado, consulte [https://aka.ms/CustomTranslator](https://aka.ms/CustomTranslator).
+Úsela con moderación. Una manera mejor de personalizar la traducción es usar el Traductor personalizado. Custom Translator hace un uso completo del contexto y las probabilidades estadísticas. Si tiene o puede crear datos de aprendizaje que muestren el trabajo o la frase en contexto, obtendrá resultados mucho mejores. Para más información sobre el traductor personalizado, consulte [https://aka.ms/CustomTranslator](https://aka.ms/CustomTranslator).

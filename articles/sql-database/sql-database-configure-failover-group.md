@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: fb9ee2378679c420a7675856ec95e60f6ae1d14f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 05b099eebcbb7b8f77357c9dcf3a4d567d3886d6
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827152"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75553076"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configuración de un grupo de conmutación por error para Azure SQL Database
 
@@ -25,7 +25,7 @@ Este tema le enseña a configurar un [grupo de conmutación por error automátic
 ## <a name="single-database"></a>Base de datos única
 Cree el grupo de conmutación por error y agregue una base de datos única mediante Azure Portal o PowerShell.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 Tenga en cuenta los siguientes requisitos previos:
 
@@ -35,6 +35,7 @@ Tenga en cuenta los siguientes requisitos previos:
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Cree el grupo de conmutación por error y agregue la base de datos única mediante Azure Portal.
+
 
 1. Seleccione **Azure SQL** en el menú izquierdo de [Azure Portal](https://portal.azure.com). Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
 1. Seleccione la base de datos única que desea agregar al grupo de conmutación por error. 
@@ -183,10 +184,13 @@ Revierta el grupo de conmutación por error al servidor principal:
 
 ---
 
+> [!IMPORTANT]
+> Si tiene que eliminar la base de datos secundaria, quítela del grupo de conmutación por error antes de eliminarla. Eliminar una base de datos secundaria antes de quitarla del grupo de conmutación por error puede provocar un comportamiento impredecible. 
+
 ## <a name="elastic-pool"></a>Grupo elástico
 Cree el grupo de conmutación por error y agregue un grupo elástico mediante Azure Portal o PowerShell.  
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 Tenga en cuenta los siguientes requisitos previos:
 
@@ -328,13 +332,16 @@ Conmute por error el servidor secundario:
 
 ---
 
-## <a name="managed-instance"></a>Instancia administrada
+> [!IMPORTANT]
+> Si tiene que eliminar la base de datos secundaria, quítela del grupo de conmutación por error antes de eliminarla. Eliminar una base de datos secundaria antes de quitarla del grupo de conmutación por error puede provocar un comportamiento impredecible. 
+
+## <a name="managed-instance"></a>instancia administrada
 
 Cree un grupo de conmutación por error entre dos instancias administradas mediante Azure Portal o PowerShell. 
 
-Tendrá que crear una puerta de enlace para la red virtual de cada instancia administrada, conecte las dos puertas de enlace y, a continuación, cree el grupo de conmutación por error.
+Tendrá que configurar [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) o crear una puerta de enlace para la red virtual de cada instancia administrada, conectar las dos puertas de enlace y luego crear el grupo de conmutación por error. 
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 Tenga en cuenta los siguientes requisitos previos:
 
 - La instancia administrada secundaria debe estar vacía.
@@ -344,7 +351,7 @@ Tenga en cuenta los siguientes requisitos previos:
 
 ### <a name="create-primary-virtual-network-gateway"></a>Creación de la puerta de enlace de red virtual principal 
 
-Cree la puerta de enlace de red virtual principal con Azure Portal o PowerShell. 
+Si no ha configurado [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md), puede crear la puerta de enlace de red virtual principal con Azure Portal o PowerShell. 
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -363,7 +370,7 @@ Cree la puerta de enlace de red virtual principal mediante Azure Portal.
 
    En la tabla siguiente se muestran los valores necesarios para la puerta de enlace de la instancia administrada principal:
  
-    | **Campo** | Valor |
+    | **Campo** | Value |
     | --- | --- |
     | **Suscripción** |  Suscripción en la que reside la instancia administrada principal. |
     | **Nombre** | Nombre de la puerta de enlace de red virtual. | 
@@ -424,7 +431,7 @@ Repita los pasos de la sección anterior para crear la subred y la puerta de enl
 
    En la tabla siguiente se muestran los valores necesarios para la puerta de enlace de la instancia administrada secundaria:
 
-   | **Campo** | Valor |
+   | **Campo** | Value |
    | --- | --- |
    | **Suscripción** |  Suscripción en la que reside la instancia administrada secundaria. |
    | **Nombre** | Nombre de la puerta de enlace de red virtual, como `secondary-mi-gateway`. | 
@@ -645,7 +652,7 @@ El punto de conexión del cliente de escucha tiene el formato `fog-name.database
 
 ![Cadena de conexión del grupo de conmutación por error](media/sql-database-configure-failover-group/find-failover-group-connection-string.png)
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 
 - Quitar un grupo de conmutación por error para una base de datos única o agrupada no detiene la replicación ni elimina la base de datos replicada. Tendrá que detener manualmente la replicación geográfica y eliminar la base de datos del servidor secundario si desea volver a agregar una base de datos única o agrupada a un grupo de conmutación por error una vez que se haya quitado. Si no hace nada de esto, es posible que se produzca un error similar a `The operation cannot be performed due to multiple errors` al intentar agregar la base de datos al grupo de conmutación por error. 
 

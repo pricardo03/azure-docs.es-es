@@ -1,5 +1,5 @@
 ---
-title: Personalización de los exploradores y las vistas web | Azure
+title: Personalización de los exploradores y las vistas web (MSAL para iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo personalizar la experiencia del explorador de MSAL para iOS y macOS cuando los usuarios inician sesión.
 services: active-directory
@@ -14,14 +14,14 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5dbdadc6afa3a6822a76fdcecdfcaa6f2ad8c98
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f409ff519c699ed712ec05213979d9c3308d4197
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963722"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424586"
 ---
-# <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Procedimientos para: Personalizar exploradores y vistas web para iOS/macOS
+# <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Procedimientos: Personalizar exploradores y vistas web para iOS/macOS
 
 Se requiere un explorador web para la autenticación no interactiva. En iOS, la biblioteca de autenticación de Microsoft (MSAL) usa un explorador web de sistema de forma predeterminada (que puede aparecer en la parte superior de la aplicación) para realizar la autenticación interactiva cuando los usuarios inician sesión. El uso del explorador del sistema tiene la ventaja de compartir el estado de inicio de sesión único (SSO) con otras aplicaciones y con aplicaciones web.
 
@@ -68,9 +68,9 @@ El explorador que utiliza afecta a la experiencia de SSO debido a cómo comparte
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
 | [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | Sistema | iOS12 y versiones posteriores | macOS 10.15 y versiones posteriores | Sí | Únicamente iOS | Instancias de w/ Safari
 | [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | Sistema | iOS11 y versiones posteriores | N/D | Sí | Únicamente iOS |  Instancias de w/ Safari
-| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | Sistema | iOS11 y versiones posteriores | N/D | Sin | Únicamente iOS | No**
+| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | Sistema | iOS11 y versiones posteriores | N/D | No | Únicamente iOS | No**
 | **SFSafariViewController** | Sistema | iOS10 | N/D | Sí | Únicamente iOS |  Instancias de w/ Safari
-| **WKWebView**  | En aplicación | iOS8 y versiones posteriores | macOS 10.10 y versiones posteriores | Sin | iOS y macOS | No**
+| **WKWebView**  | En aplicación | iOS8 y versiones posteriores | macOS 10.10 y versiones posteriores | No | iOS y macOS | No**
 
 ** Para que el inicio de sesión único funcione, los tokens deben compartirse entre aplicaciones. Esto requiere una memoria caché de tokens o una aplicación de agente, como Microsoft Authenticator para iOS.
 

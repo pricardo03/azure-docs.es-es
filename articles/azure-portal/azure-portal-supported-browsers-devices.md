@@ -1,6 +1,6 @@
 ---
 title: Exploradores y dispositivos compatibles con Azure Portal | Microsoft Docs
-description: Describe los exploradores y dispositivos en los que funcionará el Portal de Azure.
+description: Puede usar Azure Portal en todos los dispositivos modernos y con las versiones más recientes del explorador. Consulte este artículo para asegurarse de que el explorador sea compatible.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/27/2019
-ms.author: kfollis
+ms.date: 12/20/2019
+ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: 1595d744fbfda47a9db9ff27de09cd53c6f73ece
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 792864022cb7c1b2b4b43a4980d86e32b213525c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551165"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640111"
 ---
 # <a name="supported-devices"></a>Dispositivos compatibles
 

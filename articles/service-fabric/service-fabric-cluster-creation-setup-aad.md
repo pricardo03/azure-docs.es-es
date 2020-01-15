@@ -1,25 +1,14 @@
 ---
-title: Configurar Azure Active Directory para la autenticación de clientes en Service Fabric | Microsoft Docs
+title: Configuración de Azure Active Directory para la autenticación de cliente
 description: Obtenga información sobre cómo configurar Azure Active Directory (Azure AD) para autenticar a los clientes de los clústeres de Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: chackdan
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/28/2019
-ms.author: atsenthi
-ms.openlocfilehash: 77814d04daca0ebb649ffa2e8ff46becddec4f0f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: bbad991e955a31e3f3c53931889f630e521e1a8c
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901504"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614696"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configuración de Azure Active Directory para la autenticación de cliente
 
@@ -32,7 +21,12 @@ Un clúster de Service Fabric ofrece diversos puntos de entrada a su funcionalid
 > [!NOTE]
 > En Linux, debe realizar los pasos siguientes antes de crear el clúster. En Windows, también tiene la opción de [configurar la autenticación de Azure AD para un clúster existente](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/Configure%20Azure%20Active%20Directory%20Authentication%20for%20Existing%20Cluster.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+> [!NOTE]
+> Es un [problema conocido](https://github.com/microsoft/service-fabric/issues/399) que las aplicaciones y los nodos de los clústeres habilitados para AAD de Linux no se pueden ver en Azure Portal.
+
+
+
+## <a name="prerequisites"></a>Prerequisites
 En este artículo se supone que ya ha creado un inquilino. En caso de que no lo haya hecho, lea [Obtención de un inquilino de Azure Active Directory][active-directory-howto-tenant].
 
 Para simplificar algunos de los pasos necesarios para configurar Azure AD con un clúster de Service Fabric, hemos creado un conjunto de scripts de Windows PowerShell.

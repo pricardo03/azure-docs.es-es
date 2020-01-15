@@ -1,6 +1,6 @@
 ---
 title: Adición de una capa de imagen a Azure Maps | Microsoft Docs
-description: Cómo agregar una capa de imagen al SDK web de Azure Maps.
+description: Procedimiento para agregar una capa de imagen al SDK web de Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: fadaaf7c64b11a6d6d94c68234f8288d1b3f8d07
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 631a9e2d44b798404ee7567d3ccfed90628d2f8b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480482"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432865"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adición de una capa de imagen a un mapa
 
-En este artículo se explica cómo puede superponer una imagen a un conjunto fijo de coordenadas del mapa. Hay muchos escenarios en los que se realiza la superposición de una imagen en el mapa. Estos son algunos ejemplos del tipo de imágenes que suelen superponerse en los mapas:
+En este artículo se explica cómo puede superponer una imagen a un conjunto fijo de coordenadas del mapa. Estos son algunos ejemplos del tipo de imágenes que suelen superponerse en los mapas:
 
-* Imágenes capturadas de drones.
-* Creación de planos.
-* Imágenes de mapas históricas u otras imágenes de mapa especializadas.
-* Proyectos de sitios de trabajo.
-* Imágenes de radar meteorológico.
+* Imágenes capturadas por drones
+* Planos de edificios
+* Imágenes de mapa históricas u otras imágenes de mapa especializadas
+* Planos técnicos de sitios de trabajo
+* Imágenes de radar meteorológico
 
 > [!TIP]
-> Un elemento [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) es una manera rápida y sencilla de superponer una imagen en un mapa. Sin embargo, si la imagen es grande, el explorador puede tener dificultades para cargarla. En este caso, considere la posibilidad de dividir la imagen en mosaicos y cargarlos en el mapa como un elemento [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest).
+> [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) es un modo sencillo de superponer una imagen en un mapa. Tenga en cuenta que los exploradores pueden tener dificultades para cargar una imagen grande. En este caso, considere la posibilidad de dividir la imagen en mosaicos y cargarlos en el mapa como [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest).
 
 La capa de imagen admite los siguientes formatos de imagen:
 
@@ -38,7 +38,7 @@ La capa de imagen admite los siguientes formatos de imagen:
 
 ## <a name="add-an-image-layer"></a>Adición de una capa de imagen
 
-En el código siguiente se superpone una imagen de un [mapa de Newark, Nueva Jersey, de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) en el mapa. Se crea un elemento [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) pasando una dirección URL a una imagen y las coordenadas de las cuatro esquinas en el formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
+En el código siguiente se superpone una imagen de un [mapa de Newark, Nueva Jersey, de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) en el mapa. Se crea un elemento [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) pasando una dirección URL a una imagen y las coordenadas de las cuatro esquinas en el formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
 
 ```javascript
 //Create an image layer and add it to the map.
@@ -53,7 +53,7 @@ map.layers.add(new atlas.layer.ImageLayer({
 }));
 ```
 
-A continuación se muestra el código de ejemplo de ejecución completo de la funcionalidad anterior.
+A continuación se muestra el código de ejemplo de ejecución completo del código anterior.
 
 <br/>
 
@@ -62,9 +62,9 @@ A continuación se muestra el código de ejemplo de ejecución completo de la fu
 
 ## <a name="import-a-kml-ground-overlay"></a>Importar una superposición de suelo KML
 
-Este ejemplo muestra cómo superponer la información de superposición de suelo KML como una capa de imagen en el mapa. Las superposiciones de suelo KML proporcionan las coordenadas de norte, sur, este y oeste y una rotación hacia la izquierda, mientras que la capa de imagen espera las coordenadas para cada esquina de la imagen. La superposición de suelo KML de este ejemplo se corresponde con la catedral de Chartres, cuya fuente es [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
+En el siguiente ejemplo se muestra cómo superponer la información de superposición de suelo KML como capa de imagen en el mapa. Las superposiciones de suelo KML proporcionan las coordenadas de norte, sur, este y oeste y una rotación en sentido contrario a las agujas del reloj, mientras que la capa de imagen espera las coordenadas para cada esquina de la imagen. La superposición de suelo KML de este ejemplo se corresponde con la catedral de Chartres, cuya fuente es [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 
-En el código siguiente se usa la función `getCoordinatesFromEdges` estática de la clase [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) para calcular las cuatro esquinas de la imagen desde el norte, el sur, el este, el oeste, y la información de rotación a partir de la superposición de suelo KML.
+En el código siguiente se usa la función `getCoordinatesFromEdges` estática de la clase [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest). Este código calcula las cuatro esquinas de la imagen a partir de la información de norte, sur, este, oeste y rotación procedente de la superposición de suelo KML.
 
 <br/>
 

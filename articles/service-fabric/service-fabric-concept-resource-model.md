@@ -1,18 +1,14 @@
 ---
-title: Modelo de recurso de aplicación de Azure Service Fabric | Microsoft Docs
+title: Modelo de recurso de aplicación de Azure Service Fabric
 description: En este artículo se proporciona información general sobre la administración de una aplicación de Azure Service Fabric con Azure Resource Manager.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.author: atsenthi
-ms.openlocfilehash: b9a3534c24649e71385cd8fdc8b4981ac471cf90
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: b3cf0b8f21565a8d51b16ff6c8b4c52bbfe8edc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752316"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464809"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>¿Qué es el modelo de recurso de aplicación de Service Fabric?
 Se recomienda que las aplicaciones de Service Fabric se implementen en el clúster de Service Fabric mediante Azure Resource Manager. Este método permite describir las aplicaciones y los servicios en JSON e implementarlos en la misma plantilla de Resource Manager que su clúster. A diferencia de implementar y administrar aplicaciones a través de PowerShell o la CLI de Azure, en este caso no es necesario esperar a que el clúster esté listo. El proceso de registro de la aplicación, su aprovisionamiento e implementación, puede suceder todo en un paso. Este es el procedimiento recomendado para administrar el ciclo de vida de las aplicaciones en el clúster. Para obtener más información, consulte los [procedimientos recomendados](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
@@ -72,7 +68,7 @@ La aplicación de ejemplo contiene [plantillas de Azure Resource Manager](https:
 >
 >
 
-| Parámetro              | DESCRIPCIÓN                                 | Ejemplo                                                      | Comentarios                                                     |
+| Parámetro              | Descripción                                 | Ejemplo                                                      | Comentarios                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | Nombre del clúster en el cual se realiza la implementación | sf-cluster123                                                |                                                              |
 | application            | Nombre de la aplicación                 | Voting (Votación)                                                       |
@@ -161,7 +157,7 @@ Obtenga información sobre el modelo de recurso de la aplicación:
 * [Modelar una aplicación en Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model)
 * [Manifiestos de servicio y de aplicación de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-and-service-manifests)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [procedimientos recomendados](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
 * [Administración de aplicaciones y servicios como recursos de Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
 

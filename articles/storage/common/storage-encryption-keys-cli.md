@@ -6,26 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 01/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 9b9ec315954f5916339bb006cb020acc28886839
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: db0b5db98f654c140a640f10df2c22c22c85c848
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895318"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665291"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configuración de claves administradas por el cliente con Azure Key Vault mediante la CLI de Azure
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-En este artículo se muestra cómo configurar Azure Key Vault con claves administradas por el cliente mediante la CLI de Azure. Para obtener información sobre cómo crear un almacén de claves mediante la CLI de Azure, consulte [Inicio rápido: Establecimiento y recuperación de un secreto desde Azure Key Vault mediante la CLI de Azure](../../key-vault/quick-create-cli.md).
-
-> [!IMPORTANT]
-> El uso de claves administradas del cliente con el cifrado de Azure Storage requiere el establecimiento de dos propiedades en el almacén de claves, **Eliminación temporal** y **Do Not Purge** (No purgar). Estas propiedades no están habilitadas de forma predeterminada. Para habilitarlas, use PowerShell o la CLI de Azure.
-> Solo se admiten claves RSA y el tamaño de clave 2048.
+En este artículo se muestra cómo configurar Azure Key Vault con claves administradas por el cliente mediante la CLI de Azure. Para aprender a crear un almacén de claves mediante la CLI de Azure, consulte [Inicio rápido: Establecimiento y recuperación de un secreto desde Azure Key Vault mediante la CLI de Azure](../../key-vault/quick-create-cli.md).
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Asignación de una identidad a la cuenta de almacenamiento
 
@@ -44,9 +40,9 @@ az storage account update \
 
 Para obtener información sobre cómo configurar identidades administradas que haya asignado el sistema con la CLI de Azure, consulte [Configure managed identities for Azure resources on an Azure VM using Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md) (Configuración de identidades administradas de recursos de Azure en una VM de Azure con la CLI de Azure).
 
-## <a name="create-a-new-key-vault"></a>Crear un almacén de claves nuevo
+## <a name="create-a-new-key-vault"></a>Creación de un almacén de claves nuevo
 
-El almacén de claves que se usará para almacenar las claves que administre el cliente para el cifrado de Azure Storage debe tener dos configuraciones de protección de claves habilitadas: la **eliminación temporal** y la opción de **no purgar**. Para crear un nuevo almacén de claves con PowerShell o la CLI de Azure mediante esta configuración habilitada, ejecute los siguientes comandos. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores. 
+El almacén de claves que se usará para almacenar las claves que administre el cliente para el cifrado de Azure Storage debe tener dos configuraciones de protección de claves habilitadas: la **eliminación temporal** y la opción de **no purgar**. Para crear un nuevo almacén de claves con PowerShell o la CLI de Azure mediante esta configuración habilitada, ejecute los siguientes comandos. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores.
 
 Para crear un nuevo almacén de claves con la CLI de Azure, llame al comando [az keyvault create](/cli/azure/keyvault#az-keyvault-create). No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores.
 
@@ -58,6 +54,8 @@ az keyvault create \
     --enable-soft-delete \
     --enable-purge-protection
 ```
+
+Para obtener información sobre cómo habilitar **Eliminación temporal** y **No purgar** en un almacén de claves existente con la CLI de Azure, consulte las secciones tituladas **Habilitar la eliminación temporal** y **Habilitación de la protección de purgas** del artículo sobre [uso de la eliminación temporal con la CLI](../../key-vault/key-vault-soft-delete-cli.md).
 
 ## <a name="configure-the-key-vault-access-policy"></a>Configuración de la directiva de acceso del almacén de claves
 
@@ -88,11 +86,11 @@ az keyvault key create
     --vault-name <key-vault>
 ```
 
-## <a name="configure-encryption-with-customer-managed-keys"></a>Configurar el cifrado con claves que administra el cliente
+## <a name="configure-encryption-with-customer-managed-keys"></a>Configuración del cifrado con claves que administra el cliente
 
 De forma predeterminada, el cifrado de Azure Storage usa claves que administra Microsoft. Configure la cuenta de Azure Storage para las claves que administra el cliente y especifique la clave para asociar a la cuenta de almacenamiento.
 
-Para actualizar la configuración de cifrado de la cuenta de almacenamiento, llame a [az storage account update](/cli/azure/storage/account#az-storage-account-update). En este ejemplo también se consulta el identificador URI del almacén de claves y la última versión de la clave; ambos valores son necesarios para asociar la clave con la cuenta de almacenamiento. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores.
+Para actualizar la configuración de cifrado de la cuenta de almacenamiento, llame a [az storage account update](/cli/azure/storage/account#az-storage-account-update), tal y como se muestra en el ejemplo siguiente. Incluya el parámetro `--encryption-key-source` y establézcalo en `Microsoft.Keyvault` para habilitar claves administradas por el cliente para la cuenta de almacenamiento. En el ejemplo también se consulta el identificador URI del almacén de claves y la última versión de la clave; ambos valores son necesarios para asociar la clave con la cuenta de almacenamiento. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -105,7 +103,7 @@ key_version=$(az keyvault key list-versions \
     --vault-name <key-vault> \
     --query [-1].kid \
     --output tsv | cut -d '/' -f 6)
-az storage account update 
+az storage account update
     --name <storage-account> \
     --resource-group <resource_group> \
     --encryption-key-name <key> \
@@ -114,9 +112,24 @@ az storage account update
     --encryption-key-vault $key_vault_uri
 ```
 
-## <a name="update-the-key-version"></a>Actualizar la versión de la clave
+## <a name="update-the-key-version"></a>Actualización de la versión de la clave
 
-Cuando se crea una nueva versión de una clave, deberá actualizar la cuenta de almacenamiento para usar la nueva versión. En primer lugar, consulte el URI del almacén de claves mediante una llamada a [az keyvault show](/cli/azure/keyvault#az-keyvault-show) y, para la versión de la clave, llame a [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). A continuación, llame a [az storage account update](/cli/azure/storage/account#az-storage-account-update) para actualizar la configuración de cifrado de la cuenta de almacenamiento y así poder usar la nueva versión de la clave, tal como se muestra en la sección anterior.
+Al crear una nueva versión de una clave, tendrá que actualizar la cuenta de almacenamiento para que utilice la versión nueva. En primer lugar, consulte el URI del almacén de claves mediante una llamada a [az keyvault show](/cli/azure/keyvault#az-keyvault-show) y, para la versión de la clave, llame a [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). A continuación, llame a [az storage account update](/cli/azure/storage/account#az-storage-account-update) para actualizar la configuración de cifrado de la cuenta de almacenamiento y así poder usar la nueva versión de la clave, tal como se muestra en la sección anterior.
+
+## <a name="use-a-different-key"></a>Uso de una clave distinta
+
+Para cambiar la clave usada para el cifrado de Azure Storage, llame a [az storage account update](/cli/azure/storage/account#az-storage-account-update) tal y como se muestra en [Configuración del cifrado con claves que administra el cliente](#configure-encryption-with-customer-managed-keys) y proporcione el nombre y la versión de la nueva clave. Si la nueva clave se encuentra en otro almacén de claves, actualice también el URI del almacén de claves.
+
+## <a name="disable-customer-managed-keys"></a>Deshabilitación de claves administradas por el cliente
+
+Cuando se deshabilitan las claves administradas por el cliente, la cuenta de almacenamiento se cifra con claves administradas por Microsoft. Para deshabilitar las claves administradas por el cliente, llame [az storage account update](/cli/azure/storage/account#az-storage-account-update) y establezca el `--encryption-key-source parameter` en `Microsoft.Storage`, tal y como se muestra en el ejemplo siguiente. Recuerde reemplazar los valores de marcador de posición entre corchetes por sus propios valores y usar las variables definidas en los ejemplos anteriores.
+
+```powershell
+az storage account update
+    --name <storage-account> \
+    --resource-group <resource_group> \
+    --encryption-key-source Microsoft.Storage
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

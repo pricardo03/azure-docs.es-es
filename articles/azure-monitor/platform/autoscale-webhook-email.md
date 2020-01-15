@@ -1,19 +1,15 @@
 ---
 title: Uso de escalado automático para enviar notificaciones de alertas de webhook y correo electrónico
-description: 'Descubra cómo usar las acciones de escalado automático para llamar a direcciones URL web o enviar notificaciones de correo electrónico en Azure Monitor. '
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
+description: Aprenda a usar las acciones de escalado automático para llamar a direcciones URL web o enviar notificaciones de correo electrónico en Azure Monitor.
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: c1386f4058f9490bad0161b680005db6031bace1
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: fd5aeadd72123b58801ce038b0cc99d17dcfd200
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491526"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364210"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor
 En este artículo se muestra cómo configurar desencadenadores para que pueda llamar a direcciones URL web específicas o enviar mensajes de correo electrónico en función de las acciones de escalado automático en Azure.  
@@ -33,7 +29,7 @@ Puede participar desde Azure Portal en Cloud Services y granjas de servidores (a
 
 ## <a name="virtual-machine-scale-sets"></a>Conjuntos de escalado de máquina virtual
 Para las máquinas virtuales más recientes creadas con Resource Manager (conjuntos de escala de máquina virtual), puede configurar esto con la API de REST, las plantillas de Resource Manager, PowerShell y CLI. Aún no se encuentra disponible una interfaz de portal.
-Al utilizar la API de REST o la plantilla de Resource Manager, incluya el elemento de notificaciones con las siguientes opciones.
+Al utilizar la API REST o la plantilla de Resource Manager, incluya el elemento de notificaciones en el objeto [autoscalesettings](https://docs.microsoft.com/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) con las siguientes opciones.
 
 ```
 "notifications": [
@@ -60,15 +56,15 @@ Al utilizar la API de REST o la plantilla de Resource Manager, incluya el elemen
     ]
 ```
 
-| Campo | ¿Obligatorio? | DESCRIPCIÓN |
+| Campo | ¿Obligatorio? | Descripción |
 | --- | --- | --- |
-| operation |Sí |el valor debe ser "Scale" |
-| sendToSubscriptionAdministrator |Sí |el valor debe ser "true" o "false" |
-| sendToSubscriptionCoAdministrators |Sí |el valor debe ser "true" o "false" |
-| customEmails |Sí |el valor puede ser null [] o una cadena de matriz de mensajes de correo electrónico |
-| webhooks |Sí |el valor puede ser null o un identificador URI válido |
-| serviceUri |Sí |un identificador URI de https válido |
-| properties |Sí |el valor debe ser {} vacío o puede contener pares clave-valor |
+| operation |sí |el valor debe ser "Scale" |
+| sendToSubscriptionAdministrator |sí |el valor debe ser "true" o "false" |
+| sendToSubscriptionCoAdministrators |sí |el valor debe ser "true" o "false" |
+| customEmails |sí |el valor puede ser null [] o una cadena de matriz de mensajes de correo electrónico |
+| webhooks |sí |el valor puede ser null o un identificador URI válido |
+| serviceUri |sí |un identificador URI de https válido |
+| properties |sí |el valor debe ser {} vacío o puede contener pares clave-valor |
 
 ## <a name="authentication-in-webhooks"></a>Autenticación en Webhook
 El webhook puede realizar la autenticación con un método basado en token, en el que el URI del webhook se guarda con un identificador de token como un parámetro de consulta. Por ejemplo, https:\//mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
@@ -103,15 +99,15 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 ```
 
 
-| Campo | ¿Obligatorio? | DESCRIPCIÓN |
+| Campo | ¿Obligatorio? | Descripción |
 | --- | --- | --- |
-| status |Sí |Estado que indica que se ha generado una acción de escalado automático. |
-| operation |Sí |Para un aumento de instancias, será "Escalar horizontalmente"; para una disminución de instancias, "Reducir horizontalmente". |
-| context |Sí |Contexto de la acción de escalado automático. |
-| timestamp |Sí |Marca de tiempo cuando se desencadena la acción de escalado automático. |
+| status |sí |Estado que indica que se ha generado una acción de escalado automático. |
+| operation |sí |Para un aumento de instancias, será "Escalar horizontalmente"; para una disminución de instancias, "Reducir horizontalmente". |
+| context |sí |Contexto de la acción de escalado automático. |
+| timestamp |sí |Marca de tiempo cuando se desencadena la acción de escalado automático. |
 | id |Sí |Id. de Resource Manager de la configuración de escalado automático |
 | name |Sí |Nombre de la configuración de escalado automático. |
-| details |Sí |Explicación de la acción que realizó el servicio de escalado automático y el cambio en el recuento de instancias. |
+| detalles |Sí |Explicación de la acción que realizó el servicio de escalado automático y el cambio en el recuento de instancias. |
 | subscriptionId |Sí |Id. de suscripción del recurso de destino que se está escalando. |
 | resourceGroupName |Sí |Nombre del grupo de recursos del recurso de destino que se está escalando. |
 | resourceName |Sí |Nombre del recurso de destino que se está escalando. |
@@ -120,5 +116,5 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 | portalLink |Sí |Vínculo del portal de Azure a la página de resumen del recurso de destino. |
 | oldCapacity |Sí |Recuento de instancias (antiguo) actual cuando el escalado automático ha realizado una acción de escalado. |
 | newCapacity |Sí |Nuevo recuento de instancias al que el escalado automático escaló el recurso. |
-| properties |Sin |Opcional. Conjunto de pares <Clave, Valor> (por ejemplo, Diccionario <Cadena, Cadena>). El campo de propiedades es opcional. En una interfaz de usuario personalizada o un flujo de trabajo basado en una aplicación lógica, puede escribir las claves y los valores que se pueden transmitir utilizando la carga. La forma alternativa para transmitir propiedades personalizadas a la llamada de Webhook de salida es mediante el propio URI de Webhook (como parámetros de consulta). |
+| properties |No |Opcional. Conjunto de pares <Clave, Valor> (por ejemplo, Diccionario <Cadena, Cadena>). El campo de propiedades es opcional. En una interfaz de usuario personalizada o un flujo de trabajo basado en una aplicación lógica, puede escribir las claves y los valores que se pueden transmitir utilizando la carga. La forma alternativa para transmitir propiedades personalizadas a la llamada de Webhook de salida es mediante el propio URI de Webhook (como parámetros de consulta). |
 

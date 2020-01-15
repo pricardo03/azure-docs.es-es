@@ -1,18 +1,20 @@
 ---
-title: Uso de Azure Machine Learning en Azure Notebooks
-description: Información general de los cuadernos de ejemplo para Azure Machine Learning que puede usar con Azure Notebooks.
-ms.topic: article
+title: Uso de Azure Machine Learning en Azure Notebooks Preview
+description: Información general de los cuadernos de ejemplo de Azure Machine Learning que puede usar con Azure Notebooks Preview.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: e3c4fbdf35bf7ea1f4dddbceb9d7235c67ed13a4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3c0e0e9ccea079d7e8f4e35e9af2a0e1c1ec5051
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277454"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646959"
 ---
-# <a name="use-azure-machine-learning-in-a-notebook"></a>Uso de Azure Machine Learning en un cuaderno
+# <a name="use-azure-machine-learning-in-azure-notebooks-preview"></a>Uso de Azure Machine Learning en Azure Notebooks Preview
 
 Azure Notebooks viene preconfigurado con el entorno necesario para que funcione con [Azure Machine Learning](/azure/machine-learning/service/). Puede clonar fácilmente un proyecto de ejemplo en su cuenta de Notebooks para explorar una variedad de escenarios de Machine Learning.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="clone-the-sample-into-your-account"></a>Clonación del ejemplo en su cuenta
 

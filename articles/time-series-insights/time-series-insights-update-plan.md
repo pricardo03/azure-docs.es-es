@@ -1,6 +1,6 @@
 ---
 title: 'Planeamiento de un entorno de versión preliminar: Azure Time Series Insights | Microsoft Docs'
-description: Aprenda a planear un entorno de versión preliminar de Azure Time Series Insights.
+description: Procedimientos recomendados para configurar, administrar, planear e implementar el entorno en versión preliminar de Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9fb2dcf2c05b709340f8e9ae549bab5756e6abf2
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: c305da097a4474e6a4aa91ec0e784e627533ee43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420315"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452432"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planeamiento del entorno de versión preliminar de Azure Time Series Insights
 
@@ -48,7 +48,7 @@ Como parte del proceso de aprovisionamiento, especifique si desea habilitar un a
 Las consultas que están en el almacenamiento intermedio son gratuitas, mientras que las del almacenamiento en reposo generan costos. Es importante comprender los modelos de consulta y planear la configuración del almacenamiento intermedio correspondiente. Se recomienda que los análisis interactivos de los datos más recientes residan en el almacenamiento intermedio y el análisis de patrones y las tendencias a largo plazo residan en reposo.
 
 > [!NOTE]
-> Actualmente se admite un máximo de 1000 propiedades con el almacenamiento intermedio.
+> [Aquí](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters) puede obtener más información sobre cómo consultar los datos semiactivos.
 
 Para empezar, necesita tres elementos adicionales:
 

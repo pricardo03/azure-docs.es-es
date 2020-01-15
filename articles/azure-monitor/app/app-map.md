@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 305de556cc6e50af21cb38aa1b8073b420efbf43
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 006ea071ce1ab0354ecf191cdde2e031255ef4ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887764"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407680"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicación: Evaluación de prioridades de las aplicaciones distribuidas
 
@@ -69,13 +69,13 @@ Haga clic en **Ir a los detalles** para explorar una experiencia de transacción
 
 ![Captura de pantalla de los detalles de una transacción completa](media/app-map/end-to-end-transaction.png)
 
-### <a name="view-in-analytics"></a>Ver en Analytics
+### <a name="view-logs-analytics"></a>Visualización de Registros (Analytics)
 
-Para consultar e investigar aún más los datos de aplicaciones, haga clic en **Ver en Analytics**.
+Para consultar e investigar aún más los datos de aplicaciones, haga clic en **Ver en Registros (Analytics)** .
 
-![Captura de pantalla del botón Ver en Analytics](media/app-map/view-in-analytics.png)
+![Captura de pantalla del botón Ver en Analytics](media/app-map/view-logs.png)
 
-![Captura de pantalla de la experiencia con Analytics](media/app-map/analytics.png)
+![Captura de pantalla de la experiencia con Analytics. Gráfico de líneas que resume la duración media de respuesta de una solicitud en las últimas 12 horas.](media/app-map/log-analytics.png)
 
 ### <a name="alerts"></a>Alertas
 
@@ -180,7 +180,7 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### <a name="java"></a>Java
 
-A partir del SDK de Java 2.5.0 para Application Insights, puede especificar el nombre del rol en la nube agregando `<RoleName>` al archivo `ApplicationInsights.xml`. Por ejemplo:
+A partir del SDK de Java 2.5.0 para Application Insights, puede especificar el nombre del rol en la nube si agrega `<RoleName>` al archivo `ApplicationInsights.xml`, por ejemplo,
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -236,7 +236,7 @@ Un escenario en el que podría querer reemplazar el valor de la instancia de rol
 
 Para obtener más información sobre cómo reemplazar la propiedad de nombre de rol en la nube con inicializadores de telemetría, vea [Agregar propiedades: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si tiene dificultades para conseguir que el mapa de aplicación funcione según lo esperado, siga estos pasos:
 
@@ -278,4 +278,4 @@ Para proporcionar comentarios, use la opción de comentarios.
 
 * Para más información sobre cómo funciona la correlación en Application Insights, consulte el [artículo sobre la correlación de telemetría](https://docs.microsoft.com/azure/application-insights/application-insights-correlation).
 * La [experiencia de diagnóstico de transacción de un extremo a otro](transaction-diagnostics.md) correlaciona la telemetría del lado servidor con todos los componentes supervisados de Application Insights en una única vista.
-* En el caso de escenarios avanzados de correlación en ASP.NET Core y ASP.NET, consulte el artículo [seguimiento de operaciones personalizadas](custom-operations-tracking.md).
+* En el caso de escenarios avanzados de correlación en ASP.NET Core y ASP.NET, consulte el artículo sobre [seguimiento de operaciones personalizadas](custom-operations-tracking.md).

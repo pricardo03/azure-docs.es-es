@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/7/2019
-ms.openlocfilehash: 397ecdb805f0be9f374c53ae7128f806bfb789d3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 210c1814325e689dd70af9caa7fad08deed933e1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928289"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444499"
 ---
 # <a name="what-are-mapping-data-flows"></a>¿Qué son los flujos de datos de asignación?
 
@@ -61,6 +61,8 @@ Si ejecuta flujos de datos en una canalización en paralelo, ADF pondrá a punto
 
 De estas tres opciones, esta es la que probablemente se ejecutará en menos tiempo. Sin embargo, cada flujo de datos paralelo se ejecutará al mismo tiempo en clústeres diferentes, por lo que el orden de los eventos no es determinista.
 
+Si está ejecutando las actividades de flujo de datos en paralelo dentro de las canalizaciones, se recomienda no utilizar TTL. Esto se debe a que las ejecuciones paralelas de flujos de datos que usan simultáneamente la misma instancia de Azure Integration Runtime darán como resultado varias instancias de grupo semiactivas para la factoría de datos.
+
 ##### <a name="overload-single-data-flow"></a>Sobrecargar un flujo de datos único
 
 Si coloca toda la lógica dentro de un flujo de datos único, ADF se ejecutará íntegramente en ese mismo contexto de ejecución de trabajo en una única instancia de clúster de Spark.
@@ -85,11 +87,11 @@ La primera pestaña del panel de configuración de cada transformación contiene
 
 ![Pestaña de configuración de origen](media/data-flow/source1.png "Pestaña de configuración de origen")
 
-#### <a name="optimize"></a>Optimizar
+#### <a name="optimize"></a>Optimización
 
 La pestaña **Optimizar** contiene valores opcionales para configurar los esquemas de partición.
 
-![Optimize](media/data-flow/optimize1.png "Optimizar") (Optimizar)
+![Optimize](media/data-flow/optimize1.png "Optimización") (Optimizar)
 
 El ajuste predeterminado es **Use current partitioning** (Usar particiones actuales), que indica a Azure Data Factory que use el esquema de partición nativo para los flujos de datos que se ejecutan en Spark. En la mayoría de los escenarios, se recomienda esta opción.
 

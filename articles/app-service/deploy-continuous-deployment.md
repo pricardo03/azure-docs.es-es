@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/23/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 692b07c82c329a93d79ad3a87beec5dbe1c595d3
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: d58eb333c930d2ffac4eb57340ea776338325181
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669978"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680991"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementación continua en Azure App Service
 
@@ -27,7 +27,13 @@ Para usar Azure Repos, asegúrese de que su organización de Azure DevOps esté 
 
 En cuanto a Bitbucket o GitHub, autorice a Azure App Service a conectarse a su repositorio. Solo necesita realizar la autorización con un servicio de control de código fuente una vez. 
 
-1. Seleccione **App Services** en el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com) y seleccione la aplicación web que quiere implementar. 
+1. En [Azure Portal](https://portal.azure.com), busque y seleccione **App Services**. 
+
+   ![Busque App Services.](media/app-service-continuous-deployment/search-for-app-services.png)
+
+1. Seleccione la aplicación que quiere configurar.
+
+   ![Seleccione la aplicación.](media/app-service-continuous-deployment/select-your-app.png)
    
 1. En la página de la aplicación, seleccione **Deployment Center** (Centro de implementación) en el menú de la izquierda.
    
@@ -45,7 +51,7 @@ Después de autorizar un servicio de control de código fuente, configure su apl
 
 Puede usar el servidor de compilación de App Service para Kudu integrado para realizar implementaciones continuas desde GitHub, Bitbucket o Azure Repos. 
 
-1. Seleccione **App Services** en el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com) y seleccione la aplicación web que quiere implementar. 
+1. En [Azure Portal](https://portal.azure.com), busque y seleccione **App Services** y luego elija la aplicación web que quiere implementar. 
    
 1. En la página de la aplicación, seleccione **Deployment Center** (Centro de implementación) en el menú de la izquierda.
    
@@ -63,7 +69,7 @@ Puede usar el servidor de compilación de App Service para Kudu integrado para r
    - Para GitHub, despliegue el menú y seleccione la **organización**, el **repositorio** y la **rama** que quiere implementar continuamente.
      
      > [!NOTE]
-     > Si no ve ningún repositorio, es posible que deba autorizar Azure App Service en GitHub. Vaya a su repositorio de GitHub y a **Settings (Configuración)**  > **Applications (Aplicaciones)**  > **Authorized OAuth Apps** (Aplicaciones OAuth autorizadas). Seleccione **Azure App Service** y **Grant** (Conceder).
+     > Si no ve ningún repositorio, es posible que deba autorizar Azure App Service en GitHub. Vaya a su repositorio de GitHub y a **Settings (Configuración)**  > **Applications (Aplicaciones)**  > **Authorized OAuth Apps** (Aplicaciones OAuth autorizadas). Seleccione **Azure App Service** y **Grant** (Conceder). En el caso de los repositorios de la organización, debe ser propietario de la organización para conceder los permisos.
      
    - Para Bitbucket, seleccione el **equipo** , el **repositorio**  y la **rama**  de Bitbucket que quiere implementar continuamente.
      
@@ -96,7 +102,7 @@ Para que Azure App Service cree la entrega continua de Azure Pipelines en su org
 
 Para configurar Azure Pipelines (versión preliminar):
 
-1. Seleccione **App Services** en el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com) y seleccione la aplicación web que quiere implementar. 
+1. En [Azure Portal](https://portal.azure.com), busque y seleccione **App Services** y luego elija la aplicación web que quiere implementar. 
    
 1. En la página de la aplicación, seleccione **Deployment Center** (Centro de implementación) en el menú de la izquierda.
    
@@ -107,7 +113,7 @@ Para configurar Azure Pipelines (versión preliminar):
    - Para GitHub, despliegue el menú y seleccione la **organización**, el **repositorio** y la **rama** que quiere implementar continuamente.
      
      > [!NOTE]
-     > Si no ve ningún repositorio, es posible que deba autorizar Azure App Service en GitHub. Vaya a su repositorio de GitHub y a **Settings (Configuración)**  > **Applications (Aplicaciones)**  > **Authorized OAuth Apps** (Aplicaciones OAuth autorizadas). Seleccione **Azure App Service** y **Grant** (Conceder).
+     > Si no ve ningún repositorio, es posible que deba autorizar Azure App Service en GitHub. Vaya a su repositorio de GitHub y a **Settings (Configuración)**  > **Applications (Aplicaciones)**  > **Authorized OAuth Apps** (Aplicaciones OAuth autorizadas). Seleccione **Azure App Service** y **Grant** (Conceder). En el caso de los repositorios de la organización, debe ser propietario de la organización para conceder los permisos.
      
    - Para Azure Repos, seleccione la **organización de Azure DevOps** , el **proyecto**, el **repositorio** y la **rama** que quiere implementar continuamente o configure una organización de Azure DevOps nueva.
      

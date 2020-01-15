@@ -1,5 +1,5 @@
 ---
-title: 'Aprobación o denegación de solicitudes de acceso en la administración de derechos de Azure AD: Azure Active Directory'
+title: 'Aprobación o denegación de solicitudes de acceso: administración de derechos de Azure AD'
 description: Obtenga información sobre cómo usar el portal Mi acceso para aprobar o denegar solicitudes para un paquete de acceso en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3eb7960d58723d6fdd165841baea3416d5a84348
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 634e3532e13fcba5c9b802bd77c9530c0a831eb8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199772"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422515"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Aprobación o denegación de solicitudes de acceso en la administración de derechos de Azure AD
 

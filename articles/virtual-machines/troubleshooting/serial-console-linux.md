@@ -1,6 +1,6 @@
 ---
 title: Consola serie de Azure para Linux | Microsoft Docs
-description: Consola serie bidireccional para máquinas virtuales de Azure y conjuntos de escalado de máquinas virtuales.
+description: Consola serie bidireccional para máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -13,26 +13,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a9c1ca3ac55c1c995ac858e758d6930b49c5ea1c
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: abee04afca45a2d6f558858b4490c8be1f37a2f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287007"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451280"
 ---
 # <a name="azure-serial-console-for-linux"></a>Consola serie de Azure para Linux
 
 La consola serie de Azure Portal proporciona acceso a una consola basada en texto para las máquinas virtuales Linux y los conjuntos de escalado de máquinas virtuales. Esta conexión serie se conecta al puerto serie ttys0 de la máquina virtual o del conjunto de escalado de máquinas virtuales y ofrece acceso a ellos sin estar relacionada con el estado del sistema operativo o de la red. A la consola serie solo se puede acceder mediante Azure Portal; además, esta solo se permite a los usuarios que tienen un rol de acceso de colaborador o superior en el conjunto de escalado de máquinas virtuales o la máquina virtual.
 
-La consola serie funciona de la misma manera para las máquinas virtuales y las instancias de conjunto de escalado de máquinas virtuales. En este documento, todas las menciones a las máquinas virtuales incluirán implícitamente los conjuntos de escalado de máquinas virtuales, a menos que se indique lo contrario.
+La consola serie funciona de la misma manera para las máquinas virtuales y las instancias de conjunto de escalado de máquinas virtuales. En este documento, todas las menciones a las máquinas virtuales incluirán implícitamente las instancias de conjunto de escalado de máquinas virtuales, a menos que se indique lo contrario.
 
 Para la documentación sobre la consola serie para Windows, consulte [Consola serie para Windows](../windows/serial-console.md).
 
 > [!NOTE]
-> La consola serie está disponible con carácter general en regiones de Azure globales. Aún no está disponible en las nubes de Azure Government ni Azure China.
+> La consola serie está disponible con carácter general en regiones de Azure globales y en versión preliminar pública en Azure Government. Aún no está disponible en la nube de Azure en China.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - La máquina virtual o la instancia de conjunto de escalado de máquinas virtuales deben usar el modelo de implementación de Resource Manager. No se admiten las implementaciones clásicas.
 
@@ -101,7 +101,7 @@ Todos los datos enviados y recibidos se cifran en la conexión.
 Todo el acceso a la consola serie queda registrado en los registros de los [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) de la máquina virtual. El administrador de la máquina virtual de Azure es el propietario y el que controla el acceso a estos registros.
 
 > [!CAUTION]
-> Las contraseñas de acceso de la consola no se registran. Sin embargo, si los comandos ejecutados en la consola contienen o generan contraseñas, secretos, nombres de usuario o cualquier otra forma de información de identificación personal, se escribirán en los registros de diagnóstico de arranque de la máquina virtual. Se escribirán junto con el resto del texto visible, como parte de la implementación de la función de desplazamiento de la consola serie. Estos registros son circulares y solo tienen acceso a ellos aquellas personas con permisos de lectura a la cuenta de almacenamiento de diagnósticos. Sin embargo, recomendamos usar el Escritorio remoto para cualquier operación que pueda implicar secretos o información de identificación personal.
+> Las contraseñas de acceso de la consola no se registran. Sin embargo, si los comandos ejecutados en la consola contienen o generan contraseñas, secretos, nombres de usuario o cualquier otra forma de información de identificación personal, se escribirán en los registros de diagnóstico de arranque de la máquina virtual. Se escribirán junto con el resto del texto visible, como parte de la implementación de la función de desplazamiento de la consola serie. Estos registros son circulares y solo tienen acceso a ellos aquellas personas con permisos de lectura a la cuenta de almacenamiento de diagnósticos. Si va a incluir comandos de datos que contengan secretos o información de identificación personal, se recomienda usar SSH a menos que la consola serie sea absolutamente necesaria.
 
 ### <a name="concurrent-usage"></a>Uso simultáneo
 Si un usuario se conecta a la consola serie y otro usuario solicita correctamente acceso a esa misma máquina virtual, se desconectará el primer usuario y se conectará el segundo a la misma sesión.
@@ -169,7 +169,7 @@ A. Sí. La consola serie no requiere claves SSH, por lo que lo único que debe h
 ## <a name="next-steps"></a>Pasos siguientes
 * Uso de la consola serie para [acceder a GRUB y al modo de usuario único](serial-console-grub-single-user-mode.md).
 * Uso de la consola serie para [llamadas NMI y SysRq](serial-console-nmi-sysrq.md).
-* Aprenda a usar la consola serie para [habilitar GRUB en varias distribuciones](serial-console-grub-proactive-configuration.md). 
+* Aprenda a usar la consola serie para [habilitar GRUB en varias distribuciones](serial-console-grub-proactive-configuration.md).
 * La consola serie también está disponible para las [VM Windows](../windows/serial-console.md).
 * Obtenga más información sobre [diagnósticos de arranque](boot-diagnostics.md).
 
