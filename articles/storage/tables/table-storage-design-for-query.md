@@ -1,6 +1,6 @@
 ---
-title: Diseño de tablas de almacenamiento de Azure para consultas | Microsoft Docs
-description: Diseñe tablas para consultas en el almacenamiento en tablas de Azure.
+title: Diseño de almacenamiento de tablas de Azure para consultas | Microsoft Docs
+description: Diseñe tablas para consultas en el almacenamiento de tablas de Azure.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60325874"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457644"
 ---
 # <a name="design-for-querying"></a>Diseño de consulta
 Las soluciones de Table service pueden requerir mucha lectura, escritura o una combinación de ambas. Este artículo se centra en los aspectos que se deben tener en cuenta al diseñar su instancia de Table service para admitir operaciones de lectura de forma eficaz. Normalmente, un diseño que admite operaciones de lectura eficazmente también es eficaz para las operaciones de escritura. Sin embargo, hay algunos otros aspectos que hay que tener en cuenta durante el diseño para admitir operaciones de escritura y que se explican en el artículo [Diseño para la modificación de datos](table-storage-design-for-modification.md).
@@ -37,12 +37,12 @@ Los ejemplos siguientes asumen que Table service almacena las entidades employee
 
 | *Nombre de la columna* | *Tipo de datos* |
 | --- | --- |
-| **PartitionKey** (nombre de departamento) |Cadena |
-| **RowKey** (Identificación de empleado) |Cadena |
-| **Nombre** |Cadena |
-| **Apellidos** |Cadena |
+| **PartitionKey** (nombre de departamento) |String |
+| **RowKey** (Identificación de empleado) |String |
+| **Nombre** |String |
+| **Apellidos** |String |
 | **Edad** |Entero |
-| **EmailAddress** |Cadena |
+| **EmailAddress** |String |
 
 En el artículo [Introducción a Azure Table Storage](table-storage-overview.md) se describen algunas de las características clave de Azure Table service que influyen directamente en el diseño de consultas. Estos dan como resultado las siguientes directrices generales para diseñar consultas de Table service. Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos siguientes es de la API de REST de Table service. Para más información, consulte [Entidades de consulta](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
 

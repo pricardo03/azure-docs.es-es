@@ -1,20 +1,21 @@
 ---
-title: 'Determinación del modelo de clave de cifrado que está en uso para la cuenta de almacenamiento: Azure Storage'
+title: Determinación del modelo de clave de cifrado que está en uso para la cuenta de almacenamiento
+titleSuffix: Azure Storage
 description: Use Azure Portal, PowerShell o la CLI de Azure para comprobar cómo se administran las claves de cifrado para la cuenta de almacenamiento. Las claves las pueden administrar tanto Microsoft (valor predeterminado) como el cliente. Las claves administradas por el cliente se deben almacenar en Azure Key Vault.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/26/2019
+ms.date: 01/03/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 967e6f278008a59721d8d0c74e34c0252eeb1138
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 3806fead9226978c277e87f3d97b14ee38d9552d
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666520"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665423"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Determinación del modelo de clave de cifrado de Azure Storage que está en uso para la cuenta de almacenamiento
 

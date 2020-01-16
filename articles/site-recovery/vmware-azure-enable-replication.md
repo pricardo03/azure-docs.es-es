@@ -6,23 +6,34 @@ ms.service: site-recovery
 ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 1cc1ee82b45ecab17e4bcfb3a909fc90b33a1545
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 10b3e572ec61d1eff342f24a6a5a7bcba6276983
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954451"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495372"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitación de máquinas virtuales de VMware en Azure
 
 En este artículo se describe cómo habilitar la replicación de máquinas virtuales locales de VMware en Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="resolve-common-issues"></a>Resolución de problemas comunes
+
+* Cada disco debe tener menos de 4 TB.
+* El disco del sistema operativo debe ser un disco básico, no uno dinámico.
+* En el caso de las máquinas virtuales de generación 2 o habilitadas para UEFI, la familia del sistema operativo debe ser Windows y el disco de arranque debe tener menos de 300 GB.
+
+## <a name="prerequisites"></a>Prerequisites
 
 En este artículo se supone que ha:
 
 - [Configurado el entorno de origen local](vmware-azure-set-up-source.md).
 - [Configurado el entorno de destino en Azure](vmware-azure-set-up-target.md).
+- [Comprobado los requisitos y requisitos previos](vmware-physical-azure-support-matrix.md) antes de empezar. Aspectos importantes para tener en cuenta:
+    - [Sistemas operativos admitidos](vmware-physical-azure-support-matrix.md#replicated-machines) para máquinas replicadas.
+    - Compatibilidad con [almacenamiento y disco](vmware-physical-azure-support-matrix.md#storage).
+    - [Requisitos de Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements) con los que deben cumplir las máquinas locales.
+
 
 ## <a name="before-you-start"></a>Antes de comenzar
 A la hora de replicar máquinas virtuales de VMware, tenga en cuenta esta información:
@@ -61,12 +72,12 @@ Siga estos pasos para habilitar la replicación:
    
    ![Ventana Habilitar replicación: Destino](./media/vmware-azure-enable-replication/enable-rep3.png)
 
-1. En **Máquinas virtuales** > **Seleccionar máquinas virtuales**, seleccione cada máquina virtual que quiera replicar. Solo puede seleccionar aquellas máquinas virtuales para las que se pueda habilitar la replicación. Después seleccione **Aceptar**. Si no puede ver o seleccionar una máquina virtual concreta, vea [La máquina de origen no aparece en Azure Portal](https://aka.ms/doc-plugin-VM-not-showing) para resolver el problema.
+1. En **Máquinas virtuales** > **Seleccionar máquinas virtuales**, seleccione cada máquina virtual que quiera replicar. Solo puede seleccionar aquellas máquinas virtuales para las que se pueda habilitar la replicación. Después, seleccione **Aceptar**. Si no puede ver o seleccionar una máquina virtual concreta, vea [La máquina de origen no aparece en Azure Portal](https://aka.ms/doc-plugin-VM-not-showing) para resolver el problema.
 
     ![Ventana Habilitar replicación: Seleccionar máquinas virtuales](./media/vmware-azure-enable-replication/enable-replication5.png)
 
 1. En **Propiedades** > **Configurar propiedades**, seleccione la cuenta que usa el servidor de procesos para instalar automáticamente Mobility Service de Site Recovery en la máquina virtual. Además, elija el tipo de disco administrado de destino en el que replicar en función de los patrones de actividad de datos.
-10. De forma predeterminada, se replican todos los discos de una máquina virtual de origen. Para excluir discos de la replicación, desactive la casilla **Incluir** de aquellos discos que no quiera replicar. Después seleccione **Aceptar**. Puede establecer propiedades adicionales más adelante. Obtenga más información sobre la [exclusión de discos](vmware-azure-exclude-disk.md).
+10. De forma predeterminada, se replican todos los discos de una máquina virtual de origen. Para excluir discos de la replicación, desactive la casilla **Incluir** de aquellos discos que no quiera replicar. Después, seleccione **Aceptar**. Puede establecer propiedades adicionales más adelante. Obtenga más información sobre la [exclusión de discos](vmware-azure-exclude-disk.md).
 
     ![Ventana Habilitar replicación: Configurar propiedades](./media/vmware-azure-enable-replication/enable-replication6.png)
 
@@ -123,11 +134,7 @@ Los clientes de Microsoft Software Assurance pueden usar la Ventaja híbrida de 
 
 Más información sobre la [Ventaja híbrida de Azure](https://aka.ms/azure-hybrid-benefit-pricing).
 
-## <a name="resolve-common-issues"></a>Resolución de problemas comunes
 
-* Cada disco debe tener menos de 4 TB.
-* El disco del sistema operativo debe ser un disco básico, no uno dinámico.
-* En el caso de las máquinas virtuales de generación 2 o habilitadas para UEFI, la familia del sistema operativo debe ser Windows y el disco de arranque debe tener menos de 300 GB.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

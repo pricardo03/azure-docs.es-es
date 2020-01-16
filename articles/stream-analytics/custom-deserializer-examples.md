@@ -1,25 +1,24 @@
 ---
-title: Uso de deserializadores de .NET para trabajos de Azure Stream Analytics
+title: Lectura de la entrada en cualquier formato mediante los deserializadores personalizados de .NET en Azure Stream Analytics
 description: En este artículo se explica el formato de serialización y las interfaces que definen los deserializadores de .NET personalizados para trabajos perimetrales y en la nube de Azure Stream Analytics.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: f1452e56054948edffc6e9b3c98fa48d2589cb2a
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.date: 12/30/2019
+ms.openlocfilehash: a64912921e5ce8c0dc76fbf2ae0be8fb34bacf1a
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024936"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75553025"
 ---
-# <a name="use-net-deserializers-for-azure-stream-analytics-jobs"></a>Uso de deserializadores de .NET para trabajos de Azure Stream Analytics
+# <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Lectura de entradas en cualquier formato mediante deserializadores personalizados
 
-Los deserializadores de .NET personalizados permiten que el trabajo de Azure Stream Analytics lea los datos en formatos distintos de los [formatos de datos integrados](stream-analytics-parsing-json.md). En este artículo se explica el formato de serialización y las interfaces que definen los deserializadores de .NET personalizados para trabajos perimetrales y en la nube de Azure Stream Analytics. También hay deserializadores de ejemplo para el búfer de protocolo y el formato CSV.
+Los deserializadores de .NET personalizados permiten que el trabajo de Azure Stream Analytics lea los datos en formatos distintos de los tres [formatos de datos integrados](stream-analytics-parsing-json.md). En este artículo se explica el formato de serialización y las interfaces que definen los deserializadores de .NET personalizados para trabajos perimetrales y en la nube de Azure Stream Analytics. También hay deserializadores de ejemplo para el búfer de protocolo y el formato CSV.
 
-## <a name="custom-net-deserializer"></a>Deserializador de .NET personalizado
+## <a name="net-custom-deserializer"></a>Deserializador personalizado de .NET
 
 Los siguientes ejemplos de código son las interfaces que definen al deserializador personalizado e implementan `StreamDeserializer<T>`.
 
@@ -226,12 +225,12 @@ El siguiente código de JavaScript es un ejemplo del formato de serialización d
 
 Esta característica está disponible en las siguientes regiones:
 
-* Centro-oeste de EE. UU. (disponible)
-* Norte de Europa (disponible)
-* Este de EE. UU. (disponible)
-* Oeste de EE. UU. (implementación próxima)
-* Este de EE. UU. 2 (implementación próxima)
-* Oeste de Europa (implementación próxima)
+* Centro occidental de EE.UU.
+* Europa del Norte
+* East US
+* Oeste de EE. UU.
+* Este de EE. UU. 2
+* Europa occidental
 
 Puede [solicitar al soporte técnico](https://aka.ms/ccodereqregion) que agreguen regiones adicionales.
 
@@ -239,7 +238,7 @@ Puede [solicitar al soporte técnico](https://aka.ms/ccodereqregion) que agregue
 
 ### <a name="when-will-this-feature-be-available-in-all-azure-regions"></a>¿Cuándo estará disponible esta característica en todas las regiones de Azure?
 
-Esta característica está disponible en 6 regiones (#region-support). Si está interesado en usar esta funcionalidad en cualquier otra región, puede [enviar una solicitud](https://aka.ms/ccodereqregion). La compatibilidad con todas las regiones de Azure está en el plan de desarrollo.
+Esta característica está disponible en [6 regiones](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support). Si está interesado en usar esta funcionalidad en cualquier otra región, puede [enviar una solicitud](https://aka.ms/ccodereqregion). La compatibilidad con todas las regiones de Azure está en el plan de desarrollo.
 
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>¿Puedo acceder a MetadataPropertyValue desde mis entradas de forma similar a la función GetMetadataPropertyValue?
 

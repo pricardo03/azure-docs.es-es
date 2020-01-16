@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: bccf4fa0b17f261d41c0a80d9f75fe391f591bfb
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 7bc637b5719da3c5f5e5607436aa7da0721f5a9e
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671721"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680939"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementación de la aplicación en Azure App Service mediante FTP/S
 
@@ -21,15 +21,21 @@ El punto de conexión FTP/S de la aplicación ya está activo. No se necesita ni
 
 ## <a name="open-ftp-dashboard"></a>Apertura del panel FTP
 
-En [Azure Portal](https://portal.azure.com), abra la [página de recursos](../azure-resource-manager/manage-resources-portal.md#manage-resources) de la aplicación.
+1. En [Azure Portal](https://portal.azure.com), busque y seleccione **App Services**.
 
-Para abrir el panel FTP, haga clic en **Centro de implementación** > **FTP** > **Panel**.
+    ![Busque App Services.](media/app-service-continuous-deployment/search-for-app-services.png)
 
-![Apertura del panel FTP](./media/app-service-deploy-ftp/open-dashboard.png)
+2. Seleccione la aplicación web que quiere implementar.
+
+    ![Seleccione la aplicación.](media/app-service-continuous-deployment/select-your-app.png)
+
+3. Seleccione **Centro de implementación** > **FTP** > **Panel**.
+
+    ![Apertura del panel FTP](./media/app-service-deploy-ftp/open-dashboard.png)
 
 ## <a name="get-ftp-connection-information"></a>Obtención de la información de conexión para FTP
 
-En el panel FTP, haga clic en **Copiar** para copiar las credenciales de aplicación y el punto de conexión FTPS.
+En el panel FTP, seleccione **Copiar** para copiar las credenciales de aplicación y el punto de conexión FTPS.
 
 ![Copia de información de FTP](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
@@ -46,7 +52,7 @@ Se recomienda usar las **Credenciales de la aplicación** para implementar en su
 ## <a name="deploy-files-to-azure"></a>Implementación de archivos en Azure
 
 1. Desde el cliente de FTP (por ejemplo, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/) o [WinSCP](https://winscp.net/index.php)), use la información de conexión recopilada para conectarse a la aplicación.
-2. Copie los archivos y la estructura de directorio correspondiente al directorio [ **/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure)en Azure (o el directorio **/site/wwwroot/App_Data/Jobs/** para WebJobs).
+2. Copie los archivos y la estructura de directorio correspondiente al directorio [ **/site/wwwroot**](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure)en Azure (o el directorio **/site/wwwroot/App_Data/Jobs/** para WebJobs).
 3. Vaya a la dirección URL de la aplicación para comprobar que la aplicación se está ejecutando correctamente. 
 
 > [!NOTE] 
@@ -96,7 +102,7 @@ Para determinar un problema de implementación o de tiempo de ejecución, consul
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>No puedo usar FTP y publicar mi código. ¿Cómo se resuelve este problema?
 Compruebe que ha escrito las [credenciales](#open-ftp-dashboard) y el nombre de host correctos. Compruebe también que los siguientes puertos FTP de la máquina no estén bloqueados por firewall:
 
-- Puerto de conexión de control FTP: 21
+- Puerto de conexión de control de FTP: 21
 - Puerto de conexión de datos de FTP: 989, 10001-10300
  
 ### <a name="how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode"></a>¿Cómo me conecto a FTP en Azure App Service con el modo pasivo?

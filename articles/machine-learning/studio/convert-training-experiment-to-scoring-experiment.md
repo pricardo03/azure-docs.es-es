@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 4b07150ac9f35085763786c505d3d746428a542b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e397cfaa9ce521ebe3c2f46ef6cc015bff3112f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839677"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454820"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio-classic"></a>Preparación del modelo de implementación en Azure Machine Learning Studio (clásico)
 
 Azure Machine Learning Studio (clásico) ofrece las herramientas necesarias para desarrollar un modelo de análisis predictivo y después hacerlo operativo mediante la implementación como un servicio web de Azure.
 
-Para ello, utilice la versión clásica de Studio para crear un experimento, denominado *experimento de entrenamiento*, donde puede entrenar, puntuar y editar el modelo. Cuando esté satisfecho, el modelo estará listo para implementarlo mediante la conversión del experimento de entrenamiento en un *experimento predictivo* que está configurado para puntuar los datos de usuario.
+Para ello, utilice Studio (clásico) para crear un experimento, denominado *experimento de entrenamiento*, donde puede entrenar, puntuar y editar el modelo. Cuando esté satisfecho, el modelo estará listo para implementarlo mediante la conversión del experimento de entrenamiento en un *experimento predictivo* que está configurado para puntuar los datos de usuario.
 
 Puede ver un ejemplo de este proceso en el [Tutorial 1: Predicción del riesgo de crédito](tutorial-part1-credit-risk.md).
 

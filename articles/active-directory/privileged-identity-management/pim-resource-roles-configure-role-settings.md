@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c9acc1487fcbf8398b7a556c63f97963b264451
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 4db330a875b8241b642bcbc71fb0866c9833ee7e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74182706"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638687"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Configurar las opciones del rol de recursos de Azure en Privileged Identity Management
 
@@ -36,7 +36,7 @@ Siga estos pasos para abrir la configuración de un rol de recursos de Azure.
 
 1. Seleccione **Azure resources** (Recursos de Azure).
 
-1. Seleccione el recurso que quiere administrar, por ejemplo, una suscripción o un grupo de administración.
+1. Seleccione el recurso que desea administrar, por ejemplo, una suscripción o un grupo de administración.
 
     ![Página de recursos de Azure que muestra los recursos que se pueden administrar](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
@@ -58,10 +58,17 @@ Siga estos pasos para abrir la configuración de un rol de recursos de Azure.
 
 1. Use la pestaña **Notificación** o el botón **Siguiente: Activación** situado en la parte inferior de la página para ir a la pestaña Configuración de notificaciones de este rol. Estas opciones controlan todas las notificaciones de correo electrónico relacionadas con este rol.
 
-    > [!NOTE]
-    > Esta interfaz de usuario de notificaciones se está llevando a cabo actualmente en todas las regiones y suscripciones de Azure. Si no puede configurar estas notificaciones pormenorizadas, vuelva a consultar en un día o dos.
-
     ![Pestaña Notificaciones de rol en la página Configuración de rol](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
+
+    En la pestaña **Notificaciones** de la página Configuración de roles, Privileged Identity Management permite realizar un control pormenorizado sobre quién recibe las notificaciones y qué notificaciones reciben.
+
+    - **Desactivación de un correo electrónico**<br>Si desactiva la casilla de destinatario predeterminado y elimina los destinatarios adicionales, puede desactivar correos electrónicos específicos.  
+
+    - **Limite de correos electrónicos a direcciones especificadas**<br>Si desactiva la casilla destinatario predeterminado, puede desactivar los mensajes de correo electrónico enviados a destinatarios predeterminados. Después puede agregar direcciones de correo electrónico adicionales como destinatarios adicionales. Si desea agregar más de una dirección de correo electrónico, sepárelas con un punto y coma (;).
+
+    - **Envío de correos electrónicos a destinatarios predeterminados y a destinatarios adicionales**<br>Si selecciona la casilla de destinatario predeterminado y agrega direcciones de correo electrónico para destinatarios adicionales, puede enviar correos electrónicos al destinatario predeterminado y a destinatarios adicionales.
+
+    - **Solo correo electrónico crítico**<br>Para cada tipo de correo electrónico, puede activar la casilla para recibir solo correos electrónicos críticos. Esto significa que Privileged Identity Management continuará enviando mensajes de correo electrónico a los destinatarios configurados solo cuando el correo electrónico requiera una acción inmediata. Por ejemplo, no se desencadenarán los mensajes de correo electrónico que pidan a los usuarios que amplíen su asignación de roles, pero sí los que requieran que los administradores aprueben una solicitud de ampliación.
 
 1. Seleccione el botón **Actualizar** en cualquier momento para actualizar la configuración del rol.
 

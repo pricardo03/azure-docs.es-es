@@ -1,5 +1,5 @@
 ---
-title: Uso de Azure Database Migration Service para supervisar la actividad de migración | Microsoft Docs
+title: 'Supervisión de la actividad de migración: Azure Database Migration Service'
 description: Aprenda a usar Azure Database Migration Service para supervisar la actividad de migración.
 services: database-migration
 author: HJToland3
@@ -8,17 +8,17 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b3ba634ddb084b5637d0a0c97c0ac4ff72193c1d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60532799"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437930"
 ---
-# <a name="monitor-migration-activity"></a>Supervisión de la actividad de migración
+# <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Supervisión de la actividad de migración con Azure Database Migration Service
 En este artículo, aprenderá a supervisar el progreso de una migración tanto de nivel de base de datos como de tabla.
 
 ## <a name="monitor-at-the-database-level"></a>Supervisión de nivel de base de datos
@@ -46,7 +46,7 @@ En la tabla siguiente se enumeran los campos en la hoja de nivel de base de dato
       <td>La actividad de migración se está ejecutando.</td>
     </tr>
     <tr>
-      <td>Succeeded</td>
+      <td>Correcto</td>
       <td>Se ha realizado la actividad de migración sin problemas.</td>
     </tr>
     <tr>
@@ -63,7 +63,7 @@ En la tabla siguiente se enumeran los campos en la hoja de nivel de base de dato
       <td>La canalización de DMS está ejecutándose y realizando la migración.</td>
     </tr>
     <tr>
-      <td>Complete</td>
+      <td>Operación completada</td>
       <td>Migración completada.</td>
     </tr>
     <tr>
@@ -108,7 +108,7 @@ La parte inferior de la hoja enumera las tablas y muestra un resumen rápido del
 
 En la tabla siguiente se describen los campos que se muestran en los detalles de nivel de tabla.
 
-| Nombre del campo        | DESCRIPCIÓN       |
+| Nombre del campo        | Descripción       |
 | ------------- | ------------- |
 | **Carga completa efectuada**      | Número de tablas que han finalizado la carga completa de datos. |
 | **Carga completa en cola**      | Número de tablas que se están poniendo en cola para carga completa.      |
@@ -129,7 +129,7 @@ Hay dos pestañas que muestran el progreso de la migración en la carga completa
 
 En la tabla siguiente se describen los campos que se muestran en el progreso de la migración de nivel de tabla.
 
-| Nombre del campo        | DESCRIPCIÓN       |
+| Nombre del campo        | Descripción       |
 | ------------- | ------------- |
 | **Estado - Sincronizándose**      | Se está ejecutando la sincronización continua. |
 | **Insertar**      | Número de inserciones de CDC en las filas, que se aplican al destino.      |

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 40bddaab6db5e7ed777ec55ca469a9e2d1c35c98
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 893ef88647824398ec106a964cbacf118bb14308
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927541"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440332"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
 
@@ -49,15 +49,13 @@ Para copiar datos de un origen a un receptor, el servicio que ejecuta la activid
 
 ### <a name="supported-file-formats"></a>Formatos de archivos admitidos
 
-Puede usar la actividad de copia para copiar archivos tal y como están entre dos almacenes de datos basados en archivos. En este caso, los datos se copian de forma eficaz sin serialización ni deserialización.
-
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-Por ejemplo, puede realizar las siguientes actividades de copia:
+La actividad de copia se puede usar para copiar archivos tal cual entre dos almacenes de datos basados en archivos, en cuyo caso los datos se copian de manera eficaz sin serialización ni deserialización. Además, también puede analizar o generar archivos con un formato determinado; por ejemplo, puede realizar lo siguiente:
 
-* Copiar datos de una base de datos de SQL Server local y escribirlos en Azure Data Lake Storage Gen2 en formato Parquet
+* Copiar datos de una base de datos de SQL Server local y escribirlos en Azure Data Lake Storage Gen2 en formato Parquet.
 * Copiar archivos en formato de texto (CSV) desde el sistema de archivos local y escribirlos en Azure Blob Storage en formato Avro
-* Copiar archivos comprimidos del sistema de archivos local y, después, escribirlos en Azure Data Lake Storage Gen2
+* Copiar archivos comprimidos del sistema de archivos local, descomprimirlos sobre la marcha y escribirlos en Azure Data Lake Storage Gen2.
 * Copiar datos en formato de texto comprimido Gzip (CSV) de Azure Blob Storage y escribirlos en Azure SQL Database
 * Muchas más actividades que requieren serialización y deserialización o compresión y descompresión.
 
@@ -125,19 +123,20 @@ La plantilla siguiente de una actividad de copia contiene una lista completa de 
 
 #### <a name="syntax-details"></a>Detalles de la sintaxis
 
-| Propiedad | DESCRIPCIÓN | ¿Necesario? |
+| Propiedad | Descripción | ¿Necesario? |
 |:--- |:--- |:--- |
-| Tipo | Para una actividad de copia, establezca esta propiedad en `Copy`. | Sí |
+| type | Para una actividad de copia, establezca esta propiedad en `Copy`. | Sí |
 | inputs | Especifique el conjunto de datos que creó y que señala a los datos de origen. La actividad de copia admite solo una entrada. | Sí |
 | outputs | Especifique el conjunto de datos que creó y que señala a los datos del receptor. La actividad de copia admite solo una salida. | Sí |
 | typeProperties | Especifique las propiedades para configurar la actividad de copia. | Sí |
-| source | Especifique el tipo de origen de copia y las propiedades correspondientes para la recuperación de datos.<br/><br/>Para más información, consulte la sección "Propiedades de la actividad de copia" del artículo sobre conectores que aparece en [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats). | Sí |
-| sink | Especifique el tipo de receptor de copia y las propiedades correspondientes para escribir datos.<br/><br/>Para más información, consulte la sección "Propiedades de la actividad de copia" del artículo sobre conectores que aparece en [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats). | Sí |
-| translator | Especifique asignaciones de columna explícitas de origen a receptor. Esta propiedad se aplica cuando el comportamiento de copia predeterminado no satisface sus necesidades.<br/><br/>Para más información, consulte [Asignación de esquemas en la actividad de copia](copy-activity-schema-and-type-mapping.md). | Sin |
-| dataIntegrationUnits | Especifique una medida que represente la cantidad de potencia que emplea el [entorno de ejecución de integración de Azure](concepts-integration-runtime.md) para la copia de datos. Estas unidades se conocían anteriormente como unidades de movimiento de datos de nube (DMU). <br/><br/>Para más información, consulte [Unidades de integración de datos](copy-activity-performance.md#data-integration-units). | Sin |
-| parallelCopies | Especifique el paralelismo que quiere que use la actividad de copia al leer datos del origen y escribirlos en el receptor.<br/><br/>Para obtener más información, consulte [Copia paralela](copy-activity-performance.md#parallel-copy). | Sin |
-| enableStaging<br/>stagingSettings | Especifique si quiere almacenar provisionalmente los datos en una instancia de Blob Storage en lugar de copiarlos directamente del origen al receptor.<br/><br/>Para información sobre escenarios útiles y detalles de configuración, consulte [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy). | Sin |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Elija cómo controlar las filas incompatibles al copiar datos del origen al receptor.<br/><br/>Para más información, consulte [Tolerancia a errores](copy-activity-fault-tolerance.md). | Sin |
+| source | Especifique el tipo de origen de copia y las propiedades correspondientes para la recuperación de datos.<br/>Para más información, consulte la sección "Propiedades de la actividad de copia" del artículo sobre conectores que aparece en [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats). | Sí |
+| sink | Especifique el tipo de receptor de copia y las propiedades correspondientes para escribir datos.<br/>Para más información, consulte la sección "Propiedades de la actividad de copia" del artículo sobre conectores que aparece en [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats). | Sí |
+| translator | Especifique asignaciones de columna explícitas de origen a receptor. Esta propiedad se aplica cuando el comportamiento de copia predeterminado no satisface sus necesidades.<br/>Para más información, consulte [Asignación de esquemas en la actividad de copia](copy-activity-schema-and-type-mapping.md). | No |
+| dataIntegrationUnits | Especifique una medida que represente la cantidad de potencia que emplea el [entorno de ejecución de integración de Azure](concepts-integration-runtime.md) para la copia de datos. Estas unidades se conocían anteriormente como unidades de movimiento de datos de nube (DMU). <br/>Para más información, consulte [Unidades de integración de datos](copy-activity-performance.md#data-integration-units). | No |
+| parallelCopies | Especifique el paralelismo que quiere que use la actividad de copia al leer datos del origen y escribirlos en el receptor.<br/>Para obtener más información, consulte [Copia paralela](copy-activity-performance.md#parallel-copy). | No |
+| preservar | Especifique si desea conservar los metadatos o las ACL durante la copia de datos. <br/>Para obtener más información, vea [Conservación de metadatos](copy-activity-preserve-metadata.md). |No |
+| enableStaging<br/>stagingSettings | Especifique si quiere almacenar provisionalmente los datos en una instancia de Blob Storage en lugar de copiarlos directamente del origen al receptor.<br/>Para información sobre escenarios útiles y detalles de configuración, consulte [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy). | No |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Elija cómo controlar las filas incompatibles al copiar datos del origen al receptor.<br/>Para más información, consulte [Tolerancia a errores](copy-activity-fault-tolerance.md). | No |
 
 ## <a name="monitoring"></a>Supervisión
 
@@ -168,7 +167,7 @@ Seleccione el botón **Details** (Detalles) de la columna **Actions** (Acciones)
 
 Los detalles de la ejecución de la actividad de copia y las características de rendimiento también se devuelven en la sección **Copy Activity run result** > **Output** (Resultado de la ejecución de la actividad de copia -> Salida). A continuación se muestra una lista completa de las propiedades que pueden devolverse. Solo verá las propiedades que se aplican a su escenario de copia. Para información sobre cómo supervisar las ejecuciones de actividad, consulte [Supervisión de una ejecución de canalización](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
-| Nombre de propiedad  | DESCRIPCIÓN | Unidad |
+| Nombre de propiedad  | Descripción | Unidad |
 |:--- |:--- |:--- |
 | dataRead | Cantidad de datos leídos del origen. | Valor Int64 en bytes |
 | dataWritten | Cantidad de datos escritos en el receptor. | Valor Int64 en bytes |
@@ -238,13 +237,9 @@ Los detalles de la ejecución de la actividad de copia y las características de
 }
 ```
 
-## <a name="schema-and-data-type-mapping"></a>Asignación de tipo de datos y esquema
+## <a name="incremental-copy"></a>Copia incremental
 
-Para información sobre cómo la actividad de copia asigna los datos de origen al receptor, consulte [Asignación de tipo de datos y esquema](copy-activity-schema-and-type-mapping.md).
-
-## <a name="fault-tolerance"></a>Tolerancia a errores
-
-De forma predeterminada, la actividad de copia detiene la copia de datos y devuelve un error cuando las filas de datos de origen no son compatibles con las filas de datos del receptor. Para que la copia se realice correctamente, puede configurar la actividad de copia para omitir y registrar las filas incompatibles y copiar solo los datos compatibles. Para más información, consulte [Tolerancia a errores de la actividad de copia en Azure Data Factory](copy-activity-fault-tolerance.md).
+Data Factory permite la copia incremental de datos diferenciales de un almacén de datos de origen a un almacén de datos receptor. Para más información, consulte [Tutorial: Copia de datos de forma incremental](tutorial-incremental-copy-overview.md).
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 
@@ -258,8 +253,17 @@ En este ejemplo, durante la ejecución de una copia, Data Factory realiza un seg
 
 ![Supervisión de copia con sugerencias de optimización del rendimiento](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-## <a name="incremental-copy"></a>Copia incremental
-Data Factory permite la copia incremental de datos diferenciales de un almacén de datos de origen a un almacén de datos receptor. Para más información, consulte [Tutorial: Copia de datos de forma incremental](tutorial-incremental-copy-overview.md).
+## <a name="preserve-metadata-along-with-data"></a>Conservación de los metadatos junto con los datos
+
+Al copiar datos desde el origen al receptor, en escenarios como la migración de Data Lake, también puede optar por conservar los metadatos y las ACL junto con los datos mediante la actividad de copia. Consulte [Conservación de metadatos](copy-activity-preserve-metadata.md) para obtener más información.
+
+## <a name="schema-and-data-type-mapping"></a>Asignación de tipo de datos y esquema
+
+Para información sobre cómo la actividad de copia asigna los datos de origen al receptor, consulte [Asignación de tipo de datos y esquema](copy-activity-schema-and-type-mapping.md).
+
+## <a name="fault-tolerance"></a>Tolerancia a errores
+
+De forma predeterminada, la actividad de copia detiene la copia de datos y devuelve un error cuando las filas de datos de origen no son compatibles con las filas de datos del receptor. Para que la copia se realice correctamente, puede configurar la actividad de copia para omitir y registrar las filas incompatibles y copiar solo los datos compatibles. Para más información, consulte [Tolerancia a errores de la actividad de copia en Azure Data Factory](copy-activity-fault-tolerance.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte las guías de inicio rápido, los tutoriales y los ejemplos siguientes:

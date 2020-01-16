@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: a85f9f8b9d98f77cf673778f031d8f47f132fbe1
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 875d8f498fc8405a53d8fb60631c52ce09b30a62
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327344"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431925"
 ---
 # <a name="live-transcription-preview"></a>Transcripción en directo (versión preliminar)
 
@@ -102,7 +102,7 @@ Estos son los problemas conocidos de la versión preliminar de transcripción en
 
 * La característica solo está disponible en la región Oeste de EE. UU. 2.
 * Las aplicaciones deben usar las API de la versión preliminar que se describen en la [especificación Media Services v3 OpenAPI](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
-* El único idioma compatible es el inglés.
+* El único idioma compatible es el inglés (en-es).
 * Con respecto a la protección de contenido solo se admite el cifrado de sobre AES.
 
 ## <a name="next-steps"></a>Pasos siguientes

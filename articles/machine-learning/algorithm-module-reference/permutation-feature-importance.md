@@ -1,7 +1,7 @@
 ---
 title: 'Importancia de la característica de permutación: Referencia del módulo'
-titleSuffix: Azure Machine Learning service
-description: Aprenda a usar el módulo Permutation Feature Importance (Importancia de la característica de permutación) en Azure Machine Learning Service para calcular las puntuaciones de importancia de las características de permutación de las variables de características dado un modelo entrenado y un conjunto de datos de pruebas.
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar el módulo de importancia de la característica de permutación de Azure Machine Learning para calcular las puntuaciones de importancia de la característica de permutación de las variables de características dado un modelo entrenado y un conjunto de datos de prueba.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: ddd631b809d4a0635107069f48281db4c0a2e7e0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b939e88606fba5d7759e55239838d5308bf0563c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837552"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428487"
 ---
 # <a name="permutation-feature-importance"></a>Importancia de la característica de permutación
 
@@ -69,4 +69,4 @@ La razón de la diferencia es que Permutation Feature Importance (Importancia de
   
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

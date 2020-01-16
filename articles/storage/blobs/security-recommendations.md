@@ -1,0 +1,70 @@
+---
+title: Recomendaciones de seguridad para Blob Storage
+titleSuffix: Azure Storage
+description: Obtenga información acerca de las recomendaciones de seguridad para Blob Storage. La implementación de esta guía le ayudará a cumplir sus obligaciones de seguridad, tal como se describe en nuestro modelo de responsabilidad compartida.
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: conceptual
+ms.date: 12/18/2019
+ms.author: tamram
+ms.custom: security-recommendations
+ms.openlocfilehash: ee96ec85869cbde9d5fac540e9fbbaac88858daf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75474802"
+---
+# <a name="security-recommendations-for-blob-storage"></a>Recomendaciones de seguridad para Blob Storage
+
+Este artículo contiene recomendaciones de seguridad para Blob Storage. La implementación de estas recomendaciones le ayudará a cumplir sus obligaciones de seguridad, tal y como se describe en nuestro modelo de responsabilidad compartida. Para más información sobre lo que Microsoft hace para cumplir las responsabilidades del proveedor de servicios, consulte [Responsabilidades compartidas de la informática en la nube](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf).
+
+Algunas de las recomendaciones incluidas en este artículo se pueden supervisar automáticamente mediante Azure Security Center. Azure Security Center es la primera línea de defensa en la protección de los recursos de Azure. Para más información sobre Azure Security Center, consulte [¿Qué es Azure Security Center?](../../security-center/security-center-intro.md)
+
+Azure Security Center analiza periódicamente el estado de seguridad de los recursos de Azure para identificar posibles puntos vulnerables de la seguridad. Después, proporciona recomendaciones sobre cómo abordarlas. Para más información sobre las recomendaciones de seguridad de Azure Security Center, consulte [Recomendaciones de seguridad en Azure Security Center](../../security-center/security-center-recommendations.md).
+
+## <a name="data-protection"></a>Protección de los datos
+
+| Recomendación | Comentarios | Security Center |
+|-|----|--|
+| Usar el modelo de implementación de Azure Resource Manager | Cree cuentas de almacenamiento mediante el modelo de implementación de Azure Resource Manager, ya que así logrará importantes mejoras en la seguridad, entre las que se incluyen un control de acceso (RBAC) y una auditoría superiores, gobernanza e implementación basados en Resource Manager, acceso a identidades administradas, acceso a los secretos de Azure Key Vault y autorización y autenticación basadas en Azure AD para acceder a datos y recursos de Azure Storage. Si es posible, migre las cuentas de almacenamiento existentes que usan el modelo de implementación clásica para que usen Azure Resource Manager. Para más información sobre Azure Resource Manager, consulte [Introducción a Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
+| Habilitar la opción **Se requiere transferencia segura** en todas las cuentas de almacenamiento | Cuando habilite la opción **Se requiere transferencia segura**, deben usarse conexiones seguras para realizar todas las solicitudes realizadas en la cuenta de almacenamiento. Las solicitudes realizadas a través de HTTP producirán un error. Para más información, consulte [Requerir transferencia segura en Azure Storage](../common/storage-require-secure-transfer.md). | [Sí](../../security-center/security-center-sql-service-recommendations.md) |
+| Habilitar Advanced Threat Protection en todas las cuentas de almacenamiento | Advanced Threat Protection para Azure Storage proporciona un nivel adicional de inteligencia de seguridad que detecta intentos poco habituales y potencialmente peligrosos de acceder a las cuentas de almacenamiento o vulnerarlas. En Azure Security Center se desencadenan alertas de seguridad cuando se producen anomalías en alguna actividad y también se envían por correo electrónico a los administradores de las suscripciones con detalles de la actividad sospechosa y recomendaciones sobre cómo investigar y solucionar las amenazas. Para más información, consulte [Advanced Threat Protection para Azure Storage](../common/storage-advanced-threat-protection.md). | [Sí](../../security-center/security-center-sql-service-recommendations.md) |
+| Activar la eliminación temporal de datos de blobs | La eliminación temporal permite recuperar datos de blobs después de que se hayan eliminado. Para más información sobre la eliminación temporal, consulte [Eliminación temporal de blobs de Azure Storage](storage-blob-soft-delete.md). | - |
+| Almacenar datos críticos para la empresa en blobs inmutables | Configure las suspensiones legales y las directivas de retención durante un tiempo para almacenar los datos de los blobs en estado WORM (escribir una vez, leer muchas). Los blobs que se hayan almacenado de forma inmutable se pueden leer, pero no se pueden modificar ni eliminar mientras dure el intervalo de retención. Para más información, consulte [Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable](storage-blob-immutable-storage.md). | - |
+| Limitar los tokens de firma de acceso compartido (SAS) solo a conexiones HTTPS | Requerir HTTPS cuando un cliente usa un token de SAS para acceder a los datos de los blobs ayuda a minimizar el riesgo de espionaje. Para obtener más información, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../common/storage-sas-overview.md). | - |
+
+## <a name="identity-and-access-management"></a>Administración de identidades y acceso
+
+| Recomendación | Comentarios | Security Center |
+|-|----|--|
+| Usar Azure Active Directory (Azure AD) para autorizar el acceso a los datos de los blobs | Azure AD proporciona mayor seguridad y facilidad de uso que la clave compartida para autorizar solicitudes en Blob Storage. Para más información, consulte [Autenticación del acceso a blobs y colas de Azure con Azure Active Directory](../common/storage-auth-aad.md). | - |
+| Tener en cuenta la entidad de seguridad de menor privilegio al asignar permisos a una entidad de seguridad de Azure AD a través de RBAC | Al asignar un rol a un usuario, grupo o aplicación, conceda a esa entidad de seguridad exclusivamente los permisos necesarios para que pueda realizar sus tareas. La limitación del acceso a los recursos ayuda a prevenir el mal uso involuntario y malintencionado de los datos. | - |
+| Usar una SAS de delegación de usuario para conceder a los clientes acceso limitado a los datos de los blobs | Una SAS de delegación de usuarios está protegida con credenciales de Azure Active Directory (Azure AD) y también con los permisos especificados para la SAS. Una SAS de delegación de usuario tiene el mismo ámbito y función que una SAS de servicio, pero ofrece más seguridad. Para obtener más información, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). | - |
+| Proteger las claves de acceso de su cuenta con Azure Key Vault | Microsoft recomienda usar Azure AD para autorizar las solicitudes que se realicen a Azure Storage. Sin embargo, si debe usar la autorización de clave compartida, proteja sus claves de cuenta con Azure Key Vault. Estas claves se pueden recuperar del almacén de claves en tiempo de ejecución, en lugar de guardarlas con la aplicación. Para más información sobre Azure Key Vault, consulte [Introducción a Azure Key Vault](../../key-vault/key-vault-overview.md). | - |
+| Volver a generar las claves de cuenta periódicamente | El cambio periódico de las claves de una cuenta reduce el riesgo de exponer los datos a actores malintencionados. | - |
+| Tener en cuenta la entidad de seguridad de menor privilegio al asignar permisos a una SAS | Al crear una SAS, especifique solo aquellos permisos que el cliente requiera para realizar su función. La limitación del acceso a los recursos ayuda a prevenir el mal uso involuntario y malintencionado de los datos. | - |
+| Tener en vigor un plan de revocación para cualquier SAS que emita a los clientes | Si alguna SAS corre peligro, seguro que deseará poder revocarla lo antes posible. Para revocar una SAS de delegación de usuario, revoque la clave de delegación de usuario para invalidar rápidamente todas las firmas asociadas con ella. Para revocar una SAS de servicio asociada a una directiva de acceso almacenado, puede eliminar esta, cambiar el nombre de la directiva, o bien cambiar su tiempo de vencimiento a un tiempo pasado. Para obtener más información, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../common/storage-sas-overview.md).  | - |
+| Si una SAS de servicio no está asociada a una directiva de acceso almacenado, establezca el tiempo de vencimiento en una hora, o menos | Las SAS de servicio que no estén asociadas con alguna directiva de acceso almacenada no se pueden revocar. Por eso se recomienda limitar el tiempo de expiración para que la SAS sea válida durante una hora, o menos. | - |
+| Limitar el acceso de lectura público y anónimo a contenedores y blobs | El acceso de lectura público y anónimo a un contenedor y sus blobs concede a todos los clientes acceso de solo lectura a estos recursos. Evite habilitar el acceso de lectura público, salvo que el escenario lo requiera. | - |
+
+## <a name="networking"></a>Redes
+
+| Recomendación | Comentarios | Security Center |
+|-|----|--|
+| Habilitar reglas de firewall | Configure las reglas de firewall para limitar el acceso a su cuenta de almacenamiento a las solicitudes que partan de direcciones IP o intervalos especificados, o de una lista de subredes de una red virtual de Azure (VNet). Para más información sobre cómo configurar reglas de firewall, consulte [Configuración del proxy y el firewall de Azure File Sync](../files/storage-sync-files-firewall-and-proxy.md). | - |
+| Permitir que los servicios de Microsoft de confianza accedan a la cuenta de almacenamiento | La activación de las reglas de firewall para la cuenta de almacenamiento bloquea las solicitudes entrantes para los datos de forma predeterminada, a menos que las solicitudes procedan de un servicio que funcione en una instancia de Azure Virtual Network (VNet) o desde direcciones IP públicas permitidas. Las solicitudes que bloquean incluyen aquellas de otros servicios de Azure, desde Azure Portal, desde los servicios de registro y de métricas, etc. Para permitir solicitudes de otros servicios de Azure, agregue una excepción que permita que los servicios de Microsoft de confianza accedan a la cuenta de almacenamiento. Para más información sobre cómo agregar una excepción para servicios confiables de Microsoft, consulte [Configuración del proxy y el firewall de Azure File Sync](../files/storage-sync-files-firewall-and-proxy.md).| - |
+| Usar puntos de conexión privados | Un punto de conexión privado asigna una dirección IP privada de Azure Virtual Network (red virtual) a la cuenta de almacenamiento. Protege todo el tráfico que circule entre su red virtual y la cuenta de almacenamiento mediante un enlace privado. Para más información sobre los puntos de conexión privados, consulte [Conexión privada a una cuenta de almacenamiento mediante el punto de conexión privado de Azure](../../private-link/create-private-endpoint-storage-portal.md). | - |
+| Limitar el acceso a la red a determinadas redes | La limitación del acceso a la red a redes que hospeden clientes que requieran acceso reduce la exposición de sus recursos a ataques en la red. | [Sí](../../security-center/security-center-sql-service-recommendations.md) |
+
+## <a name="loggingmonitoring"></a>Registro y supervisión
+
+| Recomendación | Comentarios | Security Center |
+|-|----|--|
+| Hacer un seguimiento de cómo se autorizan las solicitudes | Habilite el registro de Azure Storage para realizar un seguimiento de cómo se autorizó cada solicitud realizada en Azure Storage. Los registros indican si una solicitud se realizó de forma anónima o mediante un token OAuth 2.0, una clave compartida o una firma de acceso compartido (SAS). Para más información, consulte [Registro de Azure Storage Analytics](../common/storage-analytics-logging.md). | - |
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Documentación de Azure Security Center](https://docs.microsoft.com//azure/security/)
+- [Documentación sobre desarrollo seguro](https://docs.microsoft.com/azure/security/develop/)

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 89b86124d6da0d0d659ed0673585eadbf1008aa3
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.custom: hdinsightactive
+ms.date: 01/02/2020
+ms.openlocfilehash: b45b27fd2e3dc6cf92d83934d571df25c2ce204f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847295"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644994"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight
 
@@ -36,12 +36,12 @@ Para crear un clúster de HDInsight que use Data Lake Storage Gen2 para el almac
 
 Cree una identidad administrada asignada por el usuario si todavía no tiene una.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. En la parte superior izquierda, haga clic en **Crear un recurso**.
 1. En el cuadro de búsqueda, escriba **usuario asignado** y haga clic en **Identidad administrada asignada por el usuario**.
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 1. Escriba un nombre para la identidad administrada y seleccione la suscripción, el grupo de recursos y la ubicación correctos.
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 
 Para obtener más información sobre cómo funcionan las identidades administradas en Azure HDInsight, vea [Identidades administradas en Azure HDInsight](hdinsight-managed-identities.md).
 
@@ -51,10 +51,10 @@ Para obtener más información sobre cómo funcionan las identidades administrad
 
 Cree una cuenta de almacenamiento de Azure Data Lake Storage Gen2.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. En la parte superior izquierda, haga clic en **Crear un recurso**.
 1. En el cuadro de búsqueda, escriba **almacenamiento** y haga clic en **Cuenta de almacenamiento**.
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 1. En la pantalla **Crear la cuenta de almacenamiento**:
     1. Seleccione la suscripción y el grupo de recursos correctos.
     1. Escriba un nombre para la cuenta de Data Lake Storage Gen2. Para más información sobre las convenciones de nomenclatura de la cuenta de almacenamiento, consulte [Convenciones de nomenclatura para los recursos de Azure](/azure/architecture/best-practices/resource-naming#storage).
@@ -100,7 +100,7 @@ Asigne la identidad administrada al rol **Propietario de datos de Storage Blob**
 
 Puede [descargar un archivo de plantilla de muestra](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) y [descargar un archivo de parámetros de muestra](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Antes de usar la plantilla y el fragmento de código de la CLI de Azure que aparecen a continuación, reemplace estos marcadores de posición por sus valores correctos:
 
-| Marcador de posición | DESCRIPCIÓN |
+| Marcador de posición | Descripción |
 |---|---|
 | `<SUBSCRIPTION_ID>` | Identificador de la suscripción de Azure |
 | `<RESOURCEGROUPNAME>` | El grupo de recursos donde quiere crear el nuevo clúster y la cuenta de almacenamiento. |
@@ -146,6 +146,10 @@ az group deployment create --name HDInsightADLSGen2Deployment \
     --template-file hdinsight-adls-gen2-template.json \
     --parameters parameters.json
 ```
+
+## <a name="create-a-cluster-with-data-lake-storage-gen2-through-azure-powershell"></a>Creación de un clúster con Data Lake Storage Gen2 mediante Azure PowerShell
+
+El uso de PowerShell para crear un clúster de HDInsight con Azure Data Lake Storage Gen2 no se admite actualmente.
 
 ## <a name="access-control-for-data-lake-storage-gen2-in-hdinsight"></a>Control de acceso para Data Lake Storage Gen2 en HDInsight
 
@@ -199,13 +203,13 @@ Los ejemplos se basan en una [conexión SSH](./hdinsight-hadoop-linux-use-ssh-un
 
 #### <a name="a-few-hdfs-commands"></a>Algunos comandos hdfs
 
-1. Creación de un archivo simple en el almacenamiento local.
+1. Crear un archivo simple en el almacenamiento local.
 
     ```bash
     touch testFile.txt
     ```
 
-1. Creación de directorios en el almacenamiento de clúster.
+1. Crear directorios en el almacenamiento de clúster.
 
     ```bash
     hdfs dfs -mkdir abfs://CONTAINERNAME@STORAGEACCOUNT.dfs.core.windows.net/sampledata1/
@@ -221,7 +225,7 @@ Los ejemplos se basan en una [conexión SSH](./hdinsight-hadoop-linux-use-ssh-un
     hdfs dfs -copyFromLocal testFile.txt  /sampledata3/
     ```
 
-1. Enumeración del contenido del directorio en el almacenamiento de clúster.
+1. Enumerar el contenido del directorio en el almacenamiento de clúster.
 
     ```bash
     hdfs dfs -ls abfs://CONTAINERNAME@STORAGEACCOUNT.dfs.core.windows.net/sampledata1/

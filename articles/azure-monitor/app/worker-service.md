@@ -1,18 +1,18 @@
 ---
-title: Application Insights para las aplicaciones de servicio de trabajo (aplicaciones sin HTTP) | Microsoft Docs
-description: Supervisión de aplicaciones de .NET Core/.NET Framework sin HTTP con Application Insights.
+title: Application Insights para las aplicaciones de Worker Service (aplicaciones no HTTP) | Microsoft Docs
+description: Supervisión de aplicaciones de .NET Core/.NET Framework que no son HTTP con Azure Monitor Application Insights.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/15/2019
-ms.openlocfilehash: 386c171e4785fac2c7fa6da39f249e211f4c660c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 12/16/2019
+ms.openlocfilehash: bea30ade6d9f6eb77d18c671b824b138ba94fddb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893305"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406179"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights para las aplicaciones de servicio de trabajo (aplicaciones sin HTTP)
 
@@ -24,7 +24,7 @@ El nuevo SDK no recopila telemetría por sí mismo. En su lugar, ofrece en otros
 
 El [SDK de Application Insights para el servicio de trabajo](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) es más adecuado para aplicaciones sin HTTP, independientemente de dónde y cómo se ejecuten. Si la aplicación se está ejecutando y tiene conectividad de red a Azure, se pueden recopilar datos de telemetría. La supervisión de Application Insights se admite siempre y cuando .NET Core sea compatible. Este paquete se puede usar en el [servicio de trabajo de .NET Core 3.0](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances) presentado recientemente, en [tareas en segundo plano en Asp.Net Core 2.1/2.2](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2), en aplicaciones de consola (.NET Core/.NET Framework), etc.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Una clave de instrumentación de Application Insights válida. Esta clave es necesaria para enviar los datos de telemetría a Application Insights. Si necesita crear un nuevo recurso de Application Insights para obtener un clave de instrumentación, consulte [Creación de recursos en Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
@@ -35,7 +35,7 @@ Una clave de instrumentación de Application Insights válida. Esta clave es nec
 
 ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.2" />
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.12.0" />
     </ItemGroup>
 ```
 
@@ -251,7 +251,8 @@ El ejemplo completo se comparte [aquí](https://github.com/microsoft/Application
                 IServiceCollection services = new ServiceCollection();
 
                 // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
-                // Hence instrumentation key must be specified here.
+                // Hence instrumentation key and any changes to default logging level must be specified here.
+                services.AddLogging(loggingBuilder => loggingBuilder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("Category", LogLevel.Information));
                 services.AddApplicationInsightsTelemetryWorkerService("instrumentationkeyhere");
 
                 // Build ServiceProvider.
@@ -319,7 +320,7 @@ La recopilación de dependencias está habilitada de manera predeterminada. En [
 
 ### <a name="manually-tracking-additional-telemetry"></a>Seguimiento manual de la telemetría adicional
 
-Aunque el SDK recopila automáticamente la telemetría como se explicó anteriormente, en la mayoría de los casos el usuario deberá enviar telemetría adicional al servicio Application Insights. La manera recomendada de realizar el seguimiento de la telemetría adicional es obtener una instancia de `TelemetryClient` de la inserción de dependencias y, a continuación, llamar a uno de los métodos admitidos de `TrackXXX()` [API](api-custom-events-metrics.md) en ella. Otro caso de uso típico es el [seguimiento personalizado de las operaciones](custom-operations-tracking.md). Este enfoque se muestra en los ejemplos de trabajo anteriores.
+Aunque el SDK recopila automáticamente la telemetría como se explicó anteriormente, en la mayoría de los casos el usuario deberá enviar telemetría adicional al servicio Application Insights. El mecanismo recomendado para hacer un seguimiento de esta telemetría adicional consiste en obtener una instancia de `TelemetryClient` a partir de la inserción de dependencias y llamar después a uno de los métodos `TrackXXX()` de la [API](api-custom-events-metrics.md) admitidos. Otro caso de uso típico es el [seguimiento personalizado de las operaciones](custom-operations-tracking.md). Este enfoque se muestra en los ejemplos de trabajo anteriores.
 
 ## <a name="configure-the-application-insights-sdk"></a>Configuración del SDK de Application Insights
 
@@ -354,14 +355,14 @@ Tenga en cuenta que `ApplicationInsightsServiceOptions` en este SDK está en el 
 
 Configuraciones que se suelen usar en `ApplicationInsightsServiceOptions`
 
-|Configuración | DESCRIPCIÓN | Valor predeterminado
+|Configuración | Descripción | Valor predeterminado
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Habilitar o deshabilitar la característica LiveMetrics | true
 |EnableAdaptiveSampling | Habilitar o deshabilitar el muestreo adaptable | true
 |EnableHeartbeat | Habilitar o deshabilitar la característica de latidos, que periódicamente (cada 15 minutos de forma predeterminada) envía una métrica personalizada denominada "HeartBeatState" con información sobre el entorno de ejecución, por ejemplo, la versión de .NET, información del entorno de Azure, si procede, etc. | true
 |AddAutoCollectedMetricExtractor | Habilitar o deshabilitar el extractor de AutoCollectedMetrics, que es un elemento TelemetryProcessor que envía métricas previamente agregadas sobre las solicitudes o dependencias antes de que tenga lugar el muestreo. | true
 
-Consulte los [valores configurables en `ApplicationInsightsServiceOptions` ](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) para obtener la lista más actualizada.
+Consulte los [valores configurables en `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) para obtener la lista más actualizada.
 
 ### <a name="sampling"></a>muestreo
 

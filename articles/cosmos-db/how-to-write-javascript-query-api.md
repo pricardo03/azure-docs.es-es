@@ -1,17 +1,17 @@
 ---
-title: Escritura de procedimientos almacenados y desencadenadores con la API de consulta de Javascript en Azure Cosmos DB
+title: Escritura de procedimientos almacenados y desencadenadores con la API de consulta de JavaScript en Azure Cosmos DB
 description: Aprenda a escribir procedimientos almacenados y desencadenadores con la API de consulta de Javascript en Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 96ecd77cb955d5e63cdcae8657e3096bbbadba89
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 221a3118808a044ef1b1b822b9c95772bf792f34
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092876"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441707"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Escritura de procedimientos almacenados y desencadenadores en Azure Cosmos DB con la API de consulta de Javascript
 

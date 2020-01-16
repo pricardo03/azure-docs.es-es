@@ -1,17 +1,17 @@
 ---
 title: Control de los tipos de contenido
-description: Más información sobre cómo Logic Apps controla los tipos de contenido en el tiemp de diseño y el tiempo de ejecución
+description: Aprenda a administrar varios tipos de contenido de los flujos de trabajo durante el tiempo de diseño y el tiempo de ejecución en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: 75d9285c4a838c2057c0f23841c3a2f465789c7c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791523"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666880"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Control de tipos de contenido en Azure Logic Apps
 

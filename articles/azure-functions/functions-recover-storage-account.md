@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 212f10bd33479e5a9f7244d5b2090c0324f937c2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 358f26af8d990d29f226978387fdf8093d2b8644
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226758"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612979"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Solución de problemas de acceso a Azure Functions Runtime
 
@@ -23,7 +23,7 @@ Este documento está pensado para solucionar el error siguiente que aparece en e
 ### <a name="summary"></a>Resumen
 Este problema se produce cuando no se puede iniciar Azure Functions Runtime. La razón más común para que se produzca este error es que la aplicación de función pierde el acceso a su cuenta de almacenamiento. [Más información sobre los requisitos de la cuenta de almacenamiento](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
-### <a name="troubleshooting"></a>solución de problemas
+### <a name="troubleshooting"></a>Solución de problemas
 Le guiaremos con los cuatro casos de error más comunes y le ayudaremos a identificar y resolver cada uno de ellos.
 
 1. Eliminación de la cuenta de almacenamiento
@@ -31,6 +31,8 @@ Le guiaremos con los cuatro casos de error más comunes y le ayudaremos a identi
 1. Credenciales de la cuenta de almacenamiento no válidas
 1. Falta de acceso a la cuenta de almacenamiento
 1. Cuota de ejecución diaria total
+1. Aplicación detrás de un firewall
+
 
 ## <a name="storage-account-deleted"></a>Eliminación de la cuenta de almacenamiento
 
@@ -80,6 +82,12 @@ Si tiene una cuota de ejecución diaria configurada, la instancia de Function Ap
 * Para comprobarlo, abra Características de la plataforma > Configuración de Function App en el portal. Verá el siguiente mensaje si supera la cuota
     * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
 * Elimine la cuota y reinicie la aplicación para resolver el problema.
+
+## <a name="app-is-behind-a-firewall"></a>Aplicación detrás de un firewall
+
+El entorno de ejecución de la función no estará accesible si la aplicación de funciones está hospedada en una instancia de [App Service Environment con equilibro de carga interno](../app-service/environment/create-ilb-ase.md) y está configurada para bloquear el tráfico entrante de Internet o tiene [restricciones de IP de entrada](functions-networking-options.md#inbound-ip-restrictions) configuradas para bloquear el acceso a Internet. Azure Portal realiza llamadas directamente a la aplicación en ejecución para capturar la lista de funciones y también realiza una llamada HTTP a un punto de conexión de KUDU. La configuración de nivel de plataforma en la pestaña `Platform Features` seguirá estando disponible.
+
+* Para comprobar la configuración de ASE, vaya al grupo de seguridad de red de la subred donde se encuentra ASE y valide las reglas de entrada para permitir el tráfico procedente de la dirección IP pública del equipo desde el que se accede a la aplicación. También puede usar el portal desde un equipo conectado a la red virtual que ejecuta la aplicación o una máquina virtual que se ejecuta en la red virtual. [Obtenga más información sobre la configuración de reglas de entrada aquí](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

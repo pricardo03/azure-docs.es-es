@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 3911d4e780e993fdd1c2945b34cd683d47fb884a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 24777c0b14bc6bb16a5f9c5c8213a9f3d524833e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827289"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408664"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Uso del módulo de servicios de Azure Maps
 
@@ -29,17 +29,17 @@ El SDK web de Azure Maps proporciona un *módulo de servicios*. Este módulo es 
         <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
         ```
 
-    - Cargar el código de origen del SDK web de Azure Maps localmente mediante el paquete npm [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) y, a continuación, hospedarlo con la aplicación. Este paquete también incluye las definiciones de TypeScript. Use este comando:
+    - Si lo desea, también puede cargar localmente el módulo de servicios del SDK web de Azure Maps utilizando el paquete npm [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) y hospedarlo después con la aplicación. Este paquete también incluye las definiciones de TypeScript. Use este comando:
     
         > **npm install azure-maps-rest**
     
         A continuación, agregue una referencia de script al elemento `<head>` del archivo:
 
          ```html
-        <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
+        <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
          ```
 
-1. Cree una canalización de autenticación. Debe crear la canalización antes de inicializar un punto de conexión de cliente de la dirección URL de servicio. Use su propia clave de cuenta de Azure Maps o las credenciales de Azure Active Directory (Azure AD) para autenticar el cliente de servicio de búsqueda de Azure Maps. En este ejemplo, se creará el cliente de dirección URL de servicio de búsqueda. 
+1. Cree una canalización de autenticación. Para poder inicializar un punto de conexión de cliente con la dirección URL del servicio, primero debe crearse la canalización. Use su propia clave de cuenta de Azure Maps o las credenciales de Azure Active Directory (Azure AD) para autenticar el cliente de servicio de búsqueda de Azure Maps. En este ejemplo, se creará el cliente de dirección URL de servicio de búsqueda. 
 
     Si usa una clave de suscripción para la autenticación:
 
@@ -162,6 +162,28 @@ El SDK web de Azure Maps proporciona un *módulo de servicios*. Este módulo es 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Uso del módulo de servicios" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>Using the Services Module</a> (Uso de módulo de servicios) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+<br/>
+
+## <a name="azure-government-cloud-support"></a>Compatibilidad con la nube de Azure Government
+
+El SDK web de Azure Maps es compatible con la nube de Azure Government. Todas las direcciones URL de JavaScript y CSS que se usan para acceder al SDK web de Azure Maps siguen siendo las mismas; sin embargo, es necesario realizar las tareas siguientes para conectarse a la versión de la plataforma Azure Maps situada en la nube de Azure Government.
+
+Cuando utilice el control de mapas interactivos, agregue la siguiente línea de código antes de crear una instancia de la clase `Map`. 
+
+```javascript
+atlas.setDomain('atlas.azure.us');
+```
+
+No olvide usar los datos de autenticación de Azure Maps de la plataforma en la nube de Azure Government cuando autentique el mapa y los servicios.
+
+Si utiliza el módulo de servicios, el dominio de los servicios debe definirse al crear una instancia de un punto de conexión de la dirección URL de la API. Por ejemplo, el código siguiente crea una instancia de la clase `SearchURL` y hace que el dominio apunte a la nube de Azure Government.
+
+```javascript
+var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
+```
+
+Si tiene acceso directo a los servicios REST de Azure Maps, cambie el dominio de la dirección URL a `atlas.azure.us`. Por ejemplo, si utiliza el servicio de API de búsqueda, cambie el dominio de la dirección URL de `https://atlas.microsoft.com/search/` a `https://atlas.azure.us/search/`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

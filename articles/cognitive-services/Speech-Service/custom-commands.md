@@ -1,7 +1,7 @@
 ---
 title: 'Comandos personalizados (versión preliminar): servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: Información general sobre las características, funcionalidades y restricciones de los comandos personalizados (versión preliminar), una solución para crear asistentes de voz.
+description: Información general sobre las características, funcionalidades y restricciones de Custom Commands (versión preliminar), que es una solución para crear aplicaciones de voz.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: dd3e27aefe03ee30e721fcbb915d9ad4b3821618
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 9349969f1f9b037a271cb727233517daba999acd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806310"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446978"
 ---
 # <a name="custom-commands-preview"></a>Comandos personalizados (versión preliminar)
 
-[Los asistentes de voz](voice-assistants.md) escuchan a los usuarios y realizan una acción en respuesta, lo que a menudo implica una respuesta. Utilizan [conversión de voz en texto](speech-to-text.md) para transcribir la voz del usuario y, a continuación, realizan una acción en función de su comprensión del lenguaje natural del texto. Esta acción suele incluir una respuesta hablada del asistente generada con la [conversión de texto en voz](text-to-speech.md). Los dispositivos se conectan con los asistentes mediante el objeto `DialogServiceConnector` del SDK de Voz.
+Las aplicaciones de voz, como los [asistentes de voz](voice-assistants.md), escuchan a los usuarios y realizan una acción en consecuencia, lo que a menudo implica una respuesta. Utilizan [conversión de voz en texto](speech-to-text.md) para transcribir la voz del usuario y, a continuación, realizan una acción en función de su comprensión del lenguaje natural del texto. Esta acción suele incluir una respuesta hablada del asistente generada con la [conversión de texto en voz](text-to-speech.md). Los dispositivos se conectan con los asistentes mediante el objeto `DialogServiceConnector` del SDK de Voz.
 
-**Comandos personalizados (versión preliminar)** es una solución simplificada para crear un asistente de voz. Proporciona una experiencia de creación unificada, un modelo de hospedaje automático y una complejidad relativamente inferior en comparación con otras opciones de creación de asistentes como [Direct Line Speech](direct-line-speech.md). Sin embargo, esta simplificación conlleva una reducción en la flexibilidad. Por lo tanto, los comandos personalizados (versión preliminar) son más adecuados para escenarios de finalización de tareas o de comando y control. Es especialmente adecuado para los dispositivos de Internet de las cosas (IoT) y sin periféricos.
+**Custom Commands (versión preliminar)** es una solución simplificada para crear aplicaciones de voz. Proporciona una experiencia de creación unificada, un modelo de hospedaje automático y una complejidad relativamente inferior, en comparación con otras opciones como [Direct Line Speech](direct-line-speech.md). Sin embargo, esta simplificación conlleva una reducción en la flexibilidad. Por lo tanto, los comandos personalizados (versión preliminar) son más adecuados para escenarios de finalización de tareas o de comando y control. Es especialmente adecuado para los dispositivos de Internet de las cosas (IoT) y sin periféricos.
 
 Para una interacción e integración de conversaciones complejas con otras soluciones como la [solución de Virtual Assistant y la plantilla empresarial](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview), se recomienda usar Direct Line Speech.
 
@@ -31,7 +31,7 @@ Los candidatos adecuados para los comandos personalizados (versión preliminar) 
 
 ## <a name="getting-started-with-custom-commands-preview"></a>Introducción a los comandos personalizados (versión preliminar)
 
-El primer paso para usar comandos personalizados (versión preliminar) para realizar un asistente de voz es [obtener una clave de suscripción de voz](get-started.md) y acceder al generador de comandos personalizados (versión preliminar) en [Speech Studio](https://speech.microsoft.com). Desde allí, puede crear una nueva aplicación de comandos personalizados (versión preliminar) y publicarla, tras lo cual una aplicación en el dispositivo podrá comunicarse con ella mediante el SDK de Voz.
+El primer paso para usar Custom Commands (versión preliminar) para crear una aplicación de voz es [obtener una clave de suscripción al Servicio de voz](get-started.md) y acceder a Custom Commands Builder (versión preliminar) en [Speech Studio](https://speech.microsoft.com). Desde allí, puede crear una nueva aplicación de comandos personalizados (versión preliminar) y publicarla, tras lo cual una aplicación en el dispositivo podrá comunicarse con ella mediante el SDK de Voz.
 
    ![Flujo de creación de comandos personalizados (versión preliminar)](media/voice-assistants/custom-commands-flow.png "Flujo de creación de los comandos personalizados (versión preliminar)")
 
@@ -41,24 +41,15 @@ Le ofrecemos inicios rápidos diseñados para que ejecute el código en menos de
 * [Creación de una aplicación de comandos personalizados (versión preliminar) con parámetros](quickstart-custom-speech-commands-create-parameters.md)
 * [Conexión a una aplicación de comandos personalizados (versión preliminar) con el SDK de Voz, C#](quickstart-custom-speech-commands-speech-sdk.md)
 
-## <a name="sample-code"></a>Código de ejemplo
+Una vez que haya terminado con los inicios rápidos, explore nuestros procedimientos.
 
-El código de ejemplo para crear un asistente de voz con los comandos personalizados (versión preliminar) está disponible en GitHub.
-
-* [Ejemplos del asistente de voz (SDK)](https://aka.ms/csspeech/samples)
-
-## <a name="customization"></a>Personalización
-
-Los asistentes de voz creados mediante el servicio de voz pueden usar la amplia variedad de opciones de personalización disponibles para la [conversión de voz en texto](speech-to-text.md), la [conversión de texto en voz](text-to-speech.md) y la [selección de palabras claves personalizadas](speech-devices-sdk-create-kws.md).
-
-> [!NOTE]
-> Las opciones de personalización varían según el idioma o la configuración regional (consulte los [idiomas admitidos](supported-languages.md)).
-
-## <a name="reference-docs"></a>Documentos de referencia
-
-* [Speech SDK](speech-sdk-reference.md)
+- [Adición de validaciones a los parámetros de Comandos personalizados](./how-to-custom-speech-commands-validations.md)
+- [Realización de comandos en el cliente con el SDK de Voz](./how-to-custom-speech-commands-fulfill-sdk.md)
+- [Adición de una confirmación a un Comando personalizado](./how-to-custom-speech-commands-confirmations.md)
+- [Incorporación de una corrección de un paso a un comando personalizado](./how-to-custom-speech-commands-one-step-correction.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Obtenga una clave de suscripción gratuita a los servicios de Voz](get-started.md)
+* [Vaya a Speech Studio para probar Custom Commands](https://speech.microsoft.com)
 * [Obtención del SDK de voz](speech-sdk.md)

@@ -1,26 +1,18 @@
 ---
-title: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs
+title: 'Introducción a la característica Microsoft Threat Modeling Tool: Azure'
 description: Información acerca de todas las características disponibles en Threat Modeling Tool
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: e3c6769cc832a897cfbab5548de5328d743884b2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728496"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552124"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Información general de las características de Threat Modeling Tool
 
@@ -150,13 +142,13 @@ Puede conectar elementos de dos maneras:
 - **Arrastrar y colocar**: arrastre el flujo de datos deseado a la cuadrícula y conecte ambos extremos a los elementos correspondientes.
 - **Hacer clic + Mayús**: haga clic en el primer elemento (enviar datos) y mantenga presionada la tecla Mayús y luego seleccione el segundo elemento (recibir datos). Haga clic con el botón derecho y seleccione **Conectar**. Si usa un flujo de datos bidireccional, el orden no es tan importante.
 
-### <a name="properties"></a>properties (Propiedades)
+### <a name="properties"></a>Propiedades
 
  Para ver las propiedades que pueden modificarse en las galerías de símbolos, seleccione la galería de símbolos y la información se rellena en consecuencia. En el ejemplo siguiente se muestra la situación antes y después de arrastrar una galería de símbolos **Base de datos** al diagrama:
 
-#### <a name="before"></a>Antes
+#### <a name="before"></a>Antes del
 
-![Antes](./media/threat-modeling-tool-feature-overview/properties1.png)
+![Antes del](./media/threat-modeling-tool-feature-overview/properties1.png)
 
 #### <a name="after"></a>Después
 

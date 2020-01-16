@@ -1,5 +1,5 @@
 ---
-title: Uso de Java con archivos y listas de control de acceso (ACL) en Azure Data Lake Storage Gen2 (versión preliminar)
+title: SDK de Java para Azure Data Lake Storage Gen2 para archivos y ACL (versión preliminar)
 description: Use bibliotecas de Azure Storage para Java con el fin de administrar directorios y listas de control de acceso (ACL) de archivos y directorios en cuentas de almacenamiento que tengan habilitado el espacio de nombres jerárquico (HNS).
 author: normesta
 ms.service: storage
@@ -8,14 +8,14 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 0a57e87cc408d111893cbb2beaf4fc5afee2eca2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5a08a1f104e1820755f231ae6d1248ccc21ce330
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930782"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431835"
 ---
-# <a name="use-java-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Uso de Java con archivos y listas de control de acceso (ACL) en Azure Data Lake Storage Gen2 (versión preliminar)
+# <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Uso de Java para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2 (versión preliminar)
 
 En este artículo se muestra cómo usar Java para crear y administrar directorios, archivos y permisos en cuentas de almacenamiento que tengan habilitado el espacio de nombres jerárquico (HNS). 
 
@@ -24,10 +24,10 @@ En este artículo se muestra cómo usar Java para crear y administrar directorio
 
 [Paquete (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar) | [Muestras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [Referencia de API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html) | [Asignación de Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Envíenos sus comentarios](https://github.com/Azure/azure-sdk-for-java/issues)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 > [!div class="checklist"]
-> * Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+> * Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 > * Una cuenta de almacenamiento que tenga habilitado el espacio de nombres jerárquico (HNS). Siga [estas](data-lake-storage-quickstart-create-account.md) instrucciones para crear uno.
 
 ## <a name="set-up-your-project"></a>Configurar su proyecto
@@ -78,7 +78,7 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 
 Un sistema de archivos actúa como contenedor de los archivos. Puede crear uno llamando al método **DataLakeServiceClient.createFileSystem**.
 
-En este ejemplo se crea una máquina virtual llamada `my-file-system`. 
+En este ejemplo se crea un sistema de archivos llamado `my-file-system`. 
 
 ```java
 static public DataLakeFileSystemClient CreateFileSystem
@@ -88,11 +88,11 @@ static public DataLakeFileSystemClient CreateFileSystem
 }
 ```
 
-## <a name="create-a-directory"></a>Creación de directorios
+## <a name="create-a-directory"></a>Creación de un directorio
 
 Cree una referencia de directorio llamando al método **DataLakeFileSystemClient.createDirectory**.
 
-En este ejemplo se agrega un directorio denominado `my-directory` a un sistema de archivos y luego se agrega un subdirectorio denominado `my-subdirectory`. 
+En este ejemplo se agrega un directorio denominado `my-directory` a un sistema de archivos y luego se agrega un subdirectorio denominado `my-subdirectory`. 
 
 ```java
 static public DataLakeDirectoryClient CreateDirectory
@@ -142,7 +142,7 @@ static public DataLakeDirectoryClient MoveDirectory
 
 Elimine un directorio llamando al método **DataLakeDirectoryClient.deleteWithResponse**.
 
-En este ejemplo se elimina un directorio denominado `my-directory`.   
+En este ejemplo se elimina un directorio denominado `my-directory`.   
 
 ```java
 static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){

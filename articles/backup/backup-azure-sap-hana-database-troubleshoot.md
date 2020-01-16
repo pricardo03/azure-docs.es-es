@@ -1,14 +1,14 @@
 ---
 title: Solución de problemas de errores de copia de seguridad de bases de datos de SAP HANA
 description: En este artículo se describe cómo se solucionan los errores comunes que pueden producirse al usar Azure Backup para realizar copias de seguridad de bases de datos de SAP HANA.
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 9958b241c44d619efea2f9ad516a2bd6d4f33d6e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 04f9bafba0ca490b33a0daf3c3725e57d81bcc7e
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892607"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664605"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solución de problemas al realizar copias de seguridad de bases de datos de SAP HANA en Azure
 
@@ -84,18 +84,18 @@ Ocúpese de las entradas mientras se realiza la restauración de una base de dat
 
 Supongamos que hay una copia de seguridad de una instancia "H21" de HANA de SDC. En la página de elementos de copia de seguridad aparecerá el nombre del elemento de copia de seguridad como **"h21(sdc)"** . Si intenta restaurar esta base de datos en otra SDC de destino, por ejemplo, H11, es necesario proporcionar las entradas siguientes.
 
-![Entradas de restauración de SDC](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
+![Nombre de base de datos SDC restaurada](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
 
 Tenga en cuenta los siguientes puntos:
 
-- De manera predeterminada, el nombre de la base de datos restaurada se rellenará con el nombre del elemento de copia de seguridad, es decir, h21(sdc).
+- De manera predeterminada, el nombre de la base de datos restaurada se rellenará con el nombre del elemento de copia de seguridad. En este caso, h21(sdc).
 - Si selecciona el destino como H11, el nombre de la base de datos restaurada NO CAMBIARÁ de manera automática. **Se debe editar para cambiarlo a h11(sdc)** . Con respecto a SDC, el nombre de la base de datos restaurada será el identificador de la instancia de destino en minúsculas más "sdc" entre corchetes.
 - Como SDC solo puede tener una base de datos única, también debe hacer clic en la casilla para permitir reemplazar los datos existentes de la base de datos por los datos del punto de recuperación.
-- Linux distingue mayúsculas de minúsculas. Por lo tanto, tiene que tener cuidado y respetar su uso.
+- Linux distingue mayúsculas de minúsculas. De este modo, tiene que tener cuidado y respetar su uso.
 
 ### <a name="multiple-container-database-mdc-restore"></a>Restauración de base de datos de varios contenedores (MDC)
 
-En las bases de datos de varios contenedores para HANA, la configuración estándar es SYSTEMDB + 1 o más bases de datos de inquilino. Restaurar toda una instancia de SAP HANA significa restaurar tanto SYSTEMDB como las bases de datos de inquilino. Primero se restaura SYSTEMDB y, luego, la base de datos de inquilino. Básicamente, restaurar la base de datos del sistema significa reemplazar la información del sistema del destino seleccionado. Esta restauración también reemplaza la información relacionada con BackInt en la instancia de destino. Por lo tanto, una vez que la base de datos del sistema se restaura en una instancia de destino, es necesario volver a ejecutar el script de registro previo. Solo entonces las restauraciones de bases de datos de inquilino subsiguientes se realizarán correctamente.
+En las bases de datos de varios contenedores para HANA, la configuración estándar es SYSTEMDB + 1 o más bases de datos de inquilino. Restaurar toda una instancia de SAP HANA significa restaurar tanto SYSTEMDB como las bases de datos de inquilino. Primero se restaura SYSTEMDB y, luego, la base de datos de inquilino. Básicamente, restaurar la base de datos del sistema significa reemplazar la información del sistema del destino seleccionado. Esta restauración también reemplaza la información relacionada con BackInt en la instancia de destino. Así pues, una vez que la base de datos del sistema se restaura en una instancia de destino, vuelva a ejecutar el script de registro previo. Solo entonces las restauraciones de bases de datos de inquilino subsiguientes se realizarán correctamente.
 
 ## <a name="upgrading-from-sap-hana-10-to-20"></a>Actualización de SAP HANA 1.0 a 2.0
 
@@ -104,7 +104,7 @@ Si va a proteger bases de datos SAP HANA 1.0 y quiere actualizarlas a la versió
 - [Detenga la protección](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) con la conservación de datos para la base de datos SDC antigua.
 - Realice la actualización. Después de la finalización, HANA es ahora MDC con una base de datos de sistema y una base de datos de inquilino.
 - Vuelva a ejecutar el [script de registro previo](https://aka.ms/scriptforpermsonhana) con los detalles correctos de (sid y mdc).
-- Vuelva a registrar la extensión para la misma máquina virtual en Azure Portal: Backup -> View details -> seleccione la máquina virtual de Azure pertinente -> Re-register (Copia de seguridad -> Ver detalles -> seleccione la máquina virtual de Azure pertinente -> Volver a registrar).
+- Vuelva a registrar la extensión para la misma máquina en Azure Portal (Copia de seguridad -> Ver detalles -> seleccione la máquina virtual de Azure pertinente -> Volver a registrar).
 - Haga clic en Rediscover DBs (Volver a detectar bases de datos) para la misma máquina virtual. Esta acción debería mostrar las nuevas bases de datos en el paso 2 con los detalles correctos (SYSTEMDB y base de datos de inquilino, no SDC).
 - Configure la copia de seguridad de estas nuevas bases de datos.
 

@@ -1,23 +1,15 @@
 ---
-title: Compilación e integración continuas de las aplicaciones para Linux de Azure Service Fabric mediante Jenkins | Microsoft Docs
+title: Compilación continua para aplicaciones de Linux con Jenkins
 description: Compilación e integración continuas de las aplicaciones para Linux de Service Fabric mediante Jenkins
-services: service-fabric
-documentationcenter: java
 author: sayantancs
-manager: jpconnock
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/31/2018
-ms.author: jeconnoc
-ms.openlocfilehash: b757a0a5f3ce968b396fa89d5b32c18257d620c3
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 175338fef600f6e726fd02eee6b0f416181bd9dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875082"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610223"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Uso de Jenkins para compilar e implementar las aplicación para Linux
 Jenkins es una herramienta popular para la integración e implementación continuas de aplicaciones. Así es como se compila e implementa una aplicación de Azure Service Fabric mediante Jenkins.
@@ -35,7 +27,7 @@ En este artículo se explican varias formas posibles de configurar el entorno de
    * En entornos de desarrollo y pruebas, use [Configuración de la implementación mediante el punto de conexión de administración de clúster](#configure-deployment-using-cluster-management-endpoint). Este es el método de implementación más sencillo de configurar.
    * En entornos de producción, use [Configuración de la implementación mediante las credenciales de Azure](#configure-deployment-using-azure-credentials). Microsoft recomienda este método para los entornos de producción porque con las credenciales de Azure puede limitar el acceso que un trabajo de Jenkins tiene a los recursos de Azure. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Asegúrese de que Git esté instalado localmente. La versión adecuada de Git se puede instalar desde [la página de descargas de la Git](https://git-scm.com/downloads), en función de su sistema operativo. Si no conoce Git, encontrará más información al respecto en la [documentación de Git](https://git-scm.com/docs).
 - En este artículo se usa el *ejemplo de introducción a Service Fabric* de GitHub: [https://github.com/Azure-Samples/service-fabric-java-getting-started](https://github.com/Azure-Samples/service-fabric-java-getting-started) para compilar e implementar la aplicación. Puede bifurcar este repositorio para seguir el tutorial, o bien, con algunas modificaciones en las instrucciones, usar su propio proyecto de GitHub.
@@ -62,7 +54,7 @@ Una vez instalado el complemento, vaya directamente a [Creación y configuració
 
 Jenkins se puede configurar dentro o fuera de un clúster de Service Fabric. En las secciones siguientes se muestra cómo configurarlo dentro de un clúster mientras se usa una cuenta de Azure Storage para guardar el estado de la instancia de contenedor.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 - Tiene un clúster de Linux para Service Fabric con Docker instalado. Los clústeres de Service Fabric que se ejecutan en Azure ya tienen instalado Docker. Si va a ejecutar el clúster localmente (entorno de desarrollo OneBox), compruebe si Docker está instalado en su máquina con el comando `docker info`. Si no está instalado, instálelo con los siguientes comandos:
 
    ```sh
@@ -164,7 +156,7 @@ Después de configurar Jenkins, vaya directamente a [Creación y configuración 
 
 Jenkins se puede configurar dentro o fuera de un clúster de Service Fabric. En las secciones siguientes se muestra cómo se configura fuera de un clúster.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 - Asegúrese de que Docker está instalado en su máquina. Los siguientes comandos se pueden usar para instalar Docker desde el terminal:
 
   ```sh
@@ -319,7 +311,7 @@ En entornos de desarrollo y pruebas, puede configurar las credenciales de Azure 
 1. De nuevo en **Service Fabric Cluster Configuration** (Configuración del clúster de Service Fabric), asegúrese de que en **Azure Credentials** (Credenciales de Azure), se selecciona la nueva credencial. 
 1. En la lista desplegable **Resource Group** (Grupo de recursos), seleccione el grupo de recursos del clúster en el que quiere implementar la aplicación.
 1. En la lista desplegable **Service Fabric**, seleccione el clúster en el que quiere implementar la aplicación.
-1. En **Client Key** (Clave de cliente) y **Client Cert** (Certificado de cliente), escriba la ubicación del archivo PEM en el contenedor de Jenkins. Por ejemplo: `/var/jenkins_home/clustercert.pem`. 
+1. En **Client Key** (Clave de cliente) y **Client Cert** (Certificado de cliente), escriba la ubicación del archivo PEM en el contenedor de Jenkins. Por ejemplo, `/var/jenkins_home/clustercert.pem`. 
 1. En **Application Configuration** (Configuración de la aplicación), configure los campos **Application Name** (Nombre de aplicación), **Application Type** (Tipo de aplicación) y **Path to Application Manifest** (Ruta de acceso al manifiesto de la aplicación) (relativa).
     ![Acción posterior a la compilación de Jenkins para Service Fabric: configuración de las credenciales de Azure](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
 1. Haga clic en **Verify configuration**(Comprobar configuración). Tras la correcta comprobación, haga clic en **Save** (Guardar). La canalización del trabajo de Jenkins está ahora completamente configurada. Continúe con los [Siguientes pasos](#next-steps) para probar la implementación.

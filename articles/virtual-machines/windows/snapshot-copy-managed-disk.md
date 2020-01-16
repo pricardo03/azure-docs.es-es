@@ -1,5 +1,5 @@
 ---
-title: Creación de una instantánea de un disco duro virtual en Azure
+title: Creación de una instantánea de una unidad de disco duro virtual en Azure
 description: Aprenda a crear una copia de una máquina virtual de Azure como copia de seguridad o para solucionar problemas.
 documentationcenter: ''
 author: roygara
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b564e20ca8aa5acd7fbd4ea69ac2b1cd72e66d5e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: bc74a3eea1f99de6080788d6f3fddcac823092dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370908"
 ---
 # <a name="create-a-snapshot"></a>Crear una instantánea
 
@@ -29,11 +29,12 @@ Si va a usar la instantánea para crear una máquina virtual, se recomienda un c
 
 ## <a name="use-the-azure-portal"></a>Uso de Azure Portal 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En el menú izquierdo, seleccione **Crear un recurso** y, a continuación, busque y seleccione **instantánea**.
+Para crear una instantánea, complete los siguientes pasos: 
+1.  En [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso**.
+2. Busque y seleccione **Snapshot**.
 3. En la ventana **Instantánea**, seleccione **Crear**. Aparece la ventana **Crear instantánea**.
 4. Escriba un **nombre** para la instantánea.
-5. Seleccione un [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md#resource-groups) existente o escriba el nombre de uno nuevo. 
+5. Seleccione un [Grupo de recursos](../../azure-resource-manager/management/overview.md#resource-groups) existente o escriba el nombre de uno nuevo. 
 6. Seleccione una **ubicación** del centro de datos de Azure.  
 7. Como **disco de origen**, seleccione el disco administrado para la instantánea.
 8. Seleccione el **tipo de cuenta** que se usará para almacenar la instantánea. Use **Standard_HDD**, a menos que necesite que la instantánea se almacene en un disco de alto rendimiento.
@@ -41,7 +42,7 @@ Si va a usar la instantánea para crear una máquina virtual, se recomienda un c
 
 ## <a name="use-powershell"></a>Uso de PowerShell
 
-Los pasos siguientes muestran cómo copiar el disco duro virtual, crear la configuración de la instantánea y crear una instantánea del disco con el cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot). 
+En los pasos siguientes se muestra cómo copiar el disco duro virtual y crear la configuración de la instantánea. Después, puede tomar una instantánea del disco mediante el cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot). 
 
  
 

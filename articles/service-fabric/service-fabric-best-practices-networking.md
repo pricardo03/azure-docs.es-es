@@ -1,25 +1,16 @@
 ---
-title: Procedimientos recomendados de red de Azure Service Fabric | Microsoft Docs
-description: Procedimientos recomendados para la administración de red de Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Procedimientos recomendados de red de Azure Service Fabric
+description: Procedimientos recomendados y consideraciones de diseño para administrar la conectividad de red mediante Azure Service Fabric.
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 317977af9d41163013545a6e5f60bee887da596c
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: de2a74ad2d61de18d2150b72be3251e5b5583f2e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262245"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551801"
 ---
 # <a name="networking"></a>Redes
 
@@ -60,7 +51,7 @@ Para habilitar las redes aceleradas en un clúster existente, es necesario escal
 
 * Los clústeres de Service Fabric se pueden implementar en una red virtual existente mediante los pasos descritos en [Patrones de redes de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
 
-* Se recomiendan grupos de seguridad de red (NSG) para los tipos de nodo que restringen el tráfico entrante y saliente a su clúster. Asegúrese de que los puertos necesarios estén abiertos en el NSG. Por ejemplo:  ![Reglas de NSG de Service Fabric][NSGSetup]
+* Se recomiendan grupos de seguridad de red (NSG) para los tipos de nodo que restringen el tráfico entrante y saliente a su clúster. Asegúrese de que los puertos necesarios estén abiertos en el NSG. Por ejemplo: ![Reglas de NSG de Service Fabric][NSGSetup]
 
 * El tipo de nodo principal, que contiene los servicios del sistema de Service Fabric, no debe exponerse a través del equilibrador de carga externo y puede exponerse mediante un [equilibrador de carga interno](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer).
 

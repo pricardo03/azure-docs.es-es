@@ -1,25 +1,14 @@
 ---
-title: Pruebas unitarias para servicios con estado en Azure Service Fabric | Microsoft Docs
+title: Prueba unitaria de servicios con estado en Azure Service Fabric
 description: Obtenga información sobre los conceptos y procedimientos recomendados para las pruebas unitarias en servicios con estado de Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/04/2018
-ms.author: atsenthi
-ms.openlocfilehash: 012d75ff6ad4acdc6612a197f274e2dfdb98370a
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 12e8a47d9685dee12594f4e2afaa848d9688d185
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249266"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433908"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Prueba unitaria de servicios con estado en Service Fabric
 

@@ -1,5 +1,5 @@
 ---
-title: 'Consulta de informes y registros en la administración de derechos de Azure AD: Azure Active Directory'
+title: 'Visualización de informes y registros en la administración de derechos: Azure AD'
 description: Obtenga información sobre cómo ver el informe de asignaciones de usuario y los registros de auditoría en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3302fc3b2513794cd66d1ebf6db2cbcdb0f713dd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 819badb85e532275b4d5d6ca84c3e6e7fe527fa0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173885"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422553"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Consulta de informes y registros en la administración de derechos de Azure AD
 
@@ -101,7 +101,7 @@ Azure AD escribirá registros de auditoría adicionales mientras la solicitud es
 | `EntitlementManagement` | `Approve access package assignment request` | Solicitud aprobada |
 | `EntitlementManagement` | `Ready to fulfill access package assignment request` |Solicitud aprobada o no requiere aprobación |
 
-Cuando se asigna el acceso a un usuario, Azure AD escribe un registro de auditoría para la categoría `EntitlementManagement` con el valor **Actividad** `Fulfill access package assignment`.  El usuario que recibe el acceso se identifica mediante el campo **ActorUserPrincipalName**.
+Cuando se asigna el acceso a un usuario, Azure AD escribe un registro de auditoría para la categoría `EntitlementManagement` con el valor **Actividad**`Fulfill access package assignment`.  El usuario que recibe el acceso se identifica mediante el campo **ActorUserPrincipalName**.
 
 Si no se ha asignado el acceso, Azure AD escribe un registro de auditoría para la categoría `EntitlementManagement` con **Actividad** establecido en `Deny access package assignment request`, si un aprobador ha denegado la solicitud, o en `Access package assignment request timed out (no approver action taken)`, si la solicitud ha agotado el tiempo de espera antes de un aprobador pueda aprobarla.
 

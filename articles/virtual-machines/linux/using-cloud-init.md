@@ -1,6 +1,6 @@
 ---
 title: Información general de la compatibilidad de cloud-init con máquinas virtuales Linux en Azure
-description: Información general de las funcionalidades de cloud-init en Microsoft Azure
+description: Información general de las funcionalidades cloud-init para configurar una máquina virtual en tiempo de aprovisionamiento en Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: danielsollondon
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: danis
-ms.openlocfilehash: 6c522af44be51eb89ee9f64bae2dc4e9e7b24123
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7b3f64d0629ba5d7aaf85b854e1ee8e5a1410f94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873954"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458601"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Compatibilidad con cloud-init para máquinas virtuales en Azure
 En este artículo se explica la compatibilidad que existe para [cloud-init](https://cloudinit.readthedocs.io) para configurar una máquina virtual (VM) o conjuntos de escalado de máquinas virtuales en el momento del aprovisionamiento en Azure. Estos scripts de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos.  
@@ -34,13 +34,13 @@ Estamos trabajando activamente con nuestros asociados de distribuciones de Linux
 
 | Publicador | Oferta | SKU | Versión | Preparado para cloud-init |
 |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |latest |Sí | 
-|Canonical |UbuntuServer |16.04-LTS |latest |Sí | 
-|Canonical |UbuntuServer |14.04.5-LTS |latest |Sí |
-|CoreOS |CoreOS |Stable |latest |Sí |
+|Canonical |UbuntuServer |18.04-LTS |latest |sí | 
+|Canonical |UbuntuServer |16.04-LTS |latest |sí | 
+|Canonical |UbuntuServer |14.04.5-LTS |latest |sí |
+|CoreOS |CoreOS |Stable |latest |sí |
 |OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |Vista previa |
 |Oracle 7.7 |Oracle-Linux |77-ci |7.7.01|Vista previa |
-|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |Sí |
+|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |sí |
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |Vista previa |
     
 Actualmente, Azure Stack no admite el aprovisionamiento de RHEL 7.x y CentOS 7.x con cloud-init.

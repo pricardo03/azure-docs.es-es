@@ -10,24 +10,29 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 056dd4331d30335078ea68350f711e37a7b42070
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d8e28b88757fa7557b04ee471ede17012094bb9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976628"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446866"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Inicio rápido: Creación de un comando personalizado (versión preliminar)
 
 En este artículo, obtendrá información sobre cómo crear y probar una aplicación de comandos personalizados hospedada.
 La aplicación reconocerá una expresión como "enciende el televisor" y responderá con un mensaje sencillo como "de acuerdo, encenderé el televisor".
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Una suscripción a Voz. [Prueba gratuita del servicio Voz](~/articles/cognitive-services/speech-service/get-started.md).
+- Una suscripción a Voz. 
+
+Si no tiene una suscripción de voz, puede crear una desplazándose hasta [Speech Studio](https://speech.microsoft.com/) y seleccionando **Crear un recurso de voz**.
+
+  > [!div class="mx-imgBorder"]
+  > [ ![Crear un proyecto](media/custom-speech-commands/create-new-subscription.png) ](media/custom-speech-commands/create-new-subscription.png#lightbox)
 
   > [!NOTE]
-  > Durante la versión preliminar, solo se admite la región westus2 para las claves de suscripción.
+  > Durante la versión preliminar, solo se admite la región westus2.
 
 ## <a name="go-to-the-speech-studio-for-custom-commands"></a>Navegación a Speech Studio para los comandos personalizados
 
@@ -66,6 +71,20 @@ La vista predeterminada es una lista de las aplicaciones de comandos personaliza
 
 La vista ahora debe mostrar una visión general de la aplicación de comandos personalizados.
 
+## <a name="update-luis-resources-optional"></a>Actualización de recursos de LUIS (opcional)
+
+Puede actualizar el conjunto de recursos de creación en la ventana Nuevo proyecto y establecer un recurso de predicción que se usa para reconocer entradas durante el tiempo de ejecución. 
+
+> [!NOTE]
+> Tendrá que establecer un recurso de predicción antes de que la aplicación solicite predicciones más allá de las 1000 solicitudes proporcionadas por el recurso de creación.
+
+> [!div class="mx-imgBorder"]
+> ![Establecimiento de recursos de LUIS](media/custom-speech-commands/set-luis-resources.png)
+
+1. Vaya al panel recursos de LUIS seleccionando **Configuración** en el panel izquierdo y, a continuación, **Recursos de LUIS** en el panel central.
+1. Seleccione un recurso de predicción o cree uno seleccionando **Crear nuevo recurso**.
+1. Seleccione **Guardar**.
+
 ## <a name="create-a-new-command"></a>Creación de un nuevo comando
 
 Ahora puede crear un comando. Vamos a usar un ejemplo que tomará una sola expresión (`turn on the tv`) y responderá con el mensaje `Ok, turning on the TV`.
@@ -78,7 +97,7 @@ Ahora puede crear un comando. Vamos a usar un ejemplo que tomará una sola expre
 
 Un comando es un conjunto de:
 
-| Grupo            | DESCRIPCIÓN                                                                                                                 |
+| Grupo            | Descripción                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | Oraciones de ejemplo | Expresiones de ejemplo que el usuario puede decir para desencadenar este comando.                                                                 |
 | Parámetros       | Información necesaria para completar el comando.                                                                                |
@@ -116,11 +135,10 @@ Ahora, agregue una regla de finalización para responder al usuario que una acci
 > [!div class="mx-imgBorder"]
 > ![Creación de una regla de finalización](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
-
-| Configuración    | Valor sugerido                        | DESCRIPCIÓN                                        |
-| ---------- | -------------------------------------- | -------------------------------------------------- |
-| Nombre de la regla  | "ConfirmationResponse"                 | Nombre que describe el propósito de la regla.          |
-| Condiciones | None                                   | Condiciones que determinan cuándo se puede ejecutar la regla.    |
+| Configuración    | Valor sugerido                          | Descripción                                        |
+| ---------- | ---------------------------------------- | -------------------------------------------------- |
+| Nombre de la regla  | "ConfirmationResponse"                   | Nombre que describe el propósito de la regla.          |
+| Condiciones | None                                     | Condiciones que determinan cuándo se puede ejecutar la regla.    |
 | Acciones    | SpeechResponse "- Ok, turning on the TV" (De acuerdo, encenderé el televisor) | Acción que se realizará cuando la condición de la regla sea true. |
 
 ## <a name="try-it-out"></a>Prueba

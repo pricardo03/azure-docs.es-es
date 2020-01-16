@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 0f35f22d6bd32d75d5c3b07d8a20b4bb7714e247
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: aacba12b32e9da75c2a4b9a20c0faa235cf6836a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71799557"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459306"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluciones de aplicaciones de Oracle que integran Microsoft Azure y Oracle Cloud Infrastructure (versión preliminar)
 
@@ -50,7 +50,7 @@ El siguiente diagrama es una introducción de alto nivel de la solución conecta
 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
 
-* La conectividad entre nubes en la versión preliminar se limita a las regiones Este de EE. UU. de Azure (eastus) y Sur de Reino Unido (uksouth) y las regiones OCI de Ashburn (Este de EE. UU.) y Londres (Sur de Reino Unido). Para el Sur de Reino Unido, use el dominio de disponibilidad 1 (AD 1) en OCI al implementar las conexiones para las latencias más bajas.
+* La conectividad entre nubes en la versión preliminar se limita a las regiones Este de EE. UU. de Azure (eastus), Sur de Reino Unido (uksouth) y Centro de Canadá (canadacentral) y las regiones OCI de Ashburn (Este de EE. UU.), Londres (Sur de Reino Unido) y Toronto (Sudeste de Canadá). Para el Sur de Reino Unido, use el dominio de disponibilidad 1 (AD 1) en OCI al implementar las conexiones para las latencias más bajas.
 
 ## <a name="networking"></a>Redes
 

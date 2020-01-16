@@ -1,25 +1,16 @@
 ---
-title: Reconfiguración en Azure Service Fabric | Microsoft Docs
-description: Reconfiguración de particiones en Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Reconfiguración en Azure Service Fabric
+description: Obtenga información sobre las configuraciones de las réplicas de servicio con estado y el proceso de reconfiguración que Service Fabric usa para mantener la coherencia y la disponibilidad durante el cambio.
 author: appi101
-manager: anuragg
-editor: ''
-ms.assetid: d5ab75ff-98b9-4573-a2e5-7f5ab288157a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
-ms.openlocfilehash: a24aa6aa1695a3d1166816b7960bdd7b551e1a37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd46a7776495624affef77a44fcf68334750ba17
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60882204"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610002"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Reconfiguración en Azure Service Fabric
 Una *configuración* se define como las réplicas y sus roles para una partición de un servicio con estado.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6ffa17010f874eeb82fe8f4c367f0a0ac429979b
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: d97073666a18a3ffb7a88e1d2350f213ef589e6a
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815523"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562534"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -55,7 +55,7 @@ Cada documento SSML se crea con los elementos SSML (o etiquetas). Estos elemento
 
 **Atributos**
 
-| Atributo | DESCRIPCIÓN | Obligatorio u opcional |
+| Atributo | Descripción | Obligatorio u opcional |
 |-----------|-------------|---------------------|
 | version | Indica la versión de la especificación SSML utilizada para interpretar el marcado del documento. La versión actual es 1.0. | Obligatorio |
 | xml:lang | Especifica el idioma del documento raíz. El valor puede contener un código de idioma en minúsculas y de dos letras (por ejemplo, **es**) o el código de idioma y el país o región en mayúscula (por ejemplo, **es-US**). | Obligatorio |
@@ -75,9 +75,9 @@ El elemento `voice` es obligatorio. Sirve para especificar la voz que se usa en 
 
 **Atributos**
 
-| Atributo | DESCRIPCIÓN | Obligatorio u opcional |
+| Atributo | Descripción | Obligatorio u opcional |
 |-----------|-------------|---------------------|
-| Nombre | Identifica la voz que se usa para la salida de texto a voz. Para ver una lista completa de voces compatibles, consulte [Compatibilidad con idiomas](language-support.md#text-to-speech). | Obligatorio |
+| name | Identifica la voz que se usa para la salida de texto a voz. Para ver una lista completa de voces compatibles, consulte [Compatibilidad con idiomas](language-support.md#text-to-speech). | Obligatorio |
 
 **Ejemplo**
 
@@ -98,9 +98,9 @@ Dentro del elemento `speak`, puede especificar varias voces para la salida de te
 
 **Atributos**
 
-| Atributo | DESCRIPCIÓN | Obligatorio u opcional |
+| Atributo | Descripción | Obligatorio u opcional |
 |-----------|-------------|---------------------|
-| Nombre | Identifica la voz que se usa para la salida de texto a voz. Para ver una lista completa de voces compatibles, consulte [Compatibilidad con idiomas](language-support.md#text-to-speech). | Obligatorio |
+| name | Identifica la voz que se usa para la salida de texto a voz. Para ver una lista completa de voces compatibles, consulte [Compatibilidad con idiomas](language-support.md#text-to-speech). | Obligatorio |
 
 **Ejemplo**
 
@@ -136,17 +136,19 @@ Los cambios se aplican en el nivel de la oración y el estilo varía según la v
 
 **Atributos**
 
-| Atributo | DESCRIPCIÓN | Obligatorio u opcional |
+| Atributo | Descripción | Obligatorio u opcional |
 |-----------|-------------|---------------------|
-| Tipo | Especifica el estilo de habla. Actualmente, los estilos de habla son específicos de la voz. | Se necesita si se ajusta el estilo de habla para una voz neuronal. Si se usa `mstts:express-as`, se debe proporcionar el tipo. Si se proporciona un valor no válido, se omitirá este elemento. |
+| type | Especifica el estilo de habla. Actualmente, los estilos de habla son específicos de la voz. | Se necesita si se ajusta el estilo de habla para una voz neuronal. Si se usa `mstts:express-as`, se debe proporcionar el tipo. Si se proporciona un valor no válido, se omitirá este elemento. |
 
 Utilice esta tabla para determinar qué estilos de habla son compatibles para cada voz neuronal.
 
-| Voz | Tipo | DESCRIPCIÓN |
+| Voz | Tipo | Descripción |
 |-------|------|-------------|
 | `en-US-JessaNeural` | tipo =`cheerful` | Expresa una emoción que es positiva y feliz. |
 | | tipo =`empathy` | Expresa un sentimiento de cuidado y comprensión. |
 | | tipo =`chat` | Hablar en un tono informal y relajado |
+| | tipo =`newscast` | Expresa un tono formal, similar a las retransmisiones de noticias. |
+| | tipo =`customerservice` | Hable de un modo agradable y paciente como servicio al cliente. |
 | `zh-CN-XiaoxiaoNeural` | tipo =`newscast` | Expresa un tono formal, similar a las retransmisiones de noticias. |
 | | tipo =`sentiment` | Transmite un mensaje conmovedor o una historia. |
 
@@ -180,12 +182,12 @@ Utilice el elemento `break` para insertar las pausas entre palabras, o para evit
 
 **Atributos**
 
-| Atributo | DESCRIPCIÓN | Obligatorio u opcional |
+| Atributo | Descripción | Obligatorio u opcional |
 |-----------|-------------|---------------------|
 | intensidad | Especifica la duración relativa de una pausa mediante uno de los valores siguientes:<ul><li>None</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> | Opcional |
 | time | Especifica la duración absoluta de una pausa en segundos o milisegundos. Ejemplos de los valores válidos son 2 s y 500 | Opcional |
 
-| Intensidad | DESCRIPCIÓN |
+| Intensidad | Descripción |
 |----------|-------------|
 | Ninguno, o si no se ha proporcionado ningún valor | 0 ms |
 | x-weak | 250 ms |
@@ -251,7 +253,7 @@ Los alfabetos fonéticos se componen de segmentos acústicos, que se componen de
 
 **Atributos**
 
-| Atributo | DESCRIPCIÓN | Obligatorio u opcional |
+| Atributo | Descripción | Obligatorio u opcional |
 |-----------|-------------|---------------------|
 | alfabeto | Especifica el alfabeto fonético que se utilizará al sintetizar la pronunciación de la cadena en el atributo `ph`. La cadena que especifica el alfabeto debe especificarse en minúsculas. Estos son los posibles alfabetos que puede especificar.<ul><li>ipa: alfabeto fonético internacional</li><li>sapi: conjunto de segmentos acústicos de Speech API</li><li>ups: conjunto de segmentos acústicos universal</li></ul>El alfabeto solo se aplica al fonema del elemento. Para más información, consulte [Phonetic Alphabet Reference](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx) (Referencia del alfabeto fonético). | Opcional |
 | ph | Una cadena que contiene los segmentos acústicos que especifican la pronunciación de la palabra en el elemento `phoneme`. Si la cadena especificada contiene segmentos acústicos no reconocidos, el servicio de texto a voz rechaza todo el documento SSML y no produce ninguna de las salidas de voz especificadas en el documento. | Obligatorio si usa fonemas. |
@@ -288,9 +290,9 @@ Dado que los valores de los atributos prosódicos pueden variar en un amplio ran
 
 **Atributos**
 
-| Atributo | DESCRIPCIÓN | Obligatorio u opcional |
+| Atributo | Descripción | Obligatorio u opcional |
 |-----------|-------------|---------------------|
-| pitch | Indica el tono de la línea de referencia del texto. Puede expresar el tono como:<ul><li>Un valor absoluto, expresado como un número seguido de "Hz" (Hercios). Por ejemplo, 600 Hz.</li><li>Un valor relativo, expresado como un número precedido por "+" o "-" y seguido por "Hz" o "st", que especifica una cantidad para cambiar el tono. Por ejemplo: +80 Hz o -2st. La "st" indica que la unidad de cambio es un semitono, que es la mitad de un tono (medio paso) en la escala diatónica estándar.</li><li>Un valor constante:<ul><li>x-low</li><li>bajo</li><li>medio</li><li>alta</li><li>x-high</li><li>default</li></ul></li></ul>. | Opcional |
+| pitch | Indica el tono de la línea de referencia del texto. Puede expresar el tono como:<ul><li>Un valor absoluto, expresado como un número seguido de "Hz" (Hercios). Por ejemplo, 600 Hz.</li><li>Un valor relativo, expresado como un número precedido por "+" o "-" y seguido por "Hz" o "st", que especifica una cantidad para cambiar el tono. Por ejemplo: +80 Hz o -2st. La "st" indica que la unidad de cambio es un semitono, que es la mitad de un tono (medio paso) en la escala diatónica estándar.</li><li>Un valor constante:<ul><li>x-low</li><li>low</li><li>medio</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul>. | Opcional |
 | contour | La curva melódica no es compatible con las voces neuronales. La curva melódica representa los cambios en el tono del contenido de la voz como una matriz de objetivos en posiciones de tiempo específicas en la salida de voz. Cada destino se define por conjuntos de pares de parámetros. Por ejemplo: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>El primer valor de cada conjunto de parámetros especifica la ubicación del cambio de tono como porcentaje de la duración del texto. El segundo valor especifica la cantidad para subir o bajar el tono, mediante un valor relativo o un valor de enumeración para el tono (consulte `pitch`). | Opcional |
 | range  | Un valor que representa el rango del tono para el texto. Puede expresar `range` mediante los mismos valores absolutos, valores relativos o valores de enumeración usados para describir `pitch`. | Opcional |
 | rate  | Indica la velocidad de habla del texto. Puede expresar `rate` como:<ul><li>Un valor relativo, expresado como un número que actúa como multiplicador del valor predeterminado. Por ejemplo, un valor de *1* no da como resultado ningún cambio en la velocidad. Un valor de *.5* da como resultado la mitad de la velocidad. Un valor de *3* da como resultado el triple de la velocidad.</li><li>Un valor constante:<ul><li>x-slow</li><li>lento</li><li>medio</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Opcional |
@@ -371,7 +373,7 @@ Los cambios de tono pueden aplicarse a voces estándar en el nivel de palabra o 
 
 **Atributos**
 
-| Atributo | DESCRIPCIÓN | Obligatorio u opcional |
+| Atributo | Descripción | Obligatorio u opcional |
 |-----------|-------------|---------------------|
 | interpret-as | Indica el tipo de contenido del texto del elemento. Para ver una lista de tipos, consulte la tabla siguiente. | Obligatorio |
 | format | Proporciona información adicional sobre el formato preciso del texto del elemento para los tipos de contenido que pueden tener formatos ambiguos. SSML define formatos para los tipos de contenido que los usan (vea la tabla siguiente). | Opcional |
@@ -433,7 +435,7 @@ Cualquier audio incluido en el documento SSML debe cumplir estos requisitos:
 
 **Atributos**
 
-| Atributo | DESCRIPCIÓN | Obligatorio u opcional |
+| Atributo | Descripción | Obligatorio u opcional |
 |-----------|-------------|---------------------|
 | src | Especifica la ubicación o la URL del archivo de audio. | Es obligatorio si se usa el elemento de audio en el documento SSML. |
 
@@ -466,7 +468,7 @@ Solo se permite un archivo de audio de fondo por cada documento SSML. Sin embarg
 
 **Atributos**
 
-| Atributo | DESCRIPCIÓN | Obligatorio u opcional |
+| Atributo | Descripción | Obligatorio u opcional |
 |-----------|-------------|---------------------|
 | src | Especifica la ubicación o la URL del archivo de audio de fondo. | Es obligatorio si se usa el audio de fondo en el documento SSML. |
 | volumen | Especifica el volumen del archivo de audio de fondo. **Valores aceptados**: de `0` a `100`, ambos incluidos. El valor predeterminado es `1`. | Opcional |

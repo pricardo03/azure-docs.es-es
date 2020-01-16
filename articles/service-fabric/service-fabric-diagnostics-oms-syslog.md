@@ -1,25 +1,16 @@
 ---
-title: Supervisión de eventos de clúster Linux en Azure Service Fabric | Microsoft Docs
-description: Obtenga información sobre cómo supervisar los eventos de clúster Linux desde Syslog.
-services: service-fabric
-documentationcenter: .net
+title: Supervisión de eventos de clúster Linux en Azure Service Fabric
+description: Aprenda a supervisar eventos de clúster Linux en Service Fabric. Para ello, escriba eventos de plataforma de Service Fabric en Syslog.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 402e3dfe018c94ef068caf918b38aaad00064a49
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5bd3bda71943b2ba8a34cd4fbd0b20917b875670
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118383"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645759"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventos de clúster Linux de Service Fabric en Syslog
 
@@ -35,7 +26,7 @@ Cada evento Syslog tiene 4 componentes:
 * Facility
 * Identidad
 * Message
-* Gravedad
+* severity
 
 SyslogConsumer escribe todos los eventos de la plataforma mediante el recurso `Local0`. Puede actualizar a cualquier recurso válido cambiando la configuración. La identidad utilizada es `ServiceFabric`. El campo de mensaje contiene el evento completo serializado en JSON, por lo que pueden consultarlo y utilizarlo distintas herramientas. 
 
@@ -122,6 +113,6 @@ El ejemplo anterior es de un evento NodeDown. Puede ver la lista completa de eve
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Implemente el agente de Log Analytics](service-fabric-diagnostics-oms-agent.md) en los nodos para recopilar contadores de rendimiento, así como estadísticas y registros de Docker de sus contenedores.
-* Familiarícese con las característica de [búsqueda de registros y consulta](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de los registros de Azure Monitor.
-* [Uso del Diseñador de vistas para crear vistas personalizadas en los registros de Azure Monitor](../log-analytics/log-analytics-view-designer.md)
+* Familiarícese con las características de [consultas y búsqueda de registros](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de los registros de Azure Monitor.
+* [Uso del diseñador de vistas para crear vistas personalizadas en los registros de Azure Monitor](../log-analytics/log-analytics-view-designer.md)
 * Consulte esta referencia para obtener información sobre la [integración de los registros de Azure Monitor con Syslog](../log-analytics/log-analytics-data-sources-syslog.md).

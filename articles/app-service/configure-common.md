@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45de3b79263fd43a93fcea73c271ede4bc5f96fe
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: e4ba7326d9c23bed2406e62fe1a206501d05a1b1
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671963"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666197"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar una aplicación de App Service en Azure Portal
 
@@ -21,7 +21,11 @@ En este tema se explica cómo configurar las opciones comunes para aplicaciones 
 
 En App Service, las configuraciones de aplicaciones son variables que se pasan como variables de entorno al código de la aplicación. En el caso de las aplicaciones Linux y de los contenedores personalizados, App Service pasa la configuración de la aplicación al contenedor mediante la marca `--env` para establecer la variable de entorno en el contenedor.
 
-En [Azure Portal], navegue hasta la página de administración de la aplicación. En el menú izquierdo de la aplicación, haga clic en **Configuración** > **Configuración de la aplicación**.
+En [Azure Portal], busque y seleccione **App Services** y luego elija la aplicación. 
+
+![Búsqueda de App Services](./media/configure-common/search-for-app-services.png)
+
+En el menú izquierdo de la aplicación, haga clic en **Configuración** > **Configuración de la aplicación**.
 
 ![Configuración de la aplicación](./media/configure-common/open-ui.png)
 
@@ -82,7 +86,7 @@ La configuración de la aplicación tiene el formato JSON siguiente:
 
 ## <a name="configure-connection-strings"></a>Configurar cadenas de conexión
 
-En [Azure Portal], navegue hasta la página de administración de la aplicación. En el menú izquierdo de la aplicación, haga clic en **Configuración** > **Configuración de la aplicación**.
+En [Azure Portal], busque y seleccione **App Services** y luego elija la aplicación. En el menú izquierdo de la aplicación, haga clic en **Configuración** > **Configuración de la aplicación**.
 
 ![Configuración de la aplicación](./media/configure-common/open-ui.png)
 
@@ -153,7 +157,7 @@ Las cadenas de conexión tienen el formato JSON siguiente:
 
 ## <a name="configure-general-settings"></a>Configurar las opciones generales
 
-En [Azure Portal], navegue hasta la página de administración de la aplicación. En el menú izquierdo de la aplicación, haga clic en **Configuración** > **Configuración de la aplicación**.
+En [Azure Portal], busque y seleccione **App Services** y luego elija la aplicación. En el menú izquierdo de la aplicación, seleccione **configuración** > **Configuración general**.
 
 ![Configuración general](./media/configure-common/open-general.png)
 
@@ -176,9 +180,9 @@ En este caso, puede configurar algunas opciones comunes para la aplicación. Alg
 
 Esta configuración solo es para las aplicaciones de Windows.
 
-En [Azure Portal], navegue hasta la página de administración de la aplicación. En el menú izquierdo de la aplicación, haga clic en **Configuración** > **Documentos predeterminados**.
+En [Azure Portal], busque y seleccione **App Services** y luego elija la aplicación. En el menú izquierdo de la aplicación, seleccione **Configuración** > **Documentos predeterminados**.
 
-![Configuración general](./media/configure-common/open-documents.png)
+![Documentos predeterminados](./media/configure-common/open-documents.png)
 
 El documento predeterminado es la página web que se muestra en la dirección URL raíz de un sitio web. Se usa el primer archivo coincidente en la lista. Para agregar un nuevo documento predeterminado, haga clic en **Nuevo documento**. Recuerde hacer clic en **Guardar**.
 
@@ -186,9 +190,9 @@ Si la aplicación usa módulos que se enrutan en función de la dirección URL e
 
 ## <a name="configure-path-mappings"></a>Configurar asignaciones de ruta de acceso
 
-En [Azure Portal], navegue hasta la página de administración de la aplicación. En el menú izquierdo de la aplicación, haga clic en **Configuración** > **Asignaciones de ruta de acceso**.
+En [Azure Portal], busque y seleccione **App Services** y luego elija la aplicación. En el menú izquierdo de la aplicación, seleccione **Configuración** > **Asignaciones de ruta de acceso**.
 
-![Configuración general](./media/configure-common/open-path.png)
+![Asignaciones de ruta de acceso](./media/configure-common/open-path.png)
 
 En la página **Asignaciones de ruta de acceso** se muestran diferentes elementos en función del tipo de sistema operativo.
 
@@ -210,7 +214,7 @@ Para configurar las aplicaciones y los directorios virtuales, especifique cada d
 
 También puede [agregar almacenamiento personalizado para la aplicación en contenedor](containers/how-to-serve-content-from-azure-storage.md). Las aplicaciones en contenedores incluyen todas las aplicaciones de Linux y también los contenedores personalizados de Windows y Linux que se ejecutan en App Service. Haga clic en **Nuevo montaje de Azure Storage** y configure el almacenamiento personalizado como sigue:
 
-- **Nombre**: nombre para mostrar.
+- **Name**: El nombre para mostrar.
 - **Opciones de configuración**: **Básica** o **Avanzada**.
 - **Cuentas de almacenamiento**: cuenta de almacenamiento con el contenedor que quiere.
 - **Storage type** (Tipo de almacenamiento): **Azure Blobs** o **Azure Files**

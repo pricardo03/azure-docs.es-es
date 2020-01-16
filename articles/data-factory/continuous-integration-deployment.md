@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 7c5c1e91e97087bf28b03629659e5194f67c22b3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 06c8784c235b157f5799bb727df9784dfaa2f376
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680024"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440536"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integración y entrega continuas (CI/CD) en Azure Data Factory
 
@@ -56,11 +56,11 @@ En la lista desplegable **Plantilla de ARM**, seleccione **Export ARM template**
 
 En las factorías de datos de prueba y de producción, seleccione **Import ARM template** (Importar plantilla de ARM). Esta acción abrirá Azure Portal, donde puede importar la plantilla exportada. Seleccione **Cree su propia plantilla en el editor** para abrir el editor de plantillas de Resource Manager.
 
-![](media/continuous-integration-deployment/continuous-integration-image3.png) 
+![Implementación personalizada: cree su propia plantilla](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
 Haga clic en **Cargar archivo** y seleccione la plantilla de Resource Manager generada.
 
-![](media/continuous-integration-deployment/continuous-integration-image4.png)
+![Personalizar la plantilla de edición de implementación](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
 En el panel de configuración, escriba los valores de configuración, como las credenciales del servicio vinculado. Cuando haya terminado, haga clic en **Comprar** para implementar la plantilla de Resource Manager.
 

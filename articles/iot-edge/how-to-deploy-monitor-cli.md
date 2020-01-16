@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/17/2019
+ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 14c4ddd5d95abb223fb30e2ce07496e7f2773257
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 29aab4437b7d77b9a00b5745d68dcb5c44a4efe6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666025"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434218"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar y supervisar módulos de IoT Edge a escala, mediante la CLI de Azure
 
@@ -51,13 +51,7 @@ Este es un manifiesto de implementación básico con un módulo como ejemplo:
             "settings": {
               "minDockerVersion": "v1.25",
               "loggingOptions": "",
-              "registryCredentials": {
-                "registryName": {
-                  "username": "",
-                  "password": "",
-                  "address": ""
-                }
-              }
+              "registryCredentials": {}
             }
           },
           "systemModules": {
@@ -74,7 +68,7 @@ Este es un manifiesto de implementación básico con un módulo como ejemplo:
               "restartPolicy": "always",
               "settings": {
                 "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-                "createOptions": "{}"
+                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
               }
             }
           },
@@ -96,7 +90,7 @@ Este es un manifiesto de implementación básico con un módulo como ejemplo:
         "properties.desired": {
           "schemaVersion": "1.0",
           "routes": {
-            "route": "FROM /* INTO $upstream"
+            "upstream": "FROM /messages/* INTO $upstream"
           },
           "storeAndForwardConfiguration": {
             "timeToLiveSecs": 7200
@@ -104,12 +98,68 @@ Este es un manifiesto de implementación básico con un módulo como ejemplo:
         }
       },
       "SimulatedTemperatureSensor": {
-        "properties.desired": {}
+        "properties.desired": {
+          "SendData": true,
+          "SendInterval": 5
+        }
       }
     }
   }
 }
 ```
+
+## <a name="layered-deployment"></a>Implementación superpuesta
+
+Las implementaciones superpuestas son un tipo de implementación automática que se puede apilar entre sí. Para más información sobre las implementaciones superpuestas, consulte el artículo [Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala](module-deployment-monitoring.md). 
+
+Las implementaciones superpuestas se pueden crear y administrar con la CLI de Azure como cualquier implementación automática, con solo algunas diferencias. Una vez que se crea una implementación superpuesta, la misma CLI de Azure funciona con las implementaciones superpuestas igual que con cualquier otra implementación. Para crear una implementación superpuesta, agregue la marca `--layered` al comando CREATE. 
+
+La segunda diferencia es la construcción del manifiesto de implementación. Aunque la implementación automática estándar debe contener los módulos del entorno de ejecución del sistema además de los módulos de usuario, las implementaciones superpuestas solo pueden contener módulos de usuario. En cambio, las implementaciones superpuestas necesitan que haya también una implementación automática estándar en un dispositivo para proporcionar los componentes necesarios de cada dispositivo IoT Edge, como los módulos del entorno de ejecución del sistema. 
+
+Este es un manifiesto de implementación superpuesta básico con un módulo como ejemplo: 
+
+```json
+{
+  "content": {
+    "modulesContent": {
+      "$edgeAgent": {
+        "properties.desired.modules.SimulatedTemperatureSensor": {
+          "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+              "createOptions": ""
+          },
+          "type": "docker",
+          "status": "running",
+          "restartPolicy": "always",
+          "version": "1.0"
+        }
+      },
+      "$edgeHub": {
+        "properties.desired.routes.upstream": "FROM /messages/* INTO $upstream"
+      },
+      "SimulatedTemperatureSensor": {
+        "properties.desired": {
+          "SendData": true,
+          "SendInterval": 5
+        }
+      }
+    }
+  }
+}
+```
+
+En el ejemplo anterior se mostraba una implementación superpuesta que establecía `properties.desired` para un módulo. Si esta implementación superpuesta se dirigiera a un dispositivo en el que ya se aplicó el mismo módulo, se sobrescribirían las propiedades deseadas existentes. Para actualizar, en lugar de sobrescribir, las propiedades deseadas, puede definir una nueva subsección. Por ejemplo: 
+
+```json
+"SimulatedTEmperatureSensor": {
+  "properties.desired.layeredProperties": {
+    "SendData": true,
+    "SendInterval": 5
+  }
+}
+```
+
+Para obtener más información sobre la configuración de los módulos gemelos en implementaciones superpuestas, consulte [Implementación superpuesta](module-deployment-monitoring.md#layered-deployment).
 
 ## <a name="identify-devices-using-tags"></a>Identificación de dispositivos mediante etiquetas
 
@@ -138,14 +188,18 @@ Utilice el comando [az iot edge deployment create](https://docs.microsoft.com/cl
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
 ```
 
+Use el mismo comando con la marca `--layered` para crear una implementación superpuesta.
+
 El comando deployment create toma los parámetros siguientes: 
 
-* **--deployment-id**: el nombre de la implementación que se creará en IoT Hub. Asigne a su implementación un nombre exclusivo de hasta 128 letras en minúscula. Evite los espacios y los siguientes caracteres no válidos: `& ^ [ ] { } \ | " < > /`.
+* **--layered**: una marca opcional para identificar la implementación como una implementación superpuesta.
+* **--deployment-id**: el nombre de la implementación que se creará en IoT Hub. Asigne a su implementación un nombre exclusivo de hasta 128 letras en minúscula. Evite los espacios y los siguientes caracteres no válidos: `& ^ [ ] { } \ | " < > /`. Parámetro obligatorio. 
+* **--content** -ruta del archivo del manifiesto de implementación JSON. Parámetro obligatorio. 
 * **--hub-name**: nombre de la instancia de IoT Hub en la que se creará la implementación. El centro debe estar en la suscripción actual. Cambie la suscripción actual con el comando `az account set -s [subscription name]`.
-* **--content** -ruta del archivo del manifiesto de implementación JSON. 
 * **--labels**: agregue etiquetas para realizar un seguimiento de las implementaciones. Las etiquetas son pares de Nombre y Valor que describen la implementación. Las etiquetas adoptan el formato JSON en los nombres y valores. Por ejemplo: `{"HostPlatform":"Linux", "Version:"3.0.1"}`
 * **--target-condition**: escriba una condición de destino para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`. 
 * **--priority**: debe ser un entero positivo. En el caso de que dos o más implementaciones se destinen al mismo dispositivo, se aplicará la implementación con el valor numérico más alto para la prioridad.
+* **--metrics**: cree métricas que realicen consultas en las propiedades notificadas de edgeHub para realizar un seguimiento del estado de una implementación. Las métricas toman una entrada JSON o una ruta de archivo. Por ejemplo, `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`. 
 
 ## <a name="monitor-a-deployment"></a>Supervisión de una implementación
 
@@ -156,7 +210,7 @@ az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name
 ```
 
 El comando deployment show toma los parámetros siguientes:
-* **--deployment-id**: el nombre de la implementación que está en IoT Hub.
+* **--deployment-id**: el nombre de la implementación que está en IoT Hub. Parámetro obligatorio. 
 * **--hub-name**: nombre de la instancia de IoT Hub en la que está la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 
 Inspeccione la implementación en la ventana de comandos. La propiedad **metrics** enumera un recuento para cada métrica que evalúa cada centro:
@@ -174,7 +228,7 @@ az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [
 
 El comando deployment show-metric toma los parámetros siguientes: 
 * **--deployment-id**: el nombre de la implementación que está en IoT Hub.
-* **--metric-id**: el nombre de la métrica de la cual quiere ver la lista de identificadores de dispositivos como, por ejemplo, `reportedFailedCount`.
+* **--metric-id**: el nombre de la métrica de la cual quiere ver la lista de identificadores de dispositivos, por ejemplo `reportedFailedCount`.
 * **--hub-name**: nombre de la instancia de IoT Hub en la que está la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 
 ## <a name="modify-a-deployment"></a>Modificación de una implementación
@@ -186,6 +240,8 @@ Si actualiza la condición de destino, se producen las siguientes actualizacione
 * Si un dispositivo no cumplía la antigua condición de destino, pero cumple la nueva condición de destino y esta implementación es la prioridad más alta para ese dispositivo, esta implementación se aplica al dispositivo. 
 * Si un dispositivo que actualmente ejecuta esta implementación ya no cumple la condición de destino, desinstala esta implementación y asume la siguiente implementación de mayor prioridad. 
 * Si un dispositivo que actualmente ejecuta esta implementación ya no cumple la condición de destino y no cumple la condición de destino de cualquier otra implementación, no se produce ningún cambio en el dispositivo. El dispositivo sigue ejecutando los módulos actuales en su estado actual, pero ya no se administra como parte de esta implementación. Cuando se cumple la condición de destino de cualquier otra implementación, desinstala esta implementación y adopta una nueva. 
+
+No se puede actualizar el contenido de una implementación, lo cual incluye los módulos y las rutas definidos en el manifiesto de implementación. Si desea actualizar el contenido de una implementación, debe crear una nueva implementación que tenga como destino los mismos dispositivos con una prioridad más alta. Puede modificar determinadas propiedades de un módulo existente, incluidas la condición de destino, las etiquetas, las métricas y la prioridad. 
 
 Utilice el comando [az iot edge deployment update](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-update) para actualizar una implementación:
 
@@ -200,6 +256,8 @@ El comando deployment update toma los parámetros siguientes:
   * targetCondition: por ejemplo, `targetCondition=tags.location.state='Oregon'`.
   * labels 
   * priority
+* **--add**: agregue una nueva propiedad a la implementación, incluidas las condiciones de destino o las etiquetas. 
+* **--remove**: quite una propiedad existente, incluidas las condiciones de destino o las etiquetas. 
 
 
 ## <a name="delete-a-deployment"></a>Eliminación de una implementación

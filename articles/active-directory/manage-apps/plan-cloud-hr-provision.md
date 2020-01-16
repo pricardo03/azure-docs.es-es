@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha
-ms.openlocfilehash: 5d55aafc29b3b022d1023077d2d8f459b0608ae7
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 6f72371077aab813cc22c9bbbe755fdfaa9ac00a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74556073"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433834"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeamiento de la aplicación de RR. HH. en la nube para el aprovisionamiento de usuarios de Azure Active Directory
 
@@ -53,7 +53,7 @@ La integración de aplicaciones de RR. HH. en la nube con el aprovisionamiento 
 - necesitan combinar y mover usuarios y dejarles que se sincronicen con uno o varios bosques, dominios o unidades organizativas de AD en función de únicamente la información de cambio detectada en la aplicación de RR. HH. en la nube;
 - usan Office 365 para el correo electrónico.
 
-## <a name="learn"></a>Aprender
+## <a name="learn"></a>Obtener información
 
 El aprovisionamiento de usuarios crea las bases de una gobernanza continua de identidades y mejora la calidad de los procesos de negocio que se basan en datos de identidades fidedignos.
 
@@ -80,7 +80,7 @@ Para configurar la aplicación de RR. HH. en la nube para la integración de ap
 
 También necesita una licencia de suscripción de Azure AD Premium P1 o superior válida para cada usuario que se obtenga de la aplicación de RR. HH. en la nube y que se aprovisionará en AD o en Azure AD. Un número incorrecto de las licencias que se poseen en la aplicación de RR. HH. en la nube puede dar lugar a errores durante el aprovisionamiento de usuarios.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 - Acceso del administrador global de Azure AD para configurar el agente de aprovisionamiento de Azure AD Connect.
 - Una instancia de prueba y producción de la aplicación de RR. HH. en la nube.
@@ -96,14 +96,14 @@ También necesita una licencia de suscripción de Azure AD Premium P1 o superio
 | | [¿Cómo implementar el aprovisionamiento de usuarios en Azure Active Directory?](https://youtu.be/pKzyts6kfrw) |
 | Tutoriales | Consulte la [lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list). |
 | | [Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
-| Preguntas más frecuentes | [Aprovisionamiento automático de usuarios](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#frequently-asked-questions). |
+| Preguntas más frecuentes | [Aprovisionamiento automático de usuarios](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning). |
 | | [Aprovisionamiento de WorkDay a Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
 
 ### <a name="solution-architecture"></a>Arquitectura de la solución
 
 En el ejemplo siguiente se describe la arquitectura de la solución de aprovisionamiento de usuarios de un extremo a otro para entornos híbridos comunes, e incluye lo siguiente:
 
-- **Flujo de datos de RR. HH. autorizado, desde la aplicación de RR. HH. en la nube hasta AD**: en este flujo, el evento de RR. HH. (proceso de incorporaciones, cambios y bajas) se inicia en el inquilino de la aplicación de RR. HH. en la nube. El servicio de aprovisionamiento de Azure AD y el agente de aprovisionamiento de Azure AD Connect aprovisionan los datos de los usuarios desde el inquilino de la aplicación de RR. HH. en la nube en AD. En función del evento, puede dar lugar a las operaciones de creación, actualización, habilitación o deshabilitación en AD.
+- **Flujo de datos de RR. HH. autorizado, desde la aplicación de RR. HH. en la nube hasta AD**: en este flujo, el evento de RR. HH. (proceso de incorporaciones, cambios y bajas) se inicia en el inquilino de la aplicación de RR. HH. en la nube. El servicio de aprovisionamiento de Azure AD y el agente de aprovisionamiento de Azure AD Connect aprovisionan los datos de los usuarios desde el inquilino de la aplicación de recursos humanos en la nube en AD. En función del evento, puede dar lugar a las operaciones de creación, actualización, habilitación o deshabilitación en AD.
 - **Sincronización con Azure AD y el nombre de usuario y correo electrónico de escritura diferida de AD local a la aplicación de RR. HH. en la nube**: cuando se hayan actualizado las cuentas en AD, este se sincroniza con Azure AD a través de Azure AD Connect, y los atributos de nombre de usuario y dirección de correo electrónico se pueden reescribir en el inquilino de la aplicación de RR. HH.
 
 ![Diagrama de flujo de trabajo](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img1.png)
@@ -112,12 +112,12 @@ En el ejemplo siguiente se describe la arquitectura de la solución de aprovisio
 
 Los pasos clave indicados en el diagrama son:  
 
-1. **El equipo de recursos humanos** realiza las transacciones en el inquilino de la aplicación de RR. HH. en la nube.
+1. El **equipo de recursos humanos** realiza las transacciones en el inquilino de la aplicación de RR. HH. en la nube.
 2. **Servicio de aprovisionamiento de Azure AD** ejecuta los ciclos programados desde el inquilino de la aplicación de RR. HH. en la nube e identifica los cambios que deben procesarse para la sincronización con AD.
 3. El **servicio de aprovisionamiento de Azure AD** invoca al agente de aprovisionamiento de Azure AD Connect con una carga de solicitud que contiene las operaciones de creación, actualización, habilitación o deshabilitación de las cuentas de AD.
-4. El **agente de aprovisionamiento de Azure AD Connect** usa una cuenta de servicio para administrar los datos de la cuenta de AD.
+4. El **agente de aprovisionamiento de Azure AD Connect** usa una cuenta de servicio para administrar los datos de la cuenta de AD.
 5. **Azure AD Connect** ejecuta una [sincronización](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) diferencial para extraer las actualizaciones de AD.
-6. Las actualizaciones de **AD** se sincronizan con Azure AD.
+6. Las actualizaciones de **AD** se sincronizan con Azure AD.
 7. El **servicio de aprovisionamiento de Azure AD**  reescribe el atributo de correo electrónico y el nombre de usuario de Azure AD en el inquilino de la aplicación de RR. HH. en la nube.
 
 ## <a name="plan-the-deployment-project"></a>Planeamiento del proyecto de implementación
@@ -319,14 +319,14 @@ SSPR es un medio sencillo con el que los administradores de TI pueden permitir q
 
 ## <a name="plan-for-initial-cycle"></a>Planeamiento del ciclo inicial
 
-Cuando el servicio de aprovisionamiento de Azure AD se ejecuta por primera vez, se ejecuta un [ciclo inicial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-happens-during-provisioning) en la aplicación de RR. HH. en la nube para crear una instantánea de todos los objetos de usuario en la aplicación de RR. HH. en la nube. El tiempo que tardan los ciclos iniciales depende directamente del número de usuarios que haya en el sistema de origen. El ciclo inicial de algunos inquilinos de aplicaciones de RR. HH. en la nube con más de 100 000 usuarios puede llevar mucho tiempo.
+Cuando el servicio de aprovisionamiento de Azure AD se ejecuta por primera vez, se ejecuta un [ciclo inicial](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle) en la aplicación de RR. HH. en la nube para crear una instantánea de todos los objetos de usuario en la aplicación de RR. HH. en la nube. El tiempo que tardan los ciclos iniciales depende directamente del número de usuarios que haya en el sistema de origen. El ciclo inicial de algunos inquilinos de aplicaciones de RR. HH. en la nube con más de 100 000 usuarios puede llevar mucho tiempo.
 
 **En el caso de inquilinos de aplicaciones de RR. HH. en la nube de gran tamaño (> 30 000 usuarios), se recomienda** ejecutar el ciclo inicial en fases progresivas e iniciar las actualizaciones incrementales solo después de validar que están establecidos los atributos correctos en AD para los diferentes escenarios de aprovisionamiento de usuarios. Siga el orden siguiente:
 
 1. Ejecute el ciclo inicial solo para un conjunto limitado de usuarios estableciendo el [filtro de ámbito](#plan-scoping-filters-and-attribute-mapping).
 2. Compruebe el aprovisionamiento de cuentas de AD y los valores de atributo establecidos para los usuarios seleccionados para la primera ejecución. Si el resultado cumple con sus expectativas, expanda el filtro de ámbito para que incluya más usuarios de forma progresiva y compruebe los resultados de la segunda ejecución.
 
-Cuando esté satisfecho con los resultados del ciclo inicial para los usuarios de prueba, puede iniciar las [actualizaciones incrementales](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#incremental-cycles).
+Cuando esté satisfecho con los resultados del ciclo inicial para los usuarios de prueba, puede iniciar las [actualizaciones incrementales](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#incremental-cycles).
 
 ## <a name="plan-testing-and-security"></a>Planeamiento de pruebas y seguridad
 
@@ -358,7 +358,7 @@ Es habitual que se requiera una revisión de seguridad como parte de la implemen
 
 Si la implementación del aprovisionamiento de usuarios de RR. HH. en la nube no funciona como se desea en el entorno de producción, los pasos de reversión siguientes pueden ayudarlo a revertir a un estado correcto conocido anterior:
 
-1. Revise el [informe de resumen de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting#getting-provisioning-reports-from-the-azure-management-portal) y los [registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting#provisioning-audit-logs) (consulte [Administración del aprovisionamiento de usuario de la aplicación de RR. HH. en la nube](#manage-your-configuration)) para determinar qué operaciones incorrectas se realizaron en los usuarios o grupos afectados.
+1. Revise el [informe de resumen de aprovisionamiento](check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal) y los [registros de aprovisionamiento](check-status-user-account-provisioning.md#provisioning-logs-preview) (consulte [Administración del aprovisionamiento de usuario de la aplicación de RR. HH. en la nube](#manage-your-configuration)) para determinar qué operaciones incorrectas se realizaron en los usuarios o grupos afectados.
 2. El último estado válido conocido de los usuarios o grupos afectados puede determinarse a través de los registros de auditoría de aprovisionamiento o revisando los sistemas de destino (Azure AD o AD).
 3. Trabaje con el propietario de la aplicación para actualizar los usuarios o grupos afectados directamente en la aplicación con los últimos valores de estado correctos conocidos.
 
@@ -374,7 +374,7 @@ Azure AD puede proporcionar información adicional acerca del uso del aprovisio
 
 ### <a name="gain-insights-from-reports-and-logs"></a>Obtención de información a partir de informes y registros
 
-Después de un [ciclo inicial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-happens-during-provisioning) correcto, el servicio de aprovisionamiento de Azure AD seguirá ejecutando actualizaciones incrementales de manera indefinida, a intervalos definidos en los tutoriales específicos para cada aplicación, hasta que se produzca alguno de los siguientes eventos:
+Después de un [ciclo inicial](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle) correcto, el servicio de aprovisionamiento de Azure AD seguirá ejecutando actualizaciones incrementales de manera indefinida, a intervalos definidos en los tutoriales específicos para cada aplicación, hasta que se produzca alguno de los siguientes eventos:
 
 - El servicio se detiene de manera manual y se desencadena un ciclo inicial nuevo mediante [Azure Portal](https://portal.azure.com/) o con el comando adecuado de [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
 - Se desencadena un nuevo ciclo inicial debido a un cambio en las asignaciones de atributos o los filtros de ámbito.

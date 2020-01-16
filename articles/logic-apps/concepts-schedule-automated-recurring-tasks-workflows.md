@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 972b9360fa95b528bd955a07451e7347f3e1791d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0f6ec158cf6ab855191e6796be3abec7d37439a0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792751"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456652"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Programación y ejecución de tareas, procesos y flujos de trabajo automatizados y periódicos con Azure Logic Apps
 
@@ -79,11 +79,21 @@ Estos son algunos patrones que muestran no solo cómo se puede controlar la peri
 | Hora de inicio en la actualidad o en el futuro | Ejecuta la primera carga de trabajo a la hora de inicio especificada. <p>Ejecuta futuras cargas de trabajo en función de los cálculos de la hora de la última ejecución. | Ejecuta la primera carga de trabajo *no antes* de la hora de inicio, en función de la programación calculada a partir de la hora de inicio. <p>Ejecuta futuras cargas de trabajo en función de la programación especificada. <p>**Nota:** Si especifica una periodicidad con una programación, pero no especifica horas o minutos para la programación, las horas de la futura ejecución se calculan usando las horas o los minutos, respectivamente, a partir de la hora de la primera ejecución. |
 ||||
 
+> [!IMPORTANT]
+> Cuando las periodicidades no especifican opciones de programación avanzadas, las futuras periodicidades se basan en la hora de la última ejecución.
+> Las horas de inicio de estas periodicidades pueden cambiar debido a factores como la latencia durante las llamadas de almacenamiento. Para asegurarse de que la aplicación lógica no pierde una periodicidad, especialmente cuando la frecuencia se especifica en días o unidades superiores, use una de estas opciones:
+> 
+> * Proporcione una hora de inicio para la periodicidad.
+> 
+> * Especifique las horas y los minutos en que se ejecutará la periodicidad mediante las propiedades **A estas horas** y **En estos minutos**.
+> 
+> * Use el [desencadenador de ventana deslizante](../connectors/connectors-native-sliding-window.md), en lugar del de periodicidad.
+
 *Ejemplo de una hora de inicio anterior con periodicidad, pero sin programación*
 
 Imagine que la fecha y hora actuales son 8 de septiembre de 2017 y la 1:00 p. m. Especifique la fecha y hora de inicio 7 de septiembre de 2017 a las 2:00 p. m., que se encuentra en el pasado, y una periodicidad de ejecución cada dos días.
 
-| Hora de inicio | Hora actual | Periodicidad | Schedule |
+| Hora de inicio | Hora actual | Periodicidad | Programación |
 |------------|--------------|------------|----------|
 | 2017-09-**07**T14:00:00Z <br>(**07**-09-2017a las 2:00 p. m) | 2017-09-**08**T13:00:00Z <br>(**08**-09-2017 a la 1:00 p. m.) | Cada dos días | {none} |
 |||||
@@ -118,12 +128,12 @@ A continuación, se incluyen varias periodicidades de ejemplo que puede configur
 
 | Desencadenador | Periodicidad | Intervalo | Frecuencia | Hora de inicio | En estos días | A estas horas | En estos minutos | Nota: |
 |---------|------------|----------|-----------|------------|---------------|----------------|------------------|------|
-| Periodicidad, <br>Ventana deslizante | Ejecutar cada 15 minutos (ninguna fecha y hora de inicio) | 15 | Minuto | {none} | {unavailable} | {none} | {none} | Esta programación se inicia inmediatamente y después calcula las futuras periodicidades en función de la hora de la última ejecución. |
-| Periodicidad, <br>Ventana deslizante | Ejecutar cada 15 minutos (con fecha y hora de inicio) | 15 | Minuto | *startDate*T*startTime*Z | {unavailable} | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas y después calcula las futuras periodicidades en función de la hora de la última ejecución. |
-| Periodicidad, <br>Ventana deslizante | Ejecutar cada hora, a la hora (con fecha y hora de inicio) | 1 | Hora | *startDate*Thh:00:00Z | {unavailable} | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas. Las periodicidades futuras se ejecutan cada hora en la marca de minuto "00", que se calcula a partir de la hora de inicio. <p>Si la frecuencia es "Week" o "Month", esta programación se ejecuta respectivamente solo un día de la semana o un día del mes. |
-| Periodicidad, <br>Ventana deslizante | Ejecutar cada hora todos los días (sin fecha y hora de inicio) | 1 | Hora | {none} | {unavailable} | {none} | {none} | Esta programación se inicia inmediatamente y calcula las futuras periodicidades en función de la hora de la última ejecución. <p>Si la frecuencia es "Week" o "Month", esta programación se ejecuta respectivamente solo un día de la semana o un día del mes. |
-| Periodicidad, <br>Ventana deslizante | Ejecutar cada hora todos los días (con fecha y hora de inicio) | 1 | Hora | *startDate*T*startTime*Z | {unavailable} | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas y después calcula las futuras periodicidades en función de la hora de la última ejecución. <p>Si la frecuencia es "Week" o "Month", esta programación se ejecuta respectivamente solo un día de la semana o un día del mes. |
-| Periodicidad, <br>Ventana deslizante | Ejecutar cada 15 minutos después de la hora, cada hora (con fecha y hora de inicio) | 1 | Hora | *startDate*T00:15:00Z | {unavailable} | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas. Las futuras periodicidades se ejecutan en la marca de minuto "15", que se calcula a partir de la hora de inicio, es decir, a las 00:15 a. m., 1:15 a. m., 2:15 a. m. y así sucesivamente. |
+| Periodicidad, <br>Ventana deslizante | Ejecutar cada 15 minutos (ninguna fecha y hora de inicio) | 15 | Minute | {none} | {unavailable} | {none} | {none} | Esta programación se inicia inmediatamente y después calcula las futuras periodicidades en función de la hora de la última ejecución. |
+| Periodicidad, <br>Ventana deslizante | Ejecutar cada 15 minutos (con fecha y hora de inicio) | 15 | Minute | *startDate*T*startTime*Z | {unavailable} | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas y después calcula las futuras periodicidades en función de la hora de la última ejecución. |
+| Periodicidad, <br>Ventana deslizante | Ejecutar cada hora, a la hora (con fecha y hora de inicio) | 1 | Hour | *startDate*Thh:00:00Z | {unavailable} | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas. Las periodicidades futuras se ejecutan cada hora en la marca de minuto "00", que se calcula a partir de la hora de inicio. <p>Si la frecuencia es "Week" o "Month", esta programación se ejecuta respectivamente solo un día de la semana o un día del mes. |
+| Periodicidad, <br>Ventana deslizante | Ejecutar cada hora todos los días (sin fecha y hora de inicio) | 1 | Hour | {none} | {unavailable} | {none} | {none} | Esta programación se inicia inmediatamente y calcula las futuras periodicidades en función de la hora de la última ejecución. <p>Si la frecuencia es "Week" o "Month", esta programación se ejecuta respectivamente solo un día de la semana o un día del mes. |
+| Periodicidad, <br>Ventana deslizante | Ejecutar cada hora todos los días (con fecha y hora de inicio) | 1 | Hour | *startDate*T*startTime*Z | {unavailable} | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas y después calcula las futuras periodicidades en función de la hora de la última ejecución. <p>Si la frecuencia es "Week" o "Month", esta programación se ejecuta respectivamente solo un día de la semana o un día del mes. |
+| Periodicidad, <br>Ventana deslizante | Ejecutar cada 15 minutos después de la hora, cada hora (con fecha y hora de inicio) | 1 | Hour | *startDate*T00:15:00Z | {unavailable} | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas. Las futuras periodicidades se ejecutan en la marca de minuto "15", que se calcula a partir de la hora de inicio, es decir, a las 00:15 a. m., 1:15 a. m., 2:15 a. m. y así sucesivamente. |
 | Periodicidad | Ejecutar cada 15 minutos después de la hora, cada hora (sin fecha y hora de inicio) | 1 | Día | {none} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Esta programación se ejecuta a las 00:15 a. m., 1:15 a. m., 2:15 a. m., etc. Además, esta programación tiene una frecuencia equivalente de "Hour" y una hora de inicio de "15" minutos. |
 | Periodicidad | Ejecutar cada 15 minutos en las marcas de minuto especificadas (sin fecha ni hora de inicio) | 1 | Día | {none} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Esta programación no se inicia hasta la siguiente marca especificada de 15 minutos. |
 | Periodicidad | Ejecutar diariamente a las 8:00 a.m. *más* la marca de minuto de cuando guarde la aplicación lógica | 1 | Día | {none} | {unavailable} | 8 | {none} | Sin una fecha y hora de inicio, esta programación se ejecuta en función de la hora a la que se guarda la aplicación lógica (operación PUT). |
@@ -137,8 +147,8 @@ A continuación, se incluyen varias periodicidades de ejemplo que puede configur
 | Periodicidad | Ejecutar cada hora durante el horario laboral | 1 | Semana | {none} | Seleccione todos los días excepto el sábado y el domingo. | Seleccione las horas del día que desee. | Seleccione los minutos de la hora que desee. | Por ejemplo, si su horario laboral es de 8:00 a. m. a las 5:00 p. m., entonces, seleccione "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" como las horas del día. <p>Si su horario laboral es de 8:30 a. m. a las 5:30 p. m., seleccione las horas del día más "30" como los minutos de la hora. |
 | Periodicidad | Ejecutar una vez al día los fines de semana | 1 | Semana | {none} | "Saturday", "Sunday" | Seleccione las horas del día que desee. | Seleccione los minutos de la hora que correspondan. | Esta programación se ejecuta todos los sábados y domingos según la programación especificada. |
 | Periodicidad | Ejecutar cada 15 minutos quincenalmente y solo los lunes | 2 | Semana | {none} | "Monday" | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Esta programación se ejecuta cada dos lunes en cada marca de 15 minutos. |
-| Periodicidad | Ejecutar cada mes | 1 | Mes | *startDate*T*startTime*Z | {unavailable} | {unavailable} | {unavailable} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas y calcula las futuras periodicidades en función de la fecha y hora de inicio. Si no se especifica una fecha y hora de inicio, esta programación usa la fecha y hora de creación. |
-| Periodicidad | Ejecutar cada hora durante un día al mes | 1 | Mes | {see note} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {see note} | Si no se especifica una fecha y hora de inicio, esta programación usa la fecha y hora de creación. Para controlar los minutos de la programación de periodicidad, especifique los minutos de la hora, una hora de inicio o use la hora de creación. Por ejemplo, si la hora de inicio u hora de creación es 8:25 a. m., esta programación se ejecuta a las 8:25 a. m., 9:25 a. m., 10:25 a. m., y así sucesivamente. |
+| Periodicidad | Ejecutar cada mes | 1 | Month | *startDate*T*startTime*Z | {unavailable} | {unavailable} | {unavailable} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas y calcula las futuras periodicidades en función de la fecha y hora de inicio. Si no se especifica una fecha y hora de inicio, esta programación usa la fecha y hora de creación. |
+| Periodicidad | Ejecutar cada hora durante un día al mes | 1 | Month | {see note} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {see note} | Si no se especifica una fecha y hora de inicio, esta programación usa la fecha y hora de creación. Para controlar los minutos de la programación de periodicidad, especifique los minutos de la hora, una hora de inicio o use la hora de creación. Por ejemplo, si la hora de inicio u hora de creación es 8:25 a. m., esta programación se ejecuta a las 8:25 a. m., 9:25 a. m., 10:25 a. m., y así sucesivamente. |
 |||||||||
 
 <a name="run-once"></a>

@@ -1,25 +1,14 @@
 ---
-title: Creación de particiones de los servicios de Service Fabric | Microsoft Docs
+title: Creación de particiones de los servicios de Service Fabric
 description: Describe cómo crear particiones en los servicios con estado de Service Fabric. Particiones permiten el almacenamiento de datos en las máquinas locales de forma que los datos y el proceso pueden escalarse juntos.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 3b7248c8-ea92-4964-85e7-6f1291b5cc7b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/30/2017
-ms.author: atsenthi
-ms.openlocfilehash: 833d87dab59890b9903ea8eecf2334d7dd1c7436
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1f3ee2196bad8b8a0c992ed498d40b4cf5820f2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711940"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434063"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partición de Reliable Services de Service Fabric
 Este artículo proporciona una introducción a los conceptos básicos de la creación de particiones en Reliable Services de Azure Service Fabric. El código fuente que se usa en el artículo también está disponible en [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -165,7 +154,7 @@ Puesto que literalmente queremos tener una partición por cada letra, podemos us
    
     El GUID adicional es para casos avanzados en los que las réplicas secundarias también escuchan solicitudes de solo lectura. En este caso, querrá asegurarse de que se usa una dirección única nueva al realizar la transición de principal a secundario para obligar a los clientes a volver a resolver la dirección. "+" se usa como dirección aquí de forma que la réplica escucha en todos los hosts disponibles (IP, FQDN, localhost, etc.). El código siguiente muestra un ejemplo.
    
-    ```CSharp
+    ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
          return new[] { new ServiceReplicaListener(context => this.CreateInternalListener(context))};
@@ -193,7 +182,7 @@ Puesto que literalmente queremos tener una partición por cada letra, podemos us
     La dirección URL de escucha se envía a HttpListener. La dirección URL publicada es la dirección URL que se publica en el servicio de nombres de Service Fabric, que se usa para la detección de servicios. Los clientes preguntarán por esta dirección mediante ese servicio de detección. La dirección en la que los clientes obtienen tiene que tener la dirección IP o FQDN real del nodo para poder conectar. Por lo que necesitará reemplazar '+' por la IP o el FQDN del nodo, como se mostró anteriormente.
 9. El último paso es agregar la lógica de procesamiento al servicio, tal y como se muestra a continuación.
    
-    ```CSharp
+    ```csharp
     private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
         string output = null;
@@ -249,7 +238,7 @@ Puesto que literalmente queremos tener una partición por cada letra, podemos us
     ```
 13. Debe devolver una colección de ServiceInstanceListeners en la clase Web. De nuevo, puede elegir implementar un HttpCommunicationListener simple.
     
-    ```CSharp
+    ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return new[] {new ServiceInstanceListener(context => this.CreateInputListener(context))};
@@ -265,7 +254,7 @@ Puesto que literalmente queremos tener una partición por cada letra, podemos us
     ```
 14. Ahora debe implementar la lógica de procesamiento. HttpCommunicationListener llama a `ProcessInputRequest` cuando llega una solicitud. Vamos a seguir y agregar el código siguiente
     
-    ```CSharp
+    ```csharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
         String output = null;
@@ -311,7 +300,7 @@ Puesto que literalmente queremos tener una partición por cada letra, podemos us
     
     Le guiaremos paso a paso. El código lee la primera letra del parámetro de la cadena de consulta `lastname` en un carácter. Después determina la clave de partición de esta letra al restar el valor hexadecimal de `A` del valor hexadecimal de la primera letra de los apellidos.
     
-    ```CSharp
+    ```csharp
     string lastname = context.Request.QueryString["lastname"];
     char firstLetterOfLastName = lastname.First();
     ServicePartitionKey partitionKey = new ServicePartitionKey(Char.ToUpper(firstLetterOfLastName) - 'A');
@@ -320,19 +309,19 @@ Puesto que literalmente queremos tener una partición por cada letra, podemos us
     Recuerde que, en este ejemplo, usamos 26 particiones con una clave de partición por partición.
     A continuación, obtenemos la partición de servicio `partition` para esta clave usando el método `ResolveAsync` en el objeto `servicePartitionResolver`. `servicePartitionResolver` se define como
     
-    ```CSharp
+    ```csharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
     
     El método `ResolveAsync` toma el URI del servicio, la clave de partición y un token de cancelación como parámetros. El servicio de URI para el servicio de procesamiento es `fabric:/AlphabetPartitions/Processing`. A continuación, obtenemos el punto de conexión de la partición.
     
-    ```CSharp
+    ```csharp
     ResolvedServiceEndpoint ep = partition.GetEndpoint()
     ```
     
     Por último, compilamos la dirección URL del punto de conexión además de la cadena de consulta, y llamamos al servicio de procesamiento.
     
-    ```CSharp
+    ```csharp
     JObject addresses = JObject.Parse(ep.Address);
     string primaryReplicaAddress = (string)addresses["Endpoints"].First();
     

@@ -1,17 +1,17 @@
 ---
 title: Migración de aplicaciones al esquema más reciente
-description: Cómo migrar las aplicaciones lógicas a la versión de esquema más reciente
+description: Migración de definiciones de JSON de flujo de trabajo de aplicación lógica a la versión más reciente del esquema del lenguaje de definición de flujo de trabajo
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
-ms.openlocfilehash: dc967c90f28b29a63a1f26d0aae86b6d769c1ccf
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: cef0fcb990cd2c5c6583822d4dc4c6993c52eac2
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786935"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666795"
 ---
 # <a name="migrate-logic-apps-to-latest-schema-version"></a>Migración de aplicaciones lógicas a la versión de esquema más reciente
 

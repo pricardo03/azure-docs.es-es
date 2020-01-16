@@ -1,25 +1,14 @@
 ---
-title: Conexión segura a un clúster de Azure Service Fabric | Microsoft Docs
+title: Conexión segura a un clúster de Azure Service Fabric
 description: Se describe cómo autenticar el acceso de cliente a un clúster de Service Fabric y cómo proteger la comunicación entre los clientes y un clúster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/29/2019
-ms.author: atsenthi
-ms.openlocfilehash: c350b53b2d0b235c5e34431386205f090f37b482
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 89d9f67ba1a202b3830df7a5b960c6ef01091bf2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599719"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458276"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Conexión a un clúster seguro
 

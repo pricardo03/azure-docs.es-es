@@ -1,25 +1,16 @@
 ---
-title: Réplicas e instancias en Azure Service Fabric | Microsoft Docs
-description: 'Réplicas e instancias: su función y ciclo de vida'
-services: service-fabric
-documentationcenter: .net
+title: Réplicas e instancias en Azure Service Fabric
+description: Obtenga información sobre réplicas e instancias en Service Fabric, incluida una introducción sobre sus ciclos de vida y funciones.
 author: appi101
-manager: anuragg
-editor: ''
-ms.assetid: d5ab75ff-98b9-4573-a2e5-7f5ab288157a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
-ms.openlocfilehash: 7f8638365b40395a5dd82457c40e5c15209ba1a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf21af43de553a2802289e44eaece12952d077d3
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60882415"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614611"
 ---
 # <a name="replicas-and-instances"></a>Réplicas e instancias 
 En este artículo se ofrece información general del ciclo de vida de réplicas de servicios con estado e instancias de servicios sin estado.

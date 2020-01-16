@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: df8300e84309a874faa4b1c06891a4c5b549fce6
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 0e4ec63ffe715b17f55fde2a53c15d96d391cdba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014778"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452511"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnóstico y solución de problemas de un entorno de versión preliminar
 
@@ -25,7 +25,7 @@ Este artículo resume varios problemas comunes que pueden surgir al trabajar con
 
 Este problema puede producirse si no tiene los permisos necesarios para acceder al entorno de Time Series Insights. El usuario necesita un rol de acceso de nivel lector para ver su entorno de Time Series Insights. Para comprobar los niveles de acceso actuales y conceder acceso adicional, vaya a la sección **Directivas de acceso a datos** del recurso de Time Series Insights en [Azure Portal](https://portal.azure.com/).
 
-  [![Entorno](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
+  [![Comprobación de las directivas de acceso a los datos.](media/preview-troubleshoot/verify-data-access-policies.png)](media/preview-troubleshoot/verify-data-access-policies.png#lightbox)
 
 ## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problema: no se ve ningún dato en el explorador de versión preliminar
 
@@ -35,7 +35,7 @@ Hay varias razones que pueden impedirle ver sus datos en el [explorador de la ve
 
     Compruebe que el origen del evento, que es un centro de eventos o un centro de IoT, está recibiendo datos de las etiquetas o las instancias. Para comprobarlo, vaya a la página de información general de Azure Portal.
 
-    [![Panel con las conclusiones](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
+    [![Revise la información general sobre las métricas del panel de información.](media/preview-troubleshoot/verify-dashboard-metrics.png)](media/preview-troubleshoot/verify-dashboard-metrics.png#lightbox)
 
 - Los datos de origen del evento no tienen formato JSON.
 
@@ -45,14 +45,15 @@ Hay varias razones que pueden impedirle ver sus datos en el [explorador de la ve
 
   * Para IoT Hub, debe proporcionar la clave con el permiso de **conexión de servicio**.
 
-    [![Configuración](media/v2-update-diagnose-and-troubleshoot/configuration.png)](media/v2-update-diagnose-and-troubleshoot/configuration.png#lightbox)
+    [![Verifique los permisos de IoT Hub](media/preview-troubleshoot/verify-correct-permissions.png)](media/preview-troubleshoot/verify-correct-permissions.png#lightbox).
 
-  * Tal como se muestra en la imagen anterior, servirían las directivas **iothubowner** o **service**, dado que ambas tienen permiso de **conexión del servicio**.
+    * Las directivas **iothubowner** y el **servicio** funcionan porque tienen permiso **Conexión de servicios**.
+
   * Para una instancia de Event Hubs, debe proporcionar la clave con el permiso de **escucha**.
   
-    [![Permisos](media/v2-update-diagnose-and-troubleshoot/permissions.png)](media/v2-update-diagnose-and-troubleshoot/permissions.png#lightbox)
+    [![Revise los permisos del centro de eventos.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
-  * Como se muestra en la imagen anterior, servirían las directivas **read** o **manage**, dado que ambas tienen permiso de **escucha**.
+    * Las directivas **Leer** y **Administrar** funcionan porque tienen el permiso **Escuchar**.
 
 - El grupo de consumidores proporcionado no es exclusivo de Time Series Insights.
 
@@ -98,7 +99,7 @@ Si no se especifica explícitamente la propiedad Timestamp, se utiliza como marc
 
    Los modelos de Time Series solo se admiten en entornos de pago por uso. Para más información sobre cómo acceder a su entorno S1 o S2 desde el explorador de versión preliminar de Time Series Insights, consulte [Visualización de datos en el explorador](./time-series-insights-update-explorer.md).
 
-   [![Acceso](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
+   [![No hay eventos en el entorno.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
 - Puede que no tenga permisos para ver y editar el modelo.
 
@@ -108,10 +109,12 @@ Si no se especifica explícitamente la propiedad Timestamp, se utiliza como marc
 
 Este problema puede producirse si el entorno no tiene una jerarquía de modelo de Time Series definida. Para más información, consulte el [trabajo con modelos de Time Series](./time-series-insights-update-how-to-tsm.md).
 
-  [![Modelos de Time Series](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
+  [![Las instancias no primarias mostrarán una advertencia.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Lea el artículo sobre [trabajo con modelos de Time Series](./time-series-insights-update-how-to-tsm.md).
+
 - Más información sobre las [formas JSON admitidas](./how-to-shape-query-json.md).
+
 - Revise el [planeamiento y los límites](./time-series-insights-update-plan.md) en la versión preliminar de Azure Time Series Insights.

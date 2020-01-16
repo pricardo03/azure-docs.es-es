@@ -1,27 +1,18 @@
 ---
 title: Restauración y copia de seguridad periódicas de Azure Service Fabric
 description: Use la característica de copia de seguridad periódica y restauración de Service Fabric para habilitar la copia de seguridad periódica de los datos de su aplicación.
-services: service-fabric
-documentationcenter: .net
 author: hrushib
-manager: chackdan
-editor: hrushib
-ms.assetid: FAA58600-897E-4CEE-9D1C-93FACF98AD1C
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 83a267453cd0c4f36fa5819d9d29934cf543bb76
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f56fcb7d1dde700d954c3b55bcf8cd7759893521
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209588"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526335"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Restauración y copia de seguridad periódicas de Azure Service Fabric 
+# <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Restauración y copia de seguridad periódicas en un clúster de Azure Service Fabric
 > [!div class="op_single_selector"]
 > * [Clústeres en Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Clústeres independientes](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -54,7 +45,7 @@ Service Fabric proporciona un conjunto de API para lograr la siguiente funcional
 - Suspensión temporal de las copias de seguridad
 - Administración de la retención de copias de seguridad (próximamente)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * Clúster de Service Fabric con la versión 6.4 de Fabric y versiones posteriores. Consulte este [artículo](service-fabric-cluster-creation-via-arm.md) para ver los pasos necesarios para crear el clúster de Service Fabric mediante la plantilla de recursos de Azure.
 * Se requiere el certificado X.509 para el cifrado de secretos a fin de conectarse al almacenamiento y almacenar las copias de seguridad. Consulte este [artículo](service-fabric-cluster-creation-via-arm.md) para saber cómo obtener o crear un certificado X.509.
 * Aplicación con estado de confianza de Service Fabric compilada con la versión 3.0 del SDK de Service Fabric o una versión posterior. En el caso de las aplicaciones destinadas a .NET Core 2.0, la aplicación debe compilarse con la versión 3.1 del SDK de Service Fabric o una versión posterior.

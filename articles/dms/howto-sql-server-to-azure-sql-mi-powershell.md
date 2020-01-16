@@ -1,6 +1,7 @@
 ---
-title: Migración de SQL Server a Instancia administrada de Azure SQL Database con Database Migration Service y PowerShell | Microsoft Docs
-description: Aprenda a migrar de SQL Server local a Instancia administrada de Azure SQL Database mediante Azure PowerShell.
+title: 'PowerShell: Migración de SQL Server a una instancia administrada de SQL'
+titleSuffix: Azure Database Migration Service
+description: Aprenda a migrar de SQL Server local a una instancia administrada de Azure SQL Database mediante Azure PowerShell y Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,20 +9,20 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/29/2019
-ms.openlocfilehash: 426285340a9401aa6c84a7ee07f172eee6791d9e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 227ef72b53b7334cffcb485e23c3e4227613b344
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163952"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437913"
 ---
-# <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>Migración de SQL Server local a una instancia administrada de Azure SQL Database mediante Azure PowerShell
+# <a name="migrate-sql-server-to-sql-database-managed-instance-with-powershell--azure-database-migration-service"></a>Migración de SQL Server a una instancia administrada de SQL Database con PowerShell y Azure Database Migration Service
 En este artículo, migrará la base de datos **Adventureworks2016** restaurada en una instancia local de SQL Server 2005 o superior a una instancia administrada de Azure SQL Database mediante Microsoft Azure PowerShell. Puede migrar bases de datos desde una instancia de SQL Server local a una instancia administrada de Azure SQL Database mediante el módulo `Az.DataMigration` en Microsoft Azure PowerShell.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 > [!div class="checklist"]
 >
 > * Cree un grupo de recursos.
@@ -33,7 +34,7 @@ En este artículo, aprenderá a:
 
 En este artículo se incluye información sobre cómo realizar migraciones en línea y sin conexión.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar estos pasos, necesitará lo siguiente:
 
@@ -41,7 +42,7 @@ Para completar estos pasos, necesitará lo siguiente:
 * Una copia local de la base de datos **AdventureWorks2016**, que está disponible para su descarga [aquí](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017).
 * Para habilitar el protocolo TCP/IP, que se deshabilita de forma predeterminada con la instalación de SQL Server Express. Habilite el protocolo TCP/IP siguiendo el artículo [Habilitar o deshabilitar un protocolo de red de servidor](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 * Configurar [Firewall de Windows para el acceso al motor de base de datos](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* Una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* Suscripción a Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * Una instancia administrada de Azure SQL Database. Puede crear una instancia administrada de Azure SQL Database mediante los pasos que se describen en el artículo [Creación de una instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
 * Descargar e instalar [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) versión 3.3 o posterior.
 * Una instancia de Azure Virtual Network (VNet) creada mediante el modelo de implementación de Azure Resource Manager, que proporciona Azure Database Migration Service con conectividad de sitio a sitio a los servidores de origen locales a través de [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
@@ -274,7 +275,7 @@ Debe realizar las siguientes tareas de configuración únicamente para las migra
 
 Utilice el cmdlet `New-AzDataMigrationTask` para crear e iniciar una tarea de migración.
 
-#### <a name="specify-parameters"></a>Especificación de parámetros
+#### <a name="specify-parameters"></a>Especificar parámetros
 
 ##### <a name="common-parameters"></a>Parámetros comunes
 

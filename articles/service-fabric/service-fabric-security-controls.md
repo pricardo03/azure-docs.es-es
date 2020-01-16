@@ -1,20 +1,16 @@
 ---
 title: Controles de seguridad para Azure Service Fabric
-description: Lista de comprobación de los controles de seguridad para evaluar Azure Service Fabric
-services: service-fabric
-documentationcenter: ''
+description: Obtenga información sobre los controles de seguridad para Azure Service Fabric. Incluye una lista de comprobación de controles de seguridad integrados.
 author: msmbaldwin
-manager: rkarlin
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d62c7848588c494c8190f0d429ce2d6641928b52
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a8bb49e20ec5812a4882966c6918cf2bd59f36a0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886206"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645436"
 ---
 # <a name="security-controls-for-azure-service-fabric"></a>Controles de seguridad para Azure Service Fabric
 
@@ -26,7 +22,7 @@ En este artículo se explican los controles de seguridad integrados en Azure Ser
 
 | Control de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con el punto de conexión de servicio| Sí |  |
+| Compatibilidad con punto de conexión de servicio| Sí |  |
 | Compatibilidad con la inserción de redes virtuales| Sí |  |
 | Compatibilidad con el aislamiento de red y los firewalls| Sí | Usando grupos de seguridad de red (NSG). |
 | Compatibilidad con la tunelización forzada| Sí | Las redes de Azure proporcionan la tunelización forzada. |
@@ -46,7 +42,7 @@ En este artículo se explican los controles de seguridad integrados en Azure Ser
 | Authentication| Sí | La autenticación se realiza a través de Azure Active Directory. |
 | Authorization| Sí | Administración de identidad y acceso (IAM) para llamadas a través de SFRP. Las llamadas directamente al punto de conexión del clúster son compatibles con dos roles: usuario y administrador. El cliente puede asignar las API a cualquiera de estos roles. |
 
-## <a name="data-protection"></a>Protección de datos
+## <a name="data-protection"></a>Protección de los datos
 
 | Control de seguridad | Sí/No | Notas |
 |---|---|--|
@@ -64,4 +60,4 @@ En este artículo se explican los controles de seguridad integrados en Azure Ser
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre los [controles de seguridad integrados en los servicios de Azure](../security/fundamentals/security-controls.md).
+- Más información sobre los [controles de seguridad integrados en los servicios de Azure](../security/fundamentals/security-controls.md).

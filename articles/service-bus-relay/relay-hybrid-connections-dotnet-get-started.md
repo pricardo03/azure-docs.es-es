@@ -1,5 +1,5 @@
 ---
-title: Introducción a los WebSockets de Conexiones híbridas de Azure Relay en .NET | Microsoft Docs
+title: WebSockets de Conexiones híbridas de Azure Relay en .NET
 description: Escriba una aplicación de consola en C# para WebSockets de Conexiones híbridas de Azure Relay.
 services: service-bus-relay
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 6ad1d5415feefcf30ebae860bc8f4d8a3e2261d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13612f8ffa343e483165a8dbdd54d1b2b1f5e2cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428358"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355195"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introducción a WebSockets de Conexiones híbridas de Relay en .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -34,12 +34,12 @@ En esta guía de inicio rápido, realizará los siguientes pasos:
 4. Escritura de una aplicación de consola de cliente (remitente) para enviar mensajes.
 5. Ejecución de aplicaciones. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
 * [Visual Studio 2015 o posterior](https://www.visualstudio.com). En los ejemplos de este tutorial se usa Visual Studio 2017.
-* Una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* Suscripción a Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="create-a-namespace"></a>Creación de un espacio de nombres
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: b5304f2f9af3f3dac5a1259669cdd78548c2e832
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7ea7051b24deeddea25b1db771b73a226f650067
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933736"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401147"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluciones de supervisión en Azure Monitor
 Las soluciones de supervisión aprovechan los servicios de Azure para proporcionar información adicional sobre el funcionamiento de una aplicación o servicio determinados. En este artículo se proporciona una breve descripción de las soluciones de supervisión en Azure y los detalles sobre su uso e instalación.
@@ -22,15 +22,14 @@ Las soluciones de supervisión aprovechan los servicios de Azure para proporcion
 
 Las soluciones de supervisión suelen recopilar datos de registro y proporcionar consultas y vistas para analizar los datos recopilados. También pueden aprovechar otros servicios como Azure Automation para realizar acciones relacionadas con la aplicación o el servicio.
 
-Puede agregar soluciones de supervisión a su instancia de Azure Monitor para todas las aplicaciones y los servicios que use. Suelen estar disponibles sin costo, pero la recopilación de datos puede suponer cargos por uso. Además de las soluciones que proporciona Microsoft, los asociados y los clientes pueden [crear soluciones de administración](solutions-creating.md) para utilizarlas en su propio entorno o ponerlas a disposición de los clientes en la comunidad.
+Puede agregar soluciones de supervisión a su instancia de Azure Monitor para todas las aplicaciones y los servicios que use. Normalmente están disponibles sin costo, excepto la recopilación de datos que podría suponer cargos por uso. Además de las soluciones que proporciona Microsoft, los asociados y los clientes pueden [crear soluciones de administración](solutions-creating.md) para utilizarlas en su propio entorno o ponerlas a disposición de los clientes en la comunidad.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="use-monitoring-solutions"></a>Uso de soluciones de supervisión
 Abra la página **Introducción** en Azure Monitor para mostrar un icono para cada solución instalada en el área de trabajo. 
 
-1. Inicie sesión en el Portal de Azure.
-1. Abra **Todos los servicios** y busque **Monitor**.
+1. Vaya a [Azure Portal](https://ms.portal.azure.com). Busque y seleccione **Monitor**.
 1. En el menú **Insights**, seleccione **Más**.
 1. Use los cuadros de lista desplegable en la parte superior de la pantalla para cambiar el área de trabajo o el intervalo de tiempo usado para los iconos.
 1. Haga clic en el icono de una solución para abrir la vista que incluye un análisis más detallado de los datos recopilados.
@@ -42,9 +41,8 @@ Las soluciones de supervisión pueden contener varios tipos de recursos de Azure
 ## <a name="list-installed-monitoring-solutions"></a>Lista de soluciones de supervisión instaladas 
 Utilice el procedimiento siguiente para enumerar las soluciones de supervisión instaladas en su suscripción.
 
-1. Inicie sesión en el Portal de Azure.
-1. Abra **Todos los servicios** y busque **Soluciones**.
-4. Se mostrarán las soluciones instaladas en todas las áreas de trabajo. Al nombre de la solución le sigue el nombre del área de trabajo donde está instalada.
+1. Vaya a [Azure Portal](https://ms.portal.azure.com). Busque y seleccione **Soluciones**.
+1. Se mostrarán las soluciones instaladas en todas las áreas de trabajo. Al nombre de la solución le sigue el nombre del área de trabajo donde está instalada.
 1. Use los cuadros de lista desplegable de la parte superior de la pantalla para filtrar por suscripción o grupo de recursos.
 
 
@@ -89,7 +87,7 @@ Todas las soluciones de supervisión requieren un [área de trabajo de Log Analy
 ### <a name="create-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Creación de un vínculo entre un área de trabajo de Log Analytics y una cuenta de Automation
 La forma de especificar el área de trabajo de Log Analytics y una cuenta de Automation dependerá del método de instalación de la solución.
 
-* Al instalar una solución desde Azure Marketplace, se le pedirá una cuenta de Automation y un área de trabajo. Se creará un vínculo entre ellas, si no están ya vinculadas.
+* Al instalar una solución mediante Azure Marketplace, se le pedirá un área de trabajo y una cuenta de Automation. Se creará un vínculo entre ellas, si no están ya vinculadas.
 * Para las soluciones externas a Azure Marketplace, debe vincular el área de trabajo de Log Analytics y la cuenta de Automation antes de instalar la solución. Para ello, seleccione cualquier solución en Azure Marketplace y seleccione el área de trabajo de Log Analytics y la cuenta de Automation. No tendrá que instalar la solución en sí, ya que el vínculo se crea en cuanto se seleccionan el área de trabajo de Log Analytics y la cuenta de Automation. Cuando se cree el vínculo, podrá usar esa área de trabajo de Log Analytics y la cuenta de Automation para cualquier solución.
 
 ### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Comprobación de un vínculo entre un área de trabajo de Log Analytics y una cuenta de Automation

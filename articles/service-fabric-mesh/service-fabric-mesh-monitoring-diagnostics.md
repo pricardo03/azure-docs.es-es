@@ -1,26 +1,17 @@
 ---
-title: Supervisión y diagnóstico en aplicaciones de Azure Service Fabric mesh | Microsoft Docs
+title: Supervisión y diagnóstico en aplicaciones Azure Service Fabric Mesh
 description: Obtenga información sobre la supervisión y el diagnóstico de aplicaciones en Service Fabric mesh en Azure.
-services: service-fabric-mesh
-documentationcenter: .net
 author: srrengar
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 36c9a5d75c4a72365638619ab85d451df647feb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 247a1de4d00668371337295616d31caf101f0cc5
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939822"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498149"
 ---
 # <a name="monitoring-and-diagnostics"></a>Supervisión y diagnóstico
 Azure Service Fabric mesh es un servicio totalmente administrado que permite a los desarrolladores implementar aplicaciones de microservicios sin la administración de máquinas virtuales, almacenamiento o redes. La supervisión y el diagnóstico para Service Fabric mesh se clasifican en tres tipos principales de datos de diagnóstico:
@@ -52,7 +43,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 
 El entorno de Mesh expone una serie de métricas que indican el rendimiento de los contenedores. Las métricas siguientes están disponibles en Azure Portal y la CLI de Azure Monitor:
 
-| Métrica | DESCRIPCIÓN | Unidades|
+| Métrica | Descripción | Unidades|
 |----|----|----|
 | CpuUtilization | ActualCpu/AllocatedCpu como porcentaje | % |
 | MemoryUtilization | ActualMem/AllocatedMem como porcentaje | % |

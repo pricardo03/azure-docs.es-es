@@ -1,22 +1,22 @@
 ---
 title: Descripción del funcionamiento de la herramienta de migración voluntaria para las alertas de Azure Monitor
 description: Comprenda el funcionamiento de la herramienta de migración de alertas y solucione problemas.
-author: snehithm
+author: yalavi
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: snmuvva
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: c3d5bb58989fe87ddf9a185dbae926a71edf1590
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 493fa4ac51bf593b7856b236c5d861ec029769d3
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061558"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680688"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Descripción del funcionamiento de la herramienta de migración
 
-Tal como se [anunció anteriormente](monitoring-classic-retirement.md), las alertas clásicas en Azure Monitor quedarán en desuso el 31 de agosto de 2019 (la fecha original era el 30 de junio de 2019). Una herramienta de migración está disponible en Azure Portal para los clientes que usan reglas de alertas clásicas y que desean desencadenar la migración ellos mismos.
+Tal como se [anunció anteriormente](monitoring-classic-retirement.md), las alertas clásicas en Azure Monitor quedarán en desuso el 31 de agosto de 2019 (la fecha original era el 30 de junio de 2019). Hay disponible una herramienta de migración en Azure Portal para los clientes que usan reglas de alertas clásicas y que desean desencadenar la migración ellos mismos.
 
 En este artículo se explica cómo funciona la herramienta de migración voluntaria. También se describen soluciones para algunos problemas comunes.
 
@@ -39,7 +39,7 @@ Aunque la herramienta puede migrar casi todas las [reglas de alertas clásicas](
 Si su suscripción tiene este tipo de regla clásica, deberá migrarlas manualmente. Dado que no podemos proporcionar una migración automática, las alertas de métricas clásicas existentes de estos tipos seguirán funcionando hasta junio de 2020. Esta extensión le dará tiempo para migrar a nuevas alertas. También puede continuar creando nuevas alertas clásicas en las excepciones indicadas anteriormente hasta junio de 2020. Sin embargo, en el resto de casos, no se crearán nuevas alertas clásicas después de agosto de 2019.
 
 > [!NOTE]
-> Además de las excepciones que se indican anteriormente, si las reglas de alertas clásicas no son válidas, es decir, se encuentran en [métricas en desuso](#classic-alert-rules-on-deprecated-metrics) o recursos eliminados, no se migrarán durante la migración voluntaria. Este tipo de reglas de alertas clásicas no válidas se eliminarán cuando se realice la migración automática.
+> Además de las excepciones que se indican anteriormente, si las reglas de alertas clásicas no son válidas, es decir, se encuentran en [métricas en desuso](#classic-alert-rules-on-deprecated-metrics) o recursos eliminados, no se migrarán ni estarán disponibles tras retirarse el servicio.
 
 ### <a name="guest-metrics-on-virtual-machines"></a>Métricas de invitado en máquinas virtuales
 
@@ -262,7 +262,7 @@ Debido a algunos cambios recientes en las reglas de alertas clásicas de la susc
 
 ### <a name="scope-lock-preventing-us-from-migrating-your-rules"></a>Ámbito que nos impide migrar las reglas
 
-Como parte de la migración, se crearán nuevas alertas de métricas y nuevos grupos de acciones, y luego se eliminarán las reglas de alerta clásicas. Sin embargo, un bloqueo de ámbito puede impedir la creación o eliminación de recursos. Según el bloqueo de ámbito, no se pudieron migrar algunas reglas o ninguna de ellas. Puede resolver este problema si quita el bloqueo de ámbito de la suscripción, el grupo de recursos o el recurso que aparece en la [herramienta de migración](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel) y vuelve a desencadenar la migración. No se puede deshabilitar el bloqueo del ámbito y se debe quitar mientras dure el proceso de migración. [Más información sobre cómo administrar los bloqueos de ámbito](../../azure-resource-manager/resource-group-lock-resources.md#portal).
+Como parte de la migración, se crearán nuevas alertas de métricas y nuevos grupos de acciones, y luego se eliminarán las reglas de alerta clásicas. Sin embargo, un bloqueo de ámbito puede impedir la creación o eliminación de recursos. Según el bloqueo de ámbito, no se pudieron migrar algunas reglas o ninguna de ellas. Puede resolver este problema si quita el bloqueo de ámbito de la suscripción, el grupo de recursos o el recurso que aparece en la [herramienta de migración](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel) y vuelve a desencadenar la migración. No se puede deshabilitar el bloqueo del ámbito y se debe quitar mientras dure el proceso de migración. [Más información sobre cómo administrar los bloqueos de ámbito](../../azure-resource-manager/management/lock-resources.md#portal).
 
 ### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>Directiva con efecto de denegación que nos impide migrar las reglas
 

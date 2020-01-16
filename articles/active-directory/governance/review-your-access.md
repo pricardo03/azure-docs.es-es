@@ -1,5 +1,5 @@
 ---
-title: 'Revisión de su acceso a los grupos o las aplicaciones en las revisiones de acceso: Azure Active Directory | Microsoft Docs'
+title: 'Revisión del acceso a grupos y aplicaciones en las revisiones de acceso: Azure AD'
 description: Obtenga información sobre cómo revisar su propio acceso a grupos o aplicaciones en las revisiones de acceso de Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df8b03d513e2d78083031fbc9a3f6dbc1b7d15d9
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 0d75d7ffe28fa126ee5e359cba19e66e3c0f36e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958568"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422397"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Revisión del acceso a los grupos o las aplicaciones en las revisiones de acceso de Azure AD
 
@@ -52,7 +52,7 @@ Si no tiene el correo electrónico, puede encontrar las revisiones de acceso pen
 
     ![Lista de revisiones de acceso pendientes para aplicaciones y grupos](./media/review-your-access/access-reviews-list.png)
 
-1. Haga clic en el vínculo **Begin review** (Comenzar revisión) para la revisión de acceso que quiere realizar.
+1. Haga clic en el vínculo **Begin review** (Comenzar revisión) correspondiente a la revisión de acceso que quiere realizar.
 
 ## <a name="perform-the-access-review"></a>Realización de la revisión de acceso
 

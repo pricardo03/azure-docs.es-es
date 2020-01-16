@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: 6e4d110221c7f360e8177505de2a7789f9616d51
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976152"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429152"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Procedimiento para clonar un centro de Azure IoT Hub en otra región
 
@@ -29,7 +29,7 @@ En este artículo se exploran las formas de clonar un centro de IoT Hub y se pro
 Para clonar un centro, necesita una suscripción con acceso administrativo al centro original. Puede colocar el nuevo centro en un grupo de recursos y una región nuevos, en la misma suscripción que el centro original o incluso en una nueva suscripción. No puede usar el mismo nombre porque el nombre del centro debe ser único globalmente.
 
 > [!NOTE]
-> Actualmente, no hay ninguna característica principal para clonar un centro de IoT Hub. Se trata principalmente de un proceso manual, por lo que es bastante propenso a errores. La complejidad de clonar un centro es directamente proporcional a la del propio centro. Por ejemplo, clonar un centro de IoT Hub sin enrutamiento de mensajes es bastante sencillo. Si agrega el enrutamiento de mensajes como única complejidad, clonar el centro se convierte en, por lo menos, un orden de magnitud más complicado. Si también mueve los recursos usados para enrutar los puntos de conexión, es otro orden de magnitud más complicado. 
+> En este momento, no hay ninguna característica disponible para clonar una instancia de IoT Hub de forma automática. Se trata principalmente de un proceso manual, por lo que es bastante propenso a errores. La complejidad de clonar un centro es directamente proporcional a la del propio centro. Por ejemplo, clonar un centro de IoT Hub sin enrutamiento de mensajes es bastante sencillo. Si agrega el enrutamiento de mensajes como única complejidad, clonar el centro se convierte en, por lo menos, un orden de magnitud más complicado. Si también mueve los recursos usados para enrutar los puntos de conexión, es otro orden de magnitud más complicado. 
 
 ## <a name="things-to-consider"></a>Aspectos que se deben tener en cuenta:
 

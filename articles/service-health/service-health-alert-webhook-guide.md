@@ -1,18 +1,15 @@
 ---
-title: Configuración de las notificaciones de Azure Service Health para los sistemas de administración de problemas existentes mediante un webhook
+title: Envío de notificaciones de Azure Service Health con un webhook
 description: Envíe notificaciones personalizadas de eventos de Service Health a un sistema de administración de problemas existente.
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
-ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 8f84b43519c197797b39397cfd15c4f90444177c
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 95926185057d9fc1177b974fe76b2da18ebfc124
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854381"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551682"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Uso de un webhook para configurar las notificaciones relativas al estado en sistemas de administración de problemas
 
@@ -34,7 +31,7 @@ Si desea usar una integración preconfigurada, consulte:
 ## <a name="configure-a-custom-notification-by-using-the-service-health-webhook-payload"></a>Configuración de una notificación personalizada mediante la carga del webhook de Service Health
 Para configurar su propia integración de webhook personalizada, es preciso que analice la carga JSON que se envía en las notificaciones de Service Health.
 
-Vea [un ejemplo](../azure-monitor/platform/activity-log-alerts-webhook.md) de la carga del webhook de `ServiceHealth`.
+Consulte [un ejemplo](../azure-monitor/platform/activity-log-alerts-webhook.md) de la carga del webhook de `ServiceHealth`.
 
 Para confirmar que se trata de una alerta de Service Health examine `context.eventSource == "ServiceHealth"`. Las siguientes propiedades son las más importantes:
 - **data.context.activityLog.status**

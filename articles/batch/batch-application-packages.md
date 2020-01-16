@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c9d6d13efaa07bff2a1eaabe05725a3257cf895
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9e8fdafc3e8f83cb529718993ffe9d0f7383c10c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70095692"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449822"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
 
@@ -94,7 +94,7 @@ Se recomienda crear una cuenta de Storage *específicamente* para su uso con la 
 > Actualmente no puede utilizar paquetes de aplicación con una cuenta de Azure Storage que esté configurada con [reglas de firewall](../storage/common/storage-network-security.md).
 > 
 
-El servicio Batch utiliza Azure Storage para almacenar los paquetes de aplicación como blobs en bloques. Los datos de blob en bloques se [cobran al precio habitual][storage_pricing] y el tamaño de cada paquete no puede superar el [tamaño de blob en bloques máximo](../storage/common/storage-scalability-targets.md#azure-blob-storage-scale-targets). Asegúrese de considerar el tamaño y número de los paquetes de aplicación y elimine periódicamente los paquetes en desuso para minimizar los costos.
+El servicio Batch utiliza Azure Storage para almacenar los paquetes de aplicación como blobs en bloques. Los datos de blob en bloques se [cobran al precio habitual][storage_pricing] y el tamaño de cada paquete no puede superar el tamaño máximo del blob en bloques. Para más información, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage para las cuentas de almacenamiento](../storage/blobs/scalability-targets.md). Asegúrese de considerar el tamaño y número de los paquetes de aplicación y elimine periódicamente los paquetes en desuso para minimizar los costos.
 > 
 > 
 

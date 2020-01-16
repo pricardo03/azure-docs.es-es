@@ -1,5 +1,5 @@
 ---
-title: 'Cómo usar la transcripción de lotes: servicio de voz'
+title: 'Uso de la transcripción por lotes: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: La transcripción de lotes es ideal si desea transcribir una gran cantidad de audio en el almacenamiento, como los blobs de Azure. Mediante la API REST dedicada, puede apuntar a archivos de audio con un identificador URI de firma de acceso compartido (SAS) y recibir las transcripciones de forma asincrónica.
 services: cognitive-services
@@ -8,42 +8,46 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 2cccd17ce04b3954a7d0720d9ba25bbe792da3b6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 765a74ac20d6a1c79dfc31c5e11b1f214dd2aa97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806344"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446959"
 ---
-# <a name="why-use-batch-transcription"></a>¿Por qué usar la transcripción de lotes?
+# <a name="how-to-use-batch-transcription"></a>Uso de la transcripción por lotes
 
-La transcripción de lotes es ideal si desea transcribir una gran cantidad de audio en el almacenamiento, como los blobs de Azure. Mediante la API REST dedicada, puede apuntar a archivos de audio con un identificador URI de firma de acceso compartido (SAS) y recibir las transcripciones de forma asincrónica.
+La transcripción por lotes es ideal para transcribir una gran cantidad de audio en el almacenamiento. Mediante la API REST dedicada, puede apuntar a archivos de audio con un identificador URI de firma de acceso compartido (SAS) y recibir los resultados de las transcripciones de forma asincrónica.
 
-## <a name="prerequisites"></a>Requisitos previos
+La API ofrece transcripción de voz a texto asincrónica y otras características. Puede usar la API REST para exponer métodos con los siguientes propósitos:
+
+- Crear solicitudes de procesamiento por lotes
+- Consultar el estado
+- Descargar los resultados de las transcripciones
+- Eliminar información de transcripciones del servicio
+
+La API detallada está disponible como [documento de Swagger](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A), debajo del encabezado `Custom Speech transcriptions`.
+
+Los trabajos de transcripción por lotes se programan de la mejor manera posible. Actualmente no hay ninguna estimación de cuándo un trabajo cambia al estado en ejecución. En la carga normal del sistema, se debe producir en cuestión de minutos. En este estado, la transcripción real se procesa más rápido que el audio en tiempo real.
+
+Además de esta intuitiva API, no es necesario implementar puntos de conexión personalizados y no tiene que cumplir ningún requisito de simultaneidad.
+
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="subscription-key"></a>Clave de suscripción
 
-Como sucede con todas las características del servicio Voz, puede crear una clave de suscripción en [Azure Portal](https://portal.azure.com) siguiendo nuestra [guía de inicio](get-started.md). Si va a obtener transcripciones de nuestros modelos de base de referencia, todo lo que necesita hacer es crear una clave.
+Como sucede con todas las características del servicio Voz, puede crear una clave de suscripción en [Azure Portal](https://portal.azure.com) siguiendo nuestra [guía de inicio](get-started.md).
 
 >[!NOTE]
-> Se requiere una suscripción estándar (S0) para el servicio de voz para usar la transcripción de lotes. Las claves de suscripción gratuita (F0) no funcionarán. Para más información, consulte [Precios y límites](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Se requiere una suscripción estándar (S0) para el servicio de voz para usar la transcripción de lotes. Las claves de suscripción gratuita (F0) no funcionarán. Para obtener más información, consulte los [precios y límites](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="custom-models"></a>Modelos personalizados
 
-Si tiene previsto personalizar modelos acústicos o de lenguaje, siga los pasos que se indican en [Creación de modelos acústicos](how-to-customize-acoustic-models.md) y [Personalización de modelos de lenguaje](how-to-customize-language-model.md). Para usar los modelos creados en la transcripción por lotes, necesita sus identificadores de modelo. Este identificador no es el mismo que el del punto de conexión que se encuentra en la vista de detalles del punto de conexión, sino el identificador del modelo que puede recuperar al seleccionar los detalles de los modelos.
+Si tiene previsto personalizar modelos acústicos o de lenguaje, siga los pasos que se indican en los artículos de [creación de modelos acústicos](how-to-customize-acoustic-models.md) y [personalización de modelos de lenguaje](how-to-customize-language-model.md). Para usar los modelos creados en la transcripción por lotes, necesita sus identificadores de modelo. Puede recuperar el identificador del modelo al inspeccionar los detalles del modelo. No es necesario un punto de conexión personalizado implementado para el servicio de transcripción por lotes.
 
 ## <a name="the-batch-transcription-api"></a>Transcription API de Azure Batch
-
-Transcription API de Batch ofrece la transcripción asincrónica de voz a texto, además de otras características. Es una API REST que expone métodos para:
-
-1. Crear solicitudes de procesamiento por lotes
-1. Consultar el estado
-1. Descargar transcripciones
-
-> [!NOTE]
-> Esta API resulta muy adecuada para centros de llamadas que suelen acumular miles de horas de audio. Facilita la transcripción de grandes volúmenes de grabaciones de audio.
 
 ### <a name="supported-formats"></a>Formatos compatibles
 
@@ -51,11 +55,11 @@ Transcription API de Batch admite los siguientes formatos:
 
 | Formato | Códec | Bitrate | Velocidad de muestreo |
 |--------|-------|---------|-------------|
-| WAV | PCM | 16 bits | 8 o 16 kHz, mono, estéreo |
-| MP3 | PCM | 16 bits | 8 o 16 kHz, mono, estéreo |
-| OGG | OPUS | 16 bits | 8 o 16 kHz, mono, estéreo |
+| WAV | PCM | 16 bits | 8 kHz o 16 kHz, mono o estéreo |
+| MP3 | PCM | 16 bits | 8 kHz o 16 kHz, mono o estéreo |
+| OGG | OPUS | 16 bits | 8 kHz o 16 kHz, mono o estéreo |
 
-Si se trata de secuencias de audio estéreo, Batch Transcription API divide los canales izquierdo y derecho durante la transcripción. Los dos archivos JSON con el resultado se crean desde un único canal. Las marcas de tiempo por expresión permiten al desarrollador crear una transcripción final ordenada. Esta solicitud de ejemplo incluye las propiedades de filtrado de blasfemias, signos de puntuación y marcas de tiempo de nivel de palabra.
+En el caso de las secuencias de audio estéreo, los canales izquierdo y derecho se dividen durante la transcripción. Para cada canal se crea un archivo de resultados JSON. Las marcas de tiempo por expresión generadas permiten al desarrollador crear una transcripción final ordenada.
 
 ### <a name="configuration"></a>Configuración
 
@@ -69,38 +73,119 @@ Los parámetros de configuración se proporcionan como JSON:
   "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
-    "ProfanityFilterMode": "Masked",
-    "PunctuationMode": "DictatedAndAutomatic",
-    "AddWordLevelTimestamps" : "True",
-    "AddSentiment" : "True"
+    "ProfanityFilterMode": "None | Removed | Tags | Masked",
+    "PunctuationMode": "None | Dictated | Automatic | DictatedAndAutomatic",
+    "AddWordLevelTimestamps" : "True | False",
+    "AddSentiment" : "True | False",
+    "AddDiarization" : "True | False",
+    "TranscriptionResultsContainerUrl" : "<SAS to Azure container to store results into (write permission required)>"
   }
 }
 ```
-
-> [!NOTE]
-> Transcription API de Batch usa un servicio REST para solicitar transcripciones, su estado y los resultados asociados. Puede usar la API con cualquier lenguaje. En la siguiente sección se describe cómo se usa la API.
 
 ### <a name="configuration-properties"></a>Propiedades de configuración
 
 Utilice estas propiedades opcionales para configurar la transcripción:
 
-| Parámetro | DESCRIPCIÓN |
-|-----------|-------------|
-| `ProfanityFilterMode` | Especifica cómo controlar las palabras soeces en los resultados del reconocimiento. Los valores aceptados son `None`, que deshabilita el filtrado de palabras soeces; `masked`, que reemplaza las palabras soeces con asteriscos; `removed`, que quita todas las palabras soeces del resultado; o `tags`, que agrega etiquetas de "palabras soeces". La configuración predeterminada es `masked`. |
-| `PunctuationMode` | Especifica cómo controlar la puntuación en los resultados del reconocimiento. Los valores aceptados son: `None`, que deshabilita la puntuación; `dictated`, que implica puntuación explícita; `automatic`, que permite que el descodificador se ocupe de la puntuación; o `dictatedandautomatic`, que implica signos de puntuación dictados o puntuación automática. |
- | `AddWordLevelTimestamps` | Especifica si las marcas de tiempo de nivel de palabra se deben agregar a la salida. Los valores aceptados son `true`, que permite las marcas de tiempo de nivel de palabra, y `false` (el valor predeterminado) que las deshabilita. |
- | `AddSentiment` | Especifica que la opinión se debe agregar a la expresión. Los valores aceptados son `true`, que permite la opinión por expresión y `false` (el valor predeterminado) que la deshabilita. |
- | `AddDiarization` | Especifica que el análisis de la diarización se debe llevar a cabo en la entrada que se espera sea un canal mono que contenga dos voces. Los valores aceptados son `true`, que permite la diarización, y `false` (el valor predeterminado) que la deshabilita. También requiere que `AddWordLevelTimestamps` se establezca en true.|
+| Parámetro | Descripción |
+|-----------|------------|
+|`ProfanityFilterMode`|Especifica cómo controlar las palabras soeces en los resultados del reconocimiento.
+||**`Masked`** : predeterminado. Reemplaza las palabras soeces con asteriscos.<br>`None`: deshabilita el filtrado de palabras soeces.<br>`Removed`: quita todas las palabras soeces del resultado.<br>`Tags`: agrega etiquetas de palabras soeces.
+|`PunctuationMode`|Especifica cómo controlar la puntuación en los resultados del reconocimiento.
+||`Automatic`: el servicio inserta la puntuación.<br>`Dictated`: puntuación dictada (hablada).<br>**`DictatedAndAutomatic`** : predeterminado. Puntuación dictada y automática.<br>`None`: deshabilita la puntuación.
+|`AddWordLevelTimestamps`|Especifica si las marcas de tiempo de nivel de palabra se deben agregar a la salida.
+||`True`: habilita las marcas de tiempo de nivel de palabra.<br>**`False`** : predeterminado. Deshabilita las marcas de tiempo de nivel de palabra.
+|`AddSentiment`|Especifica si el análisis de sentimiento se agrega a la expresión.
+||`True`: habilita las opiniones por expresión.<br>**`False`** : predeterminado. Deshabilita las opiniones.
+|`AddDiarization`|Especifica si se lleva a cabo el análisis de diarización. Si es `true`, se espera que la entrada sea audio de canal mono con un máximo de dos voces. `AddWordLevelTimestamps` debe establecerse en `true`.
+||`True`: habilita la diarización.<br>**`False`** : predeterminado. Deshabilita la diarización.
+|`TranscriptionResultsContainerUrl`|Token SAS opcional en un contenedor grabable de Azure. El resultado se almacenará en este contenedor.
 
 ### <a name="storage"></a>Storage
 
 La transcripción de lotes admite [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) para leer el audio y escribir las transcripciones en el almacenamiento.
 
+## <a name="the-batch-transcription-result"></a>El resultado de la transcripción por lotes
+
+Para el audio de entrada mono, se crea un archivo de resultado de transcripción. En el audio de entrada estéreo, se crean dos archivos de resultados de transcripción. Cada una tiene esta estructura:
+
+```json
+{
+  "AudioFileResults":[ 
+    {
+      "AudioFileName": "Channel.0.wav | Channel.1.wav"      'maximum of 2 channels supported'
+      "AudioFileUrl": null                                  'always null'
+      "AudioLengthInSeconds": number                        'Real number. Two decimal places'
+      "CombinedResults": [
+        {
+          "ChannelNumber": null                             'always null'
+          "Lexical": string
+          "ITN": string
+          "MaskedITN": string
+          "Display": string
+        }
+      ]
+      SegmentResults:[                                     'for each individual segment'
+        {
+          "RecognitionStatus": Success | Failure
+          "ChannelNumber": null
+          "SpeakerId": null | "1 | 2"                     'null if no diarization
+                                                            or stereo input file, the
+                                                            speakerId as a string if
+                                                            diarization requested for
+                                                            mono audio file'
+          "Offset": number                                'time in milliseconds'
+          "Duration": number                              'time in milliseconds'
+          "OffsetInSeconds" : number                      'Real number. Two decimal places'
+          "DurationInSeconds" : number                    'Real number. Two decimal places'
+          "NBest": [
+            {
+              "Confidence": number                        'between 0 and 1'
+              "Lexical": string
+              "ITN": string
+              "MaskedITN": string
+              "Display": string
+              "Sentiment":
+                {                                          'this is omitted if sentiment is
+                                                            not requested'
+                  "Negative": number                        'between 0 and 1'
+                  "Neutral": number                         'between 0 and 1'
+                  "Positive": number                        'between 0 and 1'
+                }
+              "Words": [
+                {
+                  "Word": string
+                  "Offset": number                         'time in milliseconds'
+                  "Duration": number                       'time in milliseconds'
+                  "OffsetInSeconds": number                'Real number. Two decimal places'
+                  "DurationInSeconds": number              'Real number. Two decimal places'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+El resultado contiene estas formas:
+
+|Form|Contenido|
+|-|-|
+|`Lexical`|Las palabras reales reconocidas.
+|`ITN`|El formato de normalización inversa de texto del texto reconocido. Se aplican las abreviaturas ("doctor Pérez" a "Dr Pérez"), los números de teléfono y otras transformaciones.
+|`MaskedITN`|El formato ITN con enmascaramiento de palabras soeces aplicado.
+|`Display`|El formato mostrado del texto reconocido. Esto incluye el uso de mayúsculas y minúsculas y la puntuación que se agrega.
+
 ## <a name="speaker-separation-diarization"></a>Separación de altavoces (diarización)
 
-La diarización es el proceso de separación de los altavoces en una parte del audio. Nuestra canalización de Batch admite la diarización y es capaz de reconocer dos altavoces en las grabaciones de un canal mono.
+La diarización es el proceso de separación de los altavoces en una parte del audio. Nuestra canalización de Batch admite la diarización y es capaz de reconocer dos altavoces en las grabaciones de un canal mono. La característica no está disponible en las grabaciones estéreo.
 
-Para pedir que la solicitud de transcripción de audio se procese para la diarización, simplemente tiene que agregar el parámetro pertinente en la solicitud HTTP como se muestra a continuación.
+Toda la salida de transcripción contiene un elemento `SpeakerId`. Si no se utiliza la diarización, se mostrará `"SpeakerId": null` en la salida JSON. Para la diarización, se admiten dos voces, por lo que los oradores se identificarán como `"1"` o `"2"`.
+
+Para solicitar la diarización, basta con agregar el parámetro correspondiente en la solicitud HTTP, como se muestra a continuación.
 
  ```json
 {
@@ -116,28 +201,19 @@ Para pedir que la solicitud de transcripción de audio se procese para la diariz
 }
 ```
 
-Las marcas de tiempo de nivel de palabra también tendría que estar "activadas" como indican los parámetros de la solicitud anterior. 
+Las marcas de tiempo de nivel de palabra también tendrían que estar "activadas" como indican los parámetros de la solicitud anterior.
 
-El audio correspondiente contendrá los altavoces identificados por un número (actualmente se admiten solo dos voces, por lo que los altavoces se identificarán como "Altavoz 1" y "Altavoz 2") seguidos de la salida de la transcripción.
+## <a name="sentiment-analysis"></a>análisis de opiniones
 
-Tenga en cuenta también que la diarización no está disponible en las grabaciones estéreo. Además, toda la salida JSON contendrá la etiqueta Speaker. Si no se usa diarización, mostrará "Speaker: Null" en la salida JSON.
+La característica de opiniones calcula la opinión expresada en el audio. La opinión se expresa mediante un valor comprendido entre 0 y 1 para las opiniones `Negative`, `Neutral` y `Positive`. Por ejemplo, el análisis de sentimiento se puede usar en los escenarios de centros de llamadas:
 
-> [!NOTE]
-> ¡La diarización está disponible en todas las regiones y para todas las configuraciones regionales!
+- Obtener información sobre la satisfacción del cliente
+- Obtener información sobre el rendimiento de los agentes (equipo que atiende las llamadas)
+- Identificar el punto exacto en el tiempo de cuándo una llamada giró hacia una dirección negativa
+- Identificar lo que salió bien al convertir una llamada negativa en positiva
+- Identificar lo que les gusta a los clientes y lo que no les gusta de un producto o servicio
 
-## <a name="sentiment"></a>Opinión
-
-Opinión es una nueva característica de Transcription API de Batch, que es importante en el dominio del centro de llamadas. Los clientes pueden usar los parámetros `AddSentiment` en sus solicitudes para
-
-1.  Obtener información sobre la satisfacción del cliente
-2.  Obtener información sobre el rendimiento de los agentes (equipo que atiende las llamadas)
-3.  Identificar el punto exacto en el tiempo de cuándo una llamada giró hacia una dirección negativa
-4.  Identificar qué salió bien al convertir las llamadas negativas en positivas
-5.  Identificar lo que les gusta a los clientes y lo que no les gusta de un producto o servicio
-
-Opinión se puntúa por segmento de audio, donde un segmento de audio se define como el lapso de tiempo entre el inicio de la expresión (desplazamiento) y el silencio de detección del fin del flujo de bytes. Todo el texto dentro de ese segmento se utiliza para calcular la opinión. NO se calcula ningún valor agregado de opinión para toda la llamada o la voz completa de cada canal. Estas agregaciones se dejan al propietario del dominio para seguir aplicándolas.
-
-Opinión se aplica en la forma léxica.
+La opinión se puntúa por segmento de audio basado en la forma léxica. Todo el texto dentro de ese segmento de audio se utiliza para calcular la opinión. No se calcula ninguna opinión agregada en toda la transcripción.
 
 Un ejemplo de salida JSON tiene el siguiente aspecto:
 
@@ -174,7 +250,10 @@ Un ejemplo de salida JSON tiene el siguiente aspecto:
   ]
 }
 ```
-La característica utiliza un modelo de Opinión, que se encuentra actualmente en versión Beta.
+
+## <a name="best-practices"></a>Procedimientos recomendados
+
+El servicio transcripción puede controlar un gran número de transcripciones enviadas. Puede consultar el estado de las transcripciones a través de un elemento `GET` en el [método de transcripciones](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Consiga que la información devuelta se mantenga en un tamaño razonable especificando el parámetro `take` (unos cientos). [Elimine las transcripciones](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) periódicamente del servicio una vez que recuperen los resultados. Esto garantizará respuestas rápidas en las llamadas de administración de transcripciones.
 
 ## <a name="sample-code"></a>Código de ejemplo
 
@@ -200,9 +279,6 @@ El ejemplo de código actual no especifica un modelo personalizado. El servicio 
 ## <a name="download-the-sample"></a>Descarga del ejemplo
 
 Puede encontrar el ejemplo en el directorio `samples/batch` en el [repositorio de ejemplos de GitHub](https://aka.ms/csspeech/samples).
-
-> [!NOTE]
-> Los trabajos de transcripción por lotes están programados de la mejor manera posible; no hay una estimación de tiempo de cuándo un trabajo cambiará al estado en ejecución. En este estado, la transcripción real se procesa más rápido que el audio en tiempo real.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

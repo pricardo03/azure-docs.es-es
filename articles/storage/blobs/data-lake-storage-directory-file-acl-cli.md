@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: dcd75cfefd53b3c9104052146607869515e1c86e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 596f8334b647daf6fe3a15521f7caeecb0c0e303
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462589"
 ---
-# <a name="use-azure-cli-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Uso de la CLI de Azure con archivos y listas de control de acceso (ACL) en Azure Data Lake Storage Gen2 (versión preliminar)
+# <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Uso de la CLI de Azure para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2 (versión preliminar)
 
 En este artículo se muestra cómo usar la [Interfaz de la línea de comandos de Azure (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para crear y administrar directorios, archivos y permisos en cuentas de almacenamiento que tengan un espacio de nombres jerárquico. 
 
@@ -24,10 +24,10 @@ En este artículo se muestra cómo usar la [Interfaz de la línea de comandos de
 > La extensión `storage-preview` que se incluye en este artículo se encuentra actualmente en versión preliminar pública.
 
 [Muestra](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) | [Asignación de Gen1 a Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [Envíenos sus comentarios](https://github.com/Azure/azure-cli-extensions/issues)
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 > [!div class="checklist"]
-> * Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+> * Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 > * Una cuenta de almacenamiento que tenga habilitado el espacio de nombres jerárquico (HNS). Siga [estas](data-lake-storage-quickstart-create-account.md) instrucciones para crear uno.
 > * CLI de Azure versión `2.0.67` o posterior.
 
@@ -74,13 +74,13 @@ En este artículo se muestra cómo usar la [Interfaz de la línea de comandos de
 
 Un sistema de archivos actúa como contenedor de los archivos. Puede crear uno mediante el comando `az storage container create`. 
 
-En este ejemplo se crea una máquina virtual llamada `my-file-system`.
+En este ejemplo se crea un sistema de archivos llamado `my-file-system`.
 
 ```azurecli
 az storage container create --name my-file-system
 ```
 
-## <a name="create-a-directory"></a>Creación de directorios
+## <a name="create-a-directory"></a>Creación de un directorio
 
 Cree una referencia de directorio mediante el comando `az storage blob directory create`. 
 
@@ -90,7 +90,7 @@ En este ejemplo se agrega un directorio denominado `my-directory` a un sistema d
 az storage blob directory create -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="show-directory-properties"></a>Visualización de las propiedades del directorio
+## <a name="show-directory-properties"></a>Visualización de las propiedades de directorio
 
 Puede imprimir las propiedades de un directorio en la consola mediante el comando `az storage blob show`.
 
@@ -102,7 +102,7 @@ az storage blob directory show -c my-file-system -d my-directory --account-name 
 
 Cambie el nombre de un directorio o muévalo mediante el comando `az storage blob directory move`.
 
-En este ejemplo se cambia el nombre de un subdirectorio de `my-directory` a `my-new-directory`.
+En este ejemplo se cambia el nombre de un subdirectorio de `my-directory` a `my-new-directory`.
 
 ```azurecli
 az storage blob directory move -c my-file-system -d my-new-directory -s my-directory --account-name mystorageaccount
@@ -112,7 +112,7 @@ az storage blob directory move -c my-file-system -d my-new-directory -s my-direc
 
 Elimine un directorio mediante el comando `az storage blob directory delete`.
 
-En este ejemplo se elimina un directorio denominado `my-directory`. 
+En este ejemplo se elimina un directorio denominado `my-directory`. 
 
 ```azurecli
 az storage blob directory delete -c my-file-system -d my-directory --account-name mystorageaccount 
@@ -132,7 +132,7 @@ az storage blob directory exists -c my-file-system -d my-directory --account-nam
 
 Descargue un archivo de un directorio mediante el comando `az storage blob directory download`.
 
-En este ejemplo se descarga un archivo llamado `upload.txt` de un directorio denominado `my-directory`. 
+En este ejemplo se descarga un archivo denominado `upload.txt` de un directorio denominado `my-directory`. 
 
 ```azurecli
 az storage blob directory download -c my-file-system --account-name mystorageaccount -s "my-directory/upload.txt" -d "C:\mylocalfolder\download.txt"
@@ -158,7 +158,7 @@ az storage blob directory list -c my-file-system -d my-directory --account-name 
 
 Cargue un archivo en un directorio mediante el comando `az storage blob directory upload`.
 
-En este ejemplo se carga un archivo llamado `upload.txt` en un directorio denominado `my-directory`. 
+En este ejemplo se carga un archivo denominado `upload.txt` en un directorio denominado `my-directory`. 
 
 ```azurecli
 az storage blob directory upload -c my-file-system --account-name mystorageaccount -s "C:\mylocaldirectory\upload.txt" -d my-directory
@@ -220,11 +220,11 @@ En este ejemplo se obtiene la ACL de un archivo y luego se imprime la ACL en la 
 az storage blob access show -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
 
-En la imagen siguiente se muestra la salida después de obtener la ACL de un directorio.
+En la siguiente imagen se muestra la salida después de obtener la ACL de un directorio.
 
-![Obtención de la salida de ACL](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
+![Obtención de una salida de ACL](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
 
-En este ejemplo, el usuario propietario tiene permisos de lectura, escritura y ejecución. El grupo propietario tiene permisos de solo lectura y ejecución. Para obtener más información sobre las listas de control de acceso, consulte [Control de acceso en Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+En este ejemplo, el usuario propietario tiene permisos de lectura, escritura y ejecución. El grupo propietario tiene permisos de solo lectura y ejecución. Para más información sobre las listas de control de acceso, vea [Control de acceso en Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ### <a name="set-directory-and-file-permissions"></a>Establecimiento de permisos de archivo y directorio
 
@@ -243,11 +243,11 @@ En este ejemplo se establece la ACL en un archivo del usuario propietario, el gr
 ```azurecli
 az storage blob access set -a "user::rw-,group::rw-,other::-wx" -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
-En la imagen siguiente se muestra la salida después de establecer la ACL de un archivo.
+En la siguiente imagen se muestra la salida después de establecer la ACL de un archivo.
 
-![Obtención de la salida de ACL](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
+![Obtención de una salida de ACL](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
 
-En este ejemplo, el usuario propietario y el grupo propietario tienen permisos de solo lectura y escritura. Los demás usuarios tienen permisos de escritura y ejecución. Para obtener más información sobre las listas de control de acceso, consulte [Control de acceso en Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+En este ejemplo, el usuario propietario y el grupo propietario tienen permisos de solo lectura y escritura. Los demás usuarios tienen permisos de escritura y ejecución. Para más información sobre las listas de control de acceso, vea [Control de acceso en Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ### <a name="update-directory-and-file-permissions"></a>Actualización de permisos de archivo y directorio
 
@@ -296,7 +296,7 @@ En este ejemplo se muestran todos los metadatos definidos por el usuario para el
 az storage blob directory metadata show -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Ejemplo](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
 * [Asignación de Gen1 a Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)

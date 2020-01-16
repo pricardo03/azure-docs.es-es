@@ -3,12 +3,12 @@ title: Restauración de bases de datos de SQL Server en una máquina virtual de
 description: En este artículo se describe cómo restaurar bases de datos SQL Server que se ejecutan en una máquina virtual de Azure y cuyas copias de seguridad se realizan con Azure Backup.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 0dbf5c48884dc665355d2806ff343facfbeffc29
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 58525069af28be250c3536db076a38fb350bc1da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171902"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390760"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restauración de bases de datos SQL Server en máquinas virtuales de Azure
 
@@ -23,7 +23,7 @@ Azure Backup puede restaurar las bases de datos SQL Server que se ejecutan en la
 - Restaure a una fecha u hora específicas (hasta los segundos) mediante copias de seguridad del registro de transacciones. Azure Backup determina automáticamente la copia de seguridad diferencial completa apropiada y la cadena de copias de seguridad de registros necesarias para restaurar los datos en función del tiempo seleccionado.
 - Restaure una copia de seguridad completa o diferencial específica para restaurar a un punto de recuperación específico.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de restaurar una base de datos, tenga en cuenta lo siguiente:
 
@@ -37,7 +37,7 @@ Antes de restaurar una base de datos, tenga en cuenta lo siguiente:
 - Cierre las aplicaciones que pueden intentar quitar una conexión a cualquiera de estas bases de datos.
 - Si tiene varias instancias ejecutándose en un servidor, todas ellas deberían estar funcionando y ejecutándose; de lo contrario, el servidor no aparecerá en la lista de servidores de destino en los que restaurar la base de datos.
 
-## <a name="restore-a-database"></a>Restauración de una base de datos
+## <a name="restore-a-database"></a>Restaurar una base de datos
 
 Para realizar la restauración, necesita los siguientes permisos:
 
@@ -110,7 +110,15 @@ Para restaurar datos de copia de seguridad como archivos .bak en lugar de una ba
 
 1. En el menú **Restaurar configuración**, en **Where to Restore** (Ubicación de restauración), seleccione **Restaurar como archivos**.
 2. Seleccione el nombre de SQL Server en el que quiere restaurar los archivos de copia de seguridad.
-3. En **Destination path on the server** (Ruta de acceso de destino en el servidor), especifique la ruta de acceso de carpetas en el servidor seleccionado en el paso 2. Se trata de la ubicación en la que el servicio volcará todos los archivos de copia de seguridad necesarios. Típicamente, una ruta de acceso a un recurso compartido de red o una ruta de acceso de un recurso compartido de archivos de Azure montado cuando se especifica como una ruta de acceso de destino facilita el acceso a estos archivos de parte de otras máquinas en la red o en el mismo recurso compartido de archivos de Azure montado en ellas.
+3. En **Destination path on the server** (Ruta de acceso de destino en el servidor), especifique la ruta de acceso de carpetas en el servidor seleccionado en el paso 2. Se trata de la ubicación en la que el servicio volcará todos los archivos de copia de seguridad necesarios. Típicamente, una ruta de acceso a un recurso compartido de red o una ruta de acceso de un recurso compartido de archivos de Azure montado cuando se especifica como una ruta de acceso de destino facilita el acceso a estos archivos de parte de otras máquinas en la red o en el mismo recurso compartido de archivos de Azure montado en ellas.<BR>
+
+>Para restaurar los archivos de copia de seguridad de base de datos de un recurso compartido de archivos de Azure montado en la máquina virtual registrada de destino, asegúrese de que NT AUTHORITY\SYSTEM tenga acceso al recurso compartido de archivos. Puede realizar los pasos que se indican a continuación para conceder los permisos de lectura y escritura al AFS montado en la máquina virtual:
+>- Ejecutar `PsExec -s cmd` para entrar en el shell de NT AUTHORITY\SYSTEM
+>   - Ejecute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
+>   - Comprobar el acceso con `dir \\<storageacct>.file.core.windows.net\<filesharename>`
+>- Iniciar una restauración como archivos desde el almacén de copia de seguridad en `\\<storageacct>.file.core.windows.net\<filesharename>` como ruta de acceso.<BR>
+Puede descargar Psexec mediante <https://docs.microsoft.com/sysinternals/downloads/psexec>.
+
 4. Seleccione **Aceptar**.
 
 ![Seleccionar Restaurar como archivos](./media/backup-azure-sql-database/restore-as-files.png)
@@ -133,7 +141,7 @@ Si ha seleccionado **Registros (punto en el tiempo)** como el tipo de restauraci
     ![Abrir el calendario](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
 
 1. Una vez seleccionada una fecha, el gráfico de escala de tiempo muestra los puntos de recuperación disponibles en un rango continuo.
-1. Especifique una hora para la recuperación en el gráfico de escala de tiempo o seleccione una hora. Después seleccione **Aceptar**.
+1. Especifique una hora para la recuperación en el gráfico de escala de tiempo o seleccione una hora. Después, seleccione **Aceptar**.
 
     ![Seleccione una hora de restauración.](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
 

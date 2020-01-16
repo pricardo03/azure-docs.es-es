@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: d540912d280302d2ae2166b75fb2d163458d7a61
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: c8d9128e6956c460094be76eccce8d350ed41547
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677827"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658158"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de registro mediante Azure Monitor
 
@@ -90,7 +90,7 @@ A continuación, se muestra una guía paso a paso acerca de cómo usar las alert
 1. Como tercer y último paso, especifique si es necesario desencadenar algún **grupo de acciones** para la regla de alertas si se cumple la condición de alerta. Puede elegir cualquier grupo de acciones existente con alerta o crear uno. Según el grupo de acciones seleccionado, cuando se desencadena la alerta, Azure: envía correos electrónicos, envía SMS, llama a webhooks, la soluciona con runbooks de Azure, envía notificaciones push a la herramienta de ITSM, etc. Obtenga más información sobre los [grupos de acciones](action-groups.md).
 
     > [!NOTE]
-    > Consulte los [límites de servicio de suscripción de Azure](../../azure-subscription-service-limits.md) para conocer los límites relacionados con las cargas de runbook desencadenadas para las alertas de registro a través de grupos de acciones de Azure.
+    > Consulte los [límites de servicio de suscripción de Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md) para conocer los límites relacionados con las cargas de runbook desencadenadas para las alertas de registro a través de grupos de acciones de Azure.
 
     Para las **alertas de registro**, se encuentra disponible alguna funcionalidad adicional para reemplazar las acciones predeterminadas:
 
@@ -106,7 +106,7 @@ A continuación, se muestra una guía paso a paso acerca de cómo usar las alert
 
      En cuestión de minutos, se activa la alerta y se desencadena tal como se describió anteriormente.
 
-Los usuarios también pueden finalizar la consulta de análisis en [Log Analytics](../log-query/portals.md) e insertarla para crear una alerta a través del botón "Establecer alerta" y, a continuación, seguir las instrucciones del paso 6 en adelante del tutorial anterior.
+Los usuarios también pueden finalizar la consulta de análisis en [Log Analytics](../log-query/portals.md) e insertarla para crear una alerta mediante el botón "Establecer alerta" y, a continuación, seguir las instrucciones del paso 6 en adelante del tutorial anterior.
 
  ![Log Analytics: Establecer alerta](media/alerts-log/AlertsAnalyticsCreate.png)
 
@@ -202,7 +202,7 @@ Esta es la estructura de la plantilla de recursos basada en la [creación de reg
 
 ```
 
-El JSON del ejemplo anterior puede guardarse como (digamos) sampleScheduledQueryRule.json a efectos de este tutorial y puede implementarse mediante [Azure Resource Manager en Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
+El JSON del ejemplo anterior puede guardarse como (digamos) sampleScheduledQueryRule.json a efectos de este tutorial y puede implementarse mediante [Azure Resource Manager en Azure Portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 
 ### <a name="log-alert-with-cross-resource-query-using-azure-resource-template"></a>Alerta de registro con consulta entre registros mediante la plantilla de recursos de Azure
@@ -299,7 +299,7 @@ Esta es la estructura de la plantilla de recursos basada en la [creación de reg
 > [!IMPORTANT]
 > Si usa una consulta entre recursos en la alerta de registros, el uso de [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) es obligatorio y el usuario debe acceder a la lista de los recursos indicados.
 
-El JSON del ejemplo anterior puede guardarse como (digamos) sampleScheduledQueryRule.json a efectos de este tutorial y puede implementarse mediante [Azure Resource Manager en Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
+El JSON del ejemplo anterior puede guardarse como (digamos) sampleScheduledQueryRule.json a efectos de este tutorial y puede implementarse mediante [Azure Resource Manager en Azure Portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 ## <a name="managing-log-alerts-using-powershell"></a>Administración de alertas de registro con PowerShell
 

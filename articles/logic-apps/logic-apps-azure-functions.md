@@ -1,17 +1,17 @@
 ---
-title: Incorporación y llamada a funciones de Azure desde Azure Logic Apps
-description: Incorporación y ejecución de funciones de Azure desde Logic Apps
+title: Incorporación y llamada a Azure Functions desde Azure Logic Apps
+description: Llamada y ejecución de código personalizado en su instancia de Azure Functions desde tareas y flujos de trabajo automatizados en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 8e72cda1965280e0694493e533f49f71c746ebc6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2525ca681d805a3b6f086335531a4beaeb9c4e51
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792579"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453463"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Llamada a funciones de Azure desde Azure Logic Apps
 
@@ -26,9 +26,9 @@ Para ejecutar fragmentos de código sin necesidad de crear las funciones de Azur
 > [!NOTE]
 > La integración entre Logic Apps y Azure Functions actualmente no funciona con los espacios habilitados.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Una aplicación de función de Azure, que es un contenedor para las funciones de Azure, junto con su función de Azure. Si no tiene una aplicación de función, [cree primero la aplicación de función](../azure-functions/functions-create-first-azure-function.md). Puede crear una función ya sea fuera de su aplicación lógica en Azure Portal o bien [de manera independiente de la aplicación lógica](#create-function-designer) en el Diseñador de aplicación lógica.
 
@@ -129,7 +129,7 @@ Para poder crear una función de Azure desde la aplicación lógica en el Diseñ
 
    ![Definición de la función](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
-   En el código de la plantilla, el objeto *`context`*  hace referencia al mensaje que envía la aplicación lógica mediante el campo **Cuerpo de la solicitud** en un paso posterior. Para acceder a las propiedades del objeto `context` desde dentro de la función, use esta sintaxis:
+   En el código de la plantilla, el objeto *`context`* hace referencia al mensaje que envía la aplicación lógica mediante el campo **Cuerpo de la solicitud** en un paso posterior. Para acceder a las propiedades del objeto `context` desde dentro de la función, use esta sintaxis:
 
    `context.body.<property-name>`
 

@@ -1,17 +1,17 @@
 ---
-title: Procedimientos para modelar y crear particiones de datos en Azure Cosmos DB mediante un ejemplo real
+title: Modelado y creación de particiones de datos en Azure Cosmos DB mediante un ejemplo real
 description: Aprenda a modelar y crear particiones en un ejemplo real mediante Core API de Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 55290b88fedabe59417ea49f1cd3c3bc9961678d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 10f8ffd90215a21ca03e112aea463d444c623d06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093412"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445390"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Procedimientos para modelar y crear particiones de datos en Azure Cosmos DB mediante un ejemplo real
 
@@ -280,7 +280,7 @@ También modificamos los elementos de comentarios y, "Me gusta" para agregar el 
 
 ### <a name="denormalizing-comment-and-like-counts"></a>Desnormalización del número de comentarios y, "Me gusta"
 
-Lo que queremos conseguir es que cada vez que agregamos un comentario o un "Me gusta", también aumentamos `commentCount` o `likeCount` en la publicación correspondiente. Como en nuestro contenedor `posts` `postId` ha creado particiones, el nuevo elemento (comentario o "Me gusta") y su publicación correspondiente se colocan en la misma partición lógica. Como resultado, podemos usar un [procedimiento almacenado](stored-procedures-triggers-udfs.md) para realizar dicha operación.
+Lo que queremos conseguir es que cada vez que agregamos un comentario o un "Me gusta", también aumentamos `commentCount` o `likeCount` en la publicación correspondiente. Como en nuestro contenedor `posts``postId` ha creado particiones, el nuevo elemento (comentario o "Me gusta") y su publicación correspondiente se colocan en la misma partición lógica. Como resultado, podemos usar un [procedimiento almacenado](stored-procedures-triggers-udfs.md) para realizar dicha operación.
 
 Ahora, al crear un comentario ( **[C3]** ), en lugar de simplemente agregar un nuevo elemento al contenedor `posts` llamamos al siguiente procedimiento almacenado de dicho contenedor:
 

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 12/16/2019
 ms.author: juliako
-ms.openlocfilehash: 4f8491e31747eda9cbe8689ba7db3026df0ff3ad
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f3825f6c9186c5e04807dd3890a14fcc6d370989
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892777"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454678"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Administración de una cuenta de Video Indexer conectada a Azure
 
@@ -24,7 +24,7 @@ En este artículo se explica cómo administrar una cuenta de Video Indexer que e
 > [!NOTE]
 > Debe ser propietario de la cuenta de Video Indexer para realizar los ajustes de configuración descritos en este tema.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Conecte su cuenta de Video Indexer a Azure, como se describe en [Conexión a Azure](connect-to-azure.md). 
 
@@ -49,6 +49,17 @@ Si la cuenta de Video Indexer está conectada a Azure, verá lo siguiente:
 * El número y tipo de unidades reservadas asignadas.
 
 Si la cuenta precisa de algunos ajustes, verá errores y advertencias pertinentes sobre la configuración de la cuenta en la página **Settings** (Configuración). Los mensajes incluyen vínculos a las ubicaciones exactas de Azure Portal donde debe realizar los cambios. Para más información, vea la sección [Errores y advertencias](#errors-and-warnings) a continuación.
+
+## <a name="repair-the-connection-to-azure"></a>Reparación de la conexión a Azure
+
+En el cuadro de diálogo **Update connection to Azure Media Services** (Actualizar conexión a Azure Media Services) de la página [Video Indexer](https://www.videoindexer.ai/), se le pide que proporcione valores para la siguiente configuración: 
+
+|Configuración|Descripción|
+|---|---|
+|Identificador de suscripción de Azure|El id. de suscripción del inquilino se puede recuperar de Azure Portal. Haga clic en **Todos los servicios** en el panel izquierdo y busque "suscripciones". Seleccione **Subscriptions** (Suscripciones) y elija el identificador deseado de la lista de las suscripciones.|
+|Nombre del grupo de recursos de Azure Media Services|El nombre del grupo de recursos en el que creó la cuenta de Media Services.|
+|Identificador de aplicación|El identificador de aplicación de Azure AD (con permisos para la cuenta de Media Services especificada) que creó para esta cuenta de Video Indexer. <br/><br/>Para obtener el id. de la aplicación, vaya a Azure Portal. En la cuenta de Media Services, elija su cuenta y vaya a **Acceso de API**. Haga clic en **Conectarse a la API de Media Services con la entidad de servicio** -> **Aplicación de Azure AD**. Copie los parámetros pertinentes.|
+|Clave de la aplicación|La clave de aplicación de Azure AD asociada a la cuenta de Media Services que especificó anteriormente. <br/><br/>Para obtener la clave de aplicación, vaya a Azure Portal. En la cuenta de Media Services, elija su cuenta y vaya a **Acceso de API**. Haga clic en **Conectarse a la API de Media Services con la entidad de servicio** -> **Administrar aplicación** -> **Certificados y secretos**. Copie los parámetros pertinentes.|
 
 ## <a name="auto-scale-reserved-units"></a>Unidades reservadas de escalado automático
 

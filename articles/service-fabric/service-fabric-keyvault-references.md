@@ -1,25 +1,20 @@
 ---
-title: 'Azure Service Fabric: uso de las referencias de KeyVault de la aplicación de Service Fabric | Microsoft Docs'
+title: 'Azure Service Fabric: uso de las referencias de KeyVault de la aplicación de Service Fabric'
 description: En este artículo se explica cómo usar la compatibilidad con KeyVaultReference de Service Fabrica para los secretos de aplicación.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/20/2019
-ms.author: atsenthi
-ms.openlocfilehash: 96da89a00b054767553b0ed3d8debf30c344dd62
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: b0e882c2b39c06a3040d22fc6694599966ceeb39
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307335"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463039"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Compatibilidad de KeyVaultReference para aplicaciones de Service Fabric (versión preliminar)
 
 Un desafío común al compilar aplicaciones en la nube es cómo almacenar de manera segura los secretos que requiere la aplicación. Por ejemplo, es posible que quiera almacenar las credenciales del repositorio del contenedor en keyvault y hacer referencia a él en el manifiesto de aplicación. KeyVaultReference de Service Fabric usa la identidad administrada de Service Fabric y facilitar la referencia a los secretos de keyvault. En el resto de este artículo se detalla cómo usar KeyVaultReference de Service Fabric e incluye cierto uso típico.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Identidad administrada para la aplicación (MIT)
     
@@ -36,8 +31,8 @@ Un desafío común al compilar aplicaciones en la nube es cómo almacenar de man
     [
         ...
     {
-        "parameters":  [
-            "name":  "CentralSecretService",
+                "name":  "CentralSecretService",
+                "parameters":  [
                 {
                     "name":  "IsEnabled",
                     "value":  "true"
@@ -50,7 +45,7 @@ Un desafío común al compilar aplicaciones en la nube es cómo almacenar de man
                     "name":  "TargetReplicaSetSize",
                     "value":  "3"
                 }
-                ],
+                ]
             },
             {
                 "name":  "ManagedIdentityTokenService",

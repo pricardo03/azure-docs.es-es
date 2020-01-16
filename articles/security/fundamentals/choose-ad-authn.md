@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 71339565eed9f41f8f32da852a727c82df482662
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 2865ce640389c0250f14a53088a94aff15ddf1c8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483939"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460677"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Seleccione el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory
 
@@ -26,9 +26,10 @@ La elección del método de autenticación correcto es la primera preocupación 
 
 3. Es la base de todas las demás características avanzadas de seguridad y experiencia de usuario en Azure AD.
 
-4. Además, el método de autenticación es difícil de modificar una vez implementado.
+La identidad es el nuevo plano de control de la seguridad de TI, de modo que la autenticación se convierte en el guardián de acceso de una organización al nuevo mundo de la nube. Las organizaciones necesitan un plano de control de identidad que fortalezca su seguridad y mantenga las aplicaciones en la nube a salvo de intrusos.
 
-La identidad es el nuevo plano de control de seguridad de TI. Por lo tanto, la autenticación es la forma de proteger el acceso de una organización al nuevo mundo de la nube. Las organizaciones necesitan un plano de control de identidad que fortalezca su seguridad y mantenga las aplicaciones en la nube a salvo de intrusos.
+> [!NOTE]
+> Cambiar el método de autenticación requiere planeación, pruebas y un posible tiempo de inactividad. El [lanzamiento preconfigurado](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) es una excelente forma de probar y migrar gradualmente de la federación a la autenticación en la nube.
 
 ### <a name="out-of-scope"></a>Fuera de ámbito
 Las organizaciones que no tienen una superficie de directorio local existente no entran en el ámbito de este artículo. Por lo general, esas empresas crean identidades solo en la nube, lo que no requiere una solución de identidad híbrida. Las identidades que solo se usan en la nube existen únicamente en la nube y no están asociadas a sus identidades locales correspondientes.
@@ -112,7 +113,7 @@ Para ver los pasos de implementación, consulte [Implementación de la sincroniz
 
 * **Experiencia del usuario**. Para mejorar la experiencia de inicio de sesión de los usuarios, puede implementar un SSO de conexión directa con la autenticación de paso a través. El SSO de conexión directa elimina las solicitudes innecesarias cuando los usuarios inician sesión.
 
-* **Escenarios avanzados**. La autenticación de paso a través aplica la directiva de cuenta local al iniciar sesión. Por ejemplo, se deniega el acceso cuando el estado de la cuenta de un usuario local indica que está deshabilitada, bloqueada, con la [contraseña expirada](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) o que se encuentra fuera de las horas de inicio de sesión del usuario.
+* **Escenarios avanzados**. La autenticación de paso a través aplica la directiva de cuenta local al iniciar sesión. Por ejemplo, se deniega el acceso cuando el estado de la cuenta de un usuario local indica que está deshabilitada, bloqueada, con su [contraseña expirada](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) o que el intento de inicio de sesión se encuentra fuera de las horas de inicio de sesión del usuario.
 
     Las organizaciones que requieren una autenticación multifactor con una autenticación de paso a través tienen que usar Azure Multi-Factor Authentication (MFA) o los [controles personalizados de acceso condicional](../../active-directory/conditional-access/controls.md#custom-controls-preview). Esas organizaciones no pueden usar métodos de autenticación multifactor de terceros o locales que se basen en la federación. Las características avanzadas requieren que se implemente la sincronización de hash de contraseñas sin importar si elige o no la autenticación de paso a través. Por ejemplo, esto sucede con el informe de credenciales filtradas de Identity Protection.
 
@@ -175,7 +176,7 @@ En los siguientes diagramas se describen los componentes de arquitectura de alto
 |¿Dónde se realiza la autenticación?|En la nube|En la nube, después de un intercambio de comprobación de contraseña segura con el agente de autenticación local|Local|
 |¿Cuáles son los requisitos de servidor local más allá del sistema de aprovisionamiento (Azure AD Connect)?|None|Un servidor para cada agente de autenticación adicional|Dos o más servidores de AD FS<br><br>Dos o más servidores WAP en la red perimetral o DMZ|
 |¿Cuáles son los requisitos de redes e Internet locales más allá del sistema de aprovisionamiento?|None|[Acceso saliente a Internet](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) desde los servidores que ejecutan los agentes de autenticación|[Acceso entrante a Internet](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) para los servidores WAP del perímetro<br><br>Acceso entrante de red para los servidores de AD FS desde los servidores WAP del perímetro<br><br>Equilibrio de carga de red|
-|¿Hay algún requisito de certificado SSL?|Sin|No|Sí|
+|¿Hay algún requisito de certificado SSL?|No|No|Sí|
 |¿Hay alguna solución de supervisión de estado?|No se requiere|El estado del agente lo proporciona el [Centro de administración de Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
 |¿Los usuarios realizan el inicio de sesión único en los recursos de nube desde dispositivos unidos a un dominio de la red de la empresa?|Sí, con [SSO de conexión directa](../../active-directory/hybrid/how-to-connect-sso.md)|Sí, con [SSO de conexión directa](../../active-directory/hybrid/how-to-connect-sso.md)|Sí|
 |¿Qué tipos de inicio de sesión se admiten?|UserPrincipalName + contraseña<br><br>Autenticación integrada de Windows con [SSO de conexión directa](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Identificador de inicio de sesión alternativo](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + contraseña<br><br>Autenticación integrada de Windows con [SSO de conexión directa](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Identificador de inicio de sesión alternativo](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + contraseña<br><br>sAMAccountName + contraseña<br><br>Autenticación integrada de Windows<br><br>[Autenticación de certificados y tarjetas inteligentes](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Identificador de inicio de sesión alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|

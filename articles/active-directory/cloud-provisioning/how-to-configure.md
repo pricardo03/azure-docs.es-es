@@ -1,6 +1,6 @@
 ---
 title: Configuración del nuevo agente de aprovisionamiento en la nube de Azure AD Connect
-description: En este tema se describe cómo instalar el aprovisionamiento en la nube.
+description: En este artículo se describe cómo instalar el aprovisionamiento en la nube.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,74 +11,83 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f08a1359cfd8a2793d92315a6b03567b0b3f847d
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 853950cf441007eac0170f32f28f2d9c16a71292
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997129"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549438"
 ---
-# <a name="azure-ad-connect-cloud-provisioning-new-configuration"></a>Configuración del nuevo aprovisionamiento en la nube de Azure AD Connect
+# <a name="azure-ad-connect-cloud-provisioning-new-agent-configuration"></a>Configuración del nuevo agente de aprovisionamiento en la nube de Azure AD Connect
 
-Una vez instalado el agente, debe iniciar sesión en Azure Portal y configurar el aprovisionamiento.  Para habilitar el agente, realice los siguientes pasos.
+Una vez instalado el agente, debe iniciar sesión en Azure Portal y configurar el aprovisionamiento en la nube de Azure Active Directory (Azure AD) Connect. Siga los pasos que se indican a continuación para habilitar el agente.
 
 ## <a name="configure-provisioning"></a>Configuración del aprovisionamiento
-Para configurar el aprovisionamiento, siga estos pasos:
+Para configurar el aprovisionamiento, siga estos pasos.
 
-1.  En el portal de Azure AD, haga clic en **Azure Active Directory**.
-2.  Haga clic en **Azure AD Connect**.
-3.  Seleccione **Administración del aprovisionamiento (versión preliminar)** 
-![](media/how-to-configure/manage1.png).
+1.  En Azure Portal, seleccione **Azure Active Directory**.
+1.  Seleccione **Azure AD Connect**.
+1.  Seleccione **Administración del aprovisionamiento (versión preliminar)** .
 
-4.  Haga clic en **Nueva configuración**.
-5.  En la pantalla de configuración, el dominio local se ha rellenado previamente.
-6. Escriba un **correo electrónico de notificación de alerta**. Este correo electrónico recibirá una notificación cuando el aprovisionamiento no sea correcto.  
-8. Mueva el selector a **Habilitar** y haga clic en **Guardar**.
-![](media/tutorial-single-forest/configure2.png)
+    ![Administración del aprovisionamiento (versión preliminar)](media/how-to-configure/manage1.png)
 
-## <a name="scoping-provisioning-to-specific-users-and-groups"></a>Aprovisionamiento del ámbito para usuarios y grupos específicos
-Es posible limitar el ámbito del agente para sincronizar solo usuarios y grupos específicos. Puede usar el ámbito mediante grupos de AD locales o unidades organizativas. No se pueden configurar grupos ni unidades organizativas dentro de una configuración. 
+1.  Seleccione **Nueva configuración**.
+1.  En la pantalla de configuración, el dominio local se ha rellenado previamente.
+1.  Escriba un **correo electrónico de notificación de alerta**. Este correo electrónico recibirá una notificación cuando el aprovisionamiento no sea correcto.
+1.  Mueva el selector a **Habilitar** y seleccione **Guardar**.
 
-1.  En el portal de Azure AD, haga clic en **Azure Active Directory**.
-2.  Haga clic en **Azure AD Connect**.
-3.  Seleccione **Administración del aprovisionamiento (versión preliminar)** .
-4.  En **Configuración**, haga clic en su configuración.  
-![](media/how-to-configure/scope1.png)
+    ![Aprovisionamiento de Azure AD (versión preliminar)](media/tutorial-single-forest/configure2.png)
 
-5.  En **Configurar**, seleccione **Todos los usuarios** para cambiar el ámbito de la regla de configuración.
-![](media/how-to-configure/scope2.png)
+## <a name="scope-provisioning-to-specific-users-and-groups"></a>Especificación del ámbito de aprovisionamiento a usuarios y grupos específicos
+Puede especificar el ámbito del agente para sincronizar usuarios y grupos específicos mediante el uso de grupos o unidades organizativas de Active Directory locales. No puede configurar grupos ni unidades organizativas dentro de una configuración. 
 
-6. A la derecha, puede cambiar el ámbito para que incluya solo los grupos de seguridad; para ello, especifique el nombre distintivo del grupo y haga clic en **Agregar**.
-![](media/how-to-configure/scope3.png)
+1.  En Azure Portal, seleccione **Azure Active Directory**.
+1.  Seleccione **Azure AD Connect**.
+1.  Seleccione **Administración del aprovisionamiento (versión preliminar)** .
+1.  En **Configuración**, seleccione su configuración.
 
-7. O bien cámbielo para que incluya solo unidades organizativas específicas. Haga clic en **Listo** y en **Guardar**.
-![](media/how-to-configure/scope4.png)
+    ![Sección de configuración](media/how-to-configure/scope1.png)
+
+1.  En **Configurar**, seleccione **Todos los usuarios** para cambiar el ámbito de la regla de configuración.
+
+    ![Opción Todos los usuarios](media/how-to-configure/scope2.png)
+
+1. A la derecha, puede cambiar el ámbito para incluir solo los grupos de seguridad. Escriba el nombre distintivo del grupo y seleccione **Agregar**.
+
+    ![Opción Grupos de seguridad seleccionados](media/how-to-configure/scope3.png)
+
+1.  O bien, puede cambiar el ámbito para incluir solo unidades organizativas específicas. Seleccione **Listo** y **Guardar**.
+
+    ![Opción Unidades organizativas seleccionadas](media/how-to-configure/scope4.png)
 
 
 ## <a name="restart-provisioning"></a>Reinicio del aprovisionamiento 
-Si no desea esperar a la siguiente ejecución programada, puede desencadenar la ejecución del aprovisionamiento mediante el botón para reiniciar el aprovisionamiento. 
-1.  En el portal de Azure AD, haga clic en **Azure Active Directory**.
-2.  Haga clic en **Azure AD Connect**.
-3.  Seleccione **Administración del aprovisionamiento (versión preliminar)** .
-4.  En **Configuración**, haga clic en su configuración.  
-![](media/how-to-configure/scope1.png)
+Si no desea esperar a la siguiente ejecución programada, desencadene la ejecución del aprovisionamiento mediante el botón **Reiniciar aprovisionamiento**. 
+1.  En Azure Portal, seleccione **Azure Active Directory**.
+1.  Seleccione **Azure AD Connect**.
+1.  Seleccione **Administración del aprovisionamiento (versión preliminar)** .
+1.  En **Configuración**, seleccione su configuración.
 
-5.  En la parte superior, haga clic en **Reiniciar aprovisionamiento**.
+    ![Selección de configuración para reiniciar el aprovisionamiento](media/how-to-configure/scope1.png)
 
-## <a name="removing-a-configuration"></a>Eliminación de una configuración
-Si desea eliminar una configuración, puede seguir estos pasos.
+1.  En la parte superior, seleccione **Reiniciar aprovisionamiento**.
 
-1.  En el portal de Azure AD, haga clic en **Azure Active Directory**.
-2.  Haga clic en **Azure AD Connect**.
-3.  Seleccione **Administración del aprovisionamiento (versión preliminar)** .
-4.  En **Configuración**, haga clic en su configuración.  
-![](media/how-to-configure/scope1.png)
+## <a name="remove-a-configuration"></a>Eliminación de una configuración
+Para eliminar una configuración, siga estos pasos.
 
-5.  En la parte superior, haga clic en **Eliminar**.
-![](media/how-to-configure/remove1.png)
+1.  En Azure Portal, seleccione **Azure Active Directory**.
+1.  Seleccione **Azure AD Connect**.
+1.  Seleccione **Administración del aprovisionamiento (versión preliminar)** .
+1.  En **Configuración**, seleccione su configuración.
+
+    ![Selección de configuración para quitar la configuración](media/how-to-configure/scope1.png)
+
+1.  En la parte superior de la pantalla de configuración, seleccione **Eliminar**.
+
+    ![Botón Eliminar](media/how-to-configure/remove1.png)
 
 >[!IMPORTANT]
->No hay confirmación antes de eliminar una configuración. Asegúrese de que se trata de la acción que desea realizar antes de hacer clic en **Eliminar**.
+>No se pide confirmación antes de eliminar una configuración. Asegúrese de que esta es la acción que desea realizar antes de seleccionar **Eliminar**.
 
 
 ## <a name="next-steps"></a>Pasos siguientes 

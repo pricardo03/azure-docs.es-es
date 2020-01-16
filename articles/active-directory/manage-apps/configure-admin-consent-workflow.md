@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e1af654f0e82017bab4db5eb529b7d65b44714
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 83b3f0d97daf0b4ac17f74981119b380d1776d97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786442"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430214"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configuración del flujo de trabajo de consentimiento del administrador (versión preliminar)
 
@@ -153,8 +153,10 @@ Si le preocupa conceder el consentimiento del administrador y permitir que todos
 
 Para más información acerca de cómo dar consentimiento a las aplicaciones, consulte [Marco de consentimiento de Azure Active Directory](../develop/consent-framework.md).
 
-[Consentimiento e integración de aplicaciones en Azure AD](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+[Configuración del consentimiento de los usuarios finales a las aplicaciones](configure-user-consent.md)
 
-[Consentimiento y permisos para las aplicaciones convergentes v2.0 de Azure AD](../develop/active-directory-v2-scopes.md)
+[Concesión del consentimiento del administrador para todo el inquilino a una aplicación](grant-admin-consent.md)
+
+[Permisos y consentimiento en la plataforma de identidad de Microsoft](../develop/active-directory-v2-scopes.md)
 
 [Azure AD en StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

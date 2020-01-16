@@ -1,25 +1,14 @@
 ---
-title: Empaquetado de un ejecutable en Azure Service Fabric | Microsoft Docs
+title: Empaquetado de un ejecutable existente en Azure Service Fabric
 description: Obtenga información sobre cómo empaquetar una aplicación existente como ejecutable invitado para implementarla en un clúster de Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/15/2018
-ms.author: atsenthi
-ms.openlocfilehash: bd6984db67a8a7b9c38988558ada51e12d337f52
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 3d7aab28a32effa2caf7b04b830d72e5e3dfda56
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013272"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457819"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Implementación de un ejecutable existente en Service Fabric
 Puede ejecutar cualquier tipo de código, como Node.js, Java o C++ en Azure Service Fabric como servicio. Service Fabric hace referencia a estos tipos de servicios como ejecutables invitados.
@@ -30,7 +19,7 @@ Los ejecutables invitados se tratan por Service Fabric como servicios sin estado
 Hay diversas ventajas inherentes a la ejecución de un ejecutable invitado en un clúster de Service Fabric:
 
 * Alta disponibilidad. Las aplicaciones que se ejecutan en Service Fabric se crean con alta disponibilidad. Service Fabric garantiza que se están ejecutando instancias de una aplicación.
-* Supervisión del estado. La supervisión del mantenimiento de Service Fabric detecta si hay una aplicación en funcionamiento y proporciona información de diagnóstico si se produce un error.   
+* Supervisión de estado. La supervisión del mantenimiento de Service Fabric detecta si hay una aplicación en funcionamiento y proporciona información de diagnóstico si se produce un error.   
 * Administración del ciclo de vida de las aplicaciones. Además de actualizaciones sin tiempo de inactividad, Service Fabric proporciona reversión automática a la versión anterior, en caso de que se notifique un evento de mantenimiento incorrecto durante una actualización.    
 * Densidad. Se pueden ejecutar varias aplicaciones en el clúster, lo que elimina la necesidad de que cada aplicación se ejecute en su propio hardware.
 * Detectabilidad: con REST puede llamar al servicio de nombres de Service Fabric para buscar otros servicios en el clúster. 

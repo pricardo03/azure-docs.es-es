@@ -1,5 +1,5 @@
 ---
-title: ¿Qué es la administración de derechos de Azure AD? - Azure Active Directory
+title: ¿Qué es la administración de derechos? - Azure AD
 description: Obtenga información general de la administración de derechos de Azure Active Directory y cómo puede utilizarla para administrar el acceso a grupos, aplicaciones y sitios de SharePoint Online para usuarios internos y externos.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fd72bba6e8c01644adebaa333c8fe588c35b8c7
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b0a99b9089e568351cf736310e778ba477441407
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927312"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422569"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>¿Qué es la administración de derechos de Azure AD?
 
@@ -114,7 +114,7 @@ Los paquetes de acceso no reemplazan a otros mecanismos de asignación de acceso
 
 Para comprender mejor la administración de derechos y su documentación, puede consultar la siguiente lista de términos.
 
-| Término | DESCRIPCIÓN |
+| Término | Descripción |
 | --- | --- |
 | paquete de acceso | Conjunto de recursos que un equipo o proyecto necesita y se rige por directivas. Un paquete de acceso siempre se encuentra en un catálogo. Un paquete de acceso se crearía en un escenario en el que los usuarios necesiten solicitar acceso.  |
 | solicitud de acceso | Solicitud para acceder a los recursos de un paquete de acceso. Una solicitud suele pasa por un flujo de trabajo de aprobación.  Si se aprueba, el usuario solicitante recibe una asignación de paquete de acceso. |

@@ -7,27 +7,40 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 0d05802c9d5d80f91913291d710b674369f0ff17
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3836e815d296456ff95f87f0592e3277503420fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979989"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427138"
 ---
 # <a name="payout-reporting"></a>Informes de pago
 
-El **resumen de pagos** muestra detalles sobre el dinero que ha ganado con Microsoft. También le permite saber cuándo recibirá los pagos y cuánto le pagarán.
+El [**resumen de pagos**](https://docs.microsoft.com/windows/uwp/publish/payout-summary) muestra detalles sobre el dinero que ha ganado con Microsoft. También le permite saber cuándo recibirá los pagos y cuánto le pagarán.
 
 Si vende ofertas en Azure Marketplace, también verá información sobre los **pagos realizados correctamente**. Para más información sobre el pago de Azure Marketplace, consulte [Directivas de participación de Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkId=722436) y [Acuerdo del anunciante de Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
 > [!NOTE]
 > Para poder acceder a esta opción, sus ganancias deben alcanzar el [umbral de pago](payment-thresholds-methods-timeframes.md) de 50 USD. Para más información sobre el umbral de pago, consulte esta página y revise la información del [Acuerdo del anunciante de Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
+- [Roles y permisos para acceder al informe de pago](#roles-and-permission-to-access-the-payout-report)
 - [Informe de pago: diferencia entre Cloud Partner Portal y el Centro de partners](#payout-report-difference-between-cloud-partner-portal-and-partner-center)
 - [Tipos de clientes](#customer-types)
 - [Correlación entre pago y uso](#corelation-between-payout-and-usage)
 - [Descarga del historial de transacciones](#transaction-history-download-export)
 - [Soporte técnico y preguntas sobre facturación](#billing-questions-and-support)
+
+## <a name="roles-and-permission-to-access-the-payout-report"></a>Roles y permisos para acceder al informe de pago
+
+| Informes/páginas    | Propietario de cuenta    | Manager  | Desarrollador | Colaborador empresarial |  Colaborador financiero | Vendedor |
+|------------------|------------------|----------|-----------|----|----|-----|
+| Informe de adquisición (incluidos los datos casi en tiempo real) | Puede ver | Puede ver | Sin acceso | Sin acceso | Puede ver | Sin acceso |
+| Respuesta/informe de comentarios | Puede ver y enviar comentarios | Puede ver y enviar comentarios | Puede ver y enviar comentarios | Sin acceso | Sin acceso | Puede ver y enviar comentarios |
+| Informe de mantenimiento (incluidos los datos casi en tiempo real) | Puede ver | Puede ver | Puede ver | Puede ver | Sin acceso | Sin acceso |
+| Informe de uso | Puede ver | Puede ver | Puede ver | Puede ver | Sin acceso | Sin acceso |
+| Cuenta de pago | Puede actualizar | Sin acceso | Sin acceso | Sin acceso | Puede actualizar | Sin acceso |
+| Perfil fiscal | Puede actualizar | Sin acceso | Sin acceso | Sin acceso | Puede actualizar | Sin acceso |
+| Resumen de pagos | Puede ver | Sin acceso | Sin acceso | Sin acceso | Puede ver | Sin acceso |
 
 ## <a name="payout-report-difference-between-cloud-partner-portal-and-partner-center"></a>Informe de pago: diferencia entre Cloud Partner Portal y el Centro de partners
 
@@ -55,21 +68,21 @@ Por ejemplo, si el cliente realiza la compra con tarjeta de crédito.
 
 ## <a name="corelation-between-payout-and-usage"></a>Correlación entre pago y uso 
 
-|DESCRIPCIÓN    |    Date  | Pedidos y uso  | Pago |
+|Descripción    |    Date  | Pedidos y uso  | Pago |
 |----------|----------|-----------|-------------|
 |Período del pedido   | Del 15 al 30 de agosto de 2019 | **Pedidos de atributos de correlación** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Uso** <br> <ul> <li>CustomerId </li> <li>Nombre del cliente</li> <li>(UsageReference)PurchaseRecordId/LineItemId</li> <li> Cargo ampliado estimado <br> Estimated Payout (PC) [Pago estimado (PC)] </li> </ul> |  |
 |Final del período (mes)   | 30 de agosto de 2019 | | |
 |Fecha de facturación | 1 de septiembre de 2019 | | |
 |Fecha de pago del cliente | 1 de septiembre de 2019 | | |
-|Período de custodia (solo tarjetas de crédito, 30 días) | Del 1 al 30 de septiembre de 2019 | | **Pedidos de atributos de correlación:** <br> <ul><li>AssetId</li> <li>Identificador de cliente</li> <li> Nombre del cliente</li> </ul> <br> **Uso** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nombre del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Estado del pago:** Sin procesar |
+|Período de custodia (solo tarjetas de crédito, 30 días) | Del 1 al 30 de septiembre de 2019 | | **Pedidos de atributos de correlación:** <br> <ul><li>AssetId</li> <li>Customer ID</li> <li> Nombre del cliente</li> </ul> <br> **Uso** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nombre del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Estado del pago:** Sin procesar |
 |Inicio del período de cobro | 1 de septiembre de 2019 | | |
 |Final de período de cobro (30 días como máximo) | 30 de septiembre de 2019 | | |
-|Fecha de cálculo de pago (mensualmente el día 15) | 1 de octubre de 2019 | | **Atributos de correlación** <br> <ul><li>AssetId</li> <li>Identificador de cliente</li> <li>Nombre del cliente</li> </ul> <br> **Uso** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nombre del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Estado del pago:** UpComing |
-|Payout Date (Fecha de pago) | 15 de octubre de 2019 | | **Atributos de correlación** <br> <ul><li>AssetId</li> <li>Identificador de cliente</li> <li> Nombre del cliente</li> </ul> <br> **Uso** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nombre del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Estado del pago:** Pago enviado |
+|Fecha de cálculo de pago (mensualmente el día 15) | 1 de octubre de 2019 | | **Atributos de correlación** <br> <ul><li>AssetId</li> <li>Customer ID</li> <li>Nombre del cliente</li> </ul> <br> **Uso** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nombre del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Estado del pago:** UpComing |
+|Payout Date (Fecha de pago) | 15 de octubre de 2019 | | **Atributos de correlación** <br> <ul><li>AssetId</li> <li>Customer ID</li> <li> Nombre del cliente</li> </ul> <br> **Uso** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nombre del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Estado del pago:** Pago enviado |
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Contrato Enterprise (clientes trimestrales/mensuales)
 
-| DESCRIPCIÓN |    Date  | Uso | Pago |
+| Descripción |    Date  | Uso | Pago |
 |----------|----------|---------|-----------|
 |Período del pedido | Del 15 al 30 de agosto de 2019 | **Pedidos de atributos de correlación** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Informe de uso** <br> <ul> <li>CustomerId </li> <li>Nombre del cliente</li> <li>(UsageReference)PurchaseRecordId/LineItemId</li> <li> Cargo ampliado estimado <br> Estimated Payout (PC) [Pago estimado (PC)] </li> </ul> | |
 |Final del período (trimestre) | 30 de septiembre de 2019 | | |
@@ -80,107 +93,13 @@ Por ejemplo, si el cliente realiza la compra con tarjeta de crédito.
 |Final de período de cobro (90 días como máximo) | 15 de enero de 2020 | | |
 |Fecha de pago del cliente | 30 de diciembre de 2019 | | |
 |Cálculo del pago | 15 de enero de 2020 | | |
-|Payout Date (Fecha de pago) | 15 de febrero de 2020 | | **Para clientes de pago trimestral** <br> <br> **Informe de pedidos** <br> <ul><li>AssetId</li> <li>Identificador de cliente</li> <li> Nombre del cliente</li> </ul> <br> **Uso** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nombre del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Estado del pago:** enviado |
-
-<!---
-## Billing
-
-Depending on the transaction option used, the publisher’s software license fees can be presented as follows:
-
-* Free: No charge for software licenses.
-* **Bring the own license (BYOL)**: Any applicable charges for software licenses are managed directly between the publisher and customer. Microsoft only passes through Azure infrastructure usage fees. (Virtual Machines and Azure Applications only).
-* **Pay-as-you-go**: Software license fees are presented as a per-hour, per-core (VCPU) pricing rate based on the Azure infrastructure used. This only applies to Virtual Machines and Azure Applications. 
-* **Subscription pricing**: Software license fees are presented as a monthly or annual recurring fee billed as a flat rate or per-seat. This only applies to SaaS Apps and Azure Applications - Managed Apps.
-
-### Pay as you go
-
-If you enable the Pay-As-You-Go option, then you have the following cost structure. 
-
-* If you enable the Pay-As-You-Go option, then you have the following cost structure.
-
-|Your license cost  | $1.00 per hour  |
-|---------|---------|
-|Azure usage cost (D1/1-Core)    |   $0.14 per hour     |
-|*Customer is billed by Microsoft*    |  *$1.14 per hour*       |
-
-* In this scenario, Microsoft bills $1.14 per hour for use of your published VM image.
-
-|Microsoft bills  | $1.14 per hour  |
-|---------|---------|
-|Microsoft pays you 80% of your license cost|   $0.80 per hour     |
-|Microsoft keeps 20% of your license cost  |  $0.20 per hour       |
-|Microsoft keeps 100% of the Azure usage cost | $0.14 per hour |
-
-### Bring Your Own License (BYOL)
-
-* If you enable the BYOL option, then you have the following cost structure.
-
-|Your license cost  | License fee negotiated and billed by you  |
-|---------|---------|
-|Azure usage cost (D1/1-Core)    |   $0.14 per hour     |
-|*Customer is billed by Microsoft*    |  *$0.14 per hour*       |
-
-* In this scenario, Microsoft bills $0.14 per hour for use of your published VM image.
-
-|Microsoft bills  | $0.14 per hour  |
-|---------|---------|
-|Microsoft keeps the Azure usage cost    |   $0.14 per hour     |
-|Microsoft keeps 0% of your license cost   |  $0.00 per hour       |
-
-### SaaS App subscription
-
-This option must be configured to sell through Microsoft and can be priced at a flat rate or per user on a monthly or annual basis.
-•   If you enable the Sell through Microsoft option for a SaaS offer, then you have the following cost structure.
-
-|Your license cost       | $100.00 per month  |
-|--------------|---------|
-|Azure usage cost (D1/1-Core)    | Billed directly to the publisher, not the customer |
-|*Customer is billed by Microsoft*    |  *$100.00 per month (note: publisher must account for any incurred or pass-through infrastructure costs in the license fee)*  |
-
-* In this scenario, Microsoft bills $100.00 for your software license and pays out $80.00 to the publisher.
-* Partners who have qualified for the Reduced Marketplace Service Fee will see a reduced transaction fee on the SaaS offers from May 2019 until June 2020. In this scenario, Microsoft bills $100.00 for your software license and pays out $90.00 to the publisher.
-
-|Microsoft bills  | $100.00 per month  |
-|---------|---------|
-|Microsoft pays you 80% of your license cost <br> \* Microsoft pays you 90% of your license cost for any qualified SaaS apps   |   $80.00 per month <br> \* $90.00 per month    |
-|Microsoft keeps 20% of your license cost <br> \* Microsoft keeps 10% of your license cost for any qualified SaaS apps.  |  $20.00 per month <br> \* $10.00     |
-
-**Reduced Marketplace Service Fee:** For certain SaaS Products that you publish on our Commercial Marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%.  In order for your Product to qualify, at least one of your products must be designated by Microsoft as either IP co-sell ready or IP co-sell prioritized. To receive this reduced Marketplace Service Fee for the month, eligibility must be met at least five (5) business days before the end of the previous calendar month. Reduced Marketplace Service fee will not apply to VMs, Managed Apps or any other products made available through our Commercial Marketplace.  This Reduced Marketplace Service Fee will be available to qualified offers, with license charges collected by Microsoft between May 1, 2019 and June 30, 2020.  After that time, the Marketplace Service Fee will return to its normal amount.
-
-### Customer invoicing, payment, billing, and collections
-
-**Invoicing and payment**
-
-Publisher can use the customer's preferred invoicing method to deliver subscription or PAYGO software license fees.
-
-**Enterprise agreement** 
-
-If the customer's preferred invoicing method is the Microsoft Enterprise Agreement, your software license fees will be billed using this invoicing method as an itemized cost, separate from any Azure-specific usage costs.
-
-**Credit cards and monthly invoice** 
-
-Customers can also pay using a credit card and a monthly invoice. In this case, your software license fees will be billed just like the Enterprise Agreement scenario, as an itemized cost, separate from any Azure-specific usage costs.
-
-
-
-**Billing and collections** 
-
-Publisher software license billing is presented using the customer selected method of invoicing and follows the invoicing timeline. Customers without an Enterprise Agreement in place are billed monthly for marketplace software licenses. Customers with an Enterprise Agreement are billed monthly via an invoice that is presented quarterly.
-
-When subscription or Pay-as-You-Go pricing models are selected, Microsoft acts as the agent of the publisher and is responsible for all aspects of billing, payment, and collection.
-
-### Publisher payout and reporting
-
-* Any software licensing fees collected by Microsoft as an agent are subject to a 20% transaction fee unless otherwise specified and are deducted at the time of publisher payout.
-
-* Customers typically purchase using the Enterprise Agreement or a credit-card enabled pay-as-you-go agreement. The agreement type determines billing, invoicing, collection, and payout timing.
---->
+|Payout Date (Fecha de pago) | 15 de febrero de 2020 | | **Para clientes de pago trimestral** <br> <br> **Informe de pedidos** <br> <ul><li>AssetId</li> <li>Customer ID</li> <li> Nombre del cliente</li> </ul> <br> **Uso** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nombre del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Estado del pago:** enviado |
 
 ## <a name="transaction-history-download-export"></a>Exportación de la descarga del historial de transacciones
 
 Esta opción proporciona la descarga de cada artículo de línea de ganancia que se ve en la página del historial de transacciones, el tipo de ganancia, la fecha, el importe de transacción asociado, el cliente, el producto y otros detalles transaccionales aplicables al programa de incentivos. 
 
-| Nombre de la columna     | DESCRIPCIÓN    | 
+| Nombre de la columna     | Descripción    | 
 |-------------|-------------------------------|
 | earningId                      | Identificador único de cada ganancia.                                                                                                       |
 | participantId                  | Identidad principal del asociado que gana con el programa.                                                                            | 

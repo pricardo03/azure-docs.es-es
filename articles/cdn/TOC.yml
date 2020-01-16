@@ -40,13 +40,13 @@
       href: cdn-china-delivery.md
     - name: Compatibilidad con HTTP/2
       href: cdn-http2.md
-    - name: Recuperación de una lista POP de Verizon
+    - name: Recuperación de IP de POP
       href: cdn-pop-list-api.md
     - name: Migración de Verizon Estándar a Verizon Premium
       href: cdn-migrate.md
     - name: Protección contra DDOS
       href: cdn-ddos.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Optimización del contenido
       href: cdn-optimization-overview.md
@@ -57,9 +57,9 @@
           href: cdn-media-streaming-optimization.md
         - name: Aceleración de sitios dinámicos
           href: cdn-dynamic-site-acceleration.md
-    - name: administración
+    - name: Administrar
       items:
-        - name: Creación de un extremo
+        - name: Crear un punto de conexión
           href: cdn-create-endpoint-how-to.md
         - name: Administración mediante Azure PowerShell
           href: cdn-manage-powershell.md
@@ -99,7 +99,7 @@
           href: cdn-verizon-premium-rules-engine.md
         - name: Uso de Traffic Manager
           href: cdn-traffic-manager.md
-    - name: Análisis
+    - name: Analizar
       href: cdn-log-analysis.md
       items:
         - name: Registros de Azure Diagnostics
@@ -120,7 +120,7 @@
               href: cdn-edge-performance.md
             - name: Obtener alertas en tiempo real
               href: cdn-real-time-alerts.md
-    - name: Desarrollo
+    - name: Desarrollar
       items:
         - name: .NET
           href: cdn-app-dev-net.md

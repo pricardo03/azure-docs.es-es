@@ -1,5 +1,5 @@
 ---
-title: 'Comparación del rendimiento de la aplicación en Azure Disk Storage: discos administrados'
+title: Comparación del rendimiento de la aplicación en Azure Disk Storage
 description: Obtenga información sobre el proceso de comparación de la aplicación en Azure.
 author: roygara
 ms.author: rogarana
@@ -7,12 +7,12 @@ ms.date: 01/11/2019
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 600b456cd77d866f1365b7dadfa9ea2473db0fa4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e73999925c68ca8f68ba386808e443c9e2779498
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698753"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460174"
 ---
 # <a name="benchmarking-a-disk"></a>Pruebas comparativas de un disco
 

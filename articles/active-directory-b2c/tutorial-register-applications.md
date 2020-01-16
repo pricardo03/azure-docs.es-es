@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76d38e4b35111cd2c09685653fb4948f98387132
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 2a9e4828428a91c1d1b75fb9d1b9004e52988084
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950789"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425482"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Tutorial: Registro de una aplicación en Azure Active Directory B2C
 
 Para que sus [aplicaciones](active-directory-b2c-apps.md) puedan interactuar con Azure Active Directory B2C (Azure AD B2C), deben estar registradas en un inquilino que administre. En este tutorial se muestra cómo registrar una aplicación web mediante Azure Portal.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Registro de una aplicación web
@@ -30,7 +30,7 @@ En este artículo, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Si aún no ha creado su propio [inquilino de Azure AD B2C](tutorial-create-tenant.md), cree una ahora. Puede usar un inquilino de Azure AD B2C existente.
 
@@ -40,8 +40,9 @@ Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la e
 
 #### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
 
-1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
-1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Aplicaciones** y **Agregar**.
 1. Escriba un nombre para la aplicación. Por ejemplo, *webapp1*.
 1. En **Incluir aplicación web o API web** y **Permitir flujo implícito**, seleccione **Sí**.
@@ -54,15 +55,15 @@ Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la e
     * La dirección URL de respuesta debe comenzar con el esquema `https`.
     * La dirección URL de respuesta distingue mayúsculas de minúsculas. Sus mayúsculas o minúsculas deben coincidir con las de la ruta de acceso de la dirección URL de la aplicación en ejecución. Por ejemplo, si la aplicación incluye como parte de su ruta de acceso `.../abc/response-oidc`, no especifique `.../ABC/response-oidc` en la dirección URL de respuesta. Dado que el explorador web tiene en cuenta las mayúsculas y minúsculas de la ruta de acceso, se pueden excluir las cookies asociadas con `.../abc/response-oidc` si se redirigen a la dirección URL `.../ABC/response-oidc` con mayúsculas y minúsculas no coincidentes.
 
-1. Haga clic en **Create** (Crear) para completar el registro de la aplicación.
+1. Seleccione **Crear** para completar el registro de la aplicación.
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Registros de aplicaciones (versión preliminar)** y luego **Nuevo registro**.
-1. Escriba un **nombre** para la aplicación. Por ejemplo, *webapp1*.
+1. Escriba un **Nombre** para la aplicación. Por ejemplo, *webapp1*.
 1. Seleccione **Cuentas de cualquier directorio de la organización o cualquier proveedor de identidades**.
 1. En **URI de redirección**, seleccione **Web** y escriba `https://jwt.ms` en el cuadro de texto.
 
@@ -73,7 +74,7 @@ Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la e
     * La dirección URL de respuesta debe comenzar con el esquema `https`.
     * La dirección URL de respuesta distingue mayúsculas de minúsculas. Sus mayúsculas o minúsculas deben coincidir con las de la ruta de acceso de la dirección URL de la aplicación en ejecución. Por ejemplo, si la aplicación incluye como parte de su ruta de acceso `.../abc/response-oidc`, no especifique `.../ABC/response-oidc` en la dirección URL de respuesta. Dado que el explorador web tiene en cuenta las mayúsculas y minúsculas de la ruta de acceso, se pueden excluir las cookies asociadas con `.../abc/response-oidc` si se redirigen a la dirección URL `.../ABC/response-oidc` con mayúsculas y minúsculas no coincidentes.
 
-1. En **Permisos**, active la casilla *Conceda permiso del administrador a los permisos openid y offline_access*.
+1. En **Permisos**, active la casilla *Conceda consentimiento del administrador a los permisos openid y offline_access*.
 1. Seleccione **Registrar**.
 
 Una vez completado el registro de la aplicación, habilite el flujo de concesión implícita:

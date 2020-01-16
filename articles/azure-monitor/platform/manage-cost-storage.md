@@ -3,7 +3,7 @@ title: Administración del uso y los costos de los registros de Azure Monitor | 
 description: Aprenda cómo cambiar el plan de precios y cómo administrar el volumen de datos y la directiva de retención para el área de trabajo de Log Analytics en Azure Monitor.
 services: azure-monitor
 documentationcenter: azure-monitor
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.author: magoedte
+ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: f60b0b9294fa3f11889613a7d63f21e87fbea201
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e4146155915979e51a6e3a989ab57316ca643018
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894120"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658026"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Administrar el uso y los costos con los registros de Azure Monitor
 
@@ -90,7 +90,7 @@ Las suscripciones que contenían un área de trabajo de Log Analytics o un recur
 
 Las áreas de trabajo creadas antes de abril de 2016 también tienen acceso a los planes de tarifa **Estándar** y **Premium** originales, que tienen una retención de datos fija de 30 y 365 días, respectivamente. No se pueden crear áreas de trabajo en los planes de tarifa **Estándar** o **Premium**, y si un área de trabajo se saca de estos niveles, no puede regresar a ellos. 
 
-Puede obtener más detalles sobre las limitaciones del plan de tarifa [aquí](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
+Puede obtener más detalles sobre las limitaciones del plan de tarifa [aquí](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#log-analytics-workspaces).
 
 > [!NOTE]
 > Para usar los derechos que proceden de la adquisición de OMS E1 Suite, OMS E2 Suite o un complemento de OMS para System Center, elija el plan de tarifa *Por nodo* de Log Analytics.
@@ -215,7 +215,7 @@ Heartbeat | where TimeGenerated > startofday(ago(31d))
 | render timechart
 ```
 
-Para obtener una lista de equipos que se facturarán como nodos si el área de trabajo se encuentra en el plan de tarifa heredado de cada nodo, busque los nodos que envían **tipos de datos facturados** (algunos tipos de datos son gratuitos). Para hacer esto, use la [propiedad](log-standard-properties.md#_isbillable) `_IsBillable` y el campo a la izquierda del nombre de dominio completo. Esto le devolverá la lista de equipos con datos facturados:
+Para obtener una lista de equipos que se facturarán como nodos si el área de trabajo se encuentra en el plan de tarifa heredado de cada nodo, busque los nodos que envían **tipos de datos facturados** (algunos tipos de datos son gratuitos). Para hacer esto, use la [propiedad](log-standard-properties.md#_isbillable) `_IsBillable` y el campo situado más a la izquierda del nombre de dominio completo. Esto le devolverá la lista de equipos con datos facturados:
 
 ```kusto
 union withsource = tt * 
@@ -269,7 +269,7 @@ Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 
 ### <a name="data-volume-by-computer"></a>Volumen de datos por equipo
 
-Para ver el **tamaño** de los eventos facturables que ingirió el equipo, use la [propiedad](log-standard-properties.md#_billedsize) `_BilledSize`, que proporciona el tamaño en bytes:
+Para ver el **tamaño** de los eventos facturables que ingirió cada equipo, use la [propiedad](log-standard-properties.md#_billedsize) `_BilledSize`, que proporciona el tamaño en bytes:
 
 ```kusto
 union withsource = tt * 
@@ -278,7 +278,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
-La [propiedad](log-standard-properties.md#_isbillable) `_IsBillable` especifica si los datos ingeridos incurrirán en cargos.
+La [propiedad](log-standard-properties.md#_isbillable) `_IsBillable` especifica si los datos ingeridos generarán gastos.
 
 Para ver el recuento de eventos **facturables** que ingirió equipo, use: 
 
@@ -351,7 +351,7 @@ Algunas sugerencias para reducir el volumen de registros recopilados incluyen:
 | Origen del mayor volumen de datos | Cómo reducir el volumen de datos |
 | -------------------------- | ------------------------- |
 | Eventos de seguridad            | Seleccione los [eventos de seguridad común o mínima](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier). <br> Cambie la directiva de auditoría de seguridad para recopilar únicamente los eventos necesarios. En particular, revise la necesidad de recopilar eventos para <br> - [auditar plataforma de filtrado](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [auditar registro](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [auditar sistema de archivos](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [auditar objeto de kernel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [auditar manipulación de identificadores](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - auditar almacenamiento extraíble |
-| contadores de rendimiento       | Cambie la [configuración de los contadores de rendimiento](data-sources-performance-counters.md) para: <br> - Reducir la frecuencia de la colección <br> - Reducir el número de contadores de rendimiento |
+| Contadores de rendimiento       | Cambie la [configuración de los contadores de rendimiento](data-sources-performance-counters.md) para: <br> - Reducir la frecuencia de la colección <br> - Reducir el número de contadores de rendimiento |
 | Registros de eventos                 | Cambie la [configuración del registro de eventos](data-sources-windows-events.md) para: <br> - Reducir el número de registros de eventos recopilados <br> - Recopilar solo los niveles de eventos necesarios Por ejemplo, no recopile eventos de nivel de *información*. |
 | syslog                     | Cambie la [configuración de syslog](data-sources-syslog.md) para: <br> - Reducir el número de instalaciones recopiladas <br> - Recopilar solo los niveles de eventos necesarios Por ejemplo, no recopile eventos de nivel de *información* y *depuración*. |
 | AzureDiagnostics           | Cambie la colección de registros de recursos para: <br> - Reducir el número de registros de recursos enviados a Log Analytics <br> - Recopilar solo los registros necesarios |
@@ -435,10 +435,10 @@ Siga los pasos explicados en [crear una nueva regla de alerta](alerts-metric.md)
 Al crear la alerta en la primera consulta; cuando hay más de 100 GB de datos en 24 horas, establezca los siguientes valores:  
 
 - **Definición de la condición de alerta**: especifique el área de trabajo de Log Analytics como el destino del recurso.
-- **Criterios de alerta** especifique lo siguiente:
+- **Criterios de alerta**: especifique lo siguiente:
    - **Nombre de señal**: seleccione **Custom log search** (Búsqueda de registros personalizada)
    - **Consulta de búsqueda** en `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type | where DataGB > 100`
-   - **Lógica de alerta** está **basada en** *número de resultados* y **Condición** es *Mayor que* un **umbral**  de *0*
+   - El valor de **Lógica de alerta** está **Basado en** el *número de resultados*, mientras que el valor de **Condición** es *Mayor que* un **Umbral**  de *0*.
    - **Período de tiempo** de *1440* minutos y **Frecuencia de la alerta** cada *60* minutos ya que los datos de uso solo se actualizan una vez por hora.
 - **Definición de los detalles de la alerta**: especifique lo siguiente:
    - **Nombre** en *Volumen de datos mayor que 100 GB en 24 horas*
@@ -449,10 +449,10 @@ Especifique un [grupo de acciones](action-groups.md) existente o cree uno nuevo 
 Al crear la alerta para la segunda consulta; cuando se prevé que va a haber más de 100 GB de datos en 24 horas, establezca los siguientes valores:
 
 - **Definición de la condición de alerta**: especifique el área de trabajo de Log Analytics como el destino del recurso.
-- **Criterios de alerta** especifique lo siguiente:
+- **Criterios de alerta**: especifique lo siguiente:
    - **Nombre de señal**: seleccione **Custom log search** (Búsqueda de registros personalizada)
    - **Consulta de búsqueda** en `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type | where EstimatedGB > 100`
-   - **Lógica de alerta** está **basada en** *número de resultados* y **Condición** es *Mayor que* un **umbral**  de *0*
+   - El valor de **Lógica de alerta** está **Basado en** el *número de resultados*, mientras que el valor de **Condición** es *Mayor que* un **Umbral**  de *0*.
    - **Período de tiempo** de *180* minutos y **Frecuencia de la alerta** cada *60* minutos ya que los datos de uso solo se actualizan una vez por hora.
 - **Definición de los detalles de la alerta**: especifique lo siguiente:
    - **Nombre** en *Volumen de datos que se espera que sea mayor que 100 GB en 24 horas*
@@ -487,7 +487,7 @@ Para recibir una notificación cuando se detenga la recopilación de datos, siga
 
 ## <a name="limits-summary"></a>Resumen de límites
 
-Existen algunas limitaciones adicionales de Log Analytics, algunas de los cuales dependen del plan de tarifa de Log Analytics. Están documentadas [aquí](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
+Existen algunas limitaciones adicionales de Log Analytics, algunas de los cuales dependen del plan de tarifa de Log Analytics. Están documentadas [aquí](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#log-analytics-workspaces).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

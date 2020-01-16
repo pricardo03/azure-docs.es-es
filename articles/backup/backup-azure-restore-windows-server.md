@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a restaurar datos almacenados en Azur
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 4d663739f25762723fc3a8f566c4b5ef3f957338
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e12596b496483b872f76ccd610fd70710327b586
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172782"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450023"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restauración de archivos en Windows con el modelo de implementación de Azure Resource Manager
 
@@ -21,7 +21,7 @@ En este artículo se explica cómo restaurar datos a partir de un almacén de co
 Use la característica de restauración instantánea para montar una instantánea de punto de recuperación grabable como un volumen de recuperación. Después, puede explorar el volumen de recuperación y copiar archivos de recuperación en un equipo local, por tanto, restaurando los archivos de forma selectiva.
 
 > [!NOTE]
-> Se necesita la [actualización de enero de 2017 de Azure Backup](https://support.microsoft.com/help/3216528?preview) si desea utilizar la restauración instantánea para restaurar datos. También se deben proteger los datos de copia de seguridad en los almacenes en configuraciones regionales que aparecen en el artículo de soporte técnico. Consulte la [actualización de Azure Backup de enero de 2017](https://support.microsoft.com/help/3216528?preview) para obtener la lista más reciente de configuraciones regionales que admitan la restauración instantánea.
+> Se necesita la [actualización de enero de 2017 de Azure Backup](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) si desea utilizar la restauración instantánea para restaurar datos. También se deben proteger los datos de copia de seguridad en los almacenes en configuraciones regionales que aparecen en el artículo de soporte técnico. Consulte la [actualización de Azure Backup de enero de 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) para obtener la lista más reciente de configuraciones regionales que admitan la restauración instantánea.
 >
 
 Use almacenes de Restauración instantánea con Recovery Services en Azure Portal. Si almacenó datos en los almacenes de Backup, se convirtieron en almacenes de Recovery Services. Si desea usar la restauración instantánea, descargue la actualización de MARS y siga los procedimientos que mencionan la restauración instantánea.

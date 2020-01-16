@@ -14,22 +14,22 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/27/2019
 ms.author: aschhab
-ms.openlocfilehash: c1f9c8a03a503444c7c45d5374b67e5b453a8931
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 49abd1b0542b1a658517561cf1ffead402fa93a5
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561616"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563401"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introducción a las colas de Service Bus
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 En este tutorial, creará aplicaciones de consola de .NET Core para enviar mensajes a una cola de Service Bus y recibir mensajes desde ella.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), versión 2.0 o posterior.
-- Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Si no tiene una cola con la que trabajar, siga los pasos del artículo [Uso de Azure Portal para crear una cola de Service Bus](service-bus-quickstart-portal.md) para crear una.
 
   - Lea la información general rápida de las colas de Service Bus.
@@ -48,7 +48,7 @@ Inicie Visual Studio y cree otro proyecto **Aplicación de consola (.NET Core)
 ### <a name="add-the-service-bus-nuget-package"></a>Agregar el paquete NuGet de Service Bus
 
 1. Haga clic con el botón derecho en el proyecto recién creado y seleccione **Administrar paquetes NuGet**.
-1. Seleccione **Examinar**. Busque y seleccione **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)** .
+1. Haga clic en **Examinar**. Busque y seleccione **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)** .
 1. Seleccione **Instalar** para completar la instalación y luego cierre el administrador de paquetes NuGet.
 
     ![Seleccionar un paquete NuGet][nuget-pkg]
@@ -74,7 +74,7 @@ Inicie Visual Studio y cree otro proyecto **Aplicación de consola (.NET Core)
 
     Escriba la cadena de conexión para el espacio de nombres como la variable `ServiceBusConnectionString`. Escriba el nombre de la cola.
 
-1. Reemplace el método `Main()` por el método `Main` **asincrónico**. Llama al método SendMessagesAsync que se agregará en el paso siguiente para enviar mensajes a la cola. 
+1. Reemplace el método `Main()` por el método `Main`**asincrónico**. Llama al método `SendMessagesAsync()` que se agregará en el paso siguiente para enviar mensajes a la cola. 
 
     ```csharp
     public static async Task Main(string[] args)

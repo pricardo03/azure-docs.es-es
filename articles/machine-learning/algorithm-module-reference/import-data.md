@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 5fa8d3984c758d0bf95372864f3bffeb6f302c83
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d099d0b8f8e31bf77f5ddfad320ac792c5c01e5
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497780"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529616"
 ---
 # <a name="import-data-module"></a>Módulo Importación de datos
 
@@ -23,14 +23,14 @@ En este artículo se describe un módulo del diseñador de Azure Machine Learnin
 Use este módulo para cargar datos en una canalización de aprendizaje automático desde los servicios de datos en la nube existentes. 
 
 > [!Note]
-> Toda la funcionalidad proporcionada por este módulo se puede realizar mediante el **almacén de datos** y los **y conjuntos de datos** en la página de aterrizaje del área de trabajo. Se recomienda usar el **almacén de datos** y el **conjunto de datos** que incluye características adicionales, como la supervisión de datos. Para obtener más información, vea los artículos sobre [cómo obtener acceso a datos](../service/how-to-access-data.md) y [cómo registrar conjuntos de datos](../service/how-to-create-register-datasets.md).
+> Toda la funcionalidad proporcionada por este módulo se puede realizar mediante el **almacén de datos** y los **y conjuntos de datos** en la página de aterrizaje del área de trabajo. Se recomienda usar el **almacén de datos** y el **conjunto de datos** que incluye características adicionales, como la supervisión de datos. Para obtener más información, vea los artículos sobre [cómo obtener acceso a datos](../how-to-access-data.md) y [cómo registrar conjuntos de datos](../how-to-create-register-datasets.md).
 > Después de registrar un conjunto de datos, puede encontrarlo en la categoría **Conjuntos de datos** -> **My datasets** (Mis conjuntos de datos) en la interfaz del diseñador. Este módulo está reservado para los usuarios de Studio (clásico) para una experiencia familiar. 
 >
 
 En primer lugar, elija el origen desde el que está leyendo y finalice la configuración adicional. El módulo **Importación de datos** admite la lectura de datos de los siguientes orígenes:
 
 - URL mediante HTTP
-- Almacenamientos en la nube de Azure a través de [**almacenes de información**](../service/how-to-access-data.md)
+- Almacenamientos en la nube de Azure a través de [**almacenes de información**](../how-to-access-data.md)
     - Azure Blob Container
     - Recurso compartido de archivos de Azure
     - Azure Data Lake
@@ -38,7 +38,7 @@ En primer lugar, elija el origen desde el que está leyendo y finalice la config
     - Azure SQL Database
     - Azure PostgreSQL    
 
-Antes de usar el almacenamiento en la nube, debe registrar un almacén de datos en el área de trabajo de Azure Machine Learning. Para obtener más información, consulte [Cómo acceder a datos](../service/how-to-access-data.md). 
+Antes de usar el almacenamiento en la nube, debe registrar un almacén de datos en el área de trabajo de Azure Machine Learning. Para obtener más información, consulte [Cómo acceder a datos](../how-to-access-data.md). 
 
 Después de definir los datos que desee y conectarse al origen, **[Importación de datos](./import-data.md)** deduce el tipo de datos de cada columna basándose en los valores que contiene y carga los datos en la canalización del diseñador. La salida de **Importación de datos** es un conjunto de datos que puede utilizarse con todas las canalizaciones del diseñador.
 
@@ -54,7 +54,7 @@ Si cambian los datos de origen, puede actualizar el conjunto de datos y agregar 
 
 1. Seleccione **Origen de datos** y elija el tipo de origen de datos. Podría ser HTTP o almacén de datos.
 
-    Si elige almacén de datos, puede seleccionar los almacenes de datos existentes que ya están registrados en el área de trabajo Azure Machine Learning o crear un nuevo almacén de datos. A continuación, defina la ruta a los datos que se van a importar en el almacén de datos. Puede examinar fácilmente la ruta de acceso haciendo clic en **Examinar ruta** ![import-data-path](media/module/import-data-path.png)
+    Si elige almacén de datos, puede seleccionar los almacenes de datos existentes que ya están registrados en el área de trabajo Azure Machine Learning o crear un nuevo almacén de datos. A continuación, defina la ruta a los datos que se van a importar en el almacén de datos. Puede examinar fácilmente la ruta de acceso haciendo clic en **Examinar ruta**. ![import-data-path](media/module/import-data-path.png)
 
 1. Seleccione el esquema de vista previa para filtrar las columnas que desea incluir. También puede definir la configuración avanzada, como el delimitador en las opciones del análisis.
 

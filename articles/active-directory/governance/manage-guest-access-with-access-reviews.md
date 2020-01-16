@@ -1,5 +1,5 @@
 ---
-title: 'Administración del acceso de invitado con revisiones de acceso: Azure Active Directory | Microsoft Docs'
+title: 'Administración del acceso de los invitados con las revisiones de acceso: Azure AD'
 description: Administración de los usuarios invitados como miembros de un grupo o asignados a una aplicación con las revisiones de acceso de Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a982b97bcef6a24f026bf6ad2943661db18d6af0
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 562a94bbbd1999b9ca9cf0c65cdb816848648133
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499457"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422469"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Administración del acceso de los invitados con las revisiones de acceso de Azure AD
 
@@ -33,7 +33,7 @@ También puede asegurarse fácilmente de que los usuarios invitados tengan el ac
 > [!NOTE]
 > Este documento se centra en revisar el acceso de los usuarios invitados. Si desea revisar el acceso de todos los usuarios, no solo los invitados, vea [Administración del acceso de usuario con revisiones de acceso](manage-user-access-with-access-reviews.md). Si desea revisar la pertenencia de los usuarios a roles administrativos tales como administrador global, consulte [Inicio de una revisión de acceso en Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure AD Premium P2
 

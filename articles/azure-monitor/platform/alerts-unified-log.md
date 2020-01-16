@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: d0314e94e627a42ab55f9e91017acac0cdc8b541
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: b8cae9f7c43098b713d0d5d8f74e46cb0386600c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001622"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396494"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registro en Azure Monitor
 
@@ -68,7 +68,7 @@ En algunos casos, quizá quiera crear una alerta sin que haya un evento.  Por ej
 Considere un escenario donde desea saber cuándo la aplicación basada en web proporciona una respuesta a los usuarios con el código 500, un error interno del servidor. Crearía una regla de alertas con los detalles siguientes:  
 
 - **Consulta:** solicitudes | donde resultCode == "500"<br>
-- **Período de tiempo:** 30 minutos<br>
+- **Período de tiempo**: 30 minutos<br>
 - **Frecuencia de alerta:** cinco minutos<br>
 - **Valor del umbral:** mayor que 0<br>
 
@@ -99,7 +99,7 @@ La configuración incorrecta de las opciones *Aggregate On* o *metricColumn* pue
 Considere la posibilidad de un escenario en el que desearía tener una alerta en caso de que cualquier equipo superara el uso del procesador en un 90 % tres veces en 30 minutos.  Crearía una regla de alertas con los detalles siguientes:  
 
 - **Consulta:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
-- **Período de tiempo:** 30 minutos<br>
+- **Período de tiempo**: 30 minutos<br>
 - **Frecuencia de alerta:** cinco minutos<br>
 - **Lógica de alertas: estado y umbral:** mayor que 90<br>
 - **Campo de grupo (Agregado en):** Computer
@@ -113,7 +113,7 @@ La consulta crearía un valor medio para cada equipo a intervalos de cinco minut
 |20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
 |20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |
 |20xx-xx-xxT01:00:00Z     |   srv03.contoso.com      |    83     |
-|...     |   ...      |    ...     |
+|…     |   …      |    …     |
 |20xx-xx-xxT01:30:00Z     |   srv01.contoso.com      |    88     |
 |20xx-xx-xxT01:30:00Z     |   srv02.contoso.com      |    84     |
 |20xx-xx-xxT01:30:00Z     |   srv03.contoso.com      |    92     |
@@ -134,7 +134,7 @@ Veamos este comportamiento en acción con un ejemplo práctico. Supongamos que t
 En cada intervalo de los que se muestran a continuación, el sistema de alertas de Azure evalúa la condición de *Contoso-Log-Alert*.
 
 
-| Hora    | Número de registros devueltos por la consulta de búsqueda de registros | Evaluación de la condición de registro | Resultado 
+| Time    | Número de registros devueltos por la consulta de búsqueda de registros | Evaluación de la condición de registro | Resultado 
 | ------- | ----------| ----------| ------- 
 | 1:05 p. m. | 0 registros | 0 no es > 0, de modo que es FALSE |  La alerta no se desencadena. No se llamó a ninguna acción.
 | 1:10 p. m. | 2 registros | 2 > 0, de modo que es TRUE  | La alerta se desencadena y se llama a los grupos de acciones. Estado de alerta ACTIVA.
@@ -154,7 +154,7 @@ Los precios que se aplican a las alertas de registro están disponibles en la p�
 - Alertas de registro en Application Insights se muestra con el nombre exacto de la alerta junto con el grupo de recursos y las propiedades de la alerta
 - Las alertas de registro de Log Analytics aparecen con el nombre exacto de la alerta junto con el grupo de recursos y las propiedades de la alerta cuando se crean mediante [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules).
 
-La [API heredada de Log Analytics](../../azure-monitor/platform/api-alerts.md) dispone de acciones y programaciones de alertas como parte de la búsqueda guardada de Log Analytics y no [recursos de Azure](../../azure-resource-manager/resource-group-overview.md) propiamente dichos. Por tanto, para habilitar la facturación de tales alertas de registro heredadas creadas para Log Analytics mediante Azure Portal **sin** [cambiar a la nueva API](../../azure-monitor/platform/alerts-log-api-switch.md) o mediante la [API heredada de Log Analytics](../../azure-monitor/platform/api-alerts.md) se crearán pseudo reglas de alertas ocultas en `microsoft.insights/scheduledqueryrules` para la facturación en Azure. Las pseudo reglas de alertas ocultas creadas para la facturación en `microsoft.insights/scheduledqueryrules` aparecen como `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` junto con las propiedades de grupo de recursos y alerta.
+La [API heredada de Log Analytics](../../azure-monitor/platform/api-alerts.md) dispone de acciones y programaciones de alertas como parte de la búsqueda guardada de Log Analytics y no [recursos de Azure](../../azure-resource-manager/management/overview.md) propiamente dichos. Por tanto, para habilitar la facturación de tales alertas de registro heredadas creadas para Log Analytics mediante Azure Portal **sin** [cambiar a la nueva API](../../azure-monitor/platform/alerts-log-api-switch.md) o mediante la [API heredada de Log Analytics](../../azure-monitor/platform/api-alerts.md), se crean pseudo reglas de alertas ocultas en `microsoft.insights/scheduledqueryrules` para la facturación en Azure. Las pseudo reglas de alertas ocultas creadas para la facturación en `microsoft.insights/scheduledqueryrules` aparecen como `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` junto con las propiedades de grupo de recursos y alerta.
 
 > [!NOTE]
 > Si hay caracteres no válidos como `<, >, %, &, \, ?, /`, se reemplazarán por `_` en el nombre de la pseudo regla de alertas oculta y, por tanto, también en la factura de Azure.

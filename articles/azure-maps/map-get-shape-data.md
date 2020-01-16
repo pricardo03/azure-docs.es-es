@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e7706fba1efad1bd0ce7110e129dcf113689af9a
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: bc8efe46453f76d353842b32bd52b41838979b49
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309731"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432822"
 ---
 # <a name="get-shape-data"></a>Obtención de datos de forma
 
-Este artículo muestra cómo obtener datos de formas que se han dibujado en el mapa mediante la función [administrador de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#getsource--)  **drawingManager.getSource ()** . Puede haber varios escenarios en los que desee extraer datos de GeoJSON de una forma dibujada y utilizarlos en otro lugar.  
+En este artículo se muestra cómo obtener datos de formas que se han dibujado en el mapa mediante la función [administrador de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#getsource--) **drawingManager.getSource()** . Puede haber varios escenarios en los que desee extraer datos de GeoJSON de una forma dibujada y utilizarlos en otro lugar.  
 
 
 ## <a name="get-data-from-drawn-shape"></a>Obtenga datos de la forma dibujada
@@ -41,6 +41,14 @@ A continuación se muestra el ejemplo de código de ejecución completo, donde p
 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Aprenda a usar características adicionales del módulo de herramientas de dibujo:
+
+> [!div class="nextstepaction"]
+> [Reacción a eventos de dibujo](drawing-tools-events.md)
+
+> [!div class="nextstepaction"]
+> [Tipos de interacción y métodos abreviados de teclado](drawing-tools-interactions-keyboard-shortcuts.md)
 
 Más información sobre las clases y los métodos utilizados en este artículo:
 

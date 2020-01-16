@@ -4,12 +4,12 @@ description: Funcionalidad de restauración instantánea de Azure y preguntas fr
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 7a962ff42125b262f6ec6673f75b0afd2954de24
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 19ecd6843422f1843631278626ef8971b0791b1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806378"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391299"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Rendimiento mejorado de la copia de seguridad y la restauración con la funcionalidad de restauración instantánea de Azure Backup
 
@@ -24,7 +24,7 @@ El nuevo modelo de restauración instantánea proporciona las siguientes mejoras
 * Admite tamaños de disco de hasta 32 TB. No se recomienda cambiar el tamaño de los discos en Azure Backup.
 * Admite discos SSD estándar junto con discos HDD estándar y SSD Premium.
 * Capacidad de usar cuentas de almacenamiento originales de una VM no administrada (por disco) al restaurar. Esta capacidad existe aun cuando la máquina virtual tenga discos distribuidos entre cuentas de almacenamiento. Acelera las operaciones de restauración para una amplia variedad de configuraciones de máquina virtual.
-* Para la copia de seguridad de VM que usan almacenamiento Premium, se recomienda asignar un espacio libre del *50 %* , del espacio de almacenamiento total asignado, que **solo** es necesario para la primera copia de seguridad. El espacio libre del 50 % no es un requisito para las copias de seguridad una vez completada la primera copia de seguridad.
+* Para la copia de seguridad de VM que usan almacenamiento Premium, con restauración instantánea, se recomienda asignar un espacio libre del *50 %* , del espacio de almacenamiento total asignado, que **solo** es necesario para la primera copia de seguridad. El espacio libre del 50 % no es un requisito para las copias de seguridad una vez completada la primera copia de seguridad.
 
 ## <a name="whats-new-in-this-feature"></a>Novedades de esta característica
 
@@ -52,7 +52,7 @@ De manera predeterminada, las instantáneas de recuperación se conservan durant
 
 ## <a name="cost-impact"></a>Impacto sobre los costos
 
-Las instantáneas incrementales se almacenan en la cuenta de almacenamiento de la máquina virtual, que se usa para la recuperación instantánea. Una "instantánea incremental" significa que el espacio ocupado por ella es igual que el espacio ocupado por las páginas escritas una vez creada la instantánea. La facturación se realiza aún por GB de espacio que ocupa la instantánea y el precio por GB es el que se menciona en la [página de precios](https://azure.microsoft.com/pricing/details/managed-disks/).
+Las instantáneas incrementales se almacenan en la cuenta de almacenamiento de la máquina virtual, que se usa para la recuperación instantánea. Una "instantánea incremental" significa que el espacio ocupado por ella es igual que el espacio ocupado por las páginas escritas una vez creada la instantánea. La facturación se realiza aún por GB de espacio que ocupa la instantánea y el precio por GB es el que se menciona en la [página de precios](https://azure.microsoft.com/pricing/details/managed-disks/). En el caso de las máquinas virtuales que usan discos no administrados, las instantáneas se pueden visualizar en el menú del archivo VHD de cada disco. En el caso de discos administrados, las instantáneas se almacenan en un recurso de recopilación de puntos de restauración de un grupo de recursos designado y las instantáneas en sí no son directamente visibles.
 
 >[!NOTE]
 > Se ha corregido la retención de instantáneas a 5 días para las directivas semanales.
@@ -65,7 +65,7 @@ En Azure Portal puede ver que se ha agregado un campo a la hoja **Directiva de c
 
 ![Funcionalidad de restauración instantánea](./media/backup-azure-vms/instant-restore-capability.png)
 
-### <a name="using-powershell"></a>Con PowerShell
+### <a name="using-powershell"></a>Usar PowerShell
 
 >[!NOTE]
 > Desde Az PowerShell 1.6.0 y versiones posteriores, puede actualizar el período de retención de instantáneas para la restauración instantánea en la directiva mediante PowerShell

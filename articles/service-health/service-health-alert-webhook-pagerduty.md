@@ -1,17 +1,14 @@
 ---
-title: Envío de alertas de Azure Service Health con PageDuty mediante webhooks
+title: Envío de alertas de estado del servicio de Azure con PagerDuty
 description: Obtenga notificaciones personalizadas sobre los eventos del estado de servicio en la instancia de PagerDuty.
-author: stephbaron
-ms.author: stbaron
 ms.topic: article
-ms.service: service-health
 ms.date: 06/10/2019
-ms.openlocfilehash: ab3bcffb6453b284c3c8bb0d0373c7155fe8ef23
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 746113622b746949a0fae3fd0d7f1f9c7d170707
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067148"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551659"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Envío de alertas de Azure Service Health con PageDuty mediante webhooks
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: iainfou
-ms.openlocfilehash: 325b9e8edc997e41e48e11b3ee752bc38d7dc4a1
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 1a6fb12311fe4474f03c22c91d9b478220adf5d1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024009"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425528"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Consideraciones de diseño y opciones de configuración de redes virtuales para Azure AD Domain Services
 
@@ -88,7 +88,7 @@ Puede habilitar la resolución de nombres mediante reenviadores de DNS condicion
 
 Durante la implementación, un dominio administrado de Azure AD DS crea algunos recursos de red. Estos recursos son necesarios para la administración y el funcionamiento correctos del dominio administrado de Azure AD DS y no deben configurarse manualmente.
 
-| Recurso de Azure                          | DESCRIPCIÓN |
+| Recurso de Azure                          | Descripción |
 |:----------------------------------------|:---|
 | Tarjeta de interfaz de red                  | Azure AD DS hospeda el dominio administrado en dos controladores de dominio que se ejecutan en Windows Server como máquinas virtuales de Azure. Cada máquina virtual tiene una interfaz de red virtual que se conecta a la subred de la red virtual. |
 | Dirección IP pública estándar dinámica         | Azure AD DS se comunica con el servicio de sincronización y administración mediante una dirección IP pública de SKU básica. Para obtener más información sobre las direcciones IP públicas, consulte [Tipos de direcciones IP y métodos de asignación en Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
@@ -105,12 +105,12 @@ Un [grupo de seguridad de red (NSG)](https://docs.microsoft.com/azure/virtual-ne
 
 Las siguientes reglas del grupo de seguridad de red son necesarias para que Azure AD DS proporcione servicios de autenticación y administración. No las edite ni las elimine para la subred de la red virtual en la que está implementado el dominio administrado de Azure AD DS.
 
-| Número de puerto | Protocolo | Source                             | Destination | . | Obligatorio | Propósito |
+| Número de puerto | Protocolo | Source                             | Destination | Acción | Obligatorio | Propósito |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Sí      | Sincronización con el inquilino de Azure AD. |
 | 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Sí      | Administración del dominio. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Sí      | Administración del dominio. |
-| 636         | TCP      | Any                                | Any         | Allow  | Sin       | Solo se habilita al configurar LDAP seguro (LDAPS). |
+| 636         | TCP      | Any                                | Any         | Allow  | No       | Solo se habilita al configurar LDAP seguro (LDAPS). |
 
 > [!WARNING]
 > No edite manualmente estos recursos y configuraciones de red. Cuando se asocia un grupo de seguridad de red mal configurado o una tabla de rutas definida por el usuario con la subred en la que está implementado Azure AD DS, se podría interrumpir la capacidad de Microsoft para atender y administrar el dominio. Además, se interrumpe la sincronización entre el inquilino de Azure AD y el dominio administrado de Azure AD DS.

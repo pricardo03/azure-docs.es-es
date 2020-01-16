@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 8a464a8a635e0531eba2f9cc6fbceeb9edcea8bb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: ef7d78b292561e87eac12200bc0b9d68299759d9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705971"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443630"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualización de datos de Time Series Insights en Power BI
 
@@ -29,7 +29,7 @@ Al final, aprenderá a visualizar datos de series temporales mediante Azure Time
 
 Asegúrese de que se registra para obtener una [suscripción gratuita a Azure](https://azure.microsoft.com/free/), en caso de que no tenga ninguna.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Descargar e instalar la versión más reciente de [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 * Disposición o creación de una [instancia de Azure Time Series Insights (versión preliminar)](time-series-insights-update-how-to-manage.md)
@@ -70,7 +70,7 @@ Primeros pasos:
 
    1. Si no ha configurado su instancia de Time Series Insights para el **almacenamiento intermedio**, recibirá una advertencia.
 
-       [![Conectar](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
+       [![Advertencia de almacenamiento intermedio](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
 
        > [!TIP]
        > Puede configurar la instancia existente para el **almacenamiento intermedio** en Azure Portal.

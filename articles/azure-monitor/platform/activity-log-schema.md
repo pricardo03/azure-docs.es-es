@@ -1,22 +1,24 @@
 ---
 title: Esquema de eventos del registro de actividad de Azure
 description: Describe el esquema de eventos para cada categoría en el registro de actividad de Azure.
-author: johnkemnetz
+author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 1/16/2019
-ms.author: dukek
+ms.date: 12/04/2019
+ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 73f6de80348b7d933e45a8145f6bdb8fe22b5954
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: df2594165909c55de2de562c9717299d189a20d3
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893610"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531027"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
-El **registro de actividad de Azure** es un registro que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. En este artículo se describe el esquema de eventos por categoría de datos. El esquema de los datos es diferente en función de si va a leer los datos en el portal, PowerShell, la CLI o directamente mediante la API REST en comparación con la [transmisión de datos a Storage o Event Hubs mediante un perfil de registro](activity-log-export.md). Los ejemplos siguientes muestran el esquema puesto a disposición por el portal, PowerShell, la CLI y la API REST. Al final del artículo se proporciona una asignación de estas propiedades al [esquema de registros de Azure](diagnostic-logs-schema.md).
+El [registro de actividad de Azure](activity-logs-overview.md) proporciona información sobre los eventos que se han producido en Azure en el nivel de la suscripción. En este artículo, se describe el esquema de eventos de cada categoría. 
+
+En los ejemplos siguientes, se muestra el esquema cuando se accede al registro de actividad desde el portal, PowerShell, la CLI y la API REST. El esquema es diferente cuando el [registro de actividad se transmite a Azure Storage o a Event Hubs](resource-logs-stream-event-hubs.md). Al final del artículo, encontrará la correspondencia de las propiedades en el [esquema de registros de Azure](diagnostic-logs-schema.md).
 
 ## <a name="administrative"></a>Administrativo
 Esta categoría contiene el registro de todas las operaciones de creación, actualización, eliminación y acción realizadas a través de Resource Manager. Los ejemplos de los tipos de eventos que aparecen en esta categoría incluyen "crear máquina virtual" y "eliminar grupo de seguridad de red". Cada acción realizada por un usuario o una aplicación mediante Resource Manager se modela como una operación en un tipo de recurso determinado. Si el tipo de operación es Write, Delete o Action, los registros de inicio y corrección o error de esa operación se registran en la categoría Administrativo. La categoría Administrativo también incluye los cambios realizados en el control de acceso basado en roles de una suscripción.
@@ -110,7 +112,7 @@ Esta categoría contiene el registro de todas las operaciones de creación, actu
 ```
 
 ### <a name="property-descriptions"></a>Descripciones de propiedades
-| Nombre del elemento | DESCRIPCIÓN |
+| Nombre del elemento | Descripción |
 | --- | --- |
 | authorization |Blob de propiedades RBAC del evento. Normalmente incluye las propiedades "action", "role" y "scope". |
 | caller |Dirección de correo electrónico del usuario que ha realizado la operación, la notificación de UPN o la notificación de SPN basada en la disponibilidad. |
@@ -257,7 +259,7 @@ Esta categoría contiene el registro de los eventos de estado del servicio que s
 ```
 
 ### <a name="property-descriptions"></a>Descripciones de propiedades
-| Nombre del elemento | DESCRIPCIÓN |
+| Nombre del elemento | Descripción |
 | --- | --- |
 | canales nueva | Siempre es "Admin, Operation". |
 | correlationId | GUID en formato de cadena. |
@@ -286,7 +288,7 @@ Esta categoría contiene el registro de los eventos de estado del servicio que s
 
 
 ## <a name="alert"></a>Alerta
-Esta categoría contiene el registro de todas las activaciones de alertas de Azure. Un ejemplo del tipo de evento que aparece en esta categoría es "El % de CPU en myVM ha estado por encima de 80 durante los últimos 5 minutos". Varios sistemas de Azure tienen un concepto de alerta: puede definir una regla de algún tipo y recibir una notificación cuando las condiciones coincidan con esa regla. Cada vez que un tipo de alerta de Azure compatible "se activa" o se cumplen las condiciones para generar una notificación, también se inserta un registro de la activación en esta categoría del Registro de actividad.
+Esta categoría contiene el registro de todas las activaciones de alertas de Azure. Un ejemplo del tipo de evento que aparece en esta categoría es "el % de CPU en myVM ha estado por encima de 80 durante los últimos 5 minutos". Varios sistemas de Azure tienen un concepto de alerta: puede definir una regla de algún tipo y recibir una notificación cuando las condiciones coincidan con esa regla. Cada vez que un tipo de alerta de Azure compatible "se activa" o se cumplen las condiciones para generar una notificación, también se inserta un registro de la activación en esta categoría del Registro de actividad.
 
 ### <a name="sample-event"></a>Evento de ejemplo
 
@@ -350,7 +352,7 @@ Esta categoría contiene el registro de todas las activaciones de alertas de Azu
 ```
 
 ### <a name="property-descriptions"></a>Descripciones de propiedades
-| Nombre del elemento | DESCRIPCIÓN |
+| Nombre del elemento | Descripción |
 | --- | --- |
 | caller | Siempre es Microsoft.Insights/alertRules. |
 | canales nueva | Siempre es "Admin, Operation". |
@@ -376,7 +378,7 @@ Esta categoría contiene el registro de todas las activaciones de alertas de Azu
 El campo Propiedades contendrá valores diferentes dependiendo del origen del evento de alerta. Dos proveedores de eventos de alerta comunes son las alertas de registro de actividad y las alertas de métrica.
 
 #### <a name="properties-for-activity-log-alerts"></a>Propiedades de las alertas del registro de actividad
-| Nombre del elemento | DESCRIPCIÓN |
+| Nombre del elemento | Descripción |
 | --- | --- |
 | properties.subscriptionId | Identificador de suscripción del evento del registro de actividad que hizo que se activara esta regla de alertas del registro de actividad. |
 | properties.eventDataId | Identificador de datos del evento del registro de actividad que hizo que se activara esta regla de alertas del registro de actividad. |
@@ -387,7 +389,7 @@ El campo Propiedades contendrá valores diferentes dependiendo del origen del ev
 | properties.status | Estado del evento del registro de actividad que hizo que se activara esta regla de alertas del registro de actividad.|
 
 #### <a name="properties-for-metric-alerts"></a>Propiedades de las alertas de métrica
-| Nombre del elemento | DESCRIPCIÓN |
+| Nombre del elemento | Descripción |
 | --- | --- |
 | properties.RuleUri | Identificador de recurso de la propia regla de alerta de métrica. |
 | properties.RuleName | Nombre de la regla de alertas de métrica. |
@@ -460,7 +462,7 @@ Esta categoría contiene el registro de los eventos relacionados con el funciona
 ```
 
 ### <a name="property-descriptions"></a>Descripciones de propiedades
-| Nombre del elemento | DESCRIPCIÓN |
+| Nombre del elemento | Descripción |
 | --- | --- |
 | caller | Siempre es Microsoft.Insights/autoscaleSettings. |
 | canales nueva | Siempre es "Admin, Operation". |
@@ -550,7 +552,7 @@ Esta categoría contiene el registro de todas las alertas generado por Azure Sec
 ```
 
 ### <a name="property-descriptions"></a>Descripciones de propiedades
-| Nombre del elemento | DESCRIPCIÓN |
+| Nombre del elemento | Descripción |
 | --- | --- |
 | canales nueva | Siempre "Operation" |
 | correlationId | GUID en formato de cadena. |
@@ -631,7 +633,7 @@ Esta categoría contiene el registro de cualquier recomendación nueva que se ge
 
 ```
 ### <a name="property-descriptions"></a>Descripciones de propiedades
-| Nombre del elemento | DESCRIPCIÓN |
+| Nombre del elemento | Descripción |
 | --- | --- |
 | canales nueva | Siempre "Operation" |
 | correlationId | GUID en formato de cadena. |
@@ -741,7 +743,7 @@ Esta categoría contiene registros de todas las operaciones de acción de efecto
 
 ### <a name="policy-event-property-descriptions"></a>Descripciones de las propiedades del evento de Azure Policy
 
-| Nombre del elemento | DESCRIPCIÓN |
+| Nombre del elemento | Descripción |
 | --- | --- |
 | authorization | Matriz de propiedades RBAC del evento. Para los nuevos recursos, se trata de la acción y el ámbito de la solicitud que activó la evaluación. Para los recursos existentes, la acción es "Microsoft.Resources/checkPolicyCompliance/read". |
 | caller | Para los nuevos recursos, la identidad que ha iniciado una implementación. Para los recursos existentes, el GUID de Microsoft Azure Policy Insights RP. |
@@ -771,9 +773,13 @@ Esta categoría contiene registros de todas las operaciones de acción de efecto
 | properties.policies | Incluye detalles sobre la definición, asignación, efecto y parámetros de directiva que ocasionaron esta evaluación de Azure Policy. |
 | relatedEvents | Este campo está en blanco para los eventos de Azure Policy. |
 
-## <a name="mapping-to-resource-logs-schema"></a>Asignación al esquema de registros de recursos
 
-Al realizar la transmisión del registro de actividad de Azure a una cuenta de almacenamiento o un espacio de nombres de Event Hubs, los datos siguen el [esquema de registros de recursos de Azure](./diagnostic-logs-schema.md). Esta es la asignación de propiedades del esquema anterior al esquema de registros de recursos:
+## <a name="schema-from-storage-account-and-event-hubs"></a>Esquema de una cuenta de almacenamiento y un centro de eventos
+Cuando el registro de actividad de Azure se transmite a una cuenta de almacenamiento o a un centro de eventos, los datos siguen el [esquema de registros de recursos](diagnostic-logs-schema.md). En la tabla siguiente, se muestra la correspondencia de las propiedades entre el esquema anterior y el esquema de registros de recursos.
+
+> [!IMPORTANT]
+> El formato de los datos de registro de actividad escritos en una cuenta de almacenamiento cambiaron a Líneas JSON el 1 de noviembre de 2018. Consulte [Preparación para el cambio de formato a los registros de recursos de Azure Monitor archivados en una cuenta de almacenamiento](diagnostic-logs-append-blobs.md) para más información sobre este cambio de formato.
+
 
 | Propiedad del esquema de registros de recursos | Propiedad del esquema de API REST de registro de actividad | Notas |
 | --- | --- | --- |
@@ -789,15 +795,76 @@ Al realizar la transmisión del registro de actividad de Azure a una cuenta de a
 | correlationId | correlationId |  |
 | identity | notificaciones y propiedades de autorización |  |
 | Nivel | Nivel |  |
-| location | N/D | Ubicación de donde se procesó el evento. *Esto no es la ubicación del recurso, sino el lugar donde se procesó el evento. Esta propiedad se quitará en una futura actualización.* |
-| properties (Propiedades) | properties.eventProperties |  |
+| ubicación | N/D | Ubicación de donde se procesó el evento. *Esto no es la ubicación del recurso, sino el lugar donde se procesó el evento. Esta propiedad se quitará en una futura actualización.* |
+| Propiedades | properties.eventProperties |  |
 | properties.eventCategory | category | Si properties.eventCategory no está presente, la categoría será "Administrative" |
 | properties.eventName | eventName |  |
 | properties.operationId | operationId |  |
 | properties.eventProperties | properties |  |
 
+A continuación, se muestra un ejemplo de un evento que utiliza este esquema.
+
+``` JSON
+{
+    "records": [
+        {
+            "time": "2015-01-21T22:14:26.9792776Z",
+            "resourceId": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
+            "operationName": "microsoft.support/supporttickets/write",
+            "category": "Write",
+            "resultType": "Success",
+            "resultSignature": "Succeeded.Created",
+            "durationMs": 2826,
+            "callerIpAddress": "111.111.111.11",
+            "correlationId": "c776f9f4-36e5-4e0e-809b-c9b3c3fb62a8",
+            "identity": {
+                "authorization": {
+                    "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
+                    "action": "microsoft.support/supporttickets/write",
+                    "evidence": {
+                        "role": "Subscription Admin"
+                    }
+                },
+                "claims": {
+                    "aud": "https://management.core.windows.net/",
+                    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+                    "iat": "1421876371",
+                    "nbf": "1421876371",
+                    "exp": "1421880271",
+                    "ver": "1.0",
+                    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
+                    "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+                    "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
+                    "puid": "20030000801A118C",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
+                    "name": "John Smith",
+                    "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
+                    "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
+                    "appidacr": "2",
+                    "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+                    "http://schemas.microsoft.com/claims/authnclassreference": "1"
+                }
+            },
+            "level": "Information",
+            "location": "global",
+            "properties": {
+                "statusCode": "Created",
+                "serviceRequestId": "50d5cddb-8ca0-47ad-9b80-6cde2207f97c"
+            }
+        }
+    ]
+}
+```
+
+
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre el registro de actividad](activity-logs-overview.md)
-* [Exportar el registro de actividad a Azure Storage o Event Hubs](activity-log-export.md)
+* [Creación de una configuración de diagnóstico para enviar el registro de actividad a un área de trabajo de Log Analytics, Azure Storage o Event Hubs](diagnostic-settings.md)
 

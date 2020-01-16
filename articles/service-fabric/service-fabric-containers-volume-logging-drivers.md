@@ -1,20 +1,14 @@
 ---
-title: Controlador de volúmenes de Azure Files en Service Fabric (disponibilidad general) | Microsoft Docs
+title: Controlador de volumen de Azure Files en Service Fabric (GA)
 description: Service Fabric admite el uso de Azure Files para realizar copias de seguridad de los volúmenes desde su contenedor.
-services: service-fabric
-author: athinanthny
-manager: chackdan
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 6/10/2018
-ms.author: atsenthi
-ms.openlocfilehash: 1287df567c60b7ad851c94a8ba787270255d0f35
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 0bd84c8367f722c013abff5c2a6caaa991fa841f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422787"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464794"
 ---
 # <a name="service-fabric-azure-files-volume-driver"></a>Controlador de volumen de Azure Files en Service Fabric
 El complemento de volúmenes de Azure Files es un [complemento de volúmenes de Docker](https://docs.docker.com/engine/extend/plugins_volume/) que proporciona volúmenes basados en [Azure Files](/azure/storage/files/storage-files-introduction) para los contenedores de Docker ahora se encuentra con **disponibilidad general**.
@@ -25,7 +19,7 @@ Este complemento de volúmenes de Docker se empaqueta como aplicación de Servic
 > La versión 6.5.661.9590 del complemento de volumen Azure Files es una versión de disponibilidad general (disponible con carácter general). 
 >
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * La versión de Windows del complemento de volúmenes de Azure Files funciona en [Windows Server versión 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 versión 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) o sistemas operativos posteriores únicamente.
 
 * La versión de Linux del complemento de volúmenes de Azure Files funciona en todas las versiones de sistemas operativos admitidas por Service Fabric.

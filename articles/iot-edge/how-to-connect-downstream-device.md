@@ -4,16 +4,16 @@ description: Se describe cómo configurar dispositivos de bajada o dispositivos 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/08/2019
+ms.date: 12/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 719ec736fd2f28f8d8b3b226109bc988c872d10f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 20de7bc55a62a44d1fa852d86705e7596e1776d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457124"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434433"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge
 
@@ -23,7 +23,7 @@ Hay tres pasos generales para configurar una conexión de puerta de enlace trans
 
 1. El dispositivo de puerta de enlace debe conectarse a dispositivos de bajada de forma segura, recibir comunicaciones de dispositivos de bajada y enrutar mensajes al destino adecuado. Para más información, consulte [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md).
 2. El dispositivo de bajada debe tener una identidad de dispositivo para poder autenticarse con IoT Hub y saber comunicarse a través de su dispositivo de puerta de enlace. Para más información, consulte [Autenticación de un dispositivo de bajada en Azure IoT Hub](how-to-authenticate-downstream-device.md).
-3. **El dispositivo de bajada se debe poder conectar de forma segura a su dispositivo de puerta de enlace**.
+3. **El dispositivo de bajada se debe poder conectar de forma segura a su dispositivo de puerta de enlace.**
 
 Este artículo identifica problemas comunes con las conexiones de los dispositivos de bajada y le guía en la configuración de los dispositivos de bajada, lo que incluye: 
 
@@ -33,9 +33,10 @@ Este artículo identifica problemas comunes con las conexiones de los dispositiv
 
 En este artículo, los términos *puerta de enlace* y *puerta de enlace IoT Edge* hacen referencia a un dispositivo IoT Edge configurado como una puerta de enlace transparente. 
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerequisites 
 
-Debe disponer del archivo de certificado **azure-iot-test-only.root.ca.cert.pem** generado en [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md) en su dispositivo de bajada. El dispositivo de bajada usa este certificado para validar la identidad del dispositivo de puerta de enlace. 
+* Debe disponer del archivo de certificado **azure-iot-test-only.root.ca.cert.pem** generado en [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md) en su dispositivo de bajada. El dispositivo de bajada usa este certificado para validar la identidad del dispositivo de puerta de enlace. 
+* Modifique la cadena de conexión que señala al dispositivo de puerta de enlace, como se explica en [Autenticación de un dispositivo de bajada en Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
 ## <a name="prepare-a-downstream-device"></a>Preparación de un dispositivo de bajada
 
@@ -194,7 +195,7 @@ Use este comando de ejemplo para probar que el dispositivo de nivel inferior pue
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
 
-Este comando prueba las conexiones a través de MQTTS (puerto 8883). Si utiliza un protocolo diferente, ajuste el comando según sea necesario para AMQPS (5671) o HTTPS (433).
+Este comando prueba las conexiones a través de MQTTS (puerto 8883). Si usa un protocolo diferente, ajuste el comando según sea necesario para AMQPS (5671) o HTTPS (433).
 
 La salida de este comando puede ser larga, incluida la información sobre todos los certificados de la cadena. Si la conexión se realiza correctamente, verá una línea como `Verification: OK` o `Verify return code: 0 (ok)`.
 

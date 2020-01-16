@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 057c77d4ddb4a760e196c0dc8d508efe15e6699d
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c8d2ef0330a32d5cab88355cc749322ec3a5ea30
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69519855"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530942"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Preguntas frecuentes sobre Apache Kafka en Azure HDInsight
 
@@ -38,7 +38,7 @@ Para obtener una descripción más detallada de los distintos tipos de nodo, con
 
 ## <a name="do-apache-kafka-apis-work-with-hdinsight"></a>¿Funcionan las API de Apache Kafka con HDInsight?
 
-Sí, HDInsight usa las API nativas de Kafka. No es necesario cambiar el código de la aplicación cliente. Vea [Tutorial: Uso de Producer API y Consumer API de Apache Kafka](./apache-kafka-producer-consumer-api.md) para ver cómo puede usar las API de productor y consumidor basadas en Java con el clúster.
+Sí, HDInsight usa las API nativas de Kafka. No es necesario cambiar el código de la aplicación cliente. Consulte [Tutorial: Uso de Producer API y Consumer API de Apache Kafka](./apache-kafka-producer-consumer-api.md) para ver cómo puede usar las API de productor y consumidor basadas en Java con el clúster.
 
 ## <a name="can-i-change-cluster-configurations"></a>¿Se pueden cambiar las configuraciones del clúster?
 
@@ -46,7 +46,7 @@ Sí, en el portal de Ambari. Cada componente del portal tiene una sección **con
 
 ## <a name="what-type-of-authentication-does-hdinsight-support-for-apache-kafka"></a>¿Qué tipo de autenticación admite HDInsight para Apache Kafka?
 
-Con [Enterprise Security Package (ESP)](../domain-joined/apache-domain-joined-architecture.md), puede obtener seguridad de nivel de tema para los clústeres de Kafka. Vea [Tutorial: Configuración de directivas de Apache Kafka en HDInsight con Enterprise Security Package (versión preliminar)](../domain-joined/apache-domain-joined-run-kafka.md) para más información.
+Con [Enterprise Security Package (ESP)](../domain-joined/apache-domain-joined-architecture.md), puede obtener seguridad de nivel de tema para los clústeres de Kafka. Consulte [Tutorial: Configuración de directivas de Apache Kafka en HDInsight con Enterprise Security Package (versión preliminar)](../domain-joined/apache-domain-joined-run-kafka.md) para más información.
 
 ## <a name="is-my-data-encrypted-can-i-use-my-own-keys"></a>¿Se cifran los datos? ¿Puedo usar mis propias claves?
 
@@ -65,6 +65,10 @@ Para que los clientes de Kafka se comuniquen con agentes de Kafka, deben ser cap
 ## <a name="can-i-add-more-disk-space-on-an-existing-cluster"></a>¿Puedo agregar más espacio en disco en un clúster existente?
 
 Para incrementar la cantidad de espacio disponible para mensajes Kafka, puede aumentar el número de nodos. Actualmente no se admite la adición de más discos a un clúster existente.
+
+## <a name="can-a-kafka-cluster-work-with-databricks"></a>¿Puede un clúster de Kafka trabajar con Databricks? 
+
+Sí, los clústeres de Kafka pueden trabajar con Databricks, siempre y cuando estén en la misma red virtual. Para usar un clúster de Kafka con Databricks, cree una red virtual con un clúster de Kafka de HDInsight en ella y, después, especifique esa red virtual al crear el área de trabajo de Databricks y usar la inyección de red virtual. Para más información, consulte [Implementación de Azure Databricks en la red virtual de Azure (inyección de red virtual)](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Tendrá que proporcionar los nombres de agente de arranque del clúster de Kafka al crear el área de trabajo de Databricks. Para obtener información sobre cómo recuperar los nombres de los agentes de Kafka, consulte [Obtención de la información del host de Apache Zookeeper y del agente](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started#getkafkainfo).
 
 ## <a name="how-can-i-have-maximum-data-durability"></a>¿Cómo puedo conseguir la máxima durabilidad de los datos?
 

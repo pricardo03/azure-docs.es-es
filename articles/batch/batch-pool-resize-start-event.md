@@ -1,6 +1,6 @@
 ---
-title: Evento de inicio de cambio de tamaño de grupo de Azure Batch | Microsoft Docs
-description: Referencia del evento de inicio de cambio de tamaño de grupo de Batch.
+title: Evento de inicio de cambio de tamaño de un grupo de Azure Batch
+description: Referencia del evento de inicio de cambio de tamaño de grupo de Batch. En el ejemplo se muestra el cuerpo de un evento de inicio de cambio de tamaño (manual) de un grupo de 0 a 2 nodos.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 965c1181399b76523b624d53dc47e59de0208ecb
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 89f4b04f4ef86ffa3978cadb997d6bfb8dae31c9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258260"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449748"
 ---
 # <a name="pool-resize-start-event"></a>Evento de inicio de cambio de tamaño de grupo
 
@@ -39,8 +39,8 @@ ms.locfileid: "70258260"
 
 |Elemento|Tipo|Notas|
 |-------------|----------|-----------|
-|`id`|Cadena|El identificador del grupo.|
-|`nodeDeallocationOption`|Cadena|Especifica cuándo se pueden quitar los nodos del grupo, si disminuye el tamaño del grupo.<br /><br /> Los valores posibles son:<br /><br /> **requeue**: finalizar las tareas en ejecución y volver a ponerlas en cola. Las tareas volverán a ejecutarse cuando se habilite el trabajo. Elimine los nodos en cuanto finalicen las tareas.<br /><br /> **terminate**: finalizar las tareas en ejecución. Las tareas no se ejecutarán de nuevo. Elimine los nodos en cuanto finalicen las tareas.<br /><br /> **taskcompletion**: permita que finalicen las tareas actualmente en ejecución. No programe ninguna tarea nueva mientras espera. Elimine los nodos cuando se hayan completado todas las tareas.<br /><br /> **Retaineddata**: permite que finalicen las tareas actualmente en ejecución, luego espera que caduquen los períodos de retención de datos de todas las tareas. No programe ninguna tarea nueva mientras espera. Elimine los nodos cuando hayan caducado los períodos de retención de todas las tareas.<br /><br /> El valor predeterminado es requeue.<br /><br /> Si aumenta el tamaño del grupo, entonces el valor se establece en **invalid**.|
+|`id`|String|El identificador del grupo.|
+|`nodeDeallocationOption`|String|Especifica cuándo se pueden quitar los nodos del grupo, si disminuye el tamaño del grupo.<br /><br /> Los valores posibles son:<br /><br /> **requeue**: finalizar las tareas en ejecución y volver a ponerlas en cola. Las tareas volverán a ejecutarse cuando se habilite el trabajo. Elimine los nodos en cuanto finalicen las tareas.<br /><br /> **terminate**: finalizar las tareas en ejecución. Las tareas no se ejecutarán de nuevo. Elimine los nodos en cuanto finalicen las tareas.<br /><br /> **taskcompletion**: permita que finalicen las tareas actualmente en ejecución. No programe ninguna tarea nueva mientras espera. Elimine los nodos cuando se hayan completado todas las tareas.<br /><br /> **Retaineddata**: permite que finalicen las tareas actualmente en ejecución, luego espera que caduquen los períodos de retención de datos de todas las tareas. No programe ninguna tarea nueva mientras espera. Elimine los nodos cuando hayan caducado los períodos de retención de todas las tareas.<br /><br /> El valor predeterminado es requeue.<br /><br /> Si aumenta el tamaño del grupo, entonces el valor se establece en **invalid**.|
 |`currentDedicatedNodes`|Int32|El número de nodos de proceso actualmente asignados al grupo.|
 |`targetDedicatedNodes`|Int32|El número de nodos de proceso solicitados para el grupo.|
 |`currentLowPriorityNodes`|Int32|El número de nodos de proceso actualmente asignados al grupo.|

@@ -1,6 +1,6 @@
 ---
 title: Comprobación del estado, configuración del registro y recepción de alertas
-description: Supervisión de estado, registro de datos de diagnóstico y configuración de alertas para Azure Logic Apps
+description: Supervisión del estado, configuración del registro y activación de alertas para diagnosticar errores y problemas en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/21/2017
-ms.openlocfilehash: ca1e2836ddfb38de640a5a90cf53e416b8923c04
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ce29d6eb7bfefea6d9030d4cbb162936ff60c83d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791916"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428789"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Supervisar el estado, configurar el registro de diagnósticos y activar alertas para Azure Logic Apps
 
@@ -78,7 +78,7 @@ Antes de empezar, necesita un área de trabajo de Log Analytics. Aprenda a [crea
 
 1. En [Azure Portal](https://portal.azure.com), busque y seleccione la aplicación lógica. 
 
-2. En el menú de la hoja de la aplicación lógica, en **Supervisión**, elija **Diagnóstico** > **Configuración de diagnóstico**.
+2. En el menú de la hoja de la aplicación lógica, en **Supervisión**, elija **Diagnóstico**>**Configuración de diagnóstico**.
 
    ![Supervisión, Diagnóstico, Configuración de diagnóstico](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
@@ -143,7 +143,7 @@ Para refinar la consulta con un filtro, elija **+Agregar**.
 
    ![Selección del valor de filtro y de "Aplicar"](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
 
-8. Ahora vuelva a la consulta que está creando. La consulta se ha actualizado con el filtro y el valor seleccionados. Los resultados anteriores también se han filtrado.
+8. Ahora vuelva a la consulta que está creando. La consulta se ha actualizado con el filtro y el valor seleccionados. Los resultados anteriores también se filtraron.
 
    ![Consulta con los resultados filtrados](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
 

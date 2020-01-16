@@ -1,5 +1,5 @@
 ---
-title: 'Intercambio de eventos entre aplicaciones que utilizan distintos protocolos: Azure Event Hubs | Microsoft Docs'
+title: 'Azure Event Hubs: intercambio de eventos mediante distintos protocolos'
 description: En este artículo se muestra cómo los consumidores y los productores que utilizan distintos protocolos (AMQP, Apache Kafka y HTTPS) pueden intercambiar eventos cuando se usa Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2018
+ms.date: 12/20/2019
 ms.author: bahariri
-ms.openlocfilehash: e704a2595130a2a815388447ac482ab96789d64a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aecde0c36fc48f75e5174ca3e1ab9e2b3476d08a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821766"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437185"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Intercambio de eventos entre consumidores y productores que utilizan distintos protocolos: AMQP, Kafka y HTTPS
 Azure Event Hubs admite tres protocolos para consumidores y productores: AMQP, Kafka y HTTPS. Cada uno de estos protocolos tiene su propia manera de representar un mensaje, por lo que surge la pregunta siguiente: si una aplicación envía eventos a un centro de eventos con un protocolo y los consume con otro, ¿qué aspecto tienen las distintas partes y valores del evento cuando llegan al consumidor? En este artículo se describen los procedimientos recomendados para el productor y el consumidor a fin de garantizar que la aplicación de consumo interprete correctamente los valores de un evento.

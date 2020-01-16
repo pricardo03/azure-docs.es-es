@@ -1,5 +1,6 @@
 ---
-title: Artículo sobre la solución de problemas y errores conocidos asociados con la conexión de Azure Database Migration Service a las bases de datos de origen | Microsoft Docs
+title: Problemas de conexión de bases de datos de origen
+titleSuffix: Azure Database Migration Service
 description: Obtenga información sobre cómo solucionar problemas conocidos y errores asociados con la con de Azure Database Migration Service a las bases de datos de origen.
 services: database-migration
 author: HJToland3
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: a4ebd1d4c85631cc6ebc1f5787e7545b78d62b5e
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: b697faeded4177381f70ebb9d1f93d928b25d7b1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462560"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437795"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Solución de errores de DMS al conectarse a las bases de datos de origen
 
@@ -90,7 +91,7 @@ Los problemas potenciales asociados con la conexión a una base de datos de AWS 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte el artículo [Azure Database Migration Service PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration) (PowerShell en Azure Database Migration Service).
+* Consulte el artículo [PowerShell en Azure Database Migration Service](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
 * Consulte el artículo [Cómo configurar parámetros del servidor en Azure Database for MySQL mediante Azure Portal](https://docs.microsoft.com/azure/mysql/howto-server-parameters).
 * Consulte el artículo [Introducción a los requisitos previos para usar Azure Database Migration Service](https://docs.microsoft.com/azure/dms/pre-reqs).
 * Consulte las [preguntas más frecuentes sobre el uso de Azure Database Migration Service](https://docs.microsoft.com/azure/dms/faq).

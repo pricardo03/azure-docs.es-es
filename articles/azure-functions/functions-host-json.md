@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
 ms.date: 09/08/2018
-ms.openlocfilehash: 08d772fc9b2871262b449a017f8be59a344576b2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 374d00a75423274d03320b9c1299a2c2dae080ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975455"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433188"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
@@ -95,11 +95,15 @@ Las siguientes secciones de este artículo explican cada propiedad de nivel supe
 
 Esta configuración es un elemento secundario de [logging](#logging).
 
-Controla la [característica de muestreo de Application Insights](./functions-monitoring.md#configure-sampling).
+Controla las opciones de Application Insights, incluidas las [opciones de muestreo](./functions-monitoring.md#configure-sampling).
 
 ```json
 {
-    "applicationInsights": {
+    "applicationInsights": {        
+        "enableDependencyTracking": true,
+        "enablePerformanceCountersCollection": true,
+        "samplingExcludedTypes": "Trace;Exception",
+        "samplingIncludedTypes": "Request;Dependency",
         "samplingSettings": {
           "isEnabled": true,
           "maxTelemetryItemsPerSecond" : 20
@@ -111,13 +115,14 @@ Controla la [característica de muestreo de Application Insights](./functions-mo
 > [!NOTE]
 > Los muestreos de registros pueden provocar que algunas ejecuciones no aparezcan en la hoja de supervisión de Application Insights.
 
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------| 
-|isEnabled|true|Habilita o deshabilita el muestreo.| 
-|maxTelemetryItemsPerSecond|20|Umbral donde comienza el muestreo.| 
-|EnableLiveMetrics |true|Habilita la colección de Live Metrics.|
-|EnableDependencyTracking|true|Habilita el seguimiento de dependencias.|
-|EnablePerformanceCountersCollection|true|Habilita la colección de contadores de rendimiento Kudu.|
+|enableDependencyTracking|true|Habilita el seguimiento de dependencias.|
+|enablePerformanceCountersCollection|true|Habilita la recopilación de contadores de rendimiento.|
+|samplingExcludedTypes|null|Una lista delimitada por puntos y coma de tipos que no desea que se muestreen. Los tipos reconocidos son: Dependency, Event, Exception, PageView, Request y Trace. Todas las instancias de los tipos especificados se transmiten; los tipos no especificados se muestrean.| 
+|samplingIncludedTypes|null|Una lista delimitada por puntos y coma de tipos que desea que se muestreen. Los tipos reconocidos son: Dependency, Event, Exception, PageView, Request y Trace. Los tipos especificados se muestrean, todas las instancias del resto de tipos siempre se transmitirán.|
+|samplingSettings.isEnabled|true|Habilita o deshabilita el muestreo.| 
+|samplingSettings.maxTelemetryItemsPerSecond|20|Umbral donde comienza el muestreo.|
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -181,7 +186,7 @@ Configuración del [monitor de estado de host](https://github.com/Azure/azure-we
 }
 ```
 
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------| 
 |enabled|true|Especifica si está habilitada la característica. | 
 |healthCheckInterval|10 segundos|El intervalo de tiempo entre las comprobaciones periódicas de mantenimiento en segundo plano. | 
@@ -213,7 +218,7 @@ Controla los comportamientos de registro de la aplicación de función, Applicat
 }
 ```
 
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qué nivel de registro de archivos está habilitado.  Las opciones son `never`, `always`, `debugOnly`. |
 |logLevel|N/D|Objeto que define el filtrado por categoría de registro para las funciones de la aplicación. En las versiones 2.x y posteriores se sigue el diseño de filtrado por categoría de registro de ASP.NET Core. Esto permite el filtrado del registro de funciones específicas. Para más información, consulte [Filtrado del registro](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) en la documentación de ASP.NET Core. |
@@ -236,7 +241,7 @@ Esta configuración es un elemento secundario de [logging](#logging). Controla e
 }
 ```
 
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------| 
 |isEnabled|false|Habilita o deshabilita el registro de la consola.| 
 
@@ -280,7 +285,7 @@ Opciones de configuración para el comportamiento de bloqueo Singleton. Para má
 }
 ```
 
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Período durante el cual se producen los bloqueos de nivel de función. Los bloqueos se renuevan automáticamente.| 
 |listenerLockPeriod|00:01:00|Período durante el cual se producen los bloqueos de agente de escucha.| 

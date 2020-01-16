@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: Uso de Azure Database Migration Service para realizar una migración en línea de SQL Server a una instancia administrada de Azure SQL Database | Microsoft Docs'
+title: 'Tutorial: Migración de SQL Server en línea a una instancia administrada de SQL'
+titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar una migración en línea de una instancia local de SQL Server a una instancia administrada de Azure SQL Database mediante Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 12/04/2019
-ms.openlocfilehash: 53c0601be29c5cac9bddc37158d705f07349323d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 12/27/2019
+ms.openlocfilehash: 05cf7f1c69c6118d39efb72185443e1fad072209
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975030"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531469"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migración de SQL Server a una instancia administrada de Azure SQL Database en línea mediante DMS
 
@@ -42,11 +43,14 @@ En este tutorial, aprenderá a:
 > [!IMPORTANT]
 > Para disfrutar de una experiencia de migración óptima, Microsoft recomienda crear una instancia de Azure Database Migration Service en la misma región de Azure que la base de datos de destino. Si los datos se transfieren entre diferentes regiones o ubicaciones geográficas, el proceso de migración puede verse afectado y pueden producirse errores.
 
+> [!IMPORTANT]
+> Es importante reducir la duración del proceso de migración en línea tanto como sea posible para minimizar el riesgo de interrupción causado por la reconfiguración de la instancia o el mantenimiento planeado. Si esto ocurre, el proceso de migración volverá a empezar desde el principio. En el caso del mantenimiento planeado, hay un período de gracia de 36 horas para que se reinicie la migración.
+
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
 En este artículo se describe una migración en línea desde SQL Server hasta una instancia administrada de SQL Database. Para migraciones sin conexión, consulte [Migración de SQL Server a una instancia administrada sin conexión de SQL Database mediante DMS](tutorial-sql-server-to-managed-instance.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesita:
 

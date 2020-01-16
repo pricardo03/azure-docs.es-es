@@ -1,20 +1,20 @@
 ---
 title: Conexión a Office 365 Video
-description: Administrar vídeos con las API REST de Office 365 Video y Azure Logic Apps
+description: Automatización de las tareas y los flujos de trabajo que administran vídeos en Office 365 Video mediante Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 05/18/2016
 tags: connectors
-ms.openlocfilehash: bf3c7c4faac3fcd4dd0c3f368fbe18a224ed591b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 8ac6b7b411e7f42dd076c5b16e7b500a819c617f
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789498"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665792"
 ---
-# <a name="get-started-with-the-office365-video-connector"></a>Introducción al conector de Office 365 Video
+# <a name="manage-videos-in-office365-video-by-using-azure-logic-apps"></a>Administración de vídeos en Office 365 Video mediante Azure Logic Apps
 
 Conéctese a Office 365 Video para conseguir información acerca de un vídeo Office 365 específico, obtener una lista de vídeos y mucho más. Con Office 365 Video puede:
 
@@ -26,7 +26,7 @@ Por ejemplo, puede utilizar el conector de Búsqueda de Bing para buscar vídeos
 
 Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="create-a-connection-to-office365-video-connector"></a>Creación de una conexión al conector de Office 365 Video
+## <a name="connect-to-office365-video"></a>Conexión a Office 365 Video
 
 Al agregar este conector a las aplicaciones lógicas, debe iniciar sesión en su cuenta de Office 365 Video y permitir que estas se conecten a su cuenta.
 

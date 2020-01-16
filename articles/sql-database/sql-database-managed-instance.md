@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 11/27/2019
-ms.openlocfilehash: 1a9c24846606c53fefa1ffc1de59f358524020c4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: d5b3733947876958b4d72da4cb7bb0f10a3a9165
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707625"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614943"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>¿Qué es Instancia administrada de Azure SQL Database?
 
@@ -29,7 +29,7 @@ En el diagrama siguiente se describen las características principales de las in
 
 ![principales características](./media/sql-database-managed-instance/key-features.png)
 
-El modelo de implementación de instancia administrada está diseñado para aquellos clientes que quieran migrar un gran número de aplicaciones desde un entorno local o de IaaS, compilado automáticamente o que hayan proporcionado los fabricantes de software independientes, a un entorno en la nube de PaaS totalmente administrado, con el menor esfuerzo de migración posible. Mediante el uso totalmente automatizado de [Azure Database Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance), los clientes pueden migrar mediante lift-and-shift sus instancias locales de SQL Server a una instancia administrada que ofrezca compatibilidad con SQL Server local y aislamiento completo de las instancias de cliente con compatibilidad nativa con redes virtuales.  Con Software Assurance, puede intercambiar sus licencias existentes para obtener descuentos en una instancia administrada mediante la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  Una instancia administrada es el mejor destino de migración en la nube para instancias de SQL Server que requieren alta seguridad y una completa superficie de programación.
+El modelo de implementación de instancia administrada está diseñado para aquellos clientes que quieran migrar un gran número de aplicaciones desde un entorno local o de IaaS, compilado automáticamente o que hayan proporcionado los fabricantes de software independientes, a un entorno en la nube de PaaS totalmente administrado, con el menor esfuerzo de migración posible. Mediante el uso totalmente automatizado de [Azure Database Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance), los clientes pueden migrar mediante lift-and-shift sus instancias locales de SQL Server a una instancia administrada que ofrezca compatibilidad con SQL Server local y aislamiento completo de las instancias de cliente con compatibilidad nativa con redes virtuales.  Con Software Assurance, puede intercambiar sus licencias existentes para obtener descuentos en una instancia administrada mediante la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  Una instancia administrada es el mejor destino de migración en la nube para instancias de SQL Server que requieren alta seguridad y una completa superficie de programación.
 
 La opción de implementación de instancia administrada pretende proporcionar una compatibilidad de área expuesta cercana al 100 % con la última versión de SQL Server local mediante un plan de lanzamiento gradual.
 
@@ -53,7 +53,7 @@ Una instancia administrada combina las mejores características que están dispo
 
 Las características principales de las instancias administradas se muestran en la tabla siguiente:
 
-|Característica | DESCRIPCIÓN|
+|Característica | Descripción|
 |---|---|
 | Versión de SQL Server | Motor de base de datos de SQL Server (versión estable más reciente) |
 | Administración de copias de seguridad automatizadas | Sí |
@@ -63,7 +63,7 @@ Las características principales de las instancias administradas se muestran en 
 | Número de archivos de datos (ROWS) por base de datos | Múltiple |
 | Número de archivos de registro (LOG) por base de datos | 1 |
 | Redes virtuales: implementación de Azure Resource Manager | Sí |
-| Redes virtuales: modelo de implementación clásica de Azure | Sin |
+| Redes virtuales: modelo de implementación clásica de Azure | No |
 | Soporte técnico del portal | Sí|
 | Integration Service (SSIS) integrado | No: SSIS es una parte de [PaaS de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Analysis Service (SSAS) integrado | No: SSAS es un servicio [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) independiente. |
@@ -154,12 +154,12 @@ En la tabla siguiente se resumen las operaciones y las duraciones generales típ
 |Implementación |Creación de primera instancia de 4 núcleos virtuales en una subred vacía o no vacía|Creación de un clúster virtual**|El 90 % de las operaciones finaliza en 4 horas|
 |Implementación |Creación de instancia subsiguiente dentro de la subred no vacía (segunda instancia, tercera instancia, etc.)|Cambio de tamaño de un clúster virtual|El 90 % de las operaciones finaliza en 2,5 horas|
 |**Actualizar** |Cambio de una propiedad de una instancia (contraseña de administrador, inicio de sesión de AAD, marca de Ventaja híbrida de Azure)|N/D|Hasta 1 minuto|
-|Actualizar |Escalado o reducción vertical del almacenamiento de una instancia (nivel de servicio De uso general)|- Cambio de tamaño de un clúster virtual<br>- Adjuntar archivos de base de datos|El 90 % de las operaciones finaliza en 2,5 horas|
+|Actualizar |Escalado o reducción vertical del almacenamiento de una instancia (nivel de servicio De uso general)|Adjuntar archivos de base de datos|El 90 % de las operaciones finaliza en 5 minutos|
 |Actualizar |Escalado o reducción vertical del almacenamiento de una instancia (nivel de servicio Crítico para la empresa)|- Cambio de tamaño de un clúster virtual<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 2,5 horas + tiempo para inicializar todas las bases de datos (220 GB/hora)|
 |Actualizar |Escalado y reducción vertical del proceso de una instancia (núcleos virtuales) (De uso general)|- Cambio de tamaño de un clúster virtual<br>- Adjuntar archivos de base de datos|El 90 % de las operaciones finaliza en 2,5 horas|
 |Actualizar |Escalado y reducción vertical del proceso de una instancia (núcleos virtuales) (Crítico para la empresa)|- Cambio de tamaño de un clúster virtual<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 2,5 horas + tiempo para inicializar todas las bases de datos (220 GB/hora)|
 |Actualizar |Reducción vertical de una instancia a 4 núcleos virtuales (De uso general)|- Cambio de tamaño de un clúster virtual (si se hace por primera vez, puede requerir la creación de un clúster virtual**)<br>- Adjuntar archivos de base de datos|El 90 % de las operaciones finaliza en 4 horas con 5 minutos**|
-|Actualizar |Reducción vertical de una instancia a 4 núcleos virtuales (De uso general)|- Cambio de tamaño de un clúster virtual (si se hace por primera vez, puede requerir la creación de un clúster virtual**)<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 4 horas + tiempo para inicializar todas las bases de datos (220 GB/hora)|
+|Actualizar |Reducción vertical de una instancia a 4 núcleos virtuales (Crítico para la empresa)|- Cambio de tamaño de un clúster virtual (si se hace por primera vez, puede requerir la creación de un clúster virtual**)<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 4 horas + tiempo para inicializar todas las bases de datos (220 GB/hora)|
 |Actualizar |Cambio en el nivel de servicio de una instancia (De uso general a Crítico para la empresa y viceversa)|- Cambio de tamaño de un clúster virtual<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 2,5 horas + tiempo para inicializar todas las bases de datos (220 GB/hora)|
 |**Eliminación**|Eliminación de una instancia|Copia del final del registro para todas las bases de datos|El 90 % de las operaciones finaliza en hasta 1 minuto.<br>Nota: Si se elimina la últimas instancia de la subred, esta operación programará la eliminación del clúster virtual después de 12 horas***|
 |Eliminación|Eliminación de un clúster virtual (como operación iniciada por el usuario)|Eliminación de un clúster virtual|El 90 % de las operaciones finaliza en hasta 1,5 hora|
@@ -174,14 +174,45 @@ En la tabla siguiente se resumen las operaciones y las duraciones generales típ
 
 Las instancias administradas no están disponibles para las aplicaciones cliente durante las operaciones de implementación y eliminación.
 
-Las instancias administradas están disponibles durante las operaciones de actualización, pero existe un tiempo de inactividad breve provocado por la conmutación por error que se produce al final de las actualizaciones que, por lo general, dura hasta 10 segundos.
+Las instancias administradas están disponibles durante las operaciones de actualización, pero existe un tiempo de inactividad breve provocado por la conmutación por error que se produce al final de las actualizaciones que, por lo general, dura hasta 10 segundos. La excepción a esto es la actualización del espacio de almacenamiento reservado en el nivel de servicio De uso general que no incurre en la conmutación por error ni afecta la disponibilidad de la instancia.
 
 > [!IMPORTANT]
 > La duración de una conmutación por error puede variar considerablemente en caso de transacciones de larga duración que se producen en las bases de datos debido a un [tiempo de recuperación prolongado](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Por lo tanto, no se recomienda escalar el proceso ni el almacenamiento de una instancia administrada de Azure SQL Database ni cambiar el nivel de servicio al mismo tiempo con las transacciones de larga duración (importación de datos, trabajos de procesamiento de datos, recompilación del índice, etc.). La conmutación por error de la base de datos que se realizará al final de la operación cancelará las transacciones en curso y generará un tiempo de recuperación prolongado.
 
+> [!TIP]
+> La actualización del espacio de almacenamiento reservado en el nivel de servicio De uso general no incurre en la conmutación por error ni afecta la disponibilidad de la instancia.
+
 La [recuperación de base de datos acelerada](sql-database-accelerated-database-recovery.md) no está disponible actualmente para las instancias administradas de Azure SQL Database. Una vez habilitada, esta característica reducirá considerablemente la variabilidad del tiempo de conmutación por error, incluso en caso de transacciones de larga duración.
 
+### <a name="canceling-management-operations"></a>Cancelación de operaciones de administración
 
+En la tabla siguiente se resume la capacidad de cancelar operaciones de administración específicas y las duraciones generales típicas:
+
+Category  |Operación  |Cancelable  |Duración de cancelación estimada  |
+|---------|---------|---------|---------|
+|Implementación |Creación de instancias |No |  |
+|Actualizar |Escalado o reducción vertical del almacenamiento de una instancia (De uso general) |No |  |
+|Actualizar |Escalado o reducción vertical del almacenamiento de una instancia (Crítico para la empresa) |Sí |El 90 % de las operaciones finaliza en 5 minutos |
+|Actualizar |Escalado y reducción vertical del proceso de una instancia (núcleos virtuales) (De uso general) |Sí |El 90 % de las operaciones finaliza en 5 minutos |
+|Actualizar |Escalado y reducción vertical del proceso de una instancia (núcleos virtuales) (Crítico para la empresa) |Sí |El 90 % de las operaciones finaliza en 5 minutos |
+|Actualizar |Cambio en el nivel de servicio de una instancia (De uso general a Crítico para la empresa y viceversa) |Sí |El 90 % de las operaciones finaliza en 5 minutos |
+|Eliminar |Eliminación de una instancia |No |  |
+|Eliminar |Eliminación de un clúster virtual (como operación iniciada por el usuario) |No |  |
+
+Para cancelar la operación de administración, vaya a la hoja de información general y haga clic en el cuadro de notificación de la operación en curso. En el lado derecho, aparecerá una pantalla con una operación en curso y un botón para cancelar la operación. Después de hacer clic por primera vez, se le pedirá que haga clic de nuevo y confirme que quiere cancelar la operación.
+
+[![](./media/sql-database-managed-instance/canceling-operation.png)](./media/sql-database-managed-instance/canceling-operation.png#lightbox)
+
+Una vez enviada y procesada la solicitud de cancelación, recibirá una notificación si el envío de la cancelación se realizó correctamente o no. 
+
+En caso de que se cancele correctamente, la operación de administración se cancelará en un par de minutos, lo que generará un error.
+
+![Resultado de la operación de cancelación](./media/sql-database-managed-instance/canceling-operation-result.png)
+
+Si no se puede cancelar la solicitud o el botón Cancelar no está activo, significa que la operación de administración entró en un estado que no se puede cancelar y que finalizará en un par de minutos. La operación de administración continuará su ejecución hasta que se complete.
+
+> [!IMPORTANT]
+> La operación de cancelación solo se admite actualmente en el portal.
 
 ## <a name="advanced-security-and-compliance"></a>Conformidad y seguridad avanzada
 
@@ -211,7 +242,7 @@ Azure SQL Database proporciona un conjunto de características de seguridad avan
 - La [auditoría de Instancia administrada](sql-database-managed-instance-auditing.md) realiza un seguimiento de los eventos de bases de datos y los escribe en un archivo de registro de auditoría de su cuenta de Azure Storage. La auditoría puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas.
 - Cifrado de datos en movimiento: una instancia administrada protege los datos gracias al cifrado de datos en movimiento mediante la Seguridad de la capa de transporte. Además de la seguridad de la capa de transporte, la opción de implementación de instancia administrada ofrece la protección de la información confidencial en tránsito, en reposo y durante el procesamiento de consultas con [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted es una tecnología totalmente novedosa en el sector que ofrece una seguridad de datos sin parangón frente a las infracciones que implican el robo de datos críticos. Por ejemplo, con Always Encrypted, los números de las tarjetas de crédito siempre se almacenan cifrados en la base de datos, incluso durante el procesamiento de las consultas, lo que permite que solo los descifren personal autorizado o las aplicaciones que los necesitan para procesar los datos en el lugar en que se van a usar.
 - [Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) complementa la [auditoría](sql-database-managed-instance-auditing.md), ya que proporciona una capa adicional de inteligencia de seguridad integrada en el servicio que detecta intentos inusuales y potencialmente dañinos para obtener acceso a las bases de datos o vulnerarlas. Recibirá alertas de actividades sospechosas, vulnerabilidades potenciales y ataques por inyección de código SQL, así como patrones anómalos de acceso a bases de datos. Las alertas de Advanced Threat Protection pueden verse en [Azure Security Center](https://azure.microsoft.com/services/security-center/) y proporcionar detalles de actividad sospechosa y la acción recomendada sobre cómo investigar y mitigar la amenaza.  
-- El [enmascaramiento dinámico de datos](/sql/relational-databases/security/dynamic-data-masking) limita la exposición de información confidencial mediante su enmascaramiento a los usuarios sin privilegios. El enmascaramiento dinámico de datos ayuda a impedir el acceso no autorizado a datos confidenciales permitiéndole designar la cantidad de los datos confidenciales que se revelarán con un impacto mínimo en el nivel de aplicación. Es una característica de seguridad basada en directivas que oculta los datos confidenciales en el conjunto de resultados de una consulta sobre los campos designados de la base de datos, aunque que los datos de la base de datos no cambian.
+- El [enmascaramiento dinámico de datos](/sql/relational-databases/security/dynamic-data-masking) limita la exposición de información confidencial mediante su enmascaramiento a los usuarios sin privilegios. El enmascaramiento dinámico de datos ayuda a impedir el acceso no autorizado a datos confidenciales permitiéndole designar la cantidad de los datos confidenciales que se revelarán con un impacto mínimo en el nivel de aplicación. Se trata de una característica de protección de datos que oculta la información confidencial del conjunto de resultados de una consulta de campos designados de una base de datos, sin modificar los datos de esta última.
 - La [seguridad de nivel de fila](/sql/relational-databases/security/row-level-security) le permite controlar el acceso a las filas de una tabla de base de datos en función de las características del usuario que ejecuta una consulta (por ejemplo, la pertenencia a un grupo o el contexto de ejecución). La seguridad de nivel de fila (RLS) simplifica el diseño y la codificación de la seguridad de la aplicación. RLS permite implementar restricciones de acceso a filas de datos. Por ejemplo, garantiza que los empleados únicamente puedan acceder a aquellas filas de datos necesarios para su departamento o restringe el acceso solo a los datos relevantes.
 - [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) cifra los archivos de datos de instancias administradas, lo que se conoce como cifrado de datos en reposo. TDE realiza el cifrado y descifrado de E/S en tiempo real de los archivos de datos y de registro. El cifrado usa una clave de cifrado de base de datos (DEK), que se almacena en el registro de arranque de la base de datos de disponibilidad durante la recuperación. Puede proteger todas las bases de datos en una instancia administrada con cifrado de datos transparente. TDE es la probada tecnología de cifrado en reposo de SQL Server que requieren muchos estándares de cumplimiento normativo para proteger contra el robo de soportes de almacenamiento.
 
@@ -233,7 +264,7 @@ La autenticación de la instancia administrada le indica la forma en que los usu
 
 - **Autenticación de SQL**:
 
-  Este método de autenticación usa un nombre de usuario y una contraseña.
+  Este método de autenticación utiliza un nombre de usuario y una contraseña.
 - **Autenticación con Azure Active Directory**:
 
   Este método de autenticación usa las identidades administradas por Azure Active Directory y es compatible con dominios administrados e integrados. Use la autenticación de Active Directory (seguridad integrada) [siempre que sea posible](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
@@ -246,7 +277,7 @@ La autorización indica las acciones que pueden llevar a cabo los usuarios en un
 
 La opción de implementación de instancia administrada está diseñada para escenarios de usuario con migración masiva de bases de datos desde implementaciones locales o de base de datos de IaaS. Instancia administrada admite varias opciones de migración de base de datos:
 
-### <a name="back-up-and-restore"></a>Creación de copias de seguridad y restauración de datos  
+### <a name="back-up-and-restore"></a>Copia de seguridad y restauración  
 
 El enfoque de migración aprovecha las copias de seguridad de SQL en Azure Blob Storage. Las copias de seguridad almacenadas en Azure Storage Blob se pueden restaurar directamente en una instancia administrada mediante el [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
@@ -292,7 +323,7 @@ La opción de implementación de instancia administrada permite al administrador
 
 En la tabla siguiente se muestran varias propiedades, accesibles mediante Transact SQL, que puede utilizar para detectar si la aplicación funciona con Instancia administrada y recuperar propiedades importantes.
 
-|Propiedad|Valor|Comentario|
+|Propiedad|Value|Comentario|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Este valor es igual que en SQL Database.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Este valor es igual que en SQL Database.|

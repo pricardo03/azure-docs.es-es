@@ -4,31 +4,31 @@ description: Cómo habilitar las cargas de soporte desde Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: ac7db46a681fcde6bfcbb7695e2d66724f738918
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: d12bbd1708ceb948aea982f9ed1ab36879e3751c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256221"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415366"
 ---
 # <a name="enable-support-uploads"></a>Habilitación de cargas de soporte
 
-Avere vFXT for Azure puede cargar automáticamente datos de soporte sobre su clúster. Estas cargas permiten que el personal de soporte técnico proporcione el mejor servicio posible al cliente.
+Avere vFXT for Azure puede cargar automáticamente datos de soporte técnico acerca de su clúster. Estas cargas permiten que el personal de soporte técnico proporcione el mejor servicio posible al cliente.
 
 ## <a name="steps-to-enable-uploads"></a>Pasos para habilitar cargas
 
-Siga estos pasos desde el Panel de control de Avere para activar el soporte técnico. (Lea [Access the vFXT cluster](avere-vfxt-cluster-gui.md) (Obtener acceso al clúster de vFXT) para aprender a abrir el Panel de control de Avere.)
+Siga estos pasos desde el Panel de control de Avere para activar el soporte técnico. (Lea [Acceso al clúster de vFXT](avere-vfxt-cluster-gui.md) para aprender a abrir el panel de control).
 
 1. Vaya a la pestaña **Configuración** en la parte superior.
 1. Haga clic en el vínculo **Soporte técnico** en la izquierda y acepte la directiva de privacidad.
 
    ![Captura de pantalla que muestra el Panel de Control de Avere y una ventana emergente con el botón Confirmar para aceptar la directiva de privacidad](media/avere-vfxt-privacy-policy.png)
 
-1. Haga clic en el triángulo situado a la izquierda de **Información del cliente** para expandir la sección.
+1. En la página de configuración del soporte técnico, haga clic en el triángulo de la izquierda para abrir la sección **Customer Info** (Información del cliente).
 1. Haga clic en el botón **Revalidate upload information** (Revalidar información de carga).
-1. Establezca el nombre de soporte del clúster en **Nombre de clúster único**, asegúrese de que identifica de manera única a su clúster para el personal de apoyo.
+1. En **Unique Cluster Name** (Nombre único del clúster). Asegúrese de que este nombre identifica de forma única el clúster para el personal de soporte técnico.
 1. Active las casillas de **Statistics Monitoring** (Supervisión de estadísticas), **General Information Upload** (Carga de información general) y **Crash Information Upload** (Carga de información de bloqueo).
 1. Haga clic en **Enviar**.
 
@@ -42,6 +42,6 @@ Siga estos pasos desde el Panel de control de Avere para activar el soporte téc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si necesita agregar un sistema de almacenamiento local o en la nube existente al clúster, siga las instrucciones de [Configurar el almacenamiento](avere-vfxt-add-storage.md). 
+Si necesita agregar un sistema de almacenamiento local o en la nube existente al clúster, siga las instrucciones de [Configurar el almacenamiento](avere-vfxt-add-storage.md).
 
 Si está listo para empezar a adjuntar clientes al clúster, lea [Mount the Avere vFXT cluster](avere-vfxt-mount-clients.md) (Montar el clúster de Avere vFXT).

@@ -1,20 +1,20 @@
 ---
 title: Conexión con Box
-description: Creación y administración de archivos con las API REST y Azure Logic Apps de Box
+description: Automatice las tareas y los flujos de trabajo que crean y administran archivos en Box mediante Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 38e061e918d445de07961af1789891f44c59090a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c7f97ff33742eb545cbfbd7521ba135584851e5e
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789867"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666778"
 ---
-# <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>Creación y administración de archivos de Box con Azure Logic Apps
+# <a name="create-and-manage-files-in-box-by-using-azure-logic-apps"></a>Creación y administración de archivos en Box mediante Azure Logic Apps
 
 En este artículo se muestra cómo puede crear y administrar archivos de Box dentro de una aplicación lógica con el conector de Box. De este modo, puede crear aplicaciones lógicas que automatizan tareas y flujos de trabajo para administrar los archivos y otras acciones, como por ejemplo:
 
@@ -27,11 +27,11 @@ En este artículo se muestra cómo puede crear y administrar archivos de Box den
   Si estas acciones obtienen una respuesta, dejan la salida a disposición de otras acciones. 
   Por ejemplo, cuando se modifique un archivo en Box, puede enviarlo por correo electrónico mediante Office 365.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una [cuenta de Box](https://www.box.com/home)
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
 * La aplicación lógica desde donde quiere acceder a la cuenta de Box. Para iniciar la aplicación lógica con un desencadenador de Box, necesita una [aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

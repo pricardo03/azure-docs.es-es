@@ -1,22 +1,22 @@
 ---
-title: Configuración de la agrupación en clústeres de Redis para una instancia de Azure Cache for Redis de nivel Prémium
+title: 'Configuración de la agrupación en clústeres de Redis: Azure Cache for Redis Premium'
 description: Obtener información sobre cómo crear y administrar la agrupación en clústeres de para sus instancias de Azure Cache for Redis de nivel Prémium
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.author: yegu
-ms.openlocfilehash: 1f0c97d6c0854254026e194ffd5030976fc506b2
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: ddb44a064090a108f77d6a6f9a270fab8c55ec90
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433430"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Configuración de la agrupación en clústeres de Redis para una instancia de Azure Cache for Redis de nivel Prémium
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. En este artículo se describe cómo configurar la agrupación en clústeres en una instancia de Azure Cache for Redis de nivel Prémium.
 
-Para información sobre otras características del nivel Prémium de las cachés, consulte [Introduction to the Azure Cache for Redis Premium tier](cache-premium-tier-intro.md) (Introducción a Azure Cache for Redis de nivel Prémium).
+Para información sobre otras características del nivel Prémium de las cachés, consulte [Introducción al nivel Prémium de Azure Cache for Redis](cache-premium-tier-intro.md).
 
 ## <a name="what-is-redis-cluster"></a>¿Qué es Clúster Redis?
 Azure Cache for Redis ofrece clúster de Redis como [implementado en Redis](https://redis.io/topics/cluster-tutorial). Con el Clúster de Redis, obtendrá las siguientes ventajas: 
@@ -91,7 +91,7 @@ La lista siguiente contiene respuestas a las preguntas frecuentes sobre la agrup
 * [Estoy recibiendo excepciones MOVE al usar StackExchange.Redis y agrupaciones en clústeres, ¿qué debo hacer?](#i-am-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do)
 
 ### <a name="do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering"></a>¿Es necesario realizar algún cambio en mi aplicación cliente para usar la agrupación en clústeres?
-* Cuando la agrupación en clústeres está habilitada, solo está disponible la base de datos 0. Si la aplicación cliente usa varias bases de datos e intenta leer o escribir en una base de datos distinta de 0, se produce la siguiente excepción. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->``StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
+* Cuando la agrupación en clústeres está habilitada, solo está disponible la base de datos 0. Si la aplicación cliente usa varias bases de datos e intenta leer o escribir en una base de datos distinta de 0, se produce la siguiente excepción. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
   
   Para obtener más información, consulte [Redis Cluster Specification - Implemented subset](https://redis.io/topics/cluster-spec#implemented-subset)(Especificación de clúster en Redis: subconjunto implementado).
 * Si usa [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), debe usar la versión 1.0.481 o posterior. Se conecta a la memoria caché con los mismos [puntos de conexión, puertos y claves](cache-configure.md#properties) que usa al conectarse a una memoria caché que no tenga la agrupación en clústeres habilitada. La única diferencia es que se deben realizar todas las lecturas y escrituras en la base de datos 0.
@@ -122,14 +122,13 @@ El protocolo de agrupación en clústeres de Redis requiere que cada cliente se 
 
 > [!NOTE]
 > Si está usando StackExchange.Redis como su cliente, asegúrese de que está usando la versión más reciente de [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 o posterior para que la agrupación en clústeres funcione correctamente. Si tiene problemas con las excepciones move, consulte la explicación sobre [excepciones move](#move-exceptions) para obtener más información.
-> 
-> 
+>
 
 ### <a name="how-do-i-connect-to-my-cache-when-clustering-is-enabled"></a>¿Cómo me conecto a mi memoria caché cuando la agrupación en clústeres esté habilitada?
 Puede conectarse a su memoria caché con los mismos [puntos de conexión](cache-configure.md#properties), [puertos](cache-configure.md#properties) y [claves](cache-configure.md#access-keys) que usa al conectarse a una memoria caché que no tenga la agrupación en clústeres habilitada. Redis administra la agrupación en clústeres en el back-end para que no tenga que administrarla desde el cliente.
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>¿Puedo conectarme directamente a las particiones individuales de mi memoria caché?
-El protocolo de agrupación en clústeres requiere que el cliente realice las conexiones de la partición correcta. Así, el cliente debe hacer esto correctamente en su lugar. Dicho esto, cada partición consta de un par de caché principal/réplica que se conoce colectivamente como una instancia de caché. Puede conectarse a estas instancias de caché mediante la utilidad redis-cli en la rama [inestable](https://redis.io/download) del repositorio de Redis en GitHub. Esta versión implementa compatibilidad básica cuando se inicia con el conmutador `-c` . Para obtener más información, consulte la sección [Playing with the cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) (Jugar con el clúster) en [https://redis.io](https://redis.io) en el [tutorial de clústeres de Redis](https://redis.io/topics/cluster-tutorial).
+El protocolo de agrupación en clústeres requiere que el cliente realice las conexiones de la partición correcta. Así, el cliente debe hacer esto correctamente en su lugar. Dicho esto, cada partición consta de un par de caché principal/réplica que se conoce colectivamente como una instancia de caché. Puede conectarse a estas instancias de caché mediante la utilidad redis-cli en la rama [inestable](https://redis.io/download) del repositorio de Redis en GitHub. Esta versión implementa compatibilidad básica cuando se inicia con el conmutador `-c` . Para más información, consulte la sección [Jugar con el clúster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) en [https://redis.io](https://redis.io), en el [tutorial de clústeres de Redis](https://redis.io/topics/cluster-tutorial).
 
 Cuando no sea ssl, use los siguientes comandos.
 
@@ -142,7 +141,7 @@ Cuando no sea ssl, use los siguientes comandos.
 Para ssl, reemplace `1300N` por `1500N`.
 
 ### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>¿Puedo configurar la agrupación en clústeres para una memoria caché creada anteriormente?
-Sí. En primer lugar, asegúrese de que la memoria caché es Premium y realice un escalado si no lo es. A continuación, debería poder ver las opciones de configuración del clúster, incluida una opción para habilitar el clúster. Puede cambiar el tamaño del clúster una vez creada la memoria caché o después de habilitar la agrupación en clústeres por primera vez.
+Sí. En primer lugar, asegúrese de que la memoria caché es Premium y realice un escalado si no lo es. A continuación, debería poder ver las opciones de configuración del clúster, incluida una opción para habilitarlo. Puede cambiar el tamaño del clúster una vez creada la memoria caché o después de habilitar la agrupación en clústeres por primera vez.
 
    >[!IMPORTANT]
    >La habilitación de la agrupación en clústeres no se puede deshacer. Hay que tener en cuenta que una caché que tiene habilitada la agrupación en clústeres y solo una partición se comporta *de modo diferente* que una caché del mismo tamaño *sin* agrupación en clústeres.
@@ -152,7 +151,7 @@ La agrupación en clústeres solo está disponible para las memorias cachés pre
 
 ### <a name="can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers"></a>¿Puedo usar la agrupación en clústeres con los proveedores de estado de sesión y de almacenamiento en caché de salida de ASP.NET de Redis?.
 * **Proveedor de caché de salida de Redis** : no se requieren cambios.
-* **Proveedor de estado de sesión de Redis**: para usar la agrupación en clústeres, debe usar [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 o superior o se iniciará una excepción. Este es un cambio importante. Para obtener más información, consulte [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details) (Detalles sobre cambios importantes de la versión 2.0.0).
+* **Proveedor de estado de sesión de Redis**: para usar la agrupación en clústeres, debe usar [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 o superior o se iniciará una excepción. Este es un cambio importante. Para más información, consulte [Detalles sobre cambios importantes de la versión 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 <a name="move-exceptions"></a>
 
@@ -171,10 +170,3 @@ Obtenga información acerca de cómo usar más características de la memoria ca
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
-
-
-
-
-
-
-

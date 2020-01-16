@@ -1,6 +1,6 @@
 ---
-title: Automatización del aprovisionamiento de aplicaciones con SCIM en Azure AD
-description: Aprenda a crear un punto de conexión SCIM, integre la API de SCIM con Azure Active Directory y comience a automatizar el aprovisionamiento de usuarios y grupos en las aplicaciones.
+title: Creación de un punto de conexión de SCIM para el aprovisionamiento de usuarios en aplicaciones desde Azure AD
+description: Aprenda a crear un punto de conexión SCIM, integre la API de SCIM con Azure Active Directory y comience a automatizar el aprovisionamiento de usuarios y grupos en las aplicaciones en la nube.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d4694dfa92d282e1dc098a510ac82dd9c703c1e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e43eae8b7308f71886d855bbc53f341bd674e6c5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276482"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433813"
 ---
-# <a name="scim-user-provisioning-with-azure-active-directory-azure-ad"></a>Aprovisionamiento de usuarios de SCIM con Azure Active Directory (Azure AD)
+# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Creación de un punto de conexión de SCIM y configuración del aprovisionamiento de usuarios con Azure Active Directory (Azure AD)
 
-En este artículo se describe cómo usar System for Cross-Domain Identity Management ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards)) para automatizar el aprovisionamiento y desaprovisionamiento de usuarios y grupos en una aplicación. La especificación SCIM proporciona un esquema de usuario común para el aprovisionamiento. Cuando se usa junto con estándares de federación como SAML u OpenID Connect, SCIM ofrece a los administradores una solución de un extremo a otro basada en estándares para la administración del acceso.
+Como desarrollador de aplicaciones, puede usar la API de administración de usuarios del sistema para la administración de identidades entre dominios (SCIM) para habilitar el aprovisionamiento automático de usuarios y grupos entre la aplicación y Azure AD. En este artículo se describe cómo crear un punto de conexión de SCIM e integrarlo con el servicio de aprovisionamiento de Azure AD. La especificación SCIM proporciona un esquema de usuario común para el aprovisionamiento. Cuando se usa junto con estándares de federación como SAML u OpenID Connect, SCIM ofrece a los administradores una solución de un extremo a otro basada en estándares para la administración del acceso.
 
 SCIM es una definición estándar de dos puntos de conexión: /Users (Usuarios) y /Groups (Grupos). Utiliza verbos de REST comunes para crear, actualizar y eliminar objetos, y un esquema predefinido para atributos comunes como el nombre de grupo, nombre de usuario, nombre, apellidos y correo electrónico. Las aplicaciones que ofrecen una API REST de SCIM 2.0 pueden reducir o eliminar la molestia de trabajar con una API de administración de usuarios propia. Por ejemplo, cualquier cliente SCIM compatible sabe cómo crear una entrada HTTP POST de un objeto JSON para el punto de conexión /Users a fin de crear una nueva entrada de usuario. En lugar de necesitar una API ligeramente diferente para las mismas acciones básicas, las aplicaciones que cumplan con el estándar SCIM pueden aprovechar al instante los clientes, herramientas y código ya existentes. 
 
@@ -65,7 +65,7 @@ Tenga en cuenta que no es necesario que admita los usuarios ni los grupos, ni to
 | DisplayName |DisplayName |
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
-| jobTitle |título |
+| jobTitle |title |
 | mail |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |manager |
@@ -140,7 +140,7 @@ El aprovisionamiento y desaprovisionamiento de grupos son opcionales. Cuando se 
 Esta sección proporciona solicitudes SCIM de ejemplo emitidas por el cliente de SCIM de Azure AD y el ejemplo respuestas esperadas. Para obtener mejores resultados, debe codificar la aplicación para controlar estas solicitudes en este formato y emitir las respuestas esperadas.
 
 > [!IMPORTANT]
-> Para comprender cómo y cuándo el servicio de aprovisionamiento de usuarios de Azure AD emite las operaciones que se describen a continuación, consulte [¿Qué ocurre durante el aprovisionamiento de usuarios?](user-provisioning.md#what-happens-during-provisioning)
+> Para comprender cómo y cuándo el servicio de aprovisionamiento de usuarios de Azure AD emite las operaciones que se describen a continuación, consulte [Ciclos de aprovisionamiento: inicial e incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) en [Funcionamiento del aprovisionamiento](how-provisioning-works.md).
 
 [Operaciones de usuario](#user-operations)
   - [Crear usuario](#create-user) ([Solicitud](#request) / [Respuesta](#response))
@@ -160,9 +160,9 @@ Esta sección proporciona solicitudes SCIM de ejemplo emitidas por el cliente de
   - [Obtener grupo por displayName](#get-group-by-displayname) ([Solicitud](#request-9) / [Respuesta](#response-9))
   - [Actualizar grupo [Atributos no de miembro]](#update-group-non-member-attributes) ([Solicitud](#request-10) /
  [Respuesta](#response-10))
-  - [Actualizar grupo [Agregar miembros]](#update-group-add-members) ([Solicitud](#request-11)  /
+  - [Actualizar grupo [Agregar miembros]](#update-group-add-members) ([Solicitud](#request-11) /
 [Respuesta](#response-11))
-  - [Actualizar grupo [Quitar miembros]](#update-group-remove-members) ([Solicitud](#request-12)  /
+  - [Actualizar grupo [Quitar miembros]](#update-group-remove-members) ([Solicitud](#request-12) /
 [Respuesta](#response-12))
   - [Eliminar grupo](#delete-group) ([Solicitud](#request-13) /
 [Respuesta](#response-13))
@@ -616,7 +616,7 @@ Esta sección proporciona solicitudes SCIM de ejemplo emitidas por el cliente de
 
 Al crear un servicio web SCIM que interactúa con Azure Active Directory, puede habilitar el aprovisionamiento automático de usuarios para prácticamente cualquier aplicación o almacén de identidades.
 
-Aquí le mostramos cómo funciona:
+Funcionamiento:
 
 1. Azure AD proporciona una biblioteca de infraestructura de lenguaje común (CLI) llamada Microsoft.SystemForCrossDomainIdentityManagement, incluida con los ejemplos de código descritos a continuación. Los desarrolladores y los integradores de sistemas pueden usar esta biblioteca para crear e implementar un punto de conexión de servicio web basado en SCIM que pueda conectar Azure AD a cualquier almacén de identidades de aplicación.
 2. Las asignaciones se implementan en el servicio web para asignar el esquema de usuario estándar al esquema de usuario y el protocolo requerido por la aplicación. 
@@ -1256,7 +1256,7 @@ Azure AD se puede configurar para que aprovisione automáticamente usuarios y gr
 Consulte a su proveedor de la aplicación o la documentación que se incluye con la aplicación para ver si existen declaraciones de compatibilidad con estos requisitos.
 
 > [!IMPORTANT]
-> La implementación de SCIM de Azure AD se basa en el servicio de aprovisionamiento de usuarios de Azure AD, que está diseñado para mantener a los usuarios constantemente sincronizados entre Azure AD y la aplicación de destino, y que implementa un conjunto muy específico de operaciones estándar. Es importante comprender estos comportamientos para entender el comportamiento del cliente de SCIM de Azure AD. Para más información, consulte [¿Qué ocurre durante el aprovisionamiento de usuarios?](user-provisioning.md#what-happens-during-provisioning)
+> La implementación de SCIM de Azure AD se basa en el servicio de aprovisionamiento de usuarios de Azure AD, que está diseñado para mantener a los usuarios constantemente sincronizados entre Azure AD y la aplicación de destino, y que implementa un conjunto muy específico de operaciones estándar. Es importante comprender estos comportamientos para entender el comportamiento del cliente de SCIM de Azure AD. Para obtener más información, consulte la sección [Ciclos de aprovisionamiento: inicial e incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) en [Funcionamiento del aprovisionamiento](how-provisioning-works.md).
 
 ### <a name="getting-started"></a>Introducción
 
@@ -1331,10 +1331,10 @@ Determinadas aplicaciones permiten el tráfico de entrada a su aplicación. Para
 
 ## <a name="related-articles"></a>Artículos relacionados
 
-* [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](user-provisioning.md)
+* [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS](user-provisioning.md)
 * [Personalización de asignaciones de atributos para el aprovisionamiento de usuarios](customize-application-attributes.md)
-* [Escritura de expresiones para asignaciones de atributos](functions-for-customizing-application-data.md)
-* [Filtros de ámbito para el aprovisionamiento de usuario](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Escritura de expresiones para la asignación de atributos](functions-for-customizing-application-data.md)
+* [Filtros de ámbito para el aprovisionamiento de usuarios](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Notificaciones de aprovisionamiento de cuentas](user-provisioning.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](../saas-apps/tutorial-list.md)
 

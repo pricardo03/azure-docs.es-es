@@ -1,18 +1,14 @@
 ---
-title: 'Azure Service Fabric: configuración de un clúster existente de Azure Service Fabric para habilitar la compatibilidad con identidades administradas | Microsoft Docs'
+title: 'Azure Service Fabric: configuración de un clúster existente de Azure Service Fabric para habilitar la compatibilidad con identidades administradas'
 description: En este artículo se muestra cómo configurar un clúster de Azure Service Fabric existente para habilitar la compatibilidad con identidades administradas.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: article
-ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: adc21358011454c8687998dc5d257052959b933b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 12/09/2019
+ms.openlocfilehash: 13b8b38a206b0dae0877263a5cda56a134d4788d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640729"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351605"
 ---
 # <a name="configure-an-existing-azure-service-fabric-cluster-to-enable-managed-identity-support-preview"></a>Configuración de un clúster de Azure Service Fabric existente para habilitar la compatibilidad con identidades administradas (versión preliminar)
 Para acceder a la característica de identidad administrada para las aplicaciones de Azure Service Fabric, primero debe habilitar el **servicio de token de identidad administrada** en el clúster. Este servicio es responsable de la autenticación de aplicaciones de Service Fabric que usan sus identidades administradas y de la obtención de los tokens de acceso en su nombre. Una vez habilitado el servicio, puede verlo en Service Fabric Explorer, en la sección **Sistema** del panel izquierdo. Se ejecuta con el nombre **fabric:/System/ManagedIdentityTokenService**.
@@ -72,6 +68,6 @@ Si se produce un error en la implementación con el siguiente mensaje, significa
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [Implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el usuario](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el usuario](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Aprovechamiento de la identidad administrada de una aplicación de Service Fabric desde el código de servicio](./how-to-managed-identity-service-fabric-app-code.md)
-* [Concesión de acceso a otros recursos de Azure para una aplicación de Azure Service Fabric](./how-to-grant-access-other-resources.md)
+* [Concesión de acceso a otros recursos de Azure para una aplicación de Azure Service Fabric](./how-to-grant-access-other-resources.md)

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: f5578d00d633b4b1ccce41236526e1696744f59f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 012ff33bb31c78b26791e6337ae434acfe4bc865
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851781"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351326"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administración del ciclo de vida de Azure Blob Storage
 
@@ -67,9 +67,9 @@ Hay dos formas de agregar una directiva en Azure Portal.
 
 #### <a name="azure-portal-list-view"></a>Vista de lista de Azure Portal
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2. Seleccione **Todos los recursos** y seleccione su cuenta de almacenamiento.
+2. En Azure Portal, busque y seleccione su cuenta de almacenamiento. 
 
 3. En **Blob service**, seleccione **Administración del ciclo de vida** para ver o cambiar las reglas.
 
@@ -88,9 +88,9 @@ Hay dos formas de agregar una directiva en Azure Portal.
 9. Seleccione **Agregar** para agregar la nueva directiva.
 
 #### <a name="azure-portal-code-view"></a>Vista de código de Azure Portal
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2. Seleccione **Todos los recursos** y seleccione su cuenta de almacenamiento.
+2. En Azure Portal, busque y seleccione su cuenta de almacenamiento.
 
 3. En **Blob service**, seleccione **Administración del ciclo de vida** para ver o cambiar la directiva.
 
@@ -234,7 +234,7 @@ Cada regla de la directiva tiene varios parámetros:
 
 | Nombre de parámetro | Tipo de parámetro | Notas | Obligatorio |
 |----------------|----------------|-------|----------|
-| `name`         | Cadena |Un nombre de regla puede incluir hasta 256 caracteres alfanuméricos. El nombre de regla distingue mayúsculas de minúsculas.  Debe ser único dentro de una directiva. | True |
+| `name`         | String |Un nombre de regla puede incluir hasta 256 caracteres alfanuméricos. El nombre de regla distingue mayúsculas de minúsculas.  Debe ser único dentro de una directiva. | True |
 | `enabled`      | Boolean | Un valor booleano opcional para permitir que una regla se deshabilite de forma temporal. El valor predeterminado es true si no se establece. | False | 
 | `type`         | Un valor de enumeración | El tipo actual válido es `Lifecycle`. | True |
 | `definition`   | Un objeto que define la regla del ciclo de vida | Cada definición se compone de un conjunto de filtros y un conjunto de acciones. | True |
@@ -289,7 +289,7 @@ Entre los filtros están los siguientes:
 | Nombre de filtro | Tipo de filtro | Notas | Es obligatorio |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Una matriz de valores de enumeración predefinidos. | La versión actual admite `blockBlob`. | Sí |
-| prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. Cada regla puede definir hasta 10 prefijos. Una cadena de prefijos debe comenzar con el nombre de un contenedor. Por ejemplo, si quiere que todos los blobs de `https://myaccount.blob.core.windows.net/container1/foo/...` coincidan en una regla, prefixMatch es `container1/foo`. | Si no define prefixMatch, la regla se aplica a todos los blobs de la cuenta de almacenamiento.  | Sin |
+| prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. Cada regla puede definir hasta 10 prefijos. Una cadena de prefijos debe comenzar con el nombre de un contenedor. Por ejemplo, si quiere que todos los blobs de `https://myaccount.blob.core.windows.net/container1/foo/...` coincidan en una regla, prefixMatch es `container1/foo`. | Si no define prefixMatch, la regla se aplica a todos los blobs de la cuenta de almacenamiento.  | No |
 
 ### <a name="rule-actions"></a>Acciones de regla
 
@@ -297,7 +297,7 @@ Las acciones se aplican a los blobs filtrados cuando se cumple la condición de 
 
 La administración del ciclo de vida admite el cambio de niveles y la eliminación de blobs e instantáneas de blob. Defina al menos una acción para cada regla en los blobs o las instantáneas de blob.
 
-| .        | Blob de base                                   | Instantánea      |
+| Acción        | Blob de base                                   | Instantánea      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Admite blobs actualmente en el nivel de acceso frecuente.         | No compatible |
 | tierToArchive | Admite blobs actualmente en el nivel de acceso frecuente o esporádico. | No compatible |
@@ -308,7 +308,7 @@ La administración del ciclo de vida admite el cambio de niveles y la eliminaci�
 
 Las condiciones de ejecución se basan en la antigüedad. Para realizar el seguimiento de la antigüedad, los blobs de base usan la hora de la última modificación y las instantáneas de blob usan la hora de creación de la instantánea.
 
-| Condición de ejecución de acción             | Valor de la condición                          | DESCRIPCIÓN                             |
+| Condición de ejecución de acción             | Valor de la condición                          | Descripción                             |
 |----------------------------------|------------------------------------------|-----------------------------------------|
 | daysAfterModificationGreaterThan | Valor entero que indica la antigüedad en días | Condición de las acciones de blob de base     |
 | daysAfterCreationGreaterThan     | Valor entero que indica la antigüedad en días | Condición de las acciones de instantánea de blob |

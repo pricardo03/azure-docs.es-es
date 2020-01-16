@@ -1,5 +1,5 @@
 ---
-title: Controles de aplicación adaptables en Azure Security Center | Microsoft Docs
+title: Controles de aplicación adaptables en Azure Security Center
 description: Este documento le ayuda a usar el control de aplicación adaptable en Azure Security Center para incluir en la lista de permitidos las aplicaciones que se ejecutan en máquinas virtuales de Azure.
 services: security-center
 documentationcenter: na
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2019
+ms.date: 12/23/2019
 ms.author: memildin
-ms.openlocfilehash: 46ab2fc5c796d960de8b1c5e3391a6356563b50a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 862fb4f8a9dcd357148f73a729ffc7e92ba0083a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202817"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353437"
 ---
-# <a name="adaptive-application-controls-in-azure-security-center"></a>Controles de aplicación adaptables en Azure Security Center
+# <a name="adaptive-application-controls"></a>Controles de aplicación adaptables
 Obtenga información acerca de cómo configurar el control de aplicación en Azure Security Center con este tutorial.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>¿Qué son los controles de aplicación adaptables en Security Center?
@@ -37,12 +37,14 @@ El control de aplicaciones adaptables es una solución de un extremo a otro inte
 > Para las máquinas virtuales que no son de Azure y las de Linux, se admiten controles de aplicación adaptables solo en modo auditoría.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>¿Cómo habilitar los controles de aplicación adaptables?
+
 Los controles de aplicación adaptables ayudan a definir un conjunto de aplicaciones que se pueden ejecutar en los grupos configurados de las máquinas virtuales. Esta característica está disponible tanto para máquinas virtuales y servidores de Azure como Windows (todas las versiones, clásica o Azure Resource Manager) y Linux que no son de Azure. Siga estos pasos para configurar las listas de aplicaciones permitidas:
 
 1. Abra el panel **Security Center**.
-2. En el panel de la izquierda, seleccione **Controles de aplicaciones adaptables** que se encuentra en **Protección en la nube avanzada**.
 
-    ![Defensa](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
+1. En el panel de la izquierda, seleccione **Controles de aplicaciones adaptables** que se encuentra en **Protección en la nube avanzada**.
+
+    [![Defensa](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png#lightbox)
 
 Se muestra la página **Controles de aplicaciones adaptables**.
 
@@ -60,7 +62,8 @@ La sección **Grupos de máquinas virtuales** contiene tres pestañas:
 >
 
 ### <a name="configure-a-new-application-control-policy"></a>Configuración de una nueva directiva de control de aplicación
-1. Haga clic en la pestaña **Recommended** (Recomendado) para obtener una lista de los grupos con recomendaciones de control de aplicación:
+
+1. Seleccione la pestaña **Recommended** (Recomendado) para obtener una lista de los grupos con recomendaciones de control de aplicación:
 
    ![Recomendado](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
@@ -73,7 +76,7 @@ La sección **Grupos de máquinas virtuales** contiene tres pestañas:
 
 2. Pulse en un grupo para abrir la opción **Crear reglas de control de aplicaciones**.
 
-   ![Reglas de control de aplicación](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
+   [![Reglas de control de aplicación](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png#lightbox)
 
 3. En **Seleccionar máquinas virtuales**, revise la lista de máquinas virtuales recomendadas y desactive cualquiera a la que no desee aplicar la directiva de inclusión en la listas de aplicaciones permitidas. A continuación, se ven dos listas:
 
@@ -171,7 +174,7 @@ Azure Security Center también le permite definir una directiva de creación de 
 > Asegúrese de hacer clic en **Guardar**, después de hacer clic en **Mover equipo**. Si no hace clic en **Guardar**, el equipo no se moverá.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento ha aprendido a usar el control de aplicación adaptable en Azure Security Center para incluir en la lista de permitidos las aplicaciones que se ejecutan en máquinas virtuales de Azure y no Azure. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
+En este documento ha aprendido a usar el control de aplicación adaptable en Azure Security Center para incluir en la lista de permitidos las aplicaciones que se ejecutan en máquinas virtuales de Azure y no Azure. Para obtener más información sobre Azure Security Center, consulte los siguientes recursos:
 
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Aprenda a administrar las alertas y responder a incidentes de seguridad en Security Center.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md). Aprenda a supervisar el estado de los recursos de Azure.

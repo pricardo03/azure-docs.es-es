@@ -1,17 +1,17 @@
 ---
-title: Plantillas de Azure Resource Manager para Cassandra API de Azure Cosmos DB
+title: Plantillas de Resource Manager para Cassandra API de Azure Cosmos DB
 description: Use las plantillas de Azure Resource Manager para crear y configurar Cassandra API de Azure Cosmos DB.
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: f09ab6958eb768895a2d16f129354074cb6f00c8
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 54d1c27148f20c89e17b343f0ac87295f978c140
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961866"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445291"
 ---
 # <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>Administrar recursos de Cassandra API de Azure Cosmos DB con plantillas de Azure Resource Manager
 

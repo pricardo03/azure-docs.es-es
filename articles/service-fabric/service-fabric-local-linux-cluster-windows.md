@@ -1,31 +1,22 @@
 ---
-title: Configuración de un clúster Linux de Azure Service Fabric en Windows | Microsoft Docs
+title: Configuración de un clúster Linux de Azure Service Fabric en Windows
 description: En este artículo se explica cómo configurar los clústeres Linux de Service Fabric que se ejecutan en máquinas de desarrollo de Windows. Esto es especialmente útil para el desarrollo multiplataforma.
-services: service-fabric
-documentationcenter: .net
 author: suhuruli
-manager: mfussell
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: e700250a6ebcdb82f99c1b460a510811d7ceb96c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 806e77a928d25e30aed24147525f74507bc32795
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60719947"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462983"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Configuración de un clúster Linux de Service Fabric en la máquina del desarrollador de Windows
 
 Este documento describe cómo configurar una instancia local de Service Fabric para Linux en máquinas de desarrollo Windows. La configuración de un clúster Linux local es útil para probar rápidamente las aplicaciones que se destinan a clústeres Linux, pero se desarrollan en un equipo Windows.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Los clústeres de Service Fabric basados en Linux no se ejecutan de forma nativa en Windows. Para ejecutar un clúster local de Service Fabric, se proporciona una imagen preconfigurada de contenedor de Docker. Antes de comenzar, necesita:
 
 * Al menos 4 GB de RAM

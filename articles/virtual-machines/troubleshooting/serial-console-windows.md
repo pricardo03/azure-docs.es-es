@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 0d48f3eacad86dac520d837b80605a75cce8cfd5
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 87ccb1c4995337b385f685797980a9fc3962bc6f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514491"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451250"
 ---
 # <a name="azure-serial-console-for-windows"></a>Consola serie de Azure para Windows
 
@@ -29,10 +29,10 @@ La consola serie funciona de la misma manera para las máquinas virtuales y las 
 Para obtener documentación sobre la consola serie para Linux, consulte [Consola serie para Linux](serial-console-linux.md).
 
 > [!NOTE]
-> La consola serie está disponible con carácter general en regiones de Azure globales. Aún no está disponible en las nubes de Azure Government ni Azure China.
+> La consola serie está disponible con carácter general en regiones de Azure globales y en versión preliminar pública en Azure Government. Aún no está disponible en la nube de Azure en China.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * La máquina virtual o la instancia de conjunto de escalado de máquinas virtuales deben usar el modelo de implementación de Resource Manager. No se admiten las implementaciones clásicas.
 

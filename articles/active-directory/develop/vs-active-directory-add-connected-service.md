@@ -1,5 +1,5 @@
 ---
-title: Adición de Azure AD mediante Servicios conectados
+title: Uso del servicio conectado de Active Directory (Visual Studio)
 description: Adición de Azure Active Directory mediante el cuadro de diálogo Agregar servicios conectados de Visual Studio
 author: ghogen
 manager: jillfra
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bbbf002110d997d18c49fb03ad599342cdf618d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 435ec76a6a7ffe81c1be2752d69b79c1fb8d0bd2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964206"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423177"
 ---
-# <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adición de Azure Active Directory con Servicios conectados en Visual Studio
+# <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adición de una instancia de Azure Active Directory mediante Servicios conectados en Visual Studio
 
 Mediante el uso de Azure Active Directory (Azure AD), puede admitir el inicio de sesión único (SSO) para aplicaciones web ASP.NET MVC o la autenticación de Active Directory en los servicios de API web. Con la autenticación de Azure AD, los usuarios pueden usar sus cuentas desde Azure Active Directory para conectarse a las aplicaciones web. Las ventajas de la autenticación de Azure AD con la API web incluyen seguridad de datos mejorada al exponer una API desde una aplicación web. Con Azure AD, no es necesario que administre un sistema de autenticación independiente con su propia administración de cuentas y usuarios.
 
@@ -27,7 +27,7 @@ En este artículo y sus artículos complementarios se proporcionan detalles acer
 
 En la actualidad, el servicio conectado de Active Directory no es compatible con aplicaciones de ASP.NET Core.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Cuenta de Azure: si todavía no tiene ninguna cuenta de Azure, puede [registrarse para una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 - **Visual Studio 2015** o posterior. [Descargue Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).

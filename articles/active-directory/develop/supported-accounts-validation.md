@@ -1,5 +1,5 @@
 ---
-title: 'Diferencias de validación por tipo de cuenta: Plataforma de identidad de Microsoft | Azure'
+title: 'Diferencias de validación por tipos de cuenta admitidos: plataforma de identidad de Microsoft | Azure'
 description: Obtenga información sobre las diferencias de validación de diversas propiedades de diferentes tipos de cuenta compatibles al registrar la aplicación con la plataforma de Microsoft Identity.
 author: SureshJa
 ms.author: sureshja
@@ -11,12 +11,12 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 576adc99ef7d794f50efeb61375f3e59f8815033
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2d15c22e2495432926285dbdbd55a4a6f3b0aa35
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919365"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423451"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Diferencias de validación por tipos de cuenta compatibles (signInAudience)
 

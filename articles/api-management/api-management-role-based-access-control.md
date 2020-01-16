@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: e33d981429f0e79accbe47ea0edea5f3c7a2157b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ed0cd51fc686735f2d9c110ce46d5904107cafc2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072207"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430612"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Uso del control de acceso basado en rol en Azure API Management
 
@@ -28,17 +28,17 @@ Azure API Management utiliza el control de acceso basado en rol (RBAC) de Azure 
 
 ## <a name="built-in-roles"></a>Roles integrados
 
-Actualmente, API Management cuenta con tres roles integrados y próximamente agregará otros dos. Estos roles pueden asignarse en distintos ámbitos, como la suscripción, el grupo de recursos y la instancia concreta de API Management. Por ejemplo, si el rol "Azure API Management Service Reader" se asigna a un usuario en el nivel de grupo de recursos, el usuario tendrá acceso de lectura a todas las instancias de API Management incluidas en el grupo de recursos. 
+Actualmente, API Management cuenta con tres roles integrados y próximamente agregará otros dos. Estos roles pueden asignarse en distintos ámbitos, como la suscripción, el grupo de recursos y la instancia concreta de API Management. Por ejemplo, si el rol "Lector de servicios de Azure API Management" se asigna a un usuario en el nivel de grupo de recursos, el usuario tendrá acceso de lectura a todas las instancias de API Management incluidas en el grupo de recursos. 
 
 En la tabla siguiente se proporcionan breves descripciones de los roles integrados. Estos roles se pueden asignar a través de Azure Portal u otras herramientas, como Azure [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) y la [API de REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Para obtener detalles sobre la asignación de roles integrados, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
-| Role          | Acceso de lectura<sup>[1]</sup> | Acceso de escritura<sup>[2]</sup> | Creación, eliminación y escalado del servicio, VPN y configuración personalizada de dominios | Acceso al portal del editor heredado | DESCRIPCIÓN
+| Role          | Acceso de lectura<sup>[1]</sup> | Acceso de escritura<sup>[2]</sup> | Creación, eliminación y escalado del servicio, VPN y configuración personalizada de dominios | Acceso al portal del editor heredado | Descripción
 | ------------- | ---- | ---- | ---- | ---- | ---- 
-| Colaborador de servicio de Azure API Management | ✓ | ✓ | ✓ | ✓ | Superusuario. Tiene acceso CRUD completo a los servicios y a las entidades de API Management (por ejemplo, API y directivas). Tiene acceso al portal del editor heredado. |
-| Lector de servicio de Azure API Management | ✓ | | || Tiene acceso de solo lectura a los servicios y a las entidades de API Management. |
-| Operador de servicio de Azure API Management | ✓ | | ✓ | | Puede administrar servicios de API Management, pero no entidades.|
-| Editor de servicio de Azure API Management<sup>*</sup> | ✓ | ✓ | |  | Puede administrar entidades de API Management, pero no servicios.|
-| Administrador de contenido de Azure API Management<sup>*</sup> | ✓ | | | ✓ | Puede administrar el portal del desarrollador. Acceso de solo lectura a servicios y entidades.|
+| Colaborador de servicio de administración de API | ✓ | ✓ | ✓ | ✓ | Superusuario. Tiene acceso CRUD completo a los servicios y a las entidades de API Management (por ejemplo, API y directivas). Tiene acceso al portal del editor heredado. |
+| Rol de lector de servicios de API Management | ✓ | | || Tiene acceso de solo lectura a los servicios y a las entidades de API Management. |
+| Rol del operador de servicios de API Management | ✓ | | ✓ | | Puede administrar servicios de API Management, pero no entidades.|
+| Editor de servicios de API Management<sup>*</sup> | ✓ | ✓ | |  | Puede administrar entidades de API Management, pero no servicios.|
+| Administrador de contenido de API Management<sup>*</sup> | ✓ | | | ✓ | Puede administrar el portal del desarrollador. Acceso de solo lectura a servicios y entidades.|
 
 <sup>[1] Acceso de lectura a los servicios y entidades de API Management (por ejemplo, API y directivas)</sup>
 
@@ -53,7 +53,7 @@ Si ninguno de los roles integrados satisface sus necesidades específicas, se pu
 > [!NOTE]
 > Para poder ver una instancia de API Management en Azure Portal, un rol personalizado debe incluir la acción ```Microsoft.ApiManagement/service/read```.
 
-A la hora de crear un rol personalizado, es más fácil comenzar con uno de los roles integrados. Edite los atributos para agregar los elementos **Actions**, **NotActions** o **AssignableScopes** y guarde los cambios como un nuevo rol. El ejemplo siguiente comienza con el rol "Azure API Management Service Reader" y crea un rol personalizado denominado "Calculator API Editor". Puede asignar el rol personalizado a una API concreta. De ese modo, el rol solamente tendrá acceso a esa API. 
+A la hora de crear un rol personalizado, es más fácil comenzar con uno de los roles integrados. Edite los atributos para agregar los elementos **Actions**, **NotActions** o **AssignableScopes** y guarde los cambios como un nuevo rol. El ejemplo siguiente comienza con el rol "Lector de servicios de API Management" y crea un rol personalizado denominado "Calculator API Editor". Puede asignar el rol personalizado a una API concreta. De ese modo, el rol solamente tendrá acceso a esa API. 
 
 ```powershell
 $role = Get-AzRoleDefinition "API Management Service Reader Role"

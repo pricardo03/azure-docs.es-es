@@ -2,17 +2,17 @@
 title: Creación de un punto de conexión privado de Azure mediante Azure PowerShell | Microsoft Docs
 description: Información acerca de Azure Private Link
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 83f1cbc3f8da61370c90744be3f0a7b230e016c3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 60032677594537f1e7791b7108eebd5d4cfad5b4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229401"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430341"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Creación de un punto de conexión privado mediante Azure PowerShell
 Un punto de conexión privado es el bloque de creación fundamental para el vínculo privado en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de vínculos privados. 
@@ -59,6 +59,9 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -PrivateEndpointNetworkPoliciesFlag "Disabled" `
   -VirtualNetwork $virtualNetwork
 ```
+
+> [!CAUTION]
+> Es fácil confundir el parámetro `PrivateEndpointNetworkPoliciesFlag` con otra marca disponible, `PrivateLinkServiceNetworkPoliciesFlag`, porque son palabras largas y tienen una apariencia similar.  Asegúrese de que usa el adecuado, `PrivateEndpointNetworkPoliciesFlag`.
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>Asociación de la subred a la red virtual
 

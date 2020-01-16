@@ -4,20 +4,22 @@ description: La solución Azure Monitor para VM recopila datos de registro y mé
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 10/29/2019
-ms.openlocfilehash: 69ed49c0e1b90b4086a40bd15f5d276c6cfe137f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+author: bwren
+ms.author: bwren
+ms.date: 12/19/2019
+ms.openlocfilehash: 690c7ba04cf849d973295a6ec27eaa38f9b807c3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162220"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399319"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Cómo consultar registros de Azure Monitor para VM (versión preliminar)
+
 Azure Monitor para VM recopila métricas de rendimiento y conexión, datos de inventario de proceso y equipo, e información sobre el estado, y reenvía estos datos al área de trabajo de Log Analytics en Azure Monitor.  Estos datos están disponibles para [consulta](../../azure-monitor/log-query/log-query-overview.md) en Azure Monitor. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
 
 ## <a name="map-records"></a>Registros de asignación
+
 Se genera un registro por hora para cada equipo y proceso únicos, además de los registros generados cuando un proceso o equipo se inicia o se integra en la característica de asignación de Azure Monitor para VM. Estos registros tienen las propiedades de las tablas siguientes. Los campos y valores de los eventos ServiceMapComputer_CL se asignan a los campos del recurso Equipo en la API ServiceMap de Azure Resource Manager. Los campos y valores de los eventos ServiceMapProcess_CL se asignan a los campos del recurso Proceso en la API ServiceMap de Azure Resource Manager. El campo ResourceName_s coincide con el campo de nombre del recurso correspondiente de Resource Manager. 
 
 Hay propiedades generadas internamente que puede usar para identificar los equipos y procesos únicos:
@@ -28,23 +30,25 @@ Hay propiedades generadas internamente que puede usar para identificar los equip
 Puesto que pueden existir varios registros para un proceso y equipo especificados en un intervalo de tiempo concreto, las consultas pueden devolver más de un registro para el mismo proceso o equipo. Para incluir solo el registro más reciente, agregue `| summarize arg_max(TimeGenerated, *) by ResourceId` a la consulta.
 
 ### <a name="connections-and-ports"></a>Conexiones y puertos
+
 La característica de métricas de conexión presenta dos nuevas tablas en los registros de Azure Monitor: VMConnection y VMBoundPort. Estas tablas proporcionan información acerca de las conexiones para una máquina (entrantes y salientes), así como los puertos del servidor que están abiertos o activos en estas. Las métricas de conexión también se exponen a través de API que proporcionan los medios para obtener una métrica específica durante un período de tiempo. Las conexiones TCP resultantes de *aceptar* en un socket de escucha son de entrada, mientras que las creadas al *conectarse* a un puerto y una IP concretos son de salida. La dirección de una conexión se representa mediante la propiedad Direction, que se puede definir como **inbound** u **outbound**. 
 
 Los registros de estas tablas se generan a partir de los datos que notifica Dependency Agent. Cada registro representa una observación en un intervalo de tiempo de un minuto. La propiedad TimeGenerated indica el inicio del intervalo de tiempo. Cada registro contiene información para identificar la entidad correspondiente; es decir, conexión o puerto, así como las métricas asociadas con esa entidad. Actualmente, solo se notifica la actividad de red que tiene lugar mediante TCP a través de IPv4. 
 
 #### <a name="common-fields-and-conventions"></a>Campos y convenciones comunes 
+
 Los campos y las convenciones siguientes se aplican a VMConnection y VMBoundPort: 
 
 - Equipo: nombre de dominio completo de la máquina que genera el informe. 
-- AgentID: identificador único de una máquina con el agente de Log Analytics.  
-- Máquina: nombre del recurso de Azure Resource Manager para la máquina expuesta por ServiceMap. Tiene el formato *m-{GUID}* , donde *GUID* coincide con el GUID de AgentID.  
+- AgentId: identificador único de una máquina con el agente de Log Analytics.  
+- Máquina: nombre del recurso de Azure Resource Manager para la máquina expuesta por ServiceMap. Tiene el formato *m-{GUID}* , donde *GUID* coincide con el GUID de AgentId.  
 - Proceso: nombre del recurso de Azure Resource Manager para el proceso expuesto por ServiceMap. Tiene el formato *p-{cadena hexadecimal}* . El proceso es único dentro de un ámbito de la máquina y, para generar un identificador de proceso único entre máquinas, combina los valores de los campos Máquina y Proceso. 
 - ProcessName: nombre del archivo ejecutable del proceso de informes.
 - Todas las direcciones IP son cadenas en formato canónico IPv4, como *13.107.3.160*. 
 
 Para administrar el costo y la complejidad, los registros de conexión no representan conexiones de red físicas individuales. Varias conexiones de red físicas se agrupan en una conexión lógica, que, a continuación, se refleja en la tabla correspondiente.  Lo que significa que los registros de la tabla *VMConnection* representan una agrupación lógica, y no las conexiones físicas individuales que se observan. Las conexiones de red físicas que comparten el mismo valor para los siguientes atributos durante un intervalo determinado de un minuto se agregan en un registro lógico único en *VMConnection*. 
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 |Dirección |Dirección de la conexión; el valor es *inbound* u *outbound* |
 |Máquina |FQDN del equipo |
@@ -56,7 +60,7 @@ Para administrar el costo y la complejidad, los registros de conexión no repres
 
 Para tener en cuenta el impacto de la agrupación, se proporciona información sobre el número de conexiones físicas agrupadas en las siguientes propiedades del registro:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 |LinksEstablished |Número de conexiones de red físicas que se han establecido durante el período de tiempo de generación de informes |
 |LinksTerminated |Número de conexiones de red físicas que han finalizado durante el período de tiempo de generación de informes |
@@ -67,7 +71,7 @@ Para tener en cuenta el impacto de la agrupación, se proporciona información s
 
 Además de las métricas de recuento de conexión, también se incluye información sobre el volumen de datos enviado y recibido en una conexión lógica o puerto de red concreto en las siguientes propiedades del registro:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 |BytesSent |Número total de bytes enviados durante el período de tiempo de generación de informes |
 |BytesReceived |Número total de bytes recibidos durante el período de tiempo de generación de informes |
@@ -88,25 +92,28 @@ A continuación se incluyen puntos importantes que debe tener en cuenta:
 4. Los puertos que están enlazados solo en una interfaz específica tienen IsWildcardBind definido como *False*.
 
 #### <a name="naming-and-classification"></a>Nomenclatura y clasificación
+
 Para mayor comodidad, la dirección IP del extremo remoto de una conexión se incluye en la propiedad RemoteIp. Para las conexiones entrantes, RemoteIp coincide con SourceIp, mientras que, para las conexiones salientes, coincide con DestinationIp. La propiedad RemoteDnsCanonicalNames representa los nombres canónicos DNS que notifica la máquina para RemoteIp. Las propiedades RemoteDnsQuestions y RemoteClassification están reservadas para uso futuro. 
 
 #### <a name="geolocation"></a>Geolocalización
+
 *VMConnection* también incluye información de ubicación geográfica para el extremo remoto de cada registro de conexión en las siguientes propiedades del registro: 
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 |RemoteCountry |Nombre del país o región que hospeda la dirección IP de RemoteIp.  Por ejemplo: *United States* |
 |RemoteLatitude |Latitud de geolocalización. Por ejemplo, *47.68* |
 |RemoteLongitude |Longitud de geolocalización. Por ejemplo, *-122.12* |
 
 #### <a name="malicious-ip"></a>Direcciones IP malintencionadas
+
 Todas las propiedades de RemoteIp de la tabla *VMConnection* se comparan con un conjunto de direcciones IP con actividad malintencionada conocida. Si el valor de RemoteIp se identifica como malintencionado, las propiedades siguientes se completarán (si la IP no se considera malintencionada, están vacías) en las siguientes propiedades del registro:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 |MaliciousIP |Dirección RemoteIp |
 |IndicatorThreadType |El indicador de amenazas detectado es uno de los siguientes valores: *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
-|DESCRIPCIÓN |Descripción de la amenaza observada. |
+|Descripción |Descripción de la amenaza observada. |
 |TLPLevel |Nivel de protocolo de semáforo (TLP) es uno de los valores definidos: *blanco*, *verde*, *ámbar*, *rojo*. |
 |Confianza |Los valores válidos se encuentran entre *0 y 100*. |
 |severity |Los valores se encuentran entre *0 y 5*, donde *5* es el más grave y *0* no es grave en absoluto. El valor predeterminado es *3*.  |
@@ -117,11 +124,12 @@ Todas las propiedades de RemoteIp de la tabla *VMConnection* se comparan con un 
 |AdditionalInformation |Proporciona información adicional, si procede, sobre la amenaza observada. |
 
 ### <a name="ports"></a>Puertos 
+
 En una máquina, los puertos que aceptan activamente el tráfico entrante o que pueden aceptar tráfico potencialmente, pero que están inactivas durante el período de tiempo de informes, se escriben en la tabla VMBoundPort.  
 
 Todos los registros de VMBoundPort se identifican mediante los campos siguientes: 
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 |Proceso | Identidad del proceso (o grupos de procesos) a la que está asociado el puerto.|
 |Ip | Dirección IP del puerto (puede ser la dirección IP comodín, *0.0.0.0*). |
@@ -131,6 +139,7 @@ Todos los registros de VMBoundPort se identifican mediante los campos siguientes
 Identidad de la que se deriva un puerto de los cinco campos anteriores. Se almacena en la propiedad PortId. Esta propiedad se puede usar para buscar rápidamente los registros de un puerto específico a través del tiempo. 
 
 #### <a name="metrics"></a>Métricas 
+
 Los registros de puerto incluyen métricas que representen las conexiones asociadas. Actualmente, se notifican las métricas siguientes (los detalles de cada métrica se describen en la sección anterior): 
 
 - BytesSent y BytesReceived 
@@ -144,139 +153,201 @@ A continuación se incluyen puntos importantes que debe tener en cuenta:
 - Para reducir el nivel de detalle y el volumen de datos, los registros con dirección IP de carácter comodín se omitirán cuando haya un registro coincidente (para el mismo proceso, puerto y protocolo) con una dirección IP específica. Si un registro de dirección IP comodín se omite, la propiedad *IsWildcardBind* del registro con la dirección IP específica se establecerá en *True*.  Esto indica que el puerto se expone a través de todas las interfaces de la máquina del informe. 
 - Los puertos que están enlazados solo en una interfaz específica tienen IsWildcardBind definido como *False*. 
 
-### <a name="servicemapcomputer_cl-records"></a>Registros de ServiceMapComputer_CL
-Los registros con un tipo de *ServiceMapComputer_CL* tienen datos de inventario para servidores con Dependency Agent. Estos registros tienen las propiedades de la tabla siguiente:
+### <a name="vmcomputer-records"></a>Registros de VMComputer
 
-| Propiedad | DESCRIPCIÓN |
+Los registros con un tipo de *VMComputer* tienen datos de inventario para servidores con Dependency Agent. Estos registros tienen las propiedades de la tabla siguiente:
+
+| Propiedad | Descripción |
 |:--|:--|
-| type | *ServiceMapComputer_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | Identificador único de una máquina en el área de trabajo |
-| ResourceName_s | Identificador único de una máquina en el área de trabajo |
-| ComputerName_s | FQDN del equipo |
-| Ipv4Addresses_s | Lista de las direcciones IPv4 del servidor |
-| Ipv6Addresses_s | Lista de las direcciones IPv6 del servidor |
-| DnsNames_s | Matriz de nombres DNS |
-| OperatingSystemFamily_s | Windows o Linux |
-| OperatingSystemFullName_s | Nombre completo del sistema operativo  |
-| Bitness_s | Valor de bits del equipo (32 o 64 bits)  |
-| PhysicalMemory_d | Memoria física en MB |
-| Cpus_d | Número de CPU |
-| CpuSpeed_d | Velocidad de la CPU en MHz|
-| VirtualizationState_s | *unknown*, *physical*, *virtual*, *hypervisor* |
-| VirtualMachineType_s | *hyperv*, *vmware*, etc. |
-| VirtualMachineNativeMachineId_g | Identificador de máquina virtual asignado por su hipervisor |
-| VirtualMachineName_s | Nombre de la máquina virtual |
-| BootTime_t | Tiempo de arranque |
+|TenantId | Identificador único del área de trabajo |
+|SourceSystem | *Insights* | 
+|TimeGenerated | Marca de tiempo del registro (UTC) |
+|Computer | FQDN del equipo | 
+|AgentId | Identificador único del agente de Log Analytics |
+|Máquina | nombre del recurso de Azure Resource Manager para la máquina expuesta por ServiceMap. Tiene el formato *m-{GUID}* , donde *GUID* coincide con el GUID de AgentId. | 
+|DisplayName | Nombre para mostrar | 
+|FullDisplayName | Nombre para mostrar del plan | 
+|HostName | Nombre de la máquina sin el nombre de dominio |
+|BootTime | Hora de arranque de la máquina (UTC) |
+|TimeZone | La zona horaria normalizada |
+|VirtualizationState | *virtual*, *hypervisor*, *physical* |
+|Ipv4Addresses | Matriz de direcciones IPv4 | 
+|Ipv4SubnetMasks | Matriz de máscaras de subred IPv4 (en el mismo orden que Ipv4Addresses) |
+|Ipv4DefaultGateways | Matriz de puertas de enlace IPv4 | 
+|Ipv6Addresses | Matriz de direcciones IPv6 | 
+|MacAddresses | Matriz de direcciones MAC | 
+|DnsNames | Matriz de nombres DNS asociados a la máquina |
+|DependencyAgentVersion | Versión del agente de Dependency Agent que se ejecuta en la máquina | 
+|OperatingSystemFamily | *Linux*, *Windows* |
+|OperatingSystemFullName | Nombre completo del sistema operativo | 
+|PhysicalMemoryMB | Memoria física en MB | 
+|Cpus | Número de procesadores | 
+|CpuSpeed | Velocidad de la CPU en MHz | 
+|VirtualMachineType | *hyperv*, *vmware*, *xen* |
+|VirtualMachineNativeId | Identificador de máquina virtual asignado por su hipervisor | 
+|VirtualMachineNativeName | Nombre de la máquina virtual |
+|VirtualMachineHypervisorId | Identificador único del hipervisor que hospeda la máquina virtual |
+|HypervisorType | *hyperv* |
+|HypervisorId | Identificador único del hipervisor | 
+|HostingProvider | *azure* |
+|_ResourceId | Identificador único de un recurso de Azure |
+|AzureSubscriptionId | Identificador único global que identifica la suscripción | 
+|AzureResourceGroup | Nombre del grupo de recursos de Azure del que es miembro la máquina |
+|AzureResourceName | Nombre del recurso de Azure |
+|AzureLocation | Ubicación del grupo de recursos de Azure |
+|AzureUpdateDomain | Nombre del dominio de actualización de Azure |
+|AzureFaultDomain | Nombre del dominio de error de Azure |
+|AzureVmId | Identificador único de la máquina virtual de Azure |
+|AzureSize | Tamaño de la máquina virtual de Azure |
+|AzureImagePublisher | Nombre del publicador de máquinas virtuales de Azure |
+|AzureImageOffering | Nombre del tipo de oferta de máquina virtual de Azure | 
+|AzureImageSku | SKU de la imagen de máquina virtual de Azure | 
+|AzureImageVersion | Versión de la imagen de máquina virtual de Azure | 
+|AzureCloudServiceName | Nombre del servicio en la nube de Azure |
+|AzureCloudServiceDeployment | Identificador de implementación del servicio en la nube |
+|AzureCloudServiceRoleName | Nombre del rol del servicio en la nube |
+|AzureCloudServiceRoleType | Tipo de rol del servicio en la nube: *worker* o *web* |
+|AzureCloudServiceInstanceId | Identificador de instancia del rol del servicio en la nube |
+|AzureVmScaleSetName | Nombre de conjunto de escalado de máquinas virtuales |
+|AzureVmScaleSetDeployment | Identificación de implementación del conjunto de escalado de máquinas virtuales |
+|AzureVmScaleSetResourceId | Identificador único del recurso del conjunto de escalado de máquinas virtuales|
+|AzureVmScaleSetInstanceId | Identificador único del conjunto de escalado de máquinas virtuales |
+|AzureServiceFabricClusterId | Identificador único del clúster de Azure Service Fabric | 
+|AzureServiceFabricClusterName | Nombre del clúster de Azure Service Fabric |
 
-### <a name="servicemapprocess_cl-type-records"></a>Registros con un tipo ServiceMapProcess_CL
-Los registros con un tipo *ServiceMapProcess_CL* tienen datos de inventario para procesos con conexión TCP en servidores con Dependency Agent. Estos registros tienen las propiedades de la tabla siguiente:
+### <a name="vmprocess-record"></a>Registro de VMProcess
 
-| Propiedad | DESCRIPCIÓN |
+Los registros con un tipo *VMProcess* tienen datos de inventario para procesos conectados mediante TCP en servidores con Dependency Agent. Estos registros tienen las propiedades de la tabla siguiente:
+
+| Propiedad | Descripción |
 |:--|:--|
-| type | *ServiceMapProcess_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | Identificador único de un proceso en el área de trabajo |
-| ResourceName_s | Identificador único de un proceso en el equipo en el que se está ejecutando|
-| MachineResourceName_s | Nombre de recurso del equipo |
-| ExecutableName_s | Nombre del archivo ejecutable del proceso |
-| StartTime_t | Hora de inicio del grupo de procesos |
-| FirstPid_d | Primer PID del grupo de procesos |
-| Description_s | Descripción del proceso |
-| CompanyName_s | Nombre de la compañía |
-| InternalName_s | Nombre interno |
-| ProductName_s | Nombre del producto |
-| ProductVersion_s | Versión del producto |
-| FileVersion_s | Versión del archivo |
-| CommandLine_s | Línea de comandos |
-| ExecutablePath_s | Ruta de acceso al archivo ejecutable |
-| WorkingDirectory_s | Directorio de trabajo |
-| UserName | Cuenta en la que se está ejecutando el proceso |
-| UserDomain | Dominio en el que se está ejecutando el proceso |
+|TenantId | Identificador único del área de trabajo |
+|SourceSystem | *Insights* | 
+|TimeGenerated | Marca de tiempo del registro (UTC) |
+|Computer | FQDN del equipo | 
+|AgentId | Identificador único del agente de Log Analytics |
+|Máquina | nombre del recurso de Azure Resource Manager para la máquina expuesta por ServiceMap. Tiene el formato *m-{GUID}* , donde *GUID* coincide con el GUID de AgentId. | 
+|Proceso | Identificador único del proceso de Service Map. Tiene el formato *p-{GUID}* . 
+|ExecutableName | Nombre del archivo ejecutable del proceso | 
+|DisplayName | Nombre para mostrar del proceso |
+|Role | Rol de proceso: *webserver*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
+|Grupo | Nombre del grupo de procesos Los procesos del mismo grupo están relacionados de manera lógica; por ejemplo, parte del mismo producto o componente del sistema. |
+|StartTime | Hora de inicio del grupo de procesos |
+|FirstPid | Primer PID del grupo de procesos |
+|Descripción | Descripción del proceso |
+|CompanyName | Nombre de la compañía |
+|InternalName | Nombre interno |
+|ProductName | Nombre del producto |
+|ProductVersion | Versión del producto |
+|FileVersion | Versión del archivo |
+|ExecutablePath _s |Ruta de acceso del archivo ejecutable |
+|CommandLine | Línea de comandos |
+|WorkingDirectory | Directorio de trabajo |
+|Servicios | Matriz de servicios en la que se ejecuta el proceso |
+|UserName | Cuenta en la que se está ejecutando el proceso |
+|UserDomain | Dominio en el que se está ejecutando el proceso |
+|_ResourceId | Identificador único de un proceso en el área de trabajo |
 
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
 
 ### <a name="list-all-known-machines"></a>Enumerar todas las máquinas conocidas
+
 ```kusto
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
+VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
 ### <a name="when-was-the-vm-last-rebooted"></a>Cuando se reinicie la VM por última vez
+
 ```kusto
-let Today = now(); ServiceMapComputer_CL | extend DaysSinceBoot = Today - BootTime_t | summarize by Computer, DaysSinceBoot, BootTime_t | sort by BootTime_t asc
+let Today = now(); VMComputer | extend DaysSinceBoot = Today - BootTime | summarize by Computer, DaysSinceBoot, BootTime | sort by BootTime asc
 ```
 
 ### <a name="summary-of-azure-vms-by-image-location-and-sku"></a>Resumen de las VM de Azure por imagen, ubicación y SKU
+
 ```kusto
-ServiceMapComputer_CL | where AzureLocation_s != "" | summarize by ComputerName_s, AzureImageOffering_s, AzureLocation_s, AzureImageSku_s
+VMComputer | where AzureLocation != "" | summarize by ComputerName, AzureImageOffering, AzureLocation, AzureImageSku
 ```
 
-### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Enumerar la capacidad de memoria física de todos los equipos administrados.
+### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Enumeración de la capacidad de memoria física de todos los equipos administrados
+
 ```kusto
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
+VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId | project PhysicalMemoryMB, Computer
 ```
 
-### <a name="list-computer-name-dns-ip-and-os"></a>Enumerar el nombre de equipo, DNS, IP y SO.
+### <a name="list-computer-name-dns-ip-and-os"></a>Enumeración del nombre de equipo, DNS, IP y SO
+
 ```kusto
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
+VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId | project Computer, OperatingSystemFullName, DnsNames, Ipv4Addresses
 ```
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Buscar todos los procesos con "sql" en la línea de comandos
+
 ```kusto
-ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
+VMComputer | where CommandLine contains_cs "sql" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Buscar una máquina (registro más reciente) por el nombre de recurso
+
 ```kusto
-search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
+search in (VMComputer) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Buscar un equipo (registro más reciente) por dirección IP
+
 ```kusto
-search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
+search in (VMComputer) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Enumerar todos los procesos conocidos en un equipo determinado
+
 ```kusto
-ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
+VMProcess | where Machine == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
 ### <a name="list-all-computers-running-sql-server"></a>Enumerar todos los equipos que ejecutan SQL Server
+
 ```kusto
-ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
+VMComputer | where AzureResourceName in ((search in (VMProcess) "\*sql\*" | distinct Machine)) | distinct Computer
 ```
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Enumerar todas las versiones de producto únicas de curl en mi centro de datos
+
 ```kusto
-ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
+VMProcess | where ExecutableName == "curl" | distinct ProductVersion
 ```
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Crear un grupo de equipos de todos los equipos con CentOS
+
 ```kusto
-ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
+VMComputer | where OperatingSystemFullName contains_cs "CentOS" | distinct ComputerName
 ```
 
 ### <a name="bytes-sent-and-received-trends"></a>Tendencias de bytes enviados y recibidos
+
 ```kusto
 VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart
 ```
 
 ### <a name="which-azure-vms-are-transmitting-the-most-bytes"></a>VM de Azure que transmiten más bytes
+
 ```kusto
-VMConnection | join kind=fullouter(ServiceMapComputer_CL) on $left.Computer == $right.ComputerName_s | summarize count(BytesSent) by Computer, AzureVMSize_s | sort by count_BytesSent desc
+VMConnection | join kind=fullouter(VMComputer) on $left.Computer == $right.Computer | summarize count(BytesSent) by Computer, AzureVMSize | sort by count_BytesSent desc
 ```
 
 ### <a name="link-status-trends"></a>Tendencias del estado del vínculo
+
 ```kusto
 VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart
 ```
 
 ### <a name="connection-failures-trend"></a>Tendencia de errores de conexión
+
 ```kusto
 VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart
 ```
 
 ### <a name="bound-ports"></a>Puertos enlazados
+
 ```kusto
 VMBoundPort
 | where TimeGenerated >= ago(24hr)
@@ -285,6 +356,7 @@ VMBoundPort
 ```
 
 ### <a name="number-of-open-ports-across-machines"></a>Número de puertos abiertos en las máquinas
+
 ```kusto
 VMBoundPort
 | where Ip != "127.0.0.1"
@@ -294,6 +366,7 @@ VMBoundPort
 ```
 
 ### <a name="score-processes-in-your-workspace-by-the-number-of-ports-they-have-open"></a>Puntuación de procesos en el área de trabajo por el número de puertos que tienen abiertos
+
 ```kusto
 VMBoundPort
 | where Ip != "127.0.0.1"
@@ -303,6 +376,7 @@ VMBoundPort
 ```
 
 ### <a name="aggregate-behavior-for-each-port"></a>Comportamiento agregado de cada puerto
+
 A continuación, esta consulta se puede usar para puntuar los puertos por actividad (por ejemplo, puertos con más tráfico entrante y saliente o puertos con más conexiones).
 ```kusto
 // 
@@ -314,12 +388,13 @@ VMBoundPort
 ```
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Resumir las conexiones salientes desde un grupo de máquinas
+
 ```kusto
 // the machines of interest
 let machines = datatable(m: string) ["m-82412a7a-6a32-45a9-a8d6-538354224a25"];
 // map of ip to monitored machine in the environment
-let ips=materialize(ServiceMapComputer_CL
-| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+let ips=materialize(VMComputer
+| summarize ips=makeset(todynamic(Ipv4Addresses)) by MonitoredMachine=AzureResourceName
 | mvexpand ips to typeof(string));
 // all connections to/from the machines of interest
 let out=materialize(VMConnection
@@ -356,6 +431,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Si eres nuevo a la hora de escribir consultas en Azure Monitor, revisa el tema sobre el [uso de Log Analytics](../../azure-monitor/log-query/get-started-portal.md) en Azure Portal para escribir consultas de registro.
 
 * Información acerca de la [escritura de consultas de búsqueda](../../azure-monitor/log-query/search-queries.md).

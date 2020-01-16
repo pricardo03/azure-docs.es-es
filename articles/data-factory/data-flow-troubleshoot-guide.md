@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019
-ms.date: 12/06/2019
-ms.openlocfilehash: b972bbeac419d88afdd257a7fd19587dbaedf0d9
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 06746cfc3b39a242c16a6b4f4c95b3c212a9abd5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930165"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443946"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>Solución de problemas de flujos de datos en Azure Data Factory
 
@@ -28,7 +28,7 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 
 - **Causa**: cuando el conjunto de datos contiene un contenedor que no existe en el almacenamiento
 
-- **Resolución**: asegúrese de que el contenedor al que se hace referencia en el conjunto de datos exista
+- **Solución:** asegúrese de que el contenedor al que se hace referencia en el conjunto de datos exista
 
 ### <a name="error-message-df-sys-01-javalangassertionerror-assertion-failed-conflicting-directory-structures-detected-suspicious-paths"></a>Mensaje de error: DF-SYS-01: java.lang.AssertionError: error de aserción: se han detectado estructuras de directorio en conflicto. Rutas de acceso sospechosas
 
@@ -36,7 +36,7 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 
 - **Causa**: la sintaxis de los comodines es incorrecta o no es válida
 
-- **Resolución**: compruebe la sintaxis de los caracteres comodín que se usan en las opciones de transformación de origen
+- **Solución:** compruebe la sintaxis de los caracteres comodín que se usan en las opciones de transformación de origen
 
 ### <a name="error-message-df-src-002-container-container-name-is-required"></a>Mensaje de error: DF-SRC-002: se requiere "container" (nombre de contenedor)
 
@@ -44,7 +44,7 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 
 - **Causa**: cuando el conjunto de datos contiene un contenedor que no existe en el almacenamiento
 
-- **Resolución**: asegúrese de que el contenedor al que se hace referencia en el conjunto de datos exista
+- **Solución:** asegúrese de que el contenedor al que se hace referencia en el conjunto de datos exista
 
 ### <a name="error-message-df-uni-001-primarykeyvalue-has-incompatible-types-integertype-and-stringtype"></a>Mensaje de error: DF-UNI-001: PrimaryKeyValue tiene tipos incompatibles IntegerType y StringType
 
@@ -52,7 +52,7 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 
 - **Causa**: tiene lugar cuando se intenta insertar un tipo de clave principal incorrecto en los receptores de base de datos
 
-- **Resolución**: use una columna derivada para convertir la columna que está usando para que la clave principal del flujo de datos coincida con el tipo de datos de la base de datos de destino
+- **Solución:** use una columna derivada para convertir la columna que está usando para que la clave principal del flujo de datos coincida con el tipo de datos de la base de datos de destino
 
 ### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-the-tcpip-connection-to-the-host-xxxxxdatabasewindowsnet-port-1433-has-failed-error-xxxxdatabasewindowsnet-verify-the-connection-properties-make-sure-that-an-instance-of-sql-server-is-running-on-the-host-and-accepting-tcpip-connections-at-the-port-make-sure-that-tcp-connections-to-the-port-are-not-blocked-by-a-firewall"></a>Mensaje de error: DF-SYS-01: com.microsoft.sqlserver.jdbc.SQLServerException: error en la conexión TCP/IP al puerto 1433 del host xxxxx.database.windows.net. Error: "xxxx.database.windows.net. Compruebe las propiedades de conexión. Asegúrese de que se esté ejecutando una instancia de SQL Server en el host y se acepten las conexiones TCP/IP en el puerto. Asegúrese de que un firewall no bloquee las conexiones TCP al puerto."
 
@@ -60,7 +60,7 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 
 - **Causa**: la base de datos está protegida por un firewall
 
-- **Resolución**: abra el acceso del firewall a la base de datos
+- **Solución:** abra el acceso del firewall a la base de datos
 
 ### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-there-is-already-an-object-named-xxxxxx-in-the-database"></a>Mensaje de error: DF-SYS-01: com.microsoft.sqlserver.jdbc.SQLServerException: ya existe un objeto denominado "xxxxxx" en la base de datos.
 
@@ -68,7 +68,7 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 
 - **Causa**: ya existe un nombre de tabla existente en la base de datos de destino con el mismo nombre definido en el origen o en el conjunto de datos
 
-- **Resolución**: cambie el nombre de la tabla que está intentando crear
+- **Solución:** cambie el nombre de la tabla que está intentando crear
 
 ### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-string-or-binary-data-would-be-truncated"></a>Mensaje de error: DF-SYS-01: com.microsoft.sqlserver.jdbc.SQLServerException: Los datos binarios o de tipo cadena se truncarían. 
 
@@ -76,7 +76,7 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 
 - **Causa**: Un campo del flujo de datos que se asigna a una columna de la base de datos SQL no es lo suficientemente ancho para almacenar el valor, lo que hace que el controlador de SQL produzca este error.
 
-- **Resolución**: Puede reducir la longitud de los datos de las columnas de cadena mediante ```left()``` en una columna derivada o implementar el [patrón de "fila de error".](how-to-data-flow-error-rows.md)
+- **Solución:** Puede reducir la longitud de los datos de las columnas de cadena mediante ```left()``` en una columna derivada o implementar el [patrón de "fila de error".](how-to-data-flow-error-rows.md)
 
 ### <a name="error-message-since-spark-23-the-queries-from-raw-jsoncsv-files-are-disallowed-when-the-referenced-columns-only-include-the-internal-corrupt-record-column"></a>Mensaje de error: Desde Spark 2.3, las consultas de archivos JSON o CSV sin formato no están permitidas cuando las columnas a las que se hace referencia incluyen solo la columna interna de registros incorrectos. 
 
@@ -84,7 +84,7 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 
 - **Causa**: al leer desde un origen JSON con un solo documento en muchas líneas anidadas, ADF, a través de Spark, no puede determinar dónde comienza un nuevo documento y dónde finaliza el documento anterior.
 
-- **Resolución**: en la transformación de origen que usa un conjunto de valores JSON, expanda "JSON Settings" (Configuración de JSON) y active "Single Document" (Documento único).
+- **Solución:** en la transformación de origen que usa un conjunto de valores JSON, expanda "JSON Settings" (Configuración de JSON) y active "Single Document" (Documento único).
 
 ### <a name="error-message-duplicate-columns-found-in-join"></a>Mensaje de error: Duplicate columns found in Join (Columnas duplicadas encontradas en la combinación)
 
@@ -92,8 +92,18 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 
 - **Causa**: los flujos que se combinan tienen nombres de columna comunes
 
-- **Resolución**: agregue una transformación Select después de la combinación y seleccione "Remove duplicate columns" (Quitar columnas duplicadas) para la entrada y la salida.
+- **Solución:** agregue una transformación Select después de la combinación y seleccione "Remove duplicate columns" (Quitar columnas duplicadas) para la entrada y la salida.
 
+### <a name="error-message-possible-cartesian-product"></a>Mensaje de error: Posible producto cartesiano
+
+- **Síntomas**: la transformación de combinación o búsqueda ha detectado un posible producto cartesiano tras la ejecución del flujo de datos
+
+- **Causa**: si no ha redirigido explícitamente ADF para usar una combinación cruzada, puede producirse un error en el flujo de datos
+
+- **Solución:** Cambie la transformación de búsqueda o combinación a una combinación mediante una combinación cruzada personalizada y especifique la condición de búsqueda o combinación en el editor de expresiones. Si quiere generar explícitamente un producto cartesiano completo, utilice la transformación Columna derivada en cada uno de los dos flujos independientes antes de la combinación para crear una clave sintética en la que buscar coincidencias. Por ejemplo, cree una columna en la columna derivada de cada flujo denominada ```SyntheticKey``` y establézcala como igual a ```1```. A continuación, use ```a.SyntheticKey == b.SyntheticKey``` como expresión de combinación personalizada.
+
+> [!NOTE]
+> Asegúrese de incluir al menos una columna a cada lado de la relación izquierda y derecha de una combinación cruzada personalizada. La ejecución de combinaciones cruzadas con valores estáticos en lugar de columnas a cada lado produce exámenes completos de todo el conjunto de datos, lo que provoca que el flujo de datos se realice de manera deficiente.
 
 ## <a name="general-troubleshooting-guidance"></a>Guía de solución de problemas generales
 

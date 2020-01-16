@@ -1,5 +1,5 @@
 ---
-title: Creación de un espacio de nombres de Azure Service Bus con un tema, una suscripción y una regla mediante una plantilla de Azure Resource Manager | Microsoft Docs
+title: Creación de suscripciones a temas y reglas de Service Bus mediante plantillas de Azure
 description: Creación de un espacio de nombres de Service Bus con un tema, una suscripción y una regla mediante una plantilla de Azure Resource Manager
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/27/2019
 ms.author: spelluru
-ms.openlocfilehash: dc61fb8e066c6189b5607a6e1cd479cb812466f7
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: d4c4f055114ccd0be4bbc588b7785eb0fb2f48c4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561562"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426886"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Service Bus con un tema, una suscripción y una regla mediante una plantilla de Azure Resource Manager
 
@@ -171,7 +171,7 @@ Para conocer la sintaxis y las propiedades JSON, consulte [espacios de nombres](
 New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
 ```
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 ```azurecli
 azure config mode arm
 
@@ -185,7 +185,7 @@ Vea los siguientes artículos para aprender a administrar estos recursos:
 * [Administración de Service Bus con PowerShell](service-bus-manage-with-ps.md)
 * [Administración de recursos de Service Bus con el Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md

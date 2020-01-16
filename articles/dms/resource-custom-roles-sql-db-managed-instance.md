@@ -1,6 +1,7 @@
 ---
-title: Roles personalizados para migraciones en línea de una instancia administrada desde SQL Server a SQL Database | Microsoft Docs
-description: Obtenga información sobre cómo usar roles personalizados para migraciones en línea de una instancia administrada desde SQL Server a SQL Database.
+title: 'Roles personalizados: migraciones de SQL Server en línea a instancias administradas de SQL'
+titleSuffix: Azure Database Migration Service
+description: Aprenda a usar roles personalizados para las migraciones en línea de una instancia administrada de SQL Server a Azure SQL Database.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
-ms.openlocfilehash: 8148e029bf343613a230b20d0397fa7851c96712
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 85c70968eb0f8a5752bbfa338918a8bba2fe7794
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72942153"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437694"
 ---
 # <a name="custom-roles-for-sql-server-to-sql-database-managed-instance-online-migrations"></a>Roles personalizados para migraciones en línea de una instancia administrada desde SQL Server a SQL Database
 

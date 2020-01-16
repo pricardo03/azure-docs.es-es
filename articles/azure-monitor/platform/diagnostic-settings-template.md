@@ -5,69 +5,43 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 0cb4cee732b1784de489d97769294c455cfd5efd
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: b549cc0e890a122a04984baa2348831fc51abe08
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200489"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531010"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Creación de la configuración de diagnóstico en Azure con una plantilla de Resource Manager
-Los [registros de plataforma](platform-logs-overview.md) en Azure proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma de Azure de la que dependen. En este artículo se proporcionan detalles sobre el uso de una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para la configuración de diagnóstico para la recopilación de los registros de plataforma en distintos destinos. Esto permite empezar a recopilar automáticamente los registros de plataforma cuando se crea un recurso.
+[Configuración de diagnóstico](diagnostic-settings.md) en Azure Monitor especifica dónde se envían los [Registros de plataforma](platform-logs-overview.md) recopilados por los recursos de Azure y la plataforma de Azure de los que dependen. En este artículo se proporcionan detalles y ejemplos sobre el uso de una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) a fin de crear y definir la configuración de diagnóstico para recopilar los registros de plataforma en distintos destinos. 
+
+> [!NOTE]
+> Dado que no puede [crear una configuración de diagnóstico](diagnostic-settings.md) para el registro de actividad de Azure mediante PowerShell o la CLI, como la configuración de diagnóstico de otros recursos de Azure, cree una plantilla de Resource Manager para el registro de actividad mediante la información de este artículo e implemente la plantilla mediante PowerShell o la CLI.
+
+## <a name="deployment-methods"></a>Métodos de implementación
+Puede implementar las plantillas de Resource Manager mediante cualquier método válido, como PowerShell y la CLI. La configuración de diagnóstico del registro de actividad se debe implementar en una suscripción mediante `az deployment create` para la CLI o `New-AzDeployment` para PowerShell. La configuración de diagnóstico de los registros de recursos se debe implementar en un grupo de recursos mediante `az group deployment create` para la CLI o `New-AzResourceGroupDeployment` para PowerShell. 
+
+Consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md) e [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md) para ver información más detallada. 
 
 
-## <a name="resource-manager-template"></a>Plantilla de Resource Manager
-Hay dos secciones de la plantilla de Resource Manager que necesita editar para crear la configuración de diagnóstico, que se describen en las secciones siguientes.
 
-### <a name="parameters"></a>Parámetros
-Según el [destino](diagnostic-settings.md#destinations) de la configuración de diagnóstico, agregue parámetros al blob de parámetros para el nombre de la cuenta de almacenamiento, el identificador de la regla de autorización del centro de eventos y el identificador del área de trabajo de Log Analytics.
-   
-```json
-"settingName": {
-  "type": "string",
-  "metadata": {
-    "description": "Name for the diagnostic setting resource. Eg. 'archiveToStorage' or 'forSecurityTeam'."
-  }
-},
-"storageAccountName": {
-  "type": "string",
-  "metadata": {
-    "description": "Name of the Storage Account in which platform logs should be saved."
-  }
-},
-"eventHubAuthorizationRuleId": {
-  "type": "string",
-  "metadata": {
-    "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
-  }
-},
-"eventHubName": {
-  "type": "string",
-  "metadata": {
-    "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
-  }
-},
-"workspaceId":{
-  "type": "string",
-  "metadata": {
-    "description": "Azure Resource ID of the Log Analytics workspace to which logs will be sent."
-  }
-}
-```
 
-### <a name="resources"></a>Recursos
-En la matriz de recursos del recurso para el que desea crear la configuración de diagnóstico, agregue un recurso de tipo `[resource namespace]/providers/diagnosticSettings`. La sección de propiedades tiene el formato que se describe en [Configuración de diagnóstico: creación o actualización](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Agregue la propiedad `metrics` para recopilar métricas de recurso en los mismos destinos si el [recurso admite métricas](metrics-supported.md).
-   
+
+## <a name="resource-logs"></a>Registros del recurso
+En el caso de los registros de recursos, agregue un recurso de tipo `<resource namespace>/providers/diagnosticSettings` a la plantilla. La sección de propiedades tiene el formato que se describe en [Configuración de diagnóstico: creación o actualización](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Proporcione un valor de `category` en la sección `logs` a cada una de las categorías válidas para el recurso que desea recopilar. Agregue la propiedad `metrics` para recopilar métricas de recurso en los mismos destinos si el [recurso admite métricas](metrics-supported.md).
+
+A continuación, se encuentra una plantilla que recopila una categoría de registro de recursos para un recurso determinado en un área de trabajo de Log Analytics, una cuenta de almacenamiento y un centro de eventos. 
+
 ```json
 "resources": [
   {
-    "type": "providers/diagnosticSettings",
-    "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
+    "type": "/<resource namespace>/providers/diagnosticSettings",
+    "name": "[concat(parameters('resourceName'),'/microsoft.insights/', parameters('settingName'))]",
     "dependsOn": [
-      "[/*resource Id for which resource logs will be enabled>*/]"
+      "[<resource Id for which resource logs will be enabled>]"
     ],
     "apiVersion": "2017-05-01-preview",
     "properties": {
@@ -78,22 +52,14 @@ En la matriz de recursos del recurso para el que desea crear la configuración d
       "workspaceId": "[parameters('workspaceId')]",
       "logs": [ 
         {
-          "category": "/* log category name */",
-          "enabled": true,
-          "retentionPolicy": {
-            "days": 0,
-            "enabled": false
-          }
+          "category": "<category name>",
+          "enabled": true
         }
       ],
       "metrics": [
         {
           "category": "AllMetrics",
-          "enabled": true,
-          "retentionPolicy": {
-            "enabled": false,
-            "days": 0
-          }
+          "enabled": true
         }
       ]
     }
@@ -103,137 +69,171 @@ En la matriz de recursos del recurso para el que desea crear la configuración d
 
 
 
-## <a name="example"></a>Ejemplo
-A continuación se ofrece un ejemplo completo que crea una aplicación lógica y una configuración de diagnóstico que permite la transmisión de registros de recurso a un centro de eventos y al almacenamiento en una cuenta de almacenamiento.
+### <a name="example"></a>Ejemplo
+A continuación, se ofrece un ejemplo que crea una configuración de diagnóstico para una configuración de escalabilidad automática que permite la transmisión de registros de recursos a un centro de eventos, una cuenta de almacenamiento y un área de trabajo de Log Analytics.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "logicAppName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the Logic App that will be created."
-      }
-    },
-    "testUri": {
-      "type": "string",
-      "defaultValue": "https://azure.microsoft.com/status/feed/"
-    },
-    "settingName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the setting. Name for the diagnostic setting resource. Eg. 'archiveToStorage' or 'forSecurityTeam'."
-      }
-    },
-    "storageAccountName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the Storage Account in which resource logs should be saved."
-      }
-    },
-    "eventHubAuthorizationRuleId": {
-      "type": "string",
-      "metadata": {
-        "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
-      }
-    },
-    "eventHubName": {
-      "type": "string",
-      "metadata": {
-        "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
-      }
-    },
-    "workspaceId": {
-      "type": "string",
-      "metadata": {
-        "description": "Log Analytics workspace ID for the Log Analytics workspace to which logs will be sent."
-      }
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Logic/workflows",
-      "name": "[parameters('logicAppName')]",
-      "apiVersion": "2016-06-01",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "definition": {
-          "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
-          "contentVersion": "1.0.0.0",
-          "parameters": {
-            "testURI": {
-              "type": "string",
-              "defaultValue": "[parameters('testUri')]"
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "autoscaleSettingName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the autoscale setting"
             }
-          },
-          "triggers": {
-            "recurrence": {
-              "type": "recurrence",
-              "recurrence": {
-                "frequency": "Hour",
-                "interval": 1
-              }
-            }
-          },
-          "actions": {
-            "http": {
-              "type": "Http",
-              "inputs": {
-                "method": "GET",
-                "uri": "@parameters('testUri')"
-              },
-              "runAfter": {}
-            }
-          },
-          "outputs": {}
         },
-        "parameters": {}
-      },
-      "resources": [
-        {
-          "type": "providers/diagnosticSettings",
-          "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
-          "dependsOn": [
-            "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
-          ],
-          "apiVersion": "2017-05-01-preview",
-          "properties": {
-            "name": "[parameters('settingName')]",
-            "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-            "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
-            "eventHubName": "[parameters('eventHubName')]",
-            "workspaceId": "[parameters('workspaceId')]",
-            "logs": [
-              {
-                "category": "WorkflowRuntime",
-                "enabled": true,
-                "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
-                }
-              }
-            ],
-            "metrics": [
-              {
-                "timeGrain": "PT1M",
-                "enabled": true,
-                "retentionPolicy": {
-                  "enabled": false,
-                  "days": 0
-                }
-              }
-            ]
-          }
+        "settingName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the diagnostic setting"
+            }
+        },
+        "workspaceId": {
+            "type": "string",
+            "metadata": {
+                "description": "ResourceIDl of the Log Analytics workspace in which resource logs should be saved."
+            }
+        },
+        "storageAccountId": {
+            "type": "string",
+            "metadata": {
+              "description": "ResourceID of the Storage Account in which resource logs should be saved."
+            }
+        },
+        "eventHubAuthorizationRuleId": {
+            "type": "string",
+            "metadata": {
+              "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
+            }
+        },
+        "eventHubName": {
+            "type": "string",
+            "metadata": {
+                "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
+            }
         }
+    },
+    "variables": {},
+    "resources": [
+    {
+      "type": "microsoft.insights/autoscalesettings/providers/diagnosticSettings",
+      "apiVersion": "2017-05-01-preview",
+      "name": "[concat(parameters('autoscaleSettingName'),'/microsoft.insights/', parameters('settingName'))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Insights/autoscalesettings', parameters('autoscaleSettingName'))]"
       ],
-      "dependsOn": []
+      "properties": {
+        "workspaceId": "[parameters('workspaceId')]",
+        "storageAccountId": "[parameters('storageAccountId')]",
+        "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+        "eventHubName": "[parameters('eventHubName')]",
+        "logs": [
+          {
+            "category": "AutoscaleScaleActions",
+            "enabled": true
+          },
+          {
+            "category": "AutoscaleEvaluations",
+            "enabled": true
+          }
+        ]
+      }
     }
   ]
 }
+```
 
+## <a name="activity-log"></a>Registro de actividades
+Para el registro de actividad de Azure, agregue un recurso de tipo `Microsoft.Insights/diagnosticSettings`. Las categorías disponibles se enumeran en [Categorías del registro de actividad](activity-log-view.md#categories-in-the-activity-log). A continuación, se muestra una plantilla que recopila todas las categorías de registro de actividades en un área de trabajo de Log Analytics, una cuenta de almacenamiento y un centro de eventos.
+
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "settingName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the diagnostic setting"
+            }
+        },
+        "workspaceId": {
+            "type": "string",
+            "metadata": {
+                "description": "ResourceID of the Log Analytics workspace in which resource logs should be saved."
+            }
+        },
+        "storageAccountId": {
+            "type": "string",
+            "metadata": {
+              "description": "ResourceID of the Storage Account in which resource logs should be saved."
+            }
+        },
+        "eventHubAuthorizationRuleId": {
+            "type": "string",
+            "metadata": {
+              "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
+            }
+        },
+        "eventHubName": {
+            "type": "string",
+            "metadata": {
+                "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
+            }
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Insights/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[parameters('settingName')]",
+            "location": "global",
+            "properties": {
+                "workspaceId": "[parameters('workspaceId')]",
+                "storageAccountId": "[parameters('storageAccountId')]",
+                "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+                "eventHubName": "[parameters('eventHubName')]",
+                "logs": [
+                    {
+                        "category": "Administrative",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Security",
+                        "enabled": true
+                    },
+                    {
+                        "category": "ServiceHealth",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Alert",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Recommendation",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Policy",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Autoscale",
+                        "enabled": true
+                    },
+                    {
+                        "category": "ResourceHealth",
+                        "enabled": true
+                    }
+                ]
+            }
+        }
+    ]
+}
 ```
 
 

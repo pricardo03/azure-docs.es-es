@@ -1,5 +1,5 @@
 ---
-title: 'Revisión del acceso a los grupos o las aplicaciones en las revisiones de acceso: Azure Active Directory | Microsoft Docs'
+title: 'Revisión del acceso a los grupos y las aplicaciones en las revisiones de acceso: Azure AD'
 description: Aprenda a revisar el acceso de los miembros del grupo o de las aplicaciones en las revisiones de acceso de Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -15,14 +15,14 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e51ad8faecd935ea999b1287e542e4b14d55290a
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 8393a1e4719137aa09233d0a87dabdf81d8ccb59
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948241"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422453"
 ---
-# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Revisión del acceso a los grupos o las aplicaciones en las revisiones de acceso de Azure AD
+# <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Revisión del acceso a los grupos y las aplicaciones en las revisiones de acceso de Azure AD
 
 Azure Active Directory (Azure AD) simplifica el modo en que las empresas administran el acceso a los grupos y las aplicaciones en Azure AD y otras instancias de Microsoft Online Services, gracias a una característica denominada revisiones de acceso de Azure AD.
 
@@ -38,7 +38,7 @@ El primer paso para realizar una revisión de acceso es buscar y abrir la revisi
 
 1. Haga clic en el vínculo **Start review** (Iniciar revisión) para abrir la revisión de acceso.
 
-Si no tiene el correo electrónico, puede encontrar las revisiones de acceso pendientes mediante estos pasos:
+Si no tiene el correo electrónico, puede encontrar las revisiones de acceso pendientes mediante estos pasos.
 
 1. Inicie sesión en el portal de aplicaciones en [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
@@ -83,7 +83,7 @@ Hay dos maneras de aprobar o denegar el acceso:
 
 1. Una vez que ha especificado la acción para realizar, haga clic en **Guardar**.
 
-    Si quiere cambiar la respuesta, seleccione la fila y actualice la respuesta. Por ejemplo, puede aprobar el acceso de un usuario denegado anteriormente o denegar el de un usuario aprobado antes. En cualquier momento puede cambiar su respuesta hasta que finalice la revisión de acceso.
+    Si quiere cambiar la respuesta, seleccione la fila y actualice la respuesta. Por ejemplo, puede aprobar el acceso de un usuario denegado anteriormente o denegar el de un usuario aprobado antes. Puede cambiar su respuesta en cualquier momento hasta que finalice la revisión de acceso.
 
     Si hay varios revisores, se registra la última respuesta enviada. Considere un ejemplo donde un administrador designa dos revisores: Alice y Bob. Alice abre primero la revisión de acceso y aprueba el acceso. Antes de que finalice la revisión, Bob abre la revisión de acceso y deniega el acceso. La última respuesta de denegación es la que se registra.
 

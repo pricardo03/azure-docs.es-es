@@ -2,13 +2,13 @@
 title: Referencia para desarrolladores de Python para Azure Functions
 description: Aprenda a desarrollar funciones con Python
 ms.topic: article
-ms.date: 04/16/2018
-ms.openlocfilehash: 7c8ce87fdf396bc488a7deaf576eea28f989e0e4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/13/2019
+ms.openlocfilehash: 55eb1fe53aa4256f1b7eee44547703328816cd32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226643"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409084"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guía de Azure Functions para desarrolladores de Python
 
@@ -236,7 +236,7 @@ def main(req):
 
 Hay métodos de registro adicionales disponibles que permiten escribir en la consola en otros niveles de seguimiento:
 
-| Método                 | DESCRIPCIÓN                                |
+| Método                 | Descripción                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | Escribe un mensaje con el nivel CRÍTICO en el registrador de raíz.  |
 | **`error(_message_)`**   | Escribe un mensaje con el nivel ERROR en el registrador de raíz.    |
@@ -280,28 +280,30 @@ En esta función, el valor del parámetro de consulta `name` se obtiene del par�
 
 Del mismo modo, puede establecer `status_code` y `headers` para el mensaje de respuesta en el objeto [HttpResponse] devuelto.
 
-## <a name="concurrency"></a>Simultaneidad
+## <a name="scaling-and-concurrency"></a>Escalado y simultaneidad
 
-De forma predeterminada, el tiempo de ejecución de Python de Functions solo puede procesar una invocación de función a la vez. Este nivel de simultaneidad podría no ser suficiente en una o varias de las siguientes situaciones:
+De forma predeterminada, Azure Functions supervisa automáticamente la carga en la aplicación y crea instancias de host adicionales para Python según sea necesario. Functions usa umbrales integrados (no configurables por el usuario) en diferentes tipos de desencadenadores para decidir cuándo se deben agregar instancias, como la antigüedad de los mensajes y el tamaño de la cola para QueueTrigger. Para más información, consulte [Cómo funcionan los planes de consumo y Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-+ Está intentando administrar un gran número de invocaciones a la vez.
-+ Está procesando un gran número de eventos de E/S.
-+ La aplicación está enlazada a E/S.
+Este comportamiento de escalado es suficiente para muchas aplicaciones. Sin embargo, es posible que las aplicaciones con alguna de las siguientes características no se escalen de forma tan eficaz:
 
-En estas situaciones, puede mejorar el rendimiento mediante una ejecución asincrónica y el uso de varios procesos de trabajo de lenguaje.  
+- La aplicación necesita administrar muchas invocaciones simultáneas.
+- La aplicación procesa un gran número de eventos de E/S.
+- La aplicación es dependiente de las operaciones de E/S.
+
+En tales casos, puede mejorar aún más el rendimiento si emplea patrones asincrónicos y usa varios procesos de trabajo de lenguaje.
 
 ### <a name="async"></a>Async
 
-Le recomendamos que utilice las instrucciones `async def`para que su función se ejecute como corrutina asincrónica.
+Dado que Python es un entorno de ejecución de un solo subproceso, una instancia de host para Python solo puede procesar una invocación de función cada vez. En el caso de las aplicaciones que procesan un gran número de eventos de E/S o que son dependientes de las operaciones de E/S, puede mejorar el rendimiento mediante la ejecución de funciones de forma asincrónica.
+
+Para ejecutar una función de forma asincrónica, use la instrucción `async def`, que ejecuta la función directamente con [asyncio](https://docs.python.org/3/library/asyncio.html):
 
 ```python
-# Runs with asyncio directly
-
 async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-Si la función `main()` es sincrónica (no tiene el calificador `async`), se ejecuta automáticamente en un grupo de subprocesos `asyncio`.
+Una función sin la palabra clave `async` se ejecuta automáticamente en un grupo de subprocesos de asyncio:
 
 ```python
 # Runs in an asyncio thread-pool
@@ -312,7 +314,9 @@ def main():
 
 ### <a name="use-multiple-language-worker-processes"></a>Uso de procesos de trabajo de varios lenguajes
 
-De forma predeterminada, cada instancia de host de Functions tiene un único proceso de trabajo de lenguaje. Sin embargo, hay compatibilidad para tener varios procesos de trabajo de lenguaje por cada instancia de host. Las invocaciones de función se pueden distribuir uniformemente entre estos procesos de trabajo de lenguaje. Use la configuración de la aplicación [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) para cambiar este valor. 
+De forma predeterminada, cada instancia de host de Functions tiene un único proceso de trabajo de lenguaje. Puede aumentar el número de procesos de trabajo por host (hasta 10) mediante la configuración de la aplicación [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count). Al hacerlo, Azure Functions intenta distribuir uniformemente las invocaciones de función simultáneas en estos trabajos. 
+
+FUNCTIONS_WORKER_PROCESS_COUNT se aplica a cada host que Functions crea al escalar horizontalmente la aplicación para satisfacer la demanda. 
 
 ## <a name="context"></a>Context
 

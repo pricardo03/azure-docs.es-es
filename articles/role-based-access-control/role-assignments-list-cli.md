@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1a58d2170ec1107222f0e37e432063af23743e42
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 12ecca5873ac7c2c3bfa30d4c73c7d8e268aabfb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74709896"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355714"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Lista de asignaciones de roles con RBAC de Azure y la CLI de Azure
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] En este artículo se describe cómo enumerar las asignaciones de roles mediante la CLI de Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Bash en Azure Cloud Shell](/azure/cloud-shell/overview) o [CLI de Azure](/cli/azure)
 
@@ -37,7 +37,7 @@ Para mostrar las asignaciones de roles de un usuario específico use [az role as
 az role assignment list --assignee <assignee>
 ```
 
-De forma predeterminada, se mostrarán únicamente las asignaciones directas que se limitan a la suscripción. Para ver las asignaciones con ámbito por grupo o recurso, use `--all`, y para ver asignaciones heredadas, `--include-inherited`.
+De forma predeterminada, se mostrarán únicamente las asignaciones de roles para la suscripción actual. Para ver las asignaciones de roles de la suscripción actual y anteriores, agregue el parámetro `--all`. Para ver las asignaciones de roles heredadas, agregue el parámetro `--include-inherited`.
 
 En el ejemplo siguiente, se muestran las asignaciones de roles asignadas directamente al usuario *patlong\@contoso.com*:
 
@@ -110,6 +110,30 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 ```Example
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/marketing-group --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
+
+## <a name="list-role-assignments-for-a-managed-identity"></a>Lista de asignaciones de roles para una identidad administrada
+
+1. Obtenga el identificador de objeto de la identidad administrada asignada por el usuario o el sistema. 
+
+    Para obtener el identificador de objeto de una identidad administrada asignada por el usuario, puede usar [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) o [az identity list](/cli/azure/identity#az-identity-list).
+
+    ```azurecli
+    az ad sp list --display-name "<name>" --query [].objectId --output tsv
+    ```
+
+    Para obtener el identificador de objeto de una identidad administrada asignada por el sistema, puede usar [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list).
+
+    ```azurecli
+    az ad sp list --display-name "<vmname>" --query [].objectId --output tsv
+    ```
+
+1. Para mostrar las asignaciones de roles use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list).
+
+    De forma predeterminada, se mostrarán únicamente las asignaciones de roles para la suscripción actual. Para ver las asignaciones de roles de la suscripción actual y anteriores, agregue el parámetro `--all`. Para ver las asignaciones de roles heredadas, agregue el parámetro `--include-inherited`.
+
+    ```azurecli
+    az role assignment list --assignee <objectid>
+    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

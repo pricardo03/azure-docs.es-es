@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 7fac09ff236e4bb2c63691f9dc1ad41bb49edae4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 099dc723db44ba71fc4672c382d24ac93ffe742f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793348"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689138"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -50,12 +50,13 @@ No se admiten discos de máquina virtual no administrados en cuentas que tengan 
 
 ## <a name="filesystem-support-in-sdks"></a>Compatibilidad del sistema de archivos en SDK
 
-- .NET, Java y Python se encuentran en versión preliminar pública. No se admiten otros SDK actualmente.
+- La compatibilidad con [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) y [Python](data-lake-storage-directory-file-acl-python.md) se encuentra en versión preliminar pública. No se admiten otros SDK actualmente.
 - Las operaciones de ACL Get y Set no son recursivas actualmente.
 
 ## <a name="filesystem-support-in-powershell-and-azure-cli"></a>Compatibilidad del sistema de archivos en PowerShell y la CLI de Azure
 
-Las operaciones de ACL Get y Set no son recursivas actualmente.
+- La compatibilidad con [PowerShell](data-lake-storage-directory-file-acl-powershell.md) y la [CLI de Azure](data-lake-storage-directory-file-acl-cli.md) se encuentra en versión preliminar pública.
+- Las operaciones de ACL Get y Set no son recursivas actualmente.
 
 ## <a name="support-for-other-blob-storage-features"></a>Compatibilidad con otras características de Blob Storage
 
@@ -63,6 +64,7 @@ En la siguiente tabla se enumeran las demás características y herramientas que
 
 | Característica o herramienta    | Más información    |
 |--------|-----------|
+| **Conmutación por error de cuenta** |Todavía no se admite|
 | **AzCopy** | Compatibilidad con versiones específicas <br><br>Use solo la versión más reciente de AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). No se admiten versiones anteriores de AzCopy, como AzCopy v8.1.|
 | **Directivas de administración del ciclo de vida de Azure Blob Storage** | Se admiten las directivas de administración del ciclo de vida (versión preliminar).  Se admiten todos los niveles de acceso. El nivel de acceso de archivo se encuentra actualmente en versión preliminar. Todavía no se admite la eliminación de instantáneas de blob. <br><br> Actualmente, hay algunos errores que afectan a las directivas de administración del ciclo de vida y al nivel de acceso de archivo.  Regístrese [aquí](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) para obtener la versión preliminar de las directivas de administración del ciclo de vida y el nivel de acceso de archivo.   |
 | **Azure Content Delivery Network** | Todavía no se admite|

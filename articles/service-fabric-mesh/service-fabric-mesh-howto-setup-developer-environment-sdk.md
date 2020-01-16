@@ -1,20 +1,16 @@
 ---
-title: Configuración de un entorno de desarrollo de Windows para compilar aplicaciones de Service Fabric Mesh | Microsoft Docs
+title: Configuración de un entorno de desarrollo de Windows para Service Fabric Mesh
 description: Configure el entorno de desarrollo de Windows para que pueda crear una aplicación de Service Fabric Mesh e implementarla en Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 12/12/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chakdan
-ms.openlocfilehash: 5ab817c65ab562f37b456cc3589624c1876084f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a674047722d4deca02d8f4d38a0826e479065037
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428201"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496365"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Configuración del entorno de desarrollo de Windows para compilar aplicaciones de Service Fabric Mesh
 
@@ -48,7 +44,7 @@ Si ya tiene instalado Docker, asegúrese de que tiene la última versión. Puede
 
 #### <a name="install-docker-on-windows-10"></a>Instalación de Docker en Windows 10
 
-Descargue e instale la versión más reciente de [Docker Community Edition para Windows][download-docker] para admitir las aplicaciones de Service Fabric en contenedores que usa Service Fabric Mesh.
+Descargue e instale la versión más reciente de [Docker Community Edition para Windows][download-docker] para admitir las aplicaciones de Service Fabric en contenedores que Service Fabric Mesh usa.
 
 Durante la instalación, seleccione **Use Windows containers instead of Linux containers** (Usar contenedores de Windows en lugar de contenedores de Linux) cuando se le pida.
 
@@ -76,8 +72,8 @@ Install-WindowsFeature Containers
 
 Instale el entorno de ejecución, el SDK y las herramientas de Service Fabric Mesh en el siguiente orden.
 
-1. Instale el [SDK de Service Fabric Mesh][download-sdkmesh] mediante el instalador de plataforma web. Con esto también se instalará el SDK y el runtime de Microsoft Azure Service Fabric.
-2. Instale la [extensión de Visual Studio Service Fabric Mesh (versión preliminar)][download-tools] desde Visual Studio Marketplace.
+1. Instale el [SDK de Service Fabric Mesh][download-sdkmesh] mediante el Instalador de plataforma web. Con esto también se instalará el SDK y el runtime de Microsoft Azure Service Fabric.
+2. Instale la [extensión de las herramientas de Visual Studio Service Fabric Mesh (versión preliminar)][download-tools] desde Visual Studio Marketplace.
 
 ## <a name="build-a-cluster"></a>Compilación de un clúster
 

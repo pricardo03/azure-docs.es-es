@@ -1,17 +1,17 @@
 ---
 title: Solución de problemas de pérdida de datos en Azure Cache for Redis
-description: Más información sobre cómo resolver problemas de pérdida de datos con Azure Cache for Redis
+description: Obtenga información sobre cómo resolver problemas de pérdida de datos con Azure Cache for Redis, como la pérdida parcial de claves, la expiración de claves o la pérdida completa de claves.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.author: yegu
-ms.openlocfilehash: 77493675de0a654d3bb510f7cda22a2abbca0aa2
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d54506b94f076f0a3d967f88bd4e2960a1ca6396
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121492"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530908"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Solución de problemas de pérdida de datos en Azure Cache for Redis
 
@@ -27,7 +27,7 @@ Azure Cache for Redis no elimina aleatoriamente las claves una vez que se han al
 
 Si observa que las claves han desaparecido de la caché, compruebe las siguientes causas posibles:
 
-| Causa | DESCRIPCIÓN |
+| Causa | Descripción |
 |---|---|
 | [Expiración de la clave](#key-expiration) | Las claves se quitan debido a los tiempos de espera establecidos. |
 | [Expulsión de la clave](#key-eviction) | Las claves se quitan en la presión de memoria. |
@@ -36,9 +36,9 @@ Si observa que las claves han desaparecido de la caché, compruebe las siguiente
 
 ### <a name="key-expiration"></a>Expiración de la clave
 
-Azure Cache for Redis quita automáticamente una clave si se le asigna un tiempo de espera y se ha superado ese período. Para obtener más información sobre la expiración de las claves de Redis, consulte la documentación del comando [EXPIRE](http://redis.io/commands/expire). Los valores de tiempo de expiración también se pueden establecer mediante los comandos [SET](http://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GETSET](https://redis.io/commands/getset) y otros comandos **\*STORE**.
+Azure Cache for Redis quita automáticamente una clave si se le asigna un tiempo de espera y se ha superado ese período. Para obtener más información sobre la expiración de las claves de Redis, consulte la documentación del comando [EXPIRE](https://redis.io/commands/expire). Los valores de tiempo de expiración también se pueden establecer mediante los comandos [SET](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GETSET](https://redis.io/commands/getset) y otros comandos **\*STORE**.
 
-Para obtener estadísticas sobre cuántas claves han expirado, use el comando [INFO](http://redis.io/commands/info). La sección `Stats` muestra el número total de claves expiradas. La sección `Keyspace` proporciona más información sobre el número de claves con tiempos de expiración y el valor de tiempo de expiración promedio.
+Para obtener estadísticas sobre cuántas claves han expirado, use el comando [INFO](https://redis.io/commands/info). La sección `Stats` muestra el número total de claves expiradas. La sección `Keyspace` proporciona más información sobre el número de claves con tiempos de expiración y el valor de tiempo de expiración promedio.
 
 ```
 # Stats
@@ -54,9 +54,9 @@ También puede consultar las métricas de diagnóstico de la memoria caché para
 
 ### <a name="key-eviction"></a>Expulsión de la clave
 
-Azure Cache for Redis requiere espacio en memoria para almacenar datos. Purga las claves para liberar memoria disponible cuando sea necesario. Cuando los valores **used_memory** o **used_memory_rss** del comando [INFO](http://redis.io/commands/info) se aproximan al valor **maxmemory** configurado, Azure Cache for Redis comienza a expulsar las claves de la memoria en función de la [directiva de caché](http://redis.io/topics/lru-cache).
+Azure Cache for Redis requiere espacio en memoria para almacenar datos. Purga las claves para liberar memoria disponible cuando sea necesario. Cuando los valores **used_memory** o **used_memory_rss** del comando [INFO](https://redis.io/commands/info) se aproximan al valor **maxmemory** configurado, Azure Cache for Redis comienza a expulsar las claves de la memoria en función de la [directiva de caché](https://redis.io/topics/lru-cache).
 
-Puede supervisar el número de claves expulsadas con el comando [INFO](http://redis.io/commands/info):
+Puede supervisar el número de claves expulsadas con el comando [INFO](https://redis.io/commands/info):
 
 ```
 # Stats
@@ -68,7 +68,7 @@ También puede consultar las métricas de diagnóstico de la memoria caché para
 
 ### <a name="key-deletion"></a>Eliminación de la clave
 
-Los clientes de Redis pueden emitir el comando [DEL](http://redis.io/commands/del) o [HDEL](http://redis.io/commands/hdel) para quitar claves de Azure Cache for Redis explícitamente. Puede realizar un seguimiento del número de operaciones de eliminación mediante el comando [INFO](http://redis.io/commands/info). Si se ha llamado a los comandos **DEL** o **HDEL**, aparecerán en la sección `Commandstats`.
+Los clientes de Redis pueden emitir el comando [DEL](https://redis.io/commands/del) o [HDEL](https://redis.io/commands/hdel) para quitar claves de Azure Cache for Redis explícitamente. Puede realizar un seguimiento del número de operaciones de eliminación mediante el comando [INFO](https://redis.io/commands/info). Si se ha llamado a los comandos **DEL** o **HDEL**, aparecerán en la sección `Commandstats`.
 
 ```
 # Commandstats
@@ -80,13 +80,13 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### <a name="async-replication"></a>Replicación asincrónica
 
-Cualquier instancia de Azure Cache for Redis en el nivel Estándar o Premium se configura con un nodo maestro y al menos una réplica. Los datos se copian desde el maestro a una réplica de forma asincrónica mediante un proceso en segundo plano. En el sitio web [redis.io](http://redis.io/topics/replication) se describe cómo funciona la replicación de datos de Redis en general. En los escenarios en los que los clientes escriben en Redis con frecuencia, se puede producir una pérdida parcial de datos porque se garantiza que esta replicación será instantánea. Por ejemplo, si el maestro deja de estar disponible *después* de que un cliente escriba una clave en él pero *antes* de que el proceso en segundo plano tenga ocasión de enviar esta clave a la réplica, la clave se perderá cuando la réplica tome el control como nuevo maestro.
+Cualquier instancia de Azure Cache for Redis en el nivel Estándar o Premium se configura con un nodo maestro y al menos una réplica. Los datos se copian desde el maestro a una réplica de forma asincrónica mediante un proceso en segundo plano. En el sitio web [redis.io](https://redis.io/topics/replication) se describe cómo funciona la replicación de datos de Redis en general. En los escenarios en los que los clientes escriben en Redis con frecuencia, se puede producir una pérdida parcial de datos porque se garantiza que esta replicación será instantánea. Por ejemplo, si el maestro deja de estar disponible *después* de que un cliente escriba una clave en él pero *antes* de que el proceso en segundo plano tenga ocasión de enviar esta clave a la réplica, la clave se perderá cuando la réplica tome el control como nuevo maestro.
 
 ## <a name="major-or-complete-loss-of-keys"></a>Pérdida principal o completa de claves
 
 Si todas las claves o la mayoría de estas han desaparecido de la caché, compruebe las siguientes causas posibles:
 
-| Causa | DESCRIPCIÓN |
+| Causa | Descripción |
 |---|---|
 | [Vaciado de la clave](#key-flushing) | Las claves se han purgado manualmente. |
 | [Selección incorrecta de la base de datos](#incorrect-database-selection) | Azure Cache for Redis está configurado para usar una base de datos no predeterminada. |
@@ -94,7 +94,7 @@ Si todas las claves o la mayoría de estas han desaparecido de la caché, compru
 
 ### <a name="key-flushing"></a>Vaciado de la clave
 
-Los clientes pueden llamar al comando [FLUSHDB](http://redis.io/commands/flushdb) para quitar todas las claves de una *sola* base de datos o [FLUSHALL](http://redis.io/commands/flushall) para quitar todas las claves de *todas* las bases de datos de una caché en Redis. Para averiguar si las claves se han vaciado, use el comando [INFO](http://redis.io/commands/info). En la sección `Commandstats` se muestra si se ha llamado al comando **FLUSH**:
+Los clientes pueden llamar al comando [FLUSHDB](https://redis.io/commands/flushdb) para quitar todas las claves de una *sola* base de datos o [FLUSHALL](https://redis.io/commands/flushall) para quitar todas las claves de *todas* las bases de datos de una caché en Redis. Para averiguar si las claves se han vaciado, use el comando [INFO](https://redis.io/commands/info). En la sección `Commandstats` se muestra si se ha llamado al comando **FLUSH**:
 
 ```
 # Commandstats
@@ -106,7 +106,7 @@ cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 
 ### <a name="incorrect-database-selection"></a>Selección incorrecta de la base de datos
 
-Redis Cache utiliza la base de datos **db0** de manera predeterminada. Si cambia a otra base de datos (por ejemplo, **db1**) e intenta leer sus claves, Azure Cache for Redis no las encontrará allí. Cada base de datos es una unidad independiente lógicamente y contiene un conjunto de datos diferente. Use el comando [SELECT](http://redis.io/commands/select) para usar otras bases de datos disponibles y buscar claves en cada una de ellas.
+Redis Cache utiliza la base de datos **db0** de manera predeterminada. Si cambia a otra base de datos (por ejemplo, **db1**) e intenta leer sus claves, Azure Cache for Redis no las encontrará allí. Cada base de datos es una unidad independiente lógicamente y contiene un conjunto de datos diferente. Use el comando [SELECT](https://redis.io/commands/select) para usar otras bases de datos disponibles y buscar claves en cada una de ellas.
 
 ### <a name="redis-instance-failure"></a>Error de instancia de Redis
 
@@ -114,7 +114,7 @@ Redis es un almacén de datos en memoria. Los datos se mantienen en las máquina
 
 Las memorias caché de los niveles Estándar y Premium ofrecen una resistencia mucho mayor frente a la pérdida de datos mediante el uso de dos máquinas virtuales en una configuración replicada. Cuando se produce un error en el nodo maestro de dicha caché, el nodo de réplica se encarga de servir los datos automáticamente. Estas máquinas virtuales se encuentran en dominios de errores y actualizaciones independientes para minimizar la posibilidad de que ambas no estén disponibles al mismo tiempo. Aunque, si se produce una interrupción importante del centro de datos, las máquinas virtuales pueden dejar de estar disponibles a la vez. Los datos se perderán en estos casos excepcionales.
 
-Considere la posibilidad de utilizar [Permanencia de datos de Redis](http://redis.io/topics/persistence) y [replicación geográfica](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) para mejorar la protección de sus datos contra estos fallos de infraestructura.
+Considere la posibilidad de utilizar [Permanencia de datos de Redis](https://redis.io/topics/persistence) y [replicación geográfica](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) para mejorar la protección de sus datos contra estos fallos de infraestructura.
 
 ## <a name="additional-information"></a>Información adicional
 

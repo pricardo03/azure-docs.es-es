@@ -5,15 +5,15 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 32578f77f2b3f30d80953bdd1099d22c945c640b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54a1d3e503ddb8b11109596decde94a2834dbf47
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66248120"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529973"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Visualización y recuperación de eventos del registro de actividad de Azure
 
@@ -27,7 +27,7 @@ Vea el registro de actividad de todos los recursos del menú **Supervisión** de
 Puede filtrar los eventos del registro de actividad por los campos siguientes:
 
 * **Intervalo de tiempo**: la hora de inicio y finalización para los eventos.
-* **Categoría**: la categoría de eventos tal y como se describe en [Categorías del registro de actividad](activity-logs-overview.md#categories-in-the-activity-log).
+* **Categoría**: la categoría de eventos tal y como se describe en [Categorías del registro de actividad](activity-log-view.md#categories-in-the-activity-log).
 * **Suscripción**: uno o más nombres de suscripción de Azure.
 * **Grupo de recursos**: uno o más grupos de recursos dentro de las suscripciones seleccionadas.
 * **Recurso (nombre)** : el nombre de un recurso específico.
@@ -37,7 +37,21 @@ Puede filtrar los eventos del registro de actividad por los campos siguientes:
 * **Evento iniciado por**: el usuario que realizó la operación.
 * **Abrir búsqueda**: se trata de un cuadro de búsqueda de texto abierto que busca esa cadena en todos los campos de todos los eventos.
 
-### <a name="view-change-history"></a>Visualización del historial de cambios
+## <a name="categories-in-the-activity-log"></a>Categorías del registro de actividad
+Cada evento del registro de actividad tiene una categoría determinada que se describe en la tabla siguiente. Para obtener todos los detalles sobre los esquemas de estas categorías, consulte [Esquema de eventos del registro de actividad de Azure](activity-log-schema.md). 
+
+| Category | Descripción |
+|:---|:---|
+| Administrativo | Contiene el registro de todas las operaciones de creación, actualización, eliminación y acción realizadas mediante Resource Manager. Algunos ejemplos de eventos administrativos incluyen la _creación de una máquina virtual_ y la _eliminación de un grupo de seguridad de red_.<br><br>Cada acción realizada por un usuario o aplicación mediante Resource Manager se modela como una operación en un tipo de recurso determinado. Si el tipo de operación es _Write_, _Delete_ o _Action_, los registros de inicio y corrección o error de esa operación se registran en la categoría Administrativo. Los eventos de la categoría Administrativo también incluyen los cambios realizados en el control de acceso basado en rol de una suscripción. |
+| Service Health | Contiene el registro de los incidentes de estado del servicio que se han producido en Azure. Ejemplo de un evento de Service Health: _SQL Azure está experimentando un tiempo de inactividad en la región Este de EE. UU._ . <br><br>Los eventos de Service Health pueden encuadrarse dentro de seis variedades: _Acción requerida_, _Recuperación asistida_, _Incidente_, _Mantenimiento_, _Información_ o _Seguridad_. Estos eventos solo se crean si tiene un recurso en la suscripción que se puede ver afectado por el evento.
+| Estado de los recursos | Contiene el registro de los eventos de estado de los recursos que se han producido en los recursos de Azure. Ejemplo de un evento de Resource Health: _Cambio del estado de mantenimiento de una máquina virtual a No disponible_.<br><br>Los eventos de Resource Health pueden representar uno de los cuatro estados de mantenimiento siguientes: _Disponible_, _No disponible_, _Degradado_ y _Desconocido_. Además, los eventos de Resource Health se pueden clasificar como _iniciados por la plataforma_ o _por el usuario_. |
+| Alerta | Contiene el registro de activaciones de alertas de Azure. Ejemplo de un evento de alerta: _% de CPU en myVM ha estado por encima de 80 durante los últimos 5 minutos_.|
+| Escalado automático | Contiene el registro de los eventos relacionados con el funcionamiento del motor de escalado automático en función de cualquier configuración de escalado automático que haya definido en la suscripción. Ejemplo de un evento de escalado automático: _Error durante la acción de escalado vertical_. |
+| Recomendación | Contiene eventos de recomendación de Azure Advisor. |
+| Seguridad | Contiene el registro de todas las alertas generadas por Azure Security Center. Ejemplo de un evento de seguridad: _Se ha ejecutado un archivo de extensión doble_. |
+| Directiva | Contiene registros de todas las operaciones de acción de efecto realizadas por Azure Policy. Ejemplos de eventos de directiva: _Auditar_ y _Denegar_. Cada acción llevada a cabo por Azure Policy se modela como una operación en un recurso. |
+
+## <a name="view-change-history"></a>Visualización del historial de cambios
 
 La revisión del registro de actividad puede ayudarle a ver qué cambios ocurrieron durante ese evento. Puede consultar esta información con el **historial de cambios**. Seleccione un evento del registro de actividad del que desee obtener información más detallada. Seleccione la pestaña **Historial de cambios (versión preliminar)** para ver los cambios asociados a ese evento.
 
@@ -50,8 +64,7 @@ Si hay cambios asociados con el evento, verá una lista de cambios que puede sel
 Para obtener más información sobre el historial de cambios, vea [Obtención de los cambios del recurso](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 
-## <a name="log-analytics-workspace"></a>Área de trabajo de Log Analytics
-Haga clic en **Registros** en la parte superior de la página **Registro de actividad** para abrir la [solución de supervisión de Activity Log Analytics](activity-log-collect.md) para la suscripción. Esto le permitirá ver los análisis del registro de actividades y ejecutar [consultas de registro](../log-query/log-query-overview.md) con la tabla **AzureActivity**. Si el registro de actividad no está conectado a un área de trabajo de Log Analytics, se le pedirá que realice esta configuración.
+
 
 
 
@@ -158,10 +171,36 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 ```
 
 
+## <a name="activity-logs-analytics-monitoring-solution"></a>Solución de supervisión de Activity Log Analytics
+La solución de supervisión de Azure Log Analytics incluye varias vistas y consultas de registros para analizar las entradas del registro de actividad en el área de trabajo de Log Analytics.
+
+### <a name="prerequisites"></a>Prerequisites
+Debe crear una configuración de diagnóstico para enviar el registro de actividad de la suscripción a un área de trabajo de Log Analytics. Consulte el artículo sobre la [recopilación de registros de plataforma de Azure en el área de trabajo de Log Analytics de Azure Monitor](resource-logs-collect-workspace.md)
+
+### <a name="install-the-solution"></a>Instalar la solución
+Use el procedimiento [Instalación de una solución de supervisión](../insights/solutions.md#install-a-monitoring-solution) para instalar la solución **Activity Log Analytics**. No se necesita ninguna configuración adicional.
+
+### <a name="use-the-solution"></a>Uso de la solución
+Haga clic en **Registros** en la parte superior de la página **Registro de actividad** para abrir la [solución de supervisión de Activity Log Analytics](activity-log-collect.md) para la suscripción. También puede acceder a todas las soluciones de supervisión de la suscripción en Azure Portal, mediante el menú **Supervisar**. Seleccione **Más** en la sección **Información detallada** para abrir la página **Información general** con los iconos de la solución. El icono **Registros de actividad de Azure** muestra un recuento del número de registros **AzureActivity** del área de trabajo.
+
+![Icono Registros de actividad de Azure](media/collect-activity-logs/azure-activity-logs-tile.png)
+
+
+Haga clic en el icono **Registros de actividad de Azure** para abrir la vista **Registros de actividad de Azure**. La vista incluye los elementos de visualización de la tabla siguiente. Cada uno de ellos muestra hasta otros diez elementos que coinciden con sus criterios para el intervalo de tiempo especificado. Puede ejecutar una consulta de registros que devuelve todos los registros coincidentes; para ello, haga clic en **Ver todo** en la parte inferior del elemento.
+
+![Panel Registros de actividad de Azure](media/collect-activity-logs/activity-log-dash.png)
+
+| Elemento de visualización | Descripción |
+| --- | --- |
+| Entradas del registro de actividad de Azure | Muestra un gráfico de barras de los principales totales del registro de entrada del registro de actividad del intervalo de fechas seleccionado y una lista de los 10 principales llamadores de actividad. Haga clic en el gráfico de barras para ejecutar una búsqueda de registros de `AzureActivity`. Haga clic en un elemento de llamador para ejecutar una búsqueda de registros que devuelva todas las entradas de registro de actividad de ese elemento. |
+| Registros de actividad por estado | Muestra un gráfico de anillos del estado del registro de actividad de Azure para el intervalo de fechas seleccionado y una lista de los diez principales registros de estado. Haga clic en el gráfico para ejecutar una consulta de registros de `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Haga clic en un elemento de estado para ejecutar una búsqueda de registros que devuelva todas las entradas de registro de actividad de ese registro de estado. |
+| Registros de actividad por recurso | Muestra el número total de recursos con registros de actividad y enumera los diez principales recursos con recuentos de registro para cada recurso. Haga clic en el área total para ejecutar una búsqueda de registros de `AzureActivity | summarize AggregatedValue = count() by Resource`, que muestra todos los recursos de Azure disponibles para la solución. Haga clic en un recurso para ejecutar una consulta de registros que devuelva todos los registros de actividad de ese recurso. |
+| Registros de actividad por proveedor de recursos | Muestra el número total de proveedores de recursos que producen registros de actividad y enumera los diez principales. Haga clic en el área total para ejecutar una consulta de registros de `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, que muestra todos los proveedores de recursos de Azure. Haga clic en un proveedor de recursos para ejecutar una consulta de registros que devuelva todos los registros de actividad para el proveedor. |
+
+
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Lea una introducción al registro de actividad](activity-logs-overview.md).
-* [Archive the Activity Log to storage or stream it to Event Hubs](activity-log-export.md) (Archivado del registro de actividad en Storage o transmisión a Event Hubs)
-* [Transmisión del registro de actividad de Azure a Event Hubs](activity-logs-stream-event-hubs.md)
-* [Archivo del registro de actividad de Azure en Storage](archive-activity-log.md)
-
+* [Introducción a los registros de plataforma Azure](platform-logs-overview.md)
+* [Creación de la configuración de diagnóstico para enviar registros de actividad a otros destinos](diagnostic-settings.md)

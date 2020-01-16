@@ -1,17 +1,17 @@
 ---
-title: Configuración de la persistencia de datos en el nivel Prémium de Azure Cache for Redis
+title: 'Configuración de la persistencia de datos: versión Premium de Azure Cache for Redis'
 description: Aprenda a configurar y administrar la persistencia de datos en las instancias del nivel Prémium de Azure Cache for Redis.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.author: yegu
-ms.openlocfilehash: b74a16735b44d081a79b17716bdbc72357a36013
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 6ff7500712f57d7cf2adad1fc73f68a29f3afc20
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122745"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75412829"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Configuración de la persistencia de datos en el nivel Prémium de Azure Cache for Redis
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con redes virtuales. En este artículo, se describe cómo se configura la persistencia de una instancia de Azure Cache for Redis del nivel Prémium.
@@ -160,7 +160,7 @@ Para más información sobre el escalado, vea [¿Qué sucede si he escalado a ot
 
 Los datos almacenados en archivos AOF se dividen en varios blobs en páginas por nodo para aumentar el rendimiento al guardar los datos en el almacenamiento. En la siguiente tabla se muestra cuántos blobs en páginas se usan en cada plan de tarifa:
 
-| Nivel Premium | Blobs |
+| Nivel Premium | Datos BLOB |
 |--------------|-------|
 | P1           | 4 por partición    |
 | P2           | 8 por partición    |

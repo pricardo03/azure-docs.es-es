@@ -1,5 +1,5 @@
 ---
-title: Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
+title: Planificación de la migración del modelo clásico a Azure Resource Manager
 description: Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 2c0f4924c41b36c306d4e6b9286105662744c4da
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bebfcedcd2944e2c6b05c3203e67df7658dd751a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033221"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460053"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
 Aunque Azure Resource Manager ofrece muchas características increíbles, es fundamental planear la trayectoria de migración para asegurarse de que el proceso se desarrolla con facilidad. Dedicar tiempo a la planificación garantizará que no se planteen problemas al ejecutar las actividades de migración.
@@ -133,13 +133,13 @@ A continuación se indican problemas detectados en muchas de las migraciones má
     
      
 
-    **Compute** *(núcleos y conjuntos de disponibilidad)*
+    **Proceso** *(núcleos, conjuntos de disponibilidad)*
 
     ```powershell
     Get-AzVMUsage -Location <azure-region>
     ```
 
-    **Red** *(redes virtuales, direcciones IP públicas estáticas, direcciones IP públicas, grupos de seguridad de red, interfaces, equilibradores de carga y tablas de rutas)*
+    **Red** *(redes virtuales, direcciones IP públicas estáticas, direcciones IP públicas, grupos de seguridad de red, interfaces de red, equilibradores de carga y tablas de rutas)*
 
     ```powershell
     Get-AzUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
@@ -190,7 +190,7 @@ El hecho de no realizar las pruebas completas puede generar problemas y retrasos
 
 ### <a name="technical-considerations-and-tradeoffs"></a>Consideraciones técnicas y compromisos
 
-Ahora que ya está en Azure Resource Manager, maximice la plataforma.  Lea la [información general de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) para obtener información sobre otras ventajas.
+Ahora que ya está en Azure Resource Manager, maximice la plataforma.  Lea la [información general de Azure Resource Manager](../../azure-resource-manager/management/overview.md) para obtener información sobre otras ventajas.
 
 Puntos que se deben tener en cuenta:
 
@@ -223,4 +223,4 @@ Recuerde por qué ha iniciado esta trayectoria de migración del modelo clásico
 * [Migración de circuitos ExpressRoute y las redes virtuales asociadas del modelo de implementación clásica a Resource Manager](https://docs.microsoft.com/azure/expressroute/expressroute-migration-classic-resource-manager)
 * [Herramientas de la comunidad para ayudar con la migración de recursos de IaaS del modelo de implementación clásica a Azure Resource Manager](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Revisión de los errores más comunes en la migración](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Revisión de las preguntas más frecuentes acerca de cómo migrar recursos de IaaS de la versión clásica a Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Revisión de las preguntas más frecuentes acerca de cómo migrar recursos de IaaS del modelo de implementación clásica a Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

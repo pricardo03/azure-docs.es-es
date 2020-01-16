@@ -1,19 +1,19 @@
 ---
 title: 'Copia de seguridad y replicación para Apache HBase y Phoenix: Azure HDInsight'
-description: Configuración de la copia de seguridad y replicación de Apache HBase y Apache Phoenix en Azure HDInsight
+description: Configuración de la copia de seguridad y la replicación de Apache HBase y Apache Phoenix en Azure HDInsight
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: ashishth
-ms.openlocfilehash: 9611199cf08084505381223ef485ae2b6f00cb21
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.custom: hdinsightactive
+ms.date: 12/19/2019
+ms.openlocfilehash: c6d33158b581bf4394a0d1bac2b277830328e110
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044696"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495933"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configuración de la copia de seguridad y la replicación de Apache HBase y Apache Phoenix en HDInsight
 
@@ -60,15 +60,19 @@ Una vez que elimina el clúster, puede dejar los datos en su lugar o copiarlos a
 
 ## <a name="export-then-import"></a>Exportación y posterior importación
 
-En el clúster de HDInsight de origen, use la utilidad de exportación (que se incluye con HBase) para exportar datos desde una tabla de origen al almacenamiento conectado predeterminado. Luego, puede copiar la carpeta exportada a la ubicación de almacenamiento de destino y ejecutar la utilidad de importación en el clúster de HDInsight de destino.
+En el clúster de HDInsight de origen, use la [Utilidad de exportación](https://hbase.apache.org/book.html#export) (que se incluye con HBase) para exportar datos desde una tabla de origen al almacenamiento conectado predeterminado. Luego, puede copiar la carpeta exportada a la ubicación de almacenamiento de destino y ejecutar la [Utilidad de importación](https://hbase.apache.org/book.html#import) en el clúster de HDInsight de destino.
 
-Para exportar una tabla, primero establezca una conexión SSH al nodo principal del clúster de HDInsight de origen y luego ejecute el comando `hbase` siguiente:
+Para exportar los datos de una tabla, primero establezca una conexión SSH al nodo principal del clúster de HDInsight de origen y luego ejecute el comando `hbase` siguiente:
 
     hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>"
 
-Para importar una tabla, establezca una conexión SSH al nodo principal del clúster de HDInsight de destino y luego ejecute el comando `hbase` siguiente:
+El directorio de exportación no debe existir. El nombre de la tabla distingue mayúsculas de minúsculas.
+
+Para importar los datos de una tabla, establezca una conexión SSH al nodo principal del clúster de HDInsight de destino y luego ejecute el comando `hbase` siguiente:
 
     hbase org.apache.hadoop.hbase.mapreduce.Import "<tableName>" "/<path>/<to>/<export>"
+
+La tabla ya debe existir.
 
 Especifique la ruta de acceso de exportación completa al almacenamiento predeterminado o a cualquiera de las opciones del almacenamiento conectado. Por ejemplo, en Azure Storage:
 
@@ -90,11 +94,12 @@ Tenga en cuenta que debe especificar el número de versiones de cada fila que se
 
 ## <a name="copy-tables"></a>Copia de las tablas
 
-La utilidad CopyTable copia datos desde una tabla de origen, fila por fila, a una tabla de destino existente con el mismo esquema que el origen. La tabla de destino se puede abrir en el mismo clúster o en un clúster de HBase distinto.
+La [utilidad CopyTable](https://hbase.apache.org/book.html#copy.table) copia datos desde una tabla de origen, fila por fila, a una tabla de destino existente con el mismo esquema que la de origen. La tabla de destino se puede abrir en el mismo clúster o en un clúster de HBase distinto. Los nombres de tabla distinguen mayúsculas de minúsculas.
 
 Para usar CopyTable dentro de un clúster, establezca una conexión SSH al nodo principal del clúster de HDInsight de origen y luego ejecute este comando `hbase`:
 
     hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> <srcTableName>
+
 
 Para usar CopyTable para copiar en una tabla de un clúster distinto, agregue el modificador `peer` con la dirección del clúster de destino:
 
@@ -125,7 +130,7 @@ CopyTable examina todo el contenido de la tabla de origen que se copiará a la t
 
 ### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>Recopilación manual de la lista de cuórum de Apache ZooKeeper
 
-Cuando ambos clústeres de HDInsight están en la misma red virtual, como se describe anteriormente, la resolución de nombres de host interno es automática. Para usar CopyTable para los clústeres de HDInsight en dos redes virtuales independientes conectadas por una instancia de VPN Gateway, deberá proporcionar las direcciones IP del host de los nodos ZooKeeper en el cuórum.
+Cuando ambos clústeres de HDInsight están en la misma red virtual, como se describe anteriormente, la resolución de nombres de host interno es automática. Para usar CopyTable para los clústeres de HDInsight en dos redes virtuales independientes conectadas por una puerta de enlace de VPN, deberá proporcionar las direcciones IP del host de los nodos ZooKeeper en el cuórum.
 
 Para adquirir los nombres de host del cuórum, ejecute el comando curl siguiente:
 
@@ -155,7 +160,7 @@ En el ejemplo:
 
 ## <a name="snapshots"></a>Instantáneas
 
-Las instantáneas le permiten crear una copia de seguridad de los datos de un momento dato en el almacén de datos de HBase. Las instantáneas tienen una sobrecarga mínima y se completan en cuestión de segundos, porque una operación de instantánea es efectivamente una operación de metadatos que captura los nombres de todos los archivos que están en almacenamiento en ese instante. En el momento de una instantánea, no se copia ningún dato real. Las instantáneas se basan en la naturaleza inalterable de los datos almacenados en HDFS, en que todas las actualizaciones, eliminaciones e inserciones se representan como datos nuevos. Puede restaurar (*clonar*) una instantánea en el mismo clúster o exportar una instantánea a otro clúster.
+Las [instantáneas](https://hbase.apache.org/book.html#ops.snapshots) le permiten crear una copia de seguridad de los datos de un momento dato en el almacén de datos de HBase. Las instantáneas tienen una sobrecarga mínima y se completan en cuestión de segundos, porque una operación de instantánea es efectivamente una operación de metadatos que captura los nombres de todos los archivos que están en almacenamiento en ese instante. En el momento de una instantánea, no se copia ningún dato real. Las instantáneas se basan en la naturaleza inalterable de los datos almacenados en HDFS, en que todas las actualizaciones, eliminaciones e inserciones se representan como datos nuevos. Puede restaurar (*clonar*) una instantánea en el mismo clúster o exportar una instantánea a otro clúster.
 
 Para crear una instantánea, establezca una conexión SSH al nodo principal del clúster de HDInsight HBase e inicie el shell `hbase`:
 
@@ -189,7 +194,7 @@ Las instantáneas proporcionan una copia de seguridad completa de una tabla en e
 
 ## <a name="replication"></a>Replicación
 
-La replicación de HBase inserta de manera automática las transacciones provenientes de un clúster de origen a un clúster de destino, mediante un mecanismo asincrónico con un mínimo de sobrecarga sobre el clúster de origen. En HDInsight, puede configurar la replicación entre los clústeres donde:
+La [replicación de HBase](https://hbase.apache.org/book.html#_cluster_replication) inserta de manera automática las transacciones provenientes de un clúster de origen a un clúster de destino, mediante un mecanismo asincrónico con un mínimo de sobrecarga sobre el clúster de origen. En HDInsight, puede configurar la replicación entre los clústeres donde:
 
 * Los clústeres de origen y destino están en la misma red virtual.
 * Los clústeres de origen y destino están en distintas redes virtuales conectadas por una instancia de VPN Gateway, pero ambos clústeres se encuentran en la misma ubicación geográfica.
@@ -209,3 +214,4 @@ Para habilitar la replicación en HDInsight, aplique una acción de script al cl
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Configuración de la replicación de Apache HBase](apache-hbase-replication.md)
+* [Trabajo con la utilidad de importación y exportación de HBase](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)

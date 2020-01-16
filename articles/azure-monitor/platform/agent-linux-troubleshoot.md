@@ -4,15 +4,15 @@ description: Se describen los síntomas, las causas y las soluciones de los prob
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: ca0fcd3b68722d44fc285b2dff52b560c591d0be
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 35c050a17219b80348857494ad41f834d3a60c85
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74306543"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397296"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Cómo solucionar problemas relacionados con el agente de Log Analytics para Linux 
 
@@ -153,7 +153,7 @@ Debajo del complemento de salida, quite la marca de comentario de la siguiente s
 * El proxy especificado durante la incorporación era incorrecto.
 * Los puntos de conexión de servicio de Azure Monitor y Azure Automation no están en la lista de permitidos en el centro de datos. 
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 1. Vuelva a incorporase a Azure Monitor con el agente de Log Analytics para Linux mediante el siguiente comando con la opción `-v` habilitada. Así se permite la salida detallada del agente que se conecta a través del proxy a Azure Monitor. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
 
@@ -162,9 +162,9 @@ Debajo del complemento de salida, quite la marca de comentario de la siguiente s
 
     |Recurso del agente| Puertos | Dirección |
     |------|---------|----------|  
-    |\* .ods.opinsights.azure.com | Puerto 443| Entrada y salida |  
-    |\* .oms.opinsights.azure.com | Puerto 443| Entrada y salida |  
-    |\* .blob.core.windows.net | Puerto 443| Entrada y salida |  
+    |*.ods.opinsights.azure.com | Puerto 443| Entrada y salida |  
+    |*.oms.opinsights.azure.com | Puerto 443| Entrada y salida |  
+    |*.blob.core.windows.net | Puerto 443| Entrada y salida |  
 
     Si tiene previsto usar Hybrid Runbook Worker de Azure Automation para conectarse al servicio Automation y registrarse en él para usar runbooks o soluciones de administración en el entorno, debe tener acceso al número de puerto y las direcciones URL descritos en [Configuración de la red para Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
@@ -174,7 +174,7 @@ Debajo del complemento de salida, quite la marca de comentario de la siguiente s
 * La fecha y la hora son incorrectas en el servidor Linux 
 * El identificador y la clave de área de trabajo usados son incorrectos
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 1. Compruebe la hora en el servidor Linux con el comando date. Si la hora es +/-15 minutos de la hora actual, la incorporación produce un error. Para corregir este problema, actualice la fecha o la zona horaria del servidor Linux. 
 2. Compruebe que ha instalado la versión más reciente del agente de Log Analytics para Linux.  La versión más reciente notifica ahora si el desfase temporal está causando el error de incorporación.
@@ -218,7 +218,7 @@ Los errores relacionados con el rendimiento no se producen constantemente y son 
 - La conexión a Azure Monitor está bloqueada
 - Se está haciendo la copia de seguridad de los datos del agente de Log Analytics para Linux
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 1. Para comprobar si la incorporación en Azure Monitor se realizó correctamente, asegúrese de que existe el archivo siguiente: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`.
 2. Repita la incorporación con las instrucciones de la línea de comandos `omsadmin.sh`
 3. Si utiliza un proxy, consulte los pasos de resolución de proxy que proporcionó anteriormente.
@@ -235,7 +235,7 @@ Los errores relacionados con el rendimiento no se producen constantemente y son 
 * Syslog no se reenvía correctamente al servidor Linux.
 * El número de mensajes que se reenvía por segundo es demasiado grande para la configuración básica del agente de Log Analytics para Linux
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 * Compruebe que la configuración de Syslog en el área de trabajo de Log Analytics tenga todas las utilidades y los niveles de registro correctos. Revise [Configuración de Syslog en Azure Portal](../../azure-monitor/platform/data-sources-syslog.md#configure-syslog-in-the-azure-portal).
 * Compruebe que los demonios de mensajería de Syslog nativos (`rsyslog`, `syslog-ng`) puedan recibir los mensajes reenviados.
 * Compruebe la configuración de firewall en el servidor de Syslog para asegurarse de que no se estén bloqueando los mensajes.
@@ -248,7 +248,7 @@ Si ve `[error]: unexpected error error_class=Errno::EADDRINUSE error=#<Errno::EA
 ### <a name="probable-causes"></a>Causas probables
 Este error indica que la extensión Diagnostics de Linux (LAD) está instalada en paralelo con la extensión de VM Linux de Log Analytics, y usa el mismo puerto para la colección de datos de syslog que omsagent.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 1. Como raíz, ejecute los comandos siguientes (tenga en cuenta que 25224 es un ejemplo y es posible que en su entorno vea que LAD usa otro número de puerto):
 
     ```
@@ -270,7 +270,7 @@ Este error indica que la extensión Diagnostics de Linux (LAD) está instalada e
 * La extensión Diagnostics de Linux está instalada
 * La extensión Diagnostics de Linux se instaló y desinstaló, pero todavía aparece un error que indica que mdsd usa omsagent, por lo que no se puede quitar.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 1. Desinstale la extensión Diagnostics de Linux (LAD).
 2. Quite los archivos de la extensión Diagnostics de Linux de la máquina si están presentes en la siguiente ubicación: `/var/lib/waagent/Microsoft.Azure.Diagnostics.LinuxDiagnostic-<version>/` y `/var/opt/microsoft/omsagent/LAD/`.
 
@@ -280,7 +280,7 @@ Este error indica que la extensión Diagnostics de Linux (LAD) está instalada e
 * El usuario omsagent no tiene permisos para leer el archivo de registro de Nagios
 * No se quitó la marca de comentario de origen y filtro y de Nagios del archivo omsagent.conf
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 1. Para agregar el usuario omsagent para leer del archivo de Nagios, siga estas [instrucciones](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#nagios-alerts).
 2. En el archivo de configuración general del agente de Log Analytics para Linux en `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`, asegúrese de que se haya quitado la marca de comentarios **tanto** del origen como del filtro de Nagios.
 
@@ -308,7 +308,7 @@ Este error indica que la extensión Diagnostics de Linux (LAD) está instalada e
 * Se está haciendo la copia de seguridad de los datos del agente de Log Analytics
 * DSC registra *Current configuration does not exist. Execute Start-DscConfiguration command with -Path parameter to specify a configuration file and create a current configuration first.* en el archivo de registro `omsconfig.log`, pero no existe ningún mensaje de registro sobre las operaciones de `PerformRequiredConfigurationChecks`.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 1. Instale todas las dependencias como el paquete auditd.
 2. Para comprobar si la incorporación a Azure Monitor se realizó correctamente, asegúrese de que existe el archivo siguiente: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`.  Si no existe, repita la incorporación con las [instrucciones](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line) de la línea de comandos de omsadmin.sh.
 4. Si usa un proxy, compruebe los pasos anteriores para solucionar problemas con un proxy.
@@ -373,8 +373,8 @@ Este error indica que la extensión Diagnostics de Linux (LAD) está instalada e
 * El agente de Log Analytics para Linux no ha seleccionado la configuración más reciente
 * No se aplicó la configuración cambiada en el portal
 
-### <a name="resolution"></a>Resolución
-**Información previa:** `omsconfig` es el agente de configuración del agente de Log Analytics para Linux que se busca la nueva configuración del portal cada cinco minutos. Esta configuración se aplica luego en los archivos de configuración del agente de Log Analytics para Linux ubicados en /etc/opt/microsoft/omsagent/conf/omsagent.conf.
+### <a name="resolution"></a>Solución
+**Información previa:** `omsconfig` es el agente de configuración del agente de Log Analytics para Linux que cada cinco minutos busca una nueva configuración del portal. Esta configuración se aplica luego en los archivos de configuración del agente de Log Analytics para Linux ubicados en /etc/opt/microsoft/omsagent/conf/omsagent.conf.
 
 * En algunos casos, es posible que el agente de configuración del agente de Log Analytics para Linux no pueda comunicarse con el servicio de configuración del portal y, por tanto, no se aplique la configuración más reciente.
   1. Para comprobar que el agente `omsconfig` está instalado, ejecute `dpkg --list omsconfig` o `rpm -qi omsconfig`.  Si no está instalado, vuelva a instalar la versión más reciente del agente de Log Analytics para Linux.
@@ -392,7 +392,7 @@ Este error indica que la extensión Diagnostics de Linux (LAD) está instalada e
  * `[DATETIME] [error]: file not accessible by omsagent.`
 * Un problema conocido con la condición de carrera se ha corregido en el agente de Log Analytics para Linux versión 1.1.0-217
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 1. Para comprobar si la incorporación a Azure Monitor se realizó correctamente, asegúrese de que existe el archivo siguiente: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`. Si no existe:  
 
   1. Repita la incorporación con las [instrucciones](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line) de la línea de comandos de omsadmin.sh.
@@ -427,7 +427,7 @@ Puede continuar con la repetición de la incorporación después de usar la opci
 * Se quitó el agente de Log Analytics del sistema operativo
 * El servicio de agente de Log Analytics está inactivo, deshabilitado o no está configurado
 
-### <a name="resolution"></a>Resolución 
+### <a name="resolution"></a>Solución 
 Siga los pasos a continuación para corregir el problema.
 1. Quite la extensión de Azure Portal.
 2. Instale el agente siguiendo las [instrucciones](../../azure-monitor/learn/quick-collect-linux-computer.md).
@@ -441,7 +441,7 @@ Siga los pasos a continuación para corregir el problema.
 
 Los paquetes de agente de Log Analytics en el host no están desactualizados.
 
-### <a name="resolution"></a>Resolución 
+### <a name="resolution"></a>Solución 
 Siga los pasos a continuación para corregir el problema.
 
 1. Busque la versión más reciente en esta [página](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/).

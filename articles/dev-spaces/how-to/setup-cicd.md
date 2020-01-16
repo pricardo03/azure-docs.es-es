@@ -6,14 +6,14 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: conceptual
 manager: gwallace
-description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
+description: Aprenda a configurar la integración y la implementación continuas mediante Azure DevOps con Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contenedores
-ms.openlocfilehash: 525e18cba48756e725cbc7d837c2352b0fec74fe
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 66ff2080ad44098757a5d9360fd3307e65f7431a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280017"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438444"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Uso de CI/CD con Azure Dev Spaces
 
@@ -23,7 +23,7 @@ En este artículo se le guía a través de la implementación continua y la inte
 
 Aunque en este artículo se le guiará por Azure DevOps, son de aplicación los mismos conceptos a sistemas de CI/CD como Jenkins, TeamCity, etc.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * [Clúster de Azure Kubernetes Service (AKS) con Azure Dev Spaces habilitado](../get-started-netcore.md)
 * [CLI de Azure Dev Spaces instalada](upgrade-tools.md)
 * [Organización de Azure DevOps con un proyecto](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
@@ -119,7 +119,7 @@ Ahora tiene una solución de CI que compilará automáticamente *mywebapi* y *we
 1. Haga clic en **Guardar** en la esquina superior derecha y, luego, en **Aceptar**.
 1. Haga clic en **+ Versión** (junto al botón Guardar) y en **Crear una versión**.
 1. En **Artefactos**, compruebe que está seleccionada la última compilación de su canalización de compilación.
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 
 Ahora se iniciará un proceso de versiones automatizado, que implementa los gráficos *mywebapi* y *webfrontend* en su clúster de Kubernetes en el espacio de nivel superior _dev_. Puede supervisar el progreso de la versión en el portal web de Azure DevOps:
 

@@ -1,25 +1,16 @@
 ---
-title: Introducción a los clústeres de Service Fabric independientes | Microsoft Docs
+title: Introducción a los clústeres independientes de Service Fabric
 description: Los clústeres de Service Fabric se ejecutan en Windows Server y Linux, lo que significa que podrá implementar y hospedar aplicaciones de Service Fabric en cualquier lugar donde sea posible ejecutar Windows Server y Linux.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: 5997526098980220014d9bb2d47efe6c9aedee3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8912ef5bc0fd6009443b736031fc9af57ab6c5b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752339"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465647"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Introducción a los clústeres de Service Fabric independientes
 
@@ -51,7 +42,7 @@ Service Fabric también admite el control de acceso para limitar este a determin
 
 Para más información, lea [Control de acceso basado en rol (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
-## <a name="scaling"></a>Escalado
+## <a name="scaling"></a>Ampliación
 
 Las necesidades de las aplicaciones cambian a lo largo del tiempo. Puede necesitar aumentar los recursos del clúster para cumplir con aumentos del tráfico de red o de la carga de trabajo de la aplicación o reducir los recursos del clúster cuando la demanda baja. Después de crear un clúster de Service Fabric, puede escalar el clúster horizontalmente (cambiar el número de nodos) o verticalmente (cambiar los recursos de los nodos). Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster. Según se escala el clúster, las aplicaciones se escalan automáticamente.
 
@@ -63,7 +54,7 @@ Un clúster independiente es un recurso que es totalmente de su propiedad. Por t
 
 Para más información, lea [Actualización de clústeres independientes](service-fabric-cluster-upgrade-standalone.md).
 
-## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
+## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 Podrá crear clústeres en VM o equipos que ejecuten estos sistemas operativos (aún no se admite Linux):
 
 * Windows Server 2012 R2

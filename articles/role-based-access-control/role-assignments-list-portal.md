@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 25e11ae1311df9d0392340b32e0691298f78ee1c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c265e03cfea2ebe8bbe55a63ade04bffd06360e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74709892"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462273"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lista de asignaciones de roles con RBAC de Azure y Azure Portal
 
@@ -80,6 +80,32 @@ Para mostrar el acceso de un usuario, grupo, entidad de servicio o identidad adm
     ![Panel de asignaciones](./media/role-assignments-list-portal/check-access-assignments.png)
 
     En este panel puede ver los roles asignados a la entidad de seguridad seleccionada y el ámbito. Si hay asignaciones denegadas en este ámbito o heredadas en este ámbito, se mostrarán.
+
+## <a name="list-role-assignments-for-a-system-assigned-managed-identity"></a>Lista de asignaciones de roles para una identidad administrada asignada por el sistema
+
+1. En Azure Portal, abra una identidad administrada asignada por el sistema.
+
+1. En el menú izquierdo, haga clic en **Identidad**.
+
+    ![Identidad administrada asignada por el sistema](./media/role-assignments-list-portal/identity-system-assigned.png)
+
+1. En **Asignaciones de roles**, haga clic en **Mostrar los roles RBAC de Azure asignados a esta identidad administrada**.
+
+    Verá una lista de los roles asignados a la identidad administrada asignada por el sistema seleccionada en varios ámbitos como los de grupo de administración, suscripción, grupo de recursos o recurso. En esta lista se incluyen todas las asignaciones de roles de las que tenga permiso para leer.
+
+    ![Asignaciones de roles para una identidad administrada asignada por el sistema](./media/role-assignments-list-portal/azure-resources-system-assigned.png)
+
+## <a name="list-role-assignments-for-a-user-assigned-managed-identity"></a>Lista de asignaciones de roles para una identidad administrada asignada por el usuario
+
+1. En Azure Portal, abra una identidad administrada asignada por el sistema.
+
+1. Haga clic en **Recursos de Azure**.
+
+    Verá una lista de los roles asignados a la identidad administrada asignada por el usuario seleccionada en varios ámbitos como los de grupo de administración, suscripción, grupo de recursos o recurso. En esta lista se incluyen todas las asignaciones de roles de las que tenga permiso para leer.
+
+    ![Asignaciones de roles para una identidad administrada asignada por el sistema](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
+
+1. Para cambiar la suscripción, haga clic en la lista **Suscripciones**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

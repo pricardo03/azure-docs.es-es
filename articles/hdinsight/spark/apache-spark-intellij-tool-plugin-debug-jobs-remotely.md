@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: 5fede76fbc97b31cbbcdaec1b17f838100d35511
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: b2764e54d0938cbbdc00b19cf3ea1139d3d29828
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195834"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435269"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Uso del Kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones de Apache Spark en HDInsight mediante VPN
 
@@ -27,7 +27,7 @@ En este artículo se proporcionan instrucciones paso a paso para usar las herram
 1. Cree una aplicación Scala en IntelliJ IDEA y luego configúrela para la depuración remota.
 1. Ejecución y depuración de la aplicación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Una suscripción de Azure**. Para más información, vea [Obtener una evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Un clúster de Apache Spark en HDInsight**. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
@@ -103,19 +103,19 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
     b. Seleccione **Next** (Siguiente).
 1. En el cuadro de diálogo **Nuevo proyecto**, haga lo siguiente y luego seleccione **Finalizar**:
 
-    - Escriba un nombre y una ubicación de proyecto.
+    - Escriba un nombre de proyecto y una ubicación.
 
-    - En la lista desplegable **SDK de proyecto**, seleccione **Java 1.8** para el clúster Spark 2.x, o bien **Java 1.7** para el clúster Spark 1.x.
+    - En la lista desplegable **Project SDK** (SDK del proyecto), seleccione **Java 1.8** para el clúster de Spark 2.x o **Java 1.7** para el clúster de Spark 1.x.
 
-    - En la lista desplegable **Versión de Spark**, el asistente para la creación de proyectos de Scala integra la versión correcta del SDK de Spark y el SDK de Scala. Si la versión del clúster de Spark es inferior a la 2.0, seleccione **Spark 1.x**. De lo contrario, seleccione **Spark 2.x**. Este ejemplo utiliza **Spark 2.0.2 (Scala 2.11.8)** .
+    - En la lista desplegable **Versión de Spark**, el asistente para la creación de proyectos de Scala integra la versión correcta del SDK de Spark y el SDK de Scala. Si la versión del clúster de Spark es anterior a 2.0, seleccione **Spark 1.x**. De lo contrario, seleccione **Spark2.x**. En este ejemplo se usa **Spark 2.0.2 (Scala 2.11.8)** .
   
    ![Selección del SDK del proyecto y la versión de Spark](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png)
   
-1. El proyecto Spark creará automáticamente un artefacto. Para ver el artefacto, haga lo siguiente:
+1. El proyecto de Spark crea automáticamente un artefacto. Para ver el artefacto, haga lo siguiente:
 
     a. En el menú **Archivo**, seleccione **Estructura del proyecto**.
 
-    b. En el cuadro de diálogo **Project Structure** (Estructura del proyecto), seleccione **Artifacts** (Artefactos) para ver el artefacto predeterminado que se crea. También puede crear su propio artefacto seleccionando el signo más ( **+** ).
+    b. En el cuadro de diálogo **Estructura del proyecto**, seleccione **Artefactos** para ver el artefacto predeterminado que se ha creado. También puede crear su propio artefacto si selecciona el signo más ( **+** ).
 
    ![Creación de artefactos jar en IntelliJ IDEA](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-default-artifact.png)
 
@@ -149,7 +149,7 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
 
 1. Actualice el archivo `core-site.xml` para realizar los siguientes cambios:
 
-   a. Reemplace la clave cifrada. El archivo `core-site.xml` incluye la clave cifrada de la cuenta de almacenamiento asociada al clúster. En el archivo `core-site.xml` que se ha agregado al proyecto, reemplace la clave cifrada por la clave de almacenamiento real asociada a la cuenta de almacenamiento predeterminada. Para más información, vea [Administración de las claves de acceso de almacenamiento](../../storage/common/storage-account-manage.md#access-keys).
+   a. Reemplace la clave cifrada. El archivo `core-site.xml` incluye la clave cifrada de la cuenta de almacenamiento asociada al clúster. En el archivo `core-site.xml` que se ha agregado al proyecto, reemplace la clave cifrada por la clave de almacenamiento real asociada a la cuenta de almacenamiento predeterminada. Para obtener más información, consulte [Administración de las claves de acceso de la cuenta de almacenamiento](../../storage/common/storage-account-keys-manage.md).
 
     ```xml
     <property>

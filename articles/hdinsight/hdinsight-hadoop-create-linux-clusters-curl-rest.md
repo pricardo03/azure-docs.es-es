@@ -2,18 +2,18 @@
 title: Creación de clústeres de Apache Hadoop mediante la API de REST en Azure
 description: Aprenda a crear clústeres de HDInsight enviando plantillas de Azure Resource Manager a la API de REST de Azure.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/02/2018
-ms.author: hrasheed
-ms.openlocfilehash: 963dc71097a1ac53df77f3ab9c804b53597adeb5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.custom: hdinsightactive
+ms.date: 12/10/2019
+ms.openlocfilehash: e2d63626ec548f0107d7af935af32e90d6972849
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151997"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435522"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Creación de clústeres de Apache Hadoop mediante la API de REST de Azure
 
@@ -343,7 +343,7 @@ Este comando devuelve un documento JSON que incluye información sobre la operac
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
-Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-hadoop-create-linux-clusters-portal.md).
+Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -352,7 +352,6 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 ### <a name="apache-hadoop-clusters"></a>Clústeres de Apache Hadoop
 
 * [Uso de Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)
-* [Uso de Apache Pig con HDInsight](hadoop/hdinsight-use-pig.md)
 * [Uso de MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Clústeres de Apache HBase

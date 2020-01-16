@@ -1,19 +1,14 @@
 ---
 title: ¿Qué son las notificaciones de mantenimiento del servicio de Azure?
 description: Las notificaciones de mantenimiento del servicio permiten ver los mensajes de mantenimiento del servicio que publica Microsoft Azure.
-author: stephbaron
-services: monitoring
-ms.service: azure-monitor
-ms.topic: conceptual
+ms.topic: article
 ms.date: 4/12/2018
-ms.author: stbaron
-ms.subservice: logs
-ms.openlocfilehash: b41c2cdc54ab5eecdc4503cbd98e69932c901a3d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f2d79dc920129241c801c75cc9009b3ba8f34b78
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007084"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451551"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualización de las notificaciones de mantenimiento del servicio mediante Azure Portal
 
@@ -29,7 +24,7 @@ Hay varias clases de las notificaciones de mantenimiento del servicio:
 
 Cada notificación del estado de un servicio incluye datos acerca del ámbito y el impacto en los recursos. Los detalles incluyen:
 
-Nombre de propiedad | DESCRIPCIÓN
+Nombre de propiedad | Descripción
 -------- | -----------
 canales nueva | Uno de los valores siguientes: **Administrador** u **Operación**.
 correlationId | Normalmente, un GUID en formato de cadena. Los eventos que pertenecen a la misma acción generalmente suelen compartir el mismo valor de correlationId.
@@ -38,7 +33,7 @@ eventName | Título del evento.
 level | Nivel de un evento
 resourceProviderName | Nombre del proveedor de recursos del recurso afectado.
 resourceType| Tipo del recurso afectado.
-subStatus | Normalmente el código de estado HTTP de la llamada REST correspondiente, pero también puede incluir otras cadenas que describen un subestado. Por ejemplo:  Correcto (código de estado HTTP: 200), Creado (código de estado HTTP: 201), Aceptado (código de estado HTTP: 202), Sin contenido (código de estado HTTP: 204), Solicitud incorrecta (código de estado HTTP: 400), No encontrado (código de estado HTTP): 404), Conflicto (código de estado HTTP: 409), Error interno del servidor (código de estado HTTP: 500), Servicio no disponible (código de estado HTTP: 503), Tiempo de espera agotado para la puerta de enlace (código de estado HTTP: 504).
+subStatus | Normalmente el código de estado HTTP de la llamada REST correspondiente, pero también puede incluir otras cadenas que describen un subestado. Por ejemplo: Correcto (código de estado HTTP: 200), Creado (código de estado HTTP: 201), Aceptado (código de estado HTTP: 202), Sin contenido (código de estado HTTP: 204), Solicitud incorrecta (código de estado HTTP: 400), No encontrado (código de estado HTTP): 404), Conflicto (código de estado HTTP: 409), Error interno del servidor (código de estado HTTP: 500), Servicio no disponible (código de estado HTTP: 503), Tiempo de espera agotado para la puerta de enlace (código de estado HTTP: 504).
 eventTimestamp | Marca de tiempo de cuándo generó el evento el servicio de Azure que procesó la solicitud correspondiente al evento.
 submissionTimestamp | Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas.
 subscriptionId | Suscripción de Azure en la que se registró este evento.

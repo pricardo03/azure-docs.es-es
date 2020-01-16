@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/09/2018
-ms.openlocfilehash: 737b049aa94ede2ffb0c1035b4cadfbed32d7dc4
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.custom: hdinsightactive
+ms.date: 12/17/2019
+ms.openlocfilehash: 6fd7682f56fbe446904a4acdb39e78525f2523a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145591"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435235"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Análisis de registros de telemetría de Application Insights con Apache Spark en HDInsight
 
@@ -21,7 +21,7 @@ Aprenda a usar [Apache Spark](https://spark.apache.org/) en HDInsight para anali
 
 [Application Insights de Visual Studio](../../azure-monitor/app/app-insights-overview.md) es un servicio de análisis que supervisa sus aplicaciones web. Los datos de telemetría que Application Insights genera se pueden exportar a Azure Storage. Una vez que los datos se encuentren en Azure Storage, se puede usar HDInsight para analizarlos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una aplicación configurada para usar Application Insights.
 
@@ -41,7 +41,7 @@ El siguiente diagrama muestra la arquitectura de servicio de este ejemplo:
 
 ![Los datos fluyen desde Application Insights al almacenamiento de blobs y después a Spark](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
 
-### <a name="azure-storage"></a>Almacenamiento de Azure
+### <a name="azure-storage"></a>Azure Storage
 
 Application Insights pueden configurarse para exportar información de telemetría a blobs continuamente. Tras esto, HDInsight puede leer los datos almacenados en los blobs. Sin embargo, hay algunos requisitos que se deben seguir:
 
@@ -60,7 +60,7 @@ Application Insights proporciona información del [modelo de datos de exportaci�
 
 ## <a name="export-telemetry-data"></a>Exportación de datos de telemetría
 
-Siga los pasos de [Configuración de exportación continua](../../azure-monitor/app/export-telemetry.md) para configurar Application Insights de modo que la información de telemetría se exporte a un blob de Almacenamiento de Azure.
+Siga los pasos de [Configuración de exportación continua](../../azure-monitor/app/export-telemetry.md) para configurar Application Insights de modo que la información de telemetría se exporte a un blob de Azure Storage.
 
 ## <a name="configure-hdinsight-to-access-the-data"></a>Configuración de HDInsight para tener acceso a los datos
 
@@ -70,9 +70,7 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
 
 ## <a name="analyze-the-data-pyspark"></a>Análisis de datos: PySpark
 
-1. Desde el [Portal de Azure](https://portal.azure.com), seleccione el clúster de Spark en HDInsight. En la sección **Vínculos rápidos**, seleccione **Paneles de clúster** y, después, seleccione **Jupyter Notebook** en la sección Panel de clúster__.
-
-    ![PySpark en el panel de clúster de Azure Portal](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
+1. En un explorador web, vaya a `https://CLUSTERNAME.azurehdinsight.net/jupyter`, donde CLUSTERNAME es el nombre del clúster.
 
 2. En la esquina superior derecha de la página de Jupyter, seleccione **Nuevo** y, a continuación, **PySpark**. Se abre una nueva pestaña en el explorador con un cuaderno de Jupyter Notebook basado en Python.
 
@@ -93,22 +91,23 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
 
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
+
 5. Se crea una nueva celda debajo de la primera. Escriba el texto siguiente en la nueva celda. Reemplace `CONTAINER` y `STORAGEACCOUNT` por el nombre de la cuenta de Azure Storage y el nombre del contenedor de blobs que contiene datos de Application Insights.
 
    ```python
    %%bash
-   hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   hdfs dfs -ls wasbs://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
    ```
 
     Use **MAYÚS + INTRO** para ejecutar esta celda. Verá un resultado similar al texto siguiente:
 
         Found 1 items
-        drwxrwxrwx   -          0 1970-01-01 00:00 wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
+        drwxrwxrwx   -          0 1970-01-01 00:00 wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
 
-    La ruta de acceso de WASB devuelta es la ubicación de los datos de telemetría de Application Insights. Cambie la línea `hdfs dfs -ls` en la celda para usar la ruta wasb devuelta y luego use **MAYÚS + INTRO** para volver a ejecutar la celda. Esta vez, los resultados deberían mostrar los directorios que contienen datos de telemetría.
+    La ruta de acceso de wasbs devuelta es la ubicación de los datos de telemetría de Application Insights. Cambie la línea `hdfs dfs -ls` en la celda para usar la ruta de acceso de wasbs devuelta y luego use **MAYÚS + INTRO** para volver a ejecutar la celda. Esta vez, los resultados deberían mostrar los directorios que contienen datos de telemetría.
 
    > [!NOTE]  
-   > Para el resto de los pasos descritos en esta sección, se ha usado el directorio `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests`. La estructura de sus directorios puede ser diferente.
+   > Para el resto de los pasos descritos en esta sección, se ha usado el directorio `wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests`. La estructura de sus directorios puede ser diferente.
 
 6. Escriba el código siguiente en la celda siguiente: Reemplace `WASB_PATH` por la ruta de acceso del paso anterior.
 
@@ -186,6 +185,7 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
         |    |    |    |-- hashTag: string (nullable = true)
         |    |    |    |-- host: string (nullable = true)
         |    |    |    |-- protocol: string (nullable = true)
+
 8. Para registrar la trama de datos como una tabla temporal y ejecutar una consulta de los datos, utilice lo siguiente:
 
    ```python
@@ -213,11 +213,10 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
 
 ## <a name="analyze-the-data-scala"></a>Análisis de datos: Scala
 
-1. Desde el [Portal de Azure](https://portal.azure.com), seleccione el clúster de Spark en HDInsight. En la sección **Vínculos rápidos**, seleccione **Paneles de clúster** y, después, seleccione **Jupyter Notebook** en la sección Panel de clúster__.
-
-    ![Scala en el panel de clúster de Azure Portal](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
+1. En un explorador web, vaya a `https://CLUSTERNAME.azurehdinsight.net/jupyter`, donde CLUSTERNAME es el nombre del clúster.
 
 2. En la esquina superior derecha de la página de Jupyter, seleccione **Nuevo** y, después, **Scala**. Se abre una nueva pestaña en el explorador con un cuaderno de Jupyter Notebook basado en Scala.
+
 3. En el primer campo (llamado **celda**) de la página, escriba el texto siguiente:
 
    ```scala
@@ -235,22 +234,23 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
 
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
+
 5. Se crea una nueva celda debajo de la primera. Escriba el texto siguiente en la nueva celda. Reemplace `CONTAINER` y `STORAGEACCOUNT` por el nombre de la cuenta de Azure Storage y el nombre del contenedor de blobs que contiene registros de Application Insights.
 
    ```scala
    %%bash
-   hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   hdfs dfs -ls wasbs://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
    ```
 
     Use **MAYÚS + INTRO** para ejecutar esta celda. Verá un resultado similar al texto siguiente:
 
         Found 1 items
-        drwxrwxrwx   -          0 1970-01-01 00:00 wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
+        drwxrwxrwx   -          0 1970-01-01 00:00 wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
 
-    La ruta de acceso de WASB devuelta es la ubicación de los datos de telemetría de Application Insights. Cambie la línea `hdfs dfs -ls` en la celda para usar la ruta wasb devuelta y luego use **MAYÚS + INTRO** para volver a ejecutar la celda. Esta vez, los resultados deberían mostrar los directorios que contienen datos de telemetría.
+    La ruta de acceso de wasbs devuelta es la ubicación de los datos de telemetría de Application Insights. Cambie la línea `hdfs dfs -ls` en la celda para usar la ruta de acceso de wasbs devuelta y luego use **MAYÚS + INTRO** para volver a ejecutar la celda. Esta vez, los resultados deberían mostrar los directorios que contienen datos de telemetría.
 
    > [!NOTE]  
-   > Para el resto de los pasos descritos en esta sección, se ha usado el directorio `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests`. Este directorio podría no existir, a menos que los datos de telemetría sean de una aplicación web.
+   > Para el resto de los pasos descritos en esta sección, se ha usado el directorio `wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests`. Este directorio podría no existir, a menos que los datos de telemetría sean de una aplicación web.
 
 6. Escriba el código siguiente en la celda siguiente: Reemplace `WASB\_PATH` por la ruta de acceso del paso anterior.
 
@@ -335,15 +335,13 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
 
    ```scala
    jsonData.registerTempTable("requests")
-   var city = sqlContext.sql("select context.location.city from requests where context.location.city is not null limit 10").show()
+   var city = sqlContext.sql("select context.location.city from requests where context.location.city isn't null limit 10").show()
    ```
 
     Esta consulta devuelve la información de la ciudad de los 20 registros principales donde context.location.city no sea nulo.
 
    > [!NOTE]  
    > La estructura de contexto está presente en toda la telemetría registrada por Application Insights. Es posible que el elemento city no se rellene en los registros. Utilice el esquema para identificar otros elementos que se puedan consultar y que puedan contener datos de los registros.
-   >
-   >
 
     Esta consulta devuelve información similar al texto siguiente:
 

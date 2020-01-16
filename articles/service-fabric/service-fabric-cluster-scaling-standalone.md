@@ -1,24 +1,16 @@
 ---
-title: Escalado de un clúster independiente de Azure Service Fabric | Microsoft Docs
+title: Escalado de un clúster de Azure Service Fabric independiente
 description: Obtenga información acerca de cómo escalar horizontal y verticalmente clústeres independientes de Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/13/2018
 ms.author: dekapur
-ms.openlocfilehash: eedf80ec82a748f5da8e51aed8b4d403dffe4169
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 16ec0eb429ec6e8f6613490226b7cff01dff1b32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599871"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451906"
 ---
 # <a name="scaling-service-fabric-standalone-clusters"></a>Escalado de clústeres independientes de Service Fabric
 Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los clústeres pueden contener potencialmente miles de nodos. Después de crear un clúster de Service Fabric, puede escalar el clúster horizontalmente (cambiar el número de nodos) o verticalmente (cambiar los recursos de los nodos).  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.

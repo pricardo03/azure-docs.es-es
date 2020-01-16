@@ -9,20 +9,20 @@ editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 02d6e150e638321e11a8dec9838e360faa00783e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 59afdb0e273511f3d8255a9c859b86f93e0b7269
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280936"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462412"
 ---
-# <a name="use-firewall-rules"></a>Uso de las reglas de firewall
+# <a name="azure-service-bus---use-firewall-rules"></a>Azure Service Bus: Uso de reglas de firewall
 
 En los escenarios en los que solo se puede acceder a Azure Service Bus desde sitios conocidos, las reglas de firewall le permiten configurar reglas para aceptar el tráfico que se origina desde direcciones IPv4 específicas. Por ejemplo, estas direcciones pueden ser las de una puerta de enlace NAT corporativa.
 
-## <a name="when-to-use"></a>Cuándo se deben usar
+## <a name="when-to-use"></a>Cuándo se usa
 
 Si desea configurar Service Bus de forma que reciba tráfico solo de un rango especificado de direcciones IP y rechace todo lo demás, puede aprovechar un *Firewall* para bloquear los puntos de conexión de Service Bus desde otras direcciones IP. Por ejemplo, usará Service Bus con [Azure Express Route][express-route] para crear conexiones privadas a la infraestructura local. 
 
@@ -32,7 +32,7 @@ Las reglas de filtro IP se aplican en el nivel de espacio de nombres de Service 
 
 Cualquier intento de conexión desde una dirección IP que no coincida con una regla IP admitida en el espacio de nombres de Service Bus se rechaza como no autorizado. La respuesta no menciona la regla IP.
 
-## <a name="default-setting"></a>Configuración predeterminada
+## <a name="default-setting"></a>Valor predeterminado
 
 De forma predeterminada, la cuadrícula de **filtro IP** del portal para Service Bus está vacía. Esta configuración predeterminada significa que el espacio de nombres acepta la conexión de cualquier dirección IP. Esta configuración predeterminada es equivalente a una regla que acepta el intervalo de direcciones IP 0.0.0.0/0.
 
@@ -70,7 +70,7 @@ Parámetros de plantilla:
 > Si bien no hay reglas de denegación posibles, la plantilla de Azure Resource Manager tiene la acción predeterminada establecida en **"Permitir"** , que no restringe las conexiones.
 > Cuando se realizan las reglas de Virtual Network o de firewall, es necesario cambiar el valor ***"defaultAction"***
 > 
-> De
+> desde
 > ```json
 > "defaultAction": "Allow"
 > ```

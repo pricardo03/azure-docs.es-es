@@ -3,13 +3,13 @@ title: Referencia para desarrolladores de JavaScript para Azure Functions
 description: Obtenga información sobre cómo desarrollar funciones con JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
-ms.date: 02/24/2019
-ms.openlocfilehash: b6b7db4c5f13a264b76dcab02dba51c464297307
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/17/2019
+ms.openlocfilehash: 506f71664616686a66227af7e55fe3f4046376f2
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226720"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561922"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 
@@ -242,7 +242,7 @@ context.done([err],[propertyBag])
 
 Permite que el tiempo de ejecución sepa que el código se ha completado. Si su función usa la declaración [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function), no es necesario que utilice `context.done()`. La devolución de llamada `context.done` se realiza implícitamente. Las funciones asincrónicas están disponibles en Node 8 o una versión posterior, que requiere la versión 2.x del tiempo de ejecución de Functions.
 
-Si la función no es una función asincrónica, **debe llamar a** `context.done` para informar al entorno en tiempo de ejecución que la función está completa. La ejecución agota el tiempo de espera si no está presente.
+Si la función no es una función asincrónica, **debe llamar** a `context.done` para informar al entorno de ejecución de que la función está completa. La ejecución agota el tiempo de espera si no está presente.
 
 El método `context.done` le permite devolver un error definido por el usuario al entorno en tiempo de ejecución y un objeto JSON que contiene los datos de enlace de salida. Las propiedades que se pasan a `context.done` sobrescriben lo que ha definido en el objeto `context.bindings`.
 
@@ -265,7 +265,7 @@ context.log(message)
 Permite escribir en los registros de la función de streaming en el nivel de seguimiento predeterminado. Hay métodos de registro adicionales disponibles en `context.log` que permiten escribir registros de la función en otros niveles de seguimiento:
 
 
-| Método                 | DESCRIPCIÓN                                |
+| Método                 | Descripción                                |
 | ---------------------- | ------------------------------------------ |
 | **error(_message_)**   | Escribe en el registro de nivel de error o inferior.   |
 | **warn(_message_)**    | Escribe en el registro de nivel de advertencia o inferior. |
@@ -342,7 +342,7 @@ Los desencadenadores HTTP y de webhook trigger y los enlaces de salida HTTP usan
 
 El objeto `context.req` (solicitud) tiene las siguientes propiedades:
 
-| Propiedad      | DESCRIPCIÓN                                                    |
+| Propiedad      | Descripción                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Objeto que contiene el cuerpo de la solicitud.               |
 | _headers_     | Objeto que contiene los encabezados de la solicitud.                   |
@@ -357,7 +357,7 @@ El objeto `context.req` (solicitud) tiene las siguientes propiedades:
 
 El objeto `context.res` (respuesta) tiene las siguientes propiedades:
 
-| Propiedad  | DESCRIPCIÓN                                               |
+| Propiedad  | Descripción                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Objeto que contiene el cuerpo de la respuesta.         |
 | _headers_ | Objeto que contiene los encabezados de la respuesta.             |
@@ -406,6 +406,16 @@ Cuando se trabaja con desencadenadores HTTP, hay varias maneras de acceder a los
     context.done(null, res);   
     ```  
 
+## <a name="scaling-and-concurrency"></a>Escalado y simultaneidad
+
+De forma predeterminada, Azure Functions supervisa automáticamente la carga en la aplicación y crea instancias de host adicionales para Node.js según sea necesario. Functions usa umbrales integrados (no configurables por el usuario) en diferentes tipos de desencadenadores para decidir cuándo se deben agregar instancias, como la antigüedad de los mensajes y el tamaño de la cola para QueueTrigger. Para más información, consulte [Cómo funcionan los planes de consumo y Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+
+Este comportamiento de escalado es suficiente para muchas aplicaciones de Node.js. En las aplicaciones dependientes de la CPU, puede mejorar aún más el rendimiento mediante el uso de varios procesos de trabajo de lenguaje.
+
+De forma predeterminada, cada instancia de host de Functions tiene un único proceso de trabajo de lenguaje. Puede aumentar el número de procesos de trabajo por host (hasta 10) mediante la configuración de la aplicación [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count). Al hacerlo, Azure Functions intenta distribuir uniformemente las invocaciones de función simultáneas en estos trabajos. 
+
+FUNCTIONS_WORKER_PROCESS_COUNT se aplica a cada host que Functions crea al escalar horizontalmente la aplicación para satisfacer la demanda. 
+
 ## <a name="node-version"></a>Versión de Node
 
 En la tabla siguiente se muestra la versión de Node.js que se usa en cada versión principal del entorno de tiempo de ejecución de Functions:
@@ -445,7 +455,7 @@ Hay dos maneras de instalar paquetes en Function App:
 
 
 ### <a name="using-kudu"></a>Mediante Kudu
-1. Vaya a `https://<function_app_name>.scm.azurewebsites.net`.
+1. Ir a `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Haga clic en **Consola de depuración** > **CMD**.
 
@@ -475,9 +485,9 @@ Cuando se ejecuta localmente, la configuración de la aplicación se lee desde e
 
 ## <a name="configure-function-entry-point"></a>Configuración del punto de entrada de la función
 
-Las propiedades de `function.json` `scriptFile` y `entryPoint` pueden usarse para configurar la ubicación y el nombre de la función exportada. Estas propiedades pueden ser importantes si se transpila el código JavaScript.
+Las propiedades de `function.json``scriptFile` y `entryPoint` pueden usarse para configurar la ubicación y el nombre de la función exportada. Estas propiedades pueden ser importantes si se transpila el código JavaScript.
 
-### <a name="using-scriptfile"></a>Uso de `scriptFile`
+### <a name="using-scriptfile"></a>Usar `scriptFile`
 
 De forma predeterminada, se ejecuta una función de JavaScript desde `index.js`, un archivo que comparte el mismo directorio primario que su archivo `function.json` correspondiente.
 
@@ -506,7 +516,7 @@ FunctionApp
 }
 ```
 
-### <a name="using-entrypoint"></a>Uso de `entryPoint`
+### <a name="using-entrypoint"></a>Usar `entryPoint`
 
 En `scriptFile` (o `index.js`), una función debe exportarse con `module.exports` para que se pueda encontrar y ejecutar. De forma predeterminada, la función que se ejecuta cuando se desencadena es la única exportación de ese archivo, la exportación denominada `run` o la exportación denominada `index`.
 
@@ -557,7 +567,7 @@ Cuando el destino es la versión 2.x del sistema en tiempo de ejecución de Func
 
 El archivo `.funcignore` generado se usa para indicar qué archivos se excluyen cuando se publica un proyecto en Azure.  
 
-Los archivos de TypeScript (TS) se transpilan en archivos de JavaScript (.js) en el directorio de salida `dist`. Las plantillas de TypeScript usan el parámetro [`scriptFile` ](#using-scriptfile) en `function.json` para indicar la ubicación del archivo .js correspondiente en la carpeta `dist`. La ubicación de salida se establece mediante la plantilla con el parámetro `outDir` en el archivo `tsconfig.json`. Si cambia esta configuración o el nombre de la carpeta, el entorno de ejecución no podrá encontrar el código que se ejecutará.
+Los archivos de TypeScript (TS) se transpilan en archivos de JavaScript (.js) en el directorio de salida `dist`. Las plantillas de TypeScript usan el parámetro [`scriptFile`](#using-scriptfile) en `function.json` para indicar la ubicación del archivo .js correspondiente en la carpeta `dist`. La ubicación de salida se establece mediante la plantilla con el parámetro `outDir` en el archivo `tsconfig.json`. Si cambia esta configuración o el nombre de la carpeta, el entorno de ejecución no podrá encontrar el código que se ejecutará.
 
 > [!NOTE]
 > En la versión 1.x de sistema en tiempo de ejecución de Functions existe compatibilidad experimental con TypeScript. La versión experimental transpila los archivos de TypeScript en archivos de JavaScript cuando se invoca la función. En la versión 2.x, esta compatibilidad experimental se ha sustituido por el método controlado mediante herramienta que realiza la transpilación antes de que se inicialice el host y durante el proceso de implementación.
@@ -658,7 +668,7 @@ module.exports = function (context) {
 }
 ```
 
-El uso de las palabras clave `async` y `await` ayuda a evitar ambos errores. Debe usar la función de utilidad [`util.promisify` ](https://nodejs.org/api/util.html#util_util_promisify_original) de Node.js para convertir las funciones de estilo de devolución de llamada error-first en funciones que admiten await.
+El uso de las palabras clave `async` y `await` ayuda a evitar ambos errores. Debe usar la función de utilidad [`util.promisify`](https://nodejs.org/api/util.html#util_util_promisify_original) de Node.js para convertir las funciones de estilo de devolución de llamada error-first en funciones que admiten await.
 
 En el ejemplo siguiente, las excepciones no controladas iniciadas durante la ejecución de la función solo errarán la invocación individual que generó una excepción. La palabra clave `await` significa que los pasos después de `readFileAsync` solo se ejecutarán una vez finalizado `readFile`. Con `async` y `await`, tampoco es necesario llamar a la devolución de llamada `context.done()`.
 

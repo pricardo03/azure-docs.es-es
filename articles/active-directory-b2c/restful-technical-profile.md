@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: aa14854807727506f5d697d7871c97e219c096a3
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 7822045d4b3ce1feb1bfb43fbf1c2fc5a9a1c7fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950891"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425626"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de RESTful en una directiva personalizada en Azure Active Directory B2C
 
@@ -61,11 +61,48 @@ El elemento **InputClaims** contiene una lista de notificaciones para enviar a l
 
 El elemento **InputClaimsTransformations** puede contener una colección de elementos **InputClaimsTransformation** que se usan para modificar las notificaciones de entrada o generar otras nuevas antes del envío a la API REST.
 
+## <a name="send-a-json-payload"></a>Envío de una carga de JSON
+
+El perfil técnico de la API REST permite enviar una carga de JSON compleja a un punto de conexión.
+
+Para enviar una carga de JSON compleja:
+
+1. Compile la carga de JSON con la transformación de notificaciones [GenerateJson](json-transformations.md).
+1. En el perfil técnico de la API REST:
+    1. Agregue una transformación de notificaciones de entrada con una referencia a la transformación de notificaciones `GenerateJson`.
+    1. Establezca la opción de metadatos `SendClaimsIn` en `body`.
+    1. Establezca la opción de metadatos `ClaimUsedForRequestPayload` en el nombre de la notificación que contiene la carga de JSON.
+    1. En la notificación de entrada, agregue una referencia a la notificación de entrada que contiene la carga de JSON.
+
+En el siguiente ejemplo, `TechnicalProfile` envía un correo electrónico de verificación mediante un servicio de correo electrónico de terceros (en este caso, SendGrid).
+
+```XML
+<TechnicalProfile Id="SendGrid">
+  <DisplayName>Use SendGrid's email API to send the code the the user</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="ServiceUrl">https://api.sendgrid.com/v3/mail/send</Item>
+    <Item Key="AuthenticationType">Bearer</Item>
+    <Item Key="SendClaimsIn">Body</Item>
+    <Item Key="ClaimUsedForRequestPayload">sendGridReqBody</Item>
+  </Metadata>
+  <CryptographicKeys>
+    <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_SendGridApiKey" />
+  </CryptographicKeys>
+  <InputClaimsTransformations>
+    <InputClaimsTransformation ReferenceId="GenerateSendGridRequestBody" />
+  </InputClaimsTransformations>
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="sendGridReqBody" />
+  </InputClaims>
+</TechnicalProfile>
+```
+
 ## <a name="output-claims"></a>Notificaciones de salida
 
 El elemento **OutputClaims** contiene una lista de notificaciones devuelta por la API REST. Es posible que tenga que asignar el nombre de la notificación definida en la directiva al nombre definido en la API REST. También puede incluir las notificaciones que la API REST no devuelve, siempre y cuando establezca el atributo `DefaultValue`.
 
-El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o generar otras nuevas.
+El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o para generar nuevas.
 
 En el ejemplo siguiente se muestra la notificación devuelta por la API REST:
 
@@ -84,13 +121,14 @@ El perfil técnico también devuelve notificaciones, que no son devueltas por el
 
 ## <a name="metadata"></a>Metadatos
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | ServiceUrl | Sí | La dirección URL del punto de conexión de la API REST. |
-| AuthenticationType | Sí | El tipo de autenticación realizada por el proveedor de notificaciones RESTful. Valores posibles: `None`, `Basic` o `ClientCertificate`. El valor `None` indica que la API REST no es anónima. El valor `Basic` indica que la API REST se protege con autenticación básica HTTP. Solo los usuarios verificados, incluido Azure AD B2C, pueden acceder a la API. El valor `ClientCertificate` (recomendado) indica que la API REST restringe el acceso mediante la autenticación de certificado de cliente. Solo pueden acceder al servicio los servicios que tengan los certificados adecuados, como Azure AD B2C. |
-| SendClaimsIn | Sin | Especifica cómo se envían las notificaciones de entrada al proveedor de notificaciones RESTful. Valores posibles: `Body` (predeterminado), `Form`, `Header` o `QueryString`. El valor `Body` es la notificación de entrada que se envía en el cuerpo de la solicitud en formato JSON. El valor `Form` es la notificación de entrada que se envía en el cuerpo de la solicitud en un formato de valor de clave separado por "&" (Y comercial). El valor `Header` es la notificación de entrada que se envía en el cuerpo de la solicitud. El valor `QueryString` es la notificación de entrada que se envía en la cadena de consulta de la solicitud. |
-| ClaimsFormat | Sin | Especifica el formato de las notificaciones de salida. Valores posibles: `Body` (predeterminado), `Form`, `Header` o `QueryString`. El valor `Body` es la notificación de salida que se envía en el cuerpo de la solicitud en formato JSON. El valor `Form` es la notificación de salida que se envía en el cuerpo de la solicitud en un formato de valor de clave separado por "&" (Y comercial). El valor `Header` es la notificación de salida que se envía en el cuerpo de la solicitud. El valor `QueryString` es la notificación de salida que se envía en la cadena de consulta de la solicitud. |
-| DebugMode | Sin | Ejecuta el perfil técnico en modo de depuración. En el modo de depuración, la API REST puede devolver más información. Vea la sección sobre devolución de mensajes de error. |
+| AuthenticationType | Sí | El tipo de autenticación realizada por el proveedor de notificaciones RESTful. Valores posibles: `None`, `Basic`, `Bearer` o `ClientCertificate`. El valor `None` indica que la API REST no es anónima. El valor `Basic` indica que la API REST se protege con autenticación básica HTTP. Solo los usuarios verificados, incluido Azure AD B2C, pueden acceder a la API. El valor `ClientCertificate` (recomendado) indica que la API REST restringe el acceso mediante la autenticación de certificado de cliente. Solo pueden acceder a la API los servicios que tengan los certificados adecuados; por ejemplo, Azure AD B2C. El valor `Bearer` indica que la API REST restringe el acceso mediante el token de portador de OAuth2 de cliente. |
+| SendClaimsIn | No | Especifica cómo se envían las notificaciones de entrada al proveedor de notificaciones RESTful. Valores posibles: `Body` (predeterminado), `Form`, `Header` o `QueryString`. El valor `Body` es la notificación de entrada que se envía en el cuerpo de la solicitud en formato JSON. El valor `Form` es la notificación de entrada que se envía en el cuerpo de la solicitud en un formato de valor de clave separado por "&" (Y comercial). El valor `Header` es la notificación de entrada que se envía en el cuerpo de la solicitud. El valor `QueryString` es la notificación de entrada que se envía en la cadena de consulta de la solicitud. |
+| ClaimsFormat | No | Especifica el formato de las notificaciones de salida. Valores posibles: `Body` (predeterminado), `Form`, `Header` o `QueryString`. El valor `Body` es la notificación de salida que se envía en el cuerpo de la solicitud en formato JSON. El valor `Form` es la notificación de salida que se envía en el cuerpo de la solicitud en un formato de valor de clave separado por "&" (Y comercial). El valor `Header` es la notificación de salida que se envía en el cuerpo de la solicitud. El valor `QueryString` es la notificación de salida que se envía en la cadena de consulta de la solicitud. |
+| ClaimUsedForRequestPayload| No | Nombre de una notificación de cadena que contiene la carga que se va a enviar a la API REST. |
+| DebugMode | No | Ejecuta el perfil técnico en modo de depuración. En el modo de depuración, la API REST puede devolver más información. Vea la sección sobre devolución de mensajes de error. |
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 
@@ -110,7 +148,7 @@ Si el tipo de autenticación se establece en `None`, no se usa el elemento **Cry
 
 Si el tipo de autenticación se establece en `Basic`, el elemento **CryptographicKeys** contiene los atributos siguientes:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | BasicAuthenticationUsername | Sí | Nombre de usuario que se usa para la autenticación. |
 | BasicAuthenticationPassword | Sí | Contraseña que se usa para la autenticación. |
@@ -135,7 +173,7 @@ En el ejemplo siguiente se muestra un perfil técnico con autenticación básica
 
 Si el tipo de autenticación se establece en `ClientCertificate`, el elemento **CryptographicKeys** contiene el atributo siguiente:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | ClientCertificate | Sí | El certificado X509 (conjunto de claves RSA) que se va a usar para la autenticación. |
 
@@ -154,19 +192,40 @@ Si el tipo de autenticación se establece en `ClientCertificate`, el elemento **
 </TechnicalProfile>
 ```
 
+Si el tipo de autenticación se establece en `Bearer`, el elemento **CryptographicKeys** contiene el atributo siguiente:
+
+| Atributo | Obligatorio | Descripción |
+| --------- | -------- | ----------- |
+| BearerAuthenticationToken | No | El token de portador de OAuth 2.0. |
+
+```XML
+<TechnicalProfile Id="REST-API-SignUp">
+  <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/signup</Item>
+    <Item Key="AuthenticationType">Bearer</Item>
+    <Item Key="SendClaimsIn">Body</Item>
+  </Metadata>
+  <CryptographicKeys>
+    <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_B2cRestClientAccessToken" />
+  </CryptographicKeys>
+</TechnicalProfile>
+```
+
 ## <a name="returning-error-message"></a>Devolución de mensajes de error
 
 Es posible la API REST tenga que devolver un mensaje de error, como "No se encuentra el usuario en el sistema CRM". Si se produce un error, la API REST debe devolver un mensaje de error HTTP 409 (código de estado de respuesta de conflicto) con los atributos siguientes:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | version | Sí | 1.0.0 |
 | status | Sí | 409 |
-| código | Sin | Código de error del proveedor de punto de conexión RESTful, que se muestra cuando `DebugMode` está habilitado. |
-| requestId | Sin | Identificador de solicitud del proveedor de punto de conexión RESTful, que se muestra cuando `DebugMode` está habilitado. |
+| código | No | Código de error del proveedor de punto de conexión RESTful, que se muestra cuando `DebugMode` está habilitado. |
+| requestId | No | Identificador de solicitud del proveedor de punto de conexión RESTful, que se muestra cuando `DebugMode` está habilitado. |
 | userMessage | Sí | Mensaje de error que se muestra al usuario. |
-| developerMessage | Sin | Descripción detallada del problema y cómo corregirlo, que se muestra cuando `DebugMode` está habilitado. |
-| moreInfo | Sin | URI que señala a información adicional, que se muestra cuando `DebugMode` está habilitado. |
+| developerMessage | No | Descripción detallada del problema y cómo corregirlo, que se muestra cuando `DebugMode` está habilitado. |
+| moreInfo | No | URI que señala a información adicional, que se muestra cuando `DebugMode` está habilitado. |
 
 En el ejemplo siguiente se muestra una API REST que devuelve un mensaje de error con formato JSON:
 
@@ -197,24 +256,11 @@ public class ResponseContent
 }
 ```
 
-## <a name="examples"></a>Ejemplos:
+## <a name="next-steps"></a>Pasos siguientes
+
+Consulte los siguientes artículos para obtener ejemplos del uso de un perfil técnico de RESTful:
+
 - [Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](active-directory-b2c-custom-rest-api-netfw.md)
 - [Protección de los servicios RESTful mediante la autenticación HTTP básica](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 - [Protección de los servicios RESTful mediante certificados de cliente](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 - [Tutorial: Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](active-directory-b2c-rest-api-validation-custom.md)
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-

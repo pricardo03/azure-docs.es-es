@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: b69abf098ba7646ebc98d126c7c0d949205d6275
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 5bf54b6975475810650aeaee4b477e60255757bf
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383972"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530687"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Configurar un laboratorio para enseñar ciencia de datos con Python y Jupyter Notebooks
 
@@ -32,7 +32,7 @@ Para configurar este laboratorio, para empezar, necesita una suscripción a Azur
 
 Habilite la configuración que se describe en la tabla siguiente para la cuenta de laboratorio. Para obtener más información sobre cómo habilitar imágenes de Marketplace, consulte [Especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators).
 
-| Configuración de la cuenta de laboratorio | Instrucciones |
+| Configuración de la cuenta de laboratorio | Instructions |
 | ------------------- | ------------ |
 | Imagen de Marketplace | Habilite la imagen [Data Science Virtual Machine - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) para usarla con la cuenta de laboratorio. |
 
@@ -41,22 +41,22 @@ Habilite la configuración que se describe en la tabla siguiente para la cuenta 
 
 ### <a name="lab-settings"></a>Configuración del laboratorio
 
-Use la configuración de la tabla siguiente al configurar un laboratorio de clase.  Para obtener más información sobre cómo crear un laboratorio de clase, consulte [Configurar un tutorial de laboratorio de clase](tutorial-setup-classroom-lab.md).
+Use las opciones de la tabla siguiente al configurar un laboratorio educativo.  Para obtener más información sobre cómo crear un laboratorio de clase, consulte el [tutorial Configuración de un laboratorio educativo](tutorial-setup-classroom-lab.md).
 
 | Configuración del laboratorio | Valor/instrucciones |
 | ------------ | ------------------ |
 |Tamaño de la máquina virtual| GPU pequeña (proceso) Este tamaño es más adecuado para aplicaciones de proceso intensivo y uso intensivo de la red; por ejemplo, la inteligencia artificial y el aprendizaje profundo. |
-|Imagen de máquina virtual| SQL Server 2019 Standard en Windows Server 2019|
+|Imagen de máquina virtual| Data Science Virtual Machine: Windows 2016|
 
 ## <a name="template-machine"></a>Máquina de plantilla
 
 La imagen de [Data Science Virtual Machine - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) proporciona las herramientas y arquitectura de aprendizaje profundo necesarios para este tipo de clase.  La imagen incluye instancias de Jupyter Notebook y Visual Studio Code.  [Jupyter Notebook](http://jupyter-notebook.readthedocs.io) es una aplicación web que permite a los científicos de datos tomar datos sin procesar, ejecutar cálculos y ver los resultados en el mismo entorno.  Para nuestra máquina de plantilla, la aplicación web se ejecutará localmente.  [Visual Studio Code](https://code.visualstudio.com/) es un IDE que proporciona una experiencia interactiva enriquecida al escribir y probar un cuaderno.  Para obtener más información, consulte [Trabajar con cuadernos de Jupyter Notebook en Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
 
-La tarea restante para configurar la clase consiste en proporcionar cuadernos locales.  Para obtener instrucciones sobre cómo usar las muestras de Azure Machine Learning, consulte [cómo configurar un entorno con Jupyter Notebook](../../machine-learning/service/how-to-configure-environment.md#jupyter).  También puede proporcionar sus propios cuadernos en la máquina de plantilla.  Los cuadernos se copiarán en todas las máquinas de los alumnos cuando se publique la plantilla.
+La tarea restante para configurar la clase consiste en proporcionar cuadernos locales.  Para obtener instrucciones sobre cómo usar las muestras de Azure Machine Learning, consulte [cómo configurar un entorno con Jupyter Notebook](../../machine-learning/how-to-configure-environment.md#jupyter).  También puede proporcionar sus propios cuadernos en la máquina de plantilla.  Los cuadernos se copiarán en todas las máquinas de los alumnos cuando se publique la plantilla.
 
 ## <a name="cost-estimate"></a>Estimación del costo
 
-Vamos a cubrir una posible estimación de costos para esta clase.  Usaremos una clase de 25 alumnos.  Hay 20 horas de tiempo de clase programado.  Además, cada alumno obtiene una cuota de 10 horas para deberes o tareas fuera del tiempo de clase programado.  El tamaño de la máquina virtual que hemos elegido es el de GPU pequeña (proceso), que tiene 139 unidades de laboratorio.
+Vamos a cubrir una posible estimación de costos para esta clase.  Usaremos una clase de 25 alumnos.  Hay 20 horas de tiempo de clase programado.  Además, cada alumno obtiene una cuota de 10 horas para deberes o tareas fuera del tiempo de clase programado.  El tamaño de la máquina virtual que hemos elegido es el de GPU pequeña (proceso), que tiene 139 unidades de laboratorio.
 
 A continuación se incluye un ejemplo de una posible estimación del costo para esta clase:
 

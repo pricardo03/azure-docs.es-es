@@ -1,18 +1,14 @@
 ---
 title: Configuración de la recopilación de datos del agente de Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo puede configurar el agente de Azure Monitor para contenedores para controlar la recopilación de registros de stdout y stderr y de las variables de entorno.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 0d654dc05668a71b0fe69de32e5c09f8936951f8
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 0bde696f39af22f864500e0c79b5e03ca66cc7f0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951588"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405674"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configuración de la recopilación de datos del agente para Azure Monitor para contenedores
 
@@ -25,21 +21,22 @@ En este artículo se muestra cómo crear ConfigMap y configurar la recopilación
 Se proporciona un archivo ConfigMap de plantilla que le permite editarlo fácilmente con sus personalizaciones sin tener que crearlo desde cero. Antes de comenzar, debe revisar la documentación de Kubernetes sobre [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) y familiarizarse con la forma de crear, configurar e implementar ConfigMaps. Esto le permitirá filtrar stderr y stdout por espacio de nombres o a través de todo el clúster, y las variables de entorno para cualquier contenedor que se ejecute en todos los pods o nodos del clúster.
 
 >[!IMPORTANT]
->La versión de agente mínima admitida para recopilar los registros stdout, stderr y las variables de entorno de las cargas de trabajo de contenedor es ciprod06142019 o posterior. Para comprobar la versión del agente, en la pestaña **Nodo** seleccione un nodo y, en el panel de propiedades, anote el valor de la propiedad **Etiqueta de imagen del agente**. Para obtener más información acerca de las versiones del agente y lo que se incluye en cada versión, vea las [notas de la versión del agente](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod).
+>La versión de agente mínima admitida para recopilar los registros stdout, stderr y las variables de entorno de las cargas de trabajo de contenedor es ciprod06142019 o posterior. Para comprobar la versión del agente, en la pestaña **Nodo** seleccione un nodo y, en el panel de propiedades, anote el valor de la propiedad **Etiqueta de imagen del agente**. Para más información sobre las versiones del agente y lo que se incluye en cada versión, vea las [notas de la versión del agente](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod).
 
 ### <a name="data-collection-settings"></a>Configuración de la colección de datos
 
 A continuación figura la configuración que puede definir para controlar la recolección de datos.
 
-|Clave |Tipo de datos |Valor |DESCRIPCIÓN |
+|Clave |Tipo de datos |Value |Descripción |
 |----|----------|------|------------|
 |`schema-version` |Cadena (distingue mayúsculas de minúsculas) |v1 |Se trata de la versión del esquema que el agente utiliza al analizar este ConfigMap. La versión de esquema que se admite actualmente es v1. No se admite la modificación de este valor y se rechazará cuando ConfigMap se evalúe.|
-|`config-version` |Cadena | | Permite realizar un seguimiento de la versión de este archivo de configuración en el sistema o repositorio de control de código fuente. El número máximo de caracteres permitido es 10 y todos los demás caracteres se truncan. |
+|`config-version` |String | | Permite realizar un seguimiento de la versión de este archivo de configuración en el sistema o repositorio de control de código fuente. El número máximo de caracteres permitido es 10 y todos los demás caracteres se truncan. |
 |`[log_collection_settings.stdout] enabled =` |Boolean | true o false | Controla si está habilitada la recopilación de registros de contenedor de stdout. Cuando se establece en `true` y los espacios de nombres no se excluyen de la recopilación de registros de stdout (configuración `log_collection_settings.stdout.exclude_namespaces` más abajo), los registros de stdout se recopilarán a partir de todos los contenedores en todos los pods o nodos del clúster. Si no se especifica en ConfigMaps, el valor predeterminado es `enabled = true`. |
-|`[log_collection_settings.stdout] exclude_namespaces =`|Cadena | Matriz separada por comas |Matriz de espacios de nombres de Kubernetes para la que no se recopilarán los registros de stdout. Esta configuración es efectiva únicamente si `log_collection_settings.stdout.enabled` se establece en `true`. Si no se especifica en ConfigMap, el valor predeterminado es `exclude_namespaces = ["kube-system"]`.|
+|`[log_collection_settings.stdout] exclude_namespaces =`|String | Matriz separada por comas |Matriz de espacios de nombres de Kubernetes para la que no se recopilarán los registros de stdout. Esta configuración es efectiva únicamente si `log_collection_settings.stdout.enabled` se establece en `true`. Si no se especifica en ConfigMap, el valor predeterminado es `exclude_namespaces = ["kube-system"]`.|
 |`[log_collection_settings.stderr] enabled =` |Boolean | true o false |Controla si está habilitada la recopilación de registros de contenedor de stderr. Cuando se establece en `true` y los espacios de nombres no se excluyen de la recopilación de registros de stdout (configuración `log_collection_settings.stderr.exclude_namespaces`), los registros de stderr se recopilarán a partir de todos los contenedores en todos los pods o nodos del clúster. Si no se especifica en ConfigMaps, el valor predeterminado es `enabled = true`. |
-|`[log_collection_settings.stderr] exclude_namespaces =` |Cadena |Matriz separada por comas |Matriz de espacios de nombres de Kubernetes para la que no se recopilarán los registros de stderr. Esta configuración es efectiva únicamente si `log_collection_settings.stdout.enabled` se establece en `true`. Si no se especifica en ConfigMap, el valor predeterminado es `exclude_namespaces = ["kube-system"]`. |
+|`[log_collection_settings.stderr] exclude_namespaces =` |String |Matriz separada por comas |Matriz de espacios de nombres de Kubernetes para la que no se recopilarán los registros de stderr. Esta configuración es efectiva únicamente si `log_collection_settings.stdout.enabled` se establece en `true`. Si no se especifica en ConfigMap, el valor predeterminado es `exclude_namespaces = ["kube-system"]`. |
 | `[log_collection_settings.env_var] enabled =` |Boolean | true o false | Esta configuración controla la colección de variables de entorno en todos los pods/nodos del clúster y el valor predeterminado es `enabled = true` cuando no se especifica en ConfigMaps. Si la colección de variables de entorno está habilitada globalmente, puede deshabilitarla para un contenedor específico al establecer la variable de entorno `AZMON_COLLECT_ENV` en **False** con un valor de Dockerfile o en el [archivo de configuración para el Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) en la sección **env:** . Si la colección de variables de entorno está deshabilitada globalmente, no puede habilitar la colección para un contenedor específico (es decir, la única invalidación que se puede aplicar en el nivel de contenedor es deshabilitar la colección si ya está habilitada globalmente). |
+| `[log_collection_settings.enrich_container_logs] enabled =` |Boolean | true o false | Esta configuración controla el enriquecimiento de los registros de contenedor para rellenar los valores de propiedad de nombre e imagen de cada entrada de registro escrita en la tabla ContainerLog de todos los registros de contenedor del clúster. El valor predeterminado es `enabled = false` cuando no se especifica en ConfigMap. |
 
 ConfigMaps es una lista global y solo puede haber una instancia de ConfigMap aplicada al agente. No puede tener otra instancia de ConfigMaps que anule las colecciones.
 

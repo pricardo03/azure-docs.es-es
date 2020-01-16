@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: a992851deda0659509c0ee4ea5de76b19734f017
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac539b44f09663e6eac5651646d3c9cd02e45b3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128845"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360011"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Uso de StorSimple Device Manager para administrar credenciales de cuentas de almacenamiento de StorSimple Virtual Array
 
@@ -110,7 +110,7 @@ Puede editar una credencial de cuenta de almacenamiento utilizada por su disposi
 4. En la hoja **Propiedades** de la credencial de cuenta de almacenamiento, haga lo siguiente:
    
    1. Si es necesario, puede modificar la selección **Habilitar modo SSL**.
-   2. Puede optar por regenerar las claves de acceso de la credencial de la cuenta de almacenamiento. Para más información, consulte [Nueva generación de las claves de acceso de almacenamiento](../storage/common/storage-account-manage.md#access-keys). Proporcione la nueva clave de la credencial de cuenta de almacenamiento. Para una cuenta de almacenamiento de Azure, esta es la clave de acceso principal.
+   2. Puede optar por regenerar las claves de acceso de la credencial de la cuenta de almacenamiento. Para más información, consulte [Administración de las claves de acceso de la cuenta de almacenamiento](../storage/common/storage-account-keys-manage.md). Proporcione la nueva clave de la credencial de cuenta de almacenamiento. Para una cuenta de almacenamiento de Azure, esta es la clave de acceso principal.
    3. Haga clic en **Guardar** en la parte superior de la hoja **Propiedades** para guardar los cambios. La configuración se actualizará en la hoja **Credenciales de cuenta de almacenamiento**.
       
       ![Edición de una credencial de cuenta de almacenamiento](./media/storsimple-virtual-array-manage-storage-accounts/ova-edit-storageacct.png)

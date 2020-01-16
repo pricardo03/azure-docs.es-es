@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: 46e44804ddbabd8bf5620ad9516f1ca2d5017bfa
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 4629e4e9cfd5c8f9861b692b2aec89057f83587c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019310"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442916"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para administrar la seguridad y las actualizaciones de los clústeres en Azure Kubernetes Service (AKS)
 
@@ -27,6 +27,8 @@ En este artículo se indica cómo proteger el clúster de AKS. Aprenderá a:
 > * Mantener actualizados los nodos y aplicar automáticamente los parches de seguridad.
 
 También puede leer las prácticas recomendadas para la [administración de imágenes de contenedor][best-practices-container-image-management] y para [seguridad de pod][best-practices-pod-security].
+
+También puede usar la [integración de Azure Kubernetes Services con Security Center][security-center-aks] para ayudar a detectar amenazas y ver recomendaciones para proteger los clústeres de AKS.
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Proteger el acceso a los nodos del clúster y al servidor de API
 
@@ -235,3 +237,4 @@ En este artículo se indica cómo proteger el clúster de AKS. Para implementar 
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
 [aks-ssh]: ssh.md
+[security-center-aks]: /azure/security-center/azure-kubernetes-service-integration

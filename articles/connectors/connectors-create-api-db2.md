@@ -1,22 +1,22 @@
 ---
-title: Conexión a IBM DB2
-description: Administración de recursos con las API de REST de IBM DB2 y Azure Logic Apps
+title: Acceso y administración de recursos de IBM DB2
+description: Lea, edite, actualice y administre los recursos de IBM DB2 mediante la creación de flujos de trabajo automatizados con Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 3c2bb01254b19c42fdd704544a6812177fecf4ca
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0f6e32056783a816d847db191de4fcdae2616ab7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789902"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446180"
 ---
-# <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Administración de recursos de IBM DB2 con Azure Logic Apps
+# <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Acceso y administración de recursos de IBM DB2 mediante el uso de Azure Logic Apps
 
-Con Azure Logic Apps y el conector de IBM DB2, puede crear tareas y flujos de trabajo automatizados en función de los recursos almacenados en la base de datos de DB2. Los flujos de trabajo pueden conectarse a los recursos de la base de datos, leer y enumerar las tablas de base de datos, agregar filas, cambiar filas, eliminar filas y mucho más. Puede incluir acciones en las aplicaciones lógicas que obtengan respuestas de la base de datos y que permitan que la salida esté disponible para otras acciones.
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el [conector de IBM DB2](/connectors/db2/), puede crear tareas y flujos de trabajo automatizados en función de los recursos almacenados en la base de datos de DB2. Los flujos de trabajo pueden conectarse a los recursos de la base de datos, leer y enumerar las tablas de base de datos, agregar filas, cambiar filas, eliminar filas y mucho más. Puede incluir acciones en las aplicaciones lógicas que obtengan respuestas de la base de datos y que permitan que la salida esté disponible para otras acciones.
 
 En este artículo se explica cómo puede crear una aplicación lógica que lleve a cabo diversas operaciones de base de datos. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
@@ -47,15 +47,15 @@ El conector de IBM DB2 admite estas operaciones de base de datos, que se asignan
 | Quitar una fila mediante DELETE | Eliminar fila |
 |||
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Una base de datos de IBM DB2, ya sea local o en la nube
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* La aplicación lógica donde quiere acceder a la base de datos de DB2. Este conector ofrece únicamente las acciones, por lo que, para iniciar la aplicación lógica, seleccione un desencadenador independiente; por ejemplo, el desencadenador de **periodicidad**.
+* La aplicación lógica donde quiere acceder a la base de datos de DB2. Este conector ofrece únicamente las acciones, por lo que, para iniciar la aplicación lógica, debe seleccionar un desencadenador independiente, por ejemplo, el de **periodicidad**.
 Los ejemplos de este artículo usan el desencadenador de **periodicidad**.
 
 <a name="add-db2-action"></a>
@@ -80,11 +80,11 @@ Los ejemplos de este artículo usan el desencadenador de **periodicidad**.
 
 Para establecer la conexión, proporcione estos detalles de conexión cuando se le solicite, elija **Crear** y después guarde la aplicación lógica:
 
-| Propiedad | Obligatorio | DESCRIPCIÓN |
+| Propiedad | Obligatorio | Descripción |
 |----------|----------|-------------|
-| **Conexión mediante puerta de enlace local** | Sin | Solo se aplica a conexiones locales. |
+| **Conexión mediante puerta de enlace local** | No | Solo se aplica a conexiones locales. |
 | **Nombre de la conexión** | Sí | El nombre de la conexión; por ejemplo, "MyLogicApp-DB2-connection" |
-| **Servidor** | Sí | La dirección o el alias seguido de dos puntos y el número de puerto del servidor de DB2; por ejemplo, "myDB2server.cloudapp.net:50000" <p><p>**Nota**: Este valor es una cadena que representa una dirección TCP/IP o alias en formato IPv4 o IPv6, seguido de dos puntos y un número de puerto TCP/IP. |
+| **Server** | Sí | La dirección o el alias seguido de dos puntos y el número de puerto del servidor de DB2; por ejemplo, "myDB2server.cloudapp.net:50000" <p><p>**Nota**: Este valor es una cadena que representa una dirección TCP/IP o alias en formato IPv4 o IPv6, seguido de dos puntos y un número de puerto TCP/IP. |
 | **Base de datos** | Sí | El nombre de la base de datos <p><p>**Nota**: Este valor es una cadena que representa un nombre de base de datos relacional de DRDA (RDBNAM): <p>- DB2 para z/OS acepta una cadena de 16 bytes, donde la base de datos se conoce como una ubicación "IBM DB2 para z/OS". <br>- DB2 para DB2/OS acepta una cadena de 18 bytes, donde la base de datos se conoce como una base de datos relacional "IBM DB2 para i". <br>- DB2 para LUW acepta una cadena de 8 bytes. |
 | **Nombre de usuario** | Sí | El nombre de usuario de la base de datos <p><p>**Nota**: Este valor es una cadena cuya longitud se basa en una base de datos específica: <p><p>- DB2 para z/OS acepta una cadena de 8 bytes. <br>- DB2 para i acepta una cadena de 10 bytes. <br>- DB2 para Linux o UNIX acepta una cadena de 8 bytes. <br>- DB2 para Windows acepta una cadena de 30 bytes. |
 | **Contraseña** | Sí | La contraseña de la base de datos |
@@ -100,11 +100,11 @@ Por ejemplo:
 
 Antes de crear la conexión, ya debe tener la puerta de enlace de datos local instalada. En caso contrario, no puede terminar de configurar la conexión. Si ya dispone de la instalación de la puerta de enlace, proporcione estos detalles de conexión y después elija **Crear**.
 
-| Propiedad | Obligatorio | DESCRIPCIÓN |
+| Propiedad | Obligatorio | Descripción |
 |----------|----------|-------------|
 | **Conexión mediante puerta de enlace local** | Sí | Se aplica cuando se desea una conexión local y se muestra las propiedades de la conexión local. |
 | **Nombre de la conexión** | Sí | El nombre de la conexión; por ejemplo, "MyLogicApp-DB2-connection" | 
-| **Servidor** | Sí | La dirección o el alias seguido de dos puntos y el número de puerto del servidor de DB2; por ejemplo, "myDB2server:50000" <p><p>**Nota**: Este valor es una cadena que representa una dirección TCP/IP o alias en formato IPv4 o IPv6, seguido de dos puntos y un número de puerto TCP/IP. |
+| **Server** | Sí | La dirección o el alias seguido de dos puntos y el número de puerto del servidor de DB2; por ejemplo, "myDB2server:50000" <p><p>**Nota**: Este valor es una cadena que representa una dirección TCP/IP o alias en formato IPv4 o IPv6, seguido de dos puntos y un número de puerto TCP/IP. |
 | **Base de datos** | Sí | El nombre de la base de datos <p><p>**Nota**: Este valor es una cadena que representa un nombre de base de datos relacional de DRDA (RDBNAM): <p>- DB2 para z/OS acepta una cadena de 16 bytes, donde la base de datos se conoce como una ubicación "IBM DB2 para z/OS". <br>- DB2 para DB2/OS acepta una cadena de 18 bytes, donde la base de datos se conoce como una base de datos relacional "IBM DB2 para i". <br>- DB2 para LUW acepta una cadena de 8 bytes. |
 | **Autenticación** | Sí | El tipo de autenticación para la conexión; por ejemplo, "Basic" <p><p>**Nota**: Seleccione este valor en la lista, que incluye Basic o Windows (Kerberos). |
 | **Nombre de usuario** | Sí | El nombre de usuario de la base de datos <p><p>**Nota**: Este valor es una cadena cuya longitud se basa en una base de datos específica: <p><p>- DB2 para z/OS acepta una cadena de 8 bytes. <br>- DB2 para i acepta una cadena de 10 bytes. <br>- DB2 para Linux o UNIX acepta una cadena de 8 bytes. <br>- DB2 para Windows acepta una cadena de 30 bytes. |
@@ -151,7 +151,7 @@ Para capturar un registro de una tabla de base de datos de DB2, use la acción *
 
 1. Especifique los valores de todas las propiedades obligatorias (*). Después de seleccionar una tabla, la acción muestra las propiedades pertinentes que son específicas de los registros de esa tabla.
 
-   | Propiedad | Obligatorio | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre de la tabla** | Sí | La tabla que tiene el registro deseado, como "AREA" en este ejemplo |
    | **Id. de área** | Sí | El identificador del registro que desee, como "99999" en este ejemplo |
@@ -231,7 +231,7 @@ Para agregar un único registro de una tabla de base de datos de DB2, use la acc
 
    Para este ejemplo, estas son las propiedades:
 
-   | Propiedad | Obligatorio | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre de la tabla** | Sí | La tabla a la que agregar el registro, como "AREA" |
    | **Id. de área** | Sí | El identificador del área que se va a agregar, como "99999" |
@@ -278,7 +278,7 @@ Para actualizar un único registro de una tabla de base de datos de DB2, use la 
 
    Para este ejemplo, estas son las propiedades:
 
-   | Propiedad | Obligatorio | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre de la tabla** | Sí | La tabla en la que actualizar el registro, como "AREA" |
    | **Id. de fila** | Sí | Identificador del registro que se va a actualizar, como "99999" |
@@ -326,7 +326,7 @@ Para eliminar un único registro de una tabla de base de datos de DB2, use la ac
 
    Para este ejemplo, estas son las propiedades:
 
-   | Propiedad | Obligatorio | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre de la tabla** | Sí | La tabla de la que eliminar el registro, como "AREA" |
    | **Id. de fila** | Sí | Identificador del registro que se va a eliminar, como "99999" |

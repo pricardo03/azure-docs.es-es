@@ -1,5 +1,5 @@
 ---
-title: 'Solicitud de acceso a un paquete de acceso en la administración de derechos de Azure AD: Azure Active Directory'
+title: 'Solicitud de un paquete de acceso: administración de derechos de Azure AD'
 description: Aprenda a usar el portal Mi acceso para solicitar acceso a un paquete de acceso en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81697293be235c12ca009c76a9fd9d3975e232fc
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 5a49c69b0f96add61501d9e2c5fc00ba564eba2a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554082"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422539"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Solicitud de acceso a un paquete de acceso en la administración de derechos de Azure AD
 
@@ -123,5 +123,5 @@ Si envía una solicitud de acceso y esta aún se encuentra en estado **pendiente
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Aprobación o denegación de acceso](entitlement-management-request-approve.md)
+- [Aprobación o denegación de solicitudes de acceso](entitlement-management-request-approve.md)
 - [Solicitud de notificaciones de proceso y correo electrónico](entitlement-management-process.md)

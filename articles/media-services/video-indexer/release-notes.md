@@ -10,16 +10,18 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 10/27/2019
+ms.date: 12/19/2019
 ms.author: juliako
-ms.openlocfilehash: 0583c0093d240026e3ebcdad7b14494f07986ec2
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: a8f4174fca1a8703bb112c19e785d4d9686a82f5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968729"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453305"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de la versión de Video Indexer de Azure Media Services
+
+>Reciba notificaciones para volver a visitar esta página y obtener actualizaciones; para ello, copie y pegue esta URL (`https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us`) en el lector de fuentes RSS.
 
 Para mantenerse al día con los avances más recientes, este artículo proporciona información acerca de los elementos siguientes:
 
@@ -28,6 +30,17 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 * Corrección de errores
 * Funciones obsoletas
 
+## <a name="november-2019"></a>Noviembre de 2019
+ 
+* Compatibilidad con modelos de lenguaje personalizado en coreano
+
+    Video Indexer ahora admite modelos de lenguaje personalizados en coreano (`ko-KR`) tanto en la API como en el portal. 
+* Nuevos idiomas compatibles con Conversión de voz en texto (STT)
+
+    Las API de Video Indexer ahora admiten STT en árabe levantino (ar-SY), dialecto inglés del Reino Unido (en-GB) y dialecto australiano inglés (en-AU).
+    
+    En el caso de la carga de vídeo, reemplazamos zh-HANS por zh-CN, se admiten ambos, pero zh-CN es el recomendado y el más preciso.
+    
 ## <a name="october-2019"></a>Octubre de 2019
  
 * Búsqueda de personajes animados en la galería

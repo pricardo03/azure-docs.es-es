@@ -54,22 +54,28 @@
   items:
     - name: Matrices de compatibilidad
       items:
-        - name: Matriz de compatibilidad para Azure Migrate
+        - name: Compatibilidad general
           href: migrate-support-matrix.md
-        - name: Matriz de compatibilidad para la evaluación y migración de VMware
+        - name: Compatibilidad con la evaluación de VMware
           href: migrate-support-matrix-vmware.md
-        - name: Matriz de compatibilidad para la evaluación y migración de Hyper-V
+        - name: Compatibilidad con la migración de VMWare
+          href: migrate-support-matrix-vmware-migration.md
+        - name: Compatibilidad con la evaluación de Hyper-V
           href: migrate-support-matrix-hyper-v.md
-        - name: Matriz de compatibilidad para la evaluación y migración de servidores físicos
+        - name: Compatibilidad con la migración de Hyper-V
+          href: migrate-support-matrix-hyper-v-migration.md
+        - name: Compatibilidad con la evaluación de servidores físicos
           href: migrate-support-matrix-physical.md
-        - name: Matriz de compatibilidad del dispositivo de Azure Migrate
+        - name: Compatibilidad con la migración de servidores físicos
+          href: migrate-support-matrix-physical-migration.md
+        - name: Requisitos del dispositivo de Azure Migrate
           href: migrate-appliance.md
+        - name: Requisitos del dispositivo de replicación
+          href: migrate-replication-appliance.md
     - name: Arquitectura de migración de Hyper-V
       href: hyper-v-migration-architecture.md
     - name: Arquitectura de migración basada en agente
       href: agent-based-migration-architecture.md
-    - name: Dispositivo de replicación con Azure Migrate
-      href: migrate-replication-appliance.md
     - name: Procedimientos recomendados de evaluación
       href: best-practices-assessment.md
     - name: Introducción a las evaluaciones
@@ -112,16 +118,16 @@
       href: prepare-for-migration.md
     - name: Eliminación de un proyecto de Azure Migrate
       href: how-to-delete-project.md
-- name: Escalado de evaluación y migración
-  items:
-    - name: Evaluación de un número elevado de máquinas virtuales de VMware
-      href: scale-vmware-assessment.md
-    - name: Evaluación de un número elevado de máquinas virtuales de Hyper-V
-      href: scale-hyper-v-assessment.md
-    - name: Automatización de la migración de un gran número de máquinas virtuales
-      href: how-to-migrate-at-scale.md
-    - name: Ejemplos de migración (serie Contoso)
-      href: contoso-migration-overview.md
+    - name: Escalado de evaluación y migración
+      items:
+        - name: Evaluación de un número elevado de máquinas virtuales de VMware
+          href: scale-vmware-assessment.md
+        - name: Evaluación de un número elevado de máquinas virtuales de Hyper-V
+          href: scale-hyper-v-assessment.md
+        - name: Automatización de la migración de un gran número de máquinas virtuales
+          href: how-to-migrate-at-scale.md
+        - name: Ejemplos de migración (serie Contoso)
+          href: contoso-migration-overview.md
 - name: Solución de problemas
   items:
     - name: Solución de problemas de Azure Migrate

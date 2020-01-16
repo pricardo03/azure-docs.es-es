@@ -1,5 +1,5 @@
 ---
-title: Selección del nivel de coherencia adecuado para una aplicación que usa Azure Cosmos DB
+title: Selección del nivel de coherencia adecuado en la aplicación de Azure Cosmos DB
 description: Elija el nivel de coherencia adecuado para la aplicación en Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 89c81e978c5f3dbbb8fac1ea5e75fc506612308f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: cea157e272a2bf464141e592b8e742f314a83233
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384902"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441917"
 ---
 # <a name="choose-the-right-consistency-level"></a>Selección del nivel de coherencia adecuado 
 

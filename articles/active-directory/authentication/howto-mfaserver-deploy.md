@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11a0dbd28dc798342a24180af430187ac69f61b8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d6001dc47d19665184bf44114ab36744f0287264
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848143"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608761"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introducción a Servidor Azure Multi-Factor Authentication
 
@@ -27,12 +27,9 @@ ms.locfileid: "74848143"
 Esta página describe una nueva instalación del servidor y su configuración con una instancia loal de Active Directory. Si ya tiene instalado el servidor MFA y desea actualizarlo, consulte [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md) (Actualización a la versión más reciente del Servidor Microsoft Azure Multi-Factor Authentication). Para más información sobre cómo instalar solo el servicio web, consulte [Implementación del servicio web móvil de la aplicación móvil del Servidor Azure Multi-Factor Authentication](howto-mfaserver-deploy-mobileapp.md).
 
 > [!IMPORTANT]
-> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deberán usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación, como de costumbre.
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deberán usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación como de costumbre.
 
 ## <a name="plan-your-deployment"></a>Planeamiento de la implementación
-
-> [!WARNING]
-> A partir de marzo de 2019, las descargas del Servidor MFA solo estarán disponibles para los inquilinos con versiones de pago. Los inquilinos con versiones de prueba o gratuitas ya no podrán descargar ni generar y usar credenciales de activación.
 
 Antes de descargar el servidor Azure Multi-Factor Authentication, piense cuáles son sus requisitos de alta disponibilidad y carga. Use esta información para decidir cómo y dónde realizar la implementación.
 
@@ -54,7 +51,7 @@ Aunque se desconecte un Servidor Azure MFA maestro, los servidores subordinados 
 
 Asegúrese de que el servidor que usa para Azure Multi-Factor Authentication cumple los requisitos siguientes:
 
-| Requisitos del Servidor Azure Multi-Factor Authentication | DESCRIPCIÓN |
+| Requisitos del Servidor Azure Multi-Factor Authentication | Descripción |
 |:--- |:--- |
 | Hardware |<li>200 MB de espacio de disco duro</li><li>Procesador compatible con x32 o x64</li><li>1 GB o más de RAM</li> |
 | Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, todas las ediciones</li><li>Windows 8, todas las ediciones</li><li>Windows 7, todas las ediciones</li><li>Windows Vista, todas las ediciones, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 o superior si está instalado el SDK de servicio web o el portal de usuario</li> |
@@ -96,9 +93,6 @@ Si no está usando la característica de confirmación de eventos y los usuarios
 
 ## <a name="download-the-mfa-server"></a>Descarga del servidor MFA
 
-> [!WARNING]
-> A partir de marzo de 2019, las descargas del Servidor MFA solo estarán disponibles para los inquilinos de pago. Los inquilinos de prueba o evaluación ya no podrán descargar ni generar y usar credenciales de activación.
-
 Para descargar el Servidor Azure Multi-Factor Authentication desde Azure Portal, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
@@ -122,6 +116,9 @@ Una vez descargado el servidor, ya se puede instalar y configurar. Asegúrese de
    ![Omitir el uso del Asistente para configuración de autenticación](./media/howto-mfaserver-deploy/skip2.png)
 
 5. De vuelta en la página desde la que se ha descargado el servidor, haga clic en el botón **Generar credenciales de activación**. Copie esta información en Servidor Azure Multi-Factor Authentication en los cuadros correspondientes y haga clic en **Activar**.
+
+> [!NOTE]
+> Los administradores globales son los únicos que pueden generar credenciales de activación en Azure Portal.
 
 ## <a name="send-users-an-email"></a>Enviar un correo electrónico a los usuarios
 

@@ -2,13 +2,14 @@
 title: Implementación de un grupo de contenedores en Azure Virtual Network
 description: Aprenda a implementar grupos de contenedores en una red virtual de Azure nueva o existente.
 ms.topic: article
-ms.date: 07/11/2019
-ms.openlocfilehash: f211924eb74035f4bb30db2d2b848e0a2591de09
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/17/2019
+ms.author: danlep
+ms.openlocfilehash: 9c9f1d114ea3883a947fb454d5958c1479bd4a4e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533263"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442246"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementación de instancias de contenedor en una red virtual de Azure
 
@@ -45,8 +46,8 @@ Los límites de recursos del contenedor pueden diferir de los límites de las in
 ### <a name="unsupported-networking-scenarios"></a>Escenarios de red avanzados no admitidos 
 
 * **Azure Load Balancer**: no se admite la colocación de Azure Load Balancer al principio de las instancias de contenedor en un grupo de contenedores en red
-* **Emparejamiento de redes virtuales**: no se puede emparejar una red virtual que contiene una subred delegada en Azure Container Instances con otra red virtual.
-* **Tablas de ruta**: las rutas definidas por el usuario no se pueden configurar en una subred delegada en Azure Container Instances.
+* **Emparejamiento de redes virtuales** no funcionará para ACI si la red a la que se está emparejando la red virtual de ACI usa un espacio de IP públicas. La red emparejada necesita un espacio de IP privado RFC1918 para que el emparejamiento funcione. Además, actualmente solo se puede emparejar la red virtual a otra red virtual.
+* **Enrutamiento de tráfico de red virtual**: las rutas de cliente no se pueden configurar en torno a direcciones IP públicas. Las rutas se pueden configurar en el espacio de direcciones IP privadas de la subred delegada en la que se implementan los recursos de ACI. 
 * **Grupos de seguridad de red**: actualmente no se aplican las reglas de seguridad salientes en grupos de seguridad de red aplicados a una subred delegada a Azure Container Instances. 
 * **Etiqueta de dirección IP o DNS pública**: los grupos de contenedores implementados en una red virtual no son compatibles actualmente con la exposición directa en Internet de contenedores con una dirección IP pública o un nombre de dominio completo.
 * **Resolución de nombres interna**: no se admite la resolución de nombres para los recursos de Azure en la red virtual mediante la instancia interna de Azure DNS.

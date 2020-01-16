@@ -2,18 +2,18 @@
 title: 'Uso de MapReduce y Curl con Apache Hadoop en HDInsight: Azure'
 description: Obtenga información acerca de cómo ejecutar de manera remota trabajos de MapReduce con Apache Hadoop en HDInsight con Curl.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
+ms.custom: hdinsightactive
 ms.date: 02/27/2018
-ms.author: hrasheed
-ms.openlocfilehash: e4968310459097fc6a00f7c453846fe61726c3d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 274d8dc80d9318aa3ddf4a904a5b623319ea01f4
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64716120"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645011"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Ejecución de trabajos de MapReduce con Apache Hadoop en HDInsight con REST
 
@@ -77,7 +77,7 @@ Aprenda a usar la API REST de Apache Hive WebHCat para ejecutar trabajos de MapR
    * **-u**: el nombre de usuario y la contraseña que se utilizan para autenticar la solicitud.
    * **-G**: indica que esta operación es una solicitud GET.
 
-   El principio de la dirección URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** , es el mismo para todas las solicitudes.
+   El principio del URI, `https://CLUSTERNAME.azurehdinsight.net/templeton/v1`, es el mismo para todas las solicitudes.
 
 4. Para enviar un trabajo de MapReduce, utilice lo siguiente:
 

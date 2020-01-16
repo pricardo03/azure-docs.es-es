@@ -1,5 +1,5 @@
 ---
-title: 'Proceso de solicitud y notificaciones por correo electrónico en la administración de derechos de Azure AD: Azure Active Directory'
+title: 'Proceso de solicitud y notificaciones: administración de derechos de Azure AD'
 description: Información acerca del proceso de solicitud para un paquete de acceso y de cuándo se envían notificaciones por correo electrónico en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f336e9f2bdf1553a72bdc35fecc1b0b735fad274
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b86e4019b26eebb8b805a4846e583c68acb53ad6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206906"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422600"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Proceso de solicitud y notificaciones por correo electrónico en la administración de derechos de Azure AD
 
@@ -33,7 +33,7 @@ Un usuario que necesite tener acceso a un paquete de acceso puede enviar una sol
 
 ![Diagrama del proceso de aprobación](./media/entitlement-management-process/request-process.png)
 
-| State | DESCRIPCIÓN |
+| State | Descripción |
 | --- | --- |
 | Enviado | El usuario envía una solicitud. |
 | Pendiente de aprobación | Si la directiva para un paquete de acceso requiere aprobación, la solicitud queda pendiente de aprobación. |

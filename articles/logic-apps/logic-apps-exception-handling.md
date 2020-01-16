@@ -1,6 +1,6 @@
 ---
-title: Control de errores y excepciones
-description: Obtenga información acerca de los patrones para el control de errores y excepciones en Azure Logic Apps
+title: Administración de errores y excepciones
+description: Aprenda a administrar errores y excepciones que se producen en tareas y flujos de trabajo automatizados creados con Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: dereklee
@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/31/2018
 ms.topic: article
-ms.openlocfilehash: 781abb1ce92a9d96a93ac0c6b04d55075d752db8
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fa197a04b91f398bda2e402b18a638b9bf0ab9a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792075"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453401"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Control de errores y excepciones en Azure Logic Apps
 
@@ -27,7 +27,7 @@ Para el control de errores y excepciones más básico, puede usar una *directiva
 
 Estos son los tipos de directivas de reintentos: 
 
-| type | DESCRIPCIÓN | 
+| Tipo | Descripción | 
 |------|-------------| 
 | **Valor predeterminado** | Esta directiva envía hasta cuatro reintentos en intervalos que *aumentan exponencialmente* a una escala de 7,5 segundos pero con unos límites de entre 5 y 45 segundos. | 
 | **Intervalo exponencial**  | Esta directiva espera un intervalo aleatorio seleccionado de un intervalo exponencialmente creciente antes de enviar la solicitud siguiente. | 
@@ -69,19 +69,19 @@ O bien, puede especificar manualmente la directiva de reintentos en la sección 
 
 *Obligatorio*
 
-| Valor | type | DESCRIPCIÓN |
+| Value | Tipo | Descripción |
 |-------|------|-------------|
-| <*retry-policy-type*> | Cadena | El tipo de directiva de reintentos que quiere usar: `default`, `none`, `fixed` o `exponential`. | 
-| <*retry-interval*> | Cadena | El intervalo de reintento, donde se debe usar el [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) para el valor. El intervalo mínimo predeterminado es `PT5S` y el intervalo máximo es `PT1D`. Cuando se usa la directiva de intervalo exponencial, puede especificar diferentes valores mínimos y máximos. | 
-| <*retry-attempts*> | Integer | El número de reintentos, que debe estar comprendido entre 1 y 90 | 
+| <*retry-policy-type*> | String | El tipo de directiva de reintentos que quiere usar: `default`, `none`, `fixed` o `exponential`. | 
+| <*retry-interval*> | String | El intervalo de reintento, donde se debe usar el [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) para el valor. El intervalo mínimo predeterminado es `PT5S` y el intervalo máximo es `PT1D`. Cuando se usa la directiva de intervalo exponencial, puede especificar diferentes valores mínimos y máximos. | 
+| <*retry-attempts*> | Entero | El número de reintentos, que debe estar comprendido entre 1 y 90 | 
 ||||
 
 *Opcional*
 
-| Valor | type | DESCRIPCIÓN |
+| Value | Tipo | Descripción |
 |-------|------|-------------|
-| <*minimum-interval*> | Cadena | Para la directiva de intervalo exponencial, el intervalo más pequeño para el intervalo seleccionado aleatoriamente en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
-| <*maximum-interval*> | Cadena | Para la directiva de intervalo exponencial, el intervalo más grande para el intervalo seleccionado aleatoriamente en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*minimum-interval*> | String | Para la directiva de intervalo exponencial, el intervalo más pequeño para el intervalo seleccionado aleatoriamente en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*maximum-interval*> | String | Para la directiva de intervalo exponencial, el intervalo más grande para el intervalo seleccionado aleatoriamente en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 |||| 
 
 Aquí tiene más información acerca de los tipos de directivas diferentes.

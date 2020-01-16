@@ -2,19 +2,15 @@
 title: Parámetros de entrada de Runbook
 description: Los parámetros de entrada de Runbook aumentan la flexibilidad de los Runbooks porque permiten pasar datos a un Runbook cuando se inicia. En este artículo se describen los distintos escenarios donde se usan parámetros de entrada en Runbooks.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 02/14/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: be7d244f5aa422b2083d35fc56a52318a4379b79
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b16219c34ea30b4229195c8f019dfa8e1f147d8b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850234"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417600"
 ---
 # <a name="runbook-input-parameters"></a>Parámetros de entrada de Runbook
 
@@ -73,7 +69,7 @@ Puede pasar el siguiente valor al parámetro:
 ```
 
 > [!NOTE]
-> Cuando no se pasa ningún valor a un parámetro opcional de tipo `[String]` con un _valor predeterminado_ de `\$null`, entonces el valor del parámetro será una _cadena vacía_, y **no** `\$null`.
+> Cuando no se pasa ningún valor a un parámetro opcional de tipo `[String]` con un _valor predeterminado_ de `\$null`, el valor del parámetro será una _cadena vacía_ y **no** `\$null`.
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>Configuración de parámetros de entrada en Runbooks gráficos
 
@@ -148,7 +144,7 @@ En la etiqueta bajo el cuadro de entrada, puede ver los atributos que se han def
 
 * **Cmdlets de Azure Resource Manager**: puede iniciar un Runbook de automatización creado en un grupo de recursos mediante [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook).
   
-  **Ejemplo:**
+  **Ejemplo**:
 
   ```powershell
   $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
@@ -158,7 +154,7 @@ En la etiqueta bajo el cuadro de entrada, puede ver los atributos que se han def
 
 * **Cmdlets del modelo de implementación clásica de Azure:** puede iniciar un runbook de automatización creado en un grupo de recursos predeterminado mediante [Start-AzureRmAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
   
-  **Ejemplo:**
+  **Ejemplo**:
 
   ```powershell
   $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}

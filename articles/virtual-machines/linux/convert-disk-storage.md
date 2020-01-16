@@ -1,5 +1,5 @@
 ---
-title: Conversión de almacenamiento de Azure Managed Disks de estándar a Premium o de Premium a estándar
+title: Conversión del almacenamiento de Managed Disks entre SSD estándar y Premium
 description: Conversión de almacenamiento de Azure Managed Disks de estándar a Premium o de Premium a estándar mediante la CLI de Azure.
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: abd3c7112a70850d137f77d28e83c60916a96ea3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: cd9bb92b3ed86c3a57b5fc70411a4593335acedb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036633"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431505"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Conversión de almacenamiento de Azure Managed Disks de estándar a Premium o de Premium a estándar
 
@@ -131,7 +131,7 @@ az vm start --ids $vmId
 
 Siga estos pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione la máquina virtual de la lista de **Virtual Machines**.
 3. Si la máquina virtual no se detiene, seleccione la opción **Detener** que se encuentra en la parte superior del panel **Información general** de la máquina virtual y espere a que se detenga.
 4. En el panel de la máquina virtual, seleccione **Discos** del menú.

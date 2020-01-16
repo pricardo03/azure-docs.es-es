@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 69b25f22d448436db5e906a3b56b5e50ec412b40
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a4a4393a25bfa49a8074793b572111f69dcc17c4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934676"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459641"
 ---
 # <a name="azure-operational-security"></a>Seguridad operativa de Azure
 ## <a name="introduction"></a>Introducción
@@ -66,7 +66,7 @@ Con los registros de Azure Monitor, puede administrar cualquier instancia en cua
 
 Un conjunto de servicios que se ejecutan en Azure proporciona la funcionalidad principal de registros de Azure Monitor. Cada servicio ofrece una función de administración específica, y se pueden combinar los servicios para lograr escenarios de administración diferentes.
 
-| Servicio  | DESCRIPCIÓN|
+| Servicio  | Descripción|
 | :------------- | :-------------|
 | Registros de Azure Monitor | Supervisión y análisis de la disponibilidad y el rendimiento de los distintos recursos, incluidas las máquinas físicas y virtuales. |
 |Automation | Automatización de procesos manuales y aplicación de configuraciones a máquinas físicas y virtuales. |
@@ -103,7 +103,7 @@ Los datos protegidos en Azure Backup se almacenan en un almacén de copia de seg
 [Azure Monitor](../../security-center/security-center-intro.md) es una solución de administración de TI basada en la nube de Microsoft que lo ayuda a administrar y proteger su infraestructura local y en la nube.
 
 
-Las [soluciones de administración](../../monitoring/monitoring-solutions.md) son conjuntos de lógica empaquetados previamente que implementan un escenario de administración específico con uno o más servicios de Azure Monitor. Hay disponibles diferentes soluciones de Microsoft y de asociados que se pueden agregar fácilmente a la suscripción de Azure para aumentar el valor de su inversión en Azure Monitor. Como asociado, puede crear sus propias soluciones para que sean compatibles con los servicios y las aplicaciones, y proporcionarlas a los usuarios a través de las plantillas de inicio rápido o Azure Marketplace.
+Las [soluciones de administración](../../monitoring/monitoring-solutions.md) son conjuntos de lógica empaquetados previamente que implementan un escenario de administración específico con uno o más servicios de Azure Monitor. Hay disponibles diferentes soluciones de Microsoft y de asociados que se pueden agregar fácilmente a la suscripción de Azure para aumentar el valor de su inversión en Azure Monitor. Como asociado puede crear sus propias soluciones para que sean compatibles con los servicios y aplicaciones, y proporcionarlas a los usuarios mediante las plantillas de inicio rápido o Azure Marketplace.
 
 
 ![Soluciones de administración](./media/operational-security/azure-operational-security-fig4.png)
@@ -114,7 +114,7 @@ Cuando se crea una implementación, se utilizan runbooks en [Azure Automation](.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
-Azure Security Center ayuda a proteger los recursos de Azure. Proporciona una supervisión de la seguridad y una administración de directivas integradas en suscripciones de Azure. Dentro del servicio, es posible definir directivas no solo para las suscripciones de Azure, sino también para [grupos de recursos](../../azure-resource-manager/resource-group-overview.md#resource-groups), por lo que puede ser más específico.
+Azure Security Center ayuda a proteger los recursos de Azure. Proporciona una supervisión de la seguridad y una administración de directivas integradas en suscripciones de Azure. Dentro del servicio, es posible definir directivas no solo para las suscripciones de Azure, sino también para [grupos de recursos](../../azure-resource-manager/management/overview.md#resource-groups), por lo que puede ser más específico.
 
 ### <a name="security-policies-and-recommendations"></a>Directivas de seguridad y recomendaciones
 
@@ -128,7 +128,7 @@ En Security Center, se definen directivas de acuerdo con los requisitos de segur
 Las directivas que están habilitadas en el nivel de suscripción se propagan automáticamente a todos los grupos de recursos de la suscripción, como se muestra en el diagrama de la derecha:
 
 
-### <a name="data-collection"></a>Colección de datos
+### <a name="data-collection"></a>datos, recopilación
 
 Security Center recopila datos de las máquinas virtuales (VM) para evaluar su estado de seguridad, proporcionar recomendaciones de seguridad y avisarle de las amenazas. La primera vez que se accede a Security Center, la recopilación de datos está habilitada en todas las máquinas virtuales de la suscripción. Aunque se recomienda usar la recopilación de datos, puede desactivarla en la directiva de Security Center.
 
@@ -144,7 +144,7 @@ Security Center recopila datos de las máquinas virtuales (VM) para evaluar su e
 
 -   Sus máquinas virtuales: usa la información de configuración y la información sobre eventos de seguridad, como los eventos y registros de auditoría de Windows, registros IIS, mensajes de Syslog y archivos de volcado de memoria de las máquinas virtuales.
 
-### <a name="data-protection"></a>Protección de datos
+### <a name="data-protection"></a>Protección de los datos
 
 Para ayudar a los clientes a evitar, detectar y responder a las amenazas, Azure Security Center recopila y procesa datos relacionados con la seguridad, entre los que se incluyen la información de configuración, los metadatos, los registros de eventos y los archivos de volcado de memoria, entre otros. Microsoft se adhiere a instrucciones estrictas de seguridad y cumplimiento de normas, desde la codificación hasta la operación de un servicio.
 
@@ -260,7 +260,7 @@ Son facturables las acciones siguientes realizadas por Storage Analytics:
 > Si desea obtener un rendimiento óptimo, conviene que limite el número de discos muy usados que se conectan a la máquina virtual para evitar una posible limitación. Si no todos los discos se usan mucho al mismo tiempo, la cuenta de almacenamiento admite un mayor número de discos.
 
 > [!Note]
-> Para más información sobre los límites de las cuentas de almacenamiento, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](../../storage/common/storage-scalability-targets.md).
+> Para más información sobre los límites de las cuentas de almacenamiento, consulte [Objetivos de escalabilidad para cuentas de almacenamiento estándar](../../storage/common/scalability-targets-standard-account.md).
 
 
 Se registran los siguientes tipos de solicitudes autenticadas y anónimas.
@@ -310,7 +310,7 @@ Para los clientes interesados en almacenar [eventos de auditoría](../../active-
 
 ## <a name="summary"></a>Resumen
 
-Este artículo resume la protección de la privacidad y los datos, así como el software y los servicios que le ayudan a administrar la infraestructura de TI de su organización. Microsoft reconoce que, cuando confía sus datos a otras personas, esa confianza requiere una seguridad rigurosa. Microsoft se adhiere a instrucciones estrictas de seguridad y cumplimiento de normas, desde la codificación hasta la operación de un servicio.  La seguridad y la protección de los datos son prioritarias en Microsoft.
+Este artículo resume la protección de la privacidad y los datos, así como el software y los servicios que le ayudan a administrar la infraestructura de TI de su organización. Microsoft reconoce que, cuando confía sus datos a otras personas, esa confianza requiere una seguridad rigurosa. Microsoft se adhiere a instrucciones estrictas de seguridad y cumplimiento de normas, desde la codificación hasta la operación de un servicio. La seguridad y la protección de los datos son prioritarias en Microsoft.
 
 Este artículo explica cómo
 

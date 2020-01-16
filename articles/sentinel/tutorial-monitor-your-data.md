@@ -1,6 +1,6 @@
 ---
-title: Supervisión de datos mediante paneles basados en libros de Azure Monitor en Azure Sentinel | Microsoft Docs
-description: Use este tutorial para aprender a supervisar los datos mediante paneles basados en libros de Azure Sentinel.
+title: Visualización de datos mediante paneles basados en libros de Azure Monitor en Azure Sentinel | Microsoft Docs
+description: Use este tutorial para aprender a visualizar los datos mediante paneles basados en libros de Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2019
+ms.date: 01/01/2020
 ms.author: rkarlin
-ms.openlocfilehash: c5f4bd079fa215e3fbd4241f603aa29d19f7aad7
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 7baf8cf2e954d773376b7c3c989bce01f60ae0a6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158856"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610461"
 ---
-# <a name="tutorial-monitor-your-data"></a>Tutorial: Supervisión de los datos
+# <a name="tutorial-visualize-and-monitor-your-data"></a>Tutorial: Visualizar y supervisar los datos
 
 
 
-Después de que haya [conectado los orígenes de datos](quickstart-onboard.md) a Azure Sentinel, puede supervisar los datos mediante la integración de Azure Sentinel con los libros de Azure Monitor, lo que proporciona versatilidad al crear paneles personalizados. Aunque los libros se muestran de manera diferente en Azure Sentinel, puede que le resulte útil ver cómo [crear informes interactivos con los libros de Azure Monitor](../azure-monitor/app/usage-workbooks.md). Azure Sentinel permite crear libros personalizados en los datos y también incluye plantillas de libro integradas que permiten obtener información rápidamente en los datos en cuanto se conecta con un origen de datos.
+Después de que haya [conectado los orígenes de datos](quickstart-onboard.md) a Azure Sentinel, puede visualizar y supervisar los datos mediante la adopción de Azure Sentinel de los libros de Azure Monitor, lo que proporciona versatilidad al crear paneles personalizados. Aunque los libros se muestran de manera diferente en Azure Sentinel, puede que le resulte útil ver cómo [crear informes interactivos con los libros de Azure Monitor](../azure-monitor/app/usage-workbooks.md). Azure Sentinel permite crear libros personalizados en los datos y también incluye plantillas de libro integradas que permiten obtener información rápidamente en los datos en cuanto se conecta con un origen de datos.
 
 
-Este tutorial le ayudará a supervisar los datos en Azure Sentinel.
+Este tutorial lo ayudará a visualizar los datos en Azure Sentinel.
 > [!div class="checklist"]
 > * Uso de libros integrados
 > * Creación de libros
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Debe tener al menos permisos de lector de libros o de colaborador de libros en el grupo de recursos del área de trabajo de Azure Sentinel.
 
@@ -72,7 +72,7 @@ Este tutorial le ayudará a supervisar los datos en Azure Sentinel.
 
 1. Si desea permitir que otros usuarios de su organización utilicen el libro, en **Guardar en** seleccione **Informes compartidos**. Si desea que este libro esté disponible solo para usted, seleccione **Mis informes**.
 
-1. Para alternar entre los libros del área de trabajo, puede seleccionar **Abrir** ![Switch workbooks](./media/tutorial-monitor-data/switch.png)(Cambiar libros) en el panel superior de cualquier libro. En la ventana que se abre a la derecha, cambie entre los diferentes libros.
+1. Para alternar entre los libros del área de trabajo, puede seleccionar **Abrir** ![Cambiar libros](./media/tutorial-monitor-data/switch.png)en el panel superior de cualquier libro. En la ventana que se abre a la derecha, cambie entre los diferentes libros.
 
    ![Cambiar libros](./media/tutorial-monitor-data/switch-workbooks.png)
 

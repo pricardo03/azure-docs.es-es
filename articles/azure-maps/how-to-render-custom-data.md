@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 41166d57a8ea9b9cf34f76ecce318351d5131794
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: b77cb73f08852768d10de8c76cde5e299f0776c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559992"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408898"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Representación de datos personalizados en un mapa de trama
 
@@ -22,12 +22,14 @@ En este artículo se explica cómo usar el [servicio de imagen estática](https:
 
 Para representar marcadores, etiquetas y superposiciones geométricas personalizadas, se puede usar la aplicación Postman. Puede usar las [API de Data Service](https://docs.microsoft.com/rest/api/maps/data) de Azure Maps para almacenar y representar superposiciones.
 
+> [!Tip]
+> A menudo es mucho más rentable usar el SDK web de Azure Maps para mostrar un mapa sencillo en una página web que usar el servicio de imágenes estáticas. El SDK web usa mosaicos de mapa y, a menos que el usuario desplace lateralmente el mapa y lo acerque, con frecuencia solo se generará una fracción de una transacción por carga del mapa. Observe que el SDK web de Azure Maps tiene opciones para deshabilitar las funciones de desplazar lateralmente y acercar. Además, ofrece un conjunto mucho más rico de opciones de visualización de datos que las de un servicio web de mapas estáticos.  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps
 
-Para completar los procedimientos de este artículo, primero debe crear una cuenta de Azure Maps siguiendo las instrucciones en [Administrar la cuenta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) y seguir los pasos de la sección [Obtener la clave principal](./tutorial-search-location.md#getkey) para recuperar una clave de suscripción principal para su cuenta.
+Para completar los procedimientos descritos en este artículo, primero debe crear una cuenta de Azure Maps y obtener la clave de cuenta de los mapas. Siga las instrucciones que se indican en [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) para crear una suscripción a una cuenta de Azure Maps y siga los pasos para [obtener la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
 
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Representación de marcadores con etiquetas e imágenes personalizadas

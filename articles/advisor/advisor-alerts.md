@@ -1,20 +1,14 @@
 ---
-title: Creación de alertas de Azure Advisor para nuevas recomendaciones | Microsoft Docs
+title: Creación de alertas de Azure Advisor para nuevas recomendaciones
 description: Creación de alertas de Azure Advisor para nuevas recomendaciones
-services: advisor
-author: sagupt
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/09/2019
-ms.author: sagupt
-ms.openlocfilehash: d641008a7caf4a006344d886aec945a6e8da2568
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 07cbc57ef718b6cac104d2b5238ff4e3196f197a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326615"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443151"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations"></a>Creación de alertas de Azure Advisor para nuevas recomendaciones 
 

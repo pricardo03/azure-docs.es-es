@@ -10,24 +10,24 @@ ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: de29929c8fda476fe276f91d4a68ce4d632503fd
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: b7e872f3320a2c72b6e9fb3ffba65510b205ca03
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345214"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425553"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Creación de un inquilino de Azure Active Directory B2C
 
 Para que sus aplicaciones puedan interactuar con Azure Active Directory B2C (Azure AD B2C), deben estar registradas en un inquilino que administre.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Creación de un inquilino de Azure AD B2C
 > * Vinculación del inquilino a la suscripción
 > * Cambio al directorio que contiene el inquilino de Azure AD B2C
-> * Incorporación del recurso de Azure AD B2C como *Favorito* en Azure Portal
+> * Incorporación del recurso de Azure AD B2C como **Favorito** en Azure Portal
 
 En el siguiente tutorial aprenderá a registrar una aplicación.
 
@@ -35,15 +35,16 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Creación de un inquilino de Azure AD B2C
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-1. Asegúrese de que está usando el directorio que contiene su suscripción.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/). Inicie sesión con una cuenta de Azure a la que se haya asignado al menos el rol [Colaborador](../role-based-access-control/built-in-roles.md) dentro de la suscripción o un grupo de recursos dentro de la suscripción.
 
-    Seleccione el filtro **Directorio y suscripción** en el menú superior y, a continuación, seleccione el directorio que contiene la suscripción. Se trata de un directorio diferente al que contendrá al inquilino de Azure AD B2C.
+1. Elija el directorio que contiene la suscripción.
 
-    ![Filtro de directorio y suscripción con el inquilino de suscripción seleccionado](media/tutorial-create-tenant/portal-01-select-directory.png)
+    En la barra de herramientas de Azure Portal, seleccione el icono **Directorio + suscripción** y, luego, seleccione el directorio que contiene la suscripción. Se trata de un directorio diferente al que contendrá al inquilino de Azure AD B2C.
 
-1. Seleccione **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-1. Busque y seleccione **Active Directory B2C** y, a continuación, seleccione **Crear**.
+    ![Inquilino de suscripción: filtro Directorio + suscripción con el inquilino de suscripción seleccionado](media/tutorial-create-tenant/portal-01-pick-directory.png)
+
+1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
+1. Busque **Azure Active Directory B2C** y, a continuación, seleccione **Crear**.
 1. Seleccione **Crear un nuevo inquilino de Azure AD B2C**.
 
     ![Creación de un nuevo inquilino de Azure AD B2C seleccionado en Azure Portal](media/tutorial-create-tenant/portal-02-create-tenant.png)
@@ -82,16 +83,16 @@ Si al principio no ve el nuevo inquilino de Azure B2C en la lista en la lista, 
 
 Este paso opcional facilita la selección de su inquilino de Azure AD B2C en los siguientes tutoriales (y todos los posteriores).
 
-En lugar de buscar "Azure AD B2C" en **Todos los servicios** cada vez que desee trabajar con su inquilino, puede usar el recurso como favorito. A continuación, puede seleccionarlo en el menú **Favoritos** izquierdo para ir rápidamente a su inquilino de Azure AD B2C.
+En lugar de buscar *Azure AD B2C* en **Todos los servicios** cada vez que desee trabajar con el inquilino, puede establecer el recurso como favorito. A continuación, puede seleccionarlo en la sección **Favoritos** del menú del portal para ir rápidamente al inquilino de Azure AD B2C.
 
 Solo tiene que realizar esta operación una vez. Antes de realizar estos pasos, asegúrese de que ha cambiado al directorio que contiene su inquilino de Azure AD B2C como se describe en la sección anterior, [Selección de su directorio de inquilinos B2C](#select-your-b2c-tenant-directory).
 
-1. Seleccione **Todos los servicios** en el menú izquierdo de [Azure Portal](https://portal.azure.com).
-1. Escriba *Azure AD B2C* en el cuadro de texto de búsqueda.
-1. Seleccione la **estrella** para agregar Azure AD B2C a sus favoritos.
-1. *Azure AD B2C* ahora aparece en el menú izquierdo **Favoritos**. A continuación, puede seleccionarlo y arrastrarlo más alto en la lista, si lo desea, tal como se muestra en la siguiente imagen:
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. En el menú de Azure Portal, seleccione **Todos los servicios**.
+1. En el cuadro de búsqueda **Todos los servicios**, busque **Azure AD B2C**, mantenga el mouse sobre el resultado de la búsqueda y, a continuación, seleccione el icono de estrella en la información sobre herramientas. Ahora **Azure AD B2C** aparece en Azure Portal bajo **Favoritos**.
+1. Si desea cambiar la posición del nuevo favorito, vaya al menú de Azure Portal, seleccione **Azure AD B2C** y arrástrelo hacia arriba o hacia abajo hasta la posición deseada.
 
-![Pasos para agregar Azure AD B2C como favorito en Azure Portal](media/tutorial-create-tenant/portal-08-favorite-b2c.png)
+    ![Azure AD B2C, menú Favoritos, Microsoft Azure Portal](media/tutorial-create-tenant/portal-08-b2c-favorite.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -101,7 +102,7 @@ En este artículo, ha aprendido cómo:
 > * Creación de un inquilino de Azure AD B2C
 > * Vinculación del inquilino a la suscripción
 > * Cambio al directorio que contiene el inquilino de Azure AD B2C
-> * Incorporación del recurso de Azure AD B2C como *Favorito* en Azure Portal
+> * Incorporación del recurso de Azure AD B2C como **Favorito** en Azure Portal
 
 A continuación, aprenda a registrar una aplicación web en el nuevo inquilino.
 

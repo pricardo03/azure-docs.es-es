@@ -1,25 +1,16 @@
 ---
-title: Conexión y comunicación con los servicios de Azure Service Fabric | Microsoft Docs
+title: Conexión y comunicación con servicios en Azure Service Fabric
 description: Aprenda a resolver, conectar y comunicar mediante servicios de Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: msfussell
-ms.assetid: 7d1052ec-2c9f-443d-8b99-b75c97266e6c
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 55a0a1a8097ea46c7a3407b5f42824973edcf1a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e57d169decf482f8b8be1e3b31a07690bc222c5d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60882357"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458230"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Conexión y comunicación con servicios en Service Fabric
 En Service Fabric, un servicio se ejecuta en algún lugar en un clúster de Service Fabric que normalmente se distribuye entre varias máquinas virtuales. Se puede mover de un lugar a otro, ya sea por indicación del propietario del servicio o automáticamente mediante Service Fabric. Los servicios no están enlazados estáticamente a un equipo o una dirección determinados.
@@ -29,7 +20,7 @@ Una aplicación de Service Fabric se compone, por lo general, de muchos servicio
 ## <a name="bring-your-own-protocol"></a>Traiga su propio protocolo
 Service Fabric le ayuda a administrar el ciclo de vida de los servicios, pero no toma ninguna decisión sobre qué hacen sus servicios. Esto incluye la comunicación. Cuando Service Fabric abre un servicio, este tiene la oportunidad de configurar un punto de conexión para las solicitudes entrantes mediante cualquier protocolo o pila de comunicación que desee. El servicio escuchará en una dirección **IP:port** normal mediante cualquier esquema de direccionamiento, como un URI. Varias instancias de servicio o réplicas pueden compartir un proceso de host, en cuyo caso deberán usar puertos diferentes o utilizar un mecanismo de uso compartido de puertos, como el controlador del kernel http.sys en Windows. En ambos casos, cada instancia de servicio o réplica de un proceso de host debe ser direccionable de forma exclusiva.
 
-![puntos de conexión de servicio][1]
+![puntos de conexión del servicio][1]
 
 ## <a name="service-discovery-and-resolution"></a>Detección y resolución de servicios
 En un sistema distribuido, los servicios se pueden mover de una máquina a otra con el tiempo. Esto puede ocurrir por diversos motivos, incluidos el equilibrio, las actualizaciones, las conmutaciones por error o el escalado de recursos. Esto significa que el punto de conexión del servicio experimenta cambios a medida que el servicio se mueve a nodos con direcciones IP diferentes y se puede abrir en puertos diferentes si el servicio utiliza un puerto seleccionado de forma dinámica.
@@ -38,7 +29,7 @@ En un sistema distribuido, los servicios se pueden mover de una máquina a otra 
 
 Service Fabric proporciona un servicio de detección y resolución denominado servicio de nomenclatura. El servicio de nomenclatura mantiene una tabla que asigna instancias de servicio con nombre a las direcciones del punto de conexión a las que escuchan. Todas las instancias de servicio con nombre en Service Fabric tienen nombres únicos como URI como, por ejemplo, `"fabric:/MyApplication/MyService"`. El nombre del servicio no cambia durante el ciclo de vida del mismo, solo las direcciones de punto de conexión pueden cambiar cuando se mueve el servicio. Esto es análogo a los sitios web que tienen direcciones URL constantes, pero donde la dirección IP puede cambiar. Y de forma similar a un DNS en la web, que resuelve direcciones URL del sitio web en direcciones IP, Service Fabric tiene un registrador que asigna nombres de servicio a la dirección del punto de conexión.
 
-![puntos de conexión de servicio][2]
+![puntos de conexión del servicio][2]
 
 La resolución y conexión a servicios implica que los pasos siguientes se ejecuten en un bucle:
 
@@ -55,14 +46,14 @@ Debido a que muchos servicios, sobre todo los servicios en contenedores, pueden 
 
 Como se muestra en el diagrama siguiente, el servicio DNS, que se ejecuta en el clúster de Service Fabric, asigna los nombres DNS a los nombres de servicio que, a continuación, se resuelven utilizando el Servicio de nombres para devolver las direcciones del punto de conexión a las que conectarse. El nombre DNS para el servicio se proporciona en el momento de la creación. 
 
-![puntos de conexión de servicio][9]
+![puntos de conexión del servicio][9]
 
 Para más información sobre cómo usar el servicio DNS, vea el artículo [Servicio DNS en Azure Service Fabric](service-fabric-dnsservice.md).
 
 ### <a name="reverse-proxy-service"></a>Servicio de proxy inverso
 Los servicios de direcciones de proxy inverso del clúster que expone puntos de conexión HTTP, incluidos HTTPS. El proxy inverso simplifica en gran medida la llamada a otros servicios y a sus métodos, mediante la disponibilidad de un formato de identificador URI específico y, además, controla los pasos de resolución, conexión y reintento necesarios para que un servicio se comunique con otro mediante el servicio de nomenclatura. En otras palabras, oculta el Servicio de nombres al usuario al realizar llamadas a otros servicios, por lo que resulta tan fácil como realizar una llamada a una dirección URL.
 
-![puntos de conexión de servicio][10]
+![puntos de conexión del servicio][10]
 
 Para más información sobre cómo usar el servicio de proxy inverso, vea el artículo [Proxy inverso en Azure Service Fabric](service-fabric-reverseproxy.md).
 

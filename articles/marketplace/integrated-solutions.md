@@ -1,31 +1,33 @@
 ---
-title: Soluciones integradas | Azure
+title: 'Soluciones integradas: Azure Marketplace'
 description: Soluciones integradas en Azure Marketplace y AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: ChJenk
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 12/16/2019
 ms.author: v-chjen
-ms.openlocfilehash: 420dfbc117a45c325db8e9fa2a622414bc78bd07
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 11f1504e8bd57fe34eb7acdc50598403225adcd9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023599"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427175"
 ---
-# <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Soluciones integradas en Azure Marketplace y AppSource
+# <a name="integrated-solutions-in-microsoft-appsource-and-azure-marketplace"></a>Soluciones integradas de Microsoft AppSource y Azure Marketplace
 
-Una solución integrada reúne las mejores tecnologías de asociados de Microsoft, junto con la consultoría, la implementación y la asistencia que proporcionan expertos integradores de sistemas.
+Una solución integrada reúne las mejores tecnologías de asociados de Microsoft, junto con la consultoría, la implementación y la asistencia que proporcionan expertos asociados de servicios.
 
-Estas soluciones se crean para un escenario o una necesidad específica de un cliente, comenzando por la identificación de los puntos críticos o desafíos para la industria. Un integrador de sistemas integra a continuación dos o más de las mejores tecnologías para crear una experiencia de implementación repetible y homogénea para los clientes, que los ayuda a ponerse en marcha rápidamente. El integrador de sistemas también actúa como punto de contacto único con el cliente, al que proporciona servicios de consultoría y personalización pertinentes, así como asistencia para la solución.  El resultado es una solución integrada, que incluye tecnología y servicios.
+Dos o más asociados de Microsoft integran su tecnología y servicios para crear una experiencia de implementación unificada, completa y repetible, con el fin de que los clientes se pongan en marcha rápidamente.  El asociado principal de la solución (normalmente, el asociado de servicios) proporciona un único punto de contacto para el cliente, que ofrece servicios de personalización, consultoría y soporte técnico pertinentes en torno a la solución.
+
+En otros escenarios, los asociados venden o comercializan conjuntamente su solución, mientras que una solución integrada es una solución nueva creada conjuntamente que integra la tecnología y los servicios de todos los asociados.
 
 ## <a name="advantages"></a>Ventajas
 
 Las ventajas de un enfoque integrado son:
 
-* *Conocimientos del sector*: Los integradores de sistemas proporcionan conocimientos y soluciones específicos del sector.
+* *Conocimientos del sector*: los asociados de servicios proporcionan conocimientos y soluciones específicos del sector.
 * *Rentabilidad inmediata*: El enfoque de implementación integrada le ayudará a obtener beneficios inmediatas.
 * *Las mejores soluciones*: Descubra la sencillez de una experiencia integrada de compra e implementación.
 

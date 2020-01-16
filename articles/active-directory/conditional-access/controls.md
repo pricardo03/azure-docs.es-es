@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 12/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cac92da744b3d5b7aeaa325c7cc564a3d7e2abdd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 342ec46aabafec975d780aa03fe75d7e3cf50497
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380807"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424966"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>¿Qué son los controles de acceso en el acceso condicional de Azure Active Directory?
 
@@ -76,7 +76,7 @@ Para más información, consulte [Uso obligatorio de dispositivos administrados 
 
 ### <a name="hybrid-azure-ad-joined-device"></a>Dispositivo unido a Azure AD híbrido
 
-El uso obligatorio de un dispositivo unido a un dominio de Azure AD híbrido es otra opción que puede usar para configurar directivas de acceso condicional basadas en el dispositivo. Este requisito hace referencia a equipos de escritorio, equipos portátiles y tabletas de empresa con Windows que están unidos a una instancia local de Active Directory. Si se selecciona esta opción, la directiva de acceso condicional concede acceso a los intentos de acceso realizados con dispositivos unidos a su instancia de Active Directory local y a su instancia de Azure Active Directory.  
+El uso obligatorio de un dispositivo unido a un dominio de Azure AD híbrido es otra opción que puede usar para configurar directivas de acceso condicional basado en el dispositivo. Este requisito hace referencia a equipos de escritorio, equipos portátiles y tabletas de empresa con Windows que están unidos a una instancia local de Active Directory. Si se selecciona esta opción, la directiva de acceso condicional concede acceso a los intentos de acceso realizados con dispositivos unidos a su instancia de Active Directory local y a su instancia de Azure Active Directory. Los dispositivos Mac no admiten la unión con Azure AD híbrido.
 
 Para más información, consulte [Configuración de directivas de acceso condicional basadas en dispositivos de Azure Active Directory](require-managed-devices.md).
 
@@ -114,7 +114,7 @@ Los proveedores que actualmente ofrecen un servicio compatible incluyen:
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [GSMA](https://mobileconnect.io/azure/)
 - [Identidad de ping](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
-- RSA
+- [RSA](https://community.rsa.com/docs/DOC-81278)
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
 - [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)

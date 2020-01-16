@@ -1,5 +1,5 @@
 ---
-title: Autenticación basada en certificados de Azure Active Directory con Azure Cosmos DB
+title: Autenticación basada en certificados de Azure Active Directory con Azure Cosmos DB
 description: Aprenda a configurar una identidad de Azure AD para la autenticación basada en certificados de las claves de acceso desde Azure Cosmos DB.
 author: voellm
 ms.service: cosmos-db
@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 5ce8bfb593b1973e76b90223de9261134ec71dd4
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 9e9dd529edea23b27de2e3841079244558d6689a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483244"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442096"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticación basada en certificados para una identidad de Azure AD para las claves de acceso desde una cuenta de Azure Cosmos DB
 
 La autenticación basada en certificados permite que una aplicación cliente se autentique mediante Azure Active Directory (Azure AD) con un certificado de cliente. Puede realizar la autenticación basada en certificados en un equipo en el que necesite una identidad, como un equipo local o una máquina virtual en Azure. A partir de ese momento, la aplicación puede leer las claves de Azure Cosmos DB sin tenerlas directamente en la aplicación. En este artículo se describe cómo crear una aplicación de Azure AD de ejemplo, configurarla para la autenticación basada en certificados, iniciar sesión en Azure mediante la nueva identidad de aplicación y, posteriormente, recuperar las claves de una cuenta de Azure Cosmos. En este artículo se usa Azure PowerShell para configurar las identidades y se proporciona una aplicación en C# de ejemplo que autentica las claves y accede a ellas desde su cuenta de Azure Cosmos.  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Instale la [versión más reciente](/powershell/azure/install-az-ps) de Azure PowerShell.
 

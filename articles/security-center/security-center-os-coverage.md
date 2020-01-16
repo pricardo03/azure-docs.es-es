@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 47e66bfc4550372b571b7263ef5b7f2f149712dc
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 42bd6037bcc94a83e649433e9ea0425fbdf11cd2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307311"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353315"
 ---
 # <a name="supported-platforms"></a>Plataformas compatibles 
 
@@ -41,7 +41,7 @@ En las secciones siguientes se enumeran los sistemas operativos de servidor admi
 
 ### Sistemas operativos Windows Server <a name="os-windows"></a>
 
-|OS|Compatible con Azure Security Center|Compatibilidad para la integración con Microsoft Defender ATP|
+|SO|Compatible con Azure Security Center|Compatibilidad para la integración con Microsoft Defender ATP|
 |:---|:-:|:-:|
 |Windows Server 2019|✔|X|
 |Windows Server 2016|✔|✔|
@@ -56,11 +56,11 @@ Para obtener más información acerca de las características admitidas para los
 
 * CentOS 6 y 7
 * Amazon Linux 2017.09
-* Oracle Linux 6 y 7
+* Oracle Linux 6 y Oracle Linux 7
 * Red Hat Enterprise Linux Server 6 y 7
 * Debian GNU/Linux 8 y 9
 * Ubuntu Linux 14.04 LTS, 16.04 LTS y 18.04 LTS
-* SUSE Linux Enterprise Server 12
+* SUSE Linux Enterprise Server 12
 
 32 bits
 * CentOS 6
@@ -99,7 +99,7 @@ Los siguientes recursos de PaaS de Azure son compatibles con Azure Security Cent
 * NIC
 * Grupo de seguridad de red
 * Cuenta de Batch
-* Cuenta de Service Fabric
+* Cuenta de Service Fabric
 * Cuenta de Automation
 * Equilibrador de carga
 * Search
@@ -122,6 +122,6 @@ También se admite la protección para las máquinas virtuales que residan en Az
 - Obtenga información sobre cómo [Security Center administra y protege los datos](security-center-data-security.md).
 - Aprenda a [planear y entender las consideraciones de diseño para adoptar Azure Security Center](security-center-planning-and-operations-guide.md).
 - Obtenga información [sobre las características disponibles para los diferentes entornos de nube](security-center-services.md).
-- Obtenga más información sobre la [detección de amenazas en máquinas virtuales y servidores en Azure Security Center](security-center-alerts-iaas.md).
+- Obtenga más información sobre la [detección de amenazas en VM y servidores en Azure Security Center](security-center-alerts-iaas.md).
 - Consulte las [preguntas más frecuentes sobre Azure Security Center](security-center-faq.md).
 - Encuentre [artículos de blog sobre el cumplimiento y la seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/).

@@ -1,25 +1,14 @@
 ---
-title: Creación de una aplicación contenedora en Azure Service Fabric | Microsoft Docs
+title: Creación de una aplicación contenedora de Azure Service Fabric
 description: Cree la primera aplicación contenedora en Windows en Azure Service Fabric. Cree una imagen de Docker con una aplicación en Python, inserte la imagen en un registro de contenedores y compile e implemente una aplicación contenedora en Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: jpconnock
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: 4fd6de848756cedf21d7bb1f7f1be31175de6627
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 6ff3fb3057b21f389d42ad98fe4ebb2803f5fc8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838251"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458017"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Cree la primera aplicación contenedora en Service Fabric en Windows
 
@@ -35,7 +24,7 @@ Para ejecutar una aplicación que existe en un contenedor de Windows en un clús
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Un equipo de desarrollo en el que se ejecute:
   * Visual Studio 2015 o Visual Studio 2019.
@@ -200,7 +189,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ## <a name="create-the-containerized-service-in-visual-studio"></a>Creación del servicio en contenedor en Visual Studio
 Las herramientas y el SDK de Service Fabric proporcionan una plantilla de servicio que le ayuda a crear una aplicación en contenedor.
 
-1. Inicie Visual Studio. Seleccione **Archivo** > **Nuevo** > **Proyecto**.
+1. Inicie Visual Studio. Seleccione **File (Archivo)**  > **New (Nuevo)**  > **Project (Proyecto)** .
 2. Seleccione **Aplicación de Service Fabric**, asígnele el nombre "MyFirstContainer" y haga clic en **Aceptar**.
 3. Seleccione **Contenedor** en la lista de **plantillas del servicio**.
 4. En **Nombre de la imagen** escriba "myregistry.azurecr.io/samples/helloworldapp", la imagen que insertó en el repositorio de contenedor.

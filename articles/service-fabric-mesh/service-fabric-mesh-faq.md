@@ -1,24 +1,19 @@
 ---
-title: Preguntas comunes sobre Azure Service Fabric Mesh | Microsoft Docs
+title: Preguntas comunes sobre Azure Service Fabric Mesh
 description: Obtenga información sobre las preguntas más frecuentes y respuestas sobre Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords: ''
-author: chackdan
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.service: service-fabric-mesh
-manager: jeanpaul.connock
-ms.openlocfilehash: edd30dc8799ae9e5410ebc862574d632d09b9483
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 3fe6289ad7616dec97706c2f1779a74c508a0f76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168678"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461998"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Preguntas frecuentes sobre Service Fabric Mesh
 
-Azure Service Fabric Mesh es un servicio totalmente administrado que permite a los desarrolladores implementar aplicaciones de microservicios sin necesidad de administrar máquinas virtuales, almacenamiento o redes. Este artículo contiene respuestas a las preguntas más habituales.
+Azure Service Fabric mesh es un servicio totalmente administrado que permite a los desarrolladores implementar aplicaciones de microservicios sin la administración de máquinas virtuales, almacenamiento o redes. Este artículo contiene respuestas a las preguntas más habituales.
 
 ## <a name="how-do-i-report-an-issue-or-ask-a-question"></a>¿Cómo notifico un problema o formulo una pregunta?
 
@@ -86,11 +81,10 @@ Si va a desarrollar en una máquina con Windows Fall Creators Update (versión 1
 Si va a desarrollar en un equipo con la Actualización de abril de 2018 de Windows 10 (versión 1803), puede usar las imágenes de Docker de las versiones 1709 o 1803 de Windows.
 
 Las siguientes imágenes del sistema operativo de contenedor pueden usarse para implementar servicios:
-
 - Windows: windowsservercore y nanoserver
     - Windows Server 1709
     - Windows Server 1803
-    - Windows Server 1809
+    - Windows Server 1809
     - Windows Server 2019 LTSC
 - Linux
     - Ninguna limitación conocida

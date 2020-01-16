@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 12/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: b2be563efa3c09cffaf14dec2b871f3881af1a7a
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: d5f3d24d10262f28023523668c22f4571799cff9
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240049"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610478"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Conectar su solución externa mediante Syslog
 
@@ -28,14 +28,18 @@ Puede conectar a Azure Sentinel cualquier dispositivo local que admita Syslog. E
 > [!NOTE]
 > Si el dispositivo admite CEF de Syslog, la conexión será más completa, así que conviene elegir esta opción y seguir las instrucciones en [Conectar su solución externa mediante Syslog](connect-common-event-format.md).
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 Syslog es un protocolo de registro de eventos que es común a Linux. Las aplicaciones envían mensajes que pueden almacenarse en la máquina local o entregarse a un recopilador de Syslog. Al instalar el agente de Log Analytics para Linux, este configura el demonio Syslog local para que reenvíe mensajes al agente. En ese momento, el agente envía el mensaje a Azure Monitor, donde se crea un registro correspondiente.
 
 Para más información, consulte [Orígenes de datos de Syslog en Azure Monitor](../azure-monitor/platform/data-sources-syslog.md).
 
 > [!NOTE]
-> El agente puede recopilar registros de varios orígenes, pero debe estar instalado en el equipo proxy dedicado.
+> - El agente puede recopilar registros de varios orígenes, pero debe estar instalado en el equipo proxy dedicado.
+> - Si quiere admitir conectores para CEF y Syslog en la misma máquina virtual, siga estos pasos para evitar la duplicación de datos:
+>    1. Siga las instrucciones para [conectar su CEF](connect-common-event-format.md).
+>    2. Para conectar los datos de Syslog, vaya a **Configuración** > **Configuración del área de trabajo** > **Configuración avanzada** > **Datos** > **Syslog** y establezca las instalaciones y sus prioridades para que no sean las mismas instalaciones y propiedades que se usaron en la configuración de CEF. <br></br>Si selecciona **Aplicar la configuración siguiente a mis máquinas**, se aplica esta configuración a todas las máquinas virtuales conectadas a esta área de trabajo.
+
 
 ## <a name="connect-your-syslog-appliance"></a>Conectar el dispositivo de Syslog
 
@@ -102,3 +106,5 @@ Esta detección requiere una configuración específica del conector de datos de
 En este documento, ha aprendido a conectar dispositivos locales de Syslog a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+

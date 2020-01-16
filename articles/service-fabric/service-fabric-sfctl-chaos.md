@@ -1,36 +1,27 @@
 ---
-title: 'CLI de Azure Service Fabric: sfctl chaos | Microsoft Docs'
-description: Describe los comandos de sfctl chaos de la CLI Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: 'CLI de Azure Service Fabric: sfctl chaos'
+description: Más información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para administrar Chaos.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: f48ef260ab05f98da99c3ae317d0c350d018119f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b91c11dfb9b1249420429bee20f12439fffa4853
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901757"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646184"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Inicie, detenga e informe sobre el servicio de prueba de Chaos.
 
 ## <a name="subgroups"></a>Subgrupos
-|Subgrupo|DESCRIPCIÓN|
+|Subgrupo|Descripción|
 | --- | --- |
 | [schedule](service-fabric-sfctl-chaos-schedule.md) | Obtenga y establezca la programación de chaos. |
 ## <a name="commands"></a>Comandos:
 
-|Get-Help|DESCRIPCIÓN|
+|Get-Help|Descripción|
 | --- | --- |
 | events | Obtiene el siguiente segmento de los eventos de Chaos basado en el token de continuación o en el intervalo de tiempo. |
 | get | Obtenga el estado de Chaos. |
@@ -44,7 +35,7 @@ Para obtener el siguiente segmento de los eventos de Chaos, puede especificar el
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --continuation-token | El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada. |
 | --end-time-utc | El valor de hora del archivo de Windows que representa la hora de finalización del intervalo de tiempo para el que se genera un informe de Chaos. Consulte [Método DateTime.ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para más información. |
@@ -54,13 +45,13 @@ Para obtener el siguiente segmento de los eventos de Chaos, puede especificar el
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-chaos-get"></a>sfctl chaos get
 Obtenga el estado de Chaos.
@@ -69,19 +60,19 @@ Obtenga el estado de Chaos indicando si Chaos se ejecuta o no, los parámetros d
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-chaos-start"></a>sfctl chaos start
 Inicia Chaos en el clúster.
@@ -90,7 +81,7 @@ Si Chaos no está aún en ejecución en el clúster, inicia Chaos con los parám
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --app-type-health-policy-map | Lista codificada en JSON con porcentaje máximo de aplicaciones en mal estado para los tipos de aplicación específicos. Cada entrada especifica como una clave el nombre del tipo de aplicación y como un valor un entero que representa el porcentaje de MaxPercentUnhealthyApplications usado para evaluar las aplicaciones del tipo de aplicación especificado. <br><br> Define un asignación con un porcentaje máximo de aplicaciones en mal estado para tipos de aplicación específicos. Cada entrada especifica como clave el nombre del tipo de aplicación y como valor un entero que representa el porcentaje de MaxPercentUnhealthyApplications usado para evaluar las aplicaciones del tipo de aplicación especificado. La asignación de directiva de mantenimiento de tipo de aplicación se puede usar durante la evaluación de mantenimiento del clúster para describir tipos de aplicación especiales. Los tipos de aplicación incluidos en la asignación se evalúan con el porcentaje especificado en la asignación y no con el MaxPercentUnhealthyApplications global definido en la directiva de mantenimiento de clúster. Las aplicaciones de tipos de aplicación especificados en la asignación no se incluyen en el grupo global de aplicaciones. Por ejemplo, si algunas aplicaciones de un tipo son vitales, el administrador de clústeres puede agregar una entrada a la asignación para ese tipo de aplicación y asignarle un valor del 0 % (es decir, no tolerar errores). Todas las demás aplicaciones se pueden evaluar con MaxPercentUnhealthyApplications establecido en el 20 % para tolerar algunos errores entre las miles de instancias de la aplicación. La asignación de directiva de mantenimiento de tipo de aplicación se usa únicamente si el manifiesto de clúster permite la evaluación de mantenimiento de tipo de aplicación con la entrada de configuración para HealthManager/EnableApplicationTypeHealthEvaluation. |
 | --chaos-target-filter | Diccionario JSON codificado con dos claves de tipo de cadena. Las dos claves son NodeTypeInclusionList y ApplicationInclusionList. Los valores para estas dos claves son lista de cadena. chaos_target_filter define todos los filtros para errores de destino de Chaos, por ejemplo, solo determinados tipos de nodo con errores o con solo determinadas aplicaciones con errores. <br><br> Si no se utiliza chaos_target_filter, Chaos produce un error en todas las entidades de clúster. Si se utiliza chaos_target_filter, Chaos produce un error solo en las entidades que cumplen la especificación de chaos_target_filter. NodeTypeInclusionList y ApplicationInclusionList solo permiten semánticas de unión. No es posible especificar una intersección de NodeTypeInclusionList y ApplicationInclusionList. Por ejemplo, no es posible especificar "Error de esta aplicación solo si se encuentra en ese tipo de nodo". Una vez que una entidad se incluye en NodeTypeInclusionList o ApplicationInclusionList, dicha entidad no se puede excluir mediante ChaosTargetFilter. Aunque la applicationX no aparezca en ApplicationInclusionList, en alguna iteración de Chaos, la applicationX puede dar error porque se produce en un nodo de nodeTypeY que se incluye en NodeTypeInclusionList. Si NodeTypeInclusionList y ApplicationInclusionList están vacías, se produce una excepción ArgumentException. Todos los tipos de errores (reiniciar el nodo, reiniciar el paquete de código, quitar la réplica, reiniciar la réplica, mover principal y mover secundaria) están habilitados para los nodos de estos tipos de nodo. Si un valor tipo de nodo (es decir, NodeTypeX) no aparece en NodeTypeInclusionList, nunca se habilitarán los errores de nivel de nodo (por ejemplo, NodeRestart) para los nodos de NodeTypeX, pero los errores de la réplica y del paquete de código todavía pueden habilitarse para NodeTypeX si se da que una aplicación de ApplicationInclusionList reside en un nodo de NodeTypeX. Como máximo pueden incluirse 100 nombres de tipo de nodo en esta lista. Para aumentar este número, es necesaria una actualización de configuración para la configuración de MaxNumberOfNodeTypesInChaosEntityFilter. Todas las réplicas que pertenecen a los servicios de estas aplicaciones son susceptibles de errores de réplica (reiniciar réplica, quitar réplica, mover principal y mover secundaria) debido a Chaos. Chaos puede reiniciar un paquete de código solo si el paquete de código hospeda réplicas solamente de estas aplicaciones. Si no aparece una aplicación en esta lista, todavía puede registrar un error en alguna iteración de Chaos si la aplicación termina en un nodo de un tipo de nodo que está incluido en NodeTypeInclusionList. Sin embargo, si la applicationX está enlazada a nodeTypeY a través de las restricciones de posición y la applicationX no se encuentra en la ApplicationInclusionList y nodeTypeY no está presente en NodeTypeInclusionList, la applicationX nunca generará un error. Como máximo pueden incluirse 1000 nombres de aplicaciones en esta lista. Para aumentar este número, es necesaria una actualización de configuración para la configuración de MaxNumberOfApplicationsInChaosEntityFilter. |
@@ -108,13 +99,13 @@ Si Chaos no está aún en ejecución en el clúster, inicia Chaos con los parám
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-chaos-stop"></a>sfctl chaos stop
 Detiene Chaos si se está ejecutando en el clúster y pone la programación de Chaos en estado detenido.
@@ -123,19 +114,19 @@ Impide que Chaos ejecute nuevos errores. Los errores sobre la marcha seguirán e
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
 | --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 | --- | --- |
-| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
-| --help -h | Muestra este mensaje de ayuda y sale. |
+| --debug | Aumente el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestre este mensaje de ayuda y salga. |
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
-| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+| --verbose | Aumente el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

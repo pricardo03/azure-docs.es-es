@@ -1,25 +1,16 @@
 ---
-title: Generación de eventos de registro desde una aplicación .NET de Service Fabric en Azure o en un clúster independiente
+title: Generación de eventos de registro desde una aplicación .NET
 description: Obtenga información acerca de cómo agregar el registro a la aplicación .NET de Service Fabric hospedada en un clúster de Azure o en un clúster independiente.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/27/2018
 ms.author: srrengar
-ms.openlocfilehash: d1b3dc25dd9bda9d7f9d9152c2a94cea8321f5cf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8c4721584e74bd7f7111c516f2d16bd190392bb5
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60482614"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614373"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Adición del registro a la aplicación de Service Fabric
 

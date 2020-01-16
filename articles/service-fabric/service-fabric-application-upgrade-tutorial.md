@@ -1,25 +1,14 @@
 ---
-title: Tutorial sobre las actualizaciones de aplicaciones de Service Fabric | Microsoft Docs
+title: Tutorial sobre las actualizaciones de aplicaciones de Service Fabric
 description: Este artículo le guía a través de la experiencia de implementación de una aplicación de Service Fabric, la modificación del código y la aplicación de actualizaciones con Visual Studio.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: a3181a7a-9ab1-4216-b07a-05b79bd826a4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 5e693a219c4a430f742ebd27878518ebb99ce5da
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: db814b972db1aee56be0858c9ff5d1c382640642
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167368"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464829"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Tutorial sobre la actualización de aplicaciones de Service Fabric con Visual Studio
 > [!div class="op_single_selector"]

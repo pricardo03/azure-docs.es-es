@@ -1,25 +1,16 @@
 ---
-title: Eventos en actores de Azure Service Fabric basados en actor | Microsoft Docs
-description: Introducción a los eventos de Reliable Actors de Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Eventos en actores de Azure Service Fabric basados en actores
+description: Obtenga información sobre los eventos de Reliable Actors de Service Fabric, una forma eficaz de comunicación entre el actor y el cliente.
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: aa01b0f7-8f88-403a-bfe1-5aba00312c24
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: 9075fc8391e8afa21e3963c1eff6a630c586d647
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73c149a0d0992fecd1acf633891057570285df64
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726407"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639673"
 ---
 # <a name="actor-events"></a>Eventos de actor
 Los eventos de actor ofrecen una manera de enviar notificaciones de mejor esfuerzo del actor a los clientes. Los eventos de actor están diseñados para la comunicación entre actor y cliente, y no deben usarse para una comunicación entre actores.

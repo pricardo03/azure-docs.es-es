@@ -1,10 +1,10 @@
 ---
 title: Uso del servicio de correo electrónico SendGrid (.NET) | Microsoft Docs
-description: Obtenga información acerca de cómo enviar correo electrónico con el servicio de correo electrónico SendGrid en Azure. Los ejemplos de código están escritos en C# y utilizan la API .NET.
+description: Obtenga información sobre cómo enviar correo electrónico con el servicio de correo electrónico SendGrid en Azure. Los ejemplos de código están escritos en C# y utilizan la API .NET.
 services: ''
 documentationcenter: .net
-author: thinkingserious
-manager: erikre
+author: georgewallace
+ms.author: erikre
 editor: ''
 ms.assetid: 21bf4028-9046-476b-9799-3d3082a0f84c
 ms.service: multiple
@@ -13,14 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: erikre
 ms.reviewer: dx@sendgrid.com
-ms.openlocfilehash: c3211ba9f8a8b16ad4372c82d8e50c46f3ad6897
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: be1644fe6b6a44edf7fad5cbbd8e3b8971ad02e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876374"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463601"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Envío de correos electrónicos con SendGrid y Azure
 ## <a name="overview"></a>Información general
@@ -72,7 +71,7 @@ Agregue las siguientes declaraciones de espacio de nombres de código en la part
     using SendGrid;
     using SendGrid.Helpers.Mail;
 
-## <a name="how-to-create-an-email"></a>Procedimientos para: Crear un correo electrónico
+## <a name="how-to-create-an-email"></a>Procedimientos: Crear un correo electrónico
 Use el objeto **SendGridMessage** para crear un mensaje de correo. Una vez creado el objeto de mensaje, establecer propiedades y métodos, incluidos el remitente, el destinatario, el asunto y el cuerpo del correo electrónico.
 
 El siguiente ejemplo muestra la forma de crear un objeto de correo electrónico completo:
@@ -96,12 +95,12 @@ El siguiente ejemplo muestra la forma de crear un objeto de correo electrónico 
 
 Para obtener más información sobre las propiedades y los métodos que admite el tipo **SendGrid** , consulte [sendgrid-csharp][sendgrid-csharp] en GitHub.
 
-## <a name="how-to-send-an-email"></a>Procedimientos para: Enviar un correo electrónico
+## <a name="how-to-send-an-email"></a>Procedimientos: Enviar un correo electrónico
 Después de crear un mensaje de correo electrónico, puede enviarlo con la API de SendGrid. También puede usar la [biblioteca integrada de .NET][NET-library].
 
 El envío de correos electrónicos requiere que el usuario proporcione su clave de API de SendGrid. Si desea detalles sobre cómo configurar claves de API, visite la [documentación][documentation] de claves de API de SendGrid.
 
-Puede almacenar estas credenciales en Azure Portal haciendo clic en Configuración de la aplicación y agregando pares clave-valor en la configuración de la aplicación.
+Para almacenar estas credenciales en Azure Portal, haga clic en Configuración de la aplicación y agregue pares clave-valor en la configuración de la aplicación.
 
  ![Configuración de la aplicación de Azure][azure_app_settings]
 
@@ -143,7 +142,7 @@ En los ejemplos siguientes se muestra cómo enviar un mensaje de correo electró
         }
     }
     
-## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>Procedimientos para: Enviar un correo electrónico desde la API de ASP .NET Core mediante la clase MailHelper
+## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>Procedimientos: Enviar un correo electrónico desde la API de ASP .NET Core mediante la clase MailHelper
 
 El ejemplo siguiente se puede utilizar para enviar un solo correo electrónico a varias personas desde la API de ASP .NET Core mediante la clase `MailHelper` del espacio de nombres `SendGrid.Helpers.Mail`. En este ejemplo, usamos ASP .NET Core 1.0. 
 
@@ -219,7 +218,7 @@ En el controlador, después de insertar la interfaz `IConfiguration`, podemos us
        }
     }
     
-## <a name="how-to-add-an-attachment"></a>Procedimientos para: Agregar datos adjuntos
+## <a name="how-to-add-an-attachment"></a>Procedimientos: Agregar datos adjuntos
 Es posible agregar datos adjuntos a un mensaje llamando al método **AddAttachment** y especificando mínimamente el nombre de archivo y el contenido codificado en Base64 que desea adjuntar. Puede incluir múltiples datos adjuntos mediante la llamada a este método, que debe utilizar una vez por cada archivo que desee adjuntar, o utilizando el método **AddAttachments**. El siguiente ejemplo demuestra la incorporación de datos adjuntos a un mensaje:
 
     var banner2 = new Attachment()
@@ -232,7 +231,7 @@ Es posible agregar datos adjuntos a un mensaje llamando al método **AddAttachme
     };
     msg.AddAttachment(banner2);
 
-## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>Procedimientos para: Usar la configuración de correo para habilitar pies de página, seguimiento y análisis
+## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>Procedimientos: Usar la configuración de correo para habilitar pies de página, seguimiento y análisis
 SendGrid proporciona funciones de correo electrónico adicionales mediante el uso de configuraciones de correo y de seguimiento. Todas estas configuraciones se pueden agregar a un mensaje de correo electrónico para habilitar funciones específicas, como el seguimiento por clics, Google Analytics, el seguimiento de suscripciones, etc. Para una lista completa de las aplicaciones, consulte la [documentación de la configuración][settings-documentation].
 
 Es posible incluir aplicaciones en los mensajes de correo de **SendGrid** con métodos implementados como parte de la clase **SendGridMessage**. Los siguientes ejemplos demuestran el uso de los filtros de pie de página y seguimiento por clics:
@@ -248,7 +247,7 @@ Los siguientes ejemplos demuestran el uso de los filtros de pie de página y seg
 ### <a name="click-tracking"></a>Seguimiento por clics
     msg.SetClickTracking(true);
 
-## <a name="how-to-use-additional-sendgrid-services"></a>Procedimientos para: Usar servicios SendGrid adicionales
+## <a name="how-to-use-additional-sendgrid-services"></a>Procedimientos: Usar servicios SendGrid adicionales
 SendGrid ofrece varias API y webhooks que puede usar para aprovechar la funcionalidad adicional dentro de la aplicación de Azure. Para más detalles, consulte la [referencia de la API de SendGrid][SendGrid API documentation].
 
 ## <a name="next-steps"></a>Pasos siguientes

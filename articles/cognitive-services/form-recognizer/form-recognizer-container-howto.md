@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 21582a5a17a3c6f67182173bfe08d80c48765f7d
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 28d3d83acad5e609947b029bc8e585193834e346
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325851"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446523"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalación y ejecución de contenedores de Form Recognizer (versión preliminar)
 
@@ -22,13 +22,16 @@ Azure Form Recognizer aplica tecnología de aprendizaje automático para identif
 
 Para reducir la complejidad e integrar fácilmente un modelo de Form Recognizer personalizado en su proceso de automatización del flujo de trabajo u otra aplicación, puede llamar al modelo personalizado de Form Recognizer mediante una simple API REST. Solo se necesitan cinco documentos de formulario (o un formulario vacío y dos formularios completados), por lo que puede obtener resultados rápidamente, con precisión y adaptados a su contenido específico. No son necesarias las intervenciones manuales complicadas ni un amplio conocimiento sobre ciencia de datos. No requiere etiquetas de datos ni anotaciones de datos.
 
+> [!IMPORTANT]
+> Los contenedores de Form Recognizer usan actualmente la versión 1.0 de la API de Form Recognizer. En su lugar, puede acceder a la versión más reciente de la API mediante el servicio administrado.
+
 |Función|Características|
 |-|-|
 |Form Recognizer| <li>Procesa archivos PDF, PNG y JPG.<li>Entrena modelos personalizados con un mínimo de cinco formularios del mismo diseño. <li>Extrae información de la tabla y de pares clave-valor. <li>Utiliza la característica Reconocer texto de la API Computer Vision de Azure Cognitive Services con el fin de detectar y extraer texto impreso de las imágenes dentro de formularios.<li>No requiere anotaciones ni etiquetas.|
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de utilizar los contenedores de Form Recognizer, debe cumplir los siguientes requisitos previos:
 
@@ -61,7 +64,7 @@ Esta clave se usa para iniciar el contenedor y está disponible en la página de
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitud de acceso al registro de contenedor
 
-Primero debe completar y enviar el [formulario de solicitud de acceso a contenedores de Form Recognizer de Cognitive Services](https://aka.ms/FormRecognizerRequestAccess) para solicitar acceso al contenedor. Esto también le registra en Computer Vision. No es necesario registrarse para obtener el formulario de solicitud de Computer Vision por separado. 
+Primero debe completar y enviar el [formulario de solicitud de acceso a contenedores de Form Recognizer de Cognitive Services](https://aka.ms/FormRecognizerRequestAccess) para solicitar acceso al contenedor. Esto también le registra en Computer Vision. No es necesario registrarse mediante el formulario de solicitud de Computer Vision por separado. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -182,7 +185,7 @@ Eula=accept \
 Billing={COMPUTER_VISION_ENDPOINT_URI} \
 ApiKey={COMPUTER_VISION_API_KEY}
 ```
-Cada contenedor posterior debe estar en un puerto diferente. 
+Cada contenedor sucesivo debe estar en un puerto diferente. 
 
 ### <a name="run-separate-containers-with-docker-compose"></a>Ejecución de contenedores diferentes con Docker Compose
 
@@ -301,7 +304,7 @@ El contenedor proporciona las API de punto de conexión REST, que puede encontra
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si ejecuta el contenedor con un [montaje](form-recognizer-container-configuration.md#mount-settings) de salida y el registro habilitados, el contenedor genera archivos de registro que resultan útiles para solucionar problemas que se producen al iniciar o ejecutar el contenedor.
 

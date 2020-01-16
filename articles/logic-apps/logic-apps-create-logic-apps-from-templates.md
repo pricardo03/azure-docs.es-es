@@ -1,6 +1,6 @@
 ---
-title: Creación de flujos de trabajo a partir de plantillas
-description: Compile flujos de trabajo más rápido mediante el uso de plantillas de aplicaciones lógicas en Azure Logic Apps.
+title: Creación de flujos de trabajo de aplicaciones lógicas más rápidos mediante plantillas precompiladas
+description: Creación rápida de flujos de trabajo de aplicaciones lógicas mediante plantillas precompiladas proporcionadas por Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: kevinlam1
@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: c7033185ac3a5411568195d788242a674b569183
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 58c0ff8cf8a579e2b97ebbe195f47e4baef4621a
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793187"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666829"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Creación de flujos de trabajo de aplicaciones lógicas a partir de plantillas precompiladas
 
@@ -21,7 +21,7 @@ Para que pueda empezar a crear flujos de trabajo más rápidamente, Logic Apps p
 
 Estas son algunas categorías de plantillas:
 
-| Tipo de plantilla | DESCRIPCIÓN | 
+| Tipo de plantilla | Descripción | 
 | ------------- | ----------- | 
 | Plantillas de empresa en la nube | Para integrar Azure Blob, Dynamics CRM, Salesforce, Box y el blob de Azure; y también incluyen otros conectores para sus necesidades empresariales en la nube. Por ejemplo, puede usar estas plantillas para organizar clientes potenciales de empresa o realizar copias de seguridad de datos de archivos corporativos. | 
 | Plantillas de productividad personal | Mejore la productividad personal al establecer avisos diarios, convertir los elementos de trabajo importantes en listas de tareas pendientes y automatizar las tareas largas con un único paso de aprobación de usuario. | 
@@ -44,11 +44,11 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
 
    ![Proporcione los detalles de la aplicación lógica](./media/logic-apps-create-logic-apps-from-templates/logic-app-settings.png)
 
-   | Configuración | Valor | DESCRIPCIÓN | 
+   | Configuración | Value | Descripción | 
    | ------- | ----- | ----------- | 
    | **Nombre** | *nombre-de-la-aplicación-lógica* | Proporcione un nombre único de aplicación lógica. | 
    | **Suscripción** | *your-Azure-subscription-name* | Seleccione la suscripción de Azure que quiera usar. | 
-   | **Grupos de recursos** | *your-Azure-resource-group-name* | Cree o seleccione un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) para esta aplicación lógica y organice todos los recursos asociados a esta aplicación. | 
+   | **Grupos de recursos** | *your-Azure-resource-group-name* | Cree o seleccione un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) para esta aplicación lógica y organice todos los recursos asociados a esta aplicación. | 
    | **Ubicación** | *your-Azure-datacenter-region* | Seleccione la región del centro de datos para implementar la aplicación lógica, por ejemplo, Oeste de EE.UU. | 
    | **Log Analytics** | **Off** (Desactivar) (valor predeterminado) o **On** (Activar) | Activar el [registro de diagnóstico](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) para la aplicación lógica a través de los [registros de Azure Monitor](../log-analytics/log-analytics-overview.md). Es necesario que ya tenga un área de trabajo de Log Analytics. | 
    |||| 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 8c0328c1d82af5e96afca29f05a065450eab9ae4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 98b5cc707ca8b5ebd1ee88f02082fd3f10fa73dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72941657"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435003"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Extensión de Azure IoT Central con reglas personalizadas mediante Stream Analytics, Azure Functions y SendGrid
 
@@ -28,7 +28,7 @@ En esta guía paso a paso, aprenderá a:
 * Crear una consulta de Stream Analytics que detecta cuándo un dispositivo ha dejado de enviar datos.
 * Enviar una notificación por correo electrónico con los servicios de SendGrid y Azure Functions.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Recuerde que para completar los pasos de esta guía paso a paso, necesita una suscripción activa a Azure.
 
@@ -38,17 +38,17 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Cree una aplicación de IoT Central desde el sitio web del [administrador de aplicaciones de Azure IoT Central](https://aka.ms/iotcentral) con la configuración siguiente:
 
-| Configuración | Valor |
+| Configuración | Value |
 | ------- | ----- |
 | Plan de pago | Pay-As-You-Go |
-| Plantilla de la aplicación | Ejemplo Contoso |
+| Plantilla de la aplicación | Aplicación heredada |
 | Nombre de la aplicación | Acepte el valor predeterminado o elija su propio nombre. |
 | URL | Acepte el valor predeterminado o elija un prefijo de dirección URL único. |
 | Directorio | El inquilino de Azure Active Directory |
 | Suscripción de Azure | Su suscripción de Azure |
-| Region | East US |
+| Region | Estados Unidos |
 
-Los ejemplos y capturas de pantalla de este artículo utilizan la región **Este de EE. UU.** . Elija una ubicación cercana a usted y asegúrese de que crea todos los recursos en la misma región.
+En los ejemplos y las capturas de pantalla de este artículo se usa la región **Estados Unidos**. Elija una ubicación cercana a usted y asegúrese de que crea todos los recursos en la misma región.
 
 ### <a name="resource-group"></a>Resource group
 
@@ -58,9 +58,9 @@ Use [Azure Portal para crear un grupo de recursos](https://portal.azure.com/#cre
 
 Use [Azure Portal para crear un espacio de nombres de Event Hubs](https://portal.azure.com/#create/Microsoft.EventHub) con la siguiente configuración:
 
-| Configuración | Valor |
+| Configuración | Value |
 | ------- | ----- |
-| NOMBRE    | Elija el nombre del espacio de nombres |
+| Nombre    | Elija el nombre del espacio de nombres |
 | Plan de tarifa | Básica |
 | Subscription | Su suscripción |
 | Resource group | DetectStoppedDevices |
@@ -71,12 +71,12 @@ Use [Azure Portal para crear un espacio de nombres de Event Hubs](https://portal
 
 Use [Azure Portal para crear un trabajo de Stream Analytics](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) con la siguiente configuración:
 
-| Configuración | Valor |
+| Configuración | Value |
 | ------- | ----- |
-| NOMBRE    | Elija el nombre del trabajo |
+| Nombre    | Elija el nombre del trabajo |
 | Subscription | Su suscripción |
 | Resource group | DetectStoppedDevices |
-| Location | Este de EE. UU |
+| Location | East US |
 | Entorno de hospedaje | Nube |
 | Unidades de streaming | 3 |
 
@@ -84,12 +84,12 @@ Use [Azure Portal para crear un trabajo de Stream Analytics](https://portal.azur
 
 Use [Azure Portal para crear una aplicación de función](https://portal.azure.com/#create/Microsoft.FunctionApp) con la siguiente configuración:
 
-| Configuración | Valor |
+| Configuración | Value |
 | ------- | ----- |
 | Nombre de la aplicación    | Elija el nombre de la aplicación de función |
 | Subscription | Su suscripción |
 | Resource group | DetectStoppedDevices |
-| OS | Windows |
+| SO | Windows |
 | Plan de hospedaje | Plan de consumo |
 | Location | East US |
 | Pila de tiempo de ejecución | .NET |
@@ -99,9 +99,9 @@ Use [Azure Portal para crear una aplicación de función](https://portal.azure.c
 
 Use [Azure Portal para crear una cuenta de SendGrid](https://portal.azure.com/#create/Sendgrid.sendgrid) con la siguiente configuración:
 
-| Configuración | Valor |
+| Configuración | Value |
 | ------- | ----- |
-| NOMBRE    | Elija el nombre de cuenta de SendGrid |
+| Nombre    | Elija el nombre de cuenta de SendGrid |
 | Contraseña | Cree una contraseña |
 | Subscription | Su suscripción |
 | Resource group | DetectStoppedDevices |
@@ -240,7 +240,7 @@ Esta solución utiliza una consulta de Stream Analytics para detectar cuándo un
 1. En Azure Portal, vaya a su trabajo de Stream Analytics, en **Topología de trabajo** seleccione **Entradas**, elija **+ Agregar entrada de flujo**y, a continuación, **Centro de eventos**.
 1. Use la información de la tabla siguiente para configurar la entrada usando el centro de eventos que creó anteriormente, y luego elija **Guardar**:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Alias de entrada | centraltelemetry |
     | Subscription | Su suscripción |
@@ -250,7 +250,7 @@ Esta solución utiliza una consulta de Stream Analytics para detectar cuándo un
 1. En **Topología de trabajo**, seleccione **Salidas**, elija **+ Agregar**y, a continuación, elija **función de Azure**.
 1. Use la información de la tabla siguiente para configurar la salida, y luego elija **Guardar**:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Alias de salida | emailnotification |
     | Subscription | Su suscripción |
@@ -310,7 +310,7 @@ En el sitio web del [administrador de aplicaciones de Azure IoT Central](https:/
 1. Vaya a la página **Exportación de datos continua**, seleccione **+ Nuevo** y, a continuación, **Azure Event Hubs**.
 1. Utilice los siguientes valores para configurar la exportación y, luego, seleccione **Guardar**:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Display Name (Nombre para mostrar) | Exportar a Event Hubs |
     | habilitado | Por |

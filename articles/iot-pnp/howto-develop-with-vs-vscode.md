@@ -3,23 +3,23 @@ title: Use Visual Studio y Visual Studio Code para compilar dispositivos de la v
 description: Use Visual Studio y Visual Studio Code para acelerar la creación de modelos de dispositivos IoT Plug and Play y la implementación del código de dispositivo.
 author: liydu
 ms.author: liydu
-ms.date: 10/29/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 6ce5a93cdd44af7f199d59d459daa46b4adb0719
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b4325aa6f379dc0b281d06cb593c28448698c71b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748043"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531333"
 ---
 # <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Uso de Visual Studio y Visual Studio Code para compilar dispositivos de IoT Plug and Play
 
 Azure IoT Tools par Visual Studio Code proporciona un entorno integrado para crear interfaces y modelos de funcionalidad del dispositivo (DCM), publicar en repositorios de modelos y generar código C de esqueleto para implementar la aplicación de dispositivo.
 
-Este artículo muestra cómo:
+En este artículo aprenderá a:
 
 - Generar código de dispositivo y el proyecto de aplicación.
 - Usar el código generado en el proyecto de dispositivo.
@@ -27,7 +27,7 @@ Este artículo muestra cómo:
 
 Para más información sobre cómo usar VS Code para desarrollar dispositivos IoT, vea [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Instale [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -150,13 +150,13 @@ Para compilar el código de dispositivo junto con el SDK de dispositivo para C 
 
 ### <a name="windows"></a>Windows
 
-Para compilar el código de dispositivo junto con el SDK de C del dispositivo en Windows usando CMake y los compiladores de Visual Studio C/C++ en la línea de comandos, vea el [inicio rápido de IoT Plug and Play](./quickstart-create-pnp-device.md). En los siguientes pasos se muestra cómo compilar el código de dispositivo junto con el Vcpkg del SDK de dispositivo para C como un proyecto de CMake en Visual Studio.
+Para compilar el código de dispositivo junto con el SDK de C del dispositivo en Windows usando CMake y los compiladores de Visual Studio C/C++ en la línea de comandos, vea el [inicio rápido de IoT Plug and Play](./quickstart-create-pnp-device-windows.md). En los siguientes pasos se muestra cómo compilar el código de dispositivo junto con el Vcpkg del SDK de dispositivo para C como un proyecto de CMake en Visual Studio.
 
-1. Siga los pasos descritos del [inicio rápido](https://docs.microsoft.com/azure/iot-pnp/quickstart-create-pnp-device#prepare-the-development-environment) para instalar el SDK de dispositivo IoT de Azure para C a través de Vcpkg.
+1. Siga los pasos descritos del [inicio rápido](https://docs.microsoft.com/azure/iot-pnp/quickstart-create-pnp-device-windows#prepare-the-development-environment) para instalar el SDK de dispositivo IoT de Azure para C a través de Vcpkg.
 
 1. Instale [Visual Studio 2019 (Community, Professional o Enterprise)](https://visualstudio.microsoft.com/downloads/), asegurándose de incluir el componente **Administrador de paquetes NuGet** y la carga de trabajo **Desarrollo para el escritorio con C++** .
 
-1. Abra Visual Studio, elija **Archivo > Abrir > CMake** para abrir `CMakeLists.txt` en la carpeta que contiene el código generado.
+1. Abra Visual Studio, elija **Archivo > Abrir > CMake...** para abrir el archivo `CMakeLists.txt` en la carpeta que contiene el código generado.
 
 1. En la barra de herramientas **General**, busque el menú desplegable **Configuraciones**. Seleccione **Administrar configuración** para agregar la configuración de CMake del proyecto.
 
@@ -241,7 +241,7 @@ En los siguientes pasos se muestra cómo compilar el código de dispositivo junt
 
 El generador de código puede volver a generar el código si actualiza los archivos de DCM y de interfaz. Suponiendo que ya ha generado el código de dispositivo a partir de un archivo de DCM, haga lo siguiente para volver a generarlo:
 
-1. Con la carpeta que contiene los archivos de DCM abierta, use **Ctrl+Mayús+P** para abrir la paleta de comandos, escriba **IoT Plug and Play** y seleccione **Generate Device Code Stub** (Generar código stub de dispositivo).
+1. Con la carpeta con los archivos de DCM abierta, use **Ctrl+Mayús+P** para abrir la paleta de comandos, escriba **, IoT Plug and Play** y seleccione **Generate Device Code Stub** (Generar código auxiliar de dispositivo).
 
 1. Elija el archivo de DCM que ha actualizado.
 

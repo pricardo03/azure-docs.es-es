@@ -1,5 +1,5 @@
 ---
-title: Uso de PowerShell con archivos y ACL en Azure Data Lake Storage Gen2 (versión preliminar)
+title: PowerShell de Azure Data Lake Storage Gen2 para archivos y ACL (versión preliminar)
 description: Use cmdlets de PowerShell para administrar directorios y listas de control de acceso (ACL) de archivos y directorios en cuentas de almacenamiento que tengan habilitado un espacio de nombres jerárquico (HNS).
 services: storage
 author: normesta
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: f2a2eaa3224fff117a30dfb742b4f8a35196dba4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: be5a1dce89219957f98c585d8e531c369e2f23c4
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973907"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690411"
 ---
-# <a name="use-powershell-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Uso de PowerShell con archivos y ACL en Azure Data Lake Storage Gen2 (versión preliminar)
+# <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Uso de PowerShell para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2 (versión preliminar)
 
 En este artículo se explica cómo usar PowerShell para crear y administrar directorios, archivos y permisos en cuentas de almacenamiento que tengan habilitado un espacio de nombres jerárquico (HNS). 
 
@@ -25,10 +25,10 @@ En este artículo se explica cómo usar PowerShell para crear y administrar dire
 
 [Asignación de Gen1 a Gen2](#gen1-gen2-map) | [Envíenos sus comentarios](https://github.com/Azure/azure-powershell/issues)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 > [!div class="checklist"]
-> * Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+> * Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 > * Una cuenta de almacenamiento que tenga habilitado el espacio de nombres jerárquico (HNS). Siga [estas](data-lake-storage-quickstart-create-account.md) instrucciones para crear uno.
 > * Debe tener instalada la versión de .NET Framework 4.7.2 o superior. Vea [Descargar .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 > * La versión de PowerShell `5.1` o posterior.
@@ -59,37 +59,36 @@ En este artículo se explica cómo usar PowerShell para crear y administrar dire
 
 ## <a name="connect-to-the-account"></a>Conexión con la cuenta
 
-1. Abra una ventana de comando de Windows PowerShell.
+Abra una ventana de comandos de Windows PowerShell y, a continuación, inicie sesión en su suscripción de Azure con el comando `Connect-AzAccount` y siga las instrucciones de la pantalla.
 
-2. Inicie sesión en la suscripción a Azure con el comando `Connect-AzAccount` y siga las instrucciones de la pantalla.
+```powershell
+Connect-AzAccount
+```
 
-   ```powershell
-   Connect-AzAccount
-   ```
+Si su identidad está asociada a más de una suscripción, establezca la suscripción activa en la suscripción de la cuenta de almacenamiento en la que quiere crear y administrar directorios. En este ejemplo, reemplace el valor de marcador de posición `<subscription-id>` por el identificador de la suscripción.
 
-3. Si su identidad está asociada a más de una suscripción, establezca la suscripción activa en la suscripción de la cuenta de almacenamiento en la que quiere crear y administrar directorios.
+```powershell
+Select-AzSubscription -SubscriptionId <subscription-id>
+```
 
-   ```powershell
-   Select-AzSubscription -SubscriptionId <subscription-id>
-   ```
+A continuación, elija cómo desea que sus comandos obtengan autorización para la cuenta de almacenamiento. 
 
-   Reemplace el valor de marcador de posición `<subscription-id>` por el identificador de la suscripción.
+### <a name="option-1-obtain-authorization-by-using-azure-active-directory-ad"></a>Opción 1: Obtención de autorización mediante Azure Active Directory (AD)
 
-4. Obtenga la cuenta de almacenamiento.
+Con este enfoque, el sistema garantiza que su cuenta de usuario tiene los permisos de ACL y las asignaciones de control de acceso basado en rol (RBAC). 
 
-   ```powershell
-   $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-   ```
+```powershell
+$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
+```
 
-   * Reemplace el marcador de posición `<resource-group-name>` por el nombre del grupo de recursos.
+### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>Opción 2: Obtención de autorización mediante la clave de cuenta de almacenamiento
 
-   * Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
+Con este enfoque, el sistema no comprueba los permisos ACL o de RBAC de un recurso.
 
-5. Obtenga el contexto de la cuenta de almacenamiento.
-
-   ```powershell
-   $ctx = $storageAccount.Context
-   ```
+```powershell
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+$ctx = $storageAccount.Context
+```
 
 ## <a name="create-a-file-system"></a>Creación de un sistema de archivos
 
@@ -102,7 +101,7 @@ $filesystemName = "my-file-system"
 New-AzDatalakeGen2FileSystem -Context $ctx -Name $filesystemName
 ```
 
-## <a name="create-a-directory"></a>Creación de directorios
+## <a name="create-a-directory"></a>Creación de un directorio
 
 Cree una referencia de directorio con el cmdlet `New-AzDataLakeGen2Item`. 
 
@@ -189,9 +188,7 @@ Get-AzDataLakeGen2ItemContent -Context $ctx -FileSystem $filesystemName -Path $f
 
 Muestre el contenido de un directorio con el cmdlet `Get-AzDataLakeGen2ChildItem`.
 
-En este ejemplo se muestra el contenido de un directorio denominado `my-directory`. 
-
-Para mostrar el contenido de un sistema de archivos, omita el parámetro `-Path` del comando.
+En este ejemplo se muestra el contenido de un directorio denominado `my-directory`.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -199,15 +196,21 @@ $dirname = "my-directory/"
 Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname
 ```
 
-En este ejemplo se muestra el contenido de un directorio denominado `my-directory` y se incluyen las ACL en la lista. También se usa el parámetro `-Recurse` para mostrar el contenido de todos los subdirectorios.
+En este ejemplo no se devuelven valores de las propiedades `ACL`, `Permissions`, `Group` y `Owner`. Para obtener esos valores, use el parámetro `-FetchPermission`. 
 
-Para mostrar el contenido de un sistema de archivos, omita el parámetro `-Path` del comando.
+En el siguiente ejemplo se muestra el contenido del mismo directorio, pero también usa el parámetro `-FetchPermission` para devolver valores de las propiedades `ACL`, `Permissions`, `Group` y `Owner`. 
 
 ```powershell
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
-Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -Recurse -FetchPermission
+$properties = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -Recurse -FetchPermission
+$properties.ACL
+$properties.Permissions
+$properties.Group
+$properties.Owner
 ```
+
+Para mostrar el contenido de un sistema de archivos, omita el parámetro `-Path` del comando.
 
 ## <a name="upload-a-file-to-a-directory"></a>Carga de un archivo en un directorio
 
@@ -339,19 +342,60 @@ En este ejemplo se concede a un usuario permisos de escritura y ejecución en un
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
 $Id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+# Get the directory ACL
 $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname).ACL
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $id -Permission "-wx" -InputObject $acl
-Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+
+# Create the new ACL object.
+[Collections.Generic.List[System.Object]]$aclnew =$acl
+
+# To avoid duplicate ACL, remove the ACL entries that will be added later.
+foreach ($a in $aclnew)
+{
+    if ($a.AccessControlType -eq "group" -and $a.DefaultScope -eq $true-and $a.EntityId -eq $id)
+    {
+        $aclnew.Remove($a);
+        break;
+    }
+}
+
+# Add ACL Entries
+$aclnew = New-AzDataLakeGen2ItemAclObject -AccessControlType group -EntityId $id -Permission "-wx" -DefaultScope -InputObject $aclnew
+
+# Update ACL on server
+Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew  
+
 ```
+
 En este ejemplo se concede a un usuario permisos de escritura y ejecución en un archivo.
 
 ```powershell
 $filesystemName = "my-file-system"
 $fileName = "my-directory/upload.txt"
 $Id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+# Get the file ACL
 $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName).ACL
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $id -Permission "-wx" -InputObject $acl
-Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName -Acl $acl
+
+# Create the new ACL object.
+[Collections.Generic.List[System.Object]]$aclnew =$acl
+
+# To avoid duplicate ACL, remove the ACL entries that will be added later.
+foreach ($a in $aclnew)
+{
+    if ($a.AccessControlType -eq "group" -and $a.DefaultScope -eq $true-and $a.EntityId -eq $id)
+    {
+        $aclnew.Remove($a);
+        break;
+    }
+}
+
+# Add ACL Entries
+$aclnew = New-AzDataLakeGen2ItemAclObject -AccessControlType group -EntityId $id -Permission "-wx" -DefaultScope -InputObject $aclnew
+
+# Update ACL on server
+Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName -Acl $aclnew 
+
 ```
 
 ### <a name="set-permissions-on-all-items-in-a-file-system"></a>Establecimiento de permisos en todos los elementos de un sistema de archivos

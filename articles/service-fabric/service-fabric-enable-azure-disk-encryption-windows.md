@@ -1,24 +1,14 @@
 ---
-title: Habilitación del cifrado de disco para clústeres con Windows de Azure Service Fabric | Microsoft Docs
+title: Habilitación del cifrado de discos para clústeres de Windows
 description: En este artículo se describe cómo habilitar el cifrado de disco para los nodos de un clúster de Azure Service Fabric mediante Azure Key Vault en Azure Resource Manager.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: navya
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/22/2019
-ms.author: atsenthi
-ms.openlocfilehash: 64abc48d57196fe20466032652c4b9bfb2e6c71f
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 24405c3c34bfd7b88932101c42a8d0fc96c90fa1
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599547"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614458"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Habilitación del cifrado de disco para nodos de clústeres de Azure Service Fabric en Windows 
 > [!div class="op_single_selector"]
@@ -37,11 +27,11 @@ En esta guía se tratan los temas siguientes:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 **Registro automático** 
 
-La versión preliminar del cifrado de disco de un conjunto de escalado de máquinas virtuales requiere el registro automático. Para ello, siga los pasos que se describen a continuación: 
+La versión preliminar del cifrado de disco de un conjunto de escalado de máquinas virtuales requiere el registro automático. Siga estos pasos: 
 
 1. En primer lugar, ejecute el siguiente comando:
     ```powershell
@@ -54,7 +44,7 @@ La versión preliminar del cifrado de disco de un conjunto de escalado de máqui
     ```
 **Azure Key Vault** 
 
-1. Cree un almacén de claves en la misma suscripción y región que el conjunto de escalado y seleccione la directiva de acceso **EnabledForDiskEncryption** en el almacén de claves mediante el cmdlet de PowerShell. También puede establecer la directiva usando la IU de Key Vault en Azure Portal con el siguiente comando:
+1. Cree un almacén de claves en la misma suscripción y región que el conjunto de escalado y seleccione la directiva de acceso **EnabledForDiskEncryption** en el almacén de claves mediante el cmdlet de PowerShell. También puede establecer la directiva usando la interfaz de usuario de Key Vault en Azure Portal con el siguiente comando:
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
     ```

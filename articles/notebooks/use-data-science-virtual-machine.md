@@ -1,17 +1,17 @@
 ---
 title: Uso de Data Science Virtual Machines de Azure
-description: Conéctese con una instancia de Data Science Virtual Machine (DSVM) de Azure para ampliar la eficacia de proceso disponible en Azure Notebooks.
+description: Aprenda cómo conectarse con una instancia de Azure Data Science Virtual Machine (DSVM) para ampliar la potencia de proceso disponible en la versión preliminar de Azure Notebooks.
 author: getroyer
 manager: andneil
 ms.author: getroyer
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 0559442cb3f6c3937e6930082940e9354c43bc30
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7a47be46818c633c016c791d0c52eb9393029973
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277397"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647001"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Uso de Data Science Virtual Machines de Azure
 
@@ -19,6 +19,8 @@ De forma predeterminada, los proyectos se ejecutan en el nivel **Free Compute** 
 
 > [!Note]
 > Azure Notebooks solo se admite en las instancias de DSVM creadas con la imagen de Ubuntu en Linux. Notebooks no se admite en las imágenes de Windows 2012, Windows 2016 o CentOS Linux.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="create-a-dsvm-instance"></a>Creación de una instancia de DSVM
 
@@ -56,7 +58,7 @@ Cuando un proyecto se ejecuta en una máquina virtual, los archivos se montan en
 
 Si varios usuarios comparten un DSVM, puede evitar que se bloqueen entre sí si crea y usa un usuario de DSVM para cada usuario del cuaderno:
 
-1. En [Azure Portal](https://portal.azure.com), navegue a la máquina virtual.
+1. En [Azure Portal](https://portal.azure.com), vaya a su máquina virtual.
 1. En **Soporte técnico y solución de problemas** en el margen izquierdo, seleccione **Restablecer contraseña**.
 1. Escriba un nombre de usuario y contraseña y seleccione **Actualizar**. (Los nombres de usuario existentes no resultan afectados).
 1. Repita el paso anterior para todos los usuarios adicionales.

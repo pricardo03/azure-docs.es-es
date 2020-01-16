@@ -2,18 +2,18 @@
 title: Rendimiento de Phoenix en Azure HDInsight
 description: Procedimientos recomendados para optimizar el rendimiento de Apache Phoenix para clústeres de Azure HDInsight
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: ashishth
-ms.openlocfilehash: b2a40802070510939332c3f5e876293445cf2df1
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.custom: hdinsightactive
+ms.date: 12/27/2019
+ms.openlocfilehash: 7f8f20be81e815414c283f7ec48aa6503e3b60ed
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810431"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552651"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Procedimientos recomendados para mejorar el rendimiento de Apache Phoenix
 
@@ -27,7 +27,7 @@ El diseño de esquemas de una tabla Phoenix incluye el diseño de la clave princ
 
 ### <a name="primary-key-design"></a>Diseño de la clave principal
 
-La clave principal que se define en una tabla en Phoenix determina cómo se almacenan los datos dentro de la clave de fila de la tabla HBase subyacente. En HBase, la única manera de acceder a una fila determinada es con la clave de fila. Además, los datos almacenados en una tabla HBase se ordenan según la clave de fila. Phoenix compila el valor de clave de fila al concatenar los valores de cada una de las columnas de la fila, en el orden en que están definidos en la clave principal.
+La clave principal que se define en una tabla en Phoenix determina cómo se almacenan los datos dentro de la clave de fila de la tabla HBase subyacente. En HBase, la única manera de acceder a una fila determinada es con la clave de fila. Además, los datos almacenados en una tabla HBase se ordenan según la clave de fila. Phoenix construye el valor de clave de fila al concatenar los valores de cada una de las columnas de la fila, en el orden en que están definidos en la clave principal.
 
 Por ejemplo, una tabla para los contactos tiene el nombre, el apellido, el número de teléfono y la dirección, todo en la misma familia de columnas. Puede definir una clave principal en función de un número de secuencia creciente:
 
@@ -52,13 +52,13 @@ Con esta clave principal nueva, las claves de fila que Phoenix genera serían:
 
 En la primera fila, los datos de la clave de fila se representan de la siguiente manera:
 
-|clave de fila|       key|   value| 
+|clave de fila|       key|   value|
 |------|--------------------|---|
 |  Dole-John-111|address |1111 San Gabriel Dr.|  
 |  Dole-John-111|phone |1-425-000-0002|  
 |  Dole-John-111|firstName |John|  
 |  Dole-John-111|lastName |Dole|  
-|  Dole-John-111|socialSecurityNum |111| 
+|  Dole-John-111|socialSecurityNum |111|
 
 Esta clave de fila ahora almacena una copia duplicada de los datos. Tenga en cuenta el tamaño y el número de las columnas que incluye en la clave principal, porque este valor se incluye con cada celda en la tabla HBase subyacente.
 
@@ -72,7 +72,7 @@ Además, si se tiende a acceder a ciertas columnas en conjunto, colóquelas en l
 
 ### <a name="column-design"></a>Diseño de columnas
 
-* Mantenga las columnas VARCHAR bajo 1 MB debido a los costos de E/S de las columnas de gran tamaño. Cuando se procesan las consultas, HBase materializa en su totalidad las celdas antes de enviarlas al cliente y el cliente las recibe completas antes de entregarlas al código de la aplicación.
+* Mantenga las columnas VARCHAR aproximadamente por debajo de 1 MB por los costos de E/S de las columnas de gran tamaño. Cuando se procesan las consultas, HBase materializa en su totalidad las celdas antes de enviarlas al cliente y el cliente las recibe completas antes de entregarlas al código de la aplicación.
 * Almacene los valores de columna con un formato compacto como protobuf, Avro, msgpack o BSON. No se recomienda usar JSON, porque es más grande.
 * Considere la posibilidad de comprimir los datos antes del almacenamiento para reducir la latencia y los costos de E/S.
 
@@ -153,7 +153,7 @@ En [SQLLine](http://sqlline.sourceforge.net/), use EXPLAIN seguido de la consult
 
 Como ejemplo, supongamos que tiene una tabla denominada FLIGHTS que almacena información sobre los retrasos de los vuelos.
 
-Para seleccionar todos los vuelos con un valor airlineid de `19805`, donde airlineid es un campo que no se encuentra en la clave principal ni en ningún índice:
+Para seleccionar todos los vuelos con un valor de airlineid de `19805`, donde airlineid es un campo que no se encuentra en la clave principal ni en ningún índice:
 
     select * from "FLIGHTS" where airlineid = '19805';
 
@@ -208,7 +208,7 @@ Las instrucciones siguientes describen algunos patrones comunes.
 
 ### <a name="read-heavy-workloads"></a>Cargas de trabajo con mucha actividad de lectura
 
-En casos de uso con mucha actividad de lectura, asegúrese de usar los índices. Además, para ahorrar la sobrecarga en el tiempo de lectura, considere la posibilidad de crear índices cubiertos.
+En casos de uso con mucha actividad de lectura, asegúrese de usar índices. Además, para ahorrar la sobrecarga en el tiempo de lectura, considere la posibilidad de crear índices cubiertos.
 
 ### <a name="write-heavy-workloads"></a>Cargas de trabajo con mucha actividad de escritura
 
@@ -216,7 +216,7 @@ En el caso de las cargas de trabajo con mucha actividad de escritura en las que 
 
 ### <a name="bulk-deletes"></a>Eliminaciones masivas
 
-Cuando elimine un conjunto de datos de gran tamaño, active autoCommit antes de emitir la consulta DELETE. De este modo, el cliente no necesita recordar las claves de fila de todas las filas eliminadas. AutoCommit evita que el cliente almacene en búfer las filas afectadas por la consulta DELETE, de manera que Phoenix puede eliminarlas directamente en los servidores de región sin el gasto que implica devolverlas al cliente.
+Cuando elimine un conjunto de datos de gran tamaño, active autoCommit antes de emitir la consulta DELETE; de este modo, el cliente no necesita recordar las claves de fila de todas las filas eliminadas. AutoCommit evita que el cliente almacene en búfer las filas afectadas por la consulta DELETE, de manera que Phoenix puede eliminarlas directamente en los servidores de región sin el gasto que implica devolverlas al cliente.
 
 ### <a name="immutable-and-append-only"></a>Inalterable y de solo anexar
 

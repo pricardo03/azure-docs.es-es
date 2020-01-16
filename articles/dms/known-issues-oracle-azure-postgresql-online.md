@@ -1,6 +1,7 @@
 ---
-title: 'Artículo sobre problemas conocidos y limitaciones de migración con las migraciones en línea de Oracle a Azure Database for PostgreSQL: servidor único | Microsoft Docs'
-description: Información acerca de problemas conocidos y limitaciones de migración con las migraciones en línea de Oracle a Azure Database for PostgreSQL.
+title: 'Problemas conocidos: Migración de Oracle a Azure Database for PostgreSQL'
+titleSuffix: Azure Database Migration Service
+description: Obtenga información sobre problemas conocidos y limitaciones de migración con las migraciones en línea de Oracle a un servidor único de Azure Database for PostgreSQL con Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: ecd2750926fd04c84d2d6b48f5fde06363dd15df
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0a1f46698ddb966c315d08a794dd710a74295f97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606751"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437812"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea de Oracle a Azure DB for PostgreSQL: servidor único
 
@@ -61,7 +62,7 @@ Además, las columnas BLOB/CLOB vacías se asignan a NULL en el destino.
 - Solo en Oracle 12, no se admiten cambios en las columnas LOB (migradas).
 - No se admiten las actualizaciones en las columnas XMLTYPE ni LOB (migradas).
 
-## <a name="known-issues-and-limitations"></a>Problemas conocidos y limitaciones
+## <a name="known-issues-and-limitations"></a>Limitaciones y problemas conocidos
 
 - Los clientes deben usar SYSDBA para conectarse a Oracle.
 - Los cambios de datos resultantes de las operaciones de partición y subpartición (ADD, DROP, EXCHANGE y TRUNCATE) no se migran y pueden producir los siguientes errores:

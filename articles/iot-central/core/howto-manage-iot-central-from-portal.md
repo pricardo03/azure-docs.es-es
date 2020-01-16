@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: c86df7c50e59309f921c60738870407e74a23219
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 60c1109d0f540c8301cc536c2079537dca5115f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555214"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435025"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Administración de IoT Central desde Azure Portal
 
@@ -41,7 +41,7 @@ Ahora, seleccione **Crear**.
 
 Rellene todos los campos en el formulario. Este formulario es similar al que se debe rellenar para crear aplicaciones en el sitio web del [administrador de aplicaciones de Azure IoT Central](https://aka.ms/iotcentral). Para más información, consulte la guía de inicio rápido para [Crear una aplicación de IoT Central](quick-deploy-iot-central.md).
 
-Para crear la aplicación de IoT Central con las características disponibles con carácter general, seleccione **Contoso de ejemplo**, **Aplicación personalizada** y **Kits de desarrollo de ejemplo** como plantillas de aplicación; todas las demás plantillas de aplicación usan las características de la versión preliminar pública.
+Para crear la aplicación de IoT Central con las características disponibles con carácter general, seleccione **Aplicación heredada** como plantilla de aplicación; todas las demás plantillas de aplicación usan las características en versión preliminar pública.
 
 ![Creación de formularios de IoT Central](media/howto-manage-iot-central-from-portal/image6a.png)
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 01/03/2020
 ms.author: b-juche
-ms.openlocfilehash: 5e69df816e67ddc346ac8452c9bdc8bbd68fa426
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 630535103656e13ca43d958ef2a4124a4ea940ac
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546952"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658294"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Preguntas más frecuentes acerca de Azure NetApp Files
 
@@ -131,7 +131,7 @@ Sí, tiene que crear una conexión de Active Directory antes de implementar un v
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>¿Cuántas conexiones de Active Directory se admiten?
 
-Azure NetApp Files admite actualmente una conexión de Active Directory por suscripción. Además, la conexión de Active Directory es específica para una sola cuenta de NetApp; no se puede compartir entre varias cuentas. 
+Actualmente, Azure NetApp Files admite solo una conexión de Active Directory por cuenta de NetApp, por suscripción y en cada región; la conexión no se comparte entre las cuentas de NetApp.
 
 ### <a name="does-azure-netapp-files-support-azure-active-directory"></a>¿ Azure NetApp Files admite Azure Active Directory? 
 

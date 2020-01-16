@@ -2,24 +2,24 @@
 title: Solución de problemas en la copia de seguridad del estado del sistema
 description: En este artículo, aprenderá a solucionar problemas relacionados con la copia de seguridad del estado del sistema para servidores Windows locales.
 ms.reviewer: srinathv
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 116f8f40193ea276c6150452b0aa6f2d2ce5bc6c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: fde5fd9f2464c2aff9a7a34ffa440ab9a6a1ca51
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172620"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665037"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solución de problemas en la copia de seguridad del estado del sistema
 
-En este artículo se describen soluciones para problemas que puede encontrar al usar Copia de seguridad de estado del sistema.
+En este artículo se describen soluciones para problemas que puede encontrar al usar Copia de seguridad del estado del sistema.
 
 ## <a name="basic-troubleshooting"></a>Pasos básicos para solucionar problemas
 
 Antes de empezar a solucionar problemas de copia de seguridad del estado del sistema, se recomienda realizar la validación siguiente:
 
-- [Asegúrese de que el agente de Microsoft Azure Recovery Services (MARS) esté actualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [Asegúrese de que el agente de Microsoft Azure Recovery Services (MARS) esté actualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409).
 - [Asegúrese de que haya conectividad de red entre el agente de MARS y Azure](https://aka.ms/AB-A4dp50)
 - Asegúrese de que se ejecuta Microsoft Azure Recovery Services (en la consola del servicio). Si es necesario, reinicie y vuelva a intentar la operación.
 - [Asegúrese de que haya disponible entre un 5 % y un 10 % en la ubicación de la carpeta temporal](https://aka.ms/AB-AA4dwtt)
@@ -32,15 +32,15 @@ Antes de empezar a solucionar problemas de copia de seguridad del estado del sis
 - Si está intentando **volver a registrar el servidor** en un almacén: <br>
   - Asegúrese de que el agente no está instalado en el servidor y de que se ha eliminado del portal. <br>
   - Utilice la misma frase de contraseña que se usó inicialmente para registrar el servidor. <br>
-- En caso de una copia de seguridad sin conexión, asegúrese de que Azure PowerShell versión 3.7.0 esté instalado en el equipo de origen y de copia antes de comenzar la operación de copia de seguridad sin conexión.
+- Si es una copia de seguridad sin conexión, asegúrese de que la versión 3.7.0 de Azure PowerShell esté instalada en el equipo de origen y de copia antes de comenzar la operación de copia de seguridad sin conexión.
 - [Consideración cuando el agente de copia de seguridad se ejecuta en una máquina virtual de Azure](https://aka.ms/AB-AA4dwtr)
 
 ### <a name="limitation"></a>Limitación
 
 - Microsoft no recomienda la recuperación en un hardware diferente mediante la recuperación de estado del sistema.
-- La copia de seguridad del estado del sistema actualmente admite servidores Windows "locales", funcionalidad que no está disponible para máquinas virtuales de Azure.
+- La copia de seguridad del estado del sistema admite actualmente servidores de Windows "locales". Esta funcionalidad no está disponible para las máquinas virtuales de Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de solucionar problemas de copia de seguridad del estado del sistema con Azure Backup, realice la comprobación de los requisitos previos siguientes.  
 
@@ -68,7 +68,7 @@ Para instalar Copias de seguridad de Windows Server mediante Administrador del 
 
 1. En **Administrador del servidor**, haga clic en **Agregar roles y características**. Aparecerá el **Asistente para agregar roles y características**.
 
-    ![panel](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
+    ![Panel](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
 2. Seleccione **Tipo de instalación** y haga clic en **Siguiente**.
 
@@ -82,11 +82,11 @@ Para instalar Copias de seguridad de Windows Server mediante Administrador del 
 5. En la pestaña **Confirmación**, haga clic en **Instalar** para iniciar el proceso de instalación.
 6. En la pestaña **Resultados** se mostrará la característica Copias de seguridad de Windows Server instalada correctamente en el servidor de Windows.
 
-    ![result](./media/backup-azure-system-state-troubleshoot/results.jpg)
+    ![resultado](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 ### <a name="system-volume-information-permission"></a>Permiso Información de volumen del sistema
 
-Asegúrese de que el sistema local tiene control total sobre la carpeta **Información de volumen del sistema** ubicada en el volumen donde está instalado Windows. Normalmente es **C:\Información de volumen del sistema**. Se puede producir un error en Copias de seguridad de Windows Server si los permisos anteriores no están establecidos correctamente
+Asegúrese de que el sistema local tiene control total sobre la carpeta **Información del volumen de sistema** ubicada en el volumen donde está instalado Windows. Normalmente es **C:\Información de volumen del sistema**. Se puede producir un error en Copias de seguridad de Windows Server si los permisos anteriores no están establecidos correctamente
 
 ### <a name="dependent-services"></a>Servicios dependientes
 
@@ -111,7 +111,7 @@ Para validar el estado de Copias de seguridad de Windows Server, siga estos paso
     > [!WARNING]
     > Get-WBJob: El término "Get-WBJob" no se reconoce como nombre de un cmdlet, una función, un archivo de script o un programa ejecutable. Compruebe si escribió correctamente el nombre o, si incluyó una ruta de acceso, compruebe que dicha ruta es correcta e inténtelo de nuevo.
 
-    - Si se produce este error, vuelva a instalar la característica Copias de seguridad de Windows Server en el equipo del servidor como se ha mencionado en los requisitos previos del paso 1.
+    - Si se produce este error, vuelva a instalar la característica Copias de seguridad de Windows Server en la máquina del servidor como se ha mencionado en los requisitos previos del paso 1.
 
   - Asegúrese de que la copia de seguridad de WSB funciona correctamente, mediante la ejecución del comando siguiente desde el símbolo del sistema con privilegios elevados:
 
@@ -129,19 +129,19 @@ Si se produce un error en el trabajo, indica un problema de WSB, lo que daría l
 
 ### <a name="vss-writer-timeout-error"></a>Error de tiempo de expiración de VSS Writer
 
-| Síntoma | Causa | Resolución
+| Síntoma | Causa | Solución
 | -- | -- | --
-| - Se produce un error en el agente de MARS con el mensaje de error: "No se pudo realizar el trabajo de WSB porque se produjeron errores de VSS. Compruebe los registros de eventos de VSS para resolver estos errores"<br/><br/> - El registro de errores siguiente está presente en los registros de eventos de aplicación de VSS: "Un VSS Writer rechazó un evento con el error 0x800423f2, se agotó el tiempo de espera del escritor entre los eventos Freeze y Thaw".| VSS Writer no se puede completar a tiempo debido a la falta de recursos de CPU y memoria en el equipo <br/><br/> Otro software de copia de seguridad ya usa VSS Writer, y como resultado no se pudo completar la operación de instantánea para esta copia de seguridad | Espere a que se libere la CPU o la memoria en el sistema, o bien anule los procesos que consuman demasiada memoria y CPU, y vuelva a intentarlo <br/><br/>  Espere a que se complete la copia de seguridad en curso e intente la operación en un momento posterior, cuando no se ejecuten copias de seguridad en el equipo
+| - Se produce un error en el agente de MARS con el mensaje de error: "No se pudo realizar el trabajo de WSB porque se produjeron errores de VSS. Compruebe los registros de eventos de VSS para resolver estos errores"<br/><br/> - El registro de errores siguiente está presente en los registros de eventos de aplicación de VSS: "Un VSS Writer rechazó un evento con el error 0x800423f2, se agotó el tiempo de espera del escritor entre los eventos Freeze y Thaw".| VSS Writer no se puede completar a tiempo debido a la falta de recursos de CPU y memoria en el equipo <br/><br/> Otro software de copia de seguridad ya usa VSS Writer, y como resultado no se pudo completar la operación de instantánea para esta copia de seguridad | Espere a que se libere la CPU o la memoria en el sistema, o bien, anule los procesos que consuman demasiada memoria y CPU, y vuelva a intentarlo. <br/><br/>  Espere a que se complete la copia de seguridad en curso e intente la operación en un momento posterior, cuando no se estén ejecutando copias de seguridad en la máquina.
 
 ### <a name="insufficient-disk-space-to-grow-shadow-copies"></a>Espacio en disco insuficiente para crear instantáneas
 
-| Síntoma | Resolución
+| Síntoma | Solución
 | -- | --
 | - Se produce un error en el agente de MARS con el mensaje de error: Error al realizar la copia de seguridad debido a que el volumen de instantáneas no pudo crecer por la falta de espacio en disco en los volúmenes que contienen los archivos del sistema <br/><br/> - El registro de advertencia o error siguiente aparece en los registros de eventos del sistema de volsnap: "No hay espacio en disco suficiente en el volumen C: para aumentar el almacenamiento de instantáneas para las instantáneas de C: debido a este error, todas las instantáneas del volumen C: corren el riesgo de ser eliminadas" | - Libere espacio en el volumen resaltado en el registro de eventos con el fin de que haya suficiente espacio para que las instantáneas crezcan mientras la copia de seguridad está en curso <br/><br/> - Al configurar el espacio de instantáneas se puede restringir la cantidad de espacio que se usa para las instantáneas. Para más información, consulte este [artículo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax).
 
 ### <a name="efi-partition-locked"></a>Partición EFI bloqueada
 
-| Síntoma | Resolución
+| Síntoma | Solución
 | -- | --
 | Se produce un error en el agente de MARS con el mensaje de error: "Error de copia de seguridad del estado del sistema porque la partición de sistema EFI está bloqueada. Esto se puede deber al acceso a la partición del sistema por parte de software de seguridad o copia de seguridad de terceros" | - Si el problema se debe a software de seguridad de terceros, tendrá que ponerse en contacto con el proveedor de antivirus para que permita el agente de MARS <br/><br/> - Si se está ejecutando un software de copia de seguridad de terceros, espere que termine y vuelva a intentar la copia de seguridad
 

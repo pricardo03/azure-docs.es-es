@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: d5d621ec9eccca56c4e4e9075b6e9cca75c05c98
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/17/2019
+ms.openlocfilehash: 690a9751111ca4c86ebb34825f2845ea59d6f186
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818577"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462497"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Límites de servicio en Azure Cognitive Search
 
-Los límites máximos sobre el almacenamiento, las cargas de trabajo, las cantidades de índices, los documentos y otros objetos dependen de si se [aprovisiona Azure Cognitive Search](search-create-service-portal.md) conforme a un plan de tarifa **Gratis**, **Básico**, **Estándar** u **Optimizado para almacenamiento**.
+Los límites máximos sobre el almacenamiento, las cargas de trabajo, las cantidades de índices y otros objetos dependen de si se [aprovisiona Azure Cognitive Search](search-create-service-portal.md) conforme a un plan de tarifa **Gratis**, **Básico**, **Estándar** u **Optimizado para almacenamiento**.
 
 + **Gratis** es un servicio multiinquilino compartido incluido en su suscripción de Azure. Las solicitudes de indexación y consulta se ejecutan en las réplicas y las particiones que usan otros inquilinos.
 
@@ -65,13 +65,12 @@ Los límites máximos sobre el almacenamiento, las cargas de trabajo, las cantid
 
 ## <a name="document-limits"></a>Límites de documento 
 
-A partir de octubre de 2018, ya no existen límites de documentos<sup>1</sup> para ningún nuevo servicio creado en ningún nivel facturable (Básico, S1, S2, S3, S3 HD) en ninguna región. Aunque la mayoría de las regiones han tenido un número ilimitado de documentos desde noviembre o diciembre de 2017, hubo cinco regiones que continuaron imponiendo límites a los documentos. Dependiendo de cuándo y dónde haya creado un servicio de búsqueda, es posible que esté ejecutando un servicio que todavía esté sujeto a límites de documentos.
+A partir de octubre de 2018, ya no existen límites de documentos para ningún nuevo servicio creado en ningún nivel facturable (Básico, S1, S2, S3, S3 HD) en ninguna región. Aunque la mayoría de las regiones han tenido un número ilimitado de documentos desde noviembre o diciembre de 2017, hubo algunas regiones que continuaron imponiendo límites a los documentos después de esa fecha. Dependiendo de cuándo y dónde haya creado un servicio de búsqueda, es posible que esté ejecutando un servicio que todavía esté sujeto a límites de documentos.
 
-Para determinar si su servicio tiene límites de documentos, compruebe el icono de uso de la página de información general de su servicio. Los recuentos de documentos son ilimitados o están sujetos a un límite basado en el nivel.
+Para determinar si su servicio tiene límites de documento, use la [API de REST de estadísticas del servicio GET](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Los límites de documento se reflejan en la respuesta, con `null` indicando que no hay límites.
 
-  ![Icono de Uso](media/search-limits-quotas-capacity/portal-usage-tile.png)
-
-<sup>1</sup> Aunque no hay ningún límite de documentos específico de SKU, cada índice sigue sujeto a un límite máximo de seguridad para garantizar la estabilidad del servicio. Este límite proviene de Lucene. Cada documento de Azure Cognitive Search se indexa internamente como uno o más documentos de Lucene. El número de documentos de Lucene por documento de búsqueda depende del número total de elementos en campos de colección complejos. Cada elemento se indexa como un documento Lucene independiente. Por ejemplo, un documento con tres elementos en un campo de colección complejo se indexará como cuatro documentos Lucene: uno para el documento en sí y tres para los elementos. El número máximo de documentos Lucene es aproximadamente 25 mil millones por índice.
+> [!NOTE]
+> Aunque no hay ningún límite de documentos específico de SKU, cada índice sigue sujeto a un límite máximo de seguridad para garantizar la estabilidad del servicio. Este límite proviene de Lucene. Cada documento de Azure Cognitive Search se indexa internamente como uno o más documentos de Lucene. El número de documentos de Lucene por documento de búsqueda depende del número total de elementos en campos de colección complejos. Cada elemento se indexa como un documento Lucene independiente. Por ejemplo, un documento con tres elementos en un campo de colección complejo se indexará como cuatro documentos Lucene: uno para el documento en sí y tres para los elementos. El número máximo de documentos Lucene es aproximadamente 25 mil millones por índice.
 
 ### <a name="regions-previously-having-document-limits"></a>Regiones que anteriormente tenían límites de documentos
 
@@ -131,7 +130,7 @@ Los tiempos de ejecución máximos existen para proporcionar equilibrio y estabi
 <sup>5</sup> Las cargas de trabajo de búsqueda cognitiva y análisis de imágenes en la indexación de blobs de Azure tienen tiempos de ejecución más cortos que la indexación de texto normal. El análisis de imágenes y el procesamiento de lenguaje natural consumen muchos recursos informáticos y una cantidad desproporcionada de la potencia de procesamiento disponible. Se ha reducido el tiempo de ejecución para que otros trabajos de la cola tengan la oportunidad de ejecutarse.  
 
 > [!NOTE]
-> Como se indica en el apartado [Límites de índice](#index-limits), los indexadores también aplicarán el límite superior de 3000 elementos en todas las colecciones complejas por documento a partir de la versión de la API de disponibilidad general más reciente que admita tipos complejos (`2019-05-06`) en adelante, lo que significa que si ha creado un indexador con una versión anterior de la API, no estará sujeto a ese límite. Para conservar la máxima compatibilidad, los indexadores que se crearon con una versión anterior de la API y, después, se actualizaron con una versión de la API `2019-05-06`, o posterior, seguirán estando **excluidos** de los límites. Los clientes deben ser conscientes del impacto negativo de tener grandes colecciones complejas (como se ha indicado anteriormente) y recomendamos encarecidamente que se creen todos los indexadores con la versión de la API de disponibilidad general más reciente.
+> Como se indica en el apartado [Límites de índice](#index-limits), los indexadores también aplicarán el límite superior de 3000 elementos en todas las colecciones complejas por documento a partir de la versión de la API de disponibilidad general más reciente que admita tipos complejos (`2019-05-06`) en adelante, lo que significa que si ha creado un indexador con una versión anterior de la API, no estará sujeto a ese límite. Para conservar la máxima compatibilidad, los indexadores que se crearon con una versión anterior de la API y, después, se actualizaron con una versión de la API `2019-05-06`, o posterior, seguirá estando **excluido** de los límites. Los clientes deben ser conscientes del impacto negativo de tener colecciones muy complejas (como se ha indicado anteriormente) y recomendamos encarecidamente que se creen todos los indexadores con la versión de la API de disponibilidad general más reciente.
 
 ## <a name="synonym-limits"></a>Límites de sinónimos
 

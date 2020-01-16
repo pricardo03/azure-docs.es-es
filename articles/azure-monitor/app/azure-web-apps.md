@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/04/2019
-ms.openlocfilehash: 86a94cfdbd2c1755907bc13aa698fba92f5ce649
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.date: 12/11/2019
+ms.openlocfilehash: 62a66f180fd6e89329fe17a96115ecc4ca914107
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850081"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407233"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
@@ -77,9 +77,9 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
 
 # <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
 
-Se admiten las siguientes versiones de .NET Core: ASP.NET Core 2.0, ASP.NET Core 2.1 y ASP.NET Core 2.2.
+Se admiten las siguientes versiones de .NET Core: ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0
 
-Actualmente, la orientación del marco de trabajo completo de .NET Core, la implementación independiente y ASP.NET Core 3.0 **no se admiten** con la supervisión basada en agentes o extensiones. (La [instrumentación manual](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) a través de código funcionará en todos los escenarios anteriores).
+Actualmente, la orientación del marco de trabajo completo de .NET Core, la implementación independiente y las aplicaciones basadas en Linux **no se admiten** con la supervisión basada en agentes o extensiones. (La [instrumentación manual](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) a través de código funcionará en todos los escenarios anteriores).
 
 1. **Seleccione Application Insights** en el panel de control de Azure para el servicio de aplicaciones.
 
@@ -92,7 +92,7 @@ Actualmente, la orientación del marco de trabajo completo de .NET Core, la impl
 
      ![Instrumentación de la aplicación web](./media/azure-web-apps/create-resource-01.png)
 
-2. Después de especificar qué recurso se debe usar, puede elegir cómo quiere que Application Insights recopile los datos de cada plataforma para la aplicación. .NET Core ofrece la **recopilación recomendada** o **deshabilitada** para .NET Core 2.0, 2.1 y 2.2.
+2. Después de especificar qué recurso se debe usar, puede elegir cómo quiere que Application Insights recopile los datos de cada plataforma para la aplicación. .NET Core ofrece **recopilación recomendada** o **deshabilitada** para .NET Core 2.0, 2.1, 2.2 y 3.0.
 
     ![Opciones de elección para cada plataforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -168,7 +168,7 @@ Con el fin de habilitar la recopilación de datos de telemetría con Application
 
 ### <a name="application-settings-definitions"></a>Definiciones de los valores de configuración de la aplicación
 
-|Nombre del valor de configuración de la aplicación |  Definición | Valor |
+|Nombre del valor de configuración de la aplicación |  Definición | Value |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Extensión principal; controla la supervisión en el entorno en tiempo de ejecución. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  Solo en el modo predeterminado; se habilitan las características esenciales para garantizar un rendimiento óptimo. | `default` o `recommended`. |
@@ -349,7 +349,7 @@ A partir de la versión 2.8.9 se usa la extensión de sitio preinstalada. Si tie
 
 Si se realiza la actualización desde una versión anterior a la 2.5.1, compruebe que los archivos DLL de ApplicationInsigths se quitan de la carpeta de la ubicación de la aplicación. [Vea los pasos para la solución de problemas](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 A continuación, se muestra nuestra guía paso a paso de solución de problemas para la supervisión basada en extensiones o agentes para aplicaciones basadas en .NET y .NET Core que se ejecutan en Azure App Services.
 
@@ -377,7 +377,7 @@ A continuación, se muestra nuestra guía paso a paso de solución de problemas 
 
 La tabla siguiente proporciona una explicación más detallada de lo que significan estos valores, sus causas subyacente y las correcciones recomendadas:
 
-|Valor del problema|Explicación|Solución
+|Valor del problema|Explicación|Fix
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Este valor indica que la extensión ha detectado que algún aspecto del SDK ya está presente en la aplicación y se interrumpirá. Puede deberse a una referencia a `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation` o `Microsoft.ApplicationInsights`.  | Quite las referencias. Algunas de estas referencias se agregan de manera predeterminada en determinadas plantillas de Visual Studio y las versiones anteriores de Visual Studio pueden agregar referencias a `Microsoft.ApplicationInsights`.
 |`AppAlreadyInstrumented:true` | Si la aplicación tiene como destino .NET Core 2.1 o 2.2 y hace referencia al metapaquete [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All), se incorporará a Application Insights y la extensión se interrumpirá. | Se [recomienda](https://github.com/aspnet/Announcements/issues/287) que los clientes con .NET Core 2.1 o 2.2 usen el metapaquete Microsoft.AspNetCore.App en su lugar.|
@@ -400,7 +400,7 @@ Para obtener la información más reciente sobre la extensión o el agente de Ap
 ## <a name="next-steps"></a>Pasos siguientes
 * [Ejecute el generador de perfiles en la aplicación activa](../app/profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample): supervisar Azure Functions con Application Insights
-* [Diagnósticos de Microsoft Azure](../platform/diagnostics-extension-to-application-insights.md) para enviar este tipo de información a Application Insights.
+* [Microsoft Azure Diagnostics](../platform/diagnostics-extension-to-application-insights.md) para enviar este tipo de información a Application Insights.
 * [Supervise las métricas del estado del servicio](../platform/data-platform.md) para asegurarse de que el servicio está disponible y responde adecuadamente.
 * [Reciba notificaciones de alerta](../platform/alerts-overview.md) cada vez que se produzcan eventos de operaciones o las métricas traspasen un umbral.
 * Use [aplicaciones y páginas web de Application Insights para JavaScript](javascript.md) para obtener la telemetría del cliente de los exploradores que visitan una página web.

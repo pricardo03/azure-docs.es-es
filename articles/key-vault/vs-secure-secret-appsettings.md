@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: cawa
-ms.openlocfilehash: d5662fa3cae8ba0cec0fd76965597ccac7c83889
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 2b4893ab804d7e3394320284399626437e5e78dc
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639477"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645131"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Guardar de forma segura la configuración del secreto de la aplicación para una aplicación web
 
@@ -42,6 +42,7 @@ Si está desarrollando un proyecto y tiene que compartir código fuente de forma
     ![Crear una instancia de Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
 2. Concédase a usted mismo y a los miembros del equipo acceso a Key Vault. Si tiene un equipo grande, puede crear un [grupo de Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) y agregar acceso a ese grupo de seguridad para Key Vault. En la lista desplegable *Permisos de secretos*, marque *Get* (Obtener) y *List* (Lista) en *Secret Management Operations* (Operaciones de administración de secretos).
+Si ya tiene creada su aplicación web, conceda a esta acceso a Key Vault para que pueda obtener acceso al almacén de claves sin almacenar la configuración del secreto en la configuración de aplicaciones o archivos. Busque su aplicación web por su nombre y agréguela de la misma forma que concede acceso a los usuarios.
 
     ![Agregar directiva de acceso de Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
@@ -49,10 +50,10 @@ Si está desarrollando un proyecto y tiene que compartir código fuente de forma
 
     ![Agregar secreto de Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
-    > [!NOTE] 
+    > [!NOTE]
     > Antes de Visual Studio 2017 V15.6, se solía recomendar instalar la extensión de autenticación de servicios de Azure para Visual Studio, aunque ya está en desuso porque la funcionalidad se ha integrado en Visual Studio. Por lo tanto, si tiene una versión anterior de Visual Studio 2017, se recomienda actualizar al menos a VS 2017 15.6 o posterior para poder usar esta funcionalidad de forma nativa y acceder a Key Vault desde la propia identidad de inicio de sesión de Visual Studio.
     >
- 
+
 4. Agregue los siguientes paquetes de NuGet al proyecto:
 
     ```

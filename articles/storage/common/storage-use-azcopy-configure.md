@@ -8,16 +8,16 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: c16fea8f710751a051995ecece8a3d0ce8f933c7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6a1dcd2d8734d7701dab6d913beb8af0ad4e35ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926453"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371401"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configuración, optimización y solución de problemas de AzCopy
 
-AzCopy es una utilidad de línea de comandos que puede usar para copiar blobs o archivos a o desde una cuenta de almacenamiento. Este artículo le ayuda a realizar tareas de configuración avanzadas y a solucionar los problemas que puedan surgir al usar AzCopy.
+AzCopy es una utilidad de línea de comandos que puede usar para copiar blobs o archivos a una cuenta de almacenamiento o desde una cuenta de almacenamiento. Este artículo le ayuda a realizar tareas de configuración avanzadas y a solucionar los problemas que puedan surgir al usar AzCopy.
 
 > [!NOTE]
 > Si busca contenido que le ayude a empezar a trabajar con AzCopy, vea cualquiera de los artículos siguientes:
@@ -56,16 +56,21 @@ Utilice el siguiente comando para ejecutar un banco de pruebas de rendimiento.
 | **Sintaxis** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
 | **Ejemplo** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
+> [!TIP]
+> En este ejemplo los argumentos de ruta de acceso se encierran entre comillas simples ('). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
+
 Este comando ejecuta un banco de pruebas de rendimiento mediante la carga los datos de prueba en un destino especificado. Los datos de prueba se generan en la memoria, se cargan en el destino y, a continuación, se eliminan del destino una vez completada la prueba. Puede especificar el número de archivos que se van a generar y el tamaño que desea que se utilicen mediante parámetros de comando opcionales.
+
+Para ver documentos de referencia detallados, consulte [azcopy bench](storage-ref-azcopy-bench.md).
 
 Para ver una guía de ayuda detallada para este comando, escriba `azcopy bench -h` y, después, presione la tecla ENTRAR.
 
 ### <a name="optimize-throughput"></a>Optimización del rendimiento
 
-Puede usar la marca `cap-mbps` para colocar un límite superior en la velocidad de datos de rendimiento. Por ejemplo, el siguiente comando limita el rendimiento a `10` megabits (MB) por segundo.
+Puede usar la marca `cap-mbps` en los comandos para colocar un límite superior en la velocidad de datos de rendimiento. Por ejemplo, el siguiente comando reanuda un trabajo y limita el rendimiento a `10` megabits (MB) por segundo. 
 
 ```azcopy
-azcopy --cap-mbps 10
+azcopy jobs resume <job-id> --cap-mbps 10
 ```
 
 El rendimiento puede disminuir al transferir archivos pequeños. Puede aumentar el rendimiento si establece la variable de entorno `AZCOPY_CONCURRENCY_VALUE`. Esta variable especifica el número de solicitudes simultáneas que pueden producirse.  
@@ -146,6 +151,9 @@ Use el comando siguiente para reanudar un trabajo con error o cancelado. Este co
 azcopy jobs resume <job-id> --source-sas="<sas-token>"
 azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
+
+> [!TIP]
+> Encierre los argumentos de ruta de acceso, como el token de SAS, entre comillas simples ('). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
 Al reanudar un trabajo, AzCopy examina el archivo de plan de trabajo. En el archivo de plan se enumeran todos los archivos que se han identificado para el procesamiento al crear el trabajo por primera vez. Al reanudar un trabajo, AzCopy intentará transferir todos los archivos que aparecen en el archivo de plan que no se han transferido todavía.
 

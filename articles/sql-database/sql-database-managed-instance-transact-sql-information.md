@@ -8,15 +8,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, bonova
-ms.date: 11/04/2019
+ms.reviewer: sstein, carlrab, bonova, danil
+ms.date: 12/30/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: e517b6030aa1c9549e33c00425851afae90aac42
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 7319bb680e449a27fbe6f48c831d87d9c7b5ba4f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707639"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552753"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferencias, limitaciones y problemas conocidos de T-SQL en la instancia administrada
 
@@ -65,7 +65,7 @@ Limitaciones:
 
 - Con una instancia administrada, puede hacer una copia de seguridad de una base de datos de instancia en una copia de seguridad con hasta 32 franjas, lo cual es suficiente para bases de datos de hasta 4 TB si se usa la compresión de copia de seguridad.
 - No se puede ejecutar `BACKUP DATABASE ... WITH COPY_ONLY` en una base de datos cifrada con Cifrado de datos transparente (TDE) administrado por el servicio. TDE administrado por un servicio hace que las copias de seguridad se cifren con una clave interna de TDE. No es posible exportar la clave, por lo que no se puede restaurar la copia de seguridad. Use copias de seguridad automáticas y restauración a un momento dado, o use [Cifrado de datos transparente administrado por el cliente (BYOK)](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) en su lugar. También puede deshabilitar el cifrado en la base de datos.
-- El tamaño máximo de una franja de copia de seguridad con el uso del comando `BACKUP` en una instancia administrada es de 195 GB, lo cual es el tamaño máximo del blob. Aumente el número de franjas en el comando de copia de seguridad para reducir el tamaño de cada franja y permanecer dentro de este límite.
+- El tamaño máximo de una franja de copia de seguridad con el uso del comando `BACKUP` en una instancia administrada es de 195 GB, lo cual es el tamaño máximo del blob. Aumente el número de franjas en el comando de copia de seguridad para reducir el tamaño de las franjas y permanecer dentro de este límite.
 
     > [!TIP]
     > Para solucionar esta limitación, cuando realice una copia de seguridad de una base de datos desde un servidor de SQL Server en un entorno local o en una máquina virtual, puede:
@@ -191,7 +191,7 @@ Una instancia administrada no puede acceder a archivos, por lo que no se pueden 
 - No se admite la [extensión del grupo de búferes](/sql/database-engine/configure-windows/buffer-pool-extension).
 - `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` no se admite. Consulte [ALTER SERVER CONFIGURATION](/sql/t-sql/statements/alter-server-configuration-transact-sql).
 
-### <a name="collation"></a>Collation
+### <a name="collation"></a>Intercalación
 
 La intercalación de la instancia predeterminada es `SQL_Latin1_General_CP1_CI_AS` y puede especificarse como un parámetro de creación. Consulte [Intercalaciones](/sql/t-sql/statements/collations).
 
@@ -235,7 +235,7 @@ Se aplican las siguientes limitaciones a `CREATE DATABASE`:
 
 Para más información, consulte [CREATE DATABASE](/sql/t-sql/statements/create-database-sql-server-transact-sql).
 
-#### <a name="alter-database-statement"></a>Instrucción ALTER DATABASE
+#### <a name="alter-database-statement"></a>instrucción ALTER DATABASE
 
 Algunas propiedades de archivo no se pueden establecer ni cambiar:
 
@@ -274,7 +274,7 @@ Para más información, consulte [ALTER DATABASE](/sql/t-sql/statements/alter-da
 
 ### <a name="sql-server-agent"></a>Agente SQL Server
 
-- La habilitación o deshabilitación del Agente SQL Server no se admite actualmente en la instancia administrada. El Agente SQL siempre está en ejecución.
+- La habilitación o deshabilitación del Agente SQL Server no se admite actualmente en la instancia administrada. El Agente SQL se ejecuta de forma continua.
 - La configuración del Agente SQL Server es de solo lectura. El procedimiento `sp_set_agent_properties` no se admite en la instancia administrada. 
 - Trabajos
   - Se admiten los pasos de trabajo de T-SQL.
@@ -347,7 +347,7 @@ Las instancias administradas no admiten instrucciones DBCC no documentadas que e
 - [DBCC TRACEOFF](/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) y [DBCC TRACEON](/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) funcionan con el número limitado de marcas trace-flags globales.
 - No se puede usar [DBCC CHECKDB](/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) con las opciones REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST y REPAIR_REBUILD porque la base de datos no se puede establecer en el modo `SINGLE_USER`. Consulte las [diferencias de ALTER DATABASE](#alter-database-statement). El equipo de soporte técnico de Azure se encarga de los posibles daños en la base de datos. Póngase en contacto con el soporte técnico de Azure si observa daños en la base de datos que se deben corregir.
 
-### <a name="distributed-transactions"></a>Transacciones distribuidas
+### <a name="distributed-transactions"></a>Distributed transactions
 
 Actualmente no se admiten MSDTC ni las [Transacciones elásticas](sql-database-elastic-transactions-overview.md) en las instancias administradas.
 
@@ -406,41 +406,12 @@ No se admiten tablas externas que hacen referencia a archivos en HDFS o Azure Bl
 - Se admiten los tipos de replicación de instantánea y bidireccional. No se admite la replicación de mezcla, la replicación punto a punto y las suscripciones actualizables.
 - La [replicación transaccional](sql-database-managed-instance-transactional-replication.md) está disponible para la versión preliminar pública en la instancia administrada con algunas restricciones:
     - Todos los tipos de participantes de la replicación (editor, distribuidor, suscriptor de extracción y suscriptor de inserción) se pueden colocar en instancias administradas, pero el editor y el distribuidor deben estar tanto en la nube como en el entorno local.
-    - Las instancias administradas pueden comunicarse con las versiones recientes de SQL Server. Consulte las versiones admitidas [aquí](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+    - Las instancias administradas pueden comunicarse con las versiones recientes de SQL Server. Para obtener más información, consulte la [matriz de versiones compatibles](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
     - La replicación transaccional tiene algunos [requisitos de red adicionales](sql-database-managed-instance-transactional-replication.md#requirements).
 
-Para obtener información sobre la configuración de la replicación, vea el [tutorial de replicación](replication-with-sql-database-managed-instance.md).
-
-
-Si la replicación se habilita en una base de datos en un [grupo de conmutación por error](sql-database-auto-failover-group.md), el administrador de la instancia administrada debe limpiar todas las publicaciones de la base de datos principal anterior y volver a configurarlas en la nueva principal después de producirse una conmutación por error. En este escenario, debe llevar a cabo las siguientes acciones:
-
-1. Detenga todos los trabajos de replicación que se ejecutan en la base de datos, si hay alguno.
-2. Quite los metadatos de suscripción del publicador. Para ello, ejecute el siguiente script en la base de datos del publicador:
-
-   ```sql
-   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
-   ```             
- 
-1. Quite los metadatos de suscripción del suscriptor. Ejecute el siguiente script en la base de datos de suscripciones en la instancia del suscriptor:
-
-   ```sql
-   EXEC sp_subscription_cleanup
-      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
-      @publisher_db = N'<publisher database>', 
-      @publication = N'<name of publication>'; 
-   ```                
-
-1. Quite forzosamente todos los objetos de replicación del publicador. Para ello, ejecute el siguiente script en la base de datos publicada:
-
-   ```sql
-   EXEC sp_removedbreplication
-   ```
-
-1. Quite forzosamente el distribuidor anterior de la instancia principal original (si realiza la conmutación por recuperación a una base de datos principal anterior que solía tener un distribuidor). Ejecute el siguiente script en la base de datos maestra en la instancia administrada anterior del distribuidor:
-
-   ```sql
-   EXEC sp_dropdistributor 1,1
-   ```
+Para obtener más información sobre la configuración de la replicación transaccional, vea los siguientes tutoriales:
+- [Replicación entre un suscriptor y un publicador de MI](replication-with-sql-database-managed-instance.md)
+- [Replicación entre el publicador de MI, el distribuidor de MI y el suscriptor de SQL Server](sql-database-managed-instance-configure-replication-tutorial.md)
 
 ### <a name="restore-statement"></a>Instrucción RESTORE 
 
@@ -514,7 +485,7 @@ Las siguientes variables, funciones y vistas devuelven resultados diferentes:
 - `@@SERVERNAME` devuelve el nombre DNS completo "conectable", por ejemplo, my-managed-instance.wcus17662feb9ce98.database.windows.net. Consulte [@@SERVERNAME](/sql/t-sql/functions/servername-transact-sql). 
 - `SYS.SERVERS` devuelve un nombre DNS completo "conectable", por ejemplo, `myinstance.domain.database.windows.net`, para las propiedades "name" y "data_source". Consulte [SYS.SERVERS](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
 - `@@SERVICENAME` devuelve NULL, porque el concepto de servicio tal y como existe para SQL Server no se aplica a una instancia administrada. Consulte [@@SERVICENAME](/sql/t-sql/functions/servicename-transact-sql).
-- Se admite `SUSER_ID`. Devuelve NULL si el inicio de sesión de Azure AD no está en sys.syslogins. Consulte [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql). 
+- `SUSER_ID` es compatible. Devuelve NULL si el inicio de sesión de Azure AD no está en sys.syslogins. Consulte [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql). 
 - `SUSER_SID` no se admite. Se devuelven los datos incorrectos, lo cual es un problema temporal conocido. Consulte [SUSER_SID](/sql/t-sql/functions/suser-sid-transact-sql). 
 
 ## <a name="Environment"></a>Restricciones del entorno
@@ -535,11 +506,55 @@ Las siguientes variables, funciones y vistas devuelven resultados diferentes:
 
 El tamaño máximo del archivo `tempdb` no puede ser mayor de 24 GB por núcleo en un nivel De uso general. El tamaño máximo de `tempdb` en un nivel Crítico para la empresa está limitado por el tamaño de almacenamiento de instancia. El tamaño del archivo de registro `Tempdb` está limitado a 120 GB en el nivel de uso general. Algunas consultas podrían devolver un error si necesitan más de 24 GB por núcleo en `tempdb` o si producen datos de registro superiores a 120 GB.
 
+### <a name="msdb"></a>MSDB
+
+Los siguientes esquemas MSDB de la instancia administrada deben ser propiedad de sus respectivos roles predefinidos:
+
+- Roles generales
+  - TargetServersRole
+- [Roles fijos de base de datos](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+  - SQLAgentUserRole
+  - SQLAgentReaderRole
+  - SQLAgentOperatorRole
+- [Roles de DatabaseMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+  - DatabaseMailUserRole
+- [Roles de Integration Services](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+  - db_ssisadmin
+  - db_ssisltduser
+  - db_ssisoperator
+  
+> [!IMPORTANT]
+> El cambio de los nombres de roles predefinidos, los nombres de esquema y los propietarios de esquemas por parte de los clientes afectará al funcionamiento normal del servicio. Los cambios que se realicen en estos se revertirán a los valores predefinidos en cuanto se detecten, o bien en la siguiente actualización del servicio en la última para garantizar el funcionamiento normal del servicio.
+
 ### <a name="error-logs"></a>Registros de error
 
 Una instancia administrada coloca información detallada en los registros de errores. Existen muchos eventos internos del sistema que se archivan en el registro de errores. use un procedimiento personalizado para leer los registros de errores que filtran algunas entradas que no son pertinentes. Para obtener más información, vea [instancia administrada – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) o [Extensión de instancia administrada (versión preliminar)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) para Azure Data Studio.
 
 ## <a name="Issues"></a> Problemas conocidos
+
+### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>Los roles del Agente SQL necesitan permisos de ejecución (EXECUTE) explícitos para los inicios de sesión que no sean sysadmin
+
+**Fecha:** Diciembre de 2019
+
+Si los inicios de sesión que no son de sysadmin se agregan a cualquiera de los [roles fijos de base de datos del Agente SQL](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles), existe un problema en el que los permisos EXECUTE explícitos deben concederse a los procedimientos almacenados maestros para que estos inicios de sesión funcionen. Si se encuentra este problema, aparece el mensaje de error "Se denegó el permiso EXECUTE en el objeto <nombre_objeto> (Microsoft SQL Server, error: 229)".
+
+**Solución alternativa**: Una vez que agregue inicios de sesión a cualquiera de los roles fijos de base de datos del Agente SQL: SQLAgentUserRole, SQLAgentReaderRole o SQLAgentOperatorRole, para cada uno de los inicios de sesión agregados a estos roles, ejecute el siguiente script T-SQL para conceder explícitamente permisos de ejecución a los procedimientos almacenados enumerados.
+
+```tsql
+USE [master]
+GO
+CREATE USER [login_name] FOR LOGIN [login_name]
+GO
+GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
+```
+
+### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>Los trabajos del Agente SQL pueden ser interrumpidos por el reinicio del proceso del agente
+
+**Fecha:** Diciembre de 2019
+
+El Agente SQL crea una sesión cada vez que se inicia el trabajo, lo que aumenta gradualmente el consumo de memoria. Para evitar alcanzar el límite de memoria interna que bloquearía la ejecución de los trabajos programados, el proceso del agente se reiniciará una vez que el consumo de memoria alcance el umbral. Puede provocar interrumpir la ejecución de los trabajos que se ejecutan en el momento del reinicio.
 
 ### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>No se aplican los límites de memoria de OLTP en memoria
 
@@ -547,7 +562,7 @@ Una instancia administrada coloca información detallada en los registros de err
 
 El nivel de servicio Crítico para la empresa no aplicará correctamente los [límites de memoria máximos para los objetos optimizados para memoria](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space) en algunos casos. La instancia administrada puede permitir que la carga de trabajo use más memoria para las operaciones de OLTP en memoria, lo que puede afectar a la disponibilidad y la estabilidad de la instancia. Es posible que las consultas de OLTP en memoria que alcanzan los límites no generen errores de inmediato. Pronto se resolverá este problema. Las consultas que usan en mayor grado OLTP en memoria producirán un error antes si llegan a los [límites](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space).
 
-**Solución alternativa**: [Supervise el uso de almacenamiento de OLTP en memoria ](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitoring) con [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) para asegurarse de que la carga de trabajo no esté usando más memoria de la disponible. Aumente los límites de memoria que dependen del número de núcleos virtuales, u optimice la carga de trabajo para usar menos memoria.
+**Solución alternativa:** [Supervise el uso de almacenamiento de OLTP en memoria ](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitoring) con [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) para asegurarse de que la carga de trabajo no esté usando más memoria de la disponible. Aumente los límites de memoria que dependen del número de núcleos virtuales, u optimice la carga de trabajo para usar menos memoria.
 
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Se mostró un error al intentar quitar un archivo que no está vacío
 
@@ -579,7 +594,7 @@ La característica [Resource Governor](/sql/relational-databases/resource-govern
 
 Los cuadros de diálogo de Service Broker entre bases de datos dejarán de enviar mensajes a los servicios de otras bases de datos después de la operación para cambiar el nivel de servicio. Los mensajes **no se pierden** y se pueden encontrar en la cola del remitente. Todos los cambios de tamaño de almacenamiento en núcleos virtuales o instancias de Instancia administrada harán que `service_broke_guid` cambie el valor de la vista [sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) para todas las bases de datos. Todos los `DIALOG` creados con la instrucción [BEGIN DIALOG](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) que hace referencia a los Service Broker de otra base de datos dejarán de entregar mensajes al servicio de destino.
 
-**Solución alternativa**: Detenga todas las actividades que usen conversaciones con cuadros de diálogo de Service Broker entre bases de datos antes de actualizar el nivel de servicio y vuelva a inicializarlos después. Si quedan mensajes que no se entregaron después del cambio de nivel de servicio, lea los mensajes de la cola de origen y vuelva a enviarlos a la cola de destino.
+**Solución alternativa:** Detenga todas las actividades que usen conversaciones con cuadros de diálogo de Service Broker entre bases de datos antes de actualizar el nivel de servicio y vuelva a inicializarlos después. Si quedan mensajes que no se entregaron después del cambio de nivel de servicio, lea los mensajes de la cola de origen y vuelva a enviarlos a la cola de destino.
 
 ### <a name="impersonification-of-azure-ad-login-types-is-not-supported"></a>No se admite la suplantación de tipos de inicio de sesión de Azure AD
 
@@ -671,13 +686,13 @@ using (var scope = new TransactionScope())
 
 Aunque este código funciona con datos en la misma instancia, requería el coordinador de transacciones distribuidas.
 
-**Solución alternativa**: use [SqlConnection.ChangeDatabase(String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) para utilizar otra base de datos en un contexto de conexión en lugar de usar dos conexiones.
+**Solución alternativa:** use [SqlConnection.ChangeDatabase(String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) para utilizar otra base de datos en un contexto de conexión en lugar de usar dos conexiones.
 
 ### <a name="clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address"></a>Los módulos de CLR y los servidores vinculados en algún momento no pueden hacer referencia a una dirección IP local.
 
 Los módulos de CLR colocados en una instancia administrada y las consultas distribuidas o servidores vinculados que hacen referencia a una instancia actual en algún momento no pueden resolver la dirección IP de una instancia local. Este error es un problema transitorio.
 
-**Solución alternativa**: use conexiones de contexto en un módulo de CLR, si es posible.
+**Solución alternativa:** use conexiones de contexto en un módulo de CLR, si es posible.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

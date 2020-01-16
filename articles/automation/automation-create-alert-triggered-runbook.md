@@ -2,19 +2,15 @@
 title: Uso de una alerta para desencadenar un runbook de Azure Automation
 description: Aprenda a desencadenar un runbook para que se ejecute cuando se genere una alerta de Azure.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: c4afcbced2879a2a6d50112b6388cdf5c8098b1d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: df28116c588ed77f02c78a42a85feb91ca339e7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850387"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366707"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Uso de una alerta para desencadenar un runbook de Azure Automation
 
@@ -33,7 +29,7 @@ Puede usar runbooks de Automation con tres tipos de alerta:
 
 Cuando una alerta llama a un runbook, la llamada real es una solicitud HTTP POST al webhook. El cuerpo de la solicitud POST contiene un objeto con formato JSON que tiene propiedades útiles relacionadas con la alerta. En la tabla siguiente se enumeran vínculos al esquema de carga de cada tipo de alerta:
 
-|Alerta  |DESCRIPCIÓN|Esquema de carga  |
+|Alerta  |Descripción|Esquema de carga  |
 |---------|---------|---------|
 |[Alerta común](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|Esquema de alerta común que normaliza la experiencia de consumo de notificaciones de alerta en Azure en la actualidad.|Esquema de carga de alerta común|
 |[Alerta de registro de actividad](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envía una notificación cuando cualquier evento nuevo del registro de actividad de Azure coincide con las condiciones específicas. Por ejemplo, cuando un operación `Delete VM` se produce en **myProductionResourceGroup** o cuando aparece un nuevo evento de Azure Service Health con un estado **Activo**.| [Esquema de carga de alertas de registros de actividad](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
@@ -49,7 +45,7 @@ Como se ha descrito en la sección anterior, cada tipo de alerta tiene un esquem
 
 Este ejemplo usa una alerta de una VM. Los datos de la VM se recuperan de la carga y luego se usa esa información para detener dicha VM. La conexión debe estar configurada en la cuenta de Automation donde se ejecuta el runbook. Al usar alertas para desencadenar runbooks, es importante comprobar el estado de la alerta en el runbook que se desencadena. El runbook se desencadena cada vez que la alerta cambia el estado. Las alertas tienen varios estados, siendo los dos más comunes `Activated` y `Resolved`. Compruebe si la lógica de su runbook tiene este estado para asegurarse de que el runbook no se ejecuta más de una vez. En el ejemplo de este artículo se muestra cómo buscar únicamente alertas `Activated`.
 
-El runbook usa **AzureRunAsConnection** como la [cuenta de ejecución ](automation-create-runas-account.md) para autenticarse en Azure con el fin de realizar la acción de administración en la máquina virtual.
+El runbook usa **AzureRunAsConnection** como la [cuenta de ejecución](automation-create-runas-account.md) para autenticarse en Azure con el fin de realizar la acción de administración en la máquina virtual.
 
 Use este ejemplo para crear un runbook llamado **AzureVmInResponsetoVMAlert Stop**. Puede modificar el script de PowerShell y usarlo con muchos recursos diferentes.
 

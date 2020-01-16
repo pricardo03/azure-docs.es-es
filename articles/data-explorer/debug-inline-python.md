@@ -7,12 +7,12 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: f0bf81ce6392e1650d9986d81a55eac9c416c24d
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 96bd66f96b04bd7032d976ba9ebbbeb60c8415e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74820458"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444468"
 ---
 # <a name="debug-kusto-query-language-inline-python-using-vs-code"></a>Depuración de Python insertado en el lenguaje de consulta de Kusto mediante VS Code
 
@@ -23,7 +23,7 @@ Las herramientas del lenguaje de consulta de Kusto no resultan prácticas para d
 > [!NOTE]
 > Este flujo de trabajo solo se puede usar para depurar tablas de entrada relativamente pequeñas (unos pocos MB). Por lo tanto, puede que necesite limitar la entrada para la depuración.  Si necesita procesar una tabla grande, limítela para depuración mediante `| take`, `| sample` o `where rand() < 0.x`.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 1. Instale la [distribución Anaconda](https://www.anaconda.com/distribution/#download-section) de Python. En **Advanced Options** (Opciones avanzadas), seleccione **Add Anaconda to my PATH environment variable** (Agregar Anaconda a mi variable de entorno PATH).
 2. Instalar [Visual Studio Code](https://code.visualstudio.com/Download)
@@ -32,7 +32,7 @@ Las herramientas del lenguaje de consulta de Kusto no resultan prácticas para d
 ## <a name="run-your-query-in-your-client-application"></a>Ejecución de la consulta en la aplicación cliente
 
 1. En la aplicación cliente, incluya `set query_python_debug;` como prefijo en las consultas que contengan Python insertado.
-1. Ejecute la consulta.
+1. Ejecuta la consulta.
     * Kusto Explorer: VS Code se inicia automáticamente con el script *debug_python.py*.
     * Interfaz de usuario web de Kusto: 
         1. Descargue y guarde *debug_python.py*, *df.txt* y *kargs.txt*. En la ventana, seleccione **Permitir**. **Guarde** los archivos en el directorio seleccionado. 

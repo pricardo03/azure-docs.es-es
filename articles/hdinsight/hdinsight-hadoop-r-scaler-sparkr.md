@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/19/2017
-ms.openlocfilehash: 9fa18550a3c27ce38599b9a0d47abdc38524d9c2
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.custom: hdinsightactive
+ms.date: 12/26/2019
+ms.openlocfilehash: 5989692aeb59c7394299b4cb2474b244818895b2
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077088"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500082"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combinación de ScaleR y SparkR en HDInsight
 
@@ -21,7 +21,7 @@ Este documento muestra cómo predecir retrasos en la llegada de vuelos con un mo
 
 Aunque ambos paquetes se procesan en el motor de ejecución de Spark de Apache Hadoop, se les impide compartir datos en memoria, ya que cada uno de ellos requiere sus correspondientes sesiones de Spark. Hasta que este problema se solucione en una próxima versión de ML Server, la solución alternativa consiste en mantener sesiones de Spark no superpuestas e intercambiar datos mediante archivos intermedios. Las siguientes instrucciones muestran que estos requisitos son fáciles de lograr.
 
-Este ejemplo se presentó originalmente en una charla en Strata 2016 de Mario Inchiosa y Roni Burd. Esta charla puede encontrarse en [Building a Scalable Data Science Platform with R](https://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio) (Creación de una plataforma de ciencia de datos escalable con R).
+Este ejemplo se presentó originalmente en una charla en Strata 2016 de Mario Inchiosa y Roni Burd. Esta charla puede encontrarse en [Building a Scalable Data Science Platform with R](https://channel9.msdn.com/blogs/Cloud-and-Enterprise-Premium/Building-A-Scalable-Data-Science-Platform-with-R-and-Hadoop) (Creación de una plataforma de ciencia de datos escalable con R).
 
 El código se escribió originalmente para ML Server que se ejecuta en Spark en un clúster de HDInsight en Azure. Pero el concepto de mezclar el uso de SparkR y ScaleR en un script también es válido en el contexto de entornos locales.
 
@@ -31,7 +31,7 @@ En los pasos de este documento se presupone que tiene un nivel de conocimiento i
 
 Los datos de vuelo están disponibles en los [archivos del gobierno de EE. UU](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). También están disponibles como archivo zip de [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-Los datos meteorológicos se pueden descargar como archivos zip sin procesar por mes del [repositorio de la Administración Nacional Oceánica y Atmosférica](https://www.ncdc.noaa.gov/orders/qclcd/). Para este ejemplo, descargue los datos correspondientes al periodo entre mayo de 2007 y diciembre de 2012. Use los archivos de datos por hora y el archivo `YYYYMMMstation.txt` en cada uno de los archivos zip. 
+Los datos meteorológicos se pueden descargar como archivos zip sin procesar por mes del [repositorio de la Administración Nacional Oceánica y Atmosférica](https://www.ncdc.noaa.gov/orders/qclcd/). Para este ejemplo, descargue los datos correspondientes al periodo entre mayo de 2007 y diciembre de 2012. Use los archivos de datos por hora y el archivo `YYYYMMMstation.txt` en cada uno de los archivos zip.
 
 ## <a name="setting-up-the-spark-environment"></a>Configuración del entorno de Spark
 
@@ -459,7 +459,7 @@ rxGetInfo(testDS)
 
 ## <a name="train-and-test-a-logistic-regression-model"></a>Entrenamiento y prueba de un modelo de regresión logístico
 
-Ya estamos listos para crear un modelo. Para ver el efecto de los datos meteorológicos en el retraso en la hora de llegada, usamos la rutina de regresión logística de ScaleR. La utilizamos para modelar si un retardo de llegada de más de 15 minutos se ve afectado por la meteorología en los aeropuertos de salida y de llegada:
+Ahora estamos listos para crear un modelo. Para ver el efecto de los datos meteorológicos en el retraso en la hora de llegada, usamos la rutina de regresión logística de ScaleR. La utilizamos para modelar si un retardo de llegada de más de 15 minutos se ve afectado por la meteorología en los aeropuertos de salida y de llegada:
 
 ```
 logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 

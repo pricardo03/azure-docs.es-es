@@ -1,5 +1,5 @@
 ---
-title: Archivo de configuración de la biblioteca de autenticación de Microsoft para Android | Azure
+title: Archivo de configuración MSAL de Android | Azure
 titleSuffix: Microsoft identity platform
 description: Información general sobre el archivo de configuración de la biblioteca de autenticación de Microsoft (MSAL) para Android, que representa la configuración de una aplicación en Azure Active Directory.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f643022c85a44b2202fcbd91be50664882c8ba7b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e2d366a48adf536276697959be3418f36e10d8ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916833"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424386"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Archivo de configuración de la biblioteca de autenticación de Microsoft para Android
 
@@ -27,18 +27,18 @@ La biblioteca de autenticación de Microsoft para Android (MSAL) se suministra c
 
 Este artículo le ayudará a comprender los distintos valores del archivo de configuración y a especificar el archivo de configuración que utilizará en la aplicación basada en MSAL.
 
-## <a name="configuration-settings"></a>Valores de configuración
+## <a name="configuration-settings"></a>Parámetros de configuración
 
 ### <a name="general-settings"></a>Configuración general
 
 | Propiedad | Tipo de datos | Obligatorio | Notas |
 |-----------|------------|-------------|-------|
-| `client_id` | Cadena | Sí | Identificador de cliente de la aplicación de la página [Registros de aplicaciones](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | Cadena | Sí | URI de redireccionamiento de la aplicación de la página [Registros de aplicaciones](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `authorities` | List\<Authority> | Sin | Lista de autoridades que la aplicación necesita |
-| `authorization_user_agent` | AuthorizationAgent (enum) | Sin | Valores posibles: `DEFAULT`, `BROWSER`, `WEBVIEW` |
-| `http` | HttpConfiguration | Sin | Configure `HttpUrlConnection` `connect_timeout` y `read_timeout` |
-| `logging` | LoggingConfiguration | Sin | Especifica el nivel de detalle del registro. Entre las configuraciones opcionales se incluyen: `pii_enabled`, que toma un valor booleano, y `log_level`, que toma `ERROR`, `WARNING`, `INFO` o `VERBOSE`. |
+| `client_id` | String | Sí | Identificador de cliente de la aplicación de la página [Registros de aplicaciones](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | String | Sí | URI de redireccionamiento de la aplicación de la página [Registros de aplicaciones](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `authorities` | List\<Authority> | No | Lista de autoridades que la aplicación necesita |
+| `authorization_user_agent` | AuthorizationAgent (enum) | No | Valores posibles: `DEFAULT`, `BROWSER`, `WEBVIEW` |
+| `http` | HttpConfiguration | No | Configure `HttpUrlConnection` `connect_timeout` y `read_timeout`. |
+| `logging` | LoggingConfiguration | No | Especifica el nivel de detalle del registro. Entre las configuraciones opcionales se incluyen: `pii_enabled`, que toma un valor booleano, y `log_level`, que toma `ERROR`, `WARNING`, `INFO` o `VERBOSE`. |
 
 ### <a name="client_id"></a>client_id
 
@@ -104,17 +104,17 @@ Lista de autoridades que conoce y en las que confía. Además de las autoridades
 
 | Propiedad | Tipo de datos  | Obligatorio | Notas |
 |-----------|-------------|-----------|--------|
-| `type` | Cadena | Sí | Refleja la audiencia o el tipo de cuenta a la que se dirige la aplicación. Valores posibles: `AAD`, `B2C` |
-| `audience` | Object | Sin | Solo se aplica cuando type=`AAD`. Especifica la identidad a la que se dirige la aplicación. Utilice el valor del registro de la aplicación |
-| `authority_url` | Cadena | Sí | Solo es necesario cuando type=`B2C`. Especifica la dirección URL de la autoridad o la directiva que debe usar la aplicación.  |
+| `type` | String | Sí | Refleja la audiencia o el tipo de cuenta a la que se dirige la aplicación. Valores posibles: `AAD`, `B2C` |
+| `audience` | Object | No | Solo se aplica cuando type=`AAD`. Especifica la identidad a la que se dirige la aplicación. Utilice el valor del registro de la aplicación |
+| `authority_url` | String | Sí | Solo es necesario cuando type=`B2C`. Especifica la dirección URL de la autoridad o la directiva que debe usar la aplicación.  |
 | `default` | boolean | Sí | Se requiere un único `"default":true` cuando se especifica una o varias autoridades. |
 
 #### <a name="audience-properties"></a>Propiedades de la audiencia
 
 | Propiedad | Tipo de datos  | Obligatorio | Notas |
 |-----------|-------------|------------|-------|
-| `type` | Cadena | Sí | Especifica la audiencia a la que la aplicación quiere dirigirse. Valores posibles: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`, `AzureADMyOrg` |
-| `tenant_id` | Cadena | Sí | Solo es necesario cuando `"type":"AzureADMyOrg"`. Opcional para otros valores `type`. Puede ser un dominio de inquilino como `contoso.com` o un identificador de inquilino como `72f988bf-86f1-41af-91ab-2d7cd011db46`. |
+| `type` | String | Sí | Especifica la audiencia a la que la aplicación quiere dirigirse. Valores posibles: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`, `AzureADMyOrg` |
+| `tenant_id` | String | Sí | Solo es necesario cuando `"type":"AzureADMyOrg"`. Opcional para otros valores `type`. Puede ser un dominio de inquilino como `contoso.com` o un identificador de inquilino como `72f988bf-86f1-41af-91ab-2d7cd011db46`. |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
@@ -141,8 +141,8 @@ Configure los valores globales para los tiempos de espera de HTTP, como:
 
 | Propiedad | Tipo de datos | Obligatorio | Notas |
 | ---------|-----------|------------|--------|
-| `connect_timeout` | int | Sin | Tiempo en milisegundos |
-| `read_timeout` | int | Sin | Tiempo en milisegundos |
+| `connect_timeout` | int | No | Tiempo en milisegundos |
+| `read_timeout` | int | No | Tiempo en milisegundos |
 
 ### <a name="logging"></a>logging
 
@@ -150,9 +150,9 @@ La siguiente configuración global es para el registro:
 
 | Propiedad | Tipo de datos  | Obligatorio | Notas |
 | ----------|-------------|-----------|---------|
-| `pii_enabled`  | boolean | Sin | Si se van a emitir datos personales |
-| `log_level`   | boolean | Sin | Qué mensajes de registro se van a generar |
-| `logcat_enabled` | boolean | Sin | Indica si se va a generar el catálogo de registros, además de la interfaz de registro |
+| `pii_enabled`  | boolean | No | Si se van a emitir datos personales |
+| `log_level`   | boolean | No | Qué mensajes de registro se van a generar |
+| `logcat_enabled` | boolean | No | Indica si se va a generar el catálogo de registros, además de la interfaz de registro |
 
 ### <a name="account_mode"></a>account_mode
 

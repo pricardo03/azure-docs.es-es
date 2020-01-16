@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 833e7788a5b17b12ad883f705d56f660c2f1d832
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 69c32370b1f7f7cabb642ab140d69dcec57fb4aa
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033785"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551988"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Comprobación de la conectividad de ExpressRoute
 En este artículo encontrará información útil para comprobar y solucionar problemas de conectividad de ExpressRoute. ExpressRoute amplía las redes locales en la nube de Microsoft a través de una conexión privada que suele facilitar un proveedor de conectividad. La conectividad de ExpressRoute implica tradicionalmente tres zonas de red distintas, como se indica a continuación:
@@ -23,7 +23,7 @@ En este artículo encontrará información útil para comprobar y solucionar pro
 -   Centro de datos de Microsoft
 
 > [!NOTE]
-> En el modelo de conectividad directa de ExpressRoute (ofrecido con un ancho de banda de 10 o 100 Gb/s), los clientes puede conectarse directamente al puerto de los enrutadores de Microsoft Enterprise Edge (MSEE). Por lo tanto, en el modelo de conectividad directa, solo hay zonas de red de clientes y de Microsoft.
+> En el modelo de conectividad directa de ExpressRoute (ofrecido con un ancho de banda de 10 o 100 Gb/s), los clientes pueden conectarse directamente al puerto de los enrutadores de Microsoft Enterprise Edge (MSEE). Por lo tanto, en el modelo de conectividad directa, solo hay zonas de red de clientes y de Microsoft.
 >
 
 

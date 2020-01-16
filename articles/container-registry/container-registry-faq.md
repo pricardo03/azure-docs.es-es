@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 1f2c79b47df4cf44b6fa3981bac4a5a3bf61c4df
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 6e44ea1b219e60f547806afb7ce04277d27f7408
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456389"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445777"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Preguntas más frecuentes sobre Azure Container Registry
 
@@ -184,6 +184,9 @@ az acr login -n MyRegistry
 ### <a name="does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12"></a>¿Ofrece Azure Container Registry la única configuración de TLS v1.2 y cómo habilita TLS v1.2?
 
 Sí. Habilite TLS mediante cualquier cliente de Docker reciente (versión 18.03.0 y posterior). 
+
+> [!IMPORTANT]
+> A partir del 13 de enero de 2020, Azure Container Registry requerirá que todas las conexiones seguras de servidores y aplicaciones utilicen TLS 1.2. Se retirará la compatibilidad con TLS 1.0 y 1.1.
 
 ### <a name="does-azure-container-registry-support-content-trust"></a>¿Admite Azure Container Registry la confianza en el contenido?
 
@@ -434,7 +437,7 @@ Estos son algunos escenarios en los que es posible que no se permitan operacione
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>¿Cómo se pueden recopilar los seguimientos http en Windows?
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>Prerequisites
 
 - Habilite el descifrado de https en Fiddler: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Habilite Docker para que use un proxy mediante la interfaz de usuario de Docker: <https://docs.docker.com/docker-for-windows/#proxies>
@@ -490,8 +493,8 @@ Actualmente no se admite GitLab como desencadenadores de origen.
 |---|---|---|---|
 | GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | Sí | Sí |
 | Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Sí | Sí |
-| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Sí | Sin |
-| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Sí | Sin |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Sí | No |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Sí | No |
 
 ## <a name="run-error-message-troubleshooting"></a>Solución de problemas de mensajes de error de ejecución
 

@@ -3,12 +3,12 @@ title: Copia de seguridad de una base de datos de SAP HANA a Azure con Azure Bac
 description: En este artículo, aprenderá a realizar copias de seguridad de una base de datos de SAP HANA en máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: ed47f18c9dabc685d6fbe02804562ef86a93190a
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 3246f6cf8046e0a0c5795059ad3448b70130e7e1
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285786"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496960"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -24,7 +24,7 @@ En este artículo, aprenderá a:
 > * Configuración de copias de seguridad
 > * Ejecutar un trabajo de copia de seguridad a petición.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Consulte las secciones sobre [requisitos previos](tutorial-backup-sap-hana-db.md#prerequisites) y [configuración de permisos](tutorial-backup-sap-hana-db.md#setting-up-permissions) para configurar la base de datos para la copia de seguridad.
 
@@ -41,11 +41,17 @@ Para todas las operaciones, la máquina virtual SAP HANA necesita conectividad a
 Incorpórese a la versión preliminar pública de la siguiente manera:
 
 * En el portal, registre el identificador de suscripción en el proveedor de servicios de Recovery Services [siguiendo este artículo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal).
-* Para PowerShell, ejecute este cmdlet. Debería completarse como "Registrado".
+* Para el módulo “Az” de PowerShell, ejecute este cmdlet. Debería completarse como "Registrado".
 
     ```powershell
     Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
+* Si utiliza el módulo “AzureRM” de PowerShell, ejecute este cmdlet. Debería completarse como "Registrado".
+
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
+    ```
+    
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -74,7 +80,7 @@ Ahora habilite la copia de seguridad.
     ![Configurar la copia de seguridad](./media/backup-azure-sap-hana-database/configure-backup.png)
 2. En **Seleccione los elementos de los que desea hacer una copia de seguridad**, seleccione todas las bases de datos que desee proteger y haga clic en **Aceptar**.
 
-    ![Seleccionar elementos de los que realizar una copia de seguridad](./media/backup-azure-sap-hana-database/select-items.png)
+    ![Seleccionar elementos de los que se va a hacer una copia de seguridad](./media/backup-azure-sap-hana-database/select-items.png)
 3. En **Directiva de copia de seguridad** > **Elegir directiva de copia de seguridad**, cree una directiva de copia de seguridad para las bases de datos, según las instrucciones siguientes.
 
     ![Elegir directiva de copia de seguridad](./media/backup-azure-sap-hana-database/backup-policy.png)
@@ -83,7 +89,7 @@ Ahora habilite la copia de seguridad.
     ![Habilitación de la copia de seguridad](./media/backup-azure-sap-hana-database/enable-backup.png)
 5. Realice el seguimiento del progreso de la configuración de copia de seguridad en el área **Notificaciones** del portal.
 
-### <a name="create-a-backup-policy"></a>Creación de una directiva de copia de seguridad
+### <a name="create-a-backup-policy"></a>Crear una directiva de copia de seguridad
 
 Una directiva de copia de seguridad define cuándo se realizan las copias de seguridad y cuánto tiempo se conservan.
 
@@ -133,13 +139,16 @@ Especifique la configuración de la directiva como se muestra a continuación:
 9. Haga clic en **Aceptar** para guardar la directiva y volver al menú principal **Directiva de copia de seguridad**.
 10. Cuando haya terminado de definir la directiva de copia de seguridad, haga clic en **Aceptar**.
 
+> [!NOTE]
+> Cada copia de seguridad de registros está encadenada a la copia de seguridad completa anterior para formar una cadena de recuperación. Esta copia de seguridad completa se conservará hasta que expire la retención de la última copia de seguridad de registros. Esto puede significar que la copia de seguridad completa se conservará durante un período adicional para asegurarse de que se pueden recuperar todos los registros. Supongamos que el usuario tiene una copia de seguridad completa semanal, una copia diferencial diaria y registros de 2 horas. Todos ellos se conservan 30 días. Sin embargo, la copia completa semanal puede limpiarse o eliminarse en realidad solo después de que esté disponible la siguiente copia de seguridad completa, es decir, después de 30+7 días. Por ejemplo, una copia de seguridad completa semanal se produce el 16 de noviembre. Según la directiva de retención, debe conservarse hasta el 16 de diciembre. La última copia de seguridad de registros de esta copia completa se produce antes de la siguiente copia completa programada, el 22 de noviembre. Hasta que este registro esté disponible el 22 de diciembre, no se puede eliminar la copia completa del 16 de noviembre. Por lo tanto, la copia completa del 16 de noviembre se conserva hasta el 22 de diciembre.
+
 ## <a name="run-an-on-demand-backup"></a>Ejecución de una copia de seguridad a petición
 
 Las copias de seguridad se ejecutan según la programación de la directiva. Puede ejecutar una copia de seguridad a petición siguiendo estos pasos:
 
 1. En el menú Almacén, haga clic en **Elementos de copia de seguridad**.
 2. En **Elementos de copia de seguridad**, seleccione la máquina virtual que ejecuta la base de datos de SAP HANA y, a continuación, haga clic en **Hacer copia de seguridad ahora**.
-3. En **Hacer copia de seguridad ahora**, use el control del calendario para seleccionar el último día que debería retenerse el punto de recuperación. A continuación, haga clic en **Aceptar**.
+3. En **Realizar copia de seguridad ahora**, use el control del calendario para seleccionar el último día que debería retenerse el punto de recuperación. A continuación, haga clic en **Aceptar**.
 4. Supervise las notificaciones del portal. Puede supervisar el progreso del trabajo en el panel del almacén > **Trabajos de copia de seguridad** > **En curso**. Según el tamaño de la base de datos, la creación de la copia de seguridad inicial puede tardar un tiempo.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Ejecutar una copia de seguridad de SAP HANA Studio en una base de datos con Azure Backup habilitado

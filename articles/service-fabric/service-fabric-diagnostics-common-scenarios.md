@@ -1,25 +1,16 @@
 ---
-title: Escenarios de diagnóstico comunes de Azure Service Fabric | Microsoft Docs
-description: Vea cómo solucionar problemas de escenarios comunes con Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Escenarios de diagnóstico comunes de Azure Service Fabric
+description: Más información sobre la solución de problemas comunes de supervisión y diagnóstico en aplicaciones de Azure Service Fabric.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 265aea1b8873d812859b39175c732c3e7118cbb5
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: b012e37bef7fe21e869fc3af415ca57b74c61dd8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60394259"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645793"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnóstico de escenarios comunes con Service Fabric
 
@@ -147,5 +138,5 @@ Consulte estos vínculos para obtener la lista completa de contadores de rendimi
 * [Detección inteligente en Application Insights](../azure-monitor/app/proactive-diagnostics.md), donde se realiza un análisis proactivo de la telemetría enviada a AI para avisar de problemas de rendimiento potenciales
 * Obtenga más información sobre las [alertas](../log-analytics/log-analytics-alerts.md) de los registros de Azure Monitor como ayuda para la detección y diagnóstico.
 * Si se trata de clústeres locales, los registros de Azure Monitor ofrecen una puerta de enlace (proxy de reenvío HTTP) que puede usarse para enviar datos a estos registros. Para más información, vea [Conectar equipos sin acceso a Internet a los registros de Azure Monitor a través de la puerta de enlace de Log Analytics](../azure-monitor/platform/gateway.md).
-* Familiarícese con las características de [búsqueda y consulta en los registros](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de los registros de Azure Monitor.
+* Familiarícese con las características de [consultas y búsqueda de registros](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de los registros de Azure Monitor.
 * Lea en [¿Qué son los registros de Azure Monitor?](../operations-management-suite/operations-management-suite-overview.md) una introducción más detallada de los registros de Azure Monitor y conozca qué ofrecen.

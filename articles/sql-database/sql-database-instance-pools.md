@@ -11,18 +11,18 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 8738d1ad54d3ab63d8d2efc939aa9daacbe91c13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 98757677eae6d21b02d6b0b2a3abade453b5dfed
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810406"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552787"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>¿Qué son los grupos de instancias de SQL Database (versión preliminar)?
 
 Los grupos de instancias son un recurso nuevo de Azure SQL Database que proporciona una manera cómoda y rentable de migrar instancias de SQL más pequeñas a la nube a escala.
 
-Los grupos de instancias permiten aprovisionar previamente recursos de proceso según los requisitos totales de migración. Después, puede implementar varias instancias administradas individuales hasta el nivel de proceso aprovisionado previamente. Por ejemplo, si aprovisiona previamente 8 núcleos virtuales, puede implementar dos instancias de 2 núcleos virtuales y una instancia de 4 núcleos virtuales y, a continuación, migrar las bases de datos a estas instancias. Antes de que los grupos de instancias estuvieran disponibles, las cargas de trabajo de procesos intensivos más pequeñas y menos frecuentes a menudo hubiesen tenido que consolidarse en una instancia administrada más grande al migrar a la nube. La necesidad de migrar grupos de bases de datos a una instancia grande normalmente requería un cuidadoso planeamiento de la capacidad y gobernanza de los recursos, consideraciones de seguridad adicionales y algunos trabajos de consolidación de datos adicionales en el nivel de instancia.
+Los grupos de instancias permiten aprovisionar previamente recursos de proceso según los requisitos totales de la migración. Después, puede implementar varias instancias administradas individuales hasta el nivel de proceso aprovisionado previamente. Por ejemplo, si aprovisiona previamente 8 núcleos virtuales, puede implementar dos instancias de 2 núcleos virtuales y una instancia de 4 núcleos virtuales y, a continuación, migrar las bases de datos a estas instancias. Antes de que los grupos de instancias estuvieran disponibles, las cargas de trabajo de procesos intensivos más pequeñas y menos frecuentes a menudo hubiesen tenido que consolidarse en una instancia administrada más grande al migrar a la nube. La necesidad de migrar grupos de bases de datos a una instancia grande normalmente requería un cuidadoso planeamiento de la capacidad y gobernanza de los recursos, consideraciones de seguridad adicionales y algunos trabajos de consolidación de datos adicionales en el nivel de instancia.
 
 Además, los grupos de instancias admiten la integración de redes virtuales nativas, por lo que puede implementar varios grupos de instancias y varias instancias únicas en la misma subred.
 
@@ -108,7 +108,7 @@ Cada instancia administrada implementada en un grupo tiene una instancia indepen
 
 Las características opcionales o las que requieren que elija valores específicos (como la intercalación de nivel de instancia, la zona horaria, el punto de conexión público para el tráfico de datos, los grupos de conmutación por error) se configuran en el nivel de instancia y pueden ser diferentes para cada instancia de un grupo.
 
-## <a name="performance-considerations"></a>Consideraciones sobre rendimiento
+## <a name="performance-considerations"></a>Consideraciones de rendimiento
 
 Aunque las instancias administradas dentro de los grupos tienen RAM y núcleos virtuales dedicados, comparten el disco local (para el uso de tempdb) y los recursos de red. No es probable, pero es posible experimentar el efecto del *entorno ruidoso* si varias instancias del grupo tienen un consumo elevado de recursos al mismo tiempo. Si observa este comportamiento, considere la posibilidad de implementar estas instancias en un grupo más grande o como instancias únicas.
 
@@ -136,7 +136,7 @@ El precio de núcleo virtual para un grupo se cobra independientemente del núme
 
 Para el precio de proceso (medido en núcleos virtuales), hay disponibles dos opciones de precios:
 
-  1. *Con licencia incluida*: se aplican a licencias de SQL Server existentes con Software Assurance.
+  1. *Con licencia incluida*: se incluye el precio de las licencias de SQL. Esto es para los clientes que eligen no aplicar las licencias de SQL Server existentes con Software Assurance.
   2. *Ventaja híbrida de Azure*: precio reducido que incluye la Ventaja híbrida de Azure para SQL Server. Los clientes pueden optar a este precio si utilizan sus licencias de SQL Server con Software Assurance. Para información sobre la idoneidad y otros detalles, consulte [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 No es posible establecer diferentes opciones de precios para las instancias individuales de un grupo. Todas las instancias del grupo primario deben tener un precio con licencia incluida o precio con Ventaja híbrida de Azure. El modelo de licencia para el grupo se puede modificar una vez creado el grupo.

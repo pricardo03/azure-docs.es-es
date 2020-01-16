@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2bd3f61ffc07881ed8e502788b11fc0f435735b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 25c64d9e959b1d68de23e83e26d3495bd3939986
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847361"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425190"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Habilitar el registro de información de seguridad combinado (vista preliminar)
 
@@ -39,10 +39,10 @@ Antes de habilitar la nueva experiencia, revise el artículo [Registro de inform
 Siga estos pasos para habilitar el registro combinado:
 
 1. Inicie sesión en Azure Portal como administrador de usuarios o administrador global.
-2. Vaya a **Azure Active Directory** > **Configuración de usuario** > **Administrar la configuración de las características en vista previa del panel de acceso**.
-3. En **Los usuarios pueden utilizar las características en versión preliminar para registrar y administrar la información de seguridad - actualizar**, elija habilitar un grupo de usuarios **Seleccionados** o **Todos** los usuarios.
+2. Vaya a **Azure Active Directory** > **Configuración de usuario** > **Administrar la configuración de la versión preliminar de características del usuario**.
+3. En **Los usuarios pueden utilizar las características en versión preliminar para registrar y administrar la información de seguridad**, puede elegir habilitarlas para un grupo de usuarios **Seleccionado** o para **Todos** los usuarios.
 
-   ![Habilitar la experiencia de versión preliminar de información de seguridad combinada para todos los usuarios](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+   ![Habilitar la experiencia de versión preliminar de información de seguridad combinada para todos los usuarios](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info-preview.png)
 
 > [!IMPORTANT]
 > A partir de marzo de 2019, las opciones de llamada de teléfono no estarán disponibles para los usuarios de Multi-Factor Authentication y SSPR en inquilinos de Azure AD gratis o de evaluación. Los mensajes SMS no se ven afectados por este cambio. Las opciones de llamada de teléfono seguirán disponibles para los usuarios de inquilinos de Azure AD de pago.
@@ -64,9 +64,9 @@ Proteger cuándo y cómo se registran los usuarios para Azure Multi-Factor Authe
 
 La siguiente directiva se aplica a todos los usuarios seleccionados, que intentan registrarse con la experiencia de registro combinado, y bloquea su acceso a menos que se conecten desde una ubicación marcada como red de confianza.
 
-![Crear una directiva de acceso condicional para controlar el registro de información de seguridad](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
+![Crear una directiva de acceso condicional para controlar el registro de información de seguridad](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
-1. En **Azure Portal**, vaya a **Azure Active Directory** > **Acceso condicional**
+1. En **Azure Portal**, vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
 1. Seleccione **Nueva directiva**
 1. En Nombre, escriba un nombre para la directiva. Por ejemplo, **Registro de información de seguridad combinada en redes de confianza**
 1. En **Asignaciones**, haga clic en **Usuarios y grupos** y seleccione los usuarios y grupos a los que quiera aplicar esta directiva

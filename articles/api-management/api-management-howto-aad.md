@@ -1,5 +1,6 @@
 ---
-title: Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management | Microsoft Docs
+title: Autorización de cuentas de desarrollador con Azure Active Directory
+titleSuffix: Azure API Management
 description: Aprenda a autorizar a los usuarios mediante Azure Active Directory en API Management.
 services: api-management
 documentationcenter: API Management
@@ -12,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 067d4488b064ede572a4b3ad94c94fb1552c827d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 131621e05d7800e59ce3bbdec5c11c1da9facf11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454456"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442796"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management
 
 En este artículo se muestra cómo habilitar el acceso al portal para desarrolladores para usuarios de Azure Active Directory. También se muestra cómo administrar grupos de usuarios de Azure AD mediante la adición de grupos externos que contienen a los usuarios.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 - Importe y publique una instancia de Azure API Management. Para más información, consulte [Importación y publicación](import-and-publish.md).
@@ -32,7 +33,7 @@ En este artículo se muestra cómo habilitar el acceso al portal para desarrolla
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorización de las cuentas de desarrollador con Azure AD
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 2. Seleccionar ![arrow](./media/api-management-howto-aad/arrow.png).
 3. En el cuadro de búsqueda, escriba **api**.
 4. Seleccione **Servicios API Management**.

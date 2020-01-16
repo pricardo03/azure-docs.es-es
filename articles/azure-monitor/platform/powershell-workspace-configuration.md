@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/19/2019
-ms.openlocfilehash: 9404bbf0ad79df41b0b5960977d6605697da5df5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 68cd0d51c16ecd63a1446c284f81c5dea07b8c06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894567"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363547"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Administre el área de trabajo de Log Analytics en Azure Monitor con PowerShell
 
@@ -37,7 +37,7 @@ Este artículo proporciona dos ejemplos de código que muestran algunas de las f
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Estos ejemplos funcionan con la versión 1.0.0 o posterior del módulo Az.OperationalInsights.
 
 
@@ -177,6 +177,10 @@ New-AzOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroupName 
 New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
 
 ```
+
+> [!NOTE]
+> El formato del parámetro **CustomLogRawJson** que define la configuración de un registro personalizado puede ser complejo. Utilice [Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) para recuperar la configuración de un registro personalizado existente. La propiedad **Properties** es la configuración necesaria para el parámetro **CustomLogRawJson**.
+
 En el ejemplo anterior, regexDelimiter se definió como "\\n" para la nueva línea. El delimitador de registro también puede ser una marca de tiempo.  Estos son los formatos admitidos:
 
 | Formato | El formato JSON RegEx usa dos \\ por cada \ en una expresión regular estándar, por lo que si se prueba en una aplicación RegEx, \\ se reduce a \ | | |

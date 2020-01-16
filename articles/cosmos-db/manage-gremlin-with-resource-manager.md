@@ -1,17 +1,17 @@
 ---
-title: Plantillas de Azure Resource Manager para la API de Gremlin de Azure Cosmos DB
+title: Plantillas de Resource Manager para Gremlin API de Azure Cosmos DB
 description: Use las plantillas de Azure Resource Manager para crear y configurar la API de Gremlin de Azure Cosmos DB.
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: c5ddea40c384496f2790ae4ab7c88888f1e9120a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 857af7ecd9ff3d7b3c771d048a802c6d3c1e5e4f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960595"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441644"
 ---
 # <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Administrar recursos de la API de Gremlin de Azure Cosmos DB con plantillas de Azure Resource Manager
 
@@ -27,7 +27,7 @@ Cree recursos de Azure Cosmos DB con una plantilla de Azure Resource Manager. Es
 
 [!code-json[create-cosmos-gremlin](~/quickstart-templates/101-cosmosdb-gremlin/azuredeploy.json)]
 
-## <a name="deploy-with-the-azure-cli"></a>Implementación con el CLI de Azure
+## <a name="deploy-with-the-azure-cli"></a>Implementación con la CLI de Azure
 
 Para implementar la plantilla de Azure Resource Manager mediante la CLI de Azure, **copie** el script y seleccione **Probar** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el shell y luego seleccione **Pegar**:
 

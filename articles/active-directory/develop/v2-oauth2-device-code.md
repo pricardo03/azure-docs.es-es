@@ -1,7 +1,7 @@
 ---
-title: Inicio de sesión de usuarios sin un explorador | Azure
+title: Flujo de código de dispositivo de OAuth 2.0 | Azure
 titleSuffix: Microsoft identity platform
-description: Cree flujos de autenticación sin explorador e insertados mediante el uso de la concesión de autorización de dispositivo.
+description: Inicie la sesión de los usuarios sin un explorador. Cree flujos de autenticación sin explorador e insertados mediante el uso de la concesión de autorización de dispositivo.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e937955f0b122d3a878141655475f34b051622e7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1035d5cd7c992bea74180b482bb8e3c2c9e0f461
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919246"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423251"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Flujo de concesión de autorización de dispositivo de OAuth 2.0 y la Plataforma de identidad de Microsoft
 
@@ -61,7 +61,7 @@ scope=user.read%20openid%20profile
 
 ```
 
-| Parámetro | Condición | DESCRIPCIÓN |
+| Parámetro | Condición | Descripción |
 | --- | --- | --- |
 | `tenant` | Obligatorio | Puede ser /common, /consumers u /organizations.  También puede ser el inquilino de directorio al que desea solicitar permiso en el formato de nombre descriptivo o GUID.  |
 | `client_id` | Obligatorio | El **identificador de aplicación (cliente)** que la experiencia [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
@@ -71,14 +71,14 @@ scope=user.read%20openid%20profile
 
 Una respuesta correcta será un objeto JSON que contiene la información necesaria para permitir que el usuario inicie sesión.  
 
-| Parámetro | Formato | DESCRIPCIÓN |
+| Parámetro | Formato | Descripción |
 | ---              | --- | --- |
-|`device_code`     | Cadena | Cadena larga que se usa para comprobar la sesión entre el cliente y el servidor de autorización. El cliente usa este parámetro para solicitar el token de acceso al servidor de autorización. |
-|`user_code`       | Cadena | Cadena corta que se muestra al usuario y se usa para identificar la sesión en un dispositivo secundario.|
+|`device_code`     | String | Cadena larga que se usa para comprobar la sesión entre el cliente y el servidor de autorización. El cliente usa este parámetro para solicitar el token de acceso al servidor de autorización. |
+|`user_code`       | String | Cadena corta que se muestra al usuario y se usa para identificar la sesión en un dispositivo secundario.|
 |`verification_uri`| URI | Identificador URI al que debe ir el usuario con el `user_code` para iniciar sesión. |
 |`expires_in`      | int | Número de segundos antes de que `device_code` y `user_code` expiren. |
 |`interval`        | int | Número de segundos que el cliente debe esperar entre solicitudes de sondeo. |
-| `message`        | Cadena | Cadena legible con instrucciones para el usuario. Esto se puede traducir mediante la inclusión de un **parámetro de consulta** en la solicitud del formulario `?mkt=xx-XX`, con el código de referencia cultural del idioma correspondiente. |
+| `message`        | String | Cadena legible con instrucciones para el usuario. Esto se puede traducir mediante la inclusión de un **parámetro de consulta** en la solicitud del formulario `?mkt=xx-XX`, con el código de referencia cultural del idioma correspondiente. |
 
 > [!NOTE]
 > El campo de respuesta `verification_uri_complete` no se incluye ni se admite en este momento.  Lo mencionamos porque, si lee el [estándar](https://tools.ietf.org/html/rfc8628), verá que `verification_uri_complete` aparece como parte opcional del estándar de flujo de código del dispositivo.
@@ -100,7 +100,7 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 ```
 
-| Parámetro | Obligatorio | DESCRIPCIÓN|
+| Parámetro | Obligatorio | Descripción|
 | -------- | -------- | ---------- |
 | `tenant`  | Obligatorio | El mismo inquilino o alias de inquilino usado en la solicitud inicial. | 
 | `grant_type` | Obligatorio | Debe ser `urn:ietf:params:oauth:grant-type:device_code`|
@@ -111,7 +111,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 El flujo de código de dispositivo es un protocolo de sondeo, por lo que el cliente debe esperar recibir errores antes de que el usuario haya terminado la autenticación.  
 
-| Error | DESCRIPCIÓN | Acción del cliente |
+| Error | Descripción | Acción del cliente |
 | ------ | ----------- | -------------|
 | `authorization_pending` | El usuario no ha finalizado la autenticación, pero canceló el flujo. | Repetir la solicitud después de, por lo menos, los segundos especificados en `interval`. |
 | `authorization_declined` | El usuario final ha denegado la solicitud de autorización.| Detener el sondeo y revertir a un estado de no autenticado.  |
@@ -133,9 +133,9 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 }
 ```
 
-| Parámetro | Formato | DESCRIPCIÓN |
+| Parámetro | Formato | Descripción |
 | --------- | ------ | ----------- |
-| `token_type` | Cadena| Siempre "Bearer". |
+| `token_type` | String| Siempre "Bearer". |
 | `scope` | Cadenas separadas por espacios | Si se devolvió un token de acceso, esto muestra los ámbitos para los que es válido el token de acceso. |
 | `expires_in`| int | Número de segundos antes de los que el token de acceso incluido es válido. |
 | `access_token`| Cadena opaca | Se emite para los [ámbitos](v2-permissions-and-consent.md) solicitados.  |

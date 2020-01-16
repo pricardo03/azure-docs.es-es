@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para copias de seguridad de máquinas virtuales 
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: fa4e01def8db4e5fef32b644d198bad1e9beab27
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: fd4319feaec1134fe0cf073fa2db2d36a7f40c4e
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996177"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680501"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -24,7 +24,7 @@ Otras matrices de compatibilidad:
 
 A continuación, se muestra cómo puede realizar copias de seguridad y restauraciones de máquinas virtuales de Azure con el servicio Azure Backup.
 
-**Escenario** | **Copia de seguridad** | **Agent** |**Restauración**
+**Escenario** | **Backup** | **Agent** |**Restauración**
 --- | --- | --- | ---
 copia de seguridad directa de máquinas virtuales de Azure  | Copia de seguridad de toda la máquina virtual.  | No se necesita ningún agente en la máquina virtual de Azure. Azure Backup instala y usa una extensión en el [agente de máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) que se ejecuta en la máquina virtual. | Realice la restauración como sigue:<br/><br/> - **Creación de una máquina virtual básica**. Esto es útil si la máquina virtual no tiene ninguna configuración especial, como varias direcciones IP.<br/><br/> - **Restauración del disco de máquina virtual**. Restaure el disco. Conéctelo a una máquina virtual existente o cree una máquina virtual a partir del disco mediante PowerShell.<br/><br/> - **Sustitución del disco de máquina virtual**. Si existe una máquina virtual y esta usa discos administrados (sin cifrar), puede restaurar un disco y usarlo para reemplazar un disco existente en la máquina virtual.<br/><br/> - **Restauración de archivos y carpetas específicos**. Puede restaurar archivos o carpetas de una máquina virtual en vez de toda la máquina virtual.
 Copia de seguridad directa de máquinas virtuales de Azure (solo Windows)  | Copia de seguridad de archivos, carpetas o volúmenes específicos. | Instale el [agente de Azure Recovery Services](backup-azure-file-folder-backup-faq.md).<br/><br/> Puede ejecutar al agente de MARS junto con la extensión de copia de seguridad del agente de máquina virtual de Azure para realizar copias de seguridad de la máquina virtual en el nivel de archivo o carpeta. | Restauración de archivos y carpetas específicos.
@@ -38,10 +38,10 @@ Más información sobre la copia de seguridad [mediante un servidor de copias de
 --- | ---
 Habilitar copia de seguridad al crear una máquina virtual de Azure con Windows | Compatible para: <br/><br/> - Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)
 Habilitar copia de seguridad al crear una máquina virtual Linux | Compatible para:<br/><br/> - Ubuntu Server: 18.04, 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
-Copia de seguridad de una máquina virtual apagada o sin conexión | Se admite.<br/><br/> La instantánea es coherente solo con bloqueos, no con aplicaciones.
-Copia de seguridad de discos después de migrar a discos administrados | Se admite.<br/><br/> La copia de seguridad seguirá funcionando. no se requiere ninguna acción.
+Copia de seguridad de una máquina virtual apagada o sin conexión | Compatible.<br/><br/> La instantánea es coherente solo con bloqueos, no con aplicaciones.
+Copia de seguridad de discos después de migrar a discos administrados | Compatible.<br/><br/> La copia de seguridad seguirá funcionando. No se requiere ninguna acción.
 Copia de seguridad de discos administrados después de habilitar el bloqueo del grupo de recursos | No compatible.<br/><br/> Azure Backup no puede eliminar los puntos de restauración anteriores y las copias de seguridad empezarán a generar errores cuando se alcance el límite máximo de puntos de restauración.
-Modificar directiva de copia de seguridad de una máquina virtual | Se admite.<br/><br/> Se realizará la copia de seguridad de la máquina virtual con la programación y la configuración de retención de la nueva directiva. Si la configuración de retención está extendida, los puntos de recuperación existentes se marcan y se mantienen. Si se reducen, los puntos de recuperación existentes se eliminarán en el siguiente trabajo de limpieza y, después, se eliminarán por completo.
+Modificar directiva de copia de seguridad de una máquina virtual | Compatible.<br/><br/> Se realizará la copia de seguridad de la máquina virtual con la programación y la configuración de retención de la nueva directiva. Si la configuración de retención está extendida, los puntos de recuperación existentes se marcan y se mantienen. Si se reducen, los puntos de recuperación existentes se eliminarán en el siguiente trabajo de limpieza y, después, se eliminarán por completo.
 Cancelación de un trabajo de copia de seguridad| Compatible durante el proceso de instantáneas.<br/><br/> No se admite cuando se transfiere la instantánea al almacén.
 Copia de seguridad de la máquina virtual en otra región o suscripción |No compatible.
 Copias de seguridad por día (mediante la extensión de máquina virtual de Azure) | Una copia de seguridad programada por día.<br/><br/>El servicio de Azure Backup admite hasta nueve copias de seguridad a petición al día, pero Microsoft recomienda no más de cuatro copias de seguridad diarias a petición para garantizar el máximo rendimiento.
@@ -89,7 +89,7 @@ Para las copias de seguridad de máquinas virtuales de Azure con Linux, Azure Ba
 --- | ---
 Puntos de recuperación máximos por instancia protegida (máquina/carga de trabajo) | 9999.
 Tiempo de expiración máximo de un punto de recuperación | Ilimitado.
-Frecuencia máxima de copia de seguridad en un almacén (extensión de máquina virtual de Azure) | Una vez al día.
+Frecuencia máxima de copia de seguridad en un almacén (extensión de máquina virtual de Azure) | una vez al día.
 Frecuencia máxima de copia de seguridad en el almacén (agente de MARS) | Tres copias de seguridad por día.
 Frecuencia máxima de copia de seguridad en DPM/MABS | Cada 15 minutos para SQL Server.<br/><br/> Una vez cada hora para otras cargas de trabajo.
 Retención de punto de recuperación | Diariamente, semanalmente, mensualmente y anualmente.
@@ -128,23 +128,23 @@ Restaurar a una máquina virtual existente | Utilice la opción Reemplazar disco
 Restaurar disco con cuenta de almacenamiento habilitada para Azure Storage Service Encryption (SSE) | No compatible.<br/><br/> Restaure en una cuenta que no tenga SSE habilitado.
 Restaurar en cuentas de almacenamiento mixtas |No compatible.<br/><br/> Según el tipo de cuenta de almacenamiento, todos los discos restaurados serán premium o estándar y no mixtos.
 Restaurar la máquina virtual directamente en un conjunto de disponibilidad | En el caso de los discos administrados, puede restaurar el disco y usar la opción del conjunto de disponibilidad en la plantilla.<br/><br/> No se admite para discos no administrados. Para discos no administrados, restaure el disco y, después, cree una máquina virtual en el conjunto de disponibilidad.
-Restaurar copia de seguridad de máquinas virtuales no administradas después de actualizar a máquinas virtuales administradas| Se admite.<br/><br/> Puede restaurar discos y después crear una máquina virtual administrada.
-Restaurar máquina virtual a un punto de restauración antes de que la máquina virtual se migre a discos administrados | Se admite.<br/><br/> Restaure a discos no administrados (opción predeterminada), convierta los discos restaurados en discos administrados y cree una máquina virtual con los discos administrados.
-Restaure una máquina virtual que se haya eliminado. | Se admite.<br/><br/> Puede restaurar la máquina virtual desde un punto de recuperación.
+Restaurar copia de seguridad de máquinas virtuales no administradas después de actualizar a máquinas virtuales administradas| Compatible.<br/><br/> Puede restaurar discos y después crear una máquina virtual administrada.
+Restaurar máquina virtual a un punto de restauración antes de que la máquina virtual se migre a discos administrados | Compatible.<br/><br/> Restaure a discos no administrados (opción predeterminada), convierta los discos restaurados en discos administrados y cree una máquina virtual con los discos administrados.
+Restaure una máquina virtual que se haya eliminado. | Compatible.<br/><br/> Puede restaurar la máquina virtual desde un punto de recuperación.
 Restaurar una máquina virtual de controlador de dominio que forma parte de una configuración de varios controladores de dominio mediante el portal | Se admite si restaura el disco y crea una máquina virtual mediante PowerShell.
-Restaurar una máquina virtual en una red virtual distinta |Se admite.<br/><br/> Las redes virtuales deben pertenecer a la misma suscripción y región.
+Restaurar una máquina virtual en una red virtual distinta |Compatible.<br/><br/> Las redes virtuales deben pertenecer a la misma suscripción y región.
 
 ## <a name="vm-compute-support"></a>Compatibilidad con proceso de máquina virtual
 
 **Proceso** | **Soporte técnico**
 --- | ---
 Tamaño de VM |Cualquier tamaño de máquina virtual de Azure con al menos 2 núcleos de CPU y 1 GB de RAM<br/><br/> [Más información.](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
-Copia de seguridad de máquinas virtuales en [conjuntos de disponibilidad](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Se admite.<br/><br/> No se puede restaurar una máquina virtual en un conjunto disponible con la opción para crear rápidamente una máquina virtual. En su lugar, cuando restaure la máquina virtual, restaure el disco y úselo para implementar una máquina virtual, o bien restaure un disco y úselo para reemplazar un disco existente.
-Copia de seguridad de máquinas virtuales implementadas con la [ventaja de uso híbrido (HUB)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Se admite.
+Copia de seguridad de máquinas virtuales en [conjuntos de disponibilidad](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Compatible.<br/><br/> No se puede restaurar una máquina virtual en un conjunto disponible con la opción para crear rápidamente una máquina virtual. En su lugar, cuando restaure la máquina virtual, restaure el disco y úselo para implementar una máquina virtual, o bien restaure un disco y úselo para reemplazar un disco existente.
+Copia de seguridad de máquinas virtuales implementadas con la [ventaja de uso híbrido (HUB)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Compatible.
 Copia de seguridad de máquinas virtuales implementadas en un [conjunto de escalado](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |No compatible.
-Copia de seguridad de máquinas virtuales implementadas desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicado por Microsoft y terceros) |Se admite.<br/><br/> La máquina virtual debe ejecutar un sistema operativo compatible.<br/><br/> Al recuperar archivos en la máquina virtual, puede restaurar solo en un sistema operativo compatible (no en un sistema operativo anterior ni posterior). No restauramos las máquinas virtuales de Azure Marketplace cuya copia de seguridad se ha realizado como de máquina virtual, ya que estas necesitan la información de compra, sino solo como discos.
-Copia de seguridad de máquinas virtuales implementadas desde una imagen personalizada (terceros) |Se admite.<br/><br/> La máquina virtual debe ejecutar un sistema operativo compatible.<br/><br/> Al recuperar archivos en la máquina virtual, puede restaurar solo en un sistema operativo compatible (no en un sistema operativo anterior ni posterior).
-Copia de seguridad de máquinas virtuales migradas a Azure| Se admite.<br/><br/> Para realizar copias de seguridad de la máquina virtual, el agente de máquina virtual debe estar instalado en la máquina migrada.
+Copia de seguridad de máquinas virtuales implementadas desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicado por Microsoft y terceros) |Compatible.<br/><br/> La máquina virtual debe ejecutar un sistema operativo compatible.<br/><br/> Al recuperar archivos en la máquina virtual, puede restaurar solo en un sistema operativo compatible (no en un sistema operativo anterior ni posterior). No restauramos las máquinas virtuales de Azure Marketplace cuya copia de seguridad se ha realizado como de máquina virtual, ya que estas necesitan la información de compra, sino solo como discos.
+Copia de seguridad de máquinas virtuales implementadas desde una imagen personalizada (terceros) |Compatible.<br/><br/> La máquina virtual debe ejecutar un sistema operativo compatible.<br/><br/> Al recuperar archivos en la máquina virtual, puede restaurar solo en un sistema operativo compatible (no en un sistema operativo anterior ni posterior).
+Copia de seguridad de máquinas virtuales migradas a Azure| Compatible.<br/><br/> Para realizar copias de seguridad de la máquina virtual, el agente de máquina virtual debe estar instalado en la máquina migrada.
 Copia de seguridad con coherencia con múltiples máquinas virtuales | Azure Backup no proporciona coherencia de datos y aplicaciones entre varias máquinas virtuales.
 Copia de seguridad con [Configuración de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | No compatible. <br/><br/> Si la restauración de la máquina virtual de Azure con la configuración de diagnóstico se desencadena mediante la opción [Crear nueva](backup-azure-arm-restore-vms.md#create-a-vm), se produce un error en la restauración.
 Restauración de máquinas virtuales ancladas por zona | Compatible (para máquinas virtuales cuya copia de seguridad se ha realizado después de enero de 2019 y en las que hay [zonas de disponibilidad](https://azure.microsoft.com/global-infrastructure/availability-zones/) disponibles).<br/><br/>Actualmente se admite la restauración en la misma zona que está anclada en las máquinas virtuales. Sin embargo, si la zona no está disponible, se producirá un error en la restauración.
@@ -154,15 +154,15 @@ Máquinas virtuales de Gen2 | Compatible <br> Azure Backup admite la copia de se
 
 **Componente** | **Soporte técnico**
 --- | ---
-Discos de datos de máquinas virtuales de Azure | Copia de seguridad de una máquina virtual con 16 discos de datos o menos.
+Discos de datos de máquinas virtuales de Azure | Copia de seguridad de una máquina virtual con 16 discos de datos o menos.<BR> Para suscribirse a la versión preliminar privada de las máquinas virtuales con más de 16 discos (hasta 32 discos), escríbanos a AskAzureBackupTeam@microsoft.com
 Tamaño del disco de datos | El tamaño de disco individual puede ser de hasta 32 TB y se admite un máximo de 256 TB si se combinan todos los discos de una máquina virtual.
 Tipo de almacenamiento | HDD estándar, SSD estándar y SSD Premium.
-Discos administrados | Se admite.
-Discos cifrados | Compatible (hasta 4 TB).<br/><br/> Se puede realizar una copia de seguridad (con o sin la aplicación Azure AD) de las máquinas virtuales de Azure que tengan habilitado Azure Disk Encryption.<br/><br/> Las máquinas virtuales cifradas no se pueden recuperar a nivel de archivo o carpeta. Tiene que recuperar la máquina virtual completa.<br/><br/> Puede habilitar el cifrado en máquinas virtuales que ya estén protegidas con Azure Backup.
+Discos administrados | Compatible.
+Discos cifrados | Compatible.<br/><br/> Se puede realizar una copia de seguridad (con o sin la aplicación Azure AD) de las máquinas virtuales de Azure que tengan habilitado Azure Disk Encryption.<br/><br/> Las máquinas virtuales cifradas no se pueden recuperar a nivel de archivo o carpeta. Tiene que recuperar la máquina virtual completa.<br/><br/> Puede habilitar el cifrado en máquinas virtuales que ya estén protegidas con Azure Backup.
 Discos con el Acelerador de escritura habilitado | No compatible.<br/><br/> Azure Backup excluye automáticamente los discos con el acelerador de escritura habilitado durante la copia de seguridad. Como no tienen copia de seguridad, no podrá restaurar estos discos desde puntos de recuperación de la VM.
-Copia de seguridad y restauración de discos y máquinas virtuales desduplicados | Azure Backup no admite la desduplicación. Para más información, consulte este [artículo](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support). <br/> <br/>  - Azure Backup no se desduplica entre máquinas virtuales en el almacén de Recovery Services <br/> <br/>  - Si hay máquinas virtuales en estado de desduplicación durante la restauración, los archivos no se pueden restaurar porque el almacén no entiende el formato
-Agregar disco a una máquina virtual protegida | Se admite.
-Cambiar tamaño de disco de una máquina virtual protegida | Se admite.
+Copia de seguridad y restauración de discos y máquinas virtuales desduplicados | Azure Backup no admite la desduplicación. Para más información, consulte este [artículo](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support). <br/> <br/>  - Azure Backup no se desduplica entre máquinas virtuales en el almacén de Recovery Services <br/> <br/>  - Si hay máquinas virtuales en estado de desduplicación durante la restauración, los archivos no se pueden restaurar porque el almacén no entiende el formato. Sin embargo, podrá realizar correctamente la restauración de una máquina virtual completa.
+Agregar disco a una máquina virtual protegida | Compatible.
+Cambiar tamaño de disco de una máquina virtual protegida | Compatible.
 Almacenamiento compartido| No se recomienda la copia de seguridad de máquinas virtuales mediante Volumen compartido de clúster (CSV) o el Servidor de archivos de escalabilidad horizontal. Es probable que los escritores de CSV experimenten errores durante la copia de seguridad. En la restauración, es posible que los discos que contienen volúmenes CSV no aparezcan.
 
 ## <a name="vm-network-support"></a>Compatibilidad con red de VM
@@ -170,18 +170,18 @@ Almacenamiento compartido| No se recomienda la copia de seguridad de máquinas v
 **Componente** | **Soporte técnico**
 --- | ---
 Número de interfaces de red (NIC) | Hasta el número máximo de NIC admitidas por un tamaño específico de máquina virtual de Azure.<br/><br/> Las NIC se crean cuando se crea la máquina virtual durante el proceso de restauración.<br/><br/> El número de NIC de la máquina virtual restaurada refleja el número de NIC de la máquina virtual cuando se habilita la protección. La eliminación de NIC después de habilitar la protección no afecta al recuento.
-Equilibrador de carga interno y externo |Se admite. <br/><br/> [Obtenga más información](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) sobre cómo restaurar máquinas virtuales con una configuración de red especial.
-Varias direcciones IP reservadas |Se admite. <br/><br/> [Obtenga más información](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) sobre cómo restaurar máquinas virtuales con una configuración de red especial.
-Máquinas virtuales con varios adaptadores de red| Se admite. <br/><br/> [Obtenga más información](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) sobre cómo restaurar máquinas virtuales con una configuración de red especial.
-Máquinas virtuales con direcciones IP públicas| Se admite.<br/><br/> Asocie una dirección IP pública existente a la NIC, o cree una dirección y asóciela a la NIC después de realizar la restauración.
-Grupo de seguridad de red (NSG) en la NIC o la subred. |Se admite.
+Equilibrador de carga interno y externo |Compatible. <br/><br/> [Obtenga más información](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) sobre cómo restaurar máquinas virtuales con una configuración de red especial.
+Varias direcciones IP reservadas |Compatible. <br/><br/> [Obtenga más información](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) sobre cómo restaurar máquinas virtuales con una configuración de red especial.
+Máquinas virtuales con varios adaptadores de red| Compatible. <br/><br/> [Obtenga más información](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) sobre cómo restaurar máquinas virtuales con una configuración de red especial.
+Máquinas virtuales con direcciones IP públicas| Compatible.<br/><br/> Asocie una dirección IP pública existente a la NIC, o cree una dirección y asóciela a la NIC después de realizar la restauración.
+Grupo de seguridad de red (NSG) en la NIC o la subred. |Compatible.
 Dirección IP estática | No compatible.<br/><br/> A una nueva máquina virtual que se crea a partir de un punto de restauración se le asigna una dirección IP dinámica.<br/><br/> En el caso de las máquinas virtuales clásicas, no puede realizar una copia de seguridad de una máquina virtual con una dirección IP reservada y ningún punto de conexión definido.
-Dirección IP dinámica |Se admite.<br/><br/> Si la NIC de la máquina virtual de origen usa una dirección IP dinámica, de forma predeterminada, la NIC de la máquina virtual restaurada también la usará.
-Administrador de tráfico de Azure| Se admite.<br/><br/>Si la máquina virtual de la que se ha realizado la copia de seguridad está en Traffic Manager, agregue manualmente la máquina virtual restaurada a la misma instancia de Traffic Manager.
-Azure DNS |Se admite.
-DNS personalizado |Se admite.
-Conectividad saliente mediante un proxy HTTP | Se admite.<br/><br/> No se admite un proxy basado autenticado.
-Puntos de conexión de servicio de red virtual| Se admite.<br/><br/> La configuración del firewall y de la cuenta de almacenamiento de la red virtual deben permitir el acceso desde todas las redes.
+Dirección IP dinámica |Compatible.<br/><br/> Si la NIC de la máquina virtual de origen usa una dirección IP dinámica, de forma predeterminada, la NIC de la máquina virtual restaurada también la usará.
+Administrador de tráfico de Azure| Compatible.<br/><br/>Si la máquina virtual de la que se ha realizado la copia de seguridad está en Traffic Manager, agregue manualmente la máquina virtual restaurada a la misma instancia de Traffic Manager.
+Azure DNS |Compatible.
+DNS personalizado |Compatible.
+Conectividad saliente mediante un proxy HTTP | Compatible.<br/><br/> No se admite un proxy basado autenticado.
+Puntos de conexión de servicio de red virtual| Compatible.<br/><br/> La configuración del firewall y de la cuenta de almacenamiento de la red virtual deben permitir el acceso desde todas las redes.
 
 ## <a name="vm-security-and-encryption-support"></a>Compatibilidad con cifrado y seguridad de máquina virtual
 
@@ -189,7 +189,7 @@ Azure Backup admite el cifrado para datos en tránsito y en reposo:
 
 Tráfico de red en Azure:
 
-- El l tráfico de copia de seguridad de los servidores al almacén de Recovery Services se cifra mediante el Estándar de cifrado avanzado 256.
+- El l tráfico de copia de seguridad de servidores al almacén de Recovery Services se cifra mediante el Estándar de cifrado avanzado 256.
 - Los datos de copia de seguridad se envían a través de un vínculo HTTPS seguro.
 - Los datos de copia de seguridad se almacenan en el almacén de Recovery Services en su forma cifrada.
 - Solo el usuario tiene la frase de contraseña para desbloquear estos datos. Microsoft no puede descifrar los datos de copia de seguridad en ningún momento.

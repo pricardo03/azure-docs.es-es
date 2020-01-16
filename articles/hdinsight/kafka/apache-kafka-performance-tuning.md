@@ -6,19 +6,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.openlocfilehash: 8226d1f49b8ba73870dba009e97ff2718a0eee27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/19/2019
+ms.openlocfilehash: 752068af531c4a0ecc832d266f88105c14452ecb
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689358"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494914"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Optimización del rendimiento para los clústeres de Apache Kafka HDInsight
 
 En este artículo se proporcionan algunas sugerencias para optimizar el rendimiento de las cargas de trabajo de Apache Kafka en HDInsight. El enfoque es sobre el ajuste de la configuración del productor y agente. Hay diferentes maneras de medir el rendimiento, y las optimizaciones que aplique dependerá de sus necesidades empresariales.
 
-## <a name="architecture-overview"></a>Introducción a la arquitectura
+## <a name="architecture-overview"></a>Información general sobre la arquitectura
 
 Los temas de Kafka se usan para organizar los registros. Los registros los generan productores y los consumen consumidores. Los productores envían registros a los agentes de Kafka, que luego almacenan los datos. Cada nodo de trabajo del clúster de HDInsight es un agente de Kafka.
 
@@ -42,9 +42,9 @@ En las secciones siguientes se resaltan algunas de las propiedades de configurac
 
 Los productores de Apache Kafka reúnen grupos de mensajes (denominados lotes) que se envían como una unidad que se almacenará en una partición de almacenamiento único. El tamaño de lote corresponde al número de bytes que deben estar presentes antes de que se transmita ese grupo. Aumentar el parámetro `batch.size` puede aumentar el rendimiento, ya que reduce la sobrecarga de procesamiento de red y las solicitudes de E/S. Bajo una carga ligera, un mayor tamaño de lote puede aumentar la latencia de envío de Kafka mientras el productor espera a que un lote esté preparado. Bajo una carga elevada, se recomienda aumentar el tamaño de lote para mejorar el rendimiento y la latencia.
 
-### <a name="producer-required-acknowledgements"></a>Confirmaciones requeridas por el productor
+### <a name="producer-required-acknowledgments"></a>Confirmaciones requeridas por el productor
 
-La configuración `acks` requerida por el productor determina el número de confirmaciones que necesita el líder de particiones antes de que una solicitud de escritura se considere completada. Este valor afecta a la confiabilidad de los datos y toma los valores de `0`, `1`, o `-1`. El valor de `-1` significa que se debe recibir una confirmación de todas las réplicas antes de que se complete la operación de escritura. El valor `acks = -1` proporciona mayores garantías contra la pérdida de datos, pero también resulta en mayor latencia y menor rendimiento. Si los requisitos de la aplicación exigen un mayor rendimiento, pruebe a establecer `acks = 0` o `acks = 1`. Tenga en cuenta que no reconocer todas las réplicas puede reducir la confiabilidad de los datos.
+La configuración `acks` requerida por el productor determina el número de confirmaciones que necesita el líder de particiones antes de que una solicitud de escritura se considere completada. Este valor afecta a la confiabilidad de los datos y toma los valores de `0`, `1`, o `-1`. Un valor de `-1` significa que se debe recibir una confirmación de todas las réplicas antes de que se complete la operación de escritura. El valor `acks = -1` proporciona mayores garantías contra la pérdida de datos, pero también resulta en mayor latencia y menor rendimiento. Si los requisitos de la aplicación exigen un mayor rendimiento, pruebe a establecer `acks = 0` o `acks = 1`. Tenga en cuenta que no reconocer todas las réplicas puede reducir la confiabilidad de los datos.
 
 ### <a name="compression"></a>Compresión
 
@@ -57,7 +57,6 @@ El uso de la compresión de datos aumentará el número de registros que se pued
 ## <a name="broker-settings"></a>Configuración del agente
 
 En las secciones siguientes se resaltan algunas de las opciones de configuración más importantes para optimizar el rendimiento de los agentes de Kafka. Para obtener una explicación detallada de todos los valores del agente, consulte la [documentación de Apache Kafka sobre las configuraciones de productor](https://kafka.apache.org/documentation/#producerconfigs).
-
 
 ### <a name="number-of-disks"></a>Número de discos
 

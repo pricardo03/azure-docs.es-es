@@ -1,5 +1,5 @@
 ---
-title: Aislamiento de las aplicaciones de Service Bus de Azure ante interrupciones y desastres | Microsoft Docs
+title: Aislamiento de las aplicaciones de Azure Service Bus ante interrupciones y desastres
 description: Técnicas para proteger las aplicaciones ante una posible interrupción de Service Bus.
 services: service-bus-messaging
 author: axisc
@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 24fba1961c8fd95f1b9489716d690dd6eaa97b62
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 9375ea4637db7727a40477177f180ab70bd4f417
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274834"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462140"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Service Bus
 

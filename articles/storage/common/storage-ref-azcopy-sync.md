@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 9bfe88c34c78d18f2f5aefb8ae6946b9786030ad
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6ecba85a859e902922dfa2b7563a3ceb96a9ef4d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023508"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457465"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -78,7 +78,7 @@ Sincronización de un directorio completo incluyendo los subdirectorios (tenga e
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]"
 ```
 
-o
+or
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --put-md5
@@ -106,8 +106,9 @@ Sincronización de un solo blob:
 
 ```azcopy
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
+```
 
-Sync a virtual directory:
+Sincronización de un directorio virtual:
 
 ```azcopy
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=true
@@ -136,13 +137,15 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--delete-destination** string   Define si se eliminan los archivos adicionales del destino que no están presentes en el origen. Se puede establecer en true, false o prompt. Si se establece en prompt, se le formulará al usuario una pregunta antes de programar archivos y blobs para su eliminación. (el valor predeterminado es "false") (el valor predeterminado es "false")
 
-**--exclude-attributes** string   (solo Windows) Excluye los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo:  A;S;R
+**--exclude-attributes** string   (solo Windows) Excluye los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo: A;S;R
+
+**--exclude-path** string Excluye estas rutas de acceso al copiar. Esta opción no permite caracteres comodín (*). Comprueba los prefijos de ruta de acceso relativa (por ejemplo: myFolder;myFolder/subDirName/file.pdf). Cuando se usa en combinación con recorrido de cuentas, las rutas de acceso no incluyen el nombre del contenedor.
 
 **--exclude-pattern** string      Excluye los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: *.jpg;* .pdf; exactName.
 
 **-h, --help**                        Ayuda de sync.
 
-**--include-attributes** string   (solo Windows) Incluye solo los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo:  A;S;R
+**--include-attributes** string   (solo Windows) Incluye solo los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo: A;S;R
 
 **--include-pattern** string      Incluye solo los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: *.jpg;* .pdf; exactName.
 
@@ -154,11 +157,11 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 ## <a name="options-inherited-from-parent-commands"></a>Opciones heredadas de comandos primarios
 
-|Opción|DESCRIPCIÓN|
+|Opción|Descripción|
 |---|---|
 |--cap-mbps uint32|Limita la velocidad de transferencia, en megabits por segundo. El rendimiento en un momento dado puede variar ligeramente del límite. Si esta opción se establece en cero o se omite, el rendimiento no se limita.|
 |--output-type string|Formato de la salida del comando. Las opciones incluyen: text, json. El valor predeterminado es "text".|
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [azcopy](storage-ref-azcopy.md)

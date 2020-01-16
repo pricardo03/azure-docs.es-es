@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: a623c8d3ff755338ac8b40faa970f2f007115a02
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: c3dbd01faf61c164c88f09b0da03c07be4abd187
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144866"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429121"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Enriquecimientos de mensajes para mensajes de IoT Hub del dispositivo a la nube
 
@@ -63,7 +63,7 @@ Los enriquecimientos se pueden configurar mediante los métodos siguientes:
 | **Método** | **Comando** |
 | ----- | -----| 
 | Portal | [Azure Portal](https://portal.azure.com) | Consulte el [tutorial sobre enriquecimientos de mensajes](tutorial-message-enrichments.md). | 
-| CLI de Azure   | [az iot hub message-enrichment](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
+| Azure CLI   | [az iot hub message-enrichment](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
 | Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment?view=azps-2.8.0) |
 
 La adición de enriquecimientos de mensajes no agrega latencia al enrutamiento de mensajes.

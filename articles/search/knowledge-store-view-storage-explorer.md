@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: ca2df05cf20ef51b2d5ca866f22bd9450dd6acaf
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 12/30/2019
+ms.openlocfilehash: 176f0f197db3393c4ef8c37d05234fce41a494e1
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406565"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563214"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Visualización de un almacén de conocimiento con el Explorador de Storage
 
@@ -22,9 +22,9 @@ ms.locfileid: "74406565"
 
 En este artículo, aprenderá por ejemplo a conectar y explorar un almacén de conocimiento con el Explorador de Storage en Azure Portal.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-+ Siga los pasos descritos en [Creación de un almacén de conocimiento en Azure Portal](knowledge-store-create-portal.md) o en [Creación de un almacén de conocimiento de Azure Cognitive Search mediante REST](knowledge-store-create-rest.md) para crear el almacén de conocimiento de ejemplo que se usa en este tutorial.
++ Siga los pasos descritos en [Creación de un almacén de conocimiento en Azure Portal](knowledge-store-create-portal.md) para crear el almacén de conocimiento de ejemplo que se usa en este tutorial.
 
 + También necesitará el nombre de la cuenta de Azure Storage que usó para crear el almacén de conocimiento, junto con su clave de acceso de Azure Portal.
 
@@ -36,7 +36,7 @@ En este artículo, aprenderá por ejemplo a conectar y explorar un almacén de c
 
 1. Expanda la lista **Tablas** para mostrar una lista de las proyecciones de tablas de Azure que se crearon al ejecutar el asistente para **Importar datos** en los datos de ejemplo de reseñas de hoteles.
 
-Seleccione una tabla para ver los datos enriquecidos, incluidas las puntuaciones de opinión de las frases clave, los datos de latitud y longitud de la ubicación, etc.
+Seleccione una tabla para ver los datos enriquecidos, incluidas las frases clave y las puntuaciones de opinión.
 
    ![Visualización de tablas en el Explorador de Storage](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "Visualización de tablas en el Explorador de Storage")
 

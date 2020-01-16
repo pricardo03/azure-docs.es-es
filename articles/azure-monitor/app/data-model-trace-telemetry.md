@@ -1,5 +1,5 @@
 ---
-title: 'Modelo de datos de telemetría de Azure Application Insights: telemetría de seguimientos | Microsoft Docs'
+title: 'Modelo de datos de Azure Application Insights: telemetría de seguimiento'
 description: Modelo de datos de Application Insights para la telemetría de seguimientos
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 855a93d8a6350c625fe0820fae83644aec3459ed
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 6e188039a86f4c655df3098be1d769668dcf3571
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678116"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407132"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Telemetría de seguimiento: Modelo de datos de Application Insights
 

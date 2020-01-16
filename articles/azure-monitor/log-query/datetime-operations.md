@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 6ff095d674a11d95ed4fd2d008c3e664dd595fef
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d659be5b817317e7cec5726718f154825674349e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894211"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365349"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Trabajar con valores de fecha y hora en consultas de registro de Azure Monitor
 
@@ -33,8 +33,8 @@ Los valores timespan se expresan como un decimal seguido de una unidad de tiempo
 |:---|:---|
 |d           | day          |
 |h           | hour         |
-|m           | minuto       |
-|s           | segundo       |
+|m           | minute       |
+|s           | second       |
 |ms          | milisegundo  |
 |microsegundo | microsegundo  |
 |tic        | nanosegundo   |

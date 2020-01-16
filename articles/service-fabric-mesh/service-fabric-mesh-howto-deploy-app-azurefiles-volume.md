@@ -1,25 +1,17 @@
 ---
-title: Uso de un volumen basado en Azure Files en una aplicación Service Fabric Mesh | Microsoft Docs
+title: Uso de un volumen basado en Azure Files en una aplicación Service Fabric Mesh
 description: Aprenda a almacenar el estado en una aplicación Azure Service Fabric Mesh montando un volumen basado en Azure Files en un servicio mediante la CLI de Azure.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e02afde27335e9a512d1e297880993b19fa4304e
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: e2172c1808ddf72c09bc08efe680ed497f960b75
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034731"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498003"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montaje de un volumen basado en Azure Files en una aplicación Service Fabric Mesh 
 
@@ -27,7 +19,7 @@ En este artículo se describe cómo montar un volumen basado en Azure Files en u
 
 Para montar un volumen en un servicio, cree un recurso de volumen en la aplicación Service Fabric Mesh y, a continuación, haga referencia a ese volumen en el servicio.  La declaración del recurso de volumen y la referencia a él en el recurso del servicio se pueden realizar en [archivos de recursos basados en YAML](#declare-a-volume-resource-and-update-the-service-resource-yaml) o en la [plantilla de implementación basada en JSON](#declare-a-volume-resource-and-update-the-service-resource-json). Antes de montar el volumen, primero cree una cuenta de almacenamiento de Azure y un [recurso compartido de archivos en Azure Files](/azure/storage/files/storage-how-to-create-file-share).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 > [!NOTE]
 > **Problema conocido con la implementación en la máquina de desarrollo de Windows RS5:** Hay un error abierto con el cmdlet de PowerShell New-SmbGlobalMapping en máquinas de Windows RS5 que impide el montaje de volúmenes AzureFile. A continuación se muestra un error de ejemplo que se produce cuando el volumen basado en AzureFile se está montando en el equipo de desarrollo local.
 ```

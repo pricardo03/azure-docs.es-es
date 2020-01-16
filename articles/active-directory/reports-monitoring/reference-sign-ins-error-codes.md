@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ed91396dd747bb800d88bc3cd083439a5648624
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fa19425de41b182db8c0a8c3b1a7940dbdf5701f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786374"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429478"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de error de los informes de actividad de inicio de sesión. 
 
@@ -36,9 +36,13 @@ Cuando un inicio de sesión produce un error, verá un código de error correspo
 
 ## <a name="how-can-i-display-failed-sign-ins"></a>¿Cómo puedo mostrar los inicios de sesión en los que se produjeron errores? 
 
-Vaya al [Informe de inicios de sesión](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns) en [Azure Portal](https://portal.azure.com).
+En el menú de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** o busque y seleccione **Azure Active Directory** desde cualquier página.
 
-![Actividad de inicio de sesión](./media/reference-sign-ins-error-codes/61.png "Actividad de inicio de sesión")
+![Seleccionar Azure Active Directory](./media/reference-sign-ins-error-codes/select-azure-active-directory.png "Azure Active Directory")
+
+En **Supervisión**, seleccione **Inicios de sesión** para abrir el [informe de inicios de sesión](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+
+![Actividad de inicio de sesión](./media/reference-sign-ins-error-codes/monitoring-sign-ins-in-azure-active-directory.png "Actividad de inicio de sesión")
 
 Filtre el informe para mostrar todos los inicios de sesión con error; para ello, seleccione **Error** en el cuadro desplegable **Estado de inicio de sesión**.
 
@@ -53,7 +57,7 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 ## <a name="error-codes"></a>Códigos de error
 
 
-|Error|DESCRIPCIÓN|
+|Error|Descripción|
 |---|---|
 |16000|Se trata de un detalle de implementación interno y no de una condición de error. Puede omitir esta referencia sin problemas.|
 |20001|Hay un problema con el proveedor de identidades federado. Póngase en contacto con el IDP para resolver este problema.|

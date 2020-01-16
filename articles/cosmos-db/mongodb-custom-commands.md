@@ -1,17 +1,17 @@
 ---
-title: Comandos de la extensión de MongoDB para administrar los datos almacenados en la API de Azure Cosmos DB para MongoDB
+title: Comandos de la extensión de MongoDB para administrar los datos en la API de Azure Cosmos DB para MongoDB
 description: En este artículo se describen los comandos de la extensión de MongoDB para administrar los datos almacenados en la API de Azure Cosmos DB para MongoDB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: 94b1048befc8716caf5f7f51adb1f95d047d4077
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f57b274715eb1c8a4d517f5655c09c366574d412
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925653"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445222"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usa comandos de la extensión de MongoDB para administrar los datos almacenados en la API de Azure Cosmos DB para MongoDB 
 
@@ -48,7 +48,7 @@ En la siguiente tabla se describen los parámetros del comando:
 | customAction   |  string  |   Nombre del comando personalizado, debe ser "CreateDatabase".      |
 | offerThroughput | int  | Rendimiento aprovisionado que establece en la base de datos. Este parámetro es opcional. |
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 Devuelve una respuesta predeterminada del comando personalizado. Consulte la [salida predeterminada](#default-output) del comando personalizado para los parámetros en la salida.
 
@@ -90,7 +90,7 @@ En la siguiente tabla se describen los parámetros del comando:
 | customAction    |    string     |   Nombre del comando personalizado. Debe ser "UpdateDatabase".      |
 |  offerThroughput   |  int       |     Nuevo rendimiento aprovisionado que quiere establecer en la base de datos.    |
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 Devuelve una respuesta predeterminada del comando personalizado. Consulte la [salida predeterminada](#default-output) del comando personalizado para los parámetros en la salida.
 
@@ -122,7 +122,7 @@ En la siguiente tabla se describen los parámetros del comando:
 |---------|---------|---------|
 |  customAction   |   string      |   Nombre del comando personalizado. Debe ser "GetDatabase"|
         
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 Si el comando se ejecuta correctamente, la respuesta contiene un documento con los siguientes campos:
 
@@ -167,7 +167,7 @@ En la siguiente tabla se describen los parámetros del comando:
 | offerThroughput | int    | Rendimiento aprovisionado para establecer en la base de datos. Es un parámetro opcional. |
 | shardKey        | string | Ruta de acceso de la clave de partición para crear una colección con particiones. Es un parámetro opcional. |
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 Devuelve una respuesta predeterminada del comando personalizado. Consulte la [salida predeterminada](#default-output) del comando personalizado para los parámetros en la salida.
 
@@ -211,7 +211,7 @@ En la siguiente tabla se describen los parámetros del comando:
 |  collection   |   string      |   Nombre de la colección.       |
 | offerThroughput   |int|   Rendimiento aprovisionado para establecer en la colección.|
 
-## <a name="output"></a>Salida
+## <a name="output"></a>Output
 
 Devuelve una respuesta predeterminada del comando personalizado. Consulte la [salida predeterminada](#default-output) del comando personalizado para los parámetros en la salida.
 
@@ -245,7 +245,7 @@ En la siguiente tabla se describen los parámetros del comando:
 | customAction    |   string      |   Nombre del comando personalizado. Debe ser "GetCollection".      |
 | collection    |    string     |    Nombre de la colección.     |
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 Si el comando se ejecuta correctamente, la respuesta contiene un documento con los siguientes campos:
 

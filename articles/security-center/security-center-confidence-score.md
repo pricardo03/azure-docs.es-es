@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: 5b7e53291e10db17f848553b17dae2f84bdb08b7
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: ca2afaa9f4e01ac56657681ce71e32e3c5375fdf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558978"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355645"
 ---
-# <a name="alert-confidence-score"></a>Puntuación de confianza de la alerta 
+# <a name="alert-confidence-score-preview"></a>Puntuación de confianza de la alerta (versión preliminar)
 
 Azure Security Center le proporciona visibilidad sobre los recursos que se ejecutan en Azure y le avisa cuando detecta posibles problemas. El volumen de alertas puede suponer un reto para que un equipo de operaciones de seguridad las aborde de manera individual, por lo que es necesario dar prioridad a las alertas que debe investigar. La investigación de alertas puede resultar compleja y lenta y, como consecuencia, algunas alertas se ignoran.
 
-La puntuación de confianza de Security Center puede ayudar a su equipo a evaluar las prioridades y clasificar las alertas. Security Center aplica automáticamente procedimientos recomendados del sector, algoritmos inteligentes y procesos usados por analistas para determinar si una amenaza es legítima y le proporciona conclusiones significativas en forma de una puntuación de confianza.
+La puntuación de confianza (actualmente en versión preliminar) de Security Center puede ayudar a su equipo a evaluar las prioridades y clasificar las alertas. Security Center aplica automáticamente procedimientos recomendados del sector, algoritmos inteligentes y procesos usados por analistas para determinar si una amenaza es legítima y le proporciona conclusiones significativas en forma de una puntuación de confianza.
 
 ## <a name="how-the-confidence-score-is-triggered"></a>¿Cómo se desencadena la puntuación de confianza?
 

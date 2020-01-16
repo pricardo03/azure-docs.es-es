@@ -1,6 +1,6 @@
 ---
-title: Uso de VM de Azure de proceso intensivo con Batch | Microsoft Docs
-description: Cómo aprovechar los tamaños de máquina virtual HPC y GPU en grupos de Azure Batch
+title: Uso de máquinas virtuales de Azure de proceso intensivo con Batch
+description: Aprovechamiento de los tamaños de máquina virtual HPC y GPU en grupos de Azure Batch Aprenda sobre las dependencias del sistema operativo y consulte varios escenarios de ejemplo.
 documentationcenter: ''
 author: laurenhughes
 manager: gwallace
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: c8fa96e41b98cfa227fd25dc4b3bd66a171ff3c8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 47d406eadbd3f5d608bfe0d13e82d0e32ae44ab1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350138"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390504"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Uso de instancias RDMA o GPU en grupos de Batch
 
@@ -106,7 +106,7 @@ Para ejecutar aplicaciones CUDA en un grupo de nodos NC Windows, debe instalar l
 3. Cargue el paquete en su cuenta de Batch. Para conocer los pasos, consulte las instrucciones de los [paquetes de aplicación](batch-application-packages.md). Especifique un identificador de aplicación, como *GPUDriver* y una versión, como *411.82*.
 1. Mediante las API de Batch o Azure Portal, cree un grupo en la configuración de máquina virtual con el número de nodos y la escala deseados. En la tabla siguiente se muestra la configuración de ejemplo para instalar los controladores de GPU de NVIDIA en modo silencioso mediante una tarea de inicio:
 
-| Configuración | Valor |
+| Configuración | Value |
 | ---- | ----- | 
 | **Tipo de imagen** | Marketplace (Linux/Windows) |
 | **Publicador** | Microsoft Windows Server |
@@ -127,7 +127,7 @@ Para ejecutar aplicaciones CUDA en un grupo de nodos NC Linux, debe instalar los
 4. Cree una cuenta de Batch en una región que admite las máquinas virtuales de NC.
 5. Mediante las API de Batch o Azure Portal , cree un grupo [mediante la imagen personalizada](batch-sig-images.md) y con el número de nodos y la escala deseados. En la siguiente tabla se muestra la configuración de grupo de ejemplo de la imagen:
 
-| Configuración | Valor |
+| Configuración | Value |
 | ---- | ---- |
 | **Tipo de imagen** | Imagen personalizada |
 | **Imagen personalizada** | *Nombre de la imagen* |
@@ -146,7 +146,7 @@ Para ejecutar aplicaciones MPI de Windows en un grupo de nodos de máquinas virt
 1. Siga los pasos para crear una [imagen de Shared Image Gallery](batch-sig-images.md) para Batch.
 1. Mediante las API de Batch o Azure Portal, cree un grupo [mediante Shared Image Gallery](batch-sig-images.md) con el número de nodos y la escala deseados. En la siguiente tabla se muestra la configuración de grupo de ejemplo de la imagen:
 
-| Configuración | Valor |
+| Configuración | Value |
 | ---- | ---- |
 | **Tipo de imagen** | Imagen personalizada |
 | **Imagen personalizada** | *Nombre de la imagen* |
@@ -161,7 +161,7 @@ Para ejecutar aplicaciones MPI en un grupo de nodos Linux de la serie H, una opc
 
 Mediante las API de Batch o Azure Portal, cree un grupo con esta imagen y con el número de nodos y la escala deseados. En la siguiente tabla se muestra la configuración del grupo de ejemplo:
 
-| Configuración | Valor |
+| Configuración | Value |
 | ---- | ---- |
 | **Tipo de imagen** | Marketplace (Linux/Windows) |
 | **Publicador** | OpenLogic |

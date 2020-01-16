@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: daeb09acd11d727b11ad8a7b98d97ff90fddc6d8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c17576bb8cd772742b5335000a2453ff34753779
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228263"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457070"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -104,8 +104,8 @@ IoT Hub exige otros límites operativos:
 | Mensajería de un dispositivo a la nube | Tamaño máximo del mensaje 256 KB |
 | Mensajería de la nube a un dispositivo<sup>1</sup> | Tamaño máximo del mensaje 64 KB. El número máximo de mensajes pendientes para la entrega es 50 por dispositivo. |
 | Método directo<sup>1</sup> | El tamaño de carga máximo del método directo es de 128 KB. |
-| Configuraciones automáticas de dispositivos<sup>1</sup> | 100 configuraciones por centro de SKU de pago. 20 configuraciones por centro de SKU gratis. |
-| Implementaciones automáticas de IoT Edge<sup>1</sup> | 20 módulos por implementación. 100 implementaciones por centro de SKU de pago. 10 implementaciones por centro de SKU gratis. |
+| Configuraciones automáticas de dispositivos y módulos<sup>1</sup> | 100 configuraciones por centro de SKU de pago. 20 configuraciones por centro de SKU gratis. |
+| Implementaciones automáticas de IoT Edge<sup>1</sup> | 20 módulos por implementación. 100 implementaciones (incluidas las implementaciones superpuestas) por centro de SKU de pago. 10 implementaciones por centro de SKU gratis. |
 | Gemelos<sup>1</sup> | Tamaño máximo de las secciones de propiedades deseadas y propiedades notificadas son de 32 KB cada una. El tamaño máximo de la sección de etiquetas es de 8 KB. |
 
 <sup>1</sup>Esta característica no está disponible en el nivel básico de IoT Hub. Para más información, consulte [Elección de la instancia de IoT Hub correcta](iot-hub-scaling.md).
@@ -124,7 +124,7 @@ IoT Hub se esfuerza por proporcionar una latencia baja para todas las operacione
 
 Muchas unidades de IoT Hub afectan a la limitación, tal como se ha descrito anteriormente, pero no proporcionan ventajas ni garantías de latencia adicionales.
 
-Si ve aumentos inesperados de la latencia de operación, póngase en contacto con el [Soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).
+Si ve aumentosinesperados de la latencia de operación, póngase en contacto con el [Soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

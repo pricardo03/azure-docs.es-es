@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: 71edb9a32254eeee123b874305dd25b699e05cc1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 29f90508bf0bdd77f02d78cbcba8fdfe7009f0d2
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227020"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562058"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Información general sobre diagnósticos de Azure Functions
 
@@ -44,7 +44,7 @@ Después de elegir un tema, podrá ver un informe de diagnóstico específico de
 
 ## <a name="find-the-problem-code"></a>Búsqueda del código del problema 
 
-En el caso de las funciones basadas en scripts, se puede usar la **Ejecución de funciones** y los **Errores en la aplicación de funciones fuera de servicio o notificación de errores** para restringir la línea de código que provoca las excepciones o errores. Esta característica puede ser una herramienta útil para llegar a la causa principal y corregir las incidencias de una línea de código específica. Esta opción no está disponible para las funciones de C# y de Java compiladas previamente.
+En el caso de las funciones basadas en scripts, se puede usar **Function Execution** and **Errors** (Ejecuciones y errores de funciones) de **Function App Down or Reporting Errors** (Aplicación de funciones fuera de servicio o notificación de errores) para restringir la línea de código que provoca las excepciones o errores. Esta característica puede ser una herramienta útil para llegar a la causa principal y corregir las incidencias de una línea de código específica. Esta opción no está disponible para las funciones de C# y de Java compiladas previamente.
 
 ![Informe de diagnóstico sobre errores de ejecución de función](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
 

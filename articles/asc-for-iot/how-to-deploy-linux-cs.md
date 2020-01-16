@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 0d77a1be2a3469282dabb646b02c43e350313ce5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b675198756ff7bc0791d49fee3649717e3e4da7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596306"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367423"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Implementar el agente de seguridad basado en C# de Azure Security Center para IoT para Linux
 
@@ -29,12 +29,12 @@ En esta guía se explica cómo instalar e implementar el agente de seguridad bas
 
 En esta guía, aprenderá a: 
 > [!div class="checklist"]
-> * Instalación
+> * Instalar
 > * Comprobación de la implementación
 > * Desinstalación del agente
 > * Solución de problemas 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para obtener información sobre otras plataformas y tipos de agente, vea [Elegir el agente de seguridad correcto](how-to-deploy-agent.md).
 
@@ -46,13 +46,13 @@ Para obtener información sobre otras plataformas y tipos de agente, vea [Elegir
 
 Para implementar el agente de seguridad, realice los pasos siguientes:
 
-1. Descargue en el equipo la última versión desde [GitHub](https://aka.ms/iot-security-github-cs).
+1. Descargue en la máquina la última versión desde [GitHub](https://aka.ms/iot-security-github-cs).
 
 1. Extraiga el contenido del paquete y vaya a la carpeta _/Install_.
 
 1. Agregue permisos de ejecución al **script de InstallSecurityAgent**, para lo que debe ejecutar `chmod +x InstallSecurityAgent.sh` 
 
-1. A continuación, ejecute: 
+1. A continuación, ejecute el siguiente comando con **privilegios raíz**: 
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
@@ -82,7 +82,7 @@ Para desinstalar al agente, ejecute el script con el parámetro – u: `./Instal
 > [!NOTE]
 > La desinstalación no quita los requisitos previos que falten que se hayan instalado durante la instalación.
 
-## <a name="troubleshooting"></a>solución de problemas  
+## <a name="troubleshooting"></a>Solución de problemas  
 
 1. Compruebe el estado de implementación, para lo que debe ejecutar:
 
@@ -122,8 +122,8 @@ Para desinstalar al agente, ejecute el script con el parámetro – u: `./Instal
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Lea la [introducción](overview.md) del servicio Azure Security Center para IoT.
-- Obtenga más información sobre la [arquitectura](architecture.md) de Azure Security Center para IoT.
+- Lea la [introducción](overview.md) del servicio Azure Security Center para IoT
+- Obtenga más información sobre la [arquitectura](architecture.md) de Azure Security Center para IoT
 - Habilite el [servicio](quickstart-onboard-iot-hub.md)
 - Lea las [preguntas más frecuentes](resources-frequently-asked-questions.md)
 - Obtenga información acerca de las [alertas](concept-security-alerts.md)

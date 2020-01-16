@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 4534e20a1156f1d3550d247dfd15d9dc538e9d80
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226828"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409526"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Preguntas más frecuentes acerca de las redes en Azure Functions
 
@@ -51,9 +51,7 @@ Mediante la integración de red virtual puede acceder a los recursos protegidos 
 
 Puede permitir la llamada de los desencadenadores de HTTP desde una red virtual con [Puntos de conexión de servicio](./functions-networking-options.md#private-site-access). 
 
-También puede desencadenar una función desde un recurso de una red virtual mediante la implementación de la aplicación de funciones en una instancia de App Service Environment. Para obtener más información sobre el uso de una instancia de App Service Environment, consulte [Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment](../app-service/environment/create-ilb-ase.md).
-
-Los planes Premium y de App Service admiten desencadenadores de HTTP de una red virtual, pero solo una instancia de App Service Environment admite todos los demás tipos de desencadenadores de funciones a través de una red virtual.
+También puede desencadenar una función a partir de todos los demás recursos de una red virtual mediante la implementación de la aplicación de función en un plan Premium, un plan de App Service o una instancia de App Service Environment. Consulte [Desencadenadores de red virtual (no HTTP)](./functions-networking-options.md#virtual-network-triggers-non-http) para más información.
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>¿Cómo puedo implementar mi aplicación de funciones en una red virtual?
 

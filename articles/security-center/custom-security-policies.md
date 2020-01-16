@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 3e60c0e165b8f9ec79aac2048011d9e315b0ce18
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 34dbace304ccf70891ef53dd768de60d87e26967
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483972"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666642"
 ---
 # <a name="using-custom-security-policies-preview"></a>Uso de directivas de seguridad personalizadas (versión preliminar)
 
 Para ayudarle a proteger los sistemas y el entorno, Azure Security Center genera recomendaciones de seguridad. Estas recomendaciones se basan en los procedimientos recomendados del sector, que se incorporan a la directiva de seguridad predeterminada genérica que se proporciona a todos los clientes. Estas recomendaciones también pueden provenir de los conocimientos de Security Center acerca del sector y de los estándares normativos.
 
-Gracias a esta característica de vista previa, puede agregar sus propias iniciativas *personalizadas*. A continuación, recibirá recomendaciones si el entorno no sigue las directivas que creó.
+Gracias a esta característica de vista previa, puede agregar sus propias iniciativas *personalizadas*. A continuación, recibirá recomendaciones si el entorno no sigue las directivas que creó. Cualquier iniciativa personalizada que cree aparecerá junto a las iniciativas integradas en el panel de cumplimiento normativo descrito en el tutorial [Mejora del cumplimiento normativo](security-center-compliance-dashboard.md).
 
 Como se explicó [aquí](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) en la documentación de Azure Policy, cuando se especifica una ubicación para la iniciativa personalizada, debe ser un grupo de administración o una suscripción. 
 
@@ -58,6 +58,12 @@ Como se explicó [aquí](https://docs.microsoft.com/azure/governance/policy/conc
 
     > [!NOTE]
     > Recuerde que la creación de nuevas iniciativas requiere credenciales de propietario de la suscripción. Para obtener más información sobre los roles de Azure, consulte los [ permisos en Azure Security Center](security-center-permissions.md).
+
+    Su nueva iniciativa se aplica y puede ver el impacto de las dos formas siguientes:
+
+    * En la barra lateral de Security Center, en Directiva y cumplimiento, seleccione **Cumplimiento normativo**. El panel de cumplimiento se abre para mostrar su nueva iniciativa personalizada junto a las iniciativas integradas.
+    
+    * Empezará a recibir recomendaciones si el entorno no sigue las directivas que ha definido.
 
 1. Para ver las recomendaciones resultantes de la directiva, haga clic en **Recomendaciones** de la barra lateral para abrir la página recomendaciones. Las recomendaciones aparecerán con una etiqueta "Personalizada" y estarán disponibles en, aproximadamente, una hora.
 

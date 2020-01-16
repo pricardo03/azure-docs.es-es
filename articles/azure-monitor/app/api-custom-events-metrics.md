@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: afe2ac60d7b945dd1bb3b8841ae0a7605865f29f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2136ab9a6d0cef7ad5650c8414f9a17b78498abc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893389"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432666"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 
@@ -22,7 +22,7 @@ Inserte unas cuantas líneas de código en la aplicación para averiguar qué us
 
 La API central es uniforme en todas las plataformas, excepto por algunas pequeñas variaciones como `GetMetric` (solo .NET).
 
-| Método | Usado para |
+| Método | Se usa para |
 | --- | --- |
 | [`TrackPageView`](#page-views) |Páginas, pantallas, hojas o formularios. |
 | [`TrackEvent`](#trackevent) |Acciones de usuario y otros eventos. Se usa para realizar el seguimiento del comportamiento de los usuarios o para supervisar el rendimiento. |
@@ -574,7 +574,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 
 Registre un evento de diagnóstico, como la entrada o la salida de un método.
 
- Parámetro | DESCRIPCIÓN
+ Parámetro | Descripción
 ---|---
 `message` | Datos de diagnóstico. Puede ser mucho más largo que un nombre.
 `properties` | Asignación de cadena a cadena: Datos adicionales que se usan para [filtrar excepciones](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) en el portal. El valor predeterminado es vacío.
@@ -656,7 +656,7 @@ finally {
 }
 ```
 
-*JavaScript*
+*Node.js*
 
 ```javascript
 var success = false;
@@ -1159,14 +1159,14 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 * **Component**: la aplicación y su versión.
 * **Device**: datos sobre el dispositivo donde se ejecuta la aplicación. (En aplicaciones web, se trata del servidor o el dispositivo de cliente desde el que se envía la telemetría).
 * **InstrumentationKey**: el recurso de Application Insights en Azure donde aparece la telemetría. Normalmente, se selecciona de ApplicationInsights.config.
-* **Location**: la ubicación geográfica del dispositivo.
+* **Ubicación**: la ubicación geográfica del dispositivo.
 * **Operation**: en las aplicaciones web, es la solicitud HTTP actual. En otros tipos de aplicaciones, puede establecer este valor para agrupar los eventos juntos.
-  * **ID**: valor generado que correlaciona distintos eventos, de modo que cuando usted inspeccione cualquier evento en Búsqueda de diagnóstico, puede encontrar elementos relacionados.
+  * **Identificador**: valor generado que correlaciona distintos eventos, de modo que cuando usted inspeccione cualquier evento en Búsqueda de diagnóstico, puede encontrar elementos relacionados.
   * **Name**: un identificador, generalmente la dirección URL de la solicitud HTTP.
   * **SyntheticSource**: si no es un valor nulo ni está vacío, esta cadena indica que el origen de la solicitud se ha identificado como un robot o una prueba web. De forma predeterminada, se excluye de cálculos en el Explorador de métricas.
-* **Properties**: propiedades que se envían con todos los datos de telemetría. Se pueden invalidar en llamadas de seguimiento* individuales.
+* **Propiedades**: propiedades que se envían con todos los datos de telemetría. Se pueden invalidar en llamadas de seguimiento* individuales.
 * **Sesión**: sesión del usuario. El identificador se establece en un valor generado, que cambia cuando el usuario lleva un tiempo sin estar activo.
-* **User**: información del usuario.
+* **Usuario**: información del usuario.
 
 ## <a name="limits"></a>límites
 

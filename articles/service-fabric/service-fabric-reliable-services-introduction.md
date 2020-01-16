@@ -1,25 +1,16 @@
 ---
-title: Información general sobre el modelo de programación de Service Fabric Reliable Services | Microsoft Docs
+title: Introducción sobre el modelo de programación de Reliable Services
 description: Obtenga información sobre el modelo de programación de un servicio fiable de Service Fabric y comience a escribir sus propios servicios.
-services: Service-Fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: vturecek; mani-ramaswamy
-ms.assetid: 0c88a533-73f8-4ae1-a939-67d17456ac06
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider
-ms.openlocfilehash: 1789c7489e58df09dccfde3e7ab106ef54b5c1ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88c8e4411c0bec23790b4f4c52fc4a3d1570edc6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60727019"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614254"
 ---
 # <a name="reliable-services-overview"></a>Información general sobre Reliable Services
 Azure Service Fabric simplifica la escritura y administración de los servicios de Reliable Services con y sin estado. En este tema se explica:

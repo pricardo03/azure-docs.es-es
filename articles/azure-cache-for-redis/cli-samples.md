@@ -1,18 +1,18 @@
 ---
 title: Ejemplos de la CLI de Azure para Azure Cache for Redis
-description: Ejemplos de la CLI de Azure para Azure Cache for Redis.
+description: 'Ejemplos de la CLI de Azure para Azure Cache for Redis: Crear una caché, eliminar una caché, obtener detalles de la caché, nombre de host, puertos y claves, conectar una aplicación web.'
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/14/2017
-ms.author: yegu
-ms.openlocfilehash: 2b16b531639c826e0051ff45540fd583fd3869e5
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: c43e23b4bf46258cc91b06a0912d03e85a5c7a14
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121230"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411358"
 ---
 # <a name="azure-cli-samples-for-azure-cache-for-redis"></a>Ejemplos de la CLI de Azure para Azure Cache for Redis
 

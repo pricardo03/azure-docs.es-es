@@ -1,18 +1,18 @@
 ---
 title: Conexión con Facebook
-description: Administrar la escala de tiempo y la página con las API REST de Facebook y Azure Logic Apps
+description: Automatización de las tareas y los flujos de trabajo que administran la escala de tiempo y la página de Facebook mediante Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 1aa936f902dc17c9a401959c19824f6c581547b1
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 803453291b5cab2c51fec6641f8b096f62336325
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789852"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665809"
 ---
 # <a name="manage-your-facebook-timeline-and-page-by-using-azure-logic-apps"></a>Administrar la escala de tiempo y la página de Facebook mediante Azure Logic Apps
 

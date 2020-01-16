@@ -3,16 +3,16 @@ title: Características de seguridad para proteger cargas de trabajo en la nube
 description: Aprenda a usar las características de seguridad de Azure Backup para que las copias de seguridad sean más seguras.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 0be85bf57510f575f238012b9bd1ef21e44e3cf1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 9a3c13856d3c130f2396488fed09313578dda79c
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894035"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496927"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Características de seguridad para proteger cargas de trabajo en la nube mediante Azure Backup
 
-Cada vez es mayor la preocupación que generan problemas de seguridad como malware, ransomware e intrusión. Estos problemas de seguridad pueden ser costosos, en términos de dinero y datos. Para protegerse contra dichos ataques, Azure Backup proporciona características de seguridad que protegen los datos de las copias de seguridad incluso después de su eliminación. Una de estas características es la eliminación temporal. Con la eliminación temporal, aunque un individuo malintencionado elimine la copia de seguridad de una máquina virtual (o se eliminen por accidente datos de copia de seguridad), los datos de copia de seguridad se conservan durante 14 días adicionales, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado "eliminación temporal" no acarrea costo alguno para el cliente.
+Cada vez es mayor la preocupación que generan problemas de seguridad como malware, ransomware e intrusión. Estos problemas de seguridad pueden ser costosos, en términos de dinero y datos. Para protegerse contra dichos ataques, Azure Backup proporciona características de seguridad que protegen los datos de las copias de seguridad incluso después de su eliminación. Una de estas características es la eliminación temporal. Con la eliminación temporal, aunque un individuo malintencionado elimine la copia de seguridad de una máquina virtual (o se eliminen por accidente datos de copia de seguridad), los datos de copia de seguridad se conservan durante 14 días adicionales, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado "eliminación temporal" no acarrea costo alguno para el cliente. Azure también cifra todos los datos de copia de seguridad en reposo mediante [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) para proteger aún más los datos.
 
 > [!NOTE]
 > La eliminación temporal solo protege los datos de copia de seguridad eliminados. Si se elimina una máquina virtual sin una copia de seguridad, la característica de eliminación temporal no conservará los datos. Todos los recursos deben protegerse con Azure Backup para garantizar una resistencia total.
@@ -114,6 +114,11 @@ AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM
 
 El elemento "DeleteState" del elemento de copia de seguridad se revertirá a "NotDeleted". Pero la protección sigue detenida. Debe [reanudar la copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) para volver a habilitar la protección.
 
+### <a name="soft-delete-for-vms-using-rest-api"></a>Eliminación temporal para máquinas virtuales con API REST
+
+- Elimine las copias de seguridad mediante la API REST, como se mencionó [aquí](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
+- Si el usuario desea deshacer estas operaciones de eliminación, consulte los pasos mencionados [aquí](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+
 ## <a name="disabling-soft-delete"></a>Deshabilitación de la eliminación temporal
 
 La eliminación temporal se habilita de forma predeterminada en los almacenes recién creados para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas.  No se recomienda deshabilitar esta característica. La única circunstancia en la que debe considerar la posibilidad de deshabilitar la eliminación temporal es si está planeando mover los elementos protegidos a un nuevo almacén y no puede esperar los 14 días necesarios para eliminar y volver a proteger (por ejemplo, en un entorno de prueba). Solo un administrador de Backup puede deshabilitar esta característica. Si se deshabilita esta característica, todas las eliminaciones de elementos protegidos se convertirán en eliminaciones inmediatas, sin la posibilidad de restaurar. Los datos de copia de seguridad con el estado de eliminación temporal antes de deshabilitar esta característica continuarán en ese estado. Si quiere eliminarlos permanentemente de inmediato, debe recuperarlos y eliminarlos de nuevo para eliminarlos de forma permanente.
@@ -146,6 +151,10 @@ EnhancedSecurityState  : Enabled
 SoftDeleteFeatureState : Disabled
 ```
 
+### <a name="disabling-soft-delete-using-rest-api"></a>Deshabilitación de la eliminación temporal con API REST
+
+Para deshabilitar la funcionalidad de eliminación temporal mediante la API REST, consulte los pasos mencionados [aquí](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
+
 ## <a name="permanently-deleting-soft-deleted-backup-items"></a>Eliminar permanentemente los elementos de copia de seguridad eliminados temporalmente
 
 Los datos de copia de seguridad con el estado de eliminación temporal antes de deshabilitar esta característica continuarán en ese estado. Si quiere eliminarlos de permanentemente de inmediato, restáurelos y vuelva a eliminarlos para eliminarlos de forma permanente.
@@ -154,7 +163,7 @@ Los datos de copia de seguridad con el estado de eliminación temporal antes de 
 
 Siga estos pasos:
 
-1. Siga los pasos para [deshabilitar la eliminación temporal](#disabling-soft-delete). 
+1. Siga los pasos para [deshabilitar la eliminación temporal](#disabling-soft-delete).
 2. En Azure Portal, vaya al almacén, a **Elementos de copia de seguridad** y elija la máquina virtual eliminada temporalmente.
 
 ![Selección de una máquina virtual eliminada temporalmente](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
@@ -215,6 +224,14 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM     12/5/2019 12:44:50 PM     0488c3c2-accc-4a91-a1e0-fba09a67d2fb
 ```
 
+### <a name="using-rest-api"></a>Uso de la API de REST
+
+Si los elementos se eliminaron antes de que se deshabilitara la eliminación temporal, se encontrarán en un estado de eliminación temporal. Para eliminarlos de inmediato, la operación de eliminación debe invertirse y volver a ejecutarse.
+
+1. En primer lugar, deshaga las operaciones de eliminación con los pasos mencionados [aquí](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+2. Después, deshabilite la funcionalidad de eliminación temporal mediante la API REST siguiendo los pasos mencionados [aquí](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
+3. Después, elimine las copias de seguridad mediante la API REST, como se mencionó [aquí](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
+
 ## <a name="other-security-features"></a>Otras características de seguridad
 
 ### <a name="storage-side-encryption"></a>Cifrado del lado de almacenamiento
@@ -223,7 +240,7 @@ Azure Storage cifra automáticamente los datos al guardarlos en la nube. Mediant
 
 Dentro de Azure, los datos en tránsito entre Azure Storage y el almacén se protegen mediante HTTPS. Estos datos permanecen en la red troncal de Azure.
 
-Para más información, consulte [Cifrado de Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+Para más información, consulte [Cifrado de Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).  Consulte las [preguntas más frecuentes sobre Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) para responder a cualquier pregunta que pueda tener sobre el cifrado.
 
 ### <a name="vm-encryption"></a>Cifrado de máquinas virtuales
 
@@ -237,7 +254,7 @@ Para más información, consulte [Uso del control de acceso basado en roles para
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-### <a name="soft-delete"></a>Eliminación temporal
+### <a name="for-soft-delete"></a>Para la eliminación temporal
 
 #### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>¿Es necesario habilitar la característica de eliminación temporal en cada almacén?
 

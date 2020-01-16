@@ -11,20 +11,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67b92c32d511300a0645b707f2a263b463937d1b
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: b8dc442720a6c2876990e5012732b363b43ec0cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558574"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430191"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el portal de Azure
 
-En este artículo se describe cómo usar [Azure Portal](https://portal.azure.com) para administrar el aprovisionamiento y el desaprovisionamiento automáticos de cuentas de usuario en aplicaciones que lo admitan. Para más información sobre el aprovisionamiento automático de cuentas de usuario, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](user-provisioning.md).
+En este artículo se describen los pasos generales para administrar el aprovisionamiento y el desaprovisionamiento automáticos de cuentas de usuario en aplicaciones que lo admitan. El *aprovisionamiento de cuentas de usuario* es el acto de crear, actualizar o deshabilitar registros de cuenta de usuario en el almacén de perfiles de usuario local de una aplicación. La mayoría de las aplicaciones SaaS y en la nube almacenan el rol y los permisos de los usuarios en el propio almacén local de perfiles de usuario del usuario y la presencia de tal registro de usuario en el almacén local del usuario es *necesaria* para que funcionen el inicio de sesión único y el acceso. Para más información sobre el aprovisionamiento automático de cuentas de usuario, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones con Azure Active Directory](user-provisioning.md).
+
+> [!IMPORTANT]
+> Azure Active Directory (Azure AD) dispone de una galería con miles de aplicaciones previamente integradas que están habilitadas para el aprovisionamiento automático con Azure AD. Para comenzar, busque el tutorial de configuración del aprovisionamiento específico de su aplicación en [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). Probablemente encontrará instrucciones paso a paso para configurar tanto la aplicación como Azure AD para crear la conexión de aprovisionamiento.
 
 ## <a name="finding-your-apps-in-the-portal"></a>Búsqueda de aplicaciones en el portal
 

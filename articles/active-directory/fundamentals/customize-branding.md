@@ -1,5 +1,5 @@
 ---
-title: 'Incorporación de la personalización de marca en la página de inicio de sesión de la organización: Azure Active Directory | Microsoft Docs'
+title: 'Adición de personalización de marca a la página de inicio de sesión de la organización: Azure AD'
 description: Instrucciones sobre cómo agregar la personalización de marca de la organización a la página de inicio de sesión de Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7caf6eff9f5bd497ab6c3a500f3940549b198576
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ea0bc131f7eb3fc66f3b024b4c9902f8c73f9a7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959051"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422833"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Incorporación de la personalización de marca en la página de inicio de sesión de Azure Active Directory de la organización
 Use el logotipo de la organización y combinaciones de colores personalizadas para proporcionar un aspecto coherente en las páginas de inicio de sesión de Azure Active Directory (Azure AD). Las páginas de inicio de sesión aparecen cuando los usuarios inician sesión en las aplicaciones web de su organización, como Office 365, que usan Azure AD como proveedor de identidades.
@@ -35,7 +35,7 @@ La personalización de marca no aparecerá inmediatamente cuando los usuarios te
 > Todos los elementos de personalización de marca son opcionales. Por ejemplo, si especifica un logotipo del banner sin ninguna imagen de fondo, se mostrará en la página de inicio de sesión su logotipo con una imagen de fondo predeterminada del sitio de destino (por ejemplo, Office 365).<br><br>Además, la personalización de marca de la página de inicio de sesión no se incluye en las cuentas Microsoft personales. Si los usuarios o los invitados de la empresa inician sesión con una cuenta Microsoft personal, la página de inicio de sesión no reflejará la personalización de marca de la organización.
 
 ### <a name="to-customize-your-branding"></a>Para personalizar su marca
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de administrador global del directorio.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de administrador global para el directorio.
 
 2. Seleccione **Azure Active Directory**, después, seleccione **Personalización de marca de empresa** y, a continuación, seleccione **Configurar**.
 
@@ -93,7 +93,7 @@ La personalización de marca no aparecerá inmediatamente cuando los usuarios te
 Después de crear la personalización de marca personalizada, puede volver atrás y cambiar todo lo que quiera.
 
 ### <a name="to-edit-your-custom-branding"></a>Para editar la personalización de marca personalizada
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de administrador global del directorio.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de administrador global para el directorio.
 
 2. Seleccione **Azure Active Directory**, después, seleccione **Personalización de marca de empresa** y, a continuación, seleccione **Configurar**.
 
@@ -110,7 +110,7 @@ No se puede cambiar el idioma de la configuración original del idioma predeterm
 
 ### <a name="to-add-a-language-specific-branding-configuration"></a>Para agregar una configuración de personalización de marca específica del idioma
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de administrador global del directorio.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de administrador global para el directorio.
 
 2. Seleccione **Azure Active Directory**, después, seleccione **Personalización de marca de empresa** y, a continuación, seleccione **Nuevo idioma**.
 

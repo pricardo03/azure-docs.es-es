@@ -1,25 +1,16 @@
 ---
-title: Cambio de la configuración de KVSActorStateProvider en actores de Azure Service Fabric | Microsoft Docs
+title: Cambio de la configuración de KVSActorStateProvider
 description: Obtenga información sobre cómo configurar los actores con estado de Azure Service Fabric de tipo KVSActorStateProvider.
-services: Service-Fabric
-documentationcenter: .net
 author: sumukhs
-manager: chackdan
-editor: ''
-ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 8b10ef18fd389179a4f5422783606c45fa2e0d32
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdb115bd57cf3d5af4388f4efa03c2522feef9ca
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60728056"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609781"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configuración de Reliable Actors: KVSActorStateProvider
 Puede modificar la configuración predeterminada de KVSActorStateProvider cambiando el archivo settings.xml que se genera en la raíz del paquete de Microsoft Visual Studio en la carpeta Config del actor especificado.
@@ -49,8 +40,8 @@ La configuración predeterminada es generada por la plantilla de Visual Studio y
 ### <a name="section-name"></a>Nombre de sección
 &lt;ActorName&gt;ServiceReplicatorConfig
 
-### <a name="configuration-names"></a>Nombres de configuración
-| NOMBRE | Unidad | Valor predeterminado | Comentarios |
+### <a name="configuration-names"></a>Nombres de la configuración
+| Nombre | Unidad | Valor predeterminado | Observaciones |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Segundos |0.015 |Período de tiempo durante el que el replicador del secundario espera después de recibir una operación antes de enviar una confirmación al principal. El resto de confirmaciones que se enviarán para las operaciones que se procesan dentro de este intervalo se envían como una respuesta. |
 | ReplicatorEndpoint |N/D |Ningún valor predeterminado: parámetro obligatorio |Dirección IP y puerto que usará el replicador principal y secundario para comunicarse con otros replicadores del conjunto de réplicas. Esto debe hacer referencia a un punto de conexión de recursos de TCP en el manifiesto de servicio. Consulte [Service Manifest Resources](service-fabric-service-manifest-resources.md) (Recursos del manifiesto de servicio) para obtener más información sobre cómo definir recursos de punto de conexión en el manifiesto de servicio. |
@@ -66,8 +57,8 @@ La configuración predeterminada es generada por la plantilla de Visual Studio y
 ### <a name="section-name"></a>Nombre de sección
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
-### <a name="configuration-names"></a>Nombres de configuración
-| NOMBRE | Unidad | Valor predeterminado | Comentarios |
+### <a name="configuration-names"></a>Nombres de la configuración
+| Nombre | Unidad | Valor predeterminado | Observaciones |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |Milisegundos |200 |Establece el intervalo máximo de procesamiento por lotes de las confirmaciones del almacén local duradero. |
 | MaxVerPages |Número de páginas |16384 |El número máximo de páginas de versión en la base de datos del almacén local. Determina el número máximo de transacciones pendientes. |
@@ -94,7 +85,7 @@ La configuración predeterminada es generada por la plantilla de Visual Studio y
    </Section>
 </Settings>
 ```
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 El parámetro BatchAcknowledgementInterval controla la latencia de replicación. Un valor de "0" ofrecerá la menor latencia posible, a costa del rendimiento (como deben enviarse y procesarse más mensajes de confirmación, cada uno con menos confirmaciones).
 Cuanto mayor sea el valor de BatchAcknowledgementInterval, mayor será el rendimiento general de la replicación a costa de una mayor latencia de la operación. Esto se traduce directamente en la latencia de transacciones confirmadas.
 

@@ -3,19 +3,19 @@ title: Montar el volumen de emptyDir en el grupo de contenedores
 description: Más información sobre cómo montar un volumen emptyDir para compartir datos entre los contenedores de un grupo de contenedores de Azure Container Instances
 ms.topic: article
 ms.date: 02/08/2018
-ms.openlocfilehash: 0440bcc490b766c12b2117d2453557707df2a1c4
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 955423b685ebb3979271c7c2dc7e835a16100c2b
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533230"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552464"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Montaje de un volumen de emptyDir en Azure Container Instances
 
-Aprenda a montar un volumen *emptyDir* para compartir datos entre los contenedores de un grupo de contenedores en Azure Container Instances.
+Aprenda a montar un volumen *emptyDir* para compartir datos entre los contenedores de un grupo de contenedores en Azure Container Instances. Use los volúmenes *emptyDir* como memorias caché efímeras para las cargas de trabajo en contenedores.
 
 > [!NOTE]
-> El montaje de un volumen *emptyDir* está actualmente restringido a los contenedores de Linux. Aunque se está trabajando para incorporar todas las características a los contenedores Windows, puede consultar las diferencias actuales entre plataformas en [Información general](container-instances-overview.md#linux-and-windows-containers).
+> El montaje de un volumen *emptyDir* está actualmente restringido a los contenedores de Linux. Aunque se está trabajando para incorporar todas las características a los contenedores Windows, puede consultar las diferencias actuales entre plataformas en la [introducción](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="emptydir-volume"></a>Volumen emptyDir
 
@@ -27,7 +27,7 @@ Algunos ejemplos de uso de un volumen *emptyDir*:
 * Punto de control durante las tareas de ejecución prolongada
 * Almacenamiento de datos recuperados por un contenedor sidecar y atendidos por un contenedor de aplicación
 
-Los datos incluidos en un volumen *emptyDir* se conservan a través de bloqueos de contenedor. Pero no se garantiza que se conserven los datos de un volumen *emptyDir* en los contenedores que se reinicien.
+Los datos incluidos en un volumen *emptyDir* se conservan a través de bloqueos de contenedor. Pero no se garantiza que se conserven los datos de un volumen *emptyDir* en los contenedores que se reinicien. Si detiene un grupo de contenedores, el volumen *emptyDir* no se conserva.
 
 ## <a name="mount-an-emptydir-volume"></a>Montaje de un volumen emptyDir
 

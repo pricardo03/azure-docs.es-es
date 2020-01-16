@@ -9,12 +9,12 @@ ms.date: 06/27/2017
 ms.author: rogarana
 ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 1bf46240303d1f31cd09c1a2723e18d27d3ef789
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b8b3679676cf019a48c55211d81bee0523764db5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124682"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351238"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migración a Azure Premium Storage (discos no administrados)
 
@@ -41,7 +41,7 @@ Para completar el proceso de migración en su totalidad puede ser necesario real
 ## <a name="plan-the-migration-to-premium-storage"></a>Planeamiento de la migración a Premium Storage
 Esta sección le garantiza que está preparado para seguir los pasos de migración de este artículo y le ayuda a tomar la mejor decisión sobre los tipos de disco y máquina virtual.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 * Necesitará una suscripción de Azure. Si no tiene ninguna, puede crear una suscripción de [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) de un mes o visitar la página [Precios de Azure](https://azure.microsoft.com/pricing/) para conocer más opciones.
 * Para ejecutar los cmdlets de PowerShell, necesitará un módulo de Microsoft Azure PowerShell. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview) para obtener instrucciones sobre el punto de instalación y la instalación.
 * Si tiene previsto ejecutar máquinas virtuales de Azure en Premium Storage, deberá usar las máquinas virtuales de este tipo de almacenamiento. Puede usar discos de almacenamiento Estándar y Premium Storage con las máquinas virtuales compatibles con Premium Storage. Pronto habrá disponibles discos de Almacenamiento premium con más tipos de VM. Para obtener más información sobre todos los tamaños y tipos de disco de máquina virtual de Azure disponibles, consulte [Tamaños de máquinas virtuales](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) y [Tamaños de Cloud Services](../../cloud-services/cloud-services-sizes-specs.md).
@@ -59,7 +59,7 @@ Hay tres tipos de discos que se pueden usar con las máquinas virtuales y cada u
 |:-------------------:|:-----:|:-----:|:--------------:|:--------------:|:--------------:|
 | Tamaño del disco           | 128 GB| 512 GB| 1\.024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 | IOPS por disco       | 500   | 2300  | 5000           | 7500           | 7500           | 
-| Rendimiento de disco. | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
+| Rendimiento de disco. | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
 
 Dependiendo de la carga de trabajo, decida si son necesarios más discos de datos para la máquina virtual. Puede conectar varios discos de datos persistentes a la máquina virtual. Si es necesario, puede crear bandas en los discos para aumentar la capacidad y el rendimiento del volumen. (Consulte qué es el seccionamiento de discos [aquí](../../virtual-machines/windows/premium-storage-performance.md#disk-striping)). Si secciona discos de datos Premium Storage usando [Espacios de almacenamiento][4], será necesario configurarlo con una columna por cada disco que use. De lo contrario, el rendimiento general del volumen seccionado puede ser inferior al esperado debido a la distribución desigual de tráfico entre los discos. En las máquinas virtuales de Linux, esto se logra con la utilidad *mdadm* . Vea el artículo [Configuración del software RAID en Linux](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para más información.
 
@@ -70,7 +70,7 @@ Aparte de los [objetivos de escalabilidad y rendimiento de Azure Storage](storag
 |:--- |:--- |
 | Capacidad de disco: 35 TB<br />Capacidad de instantánea: 10 TB |Hasta 50 gigabits por segundo de entrada y salida |
 
-Para más información sobre las especificaciones de Premium Storage, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](storage-scalability-targets.md#premium-performance-storage-account-scale-limits).
+Para más información sobre las especificaciones de Premium Storage, consulte [Objetivos de escalabilidad de las cuentas de almacenamiento de blob en páginas Prémium](../blobs/scalability-targets-premium-page-blobs.md).
 
 #### <a name="disk-caching-policy"></a>Directiva de almacenamiento en caché de disco
 De forma predeterminada, la directiva de almacenamiento en caché de los discos es *Solo lectura* para todos los discos de datos Premium y *Lectura y Escritura* para el disco de sistema operativo Premium conectado a la máquina virtual. Se recomienda esta opción de configuración para lograr el rendimiento óptimo de E/S de la aplicación. Para discos de datos de solo escritura o de gran cantidad de escritura (por ejemplo, archivos de registro de SQL Server), deshabilite el almacenamiento en caché de disco para lograr un mejor rendimiento de la aplicación. La configuración de caché de los discos de datos existentes se puede actualizar mediante [Azure Portal](https://portal.azure.com) o con el parámetro *-HostCaching* del cmdlet *Set-AzureDataDisk*.
@@ -81,8 +81,8 @@ Elija una ubicación donde Azure Premium Storage esté disponible. Consulte [Ser
 #### <a name="other-azure-vm-configuration-settings"></a>Otras opciones de configuración de máquina virtual de Azure
 Al crear una máquina virtual de Azure, hay que establecer ciertas configuraciones de máquina virtual. Recuerde que hay algunas configuraciones que son fijas durante la vigencia de la máquina virtual, además de que puede modificar o agregar otras más adelante. Revise estos valores de configuración de máquina virtual de Azure y asegúrese de que están configurados correctamente para que coincidan con sus requisitos de carga de trabajo.
 
-### <a name="optimization"></a>Optimización
-En [Azure Premium Storage: diseño de alto rendimiento](../../virtual-machines/windows/premium-storage-performance.md) se proporcionan instrucciones para crear aplicaciones de alto rendimiento con Azure Premium Storage. Puede seguir las instrucciones junto con los procedimientos recomendados de rendimiento aplicables a las tecnologías usadas en la aplicación.
+### <a name="optimization"></a>Optimization
+[Azure Premium Storage: diseño de alto rendimiento](../../virtual-machines/windows/premium-storage-performance.md) se proporcionan instrucciones para crear aplicaciones de alto rendimiento con Azure Premium Storage. Puede seguir las instrucciones junto con los procedimientos recomendados de rendimiento aplicables a las tecnologías usadas en la aplicación.
 
 ## <a name="prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage"></a>Preparación y copia de discos duros virtuales (VHD) en Premium Storage
 En la siguiente sección se proporcionan instrucciones para preparar discos duros virtuales de la máquina virtual y copiarlos en Azure Storage.
@@ -90,7 +90,7 @@ En la siguiente sección se proporcionan instrucciones para preparar discos duro
 * [Escenario 1: "Voy a migrar VM de Azure existentes a Azure Premium Storage".](#scenario1)
 * [Escenario 2: "Voy a migrar VM desde otras plataformas a Azure Premium Storage".](#scenario2)
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 Para preparar los VHD para la migración, necesitará:
 
 * Una suscripción a Azure, una cuenta de almacenamiento y un contenedor en dicha cuenta en el que se pueda copiar el VHD. Conviene saber que, según cuáles sean sus necesidades, la cuenta de almacenamiento de destino puede ser una cuenta de Standard o Premium Storage.
@@ -180,11 +180,11 @@ Con AzCopy resulta muy fácil cargar el VHD a través de Internet. Dependiendo d
  
    Estas son las descripciones de los parámetros utilizados en el comando AzCopy:
 
-   * **/Source:** _&lt;source&gt;:_ ubicación de la carpeta o dirección URL del contenedor de almacenamiento que contiene el disco duro virtual.
-   * **/SourceKey:** _&lt;source-account-key&gt;:_ clave de cuenta de almacenamiento de la cuenta de almacenamiento de origen.
-   * **/Dest:** _&lt;destination&gt;:_ dirección URL del contenedor de almacenamiento donde se va a copiar el disco duro virtual.
-   * **/DestKey:** _&lt;dest-account-key&gt;:_ clave de cuenta de almacenamiento de la cuenta de almacenamiento de destino.
-   * **/Pattern:** _&lt;file-name&gt;:_ escriba el nombre de archivo del disco duro virtual que va a copiar.
+   * **/Source:** _&lt;origen&gt;:_ ubicación de la carpeta o dirección URL del contenedor de almacenamiento que contiene el disco duro virtual.
+   * **/SourceKey:** _claveDeCuentaDeOrigen&lt;:&gt;_ clave de cuenta de almacenamiento de la cuenta de almacenamiento de origen.
+   * **/Dest:** _destino&lt;:&gt;_ dirección URL del contenedor de almacenamiento donde se va a copiar el disco duro virtual.
+   * **/DestKey:** _Destino&lt;:&gt;_ clave de cuenta de almacenamiento de la cuenta de almacenamiento de destino.
+   * **/Pattern:** _nombreDeArchivo&lt;:&gt;_ escriba el nombre de archivo del disco duro virtual que va a copiar.
 
 Para obtener más información sobre cómo usar la herramienta AzCopy, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md).
 
@@ -277,12 +277,12 @@ Con AzCopy resulta muy fácil cargar el VHD a través de Internet. Dependiendo d
 
    Estas son las descripciones de los parámetros utilizados en el comando AzCopy:
 
-   * **/Source:** _&lt;source&gt;:_ ubicación de la carpeta o dirección URL del contenedor de almacenamiento que contiene el disco duro virtual.
-   * **/SourceKey:** _&lt;source-account-key&gt;:_ clave de cuenta de almacenamiento de la cuenta de almacenamiento de origen.
-   * **/Dest:** _&lt;destination&gt;:_ dirección URL del contenedor de almacenamiento donde se va a copiar el disco duro virtual.
-   * **/DestKey:** _&lt;dest-account-key&gt;:_ clave de cuenta de almacenamiento de la cuenta de almacenamiento de destino.
+   * **/Source:** _&lt;origen&gt;:_ ubicación de la carpeta o dirección URL del contenedor de almacenamiento que contiene el disco duro virtual.
+   * **/SourceKey:** _claveDeCuentaDeOrigen&lt;:&gt;_ clave de cuenta de almacenamiento de la cuenta de almacenamiento de origen.
+   * **/Dest:** _destino&lt;:&gt;_ dirección URL del contenedor de almacenamiento donde se va a copiar el disco duro virtual.
+   * **/DestKey:** _Destino&lt;:&gt;_ clave de cuenta de almacenamiento de la cuenta de almacenamiento de destino.
    * **/BlobType: page:** indica que el destino es un blob en páginas.
-   * **/Pattern:** _&lt;file-name&gt;:_ escriba el nombre de archivo del disco duro virtual que va a copiar.
+   * **/Pattern:** _nombreDeArchivo&lt;:&gt;_ escriba el nombre de archivo del disco duro virtual que va a copiar.
 
 Para obtener más información sobre cómo usar la herramienta AzCopy, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md).
 
@@ -764,7 +764,7 @@ Vea los siguientes recursos para conocer otros escenarios específicos de migrac
 
 Consulte también los siguientes recursos para más información sobre Azure Storage y Azure Virtual Machines:
 
-* [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
+* [Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Selección de un tipo de disco para máquinas virtuales de IaaS](../../virtual-machines/windows/disks-types.md)
 

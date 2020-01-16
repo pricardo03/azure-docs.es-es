@@ -1,6 +1,6 @@
 ---
-title: Uso de la biblioteca Bulk Executor en Java para realizar operaciones de actualización e importación en masa en Azure Cosmos DB
-description: Actualice e importe en masa documentos de Azure Cosmos DB mediante la biblioteca Bulk Executor en Java.
+title: Uso de la biblioteca Bulk Executor de Java en Azure Cosmos DB para realizar operaciones de actualización e importación en bloque
+description: Actualización e importación en bloque de documentos de Azure Cosmos DB mediante la biblioteca Bulk Executor de Java
 author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: ef006e94ee22886f1129c7c9ca31e20503312fe3
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: bf2a2385b3129ddf24ede7f6d851701186b0e33c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616928"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445703"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Uso de la biblioteca BulkExecutor en Java para realizar operaciones en masa con datos de Azure Cosmos DB
 
@@ -22,7 +22,7 @@ En este tutorial se proporcionan instrucciones sobre cómo usar la biblioteca Bu
 
 Actualmente, la biblioteca Bulk Executor solo es compatible con las cuentas de API de SQL de Azure Cosmos DB y Gremlin API. En este artículo se describe cómo usar la biblioteca Bulk Executor de Java con las cuentas de API de SQL. Para obtener información acerca de cómo utilizar la biblioteca Bulk Executor de .NET con Gremlin API, consulte [realizar operaciones en masa en Gremlin API de Azure Cosmos DB](bulk-executor-graph-dotnet.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.  
 

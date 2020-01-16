@@ -3,12 +3,12 @@ title: Configuración de informes de Power BI
 description: Configure los informes de Power BI para Azure Backup con el almacén de Recovery Services.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 6e8482aea4f1d757550d4490e3a9972f664729c9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 9b6ef62a924761642ef3217ff8af64ac6847c766
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173190"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450104"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 
@@ -28,7 +28,7 @@ Descargue la aplicación más reciente (versión 1.8) para evitar este problema.
 - Puede ver los informes de los almacenes y las suscripciones, en caso de que la misma cuenta de almacenamiento esté configurada para cada uno de los almacenes. La cuenta de almacenamiento seleccionada debe estar en la misma región que el almacén de Recovery Services.
 - La frecuencia de actualización programada para los informes es de 24 horas en Power BI. También puede realizar una actualización a petición de los informes en Power BI. En este caso, los últimos datos de la cuenta de almacenamiento del cliente se utilizan para representar los informes.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Cree una [cuenta de Azure Storage](../storage/common/storage-quickstart-create-account.md) para informes. Esta cuenta de almacenamiento se usa para almacenar datos relacionados con los informes.
 - [Cree una cuenta de Power BI](https://powerbi.microsoft.com/landing/signin/) para ver, personalizar y crear sus propios informes mediante el portal de Power BI.
@@ -88,7 +88,7 @@ Si desea personalizar y compartir el informe, cree un área de trabajo y realice
 4. Escriba el nombre de la cuenta de almacenamiento que se configuró en el paso 5 anterior y seleccione **Siguiente**.
 
     ![Escribir el nombre de la cuenta de Storage](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)
-5. Mediante el método de autenticación "Clave", escriba la clave de cuenta de almacenamiento de esta cuenta de Storage. Para [ver y copiar las claves de acceso de almacenamiento](../storage/common/storage-account-manage.md#access-keys), vaya a la cuenta de almacenamiento en Azure Portal.
+5. Mediante el método de autenticación "Clave", escriba la clave de cuenta de almacenamiento de esta cuenta de Storage. Puede encontrar las credenciales de su cuenta de almacenamiento en Azure Portal. Para obtener más información, consulte [Administración de las claves de acceso de la cuenta de almacenamiento](../storage/common/storage-account-keys-manage.md).
 
      ![Escribir la cuenta de Storage](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
 
@@ -112,9 +112,9 @@ Si desea personalizar y compartir el informe, cree un área de trabajo y realice
 
       ![Pestañas de informes de Azure Backup](./media/backup-azure-configure-reports/reports-tab-view.png)
 
-## <a name="troubleshooting-errors"></a>Solución de errores
+## <a name="troubleshooting-errors"></a>Solucionar errores
 
-| Detalles del error | Resolución |
+| Detalles del error | Solución |
 | --- | --- |
 | Después de configurar la cuenta de almacenamiento para los informes de Backup, la **cuenta de almacenamiento** sigue mostrando **No configurado**. | Si ha configurado correctamente la cuenta de almacenamiento, los datos de los informes se transmiten a pesar de este problema. Para resolver este problema, vaya a Azure Portal y seleccione **Todos los servicios** > **Configuración de diagnóstico** > **Almacén de Recovery Services** > **Editar configuración**. Elimine el valor configurado previamente y cree una nueva configuración en la misma hoja. Esta vez, en el cuadro **Nombre**, seleccione **Servicio**. Ahora, se muestra la cuenta de almacenamiento configurada. |
 |Después de importar la aplicación de plantilla de Azure Backup en Power BI, aparece un mensaje de error "404-no se encuentra el contenedor". | Como se ha mencionado anteriormente, debe esperar 24 horas después de configurar los informes en el almacén de Recovery Services para verlos correctamente en Power BI. Si intenta acceder a los informes antes de 24 horas, este error se muestra porque aún no hay datos completos para mostrar informes válidos. |

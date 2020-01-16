@@ -1,25 +1,14 @@
 ---
-title: Empaquetado de una aplicación de Azure Service Fabric | Microsoft Docs
-description: Empaquetado de una aplicación de Service Fabric antes de implementarla en un clúster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Empaquetado de una aplicación de Azure Service Fabric
+description: Obtenga información sobre cómo empaquetar una aplicación de Azure Service Fabric y cómo prepararse para la implementación en un clúster.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: b8e66a9d5bba0c48f15b1ccd3f2d47e5405db792
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16bd48963040a8e30ff81f40c01134014eaccf48
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718382"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639690"
 ---
 # <a name="package-an-application"></a>Empaquetar una aplicación
 

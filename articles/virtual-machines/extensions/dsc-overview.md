@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 7e309237589dfaf037114401172fc8f928a30077
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 8f243527461a95d963854d8d018602dd81115482
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176644"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497283"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introducción al controlador de extensiones de configuración de estado deseado de Azure
 
@@ -36,7 +36,7 @@ No hay ningún informe disponible, excepto los locales en la máquina virtual.
 
 Este artículo proporciona información sobre ambos escenarios de uso de la extensión DSC: para la incorporación de Automation y como herramienta para asignar configuraciones a las máquinas virtuales mediante Azure SDK.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - **Máquina local**: Para interactuar con la extensión de VM de Azure, debe usar Azure Portal o el SDK de Azure PowerShell.
 - **Agente invitado**: La VM de Azure que cuenta con la configuración de DSC debe tener un SO que admita Windows Management Framework (WMF) 4.0 o posterior. La lista completa de las versiones compatibles del SO puede encontrarse en el [historial de versiones de la extensión DSC](/powershell/scripting/dsc/getting-started/azuredscexthistory).
@@ -49,7 +49,7 @@ Esta guía asume que está familiarizado con los conceptos siguientes:
 - **Nodo**: Un destino para una configuración de DSC. En este documento, *nodo* siempre hace referencia a una máquina virtual de Azure.
 - **Datos de configuración**: Un archivo .psd1 que tiene datos del entorno de una configuración.
 
-## <a name="architecture"></a>Arquitectura
+## <a name="architecture"></a>Architecture
 
 La extensión DSC de Azure usa el marco del agente de máquina virtual de Azure para entregar y aplicar las configuraciones de DSC que se ejecutan en las máquinas virtuales de Azure, así como informar sobre estas. La extensión DSC acepta un documento de configuración y un conjunto de parámetros. Si no se proporciona ningún archivo, se inserta un [script de configuración predeterminada](#default-configuration-script) con la extensión. El script de configuración predeterminada se usa únicamente para establecer metadatos en el [administrador de configuración Local](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
@@ -115,7 +115,7 @@ Información importante acerca de los cmdlets de la extensión DSC de Resource M
 
 La extensión DSC de Azure puede usar documentos de configuración de DSC para configurar directamente las máquinas virtuales de Azure durante la implementación. Este paso no registra el nodo en Automation. El nodo *no* se administrada centralmente.
 
-En el ejemplo siguiente se muestra un ejemplo sencillo de una configuración. Guarde la configuración de forma local como IisInstall.ps1.
+En el ejemplo siguiente se muestra un ejemplo sencillo de una configuración. Guarde la configuración de forma local como iisInstall.ps1.
 
 ```powershell
 configuration IISInstall
@@ -131,7 +131,7 @@ configuration IISInstall
 }
 ```
 
-Los siguientes comandos colocan el script IisInstall.ps1 en la máquina virtual especificada. Los comandos también ejecutan la configuración y luego informan sobre el estado.
+Los siguientes comandos colocan el script iisInstall.ps1 en la máquina virtual especificada. Los comandos también ejecutan la configuración y luego informan sobre el estado.
 
 ```powershell
 $resourceGroup = 'dscVmDemo'

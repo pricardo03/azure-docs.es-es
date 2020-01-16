@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8ccd98553b06ef3fcd2241c8223889c0a86e331
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fa25a1b1d24c034a92a94ac9378bc4bff3947348
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024664"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639928"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Roles de administrador por tarea de administrador en Azure Active Directory
 
@@ -53,11 +53,11 @@ Crear, leer, actualizar y eliminar flujos de usuario de inicio de sesión | Admi
 Crear, leer, actualizar y eliminar flujos de usuario de registro |Administrador global | 
 Crear, leer, actualizar y eliminar atributos de usuario | Administrador global | 
 Crear, leer, actualizar y eliminar usuarios | Administrador global ([consulte la documentación](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
-Leer toda la configuración | Administrador global | 
-Leer registros de auditoría de B2C | Administrador global ([consulte la documentación](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+Leer toda la configuración | Lector global | 
+Leer registros de auditoría de B2C | Lector global ([consulte la documentación](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
 
 > [!NOTE]
-> Los administradores globales de Azure AD B2C no tiene los mismos permisos que los administradores globales de Azure AD. Si tiene privilegios de administrador global de Azure AD B2C, asegúrese de que se encuentra en un directorio de Azure AD B2C, no de Azure AD.
+> Los lectores globales de Azure AD B2C no tienen los mismos permisos que los administradores globales de Azure AD. Si tiene privilegios de administrador global de Azure AD B2C, asegúrese de que se encuentra en un directorio de Azure AD B2C, no de Azure AD.
 
 ## <a name="company-branding"></a>Personalización de marca de empresa
 
@@ -77,7 +77,7 @@ Configurar propiedades de la empresa | Administrador global |
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Autenticación de paso a través | Administrador global | 
-Leer toda la configuración | Administrador global | 
+Leer toda la configuración | Lector global | 
 Inicio de sesión único de conexión directa | Administrador global | 
 
 ## <a name="connect-health"></a>Connect Health
@@ -87,7 +87,7 @@ Tarea | Rol con privilegios mínimos | Roles adicionales
 Agregar o eliminar servicios | Propietario ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
 Aplicar correcciones de errores de sincronización | Colaborador ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Propietario
 Configuración de notificaciones | Colaborador ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Propietario
-Definición de la configuración | Propietario ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
+Definición de configuración | Propietario ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
 Configurar notificaciones de sincronización | Colaborador ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Propietario
 Leer informes de seguridad de ADFS | Lector de seguridad | Colaborador, Propietario
 Leer toda la configuración | Lector ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Colaborador, Propietario
@@ -96,7 +96,6 @@ Leer servicios de sincronización | Lector ([consulte la documentación](https:/
 Ver métricas y alertas | Lector ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Colaborador, Propietario
 Ver métricas y alertas | Lector ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Colaborador, Propietario
 Ver métricas y alertas del servicio de sincronización | Lector ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Colaborador, Propietario
-
 
 ## <a name="custom-domain-names"></a>Nombres de dominio personalizados
 
@@ -227,9 +226,9 @@ Configurar la omisión por única vez | Administrador global |
 Configurar la configuración de la llamada de teléfono | Administrador global | 
 Configurar proveedores | Administrador global | 
 Configuración del servidor | Administrador global | 
-Leer informe de actividades | Administrador global | 
-Leer toda la configuración | Administrador global | 
-Leer estado del servidor | Administrador global |  
+Leer informe de actividades | Lector global | 
+Leer toda la configuración | Lector global | 
+Leer estado del servidor | Lector global |  
 
 ## <a name="organizational-relationships"></a>Relaciones organizativas
 
@@ -238,7 +237,7 @@ Tarea | Rol con privilegios mínimos | Roles adicionales
 Administrar proveedores de identidad | Administrador global | 
 Administración de la configuración | Administrador global | 
 Administrar términos de uso | Administrador global | 
-Leer toda la configuración | Administrador global | 
+Leer toda la configuración | Lector global | 
 
 ## <a name="password-reset"></a>Restablecimiento de contraseña
 
@@ -274,7 +273,7 @@ Leer toda la configuración | Rol de usuario predeterminado ([consulte la docume
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Configurar métodos de autenticación | Administrador global | 
-Leer toda la configuración | Administrador global | 
+Leer toda la configuración | Lector global | 
 
 ## <a name="security---conditional-access"></a>Seguridad: acceso condicional
 

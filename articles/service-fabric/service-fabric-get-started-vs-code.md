@@ -1,24 +1,16 @@
 ---
-title: Introducción a Azure Service Fabric con VS Code | Microsoft Docs
+title: Introducción a Azure Service Fabric con VS Code
 description: En este artículo se ofrece una introducción a la creación de aplicaciones de Service Fabric mediante Visual Studio Code.
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 9662ebd26a263fa006c8fccf877fdc950e9014c0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d7d3182ad00d0ce151c6d327b29584c7e2ff1323
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102957"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457867"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric para Visual Studio Code
 
@@ -29,7 +21,7 @@ En este artículo se proporciona información general sobre los requisitos y la 
 > [!IMPORTANT]
 > Las aplicaciones de Java para Service Fabric se pueden desarrollar en máquinas Windows, pero solo se pueden implementar en clústeres Linux de Azure. En Windows no se admite la depuración de aplicaciones de Java.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Los siguientes requisitos previos deben instalarse en todos los entornos.
 
@@ -58,7 +50,7 @@ Los siguientes requisitos previos deben instalarse para programar con .NET Core 
 * [.NET Core](https://www.microsoft.com/net/learn/get-started) (versión 2.0.0 o posteriores)
 * [Extensión VS Code de C# para Visual Studio Code (con tecnología OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) Necesario para depurar los servicios de C#. Para instalar, puede hacer clic en el icono Extensiones en la **Barra de actividades** de VS Code y buscar la extensión, o puede usar VS Code Marketplace.
 
-## <a name="setup"></a>Configuración
+## <a name="setup"></a>Configurar
 
 1. Abra VS Code.
 2. Haga clic en el icono Extensiones en la **Barra de actividad** en el lateral izquierdo de VS Code. Busque "Service Fabric". Haga clic en **Instalar** para instalar la extensión de Service Fabric Reliable Services.

@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: 939606412c55ddad29801776c2385b406dc93a33
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: b7c406c1d7f55b364d72b2b5626b3c17a34d8338
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286755"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552770"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutorial: adición de una instancia administrada de SQL Database a un grupo de conmutación por error
 
@@ -31,20 +31,21 @@ Agregue una instancia administrada de SQL Database a un grupo de conmutación po
   > [!NOTE]
   > - Al completar este tutorial, asegúrese de que está configurando los recursos con los [requisitos previos para configurar grupos de conmutación por error para la instancia administrada](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - La creación de una instancia administrada puede tardar bastante tiempo. Como resultado, este tutorial podría tardar varias horas en completarse. Para obtener más información sobre los tiempos de aprovisionamiento, consulte [Operaciones de administración de instancia administrada](sql-database-managed-instance.md#managed-instance-management-operations). 
+  > - Las instancias administradas que participan en un grupo de conmutación por error requieren [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) o dos puertas de enlace de VPN conectadas. En este tutorial se proporcionan los pasos para crear y conectar las puertas de enlace de VPN. Sáltese estos pasos si ya tiene ExpressRoute configurado. 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Para completar este tutorial, asegúrese de disponer de los siguientes elementos: 
 
-- Una suscripción de Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
+- Suscripción a Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
 
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Para completar el tutorial, asegúrese de que cuenta con los elementos siguientes:
 
-- Una suscripción de Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
+- Suscripción a Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 ---
@@ -59,7 +60,7 @@ En este paso, creará el grupo de recursos y la instancia administrada principal
 Cree el grupo de recursos y la instancia administrada principal mediante Azure Portal. 
 
 1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
-1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver más información sobre las distintas bases de datos, seleccione Mostrar detalles en el icono Bases de datos.
+1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para más información acerca de las distintas bases de datos, seleccione Mostrar detalles en el icono Bases de datos.
 1. Seleccione **Crear** en el icono **Instancias administradas de SQL**. 
 
     ![Selección de la instancia administrada](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
@@ -420,7 +421,7 @@ Para crear una red virtual, siga estos pasos:
 
    En la tabla siguiente se muestran los valores necesarios para la red virtual secundaria:
 
-    | **Campo** | Valor |
+    | **Campo** | Value |
     | --- | --- |
     | **Nombre** |  Nombre de la red virtual que va a usar la instancia administrada secundaria, como `vnet-sql-mi-secondary`. |
     | **Espacio de direcciones** | Espacio de direcciones de la red virtual, como `10.128.0.0/16`. | 
@@ -450,7 +451,7 @@ La segunda instancia administrada debe:
 Cree una instancia administrada secundaria mediante Azure Portal. 
 
 1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
-1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver más información sobre las distintas bases de datos, seleccione Mostrar detalles en el icono Bases de datos.
+1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para más información acerca de las distintas bases de datos, seleccione Mostrar detalles en el icono Bases de datos.
 1. Seleccione **Crear** en el icono **Instancias administradas de SQL**. 
 
     ![Selección de la instancia administrada](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
@@ -459,7 +460,7 @@ Cree una instancia administrada secundaria mediante Azure Portal.
 
    En la tabla siguiente se muestran los valores necesarios para la instancia administrada secundaria:
  
-    | **Campo** | Valor |
+    | **Campo** | Value |
     | --- | --- |
     | **Suscripción** |  Suscripción en la que reside la instancia administrada principal. |
     | **Grupos de recursos**| Grupo de recursos en el que reside la instancia administrada principal. |
@@ -728,7 +729,9 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 ---
 
 ## <a name="4---create-primary-gateway"></a>4\. Creación de una puerta de enlace principal 
-Para que dos instancias administradas participen en un grupo de conmutación por error, debe haber una puerta de enlace configurada entre las redes virtuales de las dos instancias administradas para permitir la comunicación en red. Puede crear la puerta de enlace para la instancia administrada principal mediante Azure Portal. 
+Para que dos instancias administradas participen en un grupo de conmutación por error, debe haber una puerta de enlace o ExpressRoute configurados entre las redes virtuales de las dos instancias administradas para permitir la comunicación en red. Si decide configurar [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) en lugar de conectar dos puertas de enlace de VPN, vaya al [paso 7](#7---create-a-failover-group).  
+
+En este artículo se proporcionan los pasos para crear las dos puertas de enlace de VPN y conectarlas, pero puede ir directamente a la creación del grupo de conmutación por error si ha configurado ExpressRoute en su lugar. 
 
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
@@ -749,7 +752,7 @@ Cree la puerta de enlace para la red virtual de la instancia administrada princi
 
    En la tabla siguiente se muestran los valores necesarios para la puerta de enlace de la instancia administrada principal:
  
-    | **Campo** | Valor |
+    | **Campo** | Value |
     | --- | --- |
     | **Suscripción** |  Suscripción en la que reside la instancia administrada principal. |
     | **Nombre** | Nombre de la puerta de enlace de red virtual, como `primary-mi-gateway`. | 
@@ -815,7 +818,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Obtiene una subred en una red virtual. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Crea una dirección IP pública.  | 
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Crea una configuración de IP para una puerta de enlace de Virtual Network. |
-| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Crea una puerta de enlace de red virtual |
+| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Crea una puerta de enlace de Virtual Network. |
 
 
 ---
@@ -831,7 +834,7 @@ Mediante Azure Portal, repita los pasos de la sección anterior para crear la su
 
    En la tabla siguiente se muestran los valores necesarios para la puerta de enlace de la instancia administrada secundaria:
 
-   | **Campo** | Valor |
+   | **Campo** | Value |
    | --- | --- |
    | **Suscripción** |  Suscripción en la que reside la instancia administrada secundaria. |
    | **Nombre** | Nombre de la puerta de enlace de red virtual, como `secondary-mi-gateway`. | 
@@ -896,7 +899,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Obtiene una subred en una red virtual. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Crea una dirección IP pública.  | 
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Crea una configuración de IP para una puerta de enlace de Virtual Network. |
-| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Crea una puerta de enlace de red virtual |
+| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Crea una puerta de enlace de Virtual Network. |
 
 ---
 
@@ -968,7 +971,7 @@ En este paso, creará el grupo de conmutación por error y le agregará ambas in
 Cree el grupo de conmutación por error mediante Azure Portal. 
 
 
-1. Seleccione **Azure SQL** en el menú izquierdo de [Azure Portal](https://portal.azure.com). Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
+1. Seleccione **Azure SQL** en el menú izquierdo de [Azure Portal](https://portal.azure.com). Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
 1. Seleccione la instancia administrada principal que creó en la primera sección, por ejemplo, `sql-mi-primary`. 
 1. En **Configuración**, navegue a **Grupos de conmutación por error de instancias** y, después, elija **Agregar grupo** para abrir la página **Grupo de conmutación por error de instancias**. 
 
@@ -997,7 +1000,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 
 | Get-Help | Notas |
 |---|---|
-| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Cree un nuevo grupo de conmutación por error de la instancia administrada de Azure SQL Database.  |
+| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Crea un nuevo grupo de conmutación por error de la instancia administrada de Azure SQL Database.  |
 
 
 ---

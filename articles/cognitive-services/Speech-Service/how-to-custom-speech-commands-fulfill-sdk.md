@@ -1,7 +1,7 @@
 ---
 title: Realización de comandos personalizados en el cliente con el SDK de Voz
 titleSuffix: Azure Cognitive Services
-description: En este artículo, controle las actividades de comandos personalizados en el cliente con el SDK de Voz
+description: En este artículo, explicamos cómo controlar las actividades de comandos personalizados en el cliente con el SDK de Voz.
 services: cognitive-services
 author: donkim
 manager: yetian
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 39e0a512e42dd861c0ee2c833501c7594204cb8b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: d17ccc67f8254f05461012a9ae443d96ffd58fa5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806157"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446926"
 ---
 # <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>Instrucciones: Realización de comandos en el cliente con el SDK de Voz (versión preliminar)
 
@@ -26,7 +26,7 @@ En este artículo, hará lo siguiente:
 - Definir y enviar una carga JSON personalizada desde la aplicación de comandos personalizados.
 - Recibir y visualizar el contenido de la carga JSON personalizada desde una aplicación cliente del SDK de Voz en C# de UWP.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 - Una clave de suscripción de Azure para el servicio de voz.
@@ -49,7 +49,7 @@ En este artículo se describe, paso a paso, cómo hacer que una aplicación clie
    > [!div class="mx-imgBorder"]
    > ![Regla de finalización Enviar actividad](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
-   | Configuración | Valor sugerido | DESCRIPCIÓN |
+   | Configuración | Valor sugerido | Descripción |
    | ------- | --------------- | ----------- |
    | Nombre de la regla | UpdateDeviceState | Nombre que describe el propósito de la regla. |
    | Condiciones | Parámetro obligatorio: `OnOff` y `SubjectDevice`. | Condiciones que determinan cuándo se puede ejecutar la regla. |
@@ -142,4 +142,4 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Uso de adición de validaciones a los parámetros de comandos personalizados (versión preliminar)](./how-to-custom-speech-commands-validations.md)
+> [Cómo: adición de validaciones a los parámetros de comandos personalizados (versión preliminar)](./how-to-custom-speech-commands-validations.md)

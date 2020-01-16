@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 315d65b635f34847d0310e6b6adf03e20f2afd45
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 019ddbac1900856666b958d90b4395f25eb5ee84
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807527"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461556"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configuración de SQL Data Sync entre Azure SQL Database e instancias locales de SQL Server
 
@@ -33,14 +33,20 @@ Para ejemplos de PowerShell sobre cómo configurar SQL Data Sync, consulte el ar
 
 ## <a name="create-sync-group"></a>Creación de un grupo de sincronización
 
-1. En el explorador, vaya a Azure Portal. Busque la base de datos SQL en el panel o seleccione el icono de **bases de datos SQL** de la barra de herramientas y, en la página de **bases de datos SQL**, seleccione la que desea utilizar como base de datos central para la sincronización de datos.
+1. Vaya a [Azure Portal](https://portal.azure.com) para encontrar su base de datos SQL. Busque y seleccione **base de datos SQL**.
+
+    ![Búsqueda de bases de datos SQL, Microsoft Azure Portal](media/sql-database-get-started-sql-data-sync/search-for-sql-databases.png)
+
+1. Seleccione la base de datos que desea usar como base de datos central para Data Sync.
+
+    ![Selección de la lista de bases de datos SQL, Microsoft Azure Portal](media/sql-database-get-started-sql-data-sync/select-sql-database.png)
 
     > [!NOTE]
     > La base de datos central es el punto de conexión central de la topología de sincronización, donde un grupo de sincronización tiene varios puntos de conexión de base de datos. Las demás bases de datos miembros con puntos de conexión del grupo de sincronización se sincronizan con esta.
 
-1. En la página de la **base de datos SQL** para la base de datos seleccionada, seleccione **Sincronizar con otras bases de datos**.
+1. En el menú de la **base de datos SQL** para la base de datos seleccionada, seleccione **Sincronizar con otras bases de datos**.
 
-    ![Opción Sincronizar con otras bases de datos](media/sql-database-get-started-sql-data-sync/datasync-overview.png)
+    ![Sincronización con otras bases de datos, base de datos SQL, Microsoft Azure Portal](media/sql-database-get-started-sql-data-sync/sync-to-other-databases.png)
 
 1. En la página **Sincronizar con otras bases de datos**, seleccione **Nuevo grupo de sincronización**. La página **Nuevo grupo de sincronización** se abre con el paso 1, con el paso 1,**Crear grupo de sincronización**, resaltado.
 
@@ -48,7 +54,7 @@ Para ejemplos de PowerShell sobre cómo configurar SQL Data Sync, consulte el ar
 
    En la página **Crear grupo de sincronización de datos**, cambie la siguiente configuración:
 
-   | Configuración                        | DESCRIPCIÓN |
+   | Configuración                        | Descripción |
    | ------------------------------ | ------------------------------------------------- |
    | **Nombre del grupo de sincronización** | Escriba el nombre del nuevo grupo de sincronización. Este nombre es distinto del nombre de la base de datos. |
    | **Base de datos de metadatos de sincronización** | Elija esta opción para crear una base de datos (recomendación) o para usar una existente.<br/><br/>Si ha elegido **Nueva base de datos**, seleccione **Crear nueva base de datos**. Después, en la página **SQL Database**, asigne un nombre a la nueva base de datos, configúrela y seleccione **Aceptar**.<br/><br/>Si ha elegido **Usar base de datos existente**, selecciónela de la lista. |
@@ -76,7 +82,7 @@ En la sección **Base de datos de miembros**, tiene la opción de agregar una ba
 
   En la página **Configurar Azure SQL Database**, cambie las siguientes opciones de configuración:
 
-  | Configuración                       | DESCRIPCIÓN |
+  | Configuración                       | Descripción |
   | ----------------------------- | ------------------------------------------------- |
   | **Nombre del miembro de sincronización** | Proporcione un nombre para el nuevo miembro de sincronización. Este nombre es distinto del de la base de datos. |
   | **Suscripción** | Seleccione la suscripción de Azure asociada para fines de facturación. |

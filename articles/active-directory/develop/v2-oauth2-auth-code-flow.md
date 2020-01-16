@@ -1,6 +1,6 @@
 ---
-title: Plataforma de identidad de Microsoft y flujo del código de autorización de OAuth | Azure
-description: Compilación de aplicaciones web mediante la implementación de la Plataforma de identidad de Microsoft del protocolo de autenticación OAuth 2.0.
+title: 'Código de flujo de autorización de OAuth: plataforma de identidad de Microsoft | Azure'
+description: Compile aplicaciones web mediante la implementación de la plataforma de identidad de Microsoft del protocolo de autenticación OAuth 2.0.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58a82caf825daf83ce58dffdf7056e063e74faa6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1f49e93d6dd405e849dec3806c979b1ea2fc1d37
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964385"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423271"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidad y flujo de código de autorización de OAuth 2.0
 
@@ -64,7 +64,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Para ejecutar esta solicitud, haga clic en el vínculo siguiente. Después de iniciar sesión, el explorador se redirigirá a `https://localhost/myapp/` con un elemento `code` en la barra de direcciones.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| Parámetro    | Obligatorio/opcional | DESCRIPCIÓN |
+| Parámetro    | Obligatorio/opcional | Descripción |
 |--------------|-------------|--------------|
 | `tenant`    | requerido    | El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para obtener más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints).  |
 | `client_id`   | requerido    | El **identificador de aplicación (cliente)** que la experiencia [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación.  |
@@ -93,7 +93,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &state=12345
 ```
 
-| . | DESCRIPCIÓN  |
+| Parámetro | Descripción  |
 |-----------|--------------|
 | `code` | El authorization_code que solicitó la aplicación. La aplicación puede utilizar el código de autorización para solicitar un token de acceso para el recurso de destino. Los authorization_codes son de corta duración y normalmente expiran después de unos 10 minutos. |
 | `state` | Si se incluye un parámetro de estado en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debería comprobar que los valores de estado de la solicitud y la respuesta son idénticos. |
@@ -108,7 +108,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| Parámetro | DESCRIPCIÓN  |
+| Parámetro | Descripción  |
 |----------|------------------|
 | `error`  | Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | `error_description` | Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |
@@ -117,7 +117,7 @@ error=access_denied
 
 En la tabla siguiente se describen los distintos códigos de error que pueden devolverse en el parámetro `error` de la respuesta de error.
 
-| Código de error  | DESCRIPCIÓN    | Acción del cliente   |
+| Código de error  | Descripción    | Acción del cliente   |
 |-------------|----------------|-----------------|
 | `invalid_request` | Error de protocolo, como un parámetro obligatorio que falta. | Corrija el error y vuelva a enviar la solicitud. Se trata de un error de desarrollo que suele detectarse durante las pruebas iniciales. |
 | `unauthorized_client` | La aplicación cliente no puede solicitar un código de autorización. | Este error suele producirse cuando la aplicación cliente no está registrada en Azure AD o no se ha agregado al inquilino de Azure AD del usuario. La aplicación puede pedir al usuario consentimiento para instalar la aplicación y agregarla a Azure AD. |
@@ -151,7 +151,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Pruebe a ejecutar esta solicitud en Postman (No olvide reemplazar `code`) [![Pruebe a ejecutar esta solicitud en Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-| Parámetro  | Obligatorio/opcional | DESCRIPCIÓN     |
+| Parámetro  | Obligatorio/opcional | Descripción     |
 |------------|-------------------|----------------|
 | `tenant`   | requerido   | El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para obtener más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | requerido  | El identificador de aplicación (cliente) que la página [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
@@ -177,7 +177,7 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 }
 ```
 
-| Parámetro     | DESCRIPCIÓN   |
+| Parámetro     | Descripción   |
 |---------------|------------------------------|
 | `access_token`  | El token de acceso solicitado. La aplicación puede utilizar este token para autenticarse en el recursos protegido, como una API web.  |
 | `token_type`    | Indica el valor de tipo de token. El único tipo que admite Azure AD es el portador |
@@ -203,7 +203,7 @@ Las respuestas de error tendrán un aspecto similar al siguiente:
 }
 ```
 
-| Parámetro         | DESCRIPCIÓN    |
+| Parámetro         | Descripción    |
 |-------------------|----------------|
 | `error`       | Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | `error_description` | Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |
@@ -214,7 +214,7 @@ Las respuestas de error tendrán un aspecto similar al siguiente:
 
 ### <a name="error-codes-for-token-endpoint-errors"></a>Códigos de error correspondientes a errores de puntos de conexión de token
 
-| Código de error         | DESCRIPCIÓN        | Acción del cliente    |
+| Código de error         | Descripción        | Acción del cliente    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Error de protocolo, como un parámetro obligatorio que falta. | Corrija el error y vuelva a enviar la solicitud.   |
 | `invalid_grant`    | El código de autorización o el comprobador de código PKCE no son válidos o han expirado. | Intente una nueva solicitud para el punto de conexión `/authorize` y compruebe que el parámetro code_verifier es correcto.  |
@@ -264,7 +264,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Pruebe a ejecutar esta solicitud en Postman (No olvide reemplazar `refresh_token`) [![Pruebe a ejecutar esta solicitud en Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 > 
 
-| Parámetro     |                | DESCRIPCIÓN        |
+| Parámetro     |                | Descripción        |
 |---------------|----------------|--------------------|
 | `tenant`        | requerido     | El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para obtener más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints).   |
 | `client_id`     | requerido    | El **identificador de aplicación (cliente)** que la experiencia [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
@@ -287,7 +287,7 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
 ```
-| Parámetro     | DESCRIPCIÓN         |
+| Parámetro     | Descripción         |
 |---------------|-------------------------------------------------------------|
 | `access_token`  | El token de acceso solicitado. La aplicación puede utilizar este token para autenticarse en el recursos protegido, como una API web. |
 | `token_type`    | Indica el valor de tipo de token. El único tipo que admite Azure AD es el portador |
@@ -311,7 +311,7 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 }
 ```
 
-| Parámetro         | DESCRIPCIÓN                                                                                        |
+| Parámetro         | Descripción                                                                                        |
 |-------------------|----------------------------------------------------------------------------------------------------|
 | `error`           | Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | `error_description` | Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación.           |

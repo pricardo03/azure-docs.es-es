@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 84a17cb4468f60abf2463e6aa3ca331466aad247
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 340a1927f62d6a398994b457e351ad41d5e76d19
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850149"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659770"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solución de problemas relativos a errores con runbooks
 
@@ -27,7 +27,7 @@ Si se producen errores al ejecutar runbooks en Azure Automation, puede usar los 
    - **Errores de sintaxis**
    - **Errores lógicos**
 
-2. **Examine los runbooks** para buscar mensajes específicos en los [flujos de errores](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#runbook-output) y compárelos con los errores siguientes.
+2. Busque mensajes específicos en los [flujos incorrectos](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#runbook-output) de los **runbooks** y compárelos con los errores siguientes.
 
 3. **Asegúrese de que los nodos y el área de trabajo de Automation tengan los módulos necesarios:** Si el runbook importa algún módulo, asegúrese de que está disponible en la cuenta de Automation mediante los pasos indicados en [Importación de módulos](../shared-resources/modules.md#import-modules). Actualice los módulos a la versión más reciente siguiendo las instrucciones de [Actualización de módulos de Azure en Azure Automation](..//automation-update-azure-modules.md). Para más información sobre solución de problemas, consulte [Solución de problemas de módulos](shared-resources.md#modules).
 
@@ -56,7 +56,7 @@ Este error tiene dos causas principales:
 * Versiones distintas de los módulos de AzureRM.
 * Intenta acceder a los recursos de otra suscripción.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Si recibe este error después de actualizar un módulo de AzureRM, debe actualizar todos los módulos de AzureRM a la misma versión.
 
@@ -106,7 +106,7 @@ Este error puede producirse si:
 
 * El usuario de Azure Active Directory que intenta obtener los detalles de la suscripción no está configurado como administrador de la suscripción.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Para determinar si se ha autenticado correctamente en Azure y tiene acceso a la suscripción que intenta seleccionar, siga estos pasos:
 
@@ -140,7 +140,7 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 Si dispone de autenticación multifactor en su cuenta de Azure, no puede usar un usuario de Azure Active Directory para autenticarse en Azure. En su lugar, tiene que utilizar un certificado o una entidad de servicio para autenticarse en Azure.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Para usar un certificado con los cmdlets del modelo de implementación clásica de Azure, consulte el artículo sobre [cómo crear y agregar un certificado para administrar los servicios de Azure](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Para usar una entidad de servicio con los cmdlets de Azure Resource Manager, consulte [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](../../active-directory/develop/howto-create-service-principal-portal.md) y [Autenticación de una entidad de servicio con Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
@@ -166,7 +166,7 @@ At line:16 char:1
 
 Este error se debe al uso de cmdlets tanto de AzureRM como Az en un runbook. Se produce cuando se importa `Az` antes de importar `AzureRM`.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Los cmdlets de AZ y AzureRM no se pueden importar y usar en el mismo runbook, para aprender más sobre la compatibilidad de Az en Azure Automation, consulte [Az module support in Azure Automation](../az-modules.md) (Compatibilidad de módulos de Az en Azure Automation).
 
@@ -184,7 +184,7 @@ Exception: A task was canceled.
 
 Este error puede deberse al uso de módulos de Azure obsoletos.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Este error se puede resolver con la actualización de los módulos de Azure a la versión más reciente.
 
@@ -200,7 +200,7 @@ Cuando se ejecuta un runbook, este no puede administrar los recursos de Azure.
 
 El runbook no está utilizando el contexto correcto cuando se ejecuta.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Si trabaja con varias suscripciones, se puede perder el contexto de la suscripción al invocar runbooks. Para asegurarse de que el contexto de la suscripción se pasa a los runbooks, agregue el parámetro `AzureRmContext` al cmdlet y pase el contexto a él. También se recomienda usar el cmdlet `Disable-AzureRmContextAutosave` con el ámbito **Proceso** para asegurarse de que las credenciales que usa solo se emplean con el runbook actual.
 
@@ -248,7 +248,7 @@ Este error puede ocurrir por una de las siguientes razones:
 * El módulo que contiene el cmdlet no se importa en la cuenta de Automation.
 * El módulo que contiene el cmdlet se importa, pero no está actualizado.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Este error puede resolverse realizando una de las siguientes tareas:
 
@@ -270,9 +270,9 @@ The job was tried three times but it failed
 
 Este error se produce debido a uno de los siguientes problemas:
 
-* Límite de memoria. Los límites documentados sobre la cantidad de memoria que se asigna a un espacio aislado se encuentran en [Límites del servicio Automation](../../azure-subscription-service-limits.md#automation-limits). Un trabajo puede producir un error si emplea más de 400 MB de memoria.
+* Límite de memoria. Los límites documentados sobre la cantidad de memoria que se asigna a un espacio aislado se encuentran en [Límites del servicio Automation](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). Un trabajo puede producir un error si emplea más de 400 MB de memoria.
 
-* Sockets de red. Los espacios aislados de Azure se limitan a 1000 sockets de red simultáneos como se describe en [Límites del servicio Automation](../../azure-subscription-service-limits.md#automation-limits).
+* Sockets de red. Los espacios aislados de Azure se limitan a 1000 sockets de red simultáneos como se describe en [Límites del servicio Automation](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
 
 * Módulo incompatible. Este error puede ocurrir si las dependencias del módulo no son correctas. Si no lo son, el runbook normalmente devuelve un mensaje similar a "Comando no encontrado" o "No se puede enlazar el parámetro".
 
@@ -280,7 +280,7 @@ Este error se produce debido a uno de los siguientes problemas:
 
 * El runbook intentó escribir demasiados datos de excepción en el flujo de salida.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Cualquiera de las siguientes soluciones resolverá el problema:
 
@@ -312,7 +312,7 @@ No certificate was found in the certificate store with thumbprint
 
 Este error se produce si el nombre de recurso de credencial no es válido. Este error puede producirse también si el nombre de usuario y la contraseña que usó para configurar el recurso de credencial de Automation no son válidos.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Para determinar cuál es el problema, siga estos pasos:
 
@@ -367,7 +367,7 @@ Object reference not set to an instance of an object
 
 Existe un problema conocido donde [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) no controla el flujo de salida correctamente si contiene objetos.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Para resolver este problema, se recomienda implementar en su lugar una lógica de sondeo y usar el cmdlet [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) para recuperar la salida. Un ejemplo de esta lógica se define en el ejemplo siguiente.
 
@@ -409,7 +409,7 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 Si el runbook es un flujo de trabajo de PowerShell, almacena objetos complejos en un formato deserializado para conservar el estado del Runbook si se suspende el flujo de trabajo.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Cualquiera de las siguientes tres alternativas solucionará este problema:
 
@@ -431,7 +431,7 @@ The quota for the monthly total job run time has been reached for this subscript
 
 Este error se produce cuando la ejecución del trabajo supera la cuota gratuita de 500 minutos para su cuenta. Esta cuota se aplica a todos los tipos de tareas de ejecución de trabajos. Algunas de estas tareas pueden ser probar un trabajo, iniciar un trabajo desde el portal, ejecutar un trabajo mediante webhooks o programar un trabajo para ejecutar mediante Azure Portal o en el centro de datos. Para obtener más información sobre precios para, consulte [Precios de Automation](https://azure.microsoft.com/pricing/details/automation/).
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Si desea usar más de 500 minutos de procesamiento por mes tiene que cambiar la suscripción del nivel Gratis al nivel Básico. Puede actualizar al nivel Básico realizando los pasos siguientes:
 
@@ -454,7 +454,7 @@ Se produce un error en el trabajo de runbook con el error:
 
 Este error se produce cuando el motor de PowerShell no puede encontrar el cmdlet que está usando en su runbook. Este error podría deberse a que el módulo que contiene el cmdlet no está presente en la cuenta, hay un conflicto de nombres con un nombre de runbook o el cmdlet también existe en otro módulo y Automation no puede resolver el nombre.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Cualquiera de las siguientes soluciones resolverá el problema:
 
@@ -479,7 +479,7 @@ Este comportamiento es así por naturaleza en los espacios aislados de Azure deb
 
 El runbook se ejecutó por encima del límite de tres horas permitido por la distribución equilibrada en un espacio aislado de Azure.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 La solución recomendada consiste en ejecutar el runbook en un [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
@@ -507,7 +507,7 @@ Cuando intenta invocar un webhook para un runbook de Azure Automation, recibe el
 
 El webhook al que intenta llamar está deshabilitado o ha expirado.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Si el webhook está deshabilitado, puede volver a habilitarlo a través de Azure Portal. Si el webhook ha expirado, debe eliminarse y crearse de nuevo. Solo puede [renovar un webhook](../automation-webhooks.md#renew-webhook) si aún no ha expirado.
 
@@ -525,7 +525,7 @@ Recibe el siguiente mensaje de error al ejecutar el cmdlet `Get-AzureRmAutomatio
 
 Este error puede producirse al recuperar la salida de trabajo de un runbook que tiene muchas [flujos detallados](../automation-runbook-output-and-messages.md#verbose-stream).
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Hay dos maneras de resolver este error:
 
@@ -546,7 +546,7 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 Este error puede producirse cuando se inicia un trabajo de PowerShell en un runbook que se ejecutó en Azure. Este comportamiento puede producirse porque los runbooks ejecutados en un espacio aislado de Azure no se pueden ejecutar en [modo de lenguaje completo](/powershell/module/microsoft.powershell.core/about/about_language_modes)).
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Hay dos maneras de resolver este error:
 

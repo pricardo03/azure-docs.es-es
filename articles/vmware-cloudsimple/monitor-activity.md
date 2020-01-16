@@ -1,5 +1,6 @@
 ---
-title: 'Solución de VMware en Azure por CloudSimple: Supervisar la actividad de nubes privadas'
+title: Supervisión de la actividad de nube privada
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Describe la información disponible sobre la actividad en la solución de VMware de Azure por el entorno de CloudSimple, incluidas alertas, eventos, tareas y auditorías.
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ddb3741c987e839fafb8bc222231547988d72f01
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 1228f3a54e02d4fe7a5133e2bfba55c38e34718a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543762"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459204"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Supervisar una solución de VMware por actividad de CloudSimple
 
@@ -45,15 +46,15 @@ Para confirmar las alertas y quitarlas de la lista, seleccione una o más de la 
 
 Las siguientes columnas de información están disponibles para las alertas. Haga clic en **Editar columnas** y seleccione las columnas que quiere ver.
 
-| Columna | DESCRIPCIÓN |
+| Columna | Descripción |
 ------------ | ------------- |
 | Tipo de alerta | Categoría de la alerta.|
-| Hora | Hora en que se produjo la alerta. |
+| Time | Hora en que se produjo la alerta. |
 | severity | Importancia de la alerta.|
 | Nombre de recurso | Nombre asignado al recurso, como el nombre de la nube privada. |
 | Tipo de recurso | Categoría del recurso: Nube privada, bastidor de nube. |
 | Id. de recurso | Identificador del recurso. |
-| DESCRIPCIÓN | Descripción de lo que desencadenó la alerta. |
+| Descripción | Descripción de lo que desencadenó la alerta. |
 | Confirmado | Indicación de si se ha confirmado la alerta. |
 
 ## <a name="events"></a>Eventos
@@ -62,14 +63,14 @@ Los eventos muestran la actividad del usuario y del sistema en el portal de Clou
 
 Las siguientes columnas de información están disponibles para las alertas. Haga clic en **Editar columnas** y seleccione las columnas que quiere ver.
 
-| Columna | DESCRIPCIÓN |
+| Columna | Descripción |
 ------------ | ------------- |
-| Hora | Fecha y hora en que se produjo el evento. |
+| Time | Fecha y hora en que se produjo el evento. |
 | Tipo de evento | Código numérico que identifica el evento. |
 | severity | Gravedad del evento.|
 | Nombre de recurso | Nombre asignado al recurso, como el nombre de la nube privada. |
 | Tipo de recurso | Categoría del recurso: Nube privada, bastidor de nube. |
-| DESCRIPCIÓN | Descripción de lo que desencadenó la alerta. |
+| Descripción | Descripción de lo que desencadenó la alerta. |
 
 ## <a name="tasks"></a>Tareas
 
@@ -77,9 +78,9 @@ Las tareas son actividades de la nube privada que se espera tarden 30 segundos o
 
 Las siguientes columnas de información están disponibles para las alertas. Haga clic en **Editar columnas** y seleccione las columnas que quiere ver.
 
-| Columna | DESCRIPCIÓN |
+| Columna | Descripción |
 ------------ | ------------- |
-| Identificador de la tarea | Identificador único para la tarea. |
+| Id. de tarea | Identificador único para la tarea. |
 | Operación | Acción que realiza la tarea. |
 | Usuario | Usuario asignado para completar la tarea. |
 | Nombre de recurso | Nombre asignado al recurso. |
@@ -89,7 +90,7 @@ Las siguientes columnas de información están disponibles para las alertas. Hag
 | End | Hora de finalización de la tarea. |
 | Status | Estado actual de la tarea. |
 | Tiempo transcurrido | Tiempo en que tardó en completarse la tarea (si se completa) o que está tomando (si está en curso). |
-| DESCRIPCIÓN | Descripción de la tarea. |
+| Descripción | Descripción de la tarea. |
 
 ## <a name="audit"></a>Auditoría
 
@@ -97,9 +98,9 @@ Los registros de auditoría hacen un seguimiento de la actividad del usuario. Pu
 
 Las siguientes columnas de información están disponibles para las alertas. Haga clic en **Editar columnas** y seleccione las columnas que quiere ver.
 
-| Columna | DESCRIPCIÓN |
+| Columna | Descripción |
 ------------ | ------------- |
-| Hora | Hora de la entrada de auditoría. |
+| Time | Hora de la entrada de auditoría. |
 | Operación | Acción que realiza la tarea. |
 | Usuario | Usuario asignado a la tarea. |
 | Nombre de recurso | Nombre asignado al recurso. |
@@ -107,7 +108,7 @@ Las siguientes columnas de información están disponibles para las alertas. Hag
 | Id. de recurso | Identificador del recurso. |
 | Resultado | Resultado de la actividad, como **Correcto**. |
 | Tiempo empleado | Tiempo para completar la tarea. |
-| DESCRIPCIÓN | Descripción de la acción. |
+| Descripción | Descripción de la acción. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

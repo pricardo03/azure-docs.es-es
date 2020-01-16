@@ -1,27 +1,18 @@
 ---
-title: Creación del primer servicio confiable de Azure Service Fabric en Java | Microsoft Docs
+title: Creación del primer servicio confiable en Java
 description: Introducción a la creación de una aplicación de Service Fabric de Microsoft Azure mediante servicios con y sin estado.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: chackdan
-editor: ''
-ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 6bf8c632a7513d018745bc74aa0a1db95a39af8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3b301a7a9039f1fe8095950f0a5a4e23eb52a9b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130133"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614220"
 ---
-# <a name="get-started-with-reliable-services"></a>Introducción a los servicios de confianza
+# <a name="get-started-with-reliable-services-in-java"></a>Introducción a Reliable Services en Java
 > [!div class="op_single_selector"]
 > * [C# en Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java en Linux](service-fabric-reliable-services-quick-start-java.md)

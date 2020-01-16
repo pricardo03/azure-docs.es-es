@@ -1,25 +1,16 @@
 ---
-title: Información sobre la creación y publicación de aplicaciones .Net Core en un clúster remoto de Azure Service Fabric en Linux | Microsoft Docs
+title: Creación y publicación de una aplicación de .NET Core en un clúster de Linux remoto
 description: Creación y publicación de aplicaciones .Net Core destinadas a un clúster de Linux remoto desde Visual Studio
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: troubleshooting
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 5/20/2019
 ms.author: pepogors
-ms.openlocfilehash: 46d76edbe8cede12e8c7811f43c28a65c1ebaed0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c30eedb6782e4172d677f16e27441f28c78cdd89
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068127"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614356"
 ---
 # <a name="use-visual-studio-to-create-and-publish-net-core-applications-targeting-a-remote-linux-service-fabric-cluster"></a>Uso de Visual Studio para crear y publicar aplicaciones .Net Core destinadas a un clúster remoto de Service Fabric en Linux
 Con las herramientas de Visual Studio puede desarrollar y publicar aplicaciones .Net Core de Service Fabric destinadas a un clúster de Service Fabric en Linux. La versión del SDK debe ser 3.4 o superior para implementar una aplicación .Net Core destinada a clústeres de Service Fabric en Linux desde Visual Studio.

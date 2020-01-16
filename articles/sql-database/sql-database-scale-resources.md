@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 678096037da69bbddf95933e3fdf988f540ca4a6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d367d9eedc06dbfe0e5096372a4f09c66ea35013
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819829"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462620"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Escalado dinámico de recursos de base de datos con tiempo de inactividad mínimo
 
@@ -34,7 +34,7 @@ No es necesario preocuparse de comprar hardware ni cambiar la infraestructura su
 
 Azure SQL Database ofrece el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 
-- El [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) ofrece una combinación de recursos de proceso, memoria y E/S en tres niveles de servicio para admitir cargas de trabajo de base de datos de ligeras a pesadas: básico, estándar y prémium. Los niveles de rendimiento de cada nivel ofrecen una mezcla diferente de estos recursos, a los que puede agregar recursos de almacenamiento adicionales.
+- El [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) ofrece una combinación de recursos de proceso, memoria y E/S en tres niveles de servicio para admitir cargas de trabajo de base de datos de ligeras a pesadas: Básico, Estándar y Premium. Los niveles de rendimiento de cada nivel ofrecen una mezcla diferente de estos recursos, a los que puede agregar recursos de almacenamiento adicionales.
 - El [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md) le permite elegir el número de núcleos virtuales, la cantidad de memoria y la cantidad y velocidad del almacenamiento. Este modelo de compra ofrece tres niveles de servicio: Uso general, Crítico para la empresa e Hiperescala.
 
 La primera aplicación se puede compilar en una base de datos pequeña con un costo muy bajo al mes en los niveles de servicio Básico, Estándar o Uso general y, después, cambiar el nivel de servicio manualmente o mediante programación en cualquier momento al nivel de servicio Premium o Crítico para la empresa para adecuarlo a las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
@@ -62,9 +62,9 @@ Si se inicia la acción de escalado o reducción vertical en cualquiera de los t
 
 ## <a name="alternative-scale-methods"></a>Métodos de escala alternativos
 
-El escalado de recursos es la manera más fácil y eficaz de mejorar el rendimiento de la base de datos sin cambiar su código ni el de la aplicación. En algunos casos, es posible que incluso los niveles de servicio, los tamaños de proceso y las optimizaciones de rendimiento más altos no puedan controlar la carga de trabajo de forma correcta y rentable. En esos casos dispone de estas opciones para escalar la base de datos:
+El escalado de recursos es la manera más fácil y eficaz de mejorar el rendimiento de una base de datos sin cambiar su código ni el de la aplicación. En algunos casos, es posible que ni siquiera los más altos niveles de servicio, tamaños de proceso y optimizaciones de rendimiento puedan controlar la carga de trabajo de forma correcta y rentable. En esos casos dispone de estas otras opciones para escalar la base de datos:
 
-- [Escalado horizontal de lectura](sql-database-read-scale-out.md) es una característica disponible en la que se obtiene una réplica de solo lectura de los datos en la que se pueden ejecutar consultas exigentes de solo lectura, como informes. La réplica de solo lectura controlará la carga de trabajo de solo lectura sin que el uso de los recursos en la base de datos principal se vea afectado.
+- [Escalado horizontal de lectura](sql-database-read-scale-out.md) es una característica disponible en la que se obtiene una réplica de solo lectura de los datos en la que se pueden ejecutar exigentes consultas de solo lectura, como por ejemplo informes. La réplica de solo lectura controlará la carga de trabajo de solo lectura sin que el uso de los recursos en la base de datos principal se vea afectado.
 - [Particionamiento de base de datos](sql-database-elastic-scale-introduction.md) es un conjunto de técnicas que permite dividir los datos en varias bases de datos y escalarlas por separado.
 
 ## <a name="next-steps"></a>Pasos siguientes

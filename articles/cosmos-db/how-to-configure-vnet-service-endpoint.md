@@ -1,17 +1,17 @@
 ---
-title: Configuración del acceso basado en red virtual y subred para la cuenta de Azure Cosmos DB
+title: Configuración del acceso basado en red virtual para la cuenta de Azure Cosmos
 description: En este documento se describen los pasos necesarios para configurar un punto de conexión de servicio de red virtual en Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: c399bed803145659bae1863e9e0b919f33254627
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 80e77e2caacfed7d662fdfa04aa9524bd7c2083a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820215"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445412"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configuración del acceso desde redes virtuales (VNET)
 

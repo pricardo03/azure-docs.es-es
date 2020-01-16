@@ -3,12 +3,12 @@ title: Direcciones IP en Azure Functions
 description: Aprenda a buscar las direcciones IP entrantes y salientes de aplicaciones de función y descubra qué es lo que hace que cambien.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 327d616c36bcbbb1562349afffd529efb2b5d27f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230343"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612894"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Direcciones IP en Azure Functions
 
@@ -25,7 +25,7 @@ Las direcciones IP se asocian a aplicaciones de función, no a funciones individ
 
 Cada aplicación de función tiene una única dirección IP de entrada. Para encontrar dicha dirección IP:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Vaya a la aplicación de función.
 3. Seleccione **Características de la plataforma**.
 4. Seleccione **Propiedades** y la dirección IP de entrada aparece en **Dirección IP virtual**.
@@ -86,9 +86,9 @@ La dirección IP de entrada **puede** cambiar cuándo se:
 
 - Elimina una aplicación de función y se vuelve a crearla en otro grupo de recursos.
 - Elimina la última aplicación de función de una combinación de grupo de recursos y región, y se vuelve a crear.
-- Elimina un enlace SSL, como por ejemplo, cuando se [renuevan certificados](../app-service/configure-ssl-certificate.md#renew-certificate)).
+- Elimina un enlace SSL; por ejemplo, cuando se [renueva un certificado](../app-service/configure-ssl-certificate.md#renew-certificate).
 
-Cuando la aplicación de función se ejecuta en un [Plan de consumo](functions-scale.md#consumption-plan), la dirección IP de entrada también puede cambiar cuando no ha realizado ninguna acción como las que se muestran.
+Si la aplicación de funciones se ejecuta en un [plan de consumo](functions-scale.md#consumption-plan), la dirección IP de entrada también podría cambiar aunque no se haya realizado ninguna acción como las que se [indicaron anteriormente](#inbound-ip-address-changes).
 
 ## <a name="outbound-ip-address-changes"></a>Cambios en la dirección IP de salida
 
@@ -97,7 +97,7 @@ El conjunto de direcciones IP de salida disponibles para una aplicación de func
 * Realiza alguna acción que puede cambiar la dirección IP de entrada.
 * Cambia el plan de tarifa del plan de App Service. La lista de todas las posibles direcciones IP de salida que puede utilizar una aplicación, para todos los planes de tarifa, está en la propiedad `possibleOutboundIPAddresses`. Consulte [Búsqueda de las direcciones IP de salida](#find-outbound-ip-addresses).
 
-Cuando la aplicación de función se ejecuta en un [Plan de consumo](functions-scale.md#consumption-plan), la dirección IP de salida también puede cambiar cuando no ha realizado ninguna acción como las que se muestran.
+Si la aplicación de funciones se ejecuta en un [plan de consumo](functions-scale.md#consumption-plan), la dirección IP de salida también podría cambiar, aunque no se haya realizado ninguna acción como las que se [indicaron anteriormente](#inbound-ip-address-changes).
 
 Para forzar deliberadamente el cambio de la dirección IP de salida:
 
@@ -115,7 +115,7 @@ Si necesita direcciones IP estáticas dedicadas, es aconsejable usar [App Servic
 
 Para averiguar si una aplicación de función se ejecuta en App Service Environment:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Vaya a la aplicación de función.
 3. Seleccione la pestaña **Información general**.
 4. El nivel del plan de App Service aparece en **Plan de App Service/plan de tarifa**. El plan de tarifa de App Service Environment es **Aislado**.

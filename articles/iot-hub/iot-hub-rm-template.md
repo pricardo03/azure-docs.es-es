@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b0a647fe3499590c0307b89d45d662ecf7e53392
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d9fe58457f9a74466128273dcffee08e17aeb75
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827783"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457043"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Creación de un centro de IoT con una plantilla de Azure Resource Manager (.NET)
 
@@ -30,7 +30,7 @@ Puede usar Azure Resource Manager para crear y administrar los centros de IoT de
 Para completar este tutorial, necesitará lo siguiente:
 
 * Visual Studio.
-* Una cuenta de Azure activa. <br/>Si no tiene ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
+* Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
 * Una [cuenta de Azure Storage][lnk-storage-account] en la que pueda guardar los archivos de plantilla de Azure Resource Manager.
 * [Azure PowerShell 1.0][lnk-powershell-install] o posterior.
 
@@ -76,7 +76,7 @@ Use una plantilla de JSON y un archivo de parámetro para crear un centro de IoT
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto, haga clic en **Agregar** y luego en **Nuevo elemento**. Agregue un archivo JSON denominado **template.json** a su proyecto.
 
-2. Reemplace el contenido de **template.json** por la siguiente definición de recursos para agregar un centro de IoT estándar a la región **este de EE. UU.** Para ver una lista actualizada de las ubicaciones admitidas en IoT Hub, consulte [Estado de Azure][lnk-status]:
+2. Reemplace el contenido de **template.json** por la siguiente definición de recursos para agregar un centro de IoT estándar a la región **este de EE. UU.** Para ver una lista actualizada de las regiones admitidas en IoT Hub, consulte [Estado de Azure][lnk-status]:
 
     ```json
     {
@@ -198,7 +198,7 @@ Ahora puede completar la aplicación llamando al método **CreateIoTHub** antes 
 4. Para comprobar que la aplicación ha agregado el nuevo centro de IoT, visite [Azure Portal][lnk-azure-portal] y vea la lista de recursos. Como alternativa, use el cmdlet de PowerShell **Get-AzResource**.
 
 > [!NOTE]
-> Esta aplicación de ejemplo agrega un centro de IoT estándar S1 por el que se le cobrará. Cuando haya terminado, podrá eliminar el centro de IoT Hub a través de [Azure Portal][lnk-azure-portal] o mediante el cmdlet **Remove-AzResource** de PowerShell.
+> Esta aplicación de ejemplo agrega un centro de IoT estándar S1 por el que se le cobrará. Cuando haya terminado, podrá eliminar el centro de IoT a través de [Azure Portal][lnk-azure-portal] o mediante el cmdlet **Remove-AzResource** de PowerShell.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha implementado un centro de IoT mediante una plantilla de Azure Resource Manager con un programa de C#, quizá desee seguir explorando:
@@ -209,12 +209,12 @@ Ahora que ha implementado un centro de IoT mediante una plantilla de Azure Resou
 
 Para obtener más información sobre cómo desarrollar para IoT Hub, consulte los siguientes artículos:
 
-* [Introducción a C SDK][lnk-c-sdk]
+* [Introducción a SDK para C][lnk-c-sdk]
 * [SDK de IoT de Azure][lnk-sdks]
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
-* [Implementación de Azure IoT Edge en un dispositivo simulado en Linux: versión preliminar][lnk-iotedge]
+* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -222,7 +222,7 @@ Para explorar aún más las funcionalidades de IoT Hub, consulte:
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: /powershell/azure/install-Az-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
+[lnk-azure-rm-overview]: ../azure-resource-manager/management/overview.md
 [lnk-storage-account]:../storage/common/storage-create-storage-account.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

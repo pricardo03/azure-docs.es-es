@@ -1,5 +1,6 @@
 ---
-title: 'Escalar los privilegios de nubes privadas: Solución de VMware en Azure de CloudSimple'
+title: Escalado de privilegios de nube privada
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Describe cómo escalar privilegios en la nube privada para las funciones administrativas en vCenter
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b54f1d8c0705488c53925d097433e77aed3eac72
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 3ee722f88f766178dd658600893b4497bf611be9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617607"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372778"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Escalar privilegios de nube privada en vCenter desde el portal de CloudSimple
 

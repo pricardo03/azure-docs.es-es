@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/11/2019
-ms.openlocfilehash: 8211598071d0835a32f9e25cfcf4e34576702770
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 95a3577d352b6bc4b56d36b5b79658571a6be1ff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677612"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407533"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatización de procesos de Application Insights con Logic Apps
 
@@ -27,7 +27,7 @@ También puede agregar acciones adicionales. La característica Logic Apps de Az
 En este tutorial, puede obtener información sobre cómo crear una aplicación lógica que usa el algoritmo de clústeres automáticos de Analytics para agrupar los atributos en los datos para una aplicación web. El flujo envía automáticamente los resultados por correo electrónico, y esto es solo un ejemplo de cómo puede usar Application Insights Analytics y Logic Apps conjuntamente. 
 
 ### <a name="step-1-create-a-logic-app"></a>Paso 1: Creación de una aplicación lógica
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Haga clic en **Crear un recurso**, seleccione **Web y móvil** y, a continuación, seleccione **Logic App**.
 
     ![Ventana de la aplicación lógica nueva](./media/automate-with-logic-apps/1createlogicapp.png)

@@ -1,19 +1,18 @@
 ---
 title: Datos de flujo como entrada en Azure Stream Analytics
 description: Obtenga información sobre cómo configurar una conexión de datos en Azure Stream Analytics. Entre las entradas se incluyen una transmisión de datos de los eventos y también datos de referencia.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: df111d605b7c05bcb934771b6063f2be04770ea9
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 72568be0cf87770e8878f95de4a9c82842b470df
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606463"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646853"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Datos de flujo como entrada en Stream Analytics
 
@@ -31,7 +30,7 @@ Stream Analytics admite la compresión en todos los orígenes de entrada del flu
 
 ## <a name="create-edit-or-test-inputs"></a>Creación, edición o prueba de entradas
 
-Puede usar [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), y [Visual Studio Code](quick-create-vs-code.md) para agregar, ver o editar entradas existentes en su trabajo de streaming. También puede probar conexiones de entrada y [probar consultas](stream-analytics-manage-job.md#test-your-query) a partir de datos de ejemplo desde Azure Portal, [Visual Studio](stream-analytics-vs-tools-local-run.md) y [Visual Studio Code](vscode-local-run.md). Al escribir una consulta, se muestra una lista de las entradas en la cláusula FROM. Puede obtener la lista de las entradas disponibles en la página **Consulta** del portal. Si desea usar varias entradas, puede utilizar `JOIN` o escribir varias consultas `SELECT`.
+Puede usar [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), y [Visual Studio Code](quick-create-vs-code.md) para agregar, ver o editar entradas existentes en su trabajo de streaming. También puede probar conexiones de entrada y [probar consultas](stream-analytics-manage-job.md#test-your-query) a partir de datos de ejemplo desde Azure Portal, [Visual Studio](stream-analytics-vs-tools-local-run.md) y [Visual Studio Code](visual-studio-code-local-run.md). Al escribir una consulta, se muestra una lista de las entradas en la cláusula FROM. Puede obtener la lista de las entradas disponibles en la página **Consulta** del portal. Si desea usar varias entradas, puede utilizar `JOIN` o escribir varias consultas `SELECT`.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Datos de flujo de Event Hubs
@@ -48,7 +47,7 @@ Se debe configurar cada entrada de centro de eventos de Stream Analytics para qu
 
 En la siguiente tabla se explica cada propiedad de la página **Nueva entrada** de Azure Portal para transmitir la entrada de datos desde un centro de eventos:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | --- | --- |
 | **Alias de entrada** |Nombre descriptivo que se usará en la consulta del trabajo para hacer referencia a esta entrada. |
 | **Suscripción** | Elija la suscripción en el que existe el recurso del centro de eventos. | 
@@ -62,7 +61,7 @@ En la siguiente tabla se explica cada propiedad de la página **Nueva entrada** 
 
 Cuando los datos proceden de una entrada de flujo de un centro de eventos, puede acceder a los siguientes campos de metadatos en la consulta de Stream Analytics:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | --- | --- |
 | **EventProcessedUtcTime** |Fecha y hora en que se procesó el evento por Stream Analytics. |
 | **EventEnqueuedUtcTime** |Fecha y la hora en que el Centro de eventos recibió el evento. |
@@ -96,7 +95,7 @@ Se debe configurar cada entrada de IoT Hub de Stream Analytics para que tenga su
 
 En la siguiente tabla se explica cada propiedad de la página **Nueva entrada** de Azure Portal cuando se configura IoT Hub como entrada de flujo.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | --- | --- |
 | **Alias de entrada** | Nombre descriptivo que se usará en la consulta del trabajo para hacer referencia a esta entrada.|
 | **Suscripción** | Elija la suscripción en la que se encuentra el recurso de IoT Hub. | 
@@ -112,7 +111,7 @@ En la siguiente tabla se explica cada propiedad de la página **Nueva entrada** 
 
 Cuando usa datos de flujo de IoT Hub, puede acceder a los siguientes campos de metadatos en la consulta de Stream Analytics:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | --- | --- |
 | **EventProcessedUtcTime** | Fecha y la hora en que se produjo el evento. |
 | **EventEnqueuedUtcTime** | La fecha y la hora en que el evento se recibió por Azure IoT Hub. |
@@ -148,7 +147,7 @@ La carga de un gran número de blobs a la vez puede provocar que Stream Analytic
 
 En la siguiente tabla se explica cada propiedad de la página **Nueva entrada** de Azure Portal cuando se configura Blob Storage como entrada de flujo.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | --- | --- |
 | **Alias de entrada** | Nombre descriptivo que se usará en la consulta del trabajo para hacer referencia a esta entrada. |
 | **Suscripción** | Elija la suscripción en la que se encuentra el recurso de IoT Hub. | 
@@ -164,7 +163,7 @@ En la siguiente tabla se explica cada propiedad de la página **Nueva entrada** 
 
 Cuando los datos proceden de un origen de Blob Storage, puede acceder a los siguientes campos de metadatos en la consulta de Stream Analytics:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | --- | --- |
 | **BlobName** |Nombre del blob de entrada de donde procede el evento. |
 | **EventProcessedUtcTime** |Fecha y hora en que se procesó el evento por Stream Analytics. |

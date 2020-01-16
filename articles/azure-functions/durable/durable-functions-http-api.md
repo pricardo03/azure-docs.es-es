@@ -3,14 +3,14 @@ title: 'API de HTTP en Durable Functions: Azure Functions'
 description: Aprenda a implementar API de HTTP en la extensión Durable Functions para Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 09/07/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0390211e6fc42bd7183a770cac409b880310d317
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5cf357f5f0c1d58c390cf48d636aadf059579396
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231399"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410143"
 ---
 # <a name="http-api-reference"></a>Referencia a las API de HTTP
 
@@ -18,7 +18,7 @@ La extensión Durable Functions expone un conjunto de API de HTTP integradas que
 
 Todas las API de HTTP que implementa la extensión requieren los siguientes parámetros. El tipo de datos de todos los parámetros es `string`.
 
-| Parámetro        | Tipo de parámetro  | DESCRIPCIÓN |
+| Parámetro        | Tipo de parámetro  | Descripción |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | Cadena de consulta    | Nombre de la [central de tareas](durable-functions-task-hubs.md). Si no se especifica, se toma el nombre de la central de tareas de la aplicación de función actual. |
 | **`connection`** | Cadena de consulta    | **Nombre** de la cadena de conexión de la cuenta de almacenamiento. Si no se especifica, se toma el de la cadena de conexión predeterminada de la aplicación de función. |
@@ -54,7 +54,7 @@ POST /runtime/webhooks/durabletask/orchestrators/{functionName}/{instanceId?}
 
 Los parámetros de solicitud de esta API incluyen el conjunto predeterminado mencionado anteriormente, así como los siguientes parámetros únicos:
 
-| Campo              | Tipo de parámetro  | DESCRIPCIÓN |
+| Campo              | Tipo de parámetro  | Descripción |
 |--------------------|-----------------|-------------|
 | **`functionName`** | URL             | El nombre de la función de orquestador que iniciar. |
 | **`instanceId`**   | URL             | Parámetro opcional. Identificador de la instancia de orquestación. Si no se especifica, la función de orquestador se iniciará con un identificador de instancia aleatorio. |
@@ -82,7 +82,7 @@ Content-Length: 83
 
 La carga de respuesta para los casos **HTTP 202** es un objeto JSON con los siguientes campos:
 
-| Campo                       | DESCRIPCIÓN                          |
+| Campo                       | Descripción                          |
 |-----------------------------|--------------------------------------|
 | **`id`**                    |Identificador de la instancia de orquestación. |
 | **`statusQueryGetUri`**     |Dirección URL del estado de la instancia de orquestación. |
@@ -144,7 +144,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 
 Los parámetros de solicitud de esta API incluyen el conjunto predeterminado mencionado anteriormente, así como los siguientes parámetros únicos:
 
-| Campo                   | Tipo de parámetro  | DESCRIPCIÓN |
+| Campo                   | Tipo de parámetro  | Descripción |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | Identificador de la instancia de orquestación. |
 | **`showInput`**         | Cadena de consulta    | Parámetro opcional. Si se establece en `false`, la entrada de la función no se incluye en la carga de respuesta.|
@@ -166,7 +166,7 @@ Se pueden devolver varios valores de código de estado.
 
 La carga de respuesta para los casos **HTTP 200** y **HTTP 202** es un objeto JSON con los siguientes campos:
 
-| Campo                 | Tipo de datos | DESCRIPCIÓN |
+| Campo                 | Tipo de datos | Descripción |
 |-----------------------|-----------|-------------|
 | **`runtimeStatus`**   | string    | Estado en tiempo de ejecución de la instancia. Los valores son *En ejecución*, *Pendiente*, *Erróneo*, *Cancelado*, *Finalizado*, *Completado*. |
 | **`input`**           | JSON      | Datos JSON usados para inicializar la instancia. Este campo es `null` si el parámetro de cadena de consulta `showInput` esté establecido en `false`.|
@@ -272,7 +272,7 @@ GET /runtime/webhooks/durableTask/instances?
 
 Los parámetros de solicitud de esta API incluyen el conjunto predeterminado mencionado anteriormente, así como los siguientes parámetros únicos:
 
-| Campo                   | Tipo de parámetro  | DESCRIPCIÓN |
+| Campo                   | Tipo de parámetro  | Descripción |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | Identificador de la instancia de orquestación. |
 | **`showInput`**         | Cadena de consulta    | Parámetro opcional. Si se establece en `false`, la entrada de la función no se incluye en la carga de respuesta.|
@@ -370,7 +370,7 @@ DELETE /runtime/webhooks/durabletask/instances/{instanceId}
 
 Los parámetros de solicitud de esta API incluyen el conjunto predeterminado mencionado anteriormente, así como los siguientes parámetros únicos:
 
-| Campo             | Tipo de parámetro  | DESCRIPCIÓN |
+| Campo             | Tipo de parámetro  | Descripción |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | Identificador de la instancia de orquestación. |
 
@@ -383,7 +383,7 @@ Se pueden devolver los siguientes valores de código de estado HTTP.
 
 La carga de respuesta para el caso **HTTP 200** es un objeto JSON con el siguiente campo:
 
-| Campo                  | Tipo de datos | DESCRIPCIÓN |
+| Campo                  | Tipo de datos | Descripción |
 |------------------------|-----------|-------------|
 | **`instancesDeleted`** | integer   | Número de instancias eliminadas. Para el caso de instancia única, este valor debe ser siempre `1`. |
 
@@ -427,7 +427,7 @@ DELETE /runtime/webhooks/durabletask/instances
 
 Los parámetros de solicitud de esta API incluyen el conjunto predeterminado mencionado anteriormente, así como los siguientes parámetros únicos:
 
-| Campo                 | Tipo de parámetro  | DESCRIPCIÓN |
+| Campo                 | Tipo de parámetro  | Descripción |
 |-----------------------|-----------------|-------------|
 | **`createdTimeFrom`** | Cadena de consulta    | Se filtra la lista de instancias purgadas que se crearon durante la marca de tiempo ISO8601 especificada o después de esta.|
 | **`createdTimeTo`**   | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias purgadas que se crearon durante la marca de tiempo ISO8601 especificada o antes de esta.|
@@ -445,7 +445,7 @@ Se pueden devolver los siguientes valores de código de estado HTTP.
 
 La carga de respuesta para el caso **HTTP 200** es un objeto JSON con el siguiente campo:
 
-| Campo                   | Tipo de datos | DESCRIPCIÓN |
+| Campo                   | Tipo de datos | Descripción |
 |-------------------------|-----------|-------------|
 | **`instancesDeleted`**  | integer   | Número de instancias eliminadas. |
 
@@ -483,7 +483,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
 
 Los parámetros de solicitud de esta API incluyen el conjunto predeterminado mencionado anteriormente, así como los siguientes parámetros únicos:
 
-| Campo             | Tipo de parámetro  | DESCRIPCIÓN |
+| Campo             | Tipo de parámetro  | Descripción |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | Identificador de la instancia de orquestación. |
 | **`eventName`**   | URL             | Nombre del evento al que espera la instancia de orquestación de destino. |
@@ -538,7 +538,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 Los parámetros de solicitud de esta API incluyen el conjunto predeterminado mencionado anteriormente, así como el siguiente parámetro único.
 
-| Campo             | Tipo de parámetro  | DESCRIPCIÓN |
+| Campo             | Tipo de parámetro  | Descripción |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | Identificador de la instancia de orquestación. |
 | **`reason`**      | Cadena de consulta    | Opcional. Motivo de finalización de la instancia de orquestación. |
@@ -587,7 +587,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 Los parámetros de solicitud de esta API incluyen el conjunto predeterminado mencionado anteriormente, así como el siguiente parámetro único.
 
-| Campo             | Tipo de parámetro  | DESCRIPCIÓN |
+| Campo             | Tipo de parámetro  | Descripción |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | Identificador de la instancia de orquestación. |
 | **`reason`**      | Cadena de consulta    | Opcional. Motivo para rebobinar la instancia de orquestación. |
@@ -620,7 +620,7 @@ Envía un mensaje de operación unidireccional a una [entidad duradera](durable-
 La solicitud HTTP tiene el formato siguiente (se muestran varias líneas para mayor claridad):
 
 ```http
-POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+POST /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
     ?taskHub={taskHub}
     &connection={connectionName}
     &code={systemKey}
@@ -629,10 +629,10 @@ POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
 
 Los parámetros de solicitud de esta API incluyen el conjunto predeterminado mencionado anteriormente, así como los siguientes parámetros únicos:
 
-| Campo             | Tipo de parámetro  | DESCRIPCIÓN |
+| Campo             | Tipo de parámetro  | Descripción |
 |-------------------|-----------------|-------------|
-| **`entityType`**  | URL             | El tipo de la entidad. |
-| **`entityKey`**   | URL             | El nombre único de la entidad. |
+| **`entityName`**  | URL             | El nombre (tipo) de la entidad. |
+| **`entityKey`**   | URL             | La clave (identificador único) de la entidad. |
 | **`op`**          | Cadena de consulta    | Opcional. El nombre de la operación definida por el usuario que se va a invocar. |
 | **`{content}`**   | Contenido de la solicitud | Carga del evento con formato JSON. |
 
@@ -645,17 +645,20 @@ Content-Type: application/json
 5
 ```
 
+> [!NOTE]
+> De forma predeterminada en las [entidades basadas en clases en .NET](durable-functions-dotnet-entities.md#defining-entity-classes), al especificar el valor `op` de `delete` se eliminará el estado de una entidad. Sin embargo, si la entidad define una operación denominada `delete`, se invocará en su lugar la operación definida por el usuario.
+
 ### <a name="response"></a>Response
 
 Esta operación tiene varias respuestas posibles:
 
 * **HTTP 202 (aceptado)** : la operación de la señal se aceptó para el procesamiento asincrónico.
 * **HTTP 400 (solicitud incorrecta)** : el contenido de la solicitud no era del tipo `application/json`, no tenía un valor JSON válido o no tenía un valor `entityKey` válido.
-* **HTTP 404 (no se encuentra)** : no se encontró el `entityType` especificado.
+* **HTTP 404 (no se encuentra)** : no se encontró el `entityName` especificado.
 
 Una solicitud HTTP correcta no contiene nada en la respuesta. Una solicitud HTTP con error puede contener información de error con formato JSON en el contenido de la respuesta.
 
-## <a name="query-entity"></a>Entidad de consulta
+## <a name="get-entity"></a>Obtención de la entidad
 
 Obtiene el estado de la entidad especificada.
 
@@ -664,7 +667,7 @@ Obtiene el estado de la entidad especificada.
 La solicitud HTTP tiene el formato siguiente (se muestran varias líneas para mayor claridad):
 
 ```http
-GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+GET /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
     ?taskHub={taskHub}
     &connection={connectionName}
     &code={systemKey}
@@ -692,6 +695,100 @@ Si la entidad `Counter` simplemente contenía una serie de pasos guardados en un
 {
     "currentValue": 5
 }
+```
+
+## <a name="list-entities"></a>Entidades de lista
+
+Puede consultar varias entidades por el nombre de la entidad o por la fecha de la última operación.
+
+### <a name="request"></a>Solicitud
+
+La solicitud HTTP tiene el formato siguiente (se muestran varias líneas para mayor claridad):
+
+```http
+GET /runtime/webhooks/durabletask/entities/{entityName}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &lastOperationTimeFrom={timestamp}
+    &lastOperationTimeTo={timestamp}
+    &fetchState=[true|false]
+    &top={integer}
+```
+
+Los parámetros de solicitud de esta API incluyen el conjunto predeterminado mencionado anteriormente, así como los siguientes parámetros únicos:
+
+| Campo                       | Tipo de parámetro  | Descripción |
+|-----------------------------|-----------------|-------------|
+| **`entityName`**            | URL             | Opcional. Cuando se especifica, filtra la lista de entidades devueltas por su nombre de entidad (no distingue mayúsculas y minúsculas). |
+| **`fetchState`**            | Cadena de consulta    | Parámetro opcional. Si se establece en `true`, el estado de la entidad se incluirá en la carga de respuesta. |
+| **`lastOperationTimeFrom`** | Cadena de consulta    | Parámetro opcional. Cuando se especifica, filtra la lista de entidades devueltas que procesaron operaciones después de la marca de tiempo ISO8601 especificada. |
+| **`lastOperationTimeTo`**   | Cadena de consulta    | Parámetro opcional. Cuando se especifica, filtra la lista de entidades devueltas que procesaron operaciones antes de la marca de tiempo ISO8601 especificada. |
+| **`top`**                   | Cadena de consulta    | Parámetro opcional. Cuando se especifica, limita el número de entidades que devuelve la consulta. |
+
+
+### <a name="response"></a>Response
+
+Una respuesta HTTP 200 correcta contiene una matriz de entidades serializada con JSON y, opcionalmente, el estado de cada entidad.
+
+De forma predeterminada, la operación devuelve las 100 primeras entidades que coinciden con los criterios de consulta. El autor de la llamada puede especificar un valor de parámetro de cadena de consulta para que `top` devuelva un número máximo de resultados diferente. Si existen otros resultados más allá de lo que se devuelve, también se devuelve un token de continuación en el encabezado de respuesta. El nombre del encabezado es `x-ms-continuation-token`.
+
+Si establece el valor del token de continuación en el siguiente encabezado de solicitud, puede obtener la página de resultados siguiente. El nombre del encabezado de solicitud también es `x-ms-continuation-token`.
+
+### <a name="example---list-all-entities"></a>Ejemplo: lista de todas las entidades
+
+En la siguiente solicitud HTTP de ejemplo se enumeran todas las entidades de la central de tareas:
+
+```http
+GET /runtime/webhooks/durabletask/entities
+```
+
+El JSON de respuesta puede tener un aspecto similar al siguiente (se ha dado formato para mejorar la legibilidad):
+
+```json
+[
+    {
+        "entityId": { "key": "cats", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:45:44.6326361Z",
+    },
+    {
+        "entityId": { "key": "dogs", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:01.9477382Z"
+    },
+    {
+        "entityId": { "key": "mice", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:15.4626159Z"
+    },
+    {
+        "entityId": { "key": "radio", "name": "device" },
+        "lastOperationTime": "2019-12-18T21:46:18.2616154Z"
+    },
+]
+```
+
+### <a name="example---filtering-the-list-of-entities"></a>Ejemplo: filtrado de la lista de entidades
+
+En la siguiente solicitud HTTP de ejemplo solo se enumeran las dos primeras entidades de tipo `counter` y también se captura su estado:
+
+```http
+GET /runtime/webhooks/durabletask/entities/counter?top=2&fetchState=true
+```
+
+El JSON de respuesta puede tener un aspecto similar al siguiente (se ha dado formato para mejorar la legibilidad):
+
+```json
+[
+    {
+        "entityId": { "key": "cats", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:45:44.6326361Z",
+        "state": { "value": 9 }
+    },
+    {
+        "entityId": { "key": "dogs", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:01.9477382Z",
+        "state": { "value": 10 }
+    }
+]
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

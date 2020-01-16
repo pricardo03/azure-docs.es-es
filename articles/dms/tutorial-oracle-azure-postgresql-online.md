@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: Uso de Azure Database Migration Service para realizar una migración en línea de Oracle a Azure Database for PostgreSQL | Microsoft Docs'
+title: 'Tutorial: Migración de Oracle en línea a Azure Database for PostgreSQL'
+titleSuffix: Azure Database Migration Service
 description: Aprenda a migrar bases de datos de Oracle locales o en máquinas virtuales a Azure Database for PostgreSQL mediante Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 09/10/2019
-ms.openlocfilehash: 1ac5e4dd28f7565f546c700a4bbb0076fd793bb7
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: ed95d95db3849026763e4537a832c9feda98aa40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163435"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437598"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutorial: Migración de Oracle a Azure Database for PostgreSQL en línea mediante DMS (versión preliminar)
 
@@ -42,12 +43,12 @@ En este tutorial, aprenderá a:
 
 En este artículo se describe cómo realizar una migración en línea de Oracle a Azure Database for PostgreSQL.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesita:
 
 * Descargue e instale [Oracle 11g Release 2 (Standard Editionde Standard Edition One o Enterprise Edition)](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html).
-* Descargue la base de datos de ejemplo **HR** [aquí](https://docs.oracle.com/database/121/COMSC/installation.htm#COMSC00002).
+* Descargue la base de datos de ejemplo **HR**[aquí](https://docs.oracle.com/database/121/COMSC/installation.htm#COMSC00002).
 * Descargue e instale ora2pg en [Windows](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows.pdf) o [Linux](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Linux.pdf).
 * [Creación de una instancia en Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
 * Conéctese a la instancia y cree una base de datos con las instrucciones de este [documento](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal).

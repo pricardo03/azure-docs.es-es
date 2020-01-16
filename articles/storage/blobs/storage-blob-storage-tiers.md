@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 4593ee875f98e2c9f2f9406f8b9d4146e06a573d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a7f9969c7c9a341b48581536dd856b25b50bf96f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825444"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371962"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo
 
@@ -138,11 +138,13 @@ En esta sección se muestran los siguientes escenarios mediante Azure Portal:
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Cambio del nivel de acceso predeterminado en una cuenta de GPv2 o de Blob Storage
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. Para desplazarse a su cuenta de almacenamiento, seleccione Todos los recursos y, después, seleccione la cuenta de almacenamiento.
+1. En Azure Portal, busque y seleccione **Todos los recursos**.
 
-1. En Configuración, haga clic en **Configuración** para ver y cambiar la configuración de la cuenta.
+1. Seleccione su cuenta de almacenamiento.
+
+1. En **Configuración**, seleccione **Configuración** para ver y cambiar la configuración de la cuenta.
 
 1. Seleccione el nivel de acceso correcto para sus necesidades: Establezca **Nivel de acceso** en **Esporádico** o **Frecuente**.
 
@@ -150,9 +152,11 @@ En esta sección se muestran los siguientes escenarios mediante Azure Portal:
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Cambiar el nivel de un blob en una cuenta de GPv2 o de Blob Storage
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. Para ir a un blob en su cuenta de almacenamiento, seleccione Todos los recursos, seleccione la cuenta de almacenamiento y el contenedor y, finalmente, seleccione el blob.
+1. En Azure Portal, busque y seleccione **Todos los recursos**.
+
+1. Seleccione el contenedor y, luego, seleccione el blob.
 
 1. En las **propiedades del blob**, seleccione **Cambiar nivel**.
 

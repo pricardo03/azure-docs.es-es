@@ -1,5 +1,6 @@
 ---
-title: 'Solución de Azure VMware de CloudSimple: introducción a las máquinas virtuales'
+title: Introducción a las máquinas virtuales
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Obtenga información sobre las máquinas virtuales de CloudSimple y sus ventajas.
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 213ab51dae20d281a1a0e0f8ea18f4bde888e64d
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 436a5ab6fb286ce206f981487b6a29d774ecd1a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877894"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372796"
 ---
 # <a name="cloudsimple-virtual-machines-overview"></a>Introducción a las máquinas virtuales de CloudSimple
 

@@ -9,16 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 50c28f86a1ba36ac44a25e047800d14fe314f9bf
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 654787c34c6ceae51f1e1ce500193f73189f8935
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420041"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427077"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
+
+>Reciba notificaciones para volver a visitar esta página y obtener actualizaciones; para ello, copie y pegue esta URL (`https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us`) en el lector de fuentes RSS.
 
 Para mantenerse al día con los avances más recientes, este artículo proporciona información acerca de los elementos siguientes:
 
@@ -33,6 +35,40 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 > Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API de REST](https://aka.ms/ams-v3-rest-sdk), la CLI o uno de los SDK admitidos.
 
 Para más información, consulte [Guía de migración para mover de Media Services v2 a v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="november-2019"></a>Noviembre de 2019
+
+### <a name="live-transcription-preview"></a>Transcripción en directo (versión preliminar)
+
+La transcripción en directo está ahora en versión preliminar pública y disponible para su uso en la región Oeste de EE. UU. 2.
+
+Está diseñada para funcionar en combinación con eventos en directo como una funcionalidad complementaria.  Es compatible con eventos en directo de codificación estándar y premium de paso a través.  Cuando esta característica está habilitada, el servicio usa la característica [Voz a texto](../../cognitive-services/speech-service/speech-to-text.md) de Cognitive Services para transcribir el texto oral del audio entrante en texto escrito. A continuación, se pone a disposición este texto para su entrega junto con el vídeo y el audio en los protocolos MPEG-DASH y HLS. La facturación se basa en un nuevo medidor complementario que supone un costo adicional para el evento en directo cuando está en estado "en ejecución".  Para más información sobre la transcripción en directo y la facturación, consulte [Transcripción en directo](live-transcription.md).
+
+> [!NOTE]
+> Actualmente, la transcripción en directo solo está disponible como una característica en vista previa en la región Oeste de EE. UU. 2. En este momento, solo admite la transcripción de texto oral en inglés (en-US).
+
+### <a name="content-protection"></a>Protección de contenido
+
+La característica de *prevención de reproducción de tokens* publicada en septiembre en algunas regiones está ahora disponible en todas las regiones.
+Los clientes de Media Services ahora pueden establecer un límite en el número de veces que se puede usar el mismo token para solicitar una clave o una licencia. Para obtener más información, consulte [Prevención de reproducción de tokens](content-protection-overview.md#token-replay-prevention).
+
+### <a name="new-recommended-live-encoder-partners"></a>Nuevos asociados de codificador en directo recomendados
+
+Se ha agregado compatibilidad con los siguientes nuevos asociados de codificador recomendados para el streaming en vivo RTMP:
+
+- [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
+- [Cámaras de acción GoPro Hero7/8 y Max](https://gopro.com/help/articles/block/getting-started-with-live-streaming)
+- [Restream.io](https://restream.io/)
+
+### <a name="file-encoding-enhancements"></a>Mejoras en la codificación de archivos
+
+- Rendimiento mejorado y subprocesos múltiples en el cambio de tamaño de Media Encoder Standard. En condiciones específicas, el cliente apreciará un aumento del rendimiento de la codificación VOD entre un 5 % y un 40 %. El contenido de poca complejidad codificado en varias velocidades de bits experimentará los mayores aumentos del rendimiento. 
+- La codificación estándar ahora mantiene una cadencia normal del GOP para el contenido de velocidad de fotogramas variable (VFR) durante la codificación VOD cuando se usa el valor GOP basado en el tiempo.  Esto significa que, por ejemplo, el cliente que envía contenido de velocidad de fotogramas mixta que varía entre 15 y 30 fps observará ahora distancias de GOP normales calculadas en la salida a archivos MP4 de streaming con velocidad de bits adaptable. Este hecho mejorará la posibilidad de cambiar sin problemas entre pistas al realizar las entregas a través de HLS o DASH. 
+-  Sincronización de AV mejorada en el contenido de origen de velocidad de fotogramas variable (VFR)
+
+### <a name="video-indexer-video-analytics"></a>Video Indexer, análisis de vídeo
+
+- Los fotogramas clave extraídos mediante el valor preestablecido de VideoAnalyzer ahora se encuentran en la resolución original del vídeo en lugar de cambiarse de tamaño. La extracción de fotogramas clave de alta resolución proporciona imágenes de calidad original y permite usar los modelos de inteligencia artificial basados en imágenes proporcionados por los servicios Microsoft Computer Vision y Custom Vision para obtener aún más información del vídeo.
 
 ## <a name="september-2019"></a>Septiembre de 2019
 
@@ -74,7 +110,7 @@ Para más información, consulte [Migración de WAME a Media Encoder Standard](h
 
 Cuando el contenido de streaming está protegido con restricción de token, los usuarios finales deben obtener un token que se envía como parte de la solicitud de entrega de claves. La característica de *prevención de reproducción de tokens* permite a los clientes de Media Services establecer un límite en el número de veces que se puede usar el mismo token para solicitar una clave o una licencia. Para obtener más información, consulte [Prevención de reproducción de tokens](content-protection-overview.md#token-replay-prevention).
 
-Esta característica está actualmente disponible en el centro de EE. UU. y centro-oeste de EE. UU.
+Desde julio, la característica de vista previa solo estaba disponible en las regiones Centro de EE. UU. y Centro y oeste de EE. UU.
 
 ## <a name="june-2019"></a>Junio de 2019
 
@@ -239,13 +275,13 @@ Idiomas admitidos en Media Services v3: .NET Core, Java, Node.js, Ruby, Typescri
 
 Se presentan las siguientes actualizaciones de Live Encoding:
 
-- Nuevo modo de latencia baja de Live (10 segundos de principio a fin).
+- Nuevo modo en vivo de baja latencia (10 segundos de principio a fin).
 - Compatibilidad mejorada con RTMP (mayor estabilidad y mejor compatibilidad con codificadores de origen).
 - Ingesta segura de RTMPS.
 
-    Cuando se crea un evento en directo, ahora obtiene 4 direcciones URL de ingesta. Las cuatro direcciones URL de ingesta son casi idénticas, tienen el mismo token de streaming (AppId) y solo se diferencian en componente de número de puerto. Dos de las direcciones URL son principales y de copia de seguridad para RTMPS. 
+    Cuando se crea un evento en directo, ahora obtiene 4 direcciones URL de ingesta. Las cuatro direcciones URL de ingesta son casi idénticas, tienen el mismo token de streaming (AppId) y solo se diferencian en componente de número de puerto. Dos de las direcciones URL son principal y de respaldo para RTMPS. 
 - Soporte técnico de transcodificación las 24 horas. 
-- Soporte técnico de señalización de anuncios mejorado en RTMP a través de SCTE35.
+- Mejor compatibilidad con señalización de anuncios en RTMP a través de SCTE35.
 
 #### <a name="improved-event-grid-support"></a>Soporte técnico mejorado de Event Grid
 
@@ -256,7 +292,7 @@ Puede ver las siguientes mejoras de soporte técnico de Event Grid:
 
 ### <a name="cmaf-support"></a>Compatibilidad con CMAF
 
-Compatibilidad con el cifrado de CMAF y "cbcs" para reproductores Apple HLS (iOS 11+) y MPEG-DASH que admiten CMAF.
+Compatibilidad con el cifrado de CMAF y “cbcs” para reproductores Apple HLS (iOS 11+) y MPEG-DASH que admiten CMAF.
 
 ### <a name="video-indexer"></a>Video Indexer
 

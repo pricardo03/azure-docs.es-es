@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: 35eff70c12e6f98fa74a4180bf82a369c1ecfaa4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0c4c26ba163f83483b3eb48e51d91f9a919a887c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927697"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439851"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Copia de archivos de varios contenedores con Azure Data Factory
 
@@ -34,9 +34,11 @@ La plantilla contiene tres actividades:
 - **ForEach** obtiene la lista de contenedores de la actividad **GetMetadata** y, a continuación, recorre en iteración la lista y pasa cada contenedor a la actividad Copy.
 - **Copy** copia cada contenedor desde el almacén de almacenamiento de origen al almacén de destino.
 
-La plantilla define dos parámetros:
-- *SourceFilePath* es la ruta de acceso del almacén de origen de datos, donde puede obtener una lista de los contenedores. En la mayoría de los casos, la ruta de acceso es el directorio raíz, que contiene varias carpetas de contenedor. El valor predeterminado para este parámetro es `/`.
-- *DestinationFilePath* es la ruta de acceso donde se copiarán los archivos en el almacén de destino. El valor predeterminado para este parámetro es `/`.
+La plantilla define los parámetros siguientes:
+- *SourceFileFolder* es la ruta de acceso de la carpeta del almacén de origen de datos, donde puede obtener una lista de los contenedores. La ruta de acceso es el directorio raíz, que contiene varias carpetas de contenedor. El valor predeterminado para este parámetro es `sourcefolder`.
+- *SourceFileDirectory* es la ruta de acceso de la subcarpeta en el directorio raíz del almacén de origen de datos. El valor predeterminado para este parámetro es `subfolder`.
+- *DestinationFileFolder* es la ruta de acceso de la carpeta donde se copiarán los archivos en el almacén de destino. El valor predeterminado para este parámetro es `destinationfolder`.
+- *DestinationFileDirectory* es la ruta de acceso de la subcarpeta donde se copiarán los archivos en el almacén de destino. El valor predeterminado para este parámetro es `subfolder`.
 
 ## <a name="how-to-use-this-solution-template"></a>Uso de esta plantilla de solución
 

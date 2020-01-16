@@ -82,6 +82,8 @@
               href: tutorial-v2-windows-uwp.md
             - name: Windows Desktop .NET
               href: tutorial-v2-windows-desktop.md
+            - name: Uso del modo de dispositivo compartido en la aplicación Android
+              href: tutorial-v2-shared-device-mode.md
         - name: Aplicaciones de demonio
           items:
             - name: Aplicación web de demonio para ASP.NET
@@ -208,6 +210,8 @@
                   href: scenario-mobile-app-configuration.md
                 - name: Configuración específica de plataformas móviles
                   items:
+                    - name: Modo de dispositivo compartido para dispositivos Android
+                      href: shared-device-mode.md
                     - name: Xamarin Android
                       href: msal-net-xamarin-android-considerations.md
                     - name: Explorador del sistema en Android

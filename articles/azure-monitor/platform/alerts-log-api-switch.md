@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 7b3a09c9227110d6dba205987903a2c97dccf1b8
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 5d6b8ce557cb794b3a56ecb3a938a2fe184156ab
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677804"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680756"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Cambio de la preferencia de API para las alertas de registro
 
@@ -46,10 +46,13 @@ A continuación, se compilan los impactos del cambio de preferencia a la API sch
 - Toda nueva regla de alerta de registro creada en Azure Portal se creará usando [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) únicamente y permitirá, además, que los usuarios usen la [funcionalidad adicional de la nueva API](#benefits-of-switching-to-new-azure-api) a través de Azure Portal.
 - La gravedad de las reglas de alertas de registro pasará de: *Crítico, Advertencia e Informativo*a *Valores de gravedad de 0, 1 y 2*. Junto con la opción para crear o actualizar las reglas de alertas con gravedad 3 y 4.
 
-El proceso de trasladar las reglas de alertas de la [API heredada de alertas de Log Analytics](api-alerts.md) no implica cambiar de ningún modo la configuración, la consulta ni la definición de las alertas. Las reglas de alertas y la supervisión no se ven afectadas, y las alertas no se detendrán durante o después del cambio. El único cambio es un cambio en la preferencia de la API y el acceso a las reglas a través de una nueva API.
+El proceso de trasladar las reglas de alertas de la [API heredada de alertas de Log Analytics](api-alerts.md) no implica cambiar de ningún modo la configuración, la consulta ni la definición de las alertas. Las reglas de alertas y la supervisión no se ven afectadas, y las alertas no se detendrán durante o después del cambio. Los únicos cambios son:
+
+- Un cambio en la preferencia de la API y el acceso a las reglas mediante una nueva API.
+- Un URI de recurso de regla de alerta modificada que contenga los identificadores que se utilizan en [Alert API de Log Analytics heredada](api-alerts.md) en lugar del nombre de la regla de alertas de esta estructura `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. El nombre para mostrar de la regla de alertas se mantendrá sin cambios.
 
 > [!NOTE]
-> Cuando un usuario opta por cambiar la preferencia a la nueva [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), no se puede anular la elección ni revertirla para usar la anterior [API heredada de alertas de Log Analytics](api-alerts.md).
+> Cuando un usuario opta por cambiar la preferencia a la nueva [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), no se puede revertir la elección para usar la instancia anterior de [Alert API de Log Analytics heredada](api-alerts.md).
 
 Cualquier cliente que quiera cambiar voluntariamente a la nueva [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) y bloquee el uso de la [API heredada de alertas de Log Analytics](api-alerts.md) puede hacerlo mediante una llamada PUT en la API siguiente para cambiar todas las reglas de alertas reglas asociadas con el área de trabajo de Log Analytics específica.
 

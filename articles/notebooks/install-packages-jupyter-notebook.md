@@ -1,20 +1,22 @@
 ---
-title: Instalación de paquetes de un cuaderno de Jupyter en Azure
-description: Instalación de paquetes de Python, R y F# de un cuaderno de Jupyter que se ejecuta en Azure.
-ms.topic: article
+title: 'Instalar paquetes en cuadernos de Jupyter: versión preliminar de Azure Notebooks'
+description: Obtenga información sobre cómo instalar paquetes de Python, R y F# de un cuaderno de Jupyter que se ejecuta en Azure.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 5d85c8e936ce7c8bf38ec7bc9c27d9066cc8b155
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f6359b4c010834ffaee00b6208d309997339f36e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277546"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646235"
 ---
-# <a name="install-packages-from-within-a-notebook"></a>Instalación de paquetes de un cuaderno
+# <a name="install-packages-from-within-azure-notebooks-preview"></a>Instalación de paquetes en la versión preliminar de Azure Notebooks
 
 Aunque puede configurar el [entorno para el cuaderno en el nivel de proyecto](configure-manage-azure-notebooks-projects.md#configure-the-project-environment), quizá desee instalar los paquetes directamente desde un cuaderno.
 
 Los paquetes instalados desde el cuaderno se aplican solo a la sesión actual del servidor. Las instalaciones de paquetes no se conservan una vez apagado el servidor.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="python"></a>Python
 
@@ -73,5 +75,5 @@ open MathNet.Numerics
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [How to: Configure and manage projects](configure-manage-azure-notebooks-projects.md) (Configuración y administración de proyectos)
-- [Instrucciones: Presentación con diapositivas](present-jupyter-notebooks-slideshow.md)
+- [Cómo: Configure and manage projects](configure-manage-azure-notebooks-projects.md) (Configuración y administración de proyectos)
+- [Cómo: Presentación con diapositivas](present-jupyter-notebooks-slideshow.md)

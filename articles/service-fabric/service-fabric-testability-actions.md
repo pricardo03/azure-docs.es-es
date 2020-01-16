@@ -1,25 +1,16 @@
 ---
-title: Simulación de errores en microservicios de Azure | Microsoft Docs
+title: Simulación de errores en microservicios de Azure
 description: En este artículo se habla sobre las acciones de capacidad de prueba que se encuentra en el servicio de Microsoft Azure Fabric.
-services: service-fabric
-documentationcenter: .net
 author: motanv
-manager: chackdan
-editor: heeldin
-ms.assetid: ed53ca5c-4d5e-4b48-93c9-e386f32d8b7a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 37a794387f3a2f02124805705d380ad9f1fc1270
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4bdb00eec38addc0c9f88eba8b73185ec5721277
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60544792"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465590"
 ---
 # <a name="testability-actions"></a>Acciones de Testability
 Para simular una infraestructura no confiable, Azure Service Fabric proporciona a los desarrolladores distintas formas de simular varios errores y transiciones de estados que se producen en escenarios reales. Dichas formas se exponen como acciones de Testability. Las acciones son las API de bajo nivel que provocan una inserción de errores específicos, una transición de estado o una validación. Mediante la combinación de estas acciones, puede escribir escenarios de prueba completos para los servicios.
@@ -37,7 +28,7 @@ Las acciones de Testability se clasifican en dos cubos principales:
 Para mejorar la calidad de la validación, ejecute la carga de trabajo del servicio y del negocio mientras provoca varios errores estables e inestables. Los errores inestables crean escenarios en que el proceso se cierra abruptamente en medio de algún flujo de trabajo. Así se prueba la ruta de recuperación una vez que Service Fabric restaura la réplica del servicio. Esto facilitará la comprobación de la coherencia de los datos y de si el estado del servicio se mantiene correctamente después de los errores. El otro conjunto de errores (los errores estables) prueban que el servicio reacciona correctamente al hecho de que Service Fabric mueva las réplicas. Así se prueba el control de la cancelación en el método RunAsync. El servicio debe comprobar si se ha establecido el token de cancelación, guardar correctamente su estado y salir del método RunAsync.
 
 ## <a name="testability-actions-list"></a>Lista de acciones de Testability
-| . | DESCRIPCIÓN | API administrada | Cmdlet de PowerShell | Errores estables o no estables |
+| Acción | Descripción | API administrada | Cmdlet de PowerShell | Errores estables o no estables |
 | --- | --- | --- | --- | --- |
 | CleanTestState |Quita todo el estado de prueba del clúster en caso de un cierre incorrecto del controlador de prueba. |CleanTestStateAsync |Remove-ServiceFabricTestState |No aplicable |
 | InvokeDataLoss |Provoca la pérdida de datos en una partición del servicio. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Estable |

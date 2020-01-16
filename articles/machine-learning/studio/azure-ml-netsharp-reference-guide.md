@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 7cef92964a4b62c9ed15ddd19778494d6c3be98a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 295cac883e7c84158fd9d2a2b7e9780dfe6c64d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839743"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427670"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net# para Azure Machine Learning Studio (clásico)
 
@@ -56,7 +56,7 @@ Además, Net# admite los siguientes cuatro tipos de conjuntos de conexiones avan
 
 ## <a name="supported-customizations"></a>Personalizaciones compatibles
 
-La arquitectura de los modelos de red neuronal que cree en la versión clásica de Azure Machine Learning Studio se pueden personalizar ampliamente mediante el uso de Net#. Puede:
+La arquitectura de los modelos de red neuronal creados en Azure Machine Learning Studio (clásico) se puede personalizar ampliamente mediante Net#. Puede:
 
 + Crear capas ocultas y controlar el número de nodos de cada capa.
 + Especificar cómo se van a conectar las capas entre ellas.
@@ -454,7 +454,7 @@ output Digit [10] from Hid3 all;
 + El número de ponderaciones por kernel es `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. O `26 * 50 = 1300`.
 + Puede calcular los nodos en cada capa oculta del modo siguiente:
 
-    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5``NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5` `NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
     `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
 
 + El número total de nodos puede calcularse usando la dimensionalidad declarada de la capa, [50, 5, 5], de este modo: `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 835a359d3b5781ad814e423e4a69e8d60379c97b
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4cd4cffdb0357b1cd73b1613e52c2a6c1a60f71e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953152"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457054"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Seguimiento de mensajes del dispositivo a la nube de Azure IoT con seguimiento distribuido (versión preliminar)
 
@@ -30,7 +30,7 @@ La habilitación del seguimiento distribuido para IoT Hub le ofrece la capacidad
 
 En este artículo, se usa el [SDK de dispositivo de IoT de Azure para C](iot-hub-device-sdk-c-intro.md) con seguimiento distribuido. La compatibilidad con el seguimiento distribuido aún está en curso para lo demás SDK.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - La versión preliminar del seguimiento distribuido actualmente solo se admite para instancias de IoT hub creadas en las siguientes regiones:
 
@@ -88,22 +88,23 @@ Estas instrucciones sirven para generar el muestreo en Windows. Para otros entor
 
 ### <a name="clone-the-source-code-and-initialize"></a>Clonación del código fuente e inicialización
 
-1. Instale el [la carga de trabajo "desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2017) para Visual Studio 2015 o 2017.
+1. Instale la [carga de trabajo "desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) para Visual Studio 2019. También se admiten Visual Studio 2017 y 2015.
 
 1. Instale [CMake](https://cmake.org/). Asegúrese de que está en su `PATH` escribiendo `cmake -version` desde un símbolo del sistema.
 
-1. Abra un símbolo del sistema o el shell de Bash de Git. Ejecute el siguiente comando para clonar el repositorio de GitHub del [SDK para C de Azure IoT](https://github.com/Azure/azure-iot-sdk-c):
+1. Abra un símbolo del sistema o el shell de Bash de Git. Ejecute los siguientes comandos para clonar la versión más reciente del repositorio de GitHub del [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c):
 
     ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
+    git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     Esta operación puede tardar varios minutos en completarse.
 
-1. Cree un subdirectorio `cmake` en el directorio raíz del repositorio de Git y vaya a esa carpeta.
+1. Cree un subdirectorio `cmake` en el directorio raíz del repositorio de Git y vaya a esa carpeta. Ejecute los siguientes comandos desde el directorio `azure-iot-sdk-c`:
 
     ```cmd
-    cd azure-iot-sdk-c    
     mkdir cmake
     cd cmake
     cmake ..
@@ -240,10 +241,10 @@ Para actualizar la configuración de muestreo del seguimiento distribuido para v
 }
 ```
 
-| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN |
+| Nombre del elemento | Obligatorio | Tipo | Descripción |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Sí | Integer | Actualmente se admiten dos valores de modo para activar o desactivar el muestreo. `1` significa activado y `2` desactivado. |
-| `sampling_rate` | Sí | Integer | Este valor es un porcentaje. Solo se permiten valores de `0` a `100` (inclusive).  |
+| `sampling_mode` | Sí | Entero | Actualmente se admiten dos valores de modo para activar o desactivar el muestreo. `1` significa activado y `2` desactivado. |
+| `sampling_rate` | Sí | Entero | Este valor es un porcentaje. Solo se permiten valores de `0` a `100` (inclusive).  |
 
 ## <a name="query-and-visualize"></a>Consultar y visualizar
 
@@ -263,7 +264,7 @@ AzureDiagnostics
 
 Registros de ejemplo como se muestran en Log Analytics:
 
-| TimeGenerated | OperationName | Category | Nivel | CorrelationId | DurationMs | properties (Propiedades) |
+| TimeGenerated | OperationName | Category | Nivel | CorrelationId | DurationMs | Propiedades |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Informativo | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informativo | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |

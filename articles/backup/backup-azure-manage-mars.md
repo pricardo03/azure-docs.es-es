@@ -4,73 +4,16 @@ description: Aprenda a administrar y supervisar las copias de seguridad del agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: f299bdeebab4f42721255d462101f0065a640fab
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: b7e947e7fd473ec787d49ffe82532ffd5b6a98d1
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665600"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496974"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Administración de copias de seguridad del agente de Microsoft Azure Recovery Services (MARS) con el servicio Azure Backup
 
 En este artículo se describe cómo administrar archivos y carpetas de los que se ha realizado una copia de seguridad con el agente de Microsoft Azure Recovery Services.
-
-## <a name="create-a-backup-policy"></a>Creación de una directiva de copia de seguridad
-
-La directiva de copia de seguridad especifica cuándo tomar instantáneas de los datos para crear puntos de recuperación y cuánto tiempo se conservan los puntos de recuperación. La directiva de copia de seguridad se configura mediante el agente de MARS.
-
-Cree una directiva de la siguiente manera:
-
-1. Después de descargar y registrar el agente de MARS, inicie la consola del agente. Para encontrarlo, busque **Microsoft Azure Backup**en la máquina.  
-2. En **Acciones**, haga clic en **Programar copia de seguridad**.
-
-    ![Programar una copia de seguridad de Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
-3. En el Asistente para programar copias de seguridad, en **Introducción**, haga clic en **Siguiente**.
-4. En la página **Seleccionar elementos de los que realizar copia de seguridad**, haga clic en **Agregar elementos**.
-
-    ![Seleccionar elementos de los que realizar copia de seguridad](./media/backup-azure-manage-mars/select-item-to-backup.png)
-
-5. En **Seleccionar elementos**, seleccione lo que desee incluir en la copia de seguridad y haga clic en **Aceptar**.
-
-    ![Elementos seleccionados para realizar una copia de seguridad](./media/backup-azure-manage-mars/selected-items-to-backup.png)
-
-6. En la página **Seleccionar elementos de los que realizar copia de seguridad**, haga clic en **Siguiente**.
-7. En la página **Especifique la programación de copia de seguridad**, especifique cuándo desea realizar copias de seguridad diarias o semanales. A continuación, haga clic en **Siguiente**.
-
-    - Cuando se realiza una copia de seguridad, se crea un punto de recuperación.
-    - El número de puntos de recuperación creados en el entorno depende de la programación de copia de seguridad.
-
-8. Puede programar copias de seguridad diarias, hasta tres veces al día. Por ejemplo, en la captura de pantalla se muestran dos copias de seguridad diarias, una a medianoche y otra a las 6:00 p. m.
-
-    ![Programación diaria](./media/backup-configure-vault/day-schedule.png)
-
-9. También puede ejecutar copias de seguridad semanales. Por ejemplo, en la captura de pantalla se muestran copias de seguridad tomadas cada domingo y miércoles alternos, a las 9:30 a. m. y a la 1:00 a. m.
-
-    ![Programación semanal](./media/backup-configure-vault/week-schedule.png)
-
-10. En la página **Seleccionar directiva de retención**, especifique cómo desea almacenar las copias históricas de los datos. A continuación, haga clic en **Siguiente**.
-
-    - La configuración de retención especifica qué puntos de recuperación deben almacenarse y durante cuánto tiempo.
-    - Por ejemplo, cuando se establece una configuración de retención diaria, se indica que, en el momento especificado para la retención diaria, se conservará el punto de recuperación más reciente durante el número de días especificado. También puede especificar una directiva de retención mensual para indicar que el punto de recuperación creado el 30 de cada mes debe almacenarse durante 12 meses.
-    - La retención diaria y semanal del punto de recuperación normalmente coincide con la programación de copia de seguridad. Es decir, cuando se desencadena la copia de seguridad de acuerdo con la programación, el punto de recuperación creado por la copia de seguridad se almacena durante el tiempo indicado en la directiva de retención diaria o semanal.
-    - En la siguiente captura de pantalla se ofrece un ejemplo: - Las copias de seguridad diarias a medianoche y a las 6:00 p. m. se conservan durante siete días.
-            - Las copias de seguridad realizadas un sábado a medianoche y a las 6:00 p. m. se conservan durante cuatro semanas.
-            - Las copias de seguridad tomadas el sábado de la última semana del mes a medianoche y a las 6:00 p. m. se conservan durante 12 meses.
-            - Las copias de seguridad tomadas el sábado de la última semana de marzo se conservan durante 10 años.
-
-    ![Ejemplo de retención](./media/backup-configure-vault/retention-example.png)
-
-11. En **Elija el tipo de copia de seguridad inicial** decida si desea realizar la copia de seguridad inicial a través de la red o si usar la copia de seguridad sin conexión (para más información sobre la copia de seguridad sin conexión, consulte este [artículo](backup-azure-backup-import-export.md)). Para realizar la copia de seguridad inicial a través de la red, seleccione **Automáticamente por encima de la red** y haga clic en **Siguiente**.
-
-    ![Tipo de copia de seguridad inicial](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
-
-12. En **Confirmación**, revise la información y, luego, haga clic en **Finalizar**.
-    ![Confirmación del tipo de copia de seguridad](./media/backup-azure-manage-mars/confirm-backup-type.png)
-
-13. Cuando el asistente termine de crear la programación de copia de seguridad, haga clic en **Cerrar**.
-  ![Confirmación de modificación del proceso de copia de seguridad](./media/backup-azure-manage-mars/confirm-modify-backup-process.png)
-
-Debe crear una directiva en cada máquina en la que esté instalado el agente.
 
 ## <a name="modify-a-backup-policy"></a>Modificación de una directiva de copia de seguridad
 
@@ -83,7 +26,7 @@ Al modificar la directiva de copia de seguridad, puede agregar nuevos elementos,
   - Si vuelve a seleccionar estos elementos, se realizará una primera copia de seguridad completa y los cambios en la directiva nueva no se aplicarán a las copias de seguridad anteriores.
   - Si se anula la selección del volumen completo, se conservará la copia de seguridad anterior sin posibilidad de modificar la directiva de retención.
 - **Configuración de exclusión**: utilice esta opción para excluir elementos específicos de la copia de seguridad.
-  
+
 ### <a name="add-new-items-to-existing-policy"></a>Adición de nuevos elementos a la directiva existente
 
 1. En **Acciones**, haga clic en **Programar copia de seguridad**.
@@ -158,13 +101,18 @@ Hay dos formas de detener la protección de una copia de seguridad de archivos y
 ### <a name="stop-protection-and-retain-backup-data"></a>Detener la protección y conservar los datos de copia de seguridad
 
 1. Abra la consola de administración de MARS, vaya al **panel Acciones** y **seleccione Programar copia de seguridad**.
+
     ![Modificación o detención de una copia de seguridad programada.](./media/backup-azure-manage-mars/mars-actions.png)
 1. En la página **Seleccionar el elemento de directiva**, seleccione **Modificar una programación de copia de seguridad de los archivos y carpetas** y haga clic en **Siguiente**.
+
     ![Modificación o detención de una copia de seguridad programada.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
-1. En la página **Modificar o detener una copia de seguridad programada**, seleccione **Detener la programación de copias de seguridad, pero conservar las copias de seguridad almacenadas hasta que se vuelva a activar una programación**. Después, seleccione **Siguiente**.  
+1. En la página **Modificar o detener una copia de seguridad programada**, seleccione **Detener la programación de copias de seguridad, pero conservar las copias de seguridad almacenadas hasta que se vuelva a activar una programación**. Después, seleccione **Siguiente**.
+
     ![Modificación o detención de una copia de seguridad programada.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. En **Pausar copia de seguridad programada**, revise la información y haga clic en **Finalizar** ![Modificar o detener de una copia de seguridad programada.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. En **Modify backup process** (Modificar proceso de copia de seguridad), compruebe si el estado de pausa de la copia de seguridad programada es correcto y haga clic en **Cerrar** para finalizar.
+1. En **Pausar copias de seguridad programadas**, revise la información y haga clic en **Finalizar**.
+
+    ![Modificación o detención de una copia de seguridad programada.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
+1. En **Modificar progreso de la copia de seguridad** , compruebe si el estado de pausa de la copia de seguridad programada es correcto y haga clic en **Cerrar** para finalizar.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Detener la protección y eliminar los datos de copia de seguridad
 
@@ -194,15 +142,34 @@ Después de eliminar los elementos de copia de seguridad locales, siga los pasos
 Si ha detenido la protección y conservado los datos y, después, decide reanudar la protección, puede volver a habilitar la programación de copia de seguridad mediante la modificación de la directiva de copia de seguridad.
 
 1. En **Acciones**, seleccione **Programar copia de seguridad**.
-1. Seleccione **Vuelva a habilitar la programación de copia de seguridad. También puede modificar las horas o los elementos de las copias de seguridad** y hacer clic en **Siguiente**.
+1. Seleccione **Vuelva a habilitar la programación de copia de seguridad. También puede modificar las horas o los elementos de las copias de seguridad** y hacer clic en **Siguiente**.<br>
+
     ![Eliminación de la infraestructura de copia de seguridad.](./media/backup-azure-manage-mars/re-enable-policy-next.png)
 1. En **Seleccionar elementos de los que realizar copia de seguridad**, haga clic en **Siguiente**.
+
     ![Eliminación de la infraestructura de copia de seguridad.](./media/backup-azure-manage-mars/re-enable-next.png)
 1. En **Especifique la programación de copia de seguridad**, indique la programación de copia de seguridad y haga clic en **Siguiente**.
 1. En **Seleccionar directiva de retención**, especifique la duración de la retención y haga clic en **Siguiente**.
 1. Por último, en la pantalla **Confirmación**, revise los detalles de la directiva y haga clic en **Finalizar**.
 
+## <a name="re-generate-passphrase"></a>Regeneración de la frase de contraseña
+
+Una frase de contraseña se usa para cifrar y descifrar los datos durante la copia de seguridad o la restauración del entrono local o la máquina local mediante el agente de MARS en Azure o desde Azure. Si perdió u olvidó la frase de contraseña, puede volver a generar la frase de contraseña (siempre que el equipo todavía esté registrado en el almacén de Recovery Services y la copia de seguridad esté configurada) siguiendo estos pasos:
+
+- En la consola del agente de MARS, vaya a **Panel acciones** > **Cambiar propiedades** >. Luego, vaya a la **pestaña Cifrado**.<br>
+- Active la casilla **Cambiar frase de contraseña**.<br>
+- Escriba una nueva frase de contraseña o haga clic en **Generar frase de contraseña**.
+- Haga clic en **Examinar** para guardar la nueva frase de contraseña.
+
+    ![Generar la frase de contraseña.](./media/backup-azure-manage-mars/passphrase.png)
+- Haga clic en **Aceptar** para aplicar los cambios.  Si está habilitada la [característica de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) en Azure Portal para el almacén de Recovery Services, se le pedirá que escriba el PIN de seguridad. Para recibir el PIN, siga los pasos indicados en este [artículo](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
+- Pegue el PIN de seguridad desde el portal y haga clic en **Aceptar** para aplicar los cambios.<br>
+
+    ![Generar la frase de contraseña.](./media/backup-azure-manage-mars/passphrase2.png)
+- Asegúrese de que la frase de contraseña se guarda de forma segura en una ubicación alternativa (distinta de la máquina de origen), preferiblemente en Azure Key Vault. Realice un seguimiento de todas las frases de contraseña si tiene varias máquinas de las que se realiza una copia de seguridad con los agentes de MARS.
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información sobre los escenarios admitidos y las limitaciones, consulte la [matriz de compatibilidad para MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
+- Para obtener información sobre los escenarios admitidos y las limitaciones, consulte la [matriz de compatibilidad para el agente de MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
 - Obtenga más información acerca del [comportamiento de retención de la directiva de copia de seguridad a petición](backup-configure-vault.md#on-demand-backup-policy-retention-behavior).

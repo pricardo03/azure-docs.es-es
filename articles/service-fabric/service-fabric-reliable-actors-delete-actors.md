@@ -1,25 +1,16 @@
 ---
-title: Eliminar actores de Azure Service Fabric | Microsoft Docs
-description: Aprenda a eliminar manualmente Reliable Actors de Service Fabric y su estado.
-services: service-fabric
-documentationcenter: .net
+title: Eliminar actores de Azure Service Fabric
+description: Aprenda a eliminar manual y totalmente Reliable Actors y su estado en una aplicación de Azure Service Fabric.
 author: amanbha
-manager: chackdan
-editor: vturecek
-ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
-ms.openlocfilehash: e297a6f42774f29e2eca4a410b695d5bbb636300
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b90c5a10c64e273f1c8f48c7bf5713859796db65
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726611"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645623"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Eliminar Reliable Actors y su estado
 La recolección de elementos no utilizados de actores desactivados solo elimina el objeto del actor, pero no los datos que se almacenan en el administrador de estados de un actor. Cuando se vuelve a activar un actor, sus datos vuelven a estar disponibles mediante el administrador de estados. Es posible que, en los casos en que los actores almacenan datos en el administrador de estados y se desactivan, pero nunca se vuelven a activar, haya que limpiar los datos.

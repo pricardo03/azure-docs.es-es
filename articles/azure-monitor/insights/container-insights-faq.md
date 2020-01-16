@@ -1,22 +1,59 @@
 ---
 title: Preguntas más frecuentes sobre Azure Monitor para contenedores | Microsoft Docs
 description: Azure Monitor para contenedores es una solución que supervisa el estado de los clústeres de AKS y Container Instances en Azure. En este artículo se responden preguntas comunes.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: d3779a2d48db82bfccdc0f047119a36ef56c3bdf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0984de51221c506bb1824e4dcfd93eef56453a4d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73477410"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405082"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Monitor para contenedores
 
 En este artículo de preguntas frecuentes de Microsoft, se presenta una lista con las preguntas frecuentes sobre Azure Monitor para contenedores. Si tiene alguna otra pregunta sobre esta solución, vaya al [foro de discusión](https://feedback.azure.com/forums/34192--general-feedback) y publíquela. Si una pregunta es frecuente, se agrega a este artículo para que se pueda encontrar de forma rápida y sencilla.
+
+## <a name="i-dont-see-image-and-name-property-values-populated-when-i-query-the-containerlog-table"></a>No veo que los valores de propiedad Name e Image se rellenen cuando consulto la tabla ContainerLog.
+
+En el caso de la versión del agente ciprod12042019 y versiones posteriores, estas dos propiedades no se rellenan de forma predeterminada en cada línea de registro con el fin de reducir el costo generado en los datos de registro recopilados. Hay dos opciones para consultar la tabla que incluyen estas propiedades con sus valores:
+
+### <a name="option-1"></a>Opción 1 
+
+Combinar otras tablas para incluir estos valores de propiedad en los resultados.
+
+Modifique las consultas para que incluyan las propiedades Image e ImageTag de la tabla ```ContainerInventory``` mediante la combinación de la propiedad ContainerID. Puede incluir la propiedad Name (como aparecía anteriormente en la tabla ```ContainerLog```) del campo ContaineName de la tabla KubepodInventory mediante la combinación de la propiedad ContainerID. Esta es la opción recomendada.
+
+El ejemplo siguiente es una consulta detallada de ejemplo que explica cómo obtener estos valores de campo con combinaciones.
+
+```
+//lets say we are querying an hour worth of logs
+let startTime = ago(1h);
+let endTime = now();
+//below gets the latest Image & ImageTag for every containerID, during the time window
+let ContainerInv = ContainerInventory | where TimeGenerated >= startTime and TimeGenerated < endTime | summarize arg_max(TimeGenerated, *)  by ContainerID, Image, ImageTag | project-away TimeGenerated | project ContainerID1=ContainerID, Image1=Image ,ImageTag1=ImageTag;
+//below gets the latest Name for every containerID, during the time window
+let KubePodInv  = KubePodInventory | where ContainerID != "" | where TimeGenerated >= startTime | where TimeGenerated < endTime | summarize arg_max(TimeGenerated, *)  by ContainerID2 = ContainerID, Name1=ContainerName | project ContainerID2 , Name1;
+//now join the above 2 to get a 'jointed table' that has name, image & imagetag. Outer left is safer in-case there are no kubepod records are if they are latent
+let ContainerData = ContainerInv | join kind=leftouter (KubePodInv) on $left.ContainerID1 == $right.ContainerID2;
+//now join ContainerLog table with the 'jointed table' above and project-away redundant fields/columns and rename columns that were re-written
+//Outer left is safer so you dont lose logs even if we cannot find container metadata for loglines (due to latency, time skew between data types etc...)
+ContainerLog
+| where TimeGenerated >= startTime and TimeGenerated < endTime 
+| join kind= leftouter (
+   ContainerData
+) on $left.ContainerID == $right.ContainerID2 | project-away ContainerID1, ContainerID2, Name, Image, ImageTag | project-rename Name = Name1, Image=Image1, ImageTag=ImageTag1 
+
+```
+
+### <a name="option-2"></a>Opción 2
+
+Volver a habilitar la recopilación para estas propiedades en cada línea de registro de contenedor.
+
+Si la primera opción no es conveniente debido a los cambios de consulta relacionados, puede volver a habilitar la recopilación de estos campos si habilita el valor ```log_collection_settings.enrich_container_logs``` en el mapa de configuración del agente, como se describe en los [valores de configuración de recopilación de datos](./container-insights-agent-config.md).
+
+> [!NOTE]
+> La segunda opción no se recomienda con clústeres de gran tamaño (más de 50 nodos), ya que genera llamadas del servidor de API desde cada nodo del clúster para realizar este enriquecimiento. Esta opción también aumenta el tamaño de los datos de cada línea de registro recopilada.
 
 ## <a name="can-i-view-metrics-collected-in-grafana"></a>¿Puedo ver las métricas recopiladas en Grafana?
 

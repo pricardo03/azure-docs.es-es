@@ -1,18 +1,18 @@
 ---
 title: Conexión con Dropbox
-description: Cargar y administrar archivos con las API REST de Dropbox y Azure Logic Apps
+description: Automatice las tareas y los flujos de trabajo que actualizan y administran archivos en Dropbox mediante Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/01/2019
 tags: connectors
-ms.openlocfilehash: b38f9b9626e5eec0272256aacc71f7503a006dd6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 8f54f832884b172761f62b16db29d2f0abd0dd46
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789820"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665758"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Carga y administración de archivos en Dropbox mediante Azure Logic Apps
 
@@ -20,11 +20,11 @@ Con el conector para Dropbox y Azure Logic Apps, puede crear flujos de trabajo a
 
 En este artículo se muestra cómo conectarse a Dropbox desde su aplicación lógica y, a continuación, agregar el desencadenador **Cuando se crea un archivo** y la acción **Obtener contenido de archivo mediante la ruta de acceso** de Dropbox.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-* Una [cuenta de Dropbox](https://www.dropbox.com/), que puede abrir de forma gratuita. Las credenciales de la cuenta son necesarias para crear una conexión entre la aplicación lógica y la cuenta de Dropbox.
+* Una [cuenta de Dropbox](https://www.dropbox.com/), que se puede registrar de forma gratuita. Las credenciales de la cuenta son necesarias para crear una conexión entre la aplicación lógica y la cuenta de Dropbox.
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md). En este ejemplo, necesita una aplicación lógica en blanco.
 
@@ -64,7 +64,7 @@ En la lista de acciones, seleccione esta acción: **Obtener contenido de archivo
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener datos técnicos, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo OpenAPI (antes Swagger) del conector, consulte la [página de referencia del conector](/connectors/dropbox/).
+Para obtener datos técnica, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo Swagger del conector, consulte la [página de referencia del conector](/connectors/dropbox/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

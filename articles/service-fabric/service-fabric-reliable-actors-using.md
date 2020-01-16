@@ -1,25 +1,16 @@
 ---
-title: Implementación de características en actores de Azure Service Fabric | Microsoft Docs
+title: Implementación de características en actores de Azure Service Fabric
 description: Se describe cómo escribir su propio servicio de actor que implemente características de nivel de servicio de la misma manera que al heredar StatefulService.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: amanbha
-ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 57894770ad9d27430d5803c9a93ce6973355878a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f5f9e00c374b16026f22d4efdee51ec94d2902a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123253"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426720"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementación de características de nivel de servicio en el servicio de actor
 

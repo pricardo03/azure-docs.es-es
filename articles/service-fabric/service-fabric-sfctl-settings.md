@@ -1,30 +1,22 @@
 ---
-title: 'CLI de Azure Service Fabric: configuración de sfctl | Microsoft Docs'
-description: Se describen los comandos de configuración de sfctl de la CLI de Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: 'CLI de Azure Service Fabric: configuración de sfctl'
+description: Más información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para configurar los parámetros locales de sfctl.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: ace4c28ad04b684e7e1e38fe099d095d408c081a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 4920409e0d37a6cbb64e011fd9cd5f08fb39d30c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900964"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639050"
 ---
 # <a name="sfctl-settings"></a>sfctl settings
 Configura los valores locales para esta instancia de sfctl.
 
 ## <a name="subgroups"></a>Subgrupos
-|Subgrupo|DESCRIPCIÓN|
+|Subgrupo|Descripción|
 | --- | --- |
 | [telemetry](service-fabric-sfctl-settings-telemetry.md) | Configura los valores de telemetría locales para esta instancia de sfctl. |
 

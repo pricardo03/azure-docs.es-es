@@ -1,24 +1,14 @@
 ---
-title: Planificación de una implementación de clúster de Azure Service Fabric| Microsoft Docs
+title: Planeación de una implementación de clúster de Azure Service Fabric
 description: Obtenga información sobre la planificación y preparación de la implementación de un clúster de producción de Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/20/2019
-ms.author: atsenthi
-ms.openlocfilehash: a130e9bc8859360704c9be1c0a7fe066d2ed4567
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 69fb97e4e679b3ce5817a51d619799a3384fd753
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600006"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463320"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planeamiento y preparación de la implementación de un clúster
 

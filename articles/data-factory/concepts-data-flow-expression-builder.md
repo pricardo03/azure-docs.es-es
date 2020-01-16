@@ -1,44 +1,44 @@
 ---
 title: Generador de expresiones del flujo de datos de asignación
-description: Genere expresiones con el generador de expresiones de los flujos de datos de asignación en Azure Data Factory
+description: Generación de expresiones con el generador de expresiones de los flujos de datos de asignación en Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 12/9/2019
-ms.openlocfilehash: 01aa2574ac6edd1ce5e1b209eac3e43bbed82fce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1dd782092ce91f7b71a3a2a6f2ed1646ee39a7e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969402"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444534"
 ---
-# <a name="building-expressions-in-mapping-data-flow"></a>Generación de expresiones del flujo de datos de asignación
+# <a name="build-expressions-in-mapping-data-flow"></a>Generación de expresiones del flujo de datos de asignación
 
 En el flujo de datos de asignación, muchas propiedades de transformación se especifican como expresiones. Estas expresiones se componen de valores de columna, parámetros, funciones, operadores y literales que se evalúan como un tipo de datos de Spark en tiempo de ejecución.
 
-## <a name="opening-the-expression-builder"></a>Apertura del generador de expresiones
+## <a name="open-expression-builder"></a>Apertura del generador de expresiones
 
-La interfaz de edición de expresiones de la experiencia de usuario de Data Factory se conoce como el **generador de expresiones**. Al indicar su lógica de expresión, la factoría de datos usa la finalización de código de [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense?view=vs-2019) para el resaltado, la comprobación de sintaxis y la finalización automática.
+La interfaz de edición de expresiones de la experiencia de usuario de Azure Data Factory se conoce como el "generador de expresiones". Al indicar su lógica de expresión, Data Factory usa la finalización de código de [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense?view=vs-2019) para el resaltado, la comprobación de sintaxis y la finalización automática.
 
 ![Generador de expresiones](media/data-flow/xpb1.png "Generador de expresiones")
 
 En transformaciones como la columna derivada y el filtro, donde las expresiones son obligatorias, abra el generador de expresiones haciendo clic en el cuadro de expresión azul.
 
-![Generador de expresiones](media/data-flow/expressionbox.png "Generador de expresiones")
+![Cuadro de expresión azul](media/data-flow/expressionbox.png "Generador de expresiones")
 
-Al hacer referencia a columnas en una coincidencia o grupo por condición, una expresión puede extraer valores de las columnas. Para crear una expresión, seleccione la opción "columna calculada".
+Al hacer referencia a columnas en una coincidencia o grupo por condición, una expresión puede extraer valores de las columnas. Para crear una expresión, seleccione la opción **Columna calculada**.
 
-![Generador de expresiones](media/data-flow/computedcolumn.png "Generador de expresiones")
+![Opción Columna calculada](media/data-flow/computedcolumn.png "Generador de expresiones")
 
-En los casos en los que una expresión o un valor literal son entradas válidas, "agregar contenido dinámico" le permitirá crear una expresión que se evalúe como un literal.
+En los casos en los que una expresión o un valor literal son entradas válidas, **Agregar contenido dinámico** le permitirá crear una expresión que se evalúe como un literal.
 
-![Generador de expresiones](media/data-flow/add-dynamic-content.png "Generador de expresiones")
+![Opción Agregar contenido dinámico](media/data-flow/add-dynamic-content.png "Generador de expresiones")
 
 ## <a name="expression-language-reference"></a>Referencia de lenguaje de expresiones
 
-La asignación de flujos de datos tiene funciones y operadores integrados que se pueden usar en las expresiones. En la página de referencia del [lenguaje de expresiones del flujo de datos de asignación](data-flow-expression-functions.md) encontrará una lista de funciones disponibles.
+Los flujos de datos de asignación tienen funciones y operadores integrados que se pueden usar en las expresiones. Para obtener una lista de las funciones disponibles, vea [Funciones de expresiones en el flujo de datos de asignación](data-flow-expression-functions.md).
 
 ## <a name="column-names-with-special-characters"></a>Nombres de columna con caracteres especiales
 
@@ -46,19 +46,19 @@ Si tiene nombres de columna que incluyen caracteres especiales o espacios, escri
 
 ```{[dbo].this_is my complex name$$$}```
 
-## <a name="previewing-expression-results"></a>Vista previa de los resultados de la expresión
+## <a name="preview-expression-results"></a>Resultados de la expresión en versión preliminar
 
 Si el [modo de depuración](concepts-data-flow-debug-mode.md) está activado, puede usar el clúster de Spark activo para ver una versión preliminar en curso de cómo se evalúa su expresión. Al crear su lógica, puede depurar su expresión en tiempo real. 
 
-![Generador de expresiones](media/data-flow/exp4b.png "Vista previa de datos de expresión")
+![Versión preliminar en curso](media/data-flow/exp4b.png "Vista previa de datos de expresión")
 
-Haga clic en el botón Actualizar para actualizar los resultados de la expresión en un ejemplo en directo del origen.
+Seleccione **Actualizar** para actualizar los resultados de la expresión en un ejemplo en directo del origen.
 
-![Generador de expresiones](media/data-flow/exp5.png "Vista previa de datos de expresión")
+![Botón Actualizar](media/data-flow/exp5.png "Vista previa de datos de expresión")
 
 ## <a name="string-interpolation"></a>Interpolación de cadena
 
-Use comillas dobles para incluir texto de cadena literal junto con expresiones. Puede incluir parámetros, columnas y funciones de expresión. La interpolación de cadena es útil para evitar el uso extensivo de la concatenación de cadenas al incluir parámetros en cadenas de consulta. Para usar la sintaxis de expresión, escríbala entre llaves.
+Use comillas para incluir texto de cadena literal junto con expresiones. Puede incluir parámetros, columnas y funciones de expresión. La interpolación de cadena es útil para evitar el uso extensivo de la concatenación de cadenas al incluir parámetros en cadenas de consulta. Para usar la sintaxis de expresión, escríbala entre llaves.
 
 Algunos ejemplos de interpolación de cadena:
 
@@ -68,13 +68,13 @@ Algunos ejemplos de interpolación de cadena:
 
 * ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
-## <a name="commenting-expressions"></a>Comentarios de las expresiones
+## <a name="comment-expressions"></a>Expresiones de comentario
 
-Agregue comentarios a sus expresiones mediante la sintaxis de comentarios de una línea y de varias líneas:
+Agregue comentarios a sus expresiones mediante la sintaxis de comentarios de una línea y de varias líneas.
 
-![Comentarios](media/data-flow/comments.png "Comentarios")
+![Sintaxis de comentarios de una sola línea y de varias líneas](media/data-flow/comments.png "Comentarios")
 
-A continuación se muestran ejemplos de comentarios válidos:
+Los ejemplos siguientes son comentarios válidos:
 
 * ```/* This is my comment */```
 
@@ -83,40 +83,40 @@ A continuación se muestran ejemplos de comentarios válidos:
    
 * ```// This is a single line comment```
 
-Si coloca un comentario al comienzo de la expresión, aparecerá en el cuadro de texto de transformación para documentar las expresiones de transformación:
+Si coloca un comentario al comienzo de la expresión, aparecerá en el cuadro de texto de transformación para documentar las expresiones de transformación.
 
-![Comentarios](media/data-flow/comments2.png "Comentarios")
+![Comentario en el cuadro de texto de transformación](media/data-flow/comments2.png "Comentarios")
 
 ## <a name="regular-expressions"></a>Expresiones regulares
 
 Muchas funciones de lenguaje de expresiones usan la sintaxis de expresión regular. Al utilizar las funciones de expresión regular, el Generador de expresiones intentará interpretar la barra diagonal inversa (\\) como una secuencia de caracteres de escape. Al usar barras diagonales inversas en una expresión regular, encierre toda la expresión regular entre marcas (\`) o utilice una doble barra diagonal inversa.
 
-Ejemplo de uso de marcas
+Un ejemplo que usa acentos graves:
 
 ```
 regex_replace('100 and 200', `(\d+)`, 'digits')
 ```
 
-o de uso de doble barra diagonal
+Un ejemplo que usa barras diagonales dobles:
 
 ```
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## <a name="addressing-array-indexes"></a>Direccionamiento de los índices de matrices
+## <a name="address-array-indexes"></a>Índices de matriz de direcciones
 
-Con las funciones de expresiones que devuelvan matrices, utilice los corchetes [] para tratar índices específicos dentro del objeto de matriz de devolución. La matriz está basada en unos.
+Con las funciones de expresiones que devuelvan matrices, utilice los corchetes [] para tratar índices específicos dentro del objeto de matriz de devolución. La matriz se basa en unos.
 
 ![Matriz del Generador de expresiones](media/data-flow/expb2.png "Vista previa de datos de expresión")
 
-## <a name="keyboard-shortcuts"></a>Métodos abreviados de teclado
+## <a name="keyboard-shortcuts"></a>Accesos directos del teclado
 
-* ```Ctrl-K Ctrl-C```: Comentar en toda la línea
-* ```Ctrl-K Ctrl-U```: Quitar marca de comentario
-* ```F1```: Proporcionar comandos de ayuda del editor
-* ```Alt-Down Arrow```: Bajar la línea actual
-* ```Alt-Up Arrow```: Subir la línea actual
-* ```Cntrl-Space```: Mostrar ayuda contextual
+* Ctrl+K, Ctrl+C: Línea entera de comentario.
+* Ctrl+K, Ctrl+U: Quitar marca de comentario.
+* F1: Proporcionar comandos de ayuda del editor.
+* Flecha abajo: Bajar la línea actual.
+* Alt+Flecha arriba: Subir la línea actual.
+* Ctrl+Barra espaciadora: Mostrar ayuda contextual.
 
 ## <a name="convert-to-dates-or-timestamps"></a>Conversión en fechas o marcas de tiempo
 

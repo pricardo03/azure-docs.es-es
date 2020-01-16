@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 9faf7de25b8bf227dd4c7f3588972f98f7493439
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1a1b1e662a2e9adedfc68f1818f868c0a5318652
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583923"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428989"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Configuración de cuentas de laboratorio en Azure Lab Services 
 En Azure Lab Services, una cuenta de laboratorio es un contenedor para tipos de laboratorios administrados, como los laboratorios de clase. Los administradores configuran una cuenta de laboratorio con Azure Lab Services y proporcionan acceso a los propietarios del laboratorio que pueden crear laboratorios en la cuenta. En este artículo se describe cómo crear o eliminar una cuenta de laboratorio y cómo ver todas las cuentas de laboratorio.
@@ -36,7 +36,7 @@ Para conectar una red virtual como una red del mismo nivel a la red virtual del 
 
 Los laboratorios creados en esta cuenta se conectan a la red virtual seleccionada. Pueden acceder a los recursos de la red virtual seleccionada. Para más información, vea [Conexión de la red del laboratorio con una red virtual del mismo nivel en Azure Lab Services](how-to-connect-peer-virtual-network.md).
 
-Al seleccionar una red virtual para el campo **Red virtual del mismo nivel**, se deshabilita la opción **Permitir al creador del laboratorio seleccionar la ubicación correspondiente**. Se debe a que los laboratorios de la cuenta de laboratorio deben estar en la misma región que esta para que se puedan conectar con los recursos de la red virtual del mismo nivel. 
+Al seleccionar una red virtual en el campo **Asociar red virtual**, se deshabilita la opción **Permitir al creador del laboratorio seleccionar la ubicación correspondiente**. Esto se debe a que los laboratorios de la cuenta de laboratorio deben estar en la misma región que dicha cuenta para que se puedan conectar con los recursos de la red virtual del mismo nivel. 
 
 ## <a name="allow-lab-creator-to-pick-location-for-the-lab"></a>Permitir al creador del laboratorio seleccionar la ubicación correspondiente
 Para permitir que el creador del laboratorio cree laboratorios en una ubicación distinta a la de la cuenta de laboratorio, siga estos pasos: 
@@ -133,9 +133,17 @@ En la página **Opciones de inicio de sesión**, seleccione **Iniciar sesión co
 
 Por último, se le pide que cree una cuenta de Microsoft que esté vinculada a su cuenta de GitHub. Sucede automáticamente cuando el instructor selecciona **Siguiente**.  Luego el instructor inicia sesión inmediatamente y se conecta al laboratorio de clase.
 
+## <a name="automatic-shutdown-of-vms-on-disconnect"></a>Apagado automático de las máquinas virtuales al desconectarse
+El apagado automático de las máquinas virtuales de laboratorio Windows (plantilla o alumno) se habilitará o deshabilitará después de cerrar la conexión a Escritorio remoto. También puede especificar cuánto tiempo deben esperar las máquinas virtuales para que el usuario se vuelva a conectar antes de que se apaguen automáticamente.
+
+![Configuración del apagado automático en la cuenta de laboratorio](../media/how-to-configure-lab-accounts/automatic-shutdown-vm-disconnect.png)
+
+Esta configuración se aplica a todos los laboratorios creados en la cuenta de laboratorio. Un propietario de laboratorio puede invalidar esta configuración en el nivel de laboratorio. El cambio que se realice en esta configuración en la cuenta de laboratorio solo afectará a los laboratorios creados después.
+
+Para información sobre cómo pueden configurar los propietarios de laboratorio esta opción en el nivel de laboratorio, consulte [este artículo.](how-to-enable-shutdown-disconnect.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes:
+Vea los artículos siguientes:
 
 - [Como propietario del laboratorio, crear y administrar laboratorios](how-to-manage-classroom-labs.md)
 - [Como propietario del laboratorio, configurar y publicar plantillas](how-to-create-manage-template.md)

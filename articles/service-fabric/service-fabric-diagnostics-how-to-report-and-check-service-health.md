@@ -1,25 +1,16 @@
 ---
-title: Notificación y comprobación del estado con Azure Service Fabric | Microsoft Docs
+title: Notificación y comprobación del estado con Azure Service Fabric
 description: Conozca cómo se pueden enviar informes de estado desde el código de servicio y comprobar el estado del servicio mediante las herramientas de supervisión de estado que proporciona Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: mfussell
-editor: ''
-ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 0db341a9e36d61761321821de5631a564adea050
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b7a9c44a84e3ce15eaec22c8f57bb48f79dae05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428158"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464641"
 ---
 # <a name="report-and-check-service-health"></a>Notificación y comprobación del estado del servicio
 Cuando los servicios se encuentran con problemas, su capacidad para responder y corregir cualquier incidente e interrupción depende de la capacidad de detectar los problemas rápidamente. Si informa de problemas y errores en el administrador de estado de Azure Service Fabric desde el código de servicio, puede usar las herramientas estándar de seguimiento de estado que proporciona Service Fabric para comprobar el estado de mantenimiento.
@@ -34,7 +25,7 @@ Hay tres maneras de informar sobre el estado del servicio:
 
 Este artículo le guiará a través de un ejemplo que informa del estado del código de servicio. El ejemplo también muestra cómo se pueden usar las herramientas que ofrece Service Fabric para comprobar el estado de mantenimiento. Este artículo pretende ser una introducción rápida a las funcionalidades de supervisión del estado de Service Fabric. Para obtener más información, puede leer la serie de artículos detallados sobre el estado, empezando por el vínculo al final de este documento.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Debe tener instalados los siguientes elementos:
 
 * Visual Studio 2015 o Visual Studio 2019

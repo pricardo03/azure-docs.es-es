@@ -1,0 +1,63 @@
+---
+title: 'Uso del Agente de identidad (versión preliminar) para la administración de credenciales: Azure HDInsight'
+description: Obtenga información sobre el Agente de identidad de HDInsight para simplificar la autenticación de clústeres de Apache Hadoop unidos a un dominio.
+ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
+ms.topic: conceptual
+ms.date: 12/12/2019
+ms.openlocfilehash: f14cbef2ab568962601b3a407fa979e8f982598d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75475918"
+---
+# <a name="use-id-broker-preview-for-credential-management"></a>Uso del Agente de identidad (versión preliminar) para la administración de credenciales
+
+En este artículo se describe cómo configurar y usar la característica Agente de identidad en Azure HDInsight. Puede usar esta característica para iniciar sesión en Apache Ambari mediante Multi-Factor Authentication y obtener los vales de Kerberos necesarios sin necesidad de hash de contraseña en Azure Active Directory Domain Services (Azure AD DS).
+
+## <a name="overview"></a>Información general
+
+El Agente de identidad simplifica las configuraciones de autenticación complejas en los escenarios siguientes:
+
+* La organización se basa en la federación para autenticar a los usuarios para acceder a los recursos en la nube. Anteriormente, para usar clústeres de Enterprise Security Package (ESP) de HDInsight, tenía que habilitar la sincronización de hash de contraseñas desde el entorno local a Azure Active Directory. Este requisito puede ser difícil o no deseable para algunas organizaciones.
+
+* Está en el proceso de creación de soluciones que usan tecnologías que dependen de mecanismos de autenticación distintos. Por ejemplo, Apache Hadoop y Apache Ranger se basan en Kerberos, mientras que Azure Data Lake Storage se basa en OAuth.
+
+El Agente de identidad proporciona una infraestructura de autenticación unificada y elimina el requisito de sincronizar los hash de contraseña con Azure AD DS. El Agente de identidad consta de componentes que se ejecutan en una máquina virtual con Windows Server (nodo del Agente de identidad), junto con los nodos de puerta de enlace de clúster. 
+
+En el diagrama siguiente se muestra el flujo de autenticación para todos los usuarios, incluidos los usuarios federados, una vez habilitado el Agente de identidad:
+
+![Flujo de autenticación con el Agente de identidad](./media/identity-broker/identity-broker-architecture.png)
+
+El Agente de identidad permite iniciar sesión en clústeres de ESP mediante Multi-Factor Authentication, sin proporcionar ninguna contraseña. Si ya ha iniciado sesión en otros servicios de Azure, como Azure Portal, puede iniciar sesión en el clúster de HDInsight con una experiencia de inicio de sesión único (SSO).
+
+## <a name="enable-hdinsight-id-broker"></a>Habilitación del Agente de identidad de HDInsight
+
+Para crear un clúster de ESP con el Agente de identidad habilitado, siga estos pasos:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Siga los pasos de creación básicos para un clúster de ESP. Para más información, consulte [Creación de un clúster de HDInsight con ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
+1. Seleccione **Habilitar Agente de identidad de HDInsight**.
+
+La característica Agente de identidad agregará una máquina virtual adicional al clúster. Esta máquina virtual es el nodo del Agente de identidad e incluye componentes de servidor para admitir la autenticación. El nodo del Agente de identidad está unido al dominio de Azure AD DS.
+
+![Opción para habilitar el Agente de identidad](./media/identity-broker/identity-broker-enable.png)
+
+## <a name="tool-integration"></a>Integración de herramientas
+
+El [complemento IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) de HDInsight se ha actualizado para admitir OAuth. Puede usar este complemento para conectarse al clúster y enviar trabajos.
+
+## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>Acceso mediante SSH sin hash de contraseña en Azure AD DS
+
+Una vez habilitado el Agente de identidad, todavía necesitará un hash de contraseña almacenado en Azure AD DS para escenarios de SSH con cuentas de dominio. Para acceder mediante SSH a una máquina virtual unida a un dominio o para ejecutar el comando `kinit`, debe proporcionar una contraseña. 
+
+La autenticación de SSH requiere que el hash esté disponible en Azure AD DS. Si desea usar SSH solo para escenarios administrativos, puede crear una cuenta solo en la nube y usarla para acceder mediante SSH al clúster. Otros usuarios pueden usar las herramientas de Ambari o HDInsight (por ejemplo, el complemento IntelliJ) sin tener el hash de contraseña disponible en Azure AD DS.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Configuración de un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services](apache-domain-joined-configure-using-azure-adds.md)
+* [Sincronización de los usuarios de Azure Active Directory en un clúster de HDInsight](../hdinsight-sync-aad-users-to-cluster.md)
+* [Supervisión del rendimiento del clúster](../hdinsight-key-scenarios-to-monitor.md)

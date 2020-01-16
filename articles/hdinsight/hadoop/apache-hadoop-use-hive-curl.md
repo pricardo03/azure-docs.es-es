@@ -2,18 +2,18 @@
 title: 'Uso de Apache Hadoop Hive con Curl en HDInsight: Azure'
 description: Aprenda a enviar remotamente trabajos de Apache Pig a Azure HDInsight mediante Curl.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/28/2019
-ms.author: hrasheed
-ms.openlocfilehash: e1fbeb48acdfd9d09cad2616aed9793e2ff513ad
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.custom: hdinsightactive
+ms.date: 01/06/2020
+ms.openlocfilehash: 3bb09f1958685a3474b49d2d194e89fe81a80076
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736083"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690491"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Ejecución de consultas de Apache Hive con Apache Hadoop en HDInsight mediante REST
 
@@ -21,13 +21,13 @@ ms.locfileid: "70736083"
 
 Obtenga información acerca de cómo usar la API REST de WebHCat para ejecutar consultas de Apache Hive con Apache Hadoop en un clúster de Azure HDInsight.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Un clúster de Apache Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 * Un cliente REST. Este documento usa [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) en Windows PowerShell y [Curl](https://curl.haxx.se/) en [Bash](https://docs.microsoft.com/windows/wsl/install-win10).
 
-* Si usa Bash, también necesitará jq, un procesador JSON de línea de comandos.  Consulte [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* Si usa Bash, también necesitará jq, un procesador JSON de línea de comandos.  Vea [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
 ## <a name="base-uri-for-rest-api"></a>URI base para API REST
 
@@ -38,6 +38,7 @@ El identificador uniforme de recursos (URI) base de la API REST en HDInsight es 
 Al usar Curl o cualquier otra comunicación REST con WebHCat, debe proporcionar el nombre de usuario y la contraseña del administrador del clúster de HDInsight para autenticar las solicitudes. La API de REST se protege con la [autenticación básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Para garantizar que las credenciales se envían de manera segura al servidor, siempre debe crear solicitudes usando HTTP segura (HTTPS).
 
 ### <a name="setup-preserve-credentials"></a>Configuración (conservar las credenciales)
+
 Conserve las credenciales para evitar volver a escribirlas en cada ejemplo.  El nombre del clúster se conservará en un paso independiente.
 
 **A. Bash**  
@@ -54,7 +55,8 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ```
 
 ### <a name="identify-correctly-cased-cluster-name"></a>Identificación del nombre del clúster con las mayúsculas y minúsculas correctas
-Las mayúsculas y minúsculas reales del nombre del clúster pueden no ser como cabría esperar, dependen de la forma en que se haya creado el clúster.  Estos pasos mostrarán las mayúsculas y minúsculas reales y después las almacenarán en una variable para los ejemplos siguientes.
+
+Las mayúsculas y minúsculas reales del nombre del clúster pueden no ser como cabría esperar, dependen de la forma en que se haya creado el clúster.  Estos pasos mostrarán las mayúsculas y minúsculas reales y después las almacenarán en una variable para todos los ejemplos posteriores.
 
 Edite los siguientes scripts para reemplazar `CLUSTERNAME` por su nombre de clúster. Luego, escriba el comando. (El nombre del clúster para el nombre de dominio completo no distingue mayúsculas de minúsculas).
 
@@ -73,7 +75,7 @@ $clusterName = (ConvertFrom-Json $resp.Content).items.Clusters.cluster_name;
 $clusterName
 ```
 
-## <a id="curl"></a>Ejecución de una consulta de Hive
+## <a name="run-a-hive-query"></a>Ejecución de una consulta de Hive
 
 1. Utilice uno de los siguientes comandos para comprobar que puede conectarse al clúster de HDInsight:
 
@@ -185,15 +187,11 @@ $clusterName
 
     Puede enumerar y descargar estos archivos mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para más información acerca del uso de la CLI de Azure con Azure Storage, consulte el documento [Uso de la CLI de Azure con Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs).
 
-## <a id="nextsteps"></a>Pasos siguientes
-
-Si desea obtener información general sobre Hive con HDInsight:
-
-* [Uso de Apache Hive con Apache Hadoop en HDInsight](hdinsight-use-hive.md)
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener información sobre otras formas en que puede trabajar con Hadoop en HDInsight:
 
-* [Uso de Apache Pig con Apache Hadoop en HDInsight](hdinsight-use-pig.md)
+* [Uso de Apache Hive con Apache Hadoop en HDInsight](hdinsight-use-hive.md)
 * [Uso de MapReduce con Apache Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
 Para obtener más información sobre la API de REST usada en este documento, consulte el documento [WebHCat reference](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) (Referencia de WebHCat).

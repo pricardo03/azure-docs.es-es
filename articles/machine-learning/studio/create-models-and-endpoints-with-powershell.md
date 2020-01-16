@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: d7999488302098980ff9306836ec9d54aceac3be
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ae9550e797ad13f78f222cb6120f040721914964
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837856"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454772"
 ---
 # <a name="use-powershell-to-create-studio-classic-models-and-web-service-endpoints-from-one-experiment"></a>Uso de PowerShell para crear varios modelos y puntos de conexión de servicio web de Studio (clásico) a partir de un experimento
 
@@ -25,7 +25,7 @@ Por ejemplo, digamos que posee una empresa de franquicias de alquiler de bicicle
 
 Puede entrenar el modelo una vez usando una versión combinada de todos los conjuntos de datos en todas las ubicaciones. Sin embargo, cada una de las ubicaciones tiene un entorno único. Por tanto, un mejor enfoque sería entrenar el modelo de regresión por separado mediante el conjunto de datos de cada ubicación. De este modo, cada modelo entrenado podría tener en cuenta los diferentes tamaños de tienda, el volumen, la geografía, la población, el entorno de tráfico preparado para bicicletas, etc.
 
-Ese puede que sea el mejor enfoque, pero no desea crear 1000 experimentos de entrenamiento en la versión clásica de Azure Machine Learning Studio, y cada uno de ellos representa una ubicación única. Además de ser una tarea abrumadora, también parece ineficaz, ya que cada experimento tendría exactamente los mismos componentes, excepto el conjunto de datos de entrenamiento.
+Ese puede que sea el mejor enfoque, pero no desea crear 1000 experimentos de entrenamiento en Azure Machine Learning Studio (clásico), y cada uno de ellos representa una ubicación única. Además de ser una tarea abrumadora, también parece ineficaz, ya que cada experimento tendría exactamente los mismos componentes, excepto el conjunto de datos de entrenamiento.
 
 Por suerte, puede lograrlo con la [API para volver a entrenar de Azure Machine Learning Studio (clásico)](/azure/machine-learning/studio/retrain-machine-learning-model) y automatizando la tarea con [PowerShell de Azure Machine Learning Studio (clásico)](powershell-module.md).
 

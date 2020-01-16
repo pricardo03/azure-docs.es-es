@@ -1,5 +1,5 @@
 ---
-title: Migración desde Azure AD Access Control Service a SAS
+title: 'Azure Service Bus: Migración a la autorización de firma de acceso compartido'
 description: Aprenda a migrar desde Azure Active Directory Access Control Service a la autorización de firma de acceso compartido.
 services: service-bus-messaging
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: ae0dd3827e17cc63b4b698eb8d88a08799c7278f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fe0acedeb65f010f9af2ea55cd37e6fe3046d989
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790341"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462166"
 ---
-# <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar desde Azure Active Directory Access Control Service a la autorización de Firma de acceso compartido
+# <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Service Bus: Migración desde Azure Active Directory Access Control Service a la autorización de firma de acceso compartido
 
 Las aplicaciones de Service Bus tenían la posibilidad anteriormente de usar dos modelos de autorización diferentes: el modelo de token de [Firma de acceso compartido (SAS)](service-bus-sas.md), proporcionado directamente por Service Bus, y un modelo federado donde la administración de las reglas de autorización ocurría de manera interna por medio del servicio de recopilación de auditorías (ACS) de [Azure Active Directory](/azure/active-directory/), y los tokens obtenidos de ACS se pasaban a Service Bus para autorizar el acceso a las funciones que se querían.
 

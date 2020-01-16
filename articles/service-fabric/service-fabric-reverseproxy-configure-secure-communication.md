@@ -1,24 +1,16 @@
 ---
-title: Comunicación segura con proxy inverso de Azure Service Fabric | Microsoft Docs
-description: Configure el proxy inverso para habilitar la comunicación segura de un extremo a otro.
-services: service-fabric
-documentationcenter: .net
+title: Comunicación segura con proxy inverso de Azure Service Fabric
+description: Configure el proxy inverso para habilitar la comunicación segura de un extremo a otro en una aplicación de Azure Service Fabric.
 author: kavyako
-manager: vipulm
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: e915e689f09ba7f5c92958ebf8531aa67eef4493
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4cfeaf34a39231ffa91ea970a61f66632bae40c7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933952"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639401"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Conexión a un servicio seguro con el proxy inverso
 
@@ -30,7 +22,7 @@ Consulte [Configuración del proxy inverso en Azure Service Fabric](service-fabr
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Establecimiento de una conexión segura entre el proxy inverso y los servicios 
 
 ### <a name="reverse-proxy-authenticating-to-services"></a>Autenticación del proxy inverso con los servicios:
-El proxy inverso se identifica él mismo con los servicios mediante su certificado. Para los clústeres de Azure el certificado se especifica con la propiedad ***reverseProxyCertificate*** en la sección [**Microsoft.servicefabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters)[Tipo de recurso](../azure-resource-manager/resource-group-authoring-templates.md) de la plantilla de Resource Manager. Para los clústeres independientes, el certificado se especifica con las propiedades ***ReverseProxyCertificate*** o ***ReverseProxyCertificateCommonNames*** de la sección **Seguridad** del archivo ClusterConfig.json. Para más información, consulte [Habilitación del proxy inverso en clústeres independientes](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
+El proxy inverso se identifica él mismo con los servicios mediante su certificado. Para los clústeres de Azure el certificado se especifica con la propiedad ***reverseProxyCertificate*** en la sección [**Microsoft.servicefabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Tipo de recurso](../azure-resource-manager/templates/template-syntax.md) de la plantilla de Resource Manager. Para los clústeres independientes, el certificado se especifica con las propiedades ***ReverseProxyCertificate*** o ***ReverseProxyCertificateCommonNames*** de la sección **Seguridad** del archivo ClusterConfig.json. Para más información, consulte [Habilitación del proxy inverso en clústeres independientes](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
 
 Los servicios pueden implementar la lógica para comprobar el certificado presentado por el proxy inverso. Los servicios pueden especificar los detalles del certificado de cliente aceptado como valores de configuración en el paquete de configuración. Esto se puede leer en tiempo de ejecución y puede utilizarse para validar el certificado presentado por el proxy inverso. Consulte [Administración de los parámetros de la aplicación en varios entornos](service-fabric-manage-multiple-environment-app-configuration.md) para agregar los valores de configuración. 
 
@@ -156,7 +148,7 @@ Especifique **ApplicationCertificateValidationPolicy** con el valor **None** en 
 ## <a name="endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints"></a>Lógica de selección de punto de conexión cuando los servicios exponen tanto puntos de conexión seguros como no seguros
 Service Fabric admite la configuración de varios puntos de conexión para un servicio. Para más información, vea [Especificación de recursos en un manifiesto de servicio](service-fabric-service-manifest-resources.md).
 
-El proxy inverso selecciona uno de los puntos de conexión al que reenviar la solicitud en función del parámetro de consulta **ListenerName** del [URI de servicio](./service-fabric-reverseproxy.md#uri-format-for-addressing-services-by-using-the-reverse-proxy). Si no se especifica el parámetro **ListenerName**, el proxy inverso puede elegir cualquier punto de conexión en la lista de puntos de conexión. Según los puntos de conexión configurados para el servicio, el punto de conexión seleccionado puede ser un punto de conexión HTTP o HTTPS. Puede que haya escenarios o requisitos en la que quiera que el proxy inverso funcione en "modo solo seguro"; es decir, no quiere que el proxy inverso seguro reenvíe solicitudes a puntos de conexión no seguros. Para establecer el proxy inverso en modo solo seguro, especifique la entrada de configuración **SecureOnlyMode** con el valor **true** en la sección [**ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).   
+El proxy inverso selecciona uno de los puntos de conexión al que reenviar la solicitud en función del parámetro de consulta **ListenerName** del [URI de servicio](./service-fabric-reverseproxy.md#uri-format-for-addressing-services-by-using-the-reverse-proxy). Si no se especifica el parámetro **ListenerName**, el proxy inverso puede elegir cualquier punto de conexión en la lista de puntos de conexión. Según los puntos de conexión configurados para el servicio, el punto de conexión seleccionado puede ser un punto de conexión HTTP o HTTPS. Puede que haya escenarios o requisitos en la que quiera que el proxy inverso funcione en "modo solo seguro"; es decir, no quiere que el proxy inverso seguro reenvíe solicitudes a puntos de conexión no seguros. Para establecer el proxy inverso en modo solo seguro, especifique la entrada de configuración **SecureOnlyMode** con el valor **true** en la sección [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).   
 
 ```json
 {

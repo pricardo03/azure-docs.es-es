@@ -4,15 +4,15 @@ description: En este tema se le ayudará a comprender cómo recopilar datos y su
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
-ms.date: 11/21/2019
-ms.openlocfilehash: 33ba07ac8d89546856666cc7ab94fae650020001
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+author: bwren
+ms.author: bwren
+ms.date: 12/24/2019
+ms.openlocfilehash: 58d6c8d18e03ab248cfbebcf910ae13c5fee439e
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74306533"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530976"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Recopilación de datos de registro con el agente de Log Analytics
 
@@ -85,7 +85,7 @@ A partir de las versiones publicadas después de agosto de 2018, hemos realizado
 
 En la tabla siguiente se indican los paquetes necesarios para las distribuciones de Linux compatibles en las que se instalará el agente.
 
-|Paquete necesario |DESCRIPCIÓN |Versión mínima |
+|Paquete necesario |Descripción |Versión mínima |
 |-----------------|------------|----------------|
 |Glibc |    Biblioteca GNU C | 2.5-12 
 |Openssl    | Bibliotecas OpenSSL | 1.0.x o 1.1.x |
@@ -98,7 +98,7 @@ En la tabla siguiente se indican los paquetes necesarios para las distribuciones
 
 ## <a name="tls-12-protocol"></a>Protocolo TLS 1.2
 
-Para garantizar la seguridad de los datos en tránsito a registros de Azure Monitor, se recomienda encarecidamente configurar el agente para que use al menos Seguridad de la capa de transporte (TLS) 1.2. Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**.  Para información adicional, revise [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12) (Envío de datos de forma segura mediante TLS 1.2). 
+Para garantizar la seguridad de los datos en tránsito a registros de Azure Monitor, se recomienda encarecidamente configurar el agente para que use al menos Seguridad de la capa de transporte (TLS) 1.2. Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**.  Para información adicional, revise [Sending data securely using TLS 1.2](data-security.md#sending-data-securely-using-tls-12) (Envío de datos de forma segura mediante TLS 1.2). 
 
 ## <a name="network-firewall-requirements"></a>Requisitos de firewall de red
 
@@ -106,9 +106,9 @@ A continuación se muestra la información de configuración de proxy y firewall
 
 |Recurso del agente|Puertos |Dirección |Omitir inspección de HTTPS|
 |------|---------|--------|--------|   
-|\* .ods.opinsights.azure.com |Puerto 443 |Salida|Sí |  
-|\* .oms.opinsights.azure.com |Puerto 443 |Salida|Sí |  
-|\* .blob.core.windows.net |Puerto 443 |Salida|Sí |  
+|*.ods.opinsights.azure.com |Puerto 443 |Salida|Sí |  
+|*.oms.opinsights.azure.com |Puerto 443 |Salida|Sí |  
+|*.blob.core.windows.net |Puerto 443 |Salida|Sí |  
 
 Para obtener información sobre el firewall necesaria para Azure Government, vea [Administración de Azure Government](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
@@ -126,8 +126,8 @@ Con el agente de Linux, el servidor proxy se especifica durante o [después de l
 |Propiedad| Descripción |
 |--------|-------------|
 |Protocolo | https |
-|user | Nombre de usuario opcional para la autenticación de proxy |
-|contraseña | Contraseña opcional para la autenticación de proxy |
+|usuario | Nombre de usuario opcional para la autenticación de proxy |
+|password | Contraseña opcional para la autenticación de proxy |
 |proxyhost | Dirección o nombre de dominio completo (FQDN) del servidor proxy o la puerta de enlace de Log Analytics |
 |port | Número de puerto opcional para el servidor proxy o la puerta de enlace de Log Analytics |
 
@@ -140,17 +140,17 @@ Por ejemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 La conexión de máquinas en la suscripción de Azure o el entorno híbrido directamente con registros de Azure Monitor se puede lograr mediante diferentes métodos según sus requisitos. En la tabla siguiente se resalta cada método para determinar cuál funciona mejor en su organización.
 
-|Origen | Método | DESCRIPCIÓN|
+|Source | Método | Descripción|
 |-------|-------------|-------------|
-|Azure VM| - Extensión de máquinas virtuales de Log Analytics para [Windows](../../virtual-machines/extensions/oms-windows.md) o [Linux](../../virtual-machines/extensions/oms-linux.md) mediante la CLI de Azure o con una plantilla de Azure Resource Manager<br>- [Manualmente desde Azure Portal](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json)<br>- [Aprovisionamiento automático de Azure Security Center](../../security-center/security-center-enable-data-collection.md)| - La extensión instala el agente de Log Analytics en máquinas virtuales de Azure y las inscribe en un área de trabajo de Azure Monitor existente.<br>-Azure Security Center puede aprovisionar el agente de Log Analytics tanto en las máquinas virtuales de Azure admitidas como en las nuevas que se creen si lo habilita para supervisar las amenazas y vulnerabilidades de seguridad. Si está habilitado, se aprovisionarán todas las máquinas virtuales nuevas o existentes sin un agente instalado.|
+|Azure VM| - Extensión de máquinas virtuales de Log Analytics para [Windows](../../virtual-machines/extensions/oms-windows.md) o [Linux](../../virtual-machines/extensions/oms-linux.md) mediante la CLI de Azure o con una plantilla de Azure Resource Manager<br>- [Manualmente desde Azure Portal](../../azure-monitor/learn/quick-collect-azurevm.md)<br>- [Aprovisionamiento automático de Azure Security Center](../../security-center/security-center-enable-data-collection.md)| - La extensión instala el agente de Log Analytics en máquinas virtuales de Azure y las inscribe en un área de trabajo de Azure Monitor existente.<br>-Azure Security Center puede aprovisionar el agente de Log Analytics tanto en las máquinas virtuales de Azure admitidas como en las nuevas que se creen si lo habilita para supervisar las amenazas y vulnerabilidades de seguridad. Si está habilitado, se aprovisionarán todas las máquinas virtuales nuevas o existentes sin un agente instalado.|
 | Equipo híbrido con Windows|- [Instalación manual](agent-windows.md)<br>- [DSC de Azure Automation](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Plantilla de Resource Manager con Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Instale el agente de Microsoft Monitoring desde la línea de comandos o mediante un método automatizado, como DSC de Azure Automation, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), o con una plantilla de Azure Resource Manager si implementó Microsoft Azure Stack en su centro de datos.| 
-| Equipo híbrido con Linux| [Instalación manual](../../azure-monitor/learn/quick-collect-linux-computer.md)|Instale al agente para Linux llamando a un script contenedor hospedado en GitHub. | 
-| System Center Operations Manager|[Integrar Operations Manager con Log Analytics](../../azure-monitor/platform/om-agents.md) | Configure la integración entre Operations Manager y los registros de Azure Monitor para reenviar datos recopilados de equipos Windows que informan a un grupo de administración.|  
+| Equipo híbrido con Linux| [Instalación manual](agent-linux.md)|Instale al agente para Linux llamando a un script contenedor hospedado en GitHub o descargue e instale manualmente el agente. | 
+| System Center Operations Manager|[Integrar Operations Manager con Log Analytics](om-agents.md) | Configure la integración entre Operations Manager y los registros de Azure Monitor para reenviar datos recopilados de equipos Windows que informan a un grupo de administración.|  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Revise los [orígenes de datos](../../azure-monitor/platform/agent-data-sources.md) para saber qué orígenes de datos hay disponibles para recopilar datos de su sistema Windows o Linux. 
+* Revise los [orígenes de datos](agent-data-sources.md) para saber qué orígenes de datos hay disponibles para recopilar datos de su sistema Windows o Linux. 
 
-* Obtenga información acerca de las [consultas de registros](../../azure-monitor/log-query/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos. 
+* Obtenga información acerca de las [consultas de registros](../log-query/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos. 
 
-* Conozca las [soluciones de supervisión](../../azure-monitor/insights/solutions.md) que agregan funcionalidad a Azure Monitor y que también recopilan datos en el área de trabajo de Log Analytics.
+* Conozca las [soluciones de supervisión](../insights/solutions.md) que agregan funcionalidad a Azure Monitor y que también recopilan datos en el área de trabajo de Log Analytics.

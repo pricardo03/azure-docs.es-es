@@ -1,33 +1,33 @@
 ---
 title: Uso de PowerShell para crear una SAS de delegación de usuarios para un contenedor o blob
 titleSuffix: Azure Storage
-description: Obtenga información sobre cómo crear una SAS de delegación de usuarios (versión preliminar) con credenciales de Azure Active Directory mediante PowerShell.
+description: Aprenda a cómo crear una SAS de delegación de usuarios con credenciales de Azure Active Directory mediante PowerShell.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 5f4947921a77f2bc94d1810c9b1d1951431d3d71
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 63075152ea4b3bf1a3aa208cf2a9642ef46642db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892522"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371789"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Creación de una SAS de delegación de usuarios para un contenedor o blob con PowerShell (versión preliminar)
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Creación de una SAS de delegación de usuarios para un contenedor o blob con PowerShell
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-En este artículo se muestra cómo usar credenciales de Azure Active Directory (Azure AD) para crear una SAS de delegación de usuarios para un contenedor o blob con Azure PowerShell (versión preliminar).
+En este artículo se muestra cómo usar las credenciales de Azure Active Directory (Azure AD) para crear una SAS de delegación de usuarios para un contenedor o blob con Azure PowerShell.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="install-the-preview-module"></a>Instalación del módulo de versión preliminar
+## <a name="install-the-powershell-module"></a>Instalación del módulo de PowerShell
 
-Para usar PowerShell para crear una SAS de delegación de usuarios, primero debe instalar el módulo Az.Storage 1.3.1-preview. Para instalar el módulo, siga estos pasos:
+Para crear una SAS de delegación de usuarios con PowerShell, instale la versión 1.10.0 o posterior del módulo Az.Storage. Siga estos pasos para instalar la versión más reciente del módulo:
 
 1. Desinstale las instalaciones anteriores de Azure PowerShell:
 
@@ -48,23 +48,18 @@ Para usar PowerShell para crear una SAS de delegación de usuarios, primero debe
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Instale uno de los módulos de versión preliminar de Azure Storage que admita la SAS de delegación de usuarios:
+1. Asegúrese de que tiene instalada la versión 3.2.0 o posterior de Azure PowerShell. Ejecute el siguiente comando para instalar la versión más reciente del módulo de PowerShell para Azure Storage.
 
     ```powershell
-    Install-Module Az.Storage `
-        –Repository PSGallery `
-        -RequiredVersion 1.3.1-preview `
-        –AllowPrerelease `
-        –AllowClobber `
-        –Force
+    Install-Module -Name Az.Storage -Repository PSGallery -Force
     ```
 
 1. Cierre y vuelva a abrir la ventana de PowerShell.
 
-Dado que PowerShell carga el módulo Az.Storage más reciente de manera predeterminada, es posible que tenga que cargar explícitamente el módulo 1.3.1-preview al iniciar la consola. Para cargar explícitamente el módulo de versión preliminar, ejecute el comando [Import-Module](/powershell/module/microsoft.powershell.core/import-module):
+Para comprobar qué versión del módulo Az.Storage está instalada, ejecute el siguiente comando:
 
 ```powershell
-Import-Module Az.Storage -RequiredVersion 1.3.1
+Get-Module -ListAvailable -Name Az.Storage -Refresh
 ```
 
 Para más información sobre cómo instalar Azure PowerShell, consulte [Instalación de Azure PowerShell con PowerShellGet](/powershell/azure/install-az-ps).
@@ -81,7 +76,7 @@ Para obtener más información sobre cómo iniciar sesión con PowerShell, consu
 
 ## <a name="assign-permissions-with-rbac"></a>Asignación de permisos con RBAC
 
-Para crear una SAS de delegación de usuarios desde Azure PowerShell, se debe asignar a la cuenta de Azure AD utilizada para iniciar sesión en PowerShell un rol que incluya la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**. Este permiso permite que la cuenta de Azure AD solicite la *clave de delegación de usuarios*. La clave de delegación de usuarios se usa para firmar la SAS de delegación de los usuarios. El rol que proporciona la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** debe asignarse en el nivel de la cuenta de almacenamiento, el grupo de recursos o la suscripción. Para más información sobre los permisos de RBAC para crear una SAS de delegación de usuarios, consulte la sección **Asignación de permisos con RBAC** de [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas) (Creación de una SAS de delegación de usuarios).
+Para crear una SAS de delegación de usuarios desde Azure PowerShell, se debe asignar a la cuenta de Azure AD utilizada para iniciar sesión en PowerShell un rol que incluya la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**. Gracias a este permiso, la cuenta de Azure AD puede solicitar la *clave de delegación de usuarios*. La clave de delegación de usuarios se usa para firmar la SAS de delegación de los usuarios. El rol que proporciona la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** debe asignarse en el nivel de la cuenta de almacenamiento, el grupo de recursos o la suscripción. Para más información sobre los permisos de RBAC para crear una SAS de delegación de usuarios, consulte la sección **Asignación de permisos con RBAC** de [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas) (Creación de una SAS de delegación de usuarios).
 
 Si no tiene permisos suficientes para asignar roles de RBAC a la entidad de seguridad de Azure AD, puede que tenga que pedir al propietario o administrador de la cuenta que asigne los permisos necesarios.
 

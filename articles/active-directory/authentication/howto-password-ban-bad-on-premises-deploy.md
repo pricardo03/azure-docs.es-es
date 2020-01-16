@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f98373fe8eab07519e665ab1eddfd7a9ce6b7e22
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 481e1762e805f162aa515dd4d12cc7b6b2e95d71
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847873"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560263"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementación de la protección de contraseñas de Azure AD
 
@@ -84,7 +84,7 @@ Después de que la característica se haya ejecutado en modo de auditoría duran
   [Guía de migración de replicación de SYSVOL: Replicación de FRS a DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
   > [!WARNING]
-  > El software del agente de DC de protección con contraseña de Azure AD se instalará actualmente en los controladores de dominio de los dominios que usan aún FRS (la tecnología predecesora a DFSR) para la replicación de SYSVOL, pero NO funcionará correctamente en este entorno. Los efectos secundarios adicionales negativos incluyen archivos que no se pueden replicar y procedimientos de restauración de SYSVOL que aparentemente funcionan pero que en realidad no pueden replicar todos los archivos. Migre el dominio para usar DFSR lo antes posible, tanto por las ventajas inherentes de DFSR como también para desbloquear la implementación de Protección con contraseña de Azure AD. Las versiones futuras del software se deshabilitarán automáticamente cuando se ejecuten en un dominio que aún use FRS.
+  > El software del agente de DC de protección con contraseña de Azure AD se instalará actualmente en los controladores de dominio de los dominios que usan aún FRS (la tecnología predecesora a DFSR) para la replicación de SYSVOL, pero NO funcionará correctamente en este entorno. Otros efectos secundarios negativos incluyen archivos que no se pueden replicar y procedimientos de restauración de SYSVOL que aparentemente funcionan pero que en realidad no pueden replicar todos los archivos. Migre el dominio para usar DFSR lo antes posible, tanto por las ventajas inherentes de DFSR como también para desbloquear la implementación de Protección con contraseña de Azure AD. Las versiones futuras del software se deshabilitarán automáticamente cuando se ejecuten en un dominio que aún use FRS.
 
 * El servicio de distribución de claves debe habilitarse en todos los controladores de dominio del dominio que ejecutan Windows Server 2012. De manera predeterminada, este servicio se habilita a través de inicio de un desencadenador manual.
 
@@ -129,11 +129,13 @@ Hay dos instaladores requeridos para la protección con contraseña de Azure AD.
      El resultado debería mostrar el **estado** "Running".
 
 1. Registre el proxy.
-   * Después de completar el paso 3, el servicio de proxy se está ejecutando en el equipo. Sin embargo, el servicio aún no tiene las credenciales necesarias para comunicarse con Azure AD. Es necesario el registro con Azure AD:
+   * Una vez completado el paso 3, el servicio de proxy se ejecuta en la máquina, pero aún no dispone de las credenciales necesarias para comunicarse con Azure AD. Es necesario el registro con Azure AD:
 
      `Register-AzureADPasswordProtectionProxy`
 
-     Este cmdlet requiere credenciales de administrador global para el inquilino de Azure. También necesita privilegios de administrador de dominio de Active Directory de forma local en el dominio raíz del bosque. Cuando este comando se ejecute correctamente una vez para un servicio de proxy, las invocaciones adicionales se realizarán correctamente, pero no son necesarias.
+     Este cmdlet requiere credenciales de administrador global para el inquilino de Azure. También necesita privilegios de administrador de dominio de Active Directory de forma local en el dominio raíz del bosque. También debe ejecutar este cmdlet mediante una cuenta con privilegios de administrador local.
+
+     Cuando este comando se ejecute correctamente una vez para un servicio de proxy, las invocaciones adicionales se realizarán correctamente, pero no son necesarias.
 
       El cmdlet `Register-AzureADPasswordProtectionProxy` admite los siguientes tres modos de autenticación. Los dos primeros modos son compatibles con Azure Multi-Factor Authentication pero el tercero no. Consulte los comentarios siguientes para más detalles.
 
@@ -177,7 +179,9 @@ Hay dos instaladores requeridos para la protección con contraseña de Azure AD.
    > Puede haber un retraso notable antes de completarse la primera vez que se ejecuta este cmdlet para un inquilino de Azure específico. A menos que se notifica un error, no se preocupe por este retraso.
 
 1. Registre el bosque.
-   * Debe inicializar el bosque local de Active Directory con las credenciales necesarias para comunicarse con Azure mediante el cmdlet de PowerShell `Register-AzureADPasswordProtectionForest`. Este cmdlet requiere credenciales de administrador global para el inquilino de Azure. También requiere privilegios de administrador de empresa de Active Directory local. Este paso se ejecuta una vez por bosque.
+   * Debe inicializar el bosque local de Active Directory con las credenciales necesarias para comunicarse con Azure mediante el cmdlet de PowerShell `Register-AzureADPasswordProtectionForest`.
+
+      Este cmdlet requiere credenciales de administrador global para el inquilino de Azure.  También debe ejecutar este cmdlet mediante una cuenta con privilegios de administrador local. También requiere privilegios de administrador de empresa de Active Directory local. Este paso se ejecuta una vez por bosque.
 
       El cmdlet `Register-AzureADPasswordProtectionForest` admite los siguientes tres modos de autenticación. Los dos primeros modos son compatibles con Azure Multi-Factor Authentication pero el tercero no. Consulte los comentarios siguientes para más detalles.
 

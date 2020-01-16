@@ -1,14 +1,14 @@
 ---
 title: 'Trabajo con grupos de administración: Gobernanza en Azure'
 description: Aprenda a visualizar, mantener, actualizar y eliminar la jerarquía de grupos de administración.
-ms.date: 05/22/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 90f4bacf462ed5f2590f51d15b6b660057c51738
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 3b5b67dbf1fad5c74570c4bf70401df1a5ed943f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960238"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436555"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
 
@@ -64,11 +64,9 @@ Para eliminar un grupo de administración, deben cumplirse los siguientes requis
 
 1. No deben existir grupos de administración secundarios ni suscripciones en el grupo de administración.
 
-   - Para mover una suscripción fuera de un grupo de administración, vea [Mover la suscripción a otro grupo de administración](#move-subscriptions-in-the-hierarchy).
+   - Para mover una suscripción o un grupo de administración a otro grupo de administración, consulte [Movimiento de grupos de administración y suscripciones en la jerarquía](#moving-management-groups-and-subscriptions).
 
-   - Para mover un grupo de administración a otro grupo de administración, consulte [Mover grupos de administración en la jerarquía](#move-management-groups-in-the-hierarchy).
-
-1. Tiene permisos de escritura sobre el grupo de administración (propietario, colaborador o colaborador de grupo de administración). Para ver qué permisos tiene, seleccione el grupo de administración y, a continuación, seleccione **IAM**. Para más información sobre los roles de RBAC, consulte [Administración del acceso y los permisos con RBAC](../../role-based-access-control/overview.md).  
+1. Necesita permisos de escritura sobre el grupo de administración (propietario, colaborador o colaborador de grupo de administración). Para ver qué permisos tiene, seleccione el grupo de administración y, a continuación, seleccione **IAM**. Para más información sobre los roles de RBAC, consulte [Administración del acceso y los permisos con RBAC](../../role-based-access-control/overview.md).  
 
 ### <a name="delete-in-the-portal"></a>Eliminar en el portal
 
@@ -194,25 +192,31 @@ Para devolver un grupo de administración específico y todos los niveles de la 
 az account management-group show --name 'Contoso' -e -r
 ```
 
-## <a name="move-subscriptions-in-the-hierarchy"></a>Movimiento de las suscripciones en la jerarquía
+## <a name="moving-management-groups-and-subscriptions"></a>Movimiento de grupos de administración y suscripciones   
 
 Uno de los motivos de crear un grupo de administración es agrupar las suscripciones. Solo los grupos de administración y las suscripciones pueden convertirse en secundarios de otro grupo de administración. Una suscripción que se mueve a un grupo de administración hereda todas las directivas y accesos de usuario del grupo de administración primario.
 
-Para mover la suscripción, deben cumplirse todos los permisos RBAC siguientes:
+Al mover un grupo de administración o una suscripción para que sean un elemento secundario de otro grupo de administración, es preciso evaluar tres reglas como verdaderas.
 
-- Rol de "propietario" en la suscripción secundaria.
-- Rol de "propietario", "colaborador" o "colaborador de grupo de administración" en el grupo de administración primario de destino.
-- Rol de "propietario", "colaborador" o "colaborador de grupo de administración" en el grupo de administración primario existente.
+Si va a realizar la acción de movimiento, necesitará lo siguiente: 
 
-Si el grupo de administración primario existente o de destino es el grupo de administración raíz, no se aplican los requisitos de permisos. Puesto que el grupo de administración raíz es la zona de aterrizaje predeterminada de todos los nuevos grupos de administración y suscripciones, no necesita permisos sobre él para mover un elemento.
+-  Permisos de escritura de grupos de administración y de escritura de la asignación de roles en la suscripción o en el grupo de administración secundarios.
+    - Ejemplo de rol integrado: **Propietario**
+- Acceso de escritura de grupos de administración en el grupo de administración primario de destino.
+    - Ejemplo de rol integrado: **Propietario**, **Colaborador**, **Colaborador de grupo de administración**
+- Acceso de escritura de grupos de administración en el grupo de administración primario existente.
+    - Ejemplo de rol integrado: **Propietario**, **Colaborador**, **Colaborador de grupo de administración**
 
-Si el rol de propietario de la suscripción se hereda del grupo de administración actual, los destinos de movimiento están limitados. Solo puede mover la suscripción a otro grupo de administración en el que tenga el rol de propietario. No puede moverla a un grupo de administración en el que sea colaborador porque perdería la propiedad de la suscripción. Si se le asigna directamente el rol de propietario de la suscripción (no se hereda del grupo de administración), puede moverlo a cualquier grupo de administración donde sea colaborador.
+**Excepción**: Si el grupo de administración primario existente o de destino es el grupo de administración raíz, no se aplican los requisitos de permisos. Puesto que el grupo de administración raíz es la zona de aterrizaje predeterminada de todos los nuevos grupos de administración y suscripciones, no necesita permisos sobre él para mover un elemento.
+
+Si el rol de propietario de la suscripción se hereda del grupo de administración actual, los destinos de movimiento están limitados. Solo puede mover la suscripción a otro grupo de administración en el que tenga el rol de propietario. No puede moverla a un grupo de administración en el que sea colaborador porque perdería la propiedad de la suscripción. Si se le asigna directamente el rol de propietario de la suscripción (no se hereda del grupo de administración), puede moverlo a cualquier grupo de administración donde sea colaborador. 
 
 Para ver qué permisos tiene en Azure Portal, seleccione el grupo de administración y, luego, **IAM**. Para más información sobre los roles de RBAC, consulte [Administración del acceso y los permisos con RBAC](../../role-based-access-control/overview.md).
 
-### <a name="move-subscriptions-in-the-portal"></a>Mover las suscripciones en el portal
 
-#### <a name="add-an-existing-subscription-to-a-management-group"></a>Agregar una suscripción existente a un grupo de administración
+## <a name="move-subscriptions"></a>Movimiento de suscripciones 
+
+#### <a name="add-an-existing-subscription-to-a-management-group-in-the-portal"></a>Adición una suscripción existente a un grupo de administración del portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
@@ -228,7 +232,7 @@ Para ver qué permisos tiene en Azure Portal, seleccione el grupo de administrac
 
 1. Seleccione "Guardar".
 
-#### <a name="remove-a-subscription-from-a-management-group"></a>Quitar una suscripción de un grupo de administración
+#### <a name="remove-a-subscription-from-a-management-group-in-the-portal"></a>Eliminación de una suscripción de un grupo de administración en el portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
@@ -276,9 +280,7 @@ Para quitar la suscripción del grupo de administración, use el comando subscri
 az account management-group subscription remove --name 'Contoso' --subscription '12345678-1234-1234-1234-123456789012'
 ```
 
-## <a name="move-management-groups-in-the-hierarchy"></a>Movimiento de grupos de administración en la jerarquía  
-
-Al mover un grupo de administración primario, la jerarquía de ese grupo se mueve con él. Para acceder a él, debe mover los grupos de administración; consulte [Acceso al grupo de administración](overview.md#management-group-access).
+## <a name="move-management-groups"></a>Movimiento de grupos de administración 
 
 ### <a name="move-management-groups-in-the-portal"></a>Mover grupos de administración en el portal
 

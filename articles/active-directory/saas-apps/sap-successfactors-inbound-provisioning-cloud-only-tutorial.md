@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: d032bf1241f355af110ee8f4da38ff4685bd2e3f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2ae951896e9c97826264990dc33b9a1930b0eec2
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932129"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530058"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>Tutorial: Configuración del aprovisionamiento de usuarios de SAP SuccessFactors en Azure AD (versión preliminar)
 El objetivo de este tutorial es mostrar los pasos que debe realizar para aprovisionar los datos de trabajadores de SuccessFactors Employee Central en Azure Active Directory, con escritura diferida opcional de la dirección de correo electrónico en SuccessFactors. Esta integración está en versión preliminar pública y admite la recuperación de más de [70 atributos de usuario](../manage-apps/sap-successfactors-attribute-reference.md) de SuccessFactors Employee Central. 
@@ -29,9 +29,9 @@ El objetivo de este tutorial es mostrar los pasos que debe realizar para aprovis
 
 ## <a name="overview"></a>Información general
 
-El [servicio de aprovisionamiento de usuarios de Azure Active Directory](../manage-apps/user-provisioning.md) se integra con [SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) para administrar el ciclo de vida de la identidad de los usuarios. 
+El [servicio de aprovisionamiento de usuarios de Azure Active Directory](../manage-apps/user-provisioning.md) se integra con [SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) para administrar el ciclo de vida de identidad de los usuarios. 
 
-Los flujos de trabajo de aprovisionamiento de usuarios de SuccessFactors que admite el servicio de aprovisionamiento de usuarios de Azure AD permiten la automatización de los siguientes escenarios de recursos humanos y de administración del ciclo de vida de identidades:
+Los flujos de trabajo de aprovisionamiento de usuarios de SuccessFactors que admite el servicio de aprovisionamiento de usuarios de Azure AD permiten la automatización de los siguientes escenarios de recursos humanos y de administración del ciclo de vida de identidad:
 
 * **Contratación de nuevos empleados**: cuando se agrega un nuevo empleado a SuccessFactors, se crea automáticamente una cuenta de usuario en Azure Active Directory y, opcionalmente, en Office 365 y en [otras aplicaciones SaaS compatibles con Azure AD](../manage-apps/user-provisioning.md), con escritura diferida de la dirección de correo electrónico en SuccessFactors.
 
@@ -79,19 +79,19 @@ La configuración del aprovisionamiento de usuarios controlado por RR. HH. en l
 * Transformación de atributos 
 * Filtros de ámbito
 
-Consulte el [plan de implementación de RR. HH. en la nube](../manage-apps/plan-cloud-hr-provision.md) para obtener instrucciones detalladas sobre estos temas. 
+Consulte el [plan de implementación de RR. HH. en la nube](../manage-apps/plan-cloud-hr-provision.md) para instrucciones detalladas sobre estos temas. 
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Configuración de SuccessFactors para la integración
 
-Un requisito común de todos los conectores de aprovisionamiento de SuccessFactors es que precisan las credenciales de una cuenta de SuccessFactors con los permisos adecuados para invocar las API de OData de SuccessFactors. En esta sección se describen los pasos necesarios para crear la cuenta de servicio en SuccessFactors y conceder los permisos adecuados. 
+Un requisito común de todos los conectores de aprovisionamiento de SuccessFactors es que requieren credenciales de una cuenta de SuccessFactors con los permisos correctos para invocar las API OData de SuccessFactors. En esta sección se describen los pasos para crear la cuenta de servicio de SuccessFactors y conceder los permisos adecuados. 
 
-* [Creación o identificación de una cuenta de usuario de API en SuccessFactors](#createidentify-api-user-account-in-successfactors)
+* [Creación e identificación de una cuenta de usuario de API en SuccessFactors](#createidentify-api-user-account-in-successfactors)
 * [Creación de un rol de permisos de API](#create-an-api-permissions-role)
 * [Creación de un grupo de permisos para el usuario de la API](#create-a-permission-group-for-the-api-user)
 * [Concesión del rol de permisos al grupo de permisos](#grant-permission-role-to-the-permission-group)
 
-### <a name="createidentify-api-user-account-in-successfactors"></a>Creación o identificación de una cuenta de usuario de API en SuccessFactors
-Trabaje con el equipo de administración de SuccessFactors o con el asociado de implementación para crear o identificar una cuenta de usuario en SuccessFactors que se usará para invocar las API de OData. Las credenciales de nombre de usuario y contraseña de esta cuenta se necesitarán al configurar las aplicaciones de aprovisionamiento en Azure AD. 
+### <a name="createidentify-api-user-account-in-successfactors"></a>Creación e identificación de una cuenta de usuario de API en SuccessFactors
+Trabaje con el equipo de administración de SuccessFactors o con el asociado de implementación para crear o identificar una cuenta de usuario en SuccessFactors que se usará para invocar las API OData. Las credenciales de nombre de usuario y contraseña de esta cuenta se necesitarán al configurar las aplicaciones de aprovisionamiento en Azure AD. 
 
 ### <a name="create-an-api-permissions-role"></a>Creación de un rol de permisos de API
 
@@ -100,14 +100,14 @@ Trabaje con el equipo de administración de SuccessFactors o con el asociado de 
   ![Administración de roles de permisos](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
 * En Permission Role List (Lista de roles de permisos), haga clic en **Create New** (Crear).
   > [!div class="mx-imgBorder"]
-  > ![Creación de rol de permisos](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
+  > ![Creación de un rol de permisos](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
 * Agregue valores en **Role Name** (Nombre de rol) y **Description** (Descripción) para el nuevo rol de permisos. El nombre y la descripción deben indicar que el rol se utilizará para los permisos de uso de la API.
   > [!div class="mx-imgBorder"]
   > ![Detalle de rol de permisos](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* En Permission settings (Configuración de los permisos), haga clic en **Permission...** (Permiso), desplácese hacia abajo en la lista de permisos y haga clic en **Manage Integration Tools** (Administrar herramientas de integración). Active la casilla **Allow Admin to Access to OData API through Basic Authentication** (Permitir que el administrador acceda a la API de OData mediante autenticación básica).
+* En Permission settings (Configuración de los permisos), haga clic en **Permission...** (Permiso), desplácese hacia abajo en la lista de permisos y haga clic en **Manage Integration Tools** (Administrar herramientas de integración). Active la casilla **Allow Admin to Access to OData API through Basic Authentication** (Permitir que el administrador acceda a la API OData mediante autenticación básica).
   > [!div class="mx-imgBorder"]
   > ![Administración de herramientas de integración](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Desplácese hacia abajo en el mismo cuadro y seleccione **Employee Central API**. Agregue permisos, tal como se muestra a continuación, para leer mediante la API de ODATA y editar mediante la API de ODATA. Seleccione la opción de edición si tiene previsto usar la misma cuenta para el escenario de escritura diferida en SuccessFactors. 
+* Desplácese hacia abajo en el mismo cuadro y seleccione **Employee Central API**. Agregue permisos, tal como se muestra a continuación, de lectura y edición mediante la API ODATA. Seleccione la opción de edición si tiene previsto usar la misma cuenta para el escenario de escritura diferida en SuccessFactors. 
   > [!div class="mx-imgBorder"]
   > ![Permisos de lectura y escritura](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 * Haga clic en **Done** (Acabado). Haga clic en **Guardar cambios**.
@@ -119,7 +119,7 @@ Trabaje con el equipo de administración de SuccessFactors o con el asociado de 
   > ![Administración de grupos de permisos](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
 * En la ventana Manage Permission Groups (Administrar grupos de permisos), haga clic en **Create New** (Crear).
   > [!div class="mx-imgBorder"]
-  > ![Incorporación de nuevo grupo](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
+  > ![Incorporación de un nuevo grupo](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
 * Agregue un valor en Group Name (Nombre de grupo) para el nuevo grupo. El nombre del grupo debe indicar que se utilizará para los usuarios de la API.
   > [!div class="mx-imgBorder"]
   > ![Nombre del grupo de permisos](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
@@ -149,7 +149,7 @@ En esta sección se proporcionan los pasos para el aprovisionamiento de cuentas 
 * [Configuración de las asignaciones de atributos](#part-2-configure-attribute-mappings)
 * [Habilitar e iniciar el aprovisionamiento de usuarios](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors"></a>Parte 1: Incorporación de la aplicación del conector de aprovisionamiento y configuración de la conectividad con SuccessFactors
+### <a name="part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors"></a>Parte 1: Incorporación de la aplicación del conector de aprovisionamiento y configuración de la conectividad con SuccessFactors
 
 **Para configurar SuccessFactors para el aprovisionamiento a Azure AD:**
 
@@ -165,19 +165,19 @@ En esta sección se proporcionan los pasos para el aprovisionamiento de cuentas 
 
 6. Una vez que se haya agregado la aplicación y se muestre la pantalla de detalles de la aplicación, seleccione **Aprovisionamiento**.
 
-7. Cambie el **modo** **de aprovisionamiento** a **Automático**.
+7. Cambie el **Modo de** **aprovisionamiento** a **Automático**.
 
 8. Cumplimente la sección **Credenciales de administrador** del siguiente modo:
 
-   * **Nombre de usuario de administrador**: escriba el nombre de usuario de la cuenta de usuario de la API de SuccessFactors, con el identificador de la compañía anexado. Tiene el formato: **nombreDeUsuario\@IdDeCompañía**.
+   * **Nombre de usuario de administrador**: escriba el nombre de usuario de la cuenta de usuario de SuccessFactors API, con el identificador de empresa anexado. El formato es: **username\@companyID**
 
-   * **Contraseña de administrador**: escriba la contraseña de la cuenta de usuario de la API de SuccessFactors. 
+   * **Contraseña de administrador:** escriba la contraseña de la cuenta de usuario de SuccessFactors API. 
 
-   * **URL de inquilino**: escriba el nombre del punto de conexión de servicio de la API de OData de SuccessFactors. Especifique solo el nombre de host del servidor, sin http o https. Este valor debería ser similar al siguiente: **nombre-servidor-api.successfactors.com**.
+   * **URL de inquilino:** escriba el nombre del punto de conexión de servicios de la API OData de SuccessFactors. Especifique solo el nombre de host del servidor sin http o https. Este valor debería ser similar al siguiente: **nombre-servidor-api.successfactors.com**.
 
    * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Enviar una notificación por correo electrónico cuando se produzca un error".
-         > [!NOTE]
-         > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+    > [!NOTE]
+    > El servicio de aprovisionamiento de Azure AD envía la notificación por correo electrónico si el trabajo de aprovisionamiento entra en un estado de[cuarentena](/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
    * Haga clic en el botón **Probar conexión**. Si la prueba de conexión se lleva a cabo correctamente, haga clic en el botón **Guardar** situado en la parte superior. Si se produce un error, compruebe que las credenciales y la dirección URL de SuccessFactors son válidas.
     >[!div class="mx-imgBorder"]
@@ -185,15 +185,15 @@ En esta sección se proporcionan los pasos para el aprovisionamiento de cuentas 
 
    * Una vez que las credenciales se guardan correctamente, en la sección **Asignaciones** se mostrará la asignación predeterminada **Synchronize SuccessFactors Users to Azure Active Directory** (Sincronizar usuarios de SuccessFactors con Azure Active Directory).
 
-### <a name="part-2-configure-attribute-mappings"></a>Parte 2: configuración de las asignaciones de atributos
+### <a name="part-2-configure-attribute-mappings"></a>Parte 2: configuración de las asignaciones de atributos
 
-En esta sección configurará cómo fluyen los datos de los usuarios de SuccessFactors a Active Directory.
+En esta sección, configurará cómo fluyen los datos de los usuarios de SuccessFactors a Active Directory.
 
 1. En la pestaña Aprovisionamiento, en **Asignaciones**, haga clic en **Synchronize SuccessFactors Users to Azure Active Directory** (Sincronizar usuarios de SuccessFactors con Azure Active Directory).
 
-1. En el campo **Ámbito de objeto de origen** puede seleccionar los conjuntos de usuarios de SuccessFactors que deben estar en el ámbito para el aprovisionamiento en Azure AD; para ello debe definir un conjunto de filtros basados en atributos. El ámbito predeterminado es "Todos los usuarios de SuccessFactors". Filtros de ejemplo:
+1. En el campo **Ámbito de objeto de origen** puede seleccionar los conjuntos de usuarios de SuccessFactors que deben estar en el ámbito para el aprovisionamiento en Azure AD; para ello debe definir un conjunto de filtros basados en atributos. El ámbito predeterminado es "todos los usuarios de SuccessFactors". Filtros de ejemplo:
 
-   * Ejemplo: ámbito de los usuarios con el valor de personIdExternal comprendido entre 1000000 y 2000000 (sin incluir 2000000)
+   * Ejemplo: Ámbito de los usuarios con personIdExternal entre 1 y 2 millones (excepto 2 millones)
 
       * Atributo: personIdExternal
 
@@ -208,14 +208,14 @@ En esta sección configurará cómo fluyen los datos de los usuarios de SuccessF
       * Operador: IS NOT NULL
 
    > [!TIP]
-   > Al configurar la aplicación de aprovisionamiento por primera vez, deberá probar y verificar las expresiones y asignaciones de atributos para asegurarse de que ofrece el resultado deseado. Microsoft recomienda usar los filtros de ámbito en **Ámbito de objeto de origen** para probar las asignaciones con algunos usuarios de prueba de SuccessFactors. Una vez haya verificado que las asignaciones funcionan, puede quitar el filtro o expandirlo gradualmente para incluir más usuarios.
+   > Al configurar la aplicación de aprovisionamiento por primera vez, deberá probar y verificar las expresiones y asignaciones de atributos para asegurarse de que ofrece el resultado deseado. Microsoft recomienda usar los filtros de ámbito de **Ámbito de objeto de origen** para probar las asignaciones con algunos usuarios de prueba de SuccessFactors. Una vez haya verificado que las asignaciones funcionan, puede quitar el filtro o expandirlo gradualmente para incluir más usuarios.
 
    > [!CAUTION] 
    > El comportamiento predeterminado del motor de aprovisionamiento es deshabilitar o eliminar usuarios que salen del ámbito. Puede que esta no sea la situación deseable en la integración de SuccessFactors con Azure AD. Para invalidar este comportamiento predeterminado, consulte el artículo [Omisión de la eliminación de usuarios fuera del ámbito](../manage-apps/skip-out-of-scope-deletions.md).
   
 1. En el campo **Acciones del objeto de destino**, puede filtrar de forma global qué acciones se realizan en Active Directory. **Crear** y **Actualizar** son las más habituales.
 
-1. En la sección **Asignaciones de atributos** puede definir cómo se asignan los distintos atributos de SuccessFactors a los atributos de Active Directory.
+1. En la sección **Asignaciones de atributos**, puede definir cómo se asignan los distintos atributos de SuccessFactors a los atributos de Active Directory.
 
   >[!NOTE]
   >Para obtener la lista completa de atributos de SuccessFactors compatibles con la aplicación, consulte [Referencia de atributos de SuccessFactors](../manage-apps/sap-successfactors-attribute-reference.md).
@@ -225,7 +225,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de SuccessF
 
       * **Tipo de asignación**
 
-         * **Directo**: escribe el valor del atributo de SuccessFactors en el atributo de AD sin cambios.
+         * **Directo**: escribe el valor del atributo de SuccessFactors en el atributo de AD, sin cambios.
 
          * **Constante**: escribe un valor de cadena estático y constante en el atributo de AD.
 

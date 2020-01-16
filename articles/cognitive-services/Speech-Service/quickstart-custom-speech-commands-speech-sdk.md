@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 3301c43aa71f041de1c53fb4083de73b6d2e4450
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 69a03ce5a8da7c8af6c17d122be3744e7b79e246
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976764"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381110"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Inicio rápido: conexión a una aplicación de comandos personalizados con el SDK de Voz (versión preliminar)
 
@@ -23,10 +23,10 @@ Después de crear una aplicación de comandos personalizados hospedada, puede em
 
 En este artículo, hará lo siguiente:
 
-- Publicación de una aplicación de comandos personalizados y obtención de un identificador de aplicación (Id. de aplicación)
+- Publicación de una aplicación de comandos personalizados y obtención de un identificador de aplicación (id. de aplicación)
 - Creación de una aplicación cliente con el SDK de Voz para que pueda comunicarse con su aplicación de comandos personalizados
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Se requiere una aplicación de comandos personalizados para completar este artículo. Si aún no ha creado una aplicación de comandos personalizados, puede hacerlo en estos inicios rápidos anteriores:
 
@@ -36,7 +36,7 @@ Se requiere una aplicación de comandos personalizados para completar este artí
 También necesitará:
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](get-started.md) o créela en [Azure Portal](https://portal.azure.com).
+- Una clave de suscripción de Azure para los servicios de Voz. [Obtenga una gratis](get-started.md) o créela en [Azure Portal](https://portal.azure.com).
 
 ## <a name="optional-get-started-fast"></a>Opcional: Empiece rápidamente
 
@@ -49,7 +49,7 @@ En este inicio rápido se describe, paso a paso, cómo hacer que una aplicación
    > [!div class="mx-imgBorder"] 
    > ![Publicación de la aplicación](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
-1. Copie el Id. de la aplicación de la notificación de publicación para usarlo posteriormente.
+1. Copia del identificador de aplicación de la notificación de publicación para usarlo más adelante
 
 ## <a name="step-2-create-a-visual-studio-project"></a>Paso 2: Creación de un proyecto de Visual Studio
 
@@ -309,7 +309,7 @@ Agregue el código fuente subyacente como se muestra a continuación:
    const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
    const string region = "YourServiceRegion"; // The subscription service region. Note: only 'westus2' is currently supported
 
-   var speechCommandsConfig = DialogServiceConfig.FromSpeechCommandsAppId(speechCommandsApplicationId, speechSubscriptionKey, region);
+   var speechCommandsConfig = CustomCommandsConfig.FromSubscription(speechCommandsApplicationId, speechSubscriptionKey, region);
    speechCommandsConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-us");
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
@@ -417,5 +417,5 @@ Agregue el código fuente subyacente como se muestra a continuación:
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Uso de realización de comandos en el cliente con el SDK de Voz (versión preliminar)](./how-to-custom-speech-commands-fulfill-sdk.md)
+> [Cómo: realización de comandos en el cliente con el SDK de Voz (versión preliminar)](./how-to-custom-speech-commands-fulfill-sdk.md)
 > [Procedimiento: adición de validaciones a los parámetros de comandos personalizados (versión preliminar)](./how-to-custom-speech-commands-validations.md)

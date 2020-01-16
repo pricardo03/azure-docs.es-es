@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: e90bff7548be5f469ebbcdc21dd9b93dc887a30e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2b11bbc22714ab1905421812e3cb24ee660ee667
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931950"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372337"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sin servidor
 
@@ -128,7 +128,7 @@ La reanudación automática se desencadena si se cumple cualquiera de las siguie
 |---|---|
 |Autenticación y autorización|Inicio de sesión|
 |Detección de amenazas|Habilitación o deshabilitación de la configuración de detección de amenazas en el nivel de base de datos o servidor.<br>Modificación de la configuración de detección de amenazas en el nivel de base de datos o servidor.|
-|Detección y clasificación de datos|Adición, modificación, eliminación o visualización de las etiquetas de confidencialidad|
+|Clasificación y detección de datos|Adición, modificación, eliminación o visualización de las etiquetas de confidencialidad|
 |Auditoría|Visualización de registros de auditoría<br>Actualización o visualización de la directiva de auditoría.|
 |Enmascaramiento de datos|Adición, modificación, eliminación o visualización de reglas de enmascaramiento de datos|
 |Cifrado de datos transparente|Visualización del estado de cifrado de datos transparente|
@@ -155,7 +155,7 @@ La creación de una nueva base de datos o el cambio de una base de datos existen
 
 1. Especifique el nombre del objetivo de servicio. El objetivo de servicio preceptúa el nivel de servicio, la generación de hardware y el máximo de núcleos virtuales. La siguiente tabla muestra las opciones de objetivo de servicio:
 
-   |Nombre del objetivo de servicio|Nivel de servicio|Generación de hardware|Máximo de núcleos virtuales|
+   |Nombre del objetivo de servicio|Nivel de servicio|Generación de hardware|Número máximo de núcleos virtuales|
    |---|---|---|---|
    |GP_S_Gen5_1|Uso general|Gen5|1|
    |GP_S_Gen5_2|Uso general|Gen5|2|
@@ -177,30 +177,27 @@ La creación de una nueva base de datos o el cambio de una base de datos existen
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Creación de una nueva base de datos en el nivel de proceso sin servidor 
 
+En el siguiente ejemplo se crea una base de datos en el nivel de proceso sin servidor. En este ejemplo se especifica explícitamente el mínimo de núcleos virtuales, el máximo de núcleos virtuales y el retraso de pausa automática.
+
 #### <a name="use-azure-portal"></a>Usar Azure Portal
 
 Consulte [Quickstart: Creación de una base de datos única en Azure SQL Database con Azure Portal](sql-database-single-database-get-started.md).
 
+
 #### <a name="use-powershell"></a>Uso de PowerShell
-
-En el siguiente ejemplo se crea una nueva base de datos en el nivel de proceso sin servidor.  En este ejemplo se especifica explícitamente el mínimo de núcleos virtuales, el máximo de núcleos virtuales y la demora de pausa automática.
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
   -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
   -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
+#### <a name="use-azure-cli"></a>Uso de CLI de Azure
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
-
-```powershell
+```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
   -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
 ```
 
-* * *
 
 #### <a name="use-transact-sql-t-sql"></a>Uso de Transact-SQL (T-SQL)
 
@@ -215,11 +212,10 @@ Para más información, consulte [CREATE DATABASE](/sql/t-sql/statements/create-
 
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Cambio de la base de datos del nivel de proceso aprovisionado al nivel de proceso sin servidor
 
+En el siguiente ejemplo se mueve una base de datos del nivel de proceso aprovisionado al nivel de proceso sin servidor. En este ejemplo se especifica explícitamente el mínimo de núcleos virtuales, el máximo de núcleos virtuales y el retraso de pausa automática.
+
 #### <a name="use-powershell"></a>Uso de PowerShell
 
-En el siguiente ejemplo se mueve una base de datos desde el nivel de proceso aprovisionado al nivel de proceso sin servidor. En este ejemplo se especifica explícitamente el mínimo de núcleos virtuales, el máximo de núcleos virtuales y la demora de pausa automática.
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
@@ -227,14 +223,13 @@ Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+#### <a name="use-azure-cli"></a>Uso de CLI de Azure
 
-```powershell
+```azurecli
 az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
   --edition GeneralPurpose --min-capacity 1 --capacity 4 --family Gen5 --compute-model Serverless --auto-pause-delay 1440
 ```
 
-* * *
 
 #### <a name="use-transact-sql-t-sql"></a>Uso de Transact-SQL (T-SQL)
 
@@ -253,15 +248,14 @@ Una base de datos sin servidor se puede mover a un nivel de proceso aprovisionad
 
 ## <a name="modifying-serverless-configuration"></a>Modificación de la configuración sin servidor
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="use-powershell"></a>Uso de PowerShell
 
 Puede usar el comando [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) en PowerShell con los argumentos `MaxVcore`, `MinVcore` y `AutoPauseDelayInMinutes` para modificar el número máximo o mínimo de núcleos virtuales, así como la demora de la pausa automática.
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+### <a name="use-azure-cli"></a>Uso de CLI de Azure
 
 Puede usar el comando [az sql db update](/cli/azure/sql/db#az-sql-db-update) en la CLI de Azure con los argumentos `capacity`, `min-capacity` y `auto-pause-delay` para modificar el número máximo o mínimo de núcleos virtuales, así como la demora de la pausa automática.
 
-* * *
 
 ## <a name="monitoring"></a>Supervisión
 
@@ -281,7 +275,7 @@ El grupo de recursos de usuario es el límite de administración de recursos má
 
 Las métricas para supervisar el uso de recursos del paquete de la aplicación y grupo de usuarios de una base de datos sin servidor se muestran en la tabla siguiente:
 
-|Entidad|Métrica|DESCRIPCIÓN|Unidades|
+|Entidad|Métrica|Descripción|Unidades|
 |---|---|---|---|
 |Paquete de aplicaciones|app_cpu_percent|Porcentaje de núcleos virtuales utilizado por la aplicación con respecto al máximo de núcleos virtuales permitido para la aplicación.|Porcentaje|
 |Paquete de aplicaciones|app_cpu_billed|La cantidad de procesos que se facturan para la aplicación durante el período de informe. El importe pagado durante este período es el producto de esta métrica por el precio de la unidad de núcleo virtual. <br><br>Los valores de esta métrica se determinan al agregar en el tiempo el máximo de CPU utilizada y la memoria usada por segundo. Si la cantidad utilizada es menor que la cantidad mínima aprovisionada definida por el mínimo de núcleos virtuales y la memoria mínima, se factura la cantidad mínima aprovisionada. Para comparar la CPU y la memoria con fines de facturación, la memoria se normaliza en unidades de núcleos virtuales cambiando la escala de la cantidad de GB de memoria en 3 GB por núcleo virtual.|Segundos de núcleo virtual|
@@ -296,22 +290,21 @@ Las métricas para supervisar el uso de recursos del paquete de la aplicación y
 
 En Azure Portal, se muestra el estado de la base de datos en el panel de información general del servidor que enumera las bases de datos que contiene. El estado de la base de datos también se muestra en el panel de información general de la base de datos.
 
-Con el siguiente comando de PowerShell puede consultar el estado de pausa y reanudación de una base de datos:
+Con los siguientes comandos para consultar el estado de pausa y reanudación de una base de datos:
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+#### <a name="use-powershell"></a>Uso de PowerShell
 
 ```powershell
 Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername -DatabaseName $databasename `
   | Select -ExpandProperty "Status"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+#### <a name="use-azure-cli"></a>Uso de CLI de Azure
 
-```powershell
+```azurecli
 az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
 ```
 
-* * *
 
 ## <a name="resource-limits"></a>Límites de recursos
 

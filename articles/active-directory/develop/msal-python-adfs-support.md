@@ -1,5 +1,5 @@
 ---
-title: Compatibilidad para AD FS en la biblioteca de autenticación de Microsoft para Python
+title: Compatibilidad con Azure AD FS (MSAL Python)
 titleSuffix: Microsoft identity platform
 description: Más información sobre la compatibilidad para los Servicios de federación de Active Directory (AD FS) en la biblioteca de autenticación de Microsoft para Python
 services: active-directory
@@ -14,20 +14,20 @@ ms.author: abpati
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d83148f6bfff038f7310ff6fa1f3e1f5a4f8f066
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9a5cbc64883dca66809cfa06dc28a312ce9fedd4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921439"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424129"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Compatibilidad para los Servicios de federación de Active Directory (AD FS) en MSAL para Python
 
-Los Servicios de federación de Active Directory (AD FS) en Windows Server le permiten agregar autenticación y autorización basadas en OpenID Connect y OAuth 2.0 a las aplicaciones mediante la biblioteca de autenticación de Microsoft (MSAL) para Python. Gracias a la biblioteca MSAL para Python, la aplicación puede autenticar a los usuarios directamente en AD FS. Para obtener más información sobre los escenarios, consulte [Escenarios de AD FS para desarrolladores](/windows-server/identity/ad-fs/ad-fs-development).
+Los Servicios de federación de Active Directory (AD FS) en Windows Server le permiten agregar autenticación y autorización basadas en OpenID Connect y OAuth 2.0 a las aplicaciones mediante la biblioteca de autenticación de Microsoft (MSAL) para Python. Gracias a la biblioteca MSAL para Python, la aplicación puede autenticar a los usuarios directamente en AD FS. Para obtener más información sobre los escenarios, consulte [Escenarios de AD FS para desarrolladores](/windows-server/identity/ad-fs/ad-fs-development).
 
 Normalmente hay dos maneras de autenticarse en AD FS:
 
-- MSAL Python se comunica con Azure Active Directory, que a su vez está federado con otros proveedores de identidades. La federación se produce a través de AD FS. MSAL Python se conecta con Azure AD, que inicia sesión de usuarios que se administran en Azure AD (usuarios administrados) o de usuarios que administra otro proveedor de identidades como AD FS (usuarios federados). MSAL Python no sabe que un usuario está federado. Simplemente se comunica con Azure AD. La [autoridad](msal-client-application-configuration.md#authority) que usa en este caso es la habitual (nombre de host de la autoridad + inquilino, common u organizations).
+- MSAL Python se comunica con Azure Active Directory, que a su vez está federado con otros proveedores de identidades. La federación se produce a través de AD FS. MSAL Python se conecta con Azure AD, que inicia sesión de usuarios que se administran en Azure AD (usuarios administrados) o de usuarios que administra otro proveedor de identidades como AD FS (usuarios federados). MSAL Python no sabe que un usuario está federado. Simplemente, se comunica con Azure AD. La [autoridad](msal-client-application-configuration.md#authority) que usa en este caso es la habitual (nombre de host de la autoridad + inquilino, common u organizations).
 - MSAL Python se comunica directamente con una entidad de certificación de AD FS. Esto solo se admite a partir de la versión AD FS 2019 y posteriores.
 
 ## <a name="connect-to-active-directory-federated-with-ad-fs"></a>Conexión a Active Directory federado con AD FS

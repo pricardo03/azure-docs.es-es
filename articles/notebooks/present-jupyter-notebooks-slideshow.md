@@ -1,18 +1,20 @@
 ---
-title: Presentación de un cuaderno de Jupyter Notebook como una presentación en Azure
-description: Cómo configurar las celdas para el modo de presentación en un cuaderno de Jupyter Notebook y, después, realizar la presentación con la extensión RISE.
-ms.topic: article
+title: Presentación de un cuaderno de Jupyter Notebook como una presentación en la versión preliminar de Azure Notebooks
+description: Aprenda a configurar las celdas para el modo de presentación en un cuaderno de Jupyter Notebook y, después, a realizar la presentación con la extensión RISE.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: d180eaf571fa57191e3b0856020b02f05d05e344
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 05dd3d9c5580e208ecf6f9e6d762476b0b493a6c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277591"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647125"
 ---
-# <a name="run-a-notebook-slideshow"></a>Ejecutar una presentación de un cuaderno
+# <a name="run-a-notebook-slideshow-in-azure-notebooks-preview"></a>Ejecución de una presentación de un cuaderno en la versión preliminar de Azure Notebooks
 
 El servicio Azure Notebooks está preconfigurado con la extensión de presentación Jupyter/IPython (RISE) que permite presentar un cuaderno directamente como una presentación. En una presentación, las celdas se muestran normalmente de una en una con un tamaño de fuente adecuado para presentar en pantallas grandes y aún puede ejecutar el código en lugar de cambiar a un equipo independiente de demostración.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 En la siguiente imagen se muestra la vista estándar del cuaderno, en el que puede ver las celdas de Markdown y código juntas:
 
@@ -50,7 +52,7 @@ Si coge un cuaderno aleatorio y lo usa para una presentación, verá que todas l
     | Diapositiva | La celda es una diapositiva principal, que se navega con las flechas izquierda y derecha del control de navegación. |
     | Diapositiva secundaria | La celda está "debajo" de una diapositiva principal, que se navega con la flecha hacia abajo del control de navegación. La flecha hacia arriba hace volver a la diapositiva principal. Las diapositivas secundarias se usan para el material secundario que podría omitir en la ruta principal de una presentación, pero están disponibles si es necesario. |
     | Fragmento | El contenido de la celda aparece en el contexto de la diapositiva anterior o de la diapositiva secundaria cuando se usa la flecha hacia abajo de navegación (se elimina un fragmento al usar la flecha hacia arriba). Puede usar un fragmento con una celda de código para hacer que el código aparezca dentro de una diapositiva o puede usar varios fragmentos para que las viñetas del texto aparezcan una a una (vea el ejemplo de la sección siguiente). Debido a que los fragmentos se compilan en la diapositiva actual, los fragmentos excedentes no se verán en la parte inferior de la ventana del explorador. |
-    | Skip | La celda no se muestra en la presentación. |
+    | Omitir | La celda no se muestra en la presentación. |
     | Notas | Las celdas contienen notas del orador, que no se muestran en la presentación. |
 
 1. Inicialmente, resulta útil elegir **Diapositiva** para cada una de las celdas. A continuación, puede ejecutar la presentación y realizar los ajustes adecuados.
@@ -86,13 +88,13 @@ Dado que la presentación representa fragmentos con más espaciado vertical que 
     ![La salida de la celda de código aparece en la presentación](media/slideshow/slideshow-run-code-cell-output.png)
 
     > [!Tip]
-    > La salida de la celda se considera parte de la celda en una presentación. Si ejecuta una celda en el cuaderno o en la vista de presentación, la salida aparece también en la otra vista. Para borrar la salida, use el comando **Celda** > **Salidas actuales** > **Borrar** (para la celda actual) o **Celda**  >  **Todas las salidas** > **Borrar** (para todas las celdas).
+    > La salida de la celda se considera parte de la celda en una presentación. Si ejecuta una celda en el cuaderno o en la vista de presentación, la salida aparece también en la otra vista. Para borrar la salida, use el comando **Celda** > **Salidas actuales** > **Borrar** (para la celda actual) o **Celda** > **Todas las salidas** > **Borrar** (para todas las celdas).
 
 1. Cuando haya terminado con la presentación, utilice el botón **X** para volver a la vista de cuaderno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [How to: Configure and manage projects](configure-manage-azure-notebooks-projects.md) (Configuración y administración de proyectos)
-- [Procedimientos: Instalación de paquetes en un cuaderno](install-packages-jupyter-notebook.md)
-- [Instrucciones: con archivos de datos en proyectos de Azure Notebooks](work-with-project-data-files.md)
-- [How to: Acceso a recursos de datos](access-data-resources-jupyter-notebooks.md)
+- [Cómo: Configure and manage projects](configure-manage-azure-notebooks-projects.md) (Configuración y administración de proyectos)
+- [Cómo: Instalación de paquetes en un cuaderno](install-packages-jupyter-notebook.md)
+- [Cómo: con archivos de datos en proyectos de Azure Notebooks](work-with-project-data-files.md)
+- [Cómo: Access data resources](access-data-resources-jupyter-notebooks.md) (Acceso a los recursos de datos)

@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: af1870ecc9714eceaf69f2892537e59f068c6a70
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 85d882cff968c9b68ece104e850a7f16c33947b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480317"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435105"
 ---
 # <a name="what-are-application-templates"></a>¿Qué son las plantillas de aplicación?
 
@@ -30,11 +30,10 @@ Las plantillas de aplicación constan de:
 
 La elección de la plantilla de aplicación determina si la aplicación usa características en versión preliminar de IoT Central, como Plug and Play para dispositivos.
 
-Actualmente, las plantillas de aplicación que usan características _disponibles con carácter general_ son:
+Actualmente, la plantilla de aplicación que usa características _disponibles con carácter general_ es:
 
-- Custom app (Aplicación personalizada) > Custom application (Aplicación personalizada)
-- Custom app (Aplicación personalizada) > Sample Contoso
-- Custom app (Aplicación personalizada) > Sample Devkits
+- Custom app (Aplicación personalizada) > Aplicación heredada
+
 
 Actualmente, las plantillas de aplicación que usan características en _versión preliminar pública_ son:
 
@@ -52,7 +51,7 @@ Actualmente, las plantillas de aplicación que usan características en _versió
 - Healthcare (Atención sanitaria) > Continuous patient monitoring
 
 > [!NOTE]
-> Las plantillas **Aplicación personalizada, Contoso de ejemplo, Sample Devkits** están disponibles actualmente en **Estados Unidos**, **Australia**, **Asia Pacífico** o en **Europa**, mientras que otras plantillas solo están disponibles actualmente en **Europa** y **Estados Unidos**.
+> Las plantillas de **aplicación heredada** están disponibles actualmente en **Estados Unidos**, **Australia**, **Asia Pacífico** y en **Europa**, mientras que otras plantillas solo están disponibles actualmente en **Europa** y **Estados Unidos**.
 
 ## <a name="industry-focused-templates"></a>Plantillas centradas en el sector
 

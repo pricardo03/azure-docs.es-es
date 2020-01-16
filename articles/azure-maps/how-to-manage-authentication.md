@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 057bd18c50d7074e8a88b8273bec766a306a3776
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b44b48b504fc080971a2797b89026e14be5cdd17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484356"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432991"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Administración de la autenticación en Azure Maps
 
@@ -21,11 +21,11 @@ Después de crear una cuenta de Azure Maps, se crean las claves y el identificad
 
 ## <a name="view-authentication-details"></a>Visualización de los detalles de la autenticación
 
+Después de crear la cuenta de Azure Maps, se generan las claves principal y secundaria. Se recomienda usar la clave principal como clave de suscripción al llamar a Azure Maps mediante la [autenticación de clave compartida](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). La clave secundaria se puede usar, por ejemplo, para cambios de clave graduales. Para obtener más información, consulte [Autenticación con Azure Maps](https://aka.ms/amauth).
+
 Puede ver sus detalles de autenticación en Azure Portal. Vaya a su cuenta y seleccione **Autenticación** en el menú **Configuración**.
 
 ![Detalles de la autenticación](./media/how-to-manage-authentication/how-to-view-auth.png)
-
- Para obtener más información, consulte [Autenticación con Azure Maps](https://aka.ms/amauth).
 
 
 ## <a name="set-up-azure-ad-app-registration"></a>Configurar el registro de aplicaciones de Azure AD
@@ -112,4 +112,4 @@ Aprenda a ver las métricas de uso de API para la cuenta de Azure Maps:
 Para ver una lista de ejemplos que muestran cómo integrar Azure Active Directory (AAD) con Azure Maps, consulte:
 
 > [!div class="nextstepaction"]
-> [Ejemplos de autenticación de Azure AD](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+> [Muestras de autenticación de Azure AD](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

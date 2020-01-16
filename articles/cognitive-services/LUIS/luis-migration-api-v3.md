@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: bb2255a9a68a499ff3e77c1fbd35081a2474cf1d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8756d8e60e7612c1610e07b0567465e3a0ea8884
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961932"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531503"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Cambios de punto de conexión para predicciones para la versión 3
 
@@ -83,12 +83,12 @@ Se cambió el formato para la llamada HTTP al punto de conexión v3.
 
 Si quiere realizar una consulta por visión, primero debe [publicarla a través de la API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) con `"directVersionPublish":true`. Consulte el punto de conexión que hace referencia al Id. de versión en lugar del nombre de la ranura.
 
-|VERSIÓN DE LA API PARA PREDICCIONES|MÉTODO|URL|
+|VERSIÓN DE LA API PARA PREDICCIONES|METHOD|URL|
 |--|--|--|
 |V3|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
 |V3|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
 |V2|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
-|V2|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b><b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
+|V2|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
 
 |Valores válidos para `SLOT-NAME`|
 |--|
@@ -101,7 +101,7 @@ Si quiere realizar una consulta por visión, primero debe [publicarla a través 
 
 La API v3 tiene parámetros de cadena de consulta diferentes.
 
-|Nombre del parámetro|type|Versión|Valor predeterminado|Propósito|
+|Nombre del parámetro|Tipo|Versión|Valor predeterminado|Propósito|
 |--|--|--|--|--|
 |`log`|boolean|v2 y v3|false|Almacena la consulta en el archivo de registro. El valor predeterminado es False.| 
 |`query`|string|Solo v3|No tiene valor predeterminado: es obligatorio en la solicitud GET.|**En la versión 2**, la expresión que va a predecirse se almacena en el parámetro `q`. <br><br>**En la versión 3**, la funcionalidad se pasa en el parámetro `query`.|
@@ -125,7 +125,7 @@ La API v3 tiene parámetros de cadena de consulta diferentes.
 }
 ```
 
-|Propiedad|type|Versión|Valor predeterminado|Propósito|
+|Propiedad|Tipo|Versión|Valor predeterminado|Propósito|
 |--|--|--|--|--|
 |`dynamicLists`|array|Solo v3|No se requiere.|Las [listas dinámicas](#dynamic-lists-passed-in-at-prediction-time) permiten extender una entidad de lista existente entrenada y publicada, ya presente en la aplicación de LUIS.|
 |`externalEntities`|array|Solo v3|No se requiere.|Las [entidades externas](#external-entities-passed-in-at-prediction-time) permiten que la aplicación de LUIS identifique y etiquete las entidades durante el tiempo de ejecución, que pueden usarse como características para las entidades existentes. |
@@ -408,9 +408,9 @@ Si `preferExternalEntities` está establecida en `true`, LUIS devuelve una respu
 
 
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
-La propiedad _opcional_ `resolution` se devuelve en la respuesta de predicción, lo que le permite pasar los metadatos asociados con la entidad externa y, a continuación, recibirlos de vuelta en la respuesta. 
+La propiedad _optional_ `resolution` se devuelve en la respuesta de predicción, lo que le permite pasar los metadatos asociados con la entidad externa y, después, recibirlos de vuelta en la respuesta. 
 
 La finalidad principal es extender entidades precompiladas, pero no se limita a ese tipo de entidad. 
 

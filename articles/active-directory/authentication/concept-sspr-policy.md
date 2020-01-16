@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b95ea51db4f0c6bcdbfa905ff8b57a5a330411e6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1e9a22e6ff76c0d26a346192c69bc067e7d42ccf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848551"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425322"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restricciones y directivas de contraseñas en Azure Active Directory
 
@@ -54,7 +54,7 @@ Una directiva de dos puertas requiere dos elementos de datos de autenticación, 
   * Administrador de autenticación con privilegios
 
 * Una vez transcurridos 30 días en una suscripción de prueba
-* Con un dominio individualizado presente, como contoso.com
+* Se ha configurado un dominio personalizado para el inquilino de Azure AD, como *contoso.com*; o
 * Azure AD Connect sincroniza identidades desde el directorio local
 
 ### <a name="exceptions"></a>Excepciones
@@ -62,7 +62,7 @@ Una directiva de dos puertas requiere dos elementos de datos de autenticación, 
 Una directiva de una puerta requiere un elemento de datos de autenticación, como una dirección de correo electrónico *o* un número de teléfono. Se aplica una directiva de una puerta en las siguientes circunstancias:
 
 * Se encuentra en los primeros 30 días de una suscripción de prueba; o
-* No hay un dominio individualizado presente (*.onmicrosoft.com); y
+* No se ha configurado un dominio personalizado para el inquilino de Azure AD, así que se usa el predeterminado, * *.onmicrosoft.com*. Tenga en cuenta que el dominio * *.onmicrosoft.com* predeterminado no se recomienda para su uso en producción, y que
 * Azure AD Connect no sincroniza identidades
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Directivas de UserPrincipalName que se aplican a todas las cuentas de usuario

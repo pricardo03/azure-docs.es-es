@@ -1,5 +1,5 @@
 ---
-title: Uso de la biblioteca BulkExecutor en .NET para realizar operaciones de importación y actualización en bloque en Azure Cosmos DB
+title: Uso de la biblioteca Bulk Executor en .NET en Azure Cosmos DB para realizar operaciones de actualización e importación en bloque
 description: Importe y actualice en bloque los documentos de Azure Cosmos DB mediante la biblioteca BulkExecutor en .NET.
 author: tknandu
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: d76426e738d78391b92b008e821672017520b7d2
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d7600267dcd196a9a5c06c29774ea21d582cd7ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218406"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442196"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Uso de la biblioteca BulkExecutor en .NET para realizar operaciones en bloque en Azure Cosmos DB
 
@@ -22,7 +22,7 @@ En este tutorial se proporcionan instrucciones sobre cómo usar la biblioteca Bu
 
 Actualmente, la biblioteca BulkExecutor solo es compatible con las cuentas de API de SQL y de Gremlin API de Azure Cosmos DB. En este artículo se describe cómo usar la biblioteca BulkExecutor en .NET con las cuentas de API de SQL. Para obtener información acerca de cómo utilizar la biblioteca BulkExecutor en .NET con cuentas de Gremlin API, consulte la información sobre la [realización de operaciones en bloque en Gremlin API de Azure Cosmos DB](bulk-executor-graph-dotnet.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Si aún no tiene Visual Studio 2019 instalado, puede descargar y usar la versión [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita "Desarrollo de Azure" durante la instalación de Visual Studio.
 

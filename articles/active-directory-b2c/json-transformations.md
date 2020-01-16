@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0ff6f24e30febd57a3a9740ec72a927225b37933
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 56c46b8f2804e37544c94ec2d6ced7e8879b1ffa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948915"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367134"
 ---
 # <a name="json-claims-transformations"></a>Transformaciones de notificaciones de JSON
 
@@ -24,11 +24,77 @@ ms.locfileid: "74948915"
 
 En este artículo se proporcionan ejemplos de uso de las transformaciones de notificaciones de JSON del esquema Identity Experience Framework en Azure Active Directory B2C (Azure AD B2C). Para más información, vea [ClaimsTransformations](claimstransformations.md).
 
+## <a name="generatejson"></a>GenerateJson
+
+Use valores de notificaciones o constantes para generar una cadena JSON. La cadena de ruta de acceso que sigue a la notación de puntos se usa para indicar dónde insertar los datos en una cadena JSON. Después de dividirlos por puntos, los números enteros se interpretan como el índice de una matriz JSON y los no enteros se interpretan como el índice de un objeto JSON.
+
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | Cualquier cadena que siga a la notación de puntos | string | JsonPath del JSON donde se insertará el valor de la notificación. |
+| InputParameter | Cualquier cadena que siga a la notación de puntos | string | JsonPath del JSON donde se insertará el valor de cadena constante. |
+| OutputClaim | outputClaim | string | Cadena JSON generada. |
+
+En el ejemplo siguiente se genera una cadena JSON basada en el valor de notificación de "email" y "OTP", así como cadenas de constantes.
+
+```XML
+<ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
+    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="template_id" DataType="string" Value="d-4c56ffb40fa648b1aa6822283df94f60"/>
+    <InputParameter Id="from.email" DataType="string" Value="service@contoso.com"/>
+    <InputParameter Id="personalizations.0.subject" DataType="string" Value="Contoso account email verification code"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="requestBody" TransformationClaimType="outputClaim"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Ejemplo
+
+La siguiente transformación de notificaciones genera una notificación de cadena JSON que será el cuerpo de la solicitud enviada a SendGrid (un proveedor de correo electrónico de terceros). La estructura del objeto JSON se define mediante los identificadores de la notación de puntos de InputParameters y TransformationClaimTypes del objeto InputClaims. Los números de la notación de puntos implican matrices. Los valores provienen de los valores de InputClaims y de las propiedades "value" de InputParameters.
+
+- Notificaciones de entrada:
+  - **email**, tipo de notificación de transformación **personalizations.0.to.0.email**: "someone@example.com"
+  - **otp**, tipo de notificación de transformación **personalizations.0.dynamic_template_data.otp** "346349"
+- Parámetro de entrada:
+  - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
+  - **from.email**: "service@contoso.com"
+  - **personalizations.0.subject** "Código de comprobación del correo electrónico de la cuenta de Contoso"
+- Notificación de salida:
+  - **requestBody**: Valor JSON
+
+```JSON
+{
+  "personalizations": [
+    {
+      "to": [
+        {
+          "email": "someone@example.com"
+        }
+      ],
+      "dynamic_template_data": {
+        "otp": "346349",
+        "verify-email" : "someone@example.com"
+      },
+      "subject": "Contoso account email verification code"
+    }
+  ],
+  "template_id": "d-989077fbba9746e89f3f6411f596fb96",
+  "from": {
+    "email": "service@contoso.com"
+  }
+}
+```
+
 ## <a name="getclaimfromjson"></a>GetClaimFromJson
 
 Obtener un elemento especificado de datos JSON.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | string | ClaimTypes que usa la transformación de notificaciones para obtener el elemento. |
 | InputParameter | claimToExtract | string | El nombre del elemento JSON que se va a extraer. |
@@ -64,7 +130,7 @@ En el ejemplo siguiente, se muestra que la transformación de notificaciones ext
 
 Obtener una lista de los elementos especificados a partir de datos JSON.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | jsonSourceClaim | string | ClaimTypes que usa la transformación de notificaciones para obtener las notificaciones. |
 | InputParameter | errorOnMissingClaims | boolean | Especifica si se emite un error cuando falta una de las notificaciones. |
@@ -118,7 +184,7 @@ En el ejemplo siguiente, la transformación de notificaciones extrae estas notif
 
 Obtiene un elemento numérico especificado (long) a partir de datos JSON.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | string | ClaimTypes usadas por la transformación de notificaciones para obtener la notificación. |
 | InputParameter | claimToExtract | string | El nombre del elemento JSON que se va a extraer. |
@@ -161,7 +227,7 @@ En el ejemplo siguiente, la transformación de notificaciones extrae el elemento
 
 Obtiene el primer elemento de una matriz de datos JSON.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJsonClaim | string | ClaimTypes usados por la transformación de notificaciones para obtener el elemento de la matriz JSON. |
 | OutputClaim | extractedClaim | string | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation, con el primer elemento de la matriz JSON. |
@@ -190,7 +256,7 @@ En el ejemplo siguiente, la transformación de notificaciones extrae el primer e
 
 Convierte los datos XML en formato JSON.
 
-| item | TransformationClaimType | Tipo de datos | Notas |
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | Xml | string | ClaimTypes usados por la transformación de notificaciones para convertir los datos XML en formato JSON. |
 | OutputClaim | json | string | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation, con los datos en formato JSON. |
@@ -228,4 +294,3 @@ Notificación de salida:
   }
 }
 ```
-

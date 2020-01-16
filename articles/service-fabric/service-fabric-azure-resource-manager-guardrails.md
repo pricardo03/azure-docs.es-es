@@ -1,25 +1,18 @@
 ---
-title: Protecciones en la implementación de Azure Resource Manager de Service Fabric | Microsoft Docs
+title: Límites de protecciones en la implementación de Azure Resource Manager de Service Fabric
 description: En este artículo se proporciona información general sobre los errores comunes que se producen al implementar un clúster de Service Fabric mediante Azure Resource Manager y cómo evitarlos.
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: gamonroy
-editor: ''
-ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/30/2019
 ms.author: pepogors
-ms.openlocfilehash: 3ea6f850685a695644cfc3073fc939a58901658c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: fe5ff2a5eeb4b2c73165d1577702eb6af7079b61
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828407"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426731"
 ---
 # <a name="service-fabric-guardrails"></a>Protecciones de Service Fabric 
 Al implementar un clúster de Service Fabric, se colocan protecciones, lo que producirá un error en una implementación de Azure Resource Manager en el caso de que haya una configuración de clúster no válida. En las secciones siguientes se proporciona información general sobre los problemas comunes de configuración de clústeres y los pasos necesarios para mitigarlos. 
@@ -62,7 +55,7 @@ En la siguiente sección se incluye un ejemplo de un error de coincidencia de du
 }
 ```
 
-### <a name="error-messages"></a>mensajes de error
+### <a name="error-messages"></a>Mensajes de error
 * El valor de durabilidad del conjunto de escalado de máquinas virtuales no coincide con el nivel de durabilidad del tipo de nodo actual de Service Fabric
 * La durabilidad del conjunto de escalado de máquinas virtuales no coincide con el nivel de durabilidad del tipo de nodo de Service Fabric de destino
 * La durabilidad del conjunto de escalado de máquinas virtuales coincide con el nivel de durabilidad de Service Fabric actual o el nivel de durabilidad del tipo de nodo de Service Fabric de destino 

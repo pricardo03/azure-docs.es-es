@@ -1,25 +1,16 @@
 ---
-title: Configuración del clúster de Azure Service Fabric independiente | Microsoft Docs
+title: Configuración del clúster de Azure Service Fabric independiente
 description: Aprenda a configurar un clúster de Azure Service Fabric independiente o local.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: ca04539049766e1f053d74b3a8536f154c3fd830
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383587"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458367"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Opciones de configuración de un clúster de Windows independiente
 En este artículo se describen las opciones de configuración de un clúster de Azure Service Fabric independiente que puede configurarse en el archivo *ClusterConfig.json*. Usará este archivo para especificar la información acerca de los nodos del clúster y las configuraciones de seguridad, así como la topología de red en cuanto a dominios de error y actualización.  Después de cambiar o agregar valores de configuración, puede [crear un clúster independiente](service-fabric-cluster-creation-for-windows-server.md) o [actualizar la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).

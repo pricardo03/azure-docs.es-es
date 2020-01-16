@@ -1,25 +1,15 @@
 ---
-title: Consideraciones de planeación de capacidad del clúster de Service Fabric | Microsoft Docs
+title: Planeación de capacidad del clúster de Service Fabric
 description: Consideraciones de planeación de capacidad del clúster de Service Fabric Tipos de nodos, operaciones, durabilidad y niveles de confiabilidad
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: chackdan
-editor: ''
-ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 1cbbc1fde22262d5841766978d40487f812e0963
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333104"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463309"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 En cualquier implementación de producción, la planeación de capacidad es un paso importante. Estos son algunos de los elementos que se deben tener en cuenta como parte de ese proceso.
@@ -76,9 +66,9 @@ El nivel de durabilidad se usa para indicar al sistema los privilegios que tiene
 
 | Nivel de durabilidad  | Número mínimo de máquinas virtuales | SKU de VM admitidas                                                                  | Actualizaciones realizadas en el conjunto de escalado de máquinas virtuales                               | Actualizaciones y mantenimiento iniciados por Azure                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Gold             | 5                              | SKU de nodo completo dedicadas a un solo cliente (por ejemplo, L32s, GS5, G5, DS15_v2, D15_v2) | Se puede retrasar hasta que lo apruebe el clúster de Service Fabric | Puede poner en pausa durante 2 horas por UD para dar más tiempo a las réplicas para que se recuperen de errores anteriores |
-| Silver           | 5                              | Máquinas virtuales de un solo núcleo o varios con al menos 50 GB de SSD local                      | Se puede retrasar hasta que lo apruebe el clúster de Service Fabric | No se puede retrasar una cantidad de tiempo significativa                                                    |
-| Bronze           | 1                              | Máquinas virtuales con al menos 50 GB de SSD local                                              | El clúster de Service Fabric no lo retrasará           | No se puede retrasar una cantidad de tiempo significativa                                                    |
+| Oro             | 5                              | SKU de nodo completo dedicadas a un solo cliente (por ejemplo, L32s, GS5, G5, DS15_v2, D15_v2) | Se puede retrasar hasta que lo apruebe el clúster de Service Fabric | Puede poner en pausa durante 2 horas por UD para dar más tiempo a las réplicas para que se recuperen de errores anteriores |
+| Plata           | 5                              | Máquinas virtuales de un solo núcleo o varios con al menos 50 GB de SSD local                      | Se puede retrasar hasta que lo apruebe el clúster de Service Fabric | No se puede retrasar una cantidad de tiempo significativa                                                    |
+| Bronce           | 1                              | Máquinas virtuales con al menos 50 GB de SSD local                                              | El clúster de Service Fabric no lo retrasará           | No se puede retrasar una cantidad de tiempo significativa                                                    |
 
 > [!WARNING]
 > Los tipos de nodos que se ejecutan con la durabilidad Bronze _no obtienen privilegios_. Es decir, los trabajos de infraestructura que afecten a las cargas de trabajo con estado no se detendrán ni retrasarán, lo que podría afectar a las cargas de trabajo. Utilice el nivel Bronze en los tipos de nodos que ejecutan únicamente cargas de trabajo sin estado. Para las cargas de trabajo de producción, se recomienda utilizar el nivel Silver o superiores. 
@@ -142,9 +132,9 @@ Esta es la recomendación sobre cómo elegir el nivel de confiabilidad.  El núm
 | **Número de nodos del clúster** | **Nivel de confiabilidad** |
 | --- | --- |
 | 1 |No especifique el parámetro nivel de confiabilidad, el sistema lo calcula |
-| 3 |Bronze |
-| 5 o 6|Silver |
-| 7 u 8 |Gold |
+| 3 |Bronce |
+| 5 o 6|Plata |
+| 7 u 8 |Oro |
 | 9 y superiores |Platinum |
 
 ## <a name="primary-node-type---capacity-guidance"></a>Tipo de nodo principal: guía de capacidad

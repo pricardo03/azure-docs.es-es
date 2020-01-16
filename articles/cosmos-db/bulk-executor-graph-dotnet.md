@@ -1,5 +1,5 @@
 ---
-title: Uso de la biblioteca Bulk Executor en .NET de grafos para realizar operaciones en masa en Gremlin API de Azure Cosmos DB
+title: Uso de la biblioteca Bulk Executor en .NET de grafos con la API de Gremlin de Azure Cosmos DB
 description: Aprenda a usar la biblioteca Bulk Executor para importar masivamente datos de grafos en un contenedor de Gremlin API de Azure Cosmos DB.
 author: luisbosquez
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 35f42f3e222767d9d201d9948581151ae3cb5127
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: cf51d418a008d332bfcea01a7a9dc1a265116e29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327188"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442165"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Uso de la biblioteca Bulk Executor en .NET de grafos para realizar operaciones en masa en Gremlin API de Azure Cosmos DB
 
@@ -113,9 +113,9 @@ e.AddProperty("customProperty", "value");
 
 ## <a name="sample-application"></a>Aplicación de ejemplo
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 * Visual Studio 2019 con la carga de trabajo de desarrollo de Azure. Puede empezar a trabajar con [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/) de forma gratuita.
-* Una suscripción de Azure. Puede crear [una cuenta de Azure gratuita aquí](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Como alternativa, puede crear una cuenta de base de datos de Cosmos en [Pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin una suscripción de Azure.
+* Suscripción a Azure. Puede crear [una cuenta de Azure gratuita aquí](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Como alternativa, puede crear una cuenta de base de datos de Cosmos en [Pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin una suscripción de Azure.
 * Una base de datos de la API de Gremlin de Azure Cosmos DB con una **colección ilimitada**. Esta guía muestra cómo empezar a trabajar con la [API de Gremlin de Azure Cosmos DB en .NET](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet).
 * Git. Para más información consulte la [página de descargas de Git](https://git-scm.com/downloads).
 
@@ -128,7 +128,7 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 Este repositorio contiene el ejemplo de GraphBulkExecutor con los siguientes archivos:
 
-Archivo|DESCRIPCIÓN
+Archivo|Descripción
 ---|---
 `App.config`|Aquí se especifican los parámetros específicos de la aplicación y de la base de datos. Este archivo debe modificarse, en primer lugar, para que se conecte a la base de datos y las colecciones de destino.
 `Program.cs`| Este archivo contiene la lógica de la creación de la colección `DocumentClient`, el control de las limpiezas y el envío de las solicitudes de Bulk Executor.
@@ -136,7 +136,7 @@ Archivo|DESCRIPCIÓN
 
 En el archivo `App.config` se pueden proporcionar los siguientes valores de configuración:
 
-Configuración|DESCRIPCIÓN
+Configuración|Descripción
 ---|---
 `EndPointUrl`|**Punto de conexión del SDK de .NET**, se puede encontrar en la hoja Información general de la cuenta de base de datos de la API de Gremlin de Azure Cosmos DB. Tiene el formato `https://your-graph-database-account.documents.azure.com:443/`
 `AuthorizationKey`|Clave principal o secundaria, aparece bajo la cuenta de Azure Cosmos DB. Más información en [Protección del acceso a los datos de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#master-keys)

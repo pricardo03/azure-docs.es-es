@@ -14,16 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: b97d9563f0bddcc2b3bf82807f41af68f3abbff1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 819aeb225c4f55f803a5fad19eff33bd1748bf46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034698"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368936"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Creación de una infraestructura completa de máquina virtual Linux en Azure con Terraform
 
 Terraform permite definir y crear implementaciones completas de infraestructura de Azure. Se crean plantillas de Terraform en un formato legible para el usuario para crear y configurar recursos de Azure de forma coherente y reproducible. En este artículo se muestra cómo crear un entorno completo de Linux y recursos de apoyo con Terraform. Aprenda también a [instalar y configurar Terraform](terraform-install-configure.md).
+
+> [!NOTE]
+> Para obtener soporte técnico específico de Terraform, póngase en contacto directamente con Terraform mediante uno de sus canales de la comunidad:
+>
+>   • La [sección de Terraform](https://discuss.hashicorp.com/c/terraform-core) del portal de la comunidad contiene preguntas, casos de uso y patrones útiles.
+>
+>   • Para preguntas relacionadas con el proveedor, visite la sección de [proveedores de Terraform](https://discuss.hashicorp.com/c/terraform-providers) del portal de la comunidad.
 
 
 ## <a name="create-azure-connection-and-resource-group"></a>Creación de la conexión y el grupo de recursos de Azure
@@ -57,7 +64,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 }
 ```
 
-En las secciones adicionales, se hace referencia al grupo de recursos con *${azurerm_resource_group.myterraformgroup.name}*.
+En las secciones adicionales, se hace referencia al grupo de recursos con *${azurerm_resource_group.myterraformgroup.name}* .
 
 ## <a name="create-virtual-network"></a>Creación de una red virtual
 Con la siguiente sección se crea una red virtual llamada *myVnet* en el espacio de direcciones *10.0.0.0/16*:

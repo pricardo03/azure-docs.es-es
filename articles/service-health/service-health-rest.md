@@ -1,18 +1,15 @@
 ---
 title: Obtención de eventos de estado de recursos con la API de REST | Microsoft Docs
 description: Use las API de REST de Azure para obtener los eventos de estado de los recursos de Azure.
-author: stephbaron
-ms.author: stbaron
-ms.service: service-health
 ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
-ms.openlocfilehash: 6d83aed6910127ceb34b9a694f48ca9c19ab6d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 353bd65b0466902e450e38677a350a177a1d602c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790919"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451392"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Obtención de eventos de estado de recursos con la API de REST 
 
@@ -32,14 +29,14 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft
 
 Los siguientes encabezados son obligatorios: 
 
-|Encabezado de solicitud|DESCRIPCIÓN|  
+|Encabezado de solicitud|Descripción|  
 |--------------------|-----------------|  
 |*Content-Type:*|Necesario. Establézcalo en `application/json`.|  
 |*Authorization:*|Necesario. Establézcalo en un [token de acceso](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` válido. |  
 
 ### <a name="uri-parameters"></a>Parámetros del identificador URI
 
-| NOMBRE | DESCRIPCIÓN |
+| Nombre | Descripción |
 | :--- | :---------- |
 | subscriptionId | El id. de suscripción que identifica una suscripción de Azure. Si tiene varias suscripciones, consulte [Trabajo con varias suscripciones](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | api-version | La versión de API que se usará para la solicitud.<br /><br /> En este documento se describe la versión `2015-04-01` de la API que se incluye en la dirección URL anterior.  |

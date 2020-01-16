@@ -6,21 +6,27 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 8/26/2019
+ms.date: 12/10/2019
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 386372b73940c4917305d89f2e4d16759797bb87
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7b01e9936189a40fcf1400d3e6ee948032786d3a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680479"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444167"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Información general sobre el conector de Azure Data Factory
 
-Azure Data Factory admite los siguientes almacenes de datos a través de la actividad de copia, Data Flow, la actividad de búsqueda, la actividad de obtención de metadatos y la actividad de eliminación. Haga clic en cada almacén de datos para obtener información detallada sobre las funcionalidades admitidas y las configuraciones correspondientes.
+Azure Data Factory admiten los siguientes almacenes de datos y formatos a través de las actividades de copia, flujo de datos, búsqueda, obtención de metadatos y eliminación. Haga clic en cada almacén de datos para obtener información detallada sobre las funcionalidades admitidas y las configuraciones correspondientes.
+
+## <a name="supported-data-stores"></a>Almacenes de datos compatibles
 
 [!INCLUDE [Connector overview](../../includes/data-factory-v2-connector-overview.md)]
+
+## <a name="supported-file-formats"></a>Formatos de archivos admitidos
+
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

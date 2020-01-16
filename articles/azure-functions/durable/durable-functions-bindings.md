@@ -2,14 +2,14 @@
 title: 'Enlaces para Durable Functions: Azure'
 description: Aprenda a utilizar desencadenadores y enlaces en la extensión Durable Functions para Azure Functions.
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 40b5f0f17cbb6867a6ef293a485d728141a012ef
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1f42c6c9b0086d49e539040334c83cfc0c6feb42
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233025"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410220"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Enlaces para Durable Functions (Azure Functions)
 
@@ -75,7 +75,7 @@ public static string Run([OrchestrationTrigger] IDurableOrchestrationContext con
 > [!NOTE]
 > El código anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
+#### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -110,7 +110,7 @@ public static async Task<string> Run(
 > [!NOTE]
 > El código anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
+#### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -191,7 +191,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
+#### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 ```javascript
 module.exports = async function(context) {
@@ -398,7 +398,7 @@ Cada función de entidad tiene un tipo de parámetro de `IDurableEntityContext`,
 * **DeleteState()** : elimina el estado de la entidad. 
 * **GetInput\<TInput>()** : obtiene la entrada para la operación actual. El parámetro de tipo `TInput` debe ser un tipo primitivo o serializable de JSON.
 * **Return(arg)** : devuelve un valor a la orquestación que ha llamado a la operación. El parámetro `arg` debe ser un objeto primitivo o serializable de JSON.
-* **SignalEntity(EntityId, operation, input)** : envía un mensaje unidireccional a una entidad. El parámetro `operation` debe ser una cadena que no sea NULL y el parámetro `input` debe ser un objeto primitivo o serializable de JSON.
+* **SignalEntity(EntityId, scheduledTimeUtc, operation, input)** : envía un mensaje unidireccional a una entidad. El parámetro `operation` debe ser una cadena que no sea NULL, el parámetro `scheduledTimeUtc` opcional debe ser una fecha y hora UTC en la que invocar la operación y el parámetro `input` debe ser un objeto primitivo o serializable de JSON.
 * **CreateNewOrchestration(orchestratorFunctionName, input)** : inicia una nueva orquestación. El parámetro `input` debe ser un objeto primitivo o serializable de JSON.
 
 Se puede acceder al objeto `IDurableEntityContext` pasado a la función de entidad mediante la propiedad async-local `Entity.Current`. Este enfoque es práctico cuando se usa el modelo de programación basado en clases.
@@ -519,7 +519,7 @@ Si utiliza lenguajes de scripting (por ejemplo, archivos *.csx* o *.js*) para de
     "taskHub": "<Optional - name of the task hub>",
     "connectionName": "<Optional - name of the connection string app setting>",
     "type": "durableClient",
-    "direction": "out"
+    "direction": "in"
 }
 ```
 
@@ -535,6 +535,7 @@ En funciones de .NET, habitualmente se enlaza a `IDurableEntityClient`, lo que p
 
 * **ReadEntityStateAsync\<T >** : lee el estado de una entidad. Devuelve una respuesta que indica si la entidad de destino existe y, si es así, cuál es su estado.
 * **SignalEntityAsync**: envía un mensaje unidireccional a una entidad y espera a que se ponga en cola.
+* **ListEntitiesAsync**: consulta el estado de varias entidades. Las entidades se pueden consultar por *nombre* y *hora de la última operación*.
 
 No es necesario crear la entidad de destino antes de enviar una señal: el estado de la entidad se puede crear desde dentro de la función de entidad que controla la señal.
 

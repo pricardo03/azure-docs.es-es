@@ -1,5 +1,5 @@
 ---
-title: Personalización de notificaciones para aplicaciones de inquilino de Azure AD
+title: Personalización de notificaciones de aplicación de inquilino de Azure AD (PowerShell)
 titleSuffix: Microsoft identity platform
 description: En esta página se describe la asignación de notificaciones de Azure Active Directory.
 services: active-directory
@@ -14,14 +14,14 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d15631c30566d7588b562f1bb0d6ba5280e699
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6ad2d6ec7a98a82917916bba2930149705ebfd87
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918430"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531078"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos para: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
+# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
 
 > [!NOTE]
 > Esta característica reemplaza a la [personalización de notificaciones](active-directory-saml-claims-customization.md) que se ofrece actualmente a través del portal. Si en la misma aplicación personaliza las notificaciones mediante el portal y usa al mismo tiempo el método de Graph/PowerShell que se detalla en este documento, los tokens emitidos para esa aplicación harán caso omiso de la configuración del portal. Las configuraciones realizadas mediante los métodos que se detallan en este documento no se reflejarán en el portal.
@@ -45,7 +45,7 @@ Una directiva de asignación de notificaciones es un tipo de objeto de **directi
 
 Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en los tokens.
 
-| Conjunto de notificaciones | DESCRIPCIÓN |
+| Conjunto de notificaciones | Descripción |
 |---|---|
 | Conjunto de notificaciones principales | Están presentes en todos los tokens, independientemente de la directiva. Estas notificaciones se consideran también restringidas y no se pueden modificar. |
 | Conjunto de notificaciones básicas | Incluye las notificaciones que se emiten de forma predeterminada para los tokens (además del conjunto de notificaciones principales). Puede omitir o modificar las notificaciones básicas utilizando directivas de asignación de notificaciones. |
@@ -158,12 +158,12 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 | refreshtoken |
 | request_nonce |
 | resource |
-| role |
+| rol |
 | roles |
 | scope |
 | scp |
 | sid |
-| signature |
+| firma |
 | signin_state |
 | src1 |
 | src2 |
@@ -285,14 +285,14 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabla 3: Valores de Id. válidos por origen
 
-| Source | id | DESCRIPCIÓN |
+| Source | id | Descripción |
 |-----|-----|-----|
 | Usuario | surname | Nombre de familia |
 | Usuario | givenname | Nombre propio |
 | Usuario | displayname | Display Name (Nombre para mostrar) |
 | Usuario | objectid | ObjectID |
 | Usuario | mail | Dirección de correo electrónico |
-| Usuario | userprincipalname | Nombre principal de usuario |
+| Usuario | userprincipalname | Nombre principal del usuario |
 | Usuario | department|department|
 | Usuario | onpremisessamaccountname | Nombre de cuenta SAM local |
 | Usuario | netbiosname| Nombre de NetBios |
@@ -359,9 +359,9 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabla 4: Métodos de transformación y entradas y salidas previstas
 
-|TransformationMethod|Entrada prevista|Salida prevista|DESCRIPCIÓN|
+|TransformationMethod|Entrada prevista|Salida prevista|Descripción|
 |-----|-----|-----|-----|
-|Unión|string1, string2, separator|outputClaim|Se combinan las cadenas de entrada mediante un separador entre ellas. Por ejemplo: string1:"foo@bar.com" , string2:"sandbox" , separator:"." da como resultado outputClaim:"foo@bar.com.sandbox"|
+|Join|string1, string2, separator|outputClaim|Se combinan las cadenas de entrada mediante un separador entre ellas. Por ejemplo: string1:"foo@bar.com" , string2:"sandbox" , separator:"." da como resultado outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Extrae la parte local de una dirección de correo electrónico. Por ejemplo: mail:"foo@bar.com" da como resultado outputClaim:"foo". Si no existe ningún signo \@, la cadena de entrada original se devuelve tal y como está.|
 
 **InputClaims:** use un elemento InputClaims para pasar los datos de una entrada de esquema de notificación a una transformación. Tiene dos atributos: **ClaimTypeReferenceId** y **TransformationClaimType**.
@@ -385,10 +385,10 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabla 5: Atributos permitidos como origen de datos en NameID de SAML
 
-|Source|id|DESCRIPCIÓN|
+|Source|id|Descripción|
 |-----|-----|-----|
 | Usuario | mail|Dirección de correo electrónico|
-| Usuario | userprincipalname|Nombre principal de usuario|
+| Usuario | userprincipalname|Nombre principal del usuario|
 | Usuario | onpremisessamaccountname|Nombre de cuenta SAM local|
 | Usuario | employeeid|Id. de empleado|
 | Usuario | extensionattribute1 | Atributo de extensión 1 |
@@ -412,11 +412,17 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 | TransformationMethod | Restricciones |
 | ----- | ----- |
 | ExtractMailPrefix | None |
-| Unión | El sufijo que se combine debe ser un dominio comprobado del inquilino del recurso. |
+| Join | El sufijo que se combine debe ser un dominio comprobado del inquilino del recurso. |
 
 ### <a name="custom-signing-key"></a>Clave de firma de personalizada
 
-Debe asignarse una clave de firma personalizada al objeto de entidad de servicio para que una directiva de asignación de notificaciones surta efecto. Esto garantiza que el creador de la directiva de asignación de notificaciones es el que ha modificado los tokens y protege a las aplicaciones frente a directivas de asignación de notificaciones creadas por actores malintencionados.  Las aplicaciones que tienen habilitada la asignación de notificaciones deben comprobar un URI especial para sus claves de firma de tokens mediante la anexión de `appid={client_id}` a las [solicitudes de metadatos de OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
+Debe asignarse una clave de firma personalizada al objeto de entidad de servicio para que una directiva de asignación de notificaciones surta efecto. Esto garantiza que el creador de la directiva de asignación de notificaciones es el que ha modificado los tokens y protege a las aplicaciones frente a directivas de asignación de notificaciones creadas por actores malintencionados. Para agregar una clave de firma personalizada, puede usar el cmdlet `new-azureadapplicationkeycredential` de Azure PowerShell para crear una credencial de clave simétrica para el objeto de aplicación. Para más información sobre este cmdlet de Azure PowerShell, haga clic [aquí](https://docs.microsoft.com/powershell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+
+Las aplicaciones que tienen habilitada la asignación de notificaciones deben validar sus claves de firma de tokens mediante la anexión de `appid={client_id}` a las [solicitudes de metadatos de OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). A continuación se muestra el formato del documento de metadatos de OpenID Connect que se debe usar: 
+
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
+```
 
 ### <a name="cross-tenant-scenarios"></a>Escenarios de varios inquilinos
 
@@ -430,7 +436,7 @@ Las directivas de asignación de notificaciones solo se pueden asignar a objetos
 
 En Azure AD hay muchos escenarios posibles en los que se pueden personalizar las notificaciones emitidas en tokens para entidades de servicio concretas. En esta sección se abordan algunos escenarios comunes que pueden ayudarle a entender cómo usar el tipo de directiva de asignación de notificaciones.
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>Prerequisites
 
 En los ejemplos siguientes, va a crear, actualizar, vincular y eliminar directivas de entidades de servicio. Si no está familiarizado con Azure AD, es conveniente que [aprenda a obtener un inquilino de Azure AD](quickstart-create-new-tenant.md) antes de continuar con estos ejemplos.
 

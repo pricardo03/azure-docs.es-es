@@ -1,17 +1,17 @@
 ---
-title: Configuración y lectura de los registros cuando se usa el desencadenador de Azure Functions para Cosmos DB
+title: Configuración y lectura de los registros con el desencadenador de Azure Functions para Cosmos DB
 description: Aprenda a exponer los registros a la canalización de registros de Azure Functions cuando se usa el desencadenar de Azure Functions para Cosmos DB.
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 17b2d4854e3222e5bdb607c6c80b0ec5ed6177d3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5ff747b225f8984bcaafd80015e85a9f014bdb50
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093596"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441825"
 ---
 # <a name="how-to-configure-and-read-the-logs-when-using-azure-functions-trigger-for-cosmos-db"></a>Configuración y lectura de los registros cuando se usa el desencadenador de Azure Functions para Cosmos DB
 
@@ -39,7 +39,7 @@ Para habilitar el registro cuando se usa el desencadenador de Azure Functions pa
 }
 ```
 
-Después de implementar la función de Azure con la configuración actualizada, verá los registros del desencadenador de Azure Functions para Cosmos DB como parte de los seguimientos. Puede ver los registros en un proveedor de registro configurado en la *categoría* `Host.Triggers.CosmosDB`.
+Después de implementar la función de Azure con la configuración actualizada, verá los registros del desencadenador de Azure Functions para Cosmos DB como parte de los seguimientos. Puede ver los registros en el proveedor de registro configurado en la *categoría* `Host.Triggers.CosmosDB`.
 
 ## <a name="query-the-logs"></a>Consulta de los registros
 

@@ -29,6 +29,8 @@
   items:
     - name: Creación de un dominio administrado mediante Azure PowerShell
       href: powershell-create-instance.md
+    - name: Creación de un dominio administrado mediante una plantilla
+      href: template-create-instance.md
 - name: Conceptos
   items:
     - name: Conceptos básicos de administración

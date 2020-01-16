@@ -1,25 +1,16 @@
 ---
-title: Configuración de certificado de cifrado y cifrado de secretos en clústeres Linux de Azure Service Fabric | Microsoft Docs
+title: Configuración de un certificado de cifrado en clústeres de Linux
 description: Obtenga información sobre cómo configurar un certificado de cifrado y cifrado de secretos en clústeres Linux.
-services: service-fabric
-documentationcenter: .net
 author: shsha
-manager: ''
-editor: ''
-ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/04/2019
 ms.author: shsha
-ms.openlocfilehash: 9589d6ea69a2293d592a9e63f2b726f1a620bb9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 350718e4ce890fcbfaa7f2b10cc4c47dfac4da90
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126995"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614713"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-linux-clusters"></a>Configuración de un certificado de cifrado y cifrado de secretos en clústeres Linux
 En este artículo se muestra cómo configurar un certificado de cifrado y usarlo para cifrar secretos en clústeres Linux. Para los clústeres Windows, consulte [Configuración de un certificado de cifrado y cifrado de secretos en clústeres Windows][secret-management-windows-specific-link].
@@ -54,7 +45,7 @@ user@linux:$ cat encrypted.txt | base64 -d | openssl smime -decrypt -inform der 
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga información sobre cómo [especificar secretos cifrados en una aplicación.][secret-management-specify-encrypted-secrets-link]
+Obtenga información sobre cómo [especificar secretos cifrados en una aplicación][secret-management-specify-encrypted-secrets-link].
 
 <!-- Links -->
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md

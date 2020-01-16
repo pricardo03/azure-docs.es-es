@@ -1,25 +1,17 @@
 ---
-title: Uso de un volumen de disco confiable disponible de Service Fabric en una aplicación de Azure Service Fabric Mesh | Microsoft Docs
+title: Volumen de disco confiable de Service Fabric con Service Fabric Mesh
 description: Aprenda a almacenar el estado en una aplicación de Azure Service Fabric Mesh montando el volumen de disco confiable de Service Fabric en el contenedor mediante la CLI de Azure.
-services: service-fabric-mesh
-documentationcenter: .net
 author: ashishnegi
-manager: raunakpandya
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 25bd298c412db38ec4d3b7859580d58ac9b151fb
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: f26fe70afe7d9e2872f06ac6da7143556278b1b0
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036146"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497956"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montaje de un volumen de disco confiable de Service Fabric en una aplicación de Service Fabric Mesh 
 El método habitual para conservar el estado con aplicaciones de contenedor es usar un almacenamiento remoto como Azure File Storage o una base de datos como Azure Cosmos DB. Esto supone una importante latencia de red de lectura y escritura en el almacenamiento remoto.
@@ -31,7 +23,7 @@ En este ejemplo, la aplicación Counter tiene un servicio de ASP.NET Core con un
 
 `counterService` lee regularmente un valor de contador de un archivo, lo incrementa y lo vuelve a escribir en el archivo. El archivo se almacena en una carpeta que está montada en el volumen respaldado por el disco confiable de Service Fabric.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para completar esta tarea. Para usar la CLI de Azure con este artículo, asegúrese de que `az --version` devuelve al menos `azure-cli (2.0.43)`.  Instale (o actualice) el módulo de extensión de la CLI de Azure Service Fabric Mesh siguiendo estas [instrucciones](service-fabric-mesh-howto-setup-cli.md).
 

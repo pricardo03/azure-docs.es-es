@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 66b361a7eb82610d12a10c9c190f2872c072d7ba
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: f802c2d1f986f5da62f4ffd3205523423f04e49c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664070"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367899"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introducción a las directivas personalizadas en Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "74664070"
 
 Las [directivas personalizadas](active-directory-b2c-overview-custom.md) son archivos de configuración que definen el comportamiento del inquilino de Azure Active Directory B2C (Azure AD B2C). En este artículo se crea una directiva personalizada que admite el registro o el inicio de sesión de la cuenta local mediante una dirección de correo electrónico y una contraseña. También debe preparar el entorno para agregar proveedores de identidades.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Si todavía no tiene uno, [cree un inquilino de Azure AD B2C](tutorial-create-tenant.md) vinculado a la suscripción de Azure.
 - [Registre la aplicación](tutorial-register-applications.md) en el inquilino que ha creado para que pueda comunicarse con Azure AD B2C.
@@ -31,10 +31,10 @@ Las [directivas personalizadas](active-directory-b2c-overview-custom.md) son arc
 
 ## <a name="add-signing-and-encryption-keys"></a>Agregar claves de firma y cifrado
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
-1. Use el filtro **Directorio y suscripción** del menú superior para seleccionar el directorio que contiene el inquilino de Azure AD B2C.
-1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
-1. En la página Información general, seleccione **Identity Experience Framework** en el panel **Directivas**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
+1. En la página de información general, en **Directivas**, seleccione **Identity Experience Framework**.
 
 ### <a name="create-the-signing-key"></a>Crear la clave de firma
 
@@ -77,10 +77,9 @@ Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la e
 
 #### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
 
-1. Seleccione **Todos los servicios** en la esquina superior izquierda de Azure Portal.
-1. En el cuadro de búsqueda, escriba `Azure Active Directory`.
-1. En la lista de resultados, seleccione **Azure Active Directory**.
-1. En **Administrar**, en el menú de la izquierda, seleccione **Registros de aplicaciones (característica heredada)** .
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. En Azure Portal, busque y seleccione **Azure Active Directory**.
+1. En el menú de información general de **Azure Active Directory**, en **Administrar**, seleccione **Registros de aplicaciones (característica heredada)** .
 1. Seleccione **Nuevo registro de aplicaciones**.
 1. En **Nombre**, escriba `IdentityExperienceFramework`.
 1. En **Tipo de aplicación**, elija **Aplicación web o API**.
@@ -93,7 +92,7 @@ Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la e
 1. En **Nombre**, escriba `IdentityExperienceFramework`.
 1. En **Tipos de cuenta admitidos**, seleccione **Solo las cuentas de este directorio organizativo**.
 1. En **URI de redirección**, seleccione **Web** y, a continuación, escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, donde `your-tenant-name` es el nombre de dominio del inquilino de Azure AD B2C.
-1. En **Permisos**, active la casilla *Conceda permiso del administrador a los permisos openid y offline_access*.
+1. En **Permisos**, active la casilla *Conceda consentimiento del administrador a los permisos openid y offline_access*.
 1. Seleccione **Registrar**.
 1. Anote el **Id. de aplicación (cliente)** para usarlo en un paso posterior.
 
@@ -130,7 +129,7 @@ A continuación, exponga la API agregando un ámbito:
 1. En **Tipos de cuenta admitidos**, seleccione **Solo las cuentas de este directorio organizativo**.
 1. En **URI de redirección**, use la lista desplegable para seleccionar **Cliente público o nativo (móvil y escritorio)** .
 1. En **URI de redirección**, escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, donde `your-tenant-name` es el inquilino de Azure AD B2C.
-1. En **Permisos**, active la casilla *Conceda permiso del administrador a los permisos openid y offline_access*.
+1. En **Permisos**, active la casilla *Conceda consentimiento del administrador a los permisos openid y offline_access*.
 1. Seleccione **Registrar**.
 1. Anote el **Id. de aplicación (cliente)** para usarlo en un paso posterior.
 
@@ -166,8 +165,8 @@ Las directivas personalizadas son un conjunto de archivos XML que se cargan en e
 
 Cada paquete de inicio contiene lo siguiente:
 
-- **Archivo base**: se requieren algunas modificaciones en el archivo base. Ejemplo: *TrustFrameworkBase.xml*.
-- **Archivo de extensión**: este archivo es donde se hace la mayoría de los cambios de configuración. Ejemplo: *TrustFrameworkExtensions.xml*.
+- **Archivo base**: se requieren algunas modificaciones en el archivo base. Ejemplo: *TrustFrameworkBase.xml*
+- **Archivo de extensión**: este archivo es donde se hace la mayoría de los cambios de configuración. Ejemplo: *TrustFrameworkExtensions.xml*
 - **Archivos de usuario de confianza**: archivos específicos de la tarea a los que llama la aplicación. Ejemplos: *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*.
 
 En este artículo, editará los archivos de directivas personalizadas XML del paquete de inicio **SocialAndLocalAccounts**. Si necesita un editor XML, [pruebe Visual Studio Code](https://code.visualstudio.com/download), un editor multiplataforma ligero.

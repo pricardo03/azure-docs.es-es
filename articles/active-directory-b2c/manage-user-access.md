@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 98d3fa50f405658b33f879ed8e7b95667cddcedf
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: e0fc09ca77e4fb0c3666478873d5d09a13d23ec8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064126"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367117"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Administración del acceso de usuario en Azure Active Directory B2C
 
@@ -93,13 +93,13 @@ Los **términos de uso** también pueden incluir la opción "Acepto compartir lo
 
 En los pasos siguientes se describe cómo puede administrar los términos de uso:
 
-1. Registre la aceptación de los términos de uso y la fecha de esta mediante Graph API y los atributos extendidos. Lo puede hacer mediante los flujos de usuario integrados y personalizados. Recomendamos que cree y use los atributos **extension_termsOfUseConsentDateTime** y **extension_termsOfUseConsentVersion**.
+1. Registre la aceptación de los términos de uso y la fecha de esta mediante Graph API y los atributos extendidos. Para ello, use los flujos de usuario integrados y personalizados. Recomendamos que cree y use los atributos **extension_termsOfUseConsentDateTime** y **extension_termsOfUseConsentVersion**.
 
-2. Cree una casilla de verificación obligatoria que tenga la etiqueta "Aceptar términos de uso" y registre el resultado durante el proceso de registro. Lo puede hacer mediante los flujos de usuario integrados y personalizados.
+2. Cree una casilla de verificación obligatoria que tenga la etiqueta "Aceptar términos de uso" y registre el resultado durante el proceso de registro. Para ello, use los flujos de usuario integrados y personalizados.
 
 3. Azure AD B2C almacena el contrato de términos de uso y la aceptación del usuario. Puede usar Graph API para consultar el estado de cualquier usuario mediante la lectura del atributo de extensión que se usó para registrar la respuesta (por ejemplo, la lectura de **termsOfUseTestUpdateDateTime**). Para ello, use los flujos de usuario integrados y personalizados.
 
-4. Solicite la aceptación de los términos de uso actualizados mediante la comparación de la fecha de aceptación con la fecha de la última versión de los términos de uso. Puede comparar las fechas mediante un flujo de usuario personalizado. Utilice el atributo extendido **extension_termsOfUseConsentDateTime** y compare el valor con la notificación de **termsOfUseTextUpdateDateTime**. Si la aceptación es antigua, cree una nueva aceptación mediante la exhibición de una pantalla autoafirmada. En caso contrario, bloquee el acceso mediante la lógica de directiva.
+4. Solicite la aceptación de los términos de uso actualizados mediante la comparación de la fecha de aceptación con la fecha de la última versión de los términos de uso. Puede comparar las fechas mediante un flujo de usuario personalizado. Utilice el atributo extendido **extension_termsOfUseConsentDateTime** y compare el valor con la notificación de **termsOfUseTextUpdateDateTime**. Si la aceptación es antigua, cree una nueva aceptación. Para ello, muestre una pantalla autoafirmada. En caso contrario, bloquee el acceso mediante la lógica de directiva.
 
 5. Solicite la aceptación de términos de uso actualizados comparando el número de versión de la aceptación con el número de versión más reciente aceptado. Puede comparar números de versión solo mediante un flujo de usuario personalizado. Utilice el atributo extendido **extension_termsOfUseConsentDateTime** y compare el valor de la notificación de **extension_termsOfUseConsentVersion**. Si la aceptación es antigua, cree una nueva aceptación. Para ello, muestre una pantalla autoafirmada. En caso contrario, bloquee el acceso mediante la lógica de directiva.
 
@@ -176,3 +176,4 @@ El siguiente es un ejemplo de consentimiento de términos de uso basado en Versi
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para aprender a eliminar y exportar datos de usuario, consulte [Administración de datos de usuario](manage-user-data.md).
+- Para ver un ejemplo de directiva personalizada que implementa un mensaje de condiciones de uso, consulte [Una directiva personalizada de B2C IEF: registro e inicio de sesión con el aviso "Condiciones de uso"](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou).

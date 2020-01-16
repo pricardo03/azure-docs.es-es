@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 12/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0250780c85041c07fabf7d5ed268d1f3cdb63e18
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 111bc7cd0439eee2026a6a980e9e126b63ac58c6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240646"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610495"
 ---
 # <a name="connect-your-symantec-icdx-appliance"></a>Conexión de su dispositivo Symantec ICDx 
 
@@ -42,7 +42,7 @@ Symantec ICDx puede integrar y exportar los registros directamente a Azure Senti
 4. En **Reenviadores**, junto a Microsoft Azure Sentinel (Log Analytics), haga clic en **Agregar**. 
 4. En la ventana **Microsoft Azure Sentinel (Log Analytics)** , haga clic en **Mostrar opciones avanzadas**. 
 5. En la parte superior de la ventana expandida a Microsoft Azure Sentinel (Log Analytics), haga lo siguiente:
-    -   **Nombre**: escriba un nombre para el reenviador que no tenga más de 30 caracteres. Elija un nombre único y significativo. Este nombre aparece en la lista de reenviadores de la pantalla **Configuración** y en los paneles de la pantalla **Panel**. Por ejemplo:  Microsoft Azure Log Analytics East. Este campo es obligatorio.
+    -   **Name**: escriba un nombre para el reenviador que no tenga más de 30 caracteres. Elija un nombre único y significativo. Este nombre aparece en la lista de reenviadores de la pantalla **Configuración** y en los paneles de la pantalla **Panel**. Por ejemplo: Microsoft Azure Log Analytics East. Este campo es obligatorio.
     -   **Descripción**: escriba una descripción para el reenviador. Esta descripción también aparece en la lista de reenviadores de la pantalla **Configuración**. Incluya detalles como el tipo de evento que se reenvía y el grupo que necesita para inspeccionar los datos.
     -   **Tipo de inicio**: seleccione el método de inicio para la configuración del reenviador. Sus opciones son manuales y automáticas.<br>El valor predeterminado es Automatic. 
 6. En **Eventos**, haga lo siguiente: 
@@ -50,7 +50,7 @@ Symantec ICDx puede integrar y exportar los registros directamente a Azure Senti
       > [!NOTE]
       > Los archivos de receptor ICDX se muestran por separado, por nombre. 
  
-    - **Filtro**: agregue un filtro que especifique el subconjunto de eventos que reenviar. Realice una de las operaciones siguientes:
+    - **Filtro**: agregue un filtro que especifique el subconjunto de eventos que reenviar. Realice una de las siguientes acciones:
         - Para seleccionar una condición de filtro, haga clic en un Tipo, Atributo, Operador y Valor. 
         - En el campo de filtro, revise su condición de filtro. Puede editarla directamente en el campo o eliminarla según sea necesario.
         - Haga clic en AND u OR para su incorporación a su condición de filtro.
@@ -78,4 +78,6 @@ Hasta que los registros empiecen a aparecer en Log Analytics, pueden transcurrir
 En este documento, ha aprendido a conectar Symantec ICDx a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+
 

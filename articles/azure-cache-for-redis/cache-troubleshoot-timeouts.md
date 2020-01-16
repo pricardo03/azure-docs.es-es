@@ -1,17 +1,17 @@
 ---
 title: Solución de problemas de tiempos de expiración de Redis Cache
-description: Más información sobre cómo resolver problemas comunes de tiempo de expiración con Redis Cache
+description: Aprenda a resolver problemas comunes de tiempo de espera con Azure Cache for Redis, como la aplicación de revisiones al servidor Redis y las excepciones de tiempo de espera de StackExchange.Redis.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: yegu
-ms.openlocfilehash: e58b305a43cc5ad339fb87b9b8a09af04c410839
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 4b8cfed883ffef780de2e82e3f309e97bcb5515c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121371"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75412090"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Solución de problemas de tiempos de expiración de Redis Cache
 
@@ -40,7 +40,7 @@ Este mensaje de error contiene métricas que pueden indicarle la causa y la posi
 | --- | --- |
 | inst |En el último período de tiempo: se han emitido 0 comandos. |
 | mgr |El administrador del socket está realizando `socket.select`, lo que significa que está solicitando al sistema operativo que indique un socket que tenga algo que hacer. El lector no está leyendo activamente de la red porque cree que no hay nada que hacer. |
-| queue |Hay un total de 73 operaciones en curso. |
+| cola |Hay un total de 73 operaciones en curso. |
 | qu |6 de las operaciones en curso están en la cola de no enviados y aún no se han escrito en la red de salida. |
 | qs |67 de las operaciones en curso se han enviado al servidor, pero aún no hay una respuesta disponible. La respuesta podría ser `Not yet sent by the server` o `sent by the server but not yet processed by the client.`. |
 | qc |0 de las operaciones en curso han visto respuestas, pero aún no se han marcado como completadas porque están esperando en el bucle de finalización. |
@@ -83,7 +83,7 @@ Puede usar los pasos siguientes para investigar posibles causas principales.
 1. ¿Hay comandos que tardan mucho tiempo en procesarse en el servidor? Los comandos de larga duración que tardan mucho tiempo en procesarse en el servidor de Redis pueden provocar tiempos de expiración. Para obtener más información sobre los comandos de ejecución prolongada, consulte [Comandos de ejecución prolongada](cache-troubleshoot-server.md#long-running-commands). Puede conectarse a la instancia de Azure Redis Cache mediante el cliente redis-cli o la [Consola de Redis](cache-configure.md#redis-console). Luego, ejecute el comando [SLOWLOG](https://redis.io/commands/slowlog) para ver si hay solicitudes más lentas de lo esperado. El servidor de Redis y StackExchange.Redis están optimizados para muchas solicitudes pequeñas, en lugar de menos solicitudes de gran tamaño. Dividir los datos en fragmentos menores puede mejorar las cosas aquí.
 
     Para obtener información acerca de cómo conectarse al punto de conexión SSL de la caché con redis-cli y stunnel, consulte La entrada de blog [Announcing ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) (Anuncio de proveedor de estado de sesión ASP.NET para la versión preliminar de Redis).
-1. Una carga alta del servidor de Redis puede causar tiempos de espera agotados. Puede supervisar la carga del servidor con la `Redis Server Load`[métrica de rendimiento de caché](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Una carga del servidor de 100 (valor máximo) significa que el servidor de redis ha estado ocupado procesando solicitudes, sin tiempo de inactividad. Para ver si ciertas solicitudes ocupan toda la funcionalidad del servidor, ejecute el comando SlowLog, como se describe en el párrafo anterior. Para más información, consulte Uso elevado de la CPU/carga de servidor.
+1. Una carga alta del servidor de Redis puede causar tiempos de espera agotados. Puede supervisar la carga del servidor con la `Redis Server Load` [métrica de rendimiento de caché](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Una carga del servidor de 100 (valor máximo) significa que el servidor de redis ha estado ocupado procesando solicitudes, sin tiempo de inactividad. Para ver si ciertas solicitudes ocupan toda la funcionalidad del servidor, ejecute el comando SlowLog, como se describe en el párrafo anterior. Para más información, consulte Uso elevado de la CPU/carga de servidor.
 1. ¿Ha habido cualquier otro evento en el lado cliente que puede haber causado una señalización visual de red? Los eventos comunes incluyen: escalado o reducción vertical del número de instancias de cliente, implementación de una nueva versión del cliente o escalado automático habilitado. En nuestra prueba hemos observado que el escalado automático o el escalado o reducción vertical pueden provocar que la conectividad de red de salida se pierda durante varios segundos. El código de StackExchange.Redis es resistente a dichos eventos y se vuelve a conectar. Mientras se produce la reconexión, las solicitudes en la cola pueden agotar el tiempo de espera.
 1. ¿Ha habido una solicitud grande antes de varias solicitudes pequeñas en la caché que haya agotado el tiempo de espera? El parámetro `qs` en el mensaje de error indica cuántas solicitudes se enviaron del cliente al servidor pero que no han procesado una respuesta. Este valor puede seguir creciendo, ya que StackExchange.Redis usa una sola conexión de TCP y solo puede leer una respuesta cada vez. Aunque la primera operación ha agotado el tiempo de espera, esto no detiene el envío de más datos al servidor o desde este. Se bloquearán otras solicitudes hasta que la solicitud grande finalice y pueda provocar que se agote el tiempo de espera. Una solución es reducir la posibilidad de tiempos de espera agotados, garantizando que la memoria caché sea lo suficientemente grande para la carga de trabajo y dividiendo los valores grandes en fragmentos menores. Otra posible solución es utilizar un grupo de objetos `ConnectionMultiplexer` en el cliente y elegir el parámetro `ConnectionMultiplexer` con menos carga al enviar una solicitud nueva. La carga en varios objetos de conexión debería evitar que un único tiempo de expiración haga que otras solicitudes también agoten el tiempo de espera.
 1. Si está utilizando `RedisSessionStateProvider`, asegúrese de haber configurado correctamente el tiempo de expiración de los reintentos. `retryTimeoutInMilliseconds` debe ser superior a `operationTimeoutInMilliseconds`; de lo contrario, no se producirá ningún reintento. En el siguiente ejemplo, `retryTimeoutInMilliseconds` se establece en 3000. Para más información, consulte [ASP.NET Session State Provider for Azure Cache for Redis](cache-aspnet-session-state-provider.md) (Proveedor de estado de sesión de ASP.NET para Azure Cache for Redis) y [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration) (Uso de los parámetros de configuración del proveedor de estado de sesión y el proveedor de caché de resultados).

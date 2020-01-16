@@ -1,25 +1,14 @@
 ---
-title: Escalado o reducción horizontal de un clúster de Service Fabric | Microsoft Docs
+title: Escalado o reducción horizontal de un clúster de Service Fabric
 description: Escale o reduzca horizontalmente un clúster de Service Fabric para satisfacer la demanda y configure para ello reglas de escalado automático en cada tipo de nodo y conjunto de escalado de máquinas virtuales. Incorporación o eliminación de nodos de un clúster de Service Fabric
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/12/2019
-ms.author: atsenthi
-ms.openlocfilehash: b1b3c0e6440212474bf356d4204c0dd91c1491fa
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ef7d4c3d3d48bed790851834d848f05060243636
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599898"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451952"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Escalar o reducir un clúster horizontalmente
 

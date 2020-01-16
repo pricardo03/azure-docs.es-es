@@ -1,26 +1,17 @@
 ---
-title: 'Tutorial: Escalabilidad automática de una aplicación que se ejecuta en Azure Service Fabric Mesh | Microsoft Docs'
+title: Escalado automático de una aplicación que se ejecuta en Azure Service Fabric Mesh
 description: Obtenga información sobre cómo configurar directivas de escalabilidad automática para los servicios de una aplicación de Service Fabric Mesh.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/07/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2233dffabd7c76ca55cf215f8bc04e66134f5799
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fb72806dd7ba838ba7170bda409715bc074e1d99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583611"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461978"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Creación de directivas de escalabilidad automática de una aplicación de Service Fabric Mesh
 Una de las principales ventajas de implementar aplicaciones en Service Fabric Mesh es la capacidad de escalar vertical u horizontalmente los servicios de un modo sencillo. Esto se debe usar para controlar diferentes cantidades de carga en los servicios o bien para mejorar la disponibilidad. Puede escalar o reducir los servicios horizontalmente de forma manual o configurar directivas de escalado automático.

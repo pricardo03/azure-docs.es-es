@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9ce6459dd65c75c6fcff5591d4e4667e4b0c75fa
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 56194bcfb9531def87a9918ad442a2927413c964
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928491"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432959"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Búsqueda de una dirección mediante el servicio de búsqueda de Azure Maps
 
@@ -26,9 +26,9 @@ En este artículo, aprenderá a:
 * Realizar una [búsqueda de dirección inversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para buscar una dirección postal.
 * Buscar una intersección de calles mediante [Search Address Reverse Cross Street API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Para realizar cualquier llamada a las API del servicio Azure Maps, necesita una cuenta de Maps y una clave. Para obtener información sobre cómo crear una cuenta, siga las instrucciones de [Administrar cuentas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) y siga los pasos de [Obtención de la clave principal](./tutorial-search-location.md#getkey) para recuperar una clave de suscripción principal para su cuenta.
+Para realizar cualquier llamada a las API del servicio Azure Maps, necesita una cuenta de Maps y una clave. Siga las instrucciones que se indican en [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) para crear una suscripción a una cuenta de Azure Maps y siga los pasos para [obtener la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
 
 Este artículo utiliza la [aplicación Postman](https://www.getpostman.com/apps) para generar llamadas REST. Puede usar cualquier entorno de desarrollo de API que prefiera.
 
@@ -58,11 +58,11 @@ La mayoría de las consultas de búsqueda tienen como valor predeterminado `maxF
 
     ![Búsqueda aproximada](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | Clave | Valor |
+    | Clave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<la clave de Azure Maps\> |
-    | query | pizza |
+    | Query | pizza |
 
 4. Haga clic en **Enviar** y revise el cuerpo de la respuesta.
 
@@ -72,7 +72,7 @@ La mayoría de las consultas de búsqueda tienen como valor predeterminado `maxF
 
 5. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 
-    | Clave | Valor |
+    | Clave | Value |
     |------------------|-------------------------|
     | countrySet | US |
   
@@ -84,10 +84,10 @@ La mayoría de las consultas de búsqueda tienen como valor predeterminado `maxF
 
     ![Búsqueda aproximada](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | Clave | Valor |
+    | Clave | Value |
     |-----|------------|
-    | latitud | 47,620525 |
-    | longitud | -122,349274 |
+    | lat | 47,620525 |
+    | lon | -122,349274 |
 
 ## <a name="search-for-address-properties-and-coordinates"></a>Buscar las coordenadas y las propiedades de dirección
 
@@ -108,11 +108,11 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
   
     ![Búsqueda de direcciones](./media/how-to-search-for-address/address_search_params.png)
   
-    | Clave | Valor |
+    | Clave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<la clave de Azure Maps\> |
-    | query | 400 Broad St, Seattle, WA 98109 |
+    | Query | 400 Broad St, Seattle, WA 98109 |
   
 4. Haga clic en **Enviar** y revise el cuerpo de la respuesta.
   
@@ -125,7 +125,7 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
 
 6. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 
-    | Clave | Valor |
+    | Clave | Value |
     |-----|------------|
     | typeahead | true |
 
@@ -149,11 +149,11 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
   
     ![Parámetros de Búsqueda de direcciones inversa](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | Clave | Valor |
+    | Clave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<la clave de Azure Maps\> |
-    | query | 47,591180,-122,332700 |
+    | Query | 47,591180,-122,332700 |
   
 4. Haga clic en **Enviar** y revise el cuerpo de la respuesta.
 
@@ -161,15 +161,15 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
   
 5. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 
-    | Clave | Valor |
+    | Clave | Value |
     |-----|------------|
-    | número | true |
+    | number | true |
 
     Si el parámetro de consulta [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) se envía con la solicitud, la respuesta puede incluir el lado de la calle (izquierda o derecha) y también una posición de desplazamiento para ese número.
   
 6. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 
-    | Clave | Valor |
+    | Clave | Value |
     |-----|------------|
     | returnSpeedLimit | true |
   
@@ -177,7 +177,7 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
 
 7. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 
-    | Clave | Valor |
+    | Clave | Value |
     |-----|------------|
     | returnRoadUse | true |
 
@@ -185,7 +185,7 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
 
 8. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 
-    | Clave | Valor |
+    | Clave | Value |
     |-----|------------|
     | roadUse | true |
 
@@ -207,11 +207,11 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
   
 3. Haga clic en **Params** (Parámetros) y especifique los siguientes pares clave-valor para utilizar como parámetros de consulta o ruta de acceso en la dirección URL de la solicitud:
   
-    | Clave | Valor |
+    | Clave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<la clave de Azure Maps\> |
-    | query | 47,591180,-122,332700 |
+    | Query | 47,591180,-122,332700 |
   
 4. Haga clic en **Enviar** y revise el cuerpo de la respuesta.
 

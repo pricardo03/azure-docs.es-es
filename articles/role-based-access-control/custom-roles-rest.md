@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2e5dcd7593ba0992337396bc7c05cc30351644dc
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 474de8934ec7e27df601fe80809566a801e6af61
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702981"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452932"
 ---
 # <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Creación o actualización de roles personalizados para los recursos de Azure con la API REST
 
@@ -38,7 +38,7 @@ Para enumerar todos los roles personalizados de un directorio, use la API REST [
 
 1. Reemplace *{filter}* por el tipo de rol.
 
-    | Filter | DESCRIPCIÓN |
+    | Filter | Descripción |
     | --- | --- |
     | `$filter=type%20eq%20'CustomRole'` | Filtro basado en el tipo CustomRole |
 
@@ -54,7 +54,7 @@ Para enumerar los roles personalizados en un ámbito, use la API REST [Definicio
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito cuya lista de roles quiere obtener.
 
-    | Ámbito | type |
+    | Ámbito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
@@ -62,7 +62,7 @@ Para enumerar los roles personalizados en un ámbito, use la API REST [Definicio
 
 1. Reemplace *{filter}* por el tipo de rol.
 
-    | Filter | DESCRIPCIÓN |
+    | Filter | Descripción |
     | --- | --- |
     | `$filter=type%20eq%20'CustomRole'` | Filtro basado en el tipo CustomRole |
 
@@ -78,7 +78,7 @@ Para obtener información sobre el rol personalizado por su nombre para mostrar,
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito cuya lista de roles quiere obtener.
 
-    | Ámbito | type |
+    | Ámbito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
@@ -86,7 +86,7 @@ Para obtener información sobre el rol personalizado por su nombre para mostrar,
 
 1. Reemplace *{filter}* con el nombre para mostrar para el rol.
 
-    | Filter | DESCRIPCIÓN |
+    | Filter | Descripción |
     | --- | --- |
     | `$filter=roleName%20eq%20'{roleDisplayName}'` | Use la forma con codificación URL del nombre para mostrar exacto del rol. Por ejemplo: `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
@@ -104,7 +104,7 @@ Para obtener información sobre un rol personalizado por su identificador único
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito cuya lista de roles quiere obtener.
 
-    | Ámbito | type |
+    | Ámbito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
@@ -152,7 +152,7 @@ Para crear un rol personalizado, use la API de REST [Role Definitions - Create O
 
 1. Dentro del URI, reemplace *{scope}* por el primer elemento `assignableScopes` del rol personalizado.
 
-    | Ámbito | type |
+    | Ámbito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
@@ -217,7 +217,7 @@ Para actualizar un rol personalizado, use la API de REST [Role Definitions - Cre
 
 1. Dentro del URI, reemplace *{scope}* por el primer elemento `assignableScopes` del rol personalizado.
 
-    | Ámbito | type |
+    | Ámbito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
@@ -301,7 +301,7 @@ Para eliminar un rol personalizado, use la API de REST [Role Definitions - Delet
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito que desea eliminar para el rol personalizado.
 
-    | Ámbito | type |
+    | Ámbito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |

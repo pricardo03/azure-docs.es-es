@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: a2c1ba1d4cd2dfdbf2a94005c539e70705486ba4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1b9a836491e989b676663d13b8eebb994c5145d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851101"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454790"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Implementación de un servicio web de Azure Machine Learning Studio (clásico)
 
@@ -23,7 +23,7 @@ Azure Machine Learning Studio (clásico) permite compilar y probar una solución
 
 Los servicios web de Machine Learning Studio (clásico) proporcionan una interfaz entre una aplicación y un modelo de puntuación de flujo de trabajo de Machine Learning Studio (clásico). Una aplicación externa puede comunicarse con un modelo de puntuación de flujo de trabajo de Machine Learning Studio (clásico) en tiempo real. Una llamada a un servicio web de Machine Learning Studio (clásico) devuelve resultados de predicción a una aplicación externa. Para realizar una llamada a un servicio web Machine Learning, es necesario pasar una clave de API que se creó al implementar el servicio web. Un servicio web de Machine Learning Studio (clásico) se basa en REST, una conocida opción de arquitectura para proyectos de programación web.
 
-La versión clásica de Azure Machine Learning Studio tiene dos tipos de servicios web:
+Azure Machine Learning Studio (clásico) tiene dos tipos de servicios web:
 
 * Servicio de solicitud-respuesta (RRS): Un servicio de baja latencia y alta escalabilidad que puntúa un registro de datos.
 * Servicio de ejecución por lotes (BES): Un servicio asincrónico que puntúa un lote de registros de datos.
@@ -32,13 +32,13 @@ La entrada de BES es similar a la entrada de datos que se emplea en RRS. La dife
 
 Desde un punto de vista general, implementará el modelo en tres pasos:
 
-* **[Crear un experimento de entrenamiento]** : en la versión clásica de Studio, puede entrenar y probar un modelo de análisis predictivo con datos de entrenamiento que suministre, mediante un gran conjunto de algoritmos de aprendizaje automático integrados.
+* **[Crear un experimento de entrenamiento]** : en Studio (clásico), puede entrenar y probar un modelo de análisis predictivo con datos de entrenamiento que suministre, mediante un gran conjunto de algoritmos de aprendizaje automático integrados.
 * **[Convertirlo en un experimento predictivo]** : una vez que se ha entrenado el modelo con datos existentes y está listo para usarse con el objetivo de puntuar nuevos datos, debe prepararlo y simplificarlo para realizar predicciones.
 * **Implementarlo** como un **[Servicio web nuevo]** o un **[servicio web clásico]** : al implementar el experimento predictivo como un servicio web de Azure, los usuarios pueden enviar datos al modelo y recibir las predicciones de este.
 
 ## <a name="create-a-training-experiment"></a>Crear un experimento de entrenamiento
 
-Para entrenar un modelo de análisis predictivo, utilice la versión clásica de Azure Machine Learning Studio para crear un experimento de entrenamiento en el que incluya varios módulos para cargar los datos de entrenamiento, prepare los datos según sea necesario, aplique los algoritmos de aprendizaje automático y evalúe los resultados. Puede iterar en un experimento y probar algoritmos distintos de aprendizaje automático para comparar y evaluar los resultados.
+Para entrenar un modelo de análisis predictivo, usará Azure Machine Learning Studio (clásico) para crear un experimento de entrenamiento en el que incluir varios módulos para cargar los datos de entrenamiento, preparar los datos necesarios, aplicar algoritmos de aprendizaje automático y evaluar los resultados. Puede iterar en un experimento y probar algoritmos distintos de aprendizaje automático para comparar y evaluar los resultados.
 
 El proceso de creación y administración de experimentos de entrenamiento se trata más detenidamente en otros artículos. Para obtener más información, consulte estos artículos:
 
@@ -95,9 +95,9 @@ Para realizar pruebas RRS, en el modo de vista de lista, escriba los valores ade
 
 ![Escritura de los valores adecuados para probar el servicio web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
-Para realizar pruebas BES, haga clic en **Batch**. En la página de pruebas por lotes, haga clic en la opción Examinar de la entrada y seleccione un archivo CSV que contenga los valores de ejemplo adecuados. Si no dispone de un archivo CSV y ha creado el experimento predictivo con la versión clásica de Machine Learning Studio, puede descargar el conjunto de datos del experimento predictivo y utilizarlo.
+Para realizar pruebas BES, haga clic en **Batch**. En la página de pruebas por lotes, haga clic en la opción Examinar de la entrada y seleccione un archivo CSV que contenga los valores de ejemplo adecuados. Si no dispone de un archivo CSV y ha creado el experimento predictivo con Machine Learning Studio (clásico), puede descargar el conjunto de datos para el experimento predictivo y utilizarlo.
 
-Para ello, abra la versión clásica de Machine Learning Studio. Abra el experimento predictivo y haga clic con el botón derecho en la entrada del experimento. En el menú contextual, seleccione **conjunto de datos** y, después, haga clic en **Descargar**.
+Para ello, abra Machine Learning Studio (clásico). Abra el experimento predictivo y haga clic con el botón derecho en la entrada del experimento. En el menú contextual, seleccione **conjunto de datos** y, después, haga clic en **Descargar**.
 
 ![Descarga del conjunto de datos en el lienzo de Studio (clásico)](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
@@ -113,7 +113,7 @@ En la página **CONFIGURACIÓN**, puede cambiar la descripción y el título, ac
 
 ### <a name="access-your-new-web-service"></a>Acceso al servicio web nuevo
 
-Cuando implementa el servicio web desde la versión clásica de Machine Learning Studio, puede enviar datos al servicio y recibir respuestas mediante programación.
+Cuando implementa el servicio web desde Machine Learning Studio (clásico), puede enviar datos al servicio y recibir respuestas mediante programación.
 
 La página **Consume** (Consumo) proporciona toda la información que necesita para acceder al servicio web. Por ejemplo, la clave de API se ofrece para permitir el acceso autorizado al servicio.
 
@@ -136,10 +136,10 @@ Los precios dependen de la región, así que debe definir un plan de facturació
 3. En la página de información general de Planes, haga clic en **Nuevo**.
 4. En el menú desplegable **Suscripción** , seleccione la suscripción en que residirá el nuevo plan.
 5. En el menú desplegable **Región** , seleccione una región para el nuevo plan. Las opciones de planes de la región seleccionada se mostrarán en la sección de la página **Plan Options** (Opciones de planes).
-6. En el menú desplegable **Grupo de recursos** , seleccione un grupo de recursos para el plan. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+6. En el menú desplegable **Grupo de recursos** , seleccione un grupo de recursos para el plan. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 7. En **Nombre del plan** , escriba el nombre del plan.
 8. En **Plan Options**(Opciones de planes), haga clic en el nivel de facturación del nuevo plan.
-9. Haga clic en **Create**(Crear).
+9. Haga clic en **Crear**.
 
 #### <a name="deploy-the-web-service-to-another-region"></a>Implementación del servicio web en otra región
 
@@ -149,7 +149,7 @@ Los precios dependen de la región, así que debe definir un plan de facturació
 4. En **Nombre de servicio web**, escriba un nombre nuevo del servicio web.
 5. En **Descripción del servicio web**, escriba una descripción del servicio web.
 6. En el menú desplegable **Suscripción** , seleccione la suscripción en que residirá el servicio web nuevo.
-7. En el menú desplegable **Grupo de recursos** , seleccione un grupo de recursos para el servicio web. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+7. En el menú desplegable **Grupo de recursos** , seleccione un grupo de recursos para el servicio web. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 8. En el menú desplegable **Región** , seleccione la región en la que se va a implementar el servicio web.
 9. En el menú desplegable **Cuenta de almacenamiento** , seleccione la cuenta de almacenamiento en la que se va a almacenar el servicio web.
 10. En el menú desplegable **Price Plan** (Plan de precios), seleccione un plan en la región que seleccionó en el paso 8.
@@ -169,9 +169,9 @@ Puede probar el servicio web en el portal del servicio web de Machine Learning S
 
 Para probar el servicio web de respuesta de solicitudes, haga clic en el botón **Probar** del panel del servicio web. Aparecerá un cuadro de diálogo que le pide los datos de entrada del servicio. Estas son las columnas esperadas del experimento puntuación. Escriba un conjunto de datos y haga clic en **Aceptar**. Los resultados generados por el servicio web se muestran en la parte inferior del panel.
 
-Puede hacer clic en el vínculo de versión preliminar **Probar** para probar el servicio en el portal del servicio web de la versión clásica de Azure Machine Learning Studio como se mostró anteriormente en la sección de nuevo servicio web.
+Puede hacer clic en el vínculo de versión preliminar **Test** (Probar) para probar el servicio en el portal de servicios web de Azure Machine Learning Studio (clásico), como se mostró anteriormente en la sección de nuevo servicio web.
 
-Para probar el servicio de ejecución por lotes, haga clic en el vínculo de vista previa **Probar**. En la página de pruebas por lotes, haga clic en la opción Examinar de la entrada y seleccione un archivo CSV que contenga los valores de ejemplo adecuados. Si no dispone de un archivo CSV y ha creado el experimento predictivo con la versión clásica de Machine Learning Studio, puede descargar el conjunto de datos del experimento predictivo y utilizarlo.
+Para probar el servicio de ejecución por lotes, haga clic en el vínculo de vista previa **Probar**. En la página de pruebas por lotes, haga clic en la opción Examinar de la entrada y seleccione un archivo CSV que contenga los valores de ejemplo adecuados. Si no dispone de un archivo CSV y ha creado el experimento predictivo con Machine Learning Studio (clásico), puede descargar el conjunto de datos para el experimento predictivo y utilizarlo.
 
 ![Prueba del servicio web](./media/publish-a-machine-learning-web-service/figure-3.png)
 
@@ -187,7 +187,7 @@ También puede configurar los puntos de conexión del servicio web en el portal 
 
 ### <a name="access-your-classic-web-service"></a>Acceso al servicio web clásico
 
-Cuando implementa el servicio web desde la versión clásica de Machine Learning Studio, puede enviar datos al servicio y recibir respuestas mediante programación.
+Cuando implemente el servicio web desde Azure Machine Learning Studio (clásico), puede enviar datos al servicio y recibir respuestas mediante programación.
 
 El panel proporciona toda la información que necesita para tener acceso a su servicio web. Por ejemplo, la clave de API se proporciona para permitir el acceso autorizado al servicio, y las páginas de ayuda de API sirven para ayudarle a empezar a escribir el código.
 

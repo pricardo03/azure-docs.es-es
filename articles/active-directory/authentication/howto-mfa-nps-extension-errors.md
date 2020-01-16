@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e93666c9a6388fb008bbe85c836d732685ed63a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a8d67d1d318bf823145a57d2e55774695d151996
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848330"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425314"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolución de mensajes de error de la extensión de NPS para Azure Multi-Factor Authentication
 
@@ -34,7 +34,7 @@ Si encuentra errores en la extensión de NPS para Azure Multi-Factor Authenticat
 | **Extensión NPS para Azure MFA:** <br> La extensión NPS para Azure MFA solo realiza la autenticación secundaria para las solicitudes Radius en estado AccessAccept. Se ha recibido una solicitud de nombre de usuario con el estado de respuesta AccessReject, omitiendo la solicitud. | Este error suele reflejar un error de autenticación en AD o que el servidor NPS no puede recibir respuestas de Azure AD. Compruebe que los firewalls están abiertos de forma bidireccional para el tráfico a y desde https://adnotifications.windowsazure.com y https://login.microsoftonline.com mediante los puertos 80 y 443. También es importante comprobar que en la pestaña DIAL-IN de los permisos de acceso a la red, la configuración está establecida en "Controlar acceso a través de la directiva de red NPS". Este error también puede desencadenarse si no se asigna una licencia al usuario. |
 | **REGISTRY_CONFIG_ERROR** | Falta una clave en el registro de la aplicación, lo que puede deberse a que el [script de PowerShell](howto-mfa-nps-extension.md#install-the-nps-extension) no se ejecutó después de la instalación. El mensaje de error debe incluir la clave que falta. Asegúrese de que la clave se encuentra en HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> Falta el atributo nombreUsuario\Identificador obligatorio en la solicitud de RADIUS. Compruebe que NPS recibe las solicitudes de RADIUS | Este error refleja habitualmente un problema de instalación. La extensión de NPS debe estar instalada en servidores de NPS que pueden recibir solicitudes de RADIUS. Los servidores de NPS que están instalados como dependencias para servicios como RDG y RRAS no reciben solicitudes de RADIUS. La extensión de NPS no funciona si se instala en esas instalaciones y genera errores porque no puede leer los detalles de la solicitud de autenticación. |
-| **REQUEST_MISSING_CODE** | Asegúrese de que el protocolo de cifrado de contraseña entre los servidores NPS y NAS admite el método de autenticación secundario que usa. **PAP** es compatible con todos los métodos de autenticación de Azure MFA en la nube: llamada de teléfono, mensaje de texto unidireccional, notificación de aplicación móvil y código de verificación  de la aplicación móvil. **CHAPV2** y **EAP** admiten llamadas de teléfono y notificaciones de aplicación móvil. |
+| **REQUEST_MISSING_CODE** | Asegúrese de que el protocolo de cifrado de contraseña entre los servidores NPS y NAS admite el método de autenticación secundario que usa. **PAP** es compatible con todos los métodos de autenticación de Azure MFA en la nube: llamada de teléfono, mensaje de texto unidireccional, notificación de aplicación móvil y código de verificación de la aplicación móvil. **CHAPV2** y **EAP** admiten llamadas de teléfono y notificaciones de aplicación móvil. |
 | **USERNAME_CANONICALIZATION_ERROR** | Compruebe que el usuario existe en la instancia local de Active Directory y que el servicio NPS tiene permiso para acceder al directorio. Si usa confianzas entre bosques, [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support) para más ayuda. |
 
 ### <a name="alternate-login-id-errors"></a>Errores de identificador de inicio de sesión alternativo
@@ -95,6 +95,10 @@ Si encuentra uno de estos errores, se recomienda [ponerse en contacto con el ser
 ### <a name="troubleshoot-user-accounts"></a>Solución de problemas de cuentas de usuario
 
 Si los usuarios [tienen problemas con la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-troubleshoot.md), ayúdelos a autodiagnosticar problemas.
+
+### <a name="health-check-script"></a>Script de comprobación de estado
+
+El [script de comprobación de estado de la extensión NPS para Azure MFA](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb) está disponible en la galería de TechNet para realizar una comprobación de estado básica al solucionar problemas de la extensión NPS. Ejecute el script y elija la opción 3.
 
 ### <a name="contact-microsoft-support"></a>Consultar al soporte técnico de Microsoft
 

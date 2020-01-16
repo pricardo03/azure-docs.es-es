@@ -1,5 +1,5 @@
 ---
-title: Creación de una aplicación y una entidad de servicio de Azure AD con el portal
+title: Creación de una aplicación y una entidad de servicio de Azure AD en el portal
 titleSuffix: Microsoft identity platform
 description: Cree una aplicación y una entidad de servicio de Azure Active Directory para administrar el acceso a los recursos mediante el control de basado en rol en Azure Resource Manager.
 services: active-directory
@@ -13,14 +13,14 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249c313f8f6195371985f3dad2e707638e52d0df
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0261c060358b9f0f42624008341f80245ff57aca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967123"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424530"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos para: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
+# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
 En este artículo se muestra cómo crear una nueva entidad de servicio y aplicación de Azure Active Directory (Azure AD) que puede usar con el control de acceso basado en rol. Cuando haya código que deba tener acceso a ciertos recursos o modificarlos, puede crear una identidad para la aplicación. Esta identidad se conoce como una entidad de servicio. Entonces puede asignar los permisos necesarios a la entidad de servicio. En este artículo se muestra cómo usar el portal para crear la entidad de servicio. Se centra en una aplicación de un único inquilino donde la aplicación está diseñada para ejecutarse en una sola organización. Normalmente, utiliza aplicaciones de inquilino único para aplicaciones de línea de negocio que se ejecutan dentro de su organización.
 

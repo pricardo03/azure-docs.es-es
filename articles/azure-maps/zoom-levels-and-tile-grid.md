@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6dced7106b59f0e5a05c7ed6ff3e3368978cb083
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 68fbb9b8cd65e24d0fea0c571e5cf01b53560ba7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976048"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407584"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveles de zoom y cuadrícula de mosaico
 
@@ -138,12 +138,12 @@ Esta es la cuadrícula de zoom para el nivel de zoom 1:
 
 ## <a name="quadkey-indices"></a>Índices de quadkeys
 
-Algunas plataformas de mapas usan una convención de nomenclatura de indexación de quadkeys que combina las coordenadas ZY de un mosaico en una cadena de una dimensión denominada "clave de árbol cuaternario" o "quadkey". Cada quadkey identifica de forma única un único mosaico en un nivel de detalle determinado y se puede usar como clave en los índices comunes de árbol B de la base de datos. Los SDK de Azure Maps admiten la superposición de capas de mosaicos que usan la convención de nomenclatura de quadkeys, además de otras convenciones de nomenclatura, tal como se documenta en [Adición de una capa de mosaico](map-add-tile-layer.md).
+Algunas plataformas de mapas usan una convención de nomenclatura de indexación de `quadkey` que combina las coordenadas ZY de un mosaico en una cadena de una sola dimensión llamada "claves de `quadtree`" o simplemente "`quadkeys`". Cada `quadkey` identifica de forma inequívoca un único mosaico con un nivel de detalle determinado y se puede usar como clave en los índices comunes de árbol B de la base de datos. Los SDK de Azure Maps permiten superponer capas de mosaicos que usan la convención de nomenclatura de `quadkey`, además de otras convenciones de nomenclatura, tal y como se documenta en [Adición de una capa de mosaico a un mapa](map-add-tile-layer.md).
 
 > [!NOTE]
-> La Convención de nomenclatura de quadkeys solo funciona para los niveles de zoom de uno o más. Los SDK de Azure Maps admiten el nivel de zoom de 0, que es un único mosaico de mapa para todo el mundo. 
+> La convención de nomenclatura de `quadkeys` solo funciona con los niveles de zoom iguales o mayores que uno. Los SDK de Azure Maps admiten el nivel de zoom de 0, que es un único mosaico de mapa para todo el mundo. 
 
-Para convertir las coordenadas de mosaicos en un quadkey, los bits de las coordenadas Y y X se intercalan, y el resultado se interpreta como un número en base 4 (donde se mantienen los ceros iniciales) y se convierte en una cadena. Por ejemplo, dadas las coordenadas XY (3, 5) de un mosaico en el nivel 3, el quadkey se calcula de la siguiente manera:
+Para convertir las coordenadas del mosaico en un `quadkey`, los bits de las coordenadas Y y X se intercalan, y el resultado se interpreta como un número en base 4 (donde se mantienen los ceros iniciales) y se convierte en una cadena. Por ejemplo, dadas las coordenadas XY (3, 5) de un mosaico de nivel 3, el valor de `quadkey` se calcula de la siguiente manera:
 
 ```
 tileX = 3 = 011 (base 2)
@@ -153,13 +153,13 @@ tileY = 5 = 1012 (base 2)
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-Los quadkeys tienen varias propiedades interesantes. En primer lugar, la longitud de un quadkey (número de dígitos) es igual al nivel de zoom del mosaico correspondiente. En segundo lugar, el quadkey de cualquier mosaico comienza con el quadkey de su mosaico primario (el mosaico contenedor en el nivel anterior). Como se muestra en el ejemplo siguiente, el mosaico 2 es el elemento primario de los mosaicos 20 a 23:
+Los `Qquadkeys` tienen varias propiedades interesantes. En primer lugar, la longitud de un `quadkey` (el número de dígitos) es igual al nivel de zoom del mosaico correspondiente. En segundo lugar, el `quadkey` de cualquier mosaico comienza con el `quadkey` de su mosaico primario (el mosaico contenedor del nivel anterior). Como se muestra en el ejemplo siguiente, el mosaico 2 es el elemento primario de los mosaicos 20 a 23:
 
 <center>
 
 ![Pirámide de mosaicos de quadkey](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
 
-Por último, los quadkeys proporcionan una clave de índice unidimensional que normalmente conserva la proximidad de los mosaicos en el espacio XY. En otras palabras, dos mosaicos que tienen coordenadas XY cercanas suelen tener quadkeys que están relativamente cerca. Esto es importante para optimizar el rendimiento de la base de datos, porque a menudo los mosaicos vecinos se solicitan en grupos, por lo que es conveniente mantener esos mosaicos en los mismos bloques de disco, con el fin de minimizar el número de lecturas de disco.
+Por último, los `quadkeys` proporcionan una clave de índice unidimensional que normalmente respeta la proximidad de los mosaicos en el espacio XY. En otras palabras, normalmente, dos mosaicos que tengan coordenadas XY cercanas tendrán `quadkeys` que estarán relativamente cerca. Esto es importante para optimizar el rendimiento de la base de datos, porque a menudo los mosaicos vecinos se solicitan en grupos, por lo que es conveniente mantener esos mosaicos en los mismos bloques de disco, con el fin de minimizar el número de lecturas de disco.
 
 ## <a name="tile-math-source-code"></a>Código fuente de la matemática de los mosaicos
 
@@ -422,6 +422,7 @@ namespace AzureMaps
             var sinLatitude = Math.Sin(latitude * Math.PI / 180);
             var y = 0.5 - Math.Log((1 + sinLatitude) / (1 - sinLatitude)) / (4 * Math.PI);
 
+            //tileSize needed in calculations as in rare cases the multiplying/rounding/dividing can make the difference of a pixel which can result in a completely different tile. 
             var mapSize = MapSize(zoom, tileSize);
             tileX = (int)Math.Floor(Clip(x * mapSize + 0.5, 0, mapSize - 1) / tileSize);
             tileY = (int)Math.Floor(Clip(y * mapSize + 0.5, 0, mapSize - 1) / tileSize);
@@ -802,6 +803,7 @@ module AzureMaps {
             var sinLatitude = Math.sin(latitude * Math.PI / 180);
             var y = 0.5 - Math.log((1 + sinLatitude) / (1 - sinLatitude)) / (4 * Math.PI);
 
+            //tileSize needed in calculations as in rare cases the multiplying/rounding/dividing can make the difference of a pixel which can result in a completely different tile. 
             var mapSize = this.MapSize(zoom, tileSize);
 
             return {

@@ -1,31 +1,22 @@
 ---
-title: Inicio y detención de nodos de clúster para probar las aplicaciones de Azure Service Fabric | Microsoft Docs
+title: Inicio y detención de nodos de clúster
 description: Obtenga información acerca de cómo iniciar o detener nodos de clúster para usar la inserción de errores con el fin de probar una aplicación de Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: LMWF
-manager: rsinha
-editor: ''
-ms.assetid: f4e70f6f-cad9-4a3e-9655-009b4db09c6d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.openlocfilehash: df0e53736c08fd2c26c467def7328e85f2989f26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f2eefec94ad4763a054ee089b17232c41e642dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718145"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609798"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Sustitución de las API Start Node y Stop node con la API Node Transition
 
 ## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>¿Qué hacen las API Stop Node y Start Node?
 
-Stop Node API (administrada: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) detiene un nodo de Service Fabric.  Un nodo de Service Fabric es un proceso, no un equipo ni una máquina virtual: el equipo o la máquina virtual seguirán en ejecución.  Para el resto del documento, "nodo" hace referencia a un nodo de Service Fabric.  Al detener un nodo, este adquiere el estado *detenido*, en el que no es un miembro del clúster y no puede hospedar servicios, por lo que simula un nodo *apagado*.  Esto es útil para insertar errores en el sistema a fin de probar la aplicación.  Start Node API (administrada: [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]]) invierte la Stop Node API, lo que hacer que el nodo vuelve a un estado normal.
+Stop Node API (administrada: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) detiene un nodo de Service Fabric.  Un nodo de Service Fabric es un proceso, no un equipo ni una máquina virtual: el equipo o la máquina virtual seguirán en ejecución.  Para el resto del documento, "nodo" hace referencia a un nodo de Service Fabric.  Al detener un nodo, este adquiere el estado *detenido*, en el que no es un miembro del clúster y no puede hospedar servicios, por lo que simula un nodo *apagado*.  Esto es útil para insertar errores en el sistema a fin de probar la aplicación.  Start Node API (administrada: [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]]) invierte la Stop Node API, lo que hace que el nodo vuelva a un estado normal.
 
 ## <a name="why-are-we-replacing-these"></a>¿Por qué se realiza la sustitución?
 

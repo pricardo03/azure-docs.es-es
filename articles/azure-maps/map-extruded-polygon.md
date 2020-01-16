@@ -1,6 +1,6 @@
 ---
-title: Incorporación de una capa de polígono de extrusión a Azure Maps | Microsoft Docs
-description: Cómo agregar una capa de polígono de extrusión al SDK web de Azure Maps.
+title: Incorporación de una capa de extrusión de polígonos a Azure Maps | Microsoft Docs
+description: Cómo agregar una capa de extrusión de polígonos al SDK web de Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2019
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: e6858359549f6a54513eda7bc692adcbc7d7e71b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a357545bedde6a4e859a671005083a0fc665340d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484331"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432840"
 ---
-# <a name="add-an-extrusion-polygon-layer-to-the-map"></a>Incorporación de una capa de polígono de extrusión al mapa
+# <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Adición de una capa de extrusión de polígonos al mapa
 
 En este artículo se muestra cómo usar la capa de extrusión de polígono para representar áreas de las geometrías de características `Polygon` y `MultiPolygon` como formas extruidas en el mapa. El SDK web de Azure Maps también admite la creación de geometrías de círculo tal como se define en el [esquema extendido de GeoJSON](extend-geojson.md#circle). Estos círculos se transforman en polígonos cuando se representan en el mapa. Todas las geometrías de características también se pueden actualizar fácilmente si se encapsulan con la clase [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest).
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 7224c6a77df496624903830f0a2cbd8d193517cc
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: cab63a17ddfed49684cc37609d9f2ae5bde9bdd3
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178196"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689383"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Direcciones IP de Azure API Management
 
@@ -88,6 +88,8 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
   ...
 }
 ```
+
+API Management usa una dirección IP pública para conexiones fuera de la red virtual y una dirección IP privada para conexiones sin la red virtual.
 
 ## <a name="ip-addresses-of-consumption-tier-api-management-service"></a>Direcciones IP del nivel de consumo en el servicio API Management
 

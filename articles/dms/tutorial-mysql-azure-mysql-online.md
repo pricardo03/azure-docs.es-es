@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: Uso de Azure Database Migration Service para realizar una migración en línea de MySQL a Azure Database for MySQL | Microsoft Docs'
+title: 'Tutorial: Migración de MySQL en línea a Azure Database for MySQL'
+titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar una migración en línea de una instancia local de MySQL a Azure Database for MySQL mediante Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 5a35df5b72f51f4ef725b3d764e7dc2c80c19ec2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2a74eb2d39f75c76ae076bc2b0108e9b0a9fead1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240762"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437610"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migración de MySQL a Azure Database for MySQL en línea mediante DMS
 
@@ -37,7 +38,7 @@ En este tutorial, aprenderá a:
 > [!IMPORTANT]
 > Para disfrutar de una experiencia de migración óptima, Microsoft recomienda crear una instancia de Azure Database Migration Service en la misma región de Azure que la base de datos de destino. Si los datos se transfieren entre diferentes regiones o ubicaciones geográficas, el proceso de migración puede verse afectado y pueden producirse errores.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesita:
 
@@ -69,7 +70,7 @@ Para completar este tutorial, necesita:
 * Habilite el registro binario en el archivo my.ini (Windows) o en el archivo my.cnf (Unix) en la base de datos de origen con la configuración siguiente:
 
   * **server_id** = 1 o mayor (pertinente solo para MySQL 5.6)
-  * **log-bin** =\<ruta de acceso> (relevante solo para MySQL 5.6)    Por ejemplo: log-bin = E:\MySQL_logs\BinLog
+  * **log-bin**=\<rutaDeAcceso> (relevante solo para MySQL 5.6)    Por ejemplo: log-bin = E:\MySQL_logs\BinLog
   * **binlog_format** = row
   * **Expire_logs_days** = 5 (se recomienda no usar cero; pertinente solo para MySQL 5.6)
   * **Binlog_row_image** = full (pertinente solo para MySQL 5.6)

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Portal: replicación geográfica'
-description: Configuración de la replicación geográfica para una base de datos única o agrupada en Azure SQL Database mediante Azure Portal e inicio de la conmutación por error
+title: 'Tutorial: Replicación geográfica y conmutación por error en el portal'
+description: Configure la replicación geográfica de una base de datos única o agrupada en Azure SQL Database mediante Azure Portal e inicie la conmutación por error.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 7ddaefb0f65db1cfc828e4baa844f6d8e01f9d2e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 601c537a51e29ae1f107127e1b83c07448eee9ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808120"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75348877"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configuración de replicación geográfica activa para Azure SQL Database en Azure Portal e inicio de la conmutación por error
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo configurar la [replicación geográfica activ
 
 Para información sobre los grupos de conmutación por error automática con bases de datos únicas y agrupadas, consulte [Procedimientos recomendados para usar grupos de conmutación por error con bases de datos únicas y agrupadas](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Para información sobre los grupos de conmutación por error automática con instancias administradas, consulte [Procedimientos recomendados para usar grupos de conmutación por error con instancias administradas](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar la replicación geográfica activa mediante Azure Portal, necesita el siguiente recurso:
 
@@ -33,7 +33,7 @@ Para configurar la replicación geográfica activa mediante Azure Portal, necesi
 > [!Note]
 > Al usar Azure Portal, solo se puede crear una base de datos secundaria en la misma suscripción que la principal. Si la base de datos secundaria debe estar en una suscripción diferente, use [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) (Creación de la API REST de base de datos) o [ALTER DATABASE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
 
-## <a name="add-a-secondary-database"></a>Agregar una base de datos secundaria
+## <a name="add-a-secondary-database"></a>Adición de una base de datos secundaria
 
 Los pasos siguientes crean otra base de datos secundaria en una asociación de replicación geográfica.  
 
@@ -69,7 +69,7 @@ La base de datos secundaria se puede cambiar para convertirse en la principal.
 2. En la hoja SQL Database, seleccione **All settings** (Toda la configuración)  > **Replicación geográfica**.
 3. En la lista **SECUNDARIAS**, seleccione la base de datos que quiere convertir en la nueva base de datos principal y haga clic en **Conmutación por error**.
 
-    ![Conmutación por error](./media/sql-database-geo-replication-failover-portal/secondaries.png)
+    ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Haga clic en **Sí** para iniciar la conmutación por error.
 
 El comando cambiará inmediatamente la base de datos secundaria al rol principal. Este proceso normalmente tardará 30 segundos o menos.
@@ -79,7 +79,7 @@ Hay un breve período durante el que ambas bases de datos no están disponibles 
 > [!NOTE]
 > Este comando está diseñado para una rápida recuperación de la base de datos en el caso de una interrupción. Desencadena una conmutación por error sin sincronización de datos (conmutación por error forzada).  Si la principal está conectada y confirmando transacciones cuando se emite el comando, es posible que produzca alguna pérdida de datos.
 
-## <a name="remove-secondary-database"></a>Elimine una base de datos secundaria
+## <a name="remove-secondary-database"></a>Quitar una base de datos secundaria
 
 Esta operación termina de forma permanente la replicación en la base de datos secundaria y el rol de la base de datos secundaria cambia al de una base de datos de lectura y escritura normal. Si se interrumpe la conectividad con la base de datos secundaria, el comando se ejecuta correctamente, pero la base de datos secundaria no pasa a ser de lectura y escritura hasta después de restaurarse la conectividad.  
 

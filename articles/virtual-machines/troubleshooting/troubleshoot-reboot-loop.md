@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: d8a1d64ac8e65fd52730ee1750c0b0b1949b3512
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 3fd0a8bf6bacfec5e2be6dfa52ca51e46c7025f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088468"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443597"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Bucle de reinicio de Windows en una máquina virtual de Azure
 En este artículo se describe el bucle de reinicio que puede experimentar en una máquina virtual (VM) Windows en Microsoft Azure.
@@ -86,7 +86,7 @@ Para resolver este problema, [haga una copia de seguridad del disco del sistema 
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
-13. Seleccione la clave **BROKENSYSTEM** y, a continuación, seleccione **Archivo** > **Cargar subárbol** en el menú.
+13. Seleccione la clave **BROKENSYSTEM** y, después, seleccione **Archivo** > **Descargar subárbol** en el menú.
 
 14. Desconecte el disco del sistema operativo de la máquina virtual de solución de problemas.
 

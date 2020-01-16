@@ -1,26 +1,20 @@
 ---
-title: Conectar datos de Azure AD Identity Protection a Azure Sentinel | Microsoft Docs
+title: Conexión de datos de Azure AD Identity Protection a Azure Sentinel.
 description: Aprenda a conectar datos de Azure AD Identity Protection a Azure Sentinel.
-services: sentinel
-documentationcenter: na
 author: rkarlin
 manager: rkarlin
-editor: ''
 ms.assetid: 91c870e5-2669-437f-9896-ee6c7fe1d51d
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5d73ce12d509b2ccc534e19a27124980f3b60044
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 8d916606913b19a9eb15cb280defbeb0440565e4
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158884"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563724"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>Conectar datos de Azure AD Identity Protection
 
@@ -29,7 +23,7 @@ ms.locfileid: "74158884"
 Puede transmitir registros de [Azure AD Identity Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) a Azure Sentinel para transmitir alertas a Azure Sentinel que permitan ver paneles, crear alertas personalizadas y mejorar la investigación. Azure Active Directory Identity Protection proporciona una vista consolidada de los usuarios en riesgo, las detecciones de riesgo y las vulnerabilidades, con la posibilidad de corregir el riesgo de inmediato y de establecer directivas para resolver eventos futuros de forma automática. Este servicio se basa en la experiencia de Microsoft a la hora de proteger las identidades de los consumidores, y logra una precisión increíble a partir de más 13 mil millones de inicios de sesión día. 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Tener una [licencia de Azure Active Directory Premium P1 o P2](https://azure.microsoft.com/pricing/details/active-directory/)
 - Un usuario que sea administrador global o que tenga permisos de administrador de seguridad

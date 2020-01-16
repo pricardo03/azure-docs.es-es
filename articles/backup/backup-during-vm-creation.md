@@ -3,12 +3,12 @@ title: Habilitar copia de seguridad al crear una máquina virtual de Azure
 description: Describe cómo habilitar la copia de seguridad al crear una VM de Azure con Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: f34c5dd8cfdc94775b9bd9a896b4cfbe4154ecf8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 0cfea6579791c4fd23c1b7acdfe722d57b5ec2fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172356"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449903"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Habilitar copia de seguridad al crear una máquina virtual de Azure
 
@@ -48,8 +48,22 @@ Si aún no ha iniciado sesión en su cuenta, hágalo en [Azure Portal](https://p
 
       ![Directiva de copia de seguridad predeterminada](./media/backup-during-vm-creation/daily-policy.png)
 
-> [!NOTE]
-> El servicio Azure Backup crea un grupo de recursos independiente (distinto del grupo de recursos de la VM) para almacenar la instantánea con el formato de nomenclatura **AzureBackupRG_geografía_número** (ejemplo: AzureBackupRG_northeurope_1). Los datos de este grupo de recursos se conservarán durante el intervalo de días especificado en la sección *Conservar las instantáneas de recuperación instantánea* de la directiva de copia de seguridad de la máquina virtual de Azure.  Si se aplica un bloqueo a este grupo de recursos, pueden producirse errores de copia de seguridad. <br> Este grupo de recursos también debe excluirse de todas las restricciones de nombre o etiqueta, ya que una directiva de restricción podría bloquear la creación de colecciones de puntos de recursos en el grupo, lo que provocaría errores de copia de seguridad.
+## <a name="azure-backup-resource-group-for-virtual-machines"></a>Grupo de recursos de Azure Backup para máquinas virtuales
+
+El servicio Backup crea un grupo de recursos diferente al de la máquina virtual para guardar la colección de puntos de restauración. La colección de puntos de restauración aloja los puntos de recuperación instantánea de las máquinas virtuales administradas. El formato predeterminado de los nombres del grupo de recursos creado por el servicio Backup es `AzureBackupRG_<Geo>_<number>`. Por ejemplo: *AzureBackupRG_northeurope_1*. Ahora puede personalizar el nombre del grupo de recursos creado por Azure Backup.
+
+Puntos a tener en cuenta:
+
+1. Puede usar el nombre predeterminado del grupo de recursos o editarlo según los requisitos de la empresa.
+2. El patrón del nombre del grupo de recursos se proporciona como entrada durante la creación de la directiva de copia de seguridad de la máquina virtual. El nombre del grupo de recursos deberá tener el formato siguiente: `<alpha-numeric string>* n <alpha-numeric string>`. "n" se reemplaza por un entero (empezando por el 1) y se usa para el escalado horizontal si el primer grupo de recursos está lleno. A día de hoy, los grupos de recursos pueden tener hasta 600 colecciones de puntos de restauración como máximo.
+              ![Elección del nombre al crear la directiva](./media/backup-during-vm-creation/create-policy.png)
+3. El patrón debe seguir las reglas de nomenclatura de los grupos de recursos siguientes y la longitud total no debe superar la máxima permitida para el nombre del grupo de recursos.
+    1. Los nombres de los grupos de recursos solo permiten caracteres alfanuméricos, puntos, guiones bajos, guiones y paréntesis. No pueden terminar en punto.
+    2. Los nombres de los grupos de recursos pueden contener hasta 74 caracteres, nombre y sufijo incluidos.
+4. La primera cadena `<alpha-numeric-string>` es obligatoria, mientras que la segunda después de "n" es opcional. Esto solo se aplica si se asigna un nombre personalizado. Si no escribe nada en ninguno de los cuadros de texto, se usa el nombre predeterminado.
+5. Si es necesario, puede editar el nombre del grupo de recursos al modificar la directiva. Si se cambia el patrón de nombre, se crearán puntos de restauración en el nuevo grupo de recursos. Sin embargo, los antiguos puntos de restauración seguirán residiendo en el grupo de recursos anterior y no se moverán, ya que la colección de puntos de restauración no admite el traslado de recursos. Finalmente, los puntos de restauración recogerán los elementos no utilizados al expirar.
+![Cambio del nombre al modificar la directiva](./media/backup-during-vm-creation/modify-policy.png)
+6. Es conveniente no bloquear el grupo de recursos que crea el servicio Backup.
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Iniciar una copia de seguridad después de crear la VM
 

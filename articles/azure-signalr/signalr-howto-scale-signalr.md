@@ -4,14 +4,14 @@ description: Aprenda a escalar una instancia de Azure SignalR Service para agr
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/11/2019
 ms.author: zhshang
-ms.openlocfilehash: 0c4f91ee9cea5e8b13ecfedafffdc1715fc242c2
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: c8d74342e624b837c7ee803a2bcdcc12a3fb814b
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464163"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659294"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Cómo escalar una instancia de Azure SignalR Service?
 En este artículo se muestra cómo escalar la instancia de Azure SignalR Service. Existen dos escenarios de escalado: escalado vertical y escalado horizontal.
@@ -19,12 +19,12 @@ En este artículo se muestra cómo escalar la instancia de Azure SignalR Servic
 * [Escalado vertical](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Obtenga más unidades, conexiones, mensajes y otras funciones. Puede escalar verticalmente cambiando el plan de tarifa de Gratis a Estándar.
 * [Escalado horizontal](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Aumento del número de unidades de SignalR. Puede escalar horizontalmente hasta un máximo de 100 unidades.
 
-La configuración de escala tarda unos minutos en aplicarse. No hay que modificar el código ni volver a implementar la aplicación de servidor.
+La configuración de escala tarda unos minutos en aplicarse. En raras ocasiones, puede tardar unos 30 minutos en aplicarse. No hay que modificar el código ni volver a implementar la aplicación de servidor.
 
 Para obtener información sobre los precios y la funcionalidad de instancias individuales de SignalR Service, consulte los [precios de Azure SignalR Service](https://azure.microsoft.com/pricing/details/signalr-service/).  
 
 > [!NOTE]
-> Al cambiar SignalR Service del nivel **Gratis** al nivel **Estándar**, o viceversa, se cambiará la dirección IP del servicio público y normalmente se tarda de 3 a 60 minutos en propagar el cambio a los servidores DNS en toda Internet. Es posible que no se pueda acceder al servicio antes de que se actualice el DNS. Por lo general, no se recomienda cambiar el plan de tarifa con demasiada frecuencia.
+> Al cambiar SignalR Service del nivel **Gratis** al nivel **Estándar**, o viceversa, se cambiará la dirección IP del servicio público y normalmente se tarda de 30 a 60 minutos en propagar el cambio a los servidores DNS en todo Internet. Es posible que no se pueda acceder al servicio antes de que se actualice el DNS. Por lo general, no se recomienda cambiar el plan de tarifa con demasiada frecuencia.
 
 
 ## <a name="scale-on-azure-portal"></a>Escalado en Azure Portal
@@ -33,7 +33,7 @@ Para obtener información sobre los precios y la funcionalidad de instancias ind
 
 2. En la página de SignalR Service, en el menú de la izquierda, seleccione **Escalar**.
    
-3. Elija el plan de tarifa y luego haga clic en **Seleccionar**. Debe establecer el número de unidades del nivel **Estándar**.
+3. Elija el plan de tarifa y luego haga clic en **Seleccionar**. Establezca el número de unidades del nivel **Estándar**.
    
     ![Escalado en el portal](./media/signalr-howto-scale/signalr-howto-scale.png)
 
@@ -41,7 +41,7 @@ Para obtener información sobre los precios y la funcionalidad de instancias ind
 
 ## <a name="scale-using-azure-cli"></a>Escalado con la CLI de Azure
 
-Este script crea un recurso de SignalR Service de nivel **Gratis** y un grupo de recursos, que escala hasta el nivel **Estándar**. 
+Este script crea un recurso de SignalR Service del nivel **Gratis** y un grupo de recursos, que escala hasta el nivel **Estándar**. 
 
 ```azurecli-interactive
 #!/bin/bash
@@ -81,7 +81,7 @@ Anote el nombre real generado para el nuevo grupo de recursos. Usará ese nombre
 
 Si necesita información detallada, como los tamaños de máquina virtual para cada plan de tarifa, consulte los [precios de SignalR Service](https://azure.microsoft.com/pricing/details/signalr-service/).
 
-Para ver una tabla de límites, cuotas y restricciones del servicio en cada nivel, consulte los [límites de SignalR Service](../azure-subscription-service-limits.md#azure-signalr-service-limits).
+Para ver una tabla de límites, cuotas y restricciones del servicio en cada nivel, consulte los [límites de SignalR Service](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
