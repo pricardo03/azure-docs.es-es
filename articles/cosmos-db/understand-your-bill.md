@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 6d2edb7674a82a0388a0e028bee1b222e0e55004
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: be1697038674a177eaced03732536c0df5b16983
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754724"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046149"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
 
@@ -22,7 +22,8 @@ Con Azure Cosmos DB, se le factura por hora según el rendimiento aprovisionado 
 
 En este artículo se usan algunos ejemplos para ayudarle a entender los detalles que ve en la factura mensual. Los números que se muestran en los ejemplos pueden ser diferentes si los contenedores de Azure Cosmos tienen una cantidad diferente de rendimiento aprovisionado, si abarcan varias regiones o se ejecutan para un periodo diferente durante un mes.
 
->!Nota: La facturación es para cualquier parte de una hora de reloj, no una duración de 60 minutos.
+> [!NOTE]
+> La facturación es para cualquier parte de una hora de reloj, no una duración de 60 minutos.
 
 ## <a name="billing-examples"></a>Ejemplos de facturación
 
@@ -263,8 +264,8 @@ Lo que realmente ha comprado es un crédito de 8 USD por hora, para 100 000 RU
 A continuación, puede obtener información sobre la optimización de costos en Azure Cosmos DB con los siguientes artículos:
 
 * Más información sobre la [rentabilidad del modelo de precios de Cosmos DB para los clientes](total-cost-ownership.md)
-* Más información sobre la [optimización para desarrollo y pruebas](optimize-dev-test.md)
-* Más información sobre la [optimización del costo del rendimiento](optimize-cost-throughput.md)
+* Obtenga más información sobre la [optimización para desarrollo y pruebas](optimize-dev-test.md).
+* Obtenga más información sobre la [optimización del costo de la capacidad del rendimiento](optimize-cost-throughput.md).
 * Obtenga más información sobre la [optimización del costo del almacenamiento](optimize-cost-storage.md).
 * Obtenga más información sobre la [optimización del costo de la lectura y la escritura](optimize-cost-reads-writes.md).
 * Obtenga más información sobre la [optimización del costo de las consultas](optimize-cost-queries.md).

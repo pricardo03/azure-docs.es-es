@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b8e244dc00b4ed61a802f5c9f39149a7c020768a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 00dcc1c1a1d823ab0f2497e47641916d391ee37b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530840"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750345"
 ---
 # <a name="stream-azure-platform-logs-to-azure-event-hubs"></a>Transmisión de registros de plataforma de Azure a Azure Event Hubs
-Los [registros de plataforma](resource-logs-overview.md) en Azure, incluidos los registros de recurso y los registros de actividad de Azure, proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma de Azure de la que dependen.  En este artículo se describe la transmisión de los registros de plataforma a Event Hubs para enviar datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros.
+Los [registros de plataforma](platform-logs-overview.md) en Azure, incluidos los registros de recurso y los registros de actividad de Azure, proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma de Azure de la que dependen.  En este artículo se describe la transmisión de los registros de plataforma a Event Hubs para enviar datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros.
 
 
 ## <a name="what-you-can-do-with-platform-logs-sent-to-an-event-hub"></a>Qué se puede hacer con los registros de plataforma enviados a un centro de eventos
@@ -135,7 +135,7 @@ A continuación se muestran datos de salida de ejemplo de Event Hubs para un reg
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Más información sobre los registros de recurso](resource-logs-overview.md).
+* [Más información sobre los registros de recurso](platform-logs-overview.md).
 * [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](diagnostic-settings.md).
 * [Transmisión de registros de Azure Active Directory con Azure Monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
 * [Introducción a Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
