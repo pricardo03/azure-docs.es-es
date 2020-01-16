@@ -1,18 +1,18 @@
 ---
 title: Resumen de pagos de Marketplace comercial | Azure Marketplace
 description: En el resumen de pagos se muestran los detalles sobre el dinero que ha ganado con su oferta. También le permite saber cuándo recibirá los pagos y cuánto le pagarán.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 3836e815d296456ff95f87f0592e3277503420fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 997014263f0d12e7cc16a761152870c2ee63d6ec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427138"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979693"
 ---
 # <a name="payout-reporting"></a>Informes de pago
 
@@ -52,7 +52,7 @@ Si vende ofertas en Azure Marketplace, también verá información sobre los **p
 | La transacción no está lista para el pago | Facturación en curso | Siguiente pago estimado: El estado del pago es sin procesar.  |
 | Estado del pago |  | Sin procesar: <br> La ganancia es válida para el pago. Permanece en este estado durante un período de enfriamiento, tal como se define en la guía del programa de incentivos. <br> <br> Próximamente: <br> Revisiones internas pendientes generadas por la orden de pago antes de que se procese el pago. <br> <br> Enviado: <br> El pago se ha enviado al banco. |
 
-## <a name="customer-types"></a>Tipos de clientes 
+## <a name="customer-types"></a>Tipos de clientes
 
 ### <a name="enterprise-agreement"></a>Contrato Enterprise
 
@@ -66,7 +66,7 @@ Los clientes también pueden pagar con tarjeta de crédito y una factura mensual
 
 Por ejemplo, si el cliente realiza la compra con tarjeta de crédito.
 
-## <a name="corelation-between-payout-and-usage"></a>Correlación entre pago y uso 
+## <a name="corelation-between-payout-and-usage"></a>Correlación entre pago y uso
 
 |Descripción    |    Date  | Pedidos y uso  | Pago |
 |----------|----------|-----------|-------------|
@@ -97,33 +97,33 @@ Por ejemplo, si el cliente realiza la compra con tarjeta de crédito.
 
 ## <a name="transaction-history-download-export"></a>Exportación de la descarga del historial de transacciones
 
-Esta opción proporciona la descarga de cada artículo de línea de ganancia que se ve en la página del historial de transacciones, el tipo de ganancia, la fecha, el importe de transacción asociado, el cliente, el producto y otros detalles transaccionales aplicables al programa de incentivos. 
+Esta opción proporciona la descarga de cada artículo de línea de ganancia que se ve en la página del historial de transacciones, el tipo de ganancia, la fecha, el importe de transacción asociado, el cliente, el producto y otros detalles transaccionales aplicables al programa de incentivos.
 
-| Nombre de la columna     | Descripción    | 
+| Nombre de la columna     | Descripción    |
 |-------------|-------------------------------|
 | earningId                      | Identificador único de cada ganancia.                                                                                                       |
-| participantId                  | Identidad principal del asociado que gana con el programa.                                                                            | 
-| participantIdType              | Principalmente el identificador de programa de los programas de incentivos y el IF de vendedor de los programas de la tienda y de Azure Marketplace.                                          | 
-| participantName                | Nombre del asociado que gana.                                                                                                              | 
+| participantId                  | Identidad principal del asociado que gana con el programa.                                                                            |
+| participantIdType              | Principalmente el identificador de programa de los programas de incentivos y el IF de vendedor de los programas de la tienda y de Azure Marketplace.                                          |
+| participantName                | Nombre del asociado que gana.                                                                                                              |
 | partnerCountryCode             | Ubicación o país del asociado que gana.                                                                                                  |
-| programName                    | Nombre del programa de incentivos/tienda.                                                                                                             | 
-| transactionId                  | Identificador único de la transacción.                                                                                                    | 
-| transactionCurrency            | Moneda en la que se produjo la transacción original del cliente (no es la moneda de la ubicación del asociado).                                     | 
-| transactionDate                | Fecha de la transacción. Útil para programas en los que muchas transacciones contribuyen a una ganancia.                                           | 
-| transactionExchangeRate        | Tipo de cambio usado para mostrar el importe en USD correspondiente de la transacción.                                                                 | 
-| transactionAmount              | Importe de la transacción en la moneda original de la transacción en función de la ganancia generada.                                              | 
-| transactionAmountUSD           | Importe de la transacción en USD.                                                                                                                | 
-| lever                          | Indica la regla de negocios de la ganancia.                                                                                                  | 
-| earningRate                    | Tasa de incentivos aplicada sobre el importe de la transacción para generar una ganancia.                                                                      | 
-| quantity                       | Varía en función del programa. Indica la cantidad facturada en los programas de transacción.                                                            | 
+| programName                    | Nombre del programa de incentivos/tienda.                                                                                                             |
+| transactionId                  | Identificador único de la transacción.                                                                                                    |
+| transactionCurrency            | Moneda en la que se produjo la transacción original del cliente (no es la moneda de la ubicación del asociado).                                     |
+| transactionDate                | Fecha de la transacción. Útil para programas en los que muchas transacciones contribuyen a una ganancia.                                           |
+| transactionExchangeRate        | Tipo de cambio usado para mostrar el importe en USD correspondiente de la transacción.                                                                 |
+| transactionAmount              | Importe de la transacción en la moneda original de la transacción en función de la ganancia generada.                                              |
+| transactionAmountUSD           | Importe de la transacción en USD.                                                                                                                |
+| lever                          | Indica la regla de negocios de la ganancia.                                                                                                  |
+| earningRate                    | Tasa de incentivos aplicada sobre el importe de la transacción para generar una ganancia.                                                                      |
+| quantity                       | Varía en función del programa. Indica la cantidad facturada en los programas de transacción.                                                            |
 | quantityType                   | Indica el tipo de cantidad, por ejemplo: cantidad facturada, MAU.                                                                                     |
-| earningType                    | Indica si es honorarios, devolución, cooperativo, venta, etc.                                                                                          | 
+| earningType                    | Indica si es honorarios, devolución, cooperativo, venta, etc.                                                                                          |
 | earningAmount                  | Importe de la ganancia en la moneda original de la transacción.                                                                                      |
 | earningAmountUSD               | Importe de la ganancia en USD.                                                                                                                    |
 | earningDate                    | Fecha de la ganancia.                                                                                                                      |
 | calculationDate                | Fecha en que se calculó la ganancia en el sistema.                                                                                            |
 | earningExchangeRate            | Tipo de cambio usado para mostrar el importe en USD correspondiente.                                                                                  |
-| exchangeRateDate               | Fecha del tipo de cambio usada para calcular earningAmountUSD.                                                                                   | 
+| exchangeRateDate               | Fecha del tipo de cambio usada para calcular earningAmountUSD.                                                                                   |
 | paymentAmountWOTax             | Importe de la ganancia (sin impuestos) en la moneda del destinatario del pago solo para los pagos enviados.                                                                 |
 | paymentCurrency                | Moneda del destinatario del pago elegida por el asociado en el perfil de pago. Solo se muestra para los pagos enviados.                                                   |
 | paymentExchangeRate            | Tipo de cambio usado para calcular paymentAmountWOTax en la moneda de pago mediante ExchangeRateDate.                                            |

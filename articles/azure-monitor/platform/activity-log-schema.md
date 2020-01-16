@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 12/04/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: df2594165909c55de2de562c9717299d189a20d3
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 272b71fe5fddea9299e5d660484fcbb3eb367d58
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531027"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749467"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
-El [registro de actividad de Azure](activity-logs-overview.md) proporciona información sobre los eventos que se han producido en Azure en el nivel de la suscripción. En este artículo, se describe el esquema de eventos de cada categoría. 
+El [registro de actividad de Azure](platform-logs-overview.md) proporciona información sobre los eventos que se han producido en Azure en el nivel de la suscripción. En este artículo, se describe el esquema de eventos de cada categoría. 
 
 En los ejemplos siguientes, se muestra el esquema cuando se accede al registro de actividad desde el portal, PowerShell, la CLI y la API REST. El esquema es diferente cuando el [registro de actividad se transmite a Azure Storage o a Event Hubs](resource-logs-stream-event-hubs.md). Al final del artículo, encontrará la correspondencia de las propiedades en el [esquema de registros de Azure](diagnostic-logs-schema.md).
 
@@ -865,6 +865,6 @@ A continuación, se muestra un ejemplo de un evento que utiliza este esquema.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Más información sobre el registro de actividad](activity-logs-overview.md)
+* [Más información sobre el registro de actividad](platform-logs-overview.md)
 * [Creación de una configuración de diagnóstico para enviar el registro de actividad a un área de trabajo de Log Analytics, Azure Storage o Event Hubs](diagnostic-settings.md)
 

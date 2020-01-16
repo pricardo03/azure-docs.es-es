@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/13/2019
-ms.openlocfilehash: 7ef28933dc7d10817982690aa3c7bc866c33eb03
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1268dc0d78bf64e0a4b79592c28a9c1e70db7bf3
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440687"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892919"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure SQL Database mediante Azure Data Factory
 
@@ -588,7 +588,7 @@ La configuración específica de Azure SQL Database está disponible en la pesta
 
 La configuración específica de Azure SQL Database está disponible en la pestaña **Configuración** de la transformación de receptor.
 
-**Método de actualización**: determina qué operaciones se permiten en el destino de la base de datos. El valor predeterminado es permitir solamente las inserciones. Para realizar operaciones de actualización, upsert o eliminación de filas, hay que hacer transformación de alteración de filas para etiquetar esas acciones. En el caso de las actualizaciones, upserts y eliminaciones, se debe establecer una o varias columnas de clave para determinar la fila que se va a modificar.
+**Método de actualización**: determina qué operaciones se permiten en el destino de la base de datos. El valor predeterminado es permitir solamente las inserciones. Para realizar las operaciones update, upsert o delete rows, se requiere una transformación de alteración de filas para etiquetar esas acciones. En el caso de las actualizaciones, upserts y eliminaciones, se debe establecer una o varias columnas de clave para determinar la fila que se va a modificar.
 
 **Acción de tabla**: determina si se deben volver a crear o quitar todas las filas de la tabla de destino antes de escribir.
 * None (Ninguna): no se realizará ninguna acción en la tabla.
@@ -652,4 +652,4 @@ Para obtener información detallada sobre las propiedades, consulte [Actividad d
 Para información detallada sobre las propiedades, consulte [Actividad de obtención de metadatos](control-flow-get-metadata-activity.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para ver una lista de los almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores, consulte los [formatos y almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats).
+Para ver una lista de los almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores, consulte los [formatos y almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats).

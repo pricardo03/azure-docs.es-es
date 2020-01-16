@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2019
 ms.author: alsin
-ms.openlocfilehash: 61991e271a68c9160a34d0de99fe4c9259ca41cb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32df17ffed400af80eadadbdeaafbaa1e3e1dbce
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476942"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941702"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Imágenes de Red Hat Enterprise Linux (RHEL) disponibles en Azure
 Azure ofrece una variedad de imágenes de RHEL para diferentes casos de uso.
@@ -66,5 +66,5 @@ rhel-byos     |rhel-lvm74| LVM    | Agente Linux | Las imágenes BYOS de RHEL 7.
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre las [imágenes de Red Hat en Azure](./redhat-images.md).
 * Obtenga más información sobre la [infraestructura de actualización de Red Hat](./redhat-rhui.md).
-* Obtenga más información sobre la [oferta BYOS de RHEL](./redhat-byos.md).
+* Obtenga más información sobre la [oferta BYOS de RHEL](./byos.md).
 * Puede encontrar información sobre las directivas de soporte técnico de Red Hat para todas las versiones de RHEL en la página [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) (Ciclo de vida de Red Hat Enterprise Linux).

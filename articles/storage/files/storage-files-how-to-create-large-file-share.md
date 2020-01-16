@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f6906cc8cc3f748148053debc638c3dde11af4ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a9b545d71f21138c0374cf199ce10dc2dc246afb
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369990"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732151"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Habilitación y creación de recursos compartidos de archivos grandes
 
@@ -69,7 +69,7 @@ Para crear una cuenta de almacenamiento que tenga habilitados recursos compartid
 
 ```azurecli-interactive
 ## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
-az storage account create –name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> –sku Standard_LRS --kind StorageV2 –enable-large-file-share
+az storage account create --name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> --sku Standard_LRS --kind StorageV2 --enable-large-file-share
 ```
 
 ### <a name="powershell"></a>PowerShell
@@ -105,7 +105,7 @@ Si recibe un mensaje de error que dice que los recursos compartidos de archivos 
 Para habilitar recursos compartidos de archivos grandes en una cuenta existente, use el siguiente comando. Reemplace `<yourStorageAccountName>` y `<yourResourceGroup>` por su propia información.
 
 ```azurecli-interactive
-az storage account update –name <yourStorageAccountName> -g <yourResourceGroup> –enable-large-file-share
+az storage account update --name <yourStorageAccountName> -g <yourResourceGroup> --enable-large-file-share
 ```
 
 ### <a name="powershell"></a>PowerShell

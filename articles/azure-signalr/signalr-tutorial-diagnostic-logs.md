@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: c5def306e5aa874432ebb5f47f3fdd8b5234ffd7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 33d9a338e12fa4b3d2449f0c5b0576895364c3cf
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474854"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750269"
 ---
 # <a name="diagnostic-logs-for-azure-signalr-service"></a>Registros de diagnóstico para Azure SignalR Service
 
@@ -50,7 +50,7 @@ Los registros de diagnóstico están inhabilitados de forma predeterminada. Para
 
 La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino de archivo configurado, en el panel **Registros de diagnóstico**.
 
-Para obtener más información sobre el diagnóstico de configuraciones, consulte la [información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/resource-logs-overview.md).
+Para obtener más información sobre el diagnóstico de configuraciones, consulte la [información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ### <a name="diagnostic-logs-categories"></a>Categorías de registros de diagnósticos
 

@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b549cc0e890a122a04984baa2348831fc51abe08
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 2a171ae89e8314684eddf29f78b9b09bc52f9c9b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531010"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977550"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Creación de la configuración de diagnóstico en Azure con una plantilla de Resource Manager
-[Configuración de diagnóstico](diagnostic-settings.md) en Azure Monitor especifica dónde se envían los [Registros de plataforma](platform-logs-overview.md) recopilados por los recursos de Azure y la plataforma de Azure de los que dependen. En este artículo se proporcionan detalles y ejemplos sobre el uso de una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) a fin de crear y definir la configuración de diagnóstico para recopilar los registros de plataforma en distintos destinos. 
+[Configuración de diagnóstico](diagnostic-settings.md) en Azure Monitor especifica dónde se envían los [Registros de plataforma](platform-logs-overview.md) recopilados por los recursos de Azure y la plataforma de Azure de los que dependen. En este artículo se proporcionan detalles y ejemplos sobre el uso de una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) a fin de crear y definir la configuración de diagnóstico para recopilar los registros de plataforma en distintos destinos.
 
 > [!NOTE]
 > Dado que no puede [crear una configuración de diagnóstico](diagnostic-settings.md) para el registro de actividad de Azure mediante PowerShell o la CLI, como la configuración de diagnóstico de otros recursos de Azure, cree una plantilla de Resource Manager para el registro de actividad mediante la información de este artículo e implemente la plantilla mediante PowerShell o la CLI.
 
 ## <a name="deployment-methods"></a>Métodos de implementación
-Puede implementar las plantillas de Resource Manager mediante cualquier método válido, como PowerShell y la CLI. La configuración de diagnóstico del registro de actividad se debe implementar en una suscripción mediante `az deployment create` para la CLI o `New-AzDeployment` para PowerShell. La configuración de diagnóstico de los registros de recursos se debe implementar en un grupo de recursos mediante `az group deployment create` para la CLI o `New-AzResourceGroupDeployment` para PowerShell. 
+Puede implementar las plantillas de Resource Manager mediante cualquier método válido, como PowerShell y la CLI. La configuración de diagnóstico del registro de actividad se debe implementar en una suscripción mediante `az deployment create` para la CLI o `New-AzDeployment` para PowerShell. La configuración de diagnóstico de los registros de recursos se debe implementar en un grupo de recursos mediante `az group deployment create` para la CLI o `New-AzResourceGroupDeployment` para PowerShell.
 
-Consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md) e [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md) para ver información más detallada. 
+Consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md) e [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/templates/deploy-cli.md) para ver información más detallada. 
 
 
 
@@ -33,7 +33,7 @@ Consulte [Implementación de recursos con las plantillas de Resource Manager y A
 ## <a name="resource-logs"></a>Registros del recurso
 En el caso de los registros de recursos, agregue un recurso de tipo `<resource namespace>/providers/diagnosticSettings` a la plantilla. La sección de propiedades tiene el formato que se describe en [Configuración de diagnóstico: creación o actualización](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Proporcione un valor de `category` en la sección `logs` a cada una de las categorías válidas para el recurso que desea recopilar. Agregue la propiedad `metrics` para recopilar métricas de recurso en los mismos destinos si el [recurso admite métricas](metrics-supported.md).
 
-A continuación, se encuentra una plantilla que recopila una categoría de registro de recursos para un recurso determinado en un área de trabajo de Log Analytics, una cuenta de almacenamiento y un centro de eventos. 
+A continuación, se encuentra una plantilla que recopila una categoría de registro de recursos para un recurso determinado en un área de trabajo de Log Analytics, una cuenta de almacenamiento y un centro de eventos.
 
 ```json
 "resources": [
@@ -50,7 +50,7 @@ A continuación, se encuentra una plantilla que recopila una categoría de regis
       "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
       "eventHubName": "[parameters('eventHubName')]",
       "workspaceId": "[parameters('workspaceId')]",
-      "logs": [ 
+      "logs": [
         {
           "category": "<category name>",
           "enabled": true

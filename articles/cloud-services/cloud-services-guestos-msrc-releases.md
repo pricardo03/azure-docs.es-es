@@ -10,17 +10,59 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/5/2019
+ms.date: 12/13/2019
 ms.author: raiye
-ms.openlocfilehash: 027fb5176ecf1fdb32119c933d1b44eaf9f82bb8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 742f54ffb6c77d9f84582d6a68dff936fdbbe99c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894640"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386211"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
+
+## <a name="december-2019-guest-os"></a>SO invitado de diciembre de 2019
+
+>[!NOTE]
+>El sistema operativo invitado de diciembre se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Se incluyen las siguientes revisiones en el sistema operativo invitado de diciembre. Esta lista está sujeta a cambios.
+
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+|  Versión 19-12  |  [4530692]  |  Seguridad de Windows  | 2,93 | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4530677]  |  Internet Explorer  | 2,93 | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4530677]  |  Internet Explorer  | 3,80 | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4530698]  |  Seguridad de Windows  | 3,80 | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4530730]  |  Seguridad de Windows  | 4.73 | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4530677]  |  Internet Explorer  | 4.73 | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4530689]  |  Actualización acumulativa más reciente  | 5.38 | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4530715]  |  Actualización acumulativa más reciente  | 6,14 | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4525235]  |  No relacionada con la seguridad  | 2,93 | 12 de noviembre de 2019 |
+|  Versión 19-12  |  [4531786]  |  Actualización de la pila de servicio  | 2,93 | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4525246]  |  No relacionada con la seguridad  | 3,80 | 12 de noviembre de 2019 |
+|  Versión 19-12  |  [4523208]  |  Actualización de la pila de servicio  | 3.8 | 12 de noviembre de 2019 |
+|  Versión 19-12  |  [4525243]  |  No relacionada con la seguridad  | 4.73 | 12 de noviembre de 2019 |
+|  Versión 19-12  |  [4524445]  |  Actualización de la pila de servicio  | 4.73 | 12 de noviembre de 2019 |
+|  Versión 19-12  |  [4520724]  |  Actualización de la pila de servicio  | 5.38 | 12 de noviembre de 2019 |
+|  Versión 19-12  |  [4523204]  |  ServicingStackUpdate  | 6,14 | 12 de noviembre de 2019 |
+
+[4530692]: https://support.microsoft.com/kb/4530692
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530698]: https://support.microsoft.com/kb/4530698
+[4530730]: https://support.microsoft.com/kb/4530730
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530689]: https://support.microsoft.com/kb/4530689
+[4530715]: https://support.microsoft.com/kb/4530715
+[4525235]: https://support.microsoft.com/kb/4525235
+[4531786]: https://support.microsoft.com/kb/4531786
+[4525246]: https://support.microsoft.com/kb/4525246
+[4523208]: https://support.microsoft.com/kb/4523208
+[4525243]: https://support.microsoft.com/kb/4525243
+[4524445]: https://support.microsoft.com/kb/4524445
+[4520724]: https://support.microsoft.com/kb/4520724
+[4523204]: https://support.microsoft.com/kb/4523204
+
 
 ## <a name="november-2019-guest-os"></a>SO invitado de noviembre de 2019
 
@@ -360,14 +402,14 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | Versión 19-04 | [4493509] | Seguridad de Windows 10 | 6.6 | 9 de abril de 2019 |
 | Versión 19-04 | [4493470] | Seguridad de Windows 10 | 5,30 | 9 de abril de 2019 |
 | Versión 19-04 | [4493467] | Seguridad de Windows | 4.65 | 9 de abril de 2019 |
-| Versión 19-04 | [4493450] | Seguridad de Windows | 3.72 | 9 de abril de 2019 |
+| Versión 19-04 | [4493450] | Seguridad de Windows | 3,72 | 9 de abril de 2019 |
 | Versión 19-04 | [4493448] | Seguridad de Windows | 2,85 | 9 de abril de 2019 |
 | Versión 19-04 | [4493478] | Intermitente | 3,72, 4,65, 5,30, 6,6 | 9 de abril de 2019 |
 | Versión 19-04 | [4493435] | Internet Explorer | 2,85, 3,72, 4,65 | 9 de abril de 2019 |
 | Versión 19-04 | [4490628] | Actualización de la pila de servicio | 2,85 | 12 de marzo de 2019 |
 | Versión 19-04 | [4474419] | Compatibilidad con SHA2 | 2,85 | 12 de marzo de 2019 |
 | Versión 19-04 | [4489878] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad, marzo | 2,85 | 12 de marzo de 2019 |
-| Versión 19-04 | [4489891] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad, marzo | 3.72 | 12 de marzo de 2019 |
+| Versión 19-04 | [4489891] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad, marzo | 3,72 | 12 de marzo de 2019 |
 | Versión 19-04 | [4489881] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad, marzo | 4.65 | 12 de marzo de 2019 |
 
 [4493509]: https://support.microsoft.com/kb/4493509
@@ -441,8 +483,8 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | Versión 19-02 | [4483484] | Seguridad de .NET 3.5 | 4,63 | 12 de febrero de 2019 |
 | Versión 19-02 | [4483472] | Seguridad de .NET 4.5.2 | 4,63 | 12 de febrero de 2019 |
 | Versión 19-02 | [4487026] | Seguridad de Windows | 5.28 | 12 de febrero de 2019 |
-| Versión 19-02 | [4487044] | Seguridad de Windows | 6.4. | 12 de febrero de 2019 |
-| Versión 19-02 | [4483452] | Seguridad de .NET 3.5, 4.7.2 | 6.4. | 12 de febrero de 2019 |
+| Versión 19-02 | [4487044] | Seguridad de Windows | 6.4 | 12 de febrero de 2019 |
+| Versión 19-02 | [4483452] | Seguridad de .NET 3.5, 4.7.2 | 6.4 | 12 de febrero de 2019 |
 | N/D | [4480970] | Paquete acumulativo no relacionado con la seguridad, enero | 2,83 | 8 de enero de 2019 |
 | N/D | [4483483] | Paquete acumulativo no relacionado con la seguridad de .NET 3.5.1, enero  | 2,83 | 8 de enero de 2019 |
 | N/D | [4480059] | Paquete acumulativo no relacionado con la seguridad de .NET 4.5.2, enero  | 2,83 | 8 de enero de 2019 |
@@ -716,7 +758,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [4103725] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, mayo |4.55 |8 de mayo de 2018 |
 | N/D | [4040980], [4040977] |Acumulación no de seguridad de .NET, septiembre de 2017 |2.75 |14 de noviembre de 2017 |
 | N/D | [4095874] |Versión no de seguridad de .NET 3.5, mayo |2.75 |8 de mayo de 2018 |
-| N/D | [4096495] |Versión no de seguridad de .NET 3.5, mayo |2.75 |8 de mayo de 2018 |
+| N/D | [4096495] |Versión no de seguridad de .NET 4.x, mayo |2.75 |8 de mayo de 2018 |
 | N/D | [4040975] |Acumulación no de seguridad de .NET, septiembre de 2017 |3.62 |14 de noviembre de 2017 |
 | N/D | [4095872] |Versión no de seguridad de .NET 3.5, mayo |3.62 |8 de mayo de 2018 |
 | N/D | [4096494] |Versión no de seguridad de .NET 4.x, mayo |3.62 |8 de mayo de 2018 |

@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre Azure Monitor para contenedores | Microso
 description: Azure Monitor para contenedores es una solución que supervisa el estado de los clústeres de AKS y Container Instances en Azure. En este artículo se responden preguntas comunes.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 0984de51221c506bb1824e4dcfd93eef56453a4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b0d2be8b573dbbf047f4a27ae9ac9f611b76dc51
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405082"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977759"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Monitor para contenedores
 
@@ -73,7 +73,7 @@ La tabla ContainerInventory contiene información sobre los contenedores detenid
  
 ## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>¿Cómo se resuelve el error que indica que *falta el registro de suscripción*?
 
-Si recibe el error **Missing Subscription registration for Microsoft.OperationsManagement** (Falta el registro de suscripción de Microsoft.OperationsManagement), puede resolverlo registrando el proveedor de recursos **Microsoft.OperationsManagement** en la suscripción en la que está definida el área de trabajo. La documentación sobre cómo hacer esto se puede encontrar [aquí](../../azure-resource-manager/resource-manager-register-provider-errors.md).
+Si recibe el error **Missing Subscription registration for Microsoft.OperationsManagement** (Falta el registro de suscripción de Microsoft.OperationsManagement), puede resolverlo registrando el proveedor de recursos **Microsoft.OperationsManagement** en la suscripción en la que está definida el área de trabajo. La documentación sobre cómo hacer esto se puede encontrar [aquí](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>¿Se admiten clústeres de AKS con RBAC habilitado?
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 481e1762e805f162aa515dd4d12cc7b6b2e95d71
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: f61ab87a3eb1bd4b81a8e67a182a4cb6a09aa069
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75560263"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888957"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementación de la protección de contraseñas de Azure AD
 
@@ -34,7 +34,7 @@ Durante la fase de auditoría, muchas organizaciones concluyen lo siguiente:
 
 También es posible que la validación de contraseñas más segura afecte a la automatización de la implementación de controladores de dominio de Active Directory existente. Es aconsejable que, al menos, se produzcan una promoción de DC y una degradación de DC durante la evaluación del período de auditoría con el fin de ayudar a descubrir dichos problemas con antelación.  Para más información, consulte:
 
-* [Ntdsutil. exe no puede establecer una contraseña no segura de Modo de reparación de servicios de directorio](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
+* [Ntdsutil. exe no puede establecer una contraseña no segura de Modo de reparación de servicios de directorio](howto-password-ban-bad-on-premises-troubleshoot.md#ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [No se puede realizar la promoción de la réplica del controlador de dominio debido a una contraseña de Modo de reparación de servicios de directorio no segura](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
 * [No se puede realizar la degradación del controlador de dominio debido a una contraseña no segura del administrador local](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 

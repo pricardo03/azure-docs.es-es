@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 83baf84e303e326f46f5b4295b5cd1ca79172736
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 8b78c04d6e0ba2f87a5ff99098f689949cf7aa5e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535564"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771962"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funcionamiento de Azure Machine Learning: Arquitectura y conceptos
 
@@ -46,7 +46,7 @@ Utilice estas herramientas para Azure Machine Learning:
 
 +  Interactúe con el servicio en cualquier entorno de Python con el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Interactúe con el servicio en cualquier entorno de R con el [SDK de Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
-+ Automatice las actividades de aprendizaje automático con la [CLI de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
++ Automatice las actividades de aprendizaje automático con la [CLI de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli).
 + Escribir código en Visual Studio Code con la [extensión VS Code para Azure Machine Learning](how-to-vscode-tools.md)
 + Use el [diseñador de Azure Machine Learning (versión preliminar)](concept-designer.md) para realizar los pasos del flujo de trabajo sin escribir código.
 

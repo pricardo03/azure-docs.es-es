@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0078e2ed277eef07968660ddc30e3860d9077777
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 910317201275ba1598ed3e4d89815542b88fb108
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476042"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75719977"
 ---
 # <a name="how-provisioning-works"></a>Funcionamiento del aprovisionamiento
 
@@ -62,6 +62,7 @@ Puede personalizar las asignaciones de atributos predeterminadas según sus nece
 
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. Para estas asignaciones, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS. Para detalles, consulte [Escritura de expresiones para la asignación de atributos en Azure Active Directory](functions-for-customizing-application-data.md).
 
+## <a name="scoping"></a>Ámbito 
 ### <a name="assignment-based-scoping"></a>Ámbito basado en asignaciones
 
 Para el aprovisionamiento saliente desde Azure AD a una aplicación SaaS, confiar en las [asignaciones de usuarios o grupos](assign-user-or-group-access-portal.md) es la forma más común de determinar qué usuarios se encuentran en el ámbito para el aprovisionamiento. Debido a que las asignaciones de usuarios también se usan para habilitar el inicio de sesión único, se puede usar el mismo método para administrar tanto el acceso como el aprovisionamiento. El ámbito basado en la asignación no se aplica a escenarios de aprovisionamiento entrante como Workday y Successfactors.

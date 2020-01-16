@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 54a1d3e503ddb8b11109596decde94a2834dbf47
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 46d26aa5dccd32438b2028e21eaa94f7993944d1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529973"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749523"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Visualización y recuperación de eventos del registro de actividad de Azure
 
-El [registro de actividad de Azure](activity-logs-overview.md) es un registro que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. En este artículo se proporcionan detalles sobre los diferentes métodos para ver y recuperar eventos del registro de actividad.
+El [registro de actividad de Azure](platform-logs-overview.md) es un registro que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. En este artículo se proporcionan detalles sobre los diferentes métodos para ver y recuperar eventos del registro de actividad.
 
 ## <a name="azure-portal"></a>Portal de Azure
 Vea el registro de actividad de todos los recursos del menú **Supervisión** de Azure Portal. Vea el registro de actividad de un recurso determinado en la opción **Registro de actividad** del menú de ese recurso.

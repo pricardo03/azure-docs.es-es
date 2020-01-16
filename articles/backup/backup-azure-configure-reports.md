@@ -3,12 +3,12 @@ title: Configuración de informes de Power BI
 description: Configure los informes de Power BI para Azure Backup con el almacén de Recovery Services.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 9b6ef62a924761642ef3217ff8af64ac6847c766
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4f8a2dd927f996ea09e40c7db2e43b46c17f6258
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450104"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978371"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 
@@ -30,7 +30,7 @@ Descargue la aplicación más reciente (versión 1.8) para evitar este problema.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-- Cree una [cuenta de Azure Storage](../storage/common/storage-quickstart-create-account.md) para informes. Esta cuenta de almacenamiento se usa para almacenar datos relacionados con los informes.
+- Cree una [cuenta de Azure Storage](../storage/common/storage-account-create.md) para informes. Esta cuenta de almacenamiento se usa para almacenar datos relacionados con los informes.
 - [Cree una cuenta de Power BI](https://powerbi.microsoft.com/landing/signin/) para ver, personalizar y crear sus propios informes mediante el portal de Power BI.
 - Registre el proveedor de recursos **Microsoft.insights**, si todavía no está registrado. Utilice las suscripciones para la cuenta de almacenamiento y el almacén de Recovery Services para que los datos de informes puedan fluir a la cuenta de almacenamiento. Para hacer lo mismo, debe ir a Azure Portal, seleccione **Suscripción** > **Proveedores de recursos** y busque este proveedor para registrarlo.
 

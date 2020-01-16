@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fd42a6ffa6ea46d49df673cde617c70ce7425d91
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 489cb9e652d571b5322a1bd92663ca089e28b8cd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460383"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980792"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>Habilitación de la autenticación de Azure Active Directory Domain Services mediante SMB para Azure Files
 
@@ -26,7 +26,7 @@ Para obtener información general sobre la autenticación de Azure AD a través
 
 Antes de habilitar la autenticación de Azure AD DS a través de SMB para Azure Files, compruebe que los entornos de Azure Storage y Azure AD se han configurado correctamente. Se recomienda que revise los [requisitos previos](#prerequisites) para asegurarse de que ha completado todos los pasos necesarios.
 
-A continuación, conceda acceso a los recursos de Azure Files con las credenciales de Azure AD; para ello, siga estos pasos: 
+A continuación, conceda acceso a los recursos de Azure Files con las credenciales de Azure AD; para ello, siga estos pasos:
 
 1. Habilite la autenticación de Azure AD DS a través de SMB en la cuenta de almacenamiento a fin de registrarla con la implementación de Azure AD DS asociada.
 2. Asigne permisos de acceso para un recurso compartido a una identidad de Azure AD (usuario, grupo o entidad de servicio).
@@ -62,7 +62,7 @@ Antes de habilitar Azure AD a través de SMB para Azure Files, asegúrese de hab
 
 4.  **Seleccione o cree un recurso compartido de archivos**.
 
-    Seleccione un recurso compartido de archivos nuevo o existente que esté asociado con la misma suscripción que el inquilino de Azure AD. Para información acerca de cómo crear un nuevo recurso compartido de archivos, consulte [Creación de un recurso compartido de archivos en Azure Files](storage-how-to-create-file-share.md). 
+    Seleccione un recurso compartido de archivos nuevo o existente que esté asociado con la misma suscripción que el inquilino de Azure AD. Para información acerca de cómo crear un nuevo recurso compartido de archivos, consulte [Creación de un recurso compartido de archivos en Azure Files](storage-how-to-create-file-share.md).
     Para obtener un rendimiento óptimo, se recomienda que el recurso compartido de archivos esté en la misma región que la máquina virtual desde la que vaya a acceder al recurso compartido.
 
 5.  **Compruebe la conectividad de Azure Files; para ello, monte los recursos compartidos de archivos de Azure con la clave de su cuenta de almacenamiento.**
@@ -79,14 +79,14 @@ Tenga en cuenta que solo puede habilitar la autenticación de Azure AD DS a tra
 
 Para habilitar la autenticación de Azure AD DS a través de SMB mediante [Azure Portal](https://portal.azure.com), siga estos pasos:
 
-1. En Azure Portal, vaya a la cuenta de almacenamiento existente o [cree una](../common/storage-quickstart-create-account.md).
+1. En Azure Portal, vaya a la cuenta de almacenamiento existente o [cree una](../common/storage-account-create.md).
 2. En la sección **Configuración**, haga clic en **Configuración**.
 3. Seleccione **Azure Active Directory Domain Services (Azure AD DS)** en la lista desplegable del **servicio de directorio basado en identidad para la autenticación de archivos de Azure**.
 
 En la imagen siguiente se muestra cómo habilitar la autenticación de Azure AD DS a través de SMB para la cuenta de almacenamiento.
 
 ![Habilitación de la autenticación de Azure AD a través de SMB en Azure Portal](media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png)
-  
+
 ### <a name="powershell"></a>PowerShell  
 
 Para habilitar la autenticación de Azure AD DS a través de SMB con Azure PowerShell, instale el módulo Az más reciente (2.4 o posterior) o el módulo Az.Storage (1.5 o posterior). Para más información sobre cómo instalar PowerShell, consulte [Instalación de Azure PowerShell en Windows con PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps):
@@ -172,8 +172,8 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 ```
 
 #### <a name="cli"></a>CLI
-  
-El siguiente comando de la CLI 2.0 muestra cómo asignar un rol de RBAC a una identidad de Azure AD, según el nombre de inicio de sesión. Para más información sobre la asignación de roles de RBAC con la CLI de Azure, consulte [Administración del acceso mediante RBAC y la CLI de Azure](../../role-based-access-control/role-assignments-cli.md). 
+
+El siguiente comando de la CLI 2.0 muestra cómo asignar un rol de RBAC a una identidad de Azure AD, según el nombre de inicio de sesión. Para más información sobre la asignación de roles de RBAC con la CLI de Azure, consulte [Administración del acceso mediante RBAC y la CLI de Azure](../../role-based-access-control/role-assignments-cli.md).
 
 Antes de ejecutar el siguiente script de ejemplo, no olvide reemplazar los valores de marcador de posición, incluidos los corchetes, por los suyos propios.
 
@@ -182,10 +182,10 @@ Antes de ejecutar el siguiente script de ejemplo, no olvide reemplazar los valor
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
 
-## <a name="configure-ntfs-permissions-over-smb"></a>Configurar los permisos NTFS a través de SMB 
+## <a name="configure-ntfs-permissions-over-smb"></a>Configurar los permisos NTFS a través de SMB
 Después de asignar los permisos en los recursos compartidos con RBAC, debe asignar los permisos NTFS adecuados en las raíces, los directorios o los archivos. Considere los permisos de nivel de recurso compartido como el equipo selector de alto nivel que determina si un usuario puede acceder al recurso compartido. Mientras, los permisos NTFS actúan en un nivel más granular para determinar qué operaciones puede realizar el usuario en el directorio o archivo.
 
-Azure Files admite el conjunto completo de permisos NTFS básicos y avanzados. Puede ver y configurar los permisos NTFS en los directorios y los archivos de un recurso compartido de archivos de Azure; para ello, monte el recurso compartido y, a continuación, utilice el Explorador de archivos de Windows o ejecute el comando [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) o [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) de Windows. 
+Azure Files admite el conjunto completo de permisos NTFS básicos y avanzados. Puede ver y configurar los permisos NTFS en los directorios y los archivos de un recurso compartido de archivos de Azure; para ello, monte el recurso compartido y, a continuación, utilice el Explorador de archivos de Windows o ejecute el comando [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) o [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) de Windows.
 
 Para configurar NTFS con permisos de superusuario, debe montar el recurso compartido con la clave de la cuenta de almacenamiento de la máquina virtual unida al dominio. Siga las instrucciones de la sección siguiente para montar un recurso compartido de archivos de Azure desde el símbolo del sistema y para configurar los permisos NTFS en consecuencia.
 
@@ -229,7 +229,7 @@ Para más información sobre cómo usar icacls para establecer los permisos de N
 
 ## <a name="mount-a-file-share-from-a-domain-joined-vm"></a>Montar un recurso compartido de archivos desde una máquina virtual unida al dominio
 
-El siguiente proceso comprueba que las credenciales de Azure AD se han configurado correctamente y que puede acceder a un recurso compartido de archivos de Azure desde una máquina virtual unida a un dominio: 
+El siguiente proceso comprueba que las credenciales de Azure AD se han configurado correctamente y que puede acceder a un recurso compartido de archivos de Azure desde una máquina virtual unida a un dominio:
 
 Inicie sesión en la máquina virtual con la identidad de Azure AD a la que se hayan concedido permisos, tal como se muestra en la siguiente imagen.
 

@@ -3,12 +3,13 @@ title: Azure Service Fabric diferencia entre Linux y Windows
 description: Diferencias entre Azure Service Fabric en Linux y Azure Service Fabric en Windows.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: bcb2b4b112cf5247da8ca6a5d735ca247b3c06f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: sfrev
+ms.openlocfilehash: c064291491110b17c172a561afbd1e65d6c08d06
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463026"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748529"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Diferencias entre Service Fabric en Linux y en Windows
 
@@ -77,9 +78,8 @@ Hay algunas características que se admiten en Windows, pero todavía no en Linu
 * Stop-ServiceFabricRepairTask
 * Update-ServiceFabricRepairTaskHealthPolicy
 
-
-
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Prepare your development environment on Linux](service-fabric-get-started-linux.md)
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
 * [Creación e implementación de la primera aplicación de Java para Service Fabric en Linux con Yeoman](service-fabric-create-your-first-linux-application-with-java.md)

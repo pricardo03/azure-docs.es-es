@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 42bd6037bcc94a83e649433e9ea0425fbdf11cd2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0ecbb4399e038355a328055590da1c34170f3852
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353315"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894619"
 ---
 # <a name="supported-platforms"></a>Plataformas compatibles 
 
@@ -48,7 +48,7 @@ En las secciones siguientes se enumeran los sistemas operativos de servidor admi
 |Windows Server 2012 R2|✔|✔|
 |Windows Server 2008 R2|✔|✔|
 
-Para obtener más información acerca de las características admitidas para los sistemas operativos Windows, enumerados anteriormente, consulte [Características compatibles con máquinas virtuales y servidores](security-center-services.md##vm-server-features).
+Para obtener más información acerca de las características admitidas para los sistemas operativos Windows, enumerados anteriormente, consulte [Características compatibles con máquinas virtuales y servidores](security-center-services.md#vm-server-features).
 
 ### Sistemas operativos Linux <a name="os-linux"></a>
 
@@ -72,7 +72,7 @@ Para obtener más información acerca de las características admitidas para los
 > [!NOTE]
 > Puesto que la lista de sistemas operativos Linux compatibles cambia constantemente, si lo prefiere, haga clic [aquí](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) para ver la lista más actualizada de las versiones compatibles por si ha habido cambios desde que este tema se publicó por última vez.
 
-Para obtener más información acerca de las características admitidas para los sistemas operativos Linux, enumerados anteriormente, consulte [Características compatibles con máquinas virtuales y servidores](security-center-services.md##vm-server-features).
+Para obtener más información acerca de las características admitidas para los sistemas operativos Linux, enumerados anteriormente, consulte [Características compatibles con máquinas virtuales y servidores](security-center-services.md#vm-server-features).
 
 ### Servicios de máquinas virtuales administradas <a name="virtual-machine"></a>
 

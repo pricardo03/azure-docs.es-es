@@ -3,12 +3,12 @@ title: 'Trabajo con grupos de administración: Gobernanza en Azure'
 description: Aprenda a visualizar, mantener, actualizar y eliminar la jerarquía de grupos de administración.
 ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3b5b67dbf1fad5c74570c4bf70401df1a5ed943f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 59f1b48e0a668d506a87ae1ef14de6df76b26ad7
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436555"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751233"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
 
@@ -320,7 +320,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditoría de los grupos de administración mediante registros de actividad
 
-Se admiten grupos de administración en el [registro de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md). Puede consultar todos los eventos que se producen en un grupo de administración en la misma ubicación central que otros recursos de Azure.  Por ejemplo, puede ver todos los cambios de asignaciones de roles o de asignación de directiva efectuados en un grupo de administración concreto.
+Se admiten grupos de administración en el [registro de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md). Puede consultar todos los eventos que se producen en un grupo de administración en la misma ubicación central que otros recursos de Azure.  Por ejemplo, puede ver todos los cambios de asignaciones de roles o de asignación de directiva efectuados en un grupo de administración concreto.
 
 ![Registros de actividades con grupos de administración](media/al-mg.png)
 

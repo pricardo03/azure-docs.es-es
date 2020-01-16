@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: e3d8ada67b0a592df9c2dba145626836f27da631
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 52fb7c770e9f9e2570cad92a8c0dd9bc4374e708
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459378"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980187"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Más información sobre las plantillas de conjuntos de escalado de máquinas virtuales
 Las [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) constituyen una excelente manera de implementar grupos de recursos relacionados. En esta serie de tutoriales se explica cómo crear una plantilla de conjunto de escalado básico y cómo modificarla para adaptarla a distintos escenarios. Todos los ejemplos proceden de este [repositorio de GitHub](https://github.com/gatneil/mvss).
@@ -75,7 +75,7 @@ Todos los recursos requieren las propiedades `type`, `name`, `apiVersion` y `loc
 ```
 
 ## <a name="specify-location"></a>Especificación de ubicación
-Para especificar la ubicación de la red virtual, use una [función de plantilla de Resource Manager](../azure-resource-manager/resource-group-template-functions.md). Esta función debe estar entre comillas y corchetes de la siguiente manera: `"[<template-function>]"`. En este caso, use la función `resourceGroup`, que no toma ningún argumento y devuelve un objeto JSON con metadatos del grupo de recursos en el que se está realizando esta implementación. El grupo de recursos lo establece el usuario durante la implementación. Este valor se indexa luego en el objeto JSON con `.location` para obtener la ubicación de dicho objeto.
+Para especificar la ubicación de la red virtual, use una [función de plantilla de Resource Manager](../azure-resource-manager/templates/template-functions.md). Esta función debe estar entre comillas y corchetes de la siguiente manera: `"[<template-function>]"`. En este caso, use la función `resourceGroup`, que no toma ningún argumento y devuelve un objeto JSON con metadatos del grupo de recursos en el que se está realizando esta implementación. El grupo de recursos lo establece el usuario durante la implementación. Este valor se indexa luego en el objeto JSON con `.location` para obtener la ubicación de dicho objeto.
 
 ```json
        "location": "[resourceGroup().location]",

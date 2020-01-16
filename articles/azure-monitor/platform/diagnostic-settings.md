@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 034ad7a074f60f1e2e9a0e6190f405972250c95d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 22932121b97c1b0fe91c46b5eea0222a022a4e61
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529958"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751074"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure
-Los [registros de plataforma](resource-logs-overview.md) de Azure, incluidos los registros de recursos y los registros de actividad de Azure, proporcionan información detallada de diagnóstico y auditoría sobre los recursos de Azure y la plataforma de Azure de la que dependen. En este artículo, se proporcionan detalles sobre la creación y la configuración de las opciones de diagnóstico para enviar registros de plataforma a diferentes destinos.
+Los [registros de plataforma](platform-logs-overview.md) de Azure, incluidos los registros de recursos y los registros de actividad de Azure, proporcionan información detallada de diagnóstico y auditoría sobre los recursos de Azure y la plataforma de Azure de la que dependen. En este artículo, se proporcionan detalles sobre la creación y la configuración de las opciones de diagnóstico para enviar registros de plataforma a diferentes destinos.
 
 > [!IMPORTANT]
 > Antes de crear la configuración de diagnóstico para recopilar el registro de actividad, debe deshabilitar cualquier configuración heredada. Consulte [Recopilación del registro de actividad de Azure con configuración heredada](diagnostic-settings-legacy.md) para más información.
@@ -136,4 +136,4 @@ Consulte [Creación de la configuración de diagnóstico en Azure Monitor con un
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Más información sobre los registros de plataforma de Azure](resource-logs-overview.md)
+* [Más información sobre los registros de plataforma de Azure](platform-logs-overview.md)

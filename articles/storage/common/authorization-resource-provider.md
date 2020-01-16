@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d632de0a6274ebb2ede950ca610dfd5e94310d28
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: f5d42a6a0567d3949bc4b0fb1947450a9c957f18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613880"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972344"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Uso del proveedor de recursos de Azure Storage para acceder a los recursos de administración
 
@@ -72,7 +72,7 @@ A continuación, encontrará ejemplos de código en los que se muestra cómo aut
 
 El modelo de implementación de Resource Manager y el modelo de implementación clásica representan dos formas diferentes de implementar y administrar las soluciones de Azure. Microsoft recomienda usar el modelo de implementación de Azure Resource Manager a la hora de crear cuentas de almacenamiento. Si es posible, también recomienda volver a crear con el modelo de Resource Manager aquellas cuentas de almacenamiento existentes en las que se usó el modelo de implementación clásica. Aunque se pueden crear cuentas de almacenamiento mediante el modelo de implementación clásica, este es menos flexible y tarde o temprano estará en desuso.
 
-Para más información sobre los modelos de implementación de Azure, consulte el artículo acerca de la [implementación clásica y con Resource Manager](../../azure-resource-manager/resource-manager-deployment-model.md).
+Para más información sobre los modelos de implementación de Azure, consulte el artículo acerca de la [implementación clásica y con Resource Manager](../../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

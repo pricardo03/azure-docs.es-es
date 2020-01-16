@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: f65c93ac06da6512255a3380d5484c6285798098
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 227bf490d1ac264bb54ff3d1ecf0ccc2b3ef2e0e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660004"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763562"
 ---
 # <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Creación de un clasificador y uso de la selección de características para predecir los ingresos con el diseñador de Azure Machine Learning
 
@@ -79,7 +79,7 @@ Explore otros ejemplos disponibles para el diseñador:
 
 - [Ejemplo 1 - Regresión: predicción del precio de un automóvil](how-to-designer-sample-regression-automobile-price-basic.md)
 - [Ejemplo 2 - Regresión: comparación de algoritmos para la predicción de precios de automóvil](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Ejemplo 4 - Clasificación: predicción del riesgo crediticio (sensible a los costos)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Ejemplo 5 - Clasificación: predicción de la renovación](service/how-to-designer-sample-classification-churn.md)
-- [Ejemplo 6 - Clasificación: Predicción de retrasos en los vuelos](service/how-to-designer-sample-classification-flight-delay.md)
+- [Ejemplo 4 - Clasificación: predicción del riesgo crediticio (sensible a los costos)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Ejemplo 5 - Clasificación: predicción de la renovación](how-to-designer-sample-classification-churn.md)
+- [Ejemplo 6 - Clasificación: Predicción de retrasos en los vuelos](how-to-designer-sample-classification-flight-delay.md)
 - [Ejemplo 7 - Clasificación de texto: Conjunto de datos de SP 500 de Wikipedia](how-to-designer-sample-text-classification.md)
