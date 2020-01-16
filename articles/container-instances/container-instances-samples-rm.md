@@ -3,12 +3,12 @@ title: Ejemplos de plantillas de Azure Resource Manager
 description: Busque ejemplos de plantillas de Azure Resource Manager para implementar Azure Container Instances en distintas configuraciones.
 ms.topic: article
 ms.date: 03/07/2019
-ms.openlocfilehash: ddea823525002662363d61a795f34d6094c897d0
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: a8f3c81c539562a3c56e4822cf6e4df77d04928f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533437"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981645"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Plantillas de Azure Resource Manager para Azure Container Instances
 
@@ -44,7 +44,7 @@ Tiene varias opciones para implementar recursos con plantillas de Resource Manag
 
 [Azure Portal][deploy-portal]
 
-[API DE REST][deploy-rest]
+[REST API][deploy-rest]
 
 <!-- LINKS - External -->
 [app-nav]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-dynamicsnav
@@ -59,8 +59,8 @@ Tiene varias opciones para implementar recursos con plantillas de Resource Manag
 [vol-secret]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-secret
 
 <!-- LINKS - Internal -->
-[deploy-cli]: ../azure-resource-manager/resource-group-template-deploy-cli.md
-[deploy-portal]: ../azure-resource-manager/resource-group-template-deploy-portal.md
-[deploy-powershell]: ../azure-resource-manager/resource-group-template-deploy.md
-[deploy-rest]: ../azure-resource-manager/resource-group-template-deploy-rest.md
+[deploy-cli]: ../azure-resource-manager/templates/deploy-cli.md
+[deploy-portal]: ../azure-resource-manager/templates/deploy-portal.md
+[deploy-powershell]: ../azure-resource-manager/templates/deploy-powershell.md
+[deploy-rest]: ../azure-resource-manager/templates/deploy-rest.md
 [ref]: /azure/templates/microsoft.containerinstance/containergroups

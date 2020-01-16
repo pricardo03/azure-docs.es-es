@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: fb1e22b0ca1da00bf2665d863b40f19fa1621771
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 0e409ffdedbac822aedf48833f2dd85f8e04afa2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721304"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894976"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Eliminación de un almacén de Site Recovery Services
 
@@ -44,7 +44,7 @@ Antes de poder eliminar un almacén, debe quitar los servidores registrados y lo
 
 1. Siga [estos pasos](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario) para eliminar máquinas virtuales de Hyper-V administradas por System Center VMM.
 2. Desasocie y elimine todas las directivas de replicación. Haga esto en el almacén > **Infraestructura de Site Recovery** > **Para System Center VMM** > **Directivas de replicación**.
-3. Siga [estos pasos](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server) para anular el registro de un servidor VMM conectado.
+3. Siga [estos pasos](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server) para anular el registro de un servidor VMM conectado.
 4. Luego, elimine el almacén.
 
 ## <a name="delete-a-vault-hyper-v-vm-to-azure"></a>Eliminación de un almacén: máquina virtual de Hyper-V en Azure

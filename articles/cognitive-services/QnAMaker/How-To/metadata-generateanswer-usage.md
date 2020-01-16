@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 0190b94cc6195163de4d428c2cae0de3620bdb01
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e84a6c93ad8757b302670af202f9d4b407f3ef57
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422703"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945313"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtención de una respuesta con GenerateAnswer API y metadatos
 
@@ -41,7 +41,7 @@ Cada entidad QnA tiene un identificador único y persistente. Puede usar el iden
 
 <a name="generateanswer-endpoint"></a>
 
-## <a name="publish-to-get-generateanswer-endpoint"></a>Publicación para obtener el punto de conexión de GenerateAnswer 
+## <a name="publish-to-get-generateanswer-endpoint"></a>Publicación para obtener el punto de conexión de GenerateAnswer
 
 Después de publicar la base de conocimiento, ya sea desde el [portal de QnA Maker](https://www.qnamaker.ai) o mediante la [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), puede obtener los detalles de su punto de conexión de GenerateAnswer.
 
@@ -59,15 +59,15 @@ También puede obtener los detalles del punto de conexión en la pestaña **Sett
 
 ## <a name="generateanswer-request-configuration"></a>Configuración de la solicitud GenerateAnswer
 
-Para llamar a GenerateAnswer, se utiliza una solicitud HTTP POST. Para ver código de ejemplo que muestra cómo llamar a GenerateAnswer, consulte las [guías de inicio rápido](../quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base). 
+Para llamar a GenerateAnswer, se utiliza una solicitud HTTP POST. Para ver código de ejemplo que muestra cómo llamar a GenerateAnswer, consulte las [guías de inicio rápido](../quickstarts/quickstart-sdk.md#generate-an-answer-from-the-knowledge-base).
 
 La solicitud POST usa:
 
 * Los [parámetros de URI](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters) obligatorios.
 * La [propiedad del encabezado](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer) obligatoria, `Authorization`, por seguridad.
-* Las [propiedades del cuerpo](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto) obligatorias. 
+* Las [propiedades del cuerpo](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto) obligatorias.
 
-La dirección URL de GenerateAnswer tiene el formato siguiente: 
+La dirección URL de GenerateAnswer tiene el formato siguiente:
 
 ```
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
@@ -95,7 +95,7 @@ Un cuerpo JSON de ejemplo tiene el siguiente aspecto:
 
 Más información acerca de [rankerType](../concepts/best-practices.md#choosing-ranker-type).
 
-El código JSON anterior solo solicitó aquellas respuestas con una puntuación del 30 % o que están por encima de la puntuación del umbral. 
+El código JSON anterior solo solicitó aquellas respuestas con una puntuación del 30 % o que están por encima de la puntuación del umbral.
 
 <a name="generateanswer-response"></a>
 
@@ -125,7 +125,7 @@ La [respuesta](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerrun
 }
 ```
 
-El código JSON anterior respondió con una respuesta con una puntuación del 38,5 %. 
+El código JSON anterior respondió con una respuesta con una puntuación del 38,5 %.
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Uso de QnA Maker con un bot en C#
 
@@ -144,7 +144,7 @@ qnaOptions.ScoreThreshold = 0.3F;
 var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
 ```
 
-El código JSON anterior solo solicitó aquellas respuestas con una puntuación del 30 % o que están por encima de la puntuación del umbral. 
+El código JSON anterior solo solicitó aquellas respuestas con una puntuación del 30 % o que están por encima de la puntuación del umbral.
 
 El bot de soporte técnico tiene [un ejemplo](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418) con este código.
 
@@ -164,7 +164,7 @@ var qnaMakerOptions = {
 var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOptions);
 ```
 
-El código JSON anterior solo solicitó aquellas respuestas con una puntuación del 30 % o que están por encima de la puntuación del umbral. 
+El código JSON anterior solo solicitó aquellas respuestas con una puntuación del 30 % o que están por encima de la puntuación del umbral.
 
 El bot de soporte técnico tiene [un ejemplo](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36) con este código.
 
@@ -200,7 +200,7 @@ Puesto que los resultados solo son necesarios para el restaurante "Paradise", pu
 
 ## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Uso de los resultados de las preguntas y respuestas para mantener el contexto de la conversación
 
-La respuesta a GenerateAnswer contiene la información de los metadatos correspondientes al conjunto de preguntas y respuestas que coinciden. Puede usar esta información en la aplicación cliente para almacenar el contexto de la conversación anterior para su uso en conversiones posteriores. 
+La respuesta a GenerateAnswer contiene la información de los metadatos correspondientes al conjunto de preguntas y respuestas que coinciden. Puede usar esta información en la aplicación cliente para almacenar el contexto de la conversación anterior para su uso en conversiones posteriores.
 
 ```json
 {

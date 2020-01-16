@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: allensu
-ms.openlocfilehash: af327f751a0af67b6d17330dbaeb717df8660bfd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c33c1efd735a9c606ebe4625eb704005fff64a9e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225268"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896065"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Equilibrio de carga de máquinas virtuales en todas las zonas de disponibilidad con la CLI de Azure
 
@@ -34,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Si decide instalar y usar la CLI en el sitio local, para este tutorial es preciso que ejecute la versión 2.0.17 o posterior de la CLI de Azure.  Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
 
 > [!NOTE]
-> El soporte técnico para las zonas de disponibilidad está disponible para recursos y regiones de Azure, y familias de tamaños de máquina virtual seleccionados. Para más información sobre cómo empezar a trabajar y qué recursos, regiones y familias de tamaños de máquina virtual de Azure puede probar con las zonas de disponibilidad, consulte la [introducción a las zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview). Para soporte técnico, eche un vistazo a [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) o [Creación de una solicitud de soporte técnico de Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+> El soporte técnico para las zonas de disponibilidad está disponible para recursos y regiones de Azure, y familias de tamaños de máquina virtual seleccionados. Para más información sobre cómo empezar a trabajar y qué recursos, regiones y familias de tamaños de máquina virtual de Azure puede probar con las zonas de disponibilidad, consulte la [introducción a las zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview). Para soporte técnico, eche un vistazo a [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) o [Creación de una solicitud de soporte técnico de Azure](../azure-portal/supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -112,7 +112,7 @@ az network lb rule create \
 ## <a name="configure-virtual-network"></a>Configurar la red virtual
 Antes de implementar algunas máquinas virtuales y poder probar el equilibrador de carga, cree los recursos de red virtual auxiliares.
 
-### <a name="create-a-virtual-network"></a>Crear una red virtual
+### <a name="create-a-virtual-network"></a>Creación de una red virtual
 
 Cree una red virtual llamada *myVnet* con una subred llamada *mySubnet* en myResourceGroup con el comando [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
 
@@ -151,7 +151,7 @@ az network nsg rule create \
 --access allow \
 --priority 200
 ```
-### <a name="create-nics"></a>Cree tarjetas NIC
+### <a name="create-nics"></a>Creación de tarjetas NIC
 Cree tres tarjetas de red virtuales con el comando [az network nic create](/cli/azure/network/nic#az-network-nic-create) y asócielas con la dirección IP pública y el grupo de seguridad de red. En el ejemplo siguiente se crean seis NIC virtuales. (Una NIC virtual para cada máquina virtual que cree para la aplicación en los pasos siguientes). Puede crear NIC virtuales y máquinas virtuales adicionales en cualquier momento y agregarlas al equilibrador de carga:
 
 ```azurecli-interactive

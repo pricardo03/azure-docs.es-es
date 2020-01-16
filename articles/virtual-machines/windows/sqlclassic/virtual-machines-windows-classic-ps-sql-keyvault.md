@@ -16,12 +16,12 @@ ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ddf23126154f5bc62c49f62ac4adf517d6987091
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f878c6f7a59328e2f68ffbaee066bba4a5b6c898
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033472"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978139"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurar la integración de Azure Key Vault para SQL Server en Azure Virtual Machines (implementación clásica)
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "74033472"
 SQL Server tiene varias características de cifrado, como el [cifrado de datos transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), el [cifrado de nivel de columna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx) y el [cifrado de copia de seguridad](https://msdn.microsoft.com/library/dn449489.aspx). Estas formas de cifrado requieren administrar y almacenar las claves criptográficas que se usan para el cifrado. El servicio Azure Key Vault (AKV) está diseñado para mejorar la seguridad y la administración de estas claves en una ubicación segura y con gran disponibilidad. El [conector de SQL Server](https://www.microsoft.com/download/details.aspx?id=45344) permite que SQL Server use estas claves de Azure Key Vault.
 
 > [!IMPORTANT] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/management/deployment-models.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
 
 Si ejecuta SQL Server con máquinas locales, hay una serie de [pasos que puede seguir para acceder a Azure Key Vault desde la máquina de SQL Server local](https://msdn.microsoft.com/library/dn198405.aspx). Pero para SQL Server en las máquinas virtuales de Azure, puede ahorrar tiempo usando la característica *Integración de Azure Key Vault* . Con algunos cmdlets de Azure PowerShell para habilitar esta característica, puede automatizar la configuración necesaria para que una máquina virtual de SQL tenga acceso a su Almacén de claves.
 
@@ -51,7 +51,7 @@ Primero, [instale la extensión IaaS de SQL Server](../classic/sql-server-agent-
 ### <a name="understand-the-input-parameters"></a>Descripción de los parámetros de entrada
 En la tabla siguiente se enumeran los parámetros necesarios para ejecutar el script de PowerShell en la sección siguiente.
 
-| Parámetro | DESCRIPCIÓN | Ejemplo |
+| Parámetro | Descripción | Ejemplo |
 | --- | --- | --- |
 | **$akvURL** |**La dirección URL del Almacén de claves** |"https:\//contosokeyvault.vault.azure.net/" |
 | **$spName** |**Nombre de entidad de servicio** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
@@ -63,7 +63,7 @@ En la tabla siguiente se enumeran los parámetros necesarios para ejecutar el sc
 ### <a name="enable-akv-integration-with-powershell"></a>Habilitación de la integración de AKV con PowerShell
 El cmdlet **New-AzureVMSqlServerKeyVaultCredentialConfig** crea un objeto de configuración para la característica de integración de Azure Key Vault. **Set-AzureVMSqlServerExtension** configura esta integración con el parámetro **KeyVaultCredentialSettings**. Los pasos siguientes muestran cómo usar estos comandos.
 
-1. En Azure PowerShell, configure primero los parámetros de entrada con los valores específicos como se describe en las secciones anteriores de este tema. El siguiente script es un ejemplo:
+1. En Azure PowerShell, configure primero los parámetros de entrada con los valores específicos como se describe en las secciones anteriores de este tema. El siguiente script es un ejemplo.
    
         $akvURL = "https:\//contosokeyvault.vault.azure.net/"
         $spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"

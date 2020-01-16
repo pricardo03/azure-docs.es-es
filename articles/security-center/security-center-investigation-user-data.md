@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
-ms.openlocfilehash: 059ca2a26e50128d6bc4313dad9f995e97c06378
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9e4c6577f0b8b18aff343ac54b31ff292632f5d0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686405"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979245"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Administrar los datos de usuario encontrados en una investigación de Azure Security Center
 En este artículo se proporciona información sobre cómo administrar los datos de usuario que se encuentran en la característica de investigación de Azure Security Center. Los datos de investigación se almacenan en [registros de Azure Monitor](../log-analytics/log-analytics-overview.md) y se exponen en Security Center. La administración de los datos de usuario incluye la capacidad de eliminar o exportar datos.
@@ -33,7 +33,7 @@ La característica de investigación muestra todas las entidades, la informació
 ## <a name="securing-and-controlling-access-to-personal-information"></a>Protección y control del acceso a la información personal
 Un usuario de Security Center que tenga asignado el rol Lector, Propietario, Colaborador o Administrador de cuenta puede acceder a los datos del cliente dentro de la herramienta.
 
-Vea [Roles integrados para el control de acceso basado en roles de Azure](../role-based-access-control/built-in-roles.md) para obtener más información sobre los roles Lector, Propietario y Colaborador. Vea [Administradores de la suscripción de Azure](../billing/billing-add-change-azure-subscription-administrator.md) para obtener más información sobre el rol Administrador de cuenta.
+Vea [Roles integrados para el control de acceso basado en roles de Azure](../role-based-access-control/built-in-roles.md) para obtener más información sobre los roles Lector, Propietario y Colaborador. Vea [Administradores de la suscripción de Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) para obtener más información sobre el rol Administrador de cuenta.
 
 ## <a name="deleting-personal-data"></a>Eliminación de datos personales
 Un usuario de Security Center que tenga asignado el rol Propietario, Colaborador o Administrador de cuenta puede eliminar la información de investigación.

@@ -3,7 +3,7 @@ title: Creación de una cuenta en Azure Portal (Azure Batch) | Microsoft Docs
 description: Aprenda a crear una cuenta de Azure Batch en Azure Portal para ejecutar cargas de trabajo paralelas a gran escala en la nube
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cceb7cc179f78d6b6d7350e7c4f6c31bb9cbfed
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4eb6b0c64fc40dec48dc9103c67e8e4a0730d7e2
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095729"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029810"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
 
@@ -31,7 +31,7 @@ Para más información acerca de los escenarios y las cuentas de Batch, consulte
 
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-1. Inicie sesión en el [Azure Portal][azure_portal].
+1. Inicie sesión en [Azure Portal][azure_portal].
 
 1. Seleccione **Crear un recurso** > **Proceso** > **Servicio de Batch**.
 
@@ -83,7 +83,7 @@ Si decide crear una cuenta de Batch en el modo de suscripción de usuario, antes
 
 Al crear la primera cuenta de Batch en el modo de suscripción de usuario, tiene que registrar la suscripción con Batch. (si ya lo ha hecho anteriormente, vaya a la sección siguiente).
 
-1. Inicie sesión en el [Azure Portal][azure_portal].
+1. Inicie sesión en [Azure Portal][azure_portal].
 
 1. Seleccione **Todos los servicios** > **Suscripciones** y seleccione la suscripción que desea usar para la cuenta de Batch.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cb21291d4beb9fbba27a56089f13bd0363604eab
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f393ab23df49751efbbcb3d70314b2ac404a8b77
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686706"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981830"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimización de los costos de almacenamiento de blobs con capacidad reservada
 
@@ -66,7 +66,7 @@ Las reservas están disponibles hoy para bloques de 100 TB o 1 PB, con descuen
 
 Puede adquirir capacidad reservada de Azure Storage a través de [Azure Portal](https://portal.azure.com). Pague la reserva por adelantado o de manera mensual. Para más información sobre cómo comprar con pagos mensuales, consulte [Compra de reservas de Azure con pagos por adelantado o mensuales](/azure/billing/billing-monthly-payments-reservations).
 
-Para ayudar a identificar los términos de reserva adecuados para su escenario, consulte el artículo sobre cómo [entender el descuento para la capacidad reservada de Azure Storage](../../billing/billing-understand-storage-charges.md).
+Para ayudar a identificar los términos de reserva adecuados para su escenario, consulte el artículo sobre cómo [entender el descuento para la capacidad reservada de Azure Storage](../../cost-management-billing/reservations/understand-storage-charges.md).
 
 Siga estos pasos para adquirir la capacidad reservada:
 
@@ -76,7 +76,7 @@ Siga estos pasos para adquirir la capacidad reservada:
 
     ![Captura de pantalla que muestra cómo comprar capacidad reservada](media/storage-blob-reserved-capacity/select-reserved-capacity.png)
 
-   |Campo  |DESCRIPCIÓN  |
+   |Campo  |Descripción  |
    |---------|---------|
    |**Ámbito**   |  Indica el número de suscripciones que pueden usar la ventaja de facturación asociada con la reserva. También controla cómo se aplica la reserva a suscripciones concretas. <br/><br/> Si selecciona **Compartido**, el descuento de la reserva se aplica a la capacidad de Azure Storage en cualquier suscripción en el contexto de facturación. El contexto de facturación se basa en cómo se haya suscrito a Azure. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de pago por uso, el ámbito compartido incluye todas las suscripciones con tarifas de pago por uso creadas por el administrador de la cuenta.  <br/><br/>  Si selecciona **Suscripción única**, el descuento de reserva se aplica a la capacidad de Azure Storage de la suscripción seleccionada. <br/><br/> Si selecciona **Grupo de recursos único**, el descuento de reserva se aplica a la capacidad de Azure Storage de la suscripción seleccionada y al grupo de recursos seleccionado dentro de esa suscripción. <br/><br/> Puede cambiar el ámbito de reserva después de comprar la reserva.  |
    |**Suscripción**  | La suscripción que se usa para pagar la reserva de Azure Storage. El método de pago en la suscripción seleccionada se usa al cargar los costos. La suscripción debe ser uno de los tipos siguientes: <br/><br/>  Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P): Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. <br/><br/> Suscripción individual con tarifas de pago por uso (números de la oferta: MS-AZR-0003P o MS-AZR-0023P): en una suscripción individual con tarifas de pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.    |
@@ -101,7 +101,7 @@ Puede intercambiar o reembolsar una reserva, con ciertas limitaciones que se des
 
 Para intercambiar o reembolsar una reserva, vaya a los detalles de la reserva en Azure Portal. Seleccione **Intercambiar** o **Reembolsar** y siga las instrucciones para enviar una solicitud de soporte técnico. Una vez procesada la solicitud, Microsoft le enviará un correo electrónico para confirmar que se completó la solicitud.
 
-Para más información sobre las directivas de reservas de Azure, consulte [Autoservicio de cambios y reembolsos de reservas de Azure](../../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Para más información sobre las directivas de reservas de Azure, consulte [Autoservicio de cambios y reembolsos de reservas de Azure](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ### <a name="exchange-a-reservation"></a>Intercambio de una reserva
 
@@ -127,5 +127,5 @@ Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técni
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es Azure Reservations?](../../billing/billing-save-compute-costs-reservations.md)
-- [Aplicación del descuento por reserva a Azure Storage](../../billing/billing-understand-storage-charges.md)
+- [¿Qué es Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Aplicación del descuento por reserva a Azure Storage](../../cost-management-billing/reservations/understand-storage-charges.md)

@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 1168faa1f39546dc75af28b885c9095cfffa1135
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 62d0bf776b2d0c97d95b992ed6a1fd2a356e467a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422126"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967391"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Aprovisionamiento e implementación predecibles de microservicios en Azure
 En este tutorial se explica cómo aprovisionar e implementar una aplicación formada por [microservicios](https://en.wikipedia.org/wiki/Microservices) en [Azure App Service](https://azure.microsoft.com/services/app-service/) como una sola unidad y de forma predecible con plantillas de grupo de recursos JSON y scripting de PowerShell. 
@@ -252,10 +252,10 @@ En las operaciones de desarrollo, la repetibilidad y previsión son claves para 
 ## <a name="more-resources"></a>Más recursos
 * [Idioma de la plantilla del Administrador de recursos de Azure](../azure-resource-manager/templates/template-syntax.md)
 * [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/templates/template-syntax.md)
-* [Funciones de la plantilla del Administrador de recursos de Azure](../azure-resource-manager/resource-group-template-functions.md)
-* [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](../azure-resource-manager/resource-group-template-deploy.md)
+* [Funciones de la plantilla del Administrador de recursos de Azure](../azure-resource-manager/templates/template-functions.md)
+* [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](../azure-resource-manager/templates/deploy-powershell.md)
 * [Uso de Azure PowerShell con Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
-* [Solución de problemas de implementaciones de grupo de recursos en Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+* [Solución de problemas de implementaciones de grupo de recursos en Azure](../azure-resource-manager/templates/common-deployment-errors.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 41547787a3b7add1baa05a41d6785d1cd926165d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9339fff820c0a0d915258ce3a0bc5371242ad50d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929585"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892842"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copia de datos desde Cassandra mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-onprem-cassandra-connector.md)
 > * [Versión actual](connector-cassandra.md)
 
@@ -42,7 +42,7 @@ En concreto, este conector Cassandra admite lo siguiente:
 >[!NOTE]
 >Para la actividad que se ejecuta en Integration Runtime (autohospedado), Cassandra 3.x es compatible a partir de IR 3.7 y versiones posteriores.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -58,7 +58,7 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Cassandra:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type |La propiedad type debe establecerse en: **Cassandra** |Sí |
 | host |Una o varias direcciones IP o nombres de host de los servidores de Cassandra.<br/>Especifica una lista de direcciones IP o nombres de host separada por comas para conectar con todos los servidores a la vez. |Sí |
@@ -66,12 +66,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Cassandr
 | authenticationType | El tipo de autenticación que se utiliza para conectarse a la base de datos Cassandra.<br/>Los valores permitidos son: **Basic** (básica) y **Anonymous** (anónima). |Sí |
 | username |Especifique el nombre de usuario de la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
 | password |Especifique la contraseña para la cuenta de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí, si el valor de authenticationType es Basic. |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |Sin |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |No |
 
 >[!NOTE]
 >Actualmente no se admite la conexión a Cassandra mediante SSL.
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -101,13 +101,13 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Cassandra, establezca la propiedad type del conjunto de datos en **CassandraTable**. Se admiten las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del conjunto de datos debe establecerse en: **CassandraTable** | Sí |
 | keyspace |Nombre del espacio de claves o esquema de la base de datos de Cassandra. |Sí (si no hay especificada ninguna "consulta" para "CassandraSource") |
 | tableName |Nombre de la tabla de la base de datos de Cassandra. |Sí (si no hay especificada ninguna "consulta" para "CassandraSource") |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -136,13 +136,13 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Cassandra, establezca el tipo de origen de la actividad de copia en **CassandraSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del origen de la actividad de copia debe establecerse en: **CassandraSource** | Sí |
-| query |Utilice la consulta personalizada para leer los datos. Consulta SQL-92 o consulta CQL. Vea la [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)(referencia de CQL). <br/><br/>Cuando utilice una consulta SQL, especifique **nombre de espacio de claves.nombre de tabla** para representar la tabla que quiere consultar. |No (si "tableName" y "keyspace" en el conjunto de datos están especificados) |
+| Query |Utilice la consulta personalizada para leer los datos. Consulta SQL-92 o consulta CQL. Vea la [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)(referencia de CQL). <br/><br/>Cuando utilice una consulta SQL, especifique **nombre de espacio de claves.nombre de tabla** para representar la tabla que quiere consultar. |No (si "tableName" y "keyspace" en el conjunto de datos están especificados) |
 | consistencyLevel |El nivel de coherencia establece el número de réplicas que deben responder a una solicitud de lectura antes de que se devuelvan datos a la aplicación cliente. Cassandra comprueba el número de réplicas especificado para que los datos satisfagan la solicitud de lectura. Para más información, consulte [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) (Configuración de la coherencia de datos).<br/><br/>Los valores permitidos son: **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** y **LOCAL_ONE**. |No (el valor predeterminado es `ONE`) |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 "activities":[
@@ -180,20 +180,20 @@ Al copiar datos desde Cassandra, se utilizan las siguientes asignaciones de tipo
 
 | Tipo de datos de Cassandra | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
-| ASCII |Cadena |
-| BIGINT |Int64 |
+| ASCII |String |
+| bigint |Int64 |
 | BLOB |Byte[] |
-| BOOLEAN |BOOLEAN |
+| BOOLEAN |Boolean |
 | DECIMAL |Decimal |
-| DOUBLE |DOUBLE |
+| DOUBLE |Double |
 | FLOAT |Single |
-| INET |Cadena |
+| INET |String |
 | INT |Int32 |
 | TEXT |String |
-| TIMESTAMP |DateTime |
+| timestamp |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
-| VARCHAR |Cadena |
+| VARCHAR |String |
 | VARINT |Decimal |
 
 > [!NOTE]
@@ -217,7 +217,7 @@ Las tablas virtuales hacen referencia a los datos de la tabla real, lo que permi
 
 Por ejemplo, el siguiente "ExampleTable" es una tabla de una base de datos de Cassandra que contiene una columna de clave principal de enteros denominada “pk_int”, una columna de texto denominada "value", una columna List, una columna Map y una columna Set (denominada "StringSet").
 
-| pk_int | Valor | Enumerar | Map | StringSet |
+| pk_int | Value | List | Map | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"valor de ejemplo 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"valor de ejemplo 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
@@ -226,7 +226,7 @@ El controlador generará varias tablas virtuales que representan a esta tabla. L
 
 La primera tabla virtual es la tabla base y se denomina "ExampleTable", tal y como se muestra en la siguiente tabla: 
 
-| pk_int | Valor |
+| pk_int | Value |
 | --- | --- |
 | 1 |"valor de ejemplo 1" |
 | 3 |"valor de ejemplo 3" |
@@ -251,7 +251,7 @@ Las tablas siguientes representan las tablas virtuales que normalizan de nuevo l
 
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |Una |
+| 1 |S1 |Un |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
@@ -259,10 +259,10 @@ Las tablas siguientes representan las tablas virtuales que normalizan de nuevo l
 
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |Una |
-| 1 |b |
+| 1 |Un |
+| 1 |B |
 | 1 |C |
-| 3 |Una |
+| 3 |Un |
 | 3 |E |
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
@@ -270,4 +270,4 @@ Las tablas siguientes representan las tablas virtuales que normalizan de nuevo l
 Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

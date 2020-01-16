@@ -1,19 +1,19 @@
 ---
 title: Facturación según uso con el servicio de medición de Marketplace | Azure Marketplace
 description: Esta documentación es una guía para fabricantes de software independientes que publican ofertas de SaaS con modelos de facturación flexibles.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 54b59cfecbbba6b71cf301aa4872892825d4b675
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f1b60831e08383ee455cd3afbfbc21ed27445ffc
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827925"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934181"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Facturación según uso con el servicio de medición de Marketplace
 
@@ -74,7 +74,7 @@ Las dimensiones de facturación se comparten entre todos los planes de una ofert
 Los atributos que definen la propia dimensión se comparten entre todos los planes de una oferta.  Antes de publicar la oferta, un cambio realizado en estos atributos desde el contexto de cualquier plan afectará a la definición de la dimensión en todos los planes.  Una vez publicada la oferta, estos atributos ya no se podrán editar.  Estos atributos son los siguientes:
 
 * Identificador
-* NOMBRE
+* Nombre
 * Unidad de medida
 
 Los demás atributos de una dimensión son específicos de cada plan y pueden tener valores diferentes de un plan a otro.  Antes de publicar el plan, puede editar estos valores y solo se verá afectado este plan.  Una vez publicado el plan, estos atributos ya no se podrán editar.  Estos atributos son los siguientes:
@@ -104,7 +104,7 @@ Dado que una dimensión que se usa con el servicio de medición de Marketplace r
 Una vez que se publica una oferta con una dimensión, ya no se pueden cambiar los detalles de nivel de oferta de esa dimensión:
 
 * Identificador
-* NOMBRE
+* Nombre
 * Unidad de medida
 
 Una vez que se publica un plan, los detalles de nivel de plan ya no se pueden cambiar:

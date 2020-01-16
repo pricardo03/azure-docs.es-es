@@ -7,12 +7,12 @@ author: hedidin
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 99141787c5133b578c943f0e11e5ab15171a2e3d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 03ed4731e59280a3879d77ca3fb82f0158313aeb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792974"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771570"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Escenario: Control de excepciones y registro de errores para aplicaciones lógicas
 
@@ -25,7 +25,7 @@ En este escenario se describe cómo extender una aplicación lógica para contro
 
 Esta es la historia del caso de uso de este escenario: 
 
-Una conocida organización sanitaria nos contrató para que desarrolláramos una solución de Azure que crearía un portal para pacientes mediante Microsoft Dynamics CRM Online. Necesitaban enviar registros de citas entre el portal para pacientes de Dynamics CRM Online y Salesforce. Se nos pidió que usáramos la norma [FHIR HL7](http://www.hl7.org/implement/standards/fhir/) para todos los registros de paciente.
+Una conocida organización sanitaria nos contrató para que desarrolláramos una solución de Azure que crearía un portal para pacientes mediante Microsoft Dynamics CRM Online. Necesitaban enviar registros de citas entre el portal para pacientes de Dynamics CRM Online y Salesforce. Se nos pidió que usáramos la norma [FHIR HL7](https://www.hl7.org/implement/standards/fhir/) para todos los registros de paciente.
 
 El proyecto tenía dos requisitos principales:  
 
@@ -122,7 +122,7 @@ Es necesario registrar el origen (solicitud) del registro del paciente desde el 
 
 El siguiente ejemplo de código de aplicación lógica muestra cómo controlar el registro.
 
-#### <a name="log-entry"></a>Entrada de registro
+#### <a name="log-entry"></a>Entrada del registro
 
 Este es el código fuente de la aplicación lógica para insertar una entrada de registro.
 

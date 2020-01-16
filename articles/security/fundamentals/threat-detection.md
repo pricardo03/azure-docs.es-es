@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 6278e848a82fb31939117fa9b916a92a2fb74a3e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3c1c385a87fc302d180729ec2e4bcd1c4a315f6f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129278"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981458"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detección de amenazas avanzada de Azure
 
@@ -135,7 +135,7 @@ Puede crear y administrar recursos de DSC hospedados en Azure y aplicarlos a los
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
-Azure Security Center ayuda a proteger los recursos de Azure. Proporciona una supervisión de la seguridad y una administración de directivas integradas en suscripciones de Azure. En el servicio, puede definir directivas para las suscripciones de Azure y los [grupos de recursos](../../azure-resource-manager/manage-resources-portal.md) para obtener una mayor granularidad.
+Azure Security Center ayuda a proteger los recursos de Azure. Proporciona una supervisión de la seguridad y una administración de directivas integradas en suscripciones de Azure. En el servicio, puede definir directivas para las suscripciones de Azure y los [grupos de recursos](../../azure-resource-manager/management/manage-resources-portal.md) para obtener una mayor granularidad.
 
 ![Diagrama de Azure Security Center](./media/threat-detection/azure-threat-detection-fig8.png)
 

@@ -8,77 +8,77 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: f523d1ebf5c96596142c6897af2be5f760b3d4b9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f65220a04a709bae5a6892bfd4105195cee35741
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978958"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978430"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Configuración de la herramienta Azure Import/Export
 La herramienta Microsoft Azure Import/Export es la herramienta de preparación y reparación de unidades de disco duro que se puede usar con el servicio Microsoft Azure Import/Export. Puede usar la herramienta para las siguientes funciones:  
-  
+
 -   Antes de crear un trabajo de importación, puede utilizar esta herramienta para copiar los datos en las unidades de disco duro que se van a enviar a un centro de datos de Microsoft Azure.  
-  
+
 -   Cuando haya finalizado un trabajo de importación, puede usar esta herramienta para reparar los blobs que se hayan dañado, no se hayan encontrado o hayan entrado en conflicto con otros blobs.  
-  
+
 -   Después de recibir las unidades de un trabajo de exportación completado, puede utilizar esta herramienta para reparar los archivos dañados o no encontrados de las unidades.  
-  
-## <a name="prerequisites"></a>Requisitos previos  
+
+## <a name="prerequisites"></a>Prerequisites  
 Si va a preparar unidades para un trabajo de importación, tendrá que cumplir los siguientes requisitos previos:  
-  
+
 -   Debe contar con una suscripción de Azure activa.  
-  
+
 -   La suscripción debe incluir una cuenta de almacenamiento con suficiente espacio disponible para almacenar los archivos que se van a importar.  
-  
+
 -   Necesita al menos una de las claves de cuenta para la cuenta de almacenamiento.  
-  
+
 -   Precisa un equipo (el "equipo de copia") con Windows 7, Windows Server 2008 R2 o un sistema operativo de Windows más reciente instalado.  
-  
+
 -   Se debe instalar .NET Framework 4 en el equipo de copia.  
-  
+
 -   Se debe habilitar BitLocker en el equipo de copia.  
-  
+
 -   Necesitará uno o varios discos duros que contengan los datos que se van a importar o discos duros SATA de 3,5 pulgadas vacíos y conectados al equipo de copia.  
-  
--   Se debe poder acceder a los archivos que se van a importar desde el equipo de copia, con independencia de si se encuentran en un recurso compartido de red o en una unidad de disco duro local. 
-  
+
+-   Se debe poder acceder a los archivos que se van a importar desde el equipo de copia, con independencia de si se encuentran en un recurso compartido de red o en una unidad de disco duro local.
+
 Si está tratando de reparar una importación que ha fallado parcialmente, precisará lo siguiente:  
-  
+
 - Los archivos de registro de copia  
-  
+
 - La clave de la cuenta de almacenamiento  
-  
+
   Si está tratando de reparar una exportación que ha fallado parcialmente, precisará lo siguiente:  
-  
+
 - Los archivos de registro de copia  
-  
+
 - Los archivos de manifiesto (opcionales)  
-  
+
 - La clave de la cuenta de almacenamiento  
-  
+
 ## <a name="installing-the-azure-importexport-tool"></a>Instalación de la herramienta Azure Import/Export  
  La herramienta Azure Import/Export se compone de los siguientes archivos:  
-  
+
 - WAImportExport.exe  
-  
+
 - WAImportExport.exe.config  
-  
+
 - WAImportExportCore.dll  
-  
+
 - WAImportExportRepair.dll  
-  
+
 - Microsoft.WindowsAzure.Storage.dll  
-  
+
 - Hddid.dll  
-  
+
   Copie estos archivos en el directorio de trabajo, por ejemplo, `c:\WAImportExport`. A continuación, abra una ventana de línea de comandos en modo de administrador y establezca el directorio anterior como el directorio actual.  
-  
+
   Si desea obtener ayuda para el comando de salida, ejecute la herramienta sin parámetros:  
-  
+
 ```  
 WAImportExport, a client tool for Microsoft Azure Import/Export service. Microsoft (c) 2013, 2014  
-  
+
 Copy a Directory:  
     WAImportExport.exe PrepImport  
         /j:<JournalFile> [/logdir:<LogDirectory>] [/id:<SessionId>] [/resumesession]  
@@ -87,7 +87,7 @@ Copy a Directory:
         [/bk:<BitLockerKey>] [/Disposition:<Disposition>] [/BlobType:<BlobType>]  
         [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]  
         /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory>  
-  
+
 Copy a File:  
     WAImportExport.exe PrepImport  
         /j:<JournalFile> [/logdir:<LogDirectory>] [/id:<SessionId>] [/resumesession]  
@@ -96,7 +96,7 @@ Copy a File:
         [/bk:<BitLockerKey>] [/Disposition:<Disposition>] [/BlobType:<BlobType>]  
         [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]  
         /srcfile:<SourceFilePath> /dstblob:<DestinationBlobPath>  
-  
+
 Repair a Drive:  
     WAImportExport.exe RepairImport | RepairExport  
         /r:<RepairFile> [/logdir:<LogDirectory>]  
@@ -104,15 +104,15 @@ Repair a Drive:
         /sn:<StorageAccountName> [/sk:<StorageAccountKey> | /csas:<ContainerSas>]  
         [/CopyLogFile:<DriveCopyLogFile>] [/ManifestFile:<DriveManifestFile>]  
         [/PathMapFile:<DrivePathMapFile>]  
-  
+
 Preview an Export Job:  
     WAImportExport.exe PreviewExport  
         [/logdir:<LogDirectory>]  
         /sn:<StorageAccountName> [/sk:<StorageAccountKey> | /csas:<ContainerSas>]  
         /ExportBlobListFile:<ExportBlobListFile> /DriveSize:<DriveSize>  
-  
+
 Parameters:  
-  
+
     /j:<JournalFile>  
         - Required. Path to the journal file. Each drive must have one and only one  
           journal file. The journal file corresponding to the target drive must always  
@@ -213,32 +213,32 @@ Parameters:
         - Optional. To skip write process. Used for inplace data drive preparation.
           Be sure to reserve enough space (3 GB per 7TB) for drive manifest file!
 Examples:  
-  
+
     Copy a source directory to a drive:  
     WAImportExport.exe PrepImport  
         /j:9WM35C2V.jrn /id:session#1 /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GEL  
         xmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /t:x /format /encrypt /srcdir:d:\movi  
         es\drama /dstdir:movies/drama/  
-  
+
     Copy another directory to the same drive following the above command:  
     WAImportExport.exe PrepImport  
         /j:9WM35C2V.jrn /id:session#2 /srcdir:d:\movies\action /dstdir:movies/action/  
-  
+
     Copy another file to the same drive following the above commands:  
     WAImportExport.exe PrepImport  
         /j:9WM35C2V.jrn /id:session#3 /srcfile:d:\movies\dvd.vhd /dstblob:movies/dvd.vhd /BlobType:PageBlob  
-  
+
     Preview how many 1.5 TB drives are needed for an export job:  
     WAImportExport.exe PreviewExport  
         /sn:mytestaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7K  
         ysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\temp\myexportbloblist.xml  
         /DriveSize:1.5TB  
-  
+
     Repair an finished import job:  
     WAImportExport.exe RepairImport  
         /r:9WM35C2V.rep /d:X:\ /bk:442926-020713-108086-436744-137335-435358-242242-2795  
         98 /sn:mytestaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94  
-        f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\temp\9WM35C2V_error.log 
+        f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\temp\9WM35C2V_error.log
 
     Skip write process, inplace data drive preparation:
     WAImportExport.exe PrepImport
@@ -246,7 +246,7 @@ Examples:
         xmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /t:d /encrypt /srcdir:d:\movi
         es\drama /dstdir:movies/drama/ /skipwrite
 ```  
-  
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Preparación de unidades de disco duro para un trabajo de importación](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e9a0a8c8709e41bb7778878f76024263cdc32481
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6a134d2bdfe7f370503b80703933ff646970d976
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896089"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981106"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificación de vídeo y audio con Media Services
 
@@ -81,7 +81,7 @@ Puede especificar crear un [trabajo](https://docs.microsoft.com/rest/api/media/j
 Ver ejemplos:
 
 * [Creación de un subclip de vídeo con .NET](subclip-video-dotnet-howto.md)
-* [Creación de un subclip de video con REST](subclip-video-rest-howto.md)
+* [Creación de un subclip de vídeo con REST](subclip-video-rest-howto.md)
 
 ## <a name="built-in-presets"></a>Valores preestablecidos integrados
 
@@ -95,7 +95,7 @@ Actualmente se admiten los valores preestablecidos siguientes:
 
 - **EncoderNamedPreset.AACGoodQualityAudio**: genera un solo archivo MP4 que contiene únicamente audio estéreo codificado a 192 kbps.
 - **EncoderNamedPreset.AdaptiveStreaming** (recomendado): Para más información, consulte [Generación automática de una escala de velocidad de bits](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset.ContentAwareEncodingExperimental**: expone un valor preestablecido experimental para la codificación según el contenido. Dado cualquier contenido de entrada, el servicio intenta determinar automáticamente el número óptimo de capas, la velocidad de bits adecuada y la configuración de resolución para la entrega a través del streaming adaptable. Los algoritmos subyacentes seguirán evolucionando con el tiempo. La salida contendrá archivos MP4 con el vídeo y audio intercalados. Para más información, consulte [Valor preestablecido experimental para la codificación según el contenido](cae-experimental.md).
+- **EncoderNamedPreset.ContentAwareEncodingExperimental**: expone un valor preestablecido experimental para la codificación según el contenido. Dado cualquier contenido de entrada, el servicio intenta determinar automáticamente el número óptimo de capas, la velocidad de bits adecuada y la configuración de resolución para la entrega a través del streaming adaptable. Los algoritmos subyacentes seguirán evolucionando con el tiempo. La salida contendrá archivos MP4 con el vídeo y audio intercalados. Para más información, consulte [Valor preestablecido experimental para la codificación según el contenido](content-aware-encoding.md).
 - **EncoderNamedPreset.H264MultipleBitrate1080p**: genera un conjunto de ocho archivos MP4 alineados con GOP, que abarcan desde 6000 kbps hasta 400 kbps y audio AAC estéreo. La resolución comienza en 1080p y baja hasta 360p.
 - **EncoderNamedPreset.H264MultipleBitrate720p**: genera un conjunto de seis archivos MP4 alineados con GOP, que abarcan desde 3400 kbps hasta 400 kbps y audio AAC estéreo. La resolución comienza en 720p y baja hasta 360p.
 - **EncoderNamedPreset.H264MultipleBitrateSD**: genera un conjunto de cinco archivos MP4 alineados con GOP, que abarcan desde 1600 kbps hasta 400 kbps y audio AAC estéreo. La resolución comienza en 480p y baja hasta 360p.

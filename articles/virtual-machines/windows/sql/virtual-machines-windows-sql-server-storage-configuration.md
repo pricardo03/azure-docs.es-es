@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 231c8cb8e66d658ad49e02fd585f6c8a1593cb2d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9d8fce0772f13c6e009b2441ecd85779a7622c5c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75374015"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981733"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuración del almacenamiento para máquinas virtuales de SQL Server
 
@@ -33,7 +33,7 @@ Este tema explica cómo Azure configura el almacenamiento para sus máquinas vir
 Para usar la configuración del almacenamiento automática, la máquina virtual requiere las siguientes características:
 
 * Aprovisionada con una [imagen de la galería de SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
-* Usa el [modelo de implementación de Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md).
+* Usa el [modelo de implementación de Resource Manager](../../../azure-resource-manager/management/deployment-models.md).
 * Usa [discos SSD Premium](../disks-types.md).
 
 ## <a name="new-vms"></a>Nuevas máquinas virtuales

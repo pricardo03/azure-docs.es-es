@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 9cd6c2a39f72c47b06bebfa2a8c457a725484141
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 0e5780561df121d3d5af3a9b754d774cc7d6cf76
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529990"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969658"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportación del registro de actividad de Azure al almacenamiento o a Azure Event Hubs
 
 > [!WARNING]
-> Ahora puede recopilar el Registro de actividad en un área de trabajo Log Analytics mediante una configuración de diagnóstico similar a la de la recopilación de registros de recursos. Consulte [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](diagnostic-settings-subscription.md) (Recopilación y análisis de registros de actividad en un área de trabajo de Log Analytics en Azure Monitor).
+> Ahora puede recopilar el Registro de actividad en un área de trabajo Log Analytics mediante una configuración de diagnóstico similar a la de la recopilación de registros de recursos. Consulte [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](diagnostic-settings-legacy.md) (Recopilación y análisis de registros de actividad en un área de trabajo de Log Analytics en Azure Monitor).
 
-El [registro de actividad de Azure](activity-logs-overview.md) proporciona información de los eventos de nivel de suscripción que se han producido en la suscripción de Azure. Además de ver el registro de actividades en Azure Portal o copiarlo en un área de trabajo de Log Analytics donde se puede analizar con otros datos recopilados por Azure Monitor, puede crear un perfil de registro para archivar el registro de actividad en una cuenta de almacenamiento de Azure o transmitirlo a un centro de eventos.
+El [registro de actividad de Azure](platform-logs-overview.md) proporciona información de los eventos de nivel de suscripción que se han producido en la suscripción de Azure. Además de ver el registro de actividades en Azure Portal o copiarlo en un área de trabajo de Log Analytics donde se puede analizar con otros datos recopilados por Azure Monitor, puede crear un perfil de registro para archivar el registro de actividad en una cuenta de almacenamiento de Azure o transmitirlo a un centro de eventos.
 
 ## <a name="archive-activity-log"></a>Archivo del registro de actividad
 El archivo del registro de actividad en una cuenta de almacenamiento es útil si desea conservar los datos de registro más de 90 días (con control total sobre la directiva de retención) para auditorías, análisis estáticos o copias de seguridad. Si solo necesita conservar los eventos durante 90 días o menos, no es necesario configurar el archivado en una cuenta de almacenamiento, ya que los eventos del registro de actividades se conservan en la plataforma de Azure durante 90 días.
@@ -28,12 +28,12 @@ El archivo del registro de actividad en una cuenta de almacenamiento es útil si
 ## <a name="stream-activity-log-to-event-hub"></a>Transmisión del registro de actividad al centro de eventos
 [Azure Event Hubs](/azure/event-hubs/) es una plataforma de streaming y servicio de ingesta de eventos capaz de recibir y procesar millones de eventos por segundo. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. A continuación se indican dos maneras en que puede usar la funcionalidad de streaming para el registro de actividad:
 * **Transmisión a sistemas de registro y telemetría de terceros**: con el tiempo, el streaming de Azure Event Hubs se convertirá en el mecanismo para canalizar el registro de actividad a sistemas de información de seguridad y administración de eventos (SIEM) y soluciones de análisis de registros de terceros.
-* **Creación de una plataforma personalizada de registro y telemetría**: si ya tiene una plataforma de telemetría integrada personalizada o está pensando en crear una, la gran escalabilidad en cuanto a suscripción y publicación de Event Hubs permite ingerir el registro de actividad de manera flexible. 
+* **Creación de una plataforma personalizada de registro y telemetría**: si ya tiene una plataforma de telemetría integrada personalizada o está pensando en crear una, la gran escalabilidad en cuanto a suscripción y publicación de Event Hubs permite ingerir el registro de actividad de manera flexible.
 
 ## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="storage-account"></a>Cuenta de almacenamiento
-Si va a archivar el registro de actividad, deberá [crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md) si aún no tiene una. No debe utilizar una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos de supervisión. Sin embargo, si también va a archivar las métricas y los registros en una cuenta de almacenamiento, puede que tenga sentido utilizar esa misma cuenta de almacenamiento para mantener todos los datos de supervisión en una ubicación central.
+Si va a archivar el registro de actividad, deberá [crear una cuenta de almacenamiento](../../storage/common/storage-account-create.md) si aún no tiene una. No debe utilizar una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos de supervisión. Sin embargo, si también va a archivar las métricas y los registros en una cuenta de almacenamiento, puede que tenga sentido utilizar esa misma cuenta de almacenamiento para mantener todos los datos de supervisión en una ubicación central.
 
 La cuenta de almacenamiento no tiene que estar en la misma suscripción que la que emite los registros, siempre que el usuario que configura la configuración tenga acceso RBAC adecuado a ambas suscripciones.
 > [!NOTE]
@@ -65,7 +65,7 @@ Si se establecen directivas de retención, pero el almacenamiento de registros e
 
 
 > [!IMPORTANT]
-> Es posible que reciba un error al crear un perfil de registro si el proveedor de recursos de Microsoft.Insights no está registrado. Para registrar este proveedor y tipos, consulte [Tipos y proveedores de recursos de Azure](../../azure-resource-manager/resource-manager-supported-services.md).
+> Es posible que reciba un error al crear un perfil de registro si el proveedor de recursos de Microsoft.Insights no está registrado. Para registrar este proveedor y tipos, consulte [Tipos y proveedores de recursos de Azure](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 
 ### <a name="create-log-profile-using-the-azure-portal"></a>Creación del perfil de registro mediante Azure Portal
@@ -77,7 +77,7 @@ Cree o edite un perfil de registro con la opción **Exportar a Centro de eventos
     ![Botón Exportar en el portal](media/activity-log-export/portal-export.png)
 
 3. En la hoja que aparece, especifique lo siguiente:
-   * Regiones con los eventos para exportar. Debe seleccionar todas las regiones para asegurarse de no perderse eventos clave, ya que el registro de actividad es un registro global (no regional) y, por lo tanto, la mayoría de los eventos no tienen una región asociada. 
+   * Regiones con los eventos para exportar. Debe seleccionar todas las regiones para asegurarse de no perderse eventos clave, ya que el registro de actividad es un registro global (no regional) y, por lo tanto, la mayoría de los eventos no tienen una región asociada.
    * Si desea escribir en la cuenta de almacenamiento:
        * La cuenta de almacenamiento en la que desea guardar los eventos.
        * El número de días que desea conservar estos eventos en el almacenamiento. Un valor de 0 días conserva los registros para siempre.
@@ -167,5 +167,5 @@ Si ya existe un perfil de registro, primero debe quitar el perfil de registro ex
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Más información sobre el registro de actividad](../../azure-resource-manager/resource-group-audit.md)
+* [Más información sobre el registro de actividad](../../azure-resource-manager/management/view-activity-logs.md)
 * [Recopilación del registro de actividad en registros de Azure Monitor](activity-log-collect.md)

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: ad42d7c2257519c2622ba17f74f97b9521233850
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4445f6e9b72380b66f3282d50871b4283f7fc7fa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75366437"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966737"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Ejemplo de uso: implementación continua en máquinas virtuales con Automation State Configuration y Chocolatey
 
@@ -40,7 +40,7 @@ Azure Automation State Configuration amplía esta funcionalidad de automatizaci�
 Un recurso de DSC es un módulo de código con capacidades específicas, como la administración de redes, Active Directory o SQL Server. El recurso de DSC de Chocolatey sabe cómo acceder a un servidor NuGet (entre otros), descargar paquetes, instalar paquetes, etc. Existen muchos otros recursos de DSC en la [Galería de PowerShell](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
 Estos módulos se instalan en el servidor de extracción de Azure Automation State Configuration (manualmente) para que se puedan usar con sus configuraciones.
 
-Las plantillas de Resource Manager proporcionan una forma declarativa de generar la infraestructura: como las redes, las subredes, la seguridad de red y el enrutamiento, los equilibradores de carga, las NIC, las máquinas virtuales, etc. Este es un [artículo](../azure-resource-manager/resource-manager-deployment-model.md) que compara el modelo de implementación de Resource Manager (declarativo) con el modelo de implementación (imperativo) de Azure Service Management (ASM o clásico) y describe los proveedores de recursos principales, proceso, almacenamiento y red.
+Las plantillas de Resource Manager proporcionan una forma declarativa de generar la infraestructura: como las redes, las subredes, la seguridad de red y el enrutamiento, los equilibradores de carga, las NIC, las máquinas virtuales, etc. Este es un [artículo](../azure-resource-manager/management/deployment-models.md) que compara el modelo de implementación de Resource Manager (declarativo) con el modelo de implementación (imperativo) de Azure Service Management (ASM o clásico) y describe los proveedores de recursos principales, proceso, almacenamiento y red.
 
 Una característica clave de una plantilla de Resource Manager es su capacidad para instalar una extensión de máquina virtual en la máquina virtual cuando se aprovisiona. Una extensión de máquina virtual posee capacidades específicas, como ejecutar un script personalizado, instalar software antivirus o ejecutar un script de configuración de DSC. Existen muchos otros tipos de extensiones de máquina virtual.
 

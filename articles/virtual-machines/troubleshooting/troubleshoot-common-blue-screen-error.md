@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 921e97fa393a3005e3ba392502d291301df3d65c
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: d9732f232c5a7ec1e551f42fe0e8187e382aec6e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058080"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981871"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows muestra un error de pantalla azul al iniciar una máquina virtual de Azure.
 En este artículo se describen los errores de pantalla azul que pueden surgir al iniciar una máquina virtual (VM) de Windows en Microsoft Azure. Se proporcionan los pasos para ayudarle a recopilar datos de una incidencia de soporte técnico. 
 
 > [!NOTE] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se describe el uso del modelo de implementación de Resource Manager, que es el que se recomienda para realizar la mayoría de las nuevas implementaciones en lugar del modelo de implementación clásica.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/management/deployment-models.md). En este artículo se describe el uso del modelo de implementación de Resource Manager, que es el que se recomienda para realizar la mayoría de las nuevas implementaciones en lugar del modelo de implementación clásica.
 
 ## <a name="symptom"></a>Síntoma 
 

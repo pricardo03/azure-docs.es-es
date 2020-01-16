@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: 3f42d50af803713fd498e83880d9ee5d29e8caf3
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: b886f51bcb2bb7308c49c76563dcb70148bbc583
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091651"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887298"
 ---
 # <a name="scenario-apache-phoenix-connectivity-issues-in-azure-hdinsight"></a>Escenario: Problemas de conectividad de Apache Phoenix en Azure HDInsight
 
@@ -26,7 +26,7 @@ No se puede conectar a Apache HBase con Apache Phoenix. Los motivos pueden varia
 
 Dirección IP incorrecta del nodo activo de Zookeeper.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 La dirección IP del nodo activo de Zookeeper se puede identificar desde la interfaz de usuario de Ambari mediante el seguimiento de los vínculos a **HBase** > **Quick Links** > **ZK (Active)**  > **Zookeeper Info** (HBAse > Vínculos rápidos > ZK (activo) > Información de Zookeeper). Corrija la dirección IP según sea necesario.
 
@@ -46,7 +46,7 @@ Al ejecutar comandos, como `count 'SYSTEM.CATALOG'`, recibe un mensaje de error 
 ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189)
 ```
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 En la interfaz de usuario de Apache Ambari, realice los siguientes pasos para reiniciar el servicio HMaster en todos los nodos de ZooKeeper:
 
@@ -66,4 +66,4 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 * Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

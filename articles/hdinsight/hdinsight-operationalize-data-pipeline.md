@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
-ms.openlocfilehash: c98640dbfbe47730b507ebdafdecad9623672e4e
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 16c7af4d66bd550eb4a286de7c86c436b1fe10e2
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552243"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922662"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Uso de una canalización de análisis de datos
 
@@ -540,7 +540,7 @@ Los tres puntos anteriores se combinan para producir una situación en la que el
 
 Como con los flujos de trabajo, la configuración de un coordinador se define en un archivo `job.properties`, que tiene un supraconjunto de la configuración utilizada por el flujo de trabajo.
 
-```
+```text
 nameNode=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net
 jobTracker=[ACTIVERESOURCEMANAGER]:8050
 queueName=default

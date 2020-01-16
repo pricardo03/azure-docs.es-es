@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: e0ff9bc66c7d185f8fe07b4b4574833fcd7e2604
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4eb203915c8fedbef6af0e5a3bc14eff1835a92b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582073"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982159"
 ---
 # <a name="use-multiple-caches-for-regional-failover-recovery"></a>Uso de varias cachés para la recuperación de la conmutación por error regional
 
@@ -37,7 +37,7 @@ Para configurar una memoria caché preparada para una posible conmutación por e
    1. Comando de montaje para que lo usen los clientes de caché
 
    > [!NOTE]
-   > La instancia de Azure HPC Cache se puede crear mediante programación, mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md) o mediante el acceso directo a su API. Póngase en contacto con el equipo de Azure HPC Cache para más información.
+   > La instancia de Azure HPC Cache se puede crear mediante programación, mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/templates/overview.md) o mediante el acceso directo a su API. Póngase en contacto con el equipo de Azure HPC Cache para más información.
 
 ## <a name="failover-example"></a>Ejemplo de conmutación por error
 

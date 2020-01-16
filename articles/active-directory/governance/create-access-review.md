@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 583eb62e6eeaaa799d2ea75261ee511fb8ddb7ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e65eb08873da71c7683fe3347484831dfff58793
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422670"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932637"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creación de una revisión de acceso de los grupos y las aplicaciones en las revisiones de acceso de Azure AD
 
@@ -33,7 +33,7 @@ En este artículo se describe cómo crear una o varias revisiones de acceso para
 - Azure AD Premium P2
 - administrador global o administrador de usuarios.
 
-Para más información, consulte [¿Qué usuarios deben tener licencias?](access-reviews-overview.md#which-users-must-have-licenses).
+Para obtener más información, consulte [Requisitos de licencia](access-reviews-overview.md#license-requirements).
 
 ## <a name="create-one-or-more-access-reviews"></a>Creación de una o varias revisiones de acceso
 

@@ -2,19 +2,19 @@
 title: 'Representación de una escena en la nube: Azure Batch'
 description: 'Tutorial: Representación de una escena de Autodesk 3DS Max con Arnold mediante el servicio de representación de Batch y la interfaz de la línea de comandos de Azure'
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: tutorial
 ms.date: 12/11/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 28914244f7ea84ec133821d4b125cbd3b0378348
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: e63bd26ec226cfeba1c11570b085fd88570fbb2d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71272330"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029196"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Representación de una escena con Azure Batch 
 
@@ -29,7 +29,7 @@ Azure Batch proporciona funcionalidades de representación para la nube según u
 
 En este tutorial se representa una escena 3DS Max con Batch mediante el representador de seguimiento de rayo [Arnold](https://www.autodesk.com/products/arnold/overview). El grupo de Batch usa una imagen de Azure Marketplace con gráficos preinstalados y las aplicaciones de representación que proporcionan las licencias de pago por uso.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Necesita una suscripción de pago por uso u otra opción de compra de Azure para usar aplicaciones de representación en Batch sobre una base de pago por uso. **Las licencias de pago por uso no se admiten si usa una oferta gratis de Azure que proporciona un crédito monetario.**
 
@@ -43,7 +43,7 @@ Si decide instalar y usar la CLI localmente, para este tutorial es preciso que e
 
 Si no lo ha hecho ya, cree un grupo de recursos, una cuenta de Batch y una de Storage vinculada en la suscripción. 
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create). En el ejemplo siguiente se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus2*.
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az-group-create). En el ejemplo siguiente se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus2*.
 
 ```azurecli-interactive 
 az group create \

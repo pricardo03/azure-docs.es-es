@@ -1,19 +1,19 @@
 ---
 title: Creación de una oferta de aplicaciones de Azure en Marketplace comercial
 description: Cómo crear una nueva oferta de aplicaciones de Azure para mostrarla o venderla en Azure Marketplace, AppSource, o bien a través del programa Proveedor de soluciones en la nube (CSP) mediante el portal de Marketplace comercial del Centro de partners de Microsoft.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: d7e05f12c04136c8394dbcb27b7a950fc5ce85d9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: eb8540ac1904b46ba428b3b1e703e59c8b18d9e8
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74281046"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046048"
 ---
 # <a name="create-an-azure-application-offer"></a>Creación de una oferta de aplicación de Azure
 
@@ -48,7 +48,7 @@ Todas las aplicaciones de Azure incluyen al menos dos archivos en la carpeta ra�
 
 * Una definición de interfaz de usuario para la experiencia de creación de aplicaciones de Azure llamada [createUiDefinition.json](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  En la interfaz de usuario, puede especificar los elementos que permiten a los consumidores proporcionar los valores de los parámetros.
 
-Todas las nuevas ofertas de la aplicación de Azure deben incluir un [GUID de atribución de uso del cliente para asociados de Azure](??).
+Todas las nuevas ofertas de la aplicación de Azure deben incluir un [GUID de atribución de uso del cliente para asociados de Azure](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution).
 
 ### <a name="before-you-begin"></a>Antes de empezar
 
@@ -148,7 +148,7 @@ Para obtener más información, consulte [Introducción a la administración de 
 
 No olvide **guardar** antes de pasar a la siguiente sección.
 
-## <a name="properties"></a>properties (Propiedades)
+## <a name="properties"></a>Propiedades
 
 La página de **Propiedades** le permite definir las categorías y los sectores que se usan para agrupar su oferta en Marketplace, la versión de la aplicación y los contratos legales que dan soporte a su oferta. Después de completar esta página, seleccione **Guardar**.
 
@@ -179,7 +179,7 @@ Tendrá que definir los detalles de Marketplace (nombre de la oferta, descripci�
 > [!NOTE]
 > No es necesario que el contenido del anuncio de la oferta (por ejemplo, la descripción, los documentos, las capturas de pantallas, los términos de uso, etc.) esté en inglés siempre que la descripción de la oferta empiece por la frase "Esta aplicación solo está disponible en [idioma distinto del inglés]". También es aceptable proporcionar una *dirección URL de vínculo útil* para ofrecer contenido en un idioma distinto del que se usa en el contenido del anuncio de la oferta.
 
-### <a name="name"></a>NOMBRE
+### <a name="name"></a>Nombre
 
 El nombre que escriba aquí se mostrará a los clientes como el título de la descripción de la oferta. Este campo se ha rellenado previamente con el texto introducido para **Alias de la oferta** cuando creó la oferta, pero puede cambiar este valor. Este nombre puede contener marcas comerciales (y puede incluir símbolos de marca comercial o copyright). El nombre no puede tener más de 50 caracteres ni incluir emojis.
 
@@ -191,7 +191,7 @@ Especifique una descripción breve de la oferta (100 caracteres como máximo), q
 
 Proporcione una descripción más larga de la oferta (hasta 256 caracteres). La descripción se puede usar en los resultados de la búsqueda de Marketplace.
 
-### <a name="description"></a>DESCRIPCIÓN
+### <a name="description"></a>Descripción
 
 Proporcione una descripción más larga de la oferta (hasta 3.000 caracteres). Esta descripción se mostrará a los clientes en la información general de la lista de Marketplace. Incluya una propuesta de valor de la oferta, los beneficios clave, las asociaciones de la categoría o sector, las oportunidades de compra en la aplicación y todas las divulgaciones necesarias. 
 
@@ -319,7 +319,7 @@ Los servicios de Azure Government controlan datos que están sujetos a determina
 
 En la pestaña **Lista del plan** se muestra la información de la lista específica del plan que puede diferir entre distintos planes de la misma oferta.
 
-### <a name="name"></a>NOMBRE
+### <a name="name"></a>Nombre
 
 Se rellena previamente en función del nombre que asignó al plan cuando lo creó.  Este nombre aparecerá como el título de este "plan de software" que se muestra en Marketplace.  Puede contener un máximo de 100 caracteres.
 
@@ -327,7 +327,7 @@ Se rellena previamente en función del nombre que asignó al plan cuando lo cre�
 
 Proporcione un breve resumen del plan de software.  Puede contener un máximo de 100 caracteres.
 
-### <a name="description"></a>DESCRIPCIÓN
+### <a name="description"></a>Descripción
 
 Esta descripción es una oportunidad para explicar lo que hace que este plan de software sea único y las diferencias con respecto a otros planes de software de su oferta. Puede contener un máximo de 2000 caracteres.
 
@@ -481,7 +481,7 @@ Para implementar la versión de prueba en su nombre, cree y proporcione una susc
 
 - **Id. de suscripción de Azure** (necesario para Azure Resource Manager y Logic Apps): Escriba el identificador de la suscripción para conceder acceso a los servicios de la cuenta de Azure para la generación de informes y facturación del uso de los recursos. Se recomienda considerar la posibilidad de [crear una suscripción de Azure independiente](https://docs.microsoft.com/azure/billing/billing-create-subscription) que se use para las versiones de prueba, en caso de que no se tenga ninguna. Para buscar su identificador de la suscripción de Azure inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya a la pestaña **Suscripciones** del menú izquierdo. Al seleccionar la pestaña se mostrará el identificador de la suscripción (por ejemplo, "a83645ac-1234-5ab6-6789-1h234g764ghty").
 
-- **Identificador de inquilino de Azure AD** (se requiere): Escriba el [id. de inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de Azure Active Directory (AD). Para buscar dicho identificador, inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione la pestaña Azure Active Directory del menú de la izquierda, seleccione **Propiedades y busque el número de **identificador de directorio** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e). El id. de inquilino de su organización también lo puede buscar mediante la dirección URL de su nombre de dominio en: [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com).
+- **Identificador de inquilino de Azure AD** (se requiere): Escriba el [id. de inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de Azure Active Directory (AD). Para buscar dicho identificador, inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione la pestaña Azure Active Directory del menú de la izquierda, seleccione **Propiedades y busque el número de **identificador de directorio** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e). El id. de inquilino de su organización también lo puede buscar mediante la dirección URL de su nombre de dominio en: [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
 - **Nombre de inquilino de Azure AD** (se requiere para Dynamic 365): Escriba el nombre de Azure Active Directory (AD). Para buscar este nombre, inicie sesión en [Azure Portal](https://portal.azure.com/) y en la esquina superior derecha se mostrará su nombre del inquilino, debajo de su nombre de cuenta.
 

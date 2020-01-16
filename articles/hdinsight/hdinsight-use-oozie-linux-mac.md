@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 89364a3ee948abbe5d233052878abe92bc7663a7
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: ece6fdb743035069bc6c666d6e90c76860f63e82
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241676"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744911"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Uso de Apache Oozie con Apache Hadoop para definir y ejecutar un flujo de trabajo en Azure HDInsight basado en Linux
 
@@ -28,7 +28,7 @@ Oozie también puede usarse para programar trabajos específicos de un sistema, 
 > [!NOTE]  
 > Otra opción para definir los flujos de trabajo con HDInsight es utilizar Azure Data Factory. Para más información acerca de Data Factory, consulte [Uso de Apache Pig y Apache Hive con Data Factory][azure-data-factory-pig-hive]. Para usar Oozie en clústeres con Enterprise Security Package, vea [Ejecución de Apache Oozie en clústeres HDInsight Hadoop con Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Un clúster de Hadoop en HDInsight**. Consulte [Introducción a HDInsight en Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
@@ -394,10 +394,10 @@ Los pasos siguientes usan el comando Oozie para enviar y administrar flujos de t
 
     ```xml
     <name>oozie.base.url</name>
-    <value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
+    <value>http://ACTIVE-HEADNODE-NAME.UNIQUEID.cx.internal.cloudapp.net:11000/oozie</value>
     ```
 
-    La parte `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` es la dirección URL que se usa con el comando de Oozie.
+    La parte `http://ACTIVE-HEADNODE-NAME.UNIQUEID.cx.internal.cloudapp.net:11000/oozie` es la dirección URL que se usa con el comando de Oozie.
 
 2. Edite el código para reemplazar la dirección URL con la que recibió anteriormente. Use lo siguiente para crear una variable de entorno para la dirección URL, de manera que no tenga que escribirla para cada comando:
 
@@ -643,7 +643,7 @@ Puede utilizar el coordinador para especificar un inicio, un fin y la frecuencia
 
     ![Pestaña de información del trabajo de consola web de Oozie](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Con la IU Oozie, puede ver registros de Oozie. La IU de Oozie también contiene vínculos a registros de JobTracker para tareas de MapReduce iniciadas por el flujo de trabajo. El patrón para la solución de problemas debe ser el siguiente:
 
@@ -663,7 +663,7 @@ Las siguientes son errores específicos que pueden surgir y cómo resolverlos.
 
 **Causa**: las direcciones de Azure Blob Storage usadas en el archivo **job.xml** no incluyen el nombre del contenedor de almacenamiento ni de la cuenta de almacenamiento. El formato de dirección de Blob Storage debe ser `wasbs://containername@storageaccountname.blob.core.windows.net`.
 
-**Resolución**: cambiar las direcciones de Blob Storage que usa el trabajo.
+**Solución:** cambiar las direcciones de Blob Storage que usa el trabajo.
 
 ### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltusergt"></a>JA002: Oozie no tiene permiso para suplantar a &lt;USER&gt;
 
@@ -673,7 +673,7 @@ Las siguientes son errores específicos que pueden surgir y cómo resolverlos.
 
 **Causa**: la configuración actual de permisos no permite a Oozie suplantar la cuenta de usuario especificada.
 
-**Resolución**: Oozie puede suplantar a los usuarios del grupo **users**. Utilice el `groups USERNAME` para ver los grupos de los que es miembro la cuenta de usuario. Si el usuario no es miembro del grupo **Usuarios**, use el siguiente comando para agregar el usuario al grupo:
+**Solución:** Oozie puede suplantar a los usuarios del grupo **users**. Utilice el `groups USERNAME` para ver los grupos de los que es miembro la cuenta de usuario. Si el usuario no es miembro del grupo **Usuarios**, use el siguiente comando para agregar el usuario al grupo:
 
     sudo adduser USERNAME users
 
@@ -688,7 +688,7 @@ Las siguientes son errores específicos que pueden surgir y cómo resolverlos.
 
 **Causa**: Sqoop no puede cargar el controlador de base de datos necesario para acceder a la base de datos.
 
-**Resolución**: al usar Sqoop desde un trabajo de Oozie, debe incluir el controlador de base de datos con los demás recursos (por ejemplo, workflow.xml) que usa el trabajo. Asimismo, haga referencia al archivo que contiene el controlador de base de datos desde la sección `<sqoop>...</sqoop>` de workflow.xml.
+**Solución:** al usar Sqoop desde un trabajo de Oozie, debe incluir el controlador de base de datos con los demás recursos (por ejemplo, workflow.xml) que usa el trabajo. Asimismo, haga referencia al archivo que contiene el controlador de base de datos desde la sección `<sqoop>...</sqoop>` de workflow.xml.
 
 Por ejemplo, para el trabajo de este documento, se usarían los siguientes pasos:
 

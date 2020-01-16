@@ -3,7 +3,7 @@ title: Implementación de StorSimple Snapshot Manager | Microsoft Docs
 description: Obtenga información acerca de cómo descargar e instalar el Administrador de instantáneas StorSimple, un complemento de MMC para administrar las características de copia de seguridad y protección de datos de StorSimple.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: f0128f57-519e-49ec-9187-23575809cdbe
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: ee17e4b69d1e6c9de465e4241ee2237361e320b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 6d3e3d6cdf7a831bf09d9c4709c1a60d27683438
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61077738"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933377"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Implementar el complemento MMC del Administrador de instantáneas StorSimple
 

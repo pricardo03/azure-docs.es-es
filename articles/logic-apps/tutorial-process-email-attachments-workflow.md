@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: ef0445727c100b7262ebffc69be5e00a7956520a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f25486aba9549855939b06ea5b8dfc14db0af95
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428774"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969119"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatización de tareas para procesar correos electrónicos mediante Azure Logic Apps, Azure Functions y Azure Storage
 
@@ -52,7 +52,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales 
 
 Puede guardar los correos electrónicos entrantes y los datos adjuntos como blobs en un [contenedor de Azure Storage](../storage/common/storage-introduction.md).
 
-1. Para crear un contenedor de almacenamiento, [cree una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) con esta configuración en la pestaña **Datos básicos** de Azure Portal:
+1. Para crear un contenedor de almacenamiento, [cree una cuenta de almacenamiento](../storage/common/storage-account-create.md) con esta configuración en la pestaña **Datos básicos** de Azure Portal:
 
    | Configuración | Value | Descripción |
    |---------|-------|-------------|
@@ -159,7 +159,7 @@ Ahora, use el fragmento de código proporcionado en estos pasos para crear una f
 
    ![Aplicación de función creada](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   Para crear una aplicación de función, también puede usar la [CLI de Azure](../azure-functions/functions-create-first-azure-function-azure-cli.md) o [PowerShell y plantillas de Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+   Para crear una aplicación de función, también puede usar la [CLI de Azure](../azure-functions/functions-create-first-azure-function-azure-cli.md) o [PowerShell y plantillas de Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
 1. En la lista **Aplicaciones de funciones**, expanda la aplicación de función, si no está ya expandida. En su aplicación de función, seleccione **Funciones**. En la barra de herramientas de funciones, elija  **New function** (Nueva función).
 
@@ -282,7 +282,7 @@ A continuación, agregue un [desencadenador](../logic-apps/logic-apps-overview.m
       | **Intervalo** | 1 | Número de intervalos que se espera entre comprobaciones |
       | **Frecuencia** | Minute | La unidad de tiempo de cada intervalo entre comprobaciones |
       ||||
-  
+
    1. En la lista **Agregar nuevo parámetro** lista, seleccione **Filtro de asunto**.
 
    1. Después de que el cuadro **Filtro de asunto** aparezca en la acción, especifique el asunto como se muestra aquí:
@@ -377,7 +377,8 @@ Ahora, pruebe si la condición funciona correctamente:
 A continuación, defina las acciones que se realizarán para la rama **If true**. Para guardar el correo electrónico junto con los datos adjuntos, elimine el código HTML del cuerpo del correo electrónico y, luego, cree blobs en el contenedor de almacenamiento para el correo electrónico y los datos adjuntos.
 
 > [!NOTE]
-> La lógica de aplicación no tiene que hacer nada con la rama **If false** cuando un correo electrónico no tiene datos adjuntos. Como ejercicio adicional, cuando termine este tutorial, puede agregar una acción adecuada que quiera realizar con la rama **If false**.
+> La lógica de aplicación no tiene que hacer nada con la rama **If false** cuando un correo electrónico no tiene datos adjuntos.
+> Como ejercicio adicional, cuando termine este tutorial, puede agregar una acción adecuada que quiera realizar con la rama **If false**.
 
 ## <a name="call-removehtmlfunction"></a>Llamada a RemoveHTMLFunction
 
@@ -605,7 +606,9 @@ A continuación, agregue una acción para que la aplicación lógica envíe un c
    ||||
 
    > [!NOTE]
-   > Si selecciona un campo que contiene una matriz, como el campo **Content** (Contenido), el diseñador agrega automáticamente un bucle "For each" (Para cada uno) en la acción que haga referencia a ese campo. De este modo, la aplicación lógica realiza la acción en todos los elementos de la matriz. Para quitar el bucle, quite el campo de la matriz, mueva la acción de referencia fuera del bucle, seleccione el botón de puntos suspensivos ( **...** ) en la barra de título del bucle y seleccione **Delete** (Eliminar).
+   > Si selecciona un campo que contiene una matriz, como el campo **Content** (Contenido), el diseñador agrega automáticamente un bucle "For each" (Para cada uno) en la acción que haga referencia a ese campo.
+   > De este modo, la aplicación lógica realiza la acción en todos los elementos de la matriz.
+   > Para quitar el bucle, quite el campo de la matriz, mueva la acción de referencia fuera del bucle, seleccione el botón de puntos suspensivos ( **...** ) en la barra de título del bucle y seleccione **Delete** (Eliminar).
 
 1. Guarde la aplicación lógica.
 

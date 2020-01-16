@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: diberry
-ms.openlocfilehash: 7683a73fd1f403847089dc722e5f6382acd948cb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2df32c20bebf4243f383a0cccd8f037721533602
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447689"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890386"
 ---
 # <a name="tutorial--add-sentiment-analysis-as-a-publishing-setting"></a>Tutorial:  Incorporación de análisis de opiniones como configuración de publicación
 
@@ -128,7 +128,7 @@ Como es una configuración de publicación, no la verá etiquetada en las págin
 
 ## <a name="related-information"></a>Información relacionada
 
-* [Text Analytics](../Text-Analytics/index.yml) de Cognitive Services ofrece Análisis de sentimiento. La característica está restringida a los [idiomas admitidos](luis-language-support.md##languages-supported) por Text Analytics.
+* [Text Analytics](../Text-Analytics/index.yml) de Cognitive Services ofrece Análisis de sentimiento. La característica está restringida a los [idiomas admitidos](luis-language-support.md#languages-supported) por Text Analytics.
 * [Cómo se realiza el entrenamiento](luis-how-to-train.md)
 * [Publicación](luis-how-to-publish-app.md)
 * [Prueba de la aplicación el portal de LUIS](luis-interactive-test.md)

@@ -15,12 +15,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 076d6fc387aaee85a1cd407fa48e7347ff185ef4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b7a8f7136d0899ab3afe04bce2d25bc2e7f8d3e2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038876"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981728"
 ---
 # <a name="pricing-guidance-for-azure-sql-server-vms"></a>Guía de precios para máquinas virtuales con Azure SQL Server
 
@@ -166,7 +166,7 @@ Para otros flujos de trabajo, considere la posibilidad de parar y reiniciar auto
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para consultar una guía de precios general de Azure, vea [Prevención de costos inesperados con la administración de costos y facturación de Azure](../../../billing/billing-getting-started.md). Para conocer los precios más recientes de Virtual Machines, incluido SQL Server, vea la página de precios de Azure VM para [máquina virtuales Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) y [máquina virtuales Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+Para consultar una guía de precios general de Azure, vea [Prevención de costos inesperados con la administración de costos y facturación de Azure](../../../cost-management-billing/manage/getting-started.md). Para conocer los precios más recientes de Virtual Machines, incluido SQL Server, vea la página de precios de Azure VM para [máquina virtuales Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) y [máquina virtuales Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 Para obtener información general sobre SQL Server con Azure Virtual Machines, vea los siguientes artículos:
 

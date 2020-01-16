@@ -1,17 +1,14 @@
 ---
 title: Configurar un dispositivo de Azure Migrate para VMware
 description: Obtenga información sobre cómo configurar un dispositivo de Azure Migrate para evaluar y migrar VM de VMware.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
-ms.author: raynew
-ms.openlocfilehash: adb78682e80d78aa4fa6b48507f1fcce789a3fe1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: da451149d0420bc71a355fdf4f4fb122b196d5a0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360181"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029066"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configuración de un dispositivo para máquinas virtuales de VMware
 
@@ -72,7 +69,7 @@ Importe el archivo descargado y cree una máquina virtual.
 
 ### <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
 
-Asegúrese de que la máquina virtual del dispositivo se puede conectar a las [direcciones URL de Azure](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
+Asegúrese de que la máquina virtual del dispositivo se puede conectar a las [direcciones URL de Azure](migrate-appliance.md#url-access).
 
 
 ## <a name="configure-the-appliance"></a>Configuración del dispositivo
@@ -114,7 +111,7 @@ El dispositivo necesita conectarse a vCenter Server para detectar los datos de c
 
 ### <a name="specify-vcenter-server-details"></a>Especificar los detalles de vCenter Server
 1. En **Specify vCenter Server details** (Especificar detalles de vCenter Server), especifique el nombre (nombre de dominio completo) o la dirección IP de vCenter Server. Puede dejar el puerto predeterminado o especificar un puerto personalizado en el que vCenter Server escuche.
-2. En **User name** (Nombre de usuario) y **Password** (Contraseña), especifique las credenciales de la cuenta de solo lectura que el dispositivo utilizará para detectar las máquinas virtuales en vCenter Server. Asegúrese de que la cuenta tenga los [permisos necesarios para la detección](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Puede limitar el ámbito de la detección. Para ello, debe limitar el acceso a la cuenta de vCenter en consecuencia; [aquí](tutorial-assess-vmware.md#set-the-scope-of-discovery)encontrará más información acerca del ámbito de la detección.
+2. En **User name** (Nombre de usuario) y **Password** (Contraseña), especifique las credenciales de la cuenta de solo lectura que el dispositivo utilizará para detectar las máquinas virtuales en vCenter Server. Puede limitar el ámbito de la detección. Para ello, debe limitar el acceso a la cuenta de vCenter en consecuencia; [aquí](tutorial-assess-vmware.md#set-the-scope-of-discovery)encontrará más información acerca del ámbito de la detección.
 3. Haga clic en **Validate connection** (Validar conexión) para asegurarse de que el dispositivo puede conectarse a vCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Especificación de las credenciales de máquina virtual

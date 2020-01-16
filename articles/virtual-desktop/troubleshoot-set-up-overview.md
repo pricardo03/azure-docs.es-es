@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/06/2019
 ms.author: helohr
-ms.openlocfilehash: 817cd09797ad861521a462da9c5d0850c65bf562
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ce1af278d67f96873ed611db8dc05938205638dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459578"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980240"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Información general sobre solución de problemas, comentarios y soporte técnico
 
@@ -27,7 +27,7 @@ Visite la [Comunidad técnica de Windows Virtual Desktop](https://techcommunity.
 Use la siguiente tabla para identificar y resolver los problemas que puedan surgir al configurar un entorno de inquilinos mediante el cliente de Escritorio remoto. Una vez que el inquilino esté configurado, puede usar el nuevo [servicio Diagnostics](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service) para identificar los problemas en escenarios comunes.
 
 >[!NOTE]
-> En el foro Tech Community puede comentar sus problemas con el equipo del producto y con los miembros activos de la comunidad. Visite el espacio de [Tech Community sobre Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) 
+> En el foro Tech Community puede comentar sus problemas con el equipo del producto y con los miembros activos de la comunidad. Visite el espacio de [Tech Community sobre Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
 
 | **Problema**                                                            | **Solución propuesta**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
@@ -54,6 +54,6 @@ Use la siguiente tabla para identificar y resolver los problemas que puedan surg
 - Para solucionar problemas con los clientes de Escritorio remoto, consulte [Solución de problemas del cliente de Escritorio remoto](troubleshoot-client.md).
 - Para solucionar problemas al usar PowerShell con Windows Virtual Desktop, consulte [PowerShell para Windows Virtual Desktop](troubleshoot-powershell.md).
 - Para más información sobre el servicio, consulte [Entorno de Windows Virtual Desktop](environment-setup.md).
-- Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
-- Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](../azure-resource-manager/resource-group-audit.md).
-- Para obtener información sobre las acciones que permiten determinar los errores que se producen durante la implementación, consulte [Visualización de operaciones de implementación](../azure-resource-manager/resource-manager-deployment-operations.md).
+- Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- Para obtener información sobre las acciones que permiten determinar los errores que se producen durante la implementación, consulte [Visualización de operaciones de implementación](../azure-resource-manager/templates/deployment-history.md).

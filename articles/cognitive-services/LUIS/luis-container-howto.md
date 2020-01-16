@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: dapine
-ms.openlocfilehash: c15602163ee1916047b9cb35a516a049f951b302
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 308a474970db54022e5351fdf349d9572fbafb0d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195949"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888573"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar y ejecutar contenedores de docker de LUIS
  
@@ -24,11 +24,11 @@ El contenedor Language Understanding (LUIS) carga el modelo de Language Understa
 
 En el siguiente vídeo, se explica cómo se utiliza este contenedor.
 
-[![Demostración de contenedores de Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo).
+[![Demostración de contenedores de Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para ejecutar el contenedor de LUIS, tenga en cuenta los siguientes requisitos previos:
 
@@ -84,7 +84,7 @@ Una vez que el contenedor esté en el [equipo host](#the-host-computer), utilice
 
 1. [Exporte el paquete](#export-packaged-app-from-luis) del contenedor desde el portal de LUIS o las API de LUIS.
 1. Mueva el archivo del paquete al directorio de **entrada** correspondiente del [equipo host](#the-host-computer). No debe modificar el archivo del paquete de LUIS, sobrescribirlo, descomprimirlo ni cambiar su nombre.
-1. [Ejecute el contenedor](##run-the-container-with-docker-run) con la configuración de facturación y el _montaje de entrada_. Hay más [ejemplos](luis-container-configuration.md#example-docker-run-commands) del comando `docker run` disponibles. 
+1. [Ejecute el contenedor](#run-the-container-with-docker-run) con la configuración de facturación y el _montaje de entrada_. Hay más [ejemplos](luis-container-configuration.md#example-docker-run-commands) del comando `docker run` disponibles. 
 1. [Consulte el punto de conexión de predicción del contenedor](#query-the-containers-prediction-endpoint). 
 1. Cuando haya terminado con el contenedor, [importe los registros de punto de conexión](#import-the-endpoint-logs-for-active-learning) desde la salida de montaje en el portal de LUIS y [detenga](#stop-the-container) el contenedor.
 1. En el portal de LUIS, utilice el [aprendizaje activo ](luis-how-to-review-endpoint-utterances.md) de la página sobre la **revisión de expresiones de puntos de conexión** para mejorar la aplicación.
@@ -166,7 +166,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Marcador de posición | Valor |
+| Marcador de posición | Value |
 |-------------|-------|
 | **{APP_ID}** | Identificador de la aplicación de LUIS publicada. |
 | **{SLOT_NAME}** | Entorno de la aplicación de LUIS publicada. Utilice uno de los valores siguientes:<br/>`PRODUCTION`<br/>`STAGING` |
@@ -185,7 +185,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Marcador de posición | Valor |
+| Marcador de posición | Value |
 |-------------|-------|
 | **{APP_ID}** | Identificador de la aplicación de LUIS entrenada. |
 | **{APP_VERSION}** | Versión de la aplicación de LUIS entrenada. |
@@ -252,12 +252,12 @@ Utilice el host, `http://localhost:5000`, con las API de contenedor.
 
 Los parámetros de consulta determinan cómo y qué se devuelve en la respuesta de la consulta:
 
-|Parámetro de consulta|type|Propósito|
+|Parámetro de consulta|Tipo|Propósito|
 |--|--|--|
 |`query`|string|Expresión del usuario.|
-|`verbose`|boolean|Valor booleano que indica si se van a devolver todos los metadatos de los modelos de predicción. El valor predeterminado es false.|
-|`log`|boolean|Registra las consultas, lo que puede utilizarse después para el [aprendizaje activo](luis-how-to-review-endpoint-utterances.md). El valor predeterminado es false.|
-|`show-all-intents`|boolean|Valor booleano que indica si se devuelven todas las intenciones o solo la intención de puntuación superior. El valor predeterminado es false.|
+|`verbose`|boolean|Valor booleano que indica si se van a devolver todos los metadatos de los modelos de predicción. El valor predeterminado es False.|
+|`log`|boolean|Registra las consultas, lo que puede utilizarse después para el [aprendizaje activo](luis-how-to-review-endpoint-utterances.md). El valor predeterminado es False.|
+|`show-all-intents`|boolean|Valor booleano que indica si se devuelven todas las intenciones o solo la intención de puntuación superior. El valor predeterminado es False.|
 
 # <a name="v2-prediction-endpointtabv2"></a>[Punto de conexión de predicción de V2](#tab/v2)
 
@@ -268,10 +268,10 @@ Los parámetros de consulta determinan cómo y qué se devuelve en la respuesta 
 
 Los parámetros de consulta determinan cómo y qué se devuelve en la respuesta de la consulta:
 
-|Parámetro de consulta|type|Propósito|
+|Parámetro de consulta|Tipo|Propósito|
 |--|--|--|
 |`q`|string|Expresión del usuario.|
-|`timezoneOffset`|número|timezoneOffset le permite [cambiar la zona horaria](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) que se utiliza en la entidad datetimeV2 pregenerada.|
+|`timezoneOffset`|number|timezoneOffset le permite [cambiar la zona horaria](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) que se utiliza en la entidad datetimeV2 pregenerada.|
 |`verbose`|boolean|Si está establecido en true, devuelve todas las intenciones y sus puntuaciones. El valor predeterminado es false, donde solo se devuelve la intención principal.|
 |`staging`|boolean|Si está establecido en true, devuelve la consulta a partir de los resultados del entorno de ensayo. |
 |`log`|boolean|Registra las consultas, lo que puede utilizarse después para el [aprendizaje activo](luis-how-to-review-endpoint-utterances.md). El valor predeterminado es true.|
@@ -355,7 +355,7 @@ Después de cargar el registro, [revise las expresiones del punto de conexión](
 
 Para apagar el contenedor, en el entorno de la línea de comandos en la que se ejecuta el contenedor, presione **Ctrl + C**.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si ejecuta el contenedor con un [montaje](luis-container-configuration.md#mount-settings) de salida y el registro habilitados, el contenedor genera archivos de registro que resultan útiles para solucionar problemas que se producen al iniciar o ejecutar el contenedor.
 

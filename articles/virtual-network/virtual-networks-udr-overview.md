@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 4132dacbb628051e674952806cb6b606ee915525
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c6ea57ac30a1b4d228a19c3be6a794b3d2175171
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644621"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973028"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -69,7 +69,7 @@ Azure agrega rutas del sistema predeterminadas adicionales de sistema para difer
 * **VirtualNetworkServiceEndpoint**: Azure agrega las direcciones IP públicas de determinados servicios a la tabla de rutas cuando se habilita un punto de conexión para el servicio. Los puntos de conexión de servicio se habilitan para las subredes individuales de una red virtual, por lo que la ruta solo se agrega a la tabla de rutas de una subred para la que haya algún punto de conexión de servicio habilitado. Las direcciones IP públicas de los servicios de Azure cambian periódicamente. Azure administra automáticamente las direcciones en la tabla de rutas cuando cambian. Obtenga más información acerca de los [puntos de conexión de servicio de red virtual](virtual-network-service-endpoints-overview.md) y los servicios para los que se pueden crear puntos de conexión de servicio.<br>
 
     > [!NOTE]
-    > El tipos de próximo salto **Emparejamiento de VNet** y **VirtualNetworkServiceEndpoint** solo se agregan a las tablas de rutas de las subredes de las redes virtuales creadas a través del modelo de implementación de Azure Resource Manager. Los tipos de próximo salto no se agregan a las tablas de rutas asociadas a las subredes de redes virtuales creadas mediante el modelo de implementación clásica. Obtenga más información acerca de los [modelos de implementación de Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    > El tipos de próximo salto **Emparejamiento de VNet** y **VirtualNetworkServiceEndpoint** solo se agregan a las tablas de rutas de las subredes de las redes virtuales creadas a través del modelo de implementación de Azure Resource Manager. Los tipos de próximo salto no se agregan a las tablas de rutas asociadas a las subredes de redes virtuales creadas mediante el modelo de implementación clásica. Obtenga más información acerca de los [modelos de implementación de Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="custom-routes"></a>Rutas personalizadas
 
@@ -101,7 +101,7 @@ En las rutas definidas por el usuario, no se pueden especificar **Emparejamiento
 
 ## <a name="next-hop-types-across-azure-tools"></a>Tipos de próximo salto en las herramientas de Azure
 
-El nombre que se muestra y al que hace referencia en los tipos de próximo salto es diferente entre Azure Portal y las herramientas de línea de comandos y los modelos de implementación clásico y mediante Azure Resource Manager. En la siguiente tabla se enumeran los nombres que se usan para hacer referencia a cada tipo de próximo salto con las diferentes herramientas y los [modelos de implementación](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
+El nombre que se muestra y al que hace referencia en los tipos de próximo salto es diferente entre Azure Portal y las herramientas de línea de comandos y los modelos de implementación clásico y mediante Azure Resource Manager. En la siguiente tabla se enumeran los nombres que se usan para hacer referencia a cada tipo de próximo salto con las diferentes herramientas y los [modelos de implementación](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
 |Tipo de próximo salto                   |CLI de Azure y PowerShell (Resource Manager) |CLI clásica de Azure y PowerShell (clásico)|
 |-------------                   |---------                                       |-----|

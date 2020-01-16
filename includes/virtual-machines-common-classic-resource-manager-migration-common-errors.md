@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9b47d3bde4c4c5ef7fd3d41c038ea078c19db900
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e590c07c3969865d573838352a8a778caa1cc799
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005756"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901657"
 ---
 En este artículo se catalogan los errores y las soluciones más comunes durante la migración de recursos de IaaS del modelo de implementación clásica a la pila de Azure Resource Manager.
 
@@ -19,9 +19,9 @@ En este artículo se catalogan los errores y las soluciones más comunes durante
 
 | Cadena de error | Mitigación |
 | --- | --- |
-| Error interno del servidor |En algunos casos, se trata de un error transitorio que desaparece con un reintento. Si continúa, [póngase en contacto con el soporte técnico de Azure](../articles/azure-supportability/how-to-create-azure-support-request.md) ya que será necesario investigar los registros de la plataforma. <br><br> **NOTA:** Cuando la incidencia ya esté en manos del equipo de soporte técnico, no intente ninguna mitigación de riesgos por su cuenta ya que podría tener consecuencias imprevistas sobre su entorno. |
+| Error interno del servidor |En algunos casos, se trata de un error transitorio que desaparece con un reintento. Si continúa, [póngase en contacto con el soporte técnico de Azure](../articles/azure-portal/supportability/how-to-create-azure-support-request.md) ya que será necesario investigar los registros de la plataforma. <br><br> **NOTA:** Cuando la incidencia ya esté en manos del equipo de soporte técnico, no intente ninguna mitigación de riesgos por su cuenta ya que podría tener consecuencias imprevistas sobre su entorno. |
 | No se admite la migración para la implementación {nombre de implementación} en HostedService {nombre del servicio hospedado} porque es una implementación PaaS (web/trabajo). |Esto sucede cuando una implementación contiene un rol web o de trabajo. Dado que solo se admite la migración de máquinas virtuales, quite el rol web o de trabajo de la implementación y vuelva a intentar la migración. |
-| Error de implementación de plantilla {nombre de plantilla}. CorrelationId={guid} |En el back-end del servicio de migración, usamos plantillas de Azure Resource Manager para crear recursos en la pila de Azure Resource Manager. Puesto que las plantillas son idempotentes, lo normal es que pueda reintentar la operación de migración para solucionar este error. Si este error continúa, [póngase en contacto con el soporte técnico de Azure](../articles/azure-supportability/how-to-create-azure-support-request.md) y proporcióneles el CorrelationId. <br><br> **NOTA:** Cuando la incidencia ya esté en manos del equipo de soporte técnico, no intente ninguna mitigación de riesgos por su cuenta ya que podría tener consecuencias imprevistas sobre su entorno. |
+| Error de implementación de plantilla {nombre de plantilla}. CorrelationId={guid} |En el back-end del servicio de migración, usamos plantillas de Azure Resource Manager para crear recursos en la pila de Azure Resource Manager. Puesto que las plantillas son idempotentes, lo normal es que pueda reintentar la operación de migración para solucionar este error. Si este error continúa, [póngase en contacto con el soporte técnico de Azure](../articles/azure-portal/supportability/how-to-create-azure-support-request.md) y proporcióneles el CorrelationId. <br><br> **NOTA:** Cuando la incidencia ya esté en manos del equipo de soporte técnico, no intente ninguna mitigación de riesgos por su cuenta ya que podría tener consecuencias imprevistas sobre su entorno. |
 | La red virtual {nombre de la red virtual} no existe. |Esto puede ocurrir si ha creado la red virtual en el nuevo Azure Portal. El nombre de la red virtual real sigue el patrón "Grupo * \<nombre de VNET>" |
 | La máquina virtual {nombre de la máquina virtual} de HostedService {nombre del servicio hospedado} contiene la extensión {nombre de la extensión} que no se admite en Azure Resource Manager. Se recomienda desinstalarla de la máquina virtual antes de continuar con la migración. |Las extensiones XML como BGInfo 1.\* no se admiten en Azure Resource Manager. Por lo tanto, no se pueden migrar estas extensiones. Si estas extensiones se dejan instaladas en la máquina virtual, se desinstalan automáticamente antes de completar la migración. |
 | La máquina virtual {nombre de la máquina virtual} de HostedService {nombre del servicio hospedado} contiene la extensión VMSnapshot/VMSnapshotLinux que actualmente no se admite para migración. Desinstálela de la máquina virtual y vuelva a agregarla mediante Azure Resource Manager después de completar la migración |Este es el escenario donde la máquina virtual está configurada para Azure Backup. Puesto que este no es actualmente un escenario admitido, siga la solución alternativa en https://aka.ms/vmbackupmigration. |
@@ -169,7 +169,7 @@ $vm = Get-AzVM -ResourceGroupName "MyRG" -Name "MyVM"
 Remove-AzVMSecret -VM $vm
 Update-AzVM -ResourceGroupName "MyRG" -VM $vm
 ```
-#### <a name="azure-cli"></a>CLI de Azure
+#### <a name="azure-cli"></a>Azure CLI
 
 ```bash
 az vm update -g "myrg" -n "myvm" --set osProfile.Secrets=[]

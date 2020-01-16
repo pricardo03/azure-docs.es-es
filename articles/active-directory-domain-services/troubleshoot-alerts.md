@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 459aeaefc07e3f55b0829f0ad378992104982941
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 26ae70f9283ac7be847a59753130dd8ba8c11c18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703953"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979900"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemas conocidos: Alertas comunes y resolución en Azure Active Directory Domain Services
 
@@ -30,7 +30,7 @@ En este artículo se proporciona información para solución de problemas de ale
 
 *Es posible que se haya eliminado el directorio de Azure AD asociado con su dominio administrado. El dominio administrado ya no está en una configuración admitida. Microsoft no puede supervisar, administrar, revisar ni sincronizar el dominio administrado.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Este error se produce habitualmente cuando una suscripción de Azure se pasa a un nuevo directorio de Azure AD y se elimina el directorio de Azure AD anterior que está asociado con Azure AD DS.
 
@@ -42,13 +42,13 @@ Este error es irrecuperable. Para resolver la alerta, debe [eliminar el dominio 
 
 *Azure AD Domain Services no se puede habilitar en un directorio de Azure AD B2C.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Azure AD DS se sincroniza automáticamente con un directorio de Azure AD. Si el directorio de Azure AD está configurado para B2C, Azure AD DS no se puede implementar ni sincronizar.
 
 Para usar Azure AD DS, debe volver a crear el dominio administrado en un directorio que no sea de Azure AD B2C mediante los pasos siguientes:
 
-1. [Elimine el dominio administrado de Azure AD DS](delete-aadds.md) del directorio de Azure AD existente.
+1. [Eliminación del dominio administrado de Azure AD DS](delete-aadds.md) del directorio de Azure AD existente.
 1. Cree un nuevo directorio de Azure AD que no sea un directorio de Azure AD B2C.
 1. [Cree un dominio administrado de Azure AD DS de reemplazo](tutorial-create-instance.md).
 
@@ -60,7 +60,7 @@ El estado del dominio administrado de Azure AD DS se actualiza automáticament
 
 *El intervalo de direcciones IP de la red virtual en la que habilitó Azure AD Domain Services está en un intervalo IP público. Azure AD Domain Services debe estar habilitado en una red virtual con un intervalo de direcciones IP privado. Esta configuración afecta a la capacidad de Microsoft para supervisar, administrar, revisar y sincronizar el dominio administrado.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Antes de empezar, asegúrese de que comprende los [espacios de direcciones IP v4 privados](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
@@ -88,12 +88,12 @@ El estado del dominio administrado de Azure AD DS se actualiza automáticament
 
 *Se ha eliminado la suscripción de Azure asociada a su dominio administrado.  Azure AD Domain Services requiere una suscripción activa para seguir funcionando correctamente.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Azure AD DS requiere una suscripción activa y no se puede pasar a otra suscripción. Si se elimina la suscripción de Azure a la que estaba asociado el dominio administrado de Azure AD DS, ha de volver a crear una suscripción de Azure y un dominio administrado de Azure AD DS.
 
-1. [Cree una suscripción a Azure](../billing/billing-create-subscription.md).
-1. [Elimine el dominio administrado de Azure AD DS](delete-aadds.md) del directorio de Azure AD existente.
+1. [Cree una suscripción a Azure](../cost-management-billing/manage/create-subscription.md).
+1. [Eliminación del dominio administrado de Azure AD DS](delete-aadds.md) del directorio de Azure AD existente.
 1. [Cree un dominio administrado de Azure AD DS de reemplazo](tutorial-create-instance.md).
 
 ## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: Su suscripción de Azure está deshabilitada
@@ -102,7 +102,7 @@ Azure AD DS requiere una suscripción activa y no se puede pasar a otra suscri
 
 *La suscripción de Azure asociada a su dominio administrado no está activa.  Azure AD Domain Services requiere una suscripción activa para seguir funcionando correctamente.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Azure AD DS requiere una suscripción activa. Si la suscripción de Azure a la que está asociado el dominio administrado de Azure AD DS no está activa, debe renovarla para reactivar la suscripción.
 
@@ -117,7 +117,7 @@ Cuando el dominio administrado se habilita de nuevo, el estado del dominio admin
 
 *La suscripción que utiliza Azure AD Domain Services se ha movido a otro directorio. Azure AD Domain Services necesita tener una suscripción activa en el mismo directorio para que funcione correctamente.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Azure AD DS requiere una suscripción activa y no se puede pasar a otra suscripción. Si se ha movido la suscripción de Azure a la que está asociado el dominio administrado de Azure AD DS, vuelva a colocarla en el directorio anterior o bien [elimine el dominio administrado](delete-aadds.md) del directorio existente y [cree un dominio administrado de Azure AD DS de reemplazo en la suscripción elegida](tutorial-create-instance.md).
 
@@ -127,7 +127,7 @@ Azure AD DS requiere una suscripción activa y no se puede pasar a otra suscri
 
 *Se ha eliminado un recurso que se usa con el dominio administrado. Este recurso es necesario para que Azure AD Domain Services funcione correctamente.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Azure AD DS crea recursos específicos para que funcionen correctamente, como las direcciones IP públicas, las NIC y un equilibrador de carga. Si se elimina alguno de estos recursos designados, el dominio administrado está en un estado incompatible e impide que se administre el dominio. Para más información sobre estos recursos, consulte [Recursos de red usados por Azure AD DS](network-considerations.md#network-resources-used-by-azure-ad-ds).
 
@@ -146,7 +146,7 @@ Esta alerta se genera cuando se elimina uno de estos recursos necesarios. Si el 
 
 *La subred seleccionada para la implementación de Azure AD Domain Services está llena y carece de espacio para el controlador de dominio adicional que hay que crear.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 La subred de la red virtual para Azure AD DS necesita direcciones IP suficientes para los recursos creados automáticamente. Este espacio de direcciones IP incluye la necesidad de crear recursos de reemplazo si hay un evento de mantenimiento. Para minimizar el riesgo de quedarse sin direcciones IP disponibles, no implemente recursos adicionales, como sus propias máquinas virtuales, en la misma subred de red virtual que Azure AD DS.
 
@@ -158,7 +158,7 @@ Este error es irrecuperable. Para resolver la alerta, [elimine el dominio admini
 
 *Una entidad de servicio que Azure AD Domain Services utiliza para atender a su dominio no está autorizado para administrar recursos en la suscripción de Azure. La entidad de servicio debe tener permisos para atender al dominio administrado.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Algunas entidades de servicio generadas automáticamente se utilizan para administrar y crear recursos para un dominio administrado de Azure AD DS. Si se modifican los permisos de acceso para una de estas entidades de servicio, no podrá administrar correctamente los recursos. En los pasos siguientes se muestra cómo comprender los permisos de acceso a una entidad de servicio para poder concederlos:
 
@@ -171,7 +171,7 @@ Algunas entidades de servicio generadas automáticamente se utilizan para admini
 
 *Hemos identificado que la subred de la red virtual de este dominio no tiene suficientes direcciones IP. Azure AD Domain Services necesita como mínimo dos direcciones IP disponibles en la subred en que se habilita. Se recomienda tener al menos de tres a cinco direcciones IP de reserva en la subred. Esto puede deberse a que se hayan implementado otras máquinas virtuales dentro de la subred, agotando así el número de direcciones IP disponibles, o a que haya una restricción en el número de direcciones IP disponibles en la subred.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 La subred de la red virtual para Azure AD DS necesita direcciones IP suficientes para los recursos creados automáticamente. Este espacio de direcciones IP incluye la necesidad de crear recursos de reemplazo si hay un evento de mantenimiento. Para minimizar el riesgo de quedarse sin direcciones IP disponibles, no implemente recursos adicionales, como sus propias máquinas virtuales, en la misma subred de red virtual que Azure AD DS.
 
@@ -194,7 +194,7 @@ El estado del dominio administrado de Azure AD DS se actualiza automáticament
 
 *Se ha detectado que los recursos que utiliza Azure AD Domain Services tienen un estado inesperado y no se pueden recuperar.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Este error es irrecuperable. Para resolver la alerta, [elimine el dominio administrado de Azure AD DS existente](delete-aadds.md) y vuelva a crearlo. Si tiene problemas para eliminar el dominio administrado de Azure AD DS, [abra una solicitud de soporte técnico de Azure][azure-support] para obtener ayuda adicional para la solución de problemas.
 
@@ -204,7 +204,7 @@ Este error es irrecuperable. Para resolver la alerta, [elimine el dominio admini
 
 *La subred seleccionada para la implementación de Azure AD Domain Services no es válida y no se puede utilizar.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Este error es irrecuperable. Para resolver la alerta, [elimine el dominio administrado de Azure AD DS existente](delete-aadds.md) y vuelva a crearlo. Si tiene problemas para eliminar el dominio administrado de Azure AD DS, [abra una solicitud de soporte técnico de Azure][azure-support] para obtener ayuda adicional para la solución de problemas.
 
@@ -214,7 +214,7 @@ Este error es irrecuperable. Para resolver la alerta, [elimine el dominio admini
 
 *Uno o varios de los recursos de red que se utilizan en el dominio administrado no pueden ejecutarse porque el ámbito de destino se ha bloqueado.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Los bloqueos de recursos se pueden aplicar a recursos y grupos de recursos de Azure para impedir el cambio o la eliminación. Dado que Azure AD DS es un servicio administrado, la plataforma Azure necesita la capacidad de realizar cambios en la configuración. Si se aplica un bloqueo de recursos en algunos de los componentes de Azure AD DS, la plataforma Azure no puede realizar sus tareas de administración.
 
@@ -229,7 +229,7 @@ Para comprobar los bloqueos de recursos en los componentes de Azure AD DS y qu
 
 *Uno o varios de los recursos de red que se utilizan en el dominio administrado no pueden ejecutarse debido a restricciones de directiva.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Las directivas se aplican a los recursos y los grupos de recursos de Azure para controlar qué acciones de configuración se permiten. Dado que Azure AD DS es un servicio administrado, la plataforma Azure necesita la capacidad de realizar cambios en la configuración. Si se aplica una directiva en algunos de los componentes de Azure AD DS, la plataforma Azure no puede realizar sus tareas de administración.
 
@@ -244,7 +244,7 @@ Para comprobar las directivas aplicadas en los componentes de Azure AD DS y qu
 
 *El dominio administrado se sincronizó por última vez con Azure AD el [fecha]. Los usuarios no pueden iniciar sesión en el dominio o puede que las pertenencias a grupos no estén sincronizadas con Azure AD.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 [Compruebe el estado de Azure AD DS](check-health.md) para ver las alertas que podrían indicar problemas en la configuración del dominio administrado. Los problemas con la configuración de red pueden bloquear la sincronización desde Azure AD. Si puede resolver las alertas que indican un problema de configuración, espere dos horas y compruebe de nuevo para ver si se ha completado la sincronización.
 
@@ -259,7 +259,7 @@ Las siguientes razones comunes provocan que la sincronización se detenga en dom
 
 *Se hizo copia de seguridad del dominio administrado por última vez el [fecha].*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 [Compruebe el estado de Azure AD DS](check-health.md) para ver las alertas que podrían indicar problemas en la configuración del dominio administrado. Los problemas con la configuración de red pueden impedir que la plataforma Azure realice las copias de seguridad correctamente. Si puede resolver las alertas que indican un problema de configuración, espere dos horas y compruebe de nuevo para ver si se ha completado la sincronización.
 
@@ -269,7 +269,7 @@ Las siguientes razones comunes provocan que la sincronización se detenga en dom
 
 *El dominio administrado se suspende debido a que la suscripción de Azure asociada al dominio no está activa.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 > [!WARNING]
 > Si un dominio administrado de Azure AD DS se suspende durante un largo período, se expone a ser eliminado. Resuelva el motivo de la suspensión lo más rápido posible. Para más información, consulte [Descripción de los estados suspendidos para Azure AD DS](suspension.md).
@@ -287,7 +287,7 @@ Cuando el dominio administrado se habilita de nuevo, el estado del dominio admin
 
 *El dominio administrado se suspende debido a una configuración no válida. El servicio lleva mucho tiempo sin poder administrar, actualizar o aplicar revisiones a los controladores de dominio en el dominio administrado.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 > [!WARNING]
 > Si un dominio administrado de Azure AD DS se suspende durante un largo período, se expone a ser eliminado. Resuelva el motivo de la suspensión lo más rápido posible. Para más información, consulte [Descripción de los estados suspendidos para Azure AD DS](suspension.md).

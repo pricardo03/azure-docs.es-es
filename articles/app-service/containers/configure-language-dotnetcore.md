@@ -4,12 +4,12 @@ description: Aprenda a configurar un contenedor de ASP.NET Core precompilado pa
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2019
-ms.openlocfilehash: d26c490ad37b25785ff1347cccf1e2be21bba277
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: cab99b9d20ce8a3190eb9aa59650dab32fca324d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670461"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768425"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configuración de una aplicación de ASP.NET Core para Azure App Service
 
@@ -44,7 +44,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 En App Service, puede [establecer la configuración de la aplicación](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) fuera del código de la aplicación. Después, puede tener acceso a ella en cualquier clase mediante el patrón de inserción de dependencias de ASP.NET Core estándar:
 
 ```csharp
-include Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 
 namespace SomeNamespace 
 {

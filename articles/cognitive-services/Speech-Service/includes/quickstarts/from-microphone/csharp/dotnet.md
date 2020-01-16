@@ -1,23 +1,22 @@
 ---
 title: 'Inicio rápido: Reconocimiento de la voz a través de un micrófono en C# (.NET): servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: c4aee9604df98fbf5fbd18f527c4d40cff044bb9
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: f3b0df9f663866c916a45c85767d49b8701152cd
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818842"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75927829"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar:
 

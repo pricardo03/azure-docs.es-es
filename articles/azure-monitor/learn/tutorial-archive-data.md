@@ -9,19 +9,19 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 2bb275b1ca129d2381fb89fcbe0111c573d4a8e7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 87b05256103790c706f3ba0df7ea72c169b79f16
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893355"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979808"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Archivado de datos de registro y métricas de Azure con Azure Storage
 
-Varias capas de su entorno de Azure generan datos de registros y de métricas que pueden archivarse en una cuenta de Azure Storage. Esto es algo que se puede hacer para conservar un historial de los datos de supervisión a lo largo del tiempo en un almacén económico y que no admite búsquedas, una vez que haya transcurrido su período de retención. 
+Varias capas de su entorno de Azure generan datos de registros y de métricas que pueden archivarse en una cuenta de Azure Storage. Esto es algo que se puede hacer para conservar un historial de los datos de supervisión a lo largo del tiempo en un almacén económico y que no admite búsquedas, una vez que haya transcurrido su período de retención.
 
-- Las métricas de la plataforma Azure Monitor se conservan durante 93 días. 
-- Los registros de diagnóstico de recursos solo aparecen si se enrutan a Log Analytics, donde tienen un período de retención configurable de un mínimo de 30 días. 
+- Las métricas de la plataforma Azure Monitor se conservan durante 93 días.
+- Los registros de diagnóstico de recursos solo aparecen si se enrutan a Log Analytics, donde tienen un período de retención configurable de un mínimo de 30 días.
 - Las entradas del registros de actividad se conservan 90 días.  
 
 En este tutorial, se recorre el proceso de configuración del entorno de Azure para archivar datos en una cuenta de almacenamiento.
@@ -38,15 +38,15 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-En primer lugar, debe configurar una cuenta de almacenamiento en la que se archivarán los datos de supervisión. Para ello, [siga estos pasos](../../storage/common/storage-quickstart-create-account.md).
+En primer lugar, debe configurar una cuenta de almacenamiento en la que se archivarán los datos de supervisión. Para ello, [siga estos pasos](../../storage/common/storage-account-create.md).
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>Enrutamiento de registros de suscripción a la cuenta de almacenamiento
 
-Ahora está listo para empezar a configurar el entorno de Azure para enrutar los datos de supervisión para una cuenta de almacenamiento. En primer lugar, configure los datos en el nivel de suscripción (contenidos en el registro de actividad de Azure) que se enrutarán a la cuenta de almacenamiento. El [**Registro de actividad de Azure**](../../azure-monitor/platform/activity-logs-overview.md) proporciona un historial de eventos de nivel de suscripción de Azure. Puede examinarlo en Azure Portal para determinar *quién* creó, actualizó o eliminó *qué* recursos y *cuándo* lo hicieron.
+Ahora está listo para empezar a configurar el entorno de Azure para enrutar los datos de supervisión para una cuenta de almacenamiento. En primer lugar, configure los datos en el nivel de suscripción (contenidos en el registro de actividad de Azure) que se enrutarán a la cuenta de almacenamiento. El [**Registro de actividad de Azure**](../../azure-monitor/platform/platform-logs-overview.md) proporciona un historial de eventos de nivel de suscripción de Azure. Puede examinarlo en Azure Portal para determinar *quién* creó, actualizó o eliminó *qué* recursos y *cuándo* lo hicieron.
 
 1. Haga clic en el botón **Monitor** que se encuentra en la lista de navegación de la izquierda y luego en **Registro de actividad**.
 
@@ -144,9 +144,9 @@ Los datos de supervisión de las máquinas virtuales ahora fluyen a la cuenta de
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>Visualización de los datos de supervisión en la cuenta de almacenamiento
 
 > [!WARNING]
-> El formato de los datos de registro de la cuenta de almacenamiento cambiará a JSON Lines el 1 de noviembre de 2018. [Consulte este artículo para obtener una descripción de la repercusión y del modo de actualizar las herramientas para administrar el nuevo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> El formato de los datos de registro de la cuenta de almacenamiento cambiará a JSON Lines el 1 de noviembre de 2018. [Consulte este artículo para obtener una descripción de la repercusión y del modo de actualizar las herramientas para administrar el nuevo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
 >
-> 
+>
 
 Si ha seguido los pasos anteriores, los datos han comenzado a fluir a la cuenta de almacenamiento.
 
@@ -199,4 +199,3 @@ Para obtener el máximo partido de los datos y derivar información adicional, e
 
 > [!div class="nextstepaction"]
 > [Introducción a Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
-

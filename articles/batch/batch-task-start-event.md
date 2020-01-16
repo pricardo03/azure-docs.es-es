@@ -2,7 +2,7 @@
 title: Evento de inicio de tarea de Azure Batch | Microsoft Docs
 description: Referencia del evento de inicio de tarea de Batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: lahugh
-ms.openlocfilehash: ffad1696bc2c85a1a150ac87d90c2fb9c34e1519
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.author: jushiman
+ms.openlocfilehash: e8265286a5d33c9a8a118dafa66a83b5ed36f8a6
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258539"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029626"
 ---
 # <a name="task-start-event"></a>Evento de inicio de tarea
 
@@ -47,11 +47,11 @@ ms.locfileid: "70258539"
 }
 ```
 
-|Nombre del elemento|type|Notas|
+|Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`jobId`|Cadena|Identificador del trabajo que contiene la tarea.|
-|`id`|Cadena|Identificador de la tarea.|
-|`taskType`|Cadena|Tipo de la tarea. Puede ser "JobManager", que indica que es una tarea del administrador de trabajos, o "User", que indica que no lo es.|
+|`jobId`|String|Identificador del trabajo que contiene la tarea.|
+|`id`|String|Identificador de la tarea.|
+|`taskType`|String|Tipo de la tarea. Puede ser "JobManager", que indica que es una tarea del administrador de trabajos, o "User", que indica que no lo es.|
 |`systemTaskVersion`|Int32|Se trata del contador interno de reintentos de una tarea. De manera interna, el servicio de Batch puede reintentar una tarea para tener en cuenta los problemas transitorios. Estos problemas pueden incluir errores internos de programación o intentos de recuperación a partir de nodos de proceso en estado no válido.|
 |[`nodeInfo`](#nodeInfo)|Tipo complejo|Contiene información sobre el nodo de ejecución en que se ejecutó la tarea.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complejo|Especifica que la tarea es una tarea de instancias múltiples que requiere varios nodos de proceso.  Consulte [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) para detalles.|
@@ -60,25 +60,25 @@ ms.locfileid: "70258539"
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
-|Nombre del elemento|type|Notas|
+|Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`poolId`|Cadena|Identificador del grupo en el que se ejecutó la tarea.|
-|`nodeId`|Cadena|Identificador del nodo en el que se ejecutó la tarea.|
+|`poolId`|String|Identificador del grupo en el que se ejecutó la tarea.|
+|`nodeId`|String|Identificador del nodo en el que se ejecutó la tarea.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
-|Nombre del elemento|type|Notas|
+|Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|
 |`numberOfInstances`|Int|Número de nodos de proceso que requiere la tarea.|
 
 ###  <a name="constraints"></a> constraints
 
-|Nombre del elemento|type|Notas|
+|Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|
 |`maxTaskRetryCount`|Int32|Número máximo de veces que se puede reintentar la tarea. El servicio de Batch reintenta una tarea su el código de salida es distinto de cero.<br /><br /> Tenga en cuenta que este valor controla específicamente el número de reintentos. El servicio de Batch intentará una vez la tarea y podría reintentarla hasta alcanzar este límite. Por ejemplo, si el conteo de reintentos máximo es 3, Batch intenta una tarea hasta 4 veces (un intento inicial y 3 reintentos).<br /><br /> Si el conteo de intentos máximo es 0, el servicio de Batch no reintenta las tareas.<br /><br /> Si el conteo de intentos máximo es -1, el servicio de Batch reintenta las tareas sin ningún límite.<br /><br /> El valor predeterminado es 0 (sin ningún reintento).|
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|Nombre del elemento|type|Notas|
+|Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|
 |`retryCount`|Int32|Cantidad de veces que el servicio de Batch reintentó la tarea. La tarea se reintenta si el código de salida es distinto de cero, hasta el valor MaxTaskRetryCount especificado|

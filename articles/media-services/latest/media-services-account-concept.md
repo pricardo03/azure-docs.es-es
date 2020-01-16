@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: fa9720c2c29af184016d2903e60520e701b4cf79
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 08579f7ba952bb4ebcba1595508612affb852528
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670686"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980375"
 ---
 # <a name="manage-azure-media-services-v3-accounts"></a>Administración de cuentas v3 de Azure Media Services
 
@@ -24,14 +24,14 @@ Para iniciar la administración, el cifrado, la codificación, el análisis y el
 
 ## <a name="moving-a-media-services-account-between-subscriptions"></a>Traslado de una cuenta de Media Services entre suscripciones 
 
-Si necesita trasladar una cuenta de Media Services a una nueva suscripción, primero debe trasladar todo el grupo de recursos que contiene la cuenta de Media Services a la nueva suscripción. Debe trasladar todos los recursos asociados: Cuentas de Azure Storage, perfiles de Azure CDN, etc. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/resource-group-move-resources.md). Al igual que con los recursos de Azure, los traslados del grupo de recursos pueden tardar algún tiempo en completarse.
+Si necesita trasladar una cuenta de Media Services a una nueva suscripción, primero debe trasladar todo el grupo de recursos que contiene la cuenta de Media Services a la nueva suscripción. Debe trasladar todos los recursos asociados: Cuentas de Azure Storage, perfiles de Azure CDN, etc. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Al igual que con los recursos de Azure, los traslados del grupo de recursos pueden tardar algún tiempo en completarse.
 
 > [!NOTE]
 > Media Services v3 admite el modelo de varios inquilinos.
 
 ### <a name="considerations"></a>Consideraciones
 
-* Cree copias de seguridad de todos los datos en su cuenta antes de migrar a una otra suscripción.
+* Cree copias de seguridad de todos los datos en su cuenta antes de migrar a otra suscripción.
 * Debe detener todos los puntos de conexión de streaming y los recursos de streaming en vivo. Los usuarios no podrán acceder a su contenido durante el traslado del grupo de recursos. 
 
 > [!IMPORTANT]

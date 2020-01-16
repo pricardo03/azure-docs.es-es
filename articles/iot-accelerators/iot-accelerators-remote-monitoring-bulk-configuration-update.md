@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: adugar
-ms.openlocfilehash: 8a5c74c76662a089675fcbdcd8d5a7ea54b58fd1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8ba2d4eca3287efc746c0d4902b6bcc4bd0c796e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799052"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980547"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Tutorial: Administración de los dispositivos conectados de forma masiva
 
@@ -39,13 +39,13 @@ If this is going to be a tutorial - we need to split this include into two so th
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 -->
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir este tutorial, necesita una instancia implementada de la solución de supervisión remota en la suscripción de Azure.
 
 Si aún no ha implementado el acelerador de soluciones de supervisión remota, debe completar la guía de inicio rápido [Implementación de una solución de supervisión remota basada en la nube](quickstart-remote-monitoring-deploy.md).
 
-Necesitará una cuenta de Azure Storage para hospedar los archivos de firmware. Puede usar una cuenta de almacenamiento existente o [crear una nueva](../storage/common/storage-quickstart-create-account.md) en su suscripción.
+Necesitará una cuenta de Azure Storage para hospedar los archivos de firmware. Puede usar una cuenta de almacenamiento existente o [crear una nueva](../storage/common/storage-account-create.md) en su suscripción.
 
 En este tutorial se usa un dispositivo [IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) como dispositivo de ejemplo.
 
@@ -226,14 +226,14 @@ En esta sección, creará y ejecutará una implementación que aplica la configu
 
 1. En el panel **Nueva implementación**, cree una implementación con la siguiente configuración:
 
-    |Opción|Valor|
+    |Opción|Value|
     |---|---|
-    |NOMBRE|Implementación de la actualización de firmware|
+    |Nombre|Implementación de la actualización de firmware|
     |Tipo de paquete|Configuración del dispositivo|
     |Tipo de configuración|Firmware|
     |Paquete|firmware-update.json|
     |Grupo de dispositivos|Dispositivos de IoT DevKit|
-    |Prioridad|10|
+    |Priority|10|
 
     ![Creación de una implementación](media/iot-accelerators-remote-monitoring-bulk-configuration-update/newdeployment.png)
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9c16ec978a0689059c60903182337936960c7a4b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 0ee996e39950d38b10f8df78fe47f7087c4a2ed1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707844"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981055"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-powershell"></a>Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "74707844"
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para agregar o quitar asignaciones de roles, debe tener:
 
@@ -232,4 +232,4 @@ Si se obtiene un mensaje de error parecido al siguiente: "La información propor
 - [Lista de asignaciones de roles con RBAC de Azure y Azure PowerShell](role-assignments-list-powershell.md)
 - [Tutorial: Concesión de acceso de grupo a recursos de Azure mediante RBAC y Azure PowerShell](tutorial-role-assignments-group-powershell.md)
 - [Tutorial: Creación de un rol personalizado para los recursos de Azure con Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Administración de recursos con Azure PowerShell](../azure-resource-manager/manage-resources-powershell.md)
+- [Administración de recursos con Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)

@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
-ms.openlocfilehash: f3f89de07e2e17a4dda47ce3650391af38663004
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087199"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894314"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Excepciones OutOfMemoryError para Apache Spark en Azure HDInsight
 
@@ -56,7 +56,7 @@ java.lang.OutOfMemoryError
 
 La causa más probable de esta excepción es que no se asigna suficiente memoria del montón a las máquinas virtuales Java (JVM). Estas JVM se inician como ejecutores o controladores como parte de la aplicación Apache Spark.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 1. Determine el tamaño máximo de los datos que la aplicación Spark va a controlar. Realice una estimación del tamaño en función del tamaño máximo de los datos de entrada, los datos intermedios que se generan al transformar los datos de entrada y los datos de salida que se generan al transformar aún más los datos intermedios. Si la estimación inicial no es suficiente, aumente ligeramente el tamaño y repita la iteración hasta que dejen de producirse los errores de memoria.
 
@@ -114,7 +114,7 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 **2.1 G**  wasb:///hdp/spark2-events/application_1503957839788_0264_1
 ```
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Puede aumentar la memoria del servidor de historial de Spark editando la propiedad `SPARK_DAEMON_MEMORY` en la configuración de Spark y reiniciando todos los servicios.
 
@@ -200,7 +200,7 @@ Cuando Livy Server finaliza de forma inesperada, también se terminan todas las 
 
 Cuando se envía un gran número de trabajos a través de Livy, como parte de la alta disponibilidad de Livy Server, se almacenan estos estados de sesión en ZK (en clústeres de HDInsight) y se recuperan esas sesiones cuando se reinicia el servicio Livy. Al reiniciarse después de una terminación inesperada, Livy crea un subproceso por sesión, lo que acumula un cierto número de sesiones por recuperar que hace que se creen demasiados subprocesos.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Elimine todas las entradas mediante los pasos detallados a continuación.
 
@@ -255,4 +255,4 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 * Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

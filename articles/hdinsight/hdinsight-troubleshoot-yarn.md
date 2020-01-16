@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: a0eb0d15d931cf1b2f71740c7a9359cf16205481
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f0c7b966b9fa7580809d2df0f4d05a7146ca0fd1
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122527"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895273"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Solucione problemas de YARN de Apache Hadoop con Azure HDInsight.
 
@@ -20,7 +20,7 @@ Obtenga información sobre los principales problemas y sus soluciones al trabaja
 
 ## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>¿Cómo se crea una nueva cola de YARN en un clúster?
 
-### <a name="resolution-steps"></a>Pasos de la solución
+### <a name="resolution-steps"></a>Pasos de resolución
 
 Para crear una nueva cola de YARN y equilibrar la asignación de capacidad en todas las colas, siga estos pasos en Ambari.
 
@@ -64,7 +64,7 @@ Estos cambios están visibles inmediatamente en la interfaz de usuario de YARN S
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>¿Cómo se descargan registros de YARN desde un clúster?
 
-### <a name="resolution-steps"></a>Pasos de la solución
+### <a name="resolution-steps"></a>Pasos de resolución
 
 1. Conéctese al clúster de HDInsight con un cliente Secure Shell (SSH). Para más información, consulte [Lecturas adicionales](#additional-reading-2).
 
@@ -142,4 +142,4 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 - Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-- Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+- Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

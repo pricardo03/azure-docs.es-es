@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: 335b956701a87b6a0e5984ae50507a91d212ab67
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e47c7d7c4e982604814b227544a98bb301a20105
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646751"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980101"
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
@@ -34,7 +34,7 @@ Las ventajas del uso del emparejamiento de redes virtuales, ya sean locales o gl
 * La capacidad de los recursos de una red virtual para comunicarse con los de otra red virtual.
 * La capacidad de transferir datos entre redes virtuales de distintas suscripciones de Azure, inquilinos de Azure Active Directory, modelos de implementación y regiones de Azure.
 * La capacidad de emparejar redes virtuales creadas mediante Azure Resource Manager.
-* La capacidad de emparejar una red virtual creada mediante Resource Manager con otra creada mediante el modelo de implementación clásica. Para más información sobre los modelos de implementación de Azure, consulte [Descripción de los modelos de implementación de Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* La capacidad de emparejar una red virtual creada mediante Resource Manager con otra creada mediante el modelo de implementación clásica. Para más información sobre los modelos de implementación de Azure, consulte [Descripción de los modelos de implementación de Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * No tienen tiempo de inactividad ni los recursos de la red virtual al crear el emparejamiento, o después.
 
 El tráfico de red entre redes virtuales emparejadas es privado. El tráfico entre las redes virtuales se mantiene en la red troncal de Microsoft. No se requieren ninguna red pública de Internet, puertas de enlace o cifrado en la comunicación entre las redes virtuales.

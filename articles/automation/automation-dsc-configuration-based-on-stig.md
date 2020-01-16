@@ -10,16 +10,16 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 224744bd49add514be165f4955739651fcbf6b61
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 275b3bd25f931b73e8a378433899ef9ade4d47c1
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231672"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028277"
 ---
 # <a name="configuration-based-on-stig"></a>Configuración basada en STIG
 
-> Se aplica a: Windows PowerShell 5.1
+> Se aplica a: Windows PowerShell 5.1
 
 Crear contenido de configuración por primera vez puede ser un reto.
 En muchos casos, el objetivo es automatizar la configuración de los servidores después de una "línea de base" que, con suerte, se alinea con una recomendación del sector.
@@ -37,12 +37,12 @@ Muchas organizaciones necesitan [documentar las excepciones](https://github.com/
 Para hacer frente a este problema, PowerSTIG proporciona [recursos compuestos](https://github.com/microsoft/powerstig#powerstigdsc) para abordar cada área de la configuración, en lugar de intentar abordar toda la configuración de un archivo grande.
 
 Una vez que se han generado las configuraciones, puede usar los [scripts de configuración de DSC](/powershell/scripting/dsc/configurations/configurations) para generar archivos MOF y [cargarlos en Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-A continuación, registre los servidores desde una [ubicación local](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) o [en Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) para extraer las configuraciones.
+A continuación, registre los servidores desde una [ubicación local](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) o [en Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) para extraer las configuraciones.
 
-Para probar PowerSTIG, visite la [Galería de PowerShell](http://www.powershellgallery.com) y descargue la solución o haga clic en "Project Site" (Sitio del proyecto) para ver la [documentación](https://github.com/microsoft/powerstig).
+Para probar PowerSTIG, visite la [Galería de PowerShell](https://www.powershellgallery.com) y descargue la solución o haga clic en "Project Site" (Sitio del proyecto) para ver la [documentación](https://github.com/microsoft/powerstig).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Windows PowerShell Desired State Configuration Overview (Información general de la configuración de estado deseado de Windows Powershell)](/powershell/scripting/dsc/overview/overview)
+- [Información general sobre la configuración de estado deseado de Windows PowerShell](/powershell/scripting/dsc/overview/overview)
 - [Recursos de DSC](/powershell/scripting/dsc/resources/resources)
 - [Configuración del administrador de configuración local](/powershell/scripting/dsc/managing-nodes/metaconfig)

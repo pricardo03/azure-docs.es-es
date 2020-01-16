@@ -2,21 +2,21 @@
 title: Simulación de R en paralelo con Azure Batch
 description: 'Tutorial: Instrucciones paso a paso para ejecutar una simulación financiera Monte Carlo en Azure Batch mediante el paquete doAzureParallel de R'
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 7fad37af268d3dcd3d4d974d8e839ac47f171b50
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a5422b3b3dfee548e24e989654f8cc219700e712
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321900"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029211"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: Ejecución de una simulación de R paralela con Azure Batch 
 
@@ -30,7 +30,7 @@ En este tutorial se muestra cómo implementar un grupo de Batch y ejecutar un tr
 > * Crear un grupo de Batch como un back-end en paralelo para la sesión de R
 > * Ejecutar una simulación en paralelo sencilla en el grupo
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Tener instalada una distribución de [R](https://www.r-project.org/), como [Microsoft R Open](https://mran.microsoft.com/open). Usar la versión 3.3.1 o posterior.
 
@@ -110,7 +110,7 @@ En este tutorial, cambie la configuración de la manera siguiente:
 * Aumente el valor de `maxTasksPerNode` a *2* para aprovechar ambos núcleos en cada nodo.
 * Establezca `dedicatedNodes` en *0* para que pueda probar las máquinas de prioridad baja disponibles para Batch. Establezca el valor `min` de `lowPriorityNodes` en *5*. Y establezca el valor `max` en *10*, o elija números más pequeños si así lo desea. 
 
-Deje los valores predeterminados del resto de valores de configuración y guarde el archivo. El archivo debe tener un aspecto similar al siguiente:
+Deje los valores predeterminados del resto de valores de configuración y guarde el archivo. Debería tener un aspecto similar al siguiente:
 
 ```json
 {

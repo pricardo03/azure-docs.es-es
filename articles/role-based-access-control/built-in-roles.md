@@ -15,12 +15,12 @@ ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 00d4487abed97084976d81ee1ec78316fc688193
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 17a1f2c245e19afbf4d8c5092a0ddf0562a7cb0e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851390"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979319"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Roles integrados en los recursos de Azure
 
@@ -34,7 +34,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 
 
 > [!div class="mx-tableFixed"]
-> | Rol integrado | DESCRIPCIÓN | Id |
+> | Rol integrado | Descripción | Identificador |
 > | --- | --- | --- |
 > | [Propietario](#owner) | Permite administrarlo todo, incluso el acceso a los recursos. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | [Colaborador](#contributor) | Permite administrarlo todo excepto la concesión de acceso a los recursos. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -1065,7 +1065,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Puede asignar los planos técnicos publicados existentes, pero no puede crear nuevos. Nota: esto solo funciona si la asignación se realiza con una identidad administrada asignada por el usuario. |
+> | **Descripción** | Puede asignar los planos técnicos publicados existentes, pero no puede crear nuevos. Nota: Esto solo funciona si la asignación se realiza con una identidad administrada asignada por el usuario. |
 > | **Id** | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
@@ -3153,6 +3153,6 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Coincidencia del proveedor de recursos con el servicio](../azure-resource-manager/azure-services-resource-providers.md)
+- [Coincidencia del proveedor de recursos con el servicio](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Roles personalizados en los recursos de Azure](custom-roles.md)
 - [Permisos en Azure Security Center](../security-center/security-center-permissions.md)

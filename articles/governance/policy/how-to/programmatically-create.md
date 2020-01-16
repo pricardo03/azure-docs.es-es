@@ -3,12 +3,12 @@ title: Creación de directivas mediante programación
 description: Este artículo le guiará a través de la creación y administración de directivas para Azure Policy mediante programación con la CLI de Azure, Azure PowerShell y API REST.
 ms.date: 01/31/2019
 ms.topic: how-to
-ms.openlocfilehash: e81f0ca43788d8f36dde0a58d2ecd4b1604fd77e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 08ed43a464d1dd7de8220428dbc1c61ce9fc3ad6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873070"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982461"
 ---
 # <a name="programmatically-create-policies"></a>Creación de directivas mediante programación
 
@@ -16,7 +16,7 @@ Este artículo le guiará a través de la creación y administración de directi
 
 Para información sobre el cumplimiento, consulte cómo [obtener datos de cumplimiento](get-compliance-data.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Asegúrese de que se cumplen los siguientes requisitos previos antes de empezar:
 
@@ -30,7 +30,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos antes de empezar:
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
-   Para más información sobre el registro y la visualización de los proveedores de recursos, consulte [Tipos y proveedores de recursos](../../../azure-resource-manager/resource-manager-supported-services.md).
+   Para más información sobre el registro y la visualización de los proveedores de recursos, consulte [Tipos y proveedores de recursos](../../../azure-resource-manager/management/resource-providers-and-types.md).
 
 1. Si aún no lo ha hecho, instale la CLI de Azure. Puede obtener la versión más reciente en [Instalación de la CLI de Azure en Windows](/cli/azure/install-azure-cli-windows).
 

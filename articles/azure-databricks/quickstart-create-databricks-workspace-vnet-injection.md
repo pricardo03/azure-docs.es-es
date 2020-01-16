@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: 404aa1d345bb1e30a0fe55d033d49d7dd8ba5a1b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b7dd11c3a71c46bbc06b205c6b4300337683305a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893462"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889011"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>Inicio rápido: Creación de un área de trabajo de Azure Databricks en su red virtual propia
 
@@ -25,11 +25,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 > [!Note]
 > Este tutorial no puede llevarse a cabo mediante una **suscripción de evaluación gratuita de Azure**.
-> Si tiene una cuenta gratuita, vaya a su perfil y cambiar la suscripción a **pago por uso**. Para más información consulte el sitio de [cuentas gratuitas de Azure](https://azure.microsoft.com/free/). Después, [quite el límite de gasto](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) y [solicite un aumento de la cuota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para las vCPU de su región. Cuando crea su área de trabajo de Azure Databricks, puede seleccionar el plan de tarifa de la **Trial (Premium - 14-Days Free DBUs)** para que el área de trabajo acceda a las DBU Premium de Azure Databricks gratis durante 14 días.
+> Si tiene una cuenta gratuita, vaya a su perfil y cambiar la suscripción a **pago por uso**. Para más información consulte el sitio de [cuentas gratuitas de Azure](https://azure.microsoft.com/free/). Después, [quite el límite de gasto](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) y [solicite un aumento de la cuota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) para las vCPU de su región. Cuando crea su área de trabajo de Azure Databricks, puede seleccionar el plan de tarifa de la **Trial (Premium - 14-Days Free DBUs)** para que el área de trabajo acceda a las DBU Premium de Azure Databricks gratis durante 14 días.
 
 ## <a name="create-a-virtual-network"></a>Creación de una red virtual
 
@@ -39,9 +39,9 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 2. En **Creación de una red virtual**, aplique las opciones siguientes: 
 
-    |Configuración|Valor sugerido|DESCRIPCIÓN|
+    |Configuración|Valor sugerido|Descripción|
     |-------|---------------|-----------|
-    |NOMBRE|databricks-quickstart|Seleccione un nombre para la red virtual.|
+    |Nombre|databricks-quickstart|Seleccione un nombre para la red virtual.|
     |Espacio de direcciones|10.1.0.0/16|El intervalo de direcciones de la red virtual en notación CIDR. El intervalo de CIDR debe estar comprendido entre /16 y /24.|
     |Subscription|\<Su suscripción\>|Seleccione la suscripción de Azure que quiera usar.|
     |Resource group|databricks-quickstart|Seleccione **Crear nuevo** y escriba un nuevo nombre de grupo de recursos para la cuenta.|
@@ -63,7 +63,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 2. En **Servicio Azure Databricks**, proporcione los valores siguientes:
 
-    |Configuración|Valor sugerido|DESCRIPCIÓN|
+    |Configuración|Valor sugerido|Descripción|
     |-------|---------------|-----------|
     |Nombre del área de trabajo|databricks-quickstart|Seleccione un nombre para el área de trabajo de Azure Databricks.|
     |Subscription|\<Su suscripción\>|Seleccione la suscripción de Azure que quiera usar.|
@@ -87,7 +87,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
     ![Grupo de recursos administrados de Azure Databricks](./media/quickstart-create-databricks-workspace-vnet-injection/managed-resource-group.png)
 
-## <a name="create-a-cluster"></a>Creación de un clúster
+## <a name="create-a-cluster"></a>Crear un clúster
 
 > [!NOTE]
 > Para usar una cuenta gratuita para crear el clúster de Azure Databricks, antes de crear el clúster, vaya a su perfil y cambie su suscripción a **pago por uso**. Para más información consulte el sitio de [cuentas gratuitas de Azure](https://azure.microsoft.com/free/).

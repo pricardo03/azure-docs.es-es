@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 74bb2d181533f802e1428eaa8a855f60fb855193
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79517ffd68c501203ea9c02f3a3276973d4a8a56
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447988"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982142"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialización de datos de telemetría con búferes de protocolo
 
@@ -32,7 +32,7 @@ Los pasos de esta guía le muestran cómo:
 1. Generar clases Protobuf
 1. Prueba local
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir los pasos de esta guía, necesita:
 
@@ -41,7 +41,7 @@ Para seguir los pasos de esta guía, necesita:
 * Postman También puede descargar [Postman para Mac, Linux y Windows](https://www.getpostman.com/apps).
 * Una instancia de [IoT Hub implementada en la suscripción de Azure](../iot-hub/iot-hub-create-through-portal.md). Necesita la cadena de conexión de IoT Hub para completar los pasos descritos en esta guía. Puede obtener la cadena de conexión de Azure Portal.
 * Una [base de datos de Cosmos DB implementada en la suscripción de Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) que use SQL API y que esté configurada para tener una [coherencia fuerte](../cosmos-db/manage-account.md). Necesita la cadena de conexión de la base de datos de Cosmos DB para completar los pasos descritos en esta guía. Puede obtener la cadena de conexión de Azure Portal.
-* Una [cuenta de Azure Storage implementada en la suscripción a Azure](../storage/common/storage-quickstart-create-account.md). Necesita la cadena de conexión de la cuenta de almacenamiento para completar los pasos descritos en esta guía. Puede obtener la cadena de conexión de Azure Portal.
+* Una [cuenta de Azure Storage implementada en la suscripción a Azure](../storage/common/storage-account-create.md). Necesita la cadena de conexión de la cuenta de almacenamiento para completar los pasos descritos en esta guía. Puede obtener la cadena de conexión de Azure Portal.
 
 ## <a name="prepare-your-development-environment"></a>Preparación del entorno de desarrollo
 

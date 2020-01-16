@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b30e260b2eeb0d8af0c347996cdb51685dedd046
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 77bc092c7d44e559562699d9177c2bd168f7dea0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133339"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981608"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Recibir notificaciones del almacén de claves y responder con Azure Event Grid (versión preliminar)
 
@@ -22,9 +22,9 @@ La integración de Azure Key Vault en Azure Event Grid (actualmente en versión 
 
 En esta guía se describe cómo recibir notificaciones de Key Vault mediante Event Grid, y cómo responder a los cambios de estado con Azure Automation.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+- Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - Un almacén de claves en la suscripción de Azure. Puede crear rápidamente un almacén de claves si sigue los pasos descritos en [Establecimiento y recuperación de un secreto desde Azure Key Vault mediante la CLI de Azure](quick-create-cli.md).
 
 ## <a name="concepts"></a>Conceptos
@@ -180,11 +180,11 @@ Verifique que la suscripción a Event Grid esté correctamente configurada. En e
 
 1. Seleccione el trabajo reciente y examine la solicitud POST que se envió desde Event Grid al webhook. Examine el archivo JSON y asegúrese de que los parámetros para el almacén de claves y el tipo de evento son correctos. Si el parámetro "event type" del objeto JSON coincide con el evento que se produjo en el almacén de claves (en este ejemplo, Microsoft.KeyVault.SecretNearExpiry), la prueba se completó correctamente.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="you-cant-create-an-event-subscription"></a>No puede crear la suscripción a un evento
 
-Vuelva a registrar Event Grid y el proveedor del almacén de claves en los proveedores de recursos de la suscripción a Azure. Consulte [Tipos y proveedores de recursos de Azure](../azure-resource-manager/resource-manager-supported-services.md).
+Vuelva a registrar Event Grid y el proveedor del almacén de claves en los proveedores de recursos de la suscripción a Azure. Consulte [Tipos y proveedores de recursos de Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -195,8 +195,8 @@ Si ha usado un sistema basado en sondeo para buscar cambios de estado en los sec
 Más información:
 
 
-- Información general: [Supervisión de Key Vault con Azure Event Grid (versión preliminar)](event-grid-overview.md)
-- Procedimientos para: [Recepción de un correo electrónico al cambiar un secreto del almacén de claves](event-grid-logicapps.md)
+- Introducción: [Supervisión de Key Vault con Azure Event Grid (versión preliminar)](event-grid-overview.md)
+- Procedimientos: [Recibir un correo electrónico al cambiar un secreto del almacén de claves](event-grid-logicapps.md)
 - [Esquema de eventos de Azure Event Grid para Azure Key Vault (versión preliminar)](../event-grid/event-schema-key-vault.md)
 - [Introducción a Azure Key Vault](key-vault-overview.md)
 - [Introducción a Azure Event Grid](../event-grid/overview.md)

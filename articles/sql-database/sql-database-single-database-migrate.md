@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: df1ef21da43bc74809bd9fd71b5dde3906cdb343
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6812393b01172cda5d2fa4dcbe9de2bf4264a99f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820972"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980769"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migración de una base de datos de SQL Server a Azure SQL Database
 
@@ -56,7 +56,7 @@ En la lista siguiente se incluyen recomendaciones para mejorar el rendimiento du
 - Elija el mejor nivel de servicio y el tamaño de proceso mayor que su presupuesto le permita para optimizar el rendimiento de la transferencia. Una vez completada la migración, puede seleccionar una opción inferior para ahorrar dinero.
 - Reduzca la distancia entre su archivo BACPAC y el centro de datos de destino.
 - Deshabilite las estadísticas automáticas durante la migración.
-- Cree particiones de tablas e índices.
+- Índices y tablas de particiones
 - Quite las vistas indexadas y vuelva a crearlas cuando se haya completado el proceso.
 - Transfiera los datos históricos que se consultan con poca frecuencia a otra base de datos y migre estos datos históricos a una base de datos de Azure SQL distinta. A continuación, podrá consultar estos datos históricos mediante [consultas elásticas](sql-database-elastic-query-overview.md).
 
@@ -89,7 +89,7 @@ Con la replicación transaccional, todos los cambios en los datos o el esquema s
 2. Creación de publicación
    - [Uso de SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
    - [Uso de Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
-3. Creación de suscripción
+3. Crear suscripción
    - [Uso de SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
    - [Uso de Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
 
@@ -121,7 +121,7 @@ Además de realizar búsquedas en Internet y utilizar estos recursos, acuda a lo
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Use el script del blog de ingenieros de EMEA de Azure SQL para [supervisar el uso de tempdb durante la migración](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/).
-- Use el script del blog de ingenieros de EMEA de Azure SQL para [supervisar el espacio de registro de transacciones de la base de datos mientras se está produciendo la migración](https://blogs.msdn.microsoft.com/azuresqlemea/2016/10/31/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database/0).
+- Use el script del blog de ingenieros de EMEA de Azure SQL para [supervisar el espacio de registro de transacciones de la base de datos mientras se está produciendo la migración](https://docs.microsoft.com/archive/blogs/azuresqlemea/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database).
 - Consulte cómo [migrar de SQL Server a Azure SQL Database con archivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) en el blog de Customer Advisory Team de SQL Server.
 - Para obtener información sobre cómo trabajar con la hora UTC después de la migración, consulte cómo [modificar la zona horaria predeterminada para su zona horaria local](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/).
 - Para obtener información acerca de cómo cambiar el idioma predeterminado de una base de datos después de la migración, consulte [cómo cambiar el idioma predeterminado de Azure SQL Database](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/).

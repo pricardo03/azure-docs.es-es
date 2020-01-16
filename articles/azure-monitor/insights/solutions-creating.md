@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c08dc5091e7ab0eec5d4e6dd455e6adb3caa35f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5465c177cf174ebf8d6b7d4f43c5387bce3adb70
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402040"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969693"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Diseño y compilación de una solución de administración en Azure (versión preliminar)
 > [!NOTE]
@@ -23,7 +23,7 @@ Las [soluciones de administración]( solutions.md) ofrecen escenarios de adminis
 
 ## <a name="what-is-a-management-solution"></a>¿Qué es una solución de administración?
 
-Las soluciones de administración contienen recursos de Azure que funcionan conjuntamente para lograr un escenario de administración determinado.  Se implementan como [plantillas de administración de recursos](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) que contienen detalles de cómo instalar y configurar sus recursos contenidos cuando se instala la solución.
+Las soluciones de administración contienen recursos de Azure que funcionan conjuntamente para lograr un escenario de administración determinado.  Se implementan como [plantillas de administración de recursos](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) que contienen detalles de cómo instalar y configurar sus recursos contenidos cuando se instala la solución.
 
 La estrategia básica consiste en iniciar la solución de administración mediante la creación de los componentes individuales en el entorno de Azure.  Una vez que tenga la funcionalidad funcionando correctamente, puede empezar a empaquetarlos en un [archivo de solución de administración]( solutions-solution-file.md). 
 
@@ -64,7 +64,7 @@ Una vez que haya configurado y probado los componentes que van a formar parte de
 
 
 ## <a name="test-your-solution"></a>Prueba de la solución
-Mientras se desarrolla la solución, tiene que instalarla y probarla en el área de trabajo.  Puede hacerlo usando cualquiera de los métodos disponibles para [probar e instalar plantillas de Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md).
+Mientras se desarrolla la solución, tiene que instalarla y probarla en el área de trabajo.  Puede hacerlo usando cualquiera de los métodos disponibles para [probar e instalar plantillas de Resource Manager](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="publish-your-solution"></a>Publicación de la solución
 Una vez haya finalizado y probado la solución, puede ponerla a disposición de los clientes a través de los siguientes orígenes.

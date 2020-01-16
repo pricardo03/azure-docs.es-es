@@ -11,48 +11,48 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 28a9631860691b29c1954d67e521d4ff54c901a7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1a3651f82d7818ad105c0a8a7b5fd9fcf073b4a1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439190"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982546"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Carga de datos incremental de una base de datos de Azure SQL en Azure Blob Storage mediante PowerShell
 
-En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla en una base de datos de Azure SQL en Azure Blob Storage. 
+En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla en una base de datos de Azure SQL en Azure Blob Storage.
 
 En este tutorial, realizará los siguientes pasos:
 
 > [!div class="checklist"]
 > * Preparación del almacén de datos para almacenar el valor de marca de agua
 > * Creación de una factoría de datos.
-> * Cree servicios vinculados. 
+> * Cree servicios vinculados.
 > * Creación de conjuntos de datos de marca de agua, de origen y de receptor.
 > * Creación de una canalización
 > * Ejecución de la canalización
-> * Supervisión de la ejecución de la canalización 
+> * Supervisión de la ejecución de la canalización
 
 ## <a name="overview"></a>Información general
-Este es el diagrama de solución de alto nivel: 
+Este es el diagrama de solución de alto nivel:
 
 ![Cargar datos de forma incremental](media/tutorial-Incrementally-copy-powershell/incrementally-load.png)
 
-Estos son los pasos importantes para crear esta solución: 
+Estos son los pasos importantes para crear esta solución:
 
 1. **Seleccione la columna de marca de agua**.
     Seleccione una columna en el almacén de datos de origen, que pueda usarse para segmentar los registros nuevos o actualizados para cada ejecución. Normalmente, los datos de esta columna seleccionada (por ejemplo, last_modify_time o id.) siguen aumentando cuando se crean o se actualizan las filas. El valor máximo de esta columna se utiliza como una marca de agua.
 
 2. **Prepare el almacén de datos para almacenar el valor de marca de agua**.   
     En este tutorial, el valor de marca de agua se almacena en una base de datos SQL.
-    
-3. **Cree una canalización con el siguiente flujo de trabajo**: 
-    
+
+3. **Cree una canalización con el siguiente flujo de trabajo**:
+
     La canalización de esta solución consta de las siguientes actividades:
-  
-    * Cree dos actividades de búsqueda. Use la primera actividad de búsqueda para recuperar el último valor de marca de agua. y, la segunda actividad, para recuperar el nuevo valor de marca de agua. Estos valores de marca de agua se pasan a la actividad de copia. 
-    * Cree una actividad de copia que copie filas del almacén de datos de origen con el valor de la columna de marca de agua que sea mayor que el valor anterior y menor que el nuevo. A continuación, copia los datos diferenciales del almacén de datos de origen en Blob Storage como un archivo nuevo. 
-    * Cree un procedimiento almacenado que actualice el valor de marca de agua de la canalización que se ejecute la próxima vez. 
+
+    * Cree dos actividades de búsqueda. Use la primera actividad de búsqueda para recuperar el último valor de marca de agua. y, la segunda actividad, para recuperar el nuevo valor de marca de agua. Estos valores de marca de agua se pasan a la actividad de copia.
+    * Cree una actividad de copia que copie filas del almacén de datos de origen con el valor de la columna de marca de agua que sea mayor que el valor anterior y menor que el nuevo. A continuación, copia los datos diferenciales del almacén de datos de origen en Blob Storage como un archivo nuevo.
+    * Cree un procedimiento almacenado que actualice el valor de marca de agua de la canalización que se ejecute la próxima vez.
 
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
@@ -62,14 +62,14 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * **Azure SQL Database**. La base de datos se usa como almacén de datos de origen. Si no tiene ninguna, consulte [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
-* **Azure Storage**. Blob Storage se usa como almacén de datos receptor. Si no tiene una cuenta de almacenamiento, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación. Cree un contenedor denominado adftutorial. 
+* **Azure Storage**. Blob Storage se usa como almacén de datos receptor. Si no tiene una cuenta de almacenamiento, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para ver los pasos para su creación. Cree un contenedor denominado adftutorial. 
 * **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Creación de una tabla de origen de datos en la base de datos SQL
 1. Abra SQL Server Management Studio. En el **Explorador de servidores**, haga clic con el botón derecho en la base de datos y elija **Nueva consulta**.
 
-2. Ejecute el siguiente comando SQL en la base de datos SQL para crear una tabla denominada `data_source_table` como el almacén de origen de datos: 
-    
+2. Ejecute el siguiente comando SQL en la base de datos SQL para crear una tabla denominada `data_source_table` como el almacén de origen de datos:
+
     ```sql
     create table data_source_table
     (
@@ -101,11 +101,11 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ### <a name="create-another-table-in-your-sql-database-to-store-the-high-watermark-value"></a>Creación de otra tabla en la base de datos SQL para almacenar el valor de límite máximo
 1. Ejecute el siguiente comando SQL en la base de datos SQL para crear una tabla denominada `watermarktable` y almacenar el valor de marca de agua:  
-    
+
     ```sql
     create table watermarktable
     (
-    
+
     TableName varchar(255),
     WatermarkValue datetime,
     );
@@ -117,11 +117,11 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
     VALUES ('data_source_table','1/1/2010 12:00:00 AM')    
     ```
 3. Revise los datos de la tabla `watermarktable`.
-    
+
     ```sql
     Select * from watermarktable
     ```
-    Salida: 
+    Salida:
 
     ```
     TableName  | WatermarkValue
@@ -129,7 +129,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
     data_source_table | 2010-01-01 00:00:00.000
     ```
 
-### <a name="create-a-stored-procedure-in-your-sql-database"></a>Creación de un procedimiento almacenado en la base de datos SQL 
+### <a name="create-a-stored-procedure-in-your-sql-database"></a>Creación de un procedimiento almacenado en la base de datos SQL
 
 Ejecute el siguiente comando para crear un procedimiento almacenado en la base de datos SQL:
 
@@ -138,11 +138,11 @@ CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varc
 AS
 
 BEGIN
-    
+
     UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime 
+    SET [WatermarkValue] = @LastModifiedtime
 WHERE [TableName] = @TableName
-    
+
 END
 ```
 
@@ -155,30 +155,30 @@ END
 
     Si el grupo de recursos ya existe, puede que no desee sobrescribirlo. Asigne otro valor a la variable `$resourceGroupName` y vuelva a ejecutar el comando.
 
-2. Defina una variable para la ubicación de la factoría de datos. 
+2. Defina una variable para la ubicación de la factoría de datos.
 
     ```powershell
     $location = "East US"
     ```
-3. Para crear el grupo de recursos de Azure, ejecute el comando siguiente: 
+3. Para crear el grupo de recursos de Azure, ejecute el comando siguiente:
 
     ```powershell
     New-AzResourceGroup $resourceGroupName $location
-    ``` 
+    ```
     Si el grupo de recursos ya existe, puede que no desee sobrescribirlo. Asigne otro valor a la variable `$resourceGroupName` y vuelva a ejecutar el comando.
 
-4. Defina una variable para el nombre de la factoría de datos. 
+4. Defina una variable para el nombre de la factoría de datos.
 
     > [!IMPORTANT]
-    >  Actualice el nombre de la factoría de datos para que sea globalmente único. Un ejemplo es ADFTutorialFactorySP1127. 
+    >  Actualice el nombre de la factoría de datos para que sea globalmente único. Un ejemplo es ADFTutorialFactorySP1127.
 
     ```powershell
     $dataFactoryName = "ADFIncCopyTutorialFactory";
     ```
-5. Para crear la factoría de datos, ejecute el siguiente cmdlet, **Set-AzDataFactoryV2**: 
-    
+5. Para crear la factoría de datos, ejecute el siguiente cmdlet, **Set-AzDataFactoryV2**:
+
     ```powershell       
-    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
     ```
 
 Tenga en cuenta los siguientes puntos:
@@ -194,7 +194,7 @@ Tenga en cuenta los siguientes puntos:
 
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
-Los servicios vinculados se crean en una factoría de datos para vincular los almacenes de datos y los servicios de proceso con la factoría de datos. En esta sección, creará servicios vinculados para su cuenta de almacenamiento y base de datos SQL. 
+Los servicios vinculados se crean en una factoría de datos para vincular los almacenes de datos y los servicios de proceso con la factoría de datos. En esta sección, creará servicios vinculados para su cuenta de almacenamiento y base de datos SQL.
 
 ### <a name="create-a-storage-linked-service"></a>Creación de un servicio vinculado de Storage
 1. Cree un archivo JSON llamado AzureStorageLinkedService.json en la carpeta C:\ADF con el siguiente contenido. (Cree la carpeta ADF si no existe). Reemplace `<accountName>` y `<accountKey>` con el nombre y la clave de la cuenta de almacenamiento antes de guardar el archivo.
@@ -212,7 +212,7 @@ Los servicios vinculados se crean en una factoría de datos para vincular los al
     ```
 2. En PowerShell, cambie a la carpeta ADF.
 
-3. Ejecute el cmdlet **Set-AzDataFactoryV2LinkedService** para crear el servicio vinculado AzureStorageLinkedService. En el ejemplo siguiente, debe pasar los valores de los parámetros *ResourceGroupName* y *DataFactoryName*: 
+3. Ejecute el cmdlet **Set-AzDataFactoryV2LinkedService** para crear el servicio vinculado AzureStorageLinkedService. En el ejemplo siguiente, debe pasar los valores de los parámetros *ResourceGroupName* y *DataFactoryName*:
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -228,7 +228,7 @@ Los servicios vinculados se crean en una factoría de datos para vincular los al
     ```
 
 ### <a name="create-a-sql-database-linked-service"></a>Creación de un servicio vinculado a SQL Database
-1. Cree un archivo JSON llamado AzureSQLDatabaseLinkedService.json en la carpeta C:\ADF con el siguiente contenido. (Cree la carpeta ADF si no existe). Antes de guardar el archivo, reemplace &lt;server&gt;, &lt;database&gt;, &lt;user id&gt; y &lt;password&gt; con el nombre del servidor, base de datos, identificador de usuario y contraseña. 
+1. Cree un archivo JSON llamado AzureSQLDatabaseLinkedService.json en la carpeta C:\ADF con el siguiente contenido. (Cree la carpeta ADF si no existe). Antes de guardar el archivo, reemplace &lt;server&gt;, &lt;database&gt;, &lt;user id&gt; y &lt;password&gt; con el nombre del servidor, base de datos, identificador de usuario y contraseña.
 
     ```json
     {
@@ -243,7 +243,7 @@ Los servicios vinculados se crean en una factoría de datos para vincular los al
     ```
 2. En PowerShell, cambie a la carpeta ADF.
 
-3. Ejecute el cmdlet **Set-AzDataFactoryV2LinkedService** para crear el servicio vinculado AzureSQLDatabaseLinkedService. 
+3. Ejecute el cmdlet **Set-AzDataFactoryV2LinkedService** para crear el servicio vinculado AzureSQLDatabaseLinkedService.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -260,11 +260,11 @@ Los servicios vinculados se crean en una factoría de datos para vincular los al
     ```
 
 ## <a name="create-datasets"></a>Creación de conjuntos de datos
-En este paso, debe crear conjuntos de datos que representan los datos de origen y del receptor. 
+En este paso, debe crear conjuntos de datos que representan los datos de origen y del receptor.
 
 ### <a name="create-a-source-dataset"></a>Creación de un conjunto de datos de origen
 
-1. Cree un archivo JSON llamado SourceDataset.json en la misma carpeta con el siguiente contenido: 
+1. Cree un archivo JSON llamado SourceDataset.json en la misma carpeta con el siguiente contenido:
 
     ```json
     {
@@ -280,18 +280,18 @@ En este paso, debe crear conjuntos de datos que representan los datos de origen 
             }
         }
     }
-   
+
     ```
     En este tutorial, usará el nombre de tabla data_source_table. Reemplácelo si utiliza una tabla con otro nombre.
 
 2. Ejecute el cmdlet **Set-AzDataFactoryV2Dataset** para crear el conjunto de datos SourceDataset.
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
     ```
 
     Esta es la salida de ejemplo del cmdlet:
-    
+
     ```json
     DatasetName       : SourceDataset
     ResourceGroupName : ADF
@@ -302,7 +302,7 @@ En este paso, debe crear conjuntos de datos que representan los datos de origen 
 
 ### <a name="create-a-sink-dataset"></a>Creación de un conjunto de datos receptor
 
-1. Cree un archivo JSON llamado SinkDataset.json en la misma carpeta con el siguiente contenido: 
+1. Cree un archivo JSON llamado SinkDataset.json en la misma carpeta con el siguiente contenido:
 
     ```json
     {
@@ -311,7 +311,7 @@ En este paso, debe crear conjuntos de datos que representan los datos de origen 
             "type": "AzureBlob",
             "typeProperties": {
                 "folderPath": "adftutorial/incrementalcopy",
-                "fileName": "@CONCAT('Incremental-', pipeline().RunId, '.txt')", 
+                "fileName": "@CONCAT('Incremental-', pipeline().RunId, '.txt')",
                 "format": {
                     "type": "TextFormat"
                 }
@@ -328,13 +328,13 @@ En este paso, debe crear conjuntos de datos que representan los datos de origen 
     > Con este fragmento de código se da por supuesto que tiene un contenedor de blob denominado adftutorial en Blob Storage. Cree el contenedor si no existe o asígnele el nombre de uno existente. La carpeta de salida `incrementalcopy` se crea automáticamente si no existe en el contenedor. En este tutorial, el nombre de archivo se genera dinámicamente mediante la expresión `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
 2. Ejecute el cmdlet **Set-AzDataFactoryV2Dataset** para crear el conjunto de datos SinkDataset.
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
     Esta es la salida de ejemplo del cmdlet:
-    
+
     ```json
     DatasetName       : SinkDataset
     ResourceGroupName : ADF
@@ -344,9 +344,9 @@ En este paso, debe crear conjuntos de datos que representan los datos de origen 
     ```
 
 ## <a name="create-a-dataset-for-a-watermark"></a>Creación de un conjunto de datos para una marca de agua
-En este paso, creará un conjunto de datos para almacenar un valor de límite máximo. 
+En este paso, creará un conjunto de datos para almacenar un valor de límite máximo.
 
-1. Cree un archivo JSON llamado WatermarkDataset.json en la misma carpeta con el siguiente contenido: 
+1. Cree un archivo JSON llamado WatermarkDataset.json en la misma carpeta con el siguiente contenido:
 
     ```json
     {
@@ -364,13 +364,13 @@ En este paso, creará un conjunto de datos para almacenar un valor de límite m�
     }    
     ```
 2.  Ejecute el cmdlet **Set-AzDataFactoryV2Dataset** para crear el conjunto de datos WatermarkDataset.
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
     ```
 
     Esta es la salida de ejemplo del cmdlet:
-    
+
     ```json
     DatasetName       : WatermarkDataset
     ResourceGroupName : ADF
@@ -380,10 +380,10 @@ En este paso, creará un conjunto de datos para almacenar un valor de límite m�
     ```
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
-En este tutorial, creará una canalización con dos actividades de búsqueda, una actividad de copia y un procedimiento almacenado encadenada en una canalización. 
+En este tutorial, creará una canalización con dos actividades de búsqueda, una actividad de copia y un procedimiento almacenado encadenada en una canalización.
 
 
-1. Cree un archivo JSON llamado IncrementalCopyPipeline.json en la misma carpeta con el siguiente contenido: 
+1. Cree un archivo JSON llamado IncrementalCopyPipeline.json en la misma carpeta con el siguiente contenido:
 
     ```json
     {
@@ -398,7 +398,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
                         "type": "SqlSource",
                         "sqlReaderQuery": "select * from watermarktable"
                         },
-    
+
                         "dataset": {
                         "referenceName": "WatermarkDataset",
                         "type": "DatasetReference"
@@ -413,14 +413,14 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
                             "type": "SqlSource",
                             "sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from data_source_table"
                         },
-    
+
                         "dataset": {
                         "referenceName": "SourceDataset",
                         "type": "DatasetReference"
                         }
                     }
                 },
-                
+
                 {
                     "name": "IncrementalCopyActivity",
                     "type": "Copy",
@@ -447,7 +447,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
                             ]
                         }
                     ],
-    
+
                     "inputs": [
                         {
                             "referenceName": "SourceDataset",
@@ -461,24 +461,24 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
                         }
                     ]
                 },
-    
+
                 {
                     "name": "StoredProceduretoWriteWatermarkActivity",
                     "type": "SqlServerStoredProcedure",
                     "typeProperties": {
-    
+
                         "storedProcedureName": "usp_write_watermark",
                         "storedProcedureParameters": {
                             "LastModifiedtime": {"value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}", "type": "datetime" },
                             "TableName":  { "value":"@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}", "type":"String"}
                         }
                     },
-    
+
                     "linkedServiceName": {
                         "referenceName": "AzureSQLDatabaseLinkedService",
                         "type": "LinkedServiceReference"
                     },
-    
+
                     "dependsOn": [
                         {
                             "activity": "IncrementalCopyActivity",
@@ -489,19 +489,19 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
                     ]
                 }
             ]
-            
+
         }
     }
     ```
-    
+
 
 2. Ejecute el cmdlet **Set-AzDataFactoryV2Pipeline** para crear la canalización IncrementalCopyPipeline.
-    
+
    ```powershell
    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
-   ``` 
+   ```
 
-   Este es la salida de ejemplo: 
+   Este es la salida de ejemplo:
 
    ```json
     PipelineName      : IncrementalCopyPipeline
@@ -510,14 +510,14 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     Activities        : {LookupOldWaterMarkActivity, LookupNewWaterMarkActivity, IncrementalCopyActivity, StoredProceduretoWriteWatermarkActivity}
     Parameters        :
    ```
- 
+
 ## <a name="run-the-pipeline"></a>Ejecución de la canalización
 
 1. Ejecute la canalización IncrementalCopyPipeline mediante el cmdlet **Invoke-AzDataFactoryV2Pipeline**. Reemplace los marcadores de posición por su propio grupo de recursos y el nombre de la factoría de datos.
 
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
-    ``` 
+    ```
 2. Compruebe el estado de la canalización ejecutando el cmdlet **Get-AzDataFactoryV2ActivityRun** hasta que vea que todas las actividades se ejecutan correctamente. Reemplace los marcadores de posición con la hora que le resulte adecuada para los parámetros *RunStartedAfter* y *RunStartedBefore*. En este tutorial, se usará  *-RunStartedAfter "2017/09/14"* y *-RunStartedBefore "2017/09/15"* .
 
     ```powershell
@@ -525,7 +525,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     ```
 
     Este es la salida de ejemplo:
- 
+
     ```json
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
@@ -540,7 +540,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     DurationInMs      : 7777
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : LookupOldWaterMarkActivity
@@ -554,7 +554,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     DurationInMs      : 25437
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : IncrementalCopyActivity
@@ -568,7 +568,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     DurationInMs      : 19769
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : StoredProceduretoWriteWatermarkActivity
@@ -595,15 +595,15 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     3,cccc,2017-09-03 02:36:00.0000000
     4,dddd,2017-09-04 03:21:00.0000000
     5,eeee,2017-09-05 08:06:00.0000000
-    ``` 
+    ```
 2. Compruebe el valor más reciente de `watermarktable`. Verá que se ha actualizado el valor de marca de agua.
 
     ```sql
     Select * from watermarktable
     ```
-    
+
     Este es la salida de ejemplo:
- 
+
     TableName | WatermarkValue
     --------- | --------------
     data_source_table | 2017-09-05  8:06:00.000
@@ -615,10 +615,10 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     ```sql
     INSERT INTO data_source_table
     VALUES (6, 'newdata','9/6/2017 2:23:00 AM')
-    
+
     INSERT INTO data_source_table
     VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
-    ``` 
+    ```
 
     Los datos actualizados en la base de datos SQL son los siguientes:
 
@@ -645,7 +645,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     ```
 
     Este es la salida de ejemplo:
- 
+
     ```json
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
@@ -660,7 +660,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     DurationInMs      : 31758
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : LookupOldWaterMarkActivity
@@ -674,7 +674,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     DurationInMs      : 25497
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : IncrementalCopyActivity
@@ -688,7 +688,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     DurationInMs      : 20194
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : StoredProceduretoWriteWatermarkActivity
@@ -711,29 +711,26 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     ```sql
     Select * from watermarktable
     ```
-    salida de ejemplo: 
-    
+    salida de ejemplo:
+
     TableName | WatermarkValue
     --------- | ---------------
     data_source_table | 2017-09-07 09:01:00.000
 
-     
+
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, realizó los pasos siguientes: 
+En este tutorial, realizó los pasos siguientes:
 
 > [!div class="checklist"]
-> * Preparación del almacén de datos para almacenar el valor de marca de agua 
+> * Preparación del almacén de datos para almacenar el valor de marca de agua
 > * Creación de una factoría de datos.
-> * Cree servicios vinculados. 
+> * Cree servicios vinculados.
 > * Creación de conjuntos de datos de marca de agua, de origen y de receptor.
 > * Creación de una canalización
 > * Ejecución de la canalización
-> * Supervisión de la ejecución de la canalización 
+> * Supervisión de la ejecución de la canalización
 
-En este tutorial, la canalización copió datos de una única tabla de una base de datos SQL a una instancia de Blob Storage. Avance al tutorial siguiente para aprender a copiar datos de varias tablas de una base de datos de SQL Server local a una base de datos SQL. 
+En este tutorial, la canalización copió datos de una única tabla de una base de datos SQL a una instancia de Blob Storage. Avance al tutorial siguiente para aprender a copiar datos de varias tablas de una base de datos de SQL Server local a una base de datos SQL.
 
 > [!div class="nextstepaction"]
 >[Carga incremental de datos de varias tablas de SQL Server a Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
-
-
-

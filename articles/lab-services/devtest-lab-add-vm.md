@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 64a5892226b90019f175308b5984dc0a0108e226
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 22060cc6dd5eb15e81a0c397a7b0255f16780d74
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162248"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976496"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Incorporación de una máquina virtual a un laboratorio de Azure DevTest Labs
 Si ya ha [creado su primera máquina virtual](tutorial-create-custom-lab.md#add-a-vm-to-the-lab), es probable que lo hiciera desde una [imagen de Marketplace](devtest-lab-configure-marketplace-images.md) precargada. Ahora, si desea agregar máquinas virtuales posteriores al laboratorio, también puede elegir una *base* que sea una [imagen personalizada](devtest-lab-create-template.md) o una [fórmula](devtest-lab-manage-formulas.md). En este tutorial se explica cómo usar Azure Portal para agregar una máquina virtual a un laboratorio de DevTest Labs.
@@ -27,7 +27,7 @@ Si ya ha [creado su primera máquina virtual](tutorial-create-custom-lab.md#add-
 En este artículo se explica cómo administrar los artefactos de una máquina virtual de un laboratorio.
 
 ## <a name="steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Pasos para agregar una máquina virtual a un laboratorio de Azure DevTest Labs
-1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la sección **DevOps**. Si selecciona * (asterisco) junto a **DevTest Labs** en la sección **DevOps**. Esta acción agrega **DevTest Labs** al menú de navegación izquierdo para facilitarle el acceso la próxima vez. A continuación, puede seleccionar **DevTest Labs** en el menú de navegación izquierdo.
 
     ![Todos los servicios. Selección de DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
@@ -70,7 +70,7 @@ Al crear una máquina virtual, puede agregar artefactos existentes. Cada laborat
 
 Para descubrir cómo crear artefactos, consulte el artículo [Creación de artefactos personalizados para la máquina virtual de DevTest Labs](devtest-lab-artifact-author.md).
 
-1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 1. En la lista de laboratorios, seleccione el que contiene la máquina virtual con la que desea trabajar.
 1. Seleccione **My virtual machines** (Mis máquinas virtuales).
@@ -107,7 +107,7 @@ Los siguientes pasos muestran cómo ver o modificar los parámetros de un artefa
 ## <a name="save-azure-resource-manager-template"></a>Almacenamiento de una plantilla de Azure Resource Manager
 Una plantilla de Azure Resource Manager proporciona una manera declarativa de definir una implementación repetible.
 Los siguientes pasos explican cómo guardar la plantilla de Azure Resource Manager para la máquina virtual que se va a crear.
-Una vez guardada, puede utilizar la plantilla de Azure Resource Manager para [implementar nuevas máquinas virtuales con Azure PowerShell](../azure-resource-manager/template-deployment-overview.md).
+Una vez guardada, puede utilizar la plantilla de Azure Resource Manager para [implementar nuevas máquinas virtuales con Azure PowerShell](../azure-resource-manager/templates/overview.md).
 
 1. En el panel **Máquina virtual**, seleccione **Ver plantilla de Azure Resource Manager**.
 2. En el panel **Ver plantilla de Azure Resource Manager**, seleccione el texto de la plantilla.

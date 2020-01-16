@@ -1,19 +1,19 @@
 ---
 title: Administración de los comentarios de revisión para las ofertas de aplicaciones de Azure en Marketplace comercial
 description: Cómo administrar los comentarios de revisión de las ofertas de aplicaciones de Azure para mostrarlas o venderlas en Azure Marketplace, AppSource, o bien a través del programa Proveedor de soluciones en la nube (CSP) mediante el portal de Marketplace comercial del Centro de partners de Microsoft.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 7406a6e35929e3df5d342affbcb4b740efa0cab8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5dd74a7be95ecf92289f2a144c9c509c71ce935b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74281030"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933641"
 ---
 # <a name="handling-review-feedback"></a>Administración de los comentarios de revisión
 

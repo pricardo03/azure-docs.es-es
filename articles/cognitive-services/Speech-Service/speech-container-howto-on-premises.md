@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: b7f8b98e8241b4502c86cce8c893beb315767d55
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 7874a6b274939c233dd1c4e6d146df2a9a409e65
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816495"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833990"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Uso de contenedores del servicio de voz con Kubernetes y Helm
 
 Una opción para administrar los contenedores de Speech locales es usar Kubernetes y Helm. Mediante el empleo de Kubernetes y Helm para definir las imágenes de contenedor de conversión de voz en texto y de texto en voz, se va a crear un paquete de Kubernetes. Este paquete se va a implementar en un clúster de Kubernetes en el entorno local. Por último, se va a explicar cómo probar los servicios implementados y diversas opciones de configuración. Para más información sobre cómo ejecutar contenedores de Docker sin orquestación de Kubernetes, consulte [Instalación y ejecución de contenedores de servicio de voz](speech-container-howto.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Requisitos previos para poder usar los contenedores de Voz en el entorno local:
 
@@ -48,20 +48,20 @@ Se espera que el equipo host tenga un clúster de Kubernetes disponible. Vea est
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Uso compartido de credenciales de Docker con el clúster de Kubernetes
 
-Para permitir que el clúster de Kubernetes `docker pull` las imágenes configuradas del registro de contenedor `mcr.microsoft.com`, debe transferir las credenciales de Docker al clúster. Ejecute el comando [`kubectl create`][kubectl-create] siguiente para crear un *secreto de registro de Docker* basado en las credenciales proporcionadas en el requisito previo de acceso al registro de contenedor.
+Para permitir que el clúster de Kubernetes `docker pull` las imágenes configuradas del registro de contenedor `containerpreview.azurecr.io`, debe transferir las credenciales de Docker al clúster. Ejecute el comando [`kubectl create`][kubectl-create] siguiente para crear un *secreto de registro de Docker* basado en las credenciales proporcionadas en el requisito previo de acceso al registro de contenedor.
 
 Ejecute el siguiente comando desde la interfaz de la línea de comandos que prefiera. Asegúrese de reemplazar `<username>`, `<password>` y `<email-address>` por las credenciales del registro de contenedor.
 
 ```console
 kubectl create secret docker-registry mcr \
-    --docker-server=mcr.microsoft.com \
+    --docker-server=containerpreview.azurecr.io \
     --docker-username=<username> \
     --docker-password=<password> \
     --docker-email=<email-address>
 ```
 
 > [!NOTE]
-> Si ya tiene acceso al registro de contenedor `mcr.microsoft.com`, puede crear un secreto de Kubernetes con la marca genérica en su lugar. Tenga en cuenta el siguiente comando que se ejecuta en el JSON de configuración de Docker.
+> Si ya tiene acceso al registro de contenedor `containerpreview.azurecr.io`, puede crear un secreto de Kubernetes con la marca genérica en su lugar. Tenga en cuenta el siguiente comando que se ejecuta en el JSON de configuración de Docker.
 > ```console
 >  kubectl create secret generic mcr \
 >      --from-file=.dockerconfigjson=~/.docker/config.json \
@@ -106,8 +106,8 @@ speechToText:
   numberOfConcurrentRequest: 3
   optimizeForAudioFile: true
   image:
-    registry: mcr.microsoft.com
-    repository: azure-cognitive-services/speech-to-text
+    registry: containerpreview.azurecr.io
+    repository: microsoft/cognitive-services-speech-to-text
     tag: latest
     pullSecrets:
       - mcr # Or an existing secret
@@ -122,8 +122,8 @@ textToSpeech:
   numberOfConcurrentRequest: 3
   optimizeForTurboMode: true
   image:
-    registry: mcr.microsoft.com
-    repository: azure-cognitive-services/text-to-speech
+    registry: containerpreview.azurecr.io
+    repository: microsoft/cognitive-services-text-to-speech
     tag: latest
     pullSecrets:
       - mcr # Or an existing secret
@@ -138,21 +138,20 @@ textToSpeech:
 
 ### <a name="the-kubernetes-package-helm-chart"></a>Paquete de Kubernetes (gráfico de Helm)
 
-El *gráfico de Helm* contiene la configuración de las imágenes de Docker que se van a extraer del registro de contenedor `mcr.microsoft.com`.
+El *gráfico de Helm* contiene la configuración de las imágenes de Docker que se van a extraer del registro de contenedor `containerpreview.azurecr.io`.
 
 > Un [gráfico de Helm][helm-charts] es una colección de archivos que describen un conjunto relacionado de recursos de Kubernetes. Un solo gráfico se podría usar para implementar algo sencillo, como un pod almacenado en memoria, o complejo, como una pila de aplicación web completa con servidores HTTP, bases de datos, memorias caché, etc.
 
-Los *gráficos de Helm* proporcionados extraen las imágenes de Docker del servicio de voz, los servicios de conversión de texto en voz y de voz en texto desde el registro de contenedor `mcr.microsoft.com`.
+Los *gráficos de Helm* proporcionados extraen las imágenes de Docker del servicio de voz, los servicios de conversión de texto en voz y de voz en texto desde el registro de contenedor `containerpreview.azurecr.io`.
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Instalación del gráfico de Helm en el clúster de Kubernetes
 
 Para instalar el *gráfico de Helm*, se debe ejecutar el comando [`helm install`][helm-install-cmd], reemplazando `<config-values.yaml>` por el argumento de ruta de acceso y nombre de archivo adecuado. El gráfico de Helm `microsoft/cognitive-services-speech-onpremise` al que se hace referencia a continuación está disponible en [Microsoft Helm Hub aquí][ms-helm-hub-speech-chart].
 
 ```console
-helm install microsoft/cognitive-services-speech-onpremise \
+helm install onprem-speech microsoft/cognitive-services-speech-onpremise \
     --version 0.1.1 \
-    --values <config-values.yaml> \
-    --name onprem-speech
+    --values <config-values.yaml> 
 ```
 
 Este es el resultado de ejemplo que se puede ver tras una ejecución de instalación correcta:

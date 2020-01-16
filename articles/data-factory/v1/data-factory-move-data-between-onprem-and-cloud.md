@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 039a19f38da4e651ee35fe60ba2b95a40cf890b0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: be797f76988c924503e11b6f66cce899b515e3a2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931901"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982194"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Movimiento de datos entre orígenes locales y la nube con Data Management Gateway
 > [!NOTE]
@@ -29,15 +29,15 @@ Este artículo proporciona información general sobre la integración de los alm
 Debe instalar Data Management Gateway en su equipo local para habilitar el movimiento de datos a o desde un almacén de datos local. La puerta de enlace puede instalarse en el mismo equipo que el almacén de datos o en un equipo diferente, siempre que la puerta de enlace pueda conectarse al almacén de datos.
 
 > [!IMPORTANT]
-> Consulte el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para más detalles sobre Data Management Gateway. 
+> Consulte el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para más detalles sobre Data Management Gateway.
 
 El siguiente tutorial muestra cómo crear una factoría de datos con una canalización que mueve los datos de una base de datos de **SQL Server** local a Azure Blob Storage. Como parte del tutorial, instalará y configurará la puerta de enlace de administración de datos en su máquina.
 
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>Tutorial: copiar datos locales a la nube
-En este tutorial realizará los siguientes pasos: 
+En este tutorial realizará los siguientes pasos:
 
 1. Creación de una factoría de datos.
-2. Creación de una instancia de Data Management Gateway. 
+2. Creación de una instancia de Data Management Gateway.
 3. Creación de servicios vinculados para los almacenes de datos de origen y receptor.
 4. Creación de conjuntos de datos que representen los datos de entrada y salida.
 5. Creación de una canalización con una actividad de copia para mover los datos.
@@ -46,8 +46,8 @@ En este tutorial realizará los siguientes pasos:
 Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
 * **Suscripción de Azure**.  Si no tiene una suscripción, puede crear una cuenta de prueba gratuita en tan solo un par de minutos. Consulte el artículo [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) para obtener información.
-* **Cuenta de Azure Storage**. Blob Storage se usará como un almacén de datos de **destino o receptor** en este tutorial. Si no tiene una cuenta de almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación.
-* **SQL Server**. Use una base de datos de SQL Server local como almacén de datos de **origen** en este tutorial. 
+* **Cuenta de Azure Storage**. Blob Storage se usará como un almacén de datos de **destino o receptor** en este tutorial. Si no tiene una cuenta de almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../../storage/common/storage-account-create.md) para ver los pasos para su creación.
+* **SQL Server**. Use una base de datos de SQL Server local como almacén de datos de **origen** en este tutorial.
 
 ## <a name="create-data-factory"></a>Creación de Data Factory
 En este paso, use Azure Portal para crear una instancia de Azure Data Factory denominada **ADFTutorialOnPremDF**.
@@ -361,7 +361,7 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
    * En la sección **typeProperties**, **SqlSource** se especifica como el **tipo de origen** y **BlobSink** como el **tipo de receptor**.
    * La consulta SQL `select * from emp` está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
 
-   Las fechas y horas de inicio y de finalización deben estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2014-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial.
+   Las fechas y horas de inicio y de finalización deben estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial.
 
    Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9/9/9999** como valor de la propiedad **end**.
 

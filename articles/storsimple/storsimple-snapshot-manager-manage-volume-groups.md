@@ -3,7 +3,7 @@ title: Grupos de volúmenes de StorSimple Snapshot Manager | Microsoft Docs
 description: Describe cómo usar el complemento MMC para Administrador de instantáneas StorSimple para crear y administrar grupos de volúmenes.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: carmonm
 editor: ''
 ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: e84bc790ac577796e91be010deecc8c5cea1b010
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 5198729cf96fb48c5dcd05096c04ea4d77c26de5
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699707"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931494"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Uso de Administrador de instantáneas StorSimple para crear y administrar grupos de volúmenes
 ## <a name="overview"></a>Información general
@@ -48,9 +48,9 @@ También tiene todas estas acciones disponibles en el panel **Acciones** .
 ## <a name="view-volume-groups"></a>Visualización de grupos de volúmenes
 Si hace clic en el nodo **Grupos de volúmenes**, el panel **Resultados** muestra la siguiente información sobre cada grupo de volúmenes, según las columnas que seleccione. (Las columnas del panel **Resultados** son configurables. Haga clic con el botón derecho en el nodo **Volúmenes**, seleccione **Ver** y, después, seleccione **Agregar o quitar columnas**).
 
-| Columna Resultados | DESCRIPCIÓN |
+| Columna Resultados | Descripción |
 |:--- |:--- |
-| NOMBRE |La columna **Nombre** contiene el nombre del grupo de volúmenes. |
+| Nombre |La columna **Nombre** contiene el nombre del grupo de volúmenes. |
 | Application |La columna **Aplicaciones** muestra el número de los escritores VSS actualmente instalados y en ejecución en el host de Windows. |
 | Seleccionado |La columna **Seleccionados** muestra el número de volúmenes que se encuentran en el grupo de volúmenes. Un cero (0) indica que ninguna aplicación está asociada con los volúmenes en el grupo de volúmenes. |
 | Importado |La columna **Importados** muestra el número de volúmenes importados. Cuando se establece en **True**, esta columna indica que un grupo de volúmenes se importó desde Azure Portal y que no se creó en StorSimple Snapshot Manager. |

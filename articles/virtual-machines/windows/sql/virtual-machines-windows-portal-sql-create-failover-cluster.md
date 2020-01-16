@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 1a69741ba3ced91b6b0d1fc4bcd4aea887452151
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 20c231e4f3052797eac79a3c97a3d8148690b8c5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792184"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965428"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines
 
@@ -47,7 +47,7 @@ Para más información acerca de Espacios de almacenamiento directo, consulte [E
 
 Espacios de almacenamiento directo admite dos tipos de arquitecturas: convergidas e hiperconvergidas. La arquitectura de este documento es hiperconvergida. Las infraestructuras hiperconvergidas colocan el almacenamiento en los mismos servidores que hospedan la aplicación en clúster. En esta arquitectura, el almacenamiento se realiza en cada nodo de FCI de SQL Server.
 
-## <a name="licensing-and-pricing"></a>Licencias y precio
+## <a name="licensing-and-pricing"></a>Licencias y precios
 
 En Azure Virtual Machines, puede obtener licencias de SQL Server mediante imágenes de VM de pago por uso (PAYG) o traiga su propia licencia (BYOL). El tipo de imagen que elija afecta a cómo se le cobra.
 
@@ -75,10 +75,10 @@ Debe estar familiarizado con el funcionamiento de estas tecnologías:
 
 Hay que tener en cuenta, en un clúster de conmutación por error invitado de VM de IaaS de Azure, se recomienda una sola NIC por servidor (nodo de clúster) y una sola subred. La red de Azure tiene redundancia física, que hace que las NIC y subredes adicionales sean innecesarias en un clúster invitado de VM de IaaS de Azure. El informe de validación de clúster le avisará de que solo se puede tener acceso a los nodos en una sola red. Puede omitir esta advertencia en los clústeres de conmutación por error invitados de máquinas virtuales de IaaS de Azure.
 
-También debe tener conocimientos generales de las estas tecnologías:
+También debe tener conocimientos generales de estas tecnologías:
 
 - [Solución hiperconvergida con Espacios de almacenamiento directo en Windows Server 2016](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [Grupos de recursos de Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
+- [Grupos de recursos de Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > Actualmente, las instancias del clúster de conmutación por error de SQL Server de las máquinas virtuales de Azure solo se admiten con el [modo de administración ligera](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) de la [extensión del agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Para cambiar del modo de extensión total a extensión ligera, elimine el recurso **Máquina virtual SQL** de las máquinas virtuales correspondientes y regístrelas con el proveedor de recursos de VM con SQL en el modo ligero. Al eliminar el recurso **Máquina virtual SQL** desde Azure Portal, **desactive la casilla de la máquina virtual correcta**. La extensión completa admite características como la copia de seguridad automatizada, y la aplicación de revisiones y la administración avanzada del portal. Estas características no funcionarán para las máquinas virtuales de SQL si se vuelve a instalar el agente en modo de administración lightweight.
@@ -112,7 +112,7 @@ Una vez que cumpla los requisitos previos, puede comenzar la creación de un cl�
    1. Seleccione **Conjunto de disponibilidad**.
    1. Seleccione **Crear**.
    1. En **Crear conjunto de disponibilidad**, proporcione estos valores:
-      - **Nombre**: nombre del conjunto de disponibilidad.
+      - **Name**: nombre del conjunto de disponibilidad.
       - **Suscripción**: Su suscripción de Azure.
       - **Grupo de recursos**: si quiere utilizar un grupo existente, haga clic en **Seleccionar existente** y, luego, seleccione el grupo de la lista. De lo contrario, seleccione **Crear nuevo** y escriba el nombre del grupo.
       - **Ubicación**: establezca la ubicación en la que planea crear las máquinas virtuales.
@@ -373,7 +373,7 @@ Para crear el equilibrador de carga:
 
    - **Suscripción**: Su suscripción de Azure.
    - **Grupo de recursos**: El grupo de recursos que contiene las máquinas virtuales.
-   - **Nombre**: un nombre que identifica el equilibrador de carga.
+   - **Name**: un nombre que identifica el equilibrador de carga.
    - **Región**: La ubicación de Azure que contiene las máquinas virtuales.
    - **Tipo**: Pública o privada. A los equilibradores de carga privados se puede acceder desde la red virtual. La mayoría de las aplicaciones de Azure pueden usar un equilibrador de carga privado. Si la aplicación necesita acceder a SQL Server directamente a través de Internet, utilice un equilibrador de carga público.
    - **SKU**: Estándar.
@@ -405,7 +405,7 @@ Para crear el equilibrador de carga:
 
 1. En la hoja **Add health probe** (Agregar sonda de mantenimiento), <a name="probe"></a>establezca los parámetros del sondeo de mantenimiento.
 
-   - **Nombre**: nombre del sondeo de estado.
+   - **Name**: nombre del sondeo de estado.
    - **Protocolo**: TCP.
    - **Puerto**: establezca este parámetro en el puerto que creó en el firewall para el sondeo de estado en [este paso](#ports). En este artículo, el ejemplo usa el puerto TCP `59999`.
    - **Intervalo**: 5 segundos.
@@ -421,7 +421,7 @@ Para crear el equilibrador de carga:
 
 1. Establezca los parámetros de la regla de equilibrio de carga:
 
-   - **Nombre**: nombre de las reglas de equilibrio de carga.
+   - **Name**: nombre de las reglas de equilibrio de carga.
    - **Dirección IP de front-end**: la dirección IP del recurso de red del clúster de la FCI de SQL Server.
    - **Puerto**: el puerto TCP de la FCI de SQL Server. El puerto de la instancia predeterminado es 1433.
    - **Puerto back-end**: utiliza el mismo puerto que el valor **Puerto** cuando se habilita **IP flotante (Direct Server Return)** .
@@ -499,7 +499,7 @@ En máquinas virtuales de Azure, MSDTC no se admite en Windows Server 2016 y ver
 - El recurso MSDTC en clúster no puede configurarse para usar almacenamiento compartido. En Windows Server 2016, si crea un recurso MSDTC, no mostrará ningún almacenamiento compartido disponible para su uso, incluso si el almacenamiento está disponible. Este problema se ha corregido en Windows Server 2019.
 - El equilibrador de carga básico no controla los puertos RPC.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 [Configuración de Espacios de almacenamiento directo con escritorio remoto (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

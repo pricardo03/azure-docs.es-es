@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: b58aa97dbb97bade87a38456c58df8f93a29946f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 9d213c8fa03ad2ca5e5fd7e620e52aa502749be2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901697"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969338"
 ---
 # <a name="authoring-and-runtime-keys"></a>Creación y claves en tiempo de ejecución
 
@@ -95,10 +95,10 @@ Una aplicación se define mediante sus recursos de Azure, que se determinan en f
 Puede mover la aplicación de LUIS. Use los siguientes recursos de documentación en Azure Portal o la CLI de Azure:
 
 * [Mover la aplicación entre los recursos de creación de LUIS](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
-* [Mover los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/resource-group-move-resources.md)
-* [Mueve el recurso dentro de la misma suscripción o entre suscripciones](../../azure-resource-manager/move-limitations/app-service-move-limitations.md)
+* [Mover los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+* [Mueve el recurso dentro de la misma suscripción o entre suscripciones](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
 
-Para transferir la [propiedad](../../billing/billing-subscription-transfer.md) de la suscripción: 
+Para transferir la [propiedad](../../cost-management-billing/manage/billing-subscription-transfer.md) de la suscripción: 
 
 **Para los usuarios que han migrado: [creación de aplicaciones de recursos migradas](luis-migration-authoring.md)** : Como propietario del recurso, puede agregar un `contributor`.
 

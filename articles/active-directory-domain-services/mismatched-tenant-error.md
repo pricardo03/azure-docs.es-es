@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 0d96fd4c435251fb4dd604351e6efeea8bde8353
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 601574cc2a478dc53a261cfcb074e43a556dd4c0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704542"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979512"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolver errores de directorios que no coinciden en dominios administrados existentes de Azure AD Domain Services
 
@@ -56,7 +56,7 @@ En el siguiente escenario de implementación de ejemplo, el dominio administrado
 Las dos opciones siguientes resuelven el error de directorio no coincidente:
 
 * [Eliminación del dominio administrado de Azure AD DS](delete-aadds.md) del directorio de Azure AD existente. [Creación de un dominio administrado de Azure AD DS de reemplazo](tutorial-create-instance.md) en el mismo directorio de Azure AD que la red virtual que se quiere utilizar. Cuando esté listo, una todas las máquinas que antes estaban unidas al dominio eliminado al dominio administrado ha vuelto a crear.
-* [Mueva la suscripción de Azure](../billing/billing-subscription-transfer.md) que contiene la red virtual al mismo directorio de Azure AD que el dominio administrado de Azure AD DS.
+* [Mueva la suscripción de Azure](../cost-management-billing/manage/billing-subscription-transfer.md) que contiene la red virtual al mismo directorio de Azure AD que el dominio administrado de Azure AD DS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

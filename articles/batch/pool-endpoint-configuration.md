@@ -2,18 +2,18 @@
 title: Configuración de puntos de conexión de nodo en un grupo de Azure Batch | Microsoft Docs
 description: Cómo configurar o deshabilitar el acceso a los puertos SSH o RDP en nodos de proceso en un grupo de Azure Batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: lahugh
-ms.openlocfilehash: e6c7f2762a6742a1aff7a2c3aff977b5e3657349
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.author: jushiman
+ms.openlocfilehash: 1ac4c7647125cd6164235e98a4a828f6b072cbee
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322475"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029470"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurar o deshabilitar el acceso remoto a nodos de proceso en un grupo de Azure Batch
 

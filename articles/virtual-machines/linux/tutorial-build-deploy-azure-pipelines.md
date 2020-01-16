@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
-ms.openlocfilehash: c9d8ec2ce78746352b1fc5d2f337ad8686213839
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 0318b73dfb8fed05432dd25b5784e1c890815c53
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75662485"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778522"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implementación de una aplicación en máquinas virtuales Linux de Azure con Azure DevOps Services y Azure Pipelines
 
@@ -148,20 +148,20 @@ Seleccione la plantilla **starter** y copie el fragmento de código de YAML sigu
 
 ```YAML
 - job: Build
-    displayName: Build Maven Project
-    steps:
-    - task: Maven@3
-      displayName: 'Maven Package'
-      inputs:
-        mavenPomFile: 'pom.xml'
-    - task: CopyFiles@2
-      displayName: 'Copy Files to artifact staging directory'
-      inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)'
-        Contents: '**/target/*.?(war|jar)'
-        TargetFolder: $(Build.ArtifactStagingDirectory)
-    - upload: $(Build.ArtifactStagingDirectory)
-      artifact: drop
+  displayName: Build Maven Project
+  steps:
+  - task: Maven@3
+    displayName: 'Maven Package'
+    inputs:
+      mavenPomFile: 'pom.xml'
+  - task: CopyFiles@2
+    displayName: 'Copy Files to artifact staging directory'
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      Contents: '**/target/*.?(war|jar)'
+      TargetFolder: $(Build.ArtifactStagingDirectory)
+  - upload: $(Build.ArtifactStagingDirectory)
+    artifact: drop
 ```
 
 Para más información, siga los pasos mencionados en [Compilación de la aplicación Java con Maven](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java).
@@ -213,13 +213,13 @@ Para más información, siga los pasos descritos en [Compilación de la aplicaci
 
    ```YAML
    jobs:  
-     - deployment: VMDeploy
-       displayName: web
-       environment:
-         name:  <environment name>
-         resourceType: VirtualMachine
-         tags: web1
-       strategy:
+   - deployment: VMDeploy
+     displayName: web
+     environment:
+       name:  <environment name>
+       resourceType: VirtualMachine
+       tags: web1
+     strategy:
    ```
 2. Puede seleccionar conjuntos específicos de máquinas virtuales del entorno para que reciban la implementación mediante la especificación de las **etiquetas** que haya definido para cada una.
 [Aquí](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) está el esquema de YAML completo para el trabajo de implementación.
@@ -256,7 +256,7 @@ Para más información, siga los pasos descritos en [Compilación de la aplicaci
        resourceType: VirtualMachine
      strategy:
          rolling:
-           maxParallel: 2  #for percentages, mention as x%
+           maxParallel: 5  #for percentages, mention as x%
            preDeploy:
              steps:
              - download: current
@@ -298,3 +298,7 @@ La vista de implementaciones del entorno proporciona una completa rastreabilidad
 ## <a name="next-steps"></a>Pasos siguientes
 - Puede continuar con la [personalización de la canalización](https://docs.microsoft.com/azure/devops/pipelines/customize-pipeline) que acaba de crear.
 - Para saber qué más puede hacer en las canalizaciones de YAML, consulte [Referencia de esquema de YAML](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema).
+- Para aprender a implementar una pila LAMP (Linux, Apache, MySQL y PHP), pase al siguiente tutorial.
+
+> [!div class="nextstepaction"]
+> [Implementación de una pila de LAMP](tutorial-lamp-stack.md)

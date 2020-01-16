@@ -3,20 +3,20 @@ title: 'Montaje de un sistema de archivos virtual en un grupo: Azure Batch | Mic
 description: Obtenga información sobre cómo montar un sistema de archivos virtual en un grupo de Batch.
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: lahugh
-ms.openlocfilehash: a153a8000552100d62807442d466c22cd0964e43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: jushiman
+ms.openlocfilehash: eab8e509e4978de50968bc1d960ee34d46bc73b0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75389849"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029142"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montaje de un sistema de archivos virtual en un grupo de Batch
 
@@ -85,7 +85,7 @@ new PoolAddParameter
 
 ### <a name="azure-blob-file-system"></a>Sistema de archivos de Azure Blob
 
-Otra opción consiste en usar Azure Blob Storage a través de [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). El montaje de un sistema de archivos de blob requiere `AccountKey` o `SasKey` para la cuenta de almacenamiento. Para obtener información sobre cómo obtener estas claves, consulte los artículos sobre la [administración de claves de cuenta de almacenamiento](../storage/common/storage-account-keys-manage.md) o el [uso de firmas de acceso compartido (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Para obtener más información sobre el uso de blobfuse, consulte las [Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ) (Preguntas más frecuentes sobre la solución de problemas de blobfuse). Para obtener acceso predeterminado al directorio montado de blobfuse, ejecute la tarea como **administrador**. Blobfuse monta el directorio en el espacio de usuario y, cuando se crea el grupo, se monta como raíz. En Linux, todas las tareas de **administrador** son raíz. Todas las opciones del módulo FUSE se describen en la [página de referencia de FUSE](http://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+Otra opción consiste en usar Azure Blob Storage a través de [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). El montaje de un sistema de archivos de blob requiere `AccountKey` o `SasKey` para la cuenta de almacenamiento. Para obtener información sobre cómo obtener estas claves, consulte los artículos sobre la [administración de claves de cuenta de almacenamiento](../storage/common/storage-account-keys-manage.md) o el [uso de firmas de acceso compartido (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Para obtener más información sobre el uso de blobfuse, consulte las [Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ) (Preguntas más frecuentes sobre la solución de problemas de blobfuse). Para obtener acceso predeterminado al directorio montado de blobfuse, ejecute la tarea como **administrador**. Blobfuse monta el directorio en el espacio de usuario y, cuando se crea el grupo, se monta como raíz. En Linux, todas las tareas de **administrador** son raíz. Todas las opciones del módulo FUSE se describen en la [página de referencia de FUSE](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
 
 Además de la guía de solución de problemas, los problemas de GitHub en el repositorio de blobfuse son una manera útil de comprobar los problemas y las soluciones actuales de blobfuse. Para obtener más información, consulte los [problemas de blobfuse](https://github.com/Azure/azure-storage-fuse/issues).
 

@@ -3,12 +3,12 @@ title: Bloqueo de imágenes
 description: Establezca atributos para una imagen de contenedor o un repositorio a fin de que pueda eliminarse o sobrescribirse en una instancia de Azure Container Registry.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 8eb2a549e9d9f3a7ed4a482ac6a9ea4ba61ea4f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93a99f65d5bb21d696ce24365e7c819d2c34a8b0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442231"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972929"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloqueo de una imagen de contenedor en una instancia de Azure Container Registry
 
@@ -17,7 +17,7 @@ En Azure Container Registry, puede bloquear una versión de la imagen o un repos
 En este artículo se requiere que ejecute la CLI de Azure en Azure Cloud Shell o localmente (se recomienda la versión 2.0.55 o posterior). Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli].
 
 > [!IMPORTANT]
-> Este artículo no se aplica al bloqueo de un registro completo, por ejemplo, mediante el uso de **Configuración > Bloqueos** en Azure Portal o los comandos `az lock` de la CLI de Azure. El bloqueo de un recurso de registro no impide la creación, actualización o eliminación de datos en los repositorios. El bloqueo de un registro solo afecta a las operaciones de administración, como agregar o eliminar replicaciones o eliminar el propio registro. Para más información, consulte [Bloqueo de recursos para impedir cambios inesperados](../azure-resource-manager/resource-group-lock-resources.md).
+> Este artículo no se aplica al bloqueo de un registro completo, por ejemplo, mediante el uso de **Configuración > Bloqueos** en Azure Portal o los comandos `az lock` de la CLI de Azure. El bloqueo de un recurso de registro no impide la creación, actualización o eliminación de datos en los repositorios. El bloqueo de un registro solo afecta a las operaciones de administración, como agregar o eliminar replicaciones o eliminar el propio registro. Para más información, consulte [Bloqueo de recursos para impedir cambios inesperados](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="scenarios"></a>Escenarios
 

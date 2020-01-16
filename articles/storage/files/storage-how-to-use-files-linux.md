@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3d8d7c6d3c4e752480310c122bcb7db237b3022b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0ef9609cded29c94260d027212abbf0c62f8653c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209406"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772115"
 ---
 # <a name="use-azure-files-with-linux"></a>Uso de Azure Files con Linux
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en distribuciones de Linux mediante el [cliente kernel de SMB](https://wiki.samba.org/index.php/LinuxCIFS). En este artículo se muestran dos maneras de montar un recurso compartido de archivos de Azure: a petición, con el comando `mount` y al inicio, mediante la creación de una entrada en `/etc/fstab`.
@@ -34,7 +34,7 @@ Si usa una distribución de Linux que no aparece en la tabla anterior, puede com
 uname -r
 ```
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Asegúrese de que el paquete cifs-utils está instalado.**  
@@ -80,7 +80,7 @@ uname -r
         --name $storageAccountName \
         --query "primaryEndpoints.file" | tr -d '"')
     smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))
-    fileHost=$(echo $fileHost | tr -d "/")
+    fileHost=$(echo $smbPath | tr -d "/")
 
     nc -zvw3 $fileHost 445
     ```
@@ -201,22 +201,22 @@ A partir del kernel de Linux 4.18, el módulo de kernel de SMB, denominado `cifs
 
 | Distribución | Puede deshabilitar SMB 1 |
 |--------------|-------------------|
-| Ubuntu 14.04-16.04 | Sin |
+| Ubuntu 14.04-16.04 | No |
 | Ubuntu 18.04 | Sí |
 | Ubuntu 19.04+ | Sí |
-| Debian 8-9 | Sin |
+| Debian 8-9 | No |
 | Debian 10+ | Sí |
 | Fedora 29+ | Sí |
-| CentOS 7 | Sin | 
+| CentOS 7 | No | 
 | CentOS 8+ | Sí |
-| Red Hat Enterprise Linux 6.x-7.x | Sin |
+| Red Hat Enterprise Linux 6.x-7.x | No |
 | Red Hat Enterprise Linux 8+ | Sí |
-| openSUSE Leap 15.0 | Sin |
+| openSUSE Leap 15.0 | No |
 | openSUSE Leap 15.1+ | Sí |
 | openSUSE Tumbleweed | Sí |
-| SUSE Linux Enterprise 11.x-12.x | Sin |
-| SUSE Linux Enterprise 15 | Sin |
-| SUSE Linux Enterprise 15.1 | Sin |
+| SUSE Linux Enterprise 11.x-12.x | No |
+| SUSE Linux Enterprise 15 | No |
+| SUSE Linux Enterprise 15.1 | No |
 
 Puede comprobar si la distribución de Linux es compatible con el parámetro del módulo `disable_legacy_dialects` a través del comando siguiente.
 

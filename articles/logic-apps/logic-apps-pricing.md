@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 80eadcadad58cc126a9213c9e5bc5c65c1eb5c6c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 1c21a84bd9aaa259d0459b4e16c7a62aabaa615d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793432"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896380"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de precios de Azure Logic Apps
 
@@ -29,7 +29,7 @@ Las acciones son, por ejemplo:
 
 * Desencadenadores, que son acciones especiales. Todas las aplicaciones lógicas requieren un desencadenador como primer paso.
 * [Acciones nativas o "integradas"](../connectors/apis-list.md#built-in), como HTTP, llamadas a Azure Functions y a API Management, etc.
-* Llamadas a [conectores administrados](../connectors/apis-list.md##managed-connectors) como Outlook 365, Dropbox, etc.
+* Llamadas a [conectores administrados](../connectors/apis-list.md#managed-connectors) como Outlook 365, Dropbox, etc.
 * Pasos del flujo de control, como bucles, instrucciones condicionales, etc.
 
 Los [conectores estándar](../connectors/apis-list.md#managed-connectors) se cobran al [precio del conector estándar](https://azure.microsoft.com/pricing/details/logic-apps). Los [conectores empresariales](../connectors/apis-list.md#managed-connectors) de disponibilidad general se cobran al [precio del conector empresarial](https://azure.microsoft.com/pricing/details/logic-apps), mientra que los conectores empresariales de versión preliminar pública se cobran al [precio del conector estándar](https://azure.microsoft.com/pricing/details/logic-apps).

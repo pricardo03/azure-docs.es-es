@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 0748047581945d513300d929c2d34d20099bf4d6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b092b037cc10671e89f18af287b52f8ad1c0060e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529701"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747312"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervisión de recursos de Azure con Azure Monitor
 Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión generados por los recursos de Azure y cómo puede usar las características de Azure Monitor para analizar y alertar sobre estos datos.
@@ -57,8 +57,8 @@ Los recursos de Azure generan [registros](../platform/data-platform-logs.md) y [
 
 
 - [Métricas de plataforma](../platform/data-platform-metrics.md): valores numéricos que se recopilan automáticamente a intervalos regulares y describen algún aspecto de un recurso en un momento determinado. 
-- [Registros de recurso](../platform/resource-logs-overview.md): proporcionan información de las operaciones realizadas dentro del mismo recurso de Azure (en el plano de datos), por ejemplo, obtención de un secreto de un almacén de claves o realización de una solicitud a una base de datos. El contenido y la estructura de estos registros de recurso varían según el servicio de Azure y el tipo de recurso.
-- [Registro de actividad](../platform/activity-logs-overview.md): proporciona información general de las operaciones de cada recurso de Azure de la suscripción desde fuera (en el plano de administración), por ejemplo, creación de un nuevo recurso o inicio de una máquina virtual. Esta información es sobre los interrogantes qué, quién y cuándo para las operaciones de escritura (PUT, POST, DELETE) en los recursos de la suscripción.
+- [Registros de recurso](../platform/platform-logs-overview.md): proporcionan información de las operaciones realizadas dentro del mismo recurso de Azure (en el plano de datos), por ejemplo, obtención de un secreto de un almacén de claves o realización de una solicitud a una base de datos. El contenido y la estructura de estos registros de recurso varían según el servicio de Azure y el tipo de recurso.
+- [Registro de actividad](../platform/platform-logs-overview.md): proporciona información general de las operaciones de cada recurso de Azure de la suscripción desde fuera (en el plano de administración), por ejemplo, creación de un nuevo recurso o inicio de una máquina virtual. Esta información es sobre los interrogantes qué, quién y cuándo para las operaciones de escritura (PUT, POST, DELETE) en los recursos de la suscripción.
 
 
 ## <a name="configuration-requirements"></a>Requisitos de configuración
@@ -67,8 +67,8 @@ Los recursos de Azure generan [registros](../platform/data-platform-logs.md) y [
 Algunos datos de supervisión se recopilan automáticamente, pero es posible que tenga que configurar algunos valores en función de sus requisitos. Consulte la información siguiente y vea la información específica para cada tipo de datos de supervisión.
 
 - [Métricas de plataforma](../platform/data-platform-metrics.md): las métricas de plataforma se recopilan automáticamente en [Métricas en Azure Monitor](../platform/data-platform-metrics.md) sin necesidad de configuración. Cree una configuración de diagnóstico para enviar entradas a registros de Azure Monitor o reenviarlas fuera de Azure.
-- [Registros de recurso](../platform/resource-logs-overview.md): los recursos de Azure generan automáticamente registros de recurso, pero estos no se recopilan sin una configuración de diagnóstico.  Cree una configuración de diagnóstico para enviar entradas a registros de Azure Monitor o reenviarlas fuera de Azure.
-- [Registro de actividad](../platform/activity-logs-overview.md): el registro de actividad se recopila automáticamente sin necesidad de configuración y puede verse en Azure Portal. Cree una configuración de diagnóstico para copiarla en registros de Azure Monitor o reenviarla fuera de Azure.
+- [Registros de recurso](../platform/platform-logs-overview.md): los recursos de Azure generan automáticamente registros de recurso, pero estos no se recopilan sin una configuración de diagnóstico.  Cree una configuración de diagnóstico para enviar entradas a registros de Azure Monitor o reenviarlas fuera de Azure.
+- [Registro de actividad](../platform/platform-logs-overview.md): el registro de actividad se recopila automáticamente sin necesidad de configuración y puede verse en Azure Portal. Cree una configuración de diagnóstico para copiarla en registros de Azure Monitor o reenviarla fuera de Azure.
 
 ### <a name="log-analytics-workspace"></a>Área de trabajo de Log Analytics
 La recopilación de datos en los registros de Azure Monitor requiere un área de trabajo de Log Analytics. Puede empezar a supervisar rápidamente el servicio creando una nueva área de trabajo, pero también puede resultar útil usar un área de trabajo que recopila datos de otros servicios. Consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../learn/quick-create-workspace.md), para conocer más detalles sobre cómo crear un área de trabajo, y [Diseño de la implementación de registros de Azure Monitor](../platform/design-logs-deployment.md), como ayuda para determinar el mejor diseño de área de trabajo para sus requisitos. Si usa un área de trabajo existente en la organización, necesitará los permisos adecuados, tal como se describe en [Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor](../platform/manage-access.md). 

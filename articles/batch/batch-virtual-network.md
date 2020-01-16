@@ -2,19 +2,19 @@
 title: 'Aprovisionamiento de un grupo en una red virtual: Azure Batch | Microsoft Docs'
 description: Cómo crear un grupo de Batch en una red virtual de Azure para que los nodos de proceso puedan comunicarse de manera segura con otras máquinas virtuales en la red, como un servidor de archivos.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 04/10/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 78f29bacaadac5f01e4a8dd26bf03b2bda84f2bf
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 06b861f306718068366653685ebe4daf8d5dcfa6
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577576"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026274"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creación de un grupo de Azure Batch en una red virtual
 
@@ -24,7 +24,7 @@ Al crear un grupo de Azure Batch, puede aprovisionarlo en una subred de una [red
 
 Un grupo de Azure Batch tiene una configuración para permitir que los nodos de proceso se comuniquen entre sí; por ejemplo, para ejecutar tareas de varias instancias. Esta configuración no requiere una red virtual distinta. Sin embargo, de forma predeterminada, los nodos no pueden comunicarse con máquinas virtuales que no forman parte del grupo de Batch, como un servidor de licencias o un servidor de archivos. Para permitir que los nodos de proceso del grupo se comuniquen de manera segura con otras máquinas virtuales, o con una red local, puede aprovisionar el grupo en una subred de una red virtual de Azure. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Autenticación**. Para usar una red virtual de Azure, la API de cliente de Batch debe usar la autenticación de Azure Active Directory (AD). La compatibilidad de Azure Batch con Azure AD se documenta en [Autenticación de soluciones de servicio de Batch con Active Directory](batch-aad-auth.md). 
 
@@ -60,7 +60,7 @@ Para asegurarse de que sus nodos de proceso del grupo de Azure Batch funcionan e
 
 * Asegúrese de que el tráfico saliente hacia Azure Storage (en concreto, las direcciones URL del formulario `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, y `<account>.blob.core.windows.net`) no está bloqueado mediante el dispositivo de red local.
 
-Cuando se agregueuna ruta definida por el usuario, defina la ruta para cada prefijo de dirección IP de Batch relacionada y establezca **Tipo de próximo salto** en **Internet**. Consulte el ejemplo siguiente:
+Cuando se agregueuna ruta definida por el usuario, defina la ruta para cada prefijo de dirección IP de Batch relacionada y establezca **Tipo de próximo salto** en **Internet**. Vea el ejemplo siguiente:
 
 ![Ruta definida por el usuario](./media/batch-virtual-network/user-defined-route.png)
 

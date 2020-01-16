@@ -1,5 +1,5 @@
 ---
-title: Actualización de Media Services después de revertir las claves de acceso de almacenamiento | Microsoft Docs
+title: Actualización de Media Services después de sustituir las claves de acceso de almacenamiento | Microsoft Docs
 description: En este artículo se proporcionan instrucciones sobre cómo actualizar Media Services tras rotar las claves de acceso de almacenamiento.
 services: media-services
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga;cenkdin
-ms.openlocfilehash: 1cebe0fda7da97933fc94082a62c671535fe689b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 2a0d1c5af572c88dc11bed950b46706f0a2f081f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015801"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981955"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Actualización de Media Services después de sustituir las claves de acceso de almacenamiento 
 
 Cuando crea una nueva cuenta de Azure Media Services (AMS), también se le pide que seleccione una cuenta de Azure Storage que se usa para almacenar el contenido multimedia. Puede agregar más de una cuenta de almacenamiento a su cuenta de Media Services. En este artículo se explica cómo rotar las claves de almacenamiento. También se explica cómo agregar cuentas de almacenamiento a una cuenta multimedia. 
 
-Para realizar las acciones descritas en este artículo, debe usar las [API de Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) y [PowerShell](https://docs.microsoft.com/powershell/module/az.media).  Para más información, vea [How to manage Azure resources with PowerShell and Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md) (Administración de recursos de Azure con PowerShell y Resource Manager).
+Para realizar las acciones descritas en este artículo, debe usar las [API de Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) y [PowerShell](https://docs.microsoft.com/powershell/module/az.media).  Para más información, vea [How to manage Azure resources with PowerShell and Resource Manager](../../azure-resource-manager/management/manage-resource-groups-powershell.md) (Administración de recursos de Azure con PowerShell y Resource Manager).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

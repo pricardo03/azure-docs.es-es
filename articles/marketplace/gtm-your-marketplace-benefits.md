@@ -2,18 +2,18 @@
 title: 'Servicios de comercialización: las ventajas de Marketplace comercial | Azure'
 description: 'Servicios de comercialización: en esta sección se describen los recursos de Microsoft que los anunciantes pueden usar.'
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
-author: qianw211
+author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/10/2019
-ms.author: v-qiwe
-ms.openlocfilehash: 7b563cd90ec3e46dfd2d4420b728cd6f69df40eb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: evansma
+ms.openlocfilehash: b8c1034b047e0c72db41bbbbff06feb0bdf06517
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818643"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933920"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Las ventajas de Marketplace comercial
 

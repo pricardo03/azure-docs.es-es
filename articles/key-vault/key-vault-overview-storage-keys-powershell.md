@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 46e6f19a071986cf12590e9bd5c420e070572a14
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 584a37ffb9727a48e2adb5e339697314cffe93f7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707099"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980851"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Administración de claves de cuenta de almacenamiento con Key Vault y Azure PowerShell
 
@@ -48,13 +48,13 @@ Key Vault es una aplicación de Microsoft que previamente se ha registrado en to
 | Azure AD | Pública de Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | Otros  | Any | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar esta guía, antes debe completar los pasos siguientes:
 
 - [Instale el módulo de Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0).
 - [Creación de un Almacén de claves](quick-create-powershell.md)
-- [Creación de una cuenta de almacenamiento de Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell). El nombre de la cuenta de almacenamiento solo debe contener letras minúsculas y números. El nombre debe tener entre 3 y 24 caracteres.
+- [Creación de una cuenta de almacenamiento de Azure](../storage/common/storage-account-create.md?tabs=azure-powershell). El nombre de la cuenta de almacenamiento solo debe contener letras minúsculas y números. El nombre debe tener entre 3 y 24 caracteres.
       
 
 ## <a name="manage-storage-account-keys"></a>Administración de las claves de cuenta de almacenamiento

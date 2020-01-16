@@ -3,12 +3,12 @@ title: Tarea de varios pasos para compilar, probar y revisar imágenes
 description: Introducción a tareas de varios pasos, una característica de ACR Tasks de Azure Container Registry que proporciona flujos de trabajos basados en tareas para compilar, probar y revisar imágenes de contenedor en la nube.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 3ed071fa2027e91ee5bc6c07738dc66763454847
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: cf5f90263c75aeb96220967142d28995209f2d86
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456174"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945665"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Ejecución de tareas de varios pasos de compilación, prueba y aplicación de revisiones en ACR Tasks
 
@@ -50,33 +50,33 @@ Una tarea de varios pasos de ACR Tasks se define como una serie de pasos dentro 
 Los fragmentos de código siguientes muestran cómo combinar estos tipos de pasos de la tarea. Las tareas de varios pasos pueden ser tan simples como la creación de una sola imagen a partir de un Dockerfile y la inserción en el registro, con un archivo YAML parecido a:
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
-  - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
+  - build: -t $Registry/hello-world:$ID .
+  - push: ["$Registry/hello-world:$ID"]
 ```
 
 O pueden ser más complejas como en esta definición de tarea ficticia de varios pasos que incluye los pasos para las acciones build, test, helm package y helm deploy (no se muestra el registro de contenedor ni la configuración del repositorio de Helm):
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - id: build-web
-    build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+    build: -t $Registry/hello-world:$ID .
     when: ["-"]
   - id: build-tests
-    build -t {{.Run.Registry}}/hello-world-tests ./funcTests
+    build -t $Registry/hello-world-tests ./funcTests
     when: ["-"]
   - id: push
-    push: ["{{.Run.Registry}}/helloworld:{{.Run.ID}}"]
+    push: ["$Registry/helloworld:$ID"]
     when: ["build-web", "build-tests"]
   - id: hello-world-web
-    cmd: {{.Run.Registry}}/helloworld:{{.Run.ID}}
+    cmd: $Registry/helloworld:$ID
   - id: funcTests
-    cmd: {{.Run.Registry}}/helloworld:{{.Run.ID}}
+    cmd: $Registry/helloworld:$ID
     env: ["host=helloworld:80"]
-  - cmd: {{.Run.Registry}}/functions/helm package --app-version {{.Run.ID}} -d ./helm ./helm/helloworld/
-  - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
+  - cmd: $Registry/functions/helm package --app-version $ID -d ./helm ./helm/helloworld/
+  - cmd: $Registry/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image=$Registry/helloworld:$ID
 ```
 
 Consulte [ejemplos de tareas](container-registry-tasks-samples.md) para archivos YAML y Dockerfiles de tareas de varios pasos para varios escenarios.

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 02/08/2019
-ms.openlocfilehash: 3c03797c97a354eb06b6c3b1d76ba5c39d512c18
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 01/14/2020
+ms.openlocfilehash: 4283e1a2c92b7fe738fb57a8103cea1deb0015a0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811223"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027720"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Cómo usar una base de datos única en Azure SQL Database
 
@@ -42,7 +42,7 @@ En esta sección puede encontrar diferentes guías, scripts y explicaciones que 
 - [Habilitación de las notificaciones por correo electrónico para el ajuste automático](sql-database-automatic-tuning-email-notifications.md) para obtener información sobre las recomendaciones de optimización.
 - [Aplicación de recomendaciones de rendimiento](sql-database-advisor-portal.md) para optimizar la base de datos.
 - [Creación de alertas](sql-database-insights-alerts-portal.md) para recibir notificaciones de Azure SQL Database.
-- [Solución de problemas de conectividad](sql-database-troubleshoot-common-connection-issues.md) si observa algunos problemas de conectividad entre las aplicaciones y la base de datos. También puede consultar [Uso de Resource Health para problemas de conectividad](sql-database-resource-health.md).
+- [Solución de problemas de conectividad](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md) si observa algunos problemas de conectividad entre las aplicaciones y la base de datos. También puede consultar [Uso de Resource Health para problemas de conectividad](sql-database-resource-health.md).
 - [Administración del espacio de archivo](sql-database-file-space-management.md) para supervisar el uso de almacenamiento en la base de datos.
 
 ## <a name="query-distributed-data"></a>Consulta de datos distribuidos

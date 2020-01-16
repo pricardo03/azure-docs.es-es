@@ -3,12 +3,12 @@ title: Errores de solución de problemas de traslado
 description: Use Azure Resource Manager para trasladar recursos a un nuevo grupo de recursos o a una nueva suscripción.
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 422ecb92e264d7e728282bbe8ee491a642cf013f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5a65f7daa0f5e3b1c8c6ddfdbecc0ff7d53e5afd
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474482"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891277"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Solución de problemas al mover los recursos de Azure a una nueva suscripción o grupo de recursos
 
@@ -21,7 +21,7 @@ Si quiere actualizar la suscripción de Azure (por ejemplo, para cambiar de grat
 * Para actualizar a una evaluación gratuita, consulte [Actualización de la suscripción de Microsoft Imagine Azure o la prueba gratuita al plan de pago por uso](../../billing/billing-upgrade-azure-subscription.md).
 * Para cambiar a una cuenta de pago por uso, consulte [Cambie la suscripción de pago por uso de Azure a otra oferta](../../billing/billing-how-to-switch-azure-offer.md).
 
-Si no puede convertir la suscripción, [cree una solicitud de soporte técnico de Azure](../../azure-supportability/how-to-create-azure-support-request.md). Seleccione **Administración de suscripciones** para el tipo de problema.
+Si no puede convertir la suscripción, [cree una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Seleccione **Administración de suscripciones** para el tipo de problema.
 
 ## <a name="service-limitations"></a>Limitaciones del servicio
 
@@ -44,7 +44,7 @@ Si recibe un mensaje de error que indica que no se puede mover un recurso porque
 
 Si el grupo de recursos de origen o de destino contiene una red virtual, los estados de todos los recursos dependientes de la red virtual se comprueban durante el traslado. La comprobación incluye los recursos directa e indirectamente dependientes de la red virtual. Si alguno de esos recursos se encuentra en un estado de error, el traslado se bloqueará. Por ejemplo, si se produce un error en una máquina virtual que usa la red virtual, el traslado se bloqueará. El traslado se bloqueará incluso cuando la máquina virtual no sea uno de los recursos que se están trasladando y no esté en uno de los grupos de recursos que forma parte del traslado.
 
-Cuando recibe este error, tiene dos opciones: trasladar los recursos a un grupo de recursos que no tenga una red virtual o [ponerse en contacto con el departamento de soporte técnico](../../azure-supportability/how-to-create-azure-support-request.md).
+Cuando recibe este error, tiene dos opciones: trasladar los recursos a un grupo de recursos que no tenga una red virtual o [ponerse en contacto con el departamento de soporte técnico](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

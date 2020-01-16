@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: 6cde620b4949da8a6cff4ad89a863c80f0514f1c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792407"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979375"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validación XML con esquemas en Azure Logic Apps con Enterprise Integration Pack
 
@@ -21,9 +21,9 @@ Para comprobar que los documentos usan XML válidos y cuentan con los datos espe
 
 Para conocer los límites relacionados con las cuentas de integración y artefactos como esquemas, consulte [Información de límites y configuración para Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si aún no tiene una, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta de Azure gratuita</a>.
+* Suscripción a Azure. Si aún no tiene una, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta de Azure gratuita</a>.
 
 * Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) donde almacena los esquemas y otros artefactos para soluciones negocio a negocio (B2B) y de integración empresarial. 
 
@@ -31,7 +31,7 @@ Para conocer los límites relacionados con las cuentas de integración y artefac
   Para agregar ese esquema a la cuenta de integración, puede vincular a la cuenta de almacenamiento desde la cuenta de integración. 
   Para esta tarea, necesita estos elementos: 
 
-  * La [cuenta de almacenamiento de Azure](../storage/common/storage-account-overview.md) donde crea un contenedor de blobs para el esquema. Aprenda a [crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md). 
+  * La [cuenta de almacenamiento de Azure](../storage/common/storage-account-overview.md) donde crea un contenedor de blobs para el esquema. Aprenda a [crear una cuenta de almacenamiento](../storage/common/storage-account-create.md). 
 
   * El contenedor de blobs para almacenar el esquema. Aprenda a [crear un contenedor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md). 
   Necesitará el URI de contenido del contenedor más adelante, cuando agregue el esquema a la cuenta de integración.

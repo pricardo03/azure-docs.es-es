@@ -1,18 +1,18 @@
 ---
 title: Solución de errores habituales de la API de Azure Cosmos DB para MongoDB
 description: En este documento se describen las formas de solucionar los problemas habituales detectados en la API de Azure Cosmos DB para MongoDB.
-author: roaror
+author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 06/05/2019
-ms.author: roaror
-ms.openlocfilehash: ece975fa37e500b1c160210684a0cb46e719c48b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.author: lbosq
+ms.openlocfilehash: d9a4e336f582e866fd057f6c281f892ce07b34fc
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754967"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941841"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Solución de errores habituales de la API de Azure Cosmos DB para MongoDB
 
@@ -22,7 +22,7 @@ Aunque la API de Azure Cosmos DB para MongoDB es compatible con la versión 3.2 
 
 ## <a name="common-errors-and-solutions"></a>Errores habituales y soluciones
 
-| Error               | Código  | DESCRIPCIÓN  | Solución  |
+| Error               | Código  | Descripción  | Solución  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | El número total de unidades de solicitud consumidas es mayor que la tasa de unidades de solicitud aprovisionadas para la colección y se ha limitado. | Considere la posibilidad de escalar el rendimiento asignado a un contenedor o un conjunto de contenedores desde Azure Portal o vuelva a intentarlo. |
 | ExceededMemoryLimit | 16501 | Como se trata de un servicio de varios inquilinos, la operación ha superado la asignación de memoria del cliente. | Reduzca el ámbito de la operación a través de criterios de consulta más restrictivos o póngase en contacto con soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Ejemplo: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |

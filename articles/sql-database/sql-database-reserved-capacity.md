@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 08/29/2019
-ms.openlocfilehash: 52a3665da99ca9885c57db1a2779dc6ce4dbec21
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0713e1ed98cc87b95cad1f84672148cd062e0b58
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821179"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979989"
 ---
 # <a name="save-costs-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Ahorro de costos de los recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database
 
@@ -25,13 +25,13 @@ Ahorre dinero con Azure SQL Database al comprometerse a una reserva de recursos 
 
 No es necesario asignar la reserva a instancias específicas de SQL Database (bases de datos únicas, grupos elásticos o instancias administradas). Al igualarse las instancias de SQL Database en ejecución o las recién implementadas se obtendrá la ventaja automáticamente. Al comprar una reserva, se compromete a usar el servicio por los costos de proceso durante un período de uno a tres años. En cuando se compra una reserva, los costos de proceso de SQL Database que coincidan con los atributos de reserva dejan de pagarse según las tarifas de pago por uso. La reserva no cubre los cargos por software, redes o almacenamiento asociados a la instancia de SQL Database. Al final del plazo de reserva, la ventaja en la facturación expira y las instancias de SQL Database se facturan según los precios de pago por uso. Las reservas no se renuevan automáticamente. Para información sobre precios, consulte el artículo sobre la [oferta de capacidad reservada de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
-Puede comprar capacidad reservada de Azure SQL Database en [Azure Portal](https://portal.azure.com). Pague la reserva [por adelantado o mensualmente](../billing/billing-monthly-payments-reservations.md). Para comprar capacidad reservada de SQL Database:
+Puede comprar capacidad reservada de Azure SQL Database en [Azure Portal](https://portal.azure.com). Pague la reserva [por adelantado o mensualmente](../cost-management-billing/reservations/monthly-payments-reservations.md). Para comprar capacidad reservada de SQL Database:
 
 - Debe tener el rol de propietario al menos en una suscripción Enterprise o individual con tarifas de pago por uso.
 - En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción.
 - En el caso del programa del Proveedor de soluciones en la nube (CSP), los únicos que pueden comprar la capacidad reservada de SQL Database son los agentes de administración o de ventas.
 
-Para información sobre cómo se les cobra a los clientes de empresa y a los de pago por uso las compras de reservas, consulte [Información sobre el uso de reservas de Azure para la inscripción Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md) y [Información sobre el uso de reservas de Azure para suscripciones de pago por uso](../billing/billing-understand-reserved-instance-usage.md).
+Para información sobre cómo se les cobra a los clientes de empresa y a los de pago por uso las compras de reservas, consulte [Información sobre el uso de reservas de Azure para la inscripción Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) y [Información sobre el uso de reservas de Azure para suscripciones de pago por uso](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 ## <a name="determine-the-right-sql-size-before-purchase"></a>Determinación del tamaño adecuado de SQL antes de la compra
 
@@ -41,7 +41,7 @@ Por ejemplo, supongamos que está ejecutando un grupo elástico de propósito ge
 
 ## <a name="buy-sql-database-reserved-capacity"></a>Compra de capacidad reservada de SQL Database
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** > **Reservations**.
 3. Seleccione **Agregar** y, en el panel Comprar reservas, seleccione **SQL Database** para comprar una nueva reserva para SQL Database.
 4. Rellene todos los campos obligatorios. Las bases de datos únicas, los grupos elásticos o las instancias administradas nuevas que coincidan con los atributos seleccionados serán aptos para el descuento en la capacidad reservada. El número real de instancias de SQL Database que obtienen el descuento depende el ámbito y la cantidad seleccionados.
@@ -49,7 +49,7 @@ Por ejemplo, supongamos que está ejecutando un grupo elástico de propósito ge
 
 En la siguiente tabla se describen los campos obligatorios.
 
-| Campo      | DESCRIPCIÓN|
+| Campo      | Descripción|
 |------------|--------------|
 |Subscription|La usada para pagar la reserva de capacidad reservada de SQL Database. Los costos anticipados por la capacidad reservada de SQL Database se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.|
 |Ámbito       |El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: <br/><br/>**Compartido**: el descuento por la reserva de núcleos virtuales se aplica a las instancias de SQL Database en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.<br/><br/>**Suscripción única**: el descuento por la reserva de núcleos virtuales se aplica a las instancias de SQL Database de esta suscripción. <br/><br/>**Grupo de recursos único**: el descuento de reserva se aplica a las instancias de SQL Database de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.|
@@ -65,7 +65,7 @@ En la siguiente tabla se describen los campos obligatorios.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelación, intercambio o reembolso de reservas
 
-Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="vcore-size-flexibility"></a>Flexibilidad de tamaño del núcleo virtual
 
@@ -83,13 +83,13 @@ Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técni
 
 El descuento por la reserva de núcleos virtuales se aplica automáticamente al número de instancias de SQL Database que coincidan con el ámbito y los atributos de la capacidad reservada de SQL Database. Puede actualizar el ámbito de la capacidad reservada de SQL Database a través de [Azure Portal](https://portal.azure.com), PowerShell, la CLI o la API.
 
-Para saber cómo administrar la capacidad reservada de SQL Database, consulte el artículo sobre la [administración de capacidad reservada de SQL Database](../billing/billing-manage-reserved-vm-instance.md).
+Para saber cómo administrar la capacidad reservada de SQL Database, consulte el artículo sobre la [administración de capacidad reservada de SQL Database](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
 Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
 
-- [¿Qué es Azure Reservations?](../billing/billing-save-compute-costs-reservations.md)
-- [Administración de Azure Reservations](../billing/billing-manage-reserved-vm-instance.md)
-- [Información sobre el descuento de Azure Reservations](../billing/billing-understand-reservation-charges.md)
-- [Información sobre el uso de reservas para suscripciones de pago por uso](../billing/billing-understand-reserved-instance-usage.md)
-- [Información sobre el uso de reservas para la inscripción Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)
+- [¿Qué es Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Administración de Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+- [Información sobre el descuento de Azure Reservations](../cost-management-billing/reservations/understand-reservation-charges.md)
+- [Información sobre el uso de reservas para suscripciones de pago por uso](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
+- [Información sobre el uso de reservas para la inscripción Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
 - [Azure Reservations en el programa del Proveedor de soluciones en la nube (CSP) del Centro de partners](https://docs.microsoft.com/partner-center/azure-reservations)

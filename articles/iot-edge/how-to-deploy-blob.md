@@ -1,19 +1,18 @@
 ---
 title: 'Implementación de un módulo de Blob Storage en un dispositivo: Azure IoT Edge'
 description: Implementación de un módulo de Azure Blob Storage en un dispositivo de IoT Edge para almacenar datos en el perímetro.
-author: arduppal
-ms.author: arduppal
+author: kgremban
+ms.author: kgremban
 ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-manager: brymat
-ms.openlocfilehash: b526cf6e4b4d71c511c1f667bf6b8272a0bb2001
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fe09fb47a75ff9d412ffab2daafaf241a43443b4
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434403"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75729614"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Implementación del módulo de Azure Blob Storage en IoT Edge en el dispositivo
 
@@ -90,10 +89,10 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
    - Reemplace `<storage mount>` según el sistema operativo del contenedor. Especifique el nombre de un [volumen](https://docs.docker.com/storage/volumes/) o la ruta de acceso absoluta a un directorio del dispositivo de IoT Edge en el que desea que el módulo del blob almacene sus datos. El montaje de almacenamiento asigna una ubicación del dispositivo proporcionada a una ubicación establecida del módulo.
 
      - En el caso de contenedores de Linux, el formato es *\<ruta de acceso de almacenamiento o volumen>: /blobroot*. Por ejemplo
-         - use [montaje de volumen](https://docs.docker.com/storage/volumes/): **mi-volumen:/blobroot** 
+         - use [montaje de volumen](https://docs.docker.com/storage/volumes/): **mi-volumen:/blobroot**
          - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): **/srv/containerdata:/blobroot**. Asegúrese de seguir los pasos para [conceder acceso al directorio al usuario del contenedor](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux).
      - En el caso de contenedores de Windows, el formato es *\<ruta de acceso de almacenamiento o volumen>:C:/BlobRoot*. Por ejemplo
-         - use [montaje de volumen](https://docs.docker.com/storage/volumes/): **mi-volumen:C:/blobroot**. 
+         - use [montaje de volumen](https://docs.docker.com/storage/volumes/): **mi-volumen:C:/blobroot**.
          - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): **C:/ContainerData:C:/BlobRoot**.
          - En lugar de usar la unidad local, puede asignar la ubicación de red de SMB. Para obtener más información, consulte [uso del recurso compartido de SMB como almacenamiento local](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
 
@@ -108,26 +107,23 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
 
    ```json
    {
-     "properties.desired": {
-       "deviceAutoDeleteProperties": {
-         "deleteOn": <true, false>,
-         "deleteAfterMinutes": <timeToLiveInMinutes>,
-         "retainWhileUploading":<true,false>
+     "deviceAutoDeleteProperties": {
+       "deleteOn": <true, false>,
+       "deleteAfterMinutes": <timeToLiveInMinutes>,
+       "retainWhileUploading": <true,false>
+     },
+     "deviceToCloudUploadProperties": {
+       "uploadOn": <true, false>,
+       "uploadOrder": "<NewestFirst, OldestFirst>",
+       "cloudStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
+       "storageContainersForUpload": {
+         "<source container name1>": {
+           "target": "<target container name1>"
+         }
        },
-       "deviceToCloudUploadProperties": {
-         "uploadOn": <true, false>,
-         "uploadOrder": "<NewestFirst, OldestFirst>",
-         "cloudStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
-         "storageContainersForUpload": {
-           "<source container name1>": {
-             "target": "<target container name1>"
-           }
-         },
-         "deleteAfterUpload":<true,false>
-       }
+       "deleteAfterUpload": <true,false>
      }
    }
-
    ```
 
    Para obtener información sobre cómo configurar deviceToCloudUploadProperties y deviceAutoDeleteProperties una vez implementado el módulo, consulte [Edición del módulo gemelo](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). Para más información sobre las propiedades deseadas, consulte [Definición o actualización de las propiedades deseadas](module-composition.md#define-or-update-desired-properties).
@@ -172,7 +168,7 @@ Azure IoT Edge proporciona plantillas de Visual Studio Code que facilitan el des
    | Seleccionar carpeta | Elija la ubicación en el equipo de desarrollo en la que Visual Studio Code creará los archivos de la solución. |
    | Proporcionar un nombre de la solución | Escriba un nombre descriptivo para la solución o acepte el valor predeterminado **EdgeSolution**. |
    | Seleccionar plantilla del módulo | Elija **Existing Module (Enter full image URL)** (Módulo existente [escribir URL completa de la imagen]). |
-   | Proporcionar un nombre de módulo | Escriba un nombre en minúsculas para el módulo, como **azureblobstorageoniotedge**.<br /><br />Es importante usar un nombre en minúsculas para el módulo de Azure Blob Storage en IoT Edge. IoT Edge distingue mayúsculas y minúsculas al hacer referencia a módulos y el SDK de Storage toma como valor predeterminado la minúsculas. |
+   | Proporcionar un nombre de módulo | Escriba un nombre en minúsculas para el módulo, como **azureblobstorageoniotedge**.<br/><br/>Es importante usar un nombre en minúsculas para el módulo de Azure Blob Storage en IoT Edge. IoT Edge distingue mayúsculas y minúsculas al hacer referencia a módulos y el SDK de Storage toma como valor predeterminado la minúsculas. |
    | Provide Docker image for the module (Proporcionar imagen de Docker para el módulo) | Proporcione el identificador URI: **mcr.microsoft.com/azure-blob-storage:latest** |
 
    Visual Studio Code toma la información que le ha proporcionado, crea una solución IoT Edge y la carga en una nueva ventana. La plantilla de solución crea una plantilla de manifiesto de implementación que incluye la imagen del módulo de Blob Storage, pero es preciso configurar las opciones de creación del módulo.
@@ -205,10 +201,10 @@ Azure IoT Edge proporciona plantillas de Visual Studio Code que facilitan el des
 1. Reemplace `<storage mount>` según el sistema operativo del contenedor. Especifique el nombre de un [volumen](https://docs.docker.com/storage/volumes/) o la ruta de acceso absoluta a un directorio del dispositivo de IoT Edge en el que desea que el módulo del blob almacene sus datos. El montaje de almacenamiento asigna una ubicación del dispositivo proporcionada a una ubicación establecida del módulo.  
 
      - En el caso de contenedores de Linux, el formato es *\<ruta de acceso de almacenamiento o volumen>: /blobroot*. Por ejemplo
-         - use [montaje de volumen](https://docs.docker.com/storage/volumes/): **mi-volumen:/blobroot** 
+         - use [montaje de volumen](https://docs.docker.com/storage/volumes/): **mi-volumen:/blobroot**
          - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): **/srv/containerdata:/blobroot**. Asegúrese de seguir los pasos para [conceder acceso al directorio al usuario del contenedor](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux).
      - En el caso de contenedores de Windows, el formato es *\<ruta de acceso de almacenamiento o volumen>:C:/BlobRoot*. Por ejemplo
-         - use [montaje de volumen](https://docs.docker.com/storage/volumes/): **mi-volumen:C:/blobroot**. 
+         - use [montaje de volumen](https://docs.docker.com/storage/volumes/): **mi-volumen:C:/blobroot**.
          - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): **C:/ContainerData:C:/BlobRoot**.
          - En lugar de usar la unidad local, puede asignar la ubicación de red de SMB. Para obtener más información, consulte [uso del recurso compartido de SMB como almacenamiento local](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 09/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 365507f482217bd804bbd5017d4dbbaf8c187ad2
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 9e1a7f7cd2643aae61e60d77ad74f4a08266a977
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326892"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863604"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Especificaciones técnicas de Azure Data Box Edge
 
@@ -23,7 +23,7 @@ Los componentes de hardware del dispositivo Data Box Edge de Microsoft Azure 
 
 El dispositivo Data Box Edge tiene las siguientes especificaciones para el proceso y la memoria:
 
-| Especificación           | Valor                  |
+| Especificación           | Value                  |
 |-------------------------|----------------------------|
 | CPU    | Dos CPU de 10 núcleos                     |
 | Memoria              | 128 GB de RAM                  |
@@ -33,9 +33,9 @@ El dispositivo Data Box Edge tiene las siguientes especificaciones para el proce
 
 Se incluye una matriz de puertas programables (FPGA) en cada dispositivo Data Box Edge que habilita los escenarios de Machine Learning (ML). 
 
-| Especificación           | Valor                  |
+| Especificación           | Value                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Los modelos de redes neuronales profundas (DNN) disponibles son los mismos que los [que admiten las instancias FPGA en la nube](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
+| FPGA   | Intel Arria 10 <br> Los modelos de redes neuronales profundas (DNN) disponibles son los mismos que los [que admiten las instancias FPGA en la nube](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
 
 
 ## <a name="power-supply-unit-specifications"></a>Especificaciones de la fuente de alimentación
@@ -57,7 +57,7 @@ The following table lists the typical power consumption data (actual values may 
 
 Los dispositivos de Data Box Edge tienen unidades de estado sólido (SSD) de NVMe de 9 X 2,5”, cada una de ellas con una capacidad de 1,6 TB. De estas unidades SSD, una es un disco del sistema operativo y las otras 8 son discos de datos. La capacidad total utilizable para el dispositivo es de aproximadamente 12,5 TB. La tabla siguiente contiene los detalles de la capacidad de almacenamiento del dispositivo.
 
-|     Especificación                          |     Valor             |
+|     Especificación                          |     Value             |
 |--------------------------------------------|-----------------------|
 |    Número de unidades de estado sólido (SSD)     |    8                  |
 |    Capacidad de un solo SSD                     |    1,6 TB             |
@@ -105,7 +105,7 @@ En esta sección se enumeran las especificaciones relacionadas con el entorno de
 
 |     Revestimiento         |     Intervalo de temperatura ambiente     |     Humedad relativa del ambiente     |     Punto de rocío máximo     |
 |-----------------------|--------------------------------------|--------------------------------------|---------------------------|
-|    Operativo        |    10 °C a 35 °C (50 °F a 86 °F)         |    10 % - 80 % sin condensación         |    29 °C (84 °F)            |
+|    Operativos        |    10 °C a 35 °C (50 °F a 86 °F)         |    10 % - 80 % sin condensación         |    29 °C (84 °F)            |
 |    No operativo    |    -40 °C a 65 °C (-40 °F a 149 °F)     |    5% - 95% sin condensación          |    33 °C (91 °F)            |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Flujo de aire, altitud, golpes, vibraciones, orientación, seguridad y CEM

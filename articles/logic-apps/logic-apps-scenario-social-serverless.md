@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: ebc1d449cdb8702a984304e92697d4b7c778daaa
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e300bf9c9aa0acf0bed6426eb73f690f9a38bd74
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792889"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980421"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creación de un panel de streaming de Customer Insights con Azure Logic Apps y Azure Functions
 
@@ -104,7 +104,7 @@ Para ver historiales de ejecuciones anteriores en Visual Studio o en Azure Porta
 
 ## <a name="create-automated-deployment-templates"></a>Creación de plantillas de implementación automatizada
 
-Después de crear una solución de aplicación lógica, puede capturar e implementar la aplicación como una [plantilla de Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md) en cualquier región de Azure del mundo. Puede utilizar esta funcionalidad para modificar los parámetros para crear versiones diferentes de la aplicación y para integrar la solución en Azure Pipelines. También puede incluir Azure Functions en la plantilla de la implementación, para poder administrar la solución completa con todas las dependencias como una única plantilla. Aprenda a [automatizar la implementación de aplicaciones lógicas](logic-apps-azure-resource-manager-templates-overview.md).
+Después de crear una solución de aplicación lógica, puede capturar e implementar la aplicación como una [plantilla de Azure Resource Manager](../azure-resource-manager/templates/overview.md) en cualquier región de Azure del mundo. Puede utilizar esta funcionalidad para modificar los parámetros para crear versiones diferentes de la aplicación y para integrar la solución en Azure Pipelines. También puede incluir Azure Functions en la plantilla de la implementación, para poder administrar la solución completa con todas las dependencias como una única plantilla. Aprenda a [automatizar la implementación de aplicaciones lógicas](logic-apps-azure-resource-manager-templates-overview.md).
 
 Para acceder a una plantilla de implementación de ejemplo con una función de Azure, consulte el [repositorio de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 

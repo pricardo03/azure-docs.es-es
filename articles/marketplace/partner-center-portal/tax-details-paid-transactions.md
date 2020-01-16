@@ -3,16 +3,16 @@ Description: Para comprender las consideraciones fiscales que debe tener en cuen
 title: Información sobre impuestos | Azure Marketplace
 ms.date: 12/10/2019
 ms.topic: article
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
-ms.openlocfilehash: 7a358e2c284fa42bb09e8d4f93909e1310712967
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a5d11216b43a1361e4f8d108ce6d289e67e31e0a
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979981"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933565"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Información sobre impuestos para los publicadores de Marketplace comercial
 
@@ -245,8 +245,8 @@ Para comprender las consideraciones fiscales para la selección de precios, así
 | Turkmenistán                     | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Islas Turcas y Caicos         | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Tuvalu                           | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
-| Datos de agencias y Islas menores alejadas de EE. UU.      | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
-| Datos de agencias y Vírgenes de EE. UU.              | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
+| EE. UU. Islas menores alejadas de EE. UU.      | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
+| EE. UU. Vírgenes de EE. UU.              | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Uganda                           | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Ucrania                          | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Emiratos Árabes Unidos             | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos el 5 % de impuestos, menos los honorarios de Store                 | Microsoft          |

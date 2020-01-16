@@ -2,7 +2,7 @@
 title: Guardar salidas de trabajos y tareas en Azure Storage con la API del servicio Azure Batch | Microsoft Docs
 description: Aprenda a usar la API del servicio Batch para guardar salidas de trabajos y tareas de Batch en Azure Storage.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.service: batch
@@ -10,14 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 03/05/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: e4a2af09b432961211a5f38ecd2d9dacd89d3868
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8d77da2a0298758dad3eff1a61aff45796bfb6c5
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094452"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029638"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Almacenamiento de datos de tareas en Azure Storage con la API del servicio Batch
 

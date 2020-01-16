@@ -3,12 +3,12 @@ title: 'Tutorial: Copia de seguridad de recursos compartidos de Azure Files'
 description: En este tutorial, aprenderá a usar Azure Portal para configurar un almacén de Recovery Services y realizar copias de seguridad de recursos compartidos de archivos de Azure.
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.openlocfilehash: f3c1956a0344d300fff9a745a4733b7bef45a367
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b002d1ea092d2d0507dc761f56ca7835f1521fb3
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171866"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921639"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Copia de seguridad de los recursos compartidos de archivos de Azure en Azure Portal
 
@@ -20,7 +20,7 @@ En esta guía, aprenderá a:
 > * Configurar un almacén de Recovery Services para realizar una copia de seguridad de archivos de Azure
 > * Ejecutar un trabajo de copia de seguridad a petición para crear un punto de restauración
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de realizar una copia de seguridad de un recurso compartido de archivos de Azure, asegúrese de que se encuentra en uno de los [tipos de cuenta de almacenamiento admitidos](tutorial-backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Cuando haya comprobado esto, puede proteger los recursos compartidos de archivos.
 
@@ -28,7 +28,6 @@ Antes de realizar una copia de seguridad de un recurso compartido de archivos de
 
 La copia de seguridad de los recursos compartidos de archivos de Azure está en versión preliminar. Los recursos compartidos de archivos de Azure se admiten en cuentas de almacenamiento de uso general v1 y uso general v2. No se admiten los siguientes escenarios de copia de seguridad para los recursos compartidos de archivos de Azure:
 
-* No puede proteger los recursos compartidos de archivos de Azure en cuentas de almacenamiento que tienen las redes virtuales o el firewall habilitados.
 * Ni PowerShell ni la CLI están disponibles para proteger Azure Files mediante Azure Backup.
 * El número máximo de copias de seguridad programadas al día es una.
 * El número máximo de copias de seguridad a petición al día es cuatro.

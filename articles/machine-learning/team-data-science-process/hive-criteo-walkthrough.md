@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: eca19b3774ad285cb143ffc2b6c53360bec85fa4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d47f6f5b983c0f785c76d1b2cede815dda699a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492347"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968729"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proceso de ciencia de datos en equipos en acción: Uso de un clúster de Hadoop de Azure HDInsight en un conjunto de datos de 1 TB
 
 En este tutorial, se describe cómo usar el proceso de ciencia de datos en equipos en un escenario completo con un [clúster de Hadoop de Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y estudiar sus características desde el punto de vista de los ingenieros y reducir los datos de ejemplo de uno de los conjuntos de datos de [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) que están disponibles públicamente. Este usa Azure Machine Learning para crear un modelo de clasificación binaria con estos datos. Asimismo, se muestra cómo publicar uno de estos modelos como un servicio web.
 
-También es posible usar un cuaderno de iPython para realizar las tareas que se presentan en este tutorial. Los usuarios que deseen probar este método deben consultar el tema [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) (tutorial de Criteo con una conexión de ODBC de Hive).
+También es posible usar un cuaderno de iPython para realizar las tareas que se presentan en este tutorial. Los usuarios que deseen probar este método deben consultar el tema sobre el [tutorial de Criteo con una conexión de ODBC de Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) .
 
 ## <a name="dataset"></a>Descripción del conjunto de datos de Criteo
 Los datos de Criteo son un conjunto de datos de predicción de clics que ocupan aproximadamente 370 GB de archivos TSV comprimidos en gzip (1,3 TB aproximadamente sin comprimir). Constan de más de 4300 millones de registros. Estos datos proceden de 24 días de datos de clics que ofrece [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/). Para facilitar el trabajo de los científicos de datos, se han descomprimido los datos disponibles para nosotros a fin de experimentar con ellos.
@@ -60,7 +60,7 @@ En este tutorial, se describen dos problemas de predicción de ejemplo:
 
 Configure su entorno de ciencia de datos de Azure para crear soluciones de análisis predictivos con los clústeres de HDInsight en tres pasos:
 
-1. [Cree una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md): esta cuenta de almacenamiento se utiliza para almacenar datos en Azure Blob Storage. Los datos utilizados en los clústeres de HDInsight se almacenan aquí.
+1. [Creación de una cuenta de almacenamiento](../../storage/common/storage-account-create.md): esta cuenta de almacenamiento se utiliza para almacenar datos en Azure Blob Storage. Los datos utilizados en los clústeres de HDInsight se almacenan aquí.
 2. [Personalice los clústeres de Hadoop de HDInsight de Azure para ciencia de datos](customize-hadoop-cluster.md): Este paso crea un clúster de Hadoop de HDInsight de Azure con Anaconda Python 2.7 de 64 bits instalado en todos los nodos. Hay que llevar a cabo dos pasos importantes (descritos en este tema) para personalizar el clúster de HDInsight.
 
    * Hay que vincular la cuenta de almacenamiento que creó en el paso 1 con el clúster de HDInsight en el momento de su creación. Esta cuenta de almacenamiento se utiliza para tener acceso a datos que se pueden procesar en el clúster.
@@ -436,7 +436,7 @@ Para el módulo **Importar datos** , los valores de los parámetros que se propo
 1. Elija "Consulta de Hive" como **Origen de datos**
 2. En el cuadro **Consulta de base de datos de Hive**, basta con seleccionar SELECT * FROM <nombre\_base\_datos.nombre\_tabla\_>.
 3. **URI del servidor de HCatalog** : si el clúster es "abc", este valor simplemente será: https://abc.azurehdinsight.net
-4. **Nombre de cuenta de usuario de Hadoop**: el nombre de usuario elegido en el momento de dar de alta el clúster. (No es el nombre de usuario de acceso remoto).
+4. **Nombre de la cuenta de usuario de Hadoop**: el nombre de usuario elegido en el momento de dar de alta el clúster. (No es el nombre de usuario de acceso remoto).
 5. **Contraseña de cuenta de usuario de Hadoop**: la contraseña del nombre de usuario elegido en el momento de dar de alta el clúster. (NO es la contraseña de acceso remoto).
 6. **Ubicación de los datos de salida**: elija "Azure".
 7. **Nombre de la cuenta de Azure Storage**: cuenta de almacenamiento asociada con el clúster.

@@ -1,18 +1,18 @@
 ---
-title: Azure Management y Operations Management Suite (OMS) | Microsoft Docs
-description: Información general de las áreas de administración para las aplicaciones y recursos de Azure con vínculos a contenido sobre las herramientas de administración de Azure que anteriormente estaban agrupadas como Operations Management Suite (OMS).
+title: Administración de Azure
+description: Información general de las áreas de administración para las aplicaciones y los recursos de Azure con vínculos a contenido sobre las herramientas de administración de Azure.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/07/2018
-ms.openlocfilehash: 7f515c1c5d44058e14f02f7681bfbb7fd2787c6f
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 337b340df10eb406fef3148b1d8bfde66b3b8ff6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597363"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979830"
 ---
 # <a name="azure-management---monitoring"></a>Administración de Azure: supervisión
 
@@ -36,7 +36,7 @@ La supervisión es el acto de recopilar y analizar datos para determinar el rend
 Configurar hace referencia a la implementación inicial y a la configuración de aplicaciones y recursos, y a su mantenimiento continuado con revisiones y actualizaciones.  La automatización de estas tareas a través de scripts y directivas le permite eliminar la redundancia, reducir el tiempo y esfuerzo que debe invertir, y aumentar la precisión y eficiencia.  [Azure Automation](../automation/automation-intro.md) proporciona la mayor parte de los servicios para automatizar las tareas de configuración.  Además de runbooks para automatizar los procesos, proporciona configuración y administración de las actualizaciones, lo que le ayudará no solo a administrar la configuración mediante directivas, sino también a identificar e implementar las actualizaciones.
 
 ## <a name="govern"></a>Control
-La gobernanza proporciona mecanismos y procesos para mantener el control de las aplicaciones y recursos de Azure.  Conlleva la planificación de las iniciativas y el establecimiento de prioridades estratégicas.  En Azure, la gobernanza se implementa principalmente con dos servicios.  [Azure Policy](../governance/policy/overview.md) permite crear, asignar y administrar definiciones de directivas que aplican distintas reglas y acciones a los recursos, con el fin de que estos sigan siendo compatibles con los estándares corporativos y los contratos de nivel de servicio. [Azure Cost Management](../cost-management/overview-cost-mgt.md) permite realizar un seguimiento del uso y de los gastos de la nube de los recursos no solo de Azure, sino también de otros proveedores de servicios en la nube, entre los que se incluyen AWS y Google.
+La gobernanza proporciona mecanismos y procesos para mantener el control de las aplicaciones y recursos de Azure.  Conlleva la planificación de las iniciativas y el establecimiento de prioridades estratégicas.  En Azure, la gobernanza se implementa principalmente con dos servicios.  [Azure Policy](../governance/policy/overview.md) permite crear, asignar y administrar definiciones de directivas que aplican distintas reglas y acciones a los recursos, con el fin de que estos sigan siendo compatibles con los estándares corporativos y los contratos de nivel de servicio. [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) permite realizar un seguimiento del uso y de los gastos de la nube de los recursos no solo de Azure, sino también de otros proveedores de servicios en la nube, entre los que se incluyen AWS y Google.
 
 ## <a name="secure"></a>Seguridad
 La administración de la seguridad de las aplicaciones, recursos y datos conlleva la combinación de la evaluación de las amenazas, la recopilación y el análisis de los datos de seguridad, y la garantía de que tanto las aplicaciones como los recursos están diseñados y configurados de forma segura.  La supervisión de la seguridad y el análisis de amenazas los proporciona [Azure Security Center](../security-center/security-center-intro.md), que incluye una administración unificada de la seguridad y una protección avanzada contra amenazas para cargas de trabajo en la nube híbrida.  También debe consultar [Introducción a la seguridad de Azure](../security/fundamentals/overview.md), donde encontrará información completa acerca la seguridad en Azure e instrucciones para configurar de forma segura los recursos de Azure.

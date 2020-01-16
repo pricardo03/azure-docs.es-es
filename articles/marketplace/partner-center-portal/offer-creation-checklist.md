@@ -1,19 +1,19 @@
 ---
 title: 'Lista de comprobación para la creación de ofertas de SaaS: Marketplace comercial para Azure'
 description: Los detalles que puede incluir en el proceso de creación de ofertas de SaaS. - Marketplace comercial para Azure
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 1643a1e309ecc2bcfc440e3553fcffef54cfb038
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8b01f15673f68bcc3fb0b205b9dd85a276c9b972
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824622"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930299"
 ---
 # <a name="saas-offer-creation-checklist"></a>Lista de comprobación de creación de ofertas de SaaS
 
@@ -58,7 +58,7 @@ La página de configuración de la oferta es donde puede optar por diferentes ca
 | Dirección URL de la oferta  | Requerido si se selecciona "Obtenerla ahora" como el modo en que los clientes deben interactuar con la oferta publicada. |
 | Canales  | Opcional. Valor predeterminado: No habilitado para el canal CSP (revendedor).  |
 | Versión de prueba | Opcional. Valor predeterminado: No hay ninguna versión de prueba habilitada.  |
-| Tipo de versión de prueba | Requerido si se habilita una versión de prueba. Valor predeterminado: No se ha seleccionado ninguno. Opciones: Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations, Logic Apps, Power BI.  |
+| Tipo de versión de prueba | Requerido si se habilita una versión de prueba. Valor predeterminado: Ninguno seleccionado. Opciones: Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations, Logic Apps, Power BI.  |
 | Administración de clientes potenciales: conexión a un sistema CRM | Requerido si se vende a través de Microsoft o si la oferta incluye "Ponerse en contacto conmigo". Valor predeterminado: ningún sistema CRM conectado. Opciones de CRM: tabla de Azure, blob de Azure, Dynamics CRM Online, punto de conexión HTTPS, Marketo, Salesforce  |
 
 ## <a name="properties-page"></a>Página de propiedades
@@ -79,9 +79,9 @@ La página de descripción es donde debe proporcionar el texto y las imágenes q
 
 | **Nombre del campo**    | **Notas**   |
 | :---------------- | :-----------| 
-| NOMBRE  | Requerido, máx. 50 caracteres. |
+| Nombre  | Requerido, máx. 50 caracteres. |
 | Resumen  | Requerido, máx. 100 caracteres. | 
-| DESCRIPCIÓN  | Requerido, máx. 3000 caracteres. |
+| Descripción  | Requerido, máx. 3000 caracteres. |
 | Instrucciones de introducción  | Requerido, máx. 3000 caracteres. |
 | Instrucciones de introducción  | Requerido, máx. 3000 caracteres. |
 | Palabras clave de búsqueda  | Opcional, recomendado, máx. 3 palabras clave. |
@@ -121,7 +121,7 @@ Los primeros datos que tendrá que proporcionar son un nombre y un identificador
 | **Nombre del campo**    | **Notas**   |  
 | :---------------- | :-----------| 
 | Identificador de plan  | Requerido si se vende a través de Microsoft. No se puede cambiar después de la creación. Debe tener 50 caracteres como máximo y constar únicamente de caracteres alfanuméricos en minúscula, guiones o caracteres de subrayado. |
-| Nombre del plan  | Requerido si se vende a través de Microsoft. Debe ser único en todos los planes de la oferta. Máx. 50 caracteres. |
+| Plan Name  | Requerido si se vende a través de Microsoft. Debe ser único en todos los planes de la oferta. Máx. 50 caracteres. |
 
 ## <a name="plan-listing-page"></a>Página de descripción del plan
 
@@ -141,7 +141,7 @@ La página de precios y disponibilidad del plan es donde define las característ
 | Modelo de precios  | Necesario. Valor predeterminado: Tarifa plana. Opciones: Tarifa plana, por usuario. |
 | Puestos mínimo y máximo  | Opcional, solo disponible si se selecciona el modelo de precios basado en puestos. |
 | Período de facturación  | Necesario. Valor predeterminado: Mensual. Opciones: Mensual, anual. |
-| Precio  | USD requeridos al mes, si se selecciona el período de facturación mensual; o USD al año si se selecciona el período de facturación anual. |
+| Price  | USD requeridos al mes, si se selecciona el período de facturación mensual; o USD al año si se selecciona el período de facturación anual. |
 | Público del plan  | Opcional. Valor predeterminado: Plan público. Opciones: Público, privado por identificador de inquilino |
 | Público del plan restringido (identificador de inquilino + descripción)  | Requerido si se selecciona un plan privado. Mín.1 y máx. 10 identificadores de inquilino si introducen manualmente. Máximo 20 000 si se importa un archivo .csv. |
 
@@ -151,7 +151,7 @@ Solo disponible si selecciona ofrecer una versión de prueba de la oferta. Defin
 
 | **Nombre del campo**    | **Notas**   | 
 | :---------------- | :-----------| 
-| DESCRIPCIÓN  | Necesario. |
+| Descripción  | Necesario. |
 | Nombre + archivo del manual del usuario  | Requerido, máx. 1 documento. Debe estar en formato PDF. |
 | Nombre + dirección URL + miniatura de vídeo  | Opcional, recomendado. La miniatura debe tener el tamaño 533 x 324 y estar en formato JPGP o PNG. El vídeo debe estar hospedado en YouTube o Vimeo. |
 

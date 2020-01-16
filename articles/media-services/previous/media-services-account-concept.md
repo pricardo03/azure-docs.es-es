@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: b4c19b1f502d079d7dfcc1edef4674d21f78ac3a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 09a5f004570430fafe5c86f4f8ae048f2d1fe4c4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67622075"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981940"
 ---
 # <a name="manage-azure-media-services-v2-accounts"></a>Administración de cuentas v2 de Azure Media Services
 
@@ -24,7 +24,7 @@ Para iniciar la administración, el cifrado, la codificación, el análisis y el
 
 ## <a name="moving-a-media-services-account-between-subscriptions"></a>Traslado de una cuenta de Media Services entre suscripciones 
 
-Si necesita trasladar una cuenta de Media Services a una nueva suscripción, primero debe trasladar todo el grupo de recursos que contiene la cuenta de Media Services a la nueva suscripción. Debe trasladar todos los recursos asociados: Cuentas de Azure Storage, perfiles de Azure CDN, etc. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/resource-group-move-resources.md). Al igual que con los recursos de Azure, los traslados del grupo de recursos pueden tardar algún tiempo en completarse.
+Si necesita trasladar una cuenta de Media Services a una nueva suscripción, primero debe trasladar todo el grupo de recursos que contiene la cuenta de Media Services a la nueva suscripción. Debe trasladar todos los recursos asociados: Cuentas de Azure Storage, perfiles de Azure CDN, etc. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Al igual que con los recursos de Azure, los traslados del grupo de recursos pueden tardar algún tiempo en completarse.
 
 Media Services v2 no es compatible con el modelo multiinquilino. Si tiene que mover una cuenta de Media Services a una suscripción en un nuevo inquilino, cree una nueva aplicación de Azure Active Directory (Azure AD) en el nuevo inquilino. A continuación, traslade la cuenta a la suscripción del nuevo inquilino. Una vez finalizada la migración del inquilino, puede empezar a usar una aplicación de Azure AD desde el nuevo inquilino para acceder a la cuenta de Media Services mediante las API de v2. 
 

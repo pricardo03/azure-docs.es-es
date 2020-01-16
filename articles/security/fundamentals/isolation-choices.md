@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: c666d718586d3e5351974da287a91f6a3a8c04ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 659d00c3fc7a766d800de6f1f12f410003284360
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459177"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979273"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 Azure permite ejecutar aplicaciones y máquinas virtuales (VM) en una infraestructura física compartida. Una de las motivaciones económicas principales para ejecutar aplicaciones en un entorno de nube es la capacidad de distribuir el costo de los recursos compartidos entre varios clientes. Esta práctica de multiinquilino mejora la eficiencia al multiplexar los recursos entre los distintos clientes a un bajo costo. Lamentablemente, también presenta el riesgo del uso compartido de servidores físicos y otros recursos de infraestructura al ejecutar aplicaciones confidenciales y máquinas virtuales que pueden pertenecer a un usuario arbitrario y potencialmente malintencionado.
@@ -190,7 +190,7 @@ Por tanto, Azure Storage se ejecuta en hardware independiente sin conectividad d
 Esto significa que puede conceder permisos limitados a los clientes a objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos. Se pueden conceder estos permisos limitados sin tener que compartir las claves de acceso de su cuenta.
 
 ### <a name="ip-level-storage-isolation"></a>Aislamiento del almacenamiento en el nivel de dirección IP
-Puede establecer firewalls y definir un intervalo de direcciones IP para los clientes de confianza. Con un intervalo de direcciones IP, solo los clientes que tengan una dirección IP dentro del intervalo definido podrán conectarse a [Azure Storage](../../storage/common/storage-security-guide.md).
+Puede establecer firewalls y definir un intervalo de direcciones IP para los clientes de confianza. Con un intervalo de direcciones IP, solo los clientes que tengan una dirección IP dentro del intervalo definido podrán conectarse a [Azure Storage](../../storage/blobs/security-recommendations.md).
 
 Los datos de almacenamiento de IP se pueden proteger contra usuarios no autorizados mediante un mecanismo de red que se utiliza para asignar un túnel de tráfico dedicado al almacenamiento de IP.
 
@@ -203,18 +203,18 @@ Azure ofrece los siguientes tipos de cifrado para proteger los datos:
 #### <a name="encryption-in-transit"></a>Cifrado en tránsito
 Cifrado en tránsito es un mecanismo para proteger datos cuando se transmiten a través de redes. Con Azure Storage, puede proteger los datos mediante:
 
--   [Cifrado de nivel de transporte](../../storage/common/storage-security-guide.md), como HTTPS para transferir datos a Azure Storage o desde este servicio.
+-   [Cifrado de nivel de transporte](../../storage/blobs/security-recommendations.md), como HTTPS para transferir datos a Azure Storage o desde este servicio.
 
--   [Cifrado en el cable](../../storage/common/storage-security-guide.md), como el cifrado SMB 3.0 para recursos compartidos de Azure File.
+-   [Cifrado en el cable](../../storage/blobs/security-recommendations.md), como el cifrado SMB 3.0 para recursos compartidos de Azure File.
 
--   [Cifrado de cliente](../../storage/common/storage-security-guide.md), para cifrar los datos antes de transferirlos al almacenamiento y descifrarlos una vez transferidos desde este servicio.
+-   [Cifrado de cliente](../../storage/blobs/security-recommendations.md), para cifrar los datos antes de transferirlos al almacenamiento y descifrarlos una vez transferidos desde este servicio.
 
 #### <a name="encryption-at-rest"></a>Cifrado en reposo
 Para muchas organizaciones, el [cifrado de los datos en reposo](isolation-choices.md) es un paso obligatorio en lo que respecta a la privacidad de los datos, el cumplimiento y la soberanía de los datos. Hay tres características de Azure que proporcionan cifrado de datos "en reposo":
 
--   [Cifrado del servicio de almacenamiento](../../storage/common/storage-security-guide.md) permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Azure Storage.
+-   [Cifrado del servicio de almacenamiento](../../storage/blobs/security-recommendations.md) permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Azure Storage.
 
--   [Cifrado de cliente](../../storage/common/storage-security-guide.md) también proporciona la característica de cifrado en reposo.
+-   [Cifrado de cliente](../../storage/blobs/security-recommendations.md) también proporciona la característica de cifrado en reposo.
 
 -   [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS.
 

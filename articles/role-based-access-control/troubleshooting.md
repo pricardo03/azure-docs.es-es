@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 5429ebb611f852f7672d89de190ddd68dbcb01cf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 67d624bb81105b8219030c57460b6d7bf7458671
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707776"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980987"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Solución de problemas del control de acceso basado en rol para recursos de Azure
 
@@ -41,13 +41,13 @@ En este artículo se responden preguntas comunes acerca del control de acceso ba
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Recuperación de RBAC cuando las suscripciones se trasladan de un inquilino a otro
 
-- Si necesita consultar los pasos para transferir una suscripción a otro inquilino de Azure AD, consulte [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../billing/billing-subscription-transfer.md).
+- Si necesita consultar los pasos para transferir una suscripción a otro inquilino de Azure AD, consulte [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../cost-management-billing/manage/billing-subscription-transfer.md).
 - Si transfiere una suscripción a un nuevo inquilino de Azure AD, todas las asignaciones de roles se eliminan permanentemente del inquilino de Azure AD de origen y no se migran al inquilino de Azure AD de destino. Debe volver a crear las asignaciones de roles en el inquilino de destino. También debe volver a crear manualmente las identidades administradas para los recursos de Azure. Para más información, consulte [Preguntas frecuentes y problemas conocidos con identidades administradas](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Si es un administrador global de Azure AD y no tiene acceso a una suscripción después de trasladarla de un inquilino a otro, use la **administración de acceso a los recursos de Azure** para [elevar sus permisos de acceso](elevate-access-global-admin.md) temporalmente y obtener acceso a la suscripción.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problemas con los administradores o coadministradores de servicios
 
-- Si tiene problemas con el administrador del servicio o los coadministradores, consulte [Agregar o cambiar los administradores de la suscripción de Azure](../billing/billing-add-change-azure-subscription-administrator.md) y [Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD](rbac-and-directory-admin-roles.md).
+- Si tiene problemas con el administrador del servicio o los coadministradores, consulte [Agregar o cambiar los administradores de la suscripción de Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) y [Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD](rbac-and-directory-admin-roles.md).
 
 ## <a name="access-denied-or-permission-errors"></a>Errores de permiso o acceso denegado
 
@@ -149,7 +149,7 @@ Estos elementos requieren acceso de **escritura** al **plan de App Service** que
 Estos elementos requieren acceso de **escritura** a todo el **grupo de recursos** que contiene su sitio web:  
 
 * Enlaces y certificados SSL (los certificados SSL se pueden compartir entre sitios en el mismo grupo de recursos y la misma ubicación geográfica)  
-* Reglas de alertas  
+* Las reglas de alertas  
 * Opciones de escala automática  
 * Componentes de Application Insights  
 * Pruebas web  
@@ -171,7 +171,7 @@ Estos requieren acceso de **escritura** a la **máquina virtual** y al **grupo d
 
 * Conjunto de disponibilidad  
 * El conjunto de carga equilibrada  
-* Reglas de alertas  
+* Las reglas de alertas  
 
 Si no puede acceder a ninguno de estos iconos, debe pedirle al administrador el acceso de colaborador al grupo de recursos.
 
