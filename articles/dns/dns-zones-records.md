@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: allensu
-ms.openlocfilehash: e80de4a3102f9fec8ad06c0facd110b51558d338
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 37e5f5ed1d877900d8ef967f83de95f056fcca0c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210990"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980525"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Información general sobre zonas y registros de DNS
 
@@ -115,7 +115,7 @@ Las distintas cadenas de un registro DNS no deben confundirse con los diferentes
 
 ### <a name="tags"></a>Etiquetas
 
-Las etiquetas son una lista de pares nombre-valor que Azure Resource Manager usa para etiquetar los recursos.  Azure Resource Manager utiliza etiquetas para habilitar vistas filtradas de la factura de Azure y también permite establecer una directiva en la que se requieran etiquetas. Para obtener más información sobre las etiquetas, consulte [Uso de etiquetas para organizar los recursos de Azure](../azure-resource-manager/resource-group-using-tags.md).
+Las etiquetas son una lista de pares nombre-valor que Azure Resource Manager usa para etiquetar los recursos.  Azure Resource Manager utiliza etiquetas para habilitar vistas filtradas de la factura de Azure y también permite establecer una directiva en la que se requieran etiquetas. Para obtener más información sobre las etiquetas, consulte [Uso de etiquetas para organizar los recursos de Azure](../azure-resource-manager/management/tag-resources.md).
 
 DNS de Azure admite el uso de etiquetas de Azure Resource Manager en recursos de zona DNS.  No admite etiquetas en conjuntos de registros de DNS, aunque, como alternativa, se admiten "metadatos" en estos tipos de conjuntos, como se explica a continuación.
 

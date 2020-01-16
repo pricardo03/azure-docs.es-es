@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b8ae2c529bebebae4ebc2d7b0b8a7e420fe9bcc7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 05ba1d97d4eba92f492289375f85425f8920510b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572787"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749752"
 ---
 # <a name="setup-diagnostic-logging"></a>Configuración del registro de diagnóstico
 
-Una parte importante de cualquier solución de Analysis Services es la supervisión de cómo se comportan los servidores en cuanto al rendimiento. Con los [registros de diagnóstico de recursos de Azure](../azure-monitor/platform/resource-logs-overview.md), puede supervisar los registros y enviarlos a [Azure Storage](https://azure.microsoft.com/services/storage/), transmitirlos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y exportarlos a [los registros de Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
+Una parte importante de cualquier solución de Analysis Services es la supervisión de cómo se comportan los servidores en cuanto al rendimiento. Con los [registros de diagnóstico de recursos de Azure](../azure-monitor/platform/platform-logs-overview.md), puede supervisar los registros y enviarlos a [Azure Storage](https://azure.microsoft.com/services/storage/), transmitirlos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y exportarlos a [los registros de Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
 
 ![Registro de diagnóstico en Storage, Event Hubs o los registros de Azure Monitor](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -44,7 +44,7 @@ Al seleccionar **Motor**, se registran todos los [xEvents](https://docs.microsof
 |Comandos:     |  Command End       |
 |Errores y advertencias     |   Error      |
 |Descubra     |   Discover End      |
-|Notificación     |    Notificación     |
+|Notification     |    Notification     |
 |Sesión     |  Session Initialize       |
 |Bloqueos    |  Deadlock       |
 |Procesamiento de consultas     |   VertiPaq SE Query Begin      |
@@ -215,7 +215,7 @@ Existen cientos de consultas que puede utilizar. Para más información acerca d
 
 En este tutorial rápido, se crea una cuenta de almacenamiento en la misma suscripción y grupo de recursos que el servidor de Analysis Services. A continuación, se usa Set-AzDiagnosticSetting para activar el registro de diagnóstico y se envía la salida a la nueva cuenta de almacenamiento.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 Para realizar este tutorial, necesitará los recursos siguientes:
 
 * Un servidor de Azure Analysis Services. Para obtener instrucciones sobre cómo crear un recurso de servidor, consulte [Creación de un servidor en Azure Portal](analysis-services-create-server.md) o [Creación de un servidor de Azure Analysis Services mediante PowerShell](analysis-services-create-powershell.md).
@@ -326,6 +326,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre los [registros de diagnóstico de recursos Azure](../azure-monitor/platform/resource-logs-overview.md).
+Más información sobre los [registros de diagnóstico de recursos Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 Consulte [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) en la Ayuda de PowerShell.

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 22bf4dcd472cf2d7804b571e09093535f30b053f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: be991b63784a2c72a51bfbdc8506f3b4695ed6c7
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647431"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895315"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solución de problemas de un trabajo lento o con errores en un clúster de HDInsight
 
@@ -91,7 +91,7 @@ HDInsight se basa en varios servicios de Azure. Ejecuta servidores virtuales en 
 #### <a name="check-azure-service-usage-limits"></a>Comprobar los límites de uso del servicio de Azure
 
 Si inicia un clúster grande o ha iniciado muchos clústeres al mismo tiempo, un clúster puede producir un error si ha superado un límite de servicio de Azure. Los límites de servicio varían en función de su suscripción a Azure. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-Puede solicitar que Microsoft aumente el número de recursos de HDInsight disponibles (por ejemplo, núcleos e instancias de VM) con una [solicitud de aumento de cuota de núcleos de Resource Manager](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Puede solicitar que Microsoft aumente el número de recursos de HDInsight disponibles (por ejemplo, núcleos e instancias de VM) con una [solicitud de aumento de cuota de núcleos de Resource Manager](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 
 #### <a name="check-the-release-version"></a>Comprobar la versión de lanzamiento
 

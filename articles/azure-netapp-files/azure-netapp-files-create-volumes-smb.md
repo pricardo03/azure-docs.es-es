@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 01/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 94fc4906478e44365d03e9c8eeadd7cb1946a43a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 6b1946cdaebd01a0742f9ce2b2efb5054ac9d2a8
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300532"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867429"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de SMB para Azure NetApp Files
 
@@ -56,8 +56,6 @@ Debe haber una subred delegada en Azure NetApp Files.
     |    Nombre de NetBIOS       |    138       |    UDP           |
     |    SAM/LSA            |    445       |    TCP           |
     |    SAM/LSA            |    445       |    UDP           |
-    |    LDAP seguro        |    636       |    TCP           |
-    |    LDAP seguro        |    3269      |    TCP           |
     |    w32time            |    123       |    UDP           |
 
 * La topología del sitio para la instancia de Active Directory Domain Services de destino debe cumplir los procedimientos recomendados, en particular, la red virtual de Azure donde se implementa Azure NetApp Files.  

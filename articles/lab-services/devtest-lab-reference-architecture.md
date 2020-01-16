@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 059fd1eb5df09cd0f24763f18cbb02b34017793c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f079071a88d034dfd279da8656da517b934275a3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647907"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982118"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Arquitectura de referencia de Azure DevTest Labs para empresas
 Este artículo proporciona una arquitectura de referencia para ayudarle a implementar una solución basada en Azure DevTest Labs en una empresa. Incluye lo siguiente:
@@ -56,7 +56,7 @@ Aunque DevTest Labs no tiene cuotas ni límites incorporados, otros recursos de 
 - **Recursos por grupo de recursos por tipo de recurso**: El límite predeterminado de [recursos por grupo de recursos por tipo de recurso es 800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).  Cuando utiliza la configuración que determina que *todas las máquinas virtuales van al mismo grupo de recursos*, los usuarios alcanzan este límite de suscripción mucho antes, especialmente si las máquinas virtuales tienen muchos discos adicionales.
 - **Cuentas de almacenamiento**: Una instancia de DevTest Labs viene con una cuenta de almacenamiento. La cuota de Azure para el [número de cuentas de almacenamiento por suscripción y región es 250](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). El número máximo de instancias de DevTest Labs en la misma región también es 250.
 - **Asignaciones de roles**: Una asignación de roles establece la manera en que un usuario o una entidad de seguridad puede tener acceso a un recurso (nivel de permiso, propietario, recurso). En Azure, hay un [límite de 2000 asignaciones de roles por suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits). De forma predeterminada, el servicio DevTest Labs crea un grupo de recursos para cada máquina virtual. Al propietario se le concede el permiso *propietario* para la máquina virtual de DevTest Labs y el permiso de *lector* para el grupo de recursos. De esta manera, cada nueva máquina virtual que cree usará dos asignaciones de roles, además de las asignaciones que se usan cuando concede permiso a los usuarios para acceder al laboratorio.
-- **Lecturas y escrituras de API**: Hay varias formas de automatizar Azure y DevTest Labs, incluidas las API REST, PowerShell, la CLI de Azure y el SDK de Azure. A través de la automatización, podría alcanzar otro límite en las solicitudes de API: Cada suscripción permite hasta [12 000 solicitudes de lectura y 1200 solicitudes de escritura por hora](../azure-resource-manager/resource-manager-request-limits.md). Tenga en cuenta este límite al automatizar DevTest Labs.
+- **Lecturas y escrituras de API**: Hay varias formas de automatizar Azure y DevTest Labs, incluidas las API REST, PowerShell, la CLI de Azure y el SDK de Azure. A través de la automatización, podría alcanzar otro límite en las solicitudes de API: Cada suscripción permite hasta [12 000 solicitudes de lectura y 1200 solicitudes de escritura por hora](../azure-resource-manager/management/request-limits-and-throttling.md). Tenga en cuenta este límite al automatizar DevTest Labs.
 
 ## <a name="manageability-considerations"></a>Consideraciones sobre la manejabilidad
 DevTest Labs tiene una excelente interfaz de usuario administrativa para trabajar con un solo laboratorio. Pero en una empresa, es probable que tenga varias suscripciones de Azure y muchos laboratorios. Para realizar cambios de forma coherente en todos sus laboratorios se necesita scripting/automatización. Estos son algunos ejemplos y procedimientos recomendados de administración para una implementación de DevTest Labs:

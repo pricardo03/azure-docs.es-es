@@ -10,19 +10,19 @@ ms.date: 01/02/2020
 ms.topic: include
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 22a40cac59c36e9e0b6b7ef534639748428ae62e
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: f2a46b8a0868aaa1097dd7f1ae738a2a3e06e3b8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660535"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772920"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar:
 
-* Si este es su primer proyecto en Python, use esta guía para <a href="../quickstarts/create-project.md" target="_blank">crear un proyecto de ejemplo vacío</a>.
-* <a href="../quickstarts/setup-platform.md" target="_blank">Instale el SDK de Voz de su entorno de desarrollo</a>.
+* Si este es su primer proyecto en Python, use esta guía para <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md" target="_blank">crear un proyecto de ejemplo vacío</a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md" target="_blank">Instale el SDK de Voz de su entorno de desarrollo</a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Creación de una aplicación de LUIS para el reconocimiento de la intención
 

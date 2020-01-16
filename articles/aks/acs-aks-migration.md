@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/07/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8070e209910425f9baa0ae81aca349a067c70f76
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 68c50d3455c0ed240fa62532818a0b07b39ec772
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658549"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889519"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrar a Azure Kubernetes Service (AKS)
 
@@ -87,9 +87,9 @@ Al migrar clústeres, es posible que haya asociado servicios externos de Azure. 
 
 ## <a name="ensure-valid-quotas"></a>Garantizar cuotas válidas
 
-Dado que las máquinas virtuales adicionales se implementarán en su suscripción durante la migración, debe comprobar que los límites y cuotas son suficientes para estos recursos. Es posible que tenga que solicitar un aumento en la [cuota de vCPU](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+Dado que las máquinas virtuales adicionales se implementarán en su suscripción durante la migración, debe comprobar que los límites y cuotas son suficientes para estos recursos. Es posible que tenga que solicitar un aumento en la [cuota de vCPU](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
 
-Es posible que tenga que solicitar un aumento de las [cuotas de red](https://docs.microsoft.com/azure/azure-supportability/networking-quota-requests) para asegurarse de no agotar las direcciones IP. Para más información, consulte [Redes e intervalos IP para AKS](https://docs.microsoft.com/azure/aks/configure-kubenet).
+Es posible que tenga que solicitar un aumento de las [cuotas de red](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) para asegurarse de no agotar las direcciones IP. Para más información, consulte [Redes e intervalos IP para AKS](https://docs.microsoft.com/azure/aks/configure-kubenet).
 
 Para más información, consulte [Azure subscription and service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) (Límites de suscripción y servicio de Azure). Para comprobar las cuotas actuales, en Azure Portal, vaya a la [hoja de suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), seleccione la suscripción y seleccione **Uso y cuotas**.
 

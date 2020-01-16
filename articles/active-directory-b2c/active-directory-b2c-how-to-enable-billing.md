@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 844b62f9575249c7b99672e9e67c94cea7ec9f99
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 32897994e4ef22845b1d19d6e0eb3e6b2c968c01
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931389"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930725"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de facturación para Azure Active Directory B2C
 
@@ -82,7 +82,7 @@ El vínculo de la suscripción se consigue mediante la creación de un *recurso*
 
 Se puede usar una suscripción vinculada a un inquilino de Azure AD B2C para la facturación del uso de Azure AD B2C u otros recursos de Azure, incluidos recursos adicionales de Azure AD B2C. La suscripción no se puede usar para agregar otros servicios basados en licencias de Azure o licencias de Office 365 en el inquilino de Azure AD B2C.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 * [Suscripción de Azure](https://azure.microsoft.com/free/)
 * [Inquilino de Azure AD B2C](active-directory-b2c-get-started.md) que quiere vincular a una suscripción
@@ -91,7 +91,7 @@ Se puede usar una suscripción vinculada a un inquilino de Azure AD B2C para la 
 
 ### <a name="create-the-link"></a>Crear el vínculo
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene la suscripción de Azure que quiere usar (*no* el directorio que contiene el inquilino de Azure AD B2C).
 1. Seleccione **Crear un recurso**, escriba `Active Directory B2C` en el campo **Buscar en Marketplace** y, a continuación, seleccione **Azure Active Directory B2C**.
 1. Seleccione **Crear**
@@ -134,7 +134,7 @@ La administración de Azure AD B2C mediante el control de acceso basado en rol n
 
 Los inquilinos de Azure AD B2C se pueden mover a otra suscripción si la de origen y la de destino existen dentro del mismo inquilino de Azure Active Directory.
 
-Para aprender a mover recursos como el inquilino de Azure AD B2C a otra suscripción, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).
+Para aprender a mover recursos como el inquilino de Azure AD B2C a otra suscripción, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Antes de iniciar el traslado, no olvide leer el artículo completo para comprender las limitaciones y los requisitos de esta operación. Además de las instrucciones para mover los recursos, se incluye información crítica, como una lista de comprobación previa al traslado y cómo validar la operación de traslado.
 
