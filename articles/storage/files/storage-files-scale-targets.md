@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 060b4a8992ab1c48cceb9506b4f556d9098b9be0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 211dafd1ad3e30d37cfee926a7c93ba541037f62
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452947"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749494"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Files
 
@@ -115,4 +115,3 @@ Como guía general para la implementación, debería tener varios factores en cu
 
 - [Planeamiento de una implementación de Azure Files](storage-files-planning.md)
 - [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)
-- [Objetivos de escalabilidad y rendimiento de otros servicios de almacenamiento](../common/storage-scalability-targets.md)

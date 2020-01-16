@@ -3,7 +3,7 @@ title: Administración de StorSimple Snapshot Manager | Microsoft Docs
 description: Proporciona infomación general y vínculos para obtener más información acerca de las tareas de administración y flujos de trabajo de la solución Administrador de instantáneas StorSimple.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 1cdbb61d-bd16-4be4-ade2-ceab11508acb
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2016
-ms.author: v-sharos
-ms.openlocfilehash: bc72da98800ef85ef14be0882ba856fbf01386b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: twooley
+ms.openlocfilehash: b8fe87a2df633af310bc661308813a60987e77d6
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630026"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933273"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Uso del Administrador de instantáneas StorSimple para administrar la solución de StorSimple
 
@@ -55,7 +55,7 @@ Administrador de instantáneas StorSimple se puede usar para supervisar y admini
 | Incorporación o remplazo de un dispositivo<br>Conexión de un dispositivo<br>Comprobación de los grupos de volúmenes importados<br>Actualización de los dispositivos conectados<br>Autenticar un dispositivo<br>Ver los detalles de dispositivo<br>Eliminación de una configuración de dispositivo<br>Cambiar una contraseña de dispositivo<br>Reemplazo de un dispositivo con errores<br> |[Uso de Administrador de instantáneas StorSimple para conectar y administrar dispositivos StorSimple](storsimple-snapshot-manager-manage-devices.md) |
 | Montaje de volúmenes<br>Ver información acerca de volúmenes<br>Eliminar un volumen<br>Volver a examinar volúmenes<br>Configuración y copia de seguridad de un volumen básico<br>Configurar y realizar copia de seguridad de un volumen reflejado dinámico |[Uso de Administrador de instantáneas para ver y administrar volúmenes StorSimple](storsimple-snapshot-manager-manage-volumes.md) |
 | Visualización de grupos de volúmenes<br>Crear un grupo de volúmenes<br>Realizar una copia de seguridad de un grupo de volúmenes<br>Editar un grupo de volúmenes<br>Eliminar un grupo de volúmenes |[Uso de Administrador de instantáneas StorSimple para crear y administrar grupos de volúmenes](storsimple-snapshot-manager-manage-volume-groups.md) |
-| Creación de una directiva de copia de seguridad <br>Edición de una directiva de copia de seguridad<br>Eliminación de una directiva de copia de seguridad |[Use Administrador de instantáneas StorSimple para crear y administrar directivas de copia de seguridad](storsimple-snapshot-manager-manage-backup-policies.md) |
+| Crear una directiva de copia de seguridad <br>Edición de una directiva de copia de seguridad<br>Eliminación de una directiva de copia de seguridad |[Use Administrador de instantáneas StorSimple para crear y administrar directivas de copia de seguridad](storsimple-snapshot-manager-manage-backup-policies.md) |
 | Ver y administrar los trabajos de copia de seguridad programados<br>Ver y administrar los trabajos de copia de seguridad recientes<br>Ver y administrar trabajos de copia de seguridad en ejecución en ese momento |[Uso de Administrador de instantáneas StorSimple para ver y administrar trabajos de copia de seguridad](storsimple-snapshot-manager-manage-backup-jobs.md) |
 | Restauración de un volumen<br>Clonación de un volumen o un grupo de volúmenes<br>Eliminación de una copia de seguridad<br>Recuperación de un archivo<br>Restauración de la base de datos de Administrador de instantáneas Storsimple |[Uso de Administrador de instantáneas StorSimple para administrar el catálogo de copia de seguridad](storsimple-snapshot-manager-manage-backup-catalog.md) |
 

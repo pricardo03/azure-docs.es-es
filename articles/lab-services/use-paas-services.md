@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: a80a54f3dc760d80f713db9857cbef0c580e66d6
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 088913959b5850e87dc3a6a39d2907d30b7e5ade
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621383"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976244"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Uso de servicios de plataforma como servicio (PaaS) en Azure DevTest Labs
 PaaS se admite en DevTest Labs a través de la característica de entornos. Los entornos en DevTest Labs se admiten mediante plantillas preconfiguradas de Azure Resource Manager en un repositorio de Git. Los entornos pueden contener recursos de IaaS y PaaS. Le permiten crear sistemas complejos que pueden incluir recursos de Azure, como máquinas virtuales, bases de datos, redes virtuales y aplicaciones web, que se personalizan para que trabajen en conjunto. Estas plantillas permiten una implementación coherente y una mejor administración de entornos con control de código fuente. 
@@ -53,11 +53,11 @@ Hay cierta información de laboratorio personalizada que está fuera del grupo d
 En el artículo [Conexión de entornos a la red virtual del laboratorio](connect-environment-lab-virtual-network.md) se describe cómo modificar la plantilla de Resource Manager para usar el token `$(LabSubnetId)`. Cuando se crea un entorno, el token `$(LabSubnetId)` se reemplaza por la primera marca de la subred donde la opción **Usar en la creación de máquinas virtuales** está establecida en **true**. Permite que nuestro entorno use redes creadas anteriormente. Si quiere usar las mismas plantillas de Resource Manager en entornos de prueba como ensayo y producción, use `$(LabSubnetId)` como valor predeterminado en un parámetro de plantilla de Resource Manager. 
 
 #### <a name="environment-storage-account"></a>Cuenta de Storage del entorno
-DevTest Labs admite el uso de [plantillas anidadas de Resource Manager](../azure-resource-manager/resource-group-linked-templates.md). En el artículo [Deploy nested Azure Resource Manager templates for testing environments](deploy-nested-template-environments.md) (Implementación de plantillas anidadas de Resource Manager para ambientes de prueba) se explica cómo usar los tokens `_artifactsLocation` y `_artifactsLocationSasToken` para crear un URI para una plantilla de Resource Manager en la misma carpeta que la de la plantilla principal o en una carpeta anidada de esta. Para obtener más información sobre estos dos tokens, consulte la sección **Deployment artifacts** (Artefactos de implementación) de [Azure Resource Manager – Best Practices Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md) (Azure Resource Manager: guía de procedimientos recomendados).
+DevTest Labs admite el uso de [plantillas anidadas de Resource Manager](../azure-resource-manager/templates/linked-templates.md). En el artículo [Deploy nested Azure Resource Manager templates for testing environments](deploy-nested-template-environments.md) (Implementación de plantillas anidadas de Resource Manager para ambientes de prueba) se explica cómo usar los tokens `_artifactsLocation` y `_artifactsLocationSasToken` para crear un URI para una plantilla de Resource Manager en la misma carpeta que la de la plantilla principal o en una carpeta anidada de esta. Para obtener más información sobre estos dos tokens, consulte la sección **Deployment artifacts** (Artefactos de implementación) de [Azure Resource Manager – Best Practices Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md) (Azure Resource Manager: guía de procedimientos recomendados).
 
 ## <a name="user-experience"></a>Experiencia del usuario
 
-## <a name="developer"></a>Developer
+## <a name="developer"></a>Desarrollador
 Los desarrolladores usan el mismo flujo de trabajo para crear una VM que para crear un entorno específico. Seleccionan el entorno frente a la imagen de la máquina y escriben la información necesaria requerida por la plantilla. Cada desarrollador que tenga un entorno permite la implementación de cambios y una depuración mejorada del bucle interno. El entorno se puede crear en cualquier momento mediante la plantilla más reciente.  Esta característica permite destruir los entornos y volver a crearlos para ayudar a reducir el tiempo de inactividad al tener que crear el sistema de forma manual o recuperarse de pruebas de errores.  
 
 ### <a name="testing"></a>Prueba

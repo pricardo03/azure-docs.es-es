@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 6f9368dfa230817e985de09b1ee398c55693e425
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 99ba530d4857520693060d83ad78a7f127003a3d
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214812"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732336"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad con Load Balancer Estándar mediante Azure Portal
 
@@ -52,13 +52,13 @@ La versión Estándar de Load Balancer solo admite direcciones IP públicas est�
 1. En la parte superior izquierda de la pantalla, haga clic en **Crear un recurso** > **Redes** > **Azure Load Balancer**.
 2. En la pestaña **Datos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información, acepte los valores predeterminados del resto de la configuración y, luego, seleccione **Revisar y crear**:
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba *MyResourceGroupLBAZ* en el cuadro de texto.|
-    | NOMBRE                   | *myLoadBalancer*                                   |
+    | Nombre                   | *myLoadBalancer*                                   |
     | Region         | Seleccione **Europa Occidental**.                                        |
-    | type          | Seleccione **Público**.                                        |
+    | Tipo          | Seleccione **Público**.                                        |
     | SKU           | Seleccione **Estándar**.                          |
     | Dirección IP pública | Seleccione **Crear nuevo**. |
     | Nombre de la dirección IP pública              | Escriba *myPublicIP* en el cuadro de texto.   |
@@ -197,7 +197,7 @@ Para permitir que el equilibrador de carga supervise el estado de la aplicación
     - *80*: en número de puerto.
     - *15*: como número de **Intervalo**, en segundos, entre los intentos de sondeo.
     - *2*: como número de **Umbral incorrecto** o errores de sondeo consecutivos que deben producirse para que una máquina virtual se considere que no funciona de manera incorrecta.
-4. Haga clic en **Aceptar**.
+4. Haga clic en **OK**.
 
    ![Incorporación de un sondeo](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
 
@@ -214,7 +214,8 @@ Las reglas de equilibrador de carga se utilizan para definir cómo se distribuye
     - *80*: como puerto de back-end.
     - *myBackendPool*: como nombre del grupo back-end.
     - *myHealthProbe*: como nombre del sondeo de estado.
-4. Haga clic en **Aceptar**.
+4. Haga clic en **OK**.
+    
     
     ![Incorporación de una regla de equilibrio de carga](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
 ms.author: allensu
-ms.openlocfilehash: c194d47842c927d3f8049a424dc08a34424a8a31
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 743715da51f2e8c77b81faba1bd8d6979e4f2aab
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212027"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974545"
 ---
 # <a name="azure-dns-faq"></a>Preguntas más frecuentes sobre DNS de Azure
 
@@ -110,7 +110,7 @@ Consulte la sección de escenarios en [Introducción a los registros de alias de
 
 Los conjuntos de registros de alias se admiten para los siguientes tipos de registros en una zona de Azure DNS:
  
-- Una 
+- Un 
 - AAAA
 - CNAME 
 
@@ -167,7 +167,7 @@ Sí. Las zonas DNS se pueden mover entre grupos de recursos o entre suscripcione
 
 Si mueve una zona DNS, no hay ningún efecto en las consultas de DNS. Los servidores de nombres asignados a la zona siguen siendo los mismos. Las consultas de DNS se procesan de la manera habitual.
 
-Para obtener más información e instrucciones sobre cómo mover zonas DNS, vea [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).
+Para obtener más información e instrucciones sobre cómo mover zonas DNS, vea [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### <a name="how-long-does-it-take-for-dns-changes-to-take-effect"></a>¿Cuánto tardan en surtir efecto los cambios de DNS?
 

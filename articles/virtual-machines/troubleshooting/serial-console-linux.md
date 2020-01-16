@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: abee04afca45a2d6f558858b4490c8be1f37a2f8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1074c4bc561236039e6ee55ef2df4fc8bd8dbbfc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451280"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772523"
 ---
 # <a name="azure-serial-console-for-linux"></a>Consola serie de Azure para Linux
 
@@ -63,6 +63,7 @@ Distribución      | Acceso a la consola serie
 :-----------|:---------------------
 Red Hat Enterprise Linux    | El acceso a la consola serie está habilitado de forma predeterminada.
 CentOS      | El acceso a la consola serie está habilitado de forma predeterminada.
+Debian      | El acceso a la consola serie está habilitado de forma predeterminada.
 Ubuntu      | El acceso a la consola serie está habilitado de forma predeterminada.
 CoreOS      | El acceso a la consola serie está habilitado de forma predeterminada.
 SUSE        | Las imágenes de SLES más nuevas disponibles en Azure tienen habilitado el acceso a la consola serie de forma predeterminada. Si está utilizando versiones anteriores (10 o inferiores) de SLES en Azure, consulte el [artículo de KB](https://www.novell.com/support/kb/doc.php?id=3456486) para habilitar la consola serie.

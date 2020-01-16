@@ -1,26 +1,19 @@
 ---
-title: 'Eliminación de una puerta de enlace de red virtual: PowerShell: Azure clásico | Microsoft Docs'
+title: 'Eliminación de una puerta de enlace de red virtual: Azure clásico'
 description: Elimine una puerta de enlace de red virtual mediante PowerShell en el modelo de implementación clásica.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/11/2017
+ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: ca014e4f5fbc4a5695dbc5fedc85826c71a2a906
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 495fa3837681fb2a78d86e6c34d4b4888b1e37f4
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60863987"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863689"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Eliminación de una puerta de enlace de red virtual mediante PowerShell (clásico)
 
@@ -32,7 +25,7 @@ ms.locfileid: "60863987"
 
 Este artículo le ayuda a eliminar una puerta de enlace de VPN en el modelo de implementación clásica mediante PowerShell. Una vez que elimina la puerta de enlace de red virtual, modifique el archivo de configuración de red para quitar los elementos que ya no usa.
 
-## <a name="connect"></a>Paso 1: Conexión a Azure
+## <a name="connect"></a>Paso 1: Conexión con Azure
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Instale los cmdlets más recientes de PowerShell.
 
@@ -40,7 +33,7 @@ Descargue e instale la versión más reciente de los cmdlets de PowerShell para 
 
 ### <a name="2-connect-to-your-azure-account"></a>2. Conéctese a su cuenta de Azure. 
 
-Abra la consola de PowerShell con privilegios elevados y conéctese a su cuenta. Use el siguiente ejemplo para conectarse:
+Abra la consola de PowerShell con privilegios elevados y conéctela a su cuenta. Use el siguiente ejemplo para conectarse:
 
 ```powershell
 Add-AzureAccount

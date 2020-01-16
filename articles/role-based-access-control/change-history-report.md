@@ -15,16 +15,16 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5758f480c9216cf71e47509682053b39f0b15bf
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 753c626fe44193b83cbd992f225fe01c2ff67f89
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172417"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744809"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Visualización de registros de actividad de cambios de RBAC en recursos de Azure
 
-En ciertas ocasiones, necesitará obtener información acerca de los cambios de control acceso basado en rol (RBAC) en recursos de Azure, por ejemplo, para fines de auditoría y para solucionar problemas. Siempre que un usuario realiza cambios en las definiciones de roles o las asignaciones de roles de las suscripciones, los cambios se registran en el [Registro de actividad de Azure](../azure-monitor/platform/activity-logs-overview.md). Puede consultar los registros de actividad para ver todos los cambios de RBAC de los últimos 90 días.
+En ciertas ocasiones, necesitará obtener información acerca de los cambios de control acceso basado en rol (RBAC) en recursos de Azure, por ejemplo, para fines de auditoría y para solucionar problemas. Siempre que un usuario realiza cambios en las definiciones de roles o las asignaciones de roles de las suscripciones, los cambios se registran en el [Registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md). Puede consultar los registros de actividad para ver todos los cambios de RBAC de los últimos 90 días.
 
 ## <a name="operations-that-are-logged"></a>Operaciones que se registran
 
@@ -43,7 +43,7 @@ La manera más fácil de empezar a trabajar es ver los registros de actividad co
 
 El registro de actividad del portal tiene varios filtros. Estos son los filtros relacionados con RBAC:
 
-|Filtrar  |Valor  |
+|Filter  |Value  |
 |---------|---------|
 |Categoría de eventos     | <ul><li>Administrativo</li></ul>         |
 |Operación     | <ul><li>Creación de asignaciones de roles</li> <li>Eliminación de asignaciones de roles</li> <li>Creación o actualización de definiciones de roles personalizadas</li> <li>Eliminación de definiciones de roles personalizadas</li></ul>      |
@@ -92,7 +92,7 @@ Properties              :
 
 ```
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 
 Para ver los registros de actividad con la CLI de Azure, use el comando [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list).
 

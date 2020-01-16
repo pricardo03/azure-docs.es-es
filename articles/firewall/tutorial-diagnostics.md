@@ -7,16 +7,16 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: da46cf826da40658883d22692e5038b09d222907
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60193209"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974526"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Tutorial: Supervisión de métricas y registros de Azure Firewall
 
-Puede supervisar Azure Firewall mediante los registros del firewall. También puede usar los registros de actividad para auditar las operaciones de los recursos de Azure Firewall. Con las métricas, puede ver los contadores de rendimiento en el portal. 
+Puede supervisar Azure Firewall mediante los registros del firewall. También puede usar los registros de actividad para auditar las operaciones de los recursos de Azure Firewall. Con las métricas, puede ver los contadores de rendimiento en el portal.
 
 Se puede acceder a algunos de estos registros mediante el portal. Se pueden enviar registros a los [registros de Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), a Storage y a Event Hubs, y se pueden analizar en los registros de Azure Monitor o mediante otras herramientas como Excel y Power BI.
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar este tutorial, debe leer el artículo acerca de las [métricas y registros de Azure Firewall](logs-and-metrics.md), que es una introducción a los registros y las métricas de diagnóstico y métricas disponibles para Azure Firewall.
 
@@ -52,7 +52,7 @@ Puede tardar algunos minutos en que los datos aparezcan en los registros despué
    * AzureFirewallNetworkRule
 
 3. Para empezar a recopilar los datos, clic en **Activar diagnósticos**.
-4. En la página **Configuración de diagnóstico**, se encuentran las opciones de configuración de los registros de diagnóstico. 
+4. En la página **Configuración de diagnóstico**, se encuentran las opciones de configuración de los registros de diagnóstico.
 5. En este ejemplo, los registros de Azure Monitor almacenan los registros, de modo que escriba **Análisis de registros de firewall** como nombre.
 6. Haga clic en **Enviar a Log Analytics** para configurar el área de trabajo. Se pueden utilizar también Events Hubs y la cuenta de almacenamiento para guardar los registros de diagnóstico.
 7. En **Log Analytics**, haga clic en **Configurar**.
@@ -86,15 +86,15 @@ Para habilitarlo, siga estos pasos:
    -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
    -Enabled $true     
     ```
-    
-> [!TIP] 
+
+> [!TIP]
 >Los registros de diagnóstico no requieren una cuenta de almacenamiento independiente. El uso del almacenamiento para el registro de acceso y rendimiento supondrá un costo adicional de servicio.
 
 ## <a name="view-and-analyze-the-activity-log"></a>Visualización y análisis del registro de actividades
 
 Puede ver y analizar los datos del registro de actividades con cualquiera de los métodos siguientes:
 
-* **Herramientas de Azure**: permiten recuperar información de los registros de actividades mediante Azure PowerShell, la CLI de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de actividades con Resource Manager](../azure-resource-manager/resource-group-audit.md) se detallan instrucciones paso a paso de cada método.
+* **Herramientas de Azure**: permiten recuperar información de los registros de actividades mediante Azure PowerShell, la CLI de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de actividades con Resource Manager](../azure-resource-manager/management/view-activity-logs.md) se detallan instrucciones paso a paso de cada método.
 * **Power BI**: si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing), puede probarlo gratis. Con el [paquete de contenido de los registros de actividades de Azure para Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), puede analizar sus datos con los paneles preconfigurados que puede personalizar o usar tal cual.
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Ver y analizar los registros de la regla de red y de aplicación

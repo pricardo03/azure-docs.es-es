@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: e70144bc71c182a6ec1668ee81f458a236289331
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2293618b0685fe71ae553a95797fe8bfe1fe968c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384193"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749939"
 ---
 # <a name="azure-network-security-overview"></a>Introducción a Azure Network Security
 
@@ -87,7 +87,7 @@ Más información:
 
 * [Acceso a Azure Security Center Just in Time](../../security-center/security-center-just-in-time.md)
 
-#### <a name="service-endpoints"></a>Puntos de conexión de servicio
+#### <a name="service-endpoints"></a>Puntos de conexión del servicio
 
 Los puntos de conexión de servicio son otra forma de controlar el tráfico. Puede limitar la comunicación con los servicios admitidos a únicamente las redes virtuales a través de una conexión directa. El tráfico desde la red virtual al servicio de Azure especificado permanece en la red troncal de Microsoft Azure.  
 
@@ -395,7 +395,7 @@ Más información:
 
 El registro en el nivel de red es una función clave en cualquier escenario de seguridad de red. En Azure, puede registrar la información obtenida de los grupos de seguridad de red (NSG) a fin de obtener información del registro de nivel de red. Con el registro de NSG, obtiene información de:
 
-* [Registros de actividad](../../azure-monitor/platform/activity-logs-overview.md). Use estos registros para ver todas las operaciones enviadas a las suscripciones de Azure. Estos registros están habilitados de forma predeterminada y se pueden ver en Azure Portal. Anteriormente se les llamaba registros de "auditoría" o "registros operativos".
+* [Registros de actividad](../../azure-monitor/platform/platform-logs-overview.md). Use estos registros para ver todas las operaciones enviadas a las suscripciones de Azure. Estos registros están habilitados de forma predeterminada y se pueden ver en Azure Portal. Anteriormente se les llamaba registros de "auditoría" o "registros operativos".
 * Registros de eventos. Estos registros proporcionan información sobre las reglas de NSG que se aplicaron.
 * Registro de contadores. Estos registros le permiten saber cuántas veces se aplica cada regla de NSG para denegar o permitir el tráfico.
 

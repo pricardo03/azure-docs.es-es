@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 000271095530e269472fba4bc5f1c5563aa16ff9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 41410d4e534d0940050521ecc86e8a384566f439
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428819"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972695"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Introducción: Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager
 
 Cuando esté listo para automatizar la creación e implementación de la aplicación lógica, puede expandir la definición de flujo de trabajo subyacente de la aplicación lógica en una [plantilla de Azure Resource Manager](../azure-resource-manager/management/overview.md). Esta plantilla define la infraestructura, los recursos, los parámetros y otra información para aprovisionar e implementar la aplicación lógica. Al definir los parámetros para los valores que varían en la implementación, lo que también se conoce como *parametrización*, puede implementar de forma repetida y coherente aplicaciones lógicas según las diferentes necesidades de implementación.
 
-Por ejemplo, si realiza implementaciones en entornos de desarrollo, prueba y producción, probablemente usa cadenas de conexión diferentes para cada entorno. Puede declarar parámetros de plantilla que acepten cadenas de conexión diferentes y, a continuación, almacenar dichas cadenas en un [archivo de parámetros](../azure-resource-manager/templates/parameter-files.md) independiente. De este modo, puede cambiar esos valores sin tener que actualizar y volver a implementar la plantilla. En los casos en los que tenga valores de parámetros que sean confidenciales o deban protegerse, como contraseñas y secretos, puede almacenarlos en [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) y hacer que el archivo de parámetros recupere esos valores. Sin embargo, en estos casos, debería hacer la implementación de nuevo para recuperar los valores actuales.
+Por ejemplo, si realiza implementaciones en entornos de desarrollo, prueba y producción, probablemente usa cadenas de conexión diferentes para cada entorno. Puede declarar parámetros de plantilla que acepten cadenas de conexión diferentes y, a continuación, almacenar dichas cadenas en un [archivo de parámetros](../azure-resource-manager/templates/parameter-files.md) independiente. De este modo, puede cambiar esos valores sin tener que actualizar y volver a implementar la plantilla. En los casos en los que tenga valores de parámetros que sean confidenciales o deban protegerse, como contraseñas y secretos, puede almacenarlos en [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) y hacer que el archivo de parámetros recupere esos valores. Sin embargo, en estos casos, debería hacer la implementación de nuevo para recuperar los valores actuales.
 
 En esta información general se describen los atributos de una plantilla de Resource Manager que incluye una definición de flujo de trabajo de una aplicación lógica. Tanto la plantilla como la definición de flujo de trabajo usan la sintaxis JSON, pero existen algunas diferencias porque la definición de flujo de trabajo también sigue el [esquema del lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md). Por ejemplo, las expresiones de plantilla y las de definición de flujo de trabajo difieren en la manera en que [hacen referencia a los parámetros](#parameter-references) y los valores que pueden aceptar.
 
@@ -31,8 +31,8 @@ En la aplicación lógica de ejemplo de este tema se usa un [desencadenador de O
 Para obtener más información sobre las plantillas de Resource Manager, consulte los temas siguientes:
 
 * [Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
-* [Azure Resource Manager template best practices](../azure-resource-manager/template-best-practices.md) (Procedimientos recomendados de plantillas de Azure Resource Manager)
-* [Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube](../azure-resource-manager/templates-cloud-consistency.md)
+* [Azure Resource Manager template best practices](../azure-resource-manager/templates/template-best-practices.md) (Procedimientos recomendados de plantillas de Azure Resource Manager)
+* [Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
 Para ver muestras de las plantillas de aplicaciones lógicas, consulte estos ejemplos:
 
@@ -149,7 +149,7 @@ Para proteger los parámetros de plantilla, consulte estos temas:
 
 * [Recomendaciones de seguridad para parámetros de plantilla](../azure-resource-manager/templates/template-best-practices.md#parameters)
 * [Protección de parámetros de plantilla](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
-* [Pasar valores de parámetros seguros con Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+* [Pasar valores de parámetros seguros con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 Otros objetos de plantilla a menudo hacen referencia a los parámetros de plantilla a fin de poder usar los valores que pasan a través de los parámetros de plantilla, por ejemplo:
 
@@ -173,7 +173,7 @@ Estos son algunos procedimientos recomendados para definir parámetros:
 
   * [Protección de parámetros de plantilla](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
-  * [Pasar valores de parámetros seguros con Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+  * [Pasar valores de parámetros seguros con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 * Para diferenciar los nombres de los parámetros de plantilla de los nombres de los parámetros de la definición de flujo de trabajo, puede usar nombres de parámetros de plantilla descriptivos, por ejemplo: `TemplateFabrikamPassword`.
 
@@ -188,7 +188,7 @@ Para proporcionar los valores de los parámetros de plantilla, almacénelos en u
 * Nombre de archivo de la plantilla de la aplicación lógica: **<*logic-app-name*>.json**
 * Nombre del archivo de parámetros: **<*logic-app-name*>.parameters.json**
 
-A continuación, le mostramos la estructura de dentro del archivo de parámetros, que incluye una referencia al almacén de claves para [pasar un valor de parámetro seguro con Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md):
+A continuación, le mostramos la estructura de dentro del archivo de parámetros, que incluye una referencia al almacén de claves para [pasar un valor de parámetro seguro con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md):
 
 ```json
 {
@@ -409,7 +409,7 @@ En esta sintaxis se muestra dónde puede declarar parámetros en los niveles de 
 
 Si tiene un parámetro de definición de flujo de trabajo que controla información confidencial, contraseñas, claves de acceso o secretos en tiempo de ejecución, declárelo o edítelo para usar el tipo de parámetro `securestring` o `secureobject`. Puede hacer referencia a este parámetro en la definición de flujo de trabajo y mediante esta. En el nivel superior de la plantilla, declare un parámetro que tenga el mismo tipo a fin de controlar esta información en la implementación.
 
-Para establecer el valor del parámetro de la definición de flujo de trabajo, use el objeto `parameters` que está *fuera* de la definición de flujo de trabajo, pero que sigue *dentro* de la definición de recursos de la aplicación lógica, con el fin de hacer referencia al parámetro de la plantilla. Por último, para pasar el valor al parámetro de plantilla en la implementación, almacénelo en [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) y haga referencia a ese almacén de claves en el [archivo de parámetros](#template-parameter-files) que utiliza la plantilla en la implementación.
+Para establecer el valor del parámetro de la definición de flujo de trabajo, use el objeto `parameters` que está *fuera* de la definición de flujo de trabajo, pero que sigue *dentro* de la definición de recursos de la aplicación lógica, con el fin de hacer referencia al parámetro de la plantilla. Por último, para pasar el valor al parámetro de plantilla en la implementación, almacénelo en [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) y haga referencia a ese almacén de claves en el [archivo de parámetros](#template-parameter-files) que utiliza la plantilla en la implementación.
 
 En esta plantilla de ejemplo, se muestra cómo puede completar estas tareas mediante la definición de parámetros seguros cuando sea necesario a fin de almacenar sus valores en Azure Key Vault:
 
@@ -558,7 +558,7 @@ Para asegurarse de que el Diseñador de aplicaciones lógicas puede mostrar corr
 
   * [Recomendaciones de seguridad para los parámetros de las definiciones de flujo de trabajo](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-workflow)
 
-  * [Pasar valores de parámetros seguros con Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+  * [Pasar valores de parámetros seguros con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 Para obtener más información sobre los parámetros de definición de flujo de trabajo,consulte la sección [Parámetros en el artículo Lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md#parameters).
 
@@ -652,7 +652,7 @@ La definición de recursos de la aplicación lógica también funciona con las d
 
 * *Fuera* de la definición de flujo de trabajo, pero *dentro* de la definición de recursos de la aplicación lógica, otro objeto `parameters` establece los valores que se van a usar en tiempo de ejecución para el parámetro `$connections` haciendo referencia a los parámetros de la plantilla correspondientes. Estos valores usan expresiones de plantilla para hacer referencia a los recursos que almacenan de forma segura los metadatos de las conexiones en la aplicación lógica.
 
-  Por ejemplo, los metadatos pueden incluir cadenas de conexión y tokens de acceso, que puede almacenar en [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md). Para pasar esos valores a los parámetros de plantilla, debe hacer referencia a ese almacén de claves en el [archivo de parámetros](#template-parameter-files) que utiliza su plantilla en la implementación. Para obtener más información sobre estas diferencias en la referencia de parámetros, consulte [Referencias a parámetros](#parameter-references) más adelante en este tema.
+  Por ejemplo, los metadatos pueden incluir cadenas de conexión y tokens de acceso, que puede almacenar en [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). Para pasar esos valores a los parámetros de plantilla, debe hacer referencia a ese almacén de claves en el [archivo de parámetros](#template-parameter-files) que utiliza su plantilla en la implementación. Para obtener más información sobre estas diferencias en la referencia de parámetros, consulte [Referencias a parámetros](#parameter-references) más adelante en este tema.
 
   Al abrir la definición de flujo de trabajo de la aplicación lógica en la vista de código mediante Azure Portal o Visual Studio, el objeto `$connections` aparece fuera de la definición de flujo de trabajo, pero en el mismo nivel. Esta ordenación en la vista de código permite hacer referencia a estos parámetros de forma más fácil al actualizar manualmente la definición de flujo de trabajo:
 
@@ -744,7 +744,7 @@ En este ejemplo se muestran las interacciones entre la definición de recursos d
 
 ### <a name="secure-connection-parameters"></a>Protección de los parámetros de conexión
 
-Si tiene un parámetro de conexión que controla la información confidencial, contraseñas, claves de acceso o secretos, la definición de recursos de la conexión incluye un objeto `parameterValues` que especifica estos valores en el formato de par nombre-valor. Para ocultar esta información, puede declarar o editar los parámetros de plantilla de estos valores mediante los tipos de parámetro `securestring` o `secureobject`. Después, puede almacenar esa información en [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md). Para pasar esos valores a los parámetros de plantilla, debe hacer referencia a ese almacén de claves en el [archivo de parámetros](#template-parameter-files) que utiliza su plantilla en la implementación.
+Si tiene un parámetro de conexión que controla la información confidencial, contraseñas, claves de acceso o secretos, la definición de recursos de la conexión incluye un objeto `parameterValues` que especifica estos valores en el formato de par nombre-valor. Para ocultar esta información, puede declarar o editar los parámetros de plantilla de estos valores mediante los tipos de parámetro `securestring` o `secureobject`. Después, puede almacenar esa información en [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). Para pasar esos valores a los parámetros de plantilla, debe hacer referencia a ese almacén de claves en el [archivo de parámetros](#template-parameter-files) que utiliza su plantilla en la implementación.
 
 En el ejemplo siguiente, se proporciona el nombre de la cuenta y la clave de acceso de una conexión de Azure Blob Storage:
 
@@ -1011,7 +1011,7 @@ Para obtener más información sobre cómo trabajar con entidades de servicio, c
 
 ## <a name="references-to-parameters"></a>Referencias a parámetros
 
-Para hacer referencia a los parámetros de plantilla, puede usar expresiones de plantilla con [funciones de plantilla](../azure-resource-manager/resource-group-template-functions.md), que se evalúan en la implementación. Las expresiones de plantilla usan corchetes ( **[]** ):
+Para hacer referencia a los parámetros de plantilla, puede usar expresiones de plantilla con [funciones de plantilla](../azure-resource-manager/templates/template-functions.md), que se evalúan en la implementación. Las expresiones de plantilla usan corchetes ( **[]** ):
 
 `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
 

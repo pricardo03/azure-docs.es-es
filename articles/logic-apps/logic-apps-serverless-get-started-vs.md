@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: a3fcff9f895fba3574bbce976087295018ab51c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2e27958dd9379a26ca7e7f4d7e427e5afa216e29
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428739"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981165"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Creación de su primera aplicación sin servidor en Visual Studio con Azure Logic Apps y Azure Functions
 
@@ -56,7 +56,7 @@ Para compilar una aplicación sin servidor en Visual Studio se necesita lo sigui
 
 ## <a name="create-a-resource-group-project"></a>Creación de un proyecto de grupo de recursos
 
-Para empezar, cree un [proyecto de grupo de recursos de Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) para su aplicación sin servidor. En Azure, los recursos se crean dentro de un *grupo de recursos*, que es una recopilación de lógicas que se usa para organizar, administrar e implementar recursos en toda una aplicación como un solo recurso. Para una aplicación sin servidor de Azure, el grupo de recursos incluye recursos para Azure Logic Apps y Azure Functions. Más información sobre [grupos de recursos y recursos de Azure](../azure-resource-manager/management/overview.md).
+Para empezar, cree un [proyecto de grupo de recursos de Azure](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) para su aplicación sin servidor. En Azure, los recursos se crean dentro de un *grupo de recursos*, que es una recopilación de lógicas que se usa para organizar, administrar e implementar recursos en toda una aplicación como un solo recurso. Para una aplicación sin servidor de Azure, el grupo de recursos incluye recursos para Azure Logic Apps y Azure Functions. Más información sobre [grupos de recursos y recursos de Azure](../azure-resource-manager/management/overview.md).
 
 1. Inicie Visual Studio y conéctese con su cuenta de Azure.
 

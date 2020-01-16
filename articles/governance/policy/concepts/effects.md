@@ -3,12 +3,12 @@ title: Descripción del funcionamiento de los efectos
 description: Las definiciones de Azure Policy tienen diversos efectos que determinan cómo se administra y notifica el cumplimiento.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: fec2f966260d997b45be50554e0f41d5fd0491aa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2b588cfb7c13a63e3fa5d3a65d9ccb24a2e854fd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436361"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972808"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -367,7 +367,7 @@ La propiedad **details** del efecto DeployIfNotExists tiene todas las subpropied
   - Esta propiedad debe incluir una matriz de cadenas que coinciden con el identificador de rol de control de acceso basado en rol accesible por la suscripción. Para obtener más información, vea [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition) (corrección: configurar la definición de directiva).
 - **DeploymentScope** (opcional)
   - Los valores permitidos son _Subscription_ y _ResourceGroup_.
-  - Establece el tipo de implementación que se desencadena. La _Suscripción_ indica una [implementación a nivel de suscripción](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indica una implementación en un grupo de recursos.
+  - Establece el tipo de implementación que se desencadena. La _Suscripción_ indica una [implementación a nivel de suscripción](../../../azure-resource-manager/templates/deploy-to-subscription.md), _ResourceGroup_ indica una implementación en un grupo de recursos.
   - En la _Implementación_ debe especificarse una propiedad _location_ al usar las implementaciones de nivel de suscripción.
   - El valor predeterminado es _ResourceGroup_.
 - **Deployment** [obligatorio]

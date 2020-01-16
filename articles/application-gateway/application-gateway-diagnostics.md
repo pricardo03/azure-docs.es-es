@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: bfae540af1c501c09ec026b97ac11e8a14b177a9
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 1ddbc8e909c5ba0b720e893e87c0f495d256a886
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326549"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966922"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Mantenimiento del back-end y registros de diagnóstico para Application Gateway
 
@@ -29,7 +29,7 @@ Puede supervisar los recursos de Azure Application Gateway de las maneras siguie
 
 ## <a name="back-end-health"></a>Mantenimiento del back-end
 
-Application Gateway permite supervisar el mantenimiento de cada uno de los miembros de los grupos de back-end mediante el portal, PowerShell y la interfaz de línea de comandos (CLI). El resumen acumulado del mantenimiento de los grupos de back-end también se puede encontrar en los registros de diagnóstico de rendimiento. 
+Application Gateway permite supervisar el mantenimiento de cada uno de los miembros de los grupos de back-end mediante el portal, PowerShell y la interfaz de línea de comandos (CLI). El resumen acumulado del mantenimiento de los grupos de back-end también se puede encontrar en los registros de diagnóstico de rendimiento.
 
 El informe de mantenimiento del back-end refleja la salida del sondeo de mantenimiento de Application Gateway en las instancias de back-end. Cuando el sondeo es correcto y el back-end puede recibir tráfico, se considera que su mantenimiento es correcto. En caso contrario, se considera incorrecto.
 
@@ -39,7 +39,7 @@ El informe de mantenimiento del back-end refleja la salida del sondeo de manteni
 
 ### <a name="view-back-end-health-through-the-portal"></a>Visualización del mantenimiento del back-end mediante el portal
 
-En el portal, el mantenimiento del back-end se proporciona automáticamente. En una puerta de enlace de aplicaciones existente, vaya a **Supervisión** > **Estado del back-end**. 
+En el portal, el mantenimiento del back-end se proporciona automáticamente. En una puerta de enlace de aplicaciones existente, vaya a **Supervisión** > **Estado del back-end**.
 
 Cada miembro en el grupo de back-end se muestra en esta página (ya sea una NIC, dirección IP o FQDN). Se muestran el nombre del grupo de back-end, el puerto, la configuración HTTP del back-end y el estado de mantenimiento. Los valores válidos para el estado de mantenimiento son **Correcto**, **Incorrecto** y **Desconocido**.
 
@@ -101,7 +101,7 @@ Puede usar diferentes tipos de registros en Azure para administrar y solucionar 
 * **Registro de firewall**: este registro se puede usar para ver las solicitudes que se registran con el modo de detección o prevención de una puerta de enlace de aplicaciones que está configurada con el firewall de aplicaciones web.
 
 > [!NOTE]
-> Los registros solo están disponibles para los recursos implementados en el modelo de implementación de Azure Resource Manager. No puede usar los registros de recursos del modelo de implementación clásica. Para entender mejor los dos modelos, consulte el artículo [Descripción de la implementación de Resource Manager y la implementación clásica](../azure-resource-manager/resource-manager-deployment-model.md) .
+> Los registros solo están disponibles para los recursos implementados en el modelo de implementación de Azure Resource Manager. No puede usar los registros de recursos del modelo de implementación clásica. Para entender mejor los dos modelos, consulte el artículo [Descripción de la implementación de Resource Manager y la implementación clásica](../azure-resource-manager/management/deployment-models.md) .
 
 Tiene tres opciones para almacenar los archivos de registro:
 
@@ -126,8 +126,8 @@ El registro de actividades se habilita automáticamente para todos los recursos 
     ```powershell
     Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
     ```
-    
-> [!TIP] 
+
+> [!TIP]
 >Los registros de actividades no requieren una cuenta de almacenamiento separada. El uso del almacenamiento para el registro de acceso y rendimiento supondrá un costo adicional de servicio.
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Habilitación del registro mediante Azure Portal
@@ -158,7 +158,7 @@ Azure genera el registro de actividad de forma predeterminada. Los registros se 
 
 El registro de acceso solo se genera si lo habilitó para cada instancia de Application Gateway, tal y como se indicó en los pasos anteriores. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Cada acceso de Application Gateway se registra en formato JSON, tal y como se muestra en el ejemplo siguiente para v1:
 
-|Valor  |DESCRIPCIÓN  |
+|Value  |Descripción  |
 |---------|---------|
 |instanceId     | Instancia de Application Gateway que atendió la solicitud.        |
 |clientIP     | IP de origen de la solicitud.        |
@@ -202,7 +202,7 @@ El registro de acceso solo se genera si lo habilitó para cada instancia de Appl
 ```
 En el caso de Application Gateway y WAF v2, los registros muestran un poco más información:
 
-|Valor  |DESCRIPCIÓN  |
+|Value  |Descripción  |
 |---------|---------|
 |instanceId     | Instancia de Application Gateway que atendió la solicitud.        |
 |clientIP     | IP de origen de la solicitud.        |
@@ -256,7 +256,7 @@ En el caso de Application Gateway y WAF v2, los registros muestran un poco más 
 El registro de rendimiento solo se genera si lo habilitó para cada instancia de Application Gateway, tal y como se indicó en los pasos anteriores. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Los datos de registro de rendimiento se generan en intervalos de 1 minuto. Solo está disponible para la SKU v1. En la SKU v2, use [Métricas](application-gateway-metrics.md) para los datos de rendimiento. Se registran los datos siguientes:
 
 
-|Valor  |DESCRIPCIÓN  |
+|Value  |Descripción  |
 |---------|---------|
 |instanceId     |  Instancia de Application Gateway para la que se van a generar los datos. Si hay varias instancias de Application Gateway, hay una fila por cada instancia.        |
 |healthyHostCount     | Número de hosts con un mantenimiento correcto en el grupo de back-end.        |
@@ -293,7 +293,7 @@ El registro de rendimiento solo se genera si lo habilitó para cada instancia de
 El registro de firewall solo se genera si lo habilitó para cada instancia de Application Gateway, tal y como se indicó en los pasos anteriores. Este registro también requiere que el firewall de aplicaciones web esté configurado en una instancia de Application Gateway. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Se registran los datos siguientes:
 
 
-|Valor  |DESCRIPCIÓN  |
+|Value  |Descripción  |
 |---------|---------|
 |instanceId     | Instancia de Application Gateway para la que se van a generar los datos de firewall. Si hay varias instancias de Application Gateway, hay una fila por cada instancia.         |
 |clientIp     |   IP de origen de la solicitud.      |
@@ -305,7 +305,7 @@ El registro de firewall solo se genera si lo habilitó para cada instancia de Ap
 |message     | Mensaje descriptivo para el evento desencadenador. En la sección de detalles se proporciona más información.        |
 |action     |  Acción realizada en la solicitud. Los valores disponibles Coincidente y Bloqueado.      |
 |site     | Sitio para el que se generó el registro. Actualmente, solo se incluye Global porque las reglas son globales.|
-|details     | Detalles del evento desencadenador.        |
+|detalles     | Detalles del evento desencadenador.        |
 |details.message     | Descripción de la regla.        |
 |details.data     | Datos específicos que se encuentran en la solicitud y que corresponden a la regla.         |
 |details.file     | Archivo de configuración que contiene la regla.        |
@@ -336,10 +336,10 @@ El registro de firewall solo se genera si lo habilitó para cada instancia de Ap
       "file": "rules/REQUEST-941-APPLICATION-ATTACK-XSS.conf",
       "line": "865"
     }
-    "hostname": "40.90.218.100", 
+    "hostname": "40.90.218.100",
     "transactionId": "AYAcUqAcAcAcAcAcASAcAcAc"
   }
-} 
+}
 
 ```
 
@@ -347,7 +347,7 @@ El registro de firewall solo se genera si lo habilitó para cada instancia de Ap
 
 Puede ver y analizar los datos del registro de actividades con cualquiera de los métodos siguientes:
 
-* **Herramientas de Azure**: permiten recuperar información de los registros de actividades mediante Azure PowerShell, la CLI de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de actividades con Resource Manager](../azure-resource-manager/resource-group-audit.md) se detallan instrucciones paso a paso de cada método.
+* **Herramientas de Azure**: permiten recuperar información de los registros de actividades mediante Azure PowerShell, la CLI de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de actividades con Resource Manager](../azure-resource-manager/management/view-activity-logs.md) se detallan instrucciones paso a paso de cada método.
 * **Power BI**: si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing), puede probarlo gratis. Las [aplicaciones de plantilla de Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview) permiten analizar los datos.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Visualización y análisis de los registros de acceso, rendimiento y firewall
@@ -358,8 +358,8 @@ También puede conectarse a la cuenta de almacenamiento y recuperar las entradas
 
 > [!TIP]
 > Si está familiarizado con Visual Studio y con los conceptos básicos de cambio de los valores de constantes y variables de C#, puede usar las [herramientas convertidoras de registros](https://github.com/Azure-Samples/networking-dotnet-log-converter) que encontrará en GitHub.
-> 
-> 
+>
+>
 
 #### <a name="analyzing-access-logs-through-goaccess"></a>Analizar los registros de acceso mediante GoAccess
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f935e8fc1e5d6d64bffaeb582e8b248317f49687
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660603"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980629"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implementación de Azure Cloud Services: Preguntas más frecuentes (P+F)
 
@@ -56,7 +56,7 @@ La implementación de un servicio en la nube puede producir un error si los recu
 
 También puede realizar el seguimiento del uso o la cuota actual de la suscripción en el portal: Azure Portal => Suscripciones => \<suscripción correspondiente> => "Usage + quota" (Uso y cuota).
 
-También se puede recuperar la información de consumo y del uso de recursos a través de las API de facturación de Azure. Consulte [API de uso de recursos de Azure (versión preliminar)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
+También se puede recuperar la información de consumo y del uso de recursos a través de las API de facturación de Azure. Consulte [API de uso de recursos de Azure (versión preliminar)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
 
 ## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>¿Cómo se cambia el tamaño de una máquina virtual de servicio en la nube sin volver a implementarlo?
 No se puede cambiar el tamaño de una máquina virtual de servicio en la nube implementado sin volver a implementarlo. El tamaño de la máquina virtual está integrado en el CSDEF, que solo se actualiza con una nueva implementación.
@@ -66,17 +66,17 @@ Para más información, consulte [Actualización de un servicio en la nube](clou
 ## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>¿Por qué no puedo implementar Cloud Services mediante las API de Service Management o PowerShell cuando se usa la cuenta de Storage de Azure Resource Manager? 
 
 Dado que el servicio en la nube es un recurso clásico que no es directamente compatible con el modelo de Azure Resource Manager, no es posible asociarlo con las cuentas de Storage de Azure Resource Manager. Estas son algunas opciones: 
- 
+
 - Implementación a través de la API de REST.
 
     Al realizar la implementación a través de la API de REST de Service Management, podría sortear la limitación mediante la especificación de una dirección URL de SAS a Blob Storage, que funcionará con la cuenta de Storage del modelo clásico y de Azure Resource Manager. Lea más acerca de la propiedad "PackageUrl" [aquí](/previous-versions/azure/reference/ee460813(v=azure.100)).
-  
+
 - Implementación a través de [Azure Portal](https://portal.azure.com).
 
     Funcionará desde [Azure Portal](https://portal.azure.com) dado que la llamada pasa por un servidor proxy o shim que permite la comunicación entre recursos del modelo clásico y de Azure Resource Manager. 
- 
-## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>¿Por qué Azure Portal me pide que proporcione una cuenta de almacenamiento para la implementación? 
 
-En el portal clásico, el paquete se cargó directamente al nivel de API de administración y, a continuación, el nivel de API guardó temporalmente el paquete en una cuenta de almacenamiento interno.  Debido a este proceso, se crean problemas de rendimiento y escalabilidad porque el nivel de API no se diseñó para ser un servicio de carga de archivos.  En Azure Portal (modelo de implementación de administrador de recursos), hemos omitido el paso intermedio que supone cargar contenido primero en el nivel de API, lo que da lugar a implementaciones más rápidas y fiables. 
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>¿Por qué Azure Portal me pide que proporcione una cuenta de almacenamiento para la implementación?
 
-En cuanto al costo, este es ínfimo, por lo que puede volver a usar la misma cuenta de almacenamiento a través de todas las implementaciones. Puede usar la [calculadora de costo de almacenamiento](https://azure.microsoft.com/pricing/calculator/#storage1) para determinar el costo que supone cargar, descargar y eliminar el paquete de servicio (CSPKG). 
+En el portal clásico, el paquete se cargó directamente al nivel de API de administración y, a continuación, el nivel de API guardó temporalmente el paquete en una cuenta de almacenamiento interno.  Debido a este proceso, se crean problemas de rendimiento y escalabilidad porque el nivel de API no se diseñó para ser un servicio de carga de archivos.  En Azure Portal (modelo de implementación de administrador de recursos), hemos omitido el paso intermedio que supone cargar contenido primero en el nivel de API, lo que da lugar a implementaciones más rápidas y fiables.
+
+En cuanto al costo, este es ínfimo, por lo que puede volver a usar la misma cuenta de almacenamiento a través de todas las implementaciones. Puede usar la [calculadora de costo de almacenamiento](https://azure.microsoft.com/pricing/calculator/#storage1) para determinar el costo que supone cargar, descargar y eliminar el paquete de servicio (CSPKG).

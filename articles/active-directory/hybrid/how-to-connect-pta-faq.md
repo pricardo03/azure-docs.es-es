@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d21bf0f2ba7c93a35952d2eb2dd4df49bb3260b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 06dfe1e76682d70170bfea104050b1000269c38f
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290759"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932389"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticación de paso a través de Azure Active Directory: Preguntas más frecuentes
 
@@ -160,7 +160,7 @@ Si desinstala un agente de autenticación de paso a través de un servidor, el s
 
 ## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>Tengo un inquilino anterior que originalmente se configuró con AD FS.  Recientemente hicimos la migración a PTA, pero ahora no vemos los cambios de UPN sincronizados con Azure AD.  ¿Por qué los cambios de UPN no se están sincronizando?
 
-R: En las siguientes circunstancias, es posible que los cambios de UPN en el entorno local no se sincronicen si:
+A. En las siguientes circunstancias, es posible que los cambios de UPN en el entorno local no se sincronicen si:
 
 - El inquilino de Azure AD se creó antes del 15 de junio de 2015
 - Estaba federado inicialmente con el inquilino de Azure AD mediante AD FS para la autenticación
@@ -168,7 +168,7 @@ R: En las siguientes circunstancias, es posible que los cambios de UPN en el ent
 
 Esto se debe a que el comportamiento predeterminado de los inquilinos creados antes del 15 de junio de 2015 era bloquear los cambios de UPN.  Si necesita anular el bloqueo de los cambios de UPN, debe ejecutar el cmdlet de PowerShell siguiente:  
 
-`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $True`
 
 Los inquilinos creados después del 15 de junio de 2015 tienen el comportamiento predeterminado de sincronizar los cambios de UPN.   
 

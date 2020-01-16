@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 22e542715afa8c87ffb742bec6c22f758cd16587
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5534a46ba99d1536d331b5852ef47588f03d73a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354273"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980273"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Solución de problemas en las consultas de Azure Stream Analytics
 
 En este artículo se describen problemas comunes con el desarrollo de consultas a Stream Analytics y cómo solucionarlos.
 
-## <a name="query-is-not-producing-expected-output"></a>La consulta no produce el resultado esperado 
+## <a name="query-is-not-producing-expected-output"></a>La consulta no produce el resultado esperado
 1.  Examine los errores mediante la comprobación local:
     - En la pestaña **Consulta**, seleccione **Probar**. Use los datos de ejemplo que descargó para [probar la consulta](stream-analytics-test-query.md). Examine los errores e intente corregirlos.   
     - También puede [probar la consulta directamente con entradas en vivo](stream-analytics-live-data-local-testing.md) mediante las herramientas de Stream Analytics para Visual Studio.
@@ -32,10 +32,10 @@ En este artículo se describen problemas comunes con el desarrollo de consultas 
     - Cuando use funciones de ventana, espere la duración entera de la ventana para ver una salida de la consulta.
     - La marca de tiempo de los eventos es anterior a la hora de inicio del trabajo y, por tanto, los eventos se descartan.
 
-4.  Asegúrese de que las directivas de ordenación de eventos están configuradas según lo previsto. Vaya a la **Configuración** y seleccione [**Ordenación de eventos**](stream-analytics-out-of-order-and-late-events.md). La directiva *no* se aplica cuando usa el botón **Probar** para probar la consulta. El resultado es una diferencia entre probar en el explorador frente a ejecutar el trabajo de producción. 
+4.  Asegúrese de que las directivas de ordenación de eventos están configuradas según lo previsto. Vaya a la **Configuración** y seleccione [**Ordenación de eventos**](stream-analytics-out-of-order-and-late-events.md). La directiva *no* se aplica cuando usa el botón **Probar** para probar la consulta. El resultado es una diferencia entre probar en el explorador frente a ejecutar el trabajo de producción.
 
 5. Depure mediante auditorías y registros de diagnóstico:
-    - Use [Registros de auditoría](../azure-resource-manager/resource-group-audit.md) y filtre para identificar y depurar errores.
+    - Use [Registros de auditoría](../azure-resource-manager/management/view-activity-logs.md) y filtre para identificar y depurar errores.
     - Use [registros de diagnóstico de trabajo](stream-analytics-job-diagnostic-logs.md) para identificar y depurar errores.
 
 ## <a name="job-is-consuming-too-many-streaming-units"></a>El trabajo consume demasiadas unidades de streaming
@@ -52,7 +52,7 @@ La siguiente consulta de ejemplo en un trabajo de Azure Stream Analytics tiene u
 Tenga en cuenta que el trabajo está en ejecución, pero no se genera ningún evento en la salida. En el icono **Supervisión**, que se muestra aquí, puede ver que la entrada genera datos, pero no sabe qué paso de la cláusula **JOIN** ha hecho que se descarten todos los eventos.
 
 ![Icono de Supervisión de Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
- 
+
 En esta situación, puede agregar unas cuantas instrucciones SELECT INTO adicionales para "registrar" los resultados intermedios de JOIN y los datos que se leen de la entrada.
 
 En este ejemplo, hemos agregado dos nuevas "salidas temporales". Estas pueden ser cualquier receptor que desee. Aquí usamos Azure Storage como ejemplo:

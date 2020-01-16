@@ -4,12 +4,12 @@ description: Seguimiento de problemas con la escalabilidad automática de Azure 
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: effef22bea0b4224f67737fe1c34c9758749c093
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364448"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751339"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Solución de problemas de escalabilidad automática de Azure
  
@@ -97,7 +97,7 @@ En la pantalla de configuración de escalabilidad automática, vaya a la pestañ
 
 ## <a name="autoscale-resource-logs"></a>Escalabilidad automática de registros de recursos
 
-Igual que cualquier otro recurso de Azure, el servicio de escalabilidad automática proporciona [registros de recursos](resource-logs-overview.md). Existen dos categorías de registros.
+Igual que cualquier otro recurso de Azure, el servicio de escalabilidad automática proporciona [registros de recursos](platform-logs-overview.md). Existen dos categorías de registros.
 
 - **Evaluaciones de escalabilidad automática**: el motor de escalabilidad automática registra las entradas de registro para cada evaluación de condición única cada vez que realiza una comprobación.  La entrada incluye detalles sobre los valores observados de las métricas, las reglas evaluadas y si la evaluación ha dado como resultado una acción de escalado o no.
 

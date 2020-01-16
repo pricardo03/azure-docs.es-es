@@ -3,12 +3,12 @@ title: 'Tutorial: Almacenamiento del estado de Terraform en Azure Storage'
 description: Introducción al almacenamiento del estado de Terraform en Azure Storage.
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: d1b622a372be48bf044b512f3c964a5720fc3c5b
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 1cc475e5070b21a7ea96585f2183c07d258acdc5
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159339"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708431"
 ---
 # <a name="tutorial-store-terraform-state-in-azure-storage"></a>Tutorial: Estado de Terraform en Azure Storage
 
@@ -84,6 +84,7 @@ En el ejemplo siguiente se configura un back-end de Terraform y se crea un grupo
 ```hcl
 terraform {
   backend "azurerm" {
+    resource_group_name   = "tstate"
     storage_account_name  = "tstate09762"
     container_name        = "tstate"
     key                   = "terraform.tfstate"

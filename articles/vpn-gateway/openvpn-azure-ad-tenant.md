@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.author: alzam
-ms.openlocfilehash: 2e62708c98ac86354777cf1bdd93a3deff943b98
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 6357fb2d69a9c0ded430c17b77e854f63fc8f5c6
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665341"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747375"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creación de un inquilino de Azure Active Directory para conexiones del protocolo P2S OpenVPN
 
@@ -89,8 +89,13 @@ Siga los pasos descritos en [este artículo](../active-directory/fundamentals/ad
 7. En el Azure AD, en **Aplicaciones empresariales**, verá la **VPN de Azure** en la lista.
 
     ![VPN de Azure](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
+    
+8. Si no dispone de un entorno de punto a sitio funcionando, siga las instrucciones para crear uno. Consulte [Creación de una VPN de punto a sitio](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para crear y configurar una puerta de enlace de VPN de punto a sitio con autenticación de certificados nativos de Azure. 
 
-8. Habilite la autenticación Azure AD en la VPN Gateway con la ejecución de los siguientes comandos y asegúrese de modificar el comando para que refleje su propio entorno:
+    > [!IMPORTANT]
+    > La SKU de nivel Básico no es compatible con OpenVPN.
+
+9. Habilite la autenticación Azure AD en la VPN Gateway con la ejecución de los siguientes comandos y asegúrese de modificar el comando para que refleje su propio entorno:
 
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name <name of VPN gateway> -ResourceGroupName <Resource group>
@@ -98,22 +103,22 @@ Siga los pasos descritos en [este artículo](../active-directory/fundamentals/ad
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/" -VpnClientAddressPool 192.168.0.0/24 -VpnClientProtocol OpenVPN
     ```
 
-9. Ejecute los siguientes comandos para crear y descargar el perfil. Cambie los valores de -ResourcGroupName y -Name para que coincidan con los suyos.
+10. Ejecute los siguientes comandos para crear y descargar el perfil. Cambie los valores de -ResourcGroupName y -Name para que coincidan con los suyos.
 
     ```azurepowershell-interactive
     $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"
     $PROFILE.VpnProfileSASUrl
     ```
 
-10. Después de ejecutar los comandos, verá un resultado similar al siguiente. Copie la dirección URL del resultado en el explorador para descargar el archivo zip del perfil.
+11. Después de ejecutar los comandos, verá un resultado similar al siguiente. Copie la dirección URL del resultado en el explorador para descargar el archivo zip del perfil.
 
     ![VPN de Azure](./media/openvpn-create-azure-ad-tenant/profile.png)
 
-11. Extraiga el archivo zip descargado.
+12. Extraiga el archivo zip descargado.
 
-12. Busque la carpeta "AzureVPN" descomprimida.
+13. Busque la carpeta "AzureVPN" descomprimida.
 
-13. Anote la ubicación del archivo "azurevpnconfig. xml". Azurevpnconfig. xml contiene la configuración de la conexión VPN y se puede importar directamente en la aplicación del cliente VPN Azure. También puede distribuir este archivo a todos los usuarios que necesiten conectarse a través del correo electrónico u otros medios. El usuario necesitará credenciales de Azure AD válidas para conectarse correctamente.
+14. Anote la ubicación del archivo "azurevpnconfig. xml". Azurevpnconfig. xml contiene la configuración de la conexión VPN y se puede importar directamente en la aplicación del cliente VPN Azure. También puede distribuir este archivo a todos los usuarios que necesiten conectarse a través del correo electrónico u otros medios. El usuario necesitará credenciales de Azure AD válidas para conectarse correctamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

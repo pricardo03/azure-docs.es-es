@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/31/2017
-ms.openlocfilehash: a79bf07c91ef80509355a10c1401d1ab94cc5118
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: eb43db7a67063622f6a6125178267573cd209471
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552739"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748806"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas del registro de actividad de Azure
 Como parte de la definición de un grupo de acciones, se pueden configurar puntos de conexión de webhook para recibir notificaciones de alertas del registro de actividad. Los webhooks permiten enrutar estas notificaciones a otros sistemas para su procesamiento posterior o acciones personalizadas. Este artículo muestra el aspecto de la carga útil para HTTP POST a un webhook.
@@ -31,7 +31,7 @@ El webhook puede usar opcionalmente autorización basada en token para la autent
 ## <a name="payload-schema"></a>Esquema de carga
 La carga útil JSON incluida en la operación POST difiere según el campo data.context.activityLog.eventSource de la carga útil.
 
-### <a name="common"></a>Común
+### <a name="common"></a>Comunes
 
 ```json
 {
@@ -257,13 +257,13 @@ Para obtener detalles del esquema específico sobre alertas del registro de acti
 }
 ```
 
-| Nombre del elemento | DESCRIPCIÓN |
+| Nombre del elemento | Descripción |
 | --- | --- |
 | status |Usado para alertas de métrica. Siempre se establece en "activated" para las alertas del registro de actividad. |
 | context |Contexto del evento |
 | resourceProviderName |Proveedor de recursos del recurso afectado |
 | conditionType |Siempre "Event" |
-| Nombre |Nombre de la regla de alerta. |
+| name |Nombre de la regla de alerta. |
 | id |Identificador de recurso de la alerta |
 | description |Descripción de la alerta establecida al crear la alerta. |
 | subscriptionId |Identificador de suscripción de Azure |
@@ -287,10 +287,10 @@ Para obtener detalles del esquema específico sobre alertas del registro de acti
 | status |String. Estado de la operación. Entre los valores habituales, se incluyen Started, In Progress, Succeeded, Failed, Active y Resolved. |
 | subStatus |Normalmente, incluye el código de estado HTTP de la llamada de REST correspondiente. También podría incluir otras cadenas que describen un subestado. Los valores de subestado comunes son Aceptar (código de estado HTTP: 200), Creado (código de estado HTTP: 201), Aceptado (código de estado HTTP: 202), Sin contenido (código de estado HTTP: 204), Solicitud incorrecta (código de estado HTTP: 400), No encontrado (código de estado HTTP): 404), Conflicto (código de estado HTTP: 409), Error interno del servidor (código de estado HTTP: 500), Servicio no disponible (código de estado HTTP: 503), Tiempo de espera agotado para la puerta de enlace (código de estado HTTP: 504). |
 
-Para obtener información del esquema específico en todas las otras alertas del registro de actividad, consulte [Información general sobre el registro de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md).
+Para obtener información del esquema específico en todas las otras alertas del registro de actividad, consulte [Información general sobre el registro de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Más información sobre el registro de actividad](../../azure-monitor/platform/activity-logs-overview.md).
+* [Más información sobre el registro de actividad](../../azure-monitor/platform/platform-logs-overview.md).
 * [Ejecución de scripts de Azure Automation (runbooks) en alertas de Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Uso de una aplicación lógica para enviar un SMS a través de Twilio desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este ejemplo es para alertas de métrica, pero podría modificarse para funcionar con una alerta del registro de actividad.
 * [Uso de una aplicación lógica para enviar un mensaje de Slack desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Este ejemplo es para alertas de métrica, pero podría modificarse para funcionar con una alerta del registro de actividad.

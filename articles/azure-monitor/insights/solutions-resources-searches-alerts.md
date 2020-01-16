@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 488130fbd2939fa4d98e379126ba3353a417fd72
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5ff9c45ffb636f53951a763f617c25a2e8c09088
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401762"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977719"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adición de búsquedas y alertas guardadas de Log Analytics en la solución de administración (versión preliminar)
 
@@ -23,7 +23,7 @@ ms.locfileid: "75401762"
 > [!NOTE]
 > Esta es la documentación preliminar para crear soluciones de administración que se encuentran actualmente en versión preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.
 
-Las [soluciones de administración](solutions.md) suelen incluir [búsquedas guardadas](../../azure-monitor/log-query/log-query-overview.md) en Log Analytics para analizar los datos recopilados por la solución. Pueden definir asimismo [alertas](../../azure-monitor/platform/alerts-overview.md) para notificar al usuario o realizar automáticamente una acción en respuesta a un problema crítico. En este artículo se describe cómo definir las búsquedas y alertas guardadas de Log Analytics en una [plantilla de Resource Management](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) para que puedan incluirse en [soluciones de administración](solutions-creating.md).
+Las [soluciones de administración](solutions.md) suelen incluir [búsquedas guardadas](../../azure-monitor/log-query/log-query-overview.md) en Log Analytics para analizar los datos recopilados por la solución. Pueden definir asimismo [alertas](../../azure-monitor/platform/alerts-overview.md) para notificar al usuario o realizar automáticamente una acción en respuesta a un problema crítico. En este artículo se describe cómo definir las búsquedas y alertas guardadas de Log Analytics en una [plantilla de Resource Management](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) para que puedan incluirse en [soluciones de administración](solutions-creating.md).
 
 > [!NOTE]
 > En los ejemplos de este artículo se usan parámetros y variables que son necesarios o comunes para las soluciones de administración, y se describen en [Diseño y compilación de una solución de administración en Azure](solutions-creating.md).

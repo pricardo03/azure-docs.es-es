@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: 73aa4a8a5dad0e2839c6a643f2ab58494d55458a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8f17a3ffbbee2bc702be1c2c690a1d6c85d792cb
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450645"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751039"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Orígenes de datos de supervisión para Azure Monitor
 Azure Monitor se basa en una [plataforma de datos de supervisión común](data-platform.md) que incluye [registros](data-platform-logs.md) y [métricas](data-platform-metrics.md). La recopilación de datos en esta plataforma permite que los datos de múltiples recursos se analicen juntos mediante un conjunto común de herramientas en Azure Monitor. Los datos de supervisión también pueden enviarse a otras ubicaciones para admitir determinados escenarios, y algunos recursos pueden realizar operaciones de escritura en otras ubicaciones para poder recopilarse en registros o métricas.
@@ -67,7 +67,7 @@ Telemetría relacionada con el estado y el funcionamiento de su suscripción de 
 ![Suscripción de Azure](media/data-sources/azure-subscription.png)
 
 ### <a name="azure-activity-log"></a>Registro de actividad de Azure 
-El [registro de actividad de Azure](activity-logs-overview.md) incluye registros de Service Health, además de registros sobre los cambios de configuración aplicados a los recursos en su suscripción de Azure. El registro de actividad está disponible para todos los recursos de Azure y representa su vista _externa_.
+El [registro de actividad de Azure](platform-logs-overview.md) incluye registros de Service Health, además de registros sobre los cambios de configuración aplicados a los recursos en su suscripción de Azure. El registro de actividad está disponible para todos los recursos de Azure y representa su vista _externa_.
 
 | Destination | Descripción | Referencia |
 |:---|:---|
@@ -100,7 +100,7 @@ La mayoría de los servicios de Azure generarán [métricas de plataforma](data-
 | Event Hubs | Transmita métricas a otras ubicaciones mediante Event Hubs. |[Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](stream-monitoring-data-event-hubs.md) |
 
 ### <a name="resource-logs"></a>Registros del recurso
-Los [registros de recursos](resource-logs-overview.md) proporcionan información detallada sobre el funcionamiento _interno_ de un recurso de Azure.  Los registros de recursos se crean automáticamente, pero debe crear una configuración de diagnóstico para especificar un destino para que se recopilen de cada recurso.
+Los [registros de recursos](platform-logs-overview.md) proporcionan información detallada sobre el funcionamiento _interno_ de un recurso de Azure.  Los registros de recursos se crean automáticamente, pero debe crear una configuración de diagnóstico para especificar un destino para que se recopilen de cada recurso.
 
 Los requisitos de configuración y el contenido de los registros de recursos varían según el tipo de recurso, y no todos los servicios los crean. Consulte [Servicios, esquemas y categorías admitidos en los registros de recursos de Azure](diagnostic-logs-schema.md) para más información sobre los servicios y obtener vínculos a los procedimientos de configuración detallados. Si el servicio no aparece en este artículo, significa que se servicio no crea actualmente registros de recursos.
 

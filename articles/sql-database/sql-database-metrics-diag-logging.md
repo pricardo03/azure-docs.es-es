@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/16/2019
-ms.openlocfilehash: de1366b1bf45301d3d26a4f721ef2828f79be98d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a84dee783240f7f662dab2f04275ead3a3dfe09
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460646"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750777"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database
 
@@ -33,7 +33,7 @@ Las bases de datos únicas, bases de datos agrupadas en grupos elásticos y base
 Para más información sobre las métricas y las categorías de registro admitidas por los diversos servicios de Azure, consulte:
 
 - [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Información general de los registros de diagnóstico de Azure](../azure-monitor/platform/resource-logs-overview.md)
+- [Información general de los registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md)
 
 En este artículo se proporciona orientación para ayudarle a habilitar los datos de telemetría de diagnósticos para bases de datos, grupos elásticos e Instancias administradas de Azure SQL. También puede ayudarle a saber cómo configurar Azure SQL Analytics como una herramienta de supervisión que permita visualizar los datos de telemetría de diagnóstico de las bases de datos.
 
@@ -736,7 +736,7 @@ Obtenga más información sobre el [formato de registro de Intelligent Insights]
 Para aprender a habilitar el registro y comprender las métricas y las categorías de registro admitidas por los diferentes servicios de Azure, vea lo siguiente:
 
 - [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Información general de los registros de diagnóstico de Azure](../azure-monitor/platform/resource-logs-overview.md)
+- [Información general de los registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md)
 
 Para obtener información sobre Event Hubs, lea lo siguiente:
 

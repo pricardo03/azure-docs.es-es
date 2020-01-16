@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 441c45d0f77ab825c35e24056b09d0d33b675eea
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 4ceefcbbbb53e3ae13f8ced930ae8417fb00965f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75496397"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974403"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Prácticas recomendadas de DevOps y seguridad para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -86,7 +86,7 @@ Para más información, consulte los siguientes artículos.
 - [Información general de Azure Virtual Network](../../virtual-network/virtual-networks-overview.md)
 - [Información general de Grupos de seguridad de red de Azure](../../virtual-network/security-overview.md)
 - [Emparejamiento de Azure Virtual Network](../../virtual-network/virtual-network-peering-overview.md)
-- [Guía de seguridad de Azure Storage](../../storage/common/storage-security-guide.md)
+- [Guía de seguridad de Azure Storage](../../storage/blobs/security-recommendations.md)
 - [Cifrado en reposo del servicio de Azure Storage](../../storage/common/storage-service-encryption.md)
 
 ## <a name="use-monitoring--alerting"></a>Uso de supervisión y alertas

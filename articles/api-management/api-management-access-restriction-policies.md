@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 3201edd3b90d6db1393286db688b24065ea8dc6b
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 3ba620d66b84e6724751b2024059e8ecd66888cd
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273540"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902498"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 
@@ -60,14 +60,14 @@ Usa la directiva `check-header` para exigir que una solicitud tenga un encabezad
 
 ### <a name="elements"></a>Elementos
 
-| NOMBRE         | DESCRIPCIÓN                                                                                                                                   | Obligatorio |
+| Nombre         | Descripción                                                                                                                                   | Obligatorio |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | check-header | Elemento raíz.                                                                                                                                 | Sí      |
-| value        | Valor del encabezado HTTP permitido. Cuando se especifican varios elementos de valor, el resultado de la comprobación se considera positivo en caso de coincidencia con cualquiera de los valores. | Sin       |
+| value        | Valor del encabezado HTTP permitido. Cuando se especifican varios elementos de valor, el resultado de la comprobación se considera positivo en caso de coincidencia con cualquiera de los valores. | No       |
 
 ### <a name="attributes"></a>Atributos
 
-| NOMBRE                       | DESCRIPCIÓN                                                                                                                                                            | Obligatorio | Valor predeterminado |
+| Nombre                       | Descripción                                                                                                                                                            | Obligatorio | Valor predeterminado |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | failed-check-error-message | Mensaje de error que se devuelve en el cuerpo de la respuesta HTTP si el encabezado no existe o tiene un valor no válido. Los caracteres especiales de este mensaje deben incluir los caracteres de escape correctos. | Sí      | N/D     |
 | failed-check-httpcode      | Código de estado HTTP que se devuelve si el encabezado no existe o tiene un valor no válido.                                                                                        | Sí      | N/D     |
@@ -120,17 +120,17 @@ La directiva `rate-limit` evita los picos de uso de la API según suscripción l
 
 ### <a name="elements"></a>Elementos
 
-| NOMBRE      | DESCRIPCIÓN                                                                                                                                                                                                                                                                                              | Obligatorio |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| Nombre       | Descripción                                                                                                                                                                                                                                                                                              | Obligatorio |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | rate-limit | Elemento raíz.                                                                                                                                                                                                                                                                                            | Sí      |
-| api       | Agregue uno o varios de estos elementos para imponer un límite de tasa de llamadas a las API del producto. Los límites de tasa de llamadas a la API y al producto se aplican de forma independiente. Se puede hacer referencia a la API a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.                    | Sin       |
-| operation | Agregue uno o varios de estos elementos para imponer un límite de tasa de llamadas a las operaciones de una API. Los límites de tasa de llamadas se aplican de forma independiente a la API, a la operación y al producto. Se puede hacer referencia a la operación a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá. | Sin       |
+| api        | Agregue uno o varios de estos elementos para imponer un límite de tasa de llamadas a las API del producto. Los límites de tasa de llamadas a la API y al producto se aplican de forma independiente. Se puede hacer referencia a la API a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.                    | No       |
+| operation  | Agregue uno o varios de estos elementos para imponer un límite de tasa de llamadas a las operaciones de una API. Los límites de tasa de llamadas se aplican de forma independiente a la API, a la operación y al producto. Se puede hacer referencia a la operación a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá. | No       |
 
 ### <a name="attributes"></a>Atributos
 
-| NOMBRE           | DESCRIPCIÓN                                                                                           | Obligatorio | Valor predeterminado |
+| Nombre           | Descripción                                                                                           | Obligatorio | Valor predeterminado |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| Nombre           | Nombre de la API a la que se va a aplicar un límite de tasa.                                                | Sí      | N/D     |
+| name           | Nombre de la API a la que se va a aplicar un límite de tasa.                                                | Sí      | N/D     |
 | calls          | Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`. | Sí      | N/D     |
 | renewal-period | Período de tiempo en segundos tras el cual se restablece la cuota.                                              | Sí      | N/D     |
 
@@ -185,17 +185,17 @@ En el ejemplo siguiente, la clave del límite de velocidad se establece según l
 
 ### <a name="elements"></a>Elementos
 
-| NOMBRE              | DESCRIPCIÓN   | Obligatorio |
+| Nombre              | Descripción   | Obligatorio |
 | ----------------- | ------------- | -------- |
 | rate-limit-by-key | Elemento raíz. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-| NOMBRE                | DESCRIPCIÓN                                                                                           | Obligatorio | Valor predeterminado |
+| Nombre                | Descripción                                                                                           | Obligatorio | Valor predeterminado |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | calls               | Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`. | Sí      | N/D     |
 | counter-key         | Clave que se usa para la directiva de límite de tasa.                                                             | Sí      | N/D     |
-| increment-condition | Expresión booleana que especifica si la solicitud se debe contar para la cuota (`true`).        | Sin       | N/D     |
+| increment-condition | Expresión booleana que especifica si la solicitud se debe contar para la cuota (`true`).        | No       | N/D     |
 | renewal-period      | Período de tiempo en segundos tras el cual se restablece la cuota.                                              | Sí      | N/D     |
 
 ### <a name="usage"></a>Uso
@@ -232,7 +232,7 @@ En el siguiente ejemplo, la directiva solo permite solicitudes provenientes de l
 
 ### <a name="elements"></a>Elementos
 
-| NOMBRE                                      | DESCRIPCIÓN                                         | Obligatorio                                                       |
+| Nombre                                      | Descripción                                         | Obligatorio                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
 | ip-filter                                 | Elemento raíz.                                       | Sí                                                            |
 | address                                   | Especifica la dirección IP única por la que filtrar.   | Es necesario al menos un elemento `address` o `address-range`. |
@@ -240,7 +240,7 @@ En el siguiente ejemplo, la directiva solo permite solicitudes provenientes de l
 
 ### <a name="attributes"></a>Atributos
 
-| NOMBRE                                      | DESCRIPCIÓN                                                                                 | Obligatorio                                           | Valor predeterminado |
+| Nombre                                      | Descripción                                                                                 | Obligatorio                                           | Valor predeterminado |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | address-range from="address" to="address" | Un intervalo de direcciones IP a las que permitir o denegar el acceso.                                        | Obligatorio cuando se utiliza el elemento `address-range`. | N/D     |
 | ip-filter action="allow &#124; forbid"    | Especifica si se deben permitir o no las llamadas para los intervalos y direcciones IP especificados. | Sí                                                | N/D     |
@@ -287,17 +287,17 @@ La directiva `quota` aplica un volumen de llamadas o una cuota de ancho de banda
 
 ### <a name="elements"></a>Elementos
 
-| NOMBRE      | DESCRIPCIÓN                                                                                                                                                                                                                                                                                  | Obligatorio |
+| Nombre      | Descripción                                                                                                                                                                                                                                                                                  | Obligatorio |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | quota     | Elemento raíz.                                                                                                                                                                                                                                                                                | Sí      |
-| api       | Agregue uno o varios de estos elementos para imponer una cuota de llamadas a las API del producto. Las cuotas de llamada de API y de producto se aplican de forma independiente. Se puede hacer referencia a la API a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.                    | Sin       |
-| operation | Agregue uno o varios de estos elementos para imponer una cuota de llamadas a las operaciones de una API. Las cuotas de llamadas de API, operación y producto se aplican de forma independiente. Se puede hacer referencia a la operación a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá. | Sin       |
+| api       | Agregue uno o varios de estos elementos para imponer una cuota de llamadas a las API del producto. Las cuotas de llamada de API y de producto se aplican de forma independiente. Se puede hacer referencia a la API a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.                    | No       |
+| operation | Agregue uno o varios de estos elementos para imponer una cuota de llamadas a las operaciones de una API. Las cuotas de llamadas de API, operación y producto se aplican de forma independiente. Se puede hacer referencia a la operación a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá. | No       |
 
 ### <a name="attributes"></a>Atributos
 
-| NOMBRE           | DESCRIPCIÓN                                                                                               | Obligatorio                                                         | Valor predeterminado |
+| Nombre           | Descripción                                                                                               | Obligatorio                                                         | Valor predeterminado |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
-| Nombre           | Nombre de la API u operación a la que se aplica la cuota.                                             | Sí                                                              | N/D     |
+| name           | Nombre de la API u operación a la que se aplica la cuota.                                             | Sí                                                              | N/D     |
 | bandwidth      | Número total máximo de kilobytes permitidos durante el intervalo de tiempo especificado en `renewal-period`. | Debe especificarse `calls`, `bandwidth` o ambos. | N/D     |
 | calls          | Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`.     | Debe especificarse `calls`, `bandwidth` o ambos. | N/D     |
 | renewal-period | Período de tiempo en segundos tras el cual se restablece la cuota.                                                  | Sí                                                              | N/D     |
@@ -349,18 +349,18 @@ En el ejemplo siguiente, la clave de la cuota se establece según la dirección 
 
 ### <a name="elements"></a>Elementos
 
-| NOMBRE  | DESCRIPCIÓN   | Obligatorio |
+| Nombre  | Descripción   | Obligatorio |
 | ----- | ------------- | -------- |
 | quota | Elemento raíz. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-| NOMBRE                | DESCRIPCIÓN                                                                                               | Obligatorio                                                         | Valor predeterminado |
+| Nombre                | Descripción                                                                                               | Obligatorio                                                         | Valor predeterminado |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | bandwidth           | Número total máximo de kilobytes permitidos durante el intervalo de tiempo especificado en `renewal-period`. | Debe especificarse `calls`, `bandwidth` o ambos. | N/D     |
 | calls               | Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`.     | Debe especificarse `calls`, `bandwidth` o ambos. | N/D     |
 | counter-key         | Clave que se usa para la directiva de cuota.                                                                      | Sí                                                              | N/D     |
-| increment-condition | Expresión booleana que especifica si la solicitud se debe contar para la cuota (`true`).             | Sin                                                               | N/D     |
+| increment-condition | Expresión booleana que especifica si la solicitud se debe contar para la cuota (`true`).             | No                                                               | N/D     |
 | renewal-period      | Período de tiempo en segundos tras el cual se restablece la cuota.                                                  | Sí                                                              | N/D     |
 
 ### <a name="usage"></a>Uso
@@ -392,6 +392,7 @@ La directiva `validate-jwt` aplica la existencia y la validez de un JWT extraíd
     require-signed-tokens="true|false"
     clock-skew="allowed clock skew in seconds"
     output-token-variable-name="name of a variable to receive a JWT object representing successfully validated token">
+  <openid-config url="full URL of the configuration endpoint, e.g. https://login.constoso.com/openid-configuration" />
   <issuer-signing-keys>
     <key>base64 encoded signing key</key>
     <!-- if there are multiple keys, then add additional key elements -->
@@ -415,8 +416,6 @@ La directiva `validate-jwt` aplica la existencia y la validez de un JWT extraíd
     </claim>
     <!-- if there are multiple possible allowed values, then add additional value elements -->
   </required-claims>
-  <openid-config url="full URL of the configuration endpoint, e.g. https://login.constoso.com/openid-configuration" />
-  <zumo-master-key id="key identifier">key value</zumo-master-key>
 </validate-jwt>
 
 ```
@@ -502,53 +501,36 @@ En este ejemplo se muestra cómo usar la directiva de [validación de JWT](api-m
 </choose>
 ```
 
-#### <a name="azure-mobile-services-token-validation"></a>Validación de tokens de Azure Mobile Services
-
-```xml
-<validate-jwt header-name="x-zumo-auth" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Supplied access token is invalid.">
-    <issuers>
-        <issuer>urn:microsoft:windows-azure:zumo</issuer>
-    </issuers>
-    <audiences>
-        <audience>Facebook</audience>
-    </audiences>
-    <issuer-signing-keys>
-        <zumo-master-key id="0">insert key here</zumo-master-key>
-    </issuer-signing-keys>
-</validate-jwt>
-```
-
 ### <a name="elements"></a>Elementos
 
-| Elemento             | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                           | Obligatorio |
+| Elemento             | Descripción                                                                                                                                                                                                                                                                                                                                           | Obligatorio |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | validate-jwt        | Elemento raíz.                                                                                                                                                                                                                                                                                                                                         | Sí      |
-| audiences           | Contiene una lista de notificaciones de audiencia aceptables que pueden estar presentes en el token. Si existen varios valores de audiencia, se prueban los valores uno a uno hasta que se agoten todos (en cuyo caso no se superará la validación) o hasta que se obtenga un resultado positivo con alguno. Debe especificarse al menos una audiencia.                                                                     | Sin       |
-| issuer-signing-keys | Lista de las claves de seguridad con codificación Base64 que se utilizan para validar los tokens firmados. Si existen varias claves de seguridad, se prueban las claves una a una hasta que se agoten todas (en cuyo caso no se superará la validación) o hasta que una sea correcta (lo que es útil para la sustitución de tokens). Los elementos de clave tienen un atributo `id` opcional que se utiliza para compararlo con la notificación `kid`.               | Sin       |
-| decryption-keys     | Una lista de claves con codificación Base64 que se usan para descifrar los tokens. Si existen varias claves de seguridad, se prueba cada clave hasta que se agoten todas (en cuyo caso no se superará la validación) o hasta que una sea correcta. Los elementos de clave tienen un atributo `id` opcional que se utiliza para compararlo con la notificación `kid`.                                                 | Sin       |
-| issuers             | Lista de entidades de seguridad aceptables que emitieron el token. Si existen varios valores de emisor, se prueban los valores uno a uno hasta que se agoten todos (en cuyo caso no se superará la validación) o hasta que se obtenga un resultado positivo con alguno.                                                                                                                                         | Sin       |
-| openid-config       | Elemento que se usa para especificar un punto de conexión de configuración OpenID compatible desde el que se puedan obtener las claves y el emisor de la firma.                                                                                                                                                                                                                        | Sin       |
-| required-claims     | Contiene una lista de las notificaciones que se espera que estén presentes en el token para que se considere válido. Cuando el atributo `match` está establecido en `all`, todos los valores de notificación de la directiva deben estar presentes en el token para que la validación se efectúe correctamente. Cuando el atributo `match` está establecido en `any`, debe haber al menos una notificación en el token para que la validación se efectúe correctamente. | Sin       |
-| zumo-master-key     | Clave maestra para los tokens que emite Azure Mobile Services.                                                                                                                                                                                                                                                                                                 | Sin       |
+| audiences           | Contiene una lista de notificaciones de audiencia aceptables que pueden estar presentes en el token. Si existen varios valores de audiencia, se prueban los valores uno a uno hasta que se agoten todos (en cuyo caso no se superará la validación) o hasta que se obtenga un resultado positivo con alguno. Debe especificarse al menos una audiencia.                                                                     | No       |
+| issuer-signing-keys | Lista de las claves de seguridad con codificación Base64 que se utilizan para validar los tokens firmados. Si existen varias claves de seguridad, se prueban las claves una a una hasta que se agoten todas (en cuyo caso no se superará la validación) o hasta que una sea correcta (lo que es útil para la sustitución de tokens). Los elementos de clave tienen un atributo `id` opcional que se utiliza para compararlo con la notificación `kid`.               | No       |
+| decryption-keys     | Una lista de claves con codificación Base64 que se usan para descifrar los tokens. Si existen varias claves de seguridad, se prueba cada clave hasta que se agoten todas (en cuyo caso no se superará la validación) o hasta que una sea correcta. Los elementos de clave tienen un atributo `id` opcional que se utiliza para compararlo con la notificación `kid`.                                                 | No       |
+| issuers             | Lista de entidades de seguridad aceptables que emitieron el token. Si existen varios valores de emisor, se prueban los valores uno a uno hasta que se agoten todos (en cuyo caso no se superará la validación) o hasta que se obtenga un resultado positivo con alguno.                                                                                                                                         | No       |
+| openid-config       | Elemento que se usa para especificar un punto de conexión de configuración OpenID compatible desde el que se puedan obtener las claves y el emisor de la firma.                                                                                                                                                                                                                        | No       |
+| required-claims     | Contiene una lista de las notificaciones que se espera que estén presentes en el token para que se considere válido. Cuando el atributo `match` está establecido en `all`, todos los valores de notificación de la directiva deben estar presentes en el token para que la validación se efectúe correctamente. Cuando el atributo `match` está establecido en `any`, debe haber al menos una notificación en el token para que la validación se efectúe correctamente. | No       |
 
 ### <a name="attributes"></a>Atributos
 
-| NOMBRE                            | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                                                                                                                            | Obligatorio                                                                         | Valor predeterminado                                                                           |
+| Nombre                            | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                            | Obligatorio                                                                         | Valor predeterminado                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| clock-skew                      | Intervalo de tiempo. Utilice esta opción para especificar la diferencia máxima de tiempo esperado entre los relojes del sistema del emisor del token y la instancia de API Management.                                                                                                                                                                                                                                                                                                               | Sin                                                                               | 0 segundos                                                                         |
-| failed-validation-error-message | Mensaje de error que se devuelve en el cuerpo de respuesta HTTP si el elemento JWT no pasa la validación. Los caracteres especiales de este mensaje deben incluir los caracteres de escape correctos.                                                                                                                                                                                                                                                                                                 | Sin                                                                               | El mensaje de error predeterminado depende del problema de validación, por ejemplo, la notificación de la ausencia del elemento JWT. |
-| failed-validation-httpcode      | Código de estado HTTP que se devuelve si el elemento JWT no pasa la validación.                                                                                                                                                                                                                                                                                                                                                                                         | Sin                                                                               | 401                                                                               |
+| clock-skew                      | Intervalo de tiempo. Utilice esta opción para especificar la diferencia máxima de tiempo esperado entre los relojes del sistema del emisor del token y la instancia de API Management.                                                                                                                                                                                                                                                                                                               | No                                                                               | 0 segundos                                                                         |
+| failed-validation-error-message | Mensaje de error que se devuelve en el cuerpo de respuesta HTTP si el elemento JWT no pasa la validación. Los caracteres especiales de este mensaje deben incluir los caracteres de escape correctos.                                                                                                                                                                                                                                                                                                 | No                                                                               | El mensaje de error predeterminado depende del problema de validación, por ejemplo, la notificación de la ausencia del elemento JWT. |
+| failed-validation-httpcode      | Código de estado HTTP que se devuelve si el elemento JWT no pasa la validación.                                                                                                                                                                                                                                                                                                                                                                                         | No                                                                               | 401                                                                               |
 | header-name                     | El nombre del encabezado HTTP que contiene el token.                                                                                                                                                                                                                                                                                                                                                                                                         | Se debe especificar uno de `header-name`, `query-parameter-name` o `token-value`. | N/D                                                                               |
 | nombre del parámetro de consulta            | Nombre del parámetro de consulta que contiene el token.                                                                                                                                                                                                                                                                                                                                                                                                     | Se debe especificar uno de `header-name`, `query-parameter-name` o `token-value`. | N/D                                                                               |
 | token-value                     | Expresión que devuelve una cadena que contiene el token JWT.                                                                                                                                                                                                                                                                                                                                                                                                     | Se debe especificar uno de `header-name`, `query-parameter-name` o `token-value`. | N/D                                                                               |
-| id                              | El atributo `id` del elemento `key` le permite especificar la cadena que se comparará con la notificación `kid` del token (si existe) para averiguar qué clave debe usarse para validar la firma.                                                                                                                                                                                                                                           | Sin                                                                               | N/D                                                                               |
-| match                           | El atributo `match` del elemento `claim` especifica si todos los valores de notificación de la directiva deben estar presentes en el token para que la validación se efectúe correctamente. Los valores posibles son:<br /><br /> - `all`: todos los valores de notificación de la directiva deben estar presentes en el token para que la validación se efectúe correctamente.<br /><br /> - `any`: al menos un valor de notificación debe estar presente en el token para que la validación se efectúe correctamente.                                                       | Sin                                                                               | todas                                                                               |
-| require-expiration-time         | Booleano. Especifica si es necesaria una notificación de expiración en el token.                                                                                                                                                                                                                                                                                                                                                                               | Sin                                                                               | true                                                                              |
-| require-scheme                  | El nombre del token de esquema; por ejemplo, "Bearer". Cuando se establece este atributo, la directiva se asegurará de que ese esquema especificado esté presente en el valor del encabezado de la autorización.                                                                                                                                                                                                                                                                                    | Sin                                                                               | N/D                                                                               |
-| require-signed-tokens           | Booleano. Especifica si un token debe estar firmado.                                                                                                                                                                                                                                                                                                                                                                                           | Sin                                                                               | true                                                                              |
-| separator                       | String. Especifica el separador (por ejemplo: ",") que se va a usar para extraer un conjunto de valores de una notificación con varios valores.                                                                                                                                                                                                                                                                                                                                          | Sin                                                                               | N/D                                                                               |
+| id                              | El atributo `id` del elemento `key` le permite especificar la cadena que se comparará con la notificación `kid` del token (si existe) para averiguar qué clave debe usarse para validar la firma.                                                                                                                                                                                                                                           | No                                                                               | N/D                                                                               |
+| match                           | El atributo `match` del elemento `claim` especifica si todos los valores de notificación de la directiva deben estar presentes en el token para que la validación se efectúe correctamente. Los valores posibles son:<br /><br /> - `all`: todos los valores de notificación de la directiva deben estar presentes en el token para que la validación se efectúe correctamente.<br /><br /> - `any`: al menos un valor de notificación debe estar presente en el token para que la validación se efectúe correctamente.                                                       | No                                                                               | all                                                                               |
+| require-expiration-time         | booleano. Especifica si es necesaria una notificación de expiración en el token.                                                                                                                                                                                                                                                                                                                                                                               | No                                                                               | true                                                                              |
+| require-scheme                  | El nombre del token de esquema; por ejemplo, "Bearer". Cuando se establece este atributo, la directiva se asegurará de que ese esquema especificado esté presente en el valor del encabezado de la autorización.                                                                                                                                                                                                                                                                                    | No                                                                               | N/D                                                                               |
+| require-signed-tokens           | booleano. Especifica si un token debe estar firmado.                                                                                                                                                                                                                                                                                                                                                                                           | No                                                                               | true                                                                              |
+| separador                       | String. Especifica el separador (por ejemplo: ",") que se va a usar para extraer un conjunto de valores de una notificación con varios valores.                                                                                                                                                                                                                                                                                                                                          | No                                                                               | N/D                                                                               |
 | url                             | Dirección URL de punto de conexión de configuración de OpenID desde donde se pueden obtener los metadatos de configuración de OpenID. La respuesta debe ser acorde a las especificaciones definidas en la dirección URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. En Azure Active Directory, utilice la dirección URL `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` y sustituya tenant-name por el nombre del inquilino de directorio, por ejemplo, `contoso.onmicrosoft.com`. | Sí                                                                              | N/D                                                                               |
-output-token-variable-name|String. Nombre de la variable de contexto que recibirá el valor del token como un objeto de tipo [`Jwt`](api-management-policy-expressions.md) tras la validación correcta del token.|Sin|N/D
+| output-token-variable-name      | String. Nombre de la variable de contexto que recibirá el valor del token como un objeto de tipo [`Jwt`](api-management-policy-expressions.md) tras la validación correcta del token.                                                                                                                                                                                                                                                                                     | No                                                                               | N/D                                                                               |
 
 ### <a name="usage"></a>Uso
 

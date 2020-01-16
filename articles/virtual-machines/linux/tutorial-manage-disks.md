@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 9042bece9b9a4c914941d65d615045cf365b67b6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: dc987fa1a3476b81b198726350d56333b53c795f
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034381"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780307"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial: Administración de discos de Azure con la CLI de Azure
 
@@ -47,7 +47,7 @@ Cuando se crea una máquina virtual de Azure, se conectan dos discos automática
 
 ## <a name="azure-data-disks"></a>Discos de datos de Azure
 
-Para instalar aplicaciones y almacenar datos, se pueden agregar más discos de datos. Los discos de datos deben usarse en cualquier situación donde desee un almacenamiento de datos duradero y con capacidad de respuesta. El tamaño de la máquina virtual determina cuántos discos de datos se pueden conectar a una máquina virtual. Para cada CPU virtual de la máquina virtual, se pueden asociar cuatro discos de datos.
+Para instalar aplicaciones y almacenar datos, se pueden agregar más discos de datos. Los discos de datos deben usarse en cualquier situación donde desee un almacenamiento de datos duradero y con capacidad de respuesta. El tamaño de la máquina virtual determina cuántos discos de datos se pueden conectar a una máquina virtual.
 
 ## <a name="vm-disk-types"></a>Tipos de disco de máquina virtual
 
@@ -78,7 +78,7 @@ Los discos de datos se pueden crear y conectar en el momento de creación de la 
 
 ### <a name="attach-disk-at-vm-creation"></a>Conexión del disco en el momento de creación de la máquina virtual
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create).
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az-group-create).
 
 ```azurecli-interactive
 az group create --name myResourceGroupDisk --location eastus
@@ -182,7 +182,7 @@ exit
 
 Cuando se toma una instantánea de un disco, Azure crea una copia de solo lectura y de un momento dado del disco. Las instantáneas de máquina virtual de Azure resultan útiles para guardar rápidamente el estado de una máquina virtual antes de realizar cambios en la configuración. Si se produce un error, se puede restaurar la máquina virtual mediante una instantánea. Cuando una máquina virtual tiene más de un disco, se toma una instantánea de cada uno con independencia de los demás. Para realizar copias de seguridad coherentes con la aplicación, considere la posibilidad de detener la máquina virtual antes de tomar instantáneas de disco. Como alternativa, use el [servicio Azure Backup](/azure/backup/), que permite realizar copias de seguridad automatizadas mientras se ejecuta la máquina virtual.
 
-### <a name="create-snapshot"></a>Creación de una instantánea
+### <a name="create-snapshot"></a>Creación de instantáneas
 
 Antes de crear una instantánea de un disco de máquina virtual, se necesitan el identificador o el nombre del disco. Use el comando [az vm show](/cli/azure/vm#az-vm-show) para devolver el identificador del disco. En este ejemplo, el identificador del disco se almacena en una variable para que se pueda usar en un paso posterior.
 

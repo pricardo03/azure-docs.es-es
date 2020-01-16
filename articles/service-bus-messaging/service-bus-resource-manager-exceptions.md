@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2019
 ms.author: aschhab
-ms.openlocfilehash: 25b0c14fb94cba611dfa9fa9bece1b728f39a905
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0f328651ac4422226071d2de12e9cbc787ef64be
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585204"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978269"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Excepciones de Service Bus que expone Resource Manager
 
@@ -34,7 +34,7 @@ A continuación se muestran las distintas excepciones y errores que aparecen en 
 
 "Solicitud incorrecta" significa que no se pudo validar la solicitud que recibió Resource Manager.
 
-| Código de error | Subcódigo de error | Mensaje de error | DESCRIPCIÓN | Recomendación |
+| Código de error | Subcódigo de error | Mensaje de error | Descripción | Recomendación |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | Bad Request | 40000 | SubCode=40000. The property *'property name'* cannot be set when creating a Queue because the namespace *'namespace name'* is using the 'Basic' Tier. This operation is only supported in 'Standard' or 'Premium' tier (La propiedad "property name" no se puede establecer al crear una cola porque el espacio de nombres "namespace name" está utilizando un nivel Básico. Esta operación solo se admite en los niveles Estándar o Premium). | En el nivel Básico de Azure Service Bus no se pueden establecer ni actualizar las siguientes propiedades: <ul> <li> RequiresDuplicateDetection </li> <li> AutoDeleteOnIdle </li> <li>RequiresSession</li> <li>DefaultMessageTimeToLive </li> <li> DuplicateDetectionHistoryTimeWindow </li> <li> EnableExpress </li> <li> ForwardTo </li> <li> Temas </li> </ul> | Considere la posibilidad de actualizar del nivel Básico al nivel Estándar o Premium para usar esta funcionalidad. |
 | Bad Request | 40000 | SubCode=40000. The value for the 'requiresDuplicateDetection' property of an existing Queue(or Topic) cannot be changed (No se puede cambiar el valor de la propiedad "requiresDuplicateDetection" de una cola (o tema) existente). | La detección de duplicados debe estar habilitada o deshabilitada en el momento de la creación de la entidad. El parámetro de configuración de la detección de duplicados no se puede cambiar después de la creación. | Para habilitar la detección de duplicados en una cola o un tema creados anteriormente, puede crear una nueva cola o tema con detección de duplicados y, a continuación, realizar el reenvío desde la cola original al nuevo tema o cola. |
@@ -52,21 +52,21 @@ A continuación se muestran las distintas excepciones y errores que aparecen en 
 
 Al igual que en HTTP, el "código de error 429" indica "demasiadas solicitudes". Implica que se está limitando el recurso específico (espacio de nombres) debido a que hay demasiadas solicitudes (o debido a operaciones en conflicto) en ese recurso.
 
-| Código de error | Subcódigo de error | Mensaje de error | DESCRIPCIÓN | Recomendación |
+| Código de error | Subcódigo de error | Mensaje de error | Descripción | Recomendación |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| 429 | 50004 | SubCode=50004. The request was terminated because the namespace *your namespace* is being throttled (La solicitud finalizó porque se está limitando el espacio de nombres "su espacio de nombres"). | Esta condición de error se produce si el número de solicitudes entrantes supera la limitación del recurso. | Espere unos segundos y vuelva a intentarlo. <br/> <br/> Conozca más información sobre las [cuotas](service-bus-quotas.md) y [límites de solicitudes de Azure Resource Manager](../azure-resource-manager/resource-manager-request-limits.md)|
+| 429 | 50004 | SubCode=50004. The request was terminated because the namespace *your namespace* is being throttled (La solicitud finalizó porque se está limitando el espacio de nombres "su espacio de nombres"). | Esta condición de error se produce si el número de solicitudes entrantes supera la limitación del recurso. | Espere unos segundos y vuelva a intentarlo. <br/> <br/> Conozca más información sobre las [cuotas](service-bus-quotas.md) y [límites de solicitudes de Azure Resource Manager](../azure-resource-manager/management/request-limits-and-throttling.md)|
 | 429 | 40901 | SubCode=40901. Another conflicting operation is in progress (Hay otra operación en conflicto en curso). | Hay otra operación en conflicto en curso en el mismo recurso o entidad | Espere a que se complete la operación en curso actual antes de volver a intentarlo. |
 | 429 | 40900 | SubCode=40900. Conflicto. Se solicita una operación no permitida con el estado actual del recurso. | Esta condición se puede alcanzar cuando se realizan varias solicitudes para realizar las operaciones en la misma entidad (cola, tema, suscripción o regla) al mismo tiempo. | Espere unos segundos y vuelva a intentarlo. |
 | 429 | 40901 | Request on entity *'entity name'* conflicted with another request (La solicitud para la entidad "nombre de entidad" ha entrado en conflicto con otra solicitud). | Hay otra operación en conflicto en curso en el mismo recurso o entidad | Espere a que se complete la operación anterior antes de volver a intentarlo. |
 | 429 | 40901 | Another update request is in progress for the entity *'entity name'* (Hay otra solicitud de actualización en curso para la entidad "nombre de entidad"). | Hay otra operación en conflicto en curso en el mismo recurso o entidad | Espere a que se complete la operación anterior antes de volver a intentarlo. |
-| 429 | None | Resource Conflict Occurred. Another conflicting operation may be in progress. If this is a retry for failed operation, background cleanup is still pending (Se ha producido un conflicto de recursos. Puede que haya otra operación en conflicto en curso. Si se trata de un reintento de una operación con error, la limpieza en segundo plano está todavía pendiente). Inténtelo de nuevo más tarde. | Esta condición se puede producir si hay una operación pendiente en la misma entidad. | Espere a que se complete la operación anterior antes de volver a intentarlo. |
+| 429 | None | Resource Conflict Occurred. Another conflicting operation may be in progress. If this is a retry for failed operation, background cleanup is still pending (Se ha producido un conflicto de recursos. Puede que haya otra operación en conflicto en curso. Si se trata de un reintento de una operación con error, la limpieza en segundo plano está todavía pendiente). Vuelva a intentarlo más tarde. | Esta condición se puede producir si hay una operación pendiente en la misma entidad. | Espere a que se complete la operación anterior antes de volver a intentarlo. |
 
 
 ## <a name="error-code-not-found"></a>Código de error: No encontrado
 
 Esta clase de errores indica que no se ha encontrado el recurso.
 
-| Código de error | Subcódigo de error | Mensaje de error | DESCRIPCIÓN | Recomendación |
+| Código de error | Subcódigo de error | Mensaje de error | Descripción | Recomendación |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | No encontrado | None | Entity *'entity name'* was not found (No se ha encontrado la entidad "nombre de entidad"). | La entidad en la que no se encontró la operación. | Compruebe si la entidad existe y vuelva a intentar la operación. |
 | No encontrado | None | Not Found. The Operation doesn't exist (No se encuentra. La operación no existe). | La operación que está intentando realizar no existe. | Compruebe la operación e inténtelo de nuevo. |
@@ -77,7 +77,7 @@ Esta clase de errores indica que no se ha encontrado el recurso.
 
 Esta clase de errores indica que se produjo un error interno del servidor
 
-| Código de error | Subcódigo de error | Mensaje de error | DESCRIPCIÓN | Recomendación |
+| Código de error | Subcódigo de error | Mensaje de error | Descripción | Recomendación |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | Internal Server Error | 50000 | Subcódigo = 50000. Internal Server Error| Puede ocurrir por diversos motivos. Algunos de los síntomas son: <ul> <li> La solicitud o el cuerpo del cliente está dañado y conduce a un error. </li> <li> Se agotó el tiempo de espera de la solicitud del cliente debido a problemas de procesamiento en el servicio. </li> </ul> | Para resolver este problema <ul> <li> Asegúrese de que los parámetros de las solicitudes no sean nulos o tengan un formato incorrecto. </li> <li> Vuelva a intentarlo. </li> </ul> |
 
@@ -85,7 +85,7 @@ Esta clase de errores indica que se produjo un error interno del servidor
 
 Esta clase de errores indica la ausencia de autorización para ejecutar el comando.
 
-| Código de error | Subcódigo de error | Mensaje de error | DESCRIPCIÓN | Recomendación |
+| Código de error | Subcódigo de error | Mensaje de error | Descripción | Recomendación |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | No autorizado | None | Operación no válida en el espacio de nombres secundario. El espacio de nombres secundario es de solo lectura. | La operación se realizó en el espacio de nombres secundario, que se configura como un espacio de nombres de solo lectura. | Vuelva a intentar el comando en el espacio de nombres principal. Más información sobre el [espacio de nombres secundario](service-bus-geo-dr.md) |
 | No autorizado | None | MissingToken: no se encontró el encabezado de autorización. | Este error se produce cuando la autorización tiene valores null o valores incorrectos. | Asegúrese de que el valor de token mencionado en el encabezado de autorización sea correcto y no sea null. |

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/24/2019
+ms.date: 01/03/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a9e410be7a52291d19478dbfb8e9ad30f144ccb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b49b10acb7f2deaed217bb28478d2c98a033eab9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914076"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768694"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configuración de la directiva de expiración de grupos de Office 365
 
@@ -60,7 +60,7 @@ Los administradores pueden obtener una lista de grupos renovados automáticament
 
 Estos son los roles en los que puede configurar y usar la expiración de grupos de Office 365 en Azure AD.
 
-Rol | Permisos
+Role | Permisos
 -------- | --------
 Administrador global, administrador de grupos o administrador de usuarios | Puede crear, consultar, actualizar o eliminar la configuración de la directiva de expiración de grupos de Office 365.<br>Puede renovar cualquier grupo de Office 365
 Usuario | Puede renovar un grupo de Office 365 de su propiedad.<br>Puede restaurar un grupo de Office 365 de su propiedad.<br>Puede leer la configuración de la directiva de expiración
@@ -86,11 +86,9 @@ Si necesita más información sobre los permisos para restaurar los grupos elimi
     - Guardar la configuración cuando haya terminado seleccionando **Guardar**.
 
 > [!NOTE]
-> La primera vez que se configura la expiración, todos los grupos cuya antigüedad supere el intervalo de expiración se establecen en 35 días hasta la expiración, salvo que el grupo se renueve automáticamente o lo renueve el propietario.
->
-> Cuando un grupo dinámico se elimina y restaura, se considera un nuevo grupo y se vuelve a rellenar de acuerdo con la regla. Este proceso puede tardar hasta 24 horas.
->
-> Los avisos de expiración de los grupos usados en Teams aparecen en la fuente Teams Owners (Propietarios de Teams).
+> - La primera vez que se configura la expiración, todos los grupos cuya antigüedad supere el intervalo de expiración se establecen en 35 días hasta la expiración, salvo que el grupo se renueve automáticamente o lo renueve el propietario.
+> - Cuando un grupo dinámico se elimina y restaura, se considera un nuevo grupo y se vuelve a rellenar de acuerdo con la regla. Este proceso puede tardar hasta 24 horas.
+> - Los avisos de expiración de los grupos usados en Teams aparecen en la fuente Teams Owners (Propietarios de Teams).
 
 ## <a name="email-notifications"></a>Notificaciones por correo electrónico
 

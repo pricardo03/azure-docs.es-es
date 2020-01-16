@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 55fc18a718d0c69ba90a86ff6aea00d32a8f465b
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9829e713f19ab9755e9dc79d676446c8048e09b3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196728"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751187"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Registros de diagnóstico de un grupo de seguridad de red
 
@@ -29,7 +29,7 @@ Los grupos de seguridad de red (NSG) incluyen reglas que permiten o deniegan el 
 
 Los registros de diagnóstico solo están disponibles para los NSG implementados a través del modelo de implementación de Azure Resource Manager. No se puede habilitar el registro de diagnóstico para los NSG implementados a través del modelo de implementación clásica. Para entender mejor los dos modelos, consulte [Descripción de los modelos de implementación de Azure](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-El registro de diagnóstico se habilita por separado para *cada* grupo de seguridad de red para el que desee recopilar datos. Si lo que interesa son los registros de operaciones o de actividades, consulte el [registro de actividades](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure.
+El registro de diagnóstico se habilita por separado para *cada* grupo de seguridad de red para el que desee recopilar datos. Si lo que interesa son los registros de operaciones o de actividades, consulte el [registro de actividades](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure.
 
 ## <a name="enable-logging"></a>Habilitación del registro
 
@@ -46,9 +46,9 @@ Para habilitar el registro de diagnóstico se pueden usar [Azure Portal](#azure-
 
 5. En **Configuración de diagnóstico**, especifique o seleccione los siguientes datos y, después, seleccione **Guardar**:
 
-    | Configuración                                                                                     | Valor                                                          |
+    | Configuración                                                                                     | Value                                                          |
     | ---------                                                                                   |---------                                                       |
-    | NOMBRE                                                                                        | El nombre que prefiera.  Por ejemplo: *myNsgDiagnostics*      |
+    | Nombre                                                                                        | El nombre que prefiera.  Por ejemplo: *myNsgDiagnostics*      |
     | **Archivar en una cuenta de almacenamiento**, **Transmitir en secuencias a un centro de eventos** y **Enviar a Log Analytics** | Puede seleccionar tantos destinos como quiera. Para más información acerca de cada uno de ellos, consulte [Destinos de registro](#log-destinations).                                                                                                                                           |
     | REGISTRO                                                                                         | Seleccione una de las categorías de registro, o incluso ambas. Para más información acerca de los datos que se registran en cada categoría, consulte [Categorías de registro](#log-categories).                                                                                                                                             |
 6. Vea y analice los registros. Para más información, consulte [Visualización y análisis de los registros](#view-and-analyze-logs).
@@ -92,7 +92,7 @@ Si solo desea registrar los datos en una de las dos categorías, en lugar de en 
 
 Vea y analice los registros. Para más información, consulte [Visualización y análisis de los registros](#view-and-analyze-logs).
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/bash), o mediante la ejecución de la CLI de Azure en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta la CLI desde el equipo, necesita la versión 2.0.38 o posterior. Ejecute `az --version` en el equipo para encontrar la versión instalada. Si debe actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Si ejecuta la CLI localmente, también debe ejecutar `az login` para iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
 
@@ -198,7 +198,7 @@ El contador de reglas contiene información acerca de todas las reglas que se ap
 
 ## <a name="view-and-analyze-logs"></a>Visualización y análisis de los registros
 
-Para aprender a ver los datos del registro de diagnóstico, consulte [Introducción a los registros de diagnóstico de Azure](../azure-monitor/platform/resource-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si envía datos de diagnóstico a:
+Para aprender a ver los datos del registro de diagnóstico, consulte [Introducción a los registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si envía datos de diagnóstico a:
 - **Registros de Azure Monitor**: puede usar la solución de [análisis de grupos de seguridad de red](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) para obtener una información más detallada. La solución ofrece visualizaciones para de las reglas de NSG que permiten o deniegan el tráfico, por dirección MAC, de la interfaz de red de una máquina virtual.
 - **Cuenta de Azure Storage**: los datos se escriben en el archivo PT1H.json. Puede encontrar el:
@@ -207,7 +207,7 @@ Para aprender a ver los datos del registro de diagnóstico, consulte [Introducci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información acerca del [registro de actividades](../azure-monitor/platform/resource-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), anteriormente conocido como registros de auditoría o de operaciones. El registro de actividades está habilitado de forma predeterminada para los grupo de seguridad de red creados a través de cualquier modelo de implementación de Azure. Para determinar qué operaciones se completaron en los NSG del registro de actividad, busque las entradas que contengan los siguientes tipos de recursos:
+- Obtenga más información acerca del [registro de actividades](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), anteriormente conocido como registros de auditoría o de operaciones. El registro de actividades está habilitado de forma predeterminada para los grupo de seguridad de red creados a través de cualquier modelo de implementación de Azure. Para determinar qué operaciones se completaron en los NSG del registro de actividad, busque las entradas que contengan los siguientes tipos de recursos:
   - Microsoft.ClassicNetwork/networkSecurityGroups
   - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
   - Microsoft.Network/networkSecurityGroups

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 4a41e5eda3ca2bd92d78a81d73c1ad4c859e25a3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: c0ce1648d7b5f7c25044ed8f66eafcca7b0009f4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764566"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747341"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registro de auditoría en Azure Database for PostgreSQL con un único servidor
 
@@ -21,7 +21,7 @@ El registro de auditoría de actividades de base de datos en Azure Database for 
 > pgAudit se encuentra en versión preliminar en Azure Database for PostgreSQL.
 > Esta extensión se puede habilitar en servidores optimizados para memoria y de uso general.
 
-Si desea obtener registros de nivel de recurso de Azure para operaciones como el escalado de procesos y de almacenamiento, consulte el [registro de actividad de Azure](../azure-monitor/platform/activity-logs-overview.md).
+Si desea obtener registros de nivel de recurso de Azure para operaciones como el escalado de procesos y de almacenamiento, consulte el [registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="usage-considerations"></a>Consideraciones de uso
 De forma predeterminada, las instrucciones de registro de pgAudit se emiten junto con las instrucciones de registro normales mediante el uso de la utilidad de registro estándar de Postgres. En Azure Database for PostgreSQL, estos archivos. log se pueden descargar mediante Azure Portal o la CLI. El almacenamiento máximo de la colección de archivos es de 1 GB y cada archivo está disponible durante un máximo de siete días (el valor predeterminado es tres días). Este servicio es una opción de almacenamiento a corto plazo.

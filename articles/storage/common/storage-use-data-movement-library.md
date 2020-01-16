@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 22dae518a45d5c4af20044d5f3eb88e764e92c8b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5fe1e45f2ff80c1a212009291ab880a57f347fdf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895110"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978390"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Transferencia de datos con la biblioteca de movimiento de datos
 
@@ -32,12 +32,12 @@ En este documento se muestra cómo crear una aplicación de consola de .NET Core
 - Copiar el archivo desde la dirección URL en Blob Storage.
 - Copiar de Blob Storage a Blob Storage.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- Una [cuenta de almacenamiento de Azure](storage-quickstart-create-account.md)
+- Una [cuenta de almacenamiento de Azure](storage-account-create.md)
 
-## <a name="setup"></a>Configuración
+## <a name="setup"></a>Configurar
 
 1. Visite la [guía de instalación de .NET Core](https://www.microsoft.com/net/core) para instalar .NET Core. Cuando seleccione el entorno, elija la opción de línea de comandos.
 2. Desde la línea de comandos, cree un directorio para el proyecto. Vaya a este directorio y escriba `dotnet new console -o <sample-project-name>` para crear un proyecto de consola en C#.

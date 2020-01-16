@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: cherylmc
 ms.reviewer: ganesr
-ms.openlocfilehash: 25ed38e72f5a21622a87e36ad811ffd66f6a4c90
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 78da84a462566cca1a2800174849159ace8dd6dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083510"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981149"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Creación de un circuito de ExpressRoute mediante una plantilla de Azure Resource Manager
 
@@ -78,11 +78,11 @@ Para crear un circuito de ExpressRoute mediante la implementación de una planti
 
 Lleva algunos minutos crear un centro de eventos.
 
-En este tutorial se usa Azure PowerShell para implementar la plantilla. Para otros métodos de implementación de plantillas, consulte:
+En este tutorial se usa Azure PowerShell para implementar la plantilla. Para otros métodos de implementación de plantillas, consulte:
 
-* [Mediante Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
-* [Mediante la CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md).
-* [Mediante la API de REST](../azure-resource-manager/resource-group-template-deploy-rest.md).
+* [Mediante Azure Portal](../azure-resource-manager/templates/deploy-portal.md).
+* [Mediante la CLI de Azure](../azure-resource-manager/templates/deploy-cli.md).
+* [Mediante la API REST](../azure-resource-manager/templates/deploy-rest.md).
 
 ## <a name="delete"></a>Desaprovisionar y eliminar un circuito ExpressRoute
 

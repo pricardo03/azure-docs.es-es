@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
-ms.openlocfilehash: 52135391024eafdfea15afd6c05a5d13bf92a2c7
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: a7af6407191577112f936bfb9048985e85c868ea
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091580"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887230"
 ---
 # <a name="scenario-storage-exception-after-connection-reset-in-azure-hdinsight"></a>Escenario: Excepción de almacenamiento tras el restablecimiento de la conexión en Azure HDInsight
 
@@ -28,7 +28,7 @@ Durante un proceso de truncamiento de tabla, ha habido un problema de conexión 
 
 Aunque no había ninguna carpeta de blobs llamada `/hbase/data/default/ThatTable` en el almacén. El controlador WASB ha detectado la existencia del archivo blob anterior y no ha permitido crear ningún blob llamado `/hbase/data/default/ThatTable` porque ha dado por hecho que las carpetas principales existen, por lo que se producirá un error al crear la tabla.
 
-## <a name="resolution"></a>Resolución
+## <a name="resolution"></a>Solución
 
 1. En la interfaz de usuario de Apache Ambari, reinicie el HMaster activo. Esto permitirá que uno de los dos HMaster en espera se convierta en el activo, y el nuevo HMaster activo volverá a cargar la información de la tabla de metadatos. Por lo tanto, no verá la tabla `already-deleted` en la interfaz de usuario de HMaster.
 
@@ -44,4 +44,4 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 * Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

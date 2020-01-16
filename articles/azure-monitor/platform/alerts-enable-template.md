@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
 ms.subservice: metrics
-ms.openlocfilehash: dd02fe17d5225a63f352069b3c6c5a47b7cbcb73
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c1cdf912f9a1e4e8ae92baa4381e9705702136f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397271"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977585"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica clásica con una plantilla de Resource Manager
 En este artículo se describe cómo se puede utilizar una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar alertas de métrica de Azure. Esto permite configurar automáticamente las alertas en los recursos cuando se crean para asegurarse de que todos los recursos se supervisan correctamente.
@@ -27,7 +27,7 @@ En este artículo se describe cómo se puede utilizar una [plantilla de Azure Re
 Los pasos básicos son los siguientes:
 
 1. Cree una plantilla como archivo JSON que describa cómo crear la alerta.
-2. [Implemente la plantilla mediante cualquier método de implementación](../../azure-resource-manager/resource-group-template-deploy.md).
+2. [Implemente la plantilla mediante cualquier método de implementación](../../azure-resource-manager/templates/deploy-powershell.md).
 
 A continuación se describe cómo crear una plantilla de Resource Manager primero para una alerta solamente y, después, para una alerta durante la creación de otro recurso.
 

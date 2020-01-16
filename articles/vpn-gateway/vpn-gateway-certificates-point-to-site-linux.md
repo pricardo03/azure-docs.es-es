@@ -1,18 +1,19 @@
 ---
-title: 'Generación y exportación de certificados para conexiones de punto a sitio: Linux: CLI: Azure | Microsoft Docs'
+title: 'Generación y exportación de certificados para conexiones de punto a sitio: Linux: CLI'
 description: Cree un certificado raíz autofirmado, exporte la clave pública y genere los certificados de cliente mediante la CLI de Linux (strongSwan).
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/14/2019
 ms.author: alzam
-ms.openlocfilehash: 2544df920580745e42aee1fc5e681d40bd1e74f9
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: a0f996ff2805da4dd5af400642eef2506c228d33
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036024"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779763"
 ---
 # <a name="generate-and-export-certificates"></a>Generación y exportación de certificados
 

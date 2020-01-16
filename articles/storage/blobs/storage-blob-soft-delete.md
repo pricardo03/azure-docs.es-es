@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 15db96824336c92611b9e1113c42c621f6508744
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f0db35e188aeca4de7b74d6c3e4dfc45b349279a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978124"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972725"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminación temporal de blobs de Azure Storage
 
@@ -27,7 +27,7 @@ Cuando se eliminan los datos, pasan a un estado de eliminación temporal, en lug
 
 La eliminación temporal es compatible con las versiones anteriores por lo que no es preciso realizar ningún cambio en las aplicaciones para aprovechar las ventajas de los mecanismos de protección que se obtienen con esta característica. Sin embargo, la [recuperación de datos](#recovery) incorpora la nueva **Undelete Blob** API.
 
-### <a name="configuration-settings"></a>Valores de configuración
+### <a name="configuration-settings"></a>Parámetros de configuración
 
 Cuando se crea una cuenta, la eliminación temporal está desactivada de forma predeterminada. La eliminación temporal también está desactivada de forma predeterminada en las cuentas de almacenamiento existentes. Esta característica se puede activar o desactivar en cualquier momento de la vida de una cuenta de almacenamiento.
 
@@ -68,11 +68,11 @@ Cuando se llama a **Delete Blob** en un blob base (cualquier blob que sea en sí
 > [!NOTE]  
 > Cuando se sobrescribe un blob eliminado temporalmente, se genera de forma automática una instantánea de eliminación temporal del estado del blob antes de la operación de escritura. El nuevo blob hereda el nivel del blob sobrescrito.
 
-La eliminación temporal no guarda los datos si se eliminan el contenedor o la cuenta, ni tampoco cuando se sobrescriben los metadatos y las propiedades del blob. Para proteger una cuenta de almacenamiento contra cualquier eliminación por error, se puede configurar un bloqueo mediante Azure Resource Manager. Para más información, consulte el artículo de Azure Resource Manager [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/resource-group-lock-resources.md).
+La eliminación temporal no guarda los datos si se eliminan el contenedor o la cuenta, ni tampoco cuando se sobrescriben los metadatos y las propiedades del blob. Para proteger una cuenta de almacenamiento contra cualquier eliminación por error, se puede configurar un bloqueo mediante Azure Resource Manager. Para más información, consulte el artículo de Azure Resource Manager [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/management/lock-resources.md).
 
 En la tabla siguiente se detalla el comportamiento esperado cuando se activa la eliminación temporal:
 
-| Operación de API REST | Tipo de recurso | DESCRIPCIÓN | Cambio en el comportamiento |
+| Operación de API REST | Tipo de recurso | Descripción | Cambio en el comportamiento |
 |--------------------|---------------|-------------|--------------------|
 | [Eliminar](/rest/api/storagerp/StorageAccounts/Delete) | Cuenta | Elimina la cuenta de almacenamiento, incluidos todos los contenedores y blobs que contiene.                           | Sin cambios. Los contenedores y blobs de la cuenta eliminada no se pueden recuperar. |
 | [Delete Container](/rest/api/storageservices/delete-container) | Contenedor | Elimina el contenedor, incluidos todos los blobs que contiene. | Sin cambios. Los blobs del contenedor eliminado no se pueden recuperar. |
@@ -146,7 +146,7 @@ Para más información acerca de los precios de Azure Blob Storage en general, c
 
 Cuando activa inicialmente la eliminación temporal, se recomienda usar un período de retención pequeño para comprender mejor cómo afecta la característica a la facturación.
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 En los pasos siguientes se muestra cómo empezar a trabajar con la eliminación temporal.
 
@@ -335,7 +335,7 @@ Sí, la eliminación temporal se puede configurar tanto para las cuentas de alma
 
 ### <a name="if-i-delete-an-entire-account-or-container-with-soft-delete-turned-on-will-all-associated-blobs-be-saved"></a>Si elimino toda una cuenta o un contenedor con la eliminación temporal activada, ¿se guardarán todos los blobs asociados?
 
-No, si elimina toda una cuenta o un contenedor, todos los blobs asociados se eliminarán permanentemente. Para más información sobre cómo proteger una cuenta de almacenamiento de eliminaciones accidentales, consulte [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/resource-group-lock-resources.md).
+No, si elimina toda una cuenta o un contenedor, todos los blobs asociados se eliminarán permanentemente. Para más información sobre cómo proteger una cuenta de almacenamiento de eliminaciones accidentales, consulte [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="can-i-view-capacity-metrics-for-deleted-data"></a>¿Puedo ver las métricas de capacidad de los datos eliminados?
 

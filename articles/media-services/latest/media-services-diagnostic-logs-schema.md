@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: 5e416087df6c27eff42db487e90ff908d7d49df8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 37baed076ca074c1d558af36649e90959a0034c9
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977699"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750877"
 ---
 # <a name="diagnostic-logs-schemas"></a>Esquemas de registros de diagnóstico
 
 [Azure Monitor](../../azure-monitor/overview.md) le permite supervisar métricas y registros de diagnóstico que le ayudan a conocer el rendimiento de sus aplicaciones. Puede supervisar registros de diagnóstico de Media Services y crear alertas y notificaciones para las métricas y los registros recopilados. Puede enviar registros a [Azure Storage](https://azure.microsoft.com/services/storage/), difundirlos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y exportarlos a [Log Analytics](https://azure.microsoft.com/services/log-analytics/), o bien usar servicios de terceros.
 
-Para obtener información detallada, consulte [Métricas de Azure Monitor](../../azure-monitor/platform/data-platform.md) y [Registros de diagnóstico de Azure Monitor](../../azure-monitor/platform/resource-logs-overview.md).
+Para obtener información detallada, consulte [Métricas de Azure Monitor](../../azure-monitor/platform/data-platform.md) y [Registros de diagnóstico de Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md).
 
 En este artículo se describen los esquemas de registros de diagnóstico de Media Services.
 
@@ -34,16 +34,16 @@ Para obtener una descripción detallada del esquema de registros de diagnóstico
 
 ## <a name="key-delivery-log-schema"></a>Esquema de registro de entrega de claves
 
-### <a name="properties"></a>properties (Propiedades)
+### <a name="properties"></a>Propiedades
 
 Estas propiedades son específicas del esquema de registro de entrega de claves.
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |---|---|
 |keyId|Identificador de la clave solicitada.|
 |keyType|Podría ser uno de los siguientes valores: "Clear" (sin cifrado), "FairPlay", "PlayReady" o "Widevine".|
 |policyName|Nombre de Azure Resource Manager de la directiva.|
-|tokenType|El tipo de token.|
+|tokenType|El tipo del token.|
 |statusMessage|Mensaje de estado.|
 
 ### <a name="examples"></a>Ejemplos

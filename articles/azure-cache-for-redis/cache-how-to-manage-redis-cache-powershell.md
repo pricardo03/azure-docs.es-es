@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 6eeabb279f5bd5165ebb249651b8bc926deb92a6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: a385d3ed7ef46389f96de72c98ffc29cebf60ec4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530925"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978844"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Administración de Azure Cache for Redis con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ Este tema muestra cómo realizar tareas comunes, como crear, actualizar y escala
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-Para más información sobre el modelo de implementación clásico, consulte [Implementación mediante Azure Resource Manager frente al modelo clásico. Conozca los modelos de implementación y el estado de los recursos](../azure-resource-manager/resource-manager-deployment-model.md).
+Para más información sobre el modelo de implementación clásico, consulte [Implementación mediante Azure Resource Manager frente al modelo clásico. Conozca los modelos de implementación y el estado de los recursos](../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 Si ya ha instalado Azure PowerShell, debe tener la versión 1.0.0 (o posterior) de Azure PowerShell. Puede comprobar la versión de Azure PowerShell que ha instalado con este comando en el símbolo del sistema de Azure PowerShell.
@@ -776,7 +776,7 @@ Para obtener más información acerca de Windows PowerShell con Azure, consulte 
 
 * [Documentación de cmdlet de Azure Cache for Redis en MSDN](https://docs.microsoft.com/powershell/module/az.rediscache)
 * [Cmdlets de Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkID=394765): obtenga información acerca del uso de los cmdlets en el módulo de Azure Resource Manager.
-* [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-template-deploy-portal.md): Aprenda a crear y administrar grupos de recursos en Azure Portal.
+* [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/templates/deploy-portal.md): Aprenda a crear y administrar grupos de recursos en Azure Portal.
 * [Blog sobre Azure](https://azure.microsoft.com/blog/): obtenga información acerca de las nuevas características de Azure.
 * [Blog de Windows PowerShell](https://blogs.msdn.com/powershell): obtenga información acerca de las nuevas características de Windows PowerShell.
 * [Blog "¡Hola, chicos del scripting!"](https://blogs.technet.com/b/heyscriptingguy/): obtenga sugerencias y trucos del mundo real de la comunidad de Windows PowerShell.

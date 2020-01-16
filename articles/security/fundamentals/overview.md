@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: ed345fdf564c62e2d323b33013da784344c7a461
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: a1dbabafe32e013d526ed88a83e446ee765cdb7b
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595386"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045870"
 ---
 # <a name="introduction-to-azure-security"></a>Introducción a la seguridad de Azure
 ## <a name="overview"></a>Información general
@@ -69,7 +69,7 @@ La solución [Security and Audit](../../security-center/security-center-intro.md
 Además, puede configurar Security & Compliance para [llevar a cabo automáticamente acciones específicas](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) cuando se detecte un evento concreto.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
-[Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-model.md) permite trabajar con los recursos de la solución como grupo. Todos los recursos de la solución se pueden implementar, actualizar o eliminar en una sola operación coordinada. Use una [plantilla de Azure Resource Manager](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) para la implementación; esta puede funcionar en distintos entornos, como producción, pruebas y ensayo. Administrador de recursos proporciona funciones de seguridad, auditoría y etiquetado que le ayudan a administrar los recursos después de la implementación.
+[Azure Resource Manager](../../azure-resource-manager/management/deployment-models.md) permite trabajar con los recursos de la solución como grupo. Todos los recursos de la solución se pueden implementar, actualizar o eliminar en una sola operación coordinada. Use una [plantilla de Azure Resource Manager](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) para la implementación; esta puede funcionar en distintos entornos, como producción, pruebas y ensayo. Administrador de recursos proporciona funciones de seguridad, auditoría y etiquetado que le ayudan a administrar los recursos después de la implementación.
 
 Las implementaciones basadas en plantillas de Azure Resource Manager ayudan a mejorar la seguridad de las soluciones implementadas en Azure porque incluyen una configuración de control de seguridad estándar y pueden integrarse en implementaciones basadas en plantillas estandarizadas. Esto reduce el riesgo de que se produzcan errores de configuración de seguridad, posibles durante las implementaciones manuales.
 
@@ -81,7 +81,7 @@ Application Insights crea gráficos y tablas que muestran, por ejemplo, en qué 
 Si hay bloqueos, errores o problemas de rendimiento, puede buscar en los datos de la telemetría para diagnosticar la causa. Además, el servicio le envía mensajes de correo electrónico si se produce cualquier cambio en la disponibilidad y el rendimiento de la aplicación. Por tanto, Application Insights se convierte en una valiosa herramienta de seguridad porque ayuda con la disponibilidad, parte de la tríada de seguridad formada también por la confidencialidad y la integridad.
 
 ### <a name="azure-monitor"></a>Azure Monitor
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ofrece funciones de visualización, consulta, enrutamiento, alertas, escalado automático y automatización de los datos tanto de la infraestructura de Azure ([registro de actividad](../../azure-monitor/platform/activity-logs-overview.md)) como de cada recurso individual de Azure ([registros de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md)). Puede usar Azure Monitor para que le alerte sobre eventos relacionados con la seguridad que se generen en registros de Azure.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ofrece funciones de visualización, consulta, enrutamiento, alertas, escalado automático y automatización de los datos tanto de la infraestructura de Azure ([registro de actividad](../../azure-monitor/platform/platform-logs-overview.md)) como de cada recurso individual de Azure ([registros de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md)). Puede usar Azure Monitor para que le alerte sobre eventos relacionados con la seguridad que se generen en registros de Azure.
 
 ### <a name="azure-monitor-logs"></a>Registros de Azure Monitor
 [Registros de Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics/): ofrece una solución de administración de TI tanto para infraestructura local como para la basada en la nube de terceros (como AWS), además de recursos de Azure. Los datos de Azure Monitor se pueden enrutar directamente a los registros de Azure Monitor para poder ver los registros y las métricas de todo el entorno en un único lugar.
@@ -142,16 +142,16 @@ En Diagnóstico de aplicaciones, puede ver los eventos agrupados de las siguient
 En esta sección se proporciona información adicional acerca de características fundamentales para la seguridad del almacenamiento de Azure y un resumen de estas funcionalidades.
 
 ### <a name="role-based-access-control-rbac"></a>Control de acceso basado en rol (RBAC)
-Puede proteger su cuenta de almacenamiento con el control de acceso basado en rol (RBAC). En organizaciones que quieren aplicar directivas de seguridad para el acceso a los datos, es imprescindible restringir el acceso en función de los principios de seguridad [necesidad de saber](https://en.wikipedia.org/wiki/Need_to_know) y [mínimo privilegio](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Estos derechos de acceso se conceden al asignar el rol RBAC adecuado a grupos y aplicaciones de un determinado ámbito. Puede aprovechar los [roles integrados de RBAC](../../role-based-access-control/built-in-roles.md), tales como el de colaborador de la cuenta de almacenamiento, para asignar privilegios a los usuarios. El acceso a las claves de almacenamiento para una cuenta de almacenamiento mediante el modelo de [Azure Resource Manager](../../storage/common/storage-security-guide.md) puede controlarse con el control de acceso basado en rol (RBAC).
+Puede proteger su cuenta de almacenamiento con el control de acceso basado en rol (RBAC). En organizaciones que quieren aplicar directivas de seguridad para el acceso a los datos, es imprescindible restringir el acceso en función de los principios de seguridad [necesidad de saber](https://en.wikipedia.org/wiki/Need_to_know) y [mínimo privilegio](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Estos derechos de acceso se conceden al asignar el rol RBAC adecuado a grupos y aplicaciones de un determinado ámbito. Puede aprovechar los [roles integrados de RBAC](../../role-based-access-control/built-in-roles.md), tales como el de colaborador de la cuenta de almacenamiento, para asignar privilegios a los usuarios. El acceso a las claves de almacenamiento para una cuenta de almacenamiento mediante el modelo de [Azure Resource Manager](../../storage/blobs/security-recommendations.md) puede controlarse con el control de acceso basado en rol (RBAC).
 
 ### <a name="shared-access-signature"></a>Firma de acceso compartido
 Una [firma de acceso compartido (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) ofrece acceso delegado a los recursos en la cuenta de almacenamiento. Esto significa que puede conceder a un cliente permisos limitados para objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos sin tener que compartir las claves de acceso a las cuentas.
 
 ### <a name="encryption-in-transit"></a>Cifrado en tránsito
 Cifrado en tránsito es un mecanismo para proteger datos cuando se transmiten a través de redes. Con Azure Storage, puede proteger los datos mediante:
--   [Cifrado de nivel de transporte](../../storage/common/storage-security-guide.md), como HTTPS para transferir datos a Azure Storage o desde este servicio.
+-   [Cifrado de nivel de transporte](../../storage/blobs/security-recommendations.md), como HTTPS para transferir datos a Azure Storage o desde este servicio.
 
--   [Cifrado en el cable](../../storage/common/storage-security-guide.md), como el [cifrado SMB 3.0](../../storage/common/storage-security-guide.md) para [recursos compartidos de Azure File](../../storage/files/storage-dotnet-how-to-use-files.md).
+-   [Cifrado en el cable](../../storage/blobs/security-recommendations.md), como el [cifrado SMB 3.0](../../storage/blobs/security-recommendations.md) para [recursos compartidos de Azure File](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 -   Cifrado en el cliente, para cifrar los datos antes de transferirlos al almacenamiento y descifrarlos una vez transferidos desde el almacenamiento.
 
@@ -266,9 +266,9 @@ Traffic Manager proporciona una serie de métodos de enrutamiento del tráfico p
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) proporciona una alta disponibilidad y un elevado rendimiento de red a las aplicaciones. Se trata de un equilibrador de carga de nivel 4 (TCP y UDP) que distribuye el tráfico entrante entre las instancias de servicio correctas de los servicios que se definen en un conjunto de carga equilibrada. Azure Load Balancer puede configurarse para lo siguiente:
 
--   Equilibrar la carga del tráfico entrante de Internet entre las máquinas virtuales. Esta configuración se conoce como " [equilibrio de carga con conexión a Internet](../../load-balancer/load-balancer-overview.md#publicloadbalancer)".
+-   Equilibrar la carga del tráfico entrante de Internet entre las máquinas virtuales. Esta configuración se conoce como " [equilibrio de carga con conexión a Internet](../../load-balancer/concepts-limitations.md#publicloadbalancer)".
 
--   Equilibrar la carga del tráfico entre máquinas virtuales de una red virtual, entre máquinas virtuales de servicios en la nube o entre equipos locales y máquinas virtuales de una red virtual entre entornos locales. Esta configuración se conoce como " [equilibrio de carga interno](../../load-balancer/load-balancer-overview.md#internalloadbalancer)".
+-   Equilibrar la carga del tráfico entre máquinas virtuales de una red virtual, entre máquinas virtuales de servicios en la nube o entre equipos locales y máquinas virtuales de una red virtual entre entornos locales. Esta configuración se conoce como " [equilibrio de carga interno](../../load-balancer/concepts-limitations.md#internalloadbalancer)".
 
 - Reenvío de tráfico externo a una máquina virtual determinada
 
@@ -366,4 +366,4 @@ Microsoft utiliza varias tecnologías y procedimientos recomendados de seguridad
 
 - Comprenda la [responsabilidad compartida en la nube](shared-responsibility.md).
 
-- Aprenda cómo [Azure Security Center](https://azure.microsoft.com/services/security-center/) le ayuda a evitar amenazas y a detectarlas y responder a ellas, gracias a la mayor visibilidad y control sobre la seguridad de todos sus recursos de Azure.
+- Aprenda cómo [Azure Security Center](https://azure.microsoft.com/services/security-center/) le ayuda a evitar amenazas y a detectarlas y responder a ellas, gracias a la mayor visibilidad y control sobre la seguridad de todos sus recursos de Azure.

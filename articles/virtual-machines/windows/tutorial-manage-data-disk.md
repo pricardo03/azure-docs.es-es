@@ -16,12 +16,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 7c68299e4df187b1e9006d9ee1f2f70a13df3c52
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 05ad0b95b106b56d92cdbc5a7acd23cc34de7ae4
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064780"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780273"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Tutorial: Administración de discos de Azure con Azure PowerShell
 
@@ -46,11 +46,11 @@ Cuando se crea una máquina virtual de Azure, se conectan dos discos automática
 
 **Disco del sistema operativo**: hospeda el sistema operativo de las máquinas virtuales. Se puede cambiar su tamaño hasta 4 terabyte.  Al disco del sistema operativo se le asigna la letra de unidad *C:* de forma predeterminada. La configuración de almacenamiento en caché del disco del sistema operativo está optimizada para el rendimiento del sistema operativo. El disco del sistema operativo **no debería** hospedar aplicaciones o datos. Para aplicaciones y datos, use un disco de datos. Explicamos esto más adelante en este artículo.
 
-**Disco temporal**: los discos temporales utilizan una unidad de estado sólida que se encuentra en el mismo host de Azure que la máquina virtual. Los discos temporales son muy eficiente y se pueden usar para operaciones tales como el procesamiento temporal de los datos. Sin embargo, si la máquina virtual se mueve a un nuevo host, los datos almacenados en un disco temporal se eliminarán. El tamaño del disco temporal lo determina el [tamaño de la máquina virtual](sizes.md). A los discos temporales se les asigna la letra de unidad *D:* de forma predeterminada.
+**Disco temporal**: los discos temporales usan una unidad de estado sólido que se encuentra en el mismo host de Azure que la máquina virtual. Los discos temporales son muy eficiente y se pueden usar para operaciones tales como el procesamiento temporal de los datos. Sin embargo, si la máquina virtual se mueve a un nuevo host, los datos almacenados en un disco temporal se eliminarán. El tamaño del disco temporal lo determina el [tamaño de la máquina virtual](sizes.md). A los discos temporales se les asigna la letra de unidad *D:* de forma predeterminada.
 
 ## <a name="azure-data-disks"></a>Discos de datos de Azure
 
-Se pueden agregar discos de datos adicionales para instalar aplicaciones y almacenar datos. Los discos de datos deben usarse en cualquier situación donde se necesite un almacenamiento de datos duradero y con capacidad de respuesta. El tamaño de la máquina virtual determina cuántos discos de datos se pueden conectar a una máquina virtual. Para cada CPU virtual de la máquina virtual, se pueden asociar cuatro discos de datos.
+Se pueden agregar discos de datos adicionales para instalar aplicaciones y almacenar datos. Los discos de datos deben usarse en cualquier situación donde se necesite un almacenamiento de datos duradero y con capacidad de respuesta. El tamaño de la máquina virtual determina cuántos discos de datos se pueden conectar a una máquina virtual.
 
 ## <a name="vm-disk-types"></a>Tipos de disco de máquina virtual
 
@@ -129,7 +129,7 @@ Update-AzVM -ResourceGroupName "myResourceGroupDisk" -VM $vm
 
 ## <a name="prepare-data-disks"></a>Preparación de los discos de datos
 
-Cuando se haya conectado un disco a la máquina virtual, el sistema operativo debe configurarse para utilizar el disco. En el ejemplo siguiente se muestra cómo configurar manualmente el primer disco que se agrega a la máquina virtual. Este proceso también se puede automatizar utilizando la [extensión de script personalizado](./tutorial-automate-vm-deployment.md).
+Después de que se ha conectado un disco a la máquina virtual, es necesario configurar el sistema operativo para usar el disco. En el ejemplo siguiente se muestra cómo configurar manualmente el primer disco que se agrega a la máquina virtual. Este proceso también se puede automatizar utilizando la [extensión de script personalizado](./tutorial-automate-vm-deployment.md).
 
 ### <a name="manual-configuration"></a>Configuración manual
 

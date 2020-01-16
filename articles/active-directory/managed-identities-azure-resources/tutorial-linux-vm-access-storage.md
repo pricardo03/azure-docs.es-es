@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/09/2018
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 815e1a811d16e4c630e455e9c684c2b6b094a5d5
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: b11df2e1a6140d251801a3243f3eaa9458b77d29
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183409"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971930"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Uso de identidades administradas asignadas por el sistema de una máquina virtual Linux para acceder a Azure Storage 
 
@@ -37,7 +37,7 @@ En este tutorial, se explica cómo se utiliza una identidad administrada asignad
 > [!NOTE]
 > La autenticación de Azure Active Directory para Azure Storage está en versión preliminar pública.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -55,7 +55,7 @@ En esta sección se creará una cuenta de almacenamiento.
 3. En **Name** (Nombre), escriba un nombre para la cuenta de almacenamiento.  
 4. **Deployment model** (Modelo de implementación) y **Account kind** (Clase de cuenta) se deben establecer en **Resource Manager** y **Storage (general purpose v1)** (Almacenamiento [de uso general v1]). 
 5. Asegúrese de que **Suscripción** y **Grupo de recursos** coinciden con los que especificó cuando creó la máquina virtual en el paso anterior.
-6. Haga clic en **Create**(Crear).
+6. Haga clic en **Crear**.
 
     ![Creación de una nueva cuenta de almacenamiento](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -121,4 +121,4 @@ Para completar los pasos siguientes, deberá trabajar desde la máquina virtual 
 En este tutorial, ha aprendido a habilitar una identidad administrada asignada por el sistema de una máquina virtual Linux para acceder a Azure Storage.  Para más información sobre Azure Storage, consulte:
 
 > [!div class="nextstepaction"]
-> [Azure Storage](/azure/storage/common/storage-introduction)
+> [Almacenamiento de Azure](/azure/storage/common/storage-introduction)

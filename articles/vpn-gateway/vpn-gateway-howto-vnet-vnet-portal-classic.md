@@ -1,26 +1,19 @@
 ---
-title: 'Creación de una conexión entre redes virtuales: clásico: Azure Portal | Microsoft Docs'
+title: 'Creación de una conexión entre redes virtuales: clásico: Portal de Azure'
 description: Conexión entre sí de las redes virtuales de Azure mediante PowerShell y Azure Portal.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 48377f981e4d2c9ab480a1a734e6207a0246712a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca24cbdd9541456cbaa3f384587fee17d47f5ca2
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407991"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864118"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configuración de una conexión de red virtual a red virtual (clásico)
 
@@ -44,7 +37,7 @@ Este artículo lo ayuda a crear una conexión de puerta de enlace de VPN entre l
 
 ## <a name="about-vnet-to-vnet-connections"></a>Acerca de conexiones de red virtual a red virtual
 
-La conexión de una red virtual a otra (de red virtual a red virtual) en el modelo de implementación clásica con una VPN Gateway es parecida a la conexión de una red virtual a la ubicación de un sitio local. Ambos tipos de conectividad usan una VPN Gateway para proporcionar un túnel seguro con IPsec/IKE.
+La conexión de una red virtual a otra (de red virtual a red virtual) en el modelo de implementación clásica con una VPN Gateway es parecida a la conexión de una red virtual a la ubicación de un sitio local. Ambos tipos de conectividad usan una puerta de enlace de VPN para proporcionar un túnel seguro con IPsec/IKE.
 
 Las redes virtuales que se conecten pueden estar en suscripciones y regiones distintas. Puede combinar la comunicación entre redes virtuales con configuraciones de varios sitios. Esto permite establecer topologías de red que combinen la conectividad entre entornos con la conectividad entre redes virtuales.
 
@@ -82,7 +75,7 @@ En la tabla siguiente se muestra un ejemplo de cómo definir las redes virtuales
 
 | Virtual Network | Espacio de direcciones | Region | Se conecta a un sitio de red local |
 |:--- |:--- |:--- |:--- |
-| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Este de EE. UU |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
+| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |East US |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Oeste de EE. UU. |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
 ## <a name="vnetvalues"></a>Paso 2: Creación de las redes virtuales
@@ -105,7 +98,7 @@ Espacio de direcciones: 10.11.0.0/16, 10.12.0.0/16 (opcional)<br>
 Nombre de subred: predeterminado<br>
 Intervalo de direcciones de subred: 10.11.0.1/24<br>
 Grupo de recursos: ClassicRG<br>
-Ubicación: Este de EE. UU<br>
+Ubicación: East US<br>
 GatewaySubnet: 10.11.1.0/27
 
 **Valores para TestVNet4**
@@ -144,7 +137,7 @@ El sitio local para cada red virtual es la otra red virtual. Los valores de ejem
 
 | Virtual Network | Espacio de direcciones | Region | Se conecta a un sitio de red local |
 |:--- |:--- |:--- |:--- |
-| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Este de EE. UU |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
+| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |East US |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Oeste de EE. UU. |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
 1. Ubique TestVNet1 en Azure Portal. En la sección **Conexiones VPN** de la página, haga clic en **Puerta de enlace**.

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 9b17548bf840ff0e2f94ed6933e5abdcc04110c8
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: f031f55bbff534181459bb1bf7469f315aee27cb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286511"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887791"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(EN DESUDO) Preguntas más frecuentes sobre Azure Container Service
 
@@ -64,7 +64,7 @@ Si usa los [comandos de la CLI de Azure](../../container-service/dcos-swarm/cont
 Puede crear un clúster con 1, 3 o 5 nodos maestros. Puede elegir hasta 100 nodos de agente.
 
 > [!IMPORTANT]
-> Para clústeres más grandes y en función del tamaño de la máquina virtual que elija para los nodos, deberá aumentar la cuota de núcleos de su suscripción. Para solicitar un aumento de cuota, abra una [solicitud de soporte técnico al cliente en línea](../../azure-supportability/how-to-create-azure-support-request.md) sin cargo alguno. Si usa una [cuenta gratuita de Azure](https://azure.microsoft.com/free/), solo puede usar un número limitado de núcleos de proceso de Azure.
+> Para clústeres más grandes y en función del tamaño de la máquina virtual que elija para los nodos, deberá aumentar la cuota de núcleos de su suscripción. Para solicitar un aumento de cuota, abra una [solicitud de soporte técnico al cliente en línea](../../azure-portal/supportability/how-to-create-azure-support-request.md) sin cargo alguno. Si usa una [cuenta gratuita de Azure](https://azure.microsoft.com/free/), solo puede usar un número limitado de núcleos de proceso de Azure.
 > 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>¿Cómo se aumenta el número de patrones una vez creado un clúster? 
@@ -85,8 +85,8 @@ Encontrará direcciones URL de clúster comunes en Azure Portal, el Explorador d
 ### <a name="how-do-i-tell-which-orchestrator-version-is-running-in-my-cluster"></a>¿Cómo se puede saber qué versión de orquestador se está ejecutando en mi clúster?
 
 * DC/OS: consulte la [documentación de Mesosphere](https://docs.mesosphere.com/1.7/usage/cli/command-reference/)
-* Docker Swarm: Ejecute `docker version`
-* Kubernetes: Ejecute `kubectl version`
+* Docker Swarm: Ejecute `docker version`:
+* Kubernetes: Ejecute `kubectl version`:
 
 ### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>¿Cómo puedo actualizar el orquestador después de la implementación?
 

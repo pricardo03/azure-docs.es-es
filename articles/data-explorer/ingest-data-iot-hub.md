@@ -1,18 +1,18 @@
 ---
 title: Ingesta de datos de IoT Hub en Azure Data Explorer
 description: En este artículo obtendrá información sobre cómo ingerir (cargar) datos en Azure Data Explorer desde IoT Hub.
-author: oflipman
-ms.author: oflipman
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.openlocfilehash: cbad0e5409dfaa25eda040e3c7409b49728a4169
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.date: 01/08/2020
+ms.openlocfilehash: 1052ef799949550ddaf492b8aa5b77ab9526d092
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667421"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780290"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Ingesta de datos de IoT Hub en Azure Data Explorer (Versión preliminar)
 
@@ -24,7 +24,7 @@ ms.locfileid: "74667421"
 
 El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Azure Data Explorer ofrece ingesta (carga de datos) desde IoT Hub, una plataforma de streaming de macrodatos y un servicio de ingesta de IoT.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * Cree [un clúster y una base de datos de prueba](create-cluster-database-portal.md) con el nombre de base de datos *testdb*.
@@ -103,6 +103,8 @@ Ahora puede conectarse a IoT Hub desde Azure Data Explorer. Una vez completada 
     > [!NOTE]
     > * Seleccione **My data includes routing info** (Mis datos incluyen información de enrutamiento) para usar el enrutamiento dinámico, donde los datos incluyen la información de enrutamiento necesaria, tal como se muestra en los comentarios de la [aplicación de ejemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). Si se establecen propiedades estáticas y dinámicas, las propiedades dinámicas reemplazan a las estáticas. 
     > * Solamente se ingieren los eventos en cola después de crear la conexión de datos.
+
+[!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
 
 ## <a name="generate-sample-data-for-testing"></a>Generación de datos de ejemplo para pruebas
 

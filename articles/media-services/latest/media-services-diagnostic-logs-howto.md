@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: e00da689820778a8cc7c5ce95184d4d8c79c70f2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: bf83c87c71c8e05dc74d7754c82c76489de1bd85
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977716"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750901"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Supervisión de los registros de diagnósticos de Media Services
 
@@ -26,7 +26,7 @@ ms.locfileid: "74977716"
 
 En este artículo se muestra cómo enrutar los datos a la cuenta de almacenamiento y, después, ver dichos datos. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Cree una cuenta de Media Services](create-account-cli-how-to.md).
 - Consulte [Supervisar las métricas de Media Services y los registros de diagnóstico](media-services-metrics-diagnostic-logs.md).
@@ -176,13 +176,13 @@ Puede que tenga que esperar hasta cinco minutos antes de que el evento aparezca 
 
 ## <a name="additional-notes"></a>Notas adicionales
 
-* Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="see-also"></a>Consulte también
 
 * [Métricas de Azure Monitor](../../azure-monitor/platform/data-platform.md)
-* [Registros de diagnóstico de Azure Monitor](../../azure-monitor/platform/resource-logs-overview.md)
-* [Recopilación y consumo de datos de registro provenientes de los recursos de Azure](../../azure-monitor/platform/resource-logs-overview.md)
+* [Registros de diagnóstico de Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md)
+* [Recopilación y consumo de datos de registro provenientes de los recursos de Azure](../../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

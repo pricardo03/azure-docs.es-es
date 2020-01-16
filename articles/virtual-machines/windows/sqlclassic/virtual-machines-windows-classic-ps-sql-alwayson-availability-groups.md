@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: 89f731062ce46969c73f745d62b289b3b3483d8c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ba6f1300353247ef2de99b2bd903bc82665d9a52
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100356"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978156"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configuración de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure con PowerShell
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "70100356"
 Antes de comenzar, considere que ahora puede completar esta tarea en un modelo de Azure Resource Manager. Se recomienda el modelo de Azure Resource Manager para las implementaciones nuevas. Consulte [Grupos de disponibilidad de SQL Server AlwaysOn en máquinas virtuales de Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 > [!IMPORTANT]
-> Se recomienda que las implementaciones más recientes usen el modelo Resource Manager. Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artículo trata del modelo de implementación clásico.
+> Se recomienda que las implementaciones más recientes usen el modelo Resource Manager. Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/management/deployment-models.md). Este artículo trata del modelo de implementación clásico.
 
 Las máquinas virtuales (VM) de Azure pueden ayudar a los administradores de bases de datos a disminuir el costo de un sistema de alta disponibilidad de SQL Server. En este tutorial se muestra cómo implementar un grupo de disponibilidad mediante SQL Server AlwaysOn de extremo a extremo dentro de un entorno de Azure. Al final del tutorial, la solución SQL Server AlwaysOn en Azure constará de los siguientes elementos:
 

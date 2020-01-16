@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 9180c29b807ef26c6426aab75fe74870fef9669a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 247327d001342fd0e2943ae7cf010e648761cdaa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318160"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976341"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Seguimiento de los costos asociados con un laboratorio en Azure DevTest Labs
 En este artículo se proporciona información sobre cómo seguir el costo del laboratorio. Muestra cómo ver la tendencia de costo estimado durante el mes actual para el laboratorio. El artículo también muestra cómo ver el costo por recurso del mes hasta la fecha en el laboratorio.
@@ -29,7 +29,7 @@ En esta sección, se muestra el uso del gráfico **Monthly Estimated Cost Trend*
 
 Para ver el gráfico de tendencias de costos mensuales estimados, siga estos pasos: 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 3. En la lista de laboratorios, seleccione el suyo.  
 4. Seleccione **Configuración y directivas** en el menú de la izquierda.  
@@ -49,7 +49,7 @@ Para ver el gráfico de tendencias de costos mensuales estimados, siga estos pas
 
      Los siguientes costos *no* se incluyen en el cálculo de costos:
 
-   * Actualmente no se admiten suscripciones de DreamSpark y CSP, puesto que Azure DevTest Labs emplea las [API de facturación de Azure](../billing/billing-usage-rate-card-overview.md) para calcular el costo de laboratorio, y estas suscripciones no las admiten.
+   * Actualmente no se admiten suscripciones de DreamSpark y CSP, puesto que Azure DevTest Labs emplea las [API de facturación de Azure](../cost-management-billing/manage/usage-rate-card-overview.md) para calcular el costo de laboratorio, y estas suscripciones no las admiten.
    * Las tarifas de su oferta. Actualmente, no puede usar las tarifas de oferta (que aparecen en su suscripción) negociadas con Microsoft o con asociados de Microsoft. Solo se usan tarifas de pago por uso.
    * Los impuestos
    * Los descuentos
@@ -85,7 +85,7 @@ DevTest Labs le permite administrar mejor los costos de su laboratorio estableci
 ## <a name="view-cost-by-resource"></a>Visualización del costo por recurso 
 La característica de tendencia de costo mensual en los laboratorios permite ver cuánto ha empleado en el mes en curso. También muestra la proyección de los gastos hasta el final del mes, en función de sus gastos en los últimos siete días. Para ayudarle a entender por qué el gasto en el laboratorio está cumpliendo los umbrales, puede usar la característica de **costo por recurso** que muestra el costo del mes hasta la fecha **por recurso** en una tabla.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 3. En la lista de laboratorios, seleccione el laboratorio que desee.  
 4. Seleccione **Configuración y directivas** en el menú de la izquierda.

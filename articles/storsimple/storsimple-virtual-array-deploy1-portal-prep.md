@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccdd234f951327aeb5baa6aabcac4314b9de7b34
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 0b938de0fec099b3f964eae60dc94d059e05a1c6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517097"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973490"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implementación de la matriz virtual de StorSimple: preparación de Azure Portal
 
@@ -37,7 +37,7 @@ Para completar el proceso de instalación y configuración se necesitan privileg
 
 La información publicada en este artículo se aplica a la implementación de instancias de StorSimple Virtual Array en Azure Portal, así como en la nube de administración pública de Microsoft Azure.
 
-### <a name="get-started"></a>Primeros pasos
+### <a name="get-started"></a>Introducción
 El flujo de trabajo de implementación consta de preparar el portal, aprovisionar una matriz virtual en su entorno virtualizado y completar la instalación. Para comenzar con la implementación de StorSimple Virtual Array como servidor de archivos o servidor iSCSI, es preciso que haga referencia a los siguientes recursos tabulados.
 
 #### <a name="deployment-articles"></a>Artículos de implementación
@@ -48,7 +48,7 @@ Para implementar StorSimple Virtual Array, consulte los artículos siguientes en
 | --- | --- | --- | --- |
 | 1. |**Configurar Azure Portal** |Crear y configurar el servicio StorSimple Device Manager antes de aprovisionar StorSimple Virtual Array. |[Deploy StorSimple Virtual Array - Prepare the portal](storsimple-virtual-array-deploy1-portal-prep.md) (Implementación de StorSimple Virtual Array: preparar el portal) |
 | 2. |**Aprovisionar la matriz virtual** |En Hyper-V, aprovisionar StorSimple Virtual Array en un sistema host que ejecuta Hyper-V en Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 y conectarse a él. <br></br> <br></br> En VMware, aprovisionar StorSimple Virtual Array en un sistema host que ejecuta VMware ESXi 5.0, 5.5, 6.0 o 6.5 y conectarse a él.<br></br> |[Aprovisionamiento de una matriz virtual en Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Deploy StorSimple Virtual Array - Provision a Virtual Array in VMware](storsimple-virtual-array-deploy2-provision-vmware.md) (Implementación de StorSimple Virtual Array: aprovisionamiento de una matriz virtual en VMware) |
-| 3. |**Configurar la matriz virtual** |Para el servidor de archivos, realice la instalación inicial, registre el servidor de archivos de StorSimple y complete la instalación del dispositivo. A continuación, puede aprovisionar los recursos compartidos de SMB. <br></br> <br></br> Para el servidor iSCSI, realice la configuración inicial, registre el servidor iSCSI de StorSimple y complete la configuración del dispositivo. A continuación, puede aprovisionar los volúmenes iSCSI. |[Deploy StorSimple Virtual Array - Set up as file server](storsimple-virtual-array-deploy3-fs-setup.md) (Implementación de StorSimple Virtual Array: configurar como servidor de archivos)<br></br> <br></br>[Deploy StorSimple Virtual Array – Set up your virtual device as an iSCSI server](storsimple-virtual-array-deploy3-iscsi-setup.md) (Implementación de StorSimple Virtual Array: configurar un dispositivo virtual como servidor iSCSI) |
+| 3. |**Configurar la matriz virtual** |Para el servidor de archivos, realice la instalación inicial, registre el servidor de archivos de StorSimple y complete la instalación del dispositivo. A continuación, puede aprovisionar los recursos compartidos de SMB. <br></br> <br></br> Para el servidor iSCSI, realice la configuración inicial, registre el servidor iSCSI de StorSimple y complete la configuración del dispositivo. A continuación, puede aprovisionar los volúmenes iSCSI. |[Deploy StorSimple Virtual Array - Set up as file server](storsimple-virtual-array-deploy3-fs-setup.md) (Implementación de StorSimple Virtual Array: configurar como servidor de archivos)<br></br> <br></br>[Implementar una matriz virtual de StorSimple: Configurar el dispositivo virtual como servidor iSCSI (versión preliminar)](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 Ya puede empezar a configurar Azure Portal.
 
@@ -59,7 +59,7 @@ La lista de comprobación de la configuración describe la información que se n
 * Descargue la [lista de comprobación de configuración del servidor de archivos de la matriz virtual de StorSimple](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 * Descargue la [lista de comprobación de configuración del servidor iSCSI de la matriz virtual de StorSimple](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Aquí encontrará los requisitos previos de configuración del servicio StorSimple Device Manager, StorSimple Virtual Array y la red del centro de datos.
 
@@ -148,7 +148,7 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/).
 
 Este paso es opcional y solo se debe llevar a cabo si no habilitó la creación automática de una cuenta de almacenamiento con su servicio.
 
-Si necesita crear una cuenta de Azure Storage en una región distinta, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para instrucciones detalladas.
+Si necesita crear una cuenta de Azure Storage en una región distinta, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para instrucciones detalladas.
 
 Siga estos pasos en [Azure Portal](https://ms.portal.azure.com/) en la página del servicio StorSimple Device Manager para agregar una cuenta de Microsoft Azure Storage existente.
 

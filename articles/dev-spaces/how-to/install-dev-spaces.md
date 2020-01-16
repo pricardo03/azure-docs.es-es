@@ -5,12 +5,12 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: Obtenga información sobre el proceso de instalación de Azure Dev Spaces en un clúster de AKS y de las herramientas de cliente.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
-ms.openlocfilehash: 2649b36c96313d4a7d878a1c72c3b175ad0f4d30
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 0fd4cce9d25922bea50963c4e87e110759673bbc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325778"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770635"
 ---
 # <a name="install-azure-dev-spaces-on-aks-and-the-client-side-tooling"></a>Instalación de Azure Dev Spaces en AKS y de las herramientas de cliente
 
@@ -19,7 +19,7 @@ En este artículo se muestran varias maneras de instalar Azure Dev Spaces en un 
 ## <a name="install-azure-dev-spaces-using-the-cli"></a>Instalación de Azure Dev Spaces con la CLI
 
 Para poder instalar Dev Spaces mediante la CLI, necesitará lo siguiente:
-* Una suscripción de Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][az-portal-create-account].
+* Suscripción a Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][az-portal-create-account].
 * [La CLI de Azure instalada][install-cli].
 * [Un clúster de AKS][create-aks-cli] en una [región admitida][supported-regions].
 
@@ -54,11 +54,11 @@ El comando `use-dev-spaces` también instala la CLI de Azure Dev Spaces.
 ## <a name="install-azure-dev-spaces-using-the-azure-portal"></a>Instalación de Azure Dev Spaces con Azure Portal
 
 Para poder instalar Dev Spaces mediante Azure Portal, necesitará lo siguiente:
-* Una suscripción de Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][az-portal-create-account].
+* Suscripción a Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][az-portal-create-account].
 * [Un clúster de AKS][create-aks-portal] en una [región admitida][supported-regions].
 
 Para instalar Azure Dev Spaces con Azure Portal:
-1. Inicie sesión en el [Azure Portal][az-portal].
+1. Inicie sesión en [Azure Portal][az-portal].
 1. Vaya al clúster de AKS.
 1. Haga clic en *Dev Spaces*.
 1. Cambie *Enable Dev Spaces* (Habilitar Dev Spaces) a *Sí* y haga clic en *Guardar*.
@@ -86,7 +86,7 @@ Obtenga información acerca de la forma en que Azure Dev Spaces le ayuda a desar
 [create-aks-cli]: ../../aks/kubernetes-walkthrough.md#create-a-resource-group
 [create-aks-portal]: ../../aks/kubernetes-walkthrough-portal.md#create-an-aks-cluster
 [install-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
-[supported-regions]: ../about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [team-development-qs]: ../quickstart-team-development.md
 
 [az-portal]: https://portal.azure.com

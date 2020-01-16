@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 699aab617e56ab87eb0bd6d6c4ceabf9aac4c4fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: afc7a7406831568304c2ebd8d9a6c72b497e04e4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438887"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972879"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
 > [!NOTE]
@@ -91,7 +91,7 @@ La solución de ejemplo es sencilla a propósito. Se ha diseñado para mostrar c
 Si no tiene una suscripción a Azure, puede crear una cuenta de evaluación gratuita rápidamente. Para más información, vea cómo [obtener una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 #### <a name="azure-storage-account"></a>Cuenta de almacenamiento de Azure
-En este tutorial, se usa una cuenta de almacenamiento para almacenar los datos. Si aún no dispone de una cuenta de almacenamiento, vea [Create a storage account](../../storage/common/storage-quickstart-create-account.md) (Creación de una cuenta de almacenamiento). En la solución de ejemplo, se usa Blob Storage.
+En este tutorial, se usa una cuenta de almacenamiento para almacenar los datos. Si aún no dispone de una cuenta de almacenamiento, vea [Create a storage account](../../storage/common/storage-account-create.md) (Creación de una cuenta de almacenamiento). En la solución de ejemplo, se usa Blob Storage.
 
 #### <a name="azure-batch-account"></a>Cuenta de Azure Batch
 Cree una cuenta de Batch mediante [Azure Portal](https://portal.azure.com/). Para más información, vea [Creación y administración de una cuenta de Batch](../../batch/batch-account-create-portal.md). Anote el nombre y la clave de la cuenta de Batch. También puede usar el cmdlet [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) para crear una cuenta de Batch. Para obtener instrucciones detalladas para usar este cmdlet, vea [Introducción a los cmdlets de PowerShell de Batch](../../batch/batch-powershell-cmdlets-get-started.md).
@@ -211,10 +211,10 @@ El método tiene algunos componentes clave que debe conocer:
     using System.Globalization;
     using System.Diagnostics;
     using System.Linq;
-    
+
     using Microsoft.Azure.Management.DataFactories.Models;
     using Microsoft.Azure.Management.DataFactories.Runtime;
-    
+
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
@@ -241,15 +241,15 @@ El método tiene algunos componentes clave que debe conocer:
        Activity activity,
        IActivityLogger logger)
     {
-    
+
        // Declare types for the input and output data stores.
        AzureStorageLinkedService inputLinkedService;
-    
+
        Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
-    
+
        foreach (LinkedService ls in linkedServices)
            logger.Write("linkedService.Name {0}", ls.Name);
-    
+
        // Use the First method instead of Single because we are using the same
        // Azure Storage linked service for input and output.
        inputLinkedService = linkedServices.First(
@@ -257,15 +257,15 @@ El método tiene algunos componentes clave que debe conocer:
            linkedService.Name ==
            inputDataset.Properties.LinkedServiceName).Properties.TypeProperties
            as AzureStorageLinkedService;
-    
+
        string connectionString = inputLinkedService.ConnectionString; // To create an input storage client.
        string folderPath = GetFolderPath(inputDataset);
        string output = string.Empty; // for use later.
-    
+
        // Create the storage client for input. Pass the connection string.
        CloudStorageAccount inputStorageAccount = CloudStorageAccount.Parse(connectionString);
        CloudBlobClient inputClient = inputStorageAccount.CreateCloudBlobClient();
-    
+
        // Initialize the continuation token before using it in the do-while loop.
        BlobContinuationToken continuationToken = null;
        do
@@ -277,34 +277,34 @@ El método tiene algunos componentes clave que debe conocer:
                                     continuationToken,
                                     null,
                                     null);
-    
+
            // The Calculate method returns the number of occurrences of
            // the search term "Microsoft" in each blob associated
            // with the data slice.
            //
            // The definition of the method is shown in the next step.
            output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
-    
+
        } while (continuationToken != null);
-    
+
        // Get the output dataset by using the name of the dataset matched to a name in the Activity output collection.
        Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-    
+
        folderPath = GetFolderPath(outputDataset);
-    
+
        logger.Write("Writing blob to the folder: {0}", folderPath);
-    
+
        // Create a storage object for the output blob.
        CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
        // Write the name of the file.
        Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
-    
+
        logger.Write("output blob URI: {0}", outputBlobUri.ToString());
        // Create a blob and upload the output text.
        CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
        logger.Write("Writing {0} to the output blob", output);
        outputBlob.UploadText(output);
-    
+
        // The dictionary can be used to chain custom activities together in the future.
        // This feature is not implemented yet, so just return an empty dictionary.
        return new Dictionary<string, string>();
@@ -322,41 +322,41 @@ El método tiene algunos componentes clave que debe conocer:
        {
            return null;
        }
-    
+
        AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
        if (blobDataset == null)
        {
            return null;
        }
-    
+
        return blobDataset.FolderPath;
     }
-    
+
     /// <summary>
     /// Gets the fileName value from the input/output dataset.
     /// </summary>
-    
+
     private static string GetFileName(Dataset dataArtifact)
     {
        if (dataArtifact == null || dataArtifact.Properties == null)
        {
            return null;
        }
-    
+
        AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
        if (blobDataset == null)
        {
            return null;
        }
-    
+
        return blobDataset.FileName;
     }
-    
+
     /// <summary>
     /// Iterates through each blob (file) in the folder, counts the number of instances of the search term in the file,
     /// and prepares the output text that is written to the output blob.
     /// </summary>
-    
+
     public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
     {
        string output = string.Empty;
@@ -416,7 +416,7 @@ En esta sección se proporcionan más detalles sobre el código del método Exec
     {
     // Get the list of input blobs from the input storage client object.
     BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
-    
+
                          true,
                                    BlobListingDetails.Metadata,
                                    null,
@@ -424,9 +424,9 @@ En esta sección se proporcionan más detalles sobre el código del método Exec
                                    null,
                                    null);
     // Return a string derived from parsing each blob.
-    
+
      output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
-    
+
     } while (continuationToken != null);
 
     ```
@@ -454,14 +454,14 @@ En esta sección se proporcionan más detalles sobre el código del método Exec
 
     ```csharp
     AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-    
+
     return blobDataset.FolderPath;
     ```
 1. El código llama al método **GetFileName** para recuperar el nombre de archivo (nombre del blob). El código es similar al código anterior usado para obtener la ruta de acceso a la carpeta.
 
     ```csharp
     AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-    
+
     return blobDataset.FileName;
     ```
 1. El nombre del archivo se escribe mediante la creación de un objeto URI. El constructor URI usa la propiedad **BlobEndpoint** para devolver el nombre del contenedor. Tanto la ruta de la carpeta como el nombre de archivo se agregan al construir el identificador URI del blob de salida.  
@@ -590,7 +590,7 @@ En este paso, creará un servicio vinculado para su cuenta de Batch que se usar�
       > El servicio Data Factory no admite una opción a petición para Batch como lo hace para HDInsight. Puede usar solo su propio grupo de Batch en una factoría de datos.
       >
       >
-   
+
    e. Especifique **StorageLinkedService** for the **linkedServiceName** . Ha creado este servicio vinculado en el paso anterior. Este almacenamiento se usa como área de almacenamiento provisional para archivos y registros.
 
 1. Seleccione **Implementar** en la barra de comandos para implementar el servicio vinculado.
@@ -900,11 +900,11 @@ La depuración se compone de varias técnicas básicas.
 
     ```
     Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Loading assembly file MyDotNetActivity...
-    
+
     Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Creating an instance of MyDotNetActivityNS.MyDotNetActivity from assembly file MyDotNetActivity...
-    
+
     Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Executing Module
-    
+
     Trace\_T\_D\_12/6/2015 1:43:38 AM\_T\_D\_\_T\_D\_Information\_T\_D\_0\_T\_D\_Activity e3817da0-d843-4c5c-85c6-40ba7424dce2 finished successfully
     ```
 1. Incluya el archivo **PDB** en el archivo ZIP para que los detalles sobre un error contengan información como la pila de llamadas cuando se produce un error.
@@ -936,13 +936,13 @@ Puede extender este ejemplo para obtener más información sobre las caracterís
 
 1. Cree un grupo con un valor mayor o menor en **Máximo de tareas por máquina virtual**. Actualice el servicio vinculado Batch en la solución de Data Factory para que use el nuevo grupo que creó. Para más información sobre el **Máximo de tareas por máquina virtual**, consulte "Paso 4: Creación y ejecución de la canalización con una actividad personalizada".
 
-1. Cree un grupo de Batch con la característica de **escalado automático**. El escalado automático de los nodos de ejecución de un grupo de Batch es el ajuste dinámico de la potencia de procesamiento que usa su aplicación. 
+1. Cree un grupo de Batch con la característica de **escalado automático**. El escalado automático de los nodos de ejecución de un grupo de Batch es el ajuste dinámico de la potencia de procesamiento que usa su aplicación.
 
     La fórmula del ejemplo obtiene el comportamiento siguiente. Cuando el grupo se crea inicialmente, se inicia con una máquina virtual. La métrica $PendingTasks define el número de tareas que están en ejecución y activas (en cola). La fórmula busca el número promedio de tareas pendientes en los últimos 180 segundos y establece TargetDedicated en consecuencia. Garantiza que TargetDedicated nunca supera las 25 VM. El grupo crece automáticamente a medida que se envían nuevas tareas. Cuando las tareas finalizan, las máquinas virtuales quedan libres una a una y el escalado automático reduce esas máquinas virtuales. Puede adaptar startingNumberOfVMs y maxNumberofVMs a sus necesidades.
- 
+
     Fórmula de escalado automático:
 
-    ``` 
+    ```
     startingNumberOfVMs = 1;
     maxNumberofVMs = 25;
     pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);

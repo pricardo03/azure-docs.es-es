@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4026de0b13a143a6bd3905e3d4fbb5071e196c21
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1bf023dc886481354306a763a0f9c56286c57e05
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384223"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749870"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Descripción de un reinicio del sistema de una máquina virtual de Azure
 
@@ -67,7 +67,7 @@ Las actualizaciones de varias instancias (para las máquinas virtuales de un con
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>Acciones de reinicio o apagado iniciadas por el usuario
 
-Si realiza un reinicio desde Azure Portal, Azure PowerShell, la interfaz de línea de comandos o la API de REST, el evento se encontrará en el [registro de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md).
+Si realiza un reinicio desde Azure Portal, Azure PowerShell, la interfaz de línea de comandos o la API de REST, el evento se encontrará en el [registro de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
 Si realiza la acción desde el sistema operativo de la máquina virtual, el evento se encontrará en los registros del sistema.
 

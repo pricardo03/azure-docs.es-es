@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 82738627b84713669cb6ddfc94c22b6f24b49e3a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b0b8757590876669e00e81378411c010514e3036
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530857"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750364"
 ---
 # <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recopilación de registros de plataforma de Azure en el área de trabajo de Log Analytics en Azure Monitor
-Los [registros de plataforma](resource-logs-overview.md) en Azure, incluidos los registros de recurso y los registros de actividad de Azure, proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma de Azure de la que dependen. En este artículo se describe la recopilación de registros de recurso en un área de trabajo de Log Analytics que permita el análisis con otros datos de supervisión recopilados en los registros de Azure Monitor mediante consultas de registro eficaces y también el aprovechamiento de otras características de Azure Monitor, como las alertas y las visualizaciones. 
+Los [registros de plataforma](platform-logs-overview.md) en Azure, incluidos los registros de recurso y los registros de actividad de Azure, proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma de Azure de la que dependen. En este artículo se describe la recopilación de registros de recurso en un área de trabajo de Log Analytics que permita el análisis con otros datos de supervisión recopilados en los registros de Azure Monitor mediante consultas de registro eficaces y también el aprovechamiento de otras características de Azure Monitor, como las alertas y las visualizaciones. 
 
 
 ## <a name="what-you-can-do-with-platform-logs-in-a-workspace"></a>Qué se puede hacer con los registros de plataforma en un área de trabajo
@@ -124,5 +124,5 @@ Debe migrar los registros para usar el modo específico del recurso lo antes pos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Más información sobre los registros de recurso](resource-logs-overview.md).
+* [Más información sobre los registros de recurso](platform-logs-overview.md).
 * [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](diagnostic-settings.md).

@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: fa647da6764ca61679aade2acc2849b474912278
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 6d45e3d911b8070529c43d9069a3d0d2fa5d3e69
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871988"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978994"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Crear un emparejamiento de redes virtuales de Azure: diferentes modelos de implementación y suscripciones
 
 En este tutorial aprenderá a crear un emparejamiento de redes virtuales entre dos redes virtuales creadas mediante diferentes modelos de implementación. Las redes virtuales se encuentran en suscripciones diferentes. Emparejar dos redes virtuales permite que los recursos en distintas redes virtuales se comuniquen entre sí con el mismo ancho de banda y latencia que tendrían los recursos si estuvieran en la misma red virtual. Obtenga más información sobre el [Emparejamiento de redes virtuales](virtual-network-peering-overview.md).
 
-Los pasos para crear un emparejamiento de redes virtuales cambian en función de si las redes virtuales se encuentran en la misma suscripción o en suscripciones diferentes, y en función del [modelo de implementación de Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) con el que se han creado las redes virtuales. Para más información sobre cómo crear un emparejamiento de redes virtuales en otros escenarios, haga clic en el escenario en la tabla siguiente:
+Los pasos para crear un emparejamiento de redes virtuales cambian en función de si las redes virtuales se encuentran en la misma suscripción o en suscripciones diferentes, y en función del [modelo de implementación de Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) con el que se han creado las redes virtuales. Para más información sobre cómo crear un emparejamiento de redes virtuales en otros escenarios, haga clic en el escenario en la tabla siguiente:
 
 |Modelo de implementación de Azure  | Suscripción de Azure  |
 |--------- |---------|
@@ -203,7 +203,7 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
     > Importar un archivo de configuración de red modificada puede producir cambios en las redes virtuales (clásicas) existentes en la suscripción. Asegúrese de agregar solo la red virtual anterior y que no cambia o quita ninguna red virtual existente de la suscripción. 
 
 5. Inicie sesión en la suscripción de UserB como UserB para usar los comandos de Resource Manager escribiendo el comando `Connect-AzAccount`.
-6. Asigne los permisos de UserA a la red virtual B. Copie el script siguiente en un editor de texto en su PC y reemplace `<SubscriptionB-id>` con el Id. de suscripción B. Si no conoce el Id. de suscripción, escriba el comando `Get-AzSubscription` para verlo. El valor de **id** en la salida devuelta es el Id. de suscripción. Azure creó la red virtual (clásica) que creó en el paso 4 en un grupo de recursos denominado *Default-Networking*. Para ejecutar el script, copie el script modificado, péguelo en PowerShell y después pulse `Enter`.
+6. Asigne los permisos de UserA a la red virtual B. Copie el script siguiente en un editor de texto en su PC y reemplace `<SubscriptionB-id>` con el Id. de suscripción B. Si no conoce el Id. de suscripción, escriba el comando `Get-AzSubscription` para verlo. El valor de **id** en la salida devuelta es el identificador de la suscripción. Azure creó la red virtual (clásica) que creó en el paso 4 en un grupo de recursos denominado *Default-Networking*. Para ejecutar el script, copie el script modificado, péguelo en PowerShell y pulse `Enter`.
     
     ```powershell 
     New-AzRoleAssignment `

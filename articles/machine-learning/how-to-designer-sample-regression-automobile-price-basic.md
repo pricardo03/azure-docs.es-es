@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 758852c64ae906119ba315787a759eb5d988be6b
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 156b963fc1644d1f863d8ddd1d86c15b311e18a8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659951"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763392"
 ---
 # <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>Uso de la regresión para predecir los precios de los automóviles con el diseñador de Azure Machine Learning
 
@@ -88,8 +88,8 @@ Pase las puntuaciones al módulo **Evaluate Model** (Evaluar modelo) para genera
 Explore otros ejemplos disponibles para el diseñador:
 
 - [Ejemplo 2 - Regresión: comparación de algoritmos para la predicción de precios de automóvil](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Ejemplo 3: clasificación con selección de características: Predicción de ingresos](service/how-to-designer-sample-classification-predict-income.md)
-- [Ejemplo 4 - Clasificación: predicción del riesgo crediticio (sensible a los costos)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Ejemplo 5 - Clasificación: predicción de la renovación](service/how-to-designer-sample-classification-churn.md)
-- [Ejemplo 6 - Clasificación: Predicción de retrasos en los vuelos](service/how-to-designer-sample-classification-flight-delay.md)
+- [Ejemplo 3: clasificación con selección de características: Predicción de ingresos](how-to-designer-sample-classification-predict-income.md)
+- [Ejemplo 4 - Clasificación: predicción del riesgo crediticio (sensible a los costos)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Ejemplo 5 - Clasificación: predicción de la renovación](how-to-designer-sample-classification-churn.md)
+- [Ejemplo 6 - Clasificación: Predicción de retrasos en los vuelos](how-to-designer-sample-classification-flight-delay.md)
 - [Ejemplo 7 - Clasificación de texto: Conjunto de datos de SP 500 de Wikipedia](how-to-designer-sample-text-classification.md)

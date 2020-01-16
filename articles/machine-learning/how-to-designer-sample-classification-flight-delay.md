@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: a8564ae8c3d7499dd3d194ec61a9b24b1d0d2393
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 02831555222597eacf9cf055f03fc65e1f599514
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660192"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763559"
 ---
 # <a name="build-a-classifier--use-r-to-predict-flight-delays-with-azure-machine-learning-designer"></a>Creación de un clasificador y uso de R para predecir retrasos en los vuelos con el diseñador de Azure Machine Learning
 
@@ -123,6 +123,6 @@ Explore otros ejemplos disponibles para el diseñador:
 - [Ejemplo 1 - Regresión: predicción del precio de un automóvil](how-to-designer-sample-regression-automobile-price-basic.md)
 - [Ejemplo 2 - Regresión: comparación de algoritmos para la predicción de precios de automóvil](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
 - [Ejemplo 3: clasificación con selección de características: Predicción de ingresos](how-to-designer-sample-classification-predict-income.md)
-- [Ejemplo 4 - Clasificación: predicción del riesgo crediticio (sensible a los costos)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Ejemplo 5 - Clasificación: predicción de la renovación](service/how-to-designer-sample-classification-churn.md)
+- [Ejemplo 4 - Clasificación: predicción del riesgo crediticio (sensible a los costos)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Ejemplo 5 - Clasificación: predicción de la renovación](how-to-designer-sample-classification-churn.md)
 - [Ejemplo 7 - Clasificación de texto: Conjunto de datos de SP 500 de Wikipedia](how-to-designer-sample-text-classification.md)

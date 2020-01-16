@@ -7,15 +7,15 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 12/20/2019
-ms.openlocfilehash: 4c910fd72805ce8cb1e7baa6b4252d6b2192fe36
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 55efdfe2bb1b37e566654b8041f2cf5ed411cc3f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535628"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977565"
 ---
 # <a name="collect-azure-activity-log-with-legacy-settings"></a>Recopilación del registro de actividad de Azure con configuración heredada
-El [Registro de actividad de Azure](activity-logs-overview.md) es un [registro de plataforma](platform-logs-overview.md) que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. Hasta ahora, ha creado un perfil de registro para enviar las entradas del registro de actividad a [un centro de eventos o una cuenta de almacenamiento](activity-log-export.md), y ha usado un conector para recopilarlos en un [área de trabajo Log Analytics](activity-log-collect.md). En este artículo se describe la diferencia entre los métodos, cómo trabajar con la configuración heredada existente y cómo borrar la configuración heredada como preparación para la configuración de diagnóstico.
+El [Registro de actividad de Azure](platform-logs-overview.md) es un [registro de plataforma](platform-logs-overview.md) que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. Hasta ahora, ha creado un perfil de registro para enviar las entradas del registro de actividad a [un centro de eventos o una cuenta de almacenamiento](activity-log-export.md), y ha usado un conector para recopilarlos en un [área de trabajo Log Analytics](activity-log-collect.md). En este artículo se describe la diferencia entre los métodos, cómo trabajar con la configuración heredada existente y cómo borrar la configuración heredada como preparación para la configuración de diagnóstico.
 
 
 ## <a name="differences-between-methods"></a>Diferencias entre los métodos
@@ -28,7 +28,7 @@ El uso de la configuración de diagnóstico tiene las ventajas siguientes con re
 - Filtrado de la colección para recopilar solo los registros de determinadas categorías.
 - Recopilar todas las categorías de registro de actividad. Algunas categorías no se recopilan con el método heredado.
 - Latencia más rápida para la ingesta de registros. El método anterior tiene aproximadamente 15 minutos de latencia mientras que la configuración de diagnóstico solo agrega aproximadamente 1 minuto.
-  
+
 ### <a name="considerations"></a>Consideraciones
 Tenga en cuenta los detalles siguientes de la recopilación del registro de actividad con la configuración de diagnóstico antes de habilitar esta característica.
 
@@ -44,7 +44,7 @@ Se han quitado las propiedades siguientes:
 - ActivityStatus
 - ActivitySubstatus
 - OperationName
-- ResourceProvider 
+- ResourceProvider
 
 Se han agregado las propiedades siguientes:
 
@@ -57,10 +57,10 @@ La configuración heredada para recopilar el registro de actividad seguirá func
 
 1. En el menú **Azure Monitor** de Azure Portal, seleccione **Registro de actividad**.
 3. Haga clic en **Configuración de diagnóstico**.
-   
+
    ![Configuración de diagnóstico](media/diagnostic-settings-subscription/diagnostic-settings.png)
-   
-4. Haga clic en el banner de color púrpura de la experiencia heredada. 
+
+4. Haga clic en el banner de color púrpura de la experiencia heredada.
 
     ![Experiencia heredada](media/diagnostic-settings-subscription/legacy-experience.png)
 
@@ -84,7 +84,7 @@ Debe deshabilitar la recopilación existente de la actividad antes de habilitarl
 ### <a name="disable-log-profile"></a>Deshabilitar un perfil de registro
 
 1. Siga el procedimiento descrito en [Trabajar con la configuración heredada](#work-with-legacy-settings) para abrir la configuración heredada.
-2. Deshabilite cualquier colección actual en el almacenamiento o Event Hubs. 
+2. Deshabilite cualquier colección actual en el almacenamiento o Event Hubs.
 
 
 
@@ -93,5 +93,5 @@ La solución de supervisión de Azure Log Analytics incluye varias vistas y cons
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Más información sobre el registro de actividad](../../azure-resource-manager/resource-group-audit.md)
+* [Más información sobre el registro de actividad](../../azure-resource-manager/management/view-activity-logs.md)
 * [Más información sobre la configuración de diagnóstico](diagnostic-settings.md)

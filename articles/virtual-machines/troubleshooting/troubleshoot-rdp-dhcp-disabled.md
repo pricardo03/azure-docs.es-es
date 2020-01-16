@@ -12,18 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: ef44931cc3b36bcab64a2de840d9264c1b8fdedb
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2c5b0556554d280e57b2df51875e1b057b5fb4a8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058017"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749897"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>No se puede utilizar RDP en Azure Virtual Machines porque el servicio cliente DHCP está deshabilitado
 
 En este artículo, se describe un problema que impide utilizar Escritorio remoto con Azure Windows Virtual Machines (VM) cuando el servicio cliente DHCP está deshabilitado en la máquina virtual.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="symptoms"></a>Síntomas
 No se puede establecer conexión mediante RDP con una máquina virtual de Azure porque el servicio cliente DHCP está deshabilitado en la máquina virtual. Al comprobar la captura de pantalla de los [Diagnósticos de arranque](../troubleshooting/boot-diagnostics.md) en Azure portal, puede ver que la máquina virtual se inicia de manera normal y espera las credenciales en la pantalla de inicio de sesión. Puede ver de forma remota los registros de eventos de la máquina virtual con el Visor de eventos. Verá que el servicio cliente DHCP no se inicia correctamente. A continuación, se muestra un registro de ejemplo:

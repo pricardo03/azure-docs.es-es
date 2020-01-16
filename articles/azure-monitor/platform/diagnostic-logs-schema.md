@@ -7,25 +7,25 @@ ms.topic: reference
 ms.date: 10/22/2019
 author: rboucher
 ms.author: robb
-ms.openlocfilehash: af47195a336739d604f0eb40ce6c5c54e15547cb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e744cdde298054de3631adb96b56bbc808f36a38
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894086"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750942"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Servicios, esquemas y categorías admitidos en los registros de recursos de Azure
 
 > [!NOTE]
 > Los registros de recurso se conocían anteriormente como registros de diagnóstico.
 
-Los [registros de recursos de Azure Monitor](../../azure-monitor/platform/resource-logs-overview.md) son los registros emitidos por los servicios de Azure que describen el funcionamiento de dichos servicios o recursos. Todos los registros de recursos disponibles a través de Azure Monitor comparten un esquema común de nivel superior, con flexibilidad para que cada servicio emita propiedades únicas para sus propios eventos.
+Los [registros de recursos de Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md) son los registros emitidos por los servicios de Azure que describen el funcionamiento de dichos servicios o recursos. Todos los registros de recursos disponibles a través de Azure Monitor comparten un esquema común de nivel superior, con flexibilidad para que cada servicio emita propiedades únicas para sus propios eventos.
 
 Una combinación del tipo de recurso (disponible en la propiedad `resourceId`) y la `category` identifica un esquema de forma única. En este artículo se describe el esquema de nivel superior para los registros de recursos y los vínculos a los esquemas para cada servicio.
 
 ## <a name="top-level-resource-logs-schema"></a>Esquema de registros de recursos de nivel superior
 
-| NOMBRE | Obligatorio/opcional | DESCRIPCIÓN |
+| Nombre | Obligatorio/opcional | Descripción |
 |---|---|---|
 | time | Obligatorio | Marca de tiempo (UTC) del evento. |
 | resourceId | Obligatorio | Identificador del recurso que ha emitido el evento. Para los servicios de inquilino, presenta la forma /tenants/tenant-id/providers/provider-name. |
@@ -41,7 +41,7 @@ Una combinación del tipo de recurso (disponible en la propiedad `resourceId`) y
 | correlationId | Opcional | GUID que se usa para agrupar un conjunto de eventos relacionados. Normalmente, si dos eventos tienen el mismo valor operationName pero dos estados diferentes (p. ej. "Started" y "Succeeded"), comparten el mismo identificador de correlación. Esto también puede representar otras relaciones entre los eventos. |
 | identity | Opcional | Blob JSON que describe la identidad del usuario o la aplicación que realizó la operación. Normalmente esto incluirá la autorización y las notificaciones o el token JWT de Active Directory. |
 | Nivel | Opcional | Nivel de gravedad del evento. Debe ser uno de entre Informativo, Advertencia, Error o Crítico. |
-| location | Opcional | Región del recurso que emite el evento, por ejemplo, "Este de EE. UU." o "Sur de Francia". |
+| ubicación | Opcional | Región del recurso que emite el evento, por ejemplo, "Este de EE. UU." o "Sur de Francia". |
 | properties | Opcional | Todas las propiedades extendidas relacionadas con esta categoría de eventos determinada. Todas las propiedades personalizadas o únicas se deben colocar dentro de esta "Parte B" del esquema. |
 
 ## <a name="service-specific-schemas-for-resource-logs"></a>Esquemas específicos del servicio para los registros de recursos
@@ -137,7 +137,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.DataFactory/factories|PipelineRuns|Registro de ejecuciones de canalización|
 |Microsoft.DataFactory/factories|TriggerRuns|Registro de ejecuciones de desencadenador|
 |Microsoft.DataLakeAnalytics/accounts|Auditoría|Registros de auditoría|
-|Microsoft.DataLakeAnalytics/accounts|Solicitudes|Registros de solicitud|
+|Microsoft.DataLakeAnalytics/accounts|Requests|Registros de solicitud|
 |Microsoft.DataLakeStore/accounts|Auditoría|Registros de auditoría|
 |Microsoft.DataLakeStore/accounts|Requests|Registros de solicitud|
 |Microsoft.DataShare/accounts|Recursos compartidos|Recursos compartidos|
@@ -199,7 +199,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.Insights/AutoscaleSettings|AutoscaleEvaluations|Evaluaciones de escalabilidad automática|
 |Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|Acciones de escalabilidad automática|
 |Microsoft.IoTSpaces/Graph|Seguimiento|Seguimiento|
-|Microsoft.IoTSpaces/Graph|Operativo|Operativo|
+|Microsoft.IoTSpaces/Graph|Operativos|Operativos|
 |Microsoft.IoTSpaces/Graph|Auditoría|Auditoría|
 |Microsoft.IoTSpaces/Graph|UserDefinedFunction|UserDefinedFunction|
 |Microsoft.IoTSpaces/Graph|Entrada|Entrada|
@@ -313,7 +313,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Más información sobre los registros de recurso](../../azure-monitor/platform/resource-logs-overview.md)
+* [Más información sobre los registros de recurso](../../azure-monitor/platform/platform-logs-overview.md)
 * [Transmisión de registros de recursos a **Event Hubs**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 * [Cambio de la configuración de diagnóstico del registro de recursos con la API REST de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Análisis de registros desde Azure Storage con Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)

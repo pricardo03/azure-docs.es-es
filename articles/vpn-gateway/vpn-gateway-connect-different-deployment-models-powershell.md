@@ -1,18 +1,19 @@
 ---
-title: 'Conexión de redes virtuales clásicas a redes virtuales de Azure Resource Manager: PowerShell | Microsoft Docs'
+title: 'Conexión de redes virtuales clásicas a redes virtuales de Azure Resource Manager: PowerShell'
 description: Cree una conexión VPN entre redes virtuales clásicas y redes de Resource Manager mediante VPN Gateway y PowerShell.
 services: vpn-gateway
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2263996b84b17f7de9826c07eb28e4b7668cd915
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c11539460f1ef65f8cea3d36f1a017661133355
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62095589"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833957"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con PowerShell
 
@@ -96,7 +97,7 @@ En el elemento **VirtualNetworkSites** , agregue una subred de puerta de enlace 
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-**Ejemplo:**
+**Ejemplo**:
 
     <VirtualNetworkSites>
       <VirtualNetworkSite name="ClassicVNet" Location="West US">

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 38fcda40a208da3f3f5aef5b13778ca38092d8f8
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 16897ad095afcacff04d53b0956a972c36a25893
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186112"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750802"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Supervisión de métricas y registros de diagnóstico de Media Services a través de Azure Monitor
 
 [Azure Monitor](../../azure-monitor/overview.md) le permite supervisar las métricas y los registros de diagnóstico que le ayudan a comprender el rendimiento de sus aplicaciones. Todos los datos recopilados por Azure Monitor pueden clasificarse en uno de los dos tipos fundamentales: métricas y registros. Puede supervisar registros de diagnóstico de Media Services y crear alertas y notificaciones para las métricas y los registros recopilados. Puede usar el [Explorador de métricas](../../azure-monitor/platform/metrics-getting-started.md) para visualizar y analizar los datos de métrica. Puede enviar registros a [Azure Storage](https://azure.microsoft.com/services/storage/), difundirlos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), exportarlos a [Log Analytics](https://azure.microsoft.com/services/log-analytics/), o bien usar servicios de terceros.
 
-Para más información, consulte [Métricas de Azure Monitor](../../azure-monitor/platform/data-platform.md) y [Registros de diagnóstico de Azure Monitor](../../azure-monitor/platform/resource-logs-overview.md).
+Para más información, consulte [Métricas de Azure Monitor](../../azure-monitor/platform/data-platform.md) y [Registros de diagnóstico de Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md).
 
 En este tema se analizan las [métricas de Media Services](#media-services-metrics) y los [registro de diagnóstico de Media Services](#media-services-diagnostic-logs) compatibles.
 
@@ -42,7 +42,7 @@ Media Services permite supervisar las métricas para los siguientes recursos:
 
 Puede supervisar las siguientes métricas de cuenta.
 
-|Nombre de métrica|Nombre para mostrar|DESCRIPCIÓN|
+|Nombre de métrica|Nombre para mostrar|Descripción|
 |---|---|---|
 |AssetCount|Número de recursos|Recursos en su cuenta.|
 |AssetQuota|Cuota de recursos|Cuota de recursos en su cuenta.|
@@ -60,7 +60,7 @@ También debe revisar las [cuotas y limitaciones](limits-quotas-constraints.md) 
 
 Se admiten estas métricas de [Puntos de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) de Media Services:
 
-|Nombre de métrica|Nombre para mostrar|DESCRIPCIÓN|
+|Nombre de métrica|Nombre para mostrar|Descripción|
 |---|---|---|
 |Requests|Requests|Proporciona el número total de solicitudes HTTP atendidas por el punto de conexión de streaming.|
 |Salida|Salida|Número total de bytes de salida. Por ejemplo, los bytes que el Punto de conexión de streaming transmite en secuencias.|
@@ -84,7 +84,7 @@ Consulte [Supervisión de las métricas de Media Services](media-services-metric
 
 ## <a name="media-services-diagnostic-logs"></a>Registros de diagnóstico de Media Services
 
-Los registros de diagnóstico proporcionan datos exhaustivos y frecuentes acerca del funcionamiento de un recurso de Azure. Para más información, aprenda a [recopilar y usar los datos de registro provenientes de los recursos de Azure](../../azure-monitor/platform/resource-logs-overview.md).
+Los registros de diagnóstico proporcionan datos exhaustivos y frecuentes acerca del funcionamiento de un recurso de Azure. Para más información, aprenda a [recopilar y usar los datos de registro provenientes de los recursos de Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
 Azure Media Services admite los siguientes registros de diagnóstico:
 
@@ -92,7 +92,7 @@ Azure Media Services admite los siguientes registros de diagnóstico:
 
 ### <a name="key-delivery"></a>Entrega de claves
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |---|---|
 |Solicitud de servicio de entrega de claves|Registros que muestran la información de la solicitud de servicio de entrega de claves. Para más información, consulte los [esquemas](media-services-diagnostic-logs-schema.md).|
 
@@ -111,7 +111,7 @@ Consulte [Supervisión de los registros de diagnósticos de Media Services](medi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Recopilación y consumo de datos de registro provenientes de los recursos de Azure](../../azure-monitor/platform/resource-logs-overview.md)
+* [Recopilación y consumo de datos de registro provenientes de los recursos de Azure](../../azure-monitor/platform/platform-logs-overview.md)
 * [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../../azure-monitor/platform/alerts-metric.md)
 * [Supervisión de las métricas de Media Services](media-services-metrics-howto.md)
 * [Supervisión de los registros de diagnósticos de Media Services](media-services-diagnostic-logs-howto.md)

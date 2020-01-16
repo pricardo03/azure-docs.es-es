@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/19/2018
-ms.openlocfilehash: 177c110ce9679f3d564918dfac50b3e3f66f84ce
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2d150006fb4638d3efb15111013d17e43c8b125e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893593"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747024"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>¿Qué son las alertas clásicas en Microsoft Azure?
 
@@ -93,7 +93,7 @@ Obtenga información sobre las reglas de alertas y su configuración mediante:
 * Configuración de [alertas de métricas clásicas a través de PowerShell](alerts-classic-portal.md)
 * Configuración de [alertas de métricas clásicas con la interfaz de línea de comandos (CLI)](alerts-classic-portal.md)
 * Configuración de [alertas de métricas clásicas con la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* Más información sobre el [registro de actividad](activity-logs-overview.md)
+* Más información sobre el [registro de actividad](platform-logs-overview.md)
 * Configuración de [alertas del registro de actividad a través de Azure Portal](activity-log-alerts.md)
 * Configuración de [alertas del registro de actividad a través de Resource Manager](alerts-activity-log.md)
 * Revisión del [esquema de webhook de alertas del registro de actividad](activity-log-alerts-webhook.md)

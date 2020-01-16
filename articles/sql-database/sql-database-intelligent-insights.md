@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: f17c588d28d0904041970eee8e9aa2201f905836
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: b576510749e691b6255c849f14275db221c54460
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151418"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745109"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights con inteligencia artificial para supervisar y solucionar problemas de rendimiento de base de datos
 
@@ -190,4 +190,4 @@ En caso de que alguna de las excepciones críticas supervisadas supere los umbra
 - Aprenda a [solucionar problemas de rendimiento de SQL Database con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Use el [Registro de diagnóstico de rendimiento de SQL Database de Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Aprenda a [supervisar SQL Database mediante SQL Analytics](../azure-monitor/insights/azure-sql.md).
-- Aprenda a [recopilar y usar los datos de registro provenientes de los recursos de Azure](../azure-monitor/platform/resource-logs-overview.md).
+- Aprenda a [recopilar y usar los datos de registro provenientes de los recursos de Azure](../azure-monitor/platform/platform-logs-overview.md).

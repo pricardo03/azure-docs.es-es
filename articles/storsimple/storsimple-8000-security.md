@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 31c432b884ce92c508dd7f893c12ba13acff28e8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 4598f71f9b611e68f8eb00676138784833c39f32
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963512"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891516"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Protección de datos y seguridad de StorSimple
 
@@ -234,7 +234,7 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 
 **R:** Esta clave se creó cuando creó por primera vez el servicio StorSimple Device Manager. Cuando usa el servicio de StorSimple Device Manager para conectarse al dispositivo, puede usar la página de inicio rápido del servicio para ver o volver a generar la clave de registro del servicio. La generación de una nueva clave de registro del servicio no afectará a los dispositivos registrados existentes. Para obtener instrucciones, vaya a:
 
-* [Ver o volver a generar la clave de registro de servicio](storsimple-8000-manage-service.md##regenerate-the-service-registration-key)
+* [Ver o volver a generar la clave de registro de servicio](storsimple-8000-manage-service.md#regenerate-the-service-registration-key)
 
 **P:** Perdí mi clave de cifrado de datos de servicio. ¿Qué puedo hacer?
 

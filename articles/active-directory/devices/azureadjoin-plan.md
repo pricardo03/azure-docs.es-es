@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69086ee8d8d64ada7379bdb6af24c8d604e00aed
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 43e50f8787516b1877f7867419b6edfd819ad158
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665110"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746054"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos: Planeación de la implementación de la unión a Azure AD
 
@@ -75,7 +75,7 @@ Cuando use AD FS, debe habilitar los siguientes puntos de conexión de WS-Trust
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
 
-Si el proveedor de identidades no admite estos protocolos, la opción Unión a Azure AD no funcionará de forma nativa. A partir de Windows 10 1809, los usuarios pueden iniciar sesión en un dispositivo unido a Azure AD con un proveedor de identidades basado en SAML mediante el [Inicio de sesión web en Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Actualmente, el inicio de sesión web es una característica en versión preliminar que no se ha diseñado para implementaciones de producción.
+Si el proveedor de identidades no admite estos protocolos, la opción Unión a Azure AD no funcionará de forma nativa. 
 
 >[!NOTE]
 > Actualmente, la unión de Azure AD no funciona con [AD FS 2019 configurado con proveedores de autenticación externos como método de autenticación principal](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). La unión de Azure AD tiene, de forma predeterminada, la autenticación de contraseña como método principal, lo que provoca errores de autenticación en este escenario.

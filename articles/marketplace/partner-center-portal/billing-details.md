@@ -1,28 +1,28 @@
 ---
 title: Facturación de Marketplace comercial | Azure Marketplace
 description: En este artículo se tratan temas relacionados con el comercio de Marketplace comercial.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/12/2019
-ms.openlocfilehash: 3f610dbc2c5cf052729857c09de1d437e52ac20a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a483f143b70a4969114c078b3b0a6f960c4b6b41
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475170"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976078"
 ---
-# <a name="commercial-marketplace-billing"></a>Facturación de Marketplace comercial 
+# <a name="commercial-marketplace-billing"></a>Facturación de Marketplace comercial
 
 En este artículo se tratan temas relacionados con el comercio de Marketplace comercial:
 
-- [Opciones de publicación de Marketplace](#marketplace-publishing-options) 
+- [Opciones de publicación de Marketplace](#marketplace-publishing-options)
 - [Información general sobre las transacciones](#transact-general-overview)
 - [Modelos de facturación de las transacciones](#transact-billing-models)
 
-## <a name="marketplace-publishing-options"></a>Opciones de publicación de Marketplace 
+## <a name="marketplace-publishing-options"></a>Opciones de publicación de Marketplace
 
 Marketplace comercial ofrece varias opciones de publicación para los editores.
 
@@ -36,9 +36,9 @@ Además de las opciones de publicación de listas y pruebas, la opción de publi
 
 ## <a name="transact-general-overview"></a>Información general sobre las transacciones
 
-Al usar la opción de publicación de transacción, Microsoft permite la venta del software de terceros y la implementación de algunos tipos de oferta en la suscripción a Azure del cliente. El publicador debe tener en cuenta la facturación de los honorarios de infraestructura y los precios de las licencias de software propias del publicador al seleccionar un modelo de facturación y un tipo de oferta. 
+Al usar la opción de publicación de transacción, Microsoft permite la venta del software de terceros y la implementación de algunos tipos de oferta en la suscripción a Azure del cliente. El publicador debe tener en cuenta la facturación de los honorarios de infraestructura y los precios de las licencias de software propias del publicador al seleccionar un modelo de facturación y un tipo de oferta.
 
-Actualmente, la opción de publicación de transacción es compatible con los siguientes tipos de oferta: máquinas virtuales, aplicaciones de Azure y aplicaciones SaaS. 
+Actualmente, la opción de publicación de transacción es compatible con los siguientes tipos de oferta: máquinas virtuales, aplicaciones de Azure y aplicaciones SaaS.
 
 ![Transacciones en Azure Marketplace](./media/transact-amp.png)
 

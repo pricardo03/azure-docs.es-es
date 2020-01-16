@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 3e1a754d39025136866712cb57026e827c986f6a
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c9f5bcd9921b0324eb194eefd2066f6c0eaa4706
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704996"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975203"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Una una máquina virtual con Windows Server a un dominio administrado de Azure Active Directory Domain Services mediante una plantilla de Resource Manager
 
@@ -24,7 +24,7 @@ Para automatizar la implementación y la configuración de las máquinas virtual
 
 En este artículo se muestra cómo crear y unir una máquina virtual con Windows Server a un dominio administrado con Azure AD DS mediante plantillas de Resource Manager. También aprenderá a unir una máquina virtual con Windows Server existente a un dominio de Azure AD DS.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
@@ -84,7 +84,7 @@ Para crear una máquina virtual con Windows Server y, a continuación, unirla a
 1. Vaya a la [plantilla de inicio rápido](https://azure.microsoft.com/resources/templates/201-vm-domain-join/). Seleccione la opción para **Implementar en Azure**.
 1. En la página **Implementación personalizada**, escriba la siguiente información para crear y unir una máquina virtual con Windows Server al dominio administrado de Azure AD DS:
 
-    | Configuración                   | Valor |
+    | Configuración                   | Value |
     |---------------------------|-------|
     | Subscription              | Elija la misma suscripción de Azure en la que ha habilitado Azure AD Domain Services. |
     | Resource group            | Elija el grupo de recursos para su máquina virtual. |
@@ -117,7 +117,7 @@ Para unir una máquina virtual con Windows Server existente a un dominio admini
 1. Vaya a la [plantilla de inicio rápido](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/). Seleccione la opción para **Implementar en Azure**.
 1. En la página **Implementación personalizada**, escriba la siguiente información para unir la máquina virtual al dominio administrado de Azure AD DS:
 
-    | Configuración                   | Valor |
+    | Configuración                   | Value |
     |---------------------------|-------|
     | Subscription              | Elija la misma suscripción de Azure en la que ha habilitado Azure AD Domain Services. |
     | Resource group            | Elija el grupo de recursos con su máquina virtual existente. |
@@ -143,6 +143,6 @@ En este artículo, usó Azure Portal para configurar e implementar recursos medi
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
-[template-overview]: ../azure-resource-manager/template-deployment-overview.md
-[deploy-powershell]: ../azure-resource-manager/resource-group-template-deploy.md
-[deploy-cli]: ../azure-resource-manager/resource-group-template-deploy-cli.md
+[template-overview]: ../azure-resource-manager/templates/overview.md
+[deploy-powershell]: ../azure-resource-manager/templates/deploy-powershell.md
+[deploy-cli]: ../azure-resource-manager/templates/deploy-cli.md

@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: c9f59eb8c299eb9319694d392c2b5d1d814ed9b8
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 4aa45cc1e8b79186d3ddd5d2b2964addb3929b1a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997333"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978568"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Información general sobre las funcionalidades de seguridad de Azure SQL Database
 
@@ -41,7 +41,7 @@ Las [reglas de red virtual](sql-database-vnet-service-endpoint-rule-overview.md)
 > [!NOTE]
 > El control de acceso con reglas de firewall *no* se aplica a **una instancia administrada**. Para más información sobre la configuración de red necesaria, consulte [conexión a una instancia administrada](sql-database-managed-instance-connect-app.md)
 
-## <a name="access-management"></a>administración de acceso
+## <a name="access-management"></a>Administración de acceso
 
 > [!IMPORTANT]
 > La administración de bases de datos y servidores de bases de datos en Azure se controla mediante las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información sobre este artículo, consulte [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md).
@@ -73,7 +73,7 @@ Como procedimiento recomendado, cree roles personalizados cuando sea necesario. 
 
 ### <a name="row-level-security"></a>Seguridad de nivel de fila
 
-La seguridad de nivel de fila permite a los clientes controlar el acceso a las filas de una tabla de base de datos en función de las características del usuario que ejecuta una consulta (como, por ejemplo, la pertenencia a un grupo o el contexto de ejecución). La seguridad de nivel de fila también puede utilizarse para implementar los conceptos de seguridad basados en etiquetas personalizados. Para más información, consulte [Seguridad de nivel de fila](/sql/relational-databases/security/row-level-security).
+La seguridad de nivel de fila permite a los clientes controlar el acceso a las filas de una tabla de base de datos según las características del usuario que ejecuta una consulta (por ejemplo, la pertenencia a grupos o el contexto de ejecución). La seguridad de nivel de fila también puede utilizarse para implementar los conceptos de seguridad basados en etiquetas personalizados. Para más información, consulte [Seguridad de nivel de fila](/sql/relational-databases/security/row-level-security).
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
 
@@ -104,7 +104,7 @@ Como procedimiento recomendado, le sugerimos que en la cadena de conexión de la
 Por ejemplo, cuando se utiliza el controlador ADO.NET, esto se logra a través de **Encrypt=True** y **TrustServerCertificate=False**. Si obtiene la cadena de conexión en Azure Portal, tendrá la configuración correcta.
 
 > [!IMPORTANT]
-> Tenga en cuenta que algunos controladores que no son de Microsoft pueden no usar TLS de forma predeterminada o basarse en una versión anterior de TLS (<1.2) para poder funcionar. En este caso, SQL Server sigue permitiendo conectarse a la base de datos. Pero recomendamos que evalúe los riesgos de seguridad de permitir que estos controladores y aplicaciones se conecten a SQL Database, especialmente si almacena datos confidenciales. 
+> Tenga en cuenta que algunos controladores que no son de Microsoft pueden no usar TLS de forma predeterminada o basarse en una versión anterior de TLS (<1.2) para poder funcionar. En este caso, SQL Server sigue permitiendo conectarse a la base de datos. Pero recomendamos que evalúe los riesgos de seguridad de permitir que estos controladores y aplicaciones se conecten a SQL Database, especialmente si almacena datos confidenciales.
 >
 > Para obtener información adicional sobre TLS y la conectividad, vea [Consideraciones de TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
@@ -138,7 +138,7 @@ La [evaluación de vulnerabilidades](sql-vulnerability-assessment.md) es un serv
 
 ### <a name="data-discovery--classification"></a>Clasificación y detección de datos
 
-La clasificación y detección de datos (actualmente en su versión preliminar) proporciona funcionalidades avanzadas integradas en Azure SQL Database para detectar, clasificar, etiquetar y proteger la información confidencial de las bases de datos. Las funciones de detección y clasificación de la información confidencial más importante (empresarial, financiera, médica, personal, etc.) desempeñan un rol fundamental en el modo en que se protege la información de su organización. Puede servir como infraestructura para:
+La clasificación y detección de datos (actualmente en su versión preliminar) proporciona funcionalidades avanzadas integradas en Azure SQL Database para detectar, clasificar, etiquetar y proteger la información confidencial de las bases de datos. Las funciones de detección y clasificación de la información confidencial más importante (empresarial, financiera, médica, personal, etc.) desempeñan un rol fundamental en el modo en que se protege la información de su organización. Puede servir como infraestructura para lo siguiente:
 
 - Varios escenarios de seguridad, como la supervisión (auditoría) y las alertas relacionadas con accesos anómalos a información confidencial.
 - Controlar el acceso y mejorar la seguridad de las bases de datos que contienen información altamente confidencial.

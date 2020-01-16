@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98157009b5a005d1d1f9efbe2f59bac1302cdb01
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5525f2f8ab4ef83ba9c3aeeff945bc9d875600d5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014310"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748673"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretación del esquema de registros de inicio de sesión de Azure AD en Azure Monitor
 
@@ -143,9 +143,9 @@ En este artículo se describe el esquema de registro de inicio de sesión de Azu
 
 ## <a name="field-descriptions"></a>Descripciones de los campos
 
-| Nombre del campo | DESCRIPCIÓN |
+| Nombre del campo | Descripción |
 |------------|-------------|
-| Hora | Fecha y hora en formato UTC. |
+| Time | Fecha y hora en formato UTC. |
 | ResourceId | Este valor no se ha asignado, y puede ignorar este campo de forma segura.  |
 | OperationName | Para inicios de sesión, este valor es siempre *Actividad de inicio de sesión*. |
 | OperationVersion | Versión de la API REST solicitada por el cliente. |
@@ -165,9 +165,9 @@ En este artículo se describe el esquema de registro de inicio de sesión de Azu
 | Identidad | Identidad del token que se ha presentado al realizar la solicitud. Puede ser una cuenta de usuario, una cuenta del sistema o una entidad de servicio. |
 | Nivel | Proporciona el tipo de mensaje. Para la auditoría, siempre es *informativo*. |
 | Location | Indica la ubicación de la actividad de inicio de sesión. |
-| properties (Propiedades) | Enumera todas las propiedades asociadas con los inicios de sesión. Para más información, consulte [Referencia de Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Este esquema usa los mismos nombres de atributo que el recurso de inicio de sesión, para fines de legibilidad.
+| Propiedades | Enumera todas las propiedades asociadas con los inicios de sesión. Para más información, consulte [Referencia de Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Este esquema usa los mismos nombres de atributo que el recurso de inicio de sesión, para fines de legibilidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Interpretación del esquema de registros de auditoría en Azure Monitor](reference-azure-monitor-audit-log-schema.md)
-* [Más información sobre los registros de diagnóstico de Azure](../../azure-monitor/platform/resource-logs-overview.md)
+* [Más información sobre los registros de diagnóstico de Azure](../../azure-monitor/platform/platform-logs-overview.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: c128f17a3d2c4f5461a04ae375e05336cc994b4b
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e4e15d1c6554fc567f668b2033bff5b5664db918
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552311"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972792"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Creación de clústeres de Apache HBase en HDInsight en Azure Virtual Network
 
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-apache-hbase-cluster-into-virtual-network"></a>Creación de un clúster de Apache HBase en Virtual Network
 
-En esta sección, crea un clúster de Apache HBase basado en Linux con la cuenta de Azure Storage dependiente en Azure Virtual Network mediante una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md). Para conocer otros métodos de creación de clústeres y la descripción de la configuración, consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Para más información acerca de cómo utilizar una plantilla para crear clústeres de Apache Hadoop en HDInsight, consulte [Creación de clústeres de Apache Hadoop en HDInsight con plantillas de Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+En esta sección, crea un clúster de Apache HBase basado en Linux con la cuenta de Azure Storage dependiente en Azure Virtual Network mediante una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/deploy-powershell.md). Para conocer otros métodos de creación de clústeres y la descripción de la configuración, consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Para más información acerca de cómo utilizar una plantilla para crear clústeres de Apache Hadoop en HDInsight, consulte [Creación de clústeres de Apache Hadoop en HDInsight con plantillas de Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 > [!NOTE]  
 > Algunas propiedades se han codificado de forma rígida en la plantilla. Por ejemplo:

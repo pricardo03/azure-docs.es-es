@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5f006832fd1f1386adaf89b0045272a70db2df3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9854027bbdfaf22c650ae9e2e0aa1eec457f89dd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429949"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977940"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales de Azure mediante una plantilla
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Las identidades administradas para los recursos de Azure proporcionan a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory. Puede usar esta identidad para autenticar a cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código. 
+Las identidades administradas para los recursos de Azure proporcionan a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory. Puede usar esta identidad para autenticar a cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código.
 
 En este artículo, aprenderá a realizar las siguientes operaciones de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales de Azure mediante la plantilla de implementación de Azure Resource Manager:
 - Habilitación y deshabilitación de la identidad administrada asignada por el sistema en un conjunto de escalado de máquinas virtuales de Azure
@@ -54,7 +54,7 @@ Al igual que con Azure Portal y los scripts, las plantillas de [Azure Resource M
    - Usar un [editor de JSON (por ejemplo, VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md) local y, a continuación, cargarla e implementarla con PowerShell o la CLI.
    - Usar el [proyecto del grupo de recursos de Azure](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) de Visual Studio tanto para crear como para implementar una plantilla.  
 
-Independientemente de la opción que elija, la sintaxis de la plantilla es la misma durante la implementación inicial y posteriores implementaciones. La habilitación de identidades administradas de recursos de Azure en una máquina virtual existente o nueva se realiza de la misma forma. Además, de forma predeterminada, Azure Resource Manager realiza una [actualización incremental](../../azure-resource-manager/deployment-modes.md) en las implementaciones.
+Independientemente de la opción que elija, la sintaxis de la plantilla es la misma durante la implementación inicial y posteriores implementaciones. La habilitación de identidades administradas de recursos de Azure en una máquina virtual existente o nueva se realiza de la misma forma. Además, de forma predeterminada, Azure Resource Manager realiza una [actualización incremental](../../azure-resource-manager/templates/deployment-modes.md) en las implementaciones.
 
 ## <a name="system-assigned-managed-identity"></a>Identidad administrada asignada por el sistema
 
@@ -66,7 +66,7 @@ En esta sección, se habilita y deshabilita la identidad administrada asignada p
 2. Para habilitar la identidad administrada asignada por el sistema, cargue la plantilla en un editor, busque el recurso de interés `Microsoft.Compute/virtualMachinesScaleSets` en la sección de recursos y agregue la propiedad `identity` en el mismo nivel que la propiedad `"type": "Microsoft.Compute/virtualMachinesScaleSets"`. Use la sintaxis siguiente:
 
    ```JSON
-   "identity": { 
+   "identity": {
        "type": "SystemAssigned"
    }
    ```
@@ -106,14 +106,14 @@ En esta sección, se habilita y deshabilita la identidad administrada asignada p
                                       "port": 50342
                                   }
                                 }
-                            } 
+                            }
                         ]
                     }
                 }
             }
         }
     ]
-   ``` 
+   ```
 
 ### <a name="disable-a-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Deshabilitación de una identidad administrada asignada por el sistema de un conjunto de escalado de máquinas virtuales de Azure
 
@@ -129,12 +129,12 @@ Si tiene un conjunto de escalado de máquinas virtuales que ya no necesita una i
 
    **Microsoft.Compute/virtualMachineScaleSets versión de API 2018-06-01**
 
-   Si apiVersion es `2017-12-01` y el conjunto de escalado de máquinas virtuales tiene identidades administradas asignadas tanto por el usuario como por el sistema, quite `SystemAssigned` del tipo de identidad y mantenga `UserAssigned` junto con la matriz `identityIds` de las identidades administradas asignadas por el usuario. 
-   
-    
+   Si apiVersion es `2017-12-01` y el conjunto de escalado de máquinas virtuales tiene identidades administradas asignadas tanto por el usuario como por el sistema, quite `SystemAssigned` del tipo de identidad y mantenga `UserAssigned` junto con la matriz `identityIds` de las identidades administradas asignadas por el usuario.
+
+
 
    En el ejemplo siguiente se muestra cómo quitar una identidad administrada asignada por el sistema de un conjunto de escalado de máquinas virtuales sin identidades administradas asignadas por el usuario:
-   
+
    ```json
    {
        "name": "[variables('vmssName')]",
@@ -157,7 +157,7 @@ En esta sección, asignará una identidad administrada asignada por el usuario a
 ### <a name="assign-a-user-assigned-managed-identity-to-a-virtual-machine-scale-set"></a>Asignación de una identidad administrada asignada por el usuario a un conjunto de escalado de máquinas virtuales
 
 1. En el elemento `resources`, agregue la siguiente entrada para asignar una identidad administrada asignada por el usuario al conjunto de escalado de máquinas virtuales.  No olvide reemplazar `<USERASSIGNEDIDENTITY>` con el nombre de la identidad administrada asignada por el usuario que ha creado.
-   
+
    **Microsoft.Compute/virtualMachineScaleSets versión de API 2018-06-01**
 
    Si apiVersion es `2018-06-01`, las identidades administradas asignadas por el usuario se almacenan en el formato de diccionario `userAssignedIdentities` y el valor `<USERASSIGNEDIDENTITYNAME>` debe almacenarse en una variable definida en la sección `variables` de la plantilla.
@@ -173,12 +173,12 @@ En esta sección, asignará una identidad administrada asignada por el usuario a
                "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
            }
        }
-    
+
    }
    ```   
 
    **Microsoft.Compute/virtualMachineScaleSets versión de API 2017-12-01**
-    
+
    Si `apiVersion` es `2017-12-01` o anterior, las identidades administradas asignadas por el usuario se almacenan en la matriz `identityIds` y el valor `<USERASSIGNEDIDENTITYNAME>` debe almacenarse en una variable definida en la sección de variables de la plantilla.
 
    ```json
@@ -194,12 +194,12 @@ En esta sección, asignará una identidad administrada asignada por el usuario a
        }
 
    }
-   ``` 
+   ```
 > [!NOTE]
 > De forma opcional, puede aprovisionar las identidades administradas de extensión del conjunto de escalado de máquinas virtuales de los recursos de Azure si lo especifica en el elemento `extensionProfile` de la plantilla. Este paso es opcional, ya que puede usar el punto de conexión de identidad de Azure Instance Metadata Service (IMDS) para recuperar tokens.  Para obtener más información, consulte [Migración de la extensión de máquina virtual a IMDS de Azure para la autenticación](howto-migrate-vm-extension.md).
 
 3. Cuando haya terminado, la plantilla debería tener un aspecto similar al siguiente:
-   
+
    **Microsoft.Compute/virtualMachineScaleSets versión de API 2018-06-01**   
 
    ```json
@@ -234,7 +234,7 @@ En esta sección, asignará una identidad administrada asignada por el usuario a
                                       "port": 50342
                                   }
                                 }
-                            } 
+                            }
                         ]
                     }
                 }
@@ -277,7 +277,7 @@ En esta sección, asignará una identidad administrada asignada por el usuario a
                                       "port": 50342
                                   }
                                 }
-                            } 
+                            }
                         ]
                     }
                 }
@@ -305,9 +305,9 @@ Si tiene un conjunto de escalado de máquinas virtuales que ya no necesita una i
         }
    }
    ```
-   
+
    **Microsoft.Compute/virtualMachineScaleSets versión de API 2018-06-01**
-    
+
    Para quitar una identidad administrada asignada por un usuario único desde un conjunto de escalado de máquinas virtuales, quítela del diccionario `userAssignedIdentities`.
 
    Si tiene una identidad asignada por el sistema, consérvela en el valor `type` de `identity`.
@@ -317,8 +317,7 @@ Si tiene un conjunto de escalado de máquinas virtuales que ya no necesita una i
    Para quitar una identidad administrada asignada por un usuario único desde un conjunto de escalado de máquinas virtuales, quítela de la matriz `identityIds`.
 
    Si tiene una identidad administrada asignada por el sistema, consérvela en el valor `type` de `identity`.
-   
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Información general sobre las identidades administradas de recursos de Azure](overview.md).
-

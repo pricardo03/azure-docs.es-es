@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
-ms.openlocfilehash: 800182498ab77993d0861c9b5383e0d71b302b6f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 5604b42e1611830f3aaea9ae180cdb8142ab0942
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091570"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887196"
 ---
 # <a name="scenario-timeouts-with-hbase-hbck-command-in-azure-hdinsight"></a>Escenario: Tiempos de espera con el comando "hbase hbck" en Azure HDInsight
 
@@ -26,7 +26,7 @@ Se producen tiempos de espera con el comando `hbase hbck` al corregir las asigna
 
 Una posible causa de problemas de tiempo de espera cuando se usa el comando `hbck` puede ser que varias regiones estén en el estado "en transición" durante mucho tiempo. En la interfaz de usuario maestra de HBase, dichas regiones se pueden ver como sin conexión. Dado que un elevado número de regiones intentan realizar la transición, HBase Master puede superar el tiempo de espera, lo que impediría que dichas regiones vuelvan a estar en línea.
 
-## <a name="resolution"></a>Resolución
+## <a name="resolution"></a>Solución
 
 1. Inicie sesión en el clúster de HDInsight HBase mediante SSH.
 
@@ -50,4 +50,4 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 - Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-- Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+- Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

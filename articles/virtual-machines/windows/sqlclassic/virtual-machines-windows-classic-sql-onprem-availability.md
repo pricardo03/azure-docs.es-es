@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 48848fbacdc0e205604bb163aa36bdafcd175b0b
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 4521c2c112c93e83144cfc84d600208817b2ccac
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173540"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978044"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Ampliación de los grupos de disponibilidad AlwaysOn locales a Azure
 Los grupos de disponibilidad AlwaysOn proporcionan alta disponibilidad para los grupos de la base de datos mediante la incorporación de réplicas secundarias. Estas réplicas permiten la conmutación por error en bases de datos en caso de error. Además puede usarse para descargar las cargas de trabajo de lectura o tareas de copia de seguridad.
@@ -33,7 +33,7 @@ Este tutorial supone que tiene lo siguiente:
 * Conectividad entre la red local y la red virtual de Azure. Para más información sobre cómo crear esta red virtual, consulte [Creación de una conexión de sitio a sitio mediante Azure Portal (clásico)](../../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md).
 
 > [!IMPORTANT] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/management/deployment-models.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
 
 ## <a name="add-azure-replica-wizard"></a>Asistente para agregar una réplica de Azure
 En esta sección se muestra cómo usar el **Asistente para agregar una réplica de Azure** para ampliar su solución de grupos de disponibilidad AlwaysOn a fin de incluir réplicas de Azure.
@@ -55,7 +55,7 @@ En esta sección se muestra cómo usar el **Asistente para agregar una réplica 
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742864.png)
 7. El usuario rellenará cada campo de la página con los valores que se usarán para crear la máquina virtual de Azure que hospedará la réplica.
    
-   | Configuración | DESCRIPCIÓN |
+   | Configuración | Descripción |
    | --- | --- |
    | **Imagen** |Seleccione la combinación deseada de sistema operativo y SQL Server |
    | **Tamaño de VM** |Seleccione el tamaño de la máquina virtual que mejor se adapte a sus necesidades empresariales |

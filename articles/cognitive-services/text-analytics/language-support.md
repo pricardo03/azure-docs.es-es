@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 4927a26b78c8f68f1752abc76c30f143a361a912
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: fcf7051a631e74f2f6db918c7c861e32295ae9e8
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611124"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732644"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Compatibilidad de idiomas y regiones para Text Analytics API
 
@@ -31,7 +31,7 @@ Si tiene contenido que se expresa en un idioma que se usa con menos frecuencia, 
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Análisis de sentimiento, Extracción de frases clave y Reconocimiento entidad con nombre
 
-Para el Análisis de sentimiento, la Extracción de frases clave y el Reconocimiento entidad, la lista de idiomas admitidos es más selectiva, ya que los analizadores se perfeccionan para dar cabida a las reglas lingüísticas de idiomas adicionales. En Reconocimiento de entidades con nombre v2, es compatible con el conjunto completo de [tipos de entidad](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition-v2) actualmente está limitada a los idiomas siguientes: 
+Para el Análisis de sentimiento, la Extracción de frases clave y el Reconocimiento entidad, la lista de idiomas admitidos es más selectiva, ya que los analizadores se perfeccionan para dar cabida a las reglas lingüísticas de idiomas adicionales. En Reconocimiento de entidades con nombre v2, es compatible con el conjunto completo de [tipos de entidad](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) actualmente está limitada a los idiomas siguientes: 
 * Inglés
 * Chino simplificado
 * Francés
@@ -75,7 +75,7 @@ La compatibilidad de idiomas se introduce inicialmente en la versión preliminar
 
 \* La compatibilidad con idiomas está en versión preliminar
 
-\** También está disponible en las versiones preliminares públicas [Análisis de sentimiento v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) o [Reconocimiento de entidades con nombre V3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview).
+\** También está disponible en las versiones preliminares públicas [Análisis de sentimiento v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) o [Reconocimiento de entidades con nombre V3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
 
 ## <a name="see-also"></a>Consulte también
 

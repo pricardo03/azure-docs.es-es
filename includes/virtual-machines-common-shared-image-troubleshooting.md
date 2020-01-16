@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: cc35133df073eea056586dede62c451713e98c10
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 40ba5a935e78cd75c4fcd7729e44f1cdf6c2859b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75663079"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772857"
 ---
 Si tiene problemas al realizar cualquier operación en galerías de imágenes compartidas, definiciones de imágenes y versiones de imágenes, vuelva a ejecutar el comando con errores en modo de depuración. El modo de depuración se activa al pasar el conmutador **-debug** con la CLI y el conmutador **-debug** con PowerShell. Una vez que haya encontrado el error, siga este documento para solucionar los errores.
 
@@ -96,7 +96,7 @@ Use la marca **--expand ReplicationStatus** para comprobar si se ha completado l
 
 ## <a name="azure-limits-and-quotas"></a>Límites y cuotas de Azure 
 
-Los[límites y cuotas de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-resource-manager/management/azure-subscription-service-limits) se aplican a todos los recursos de galería de imágenes compartidas, las versiones de imágenes, definiciones de imágenes. Asegúrese de encontrarse dentro de los límites para las suscripciones. 
+Los[límites y cuotas de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) se aplican a todos los recursos de galería de imágenes compartidas, las versiones de imágenes, definiciones de imágenes. Asegúrese de encontrarse dentro de los límites para las suscripciones. 
 
 
 

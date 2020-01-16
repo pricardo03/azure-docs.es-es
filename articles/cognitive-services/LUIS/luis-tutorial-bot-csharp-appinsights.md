@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 036ecbbbd2ea562f3e809691a1b3af62578893f5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b9c47685253e2a70c7b5e947debaac6f5f3264b2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498967"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888301"
 ---
 # <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>Tutorial: Adición de resultados de LUIS a Application Insights desde un bot en C#
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 > * Capturar datos de bot y Language Understanding en Application Insights
 > * Consultar datos de Language Understanding en Application Insights
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Un bot de Azure Bot Service, creado con Application Insights habilitado.
 * Código de bot descargado del **[tutorial](luis-csharp-tutorial-bf-v4.md)** de bot anterior. 
@@ -162,7 +162,7 @@ Para agregar datos a Application Insights, necesitas la clave de instrumentació
 1. En Visual Studio, compila y ejecuta el bot. 
 1. Inicia el emulador de bots y abre el bot. Este [paso](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) se proporciona en el tutorial anterior.
 
-1. Haz una pregunte al bot. Este [paso](luis-csharp-tutorial-bf-v4.md##use-the-bot-emulator-to-test-the-bot) se proporciona en el tutorial anterior.
+1. Haz una pregunte al bot. Este [paso](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) se proporciona en el tutorial anterior.
 
 ## <a name="view-luis-entries-in-application-insights"></a>Visualización de las entradas de LUIS en Application Insights
 
@@ -186,7 +186,7 @@ Application Insights ofrece la capacidad de consultar los datos con el lenguaje 
     | extend utterance = tostring(customDimensions.LUIS_query)
     ```
 
-1. Ejecute la consulta. Las nuevas columnas de intención superior, puntuación y expresión están disponibles. Selecciona la columna topIntent para ordenar.
+1. Ejecuta la consulta. Las nuevas columnas de intención superior, puntuación y expresión están disponibles. Selecciona la columna topIntent para ordenar.
 
 Obtén más información sobre el [lenguaje de consultas Kusto](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) o [la exportación de los datos a Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 

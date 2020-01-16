@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 13392644ebe5e163e946deceeec5fcab8f5085cc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4a411603ca5c3c79da0d596396d8fde80b568af2
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159722"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763086"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Vista previa: Creación de una plantilla de Azure Image Builder 
 
@@ -28,7 +28,7 @@ Este es el formato de plantilla básico:
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             }
+             },
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
@@ -275,14 +275,15 @@ El personalizador de reinicio le permite reiniciar una máquina virtual de Windo
 
 ```json 
      "customize": [ 
-            "type{ ": "WindowsRestart", 
+         {
+            "type": "WindowsRestart", 
             "restartCommand": "shutdown /r /f /t 0 /c", 
             "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > buildArtifacts/azureImageBuilderRestart.txt",
             "restartTimeout": "5m"
          }],
 ```
 
-SO compatible:  Windows
+SO compatible: Windows
  
 Propiedades de personalización:
 - **Tipo**: WindowsRestart

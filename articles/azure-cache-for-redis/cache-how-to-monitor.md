@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 73e1e3bfbc84e6264897d571fca1bf31061d7ab6
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 9e829c7d3756599cc80f35187bd743ce798cecda
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122755"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750066"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Supervisión de Azure Cache for Redis
 Azure Cache for Redis usa [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) para proporcionar varias opciones para la supervisión de instancias de caché. Puede ver las métricas, anclar los gráficos de métricas al panel de inicio, personalizar el intervalo de fecha y hora de los gráficos de supervisión, agregar y quitar métricas de los gráficos y establecer alertas cuando se cumplen determinadas condiciones. Estas herramientas permiten supervisar el estado de las instancias de Azure Cache for Redis y le ayudan a administrar sus aplicaciones de almacenamiento en caché.
@@ -22,7 +22,7 @@ Las métricas de las instancias de Azure Cache for Redis se recopilan mediante e
 
 Para ver las métricas de caché, [busque](cache-configure.md#configure-azure-cache-for-redis-settings) la instancia de su memoria caché en [Azure Portal](https://portal.azure.com).  Azure Cache for Redis proporciona varios gráficos integrados en las hoja **Introducción** y **Métricas de Redis**. Se puede personalizar cada gráfico agregando o quitando métricas y cambiando el intervalo de informes.
 
-![Métricas de Redis](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
+![Caché en Redis](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
 
 ## <a name="view-pre-configured-metrics-charts"></a>Visualización de gráficos de métricas preconfigurados
 
@@ -53,7 +53,7 @@ Para más información acerca de cómo trabajar con métricas mediante Azure Mon
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Exportación de métricas de caché
-De manera predeterminada, en Azure Monitor las métricas de caché se [almacenan 30 días](../azure-monitor/platform/data-platform-metrics.md) y, después, se eliminan. Para conservar las métricas de memoria caché durante más de 30 días, puede [designar una cuenta de almacenamiento](../azure-monitor/platform/archive-diagnostic-logs.md) y especifique un **retención (días)** directiva para las métricas de memoria caché. 
+De manera predeterminada, en Azure Monitor las métricas de caché se [almacenan durante 30 días](../azure-monitor/platform/data-platform-metrics.md) y después se eliminan. Para conservar las métricas de memoria caché durante más de 30 días, puede [designar una cuenta de almacenamiento](../azure-monitor/platform/archive-diagnostic-logs.md) y especifique un **retención (días)** directiva para las métricas de memoria caché. 
 
 Para configurar una cuenta de almacenamiento para las métricas de caché:
 
@@ -88,7 +88,7 @@ Cada métrica incluye dos versiones. Una métrica mide el rendimiento de toda la
 > 
 > 
 
-| Métrica | DESCRIPCIÓN |
+| Métrica | Descripción |
 | --- | --- |
 | Aciertos de caché |El número de búsquedas de claves correctas durante el intervalo de informes. Este valor se asigna a `keyspace_hits` desde el comando [INFO](https://redis.io/commands/info) de Redis. |
 | Latencia de caché (versión preliminar) | Latencia de la memoria caché calculada a partir de la latencia entre nodos de la memoria caché. Esta métrica se mide en microsegundos y tiene tres dimensiones: "Promedio", "Mín." y "Máx.", que representan la latencia promedio, mínima y máxima de la memoria caché, respectivamente, durante el intervalo de informes especificado. |
@@ -103,7 +103,7 @@ Cada métrica incluye dos versiones. Una métrica mide el rendimiento de toda la
 | Gets |El número de operaciones get de la caché durante el intervalo de informes especificado. Este valor es la suma de los siguientes valores de todos los comandos INFO de Redis: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit` y `cmdstat_getrange`, y es equivalente a la suma de aciertos y errores de caché durante el intervalo de informes. |
 | Operaciones por segundo | El número total de comandos procesados por segundo por el servidor de caché durante el intervalo de informes especificado.  Este valor se asigna a "instantaneous_ops_per_sec" desde el comando INFO de Redis. |
 | Carga de servidor de Redis |El porcentaje de ciclos en el que el servidor de Redis está ocupado procesando y no esperando a los mensajes inactivo. Si este contador llega a 100, significa que el servidor de Redis ha llegado a un límite de rendimiento y la CPU no puede procesar el trabajo más rápidamente. Si ve alta carga del servidor de Redis, verá las excepciones de tiempo de espera en el cliente. En este caso, debería considerar la posibilidad de un escalado vertical o el particionamiento de los datos en varias cachés. |
-| Sets |El número de operaciones set a la caché durante el intervalo de informes especificado. Este valor es la suma de los siguientes valores de todos los comandos INFO de Redis: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` y `cmdstat_setnx`. |
+| Conjuntos |El número de operaciones set a la caché durante el intervalo de informes especificado. Este valor es la suma de los siguientes valores de todos los comandos INFO de Redis: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` y `cmdstat_setnx`. |
 | Total de claves  | El número máximo de claves en la memoria caché durante el período de generación de informes anterior. Este valor se asigna a `keyspace` desde el comando INFO de Redis. Debido a una limitación del sistema de métricas subyacente, en el caso de las memorias caché con la agrupación en clústeres habilitada, Total de claves devuelve el número máximo de claves de la partición que tenía el número máximo de claves durante el intervalo de generación de informes.  |
 | Total de operaciones |El número total de comandos procesados por el servidor de caché durante el intervalo de informes especificado. Este valor se asigna a `total_commands_processed` desde el comando INFO de Redis. Tenga en cuenta que cuando se utiliza Azure Cache for Redis simplemente para publicación y suscripción, no habrá ninguna métrica para `Cache Hits`, `Cache Misses`, `Gets` o `Sets`, pero habrá métricas `Total Operations` que reflejan el uso de la memoria caché para operaciones de publicación y suscripción. |
 | Memoria usada |La cantidad de memoria caché usada para pares clave-valor en la memoria caché en MB durante el intervalo de informes especificado. Este valor se asigna a `used_memory` desde el comando INFO de Redis. Esto no incluye los metadatos o la fragmentación. |
@@ -134,7 +134,7 @@ Los registros de actividad proporcionan información sobre las operaciones lleva
 
 Para ver los registros de actividad de la memoria caché, haga clic en **Registros de actividad** en el **menú Recursos**.
 
-Para más información acerca de los registros de actividad, consulte [Información general sobre el registro de actividad de Azure](../azure-monitor/platform/activity-logs-overview.md).
+Para más información acerca de los registros de actividad, consulte [Información general sobre el registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 
 

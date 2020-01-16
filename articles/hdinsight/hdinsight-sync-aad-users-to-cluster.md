@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: acacb9c10250d43e22b5b5b1d073b18461561512
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 299d242c38152db6a471159d1f3d2803598c1832
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406842"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744862"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronización de los usuarios de Azure Active Directory en un clúster de HDInsight
 
 [Los clústeres de HDInsight con Enterprise Security Package (ESP)](hdinsight-domain-joined-introduction.md) pueden usar una autenticación segura con los usuarios de Azure Active Directory (Azure AD) y las directivas de *control de acceso basado en rol* (RBAC). A medida que se agregan usuarios y grupos a Azure AD, se pueden sincronizar los usuarios que necesitan tener acceso al clúster.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Si aún no lo ha hecho, [cree un clúster de HDInsight con Enterprise Security Package](hdinsight-domain-joined-configure.md).
 
@@ -65,7 +65,7 @@ El método siguiente utiliza POST con la API de REST de Ambari. Para obtener má
     {
       "resources" : [
         {
-          "href" : "http://hn0-hadoop.<YOUR DOMAIN>.com:8080/api/v1/ldap_sync_events/1",
+          "href" : "http://<ACTIVE-HEADNODE-NAME>.<YOUR DOMAIN>.com:8080/api/v1/ldap_sync_events/1",
           "Event" : {
             "id" : 1
           }
@@ -84,7 +84,7 @@ El método siguiente utiliza POST con la API de REST de Ambari. Para obtener má
 
     ```json
     {
-      "href" : "http://hn0-hadoop.YOURDOMAIN.com:8080/api/v1/ldap_sync_events/1",
+      "href" : "http://<ACTIVE-HEADNODE-NAME>.YOURDOMAIN.com:8080/api/v1/ldap_sync_events/1",
       "Event" : {
         "id" : 1,
         "specs" : [
@@ -146,7 +146,7 @@ Abra la [interfaz de usuario web de Apache Ambari](hdinsight-hadoop-manage-ambar
 Cuando el nuevo usuario (o cualquier otro usuario del dominio) inicia sesión en Ambari, se usan sus credenciales del dominio y el nombre de usuario completo de Azure AD.  Ambari muestra un alias de usuario, que es el nombre para mostrar del usuario en Azure AD.
 El nuevo usuario de ejemplo tiene el nombre de usuario `hiveuser3@contoso.com`. En Ambari, este nuevo usuario aparece como `hiveuser3`, pero el usuario inicia sesión en Ambari como `hiveuser3@contoso.com`.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Configuración de directivas de Apache Hive en HDInsight con ESP](hdinsight-domain-joined-run-hive.md)
 * [Administración de clústeres de HDInsight con Enterprise Security Package](hdinsight-domain-joined-manage.md)

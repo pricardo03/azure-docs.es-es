@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 47bcc9a4f906fa1e0cc0560cdbd2e0cebec481ab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 765bbc352c493124c1adec68eff456f4d0de3d49
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435376"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744880"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integración de Apache Spark y Apache Hive con el conector de Hive Warehouse
 
@@ -58,7 +58,7 @@ Copie la información del nodo del archivo `/etc/hosts` en headnode0 de su clús
 
 1. Vaya a **Hive** > **CONFIGS** > **Advanced** > **Advanced Hive-site** > **hive.zookeeper.quorum** y anote el valor. El valor puede ser similar a `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
 
-1. Vaya a **Hive** > **CONFIGS** > **Advanced** > **General** > **hive.metastore.uris** y anote el valor. El valor puede ser similar a `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
+1. Vaya a **Hive** > **CONFIGS** > **Advanced** > **General** > **hive.metastore.uris** y anote el valor. El valor puede ser similar a `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
 
 #### <a name="from-your-apache-spark-cluster"></a>Desde el clúster de Apache Spark
 
