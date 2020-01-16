@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 720351463a9f8d5712c76401f3fbba64c3177e84
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 6c539121914418f5373b333e9493e24f7769fa5b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871970"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978988"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Creación de un emparejamiento de red virtual: distintos modelos de implementación, la misma suscripción
 
 En este tutorial aprenderá a crear un emparejamiento de redes virtuales entre dos redes virtuales creadas mediante diferentes modelos de implementación. Hay redes virtuales en la misma suscripción en la misma suscripción. Emparejar dos redes virtuales permite que los recursos en distintas redes virtuales se comuniquen entre sí con el mismo ancho de banda y latencia que tendrían los recursos si estuvieran en la misma red virtual. Obtenga más información sobre el [Emparejamiento de redes virtuales](virtual-network-peering-overview.md).
 
-Los pasos para crear un emparejamiento de redes virtuales cambian en función de si las redes virtuales se encuentran en la misma suscripción o en suscripciones diferentes, y en función del [modelo de implementación de Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) con el que se han creado las redes virtuales. Para más información sobre cómo crear un emparejamiento de redes virtuales en otros escenarios, haga clic en el escenario en la tabla siguiente:
+Los pasos para crear un emparejamiento de redes virtuales cambian en función de si las redes virtuales se encuentran en la misma suscripción o en suscripciones diferentes, y en función del [modelo de implementación de Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) con el que se han creado las redes virtuales. Para más información sobre cómo crear un emparejamiento de redes virtuales en otros escenarios, haga clic en el escenario en la tabla siguiente:
 
 |Modelo de implementación de Azure  | Suscripción de Azure  |
 |--------- |---------|
@@ -43,7 +43,7 @@ Puede usar Azure Portal, la [interfaz de la línea de comandos](#cli) (CLI) de A
 
 ## <a name="create-peering---azure-portal"></a>Creación de emparejamiento: Azure Portal
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para ver una lista de permisos, consulte [Permisos de emparejamiento de red virtual](virtual-network-manage-peering.md#requirements-and-constraints).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para ver una lista de permisos, consulte [Permisos de emparejamiento de red virtual](virtual-network-manage-peering.md#requirements-and-constraints).
 2. Haga clic en **+ Nuevo**, **Redes** y, luego, en **Red virtual**.
 3. En la hoja **Crear red virtual**, escriba o seleccione valores para la configuración siguiente y, luego, haga clic en **Crear**:
     - **Nombre**: *myVnet1*
@@ -53,7 +53,7 @@ Puede usar Azure Portal, la [interfaz de la línea de comandos](#cli) (CLI) de A
     - **Suscripción**: Seleccione su suscripción.
     - **Grupo de recursos**: Seleccione Crear nuevo y escriba *myResourceGroup*
     - **Ubicación**: *Este de EE. UU.*
-4. Haga clic en **+ Nuevo**. En el campo **Buscar en el Marketplace**, escriba *Red virtual*. Haga clic en **Red virtual** cuando aparezca en los resultados de búsqueda.
+4. Haga clic en **+ Nuevo**. En el campo **Buscar en el Marketplace**, escriba *Red virtual*. Haga clic en **Red virtual** cuando aparezca en los resultados de la búsqueda.
 5. En la hoja **Red virtual**, seleccione **Clásica** en el cuadro **Seleccionar un modelo de implementación** y haga clic en **Crear**.
 6. En la hoja **Crear red virtual**, escriba o seleccione valores para la configuración siguiente y, luego, haga clic en **Crear**:
     - **Nombre**: *myVnet2*

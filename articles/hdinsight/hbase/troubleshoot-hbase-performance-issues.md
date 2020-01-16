@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: 0466b08e551a5fa9da37afe2e5ad175ef28c804e
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529571"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887162"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Solución de problemas de rendimiento de Apache HBase en Azure HDInsight
 
@@ -57,7 +57,7 @@ Si las consultas comenzaron a empeorar más que antes, busque posibles errores e
 
 ## <a name="migration-issues"></a>Problemas de migración
 
-Si va a migrar a Azure HDInsight, asegúrese de que la migración se realiza de forma sistemática y precisa, preferiblemente mediante automatización. Evite la migración manual. Asegúrese de que:
+Si va a migrar a Azure HDInsight, asegúrese de que la migración se realiza de forma sistemática y precisa, preferiblemente mediante automatización. Evite la migración manual. Asegúrese de lo siguiente:
 
 - Los atributos de tabla se migran de forma precisa. Los atributos pueden incluir compresiones, filtros de Bloom, etc.
 
@@ -95,9 +95,9 @@ A continuación se muestran algunos de los otros parámetros específicos que se
 
     - `Phoenix.rpc.index.handler.count`: **50** (si hay muchas búsquedas de índice o son grandes)
 
-    - `Phoenix.stats.updateFrequency`: **1 hora**
+    - `Phoenix.stats.updateFrequency`: 1 hora**
 
-    - `Phoenix.coprocessor.maxmetadatacachetimetolivems`: **1 hora**
+    - `Phoenix.coprocessor.maxmetadatacachetimetolivems`: 1 hora**
 
     - `Phoenix.coprocessor.maxmetadatacachesize`: **50 MB**
 
@@ -124,4 +124,4 @@ Si el problema sigue sin resolverse, visite uno de los siguientes canales para o
 
 - Conectar con [@AzureSupport](https://twitter.com/azuresupport). Esta es la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-- Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para administración de suscripciones y facturación. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+- Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para administración de suscripciones y facturación. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

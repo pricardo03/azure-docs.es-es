@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: ashishth
-ms.openlocfilehash: d19640d19c3b7fa611f5bfe0e4fd0868924650c5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ceafee2d3356d37e74039789c8243ace41c141b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066937"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435787"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extracción, transformación y carga de datos (ETL) a escala
 
@@ -51,11 +51,11 @@ Para obtener más información sobre Azure Data Factory, consulte la [documentac
 
 ## <a name="ingest-file-storage-and-result-storage"></a>Ingesta de almacenamiento de archivos y de resultados
 
-Normalmente, los archivos de datos de origen se cargan en una ubicación de Azure Storage o Azure Data Lake Storage. Los archivos pueden estar en cualquier formato, pero normalmente son archivos planos como CSV. 
+Normalmente, los archivos de datos de origen se cargan en una ubicación de Azure Storage o Azure Data Lake Storage. Los archivos pueden estar en cualquier formato, pero normalmente son archivos planos como CSV.
 
-### <a name="azure-storage"></a>Azure Storage 
+### <a name="azure-storage"></a>Azure Storage
 
-[Azure Storage](https://azure.microsoft.com/services/storage/blobs/) tiene [objetivos de escalabilidad específicos](../../storage/common/storage-scalability-targets.md).  Para los nodos más analíticos, Azure Storage se escala mejor cuando trabaja con muchos archivos pequeños.  Azure Storage garantiza el mismo rendimiento, independientemente de la cantidad o del tamaño de los archivos (siempre y cuando se encuentren dentro de sus límites).  Esto significa que puede almacenar terabytes de datos y seguir obteniendo un rendimiento coherente, tanto si usa un subconjunto de los datos como su totalidad.
+[Azure Storage](https://azure.microsoft.com/services/storage/blobs/) tiene objetivos de escalabilidad específicos. Para más información, consulte [Objetivos de escalabilidad y rendimiento de Blob Storage](../../storage/blobs/scalability-targets.md). Para los nodos más analíticos, Azure Storage se escala mejor cuando trabaja con muchos archivos pequeños.  Azure Storage garantiza el mismo rendimiento, independientemente de la cantidad o del tamaño de los archivos (siempre y cuando se encuentren dentro de sus límites).  Esto significa que puede almacenar terabytes de datos y seguir obteniendo un rendimiento coherente, tanto si usa un subconjunto de los datos como su totalidad.
 
 Azure Storage tiene varios tipos diferentes de blobs.  Un *blob en anexos* es una opción ideal para almacenar los registros web o los datos del sensor.  
 

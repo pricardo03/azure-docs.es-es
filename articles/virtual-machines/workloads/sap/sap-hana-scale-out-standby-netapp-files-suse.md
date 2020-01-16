@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/21/2019
+ms.date: 01/10/2020
 ms.author: radeltch
-ms.openlocfilehash: 49e7fd49e000a3d4475c60a0c58cf6a2c7455fa5
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 243bbd431b7332d06a4e14581aa5c02bae2b7cba
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531408"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896293"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Implementación de un sistema de escalabilidad horizontal de SAP HANA con nodo en espera en VM de Azure mediante Azure NetApp Files en SUSE Linux Enterprise Server 
 
@@ -63,7 +63,7 @@ Antes de comenzar, consulte las siguientes notas y documentos de SAP:
 
 * [Documentación sobre Azure NetApp Files][anf-azure-doc] 
 * Nota de SAP [1928533], que incluye:  
-  * Una lista de los tamaños de VM de Azure que se admiten para la implementación del software de SAP.
+  * Una lista de los tamaños de máquina virtual de Azure que se admiten para la implementación de software de SAP
   * Información importante sobre la capacidad para los tamaños de máquina virtual de Azure
   * Software de SAP admitido y combinaciones de sistema operativo y base de datos
   * La versión del kernel de SAP necesaria para Windows y Linux en Microsoft Azure.
@@ -132,7 +132,7 @@ En las siguientes instrucciones se supone que ya ha implementado la [red virtual
 
 3. Configure el grupo de capacidad de Azure NetApp Files según disponibles en [Configuración en un grupo de capacidad de Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
 
-   La arquitectura de HANA que se presenta en este artículo utiliza un único grupo de capacidad de Azure NetApp Files, el nivel de *servicio Ultra*. Para cargas de trabajo HANA, se recomienda usar el [nivel de servicio](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) *Ultra* o *Premium* de Azure NetApp Files.  
+   La arquitectura de HANA que se presenta en este artículo utiliza un único grupo de capacidad de Azure NetApp Files, el nivel de *servicio Ultra*. Para las cargas de trabajo HANA en Azure, se recomienda usar el [nivel de servicio](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) *Ultra* o *Premium* de Azure NetApp Files.  
 
 4. Delegue una subred en Azure NetApp Files tal como se describe en las instrucciones de [Delegación de una subred en Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
@@ -186,7 +186,7 @@ Para cumplir los requisitos de rendimiento mínimo de SAP para los datos y el re
 | --- | --- | --- | --- |
 | /hana/log/ | 4 TiB | 2 TiB | v4.1 |
 | /hana/data | 6,3 TiB | 3,2 TiB | v4.1 |
-| /hana/shared | Máx. (512 GB, 1xRAM) por cuatro nodos de trabajo | Máx. (512 GB, 1xRAM) por cuatro nodos de trabajo | V3 o v 4.1 |
+| /hana/shared | Máx. (512 GB, 1xRAM) por cuatro nodos de trabajo | Máx. (512 GB, 1xRAM) por cuatro nodos de trabajo | v3 o v4.1 |
 
 La configuración de SAP HANA para el diseño que se presenta en este artículo, con la capa de almacenamiento Ultra de Azure NetApp Files, sería la siguiente:
 
@@ -196,7 +196,7 @@ La configuración de SAP HANA para el diseño que se presenta en este artículo,
 | /hana/log/mnt00002 | 2 TiB | v4.1 |
 | /hana/data/mnt00001 | 3,2 TiB | v4.1 |
 | /hana/data/mnt00002 | 3,2 TiB | v4.1 |
-| /hana/shared | 2 TiB | V3 o v 4.1 |
+| /hana/shared | 2 TiB | v3 o v4.1 |
 
 > [!NOTE]
 > Las recomendaciones de tamaño de Azure NetApp Files que indicadas aquí tienen como objetivo satisfacer los requisitos mínimos que SAP recomienda para sus proveedores de infraestructura. En escenarios reales de implementaciones de clientes y cargas de trabajo, es posible que estos tamaños no sean suficientes. Utilice estas recomendaciones como punto de partida y adáptelas en función de los requisitos de la carga de trabajo específica.  
@@ -429,7 +429,9 @@ Configure y prepare el sistema operativo. Para ello, siga estos pasos:
     mount 10.23.1.4:/HN1-shared /mnt/tmp
     umount  /mnt/tmp
     echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
-    </code></pre>`
+    # Make the configuration permanent
+    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
+    </code></pre>
 
 5. **[A]** Cree el grupo de SAP HANA y el usuario manualmente. Los identificadores del grupo **hn1**adm del usuario y de sapsys deben establecerse en los mismos identificadores que se proporcionan durante la incorporación. (En este ejemplo, los identificadores se establecen en **1001**). Si los identificadores no se configuran correctamente, no podrá acceder a los volúmenes. Los identificadores del grupo sapsys y las cuentas de usuario **hn1**adm y sapadm deben ser los mismos en todas las máquinas virtuales.  
 
@@ -631,8 +633,8 @@ En este ejemplo para implementar SAP HANA en la configuración de escalabilidad 
 6. Para optimizar SAP HANA para el almacenamiento de Azure NetApp Files subyacente, establezca los siguientes parámetros de SAP HANA:
 
    - `max_parallel_io_requests` **128**
-   - `async_read_submit` **activado**
-   - `async_write_submit_active` **activado**
+   - `async_read_submit`**activado**
+   - `async_write_submit_active`**activado**
    - `async_write_submit_blocks` **todo**
 
    Para más información, consulte la [guía de configuración de SAP HANA en sistemas AFF de NetApp con NFS](https://www.netapp.com/us/media/tr-4435.pdf). 

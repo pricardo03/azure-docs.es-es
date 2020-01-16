@@ -1,5 +1,5 @@
 ---
-title: Plataforma de identidad de Microsoft y protocolo OpenID Connect | Azure
+title: 'Protocolo OpenID Connect: plataforma de identidad de Microsoft | Azure'
 description: Cree aplicaciones web mediante la implementación de la plataforma de identidad de Microsoft del protocolo de autenticación OpenID Connect.
 services: active-directory
 documentationcenter: ''
@@ -18,19 +18,19 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc3778f31cb5dd68d3f3f49ed3cddf574b1cc3bd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 270fda72378b61e6011d5bbf4ce43496df045c25
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966748"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423218"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidad de Microsoft y protocolo OpenID Connect
 
 OpenID Connect es un protocolo de autenticación basado en OAuth 2.0 que se puede usar para que un usuario inicie sesión de forma segura en una aplicación web. Cuando se usa la implementación del punto de conexión de la plataforma de identidad de Microsoft de OpenID Connect, puede agregar acceso de inicio de sesión y API a las aplicaciones basadas en web. En este artículo se muestra cómo hacer esto de forma independiente del lenguaje y se describe cómo enviar y recibir mensajes HTTP sin usar ninguna biblioteca de código abierto de Microsoft.
 
 > [!NOTE]
-> No todas las características y escenarios de Azure Active Directory (Azure AD) son compatibles con el punto de conexión de la plataforma de identidad de Microsoft. Para determinar si debe usar el punto de conexión de la plataforma de identidad de Microsoft, conozca las [limitaciones de esta plataforma](active-directory-v2-limitations.md).
+> No todas las características y escenarios de Azure Active Directory (Azure AD) son compatibles con el punto de conexión de la plataforma de identidad de Microsoft. Para determinar si debe usar el punto de conexión de la Plataforma de identidad de Microsoft, conozca las [limitaciones de esta plataforma](active-directory-v2-limitations.md).
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) amplía el protocolo de *autorización* de OAuth 2.0 para usarlo como un protocolo de *autenticación*, lo que le permite realizar inicios de sesión únicos mediante OAuth. OpenID Connect presenta el concepto de un *token de identificador*, que es un token de seguridad que permite al cliente comprobar la identidad del usuario. El token de identificador también obtiene información de perfil básica sobre el usuario. Como OpenID Connect amplía OAuth 2.0, las aplicaciones pueden adquirir de forma segura *tokens de acceso*, que se pueden usar para obtener acceso a los recursos protegidos mediante un [servidor de autorización](active-directory-v2-protocols.md#the-basics). El punto de conexión de la plataforma de identidad de Microsoft también permite que las aplicaciones de terceros registradas con Azure AD emitan tokens de acceso para los recursos protegidos, como las API web. Para más información sobre cómo configurar una aplicación para emitir tokens de acceso, consulte [Registro de una aplicación en el punto de conexión de la plataforma de identidad de Microsoft](quickstart-register-app.md). Se recomienda usar OpenID Connect si compila una [aplicación web](v2-app-types.md#web-apps) hospedada en un servidor y a la que se obtiene acceso a través de un explorador.
 
@@ -52,7 +52,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 `{tenant}` puede tomar uno de estos cuatro valores:
 
-| Valor | DESCRIPCIÓN |
+| Value | Descripción |
 | --- | --- |
 | `common` |Los usuarios con una cuenta personal de Microsoft y una cuenta profesional o educativa de Azure AD pueden iniciar sesión en la aplicación. |
 | `organizations` |Solo los usuarios con cuentas profesionales o educativas de Azure AD pueden iniciar sesión en la aplicación. |
@@ -110,7 +110,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Haga clic en el vínculo siguiente para ejecutar esta solicitud. Una vez que inicie sesión, el explorador se redirigirá a `https://localhost/myapp/`, con un token de identificador en la barra de direcciones. Tenga en cuenta que esta solicitud usa `response_mode=fragment` (solo con fines de demostración). Se recomienda que use `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| Parámetro | Condición | DESCRIPCIÓN |
+| Parámetro | Condición | Descripción |
 | --- | --- | --- |
 | `tenant` | Obligatorio | Puede usar el valor `{tenant}` en la ruta de acceso de la solicitud para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints). |
 | `client_id` | Obligatorio | El **identificador de aplicación (cliente)** que la experiencia [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
@@ -140,7 +140,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | `id_token` | El token de identificador que la aplicación solicitó. Puede usar el parámetro `id_token` para comprobar la identidad del usuario y comenzar una sesión con el usuario. Para más información sobre los tokens de identificador y su contenido, consulte la [`id_tokens` referencia](id-tokens.md). |
 | `state` | Si un parámetro `state` está incluido en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debería comprobar que los valores de estado de la solicitud y la respuesta son idénticos. |
@@ -157,7 +157,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | `error` | Una cadena de código de error que puede usar para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | `error_description` | Un mensaje de error específico que puede ayudarlo a identificar la causa raíz de un error de autenticación. |
@@ -166,7 +166,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 En la tabla siguiente se describen los códigos de error que puede devolver el parámetro `error` de la respuesta de error:
 
-| Código de error | DESCRIPCIÓN | Acción del cliente |
+| Código de error | Descripción | Acción del cliente |
 | --- | --- | --- |
 | `invalid_request` | Error de protocolo, como un parámetro obligatorio que falta. |Corrija el error y vuelva a enviar la solicitud. Se trata de un error de desarrollo que habitualmente se detecta durante las pruebas iniciales. |
 | `unauthorized_client` | La aplicación cliente no puede solicitar un código de autorización. |Este error suele producirse cuando la aplicación cliente no está registrada en Azure AD o no se ha agregado al inquilino de Azure AD del usuario. La aplicación puede pedir al usuario consentimiento para instalar la aplicación y agregarla a Azure AD. |
@@ -178,9 +178,9 @@ En la tabla siguiente se describen los códigos de error que puede devolver el p
 
 ## <a name="validate-the-id-token"></a>Validar el token de identificador
 
-Recibir un solo valor de id_token no es suficiente para autenticar al usuario; debe validar la firma de id_token y comprobar las notificaciones en el token según los requisitos de su aplicación. El punto de conexión de la plataforma de identidad de Microsoft usa [tokens web JSON (JWT)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) y criptografía de clave pública para firmar los tokens y comprobar que son válidos.
+Recibir un solo valor de id_token no es suficiente para autenticar al usuario; debe validar la firma de id_token y comprobar las notificaciones en el token según los requisitos de su aplicación. El punto de conexión de la plataforma de identidad de Microsoft usa los [JSON Web Token (JWT)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) y criptografía de clave pública para firmar los tokens y comprobar que son válidos.
 
-Puede elegir validar el valor `id_token` en el código de cliente, pero lo habitual es enviarlo a un servidor back-end y realizar allí la validación. Una vez haya validado la firma de id_token, se le solicitará que compruebe algunas notificaciones: Para más información, consulte la [Referencia de `id_token`](id-tokens.md), incluidas la sección [Validación de los tokens](id-tokens.md#validating-an-id_token) y [Sustitución de claves de firma de Azure Active Directory](active-directory-signing-key-rollover.md). Hay al menos una disponible para la mayoría de los lenguajes y las plataformas.
+Puede elegir validar el valor `id_token` en el código de cliente, pero lo habitual es enviarlo `id_token` a un servidor back-end y realizar allí la validación. Una vez haya validado la firma de id_token, se le solicitará que compruebe algunas notificaciones. Para más información, consulte la [Referencia de `id_token`](id-tokens.md), incluidas la sección [Validación de los tokens](id-tokens.md#validating-an-id_token) y [Sustitución de claves de firma de Azure Active Directory](active-directory-signing-key-rollover.md). Hay al menos una disponible para la mayoría de los lenguajes y las plataformas.
 
 Se recomienda que valide notificaciones adicionales según su escenario. Algunas validaciones comunes incluyen:
 
@@ -188,7 +188,7 @@ Se recomienda que valide notificaciones adicionales según su escenario. Algunas
 * Asegurarse de que el usuario tiene la autorización/los privilegios adecuados
 * Asegurarse de que se haya producido un determinado nivel de autenticación, como la autenticación multifactor.
 
-Una vez haya validado completamente el valor id_token, puede iniciar una sesión con el usuario y usar las notificaciones de id_token para obtener información sobre el usuario en su aplicación. Esta información puede usarse para visualización, registros, autorizaciones, etc.
+Una vez haya validado completamente el valor id_token, puede iniciar una sesión con el usuario y utilizar las notificaciones de id_token para obtener información sobre el usuario en la aplicación. Esta información puede usarse para visualización, registros, autorizaciones, etc.
 
 ## <a name="send-a-sign-out-request"></a>Envío de una solicitud de cierre de sesión
 
@@ -201,7 +201,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| Parámetro | Condición | DESCRIPCIÓN |
+| Parámetro | Condición | Descripción |
 | ----------------------- | ------------------------------- | ------------ |
 | `post_logout_redirect_uri` | Recomendado | La dirección URL al que se redirige al usuario tras cerrar sesión correctamente. Si el parámetro no se incluye, se muestra al usuario un mensaje genérico que genera el punto de conexión de la plataforma de identidad de Microsoft. Esta dirección URL debe coincidir con uno de los URI de redirección registrados para su aplicación en el portal de registro de aplicaciones. |
 
@@ -253,7 +253,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | `id_token` | El token de identificador que la aplicación solicitó. Puede usar el token de identificador para comprobar la identidad del usuario y comenzar una sesión con el usuario. Encontrará más detalles sobre los tokens de identificador y su contenido en la [`id_tokens` referencia](id-tokens.md). |
 | `code` | El código de autorización que la aplicación solicitó. La aplicación puede utilizar el código de autorización para solicitar un token de acceso para el recurso de destino. Un código de autorización tiene una duración breve. Habitualmente, un código de autorización expira en alrededor de 10 minutos. |
@@ -271,7 +271,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | `error` | Una cadena de código de error que puede usar para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | `error_description` | Un mensaje de error específico que puede ayudarlo a identificar la causa raíz de un error de autenticación. |

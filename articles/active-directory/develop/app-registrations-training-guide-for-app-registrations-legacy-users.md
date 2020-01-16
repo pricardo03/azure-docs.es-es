@@ -1,6 +1,6 @@
 ---
-title: Guía de entrenamiento para la transición desde los registros de aplicaciones (heredado) hasta la nueva experiencia de registros de aplicaciones de Azure Portal
-description: Una introducción a la nueva experiencia de registro de aplicaciones de Azure Portal.
+title: Nueva guía de aprendizaje de los registros de aplicaciones de Azure Portal
+description: Presenta la nueva experiencia de registro de aplicaciones de Azure Portal.
 services: active-directory
 author: archieag
 manager: CelesteDG
@@ -13,14 +13,14 @@ ms.author: aragra
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f49cac5c8c49fb5c53d3320cb0ab52e0f61acda
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 3726ebbe0ebc3725a885c847f33760ebd7e2e8b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844267"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424654"
 ---
-# <a name="transitioning-from-app-registrations-legacy-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Transición de Registros de aplicaciones (heredado) a la nueva experiencia de Registros de aplicaciones en Azure Portal
+# <a name="new-azure-portal-app-registration-training-guide"></a>Nueva guía de aprendizaje de los registros de aplicaciones de Azure Portal
 
 La nueva experiencia de [registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) de Azure Portal presenta numerosas mejoras. Si está familiarizado con la experiencia de registros de aplicaciones (heredada) de Azure Portal, use esta guía de aprendizaje para empezar a usar la nueva experiencia.
 
@@ -121,7 +121,7 @@ La nueva experiencia agrega controles de interfaz de usuario para las siguientes
 
 - La página **Autenticación** tiene **flujo de concesión implícito** (`oauth2AllowImplicitFlow`). A diferencia de la experiencia heredada, puede habilitar **Tokens de acceso**, **Tokens de id.** o ambos.
 - La página **Exponer una API** contiene **Ámbitos definidos con esta API** (`oauth2Permissions`) y **Aplicaciones cliente autorizadas** (`preAuthorizedApplications`). Para más información sobre cómo configurar una aplicación para que sea una API web y exponer permisos o ámbitos, consulte [Inicio rápido: Configuración de una aplicación para exponer las API web](quickstart-configure-app-expose-web-apis.md).
-- La página **Personalización de marca** contiene la opción **Dominio del publicador**. El dominio del publicador se muestra a los usuarios en el [mensaje de consentimiento de la aplicación](application-consent-experience.md). Para obtener más información, consulte [Instrucciones: Configuración del dominio de editor de una aplicación](howto-configure-publisher-domain.md).
+- La página **Personalización de marca** contiene la opción **Dominio del publicador**. El dominio del publicador se muestra a los usuarios en el [mensaje de consentimiento de la aplicación](application-consent-experience.md). Para más información, vea: [Cómo: Configuración del dominio de editor de una aplicación](howto-configure-publisher-domain.md).
 
 ## <a name="limitations"></a>Limitaciones
 

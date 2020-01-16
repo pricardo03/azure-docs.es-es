@@ -1,5 +1,5 @@
 ---
-title: Separación de la telemetría de desarrollo, prueba y publicación en Azure Application Insights | Microsoft Docs
+title: Separación de la telemetría en Azure Application Insights
 description: Este artículo trata sobre el envío directo de la telemetría a los diferentes recursos para los sellos de desarrollo, prueba y producción.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/15/2017
-ms.openlocfilehash: c4d029de782ae408b83c265322a865db7b166c1e
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c58a54dd4916b5687d46cbf4b816bd656113f9ff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406407"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Separación de la telemetría de desarrollo, prueba y producción
 
@@ -73,7 +73,7 @@ En el [portal.azure.com](https://portal.azure.com), agregue un recurso de Applic
 
 ![Haga clic en Nuevo, Application Insights.](./media/separate-resources/01-new.png)
 
-* **tipo de aplicación** afecta a lo que ve en la hoja de información general y las propiedades disponibles en el [explorador de métricas](../../azure-monitor/app/metrics-explorer.md)de Azure. Si no ve el tipo de aplicación, elija uno de los tipos web para páginas web.
+* **tipo de aplicación** afecta a lo que ve en la hoja de información general y las propiedades disponibles en el [explorador de métricas](../../azure-monitor/app/metrics-explorer.md) de Azure. Si no ve el tipo de aplicación, elija uno de los tipos web para páginas web.
 * **grupo de recursos** resulta práctico para administrar propiedades como el  como el [control de acceso](../../azure-monitor/app/resources-roles-access-control.md)de Azure. Puede usar grupos de recursos independientes para desarrollo, prueba y producción.
 * **suscripción** es su cuenta de pago de Azure.
 * **ubicación** es donde se guardan los datos. Actualmente no se puede cambiar. 

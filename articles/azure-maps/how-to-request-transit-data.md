@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b28788ac7b3ce4e1997b71c683f8e0445406a391
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 47952421c50979a014507c81ef5bc3217df7d860
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915631"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432947"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Solicitud de información sobre el transporte público mediante Mobility Service de Azure Maps 
 
@@ -28,9 +28,10 @@ En este artículo, aprenderá a:
 * Solicitar el trayecto de la ruta y la programación detallada con [Get Transit Itinerary API](https://aka.ms/https://azure.microsoft.com/services/azure-maps/).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Para realizar una llamada a cualquier API de transporte público de Azure Maps, necesita una cuenta de Maps y una clave. Para obtener información sobre cómo crear una cuenta, siga las instrucciones de [Administrar cuentas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) y siga los pasos de [Obtención de la clave principal](./tutorial-search-location.md#getkey) para recuperar una clave de suscripción principal para su cuenta.
+Para realizar una llamada a cualquier API de transporte público de Azure Maps, necesita una cuenta de Maps y una clave. Para más información sobre la creación de una cuenta y la obtención de una clave, siga las instrucciones que se indican en [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) para crear una suscripción a una cuenta de Azure Maps, y siga los pasos de [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obtener la clave principal de su cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
+
 
 Este artículo utiliza la [aplicación Postman](https://www.getpostman.com/apps) para generar llamadas REST. Puede usar cualquier entorno de desarrollo de API que prefiera.
 
