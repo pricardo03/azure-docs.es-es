@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f40b479b66f2fa9a60e084fc0e29f40cef052e99
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 479f9abc667e20a136da5f6231e78a1e4052f087
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162531"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965666"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Usar Azure Premium Storage con SQL Server en máquinas virtuales
 
@@ -29,7 +29,7 @@ ms.locfileid: "73162531"
 [Discos SSD Premium de Azure](../disks-types.md) es la siguiente generación de almacenamiento que proporciona baja latencia y E/S de alto rendimiento. Funciona mejor para cargas de trabajo intensivas clave de E/S, como [máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/)de SQL Server en IaaS.
 
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/management/deployment-models.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
 
 Este artículo proporciona instrucciones de planificación y orientación para migrar una máquina virtual que ejecuta SQL Server de modo que use Premium Storage. Esto incluye pasos relacionados con la infraestructura de Azure (redes, almacenamiento) y la máquina virtual invitada de Windows. En el ejemplo del [Apéndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) se muestra una migración de extremo a extremo completa para mover máquinas virtuales mayores con el fin de aprovechar mejor el almacenamiento SSD local mejorado con PowerShell.
 
@@ -485,7 +485,7 @@ Debe aprovisionar tiempo donde pueda realizar una conmutación por error manual 
 * Puede cambiar el tamaño de la máquina virtual y personalizar el almacenamiento en función de sus requisitos. Sin embargo, sería beneficioso mantener las rutas de acceso de archivos de SQL.
 * Puede controlar cuándo se inicia la transferencia de las copias de seguridad de la base de datos a las réplicas secundarias. Esto difiere del uso del commandlet **Start-AzureStorageBlobCopy** de Azure para copiar VHD, ya que es una copia asincrónica.
 
-##### <a name="disadvantages"></a>Desventajas
+##### <a name="disadvantages"></a>Inconvenientes
 
 * Al usar grupos de almacenamiento de Windows, hay un tiempo de inactividad del clúster durante la validación del clúster completa para los nuevos nodos adicionales.
 * Según la versión de SQL Server y del número de réplicas secundarias existentes, podría ser imposible agregar más réplicas secundarias sin quitar réplicas secundarias existentes.
@@ -510,7 +510,7 @@ Cuando se transfieren aplicaciones y usuarios al nuevo agente de escucha de Alwa
 * Puede actualizar su compilación o versión de SQL Server durante este proceso. También puede actualizar el sistema operativo.
 * El clúster de AlwaysOn anterior puede actuar como destino de reversión sólido.
 
-##### <a name="disadvantages"></a>Desventajas
+##### <a name="disadvantages"></a>Inconvenientes
 
 * Si desea que los dos clústeres de AlwaysOn se ejecuten simultáneamente, debe cambiar el nombre DNS del agente de escucha. Esto agrega sobrecarga de administración durante la migración, ya que las cadenas de la aplicación cliente deben reflejar el nuevo nombre del agente de escucha.
 * Debe implementar un mecanismo de sincronización entre los dos entornos para mantenerlos lo más cerca posible, con el fin de minimizar los requisitos de sincronización final antes de la migración.
@@ -543,7 +543,7 @@ Una estrategia para el tiempo de inactividad mínimo consiste en tomar un elemen
 * Menor complejidad.
 * Admite una mayor IOPS en los SKU de Premium Storage. Cuando los discos se desconectan de la máquina virtual y se copian en el nuevo servicio en la nube, puede usarse una herramienta de terceros para aumentar el tamaño del VHD, lo que proporciona un mayor rendimiento. Para aumentar el tamaño del VHD, consulte este [debate de foro](https://social.msdn.microsoft.com/Forums/azure/4a9bcc9e-e5bf-4125-9994-7c154c9b0d52/resizing-azure-data-disk?forum=WAVirtualMachinesforWindows).
 
-##### <a name="disadvantages"></a>Desventajas
+##### <a name="disadvantages"></a>Inconvenientes
 
 * Hay una pérdida temporal de alta disponibilidad y recuperación ante desastres durante la migración.
 * Como se trata de una migración de 1:1, debe usar un tamaño mínimo de máquina virtual que sea compatible con el número de VHD, por lo que podría no ser capaz de reducir el tamaño de las máquinas virtuales.
@@ -591,7 +591,7 @@ Considere el siguiente ejemplo de una configuración de AlwaysOn híbrida:
 * Se produce un mínimo de dos conmutaciones por error durante la migración, excluidas las conmutaciones por error de prueba.
 * No es necesario mover los datos de SQL Server con copia de seguridad y restauración.
 
-##### <a name="disadvantages"></a>Desventajas
+##### <a name="disadvantages"></a>Inconvenientes
 
 * En función del acceso del cliente a SQL Server, podría haber una mayor latencia cuando SQL Server se ejecuta en un centro de datos alternativo de la aplicación.
 * El tiempo de copia de los VHD en el almacenamiento Premium podría ser largo. Esto podría afectar a la decisión sobre si se debe conservar el nodo en el grupo de disponibilidad. Tenga en cuenta esto si se requiere el registro cuando se ejecutan cargas de trabajo intensivas durante la migración, ya que el nodo principal tiene que mantener las transacciones sin replicar en su registro de transacciones. En consecuencia, este podría aumentar de forma significativa.
@@ -621,7 +621,7 @@ Este escenario da por supuesto que se ha documentado sobre su instalación y sab
 
 En el resto de este artículo, encontrará un ejemplo detallado de cómo convertir un clúster de AlwaysOn multisitio a Premium Storage. Asimismo, convierte el agente de escucha de modo que pase de usar un equilibrador de carga externo (ELB) a un equilibrador de carga interno (ILB).
 
-### <a name="environment"></a>Environment
+### <a name="environment"></a>Entorno
 
 * Windows 2k12 / SQL 2k12
 * 1 archivo de base de datos en SP

@@ -3,7 +3,7 @@ title: Interfaz de usuario de StorSimple Snapshot Manager | Microsoft Docs
 description: Describe la interfaz de Administrador de instantáneas StorSimple y explica cómo usarla para administrar los trabajos de copia de seguridad y el catálogo de copia de seguridad.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
+ms.author: twooley
 ms.custom: ''
-ms.openlocfilehash: 46225e5a332e035e4d1cc256e71c4b5d8686fd47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 56771d2e62289485017f34c6a9ab26e1d53610ec
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60845333"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933974"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Uso de la interfaz de usuario de StorSimple Snapshot Manager para administrar trabajos de copia de seguridad y el catálogo de copia de seguridad
 
@@ -67,7 +67,7 @@ Para ver el menú **Archivo**, haga clic en **Archivo** en la barra de menús. A
 #### <a name="menu-description"></a>Descripción del menú
 La tabla siguiente describe los elementos que aparecen en el menú **Archivo** .
 
-| Elemento de menú | DESCRIPCIÓN |
+| Elemento de menú | Descripción |
 |:--- |:--- |
 | Nuevo |Haga clic en **Nuevo** para crear una nueva consola basada en Administrador de instantáneas StorSimple. |
 | Abrir |Haga clic en **Abrir** para abrir una consola existente. |
@@ -107,16 +107,16 @@ La tabla siguiente contiene una lista alfabética de las acciones de Administrad
 > 
 > 
 
-| . | Navegación | DESCRIPCIÓN |
+| Acción | Navegación | Descripción |
 |:--- |:--- |:--- |
-| Autenticar |Haga clic en el nodo **Dispositivos** y haga clic con el botón derecho en un dispositivo en el panel **Resultados**. |Haga clic en **Autenticar** para escribir la contraseña que configuró para el dispositivo. |
-| Clon |Expanda **Catálogo de copias de seguridad**, expanda **Instantáneas de nube**, haga clic en una copia de seguridad con fecha y luego seleccione un volumen en el panel **Resultados**. |Haga clic en **Clonar** para crear una copia de una instantánea de nube y almacenarla en la ubicación que designó. |
+| Authenticate |Haga clic en el nodo **Dispositivos** y haga clic con el botón derecho en un dispositivo en el panel **Resultados**. |Haga clic en **Autenticar** para escribir la contraseña que configuró para el dispositivo. |
+| Clonar |Expanda **Catálogo de copias de seguridad**, expanda **Instantáneas de nube**, haga clic en una copia de seguridad con fecha y luego seleccione un volumen en el panel **Resultados**. |Haga clic en **Clonar** para crear una copia de una instantánea de nube y almacenarla en la ubicación que designó. |
 | Configurar un dispositivo |Haga clic con el botón derecho en el nodo **Dispositivos** . |Haga clic en **Configurar un dispositivo** para configurar uno o varios dispositivos para conectarlos con el host de Windows. |
-| Crear directiva de copia de seguridad |Realice una de las operaciones siguientes:<ul><li>Haga clic con el botón derecho en **Directivas de copia de seguridad**.</li><li>Haga clic o expanda **Grupos de volúmenes** y, a continuación, haga clic en un grupo de volúmenes.</li><li>Haga clic o expanda **Catálogo de copias de seguridad** y, a continuación, haga clic en un grupo de volúmenes.</li></ul> |Haga clic en **Crear directiva de copia de seguridad** para configurar una copia de seguridad programada para un grupo de volúmenes. |
-| Crear grupo de volúmenes |Realice una de las operaciones siguientes:<ul><li>Haga clic en el nodo **Volúmenes** y, a continuación, haga clic con el botón derecho en un dispositivo en el panel **Resultados**.</li><li>Haga clic con el botón derecho en el nodo **Grupos de volúmenes** .</li></ul> |Haga clic en **Crear grupo de volúmenes** para asignar volúmenes a un grupo de volúmenes. |
+| Crear directiva de copia de seguridad |Realice una de las siguientes acciones:<ul><li>Haga clic con el botón derecho en **Directivas de copia de seguridad**.</li><li>Haga clic o expanda **Grupos de volúmenes** y, a continuación, haga clic en un grupo de volúmenes.</li><li>Haga clic o expanda **Catálogo de copias de seguridad** y, a continuación, haga clic en un grupo de volúmenes.</li></ul> |Haga clic en **Crear directiva de copia de seguridad** para configurar una copia de seguridad programada para un grupo de volúmenes. |
+| Crear grupo de volúmenes |Realice una de las siguientes acciones:<ul><li>Haga clic en el nodo **Volúmenes** y, a continuación, haga clic con el botón derecho en un dispositivo en el panel **Resultados**.</li><li>Haga clic con el botón derecho en el nodo **Grupos de volúmenes** .</li></ul> |Haga clic en **Crear grupo de volúmenes** para asignar volúmenes a un grupo de volúmenes. |
 | Eliminar |Haga clic en un nodo o resultado (este elemento aparece en muchos menús **Acción** y paneles de **Acciones**). |Haga clic en **Eliminar** para eliminar el nodo o el resultado seleccionado. Cuando aparezca el cuadro de diálogo de confirmación, confirme o cancele la eliminación. |
 | Detalles |Haga clic en el nodo **Dispositivos** y, a continuación, haga clic con el botón derecho en un dispositivo en el panel **Resultados**. |Haga clic en **Detalles** para ver los detalles de configuración de un dispositivo. |
-| Edit |Haga clic en **Directivas de copia de seguridad** y luego haga clic con el botón derecho en una directiva en el panel **Resultados**. |Haga clic en **Editar** para cambiar la programación de copia de seguridad para un grupo de volúmenes. |
+| Editar |Haga clic en **Directivas de copia de seguridad** y luego haga clic con el botón derecho en una directiva en el panel **Resultados**. |Haga clic en **Editar** para cambiar la programación de copia de seguridad para un grupo de volúmenes. |
 | Exportar lista |Haga clic en cualquier nodo o resultado (este elemento aparece en todos los menús **Acción** y paneles de **Acciones**). |Haga clic en **Exportar lista** para guardar una lista en un archivo de valores separados por comas (CSV). A continuación, puede importar este archivo en una aplicación de hoja de cálculo para su análisis. |
 | Ayuda |Haga clic en cualquier nodo o resultado. (Este elemento aparece en todos los menús **Acción** y paneles de **Acciones**). |Haga clic en **Ayuda** para abrir la Ayuda en pantalla en una ventana independiente del explorador. |
 | Nueva ventana desde aquí |Haga clic en cualquier nodo o resultado (este elemento aparece en todos los menús **Acción** y paneles de **Acciones**). |Haga clic en **Nueva ventana desde aquí** para abrir una nueva ventana de Administrador de instantáneas StorSimple. |
@@ -125,7 +125,7 @@ La tabla siguiente contiene una lista alfabética de las acciones de Administrad
 | Actualizar dispositivos |Haga clic con el botón derecho en el nodo **Dispositivos** . |Haga clic en **Actualizar dispositivos** para sincronizar la lista de dispositivos conectados con Administrador de instantáneas StorSimple. |
 | Volver a examinar volúmenes |Haga clic con el botón derecho en el nodo **Volúmenes** . |Haga clic en **Volver a examinar volúmenes** para actualizar la lista de volúmenes que aparece en el panel **Resultados**. |
 | Restauración |Expanda el **Catálogo de copias de seguridad**, un grupo de volúmenes y luego **Instantáneas locales** o **Instantáneas de nube**; a continuación, haga clic con el botón derecho en una copia de seguridad. |Haga clic en **Restaurar** para reemplazar los datos del grupo de volúmenes actual por los datos de la copia de seguridad seleccionada. |
-| Realizar copia de seguridad |Realice una de las operaciones siguientes:<ul><li>Expanda **Grupos de volúmenes** y, a continuación, haga clic en un grupo de volúmenes.</li><li>Expanda **Catálogo de copias de seguridad** y, a continuación, haga clic en un grupo de volúmenes.</li></ul> |Haga clic en **Realizar copia de seguridad** para iniciar un trabajo de copia de seguridad inmediatamente. |
+| Realizar copia de seguridad |Realice una de las siguientes acciones:<ul><li>Expanda **Grupos de volúmenes** y, a continuación, haga clic en un grupo de volúmenes.</li><li>Expanda **Catálogo de copias de seguridad** y, a continuación, haga clic en un grupo de volúmenes.</li></ul> |Haga clic en **Realizar copia de seguridad** para iniciar un trabajo de copia de seguridad inmediatamente. |
 | Alternar visualización de importaciones |Haga clic con el botón derecho en el primer nodo en el panel **Ámbito** (el nodo **Administrador de instantáneas StorSimple** en los ejemplos). |Haga clic en **Toggle Imports Display** (Alternar visualización de importaciones) para mostrar u ocultar los grupos de volúmenes y copias de seguridad asociadas que se importaron desde el panel del servicio StorSimple Device Manager. |
 
 ### <a name="view-menu"></a>Menú Vista
@@ -139,7 +139,7 @@ Puede acceder al menú **Vista** en la barra de menús o en el panel **Acciones*
 #### <a name="menu-description"></a>Descripción del menú
 La tabla siguiente describe los elementos que aparecen en el menú **Vista** .
 
-| Elemento de menú | DESCRIPCIÓN |
+| Elemento de menú | Descripción |
 |:--- |:--- |
 | Agregar o quitar columnas |Haga clic en **Agregar o quitar columnas** para agregar o quitar columnas en el panel **Resultados**. |
 | Personalizar |Haga clic en **Personalizar** para mostrar u ocultar los elementos de la ventana de la consola de Administrador de instantáneas StorSimple. |
@@ -155,7 +155,7 @@ Puede acceder al menú **Favoritos** desde la barra de menús.
 #### <a name="menu-description"></a>Descripción del menú
 La tabla siguiente describe los elementos que aparecen en el menú **Favoritos** .
 
-| Elemento de menú | DESCRIPCIÓN |
+| Elemento de menú | Descripción |
 |:--- |:--- |
 | Agregar a Favoritos |Haga clic en **Agregar a favoritos** para agregar la vista actual a la lista de favoritos. |
 | Organizar Favoritos |Haga clic en **Organizar favoritos** para organizar el contenido de la carpeta Favoritos. |
@@ -173,10 +173,10 @@ La lista numerada en la parte inferior del menú muestra las ventanas que están
 #### <a name="menu-description"></a>Descripción del menú
 La tabla siguiente describe los elementos que aparecen en el menú Ventana.
 
-| Elemento de menú | DESCRIPCIÓN |
+| Elemento de menú | Descripción |
 |:--- |:--- |
 | Nueva ventana |Haga clic en **Nueva ventana** para abrir una nueva ventana de consola (además de la ventana existente). |
-| En cascada |Haga clic en **Cascada** para mostrar las ventanas de consola abiertas en cascada. |
+| Cascade |Haga clic en **Cascada** para mostrar las ventanas de consola abiertas en cascada. |
 | Mosaico horizontal |Haga clic en **Colocar en mosaico horizontal** para mostrar las ventanas de consola abiertas en un formato de mosaico (o cuadrícula). |
 | Organizar iconos |Si tiene varias ventanas de consola abiertas y repartidas por el escritorio, minimícelas y luego haga clic en **Organizar iconos** para colocarlas en una fila horizontal en la parte inferior de la pantalla. |
 
@@ -190,10 +190,10 @@ Puede acceder al menú **Ayuda** desde la barra de menús. También puede accede
 #### <a name="menu-description"></a>Descripción del menú
 La tabla siguiente describe los elementos que aparecen en el menú Ayuda.
 
-| Elemento de menú | DESCRIPCIÓN |
+| Elemento de menú | Descripción |
 |:--- |:--- |
 | Ayuda de Administrador de instantáneas StorSimple |Haga clic en **Ayuda en Administrador de instantáneas StorSimple** para abrir la Ayuda de Administrador de instantáneas StorSimple en una ventana independiente. |
-| Temas de Ayuda |Haga clic en **Temas de Ayuda** para abrir la Ayuda en pantalla de MMC en una ventana independiente. |
+| Temas de ayuda |Haga clic en **Temas de Ayuda** para abrir la Ayuda en pantalla de MMC en una ventana independiente. |
 | Sitio Web de TechCenter |Haga clic en **Sitio web de TechCenter** para abrir la página principal de Microsoft TechNet Tech Center en una ventana independiente. |
 | Acerca de Microsoft Management Console |Haga clic en **Acerca de Microsoft Management Console** para ver qué versión de Microsoft Management Console está instalada en el sistema. |
 | Acerca de Administrador de instantáneas StorSimple |Haga clic en **Acerca de Administrador de instantáneas StorSimple** para ver qué versión del complemento está instalada en el sistema. |
@@ -204,7 +204,7 @@ La barra de herramientas, que está debajo de la barra de menús, contiene icono
 ### <a name="icon-descriptions"></a>Descripciones de los iconos
 En la tabla siguiente se describe los iconos que aparecen en la barra de herramientas. 
 
-| Icono | DESCRIPCIÓN |
+| Icono | Descripción |
 |:--- |:--- |
 | ![Flecha izquierda](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) |Haga clic en el icono de flecha izquierda para volver a la página anterior. |
 | ![Flecha derecha](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) |Haga clic en la flecha derecha para ir a la página siguiente (si la flecha está atenuada, la acción no está disponible). |
@@ -337,7 +337,7 @@ Administrador de instantáneas StorSimple habilita las características de acces
 ### <a name="keyboard-navigation-keys"></a>Teclas de navegación
 La tabla siguiente describen las teclas que puede usar para navegar por la interfaz de usuario de Administrador de instantáneas StorSimple. 
 
-| Tecla de navegación | . |
+| Tecla de navegación | Acción |
 |:--- |:--- |
 | Flecha abajo |Utilice la tecla flecha abajo para mover verticalmente al siguiente elemento de un menú o panel. |
 | Escriba |Presione la tecla ENTRAR para completar una acción y, a continuación, vaya al paso siguiente. Por ejemplo, puede presionar ENTRAR para seleccionar **Siguiente**, **Aceptar** o **Crear** y luego vaya al paso siguiente en un asistente. |
@@ -359,7 +359,7 @@ La tabla siguiente describe las combinaciones de teclas de método abreviado par
 | ALT + F |Abre el menú **Archivo** . |N |Abre una nueva instancia de la consola. |
 |  |O |Abre la página **Herramientas administrativas** . | |
 |  |S |Guarda la consola de Administrador de instantáneas StorSimple. | |
-|  |Una |Abre la página **Guardar como** . | |
+|  |Un |Abre la página **Guardar como** . | |
 |  |M |Abre la página **Agregar o quitar complemento** . | |
 |  |P |Abre la página **Opciones** . | |
 |  |H |Abre la Ayuda en pantalla. | |
@@ -368,9 +368,9 @@ La tabla siguiente describe las combinaciones de teclas de método abreviado par
 |  |F |Actualiza la consola de Administrador de instantáneas StorSimple. | |
 |  |L |Abre la página **Exportar lista** . | |
 |  |H |Abre la Ayuda en pantalla. | |
-| ALT + V |Abre el menú **Vista** . |Una |Abre la página **Agregar o quitar columnas** . |
+| ALT+V |Abre el menú **Vista** . |Un |Abre la página **Agregar o quitar columnas** . |
 |  |U |Abre la página **Personalizar vista** . | |
-| ALT + O |Abre el menú **Favoritos** . |Una |Abre la página **Agregar a favoritos** . |
+| ALT + O |Abre el menú **Favoritos** . |Un |Abre la página **Agregar a favoritos** . |
 |  |O |Abre la página **Organizar favoritos** . | |
 | ALT + W |Abre el menú **Ventana** . |N |Abre otra ventana de Administrador de instantáneas StorSimple. |
 |  |C |Muestra todas las ventanas de consola abiertas en un estilo en cascada. | |
@@ -378,7 +378,7 @@ La tabla siguiente describe las combinaciones de teclas de método abreviado par
 |  |I |Organiza los iconos en una fila horizontal en la parte inferior de la pantalla. | |
 | ALT + H |Abre el menú **Ayuda** . |H |Abre la Ayuda en pantalla. |
 |  |T |Abre la página web de Microsoft TechNet Tech Center. | |
-|  |Una |Abre la página **Acerca de Microsoft Management Console** . | |
+|  |Un |Abre la página **Acerca de Microsoft Management Console** . | |
 
 ### <a name="scope-pane-shortcut-keys"></a>Teclas de método abreviado del panel Ámbito
 Las siguientes tablas muestran las combinaciones de teclas de método abreviado para cada nodo en el panel **Ámbito** . 
@@ -424,7 +424,7 @@ Las siguientes tablas muestran las combinaciones de teclas de método abreviado 
 #### <a name="backup-policies-node-shortcut-keys"></a>Teclas de método abreviado del nodo Directivas de copia de seguridad
 | Método abreviado de menú | Resultado |
 |:--- |:--- |
-| b |Abre la página **Crear una directiva** . |
+| B |Abre la página **Crear una directiva** . |
 | V |Abre el menú **Vista** . |
 | W |Abre una nueva consola de StorSimple Snapshot Manager centrada en el nodo **Grupos de volúmenes** . |
 | F |Actualiza la consola de Administrador de instantáneas StorSimple. |

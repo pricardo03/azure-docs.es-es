@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 35623be4f0e4495388dc58b1e4d4f6c4663a93fd
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 339ab811969a3de6ce87d529e1bf77f325be4071
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75534320"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968483"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Interpretación del modelo de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Este paquete usa las técnicas de interpretación desarrolladas en [Interprete-C
 * **Mimic Explainer**: El explicador Mimic se basa en la idea de entrenar [modelos globales de sustitución](https://christophm.github.io/interpretable-ml-book/global.html) para imitar los modelos de caja negra. Un modelo suplente global es un modelo interpretable de forma intrínseca que está entrenado para aproximarse a las predicciones de un modelo de caja negra de la forma más precisa posible. Los científicos de datos pueden interpretar el modelo suplente para extraer conclusiones acerca del modelo de caja negra. Cualquiera de los siguientes modelos se puede usar como modelo suplente: LightGBM (LGBMExplicableModel), Regresión lineal (LinearExplicableModel), Modelo explicable de descenso de gradiente estocástico (SGDExplicableModel) y Árbol de decisión (DecisionTreeExplicableModel).
 
 
-* **Permutation Feature Importance Explainer**: La importancia de características de permutación es una técnica que se usa para explicar los modelos de clasificación y regresión que está inspirada en el [documento acerca de bosques aleatorios de Breiman](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (consulte la sección 10). En un alto nivel, la forma en que funciona es cuando se barajan aleatoriamente los datos de una característica para todo el conjunto de datos y se calcula en qué medida cambia la métrica de rendimiento que interesa. Cuanto mayor sea el cambio, más importante es la característica.
+* **Permutation Feature Importance Explainer**: La importancia de características de permutación es una técnica que se usa para explicar los modelos de clasificación y regresión que está inspirada en el [documento acerca de bosques aleatorios de Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (consulte la sección 10). En un alto nivel, la forma en que funciona es cuando se barajan aleatoriamente los datos de una característica para todo el conjunto de datos y se calcula en qué medida cambia la métrica de rendimiento que interesa. Cuanto mayor sea el cambio, más importante es la característica.
 
 * **LIME Explainer** (`contrib`): Según [LIME](https://github.com/marcotcr/lime), LIME Explainer usa el algoritmo de explicaciones agnósticas de modelos locales que se pueden interpretar (LIME) de última generación para crear modelos de sustitución locales. A diferencia de los modelos suplentes globales, LIME se centra en entrenar modelos suplentes locales para explicar predicciones individuales.
 * **HAN Text Explainer** (`contrib`): Explicación de texto HAN usa una red de atención jerárquica para obtener explicaciones de modelos a partir de datos de texto para un modelo de texto de caja negra dado. Entrena el modelo sustituto HAN en las salidas previstas de un modelo de caja negra dado. Después del entrenamiento global en el corpus del texto, agrega un paso de ajuste preciso para un documento específico con el fin de mejorar la precisión de las explicaciones. HAN usa una red neuronal recurrente bidireccional con dos capas de atención, para prestar atención a las frases y a las palabras. Una vez que la red neuronal profunda se entrena en el modelo de caja negra y se ajusta de forma precisa en un documento específico, el usuario puede extraer las importancias de las palabras de las capas de atención. Se ha demostrado que el HAN es más preciso que el LIME o el SHAP para los datos de texto, pero también más costoso en términos de tiempo de entrenamiento. Se han realizado mejoras para proporcionar al usuario la opción de inicializar la red con inserciones de palabras de la guantera para reducir el tiempo de entrenamiento. El tiempo de entrenamiento se puede reducir considerablemente mediante la ejecución HAN en una máquina virtual con GPU de Azure remota. La implementación de HAN se describe en [Hierarchical Attention Networks for Document Classification (Yang et al., 2016)](https://www.researchgate.net/publication/305334401_Hierarchical_Attention_Networks_for_Document_Classification) (HAN para clasificación de documentos).
@@ -114,4 +114,4 @@ El paquete `explain` está diseñado para trabajar con destinos de proceso local
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vea las [instrucciones](service/how-to-machine-learning-interpretability-aml.md) para habilitar la interpretación de entrenamiento de modelos tanto localmente como en los recursos de computación remota de Azure Machine Learning. Consulte los [cuadernos de muestras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) para ver otros escenarios.
+Vea las [instrucciones](how-to-machine-learning-interpretability-aml.md) para habilitar la interpretación de entrenamiento de modelos tanto localmente como en los recursos de computación remota de Azure Machine Learning. Consulte los [cuadernos de muestras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) para ver otros escenarios.

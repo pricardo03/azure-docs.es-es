@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 666868d723b5e040b69762cdb39f472f2f8822c9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 3849106fbc488f456a4d267d0ccef76647c1939f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057915"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981308"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>No se puede establecer el escritorio remoto en una VM porque la interfaz de red está deshabilitada
 
 En este artículo se muestra cómo resolver un problema en el que no se puede establecer la conexión del escritorio remoto en Azure Windows Virtual Machines (VM) si la interfaz de red está deshabilitada.
 
 > [!NOTE]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se explica el uso del modelo de implementación de Resource Manager, que es el que se recomienda usar para las nuevas implementaciones, en lugar del modelo de implementación clásica.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/management/deployment-models.md). En este artículo se explica el uso del modelo de implementación de Resource Manager, que es el que se recomienda usar para las nuevas implementaciones, en lugar del modelo de implementación clásica.
 
 ## <a name="symptoms"></a>Síntomas
 
@@ -34,7 +34,7 @@ No puede establecer ninguna conexión RDP ni ningún otro tipo de conexión con 
 
 Antes de seguir estos pasos, tome una instantánea del disco del sistema operativo de la máquina virtual afectada como copia de seguridad. Para obtener más información, consulte [Instantánea de un disco](../windows/snapshot-copy-managed-disk.md).
 
-Para habilitar la interfaz para la VM, use el control de serie o [restablezca la interfaz de red](##reset-network-interface) para la VM.
+Para habilitar la interfaz para la VM, use el control de serie o [restablezca la interfaz de red](#reset-network-interface) para la VM.
 
 ### <a name="use-serial-control"></a>Uso del control serie
 
@@ -58,7 +58,7 @@ Para habilitar la interfaz para la VM, use el control de serie o [restablezca la
 
         netsh interface show interface
 
-    No tiene que reiniciar la VM en este momento. La máquina virtual volverá a ser accesible.
+    No tiene que reiniciar la máquina virtual en este momento. La máquina virtual volverá a ser accesible.
 
 5.  Conéctese a la máquina virtual y compruebe si el problema se resuelve.
 

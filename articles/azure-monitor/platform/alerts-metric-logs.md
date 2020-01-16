@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: d6b65b76138cb180ab105631ebc0f19b7d38f206
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 358312bcbb23aee5a06eaa39898ff4e632cd8b4b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226533"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977612"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Creación de alertas de métricas para registros en Azure Monitor
 
@@ -357,7 +357,7 @@ Supongamos que el código JSON anterior se guarda como metricfromLogsAlertStatic
 }
 ```
 
-Suponiendo que el archivo de parámetros anterior se guarda como metricfromLogsAlertStatic.parameters.json, se puede crear la alerta de métrica para registros con la [plantilla de recursos para la creación en Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Suponiendo que el archivo de parámetros anterior se guarda como metricfromLogsAlertStatic.parameters.json, se puede crear la alerta de métrica para registros con la [plantilla de recursos para la creación en Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 Como alternativa, también se puede usar el siguiente comando de Azure Powershell:
 
@@ -673,7 +673,7 @@ Supongamos que el código JSON anterior se guarda como metricfromLogsAlertDynami
 }
 ```
 
-Suponiendo que el archivo de parámetros anterior se guarda como metricfromLogsAlertDynamic.parameters.json, se puede crear la alerta de métrica para registros con la [plantilla de recursos para la creación en Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Suponiendo que el archivo de parámetros anterior se guarda como metricfromLogsAlertDynamic.parameters.json, se puede crear la alerta de métrica para registros con la [plantilla de recursos para la creación en Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 Como alternativa, también se puede usar el siguiente comando de Azure Powershell:
 

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: e002a5fbe38596d6507eec81ba3dd2a05c25153a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d84a0190e13d7bb7664e8792e0047338fe4bf5e2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975812"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982690"
 ---
 # <a name="what-is-custom-translator"></a>¿Qué es Custom Translator?
 
@@ -28,9 +28,9 @@ Custom Translator admite más de 36 idiomas y los asigna directamente a los idio
 
 Custom Translator proporciona diferentes características a la hora de compilar un sistema de traducción personalizado y posteriormente acceder a él.
 
-|Característica  |DESCRIPCIÓN  |
+|Característica  |Descripción  |
 |---------|---------|
-|[Aprovechamiento de la tecnología de traducción automática neuronal](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Mejora la traducción aprovechando la traducción automática neuronal (NMT) que proporciona Custom Translator.       |
+|[Aprovechamiento de la tecnología de traducción automática neuronal](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Mejora la traducción aprovechando la traducción automática neuronal (NMT) que proporciona Custom Translator.       |
 |[Creación de sistemas que conocen la terminología del negocio](what-are-parallel-documents.md)     |  Personalice y compile sistemas de traducción mediante documentos paralelos que comprendan la terminología usada en su propia empresa y sector.       |
 |[Uso de un diccionario para compilar los modelos](what-is-dictionary.md)     |   Si no tiene un conjunto de datos de aprendizaje, puede entrenar un modelo solo con datos de diccionario.       |
 |[Colaboración con otros usuarios](how-to-manage-settings.md#share-your-workspace)     |   Colabore con su equipo compartiendo su trabajo con diferentes personas.     |
@@ -38,7 +38,7 @@ Custom Translator proporciona diferentes características a la hora de compilar 
 
 ## <a name="get-better-translations"></a>Obtención de mejores traducciones
 
-Microsoft Translator lanzó la [traducción automática neuronal (NMT)](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) en 2016. La NMT proporciona avances importantes en lo que se refiere a la calidad de la traducción con respecto a la tecnología estándar de [traducción automática estadística (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation). Como la NMT captura mejor el contexto de oraciones completas antes de traducirlas, proporciona unas traducciones de mayor calidad, un tono más natural y más fluidas. [Custom Translator](https://portal.customtranslator.azure.ai) proporciona NMT para sus modelos personalizados lo cual da como resultado una traducción de mejor calidad.
+Microsoft Translator lanzó la [traducción automática neuronal (NMT)](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) en 2016. La NMT proporciona avances importantes en lo que se refiere a la calidad de la traducción con respecto a la tecnología estándar de [traducción automática estadística (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation). Como la NMT captura mejor el contexto de oraciones completas antes de traducirlas, proporciona unas traducciones de mayor calidad, un tono más natural y más fluidas. [Custom Translator](https://portal.customtranslator.azure.ai) proporciona NMT para sus modelos personalizados lo cual da como resultado una traducción de mejor calidad.
 
 Puede usar los documentos traducidos anteriormente para crear un sistema de traducción. Estos documentos incluyen la terminología y el estilo específicos de un dominio de mejor forma que lo hace un sistema de traducción estándar. Los usuarios pueden cargar documentos ALIGN, PDF, LCL, HTML, HTM, XLF, TMX, XLIFF, TXT, DOCX y XLSX.
 

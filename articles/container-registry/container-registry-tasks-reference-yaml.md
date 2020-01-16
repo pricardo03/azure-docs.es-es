@@ -3,12 +3,12 @@ title: 'Referencia de YAML: ACR Tasks'
 description: Referencia para definir tareas en YAML para ACR Tasks, como propiedades de tareas, tipos de pasos, propiedades de pasos y variables integradas.
 ms.topic: article
 ms.date: 10/23/2019
-ms.openlocfilehash: da1b1613d880b9edf6ec6d6018011f43a7ac69a5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d86eb0e24233afb536d27f5d0938d4748941e88a
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445692"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945739"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referencia de ACR Tasks: YAML
 
@@ -79,7 +79,7 @@ Las propiedades de tareas suelen aparecer en la parte superior de un archivo `ac
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | Sí | La versión del archivo `acr-task.yaml` analizada por el servicio ACR Tasks. Si bien ACR Tasks se esfuerza por mantener la compatibilidad con versiones anteriores, este valor permite que ACR Tasks mantenga la compatibilidad dentro de una versión definida. Si no se especifica, se establece de manera predeterminada en la versión más reciente. | No | None |
 | `stepTimeout` | int (segundos) | Sí | El número máximo de segundos que se puede ejecutar un paso. Si la propiedad se especifica en una tarea, establece la propiedad `timeout` predeterminada de todos los pasos. Si la propiedad `timeout` se especifica en un paso, invalida la propiedad que la tarea proporciona. | Sí | 600 (10 minutos) |
-| `workingDirectory` | string | Sí | El directorio de trabajo del contenedor durante el tiempo de ejecución. Si la propiedad se especifica en una tarea, establece la propiedad `workingDirectory` predeterminada de todos los pasos. Si se especifica en un paso, invalida la propiedad que la tarea proporciona. | Sí | `$HOME` |
+| `workingDirectory` | string | Sí | El directorio de trabajo del contenedor durante el tiempo de ejecución. Si la propiedad se especifica en una tarea, establece la propiedad `workingDirectory` predeterminada de todos los pasos. Si se especifica en un paso, invalida la propiedad que la tarea proporciona. | Sí | `/workspace` |
 | `env` | [string, string, ...] | Sí |  Matriz de cadenas en formato `key=value` que define las variables de entorno de la tarea. Si la propiedad se especifica en una tarea, establece la propiedad `env` predeterminada de todos los pasos. Si se especifica en un paso, invalida las variables de entorno heredadas de la tarea. | None |
 | `secrets` | [secret, secret, ...] | Sí | Matriz de objetos de [secreto](#secret). | None |
 | `networks` | [network, network, ...] | Sí | Matriz de objetos de [red](#network). | None |
@@ -379,7 +379,7 @@ Cada tipo de paso admite varias propiedades adecuadas para su tipo. En la tabla 
 | `timeout` | int (segundos) | Sí | Número máximo de segundos que se puede ejecutar un paso antes de terminar. | 600 |
 | [`when`](#example-when) | [string, string, ...] | Sí | Configura la dependencia de un paso de uno o varios pasos dentro de la tarea. | None |
 | `user` | string | Sí | El nombre de usuario o UID de un contenedor. | None |
-| `workingDirectory` | string | Sí | Establece el directorio de trabajo de un paso. De forma predeterminada, ACR Tasks crea un directorio raíz como directorio de trabajo. Sin embargo, si la compilación tiene varios pasos, los pasos anteriores pueden compartir artefactos con los pasos posteriores mediante la especificación del mismo directorio de trabajo. | `$HOME` |
+| `workingDirectory` | string | Sí | Establece el directorio de trabajo de un paso. De forma predeterminada, ACR Tasks crea un directorio raíz como directorio de trabajo. Sin embargo, si la compilación tiene varios pasos, los pasos anteriores pueden compartir artefactos con los pasos posteriores mediante la especificación del mismo directorio de trabajo. | `/workspace` |
 
 ### <a name="examples-task-step-properties"></a>Ejemplos: Propiedades de pasos de tareas
 

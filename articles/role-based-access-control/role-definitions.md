@@ -15,12 +15,12 @@ ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 1cd5325be7def4bc631d994f8811734e6c3cf545
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3ff4b2cb6a59a35dc6da4748a7c7fbb4758a4fcf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996437"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981014"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Descripción de definiciones de roles para los recursos de Azure
 
@@ -48,7 +48,7 @@ Se especifican las operaciones con cadenas que tienen el formato siguiente:
 
 La parte `{action}` de una cadena de la operación especifica el tipo de operaciones que puede realizar en un tipo de recurso. Por ejemplo, verá las siguientes subcadenas en `{action}`:
 
-| Subcadena de acción    | DESCRIPCIÓN         |
+| Subcadena de acción    | Descripción         |
 | ------------------- | ------------------- |
 | `*` | El carácter comodín concede acceso a todas las operaciones que coinciden con la cadena. |
 | `read` | Permite operaciones de lectura (GET). |
@@ -152,7 +152,7 @@ Puesto que Alice tiene una acción de carácter comodín (`*`) en un ámbito de 
 
 Los permisos de Bob se limitan a solo los valores de `Actions` y `DataActions` especificados en el rol [Colaborador de datos de blobs de almacenamiento](built-in-roles.md#storage-blob-data-contributor). Según el rol, Bob puede realizar operaciones de datos y de administración. Por ejemplo, Bob puede leer, escribir y eliminar contenedores de la cuenta de almacenamiento especificada y también puede leer, escribir y eliminar los blobs.
 
-Para más información acerca de la administración y la seguridad en el plano de datos, consulte la [guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md).
+Para más información acerca de la administración y la seguridad en el plano de datos, consulte la [guía de seguridad de Azure Storage](../storage/blobs/security-recommendations.md).
 
 ### <a name="what-tools-support-using-rbac-for-data-operations"></a>¿Qué herramientas se admiten cuando se usa RBAC para las operaciones de datos?
 
@@ -176,7 +176,7 @@ Para ver y usar las operaciones de datos en la API REST, el valor del parámetro
 
 El permiso `Actions` especifica las operaciones de administración que el rol permite realizar. Se trata de una colección de cadenas de operación que identifican a las operaciones protegibles de proveedores de recursos de Azure. A continuación, se incluyen algunos ejemplos de operaciones de administración que se pueden usar en `Actions`.
 
-| Cadena de la operación    | DESCRIPCIÓN         |
+| Cadena de la operación    | Descripción         |
 | ------------------- | ------------------- |
 | `*/read` | Concede acceso a las operaciones de lectura a todos los tipos de recursos de todos los proveedores de recursos de Azure.|
 | `Microsoft.Compute/*` | Concede acceso a todas las operaciones a todos los tipos de recursos del proveedor de recursos Microsoft.Compute.|
@@ -196,7 +196,7 @@ El permiso `NotActions` especifica las operaciones de administración que se exc
 
 El permiso `DataActions` especifica las operaciones de datos que el rol permite realizar en los datos dentro de ese objeto. Por ejemplo, si un usuario tiene acceso para leer datos de blobs de una cuenta de almacenamiento, puede leer los blobs en esa cuenta de almacenamiento. A continuación, se incluyen algunos ejemplos de operaciones de datos que se pueden usar en `DataActions`.
 
-| Cadena de la operación    | DESCRIPCIÓN         |
+| Cadena de la operación    | Descripción         |
 | ------------------- | ------------------- |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | Devuelve un blob o una lista de blobs. |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | Devuelve el resultado de la escritura de un blob. |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 053a209829f30ea92d76b29f24d028d77ca732e7
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ee2fb3757b0e3a7015a98f4e04084fd9c6a4850d
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058899"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747549"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Pasos detallados para solucionar problemas de conexión a Escritorio remoto a máquinas virtuales Windows en Azure
 Este artículo ofrece pasos detallados de solución de problemas para diagnosticar y corregir errores complejos de Escritorio remoto en máquinas virtuales de Azure basadas en Windows.
@@ -30,7 +30,6 @@ Este artículo ofrece pasos detallados de solución de problemas para diagnostic
 
 Puede que se encuentre un mensaje de error de Escritorio remoto que no se parezca a ninguno de los tratados en [la guía básica de solución de problemas de Escritorio remoto](troubleshoot-rdp-connection.md). Siga estos pasos para determinar por qué el cliente de Escritorio remoto (RDP) no se puede conectar con el servicio RDP en la máquina virtual de Azure.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure y de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte**. Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes del soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
@@ -129,7 +128,7 @@ Pruebe de nuevo la conexión desde su equipo. Si todavía no puede conectarse me
 * El firewall de Windows u otro firewall local tiene una regla de salida que impide el tráfico de Escritorio remoto.
 * El software de detección de intrusiones o supervisión de red que se ejecuta en la máquina virtual de Azure impide las conexiones a Escritorio remoto.
 
-Para las máquinas virtuales creadas con el modelo de implementación clásico, puede utilizar una sesión remota de Azure PowerShell para la máquina virtual de Azure. En primer lugar, debe instalar un certificado para el servicio en la nube de hospedaje de la máquina virtual. Vaya a [Configure Secure Remote PowerShell Access to Azure Virtual Machines](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) (Configuración del acceso remoto seguro de PowerShell a Azure Virtual Machines) y descargue el archivo de script **InstallWinRMCertAzureVM.ps1** en el equipo local.
+Para las máquinas virtuales creadas con el modelo de implementación clásico, puede utilizar una sesión remota de Azure PowerShell para la máquina virtual de Azure. En primer lugar, debe instalar un certificado para el servicio en la nube de hospedaje de la máquina virtual. Vaya a [Configurar el acceso remoto seguro de PowerShell a Azure Virtual Machines](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) y descargue el archivo de script **InstallWinRMCertAzureVM.ps1** en el equipo local.
 
 A continuación, instale Azure PowerShell si todavía no lo ha hecho. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
@@ -192,7 +191,7 @@ Exit-PSSession
 Compruebe que el punto de conexión de Escritorio remoto para la máquina virtual de Azure también usa el puerto TCP 3398 como puerto interno. Reinicie la máquina virtual de Azure y vuelva a intentar la conexión a Escritorio remoto.
 
 ## <a name="additional-resources"></a>Recursos adicionales
-[Restablecimiento del servicio Escritorio remoto o la contraseña para máquinas virtuales Windows](../windows/reset-rdp.md)
+[Cómo restablecer una contraseña o el servicio de Escritorio remoto para máquinas virtuales de Windows](../windows/reset-rdp.md)
 
 [Instalación y configuración de Azure PowerShell](/powershell/azure/overview)
 

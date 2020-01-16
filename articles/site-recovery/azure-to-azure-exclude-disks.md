@@ -1,18 +1,16 @@
 ---
 title: Exclusión de los discos de máquina virtual de Azure de la replicación con Azure Site Recovery y Azure PowerShell
 description: Aprenda excluir discos de máquinas virtuales de Azure con Azure PowerShell durante Azure Site Recovery.
-author: asgang
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/18/2019
-ms.author: asgang
-ms.openlocfilehash: beb4ee6fcf6413634d7d728e3f070294e8ce3787
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 7355233bb7241571e3f3820aafac6952af245654
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084974"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973673"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Exclusión de discos de la replicación de máquinas virtuales de Azure en PowerShell
 
@@ -21,7 +19,7 @@ En este artículo se describe cómo excluir discos al replicar máquinas virtual
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar:
 
@@ -98,7 +96,7 @@ $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationC
          -DiskId $OSdiskId -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType
 
-# Data Disk 1 i.e StorageProfile.DataDisks[0] is excluded, so we will provide it during the time of replication. 
+# Data Disk 1 i.e StorageProfile.DataDisks[0] is excluded, so we will provide it during the time of replication.
 
 # Data disk 2
 $datadiskId2  = $vm.StorageProfile.DataDisks[1].ManagedDisk.id

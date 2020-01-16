@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: 3e510cc4073a4b0075cdaeb80091657dbee93fcb
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792490"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979407"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformación de XML con asignaciones en Azure Logic Apps con Enterprise Integration Pack
 
@@ -23,9 +23,9 @@ Por ejemplo, suponga que recibe periódicamente pedidos o facturas B2B de un cli
 
 Para conocer los límites relacionados con las cuentas de integración y artefactos como asignaciones, consulte [Información de límites y configuración para Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
 * Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) donde almacena las asignaciones y otros artefactos para soluciones negocio a negocio (B2B) y de integración empresarial.
 
@@ -36,9 +36,9 @@ Para conocer los límites relacionados con las cuentas de integración y artefac
   * En el caso de los ensamblados, necesita un contenedor de blobs de Azure donde pueda cargar el ensamblado y la ubicación de ese contenedor. De ese modo, puede proporcionar esa ubicación más adelante cuando agregue el ensamblado a la cuenta de integración. 
   Para esta tarea, necesita estos elementos:
 
-    | item | DESCRIPCIÓN |
+    | Elemento | Descripción |
     |------|-------------|
-    | [Cuenta de Almacenamiento de Azure](../storage/common/storage-account-overview.md) | En esta cuenta, cree un contenedor de blobs de Azure para el ensamblado. Aprenda a [crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md). |
+    | [Cuenta de Almacenamiento de Azure](../storage/common/storage-account-overview.md) | En esta cuenta, cree un contenedor de blobs de Azure para el ensamblado. Aprenda a [crear una cuenta de almacenamiento](../storage/common/storage-account-create.md). |
     | Contenedor de blobs | En este contenedor, puede cargar el ensamblado. También necesitará la ubicación de este contenedor cuando agregue el ensamblado a la cuenta de integración. Aprenda a [crear un contenedor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md). |
     | [Explorador de Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Esta herramienta ayuda a administrar más fácilmente las cuentas de almacenamiento y los contenedores de blobs. Para usar el Explorador de Storage, [descargue e instale el Explorador de Azure Storage](https://www.storageexplorer.com/). Luego, para conectarlo con su cuenta de almacenamiento, siga los pasos que aparecen en [Introducción al Explorador de Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md). Para más información, vea esta [Inicio rápido: Cree un blob en el almacenamiento de objetos con el Explorador de Azure Storage](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>O bien, en Azure Portal, busque y seleccione la cuenta de almacenamiento. En el menú de la cuenta de almacenamiento, seleccione **Explorador de Storage**. |
     |||
@@ -129,7 +129,7 @@ Para agregar ensamblados de mayor tamaño, puede cargar el ensamblado en un cont
 1. Cuando termine de cargar, seleccione el ensamblado cargado. En la barra de herramientas, elija **Copiar dirección URL** para copiar la dirección URL del ensamblado.
 
 1. Vuelva a Azure Portal donde está abierto el panel **Agregar ensamblado**. 
-   Escriba un nombre para el ensamblado. 
+   Escriba un nombre para el esquema. 
    Elija **Large file (larger than 2 MB)** (Archivo de gran tamaño [más de 2 MB]).
 
    Ahora aparece la casilla **URI de contenido** en lugar de la casilla **Ensamblado**.
@@ -154,7 +154,7 @@ En la página **Información general** de la cuenta de integración, en **Compon
    Una vez que se genere la dirección URL de SAS, junto a la casilla **Dirección URL**, elija **Copiar**.
 
 1. Vuelva a Azure Portal donde está abierto el panel **Agregar ensamblado**. 
-   Escriba un nombre para el ensamblado. 
+   Escriba un nombre para el esquema. 
    Elija **Large file (larger than 2 MB)** (Archivo de gran tamaño [más de 2 MB]).
 
    Ahora aparece la casilla **URI de contenido** en lugar de la casilla **Ensamblado**.

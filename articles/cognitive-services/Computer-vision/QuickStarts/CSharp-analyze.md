@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: edf9f46d9e0c9170bb96cc5e1a1e72b6cb716e8c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0344ba8263fe9d14c6939124f09adc104f0c611d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978329"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770397"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-c"></a>Inicio rápido: Análisis de una imagen local mediante la API REST Computer Vision y C#
 
@@ -24,7 +24,7 @@ En este inicio rápido, analizará una imagen almacenada localmente para extraer
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Debe tener [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) o posterior.
 - Debe tener una clave de suscripción para Computer Vision. Puede obtener una clave de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). O bien, siga las instrucciones que se indican en [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse a Computer Vision y obtener su clave. Después, [cree variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la cadena de punto de conexión del servicio y la clave denominadas `COMPUTER_VISION_SUBSCRIPTION_KEY` y `COMPUTER_VISION_ENDPOINT`, respectivamente.
@@ -61,7 +61,7 @@ namespace CSHttpClientSample
         // the Analyze method endpoint
         static string uriBase = endpoint + "vision/v2.1/analyze";
 
-        static void Main()
+        static async Task Main()
         {
             // Get the path and filename to process from the user.
             Console.WriteLine("Analyze an image:");
@@ -72,8 +72,8 @@ namespace CSHttpClientSample
             if (File.Exists(imageFilePath))
             {
                 // Call the REST API method.
-                Console.WriteLine("\nWait a moment for the results to appear.\n");
-                MakeAnalysisRequest(imageFilePath).Wait();
+                Console.WriteLine("\nWait for the results to appear.\n");
+                await MakeAnalysisRequest(imageFilePath);
             }
             else
             {

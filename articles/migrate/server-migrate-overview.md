@@ -1,17 +1,14 @@
 ---
 title: Selección de una opción de migración de VMware con Azure Migrate Server Migration | Microsoft Docs
 description: Proporciona información general sobre las opciones para migrar máquinas virtuales de VMware a Azure con Azure Migrate Server Migration.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: raynew
-ms.openlocfilehash: 68026af5b96728ea66fd9e584e67e5e596e690fb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 52e7103ea3ebcd83369a866cc3f75b0bf0e889a2
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974672"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028717"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selección de una opción de migración de VMware
 
@@ -25,7 +22,7 @@ Puede migrar las máquinas virtuales de VMware a Azure mediante la herramienta A
 
 ## <a name="compare-migration-methods"></a>Comparación de métodos de migración
 
-Use estas comparaciones seleccionadas para que le ayuden a decidir qué método usar. También puede revisar los requisitos de compatibilidad completos para la migración [sin agente](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) y [basada en agente](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements).
+Use estas comparaciones seleccionadas para que le ayuden a decidir qué método usar. También puede revisar los requisitos de compatibilidad completos para la migración [sin agente](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) y [basada en agente](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers).
 
 **Configuración** | **Sin agente** | **Basado en agente**
 --- | --- | ---
@@ -36,7 +33,7 @@ Use estas comparaciones seleccionadas para que le ayuden a decidir qué método 
 **Disco de destino** | Discos administrados | Discos administrados
 **Límites del disco** | Disco del sistema operativo: 2 TB<br/><br/> Disco de datos: 4 TB<br/><br/> Número máximo de discos: 60 | Disco del sistema operativo: 2 TB<br/><br/> Disco de datos: 8 TB<br/><br/> Número máximo de discos: 63
 **Discos de acceso directo** | No compatible | Compatible
-**Arranque UEFI** | No compatible | La VM migrada en Azure se convertirá automáticamente en una VM de arranque del BIOS.<br/><br/> El disco del sistema operativo debe tener hasta cuatro particiones y los volúmenes deben formatearse con NTFS.
+**Arranque UEFI** | No compatible | La máquina virtual migrada en Azure se convertirá automáticamente en una VM de arranque del BIOS.<br/><br/> El disco del sistema operativo debe tener hasta cuatro particiones y los volúmenes deben formatearse con NTFS.
 
 
 ## <a name="deployment-steps-comparison"></a>Comparación de los pasos de implementación

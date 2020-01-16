@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 2fe31271fa84bc4170bd431a4aadbcafc0df9086
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 84120b07de3a03a049493eb973b6dc46f8668387
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311525"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976444"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publicación de un anuncio en un laboratorio de Azure DevTest Labs
 
@@ -35,7 +35,7 @@ La característica de anuncios está pensada para usarla para notificaciones tem
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Pasos para publicar un anuncio en un laboratorio existente
 
-1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Si es necesario, seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista. (Puede que su laboratorio ya aparezca en el panel, en **Todos los recursos**).
 1. En la lista de laboratorios, seleccione aquel en el que desea publicar un anuncio.
 1. En el área **Introducción** del laboratorio, seleccione **Configuración y directivas**.
@@ -160,10 +160,10 @@ Puede especificar un anuncio como parte de una plantilla de Azure Resource Manag
 
 Puede implementar una plantilla de Azure Resource Manager de una de las maneras siguientes:
 
-- [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
-- [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-- [CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-- [API DE REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
+- [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+- [CLI de Azure](../azure-resource-manager/templates/deploy-cli.md)
+- [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Si cambia o establece una directiva de laboratorio, puede que quiera publicar un anuncio para informar a los usuarios. [Configuración de directivas y programaciones](devtest-lab-set-lab-policy.md) proporciona información acerca de cómo aplicar restricciones y convenciones en la suscripción mediante el uso de directivas personalizadas.

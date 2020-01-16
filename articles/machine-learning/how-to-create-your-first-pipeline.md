@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f84eba6b23278391afd2de11d9072c9a378db05
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5b2fa550029c35ca989d6746254298cf1e92992d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646598"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75764582"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
 
 * Cree un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md) que contendrá todos los recursos de la canalización.
 
-* [Configure el entorno de desarrollo](service/how-to-configure-environment.md) para instalar el SDK de Azure Machine Learning, o use una [instancia de proceso de Azure Machine Learning (versión preliminar)](concept-compute-instance.md) con el SDK ya instalado.
+* [Configure el entorno de desarrollo](how-to-configure-environment.md) para instalar el SDK de Azure Machine Learning, o use una [instancia de proceso de Azure Machine Learning (versión preliminar)](concept-compute-instance.md) con el SDK ya instalado.
 
 > [!NOTE]
 > Las instancias de proceso solo están disponibles para las áreas de trabajo con una región de **Centro y norte de EE. UU.** o **Sur de Reino Unido**.
@@ -132,7 +132,7 @@ iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 't
 
  Puede crear una clase `FileDataset` con [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-).
 
- Puede obtener más información sobre cómo trabajar con conjuntos de datos en [Adición y registro de conjuntos de datos](service/how-to-create-register-datasets.md) o en [este cuaderno de ejemplo](https://aka.ms/train-datasets).
+ Puede obtener más información sobre cómo trabajar con conjuntos de datos en [Adición y registro de conjuntos de datos](how-to-create-register-datasets.md) o en [este cuaderno de ejemplo](https://aka.ms/train-datasets).
 
 ## <a name="set-up-compute-target"></a>Configurar el destino de proceso
 

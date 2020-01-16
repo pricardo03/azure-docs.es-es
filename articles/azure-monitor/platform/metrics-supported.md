@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: af0c5a42b71829bbfd51d77c047af45c1df6fd4b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 67e2675dbf65daf929407a437447f5d977c7a6c3
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363649"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75750395"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -200,14 +200,14 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Active Nodes|Nodos activos|Count|Average|Número de nodos en ejecución|Scenario,ClusterName|
 |Idle Nodes|Nodos inactivos|Count|Average|Número de nodos inactivos|Scenario,ClusterName|
 |Nodos no utilizables|Nodos no utilizables|Count|Average|Número de nodos inutilizables|Scenario,ClusterName|
-|Preempted Nodes|Nodos con prioridad|Count|Average|Número de nodos con prioridad|Scenario,ClusterName|
+|Nodos con prioridad|Nodos con prioridad|Count|Average|Número de nodos con prioridad|Scenario,ClusterName|
 |Leaving Nodes|Nodos de salida|Count|Average|Número de nodos de salida|Scenario,ClusterName|
-|Total Cores|Núcleos totales|Count|Average|Número de núcleos totales|Scenario,ClusterName|
-|Active Cores|Núcleos activos|Count|Average|Número de núcleos activos|Scenario,ClusterName|
-|Idle Cores|Núcleos inactivos|Count|Average|Número de núcleos inactivos|Scenario,ClusterName|
-|Unusable Cores|Núcleos no utilizables|Count|Average|Número de núcleos no utilizables|Scenario,ClusterName|
-|Preempted Cores|Núcleos con prioridad|Count|Average|Número de núcleos con prioridad|Scenario,ClusterName|
-|Leaving Cores|Núcleos de salida|Count|Average|Número de núcleos de salida|Scenario,ClusterName|
+|Núcleos totales|Núcleos totales|Count|Average|Número de núcleos totales|Scenario,ClusterName|
+|Núcleos activos|Núcleos activos|Count|Average|Número de núcleos activos|Scenario,ClusterName|
+|Núcleos inactivos|Núcleos inactivos|Count|Average|Número de núcleos inactivos|Scenario,ClusterName|
+|Núcleos no utilizables|Núcleos no utilizables|Count|Average|Número de núcleos no utilizables|Scenario,ClusterName|
+|Núcleos con prioridad|Núcleos con prioridad|Count|Average|Número de núcleos con prioridad|Scenario,ClusterName|
+|Núcleos de salida|Núcleos de salida|Count|Average|Número de núcleos de salida|Scenario,ClusterName|
 |Porcentaje de uso de la cuota|Porcentaje de uso de la cuota|Count|Average|Porcentaje de cuota utilizada|Scenario,ClusterName,VmFamilyName,VmPriority|
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft.Blockchain/blockchainMembers
@@ -2324,4 +2324,4 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Lea información sobre las métricas en Azure Monitor](data-platform.md)
 * [Creación de alertas basadas en métricas](alerts-overview.md)
-* [Exportación de métricas a cuentas de almacenamiento, Event Hubs o Log Analytics](resource-logs-overview.md)
+* [Exportación de métricas a cuentas de almacenamiento, Event Hubs o Log Analytics](platform-logs-overview.md)

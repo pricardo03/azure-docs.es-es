@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: abfbac552cc5cb4449a75c45d0c1ffdbcf6b770c
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 432b8855ffb9542a1e052c8c97b52bcddeb5c824
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508107"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934733"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Administración de clústeres de Apache Hadoop en HDInsight con el SDK de .NET
 
@@ -108,11 +108,8 @@ namespace HDInsightManagement
 
 Al ejecutar este programa, verá un mensaje.  Si no desea ver el mensaje, consulte [Crear aplicaciones .NET para HDInsight de autenticación no interactiva](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
-## <a name="create-clusters"></a>Creación de clústeres
 
-Vea [Crear clústeres basados en Linux en HDInsight con el SDK de .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-
-## <a name="list-clusters"></a>Enumeración de clústeres
+## <a name="list-clusters"></a>Lista de clústeres
 
 El fragmento de código siguiente enumera los clústeres y algunas propiedades:
 
@@ -269,7 +266,7 @@ Consulte [Uso de Apache Oozie con Hadoop para definir y ejecutar un flujo de tra
 
 Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Documentación de referencia del SDK de HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal](hdinsight-administer-use-portal-linux.md)

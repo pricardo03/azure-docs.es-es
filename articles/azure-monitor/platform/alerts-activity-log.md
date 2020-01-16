@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 06/25/2019
-ms.openlocfilehash: 54122d784467bc090d82f4126e03ab688883ea7d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4835f1034149a015963569a0b1fc5f9195e3cfca
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364805"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969534"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor  
 
@@ -197,7 +197,7 @@ Para crear una alerta del registro de actividad mediante una plantilla de Azure 
   ]
 }
 ```
-El ejemplo JSON anterior se puede guardar, por ejemplo, como sampleActivityLogAlert.json a los efectos de este tutorial, y puede implementarse con [Azure Resource Manager en Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+El ejemplo JSON anterior se puede guardar, por ejemplo, como sampleActivityLogAlert.json a los efectos de este tutorial, y puede implementarse con [Azure Resource Manager en Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 > [!NOTE]
 > Una regla de alertas nueva del registro de actividad puede tardar hasta 5 minutos en activarse.

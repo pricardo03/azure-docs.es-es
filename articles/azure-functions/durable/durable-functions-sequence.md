@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e8c314b6288bc26ad48fd210e866b2b67e433e17
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: de2fd1a46d931c5d1b625094940a981509bf1488
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231319"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769564"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Encadenamiento de funciones en Durable Functions: Hello Sequence de ejemplo
 
@@ -55,7 +55,7 @@ Todas las funciones de orquestación de C# deben tener un parámetro de tipo `Du
 
 El código llama a `E1_SayHello` tres veces en secuencia con distintos valores de parámetro. El valor devuelto de cada llamada se agrega a la lista `outputs`, que se devuelve al final de la función.
 
-### <a name="javascript"></a>Javascript
+### <a name="javascript"></a>JavaScript
 
 El siguiente es el código fuente:
 

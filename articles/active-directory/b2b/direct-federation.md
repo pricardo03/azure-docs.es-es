@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5b6e99c803fb703f18b61200c28cbdac3282750
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 036c8361af3f6631b6151782fa18495542d2e3f6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272752"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888887"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federación directa con AD FS y proveedores de terceros para usuarios invitados (versión preliminar)
 |     |
@@ -83,14 +83,14 @@ En primer lugar, la organización asociada debe configurar el proveedor de ident
 Azure AD B2B se puede configurar para federarse con proveedores de identidades que usan el protocolo SAML con los requisitos específicos que se indican a continuación. Para más información sobre cómo establecer una confianza entre su proveedor de identidades SAML y Azure AD, consulte [Uso de un proveedor de identidades (IdP) de SAML 2.0 para el inicio de sesión único](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
 
 > [!NOTE]
-> NOTA: El dominio de destino para la federación directa no debe ser comprobado por DNS en Azure AD. El dominio de la URL de autenticación debe coincidir con el dominio de destino o debe ser el dominio de un proveedor de identidades permitido. Consulte la sección [Limitaciones](#limitations) para obtener más información. 
+> El dominio de destino para la federación directa no debe ser comprobado por DNS en Azure AD. El dominio de la URL de autenticación debe coincidir con el dominio de destino o debe ser el dominio de un proveedor de identidades permitido. Consulte la sección [Limitaciones](#limitations) para obtener más información. 
 
 #### <a name="required-saml-20-attributes-and-claims"></a>Atributos y notificaciones de SAML 2.0 necesarios
 En las tablas siguientes se muestran los requisitos de los atributos y las notificaciones específicos que se deben configurar en el proveedor de identidades de terceros. Para establecer una federación directa, se deben recibir los siguientes atributos en la respuesta de SAML 2.0 del proveedor de identidades. Estos atributos se pueden configurar mediante la vinculación con el archivo XML del servicio de token de seguridad en línea o la introducción manual.
 
 Atributos necesarios para la respuesta de SAML 2.0 desde el proveedor de identidades:
 
-|Atributo  |Valor  |
+|Atributo  |Value  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Público     |`urn:federation:MicrosoftOnline`         |
@@ -99,7 +99,7 @@ Atributos necesarios para la respuesta de SAML 2.0 desde el proveedor de identi
 
 Las notificaciones necesarias para el token de SAML 2.0 emitido por el proveedor de identidades:
 
-|Atributo  |Valor  |
+|Atributo  |Value  |
 |---------|---------|
 |Formato de NameID     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -116,7 +116,7 @@ En las tablas siguientes se muestran los requisitos de los atributos y las notif
 
 Atributos necesarios en el mensaje de WS-Fed desde el proveedor de identidades:
  
-|Atributo  |Valor  |
+|Atributo  |Value  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Público     |`urn:federation:MicrosoftOnline`         |
@@ -124,7 +124,7 @@ Atributos necesarios en el mensaje de WS-Fed desde el proveedor de identidades:
 
 Las notificaciones necesarias para el token de WS-Fed emitido por el proveedor de identidades:
 
-|Atributo  |Valor  |
+|Atributo  |Value  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -133,7 +133,7 @@ Las notificaciones necesarias para el token de WS-Fed emitido por el proveedor d
 A continuación, va a configurar la federación con el proveedor de identidades en Azure AD configurado en el paso 1. Puede usar el portal de Azure AD o PowerShell. Pueden pasar de 5 a 10 minutos antes de que la directiva de la federación directa entre en vigor. Durante este tiempo, no intente canjear una invitación por el dominio de la federación directa. Los atributos siguientes son necesarios:
 - URI del emisor del proveedor de identidades del asociado
 - Punto de conexión de la autenticación pasiva del proveedor de identidades del asociado (solo se admite https)
-- Certificate
+- Certificado
 
 ### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Para configurar la federación directa en el portal de Azure AD
 
@@ -152,7 +152,7 @@ A continuación, va a configurar la federación con el proveedor de identidades 
    - Nombre de dominio del proveedor de identidades del asociado
    - Identificador de entidad de proveedor de identidades del asociado
    - Punto de conexión de solicitante pasivo del proveedor de identidades del asociado
-   - Certificate
+   - Certificado
    > [!NOTE]
    > La dirección URL de metadatos es opcional, pero se recomienda encarecidamente. Si proporciona la dirección URL de metadatos, Azure AD puede renovar automáticamente el certificado de firma cuando expire. Si el certificado se gira por cualquier razón antes de la hora de expiración, o si no proporciona una dirección URL de metadatos, Azure AD no podrá renovarlo. En este caso, deberá actualizar manualmente el certificado de firma.
 

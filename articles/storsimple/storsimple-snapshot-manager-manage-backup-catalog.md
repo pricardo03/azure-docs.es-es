@@ -3,7 +3,7 @@ title: Catálogo de copias de seguridad de StorSimple Snapshot Manager | Microso
 description: Describe cómo usar el complemento MMC del Administrador de instantáneas StorSimple para ver y administrar el catálogo de copia de seguridad.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 6abdbfd2-22ce-45a5-aa15-38fae4c8f4ec
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: dc24ebd59fd977ef35766c304aec5824e2c7bb4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 38ef7774263e4b28b7c316fd0870ca8f7b89d6b8
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127189"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931717"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Uso de Administrador de instantáneas StorSimple para administrar el catálogo de copia de seguridad
 
@@ -56,7 +56,7 @@ Puede ver el catálogo de copias de seguridad expandiendo el nodo **Catálogo de
 ## <a name="restore-a-volume"></a>Restauración de un volumen
 Utilice el siguiente procedimiento para restaurar un volumen a partir de la copia de seguridad.
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>Prerequisites
 Si aún no lo ha hecho, cree un volumen y un grupo de volúmenes y, a continuación, elimine el volumen. De forma predeterminada, Administrador de instantáneas StorSimple realiza una copia de un volumen antes de permitir que se elimine. Esta precaución puede evitar la pérdida de datos si se elimina accidentalmente el volumen o si los datos deben recuperarse por cualquier motivo. 
 
 Administrador de instantáneas StorSimple muestra el siguiente mensaje mientras crea la copia de seguridad preventiva.
@@ -93,7 +93,7 @@ Utilice el procedimiento siguiente para crear un duplicado (clon) de un volumen 
    1. En el cuadro de texto **Nombre** , escriba un nombre para el volumen clonado. Este nombre aparecerá en el nodo **Volúmenes** . 
    2. (Opcional) seleccione **Unidad**y, a continuación, seleccione una letra de unidad de la lista desplegable.
    3. (Opcional) seleccione **Carpeta (NTFS)** y escriba una ruta de acceso a la carpeta o haga clic en Examinar y seleccione una ubicación para la carpeta. 
-   4. Haga clic en **Create**(Crear).
+   4. Haga clic en **Crear**.
 5. Cuando finalice el proceso de clonación, tiene que inicializar el volumen clonado. Inicie el Administrador del servidor y, a continuación, inicie Administración de discos. Para obtener instrucciones detalladas, consulte [Montar volúmenes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Una vez inicializado, el volumen aparecerá en la lista del nodo **Volúmenes** en el panel **Ámbito**. Si el volumen no aparece, actualice la lista de volúmenes (haga clic con el botón derecho en el nodo **Volúmenes** y, luego, haga clic en **Actualizar**).
 
 ## <a name="delete-a-backup"></a>Eliminación de una copia de seguridad
@@ -112,7 +112,7 @@ Utilice el procedimiento siguiente para eliminar una instantánea del catálogo 
 ## <a name="recover-a-file"></a>Recuperación de un archivo
 Si un archivo se elimina accidentalmente de un volumen, puede recuperar el archivo a través de la recuperación de una instantánea con fecha anterior a la eliminación, usando la instantánea para crear un clon del volumen y, a continuación, copiando el archivo del volumen clonado en el volumen original.
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>Prerequisites
 Antes de comenzar, asegúrese de que tiene una copia de seguridad actual del grupo de volúmenes. A continuación, elimine un archivo almacenado en uno de los volúmenes de ese grupo de volúmenes. Por último, siga los pasos a continuación para restaurar el archivo eliminado desde la copia de seguridad. 
 
 #### <a name="to-recover-a-deleted-file"></a>Para recuperar un archivo eliminado
@@ -126,7 +126,7 @@ Antes de comenzar, asegúrese de que tiene una copia de seguridad actual del gru
    1. En el cuadro de texto **Nombre** , escriba un nombre para el volumen clonado. Este nombre aparecerá en el nodo **Volúmenes** . 
    2. (Opcional) Seleccione **Unidad**y, a continuación, seleccione una letra de unidad de la lista desplegable. 
    3. (Opcional) seleccione **Carpeta (NTFS)** y escriba una ruta de acceso a la carpeta o haga clic en **Examinar** y seleccione una ubicación para la carpeta. 
-   4. Haga clic en **Create**(Crear). 
+   4. Haga clic en **Crear**. 
 5. Cuando finalice el proceso de clonación, tiene que inicializar el volumen clonado. Inicie el Administrador del servidor y, a continuación, inicie Administración de discos. Para obtener instrucciones detalladas, consulte [Montar volúmenes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Una vez inicializado, el volumen aparecerá en la lista del nodo **Volúmenes** en el panel **Ámbito**. 
    
     Si el volumen no aparece, actualice la lista de volúmenes (haga clic con el botón derecho en el nodo **Volúmenes** y, luego, haga clic en **Actualizar**).

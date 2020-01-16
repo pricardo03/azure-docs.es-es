@@ -11,12 +11,12 @@ ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 30a3be1365f152a88713604570169091f09f0536
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f5f63b0169a7ac8c7b33dda73dd2072376628d4a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975438"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867581"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Administración de carga de trabajo con clases de recursos en Azure SQL Data Warehouse
 
@@ -67,14 +67,14 @@ Las clases de recursos dinámicos se implementan con estos roles de base de dato
 
 La asignación de memoria para cada clase de recurso es la siguiente. 
 
-| Nivel de servicios  | smallrc           | mediumrc               | largerc                | xlargerc               |
+| Nivel de servicio  | smallrc           | mediumrc               | largerc                | xlargerc               |
 |:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
 | DW100c         | 25 %               | 25 %                    | 25 %                    | 70%                    |
-| DW200c         | 12,5 %             | 12,5 %                  | 22 %                    | 70%                    |
-| DW300c         | 8 %                | 10%                    | 22 %                    | 70%                    |
-| DW400c         | 6,25 %             | 10%                    | 22 %                    | 70%                    |
-| DW500c         | 20%               | 10%                    | 22 %                    | 70%                    |
-| DW1000c a<br> DW30000c | 3 %       | 10%                    | 22 %                    | 70%                    |
+| DW200c         | 12,5 %             | 12,5 %                  | 22 %                    | 70%                    |
+| DW300c         | 8 %                | 10 %                    | 22 %                    | 70%                    |
+| DW400c         | 6,25 %             | 10 %                    | 22 %                    | 70%                    |
+| DW500c         | 20%               | 10 %                    | 22 %                    | 70%                    |
+| DW1000c a<br> DW30000c | 3 %       | 10 %                    | 22 %                    | 70%                    |
 
 
 
@@ -119,7 +119,7 @@ Algunas consultas siempre se ejecutan en la clase de recursos smallrc incluso si
 Las instrucciones siguientes están exentas de las clases de recursos y siempre se ejecutan en smallrc:
 
 - CREATE o DROP TABLE
-- ALTER TABLE ... SWITCH, SPLIT o MERGE PARTITION
+- La instrucción ALTER TABLE ... SWITCH, SPLIT o MERGE PARTITION
 - ALTER INDEX DISABLE
 - DROP INDEX
 - CREATE, UPDATE o DROP STATISTICS
@@ -310,37 +310,37 @@ WITH
 alloc
 AS
 (
-SELECT 'DW100c' AS DWU,4 AS max_queries,4 AS max_slots,1 AS slots_used_smallrc,1 AS slots_used_mediumrc,2 AS slots_used_largerc,4 AS slots_used_xlargerc,1 AS slots_used_staticrc10,2 AS slots_used_staticrc20,4 AS slots_used_staticrc30,4 AS slots_used_staticrc40,4 AS slots_used_staticrc50,4 AS slots_used_staticrc60,4 AS slots_used_staticrc70,4 AS slots_used_staticrc80
-  UNION ALL
-    SELECT 'DW200c', 8, 8, 1, 2, 4, 8, 1, 2, 4, 8, 8, 8, 8, 8
-  UNION ALL
-    SELECT 'DW300c', 12, 12, 1, 2, 4, 8, 1, 2, 4, 8, 8, 8, 8, 8
-  UNION ALL
-    SELECT 'DW400c', 16, 16, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
-  UNION ALL
-    SELECT 'DW500c', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
-  UNION ALL
-    SELECT 'DW1000c', 32, 40, 1, 4, 8, 28, 1, 2, 4, 8, 16, 32, 32, 32
-  UNION ALL
-    SELECT 'DW1500c', 32, 60, 1, 6, 13, 42, 1, 2, 4, 8, 16, 32, 32, 32
-  UNION ALL
-    SELECT 'DW2000c', 48, 80, 2, 8, 17, 56, 1, 2, 4, 8, 16, 32, 64, 64
-  UNION ALL
-    SELECT 'DW2500c', 48, 100, 3, 10, 22, 70, 1, 2, 4, 8, 16, 32, 64, 64
-  UNION ALL
-    SELECT 'DW3000c', 64, 120, 3, 12, 26, 84, 1, 2, 4, 8, 16, 32, 64, 64
-  UNION ALL
-    SELECT 'DW5000c', 64, 200, 6, 20, 44, 140, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW6000c', 128, 240, 7, 24, 52, 168, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW7500c', 128, 300, 9, 30, 66, 210, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW10000c', 128, 400, 12, 40, 88, 280, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW15000c', 128, 600, 18, 60, 132, 420, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW30000c', 128, 1200, 36, 120, 264, 840, 1, 2, 4, 8, 16, 32, 64, 128 
+SELECT 'DW100c' AS DWU,4 AS max_queries,4 AS max_slots,1 AS slots_used_smallrc,1 AS slots_used_mediumrc,2 AS slots_used_largerc,4 AS slots_used_xlargerc,1 AS slots_used_staticrc10,2 AS slots_used_staticrc20,4 AS slots_used_staticrc30,4 AS slots_used_staticrc40,4 AS slots_used_staticrc50,4 AS slots_used_staticrc60,4 AS slots_used_staticrc70,4 AS slots_used_staticrc80
+  UNION ALL
+   SELECT 'DW200c',8,8,1,2,4,8,1,2,4,8,8,8,8,8
+  UNION ALL
+   SELECT 'DW300c',12,12,1,2,4,8,1,2,4,8,8,8,8,8
+  UNION ALL
+   SELECT 'DW400c',16,16,1,4,8,16,1,2,4,8,16,16,16,16
+  UNION ALL
+   SELECT 'DW500c',20,20,1,4,8,16,1,2,4,8,16,16,16,16
+  UNION ALL
+   SELECT 'DW1000c',32,40,1,4,8,28,1,2,4,8,16,32,32,32
+  UNION ALL
+   SELECT 'DW1500c',32,60,1,6,13,42,1,2,4,8,16,32,32,32
+  UNION ALL
+   SELECT 'DW2000c',48,80,2,8,17,56,1,2,4,8,16,32,64,64
+  UNION ALL
+   SELECT 'DW2500c',48,100,3,10,22,70,1,2,4,8,16,32,64,64
+  UNION ALL
+   SELECT 'DW3000c',64,120,3,12,26,84,1,2,4,8,16,32,64,64
+  UNION ALL
+   SELECT 'DW5000c',64,200,6,20,44,140,1,2,4,8,16,32,64,128
+  UNION ALL
+   SELECT 'DW6000c',128,240,7,24,52,168,1,2,4,8,16,32,64,128
+  UNION ALL
+   SELECT 'DW7500c',128,300,9,30,66,210,1,2,4,8,16,32,64,128
+  UNION ALL
+   SELECT 'DW10000c',128,400,12,40,88,280,1,2,4,8,16,32,64,128
+  UNION ALL
+   SELECT 'DW15000c',128,600,18,60,132,420,1,2,4,8,16,32,64,128
+  UNION ALL
+   SELECT 'DW30000c',128,1200,36,120,264,840,1,2,4,8,16,32,64,128
 )
 -- Creating workload mapping to their corresponding slot consumption and default memory grant.
 ,map  

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 5c4eb5241cc5e50c11c05cac6909e37557ba106d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ed5fc923c82fb0d0e4004e18159d943564c6f55e
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037512"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045823"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Tutorial: Configuración de un grupo de disponibilidad en Azure SQL Server VM manualmente
 
@@ -32,13 +32,13 @@ El diagrama muestra lo que va a crear en el tutorial.
 
 ![Grupo de disponibilidad](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En el tutorial se da por supuesto que tiene conocimientos básicos de grupos de disponibilidad de SQL Server AlwaysOn. Para más información, consulte [Información general de los grupos de disponibilidad AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 En la tabla siguiente se enumeran los requisitos previos que debe completar antes de iniciar este tutorial:
 
-|  |Requisito |DESCRIPCIÓN |
+|  |Requisito |Descripción |
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Dos servidores SQL Server | - En un conjunto de disponibilidad de Azure <br/> - En un solo dominio <br/> - Con la característica Clústeres de conmutación por error instalada |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Recurso compartido de archivos para testigo de clúster |  
@@ -58,7 +58,7 @@ Antes de comenzar con este tutorial, debe completar los requisitos de [Finalizac
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-## <a name="create-the-cluster"></a>Creación de clústeres
+## <a name="create-the-cluster"></a>Creación del clúster
 
 Una vez completados los requisitos previos, el primer paso es crear un clúster de conmutación por error de Windows Server que incluya dos servidores SQL Server y un servidor testigo.
 
@@ -72,7 +72,7 @@ Una vez completados los requisitos previos, el primer paso es crear un clúster 
    ![Crear clúster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/40-createcluster.png)
 4. En el Asistente para crear clúster, cree un clúster de un solo nodo avanzando por las páginas con la configuración de la tabla siguiente:
 
-   | Page | Configuración |
+   | Página | Configuración |
    | --- | --- |
    | Antes de empezar |Usar predeterminados |
    | Seleccionar servidores |Escriba el primer nombre de SQL Server en **Escriba un nombre de servidor** y haga clic en **Agregar**. |
@@ -195,7 +195,7 @@ A continuación, habilite la característica **Grupos de disponibilidad AlwaysOn
 
 4. Haga clic en **Aplicar**. Haga clic en **Aceptar** en el cuadro de diálogo emergente.
 
-5. Reinicie el servicio de SQL Server.
+5. Reinicie el servicio SQL Server.
 
 Repita estos pasos en el otro servidor SQL Server.
 
@@ -348,14 +348,14 @@ En este punto, tiene un grupo de disponibilidad con réplicas en dos instancias 
 
 En Azure Virtual Machines, un grupo de disponibilidad de SQL Server necesita un equilibrador de carga. El equilibrador de carga almacena las direcciones IP de los agentes de escucha del grupo de disponibilidad y del Clúster de conmutación por error de Windows Server. En esta sección se resume cómo crear el equilibrador de carga en Azure Portal.
 
-Una instancia de Azure Load Balancer puede ser Standard Load Balancer o Basic Load Balancer. Standard Load Balancer tiene más características que Basic Load Balancer. Para un grupo de disponibilidad, se requiere Standard Load Balancer si usa una zona de disponibilidad (en lugar de un conjunto de disponibilidad). Para obtener más información sobre la diferencia entre los tipos de equilibrador de carga, consulte [Comparación de las SKU de equilibrador de carga](../../../load-balancer/load-balancer-overview.md#skus).
+Una instancia de Azure Load Balancer puede ser Standard Load Balancer o Basic Load Balancer. Standard Load Balancer tiene más características que Basic Load Balancer. Para un grupo de disponibilidad, se requiere Standard Load Balancer si usa una zona de disponibilidad (en lugar de un conjunto de disponibilidad). Para obtener más información sobre la diferencia entre los tipos de equilibrador de carga, consulte [Comparación de las SKU de equilibrador de carga](../../../load-balancer/concepts-limitations.md#skus).
 
 1. En Azure Portal, vaya al grupo de recursos donde están los servidores SQL Server y haga clic en **+Agregar**.
 1. Busque **Load Balancer**. Elija el equilibrador de carga publicado por Microsoft.
 
    ![Grupo de disponibilidad en el administrador de clústeres de conmutación por error.](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
 
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 1. Configure los parámetros siguientes para el equilibrador de carga.
 
    | Configuración | Campo |
@@ -402,7 +402,7 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
 
 1. Establezca el sondeo de estado del agente de escucha de la manera siguiente:
 
-   | Configuración | DESCRIPCIÓN | Ejemplo
+   | Configuración | Descripción | Ejemplo
    | --- | --- |---
    | **Nombre** | Texto | SQLAlwaysOnEndPointProbe |
    | **Protocolo** | Elija TCP | TCP |
@@ -418,7 +418,7 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
 
 1. Establezca las reglas de equilibrio de carga del agente de escucha según se indica a continuación.
 
-   | Configuración | DESCRIPCIÓN | Ejemplo
+   | Configuración | Descripción | Ejemplo
    | --- | --- |---
    | **Nombre** | Texto | SQLAlwaysOnEndPointListener |
    | **Frontend IP address** (Dirección IP de front-end) | Elija una dirección |Use la dirección que creó al crear el equilibrador de carga. |
@@ -445,7 +445,7 @@ La dirección IP de WSFC también debe estar en el equilibrador de carga.
 
 1. Establezca el sondeo de estado de la dirección IP principal del clúster de WSFC de la manera siguiente:
 
-   | Configuración | DESCRIPCIÓN | Ejemplo
+   | Configuración | Descripción | Ejemplo
    | --- | --- |---
    | **Nombre** | Texto | WSFCEndPointProbe |
    | **Protocolo** | Elija TCP | TCP |
@@ -459,7 +459,7 @@ La dirección IP de WSFC también debe estar en el equilibrador de carga.
 
 1. Establecer las reglas de equilibrio de carga de la dirección IP principal del clúster tal como se indica a continuación.
 
-   | Configuración | DESCRIPCIÓN | Ejemplo
+   | Configuración | Descripción | Ejemplo
    | --- | --- |---
    | **Nombre** | Texto | WSFCEndPoint |
    | **Frontend IP address** (Dirección IP de front-end) | Elija una dirección |Use la dirección que creó al configurar la dirección IP de WSFC. Esto es diferente de la dirección IP del agente de escucha |

@@ -1,24 +1,20 @@
 ---
 title: Evaluación de servidores físicos para la migración a Azure con Azure Migrate Server Assessment
 description: Describe cómo evaluar los servidores físicos en el entorno local para la migración a Azure con Azure Migrate Server Assessment.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.author: raynew
-ms.openlocfilehash: 56b7cc6e95cb85b5508199287cc77aedeebc8b81
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 10cd13831fe6cb6b843f0a79a5d5ba56814bcde0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280545"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028990"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Evaluación de los servidores físicos con Azure Migrate: Server Assessment
 
 En este artículo se muestra cómo evaluar servidores físicos en el entorno local mediante Azure Migrate: Server Assessment.
 
-[Azure Migrate](migrate-services-overview.md) proporciona un centro de herramientas que le ayuda a detectar las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Este centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros.
+[Azure Migrate](migrate-services-overview.md) proporciona un centro de herramientas que le ayuda a detecta las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Este centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros.
 
 Este tutorial es el segundo de una serie que muestra cómo evaluar y migrar servidores físicos a Azure. En este tutorial, aprenderá a:
 > [!div class="checklist"]
@@ -34,7 +30,7 @@ Este tutorial es el segundo de una serie que muestra cómo evaluar y migrar serv
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Complete](tutorial-prepare-physical.md) el primer tutorial de esta serie. Si no lo hace, las instrucciones de este tutorial no funcionarán.
 - Esto es lo que debería haber hecho en el primer tutorial:
@@ -50,7 +46,7 @@ Para configurar un proyecto nuevo de Azure Migrate, siga los pasos que se indica
 2. En **Servicios**, seleccione **Azure Migrate**.
 3. En **Información general**, en **Detectar, evaluar y migrar servidores**, haga clic en **Evaluar y migrar servidores**.
 
-    ![Detectar y evaluar servidores](./media/tutorial-assess-physical/assess-migrate.png)
+    ![Detección y evaluación de servidores](./media/tutorial-assess-physical/assess-migrate.png)
 
 4. En **Introducción**, haga clic en **Agregar herramientas**.
 5. En **Migrar proyecto**, seleccione la suscripción a Azure y cree un grupo de recursos, en caso de que no lo tenga.     
@@ -84,7 +80,7 @@ Azure Migrate: Server Assessment ejecuta un dispositivo ligero.
     - Configurar el dispositivo por primera vez y registrarlo en el proyecto de Azure Migrate.
 - Se pueden configurar varias aplicaciones para un solo proyecto de Azure Migrate. En todos los dispositivos, puede detectar cualquier número de servidores físicos. Se puede detectar un máximo de 250 servidores por dispositivo.
 
-### <a name="download-the-installer-script"></a>Descarga del script instalador
+### <a name="download-the-installer-script"></a>Descarga del script del instalador
 
 Descargue el archivo comprimido del dispositivo.
 
@@ -141,7 +137,7 @@ En caso de que surja algún problema, puede acceder a los registros de script en
 
 ### <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
 
-Asegúrese de que el dispositivo se puede conectar a las [direcciones URL de Azure](migrate-support-matrix-physical.md#assessment-appliance-url-access).
+Asegúrese de que el dispositivo se puede conectar a las [direcciones URL de Azure](migrate-appliance.md#url-access).
 
 
 ### <a name="configure-the-appliance"></a>Configuración del dispositivo
@@ -196,9 +192,9 @@ Después de la detección, puede comprobar que los servidores aparecen en Azure 
 
 ## <a name="set-up-an-assessment"></a>Configuración de una evaluación
 
-Con Azure Migrate: Server Assessment se pueden crear dos tipos de evaluaciones.
+Con Azure Migrate: Server Assessment se pueden crear dos Server Assessment.
 
-**Valoración** | **Detalles** | **Datos**
+**Valoración** | **Detalles** | **Data**
 --- | --- | ---
 **Basada en el rendimiento** | Evaluaciones basadas en los datos de rendimiento recopilados | **Tamaño de máquina virtual recomendado**: se basa en los datos de uso de la CPU y de la memoria.<br/><br/> **Tipo de disco recomendado (disco administrado estándar o Premium**): se basa en IOPS y en el rendimiento de los discos locales.
 **Como local** | Evaluaciones que se basan en el tamaño local. | **Tamaño de máquina virtual recomendado**: se basa en el tamaño del servidor en el entorno local<br/><br> **Tipo de disco recomendado**: se basa en el valor del tipo de almacenamiento que se selecciona para la evaluación.
@@ -211,7 +207,7 @@ Las evaluaciones se realizan como se indica a continuación:
 1. Consulte los [procedimientos recomendados](best-practices-assessment.md) para crear evaluaciones.
 2. En la pestaña **Servidores**, en el icono **Azure Migrate: Server Assessment**, haga clic en **Evaluar**.
 
-    ![Evaluación](./media/tutorial-assess-physical/assess.png)
+    ![Evaluar](./media/tutorial-assess-physical/assess.png)
 
 2. En **Evaluar los servidores**, especifique el nombre de la evaluación.
 3. Haga clic en **View all** (Ver todo) para revisar la configuración de la valoración.

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
-ms.openlocfilehash: 2ffc3ced360e1fdf00f69ea5826e6c6af7806f71
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 26eec9cdd327ceb51e72deb1d6f40d585ce368fb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74215991"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896135"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problemas de autenticación en Azure HDInsight
 
@@ -36,7 +36,7 @@ Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_descript
 
 El código de error 50126 de Azure AD significa que el inquilino no ha establecido la directiva `AllowCloudPasswordValidation`.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 El administrador de la compañía del inquilino de Azure AD debe habilitar Azure AD para usar los hash de contraseña para los usuarios respaldados por ADFS.  Aplique `AllowCloudPasswordValidationPolicy` como se muestra en el artículo [Uso de Enterprise Security Package en HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
@@ -56,7 +56,7 @@ El inicio de sesión produce un error con el código 50034. El mensaje de error 
 
 El nombre de usuario es incorrecto (no existe). El usuario no está utilizando el mismo nombre de usuario que se usa en Azure Portal.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Use el mismo nombre de usuario que funciona en ese portal.
 
@@ -76,7 +76,7 @@ La cuenta de usuario está bloqueada; código de error 50053. El mensaje de erro
 
 Demasiados intentos de inicio de sesión con una contraseña incorrecta.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Espere treinta minutos aproximadamente o detenga las aplicaciones que puedan estar intentando autenticarse.
 
@@ -96,7 +96,7 @@ Contraseña expirada, código de error 50053. El mensaje de error es similar al 
 
 La contraseña ha expirado.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Cambie la contraseña en Azure Portal (en el sistema local) y espere treinta minutos para que la sincronización se ponga al día.
 
@@ -112,7 +112,7 @@ Recibe el mensaje de error `interaction_required`.
 
 La directiva de acceso condicional o MFA se está aplicando al usuario. Como todavía no se admite la autenticación interactiva, el usuario o el clúster deben estar exentos del acceso condicional o MFA. Si decide excluir el clúster (directiva de exención basada en dirección IP), asegúrese de que `ServiceEndpoints` de AD está habilitado para esa red virtual.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Use la directiva de acceso condicional y excluya los clústeres de HDInisght de MFA, tal como se muestra en [Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
@@ -128,7 +128,7 @@ El inicio de sesión se ha denegado.
 
 Para llegar a esta fase, la autenticación de OAuth no es un problema, pero sí lo es la autenticación Kerberos. Si este clúster está respaldado por ADLS, el inicio de sesión de OAuth se ha realizado correctamente antes de que se intente la autenticación Kerberos. En los clústeres de WASB, no se intenta el inicio de sesión de OAuth. Podría haber muchos motivos para el error de Kerberos, como que los hashes de contraseña no estén sincronizados, la cuenta de usuario se bloqueó en Azure AD DS, etc. Los hashes de contraseña solo se sincronizan cuando el usuario cambia la contraseña. Al crear la instancia de Azure AD DS, se iniciará la sincronización de las contraseñas que se cambian después de la creación. No sincronizará retroactivamente las contraseñas que se establecieron antes de su inicio.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Si cree que las contraseñas pueden no estar sincronizadas, pruebe a cambiar la contraseña y espere unos minutos a que se sincronicen.
 
@@ -146,7 +146,7 @@ Error de kinit.
 
 Varía.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Para que kinit se realice correctamente, debe conocer su `sAMAccountName` (este es el nombre corto de la cuenta sin el dominio Kerberos). `sAMAccountName` es normalmente el prefijo de la cuenta (como bob en `bob@contoso.com`). Para algunos usuarios, podría ser diferente. Necesitará la capacidad de examinar el directorio o buscar en él para aprender su `sAMAccountName`.
 
@@ -172,7 +172,7 @@ Kinit genera el error `Preauthentication`.
 
 Nombre de usuario o contraseña incorrectos.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Compruebe su nombre de usuario y contraseña. Compruebe también si hay otras propiedades descritas anteriormente. Para habilitar la depuración detallada, ejecute `export KRB5_TRACE=/tmp/krb.log` desde la sesión antes de intentar kinit.
 
@@ -188,7 +188,7 @@ El trabajo o comando HDFS produce un error debido a `TokenNotFoundException`.
 
 No se encontró el token de acceso de OAuth necesario para que el trabajo o el comando se ejecutara correctamente. El controlador ADLS/ABFS intentará recuperar el token de acceso de OAuth desde el servicio de credenciales antes de realizar las solicitudes de almacenamiento. Este token se registra cuando inicia sesión en el portal de Ambari con el mismo usuario.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Asegúrese de que ha iniciado sesión correctamente en el portal de Ambari una vez a través del nombre de usuario cuya identidad se usa para ejecutar el trabajo.
 
@@ -204,7 +204,7 @@ El usuario recibe el mensaje de error `Error fetching access token`.
 
 Este error se produce de manera intermitente cuando los usuarios intentan acceder a ADLS Gen2 mediante listas de control de acceso y el token de Kerberos ha expirado.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 * Para Azure Data Lake Storage Gen1, limpie la memoria caché del explorador y vuelva a iniciar sesión en Ambari.
 
@@ -220,4 +220,4 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 * Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

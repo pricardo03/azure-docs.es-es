@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 208b5462efeb579e30550824bd7ba931db1825b2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: cbc45036497547b78514b1d175d67c6ed437ee2d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925635"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769496"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Enlaces de SignalR Service para Azure Functions
 
@@ -1009,10 +1009,10 @@ public SignalRGroupAction removeFromGroup(
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `SignalRConnectionInfo`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
 |**type**|| Se debe establecer en `signalRConnectionInfo`.|
-|**dirección**|| Se debe establecer en `in`.|
+|**direction**|| Se debe establecer en `in`.|
 |**name**|| Nombre de la variable que se utiliza en el código de función para el objeto de información de conexión. |
 |**hubName**|**HubName**| Este valor se debe establecer en el nombre del concentrador SignalR para el que se genera la información de conexión.|
 |**userId**|**UserId**| Opcional: Opcional: valor de la notificación del identificador de usuario que se va a establecer en el token de la clave de acceso. |
@@ -1022,10 +1022,10 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `SignalR`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
 |**type**|| Se debe establecer en `signalR`.|
-|**dirección**|| Se debe establecer en `out`.|
+|**direction**|| Se debe establecer en `out`.|
 |**name**|| Nombre de la variable que se utiliza en el código de función para el objeto de información de conexión. |
 |**hubName**|**HubName**| Este valor se debe establecer en el nombre del concentrador SignalR para el que se genera la información de conexión.|
 |**connectionStringSetting**|**ConnectionStringSetting**| El nombre de la configuración de la aplicación que contiene la cadena de conexión de SignalR Service (el valor predeterminado es "AzureSignalRConnectionString") |

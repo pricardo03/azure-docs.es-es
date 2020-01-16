@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: 971d7432c841c4ef984c7bbd7899fce733512303
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 232b17852e89ebdfa6f81b5aadcdbcd9c83d4055
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787189"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888148"
 ---
 # <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Envío de llamadas salientes a puntos de conexión HTTP o HTTPS mediante Azure Logic Apps
 
@@ -26,9 +26,9 @@ Puede usar la acción HTTP como cualquier otro paso del flujo de trabajo para ll
 
 En función de la capacidad del punto de conexión de destino, el conector HTTP admite las versiones de Seguridad de la capa de transporte (TLS) 1.0, 1.1 y 1.2. Logic Apps negocia con el punto de conexión usando la versión compatible más alta posible. Por ejemplo, si el punto de conexión admite la versión 1.2, el conector usa esta versión primero. De lo contrario, el conector utiliza la siguiente versión compatible más alta.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * La dirección URL del punto de conexión de destino al que quiere llamar.
 
@@ -40,7 +40,7 @@ En función de la capacidad del punto de conexión de destino, el conector HTTP 
 
 Este desencadenador integrado realiza una llamada HTTP a la dirección URL especificada para un punto de conexión y devuelve una respuesta.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Abra la aplicación lógica en blanco en el diseñador de aplicación lógica.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Abra la aplicación lógica en blanco en el diseñador de aplicación lógica.
 
 1. En **Elegir una acción**, en el cuadro de búsqueda, escriba "http" como filtro. En la lista **Desencadenadores**, seleccione el desencadenador **HTTP**.
 
@@ -48,9 +48,9 @@ Este desencadenador integrado realiza una llamada HTTP a la dirección URL espec
 
    En este ejemplo se cambia el nombre del desencadenador a "desencadenador HTTP" para que el paso tenga un nombre más descriptivo. En el ejemplo, más adelante se agrega una acción HTTP, y ambos nombres deben ser únicos.
 
-1. Proporcione los valores de los [parámetros del desencadenador HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) que quiere incluir en la llamada al punto de conexión de destino. Establezca la periodicidad con la que quiere que el desencadenador compruebe el punto de conexión de destino.
+1. Proporcione los valores de los [parámetros del desencadenador HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) que quiere incluir en la llamada al punto de conexión de destino. Establezca la periodicidad con la que quiere que el desencadenador compruebe el punto de conexión de destino.
 
-   Si selecciona un tipo de autenticación distinto de **Ninguno**, la configuración de autenticación difiere en función de la selección. Para obtener más información, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) más adelante en este tema.
+   Si selecciona un tipo de autenticación distinto de **Ninguno**, la configuración de autenticación difiere en función de la selección. Para obtener más información, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
    ![Introducción de los parámetros de desencadenador HTTP](./media/connectors-native-http/http-trigger-parameters.png)
 
@@ -64,7 +64,7 @@ Este desencadenador integrado realiza una llamada HTTP a la dirección URL espec
 
 Esta acción integrada realiza una llamada HTTP a la dirección URL especificada para un punto de conexión y devuelve una respuesta.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
 
    En este ejemplo se usa el desencadenador HTTP como primer paso.
 
@@ -78,9 +78,9 @@ Esta acción integrada realiza una llamada HTTP a la dirección URL especificada
 
    En este ejemplo se cambia el nombre de la acción por "acción HTTP" para que el paso tenga un nombre más descriptivo.
 
-1. Proporcione los valores de los [parámetros de la acción HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) que quiere incluir en la llamada al punto de conexión de destino.
+1. Proporcione los valores de los [parámetros de la acción HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) que quiere incluir en la llamada al punto de conexión de destino.
 
-   Si selecciona un tipo de autenticación distinto de **Ninguno**, la configuración de autenticación difiere en función de la selección. Para obtener más información, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) más adelante en este tema.
+   Si selecciona un tipo de autenticación distinto de **Ninguno**, la configuración de autenticación difiere en función de la selección. Para obtener más información, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
    ![Introducción de los parámetros de acción de HTTP](./media/connectors-native-http/http-action-parameters.png)
 
@@ -138,23 +138,23 @@ Este es el mismo ejemplo que muestra la definición de JSON de la acción HTTP e
 
 Para obtener más información acerca de los parámetros de desencadenador y acción, consulte las siguientes secciones:
 
-* [Parámetros de desencadenador HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
-* [Parámetros de acción HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
+* [Parámetros de desencadenador HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
+* [Parámetros de acción HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
 ### <a name="output-details"></a>Detalles de salida
 
 Aquí tiene más información acerca de las salidas de un desencadenador o una acción HTTP, que devuelve esta información:
 
-| Nombre de propiedad | type | DESCRIPCIÓN |
+| Nombre de propiedad | Tipo | Descripción |
 |---------------|------|-------------|
 | headers | object | Encabezados de la solicitud |
 | body | object | Objeto JSON | Objeto con el contenido del cuerpo de la solicitud |
 | status code | int | Código de estado de la solicitud |
 |||
 
-| status code | DESCRIPCIÓN |
+| status code | Descripción |
 |-------------|-------------|
-| 200 | OK |
+| 200 | Aceptar |
 | 202 | Accepted |
 | 400 | Solicitud incorrecta |
 | 401 | No autorizado |

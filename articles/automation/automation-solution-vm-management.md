@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: e37b6b800cbe0b4272df227e1411257b33a3e0cb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 37fee7f96a27942a1295cb8c2315fedffc5bdefe
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420809"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030160"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solución Start/Stop VMs during off-hours en Azure Automation
 
@@ -33,7 +33,7 @@ Las siguientes son limitaciones a la solución actual:
 > [!NOTE]
 > Si usa la solución para las máquinas virtuales clásicas, todas las máquinas virtuales se procesarán secuencialmente por servicio en la nube. Las máquinas virtuales aún se procesarán en paralelo entre diferentes servicios en la nube. Si tiene más de 20 máquinas virtuales por servicio en la nube, se recomienda crear varias programaciones con el runbook primario **ScheduledStartStop_Parent** y especificar 20 máquinas virtuales por programación. En las propiedades de la programación, especifique los nombres de las máquinas virtuales como una lista separada por comas en el parámetro **VMList**. De lo contrario, si el trabajo de Automation para esta solución se ejecuta durante más de tres horas, se descargará temporalmente o se detendrá debido al límite de tiempo de [distribución equilibrada](automation-runbook-execution.md#fair-share).
 >
-> Las suscripciones de Proveedor de soluciones en la nube de Azure (Azure CSP) solo admiten el modelo de Azure Resource Manager, los servicios que no sean de Azure Resource Manager no están disponibles en el programa. Cuando se ejecuta la solución Start/Stop, puede recibir errores porque contiene cmdlets para administrar los recursos clásicos. Para más información sobre CSP, consulte [Servicios disponibles en las suscripciones de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Si usa una suscripción de CSP, debe modificar la variable [**External_EnableClassicVMs**](#variables) a **False** después de la implementación.
+> Las suscripciones de Proveedor de soluciones en la nube de Azure (Azure CSP) solo admiten el modelo de Azure Resource Manager, los servicios que no sean de Azure Resource Manager no están disponibles en el programa. Cuando se ejecuta la solución Start/Stop, puede recibir errores porque contiene cmdlets para administrar los recursos clásicos. Para más información sobre CSP, consulte [Servicios disponibles en las suscripciones de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services). Si usa una suscripción de CSP, debe modificar la variable [**External_EnableClassicVMs**](#variables) a **False** después de la implementación.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

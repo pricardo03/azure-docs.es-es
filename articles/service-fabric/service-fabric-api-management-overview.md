@@ -5,18 +5,18 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 656bb6d400461c93540b77d871502b738c679f47
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a331715d4e4538cfdda8d958ff549a81b627b79
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75378117"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028551"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Información general de Service Fabric con Azure API Management
 
 Las aplicaciones en la nube normalmente necesitan una puerta de enlace front-end para proporcionar un único punto de entrada para usuarios, dispositivos u otras aplicaciones. En Service Fabric, una puerta de enlace puede ser cualquier servicio sin estado como una [aplicación ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) u otro servicio designado para la entrada de tráfico, como [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/) o [Azure API Management](https://docs.microsoft.com/azure/api-management/).
 
-Este artículo es una introducción al uso de Azure API Management como puerta de enlace para las aplicaciones de Service Fabric. API Management se integra directamente con Service Fabric, lo que le permite publicar API con un amplio conjunto de reglas de enrutamiento para los servicios back-end de Service Fabric. 
+Este artículo es una introducción al uso de Azure API Management como puerta de enlace para las aplicaciones de Service Fabric. API Management se integra directamente con Service Fabric, lo que le permite publicar API con un amplio conjunto de reglas de enrutamiento para los servicios back-end de Service Fabric.
 
 ## <a name="availability"></a>Disponibilidad
 
@@ -47,7 +47,8 @@ Azure API Management puede usarse con cualquier combinación de servicios con o 
 
 En el caso más simple, el tráfico se reenvía a una instancia de servicio sin estado. Para lograr esto, una operación de API Management contiene una directiva de procesamiento de entrada con un back-end de Service Fabric que se asigna a una instancia de servicio sin estado específica en el back-end de Service Fabric. Las solicitudes destinadas a ese servicio se envían a una instancia aleatoria del servicio.
 
-#### <a name="example"></a>Ejemplo
+**Ejemplo**
+
 En el siguiente escenario, una aplicación de Service Fabric contiene un servicio sin estado denominado `fabric:/app/fooservice`, que expone una API HTTP interna. El nombre de instancia de servicio es conocido y puede estar codificado de forma rígida directamente en la directiva de procesamiento de entrada de API Management. 
 
 ![Información general de la topología de Service Fabric con Azure API Management][sf-apim-static-stateless]
@@ -56,7 +57,7 @@ En el siguiente escenario, una aplicación de Service Fabric contiene un servici
 
 De forma similar a lo que ocurría en el escenario del servicio sin estado, el tráfico se puede reenviar a una instancia de servicio con estado. En este caso, una operación de API Management contiene una directiva de procesamiento de entrada con un back-end de Service Fabric que asigna una solicitud a una partición específica de una instancia de servicio *con estado* específica. La partición para asignar cada solicitud se calcula a través de un método lambda con algunas entradas de la solicitud HTTP entrante, como un valor de la ruta de acceso de la dirección URL. La directiva puede configurarse para enviar solicitudes solo a la réplica principal o a una réplica aleatoria para operaciones de lectura.
 
-#### <a name="example"></a>Ejemplo
+**Ejemplo**
 
 En el siguiente escenario, una aplicación de Service Fabric contiene un servicio con estado con partición denominado `fabric:/app/userservice`, que expone una API HTTP interna. El nombre de instancia de servicio es conocido y puede estar codificado de forma rígida directamente en la directiva de procesamiento de entrada de API Management.  
 
@@ -66,14 +67,14 @@ Se realiza la partición del servicio mediante el esquema de partición Int-64 c
 
 ## <a name="send-traffic-to-multiple-stateless-services"></a>Envío de tráfico a varios servicios sin estado
 
-En escenarios más avanzados, puede definir una operación de API Management que asigne solicitudes a más de una instancia de servicio. En este caso, cada operación contiene una directiva que asigna solicitudes a una instancia de servicio determinada basándose en valores de la solicitud HTTP de entrada, como la cadena de consulta o la ruta de acceso de la dirección URL y, en el caso de servicios con estado, una partición dentro de la instancia de servicio. 
+En escenarios más avanzados, puede definir una operación de API Management que asigne solicitudes a más de una instancia de servicio. En este caso, cada operación contiene una directiva que asigna solicitudes a una instancia de servicio determinada basándose en valores de la solicitud HTTP de entrada, como la cadena de consulta o la ruta de acceso de la dirección URL y, en el caso de servicios con estado, una partición dentro de la instancia de servicio.
 
 Para lograr esto, una operación de API Management contiene una directiva de procesamiento de entrada con un back-end de Service Fabric que asigna una instancia de servicio sin estado en el back-end de Service Fabric basándose en los valores recuperados de la solicitud HTTP entrante. Las solicitudes a un servicio se envían a una instancia aleatoria del servicio.
 
-#### <a name="example"></a>Ejemplo
+**Ejemplo**
 
 En este ejemplo, se crea una nueva instancia de servicio sin estado para cada usuario de una aplicación con un nombre generado de forma dinámica con la siguiente fórmula:
- 
+
 - `fabric:/app/users/<username>`
 
   Cada servicio tiene un nombre único, pero los nombres no se conocen por adelantado porque los servicios se crean en respuesta a la entrada del administrador o usuario y, por lo tanto, no se pueden codificar de forma rígida en las directivas APIM o las reglas de enrutamiento. En su lugar, se genera el nombre del servicio que se va a enviar una solicitud en la definición de la directiva de back-end del valor `name` proporcionado en la ruta de acceso de solicitud de la dirección URL. Por ejemplo:
@@ -89,10 +90,10 @@ De forma similar al ejemplo de servicio sin estado, una operación de API Manage
 
 Para lograr esto, una operación de API Management contiene una directiva de procesamiento de entrada con un back-end de Service Fabric que se asigna a una instancia de servicio con estado en el back-end de Service Fabric basándose en los valores recuperados de la solicitud HTTP entrante. Además de asignar una solicitud a la instancia de servicio específica, la solicitud también se puede asignar a una partición específica dentro de la instancia de servicio y, opcionalmente, a la réplica principal o a una réplica secundaria aleatoria dentro de la partición.
 
-#### <a name="example"></a>Ejemplo
+**Ejemplo**
 
 En este ejemplo, se crea una nueva instancia de servicio con estado para cada usuario de la aplicación con un nombre generado de forma dinámica con la siguiente fórmula:
- 
+
 - `fabric:/app/users/<username>`
 
   Cada servicio tiene un nombre único, pero los nombres no se conocen por adelantado porque los servicios se crean en respuesta a la entrada del administrador o usuario y, por lo tanto, no se pueden codificar de forma rígida en las directivas APIM o las reglas de enrutamiento. En su lugar, se genera el nombre del servicio que se va a enviar una solicitud en la definición de la directiva de back-end del valor `name` proporcionado en la ruta de acceso de solicitud de la dirección URL. Por ejemplo:

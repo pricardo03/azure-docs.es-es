@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 72d8e58d1f4ca2955ed2469d061277949751d8b3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 17c957dbd9c43b3cc66af39195a73bad8e006814
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772705"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982344"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for MariaDB
 
 Las *reglas de red virtual* son una característica de seguridad de firewall que controla si el servidor de Azure Database for MariaDB acepta las comunicaciones que se envían desde subredes específicas en redes virtuales. En este artículo se explica por qué la característica de la regla de red virtual a veces es la mejor opción para permitir la comunicación de forma segura con el servidor de Azure Database for MariaDB.
 
-Para crear una regla de red virtual, primero debe haber una [red virtual][vm-virtual-network-overview] (VNet) y un [punto de conexión de servicio de red virtual][vm-virtual-network-service-endpoints-overview-649d] al que haga referencia la regla. En la imagen siguiente se muestra cómo funciona un punto de conexión de servicio de red virtual con Azure Database for MariaDB:
+Para crear una regla de red virtual, primero debe haber una [red virtual][vm-virtual-network-overview] (VNET) y un [punto de conexión de servicio de red virtual][vm-virtual-network-service-endpoints-overview-649d] para la regla a la que hacer referencia. En la imagen siguiente se muestra cómo funciona un punto de conexión de servicio de red virtual con Azure Database for MariaDB:
 
 ![Ejemplo de cómo funciona un punto de conexión de servicio de red virtual](media/concepts-data-access-security-vnet/vnet-concept.png)
 
@@ -148,7 +148,7 @@ Para ver artículos sobre cómo crear reglas de red virtual, consulte lo siguien
 -->
 
 <!-- Link references, to text, Within this same GitHub repo. -->
-[resource-manager-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
+[resource-manager-deployment-model-568f]: ../azure-resource-manager/management/deployment-models.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md
 
@@ -162,4 +162,4 @@ Para ver artículos sobre cómo crear reglas de red virtual, consulte lo siguien
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

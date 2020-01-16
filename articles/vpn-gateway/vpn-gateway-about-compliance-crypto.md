@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 10/17/2019
+ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: f1d30ef56350c3e1df796f20e3f9f39fdbc6428a
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 93e13592d9c434b159ad4f4c10ef30328941c64e
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666501"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902819"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Acerca de los requisitos criptográficos y las puertas de enlace de VPN de Azure
 
@@ -49,7 +49,7 @@ Puede crear una directiva de IPsec o IKE y aplicarla a una conexión nueva o exi
 ### <a name="workflow"></a>Flujo de trabajo
 
 1. Cree las redes virtuales, las puertas de enlace de VPN o las puertas de enlace de red local para su topología de conectividad, como se describe en otros documentos y procedimientos.
-2. Cree una directiva IPsec o IKE.
+2. Cree una directiva IPsec/IKE.
 3. Puede aplicar la directiva cuando se crea una conexión de S2S o entre redes virtuales
 4. Si ya se ha creado la conexión, puede aplicar la directiva a una conexión existente o actualizarla.
 

@@ -3,7 +3,7 @@ title: 'Diseño de consultas de lista eficaces: Azure Batch | Microsoft Docs'
 description: Mejore el rendimiento filtrando las consultas cuando solicite información en recursos de Batch, como grupos, trabajos, tareas y nodos de proceso.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 12/07/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 37d34267220cbb7ceabfc823f6facd651969fbd4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d853302ebb0961f9e5fda9f5ecc41f3a26351170
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095163"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027101"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Creación de consultas para enumerar los recursos de Batch con eficacia
 
@@ -56,7 +56,7 @@ IPagedEnumerable<CloudTask> completedTasks =
     batchClient.JobOperations.ListTasks("job-001", detailLevel);
 ```
 
-En este caso de ejemplo, si hay miles de tareas en el trabajo, los resultados de la segunda consulta normalmente se devolverán más rápido que en la primera consulta. [A continuación](#efficient-querying-in-batch-net)encontrará más información sobre el uso de ODATADetailLevel al enumerar elementos con la API de .NET para Batch.
+En este caso de ejemplo, si hay miles de tareas en el trabajo, los resultados de la segunda consulta normalmente se devolverán más rápido que en la primera consulta. [A continuación](#efficient-querying-in-batch-net)encontrará más información sobre el uso de ODATADetailLevel al enumerar elementos con la API de Batch de .NET.
 
 > [!IMPORTANT]
 > Es muy recomendable suministrar *siempre* un objeto ODATADetailLevel a las llamadas de la lista de la API de .NET para garantizar la máxima eficacia y rendimiento de su aplicación. La especificación de un nivel de detalle puede ayudarle a reducir los tiempos de respuesta del servicio de Batch, a mejorar la utilización de la red y a minimizar el uso de la memoria por parte de las aplicaciones cliente.
@@ -66,7 +66,7 @@ En este caso de ejemplo, si hay miles de tareas en el trabajo, los resultados de
 ## <a name="filter-select-and-expand"></a>Filtrado, selección y expansión
 Las API de [Batch para .NET][api_net] y de [REST de Batch][api_rest] ofrecen la posibilidad de reducir tanto el número de elementos que se devuelven en una lista como la cantidad de información que se devuelve para cada uno de ellos. Para ello, debe especificar **filter**, **select** y **expand strings** cuando realice consultas de lista.
 
-### <a name="filter"></a>Filtrar
+### <a name="filter"></a>Filter
 La cadena filter es una expresión que reduce el número de elementos que se devuelven. Por ejemplo, muestre solo las tareas en ejecución de un trabajo o solo los nodos de proceso que estén listos para ejecutar tareas.
 
 * La cadena filter se compone de una o varias expresiones, una de la cuales consta de un nombre de propiedad, un operador y un valor. Las propiedades que se pueden indicar son específicas de cada tipo de entidad que consulta, al igual que los operadores compatibles con cada propiedad.
@@ -178,7 +178,7 @@ Los nombres de propiedades en las cadenas filter, select y expand *deben* reflej
 ## <a name="example-construct-a-filter-string"></a>Ejemplo: construcción de una cadena filter
 Al construir una cadena filter para [ODATADetailLevel.FilterClause][odata_filter], consulte la tabla en la sección "Asignaciones de las cadenas filter" para buscar la página de documentación de la API de REST correspondiente a la operación de lista que desea realizar. Encontrará las propiedades filtrables y sus operadores admitidos en la primera tabla de varias filas de dicha página. Por ejemplo, si desea recuperar todas las tareas cuyo código de salida era distinto de cero, en [Lista de las tareas asociadas a un trabajo][rest_list_tasks] esta fila especifica la cadena de propiedad aplicable y los operadores permitidos:
 
-| Propiedad | Operaciones permitidas | type |
+| Propiedad | Operaciones permitidas | Tipo |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -189,7 +189,7 @@ Por lo tanto, la cadena filter para enumerar todas las tareas con un código de 
 ## <a name="example-construct-a-select-string"></a>Ejemplo: construcción de una cadena select
 Para construir [ODATADetailLevel.SelectClause][odata_select], consulte la tabla de "Asignaciones de las cadenas select" y navegue a la página de la API de REST correspondiente al tipo de entidad que vaya a enumerar. Encontrará las propiedades seleccionables y sus operadores admitidos en la primera tabla de varias filas de dicha página. Por ejemplo, si desea recuperar solo el identificador y la línea de comandos para cada tarea de una lista, encontrará estas filas en la tabla correspondiente en la página sobre cómo [obtener información acerca de una tarea][rest_get_task]:
 
-| Propiedad | type | Notas |
+| Propiedad | Tipo | Notas |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |

@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: b8cbf69aa0788b3b8e0130396f192cb5bc045f3d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 17ca1a7671718b5b96df0add7775fb82d4d97303
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448885"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770448"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-nodejs"></a>Inicio rápido: Biblioteca cliente de Anomaly Detector para Node.js
 
@@ -67,7 +67,7 @@ Cree variables para el punto de conexión y la clave de Azure del recurso. Si ha
 Instale los paquetes `ms-rest-azure` y `azure-cognitiveservices-anomalydetector` de NPM. La biblioteca de análisis de CSV también se usa en este inicio rápido:
 
 ```console
-npm install  @azure/cognitiveservices-anomalydetector ms-rest-azure csv-parse
+npm install  @azure/cognitiveservices-anomalydetector @azure/ms-rest-js csv-parse
 ```
 
 el archivo `package.json` de la aplicación se actualizará con las dependencias.

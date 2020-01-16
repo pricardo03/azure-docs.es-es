@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: d783751137510febf9fb2e31d9d44728a049d88d
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: d8f0f6c63c584cacfa5c996bd541ce4dfc4bd289
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611823"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763936"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning"></a>Usar un modelo existente con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Si tiene un modelo de Machine Learning que fue entrenado fuera de Azure Machine 
 >
 > Para obtener más información sobre los conceptos y términos usados aquí, consulte [Manage, deploy, and monitor machine learning models](concept-model-management-and-deployment.md) (Administrar, implementar y supervisar los modelos de Machine Learning).
 >
-> Para obtener información general sobre el proceso de implementación, consulte [Implementación de modelos con Azure Machine Learning](service/how-to-deploy-and-where.md).
+> Para obtener información general sobre el proceso de implementación, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -138,7 +138,7 @@ dependencies:
     - keras
 ```
 
-Para más información sobre la configuración de inferencia, consulte [Implementación de modelos con Azure Machine Learning](service/how-to-deploy-and-where.md).
+Para más información sobre la configuración de inferencia, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### <a name="entry-script"></a>Script de entrada
 
@@ -223,7 +223,7 @@ def predict(text, include_neutral=True):
        "elapsed_time": time.time()-start_at}  
 ```
 
-Para más información sobre los scripts de entrada, consulte [Implementación de modelos con Azure Machine Learning](service/how-to-deploy-and-where.md).
+Para más información sobre los scripts de entrada, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="define-deployment"></a>Definir la implementación
 
@@ -250,7 +250,7 @@ La CLI carga la configuración de implementación de un archivo YAML:
 }
 ```
 
-La implementación en un destino de proceso diferente, como Azure Kubernetes Service en la nube de Azure, es tan fácil como cambiar la configuración de la implementación. Para obtener más información, consulte [How and where to deploy models](service/how-to-deploy-and-where.md) (Cómo y dónde implementar modelos).
+La implementación en un destino de proceso diferente, como Azure Kubernetes Service en la nube de Azure, es tan fácil como cambiar la configuración de la implementación. Para obtener más información, consulte [How and where to deploy models](how-to-deploy-and-where.md) (Cómo y dónde implementar modelos).
 
 ## <a name="deploy-the-model"></a>Implementación del modelo
 
@@ -277,7 +277,7 @@ az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc de
 
 Para obtener más información, consulte la referencia [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
 
-Para obtener más información sobre la implementación, consulte [How and where to deploy models](service/how-to-deploy-and-where.md) (Cómo y dónde implementar modelos).
+Para obtener más información sobre la implementación, consulte [How and where to deploy models](how-to-deploy-and-where.md) (Cómo y dónde implementar modelos).
 
 ## <a name="request-response-consumption"></a>Consumo de solicitud-respuesta
 
@@ -304,5 +304,5 @@ Para obtener más información sobre cómo consumir el servicio implementado, co
 
 * [Supervisión de los modelos de Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
 * [Recopilar datos de modelos en producción](how-to-enable-data-collection.md)
-* [Cómo y dónde implementar los modelos](service/how-to-deploy-and-where.md)
+* [Cómo y dónde implementar los modelos](how-to-deploy-and-where.md)
 * [Cómo crear un cliente para un modelo implementado](how-to-consume-web-service.md)

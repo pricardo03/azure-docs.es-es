@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 63f386212b0277c3b5ee383e707d4c32fa4e63fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7ed58201fa7aa1e608cba6d64ac95740cf9a60dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428844"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965918"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registros de Azure Monitor para el equilibrador de carga básica público
 
->[!IMPORTANT] 
+>[!IMPORTANT]
 >Azure Load Balancer admite dos tipos diferentes: Básico y Estándar. En este artículo se describe Load Balancer Básico. Para más información acerca de Standard Load Balancer, consulte [Introducción a Standard Load Balancer](load-balancer-standard-overview.md) que expone datos de telemetría mediante métricas multidimensionales en Azure Monitor.
 
 Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de Basic Load Balancer. Se puede acceder a algunos de estos registros a través del portal. Los registros se pueden transmitir a un centro de eventos o a un área de trabajo de Log Analytics. Se pueden extraer todos los registros desde Azure Blob Storage y visualizarse en distintas herramientas, como Excel y Power BI.  Puede obtener más información acerca de los diferentes tipos de registros en la lista siguiente.
@@ -32,7 +32,7 @@ Puede usar diferentes tipos de registros en Azure para administrar y solucionar 
 * **Registro de sondeo de estado:** puede utilizar este registro para ver los problemas detectados por el sondeo de estado, como el número de instancias en el grupo back-end que no reciben las solicitudes del equilibrador de carga debido a errores de sondeo de estado. Este registro se escribe cuando se produce un cambio en el estatus del sondeo de estado.
 
 > [!IMPORTANT]
-> Los registros de Azure Monitor solo funcionan con los equilibradores de carga públicos. Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
+> Los registros de Azure Monitor solo funcionan con los equilibradores de carga públicos. Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
 
 ## <a name="enable-logging"></a>Habilitación del registro
 
@@ -57,7 +57,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com). Si aún no tiene un 
     1. Active la casilla junto a **Archivar en una cuenta de almacenamiento**.
     2. Seleccione **Configurar** para abrir el panel **Selección de una cuenta de almacenamiento**.
     3. Seleccione la **Suscripción** donde se creó la cuenta de almacenamiento en el cuadro desplegable.
-    4. Seleccione el nombre de la cuenta de almacenamiento en **Cuenta de almacenamiento** en el cuadro desplegable. 
+    4. Seleccione el nombre de la cuenta de almacenamiento en **Cuenta de almacenamiento** en el cuadro desplegable.
     5. Seleccione Aceptar.
 
     ### <a name="stream-to-an-event-hub"></a>Transmitir a un centro de eventos
@@ -160,7 +160,7 @@ El resultado JSON muestra en el campo de propiedades la información básica del
 
 Puede ver y analizar los datos del registro de auditoría mediante el uso de cualquiera de los métodos siguientes:
 
-* **Herramientas de Azure:** puede recuperar información de los registros de auditoría a través de Azure PowerShell, de la interfaz de la línea de comandos (CLI) de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de auditoría con el Administrador de recursos](../azure-resource-manager/resource-group-audit.md) se detallan instrucciones paso a paso de cada método.
+* **Herramientas de Azure:** puede recuperar información de los registros de auditoría a través de Azure PowerShell, de la interfaz de la línea de comandos (CLI) de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de auditoría con el Administrador de recursos](../azure-resource-manager/management/view-activity-logs.md) se detallan instrucciones paso a paso de cada método.
 * **Power BI:** si todavía no tiene una cuenta de [Power BI](https:// .microsoft.com/pricing), puede probarlo gratis. Con el [paquete de contenido de los registros de auditoría de Azure para Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs) puede analizar los datos con los paneles preconfigurados o puede personalizar las vistas para que se adapten a sus necesidades.
 
 ### <a name="view-and-analyze-the-health-probe-and-event-log"></a>Visualización y análisis del registro de eventos y de sondeos de estado

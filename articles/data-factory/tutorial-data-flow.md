@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: e686648680261e2d13707f1704c56f306c510397
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e6ca8007a96cc63b51b4f79b69029cbf0799e71c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439467"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979195"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformación de datos mediante flujos de datos de asignación
 
@@ -26,33 +26,33 @@ En este tutorial, realizará los siguientes pasos:
 > [!div class="checklist"]
 > * Creación de una factoría de datos.
 > * Creación de una canalización con una actividad de Data Flow.
-> * Cree un flujo de datos de asignación con cuatro transformaciones. 
+> * Cree un flujo de datos de asignación con cuatro transformaciones.
 > * Realización de la serie de pruebas de la canalización.
 > * Supervisión de una actividad de Data Flow
 
 ## <a name="prerequisites"></a>Prerequisites
 * **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
-* **Cuenta de Azure Storage**. El almacenamiento ADLS se puede usar como almacén de datos de *origen* y *receptor*. Si no tiene una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para crear una.
+* **Cuenta de Azure Storage**. El almacenamiento ADLS se puede usar como almacén de datos de *origen* y *receptor*. Si no tiene una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para crear una.
 
 El archivo que se está transformando en este tutorial es MoviesDB. csv, que se puede encontrar [aquí](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Para recuperar el archivo de GitHub, copie el contenido en un editor de texto de su elección para guardarlo localmente como un archivo. csv. Para cargar el archivo en la cuenta de almacenamiento, consulte [Carga de blobs con Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md). Los ejemplos harán referencia a un contenedor denominado "Sample-Data".
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-En este paso, creará una factoría de datos y abrirá la interfaz de usuario de Data Factory para crear una canalización en la factoría de datos. 
+En este paso, creará una factoría de datos y abrirá la interfaz de usuario de Data Factory para crear una canalización en la factoría de datos.
 
 1. Abra **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
-2. En el menú de la izquierda, seleccione **Crear un recurso** > **Analytics** > **Data Factory**: 
-  
+2. En el menú de la izquierda, seleccione **Crear un recurso** > **Analytics** > **Data Factory**:
+
    ![Selección de la factoría de datos en el panel Nuevo](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-3. En la página **Nueva factoría de datos**, en **Nombre**, escriba **ADFTutorialDataFactory**. 
- 
+3. En la página **Nueva factoría de datos**, en **Nombre**, escriba **ADFTutorialDataFactory**.
+
    El nombre de la instancia de Azure Data Factory debe ser *único de forma global*. Si recibe un mensaje de error sobre el valor de nombre, escriba un nombre diferente para la factoría de datos. (Por ejemplo, utilice SuNombreADFTutorialDataFactory). Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Azure Data Factory: reglas de nomenclatura](naming-rules.md).
-        
+
      ![Nueva factoría de datos](./media/doc-common-process/name-not-available-error.png)
-4. Seleccione la **suscripción** de Azure en la que quiere crear la factoría de datos. 
+4. Seleccione la **suscripción** de Azure en la que quiere crear la factoría de datos.
 5. Para **Grupo de recursos**, realice uno de los siguientes pasos:
-     
+
     a. Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable.
 
     b. Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos. 
@@ -60,7 +60,7 @@ En este paso, creará una factoría de datos y abrirá la interfaz de usuario de
     Para más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md). 
 6. En **Versión**, seleccione **V2**.
 7. En **Ubicación**, seleccione la ubicación de la factoría de datos. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (por ejemplo, Azure Storage y SQL Database) y los procesos (por ejemplo, Azure HDInsight) que la factoría de datos usa pueden estar en otras regiones.
-8. Seleccione **Crear**. 
+8. Seleccione **Crear**.
 9. Una vez finalizada la creación, verá el aviso en el centro de notificaciones. Seleccione **Ir al recurso** para ir a la página de Data Factory.
 10. Haga clic en **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Data Factory en una pestaña independiente.
 
@@ -68,7 +68,7 @@ En este paso, creará una factoría de datos y abrirá la interfaz de usuario de
 
 En este paso, creará una canalización que contiene una actividad de Data Flow.
 
-1. En la página **Let's get started** (Introducción) seleccione **Create pipeline** (Crear canalización). 
+1. En la página **Let's get started** (Introducción) seleccione **Create pipeline** (Crear canalización).
 
    ![Creación de una canalización](./media/doc-common-process/get-started-page.png)
 
@@ -91,7 +91,7 @@ Una vez creado el flujo de datos, se le enviará automáticamente al lienzo fluj
 
     ![Lienzo de Data Flow](media/tutorial-data-flow/dataflow2.png)
 1. Asigne un nombre al origen **MoviesDB**. Haga clic en **Nuevo** para crear un conjunto de datos de origen nuevo.
-    
+
     ![Lienzo de Data Flow](media/tutorial-data-flow/dataflow3.png)
 1. Elija **Azure Data Lake Storage Gen2**. Haga clic en Continue.
 
@@ -109,16 +109,16 @@ Una vez creado el flujo de datos, se le enviará automáticamente al lienzo fluj
 
     ![Conjuntos de datos](media/tutorial-data-flow/dataset4.png)
 1. Si se ha iniciado el clúster de depuración, vaya a la pestaña **Vista previa de los datos** de la transformación de origen y haga clic en **Actualizar** para obtener una instantánea de los datos. Puede usar la vista previa de los datos para comprobar que la transformación está configurada correctamente.
-    
+
     ![Lienzo de Data Flow](media/tutorial-data-flow/dataflow4.png)
 1. Junto al nodo de origen en el lienzo de flujo de datos, haga clic en el icono de signo más para agregar una nueva transformación. La primera transformación que va a agregar es un **filtro**.
-    
+
     ![Lienzo de Data Flow](media/tutorial-data-flow/dataflow5.png)
-1. Denomine **FilterYears** a la transformación de filtro. Haga clic en el cuadro de expresión junto a **Filtro en** para abrir el generador de expresiones. Aquí especificará la condición de filtrado. 
-    
+1. Denomine **FilterYears** a la transformación de filtro. Haga clic en el cuadro de expresión junto a **Filtro en** para abrir el generador de expresiones. Aquí especificará la condición de filtrado.
+
     ![Filter](media/tutorial-data-flow/filter1.png)
 1. El generador de expresiones de flujo de datos le permite compilar de forma interactiva expresiones para utilizarlas en varias transformaciones. Las expresiones pueden incluir funciones integradas, columnas del esquema de entrada y parámetros definidos por el usuario. Para más información sobre cómo compilar expresiones, vea [Generador de expresiones de Mapping Data Flow](concepts-data-flow-expression-builder.md).
-    
+
     En este tutorial, desea filtrar las películas del género de comedia que se estrenaron entre los años 1910 y 2000. Dado que el año es actualmente una cadena, debe convertirlo en un entero mediante la función ```toInteger()```. Use los operadores mayor o igual que (> =) y menor o igual que (< =) para comparar con los valores de año literal 1910 y 200-. Una estas expresiones junto con el operador and (&&). La expresión aparece como:
 
     ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
@@ -128,38 +128,38 @@ Una vez creado el flujo de datos, se le enviará automáticamente al lienzo fluj
     ```toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')```
 
     Si tiene un clúster de depuración activo, puede comprobar la lógica; para ello, haga clic en **Actualizar** para ver la salida de la expresión en comparación con las entradas usadas. Hay más de una respuesta correcta sobre cómo puede realizar esta lógica mediante el lenguaje de expresiones de flujo de datos.
-    
+
     ![Filter](media/tutorial-data-flow/filter2.png)
 
     Haga clic en **Guardar y finalizar** una vez que haya terminado con la expresión.
 
 1. Capture una **Vista previa de datos** para comprobar que el filtro funciona correctamente.
-    
+
     ![Filter](media/tutorial-data-flow/filter3.png)
 1. La transformación siguiente que se va a agregar es una transformación de **agregado** en **Schema Modifier** (Modificador de esquema).
-    
+
     ![Agregado](media/tutorial-data-flow/agg1.png)
 1. Denomine **AggregateComedyRatings** a la transformación de agregado. En la pestaña **Agrupar por**, seleccione **year** (año) en la lista desplegable para agrupar las agregaciones por el año en que apareció la película.
-    
+
     ![Agregado](media/tutorial-data-flow/agg2.png)
 1. Vaya a la pestaña **Agregados**. En el cuadro de texto de la izquierda, asigne a la columna agregada el nombre **AverageComedyRating**. Haga clic en el cuadro de la expresión derecha para especificar la expresión de agregado a través del generador de expresiones.
-    
+
     ![Agregado](media/tutorial-data-flow/agg3.png)
 1. Para obtener el promedio de la columna **Rating** (Clasificación), use la función de agregado ```avg()```. Como **Rating** (Clasificación) es una cadena y ```avg()``` toma una entrada numérica, debemos convertir el valor en un número a través de la función ```toInteger()```. Se trata de una expresión similar a la siguiente:
 
     ```avg(toInteger(Rating))```
-    
-    Haga clic en **Guardar y finalizar** cuando haya terminado. 
+
+    Haga clic en **Guardar y finalizar** cuando haya terminado.
 
     ![Agregado](media/tutorial-data-flow/agg4.png)
 1. Vaya a la pestaña **Vista previa de datos** para ver la salida de la transformación. Observe que solo hay dos columnas, **year** y **AverageComedyRating**.
-    
+
     ![Agregado](media/tutorial-data-flow/agg3.png)
 1. A continuación, desea agregar una transformación de **receptor** en **Destino**.
-    
+
     ![Receptor](media/tutorial-data-flow/sink1.png)
 1. Asigne un nombre al receptor **Sink** (Receptor). Haga clic en **Nuevo** para crear un conjunto de datos de receptor.
-    
+
     ![Receptor](media/tutorial-data-flow/sink2.png)
 1. Elija **Azure Data Lake Storage Gen2**. Haga clic en Continue.
 
@@ -168,7 +168,7 @@ Una vez creado el flujo de datos, se le enviará automáticamente al lienzo fluj
 
     ![Dataset](media/tutorial-data-flow/dataset2.png)
 1. Asigne el nombre **MoviesSink** al conjunto de datos de receptor. Para el servicio vinculado, elija el servicio vinculado ADLS gen2 que creó en el paso 6. Escriba una carpeta de salida en la que escribir los datos. En este tutorial, vamos a escribir en la carpeta "output" (salida) en el contenedor "sample-data" (datos de ejemplo). No es necesario que la carpeta exista de antemano y se puede crear dinámicamente. Establezca **Usar la primera fila como encabezado** en true y seleccione **Ninguna** en **Importar esquema**. Haga clic en Finish.
-    
+
     ![Receptor](media/tutorial-data-flow/sink3.png)
 
 Ahora ha terminado de crear el flujo de datos. Está preparado para ejecutarlo en la canalización.
@@ -178,16 +178,16 @@ Ahora ha terminado de crear el flujo de datos. Está preparado para ejecutarlo e
 Puede depurar una canalización antes de publicarla. En este paso, va a desencadenar una ejecución de depuración de la canalización de flujo de datos. Aunque la vista previa de los datos no escribe datos, una ejecución de depuración escribirá datos en el destino del receptor.
 
 1. Vaya al lienzo de la canalización. Haga clic en **Depurar** para desencadenar una ejecución de depuración.
-    
+
     ![Canalización](media/tutorial-data-flow/pipeline1.png)
 1. La depuración de canalización de actividades de Data Flow usa el clúster de depuración activo, pero sigue tardando al menos un minuto en inicializarse. Puede realizar un seguimiento del progreso a través de la pestaña **Salida**. Una vez que la ejecución se realice correctamente, haga clic en el icono de anteojos para abrir el panel de supervisión.
-    
+
     ![Canalización](media/tutorial-data-flow/pipeline2.png)
 1. En el panel supervisión, puede ver el número de filas y el tiempo invertido en cada paso de transformación.
-    
+
     ![Supervisión](media/tutorial-data-flow/pipeline3.png)
 1. Haga clic en una transformación para obtener información detallada sobre las columnas y las particiones de los datos.
-    
+
     ![Supervisión](media/tutorial-data-flow/pipeline4.png)
 
 Si siguió correctamente este tutorial, debe haber escrito 83 filas y 2 columnas en la carpeta del receptor. Puede comprobar el almacenamiento de blobs para confirmar que los datos son correctos.
@@ -199,7 +199,7 @@ La canalización de este tutorial ejecuta un flujo de datos que agrega el promed
 > [!div class="checklist"]
 > * Creación de una factoría de datos.
 > * Creación de una canalización con una actividad de Data Flow.
-> * Cree un flujo de datos de asignación con cuatro transformaciones. 
+> * Cree un flujo de datos de asignación con cuatro transformaciones.
 > * Realización de la serie de pruebas de la canalización.
 > * Supervisión de una actividad de Data Flow
 

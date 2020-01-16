@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: 089064cee68170ab44fc1cc05e630781529b7b60
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0bdd8d454b979250b57cf657d347309b99a86ede
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931301"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892566"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copia de datos desde MongoDB mediante Azure Data Factory de Azure
 
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que se usa:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-on-premises-mongodb-connector.md)
 > * [Versión actual](connector-mongodb.md)
 
@@ -39,7 +39,7 @@ En concreto, este conector MongoDB admite las siguientes funcionalidades:
 - **Versiones 2.4, 2.6, 3.0, 3.2, 3.4 y 3.6** de MongoDB.
 - Copiar datos mediante la autenticación **Básica** o **Anónima**.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -55,7 +55,7 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado de MongoDB:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type |La propiedad type debe establecerse en: **MongoDB** |Sí |
 | server |Dirección IP o nombre de host del servidor de MongoDB. |Sí |
@@ -65,11 +65,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado de MongoDB:
 | username |Cuenta de usuario para tener acceso a MongoDB. |Sí (si se usa la autenticación básica). |
 | password |Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí (si se usa la autenticación básica). |
 | authSource |Nombre de la base de datos de MongoDB que desea usar para comprobar las credenciales de autenticación. |No. Para la autenticación básica, el valor predeterminado se utiliza la cuenta de administrador y la base de datos especificada mediante la propiedad databaseName. |
-| enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | Sin |
-| allowSelfSignedServerCert | Especifica si se permiten los certificados autofirmados del servidor. El valor predeterminado es false.  | Sin |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |Sin |
+| enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | No |
+| allowSelfSignedServerCert | Especifica si se permiten los certificados autofirmados del servidor. El valor predeterminado es false.  | No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |No |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -98,12 +98,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado de MongoDB:
 
 Para ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte [Conjuntos de datos y servicios vinculados](concepts-datasets-linked-services.md). Las siguientes propiedades son compatibles con el conjunto de datos de MongoDB:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del conjunto de datos debe establecerse en: **MongoDbCollection** | Sí |
 | collectionName |Nombre de la colección en la base de datos de MongoDB. |Sí |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -129,12 +129,12 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del origen de la actividad de copia debe establecerse en: **MongoDbSource** | Sí |
-| query |Utilice la consulta SQL-92 personalizada para leer los datos. Por ejemplo: select * from MyTable. |No (si se especifica "collectionName" en el conjunto de datos) |
+| Query |Utilice la consulta SQL-92 personalizada para leer los datos. Por ejemplo: select * from MyTable. |No (si se especifica "collectionName" en el conjunto de datos) |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 "activities":[
@@ -185,8 +185,8 @@ Al copiar datos desde MongoDB, se utilizan las siguientes asignaciones de tipos 
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Cadena |
-| string |Cadena |
+| ObjectID |String |
+| String |String |
 | UUID |Guid |
 | Object |Renormalizado en columnas acopladas con "_" como separador anidado |
 
@@ -208,17 +208,17 @@ Las tablas virtuales hacen referencia a los datos de la tabla real, lo que permi
 
 Por ejemplo, la tabla "ExampleTable" que aparece a continuación es una tabla de MongoDB que tiene una columna con una matriz de objetos en cada celda: Facturas y una columna con una matriz de tipos escalares, Clasificaciones.
 
-| _id | Nombre del cliente | Facturas | Nivel de servicios | Clasificaciones |
+| _id | Nombre del cliente | Facturas | Nivel de servicio | Clasificaciones |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id:"123", item:"toaster", price:"456", discount:"0.2"}, {invoice_id:"124", item:"oven", price: "1235", discount: "0.2"}] |Silver |[5,6] |
-| 2222 |XYZ |[{invoice_id:"135", item:"fridge", price: "12543", discount: "0.0"}] |Gold |[1,2] |
+| 1111 |ABC |[{invoice_id:"123", item:"toaster", price:"456", discount:"0.2"}, {invoice_id:"124", item:"oven", price: "1235", discount: "0.2"}] |Plata |[5,6] |
+| 2222 |XYZ |[{invoice_id:"135", item:"fridge", price: "12543", discount: "0.0"}] |Oro |[1,2] |
 
 El controlador generará varias tablas virtuales que representan a esta tabla. La primera tabla virtual es la tabla base y se denomina “ExampleTable”, tal y como se muestra en el ejemplo. La tabla base contiene todos los datos de la tabla original, pero los datos de las matrices se han omitido y se ampliarán en las tablas virtuales.
 
-| _id | Nombre del cliente | Nivel de servicios |
+| _id | Nombre del cliente | Nivel de servicio |
 | --- | --- | --- |
-| 1111 |ABC |Silver |
-| 2222 |XYZ |Gold |
+| 1111 |ABC |Plata |
+| 2222 |XYZ |Oro |
 
 Las siguientes tablas muestran las tablas virtuales que representan las matrices originales en el ejemplo. Estas tablas contienen lo siguiente:
 
@@ -232,7 +232,7 @@ Las siguientes tablas muestran las tablas virtuales que representan las matrices
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |tostadora |456 |0,2 |
 | 1111 |1 |124 |horno |1235 |0,2 |
-| 2222 |0 |135 |frigorífico |12543 |0.0 |
+| 2222 |0 |135 |frigorífico |12543 |0,0 |
 
 **Tabla "ExampleTable_Ratings":**
 
@@ -244,4 +244,4 @@ Las siguientes tablas muestran las tablas virtuales que representan las matrices
 | 2222 |1 |2 |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

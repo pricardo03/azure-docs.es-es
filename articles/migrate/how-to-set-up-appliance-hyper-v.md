@@ -1,17 +1,14 @@
 ---
 title: Configurar un dispositivo de Azure Migrate para Hyper-V
 description: Obtenga información sobre cómo configurar un dispositivo de Azure Migrate para evaluar y migrar VM de Hyper-V.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: a94d11d48728b03dd978af85db4b6c2af4887938
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0704adda314b94736b01fe114c3643ef8bd83753
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534501"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029093"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configuración de un dispositivo para VM de Hyper-V
 
@@ -20,7 +17,7 @@ En este artículo se describe cómo configurar el dispositivo Azure Migrate si v
 El dispositivo de VM de Hyper-V es un dispositivo ligero que Azure Migrate Server Assessment/Migration usa para lo siguiente:
 
 - Detectar VM de Hyper-V locales.
-- Enviar metadatos y datos de rendimiento para las VM detectadas a Azure Migrate Server Assessment/Migration.
+- Enviar metadatos y datos de rendimiento para las máquinas virtuales detectadas a Azure Migrate Server Assessment/Migration.
 
 [Más información](migrate-appliance.md) sobre el dispositivo de Azure Migrate.
 
@@ -29,8 +26,8 @@ El dispositivo de VM de Hyper-V es un dispositivo ligero que Azure Migrate Serve
 
 Para configurar el dispositivo:
 - Descargue un disco duro virtual de Hyper-V comprimido desde Azure Portal.
-- Cree el dispositivo y compruebe que se puede conectar a Azure Migrate Server Assessment.
-- Configure el dispositivo por primera vez y regístrelo en el proyecto de Azure Migrate.
+- Crear el dispositivo y comprobar que se puede conectar a Azure Migrate Server Assessment.
+- Configurar el dispositivo por primera vez y registrarlo en el proyecto de Azure Migrate.
 
 ## <a name="download-the-vhd"></a>Descarga del disco duro virtual
 
@@ -80,9 +77,9 @@ Importe el archivo descargado y cree la VM.
 7. En Administrador de Hyper-V > **Máquinas virtuales**, inicie la VM.
 
 
-### <a name="verify-appliance-access-to-azure"></a>Verificación de que el dispositivo puede acceder a Azure
+### <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
 
-Asegúrese de que la máquina virtual del dispositivo se puede conectar a las [direcciones URL de Azure](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Asegúrese de que la máquina virtual del dispositivo se puede conectar a las [direcciones URL de Azure](migrate-appliance.md#url-access).
 
 ## <a name="configure-the-appliance"></a>Configuración del dispositivo
 
@@ -99,7 +96,7 @@ Configure el dispositivo por primera vez.
         - Haga clic en **Configuración de proxy** y especifique el puerto de escucha y la dirección del proxy con los formatos http://ProxyIPAddress o http://ProxyFQDN.
         - Especifique las credenciales si el proxy requiere autenticación.
         - Solo se admite un proxy HTTP.
-    - **Time sync** (Sincronización de hora): Se verifica la hora. Para que la detección funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
+    - **Time sync** (Sincronización de hora): Se comprueba la hora. Para que la detección funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
     - **Instalación de actualizaciones**: Azure Migrate Server Assessment comprueba que el dispositivo tiene instaladas las actualizaciones más recientes.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registro del dispositivo en Azure Migrate

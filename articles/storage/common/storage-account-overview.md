@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 30f39fc72d6a96b83f57d6553db3f348c8486ee5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8f912635fc0fb14fc54426a108af5f67d26213f4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460617"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975707"
 ---
 # <a name="storage-account-overview"></a>Introducción a las cuentas de almacenamiento
 
 Una cuenta de Azure Storage contiene todos los objetos de datos de Azure Storage: blobs, archivos, colas, tablas y discos. La cuenta de almacenamiento proporciona un espacio de nombres único para los datos de Azure Storage que es accesible desde cualquier lugar del mundo a través de HTTP o HTTPS. Los datos de la cuenta de Azure Storage son duraderos y altamente disponibles, seguros y escalables a gran escala.
 
-Para obtener información sobre cómo crear una cuenta de Azure Storage, consulte [Crear una cuenta de almacenamiento](storage-quickstart-create-account.md).
+Para obtener información sobre cómo crear una cuenta de Azure Storage, consulte [Crear una cuenta de almacenamiento](storage-account-create.md).
 
 ## <a name="types-of-storage-accounts"></a>Tipos de cuentas de almacenamiento
 
@@ -72,7 +72,7 @@ Las cuentas BlockBlobStorage no admiten actualmente los niveles de acceso frecue
 
 ### <a name="filestorage-accounts"></a>Cuentas FileStorage
 
-Una cuenta FileStorage es una cuenta de almacenamiento especializada que se usa para almacenar y crear recursos compartidos de archivos premium. Este tipo de cuenta de almacenamiento admite archivos, pero no de blobs en bloques, blobs en anexos, blobs en páginas, tablas ni colas. 
+Una cuenta FileStorage es una cuenta de almacenamiento especializada que se usa para almacenar y crear recursos compartidos de archivos premium. Este tipo de cuenta de almacenamiento admite archivos, pero no de blobs en bloques, blobs en anexos, blobs en páginas, tablas ni colas.
 
 Las cuentas FileStorage ofrecen características dedicadas de rendimiento único, como la ampliación de IOPS. Para más información sobre estas características, consulte la sección sobre los [niveles de rendimiento de recursos compartidos de archivo](../files/storage-files-planning.md#file-share-performance-tiers) en la guía de planeación de archivos.
 
@@ -150,15 +150,15 @@ Puede otorgar acceso a los datos de la cuenta de almacenamiento si usa cualquier
 - **Firma de acceso compartido:** use una firma de acceso compartido para delegar el acceso a los recursos de la cuenta de almacenamiento, si no usa autorización de Azure AD. Una Firma de acceso compartido es un token que encapsula toda la información necesaria para autorizar una solicitud a Azure Storage en la dirección URL. Puede especificar el recurso de almacenamiento, los permisos concedidos y el intervalo durante el cual los permisos serán válidos como parte de la firma de acceso compartido. Para obtener más información, consulte [Uso de firmas de acceso compartido (SAS)](storage-sas-overview.md).
 
 > [!NOTE]
-> Si autentica a los usuarios o a las aplicaciones que usan las credenciales de Azure AD, mejorará la seguridad y le será más fácil usar esta opción en lugar de otros medios de autorización. Aunque puede seguir utilizando la autorización con clave compartida con las aplicaciones, el uso de Azure AD evita la necesidad de almacenar su clave de acceso de cuenta con el código. Asimismo, aún puede usar firmas de acceso compartido (SAS) para conceder acceso pormenorizado a los recursos de su cuenta de almacenamiento, pero Azure AD ofrece funcionalidades similares sin necesidad de administrar tokens de SAS ni de preocuparse sobre cómo revocar una SAS en peligro. 
+> Si autentica a los usuarios o a las aplicaciones que usan las credenciales de Azure AD, mejorará la seguridad y le será más fácil usar esta opción en lugar de otros medios de autorización. Aunque puede seguir utilizando la autorización con clave compartida con las aplicaciones, el uso de Azure AD evita la necesidad de almacenar su clave de acceso de cuenta con el código. Asimismo, aún puede usar firmas de acceso compartido (SAS) para conceder acceso pormenorizado a los recursos de su cuenta de almacenamiento, pero Azure AD ofrece funcionalidades similares sin necesidad de administrar tokens de SAS ni de preocuparse sobre cómo revocar una SAS en peligro.
 >
 > Microsoft recomienda usar autorización de Azure AD para las aplicaciones de Azure Storage Blob y Queue cuando sea posible.
 
 ## <a name="copying-data-into-a-storage-account"></a>Copiar los datos en una cuenta de almacenamiento
 
-Microsoft proporciona herramientas y bibliotecas para importar datos desde dispositivos de almacenamiento local o proveedores de almacenamiento en la nube de terceros. La solución que use dependerá de la cantidad de datos que vaya a transferir. 
+Microsoft proporciona herramientas y bibliotecas para importar datos desde dispositivos de almacenamiento local o proveedores de almacenamiento en la nube de terceros. La solución que use dependerá de la cantidad de datos que vaya a transferir.
 
-Al actualizar a una cuenta de uso general v1 a otra de uso general v2 o a una cuenta Blob Storage, los datos se migran automáticamente. Microsoft recomienda que se usen estos pasos para actualizar la cuenta. Sin embargo, si decide mover datos desde una cuenta de uso general v1 a una cuenta de Blob Storage, deberá migrar manualmente los datos mediante las herramientas y bibliotecas que se describen a continuación. 
+Al actualizar a una cuenta de uso general v1 a otra de uso general v2 o a una cuenta Blob Storage, los datos se migran automáticamente. Microsoft recomienda que se usen estos pasos para actualizar la cuenta. Sin embargo, si decide mover datos desde una cuenta de uso general v1 a una cuenta de Blob Storage, deberá migrar manualmente los datos mediante las herramientas y bibliotecas que se describen a continuación.
 
 ### <a name="azcopy"></a>AzCopy
 
@@ -183,5 +183,5 @@ Para obtener más información sobre la API REST de Azure Storage, consulte [Azu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Cree una cuenta de almacenamiento](storage-quickstart-create-account.md)
+- [Cree una cuenta de almacenamiento](storage-account-create.md)
 - [Creación de una cuenta de almacenamiento de blobs en bloques](../blobs/storage-blob-create-account-block-blob.md)

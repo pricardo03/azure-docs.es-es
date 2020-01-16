@@ -11,25 +11,25 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 099ff9b8d8a55456908748bee5779e4471d4bec6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 01f2644874da032b95162f3f5721ab9dbea74265
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439338"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974712"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copia de datos de una base de datos de SQL Server local en Azure Blob Storage
 En este tutorial se utiliza la interfaz de usuario (IU) de Azure Data Factory para crear una canalización de Data Factory que copie los datos de una base de datos de SQL Server local en Azure Blob Storage. Cree y use una instancia de Integration Runtime autohospedado, que mueve los datos entre almacenes locales y en la nube.
 
 > [!NOTE]
-> En este artículo no se ofrece una introducción detallada a Data Factory. Para más información, consulte [Introducción a Data Factory](introduction.md). 
+> En este artículo no se ofrece una introducción detallada a Data Factory. Para más información, consulte [Introducción a Data Factory](introduction.md).
 
 En este tutorial, realizará los siguientes pasos:
 
 > [!div class="checklist"]
 > * Creación de una factoría de datos.
 > * Cree una instancia de Integration Runtime autohospedada.
-> * Creación de los servicios vinculados SQL Server y Azure Storage. 
+> * Creación de los servicios vinculados SQL Server y Azure Storage.
 > * Creación de los conjuntos de datos de SQL Server y Azure Blob.
 > * Creación de una canalización con una actividad de copia para mover los datos.
 > * Inicio de la ejecución de una canalización.
@@ -40,19 +40,19 @@ En este tutorial, realizará los siguientes pasos:
 Antes de empezar, si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
 ### <a name="azure-roles"></a>Roles de Azure
-Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe tener un rol *Colaborador* o *Propietario* asignado o ser *administrador* de la suscripción de Azure. 
+Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe tener un rol *Colaborador* o *Propietario* asignado o ser *administrador* de la suscripción de Azure.
 
 Para ver los permisos que tiene en la suscripción, vaya a Azure Portal. En la esquina superior derecha, seleccione su nombre de usuario y luego seleccione **Permisos**. Si tiene acceso a varias suscripciones, elija la correspondiente. Para instrucciones de ejemplo sobre cómo agregar un rol a un usuario, consulte [Administración del acceso mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 y 2017
-En este tutorial se usa una base de datos de SQL Server local como almacén de datos de *origen*. La canalización de la factoría de datos que crea en este tutorial, copia los datos de esta base de datos de SQL Server local (origen) a Blob Storage (receptor). Luego, cree una tabla denominada **emp** en la base de datos de SQL Server e inserte un par de entradas de ejemplo en la tabla. 
+En este tutorial se usa una base de datos de SQL Server local como almacén de datos de *origen*. La canalización de la factoría de datos que crea en este tutorial, copia los datos de esta base de datos de SQL Server local (origen) a Blob Storage (receptor). Luego, cree una tabla denominada **emp** en la base de datos de SQL Server e inserte un par de entradas de ejemplo en la tabla.
 
-1. Inicie SQL Server Management Studio. Si no está instalada en su máquina, vaya a [Descarga de SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). 
+1. Inicie SQL Server Management Studio. Si no está instalada en su máquina, vaya a [Descarga de SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-1. Conéctese a una instancia de SQL Server con sus credenciales. 
+1. Conéctese a una instancia de SQL Server con sus credenciales.
 
-1. Cree una base de datos de ejemplo. En la vista de árbol, haga clic con el botón derecho en **Bases de datos** y, luego, seleccione **Nueva base de datos**. 
-1. En el cuadro de diálogo **Nueva base de datos**, escriba el nombre de la base de datos y haga clic en **Aceptar**. 
+1. Cree una base de datos de ejemplo. En la vista de árbol, haga clic con el botón derecho en **Bases de datos** y, luego, seleccione **Nueva base de datos**.
+1. En el cuadro de diálogo **Nueva base de datos**, escriba el nombre de la base de datos y haga clic en **Aceptar**.
 
 1. Para crear la tabla **emp** e insertar en ella algunos datos de ejemplo, ejecute el siguiente script de consulta en la base de datos. En la vista de árbol, haga clic con el botón derecho en la base de datos que ha creado y, después, haga clic en **Nueva consulta**.
 
@@ -64,54 +64,54 @@ En este tutorial se usa una base de datos de SQL Server local como almacén de d
         LastName varchar(50)
     )
     GO
-    
+
     INSERT INTO emp (FirstName, LastName) VALUES ('John', 'Doe')
     INSERT INTO emp (FirstName, LastName) VALUES ('Jane', 'Doe')
     GO
    ```
 
 ### <a name="azure-storage-account"></a>Cuenta de almacenamiento de Azure
-En este tutorial, use una cuenta de almacenamiento de Azure (en concreto Blob Storage) de uso general como almacén de datos de destino o receptor. Si no dispone de una cuenta de Azure Storage de uso general, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md). La canalización de la factoría de datos que crea en este tutorial, copia los datos de la base de datos de SQL Server local (origen) en Blob Storage (receptor). 
+En este tutorial, use una cuenta de almacenamiento de Azure (en concreto Blob Storage) de uso general como almacén de datos de destino o receptor. Si no dispone de una cuenta de Azure Storage de uso general, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-account-create.md). La canalización de la factoría de datos que crea en este tutorial, copia los datos de la base de datos de SQL Server local (origen) en Blob Storage (receptor). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Obtención de un nombre y una clave de cuenta de almacenamiento
-En este tutorial, use el nombre y la clave de su cuenta de almacenamiento. Para obtener el nombre y la clave de la cuenta de almacenamiento, siga estos pasos: 
+En este tutorial, use el nombre y la clave de su cuenta de almacenamiento. Para obtener el nombre y la clave de la cuenta de almacenamiento, siga estos pasos:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con el nombre de usuario y la contraseña de Azure. 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con el nombre de usuario y la contraseña de Azure.
 
 1. Seleccione **Todos los servicios** en el panel izquierdo. Use la palabra clave **Almacenamiento** para filtrar el resultado y, luego, seleccione **Cuentas de almacenamiento**.
 
     ![Búsqueda de cuenta de almacenamiento](media/doc-common-process/search-storage-account.png)
 
-1. En la lista de cuentas de almacenamiento, filtre por su cuenta de almacenamiento, si fuera necesario. Después, seleccione su cuenta de almacenamiento. 
+1. En la lista de cuentas de almacenamiento, filtre por su cuenta de almacenamiento, si fuera necesario. Después, seleccione su cuenta de almacenamiento.
 
 1. En la ventana **Cuenta de almacenamiento**, seleccione **Claves de acceso**.
 
-1. En los cuadros **Nombre de la cuenta de almacenamiento** y **key1**, copie los valores y péguelos en el Bloc de notas, u otro editor, para su uso posterior en el tutorial. 
+1. En los cuadros **Nombre de la cuenta de almacenamiento** y **key1**, copie los valores y péguelos en el Bloc de notas, u otro editor, para su uso posterior en el tutorial.
 
-#### <a name="create-the-adftutorial-container"></a>Creación del contenedor adftutorial 
-En esta sección se crea un contenedor de blobs denominado **adftutorial** en la instancia de Blob Storage. 
+#### <a name="create-the-adftutorial-container"></a>Creación del contenedor adftutorial
+En esta sección se crea un contenedor de blobs denominado **adftutorial** en la instancia de Blob Storage.
 
-1. En la ventana **Cuenta de almacenamiento**, vaya a **Información general** y, después, seleccione **Blobs**. 
+1. En la ventana **Cuenta de almacenamiento**, vaya a **Información general** y, después, seleccione **Blobs**.
 
     ![Selección de la opción Blobs](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
-1. En la ventana **Blob service**, seleccione **Contenedor**. 
+1. En la ventana **Blob service**, seleccione **Contenedor**.
 
-1. En la ventana **Nuevo contenedor** en **Nombre**, escriba **adftutorial**. Después, seleccione **Aceptar**. 
+1. En la ventana **Nuevo contenedor** en **Nombre**, escriba **adftutorial**. Después, seleccione **Aceptar**.
 
 1. En la lista de contenedores, seleccione **adftutorial**.
 
 1. Mantenga abierta la ventana **contenedor** de **adftutorial**. Úselo para comprobar la salida al final de este tutorial. Data Factory crea automáticamente la carpeta de salida de este contenedor, por lo que no es necesario que el usuario la cree.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
-En este paso, creará una factoría de datos e iniciará la interfaz de usuario de Data Factory para crear una canalización en la factoría de datos. 
+En este paso, creará una factoría de datos e iniciará la interfaz de usuario de Data Factory para crear una canalización en la factoría de datos.
 
 1. Abra el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
 1. En el menú de la izquierda, seleccione **Crear un recurso** > **Analytics** > **Data Factory**:
-   
+
    ![Selección de la factoría de datos en el panel Nuevo](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-1. En la página **Nueva factoría de datos**, en **Nombre**, escriba **ADFTutorialDataFactory**. 
+1. En la página **Nueva factoría de datos**, en **Nombre**, escriba **ADFTutorialDataFactory**.
 
    El nombre de la factoría de datos tiene que ser *único a nivel global*. Si ve el siguiente mensaje de error en el campo de nombre, cambie el nombre de la factoría de datos (por ejemplo, suNombreADFTutorialDataFactory). Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Azure Data Factory: reglas de nomenclatura](naming-rules.md).
 
@@ -119,7 +119,7 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 
 1. Seleccione la **suscripción** de Azure en la que quiere crear la factoría de datos.
 1. Para **Grupo de recursos**, realice uno de los siguientes pasos:
-   
+
    - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable.
 
    - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.
@@ -130,14 +130,14 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 1. Seleccione **Crear**.
 
 1. Una vez finalizada la creación, verá la página **Data Factory** tal como se muestra en la imagen:
-   
+
     ![Página principal Factoría de datos](./media/doc-common-process/data-factory-home-page.png)
-1. Seleccione el icono **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Data Factory en una pestaña independiente. 
+1. Seleccione el icono **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Data Factory en una pestaña independiente.
 
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
 
-1. En la página **Let's get started** (Introducción) seleccione **Create pipeline** (Crear canalización). Se crea automáticamente una canalización. Aparece la canalización en la vista de árbol y se abre su editor. 
+1. En la página **Let's get started** (Introducción) seleccione **Create pipeline** (Crear canalización). Se crea automáticamente una canalización. Aparece la canalización en la vista de árbol y se abre su editor.
 
    ![Página de introducción](./media/doc-common-process/get-started-page.png)
 
@@ -149,19 +149,19 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 
 1. En la ventana **Properties** (Propiedades), cambie a la pestaña **Source** (Origen) y haga clic en **+ New** (+ Nuevo).
 
-1. En el cuadro de diálogo **New Dataset** (Nuevo conjunto de datos), busque **SQL Server**. Seleccione **SQL Server** y, luego, **Continue** (Continuar). 
+1. En el cuadro de diálogo **New Dataset** (Nuevo conjunto de datos), busque **SQL Server**. Seleccione **SQL Server** y, luego, **Continue** (Continuar).
 
-1. En el cuadro de diálogo **Set Properties** (Establecer propiedades), en **Name** (Nombre), escriba **SqlServerDataset**. En **Linked service** (Servicio vinculado), seleccione **+ New** (+ Nuevo). En este paso se crea una conexión con el almacén de datos de origen (base de datos de SQL Server). 
+1. En el cuadro de diálogo **Set Properties** (Establecer propiedades), en **Name** (Nombre), escriba **SqlServerDataset**. En **Linked service** (Servicio vinculado), seleccione **+ New** (+ Nuevo). En este paso se crea una conexión con el almacén de datos de origen (base de datos de SQL Server).
 
-1. En el cuadro de diálogo **New Linked Service** (Nuevo servicio vinculado) agregue **SqlServerLinkedService** en **Name** (Nombre). En **Connect via integration runtime** (Conectar mediante IR), seleccione **+New** (+ Nuevo).  En esta sección se crea una instancia de Integration Runtime autohospedada y se asocia con un equipo local con la base de datos de SQL Server. El entorno de ejecución de integración autohospedado es el componente que copia los datos de la base de datos de SQL Server de la máquina en Blob Storage. 
+1. En el cuadro de diálogo **New Linked Service** (Nuevo servicio vinculado) agregue **SqlServerLinkedService** en **Name** (Nombre). En **Connect via integration runtime** (Conectar mediante IR), seleccione **+New** (+ Nuevo).  En esta sección se crea una instancia de Integration Runtime autohospedada y se asocia con un equipo local con la base de datos de SQL Server. El entorno de ejecución de integración autohospedado es el componente que copia los datos de la base de datos de SQL Server de la máquina en Blob Storage.
 
-1. En el cuadro de diálogo **Integration Runtime Setup** (Configuración de Integration Runtime), seleccione **Self-Hosted** (Autohospedado) y, después, seleccione **Next** (Siguiente). 
+1. En el cuadro de diálogo **Integration Runtime Setup** (Configuración de Integration Runtime), seleccione **Self-Hosted** (Autohospedado) y, después, seleccione **Next** (Siguiente).
 
 1. Como nombre, escriba **TutorialIntegrationRuntime**. Luego, seleccione **Siguiente**.
 
-1. En Settings (Configuración), seleccione **Click here to launch the express setup for this computer** (Haga clic aquí para iniciar la configuración rápida de este equipo). Esta acción instala Integration Runtime en la máquina y lo registra con Data Factory. Como alternativa, puede usar la instalación manual para descargar el archivo de instalación, ejecutarlo y registrar la instancia de Integration Runtime con la clave. 
+1. En Settings (Configuración), seleccione **Click here to launch the express setup for this computer** (Haga clic aquí para iniciar la configuración rápida de este equipo). Esta acción instala Integration Runtime en la máquina y lo registra con Data Factory. Como alternativa, puede usar la instalación manual para descargar el archivo de instalación, ejecutarlo y registrar la instancia de Integration Runtime con la clave.
 
-1. En la ventana **Integration Runtime (Self-hosted) Express Setup** (Configuración rápida de Integration Runtime [autohospedado]), seleccione **Close** (Cerrar). 
+1. En la ventana **Integration Runtime (Self-hosted) Express Setup** (Configuración rápida de Integration Runtime [autohospedado]), seleccione **Close** (Cerrar).
 
     ![Configuración rápida del entorno de ejecución de integración (autohospedado)](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
 
@@ -169,7 +169,7 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 
     a. En **Name** (Nombre), escriba **SqlServerLinkedService**.
 
-    b. Escriba el nombre de la instancia de SQL Server en **Server name** (Nombre del servidor). 
+    b. Escriba el nombre de la instancia de SQL Server en **Server name** (Nombre del servidor).
 
     c. En el campo **Database name** (Nombre de la base de datos) especifique el nombre de la base de datos con la tabla **emp**.
 
@@ -181,19 +181,19 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 
     g. Para guardar el servicio vinculado, seleccione **Finish** (Finalizar).
 
-1. Debería volver a la ventana con el conjunto de datos de origen abierto. En la pestaña **Connection** (Conexión) en la ventana **Properties** (Propiedades), realice los pasos siguientes: 
+1. Debería volver a la ventana con el conjunto de datos de origen abierto. En la pestaña **Connection** (Conexión) en la ventana **Properties** (Propiedades), realice los pasos siguientes:
 
     a. En **Linked service** (Servicio vinculado) confirme que ve **SqlServerLinkedService**.
 
     b. En **Table** (Tabla), seleccione **[dbo].[emp]** .
 
-1. Vaya a la pestaña con **SQLServerToBlobPipeline** o seleccione **SQLServerToBlobPipeline** en la vista de árbol. 
+1. Vaya a la pestaña con **SQLServerToBlobPipeline** o seleccione **SQLServerToBlobPipeline** en la vista de árbol.
 
-1. Vaya a la pestaña **Sink** (Receptor) en la parte inferior de la ventana **Properties** (Propiedades) y seleccione **+ New** (+ Nuevo). 
+1. Vaya a la pestaña **Sink** (Receptor) en la parte inferior de la ventana **Properties** (Propiedades) y seleccione **+ New** (+ Nuevo).
 
-1. En el cuadro de diálogo **New Dataset** (Nuevo conjunto de datos), seleccione **Azure Blob Storage**. Después, seleccione **Continuar**. 
+1. En el cuadro de diálogo **New Dataset** (Nuevo conjunto de datos), seleccione **Azure Blob Storage**. Después, seleccione **Continuar**.
 
-1. En el cuadro de diálogo **Select Format** (Seleccionar formato), elija el tipo de formato de los datos. Después, seleccione **Continuar**. 
+1. En el cuadro de diálogo **Select Format** (Seleccionar formato), elija el tipo de formato de los datos. Después, seleccione **Continuar**.
 
     ![Selección de formato de datos](./media/doc-common-process/select-data-format.png)
 
@@ -202,24 +202,24 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 1. En el cuadro de diálogo **New Linked Service (Azure Blob Storage)** [Nuevo servicio vinculado (Azure Blob Storage)], escriba **AzureStorageLinkedService** como nombre; en la lista de nombres **Storage account** (Cuenta de Storage) seleccione la cuenta de Storage. Pruebe la conexión y, a continuación, seleccione **Finish** (Finalizar) para implementar el servicio vinculado.
 1. Una vez creado el servicio vinculado, se vuelve a la página **Set Properties** (Establecer propiedades). Seleccione **Continuar**.
 
-1. Debería volver a la ventana con el conjunto de datos receptor abierto. En la pestaña **Connection** (Conexión), realice los pasos siguientes: 
+1. Debería volver a la ventana con el conjunto de datos receptor abierto. En la pestaña **Connection** (Conexión), realice los pasos siguientes:
 
     a. En **Linked service** (Servicio vinculado) confirme que **AzureStorageLinkedService** está seleccionado.
-  
+
     b. En **File path** (Ruta de acceso del archivo), escriba **adftutorial/fromonprem** en la parte **Container / Directory** (Contenedor / Directorio). Si no existe la carpeta de salida en el contenedor adftutorial, Data Factory la crea automáticamente.
-    
+
     c. En la parte **File** (Archivo), seleccione **Add dynamic content** (Agregar contenido dinámico).
     ![expresión dinámica para resolver el nombre de archivo](./media/tutorial-hybrid-copy-portal/file-name.png)
 
-    d. Agregue `@CONCAT(pipeline().RunId, '.txt')` y, después, seleccione **Finish** (Finalizar). Así cambiará el nombre del archivo a PipelineRunID.txt. 
+    d. Agregue `@CONCAT(pipeline().RunId, '.txt')` y, después, seleccione **Finish** (Finalizar). Así cambiará el nombre del archivo a PipelineRunID.txt.
 
 1. Vaya a la pestaña con la canalización abierto o seleccione la canalización en la vista de árbol. En **Sink Dataset** (Conjunto de datos receptor) confirme que **AzureBlobDataset** está seleccionado.
 
-1. Para comprobar la configuración de la canalización, seleccione **Validate** (Validar) en la barra de herramientas de la canalización. Para cerrar **Pipeline Validation Report** (Informe de validación de la canalización), seleccione **Close** (Cerrar). 
+1. Para comprobar la configuración de la canalización, seleccione **Validate** (Validar) en la barra de herramientas de la canalización. Para cerrar **Pipeline Validation Report** (Informe de validación de la canalización), seleccione **Close** (Cerrar).
 
 1. Para publicar las entidades que creó en Data Factory, seleccione **Publish All** (Publicar todo).
 
-1. Espere hasta ver el mensaje emergente **Publishing succeeded** (Publicación correcta). Para comprobar el estado de la publicación, seleccione el vínculo **Show Notifications** (Mostrar notificaciones) de la parte superior de la ventana. Para cerrar la ventana de notificaciones, seleccione **Close** (Cerrar). 
+1. Espere hasta ver el mensaje emergente **Publishing succeeded** (Publicación correcta). Para comprobar el estado de la publicación, seleccione el vínculo **Show Notifications** (Mostrar notificaciones) de la parte superior de la ventana. Para cerrar la ventana de notificaciones, seleccione **Close** (Cerrar).
 
 
 ## <a name="trigger-a-pipeline-run"></a>Desencadenamiento de una ejecución de la canalización
@@ -227,13 +227,13 @@ Seleccione **Add Trigger** (Agregar desencadenador) en la barra de herramientas 
 
 ## <a name="monitor-the-pipeline-run"></a>Supervisión de la ejecución de la canalización
 
-1. Vaya a la pestaña **Monitor** (Supervisar). Verá la canalización que ha desencadenado manualmente en el paso anterior. 
+1. Vaya a la pestaña **Monitor** (Supervisar). Verá la canalización que ha desencadenado manualmente en el paso anterior.
 
     ![La supervisión de la canalización se ejecuta](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
 1. Para ver las ejecuciones de actividad asociadas con la ejecución de canalización, seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) en la columna **Actions** (Acciones). Como solo hay una actividad en la canalización, solo se ven ejecuciones de actividad. Para ver detalles acerca de la operación de copia, seleccione el vínculo **Details** (Detalles) (icono de gafas) en la columna **Actions** (Acciones). Para volver a la vista Pipeline Runs (Ejecuciones de canalización), seleccione **Pipeline Runs** (Ejecuciones de canalización) en la parte superior.
 
 ## <a name="verify-the-output"></a>Comprobación del resultado
-La canalización automáticamente la carpeta de salida *fromonprem* en el contenedor de blobs `adftutorial`. Confirme que ve el archivo *[pipeline().RunId].txt* en la carpeta de salida. 
+La canalización automáticamente la carpeta de salida *fromonprem* en el contenedor de blobs `adftutorial`. Confirme que ve el archivo *[pipeline().RunId].txt* en la carpeta de salida.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -242,7 +242,7 @@ La canalización de este ejemplo copia los datos de una ubicación a otra en Blo
 > [!div class="checklist"]
 > * Creación de una factoría de datos.
 > * Cree una instancia de Integration Runtime autohospedada.
-> * Creación de los servicios vinculados SQL Server y Storage. 
+> * Creación de los servicios vinculados SQL Server y Storage.
 > * Creación de conjuntos de datos de SQL Server y Blob Storage.
 > * Creación de una canalización con una actividad de copia para mover los datos.
 > * Inicio de la ejecución de una canalización.

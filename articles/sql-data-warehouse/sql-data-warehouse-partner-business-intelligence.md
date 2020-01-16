@@ -11,18 +11,18 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 882067f25030c6594526914fb8d111639b205949
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 32e7251c7c47e7ccc03e313b939c917557a31417
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685616"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772217"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Partners de inteligencia empresarial de SQL Data Warehouse
 Para crear la solución de almacenamiento de datos de un extremo a otro, elija entre una amplia variedad de herramientas líderes del sector.  En este artículo se destacan las empresas asociadas de Microsoft con soluciones de inteligencia empresarial oficiales (BI) compatibles con Azure SQL Data Warehouse.
 
 ## <a name="our-business-intelligence-partners"></a>Nuestros partners de inteligencia empresarial
-| Asociado | DESCRIPCIÓN | Vínculo del sitio web o el producto |
+| Asociado | Descripción | Vínculo del sitio web o el producto |
 | ------- | ----------- | -------------------- |
 | ![Birst][1] |**Birst**<br>Birst conecta a toda la organización a través de una red de instancias de BI virtualizadas y entrelazadas en la parte superior de un tejido analítico común compartido.|[Página de producto][birst_website]<br>[Azure Marketplace][birst_marketplace]<br> |
 | ![ClearStory Data][2] |**ClearStory Data (detalles continuos de la empresa)**<br>ClearStory Data habilita el análisis de ciclo rápido de distintos datos almacenados en SQL Data Warehouse. La aplicación de análisis y plataforma basada en Spark integradas de ClearStory aceleran el acceso a los datos y la armonización de los distintos conjuntos de datos. Habilitan la exploración rápida y de colaboración que permite que los usuarios profesionales puedan obtener información de manera autónoma. |[Página de producto][clearstory_website]<br> |
@@ -87,7 +87,7 @@ Para obtener más información sobre otros partners nuestros, consulte [Partners
 
 [birst_marketplace]:https://azure.microsoft.com/marketplace/partners/birst/birst/
 [dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 
-[looker_marketplace]:https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/
+[looker_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/looker.looker-analytics-platform-6_20
 [qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/
 [tableau_marketplace]:https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
 [targit_marketplace]:https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/ 

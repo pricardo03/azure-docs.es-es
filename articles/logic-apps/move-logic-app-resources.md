@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 2d09484fcb5211003aeec0ec10bfc9892b4e6f31
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d6250238edd15126e7a56bd821fbd1c736ebda07
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456544"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965889"
 ---
 # <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Traslado de recursos de aplicaciones lógicas a otras suscripciones, grupos de recursos o regiones de Azure
 
@@ -33,7 +33,7 @@ Para trasladar la aplicación lógica o los recursos relacionados a otra suscrip
 
 ## <a name="move-resources-between-subscriptions"></a>Migración de recursos entre suscripciones
 
-Para trasladar un recurso, como una aplicación lógica o una cuenta de integración, a otra suscripción de Azure, puede usar Azure Portal, Azure PowerShell, CLI de Azure o la API REST. Estos pasos detallan Azure Portal, que puede usar cuando la región del recurso se mantiene igual. Para otros pasos y preparación general, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).
+Para trasladar un recurso, como una aplicación lógica o una cuenta de integración, a otra suscripción de Azure, puede usar Azure Portal, Azure PowerShell, CLI de Azure o la API REST. Estos pasos detallan Azure Portal, que puede usar cuando la región del recurso se mantiene igual. Para otros pasos y preparación general, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 1. En [Azure Portal](https://portal.azure.com), busque y seleccione el recurso de aplicación lógica que desea trasladar.
 
@@ -51,7 +51,7 @@ Para trasladar un recurso, como una aplicación lógica o una cuenta de integrac
 
 ## <a name="move-resources-between-resource-groups"></a>Traslado de recursos entre grupos de recursos
 
-Para trasladar un recurso, como una aplicación lógica o una cuenta de integración, a otro grupo de recursos de Azure, puede usar Azure Portal, Azure PowerShell, CLI de Azure o la API REST. Estos pasos detallan Azure Portal, que puede usar cuando la región del recurso se mantiene igual. Para otros pasos y preparación general, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).
+Para trasladar un recurso, como una aplicación lógica o una cuenta de integración, a otro grupo de recursos de Azure, puede usar Azure Portal, Azure PowerShell, CLI de Azure o la API REST. Estos pasos detallan Azure Portal, que puede usar cuando la región del recurso se mantiene igual. Para otros pasos y preparación general, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Antes de trasladar realmente los recursos entre grupos, puede comprobar si puede trasladar correctamente el recurso a otro grupo. Para más información, consulte [Validación del traslado](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move).
 
@@ -106,4 +106,4 @@ La plantilla que se obtiene de Visual Studio solo incluye las definiciones de re
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Traslado de los recursos de Azure a nuevos grupos de recursos o suscripciones](../azure-resource-manager/resource-group-move-resources.md)
+[Traslado de los recursos de Azure a nuevos grupos de recursos o suscripciones](../azure-resource-manager/management/move-resource-group-and-subscription.md)

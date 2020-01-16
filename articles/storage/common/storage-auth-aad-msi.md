@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c0b07cc001f65ff369f87954779634b8b49ba4ec
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f3bac0d47a53da1ec4d1fa08b5f0933f5f65dc56
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892058"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965775"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorización del acceso a datos de blobs y colas con identidades administradas para los recursos de Azure
 
@@ -93,7 +93,7 @@ El comando `az ad sp create-for-rbac` devuelve una lista de propiedades de entid
 
 La biblioteca cliente de Azure Identity lee valores de tres variables de entorno en tiempo de ejecución para autenticar la entidad de servicio. En la tabla siguiente se describe el valor que se debe establecer para cada variable de entorno.
 
-|Variable de entorno|Valor
+|Variable de entorno|Value
 |-|-
 |`AZURE_CLIENT_ID`|Id. de la aplicación de la entidad de servicio
 |`AZURE_TENANT_ID`|Id. de inquilino de Azure AD de la entidad de servicio
@@ -108,7 +108,7 @@ Para más información, consulte [Creación de una identidad para aplicaciones d
 
 ## <a name="net-code-example-create-a-block-blob"></a>Ejemplo de código .NET: Creación de un blob en bloques
 
-Agregue las siguientes directivas `using` al código para usar las bibliotecas cliente de Azure Storage y Azure Identity.
+Agregue las siguientes directivas `using` al código para usar las bibliotecas de cliente de Azure Storage y Azure Identity.
 
 ```csharp
 using Azure;
@@ -164,4 +164,4 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 - [Administrar los derechos de acceso a los datos de almacenamiento con RBAC](storage-auth-aad-rbac.md).
 - [Usar Azure AD con aplicaciones de almacenamiento](storage-auth-aad-app.md).
-- [Ejecutar la CLI de Azure o comandos de PowerShell con credenciales de Azure AD para acceder a datos de blob o de cola](storage-auth-aad-script.md).
+- [Ejecutar la CLI de Azure o comandos de PowerShell con credenciales de Azure AD para acceder a datos de blob o de cola](authorize-active-directory-powershell.md).

@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: ffd459980c4750295e1045c3f8c1bb7fc18a25df
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: b413fd7efe865f1dc2062a8f2dcfae983ec2f27a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689362"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771928"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
@@ -228,7 +228,7 @@ Para obtener la documentación completa, vaya al [sitio web del paquete](https:/
 
 ### <a name="azure-machine-learning-integration-with-event-grid"></a>Integración de Azure Machine Learning con Event Grid 
 
-Azure Machine Learning es ahora un proveedor de recursos para Event Grid, puede configurar eventos de aprendizaje automático mediante el Azure Portal o el CLI de Azure. Los usuarios pueden crear eventos para la finalización de la ejecución, el registro del modelo, la implementación de modelo y el desplazamiento de datos. Estos eventos se pueden enrutar a los controladores de eventos admitidos por Event Grid para su consumo. Consulte los artículos del esquema de aprendizaje automático [esquema](https://docs.microsoft.com/azure/event-grid/event-schema-machine-learning), [conceptos](https://docs.microsoft.com/azure/machine-learning/service/concept-event-grid-integration) y [tutorial](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-event-grid) para obtener más detalles.
+Azure Machine Learning es ahora un proveedor de recursos para Event Grid, puede configurar eventos de aprendizaje automático mediante el Azure Portal o el CLI de Azure. Los usuarios pueden crear eventos para la finalización de la ejecución, el registro del modelo, la implementación de modelo y el desplazamiento de datos. Estos eventos se pueden enrutar a los controladores de eventos admitidos por Event Grid para su consumo. Consulte los artículos del esquema de aprendizaje automático [esquema](https://docs.microsoft.com/azure/event-grid/event-schema-machine-learning), [conceptos](https://docs.microsoft.com/azure/machine-learning/concept-event-grid-integration) y [tutorial](https://docs.microsoft.com/azure/machine-learning/how-to-use-event-grid) para obtener más detalles.
 
 ## <a name="2019-10-31"></a>2019-10-31
 
@@ -236,7 +236,7 @@ Azure Machine Learning es ahora un proveedor de recursos para Event Grid, puede 
 
 + **Nuevas características:**
   + Se han agregado supervisores de conjuntos de datos mediante el paquete [**azureml-datadrift**](https://docs.microsoft.com/python/api/azureml-datadrift), que permite supervisar a lo largo del tiempo el desfase de datos u otros cambios estadísticos en los conjuntos de datos de serie temporal. Se pueden desencadenar alertas y eventos si se detecta un desfase o se cumplen otras condiciones en los datos. Consulte [nuestra documentación](https://aka.ms/datadrift) para más información.
-  + Anuncio de dos nuevas ediciones (también denominadas SKU indistintamente) en Azure Machine Learning. Con esta versión, puede crear ahora un área de trabajo de Azure Machine Learning Basic o Enterprise. Todas las áreas de trabajo existentes se establecerán de forma predeterminada en la edición Basic y puede ir a Azure Portal o Studio para actualizar el área de trabajo en cualquier momento. Puede crear un área de trabajo Basic o Enterprise desde Azure Portal. Lea [nuestra documentación](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) para obtener más información. Desde el SDK, se puede determinar la edición del área de trabajo mediante la propiedad "sku" del objeto de área de trabajo.
+  + Anuncio de dos nuevas ediciones (también denominadas SKU indistintamente) en Azure Machine Learning. Con esta versión, puede crear ahora un área de trabajo de Azure Machine Learning Basic o Enterprise. Todas las áreas de trabajo existentes se establecerán de forma predeterminada en la edición Basic y puede ir a Azure Portal o Studio para actualizar el área de trabajo en cualquier momento. Puede crear un área de trabajo Basic o Enterprise desde Azure Portal. Lea [nuestra documentación](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) para obtener más información. Desde el SDK, se puede determinar la edición del área de trabajo mediante la propiedad "sku" del objeto de área de trabajo.
   + También hemos mejorado el proceso de Azure Machine Learning: ahora se pueden ver las métricas de los clústeres (como el total de nodos, los nodos en ejecución o la cuota total del núcleo) en Azure Monitor, además de ver los registros de diagnóstico para la depuración. Además, también puede ver las ejecuciones en ejecución o en cola actualmente en el clúster y los detalles, como las direcciones IP de los distintos nodos del clúster. Puede verlos en el portal o mediante las funciones correspondientes en el SDK o la CLI.
 
   + **Características en versión preliminar**
@@ -1031,7 +1031,7 @@ Hemos revertido un cambio que mejoraba el rendimiento, ya que provocaba problema
   + Nuevas características del aprendizaje automático automatizado:
     + Administrador de características de STL para la previsión
     + La agrupación en clústeres de KMeans está habilitada para el barrido de características
-  + Se han agilizado las aprobaciones de las cuotas de AmlCompute. Se ha automatizado el proceso para aprobar las solicitudes de cuota dentro de unos márgenes. Para más información acerca del funcionamiento de las cuotas, aprenda a[administrar las cuotas](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
+  + Se han agilizado las aprobaciones de las cuotas de AmlCompute. Se ha automatizado el proceso para aprobar las solicitudes de cuota dentro de unos márgenes. Para más información acerca del funcionamiento de las cuotas, aprenda a[administrar las cuotas](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas).
 
 + **Características en versión preliminar**
     + Integración con el seguimiento de [MLflow](https://mlflow.org) 1.0.0 a través del paquete azureml mlflow ([cuadernos de ejemplo](https://aka.ms/azureml-mlflow-examples)).

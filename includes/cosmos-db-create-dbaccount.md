@@ -2,18 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: cosmos-db
-author: rimman
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.topic: include
 ms.date: 04/08/2019
-ms.author: rimman
 ms.custom: include file
-ms.openlocfilehash: 22df1e2251de618a0131e5d18cd72c752b00a16d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 8f8b8384b0c570e2b4925b0e84480b19a632187e
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75663171"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75752448"
 ---
 1. Vaya a [Azure Portal](https://portal.azure.com/) para crear una cuenta de Azure Cosmos DB. Busque y seleccione **Azure Cosmos DB**.
 

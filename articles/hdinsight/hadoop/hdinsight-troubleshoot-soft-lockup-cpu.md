@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: 1d357566a7b2478fff77ed4d88af4ee8a9535050
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 701e314ad2a3762b1e8ca022ce18d9435ce2db37
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044740"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894102"
 ---
 # <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Escenario: error "watchdog: BUG: soft lockup - CPU" desde un clúster de Azure HDInsight
 
@@ -26,7 +26,7 @@ Los registros de syslog del kernel contienen el mensaje de error: `watchdog: BUG
 
 Un [error](https://bugzilla.kernel.org/show_bug.cgi?id=199437) en el kernel de Linux está provocando bloqueos de software de la CPU.
 
-## <a name="resolution"></a>Resolución
+## <a name="resolution"></a>Solución
 
 Aplique una revisión del kernel. El siguiente script actualiza el kernel de Linux y reinicia las máquinas en distintos momentos durante 24 horas. Ejecute la acción de script en dos lotes. El primer lote está en todos los nodos excepto en el nodo principal. El segundo lote está en el nodo principal. No ejecute lotes en el nodo principal y en otros nodos al mismo tiempo.
 
@@ -36,10 +36,10 @@ Aplique una revisión del kernel. El siguiente script actualiza el kernel de Lin
 
 1. Seleccione **Enviar nuevo** y escriba la entrada como se indica a continuación.
 
-    | Propiedad | Valor |
+    | Propiedad | Value |
     | --- | --- |
     | Tipo de script | -Custom |
-    | NOMBRE |Fix for kernel soft lock issue |
+    | Nombre |Fix for kernel soft lock issue |
     | URI de script de Bash |`https://raw.githubusercontent.com/hdinsight/hdinsight.github.io/master/ClusterCRUD/KernelSoftLockFix/scripts/KernelSoftLockIssue_FixAndReboot.sh` |
     | Tipos de nodo |Worker, Zookeeper |
     | Parámetros |N/D |
@@ -62,4 +62,4 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 * Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente, que pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

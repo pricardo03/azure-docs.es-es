@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 0e0adef2728ef75dc67f02fdf38b6638965df62f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7efae8fb3c00868e2740eac2d4d5bcb3c82f663a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756869"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977537"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modelo de precios de Azure Cosmos DB 
 
@@ -43,7 +43,7 @@ Como se muestra en la tabla anterior, la capacidad de proceso mínima en Azure C
 
 Azure Cosmos DB ofrece varias opciones para que los desarrolladores lo prueben de forma gratuita. Entre estas opciones se incluyen:
 
-* **Cuenta gratuita de Azure**: Azure ofrece una [cuenta gratuita](https://azure.microsoft.com/free/) con 200 USD de crédito de Azure para los 30 primeros días y una cantidad limitada de servicios gratuitos durante 12 meses. Para más información consulte el sitio de [cuentas gratuitas de Azure](../billing/billing-avoid-charges-free-account.md). Azure Cosmos DB forma parte de esta cuenta gratuita de Azure. Específicamente para Azure Cosmos DB, esta cuenta gratuita ofrece 5 GB de almacenamiento y 400 RU de aprovisionamiento de capacidad de proceso para todo el año. 
+* **Cuenta gratuita de Azure**: Azure ofrece una [cuenta gratuita](https://azure.microsoft.com/free/) con 200 USD de crédito de Azure para los 30 primeros días y una cantidad limitada de servicios gratuitos durante 12 meses. Para más información consulte el sitio de [cuentas gratuitas de Azure](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB forma parte de esta cuenta gratuita de Azure. Específicamente para Azure Cosmos DB, esta cuenta gratuita ofrece 5 GB de almacenamiento y 400 RU de rendimiento aprovisionado para todo el año. 
 
 * **Probar gratis Azure Cosmos DB**: Azure Cosmos DB se ofrece con las cuentas gratuitas por tiempo limitado. Puede crear una cuenta de Azure Cosmos DB, bases de datos y colecciones, y ejecutar una aplicación de ejemplo con la ayuda de artículos de inicio rápido y tutoriales. Puede ejecutar la aplicación de ejemplo sin tener que suscribirse a una cuenta de Azure o con la tarjeta de crédito. [Pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) para disfrutar de ello durante un mes, con la posibilidad de renovar la cuenta las veces que desee.
 
@@ -51,7 +51,7 @@ Azure Cosmos DB ofrece varias opciones para que los desarrolladores lo prueben d
 
 ## <a name="pricing-with-reserved-capacity"></a>Precios con capacidad reservada
 
-La [capacidad reservada](cosmos-db-reserved-capacity.md) de Azure Cosmos DB le ayuda a ahorrar dinero gracias al pago anticipado de los recursos de Azure Cosmos DB durante uno o tres años. Con los compromisos de un año o tres por adelantado puede reducir los costos considerablemente y ahorrar de un 20 a un 65 % de descuento en comparación con los precios normales. La capacidad reservada de Azure Cosmos DB ayuda a reducir los costos al pagar previamente por la capacidad de proceso aprovisionada (RU/s) durante un período de uno o tres años y obtener un descuento en la capacidad de proceso aprovisionada. 
+La [capacidad reservada](cosmos-db-reserved-capacity.md) de Azure Cosmos DB le ayuda a ahorrar dinero gracias al pago anticipado de los recursos de Azure Cosmos DB durante uno o tres años. Con los compromisos de un año o tres por adelantado, puede reducir los costos considerablemente y ahorrar de un 20 a un 65 % de descuento en comparación con los precios normales. La capacidad reservada de Azure Cosmos DB ayuda a reducir los costos al pagar previamente por la capacidad de proceso aprovisionada (RU/s) durante un período de uno o tres años y obtener un descuento en la capacidad de proceso aprovisionada. 
 
 La capacidad reservada ofrece un descuento en la facturación y no afecta el estado del entorno de ejecución de sus recursos de Azure Cosmos DB. La capacidad reservada está disponible de manera coherente para todas las API (incluidos MongoDB, Cassandra, SQL, Gremlin y Azure Tables) y en todas las regiones del mundo. Puede encontrar más información sobre la capacidad reservada en el artículo sobre el [pago por adelantado de los recursos de Azure Cosmos DB con capacidad reservada](cosmos-db-reserved-capacity.md) y comprar capacidad reservada en [Azure Portal](https://portal.azure.com/).
 
@@ -64,7 +64,7 @@ Más información sobre la optimización de los costos de los recursos de Azure 
 * Obtenga más información sobre la [optimización del costo de la capacidad del rendimiento](optimize-cost-throughput.md).
 * Obtenga más información sobre la [optimización del costo del almacenamiento](optimize-cost-storage.md).
 * Obtenga más información sobre la [optimización del costo de la lectura y la escritura](optimize-cost-reads-writes.md).
-* Sobre la [Optimización del costo de las consultas](optimize-cost-queries.md)
+* Obtenga más información sobre la [optimización del costo de las consultas](optimize-cost-queries.md).
 * Más información sobre la [optimización del costo de las cuentas de Cosmos de varias regiones](optimize-cost-regions.md)
 * Información sobre la [capacidad reservada de Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 * Información sobre el [emulador de Azure Cosmos DB](local-emulator.md)

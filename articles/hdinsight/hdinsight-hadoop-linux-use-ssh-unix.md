@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 58a00d36120a4f8bbab0388f02f414c7f48b47b9
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: f4ca521e13ac51d7df4917e75fdf1c21b1e9cfa2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028784"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751097"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Conexión a HDInsight (Apache Hadoop) mediante SSH
 
@@ -46,7 +46,7 @@ Microsoft Windows no instala los clientes SSH de forma predeterminada. Los clien
 
 * [Cliente OpenSSH](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse): se trata de una característica opcional que se introdujo en Windows 10 Fall Creators Update.
 
-* [Bash en Ubuntu en Windows 10](https://docs.microsoft.com/windows/wsl/about).
+* [Bash en Ubuntu en Windows 10](https://docs.microsoft.com/windows/wsl/about).
 
 * [Azure Cloud Shell](../cloud-shell/quickstart.md). Cloud Shell proporciona un entorno de Bash en el explorador.
 
@@ -90,7 +90,7 @@ Se le pedirá información durante el proceso de creación de claves. Por ejempl
 | ------- | ------- |
 | Portal de Azure | Desactive la opción __Usar contraseña de inicio de sesión de clúster para SSH__ y, a continuación, seleccione __Clave pública__ como el tipo de autenticación de SSH. Por último, seleccione el archivo de clave pública o pegue el contenido de texto del archivo en el campo __Clave pública SSH__.</br>![Cuadro de diálogo de clave pública SSH en la creación de clústeres de HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
 | Azure PowerShell | Use el parámetro `-SshPublicKey` del cmdlet [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) y pase el contenido de la clave pública como una cadena.|
-| CLI de Azure | Use el parámetro `--sshPublicKey` del comando [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) y pase el contenido de la clave pública como una cadena. |
+| Azure CLI | Use el parámetro `--sshPublicKey` del comando [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) y pase el contenido de la clave pública como una cadena. |
 | Plantilla de Resource Manager | Para obtener un ejemplo del uso de claves SSH con una plantilla, consulte la [implementación de HDInsight en Linux con una clave SSH](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/). El elemento `publicKeys` en el archivo [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) se usa para pasar las claves a Azure al crear el clúster. |
 
 ## <a id="sshpassword"></a>Autenticación: Contraseña
@@ -109,7 +109,7 @@ Las cuentas SSH se pueden proteger mediante una contraseña. Cuando se conecte a
 | --------------- | ---------------- |
 | Portal de Azure | De forma predeterminada, la cuenta de usuario SSH tiene la misma contraseña que la cuenta de inicio de sesión de clúster. Para usar una contraseña diferente, desactive la opción __Usar contraseña de inicio de sesión de clúster para SSH__ y, a continuación, escriba la contraseña en el campo __Contraseña SSH__.</br>![Cuadro de diálogo de contraseña SSH en la creación de clústeres de HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
 | Azure PowerShell | Use el parámetro `--SshCredential` del cmdlet [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) y pase un objeto `PSCredential` que contenga el nombre de cuenta de usuario SSH y la contraseña. |
-| CLI de Azure | Use el parámetro `--sshPassword` del comando [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) y proporcione el valor de contraseña. |
+| Azure CLI | Use el parámetro `--sshPassword` del comando [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) y proporcione el valor de contraseña. |
 | Plantilla de Resource Manager | Para obtener un ejemplo del uso de contraseña con una plantilla, consulte la [implementación de HDInsight en Linux con una contraseña SSH](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). El elemento `linuxOperatingSystemProfile` en el archivo [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) se usa para pasar el nombre de cuenta de SSH y la contraseña a Azure al crear el clúster.|
 
 ### <a name="change-the-ssh-password"></a>Cambio de contraseña de SSH
@@ -161,7 +161,7 @@ Los nodos principales y el nodo perimetral (si hay alguno) son accesibles a trav
 > [!IMPORTANT]  
 > En los ejemplos anteriores se supone que está usando la autenticación con contraseña, o que la autenticación de certificados se está produciendo automáticamente. Si usa un par de claves SSH para la autenticación y el certificado no se utiliza automáticamente, use el parámetro `-i` para especificar la clave privada. Por ejemplo, `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
 
-Una vez conectado, el símbolo del sistema cambia para indicar el nombre de usuario SSH y el nodo al que está conectado. Por ejemplo, cuando se conecta al nodo principal primario como `sshuser`, el símbolo del sistema es `sshuser@hn0-clustername:~$`.
+Una vez conectado, el símbolo del sistema cambia para indicar el nombre de usuario SSH y el nodo al que está conectado. Por ejemplo, cuando se conecta al nodo principal primario como `sshuser`, el símbolo del sistema es `sshuser@<active-headnode-name>:~$`.
 
 ### <a name="connect-to-worker-and-apache-zookeeper-nodes"></a>Conexión a los nodos de Apache Zookeeper y de trabajo
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: f08915c07db6759a03fc9bd0695523dead6dcb7f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d7feb0f7c32ab544df2b9de08daaf8cd007318b5
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784829"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045310"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -29,7 +29,7 @@ Tal y como se explica en la sección sobre el [funcionamiento de Traffic Manager
 Por lo tanto, este servicio no proporciona un punto de conexión o una dirección IP para que los clientes puedan conectarse. Si desea una dirección IP estática para el servicio, esta debe configurarse en el servicio y no en Traffic Manager.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>¿Qué tipos de tráfico se pueden enrutar mediante Traffic Manager?
-Como se explica en [Funcionamiento de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), un punto de conexión de Traffic Manager puede ser cualquier servicio con acceso a Internet que esté hospedado dentro o fuera de Azure. Por lo tanto, Traffic Manager puede redirigir el tráfico que se origina desde la red pública de Internet hacia un conjunto de puntos de conexión que también tienen acceso a Internet. Si tiene puntos de conexión que están dentro de una red privada (por ejemplo, una versión interna de [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) o tiene usuarios que realizan solicitudes DNS desde estas redes internas, no puede usar Traffic Manager para enrutar este tráfico.
+Como se explica en [Funcionamiento de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), un punto de conexión de Traffic Manager puede ser cualquier servicio con acceso a Internet que esté hospedado dentro o fuera de Azure. Por lo tanto, Traffic Manager puede redirigir el tráfico que se origina desde la red pública de Internet hacia un conjunto de puntos de conexión que también tienen acceso a Internet. Si tiene puntos de conexión que están dentro de una red privada (por ejemplo, una versión interna de [Azure Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer)) o tiene usuarios que realizan solicitudes DNS desde estas redes internas, no puede usar Traffic Manager para enrutar este tráfico.
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>¿Admite Traffic Manager sesiones temporales?
 
@@ -385,10 +385,10 @@ En el caso de perfiles con cualquier método de enrutamiento que no sea de vario
 |Solicitud de consulta entrante|    Tipo de punto de conexión|  Respuesta proporcionada|
 |--|--|--|
 |ANY |  A / AAAA / CNAME |  Punto de conexión de destino| 
-|Una |    A / CNAME | Punto de conexión de destino|
-|Una |    AAAA |  NODATA |
+|Un |    A / CNAME | Punto de conexión de destino|
+|Un |    AAAA |  NODATA |
 |AAAA | AAAA / CNAME |  Punto de conexión de destino|
-|AAAA | Una | NODATA |
+|AAAA | Un | NODATA |
 |CNAME |    CNAME | Punto de conexión de destino|
 |CNAME  |A / AAAA | NODATA |
 |
@@ -398,7 +398,7 @@ En el caso de los perfiles con el método de enrutamiento establecido en varios 
 |Solicitud de consulta entrante|    Tipo de punto de conexión | Respuesta proporcionada|
 |--|--|--|
 |ANY |  Combinación de A y AAAA | Extremos de destino|
-|Una |    Combinación de A y AAAA | Solo puntos de conexión de destino de tipo A|
+|Un |    Combinación de A y AAAA | Solo puntos de conexión de destino de tipo A|
 |AAAA   |Combinación de A y AAAA|     Solo puntos de conexión de destino de tipo AAAA|
 |CNAME |    Combinación de A y AAAA | NODATA |
 
@@ -507,5 +507,5 @@ En la tabla siguiente se describe el comportamiento de las comprobaciones de est
 
 ## <a name="next-steps"></a>Pasos siguientes:
 
-- Obtenga más información sobre la [supervisión del punto de conexión y la conmutación por error automática](../traffic-manager/traffic-manager-monitoring.md)del Administrador de tráfico.
+- Obtenga más información sobre la [supervisión del punto de conexión y la conmutación por error automática](../traffic-manager/traffic-manager-monitoring.md) de Traffic Manager.
 - Obtenga más información sobre los [métodos de enrutamiento del tráfico](../traffic-manager/traffic-manager-routing-methods.md) de Traffic Manager.

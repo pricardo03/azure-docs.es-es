@@ -3,12 +3,12 @@ title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: f1baffb60234a154df544552dba3c34ced25b518
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 909d8e69e02b55ee6e45515b0d9c316a549e1332
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436411"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972846"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -76,7 +76,7 @@ El **modo** determina qué tipos de recurso se evaluarán para una directiva. Lo
 
 Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, puede especificar el parámetro **mode** de forma manual. Si la definición de directiva no incluye un valor de **modo**, el valor predeterminado es `all` en Azure PowerShell y `null` en la CLI de Azure. Un modo `null` es lo mismo que usar `indexed` para la compatibilidad con versiones anteriores.
 
-`indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Aunque no es obligatorio, impide que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no compatibles en los resultados de cumplimiento. La excepción son los **grupos de recursos**. Las directivas que aplican la ubicación o etiquetas en un grupo de recursos deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obtener un ejemplo, consulte [Aplicar etiqueta y su valor en grupos de recursos](../samples/enforce-tag-rg.md). Para obtener una lista de los recursos que admiten etiquetas, consulte [Compatibilidad con etiquetas de los recursos de Azure](../../../azure-resource-manager/tag-support.md).
+`indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Aunque no es obligatorio, impide que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no compatibles en los resultados de cumplimiento. La excepción son los **grupos de recursos**. Las directivas que aplican la ubicación o etiquetas en un grupo de recursos deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obtener un ejemplo, consulte [Aplicar etiqueta y su valor en grupos de recursos](../samples/enforce-tag-rg.md). Para obtener una lista de los recursos que admiten etiquetas, consulte [Compatibilidad con etiquetas de los recursos de Azure](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="a-nameresource-provider-modes-resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modos del proveedor de recursos (versión preliminar)
 
@@ -473,7 +473,7 @@ Ejemplo 4: Comprobar si todos los miembros de la matriz del objeto cumplen la ex
             "equals": "description"
         }
     },
-    "equals": "[length(field(Microsoft.Network/networkSecurityGroups/securityRules[*]))]"
+    "equals": "[length(field('Microsoft.Network/networkSecurityGroups/securityRules[*]'))]"
 }
 ```
 
@@ -552,7 +552,7 @@ Para obtener información detallada sobre cada efecto, el orden de evaluación, 
 
 ### <a name="policy-functions"></a>Funciones de directiva
 
-Se pueden usar todas las [funciones de plantilla de Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) dentro de una regla de directivas, excepto las siguientes funciones y funciones definidas por el usuario:
+Se pueden usar todas las [funciones de plantilla de Resource Manager](../../../azure-resource-manager/templates/template-functions.md) dentro de una regla de directivas, excepto las siguientes funciones y funciones definidas por el usuario:
 
 - copyIndex()
 - deployment()

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.openlocfilehash: f02e1f73460140c9fe9f2cf6d7ffda26533d570d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 98c3a6b14230e30ccbb103be741595696a20c236
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090016"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981417"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Solución de problemas de la implementación de Resource Manager con la creación de una nueva máquina virtual de Linux en Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -34,7 +34,7 @@ Para consultar otros problemas de implementación de máquinas virtuales y pregu
 ## <a name="collect-activity-logs"></a>Recopilación de registros de actividad
 Para iniciar la solución de problemas, recopile los registros de actividad para identificar el error asociado con el problema. Los vínculos siguientes contienen información detallada sobre el proceso que se debe seguir.
 
-[Ver operaciones de implementación](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[Ver operaciones de implementación](../../azure-resource-manager/templates/deployment-history.md)
 
 [Ver registros de actividad para administrar recursos de Azure](../../resource-group-audit.md)
 
@@ -69,7 +69,7 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
 
 **Causa 1:** El clúster no admite el tamaño de VM solicitado.
 
-**Resolución 1:**
+**Solución 1:**
 
 * Vuelva a intentar la solicitud con un tamaño de máquina virtual menor.
 * Si no se puede cambiar el tamaño de la máquina virtual solicitada:
@@ -80,7 +80,7 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
 
 **Causa 2:** El clúster no tiene recursos disponibles.
 
-**Resolución 2:**
+**Solución 2:**
 
 * Vuelva a intentar la solicitud más tarde.
 * Si la nueva máquina virtual puede formar parte de un conjunto de disponibilidad diferente

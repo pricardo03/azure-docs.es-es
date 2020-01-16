@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: bbea71464e8a1f4e93e510106d372257f155b0c6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c70cfb6c1626908a2ba4e707a890f6dc7481c51a
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935063"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732389"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Vuelva a crear particiones para optimizar el procesamiento con Azure Stream Analytics
 
@@ -21,11 +21,11 @@ En este artículo se muestra cómo usar la creación de particiones para escalar
 Es posible que no pueda usar la [paralelización](stream-analytics-parallelization.md) si:
 
 * No controla la clave de partición para el flujo de entrada.
-* El origen divide la entrada en varias particiones que se deben combinar posteriormente. 
-
-## <a name="how-to-repartition"></a>Cómo volver a crear particiones
+* El origen divide la entrada en varias particiones que se deben combinar posteriormente.
 
 Se requiere volver a crear particiones, o remodelar, cuando se procesan los datos de una secuencia que no está particionada de acuerdo con un esquema de entrada natural, como **PartitionId** para Event Hubs. Al volver a particionar, cada partición se puede procesar de forma independiente, lo que le permite escalar horizontalmente la canalización de streaming.
+
+## <a name="how-to-repartition"></a>Cómo volver a crear particiones
 
 Para volver a crear particiones, use la palabra clave **INTO** tras una instrucción **PARTITION BY** en la consulta. En el ejemplo siguiente, se crean particiones de los datos por **DeviceID** en un número de particiones de 10. El hash de **DeviceID** se usa para determinar qué partición aceptará determinada subsecuencia. Los datos se vacían de forma independiente para cada flujo con particiones, suponiendo que la salida admita escrituras con particiones y que tenga 10 particiones.
 

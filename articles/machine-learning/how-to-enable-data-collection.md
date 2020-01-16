@@ -11,19 +11,19 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: e9058fbbe9b238877b842e79d98041fa0b681bc8
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3c481a2e12d83e865025cd90e59e0eba572ad9a5
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535088"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771400"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recopilar datos de modelos en producción
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
-> El SDK de supervisión de Azure Machine Learning se retirará pronto. Sin embargo, aún es adecuado para los desarrolladores que usan actualmente el SDK para supervisar el desfase de datos en los modelos. No obstante, para los nuevos clientes, se recomienda usar la [supervisión de datos simplificada con Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights).
+> El SDK de supervisión de Azure Machine Learning se retirará pronto. Sin embargo, aún es adecuado para los desarrolladores que usan actualmente el SDK para supervisar el desfase de datos en los modelos. No obstante, para los nuevos clientes, se recomienda usar la [supervisión de datos simplificada con Application Insights](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights).
 
 En este artículo se muestra cómo recopilar datos de modelos de entrada de Azure Machine Learning. También se muestra cómo implementar los datos de entrada en un clúster de Azure Kubernetes Service (AKS) y cómo almacenar los datos de salida en Azure Blob Storage.
 

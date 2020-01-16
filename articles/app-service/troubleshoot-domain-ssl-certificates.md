@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 2260dddd74d7ed64eb19158a5360ed2e4c09b4a9
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: e299821b54692327cbb7d497af0295e3b93658cf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688342"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966976"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Solución de problemas de dominio y certificado SSL en Azure App Service
 
@@ -88,7 +88,7 @@ Este problema puede producirse por alguno de los siguientes motivos:
 
     **Solución**: si el certificado se ha marcado como fraude y no se resuelve en 24 horas, siga estos pasos:
 
-    1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+    1. Inicie sesión en [Azure Portal](https://portal.azure.com).
     2. Vaya a **Certificados de App Service** y seleccione el certificado.
     3. Seleccione **Configuración del certificado** > **Paso 2: Comprobar** > **Comprobación del dominio**. Este paso envía un aviso por correo electrónico al proveedor de certificados de Azure para que resuelva el problema.
 
@@ -190,7 +190,7 @@ App Service sincroniza automáticamente el certificado en un plazo de 48 horas. 
 
 Puede forzar una sincronización del certificado:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **Certificados de App Service** y luego el certificado.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Certificados de App Service** y luego el certificado.
 2. Seleccione **Regenerar claves y sincronizar** y luego seleccione**Sincronizar**. La sincronización tarda algo de tiempo en finalizar. 
 3. Cuando se complete, verá la siguiente notificación: "Se actualizaron correctamente todos los recursos con el certificado más reciente."
 
@@ -262,7 +262,7 @@ Este problema se produce por uno de los siguientes motivos:
 
     |Tipo de registro|Host|Apunta a|
     |------|------|-----|
-    |Una|@|Dirección IP de la aplicación|
+    |Un|@|Dirección IP de la aplicación|
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 
@@ -318,6 +318,6 @@ Puede administrar el dominio incluso si no tiene una aplicación web de App Serv
 
 **¿Puedo mover una aplicación web con un dominio personalizado a otra suscripción o de App Service Environment v1 a V2?**
 
-Sí, puede mover la aplicación web entre suscripciones. Siga las instrucciones que se indican en [Traslado de recursos de Azure](../azure-resource-manager/resource-group-move-resources.md). Existen algunas limitaciones al mover la aplicación web. Para más información, consulte [Limitaciones por mover recursos de App Service](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+Sí, puede mover la aplicación web entre suscripciones. Siga las instrucciones que se indican en [Traslado de recursos de Azure](../azure-resource-manager/management/move-resource-group-and-subscription.md). Existen algunas limitaciones al mover la aplicación web. Para más información, consulte [Limitaciones por mover recursos de App Service](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 Después de mover la aplicación web, los enlaces de nombre de host de los dominios dentro de la configuración de dominios personalizados deben permanecer igual. No se requiere ningún paso adicional para configurar los enlaces de nombre de host.

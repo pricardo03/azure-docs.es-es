@@ -1,14 +1,14 @@
 ---
 title: Implementación del ejemplo de plano técnico ISO 27001
 description: Pasos de implementación para el ejemplo de plano técnico independiente ISO 27001, incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 07/22/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 9ea579537ff98d662066ecb8900a62f080b88d3d
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: f5920541d49c454bd6648318c04ed607eada1dfb
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546657"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922501"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>Implementación del ejemplo de plano técnico ISO 27001
 
@@ -97,7 +97,7 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
 En la tabla siguiente se proporciona una lista de los parámetros del artefacto de plano técnico:
 
-|Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|DESCRIPCIÓN|
+|Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |-|-|-|-|
 |\[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux|Asignación de directiva|Área de trabajo de Log Analytics para VM Scale Sets (VMSS) para Linux|Si este área de trabajo está fuera del ámbito de la asignación, debe conceder manualmente los permisos de "colaborador de Log Analytics" (o similar) al identificador de la entidad de seguridad de la asignación de la directiva.|
 |\[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Linux que se agregarán al ámbito.|Se puede usar una matriz vacía para indicar que no hay parámetros opcionales: \[\]|

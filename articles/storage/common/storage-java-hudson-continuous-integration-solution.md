@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: tarcher
 ms.subservice: common
-ms.openlocfilehash: 75b0ea106be04cd77b18bfed8487edb6a7b7f65b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f8cdd7b950a11045f795ac93d4a0904f2dc526fa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839184"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970194"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Uso de Azure Storage con una solución de integración continua Hudson
 ## <a name="overview"></a>Información general
@@ -35,7 +35,7 @@ Las ventajas de usar Blob service para hospedar los artefactos de compilación p
 * Rendimiento si los clientes y socios descargan los artefactos de compilación
 * Control sobre las directivas de acceso de usuarios, con una opción entre acceso anónimo, acceso compartido basado en expiración, acceso mediante firma, acceso privado, etc.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para usar Blob service con la solución de integración continua Hudson, necesitará lo siguiente:
 
 * Una solución de integración continua Hudson.
@@ -53,7 +53,7 @@ Para usar Blob service con la solución de integración continua Hudson, necesit
      
       Aunque una solución de integración continua Hudson típica se configuraría para ejecutarse como un servicio, la ejecución del archivo war de Hudson en la línea de comandos será suficiente para este tutorial.
 * Una cuenta de Azure. Puede registrarse para una cuenta de Azure en <https://www.azure.com>.
-* Una cuenta de almacenamiento de Azure. Si aún no tiene una cuenta de almacenamiento, puede crearla con los pasos descritos en [Creación de una cuenta de almacenamiento](../common/storage-quickstart-create-account.md).
+* Una cuenta de almacenamiento de Azure. Si aún no tiene una cuenta de almacenamiento, puede crearla con los pasos descritos en [Creación de una cuenta de almacenamiento](../common/storage-account-create.md).
 * Es recomendable estar familiarizado con la solución de integración continua Hudson, pero no obligatorio, ya que a continuación se ilustrará un ejemplo básico con los pasos que debe seguir para usar Blob service como repositorio para los artefactos de compilación de integración continua Hudson.
 
 ## <a name="how-to-use-the-blob-service-with-hudson-ci"></a>Uso de Blob service con la integración continua Hudson
@@ -112,11 +112,11 @@ Con el fin de facilitar instrucciones, primero necesitaremos crear un trabajo qu
 9. [Opcional] Haga clic en **Clean container before uploading** (Limpiar contenedor antes de cargarlo) si desea que se borre el contenido del contenedor antes de cargar los artefactos de compilación (déjela sin marcar si no desea limpiar el contenido del contenedor).
 10. Para consultar **List of Artifacts to upload** (Lista de artefactos que cargar), escriba **text/*.txt**.
 11. En **Common virtual path for uploaded artifacts** (Ruta de acceso virtual común para artefactos cargados), escriba **${BUILD\_ID}/${BUILD\_NUMBER}** .
-12. Haga clic en **Save** (Guardar) para guardar la configuración.
+12. Haga clic en **Guardar** para guardar la configuración.
 13. En el panel de Hudson, haga clic en **Build Now** (Compilar ahora) para ejecutar **MyJob**. Examine el resultado de la consola para consultar el estado. Los mensajes de estado sobre Azure Storage se incluirán en los resultados de la consola cuando la acción posterior a la compilación comience a cargar los artefactos de compilación.
 14. Tras completar el trabajo satisfactoriamente, abra el blob público si desea examinar los artefactos de compilación.
     
-    a. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+    a. Inicie sesión en [Azure Portal](https://portal.azure.com).
     
     b. Haga clic en **Storage**(Almacenamiento).
     
@@ -145,7 +145,7 @@ Después de ejecutar una compilación, puede comprobar la salida de la consola d
 A continuación se ofrece información general acerca de los componentes de Blob service.
 
 * **Cuenta de almacenamiento**: Todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Se trata del nivel superior del espacio de nombres para el acceso a los blobs. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 100 TB.
-* **Contenedor**: Un contenedor proporciona una agrupación de un conjunto de blobs. Todos los blobs deben residir en un contenedor. Además, una cuenta puede disponer de un número ilimitado de contenedores y un contenedor puede almacenar un número ilimitado de blobs.
+* **Contenedor**: Los contenedores proporcionan una agrupación de un conjunto de blobs. Todos los blobs deben estar en un contenedor. Una cuenta puede contener un número ilimitado de contenedores. Un contenedor puede almacenar un número ilimitado de blobs.
 * **Blob**: Un archivo de cualquier tipo y tamaño. Existen dos tipos de blobs que pueden almacenarse en Azure Storage: blobs en páginas y en bloques. La mayoría de los archivos son blobs en bloques. Un blob en bloques único puede tener un tamaño de hasta 200 GB. En este tutorial se usan blobs en bloques. Los blobs en páginas, que son otro tipo de blobs, pueden tener un tamaño de hasta 1 TB y son más eficaces cuando los intervalos de bytes de un archivo se modifican con frecuencia. Para más información sobre los blobs, consulte [Descripción de los blobs en bloques, en anexos y en páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **Formato de dirección URL**: Los blobs son direccionables mediante el siguiente formato de dirección URL:
   
@@ -160,7 +160,7 @@ A continuación se ofrece información general acerca de los componentes de Blob
 ## <a name="next-steps"></a>Pasos siguientes
 * [Presentación de Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [SDK de Azure Storage para Java](https://github.com/azure/azure-storage-java)
-* [Referencia del SDK de cliente de Azure Storage](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
+* [Referencia del SDK del cliente de Azure Storage](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [API de REST de servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog del equipo de Azure Storage](https://blogs.msdn.com/b/windowsazurestorage/)
 

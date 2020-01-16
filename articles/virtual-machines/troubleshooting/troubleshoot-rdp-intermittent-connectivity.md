@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: be563e39ed1bfa405830999a96d8630b6f8254bb
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 636973110e11770e33c635e312c86b25110705da
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057968"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981347"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Escritorio remoto se desconecta con frecuencia en la máquina virtual de Azure
 
 En este artículo se explica cómo solucionar problemas de desconexiones frecuentes en una máquina virtual de Azure mediante el protocolo de Escritorio remoto (RDP).
 
 > [!NOTE] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos. Se recomienda usar este modelo para las nuevas implementaciones, en lugar de usar el modelo de implementación clásica.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/management/deployment-models.md). Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos. Se recomienda usar este modelo para las nuevas implementaciones, en lugar de usar el modelo de implementación clásica.
 
 ## <a name="symptom"></a>Síntoma
 
@@ -90,7 +90,7 @@ Para solucionar este problema, utilice el control serie o [repare la máquina vi
 ### <a name="repair-the-vm-offline"></a>Reparación de la máquina virtual sin conexión
 
 1. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](../windows/troubleshoot-recovery-disks-portal.md).
-2. Después de que el disco del sistema operativo esté conectado a una máquina virtual de recuperación, asegúrese de que el disco aparece marcado como **En línea** en la consola de administración de discos. Tenga en cuenta la letra de unidad que se asigna al disco del sistema operativo conectado.
+2. Después de que el disco del sistema operativo esté conectado a una máquina virtual de recuperación, asegúrese de que el disco aparece marcado como **En línea** en la consola de administración de discos. Anote la letra de unidad que se asigna al disco del sistema operativo conectado.
 3. En el disco del sistema operativo que ha asociado, vaya a la carpeta **\windows\system32\config**. Copie todos los archivos de esta carpeta como copia de seguridad, por si fuera necesaria una reversión.
 4. Inicie el Editor del Registro (regedit.exe).
 5. Seleccione la clave **HKEY_LOCAL_MACHINE**. En el menú, seleccione **Archivo** > **Cargar subárbol**:

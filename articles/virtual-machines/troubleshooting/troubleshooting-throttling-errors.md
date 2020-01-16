@@ -1,6 +1,6 @@
 ---
 title: Solución de errores de limitación en Azure | Microsoft Docs
-description: Errores de limitación, reintentos y retrocesos en Azure Compute.
+description: Errores de limitación, reintentos y retrocesos de Azure Compute.
 services: virtual-machines
 documentationcenter: ''
 author: changov
@@ -13,26 +13,26 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
-ms.openlocfilehash: db1c6e8e4f1e98db08d5f7ff0ef218fa42d25860
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f5fbd80fc9a8e519cf8f49ab16d7e747c6a8171b
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103299"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045362"
 ---
-# <a name="troubleshooting-api-throttling-errors"></a>Solución de errores de limitación de API 
+# <a name="troubleshooting-api-throttling-errors"></a>Solución de problemas de errores de limitación de API 
 
 Las solicitudes de Azure Compute pueden limitarse en una suscripción y en una región para favorecer el rendimiento general del servicio. Garantizamos que todas las llamadas realizadas al proveedor de recursos de Azure Compute (CRP), que administra los recursos del espacio de nombres Microsoft.Compute, no superan la frecuencia de solicitudes de API máxima permitida. En este documento, se describe la limitación de las API, se explica cómo solucionar los problemas de limitación y se detallan procedimientos recomendados para evitar las limitaciones.  
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Limitaciones efectuadas por Azure Resource Manager frente a limitaciones efectuadas por proveedores de recursos  
 
-Al actuar como puerta de entrada de Azure, Azure Resource Manager se encarga de la autenticación, la validación de primer orden y la limitación de todas las solicitudes de API. Los límites de frecuencia de llamada de Azure Resource Manager y los encabezados HTTP de respuesta de diagnóstico relacionados se describen [aquí](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-request-limits).
+Al actuar como puerta de entrada de Azure, Azure Resource Manager se encarga de la autenticación, la validación de primer orden y la limitación de todas las solicitudes de API. Los límites de frecuencia de llamada de Azure Resource Manager y los encabezados HTTP de respuesta de diagnóstico relacionados se describen [aquí](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling).
  
 Cuando se produce un error de limitación en un cliente de API de Azure, el estado HTTP es "429 Demasiadas solicitudes". Para comprender si la limitación de solicitudes se está realizando mediante Azure Resource Manager o un proveedor de recursos subyacente, como CRP, inspeccione las solicitudes GET de `x-ms-ratelimit-remaining-subscription-reads` y las solicitudes que no son GET de `x-ms-ratelimit-remaining-subscription-writes`. Si el número de llamadas restante está próximo a 0, significa que se ha alcanzado el límite general de llamadas de la suscripción definido por Azure Resource Manager. Las actividades de todos los clientes de la suscripción se cuentan de forma conjunta. De lo contrario, la limitación procede del proveedor de recursos de destino (el especificado por el segmento `/providers/<RP>` de la dirección URL de la solicitud). 
 
 ## <a name="call-rate-informational-response-headers"></a>Encabezados de respuesta que informan sobre la frecuencia de llamadas 
 
-| Encabezado                            | Formato del valor                           | Ejemplo                               | DESCRIPCIÓN                                                                                                                                                                                               |
+| Encabezado                            | Formato del valor                           | Ejemplo                               | Descripción                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Número restantes de llamadas API de la directiva de limitación que se aplica al cubo de recursos o al grupo de operaciones que contiene el destino de esta solicitud.                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | Número de recuentos de llamadas "cargados" en esta solicitud HTTP en relación con el límite de la directiva aplicable. Suele ser 1. Las solicitudes por lotes, como las solicitudes para escalar un conjunto de escalado de máquinas virtuales, pueden "cargar" varios recuentos. |

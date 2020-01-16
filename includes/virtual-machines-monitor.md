@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 09/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 93a2554b5d3cc24e1b5fc1e3d0f18ed1bfe0579c
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: fbc6889507e58c4721597a1108337fcb1f8756a2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71692049"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751944"
 ---
 Con el crecimiento significativo de las máquinas virtuales hospedadas en Azure, es importante identificar los problemas de rendimiento y de estado que afectan a las aplicaciones y los servicios de infraestructura que admiten. Azure incluye supervisión básica de forma predeterminada, con las métricas de uso de CPU, uso de disco, uso de memoria y tráfico de red que el hipervisor del host recopila. Se pueden recopilar datos de métricas y de registro adicionales con [extensiones](../articles/virtual-machines/windows/extensions-features.md) para configurar el diagnóstico en las máquinas virtuales desde el sistema operativo invitado.
 
@@ -45,18 +45,18 @@ Puede crear [alertas](../articles/azure-monitor/platform/alerts-overview.md) bas
 
 ## <a name="azure-activity-log"></a>Azure Activity Log
 
-[Azure Activity Log](../articles/azure-monitor/platform/activity-logs-overview.md) es un registro de suscripción que proporciona información sobre los eventos de nivel de suscripción que se han producido en Azure. Este registro incluye una serie de datos, desde datos operativos de Azure Resource Manager hasta actualizaciones en eventos de Service Health. Puede hacer clic en Activity Log, en Azure Portal, para ver el registro de la máquina virtual.
+[Azure Activity Log](../articles/azure-monitor/platform/platform-logs-overview.md) es un registro de suscripción que proporciona información sobre los eventos de nivel de suscripción que se han producido en Azure. Este registro incluye una serie de datos, desde datos operativos de Azure Resource Manager hasta actualizaciones en eventos de Service Health. Puede hacer clic en Activity Log, en Azure Portal, para ver el registro de la máquina virtual.
 
 Estas son algunas de las tareas que puede hacer con el registro de actividad:
 
-- Crear una [alerta basada en un evento de Activity Log](../articles/azure-monitor/platform/activity-logs-overview.md).
+- Crear una [alerta basada en un evento de Activity Log](../articles/azure-monitor/platform/platform-logs-overview.md).
 - [Transmitirlo a un centro de eventos](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md) para la ingesta en un servicio de terceros o una solución de análisis personalizado como Power BI.
 - Analizarlo en Power BI con el [paquete de contenido de Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Guardarlo en una cuenta de almacenamiento](../articles/azure-monitor/platform/archive-activity-log.md)para archivarlo o inspeccionarlo manualmente. Puede especificar el tiempo de retención (en días) mediante el perfil de registro.
 
 También puede tener acceso a datos de registro de actividad mediante [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), la [CLI de Azure](https://docs.microsoft.com/cli/azure/monitor) o las [API de REST de Monitor](https://docs.microsoft.com/rest/api/monitor/).
 
-[Los registros de recursos de Azure](../articles/azure-monitor/platform/resource-logs-overview.md) son registros emitidos por una máquina virtual que proporcionan datos exhaustivos y frecuentes acerca de su funcionamiento. Los registros de recursos se diferencian del registro de actividad en que proporcionan una visión general acerca de las operaciones realizadas dentro de la máquina virtual.
+[Los registros de recursos de Azure](../articles/azure-monitor/platform/platform-logs-overview.md) son registros emitidos por una máquina virtual que proporcionan datos exhaustivos y frecuentes acerca de su funcionamiento. Los registros de recursos se diferencian del registro de actividad en que proporcionan una visión general acerca de las operaciones realizadas dentro de la máquina virtual.
 
 Estas son algunas de las cosas que puede hacer con los registros de diagnóstico:
 

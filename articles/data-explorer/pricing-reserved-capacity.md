@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: c728f3b9a4c10d52d7361ca76e9b40198a6a0dba
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: bbb2108967353b851a0fa0ee610ec30380e3fc50
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769105"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969269"
 ---
 # <a name="prepay-for-azure-data-explorer-markup-units-with-azure-data-explorer-reserved-capacity"></a>Pago por adelantado de las unidades de incremento de Azure Data Explorer con la capacidad reservada de Azure Data Explorer
 
@@ -27,8 +27,8 @@ Puede comprar capacidad reservada de Azure Data Explorer en [Azure Portal](ht
 * En el caso del programa del Proveedor de soluciones en la nube (CSP), los únicos que pueden comprar la capacidad reservada de Azure Data Explorer son los agentes de administración o de ventas.
 
 Para obtener detalles sobre cómo se cargan los clientes empresariales y los de Pago por uso por las compras de reserva, vea lo siguiente:
-* [Información sobre el uso de reservas de Azure para la inscripción Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md). 
-* [Información sobre el uso de reservas de Azure para suscripciones de Pago por uso](../billing/billing-understand-reserved-instance-usage.md).
+* [Información sobre el uso de reservas de Azure para la inscripción Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md). 
+* [Información sobre el uso de reservas de Azure para suscripciones de Pago por uso](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 ## <a name="determine-the-right-markup-usage-before-purchase"></a>Determinación del uso del incremento adecuado antes de la compra
 
@@ -36,7 +36,7 @@ El tamaño de la reserva debe basarse en el número total de unidades de marcado
 
 ## <a name="buy-azure-data-explorer-reserved-capacity"></a>Compra de capacidad reservada de Azure Data Explorer
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione **Todos los servicios** > **Reservas** > **Comprar ahora**. Seleccione **Agregar**.
 1. En el panel **Seleccionar tipo de producto**, seleccione **Azure Data Explorer** con el fin de comprar una nueva reserva para las unidades de marcado de Azure Data Explorer. 
 1. Seleccione **Comprar**.
@@ -54,7 +54,7 @@ Si tiene que cancelar la reserva de capacidad reservada de Azure Data Explorer
 
 Si necesita cambiar la reserva de capacidad reservada de Azure Data Explorer a otro periodo, puede cambiarla por otra reserva de igual o mayor valor. La fecha de inicio del período de la nueva reserva no se extiende desde la reserva intercambiada. Al crear la nueva reserva empieza el período de 1 o 3 años. Para solicitar un intercambio, vaya a la reserva en Azure Portal y seleccione **Cambio** para crear una solicitud de soporte técnico.
 
-Para más información acerca de cómo cambiar o reembolsar las reservas, consulte [Cambios de reserva y reembolsos](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Para más información acerca de cómo cambiar o reembolsar las reservas, consulte [Cambios de reserva y reembolsos](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="manage-your-reserved-capacity-reservation"></a>Administración de la reserva de capacidad reservada
 
@@ -63,17 +63,17 @@ El descuento por la reserva de unidades de incremento de Azure Data Explorer s
 
 > [!NOTE]
 > * Se puede actualizar el ámbito de la reserva de capacidad reservada de Azure Data Explorer a través de [Azure Portal](https://portal.azure.com), PowerShell, la CLI o la API.
-> * Para obtener información sobre cómo administrar la reserva de capacidad reservada de Azure Data Explorer, vea [Administración de la capacidad reservada de Azure Data Explorer](../billing/billing-understand-kusto-azuredataexplorer-reservation-charges.md).
+> * Para obtener información sobre cómo administrar la reserva de capacidad reservada de Azure Data Explorer, vea [Administración de la capacidad reservada de Azure Data Explorer](../cost-management-billing/reservations/understand-azure-data-explorer-reservation-charges.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
 
-* [¿Qué es Azure Reservations?](../billing/billing-save-compute-costs-reservations.md)
-* [Administración de Azure Reservations](../billing/billing-manage-reserved-vm-instance.md)
-* [Información sobre el descuento de Azure Reservations](../billing/billing-understand-reservation-charges.md)
-* [Información sobre el uso de reservas para suscripciones de pago por uso](../billing/billing-understand-reserved-instance-usage.md)
-* [Información sobre el uso de reservas para la inscripción Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)
+* [¿Qué es Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+* [Administración de Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Información sobre el descuento de Azure Reservations](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Información sobre el uso de reservas para suscripciones de pago por uso](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
+* [Información sobre el uso de reservas para la inscripción Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
 * [Azure Reservations en el programa del Proveedor de soluciones en la nube (CSP) del Centro de partners](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros

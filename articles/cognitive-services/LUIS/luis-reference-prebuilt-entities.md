@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: diberry
-ms.openlocfilehash: a5fcccc18a453101bd1166f2c85b0c3cdc747c3a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 254fec23ef34b936405439e0334e24e594a24dc4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464953"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890229"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por la referencia cultural en el modelo de LUIS
 
@@ -26,7 +26,7 @@ Language Understanding (LUIS) proporciona entidades precompiladas. Cuando una en
 |--|--|--|
 |Chino|[zh-CN](#chinese-entity-support)||
 |Neerlandés|[nl-NL](#dutch-entity-support)||
-|English|[en-US (inglés de EE. UU.)](#english-american-entity-support)||
+|Inglés|[en-US (inglés de EE. UU.)](#english-american-entity-support)||
 |Francés|[fr-CA (Canadá)](#french-canadian-entity-support), [fr-FR (Francia)](#french-france-entity-support), ||
 |Alemán|[de-DE](#german-entity-support)||
 |Italiano|[it-IT](#italian-entity-support)||
@@ -342,7 +342,7 @@ KeyPhrase is not available.
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>Contribuir a las referencias culturales de las entidades precompiladas
 Las entidades precompiladas se desarrollan en el proyecto de código abierto de Recognizers-Text. [Contribuya](https://github.com/Microsoft/Recognizers-Text) al proyecto. Este proyecto incluye ejemplos de moneda por cada referencia cultural. 
 
-GeographyV2 y PersonName no se incluyen en el proyecto Recognizers-Text. Para problemas con estas entidades precompiladas, abra una [solicitud de soporte técnico](../../azure-supportability/how-to-create-azure-support-request.md). 
+GeographyV2 y PersonName no se incluyen en el proyecto Recognizers-Text. Para problemas con estas entidades precompiladas, abra una [solicitud de soporte técnico](../../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

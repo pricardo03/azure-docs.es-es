@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 21b982389b186e949b21352f4b11bd6b4aa06dcb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: dd94f29317e703a68ba1b4a78639f635034d4492
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279208"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75751783"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -44,6 +44,15 @@ Almacenamiento en caché de Premium Storage:  Compatible
 
 <sup>1</sup> Las máquinas virtuales de la serie Fsv2 cuentan con la tecnología Hyper-Threading de Intel®.
 
-<sup>2</sup> El uso de más de 64 vCPU requiere uno de estos sistemas operativos invitados compatibles: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 y Red Hat Enterprise Linux, CentOS 7.3 u Oracle Linux 7.3 con LIS 4.2.1.
+<sup>2</sup> El uso de más de 64 vCPU requiere uno de estos sistemas operativos invitados compatibles:
+- Windows Server 2016 o posterior
+- Ubuntu 16.04 LTS o posterior, con kernel ajustado para Azure (kernel 4.15 o posterior)
+- SLES 12 SP2 o posterior
+- RHEL o CentOS, versiones 6.7 a 6.10, con la versión 4.3.1 (o posterior) del paquete LIS proporcionado por Microsoft instalada
+- RHEL o CentOS, versión 7.3, con la versión 4.2.1 (o posterior) del paquete LIS proporcionado por Microsoft instalada
+- RHEL o CentOS, versión 7.6 o posterior
+- Oracle Linux con UEK4 o posterior
+- Debian 9 con el kernel de backports, Debian 10 o posterior
+- CoreOS con un kernel 4.14 o posterior
 
 <sup>3</sup> La instancia está aislada en el hardware dedicado a un solo cliente.

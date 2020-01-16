@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: 40da2016026c8a7e02d1b243a783d01559e8c197
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c550174bff0529e0fc619f1de79c41ab7cf62a36
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005522"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021317"
 ---
-En este artículo se describe la forma de migrar recursos de infraestructura como servicio (IaaS) de los modelos de implementación clásicos a Resource Manager y detalla cómo conectar los recursos de los dos modelos de implementación que coexisten en su suscripción mediante el uso de puertas de enlace de sitio a sitio de red virtual. Se puede leer más información sobre [características y ventajas de Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). 
+En este artículo se describe la forma de migrar recursos de infraestructura como servicio (IaaS) de los modelos de implementación clásicos a Resource Manager y detalla cómo conectar los recursos de los dos modelos de implementación que coexisten en su suscripción mediante el uso de puertas de enlace de sitio a sitio de red virtual. Se puede leer más información sobre [características y ventajas de Azure Resource Manager](../articles/azure-resource-manager/management/overview.md). 
 
 ## <a name="goal-for-migration"></a>Objetivo para la migración
 Resource Manager permite implementar aplicaciones complejas a través de plantillas, configura las máquinas virtuales mediante extensiones de máquina virtual e incorpora la administración de acceso y el etiquetado. Azure Resource Manager incluye una implementación escalable en paralelo para máquinas virtuales en conjuntos de disponibilidad. El nuevo modelo de implementación también proporciona administración del ciclo de vida para procesos, redes y almacenamiento por separado. Por último, también se centra en habilitar la seguridad de forma predeterminada con la aplicación de máquinas virtuales en una red virtual.
@@ -75,7 +75,7 @@ Si la cuenta de almacenamiento no tiene ningún disco o datos de Máquinas virtu
 > El modelo de implementación de Resource Manager carece del concepto de discos e imágenes de la implementación clásica. Cuando se migra la cuenta de almacenamiento, los discos e imágenes de la implementación clásica no están visibles en la pila de Resource Manager pero los discos duros virtuales de respaldo permanecen en la cuenta de almacenamiento.
 
 En las capturas de pantalla siguientes se muestra cómo actualizar una cuenta de almacenamiento de la implementación clásica a una cuenta de almacenamiento de Azure Resource Manager mediante Azure Portal:
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Vaya a la cuenta de almacenamiento.
 3. En la sección **Configuración**, haga clic en **Migrar a ARM**.
 4. Haga clic en **Validar** para determinar la viabilidad de la migración.
@@ -118,7 +118,7 @@ Actualmente no se admiten las siguientes configuraciones.
 | Proceso |Varias subredes asociadas con una máquina virtual |Actualice la configuración de subred para que solo haga referencia a una subred. Puede que para ello sea necesario quitar una NIC secundaria (que hace referencia a otra subred) de la máquina virtual y asociarla de nuevo una vez finalizada la migración. |
 | Proceso |Máquinas virtuales que pertenecen a una red virtual, pero no tienen una subred explícita asignada |Opcionalmente, puede eliminar la máquina virtual. |
 | Proceso |Máquinas virtuales que tienen alertas, directivas de escalado automático |Se efectúa la migración y se descartan estos valores. Es muy recomendable evaluar el entorno antes de realizar la migración. Como alternativa, puede reconfigurar los valores de las alertas una vez completada la migración. |
-| Proceso |Extensiones XML de máquina virtual (BGInfo 1.*, depurador de Visual Studio, Web Deploy y depuración remota) |ya que no es compatible. Se recomienda que quite estas extensiones de la máquina virtual para continuar la migración o se quitarán automáticamente durante el proceso. |
+| Proceso |Extensiones XML de máquina virtual (BGInfo 1.*, depurador de Visual Studio, Web Deploy y depuración remota) |Esto no se admite. Se recomienda que quite estas extensiones de la máquina virtual para continuar la migración o se quitarán automáticamente durante el proceso. |
 | Proceso |Diagnóstico de arranque con Almacenamiento premium |Deshabilite la característica de diagnósticos de arranque para las máquinas virtuales antes de continuar con la migración. Puede volver a habilitar los diagnósticos de arranque en la pila de Resource Manager una vez completada la migración. Además, se deben eliminar los blobs que se utilizan para los registros de captura de pantalla y de serie, por lo que ya no se cobra por los blobs. |
 | Proceso | Servicios en la nube que contienen roles web y de trabajo | Actualmente no se admite. |
 | Proceso | Servicios en la nube que contienen más de un conjunto de disponibilidad o varios. |Actualmente no se admite. Mueva Virtual Machines al mismo conjunto de disponibilidad antes de la migración. |

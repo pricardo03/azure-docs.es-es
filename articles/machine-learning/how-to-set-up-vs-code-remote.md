@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: a91035773d4427f0f3c07097eb3e02fc08c5f375
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9798cbd2b1c9dca489e843a7102f213757e4de75
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75528766"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771826"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Depuración interactiva en una instancia de proceso de Azure Machine Learning con VS Code remoto
 
@@ -23,7 +23,7 @@ En este artículo, aprenderá a configurar Visual Studio Code remoto en una inst
 > [!NOTE]
 > Las instancias de proceso solo están disponibles para las áreas de trabajo con una región de **Centro y norte de EE. UU.** o **Sur de Reino Unido**.
 
-+ Una [instancia de proceso de Azure Machine Learning](/azure/machine-learning/service/concept-compute-instance) es una estación de trabajo basada en la nube totalmente administrada para científicos de datos que proporciona funciones de administración y preparación para empresas a los administradores de TI. 
++ Una [instancia de proceso de Azure Machine Learning](concept-compute-instance.md) es una estación de trabajo basada en la nube totalmente administrada para científicos de datos que proporciona funciones de administración y preparación para empresas a los administradores de TI. 
 
 
 + El desarrollo de [Visual Studio Code remoto](https://code.visualstudio.com/docs/remote/remote-overview) le permite usar un contenedor, un equipo remoto o el subsistema de Windows para Linux (WSL) como un entorno de desarrollo completo. 
@@ -117,4 +117,4 @@ Desde aquí, trabajará por completo en la instancia de proceso y ahora puede ed
 
 Ahora que ha configurado Visual Studio Code remoto, puede usar una instancia de proceso como proceso remoto desde Visual Studio Code para depurar el código de forma interactiva. 
 
-[Tutorial: Formar su primer modelo de ML](/azure/machine-learning/service/tutorial-1st-experiment-sdk-train) muestra cómo usar una instancia de proceso con un cuaderno integrado.
+[Tutorial: Formar su primer modelo de ML](tutorial-1st-experiment-sdk-train.md) muestra cómo usar una instancia de proceso con un cuaderno integrado.

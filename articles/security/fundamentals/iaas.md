@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: 44542fb299d769a3916407e09691a72efed01c79
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a775da59680004dadf0cec872057adfd5a16f49
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462421"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749854"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure
 En este artículo se describen los procedimientos recomendados de seguridad para máquinas virtuales y sistemas operativos.
@@ -139,7 +139,7 @@ El abuso de los recursos puede ser un problema cuando los procesos de las máqui
 
 Se recomienda el uso de [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-metrics) para obtener una mayor visibilidad del estado de los recursos. Características de Azure Monitor:
 
-- [Archivos de registro de diagnóstico del recurso](../../azure-monitor/platform/resource-logs-overview.md): supervisa los recursos de la máquina virtual e identifica posibles problemas que podrían poner en peligro la disponibilidad y rendimiento.
+- [Archivos de registro de diagnóstico del recurso](../../azure-monitor/platform/platform-logs-overview.md): supervisa los recursos de la máquina virtual e identifica posibles problemas que podrían poner en peligro la disponibilidad y rendimiento.
 - [Extensión de Azure Diagnostics](/azure/azure-monitor/platform/diagnostics-extension-overview): proporciona funcionalidades de supervisión y diagnóstico en máquinas virtuales Windows. Para habilitar estas funcionalidades, incluya la extensión como parte de la [plantilla de Azure Resource Manager](/azure/virtual-machines/windows/extensions-diagnostics-template).
 
 Las organizaciones que no supervisan el rendimiento de la máquina virtual no pueden determinar si ciertos cambios en los patrones de rendimiento son normales o anómalos. Una máquina virtual que consume más recursos de lo habitual podría indicar un ataque procedente de un recurso externo o un proceso en peligro que se está ejecutando en la máquina virtual.

@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/23/2019
-ms.openlocfilehash: 3d748e1625f27be27b7f403fbab3e213b16c4dd6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c5de7b7bf30726dbfbf165799280ad892eca628a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890175"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911997"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migración de trabajos de Azure Scheduler to Azure Logic Apps
 
@@ -33,9 +33,9 @@ En este artículo se muestra cómo se pueden programar tanto los trabajos único
 
 Para más información, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md),o bien, intente crear su primera aplicación lógica en este inicio rápido: [Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Para desencadenar una aplicación lógica mediante el envío de solicitudes HTTP, use una herramienta como la [aplicación de escritorio de Postman](https://www.getpostman.com/apps).
 
@@ -71,7 +71,7 @@ La creación de una aplicación lógica individual permite ejecutar varios traba
 
 1. En el desencadenador, seleccione **Nuevo paso**. 
 
-1. En el cuadro de búsqueda, escriba "retraso hasta" como filtro. En la lista de acciones, seleccione esta acción: **Retrasar hasta**
+1. En el cuadro de búsqueda, escriba "retraso hasta" como filtro. En la lista de acciones, seleccione esta acción: **Retraso hasta**
 
    Dicha acción detiene el flujo de la aplicación lógica hasta una fecha y hora especificadas.
 
@@ -191,7 +191,7 @@ En Azure Scheduler, si la acción predeterminada no se ejecuta, puede ejecutar u
 
 1. Cuando haya finalizado, seleccione **Listo**.
 
-Para más información acerca del control de excepciones, consulte [Detección y control de errores con la propiedad RunAfter](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
+Para más información acerca del control de excepciones, consulte [Detección y control de errores con la propiedad RunAfter](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
@@ -220,7 +220,7 @@ Si su suscripción de Azure tiene un plan de soporte técnico de pago, puede cre
 
 1. En el menú **Soporte técnico**, seleccione **Nueva solicitud de soporte técnico**. Especifique esta información sobre su solicitud:
 
-   | Propiedad | Valor |
+   | Propiedad | Value |
    |---------|-------|
    | **Tipo de problema** | **Técnico** |
    | **Suscripción** | <*su-suscripción-de-Azure*> |

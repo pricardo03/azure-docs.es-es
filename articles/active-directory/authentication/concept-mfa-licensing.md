@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61a2afad33aea7fa2a21135dca0995ad862a2258
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1528bffc613d2e8ab2c0150095d90791b649198a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848670"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979499"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Cómo conseguir Azure Multi-Factor Authentication
 
@@ -30,9 +30,9 @@ En lo referente a la protección de las cuentas, la comprobación en dos pasos d
 
 En la tabla siguiente se describen las diferencias entre las versiones de autenticación multifactor:
 
-| Versión | DESCRIPCIÓN |
+| Versión | Descripción |
 | --- | --- |
-| Opción gratuita | Los clientes que usen las ventajas gratuitas de Azure AD pueden emplear [valores predeterminados de seguridad](../conditional-access/concept-conditional-access-security-defaults.md) para habilitar la autenticación multifactor en su entorno. |
+| Opción gratuita | Los clientes que usen las ventajas gratuitas de Azure AD pueden emplear [valores predeterminados de seguridad](../fundamentals/concept-fundamentals-security-defaults.md) para habilitar la autenticación multifactor en su entorno. |
 | Multi-Factor Authentication para Office 365 | Esta versión se administra desde el portal de Office 365 o Microsoft 365. Los administradores pueden [proteger los recursos de Office 365 con la comprobación en dos pasos](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Esta versión forma parte de una suscripción a Office 365. |
 | Multi-Factor Authentication para administradores de Azure AD | Los usuarios asignados al rol Administrador global de Azure AD en inquilinos de Azure AD pueden habilitar la verificación en dos pasos sin costo adicional alguno. |
 | Azure Multi-Factor Authentication | Conocida con frecuencia como la versión "completa", Azure Multi-Factor Authentication ofrece el conjunto más rico de funcionalidades. Proporciona opciones de configuración adicionales a través de [Azure Portal](https://portal.azure.com), funcionalidades de generación de informes avanzadas y compatibilidad con una amplia variedad de aplicaciones locales y en la nube. Azure Multi-Factor Authentication es una característica de [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features) y [Microsoft 365 Empresa](https://www.microsoft.com/microsoft-365/business). |
@@ -48,7 +48,7 @@ En la tabla siguiente se proporciona una lista de las características que está
 > En esta tabla comparativa, se describen las características incluidas en cada versión de Multi-Factor Authentication. En caso de que tenga el servicio completo de Azure Multi-Factor Authentication, es posible que algunas características no estén disponibles en función de si usa [MFA en la nube o MFA en local](concept-mfa-whichversion.md).
 >
 
-| Característica | Multi-Factor Authentication para Office 365 | Multi-Factor Authentication para administradores de Azure AD | Azure Multi-Factor Authentication | Valores predeterminados de seguridad | 
+| Característica | Multi-Factor Authentication para Office 365 | Multi-Factor Authentication para administradores de Azure AD | Azure Multi-Factor Authentication | Valores predeterminados de seguridad |
 | --- |:---:|:---:|:---:|:---:|
 | Protección de cuentas de administración de Azure AD con MFA |● |● (Solo cuentas de administrador global de Azure AD) |● |● |
 | Aplicación móvil como segundo factor |● |● |● |● |
@@ -68,7 +68,7 @@ En la tabla siguiente se proporciona una lista de las características que está
 | MFA para aplicaciones locales | | |● |   |
 
 > [!IMPORTANT]
-> A partir de marzo de 2019, las opciones de llamada de teléfono no estarán disponibles para los usuarios de MFA y SSPR en inquilinos de Azure AD gratis o de evaluación. Los mensajes SMS no se ven afectados por este cambio. Las llamadas de teléfono seguirán estando disponibles para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratis o de evaluación.
+> A partir de marzo de 2019, las opciones de llamada de teléfono no estarán disponibles para los usuarios de MFA y SSPR en inquilinos de Azure AD gratis o de evaluación. Los mensajes SMS no se ven afectados por este cambio. Las llamadas de teléfono seguirán estando disponibles para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratis o de evaluación.
 
 ## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Activación de Azure Multi-Factor Authentication para administradores de Azure AD
 

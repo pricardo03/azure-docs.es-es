@@ -10,14 +10,14 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2239387ffff4c30e1183721a528e666199316bed
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 5164bf55ef8233cf34a470524da3bc852678d79a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695089"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979177"
 ---
-# <a name="patternany-entity"></a>Entidad Pattern.any 
+# <a name="patternany-entity"></a>Entidad Pattern.any
 
 Pattern.any es un marcador de posición de longitud variable que solo se usa en la expresión de plantilla de un patrón para marcar dónde empieza y acaba la entidad.  
 
@@ -25,13 +25,13 @@ Las entidades Pattern.Any deben marcarse en los ejemplos de la plantilla de [pat
 
 **La entidad es la opción ideal cuando:**
 
-* El final de la entidad se puede confundir con el resto del texto de la expresión. 
+* El final de la entidad se puede confundir con el resto del texto de la expresión.
 
 ## <a name="usage"></a>Uso
 
-Dada una aplicación cliente que busca libros en función del título, pattern.any extrae el título completo. `Was {BookTitle} written by an American this year[?]` es una expresión de plantilla que usa pattern.any para este libro. 
+Dada una aplicación cliente que busca libros en función del título, pattern.any extrae el título completo. `Was {BookTitle} written by an American this year[?]` es una expresión de plantilla que usa pattern.any para este libro.
 
-En la tabla siguiente, cada fila tiene dos versiones de la declaración. La expresión superior es la forma en que LUIS ve inicialmente la expresión. No está claro dónde comienza y termina el título del libro. La expresión inferior usa la entidad Pattern.any para marcar el principio y el final de la entidad. 
+En la tabla siguiente, cada fila tiene dos versiones de la declaración. La expresión superior es la forma en que LUIS ve inicialmente la expresión. No está claro dónde comienza y termina el título del libro. La expresión inferior usa la entidad Pattern.any para marcar el principio y el final de la entidad.
 
 |Expresión con la entidad en negrita|
 |--|
@@ -104,8 +104,8 @@ Este es el valor JSON si `verbose=true` se establece en la cadena de consulta:
 }
 ```
 
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este [tutorial](luis-tutorial-pattern-any.md), use la entidad **Pattern.any** para extraer datos de expresiones con el formato correcto y donde el final de los datos se puede confundir fácilmente con el resto de las palabras de la expresión.
+En este [tutorial](luis-tutorial-pattern.md), use la entidad **Pattern.any** para extraer datos de expresiones con el formato correcto y donde el final de los datos se puede confundir fácilmente con el resto de las palabras de la expresión.

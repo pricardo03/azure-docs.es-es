@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 15d44f95cccf15fd0f7615655f5bbac1b0c35127
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 2d26cbce3398b9a44530553fbff0413c631b7579
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706061"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744777"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Escala de clústeres de Azure HDInsight
 
@@ -29,7 +29,7 @@ Los clústeres se pueden escalar manualmente mediante uno de los métodos que se
 
 Microsoft proporciona las siguientes utilidades para escalar clústeres:
 
-|Utilidad | DESCRIPCIÓN|
+|Utilidad | Descripción|
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<NombreDeClúster> -TargetInstanceCount \<NuevoTamaño>|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
@@ -147,10 +147,10 @@ org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create director
 ```
 
 ```
-org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
+org.apache.http.conn.HttpHostConnectException: Connect to active-headnode-name.servername.internal.cloudapp.net:10001 [active-headnode-name.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
 ```
 
-Puede revisar los registros del nodo de nombre en la carpeta `/var/log/hadoop/hdfs/`, cerca del momento en que se escaló el clúster, para ver cuándo entró en modo seguro. Los archivos de registro se denominan `Hadoop-hdfs-namenode-hn0-clustername.*`.
+Puede revisar los registros del nodo de nombre en la carpeta `/var/log/hadoop/hdfs/`, cerca del momento en que se escaló el clúster, para ver cuándo entró en modo seguro. Los archivos de registro se denominan `Hadoop-hdfs-namenode-<active-headnode-name>.*`.
 
 La causa de los errores anteriores es que Hive depende de los archivos temporales de HDFS durante la ejecución de consultas. Cuando HDFS entra en modo seguro, Hive no puede ejecutar las consultas porque no puede escribir en HDFS. Los archivos temporales de HDFS se encuentran en la unidad local montada en las máquinas virtuales de los nodos de trabajo individuales y se replican entre otros nodos de trabajo en tres réplicas, como mínimo.
 
@@ -194,7 +194,7 @@ Si Hive ha dejado archivos temporales, puede limpiarlos manualmente antes de la 
     Este es un ejemplo de resultado cuando existen archivos:
 
     ```output
-    sshuser@hn0-scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
+    sshuser@scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/_tmp_space.db
     -rw-r--r--   3 hive hdfs         27 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/inuse.info

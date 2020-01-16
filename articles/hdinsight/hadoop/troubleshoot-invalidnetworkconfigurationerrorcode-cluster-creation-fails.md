@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: 5b8d031af9dbe6019d71e2a1caa3d3f25d4024ea
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: f857ee47f5dd8018d2e26aab47252533b0b17617
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044468"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887111"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Error al crear el clúster con InvalidNetworkConfigurationErrorCode en Azure HDInsight
 
@@ -30,7 +30,7 @@ La descripción del error contiene "Error de resolución de nombre de host".
 
 Este error indica un problema con la configuración de DNS personalizada. Los servidores DNS de una red virtual pueden reenviar consultas de DNS a resoluciones recursivas de Azure para resolver los nombres de host dentro de esa red virtual (consulte los detalles en [Resolución de nombres de recursos en redes virtuales de Azure](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)). El acceso a las resoluciones recursivas de Azure se proporciona a través de la IP virtual 168.63.129.16. Esta dirección IP solo es accesible desde las máquinas virtuales de Azure. Por lo tanto, no funcionará si usa un servidor DNS local o si el servidor DNS es una máquina virtual de Azure que no forma parte de la red virtual del clúster.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 1. SSH en la máquina virtual que forma parte del clúster y ejecute el comando `hostname -f`. De esta forma, se devolverá el nombre de dominio completo del host (denominado `<host_fqdn>` en las instrucciones siguientes).
 
@@ -56,7 +56,7 @@ La descripción del error contiene el mensaje "Failed to connect to Azure Storag
 
 Azure Storage y SQL no tienen direcciones IP fijas, por lo que es necesario permitir las conexiones salientes a todas las direcciones IP para permitir el acceso a estos servicios. Los pasos exactos de la resolución dependen de si ha configurado un grupo de seguridad de red (NSG) o reglas definidas por el usuario (UDR). Consulte la sección sobre [el control del tráfico de red con HDInsight con grupos de seguridad de red y rutas definidas por el usuario ](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip) para más información sobre estas configuraciones.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 * Si el clúster usa un [grupo de seguridad de red (NSG)](../../virtual-network/virtual-network-vnet-plan-design-arm.md).
 
@@ -78,4 +78,4 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 * Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente, que pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

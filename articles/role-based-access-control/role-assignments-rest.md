@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1ba0c2bd81f32c0aec242dbfb32b2d7f4064ddbe
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3c7b7dac649548b8b21cc13761009c11609c8904
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707829"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981032"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>Incorporación o eliminación de asignaciones de roles con RBAC de Azure y la API REST
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] En este artículo se describe cómo asignar roles con la API REST.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para agregar o quitar asignaciones de roles, debe tener:
 
@@ -57,7 +57,7 @@ En RBAC, para conceder acceso es preciso agregar una asignación de roles. Para 
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito de la asignación de roles.
 
-    | Ámbito | type |
+    | Ámbito | Tipo |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de administración |
     | `subscriptions/{subscriptionId1}` | Subscription |
@@ -68,7 +68,7 @@ En RBAC, para conceder acceso es preciso agregar una asignación de roles. Para 
 
 1. En el cuerpo de la solicitud, reemplace *{scope}* por el ámbito de la asignación de roles.
 
-    | Ámbito | type |
+    | Ámbito | Tipo |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de administración |
     | `subscriptions/{subscriptionId1}` | Subscription |
@@ -93,7 +93,7 @@ En RBAC, para quitar el acceso hay que quitar una asignación de roles. Para qui
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito para eliminar la asignación de roles.
 
-    | Ámbito | type |
+    | Ámbito | Tipo |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de administración |
     | `subscriptions/{subscriptionId1}` | Subscription |
@@ -105,6 +105,6 @@ En RBAC, para quitar el acceso hay que quitar una asignación de roles. Para qui
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Lista de asignaciones de roles con RBAC de Azure y la API REST](role-assignments-list-rest.md)
-- [Implementación de recursos con las plantillas de Resource Manager y la API de REST de Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [Implementación de recursos con las plantillas de Resource Manager y la API de REST de Resource Manager](../azure-resource-manager/templates/deploy-rest.md)
 - [Azure REST API Reference](/rest/api/azure/) (Referencia de API de REST en Azure)
 - [Creación de roles personalizados para los recursos de Azure con la API de REST](custom-roles-rest.md)

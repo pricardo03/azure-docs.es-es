@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 91e95dcf7cfc46073e2fd752a0e7e5ae6fce4ee8
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: ff221a32ff6c995d019b13f20ca2c3f9e2027f63
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300084"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980732"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Introducción a Azure Blob Storage y los servicios conectados de Visual Studio (ASP.NET Core) (ASP.NET Core)
 
@@ -34,7 +34,7 @@ En este tutorial se muestra cómo escribir código de ASP.NET Core para algunos 
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 
@@ -48,11 +48,11 @@ En esta sección se explica cómo configurar el entorno de desarrollo. Se incluy
 
 1. En el menú principal, seleccione **Archivo** > **Nuevo** > **Proyecto**.
 
-1. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Web** > **Aplicación web ASP.NET Core** > **AspNetCoreStorage**. Después seleccione **Aceptar**.
+1. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Web** > **Aplicación web ASP.NET Core** > **AspNetCoreStorage**. Después, seleccione **Aceptar**.
 
     ![Captura de pantalla del cuadro de diálogo Nuevo proyecto de Visual Studio](./media/vs-storage-aspnet-core-getting-started-blobs/new-project.png)
 
-1. En el cuadro de diálogo **Nueva aplicación web ASP.NET Core**, seleccione **.NET Core** > **ASP.NET Core 2.0** > **Aplicación web (controlador de vista de modelos)** . Después seleccione **Aceptar**.
+1. En el cuadro de diálogo **Nueva aplicación web ASP.NET Core**, seleccione **.NET Core** > **ASP.NET Core 2.0** > **Aplicación web (controlador de vista de modelos)** . Después, seleccione **Aceptar**.
 
     ![Captura de pantalla del cuadro de diálogo Nueva aplicación web ASP.NET Core](./media/vs-storage-aspnet-core-getting-started-blobs/new-mvc.png)
 
@@ -69,7 +69,7 @@ En esta sección se explica cómo configurar el entorno de desarrollo. Se incluy
 1. En el cuadro de diálogo **Azure Storage**, seleccione la cuenta de Azure Storage que se usará en este tutorial. Para crear una nueva cuenta de Azure Storage, seleccione **Crear una nueva cuenta de almacenamiento** y rellene el formulario. Después de seleccionar una cuenta de almacenamiento existente o de crear una nueva, seleccione **Agregar**. Visual Studio instala el paquete de NuGet de Azure Storage y una cadena de conexión de almacenamiento a **appsettings.json**.
 
 > [!TIP]
-> Para aprender a crear una cuenta de almacenamiento con [Azure Portal](https://portal.azure.com), consulte [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md).
+> Para aprender a crear una cuenta de almacenamiento con [Azure Portal](https://portal.azure.com), consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md).
 >
 > También se puede crear una cuenta de Azure Storage mediante [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), la [CLI de Azure](../storage/common/storage-azure-cli.md) o [Azure Cloud Shell](../cloud-shell/overview.md).
 

@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf1e5f9f47ebdc132bdc826af3e54d206095085
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603406"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888675"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Inicio rápido
 
@@ -130,7 +130,7 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
    - **Nombre de valor**: dirección URL de Azure AD a la que se reenvían los vales de Kerberos.
    - **Valor** (datos): **1** indica la zona de intranet.
 
-     El resultado se parecerá al siguiente:
+     El resultado tiene el aspecto siguiente:
 
      Nombre de valor: `https://autologon.microsoftazuread-sso.com`
   
@@ -213,7 +213,7 @@ Para probar la característica con un usuario específico, asegúrese de que se 
   - El usuario inicia sesión en un dispositivo corporativo.
   - El dispositivo se une a su dominio de Active Directory. El dispositivo _no_ debe estar [unido a Azure AD](../active-directory-azureadjoin-overview.md).
   - El dispositivo tiene una conexión directa a su controlador de dominio (DC), en la red cableada o inalámbrica de la empresa o mediante una conexión de acceso remoto, como una conexión VPN.
-  - Ha [implantado la característica](##step-3-roll-out-the-feature) para este usuario mediante la directiva de grupo.
+  - Ha [implantado la característica](#step-3-roll-out-the-feature) para este usuario mediante la directiva de grupo.
 
 Para probar el escenario en el que el usuario escribe solo su nombre de usuario, pero no la contraseña:
    - Inicie sesión en `https://myapps.microsoft.com/` es una sesión de explorador privada nueva.

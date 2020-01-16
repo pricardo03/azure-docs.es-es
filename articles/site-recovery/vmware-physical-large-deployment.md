@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: e08c7d5f794611a92688e931f35da7482c04407f
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082219"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895793"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configuración de recuperación ante desastres a escala para servidores físicos o máquinas virtuales de VMware
 
@@ -85,7 +85,7 @@ Queremos asegurarnos de que las cuotas disponibles en la suscripción de destino
 
 **Task** | **Detalles** | **Acción**
 --- | --- | ---
-**Comprobación de núcleos** | Si los núcleos de la cuota disponible no son iguales ni superiores al recuento de destino total en el momento de la conmutación por error, las conmutación por error generarán un error. | En el caso de las máquinas virtuales de VMware, compruebe que tiene los núcleos suficientes en la suscripción de destino para cumplir la recomendación de núcleos de Deployment Planner.<br/><br/> En el caso de los servidores físicos, compruebe que los núcleos de Azure cumplen con los cálculos manuales.<br/><br/> Para comprobar las cuotas, en Azure Portal > **Suscripción**, haga clic en **Uso y cuotas**.<br/><br/> [Obtenga más información](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) sobre cómo aumentar las cuotas.
+**Comprobación de núcleos** | Si los núcleos de la cuota disponible no son iguales ni superiores al recuento de destino total en el momento de la conmutación por error, las conmutación por error generarán un error. | En el caso de las máquinas virtuales de VMware, compruebe que tiene los núcleos suficientes en la suscripción de destino para cumplir la recomendación de núcleos de Deployment Planner.<br/><br/> En el caso de los servidores físicos, compruebe que los núcleos de Azure cumplen con los cálculos manuales.<br/><br/> Para comprobar las cuotas, en Azure Portal > **Suscripción**, haga clic en **Uso y cuotas**.<br/><br/> [Obtenga más información](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) sobre cómo aumentar las cuotas.
 **Comprobación de los límites de conmutación por error** | El número de conmutaciones por error no debe superar los límites de conmutación por error de Site Recovery. |  Si las conmutaciones por error superan los límites, puede agregar suscripciones y conmutar por error a varias suscripciones, o bien puede aumentar la cuota para una suscripción. 
 
 
@@ -101,7 +101,7 @@ Los límites indican la cantidad de conmutaciones por error que Site Recovery ad
 **¿La máquina es compatible con Azure?** | **Límites de máquinas virtuales de Azure (conmutación por error de un disco administrado)**
 --- | --- 
 Sí | 2000
-Sin | 1000
+No | 1000
 
 - Los límites supone que, como mínimo, otros trabajos están en curso en la región de destino de la suscripción.
 - Algunas regiones de Azure son más pequeñas y es posible que tengan límites ligeramente más bajos.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 612da322e0d248f9b0000c8f0006893b87b74e44
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 4725329ace12a2bfb285253c52249f242da31619
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084642"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970205"
 ---
 # <a name="introduction-to-azure-storage"></a>Introducción a Azure Storage
 
@@ -21,7 +21,7 @@ Azure Storage es la solución de almacenamiento de Microsoft para los escenarios
 
 - **Durable y con una elevada disponibilidad.** La redundancia garantiza que los datos están seguros en caso de errores de hardware transitorios. También puede optar por replicar datos entre centros de datos o regiones geográficas para obtener protección adicional frente a catástrofes locales o desastres naturales. Los datos replicados de esta manera permanecen con una alta disponibilidad en caso de una interrupción inesperada.
 - **Seguro.** Todos los datos escritos en Azure Storage se cifran mediante el servicio. Azure Storage proporciona un control pormenorizado sobre quién tiene acceso a los datos.
-- **Escalable.** Azure Storage está diseñado para poderse escalar de forma masiva para satisfacer las necesidades de rendimiento y almacenamiento de datos de las aplicaciones de hoy en día. 
+- **Escalable.** Azure Storage está diseñado para poderse escalar de forma masiva para satisfacer las necesidades de rendimiento y almacenamiento de datos de las aplicaciones de hoy en día.
 - **Administrado.** Microsoft Azure controla automáticamente el mantenimiento, las actualizaciones y los problemas críticos del hardware.
 - **Accesible.** Es posible acceder a los datos de Azure Storage desde cualquier parte del mundo a través de HTTP o HTTPS. Microsoft proporciona bibliotecas cliente para Azure Storage en diversos lenguajes, incluidos .NET, Java, Node.js, Python, PHP, Ruby, Go y otros, así como una API REST consolidada. Azure Storage admite la escritura en Azure PowerShell o la CLI de Azure. Y Azure Portal y el Explorador de Azure Storage ofrecen soluciones visuales sencillas para trabajar con los datos.  
 
@@ -31,14 +31,14 @@ Azure Storage incluye estos servicios de datos:
 
 - [Blobs de Azure](../blobs/storage-blobs-introduction.md): un almacén de objetos que se puede escalar de forma masiva para datos de texto y binarios.
 - [Archivos de Azure](../files/storage-files-introduction.md): recursos compartidos de archivos administrados para implementaciones locales y en la nube.
-- [Colas de Azure](../queues/storage-queues-introduction.md): un almacén de mensajería para mensajería confiable entre componentes de aplicación. 
+- [Colas de Azure](../queues/storage-queues-introduction.md): un almacén de mensajería para mensajería confiable entre componentes de aplicación.
 - [Tablas de Azure](../tables/table-storage-overview.md): un almacén NoSQL para el almacenamiento sin esquema de datos estructurados.
 
-Para acceder a cada servicio se usa una cuenta de almacenamiento. Para comenzar, consulte [Crear una cuenta de almacenamiento](storage-quickstart-create-account.md).
+Para acceder a cada servicio se usa una cuenta de almacenamiento. Para comenzar, consulte [Crear una cuenta de almacenamiento](storage-account-create.md).
 
 ## <a name="blob-storage"></a>Almacenamiento de blobs
 
-Azure Blob Storage es la solución de almacenamiento de objetos de Microsoft para la nube. Blob Storage está optimizado para el almacenamiento de cantidades masivas de datos no estructurados, como texto o datos binarios. 
+Azure Blob Storage es la solución de almacenamiento de objetos de Microsoft para la nube. Blob Storage está optimizado para el almacenamiento de cantidades masivas de datos no estructurados, como texto o datos binarios.
 
 Blob Storage resulta muy conveniente para:
 
@@ -108,7 +108,7 @@ Cada solicitud para Azure Storage se debe autorizar. Azure Storage admite los si
 
 ## <a name="encryption"></a>Cifrado
 
-Hay dos tipos básicos de cifrado disponibles para los servicios de almacenamiento. Para más información sobre la seguridad y el cifrado, consulte [Guía de seguridad de Azure Storage](storage-security-guide.md).
+Hay dos tipos básicos de cifrado disponibles para los servicios de almacenamiento. Para más información sobre la seguridad y el cifrado, consulte [Guía de seguridad de Azure Storage](../blobs/security-recommendations.md).
 
 ### <a name="encryption-at-rest"></a>Cifrado en reposo
 
@@ -158,7 +158,7 @@ Es posible acceder a los recursos de Azure Storage por medio de cualquier lengua
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Referencias de biblioteca y de API de movimiento de datos de Azure Storage
 
 - [API de REST del servicio Import/Export de Storage](https://docs.microsoft.com/rest/api/storageimportexport/)
-- [Biblioteca de cliente de movimiento de datos de Storage para .NET](/dotnet/api/microsoft.azure.storage.datamovement)
+- [Biblioteca de cliente de movimiento de datos de almacenamiento para .NET](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>Herramientas y utilidades
 
@@ -171,4 +171,4 @@ Es posible acceder a los recursos de Azure Storage por medio de cualquier lengua
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para iniciar y ejecutar con Azure Storage, consulte [Crear una cuenta de almacenamiento](storage-quickstart-create-account.md).
+Para iniciar y ejecutar con Azure Storage, consulte [Crear una cuenta de almacenamiento](storage-account-create.md).

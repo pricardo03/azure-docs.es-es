@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 01/10/2020
 ms.author: b-juche
-ms.openlocfilehash: dcde89e3e15ed92154d5b0f6ee6e79cdda6be628
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: aca6899da3c92cca0fd8564da5ec3d1679eb2579
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851942"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890974"
 ---
 # <a name="azure-netapp-files-videos"></a>Vídeos de Azure NetApp Files
 Este artículo proporciona referencias a vídeos que contienen discusiones detalladas sobre el uso de Azure NetApp Files. 
@@ -27,4 +27,4 @@ Este artículo proporciona referencias a vídeos que contienen discusiones detal
 Hay disponibles varios vídeos para ayudarle a obtener información sobre Azure NetApp Files:  
 
 * [Microsoft Ignite 2019: Ejecución de las cargas de trabajo de archivos empresariales más exigentes con Azure NetApp Files](https://myignite.techcommunity.microsoft.com/sessions/82938?source=sessions) proporciona una breve introducción a Azure NetApp Files, incluidos los casos de uso y una demostración y luego profundiza en las funcionalidades y el mapa de ruta.
-* [Kirk Ryan habla sobre Azure NetApp Files](https://www.youtube.com/playlist?list=PLed1HZYUHIVDCWT68Qn22pbZUmKl7ch5x) es una serie de vídeos, tutoriales y demostraciones dedicados a Azure NetApp Files. 
+* [Kirk Ryan habla sobre Azure NetApp Files](https://www.youtube.com/channel/UCq1jZkyVXqMsMSIvScBE2qg/playlists) es una serie de vídeos, tutoriales y demostraciones dedicados a Azure NetApp Files. 

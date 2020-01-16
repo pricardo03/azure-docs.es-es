@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 10/23/2019
+ms.date: 01/09/2020
 ms.author: diberry
-ms.openlocfilehash: 91aee7f4a110490495a3cf840e6b3ef3282c91c5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bec68cbb88a9acacbc1a9a081ce3d8612b709d18
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446369"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860238"
 ---
 # <a name="quickstart-personalizer-client-library-for-nodejs"></a>Inicio rápido: Biblioteca cliente de Personalizer para Node.js
 
@@ -26,7 +26,7 @@ Introducción a la biblioteca de cliente de Personalizer para Node.js. Siga esto
  * Clasificar una lista de acciones para su personalización.
  * Informar sobre la puntuación de recompensa para indicar el éxito de la acción con clasificación superior.
 
-[Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Paquete (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
+[Documentación de referencia](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Paquete (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -49,7 +49,7 @@ Hay que dar varios pasos para usar este inicio rápido:
 
 Los servicios de Azure Cognitive Services se representan por medio de recursos de Azure a los que se suscribe. Cree un recurso para Personalizer mediante [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) en la máquina local. También puede:
 
-* Obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services) válida durante siete días de forma gratuita. Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services) válida durante siete días de forma gratuita. Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 * Ver el recurso en [Azure Portal](https://portal.azure.com/)
 
 Después de obtener una clave del recurso o la suscripción de evaluación, cree dos [variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
@@ -62,13 +62,13 @@ En Azure Portal, los valores de clave y punto de conexión están disponibles en
 
 ## <a name="create-a-new-nodejs-application"></a>Creación de una aplicación Node.js
 
-En una ventana de la consola (como cmd, PowerShell o Bash), cree un directorio para la aplicación y vaya a él. 
+En una ventana de la consola (como cmd, PowerShell o Bash), cree un directorio para la aplicación y vaya a él.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Ejecute el comando `npm init -y` para crear un archivo `package.json`. 
+Ejecute el comando `npm init -y` para crear un archivo `package.json`.
 
 ```console
 npm init -y
@@ -100,11 +100,11 @@ La primera vez que se instancia un bucle de Personalizer, no hay ningún modelo 
 
 El cliente de Personalizer es un objeto PersonalizerClient que se autentica en Azure mediante Microsoft.Rest.ServiceClientCredentials, que contiene la clave.
 
-Para solicitar una clasificación del contenido, cree un RankRequest y, a continuación, páselo al método cliente.Rank. El método Rank devuelve un elemento RankResponse, que contiene el contenido clasificado. 
+Para solicitar una clasificación del contenido, cree un RankRequest y, a continuación, páselo al método cliente.Rank. El método Rank devuelve un elemento RankResponse, que contiene el contenido clasificado.
 
-Para enviar una recompensa a Personalizer, cree un RewardRequest y, a continuación, páselo al método client.Reward. 
+Para enviar una recompensa a Personalizer, cree un RewardRequest y, a continuación, páselo al método client.Reward.
 
-La determinación de la recompensa en este inicio rápido es trivial. En un sistema de producción, la determinación de lo que afecta a la [puntuación de recompensa](concept-rewards.md) y cuánto le afecta, puede ser un proceso complejo que decida cambiar con el tiempo. Esta debe ser una de las decisiones de diseño principales en la arquitectura de su instancia de Personalizer. 
+La determinación de la recompensa en este inicio rápido es trivial. En un sistema de producción, la determinación de lo que afecta a la [puntuación de recompensa](concept-rewards.md) y cuánto le afecta, puede ser un proceso complejo que decida cambiar con el tiempo. Esta debe ser una de las decisiones de diseño principales en la arquitectura de su instancia de Personalizer.
 
 ## <a name="code-examples"></a>Ejemplos de código
 
@@ -116,7 +116,7 @@ Estos fragmentos de código muestran cómo realizar las siguientes acciones con 
 
 ## <a name="create-a-new-nodejs-application"></a>Creación de una aplicación Node.js
 
-Cree una aplicación de Node.js en el IDE o editor que prefiera con el nombre `sample.js`. 
+Cree una aplicación de Node.js en el IDE o editor que prefiera con el nombre `sample.js`.
 
 ## <a name="add-the-dependencies"></a>Adición de las dependencias
 
@@ -146,7 +146,7 @@ Las acciones representan las opciones de contenido que desea que Personalizer cl
 
 ## <a name="create-the-learning-loop"></a>Creación del bucle de aprendizaje
 
-El bucle de aprendizaje de Personalizer es un ciclo de llamadas de [clasificación](#request-a-rank) y de [recompensa](#send-a-reward). En este inicio rápido, cada llamada de clasificación para personalizar el contenido, va seguida de una llamada de recompensa para indicar a Personalizer cuál es el grado de precisión con que el servicio ha clasificado el contenido. 
+El bucle de aprendizaje de Personalizer es un ciclo de llamadas de [clasificación](#request-a-rank) y de [recompensa](#send-a-reward). En este inicio rápido, cada llamada de clasificación para personalizar el contenido, va seguida de una llamada de recompensa para indicar a Personalizer cuál es el grado de precisión con que el servicio ha clasificado el contenido.
 
 El código de bucle siguiente itera con un ciclo en el que se pregunta al usuario sus preferencias en la línea de comandos, y se envía esa información a Personalizer para que la clasifique, luego se presenta la selección clasificada al cliente para que elija en el lista y, a continuación, se envía una recompensa a Personalizer señalando el grado de acierto que tuvo el servicio al clasificar la selección.
 
@@ -161,9 +161,9 @@ Agregue los métodos siguientes, que [obtienen las opciones de contenido](#get-c
 
 ## <a name="request-a-rank"></a>Solicitud de una clasificación
 
-Para completar la solicitud de clasificación, el programa solicita las preferencias del usuario para crear un elemento de las opciones de contenido. El proceso puede crear contenido para excluir de la clasificación, que se muestra como `excludeActions`. La solicitud de clasificación necesita las [acciones](concepts-features.md#actions-represent-a-list-of-options), currentContext, excludeActions y un identificador de evento de clasificación único (como un GUID), para recibir la respuesta clasificada. 
+Para completar la solicitud de clasificación, el programa solicita las preferencias del usuario para crear un elemento de las opciones de contenido. El proceso puede crear contenido para excluir de la clasificación, que se muestra como `excludeActions`. La solicitud de clasificación necesita las [acciones](concepts-features.md#actions-represent-a-list-of-options), currentContext, excludeActions y un identificador de evento de clasificación único (como un GUID), para recibir la respuesta clasificada.
 
-Este inicio rápido tiene características de contexto simples de hora del día y preferencias alimentarias del usuario. En los sistemas de producción, la determinación y [evaluación](concept-feature-evaluation.md) de [acciones y características](concepts-features.md) no es una cuestión trivial.  
+Este inicio rápido tiene características de contexto simples de hora del día y preferencias alimentarias del usuario. En los sistemas de producción, la determinación y [evaluación](concept-feature-evaluation.md) de [acciones y características](concepts-features.md) no es una cuestión trivial.
 
 [!code-javascript[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/node/sample.js?name=rank)]
 
@@ -171,7 +171,7 @@ Este inicio rápido tiene características de contexto simples de hora del día 
 
 Para completar la solicitud de recompensa, el programa obtiene la selección del usuario desde la línea de comandos, asigna un valor numérico a cada selección y, después, envía el identificador único del evento de clasificación y el valor numérico al método de recompensa.
 
-En este inicio rápido se asigna un número simple como recompensa, o cero o 1. En sistemas de producción, determinar cuándo y qué enviar a la llamada de [recompensa](concept-rewards.md) puede ser más complicado, en función de sus necesidades específicas. 
+En este inicio rápido se asigna un número simple como recompensa, o cero o 1. En sistemas de producción, determinar cuándo y qué enviar a la llamada de [recompensa](concept-rewards.md) puede ser más complicado, en función de sus necesidades específicas.
 
 [!code-javascript[The Personalizer learning loop sends a reward.](~/samples-personalizer/quickstarts/node/sample.js?name=reward)]
 

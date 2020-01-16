@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 11ffd323c5f775a795899cc35706493cba6d933b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 512ad8f93da53afb618491cd1769645d8edb0b14
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768663"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965836"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for PostgreSQL con un único servidor
 
@@ -114,7 +114,7 @@ Para Azure Database for PostgreSQL, la característica de las reglas de red virt
 
 - Cada servidor de Azure Database for PostgreSQL puede tener hasta 128 entradas de ACL para cualquier red virtual proporcionada.
 
-- Las reglas de red virtual solo se aplican a las redes virtuales de Azure Resource Manager, y no a las redes del [modelo de implementación clásico][arm-deployment-model-568f].
+- Las reglas de red virtual solo se aplican a las redes virtuales de Azure Resource Manager, y no a las redes del [modelo de implementación clásica][arm-deployment-model-568f].
 
 - Al activar los puntos de conexión de servicio de red virtual en Azure Database for PostgreSQL con la etiqueta de servicio **Microsoft.Sql** también se habilitan los puntos de conexión de todos los servicios de Azure Database: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database y Azure SQL Data Warehouse.
 
@@ -147,7 +147,7 @@ Para ver artículos sobre cómo crear reglas de red virtual, consulte lo siguien
 
 
 <!-- Link references, to text, Within this same GitHub repo. -->
-[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
+[arm-deployment-model-568f]: ../azure-resource-manager/management/deployment-models.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md
 
@@ -161,4 +161,4 @@ Para ver artículos sobre cómo crear reglas de red virtual, consulte lo siguien
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: cbrooks
-ms.openlocfilehash: c8e1d5c1c11c4fdf902c7be7bc03be298e93a8b9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 9cbdc5231fdc9f836f300b1a3a81a237a9efc123
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721143"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968193"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Tutorial: Uso de las colas de Azure Storage
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 > - Buscar argumentos de línea de comandos
 > - Compilación y ejecución de la aplicación
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Obtenga una copia gratuita del editor de [Visual Studio Code](https://code.visualstudio.com/download) multiplataforma.
 - Descargue e instale el [SDK de .NET Core](https://dotnet.microsoft.com/download).
@@ -41,7 +41,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 
-Cree primero una cuenta de Azure Storage. Para obtener una guía detallada sobre la creación de una cuenta de almacenamiento, consulte el inicio rápido [Creación de una cuenta de almacenamiento](../common/storage-quickstart-create-account.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json).
+Cree primero una cuenta de Azure Storage. Para obtener una guía detallada sobre la creación de una cuenta de almacenamiento, consulte el inicio rápido [Creación de una cuenta de almacenamiento](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json).
 
 ## <a name="create-the-app"></a>Creación de la aplicación
 
@@ -505,7 +505,7 @@ Debería ver este resultado:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 1. Creación de una cola
 2. Adición y eliminación de mensajes de una cola

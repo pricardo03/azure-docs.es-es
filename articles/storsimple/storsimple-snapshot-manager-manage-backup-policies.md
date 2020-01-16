@@ -3,7 +3,7 @@ title: Directivas de copia de seguridad de StorSimple Snapshot Manager | Microso
 description: Describe cómo usar el complemento MMC de Administrador de instantáneas StorSimple para crear y administrar las directivas de copia de seguridad que controlan las copias de seguridad programadas.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 04415d0b-42f0-4737-8afa-257fb2dbe5d0
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: 7dac26b058b959011e38b4373369b8a1115d2705
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 7b2df6c8384e78094d80a17d8982b0db9edf73e1
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687275"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933360"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Use Administrador de instantáneas StorSimple para crear y administrar directivas de copia de seguridad
 ## <a name="overview"></a>Información general
@@ -27,18 +27,18 @@ Una directiva de copia de seguridad crea una programación para realizar una cop
 
 Este tutorial explica cómo realizar lo siguiente:
 
-* Creación de una directiva de copia de seguridad
+* Crear una directiva de copia de seguridad
 * Edición de una directiva de copia de seguridad
 * Eliminación de una directiva de copia de seguridad
 
-## <a name="create-a-backup-policy"></a>Creación de una directiva de copia de seguridad
+## <a name="create-a-backup-policy"></a>Crear una directiva de copia de seguridad
 Use el procedimiento siguiente para crear una nueva directiva de copia de seguridad.
 
 #### <a name="to-create-a-backup-policy"></a>Para crear una directiva de copia de seguridad
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.
 2. En el panel **Ámbito**, haga clic con el botón derecho en **Directivas de copia de seguridad** y haga clic en **Crear directiva de copia de seguridad**.
 
-    ![Creación de una directiva de copia de seguridad](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
+    ![Crear una directiva de copia de seguridad](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
 
     Aparecerá el cuadro de diálogo **Crear una directiva** .
 

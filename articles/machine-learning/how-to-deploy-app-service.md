@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: a8a5b8df4307d9a73477944351c2889a86bdb2b4
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 562dd900bb3d64731e5467058e2718b081c675b6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535264"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968539"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implementación de un modelo de aprendizaje automático en Azure App Service (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -49,7 +49,7 @@ Para más información sobre las características proporcionadas por Azure App S
     > * `model`: el modelo registrado que se implementará.
     > * `inference_config`: la configuración de inferencia del modelo.
     >
-    > Para más información sobre la definición de estas variables, consulte [Implementación de modelos con Azure Machine Learning](service/how-to-deploy-and-where.md).
+    > Para más información sobre la definición de estas variables, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prepare-for-deployment"></a>Preparar la implementación
 
@@ -67,7 +67,7 @@ Antes de realizar la implementación, debe definir qué necesita para ejecutar e
     >
     > Otra alternativa que puede funcionar para su escenario son las [predicciones por lotes](how-to-run-batch-predictions.md), que proporcionan acceso a los almacenes de datos cuando se realiza la puntuación.
 
-    Para más información sobre los scripts de entrada, consulte [Implementación de modelos con Azure Machine Learning](service/how-to-deploy-and-where.md).
+    Para más información sobre los scripts de entrada, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
 * **Dependencias**, como scripts de asistente o paquetes de Python/Conda, necesarias para ejecutar el modelo o el script de entrada.
 
@@ -93,7 +93,7 @@ Estas entidades se encapsulan en una __configuración de inferencia__. La config
 
 Para obtener más información sobre los entornos, consulte el tema sobre la [creación y administración de entornos de entrenamiento e implementación](how-to-use-environments.md).
 
-Para más información sobre la configuración de inferencia, consulte [Implementación de modelos con Azure Machine Learning](service/how-to-deploy-and-where.md).
+Para más información sobre la configuración de inferencia, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
 > Al realizar la implementación en Azure App Service, no es necesario crear una __configuración de implementación__.
@@ -103,7 +103,7 @@ Para más información sobre la configuración de inferencia, consulte [Implemen
 Para crear la imagen de Docker que se implementa en Azure App Service, use [Model.package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-). El siguiente fragmento de código muestra cómo compilar una nueva imagen a partir del modelo y la configuración de inferencia:
 
 > [!NOTE]
-> En el fragmento de código se da por supuesto que `model` contiene un modelo registrado y que `inference_config` contiene la configuración del entorno de inferencia. Para más información, consulte [Implementación de modelos con Azure Machine Learning](service/how-to-deploy-and-where.md).
+> En el fragmento de código se da por supuesto que `model` contiene un modelo registrado y que `inference_config` contiene la configuración del entorno de inferencia. Para más información, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core import Model
@@ -121,7 +121,7 @@ Si `show_output=True`, se muestra la salida del proceso de compilación de Docke
 
 ## <a name="deploy-image-as-a-web-app"></a>Implementación de la imagen como una aplicación web
 
-1. Use el siguiente comando para obtener las credenciales de inicio de sesión del registro de contenedor de Azure que contiene la imagen. Reemplace `<acrinstance>` por el valor devuelto anteriormente de `package.location`: 
+1. Use el siguiente comando para obtener las credenciales de inicio de sesión del registro de contenedor de Azure que contiene la imagen. Reemplace `<acrinstance>` por el valor devuelto anteriormente de `package.location`:
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -168,7 +168,7 @@ Si `show_output=True`, se muestra la salida del proceso de compilación de Docke
     Este comando devuelve información similar al siguiente documento JSON:
 
     ```json
-    { 
+    {
     "adminSiteName": null,
     "appServicePlanName": "myplanname",
     "geoRegion": "West Europe",

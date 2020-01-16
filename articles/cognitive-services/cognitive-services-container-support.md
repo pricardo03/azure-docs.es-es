@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 01/10/2020
 ms.author: dapine
-ms.openlocfilehash: a35ceed4cefa47b903ceec915388b4831cd9e69b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: d75962b98543991a065f6b165279215614175925
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173775"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866942"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Compatibilidad con contenedores en Azure Cognitive Services
 
@@ -49,17 +49,17 @@ Los recursos de Cognitive Services están disponibles en [Microsoft Azure](https
 
 Los contenedores de Azure Cognitive Services proporcionan el siguiente conjunto de contenedores de Docker, cada uno de los cuales contiene un subconjunto de funcionalidades de servicios de Azure Cognitive Services:
 
-| Servicio | Plan de tarifa compatible | Contenedor | DESCRIPCIÓN |
+| Servicio | Plan de tarifa compatible | Contenedor | Descripción |
 |---------|----------|----------|-------------|
-|[Anomaly detector][ad-containers] |F0, S0|**Anomaly-Detector** |Anomaly Detector API permite supervisar y detectar anomalías en datos de serie temporal con aprendizaje automático.<br>[Solicitar acceso](https://aka.ms/adcontainer)|
+|[Anomaly Detector][ad-containers] |F0, S0|**Anomaly-Detector** |Anomaly Detector API permite supervisar y detectar anomalías en datos de serie temporal con aprendizaje automático.<br>[Solicitar acceso](https://aka.ms/adcontainer)|
 |[Computer Vision][cv-containers] |F0, S1|**Lectura** |Extrae texto impreso de imágenes que muestren diversos objetos con diferentes superficies y fondos, como recibos, pósteres y tarjetas de visita. El contenedor de lectura también detecta *texto manuscrito* en las imágenes y es compatible con los formatos PDF, TIFF y multipágina.<br/><br/>**Importante:** Actualmente, el contenedor de lectura solo funciona en inglés.|
 |[Face][fa-containers] |F0, S0|**Face** |Detecta caras humanas en imágenes e identifica atributos, incluidos faciales (como narices y ojos), sexo, edad y otras características faciales previstas por la máquina. Además de la detección, Face puede comprobar si dos caras en la misma o en diferentes imágenes son iguales mediante una puntuación de confianza, o bien comparar caras en una base de datos para ver si ya existe un aspecto similar o una cara idéntica. También puede organizar caras similares en grupos mediante rasgos visuales compartidos.<br>[Solicitar acceso](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
-|[Form recognizer][fr-containers] |F0, S0|**Form Recognizer** |Form Understanding aplica tecnología de aprendizaje automático para identificar y extraer pares clave-valor de los formularios.<br>[Solicitar acceso](https://aka.ms/FormRecognizerContainerRequestAccess)|
+|[Form Recognizer][fr-containers] |F0, S0|**Form Recognizer** |Form Understanding aplica tecnología de aprendizaje automático para identificar y extraer pares clave-valor de los formularios.<br>[Solicitar acceso](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS][lu-containers] |F0, S0|**LUIS** ([imagen](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Carga un modelo de Language Understanding entrenado o publicado, lo que también se conoce como aplicación de LUIS, en un contenedor de Docker y proporciona acceso a las predicciones de consulta de los puntos de conexión de la API del contenedor. Puede recopilar registros de consultas en el contenedor y cargarlos de nuevo en el [portal de LUIS](https://www.luis.ai) para mejorar la precisión de predicción de la aplicación.|
 |[Speech Service API][sp-containers-stt] |F0, S0|**Voz a texto** |Permite transcribir en tiempo real voz en texto.|
-|[Speech Service API][sp-containers-cstt] |F0, S0|**Conversión de voz en texto personalizada** |Permite transcribir en tiempo real voz en texto mediante un modelo personalizado.|
+|[Speech Service API][sp-containers-cstt] |F0, S0|**Conversión de voz a texto personalizada** |Permite transcribir en tiempo real voz en texto mediante un modelo personalizado.|
 |[Speech Service API][sp-containers-tts] |F0, S0|**Texto a voz** |Convierte el texto a una voz que parece natural.|
-|[Speech Service API][sp-containers-ctts] |F0, S0|**Conversión de texto en voz personalizada** |Convierte el texto en una voz que parece natural mediante un modelo personalizado.|
+|[Speech Service API][sp-containers-ctts] |F0, S0|**Conversión de texto a voz personalizada** |Convierte el texto en una voz que parece natural mediante un modelo personalizado.|
 |[Text Analytics][ta-containers-keyphrase] |F0, S|**Extracción de frases clave** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extrae las frases clave para identificar los puntos principales. Por ejemplo, si el texto de entrada es "La comida estaba deliciosa y el personal era maravilloso", la API devuelve los principales puntos de conversación: "comida" y "personal maravilloso". |
 |[Text Analytics][ta-containers-language]|F0, S|**Detección de idioma** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |Se detecta el idioma (120 como máximo) en que está escrito el texto de entrada y se usa un código de idioma único para informar acerca de cada documento enviado en la solicitud. El código de idioma se empareja con una puntuación que indica la intensidad de esta. |
 |[Text Analytics][ta-containers-sentiment]|F0, S|**Análisis de sentimiento** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analiza el texto sin formato para obtener pistas sobre opiniones positivas o negativas. Esta API devuelve una puntuación de la opción, que oscila entre 0 y 1, con respecto a cada documento, donde 1 es la más positiva. Los modelos de análisis se entrenan previamente con una gran cantidad de cuerpo de texto y tecnologías de idioma natural de Microsoft. Para [idiomas seleccionados](./text-analytics/language-support.md), la API puede analizar y puntuar cualquier texto sin formato que se proporcione, y devolver los resultados directamente a la aplicación que realiza la llamada. |
@@ -89,7 +89,7 @@ Los contenedores de Azure Cognitive Services están disponibles públicamente a 
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Debe cumplir los siguientes requisitos previos para poder utilizar contenedores de Azure Cognitive Services:
 

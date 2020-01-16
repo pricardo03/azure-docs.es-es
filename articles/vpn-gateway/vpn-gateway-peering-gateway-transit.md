@@ -1,26 +1,20 @@
 ---
-title: 'Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual: Azure Resource Manager | Microsoft Docs'
+title: Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual
 description: Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4c3d2352467a1ed8e7979acac403908303ba3bc4
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60457414"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834552"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual
 
@@ -58,7 +52,7 @@ Para obtener instrucciones al respecto, consulte los siguientes documentos:
 
 Las cuentas que use para crear un emparejamiento de redes virtuales deben tener los rol o permisos necesarios. En el ejemplo siguiente, si fuera a emparejar dos redes virtuales Hub-RM and Spoke-Classic, la cuenta debe tener los siguientes roles o permisos mínimos para cada red virtual:
     
-|Virtual network|Modelo de implementación|Rol|Permisos|
+|Virtual network|Modelo de implementación|Role|Permisos|
 |---|---|---|---|
 |Hub-RM|Resource Manager|[Colaborador de la red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |Clásico|[Colaborador de la red clásica](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/D|

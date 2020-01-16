@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 27e166a8798f851f6c086c025dd82957b2dcfb84
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 15399d5a00c13141877dcf44640df2c1f9b9ba5c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849282"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889064"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Tutorial: Acceso a Azure Blob Storage desde Azure Databricks mediante el tutorial de Azure Key Vault
 
@@ -26,17 +26,17 @@ En este tutorial, aprenderá a:
 > * Crear un área de trabajo de Azure Databricks y agregar un ámbito de secreto
 > * Acceder al contenedor de blobs desde Azure Databricks
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 > [!Note]
 > Este tutorial no puede llevarse a cabo mediante una **suscripción de evaluación gratuita de Azure**.
-> Si tiene una cuenta gratuita, vaya a su perfil y cambiar la suscripción a **pago por uso**. Para más información consulte el sitio de [cuentas gratuitas de Azure](https://azure.microsoft.com/free/). Después, [quite el límite de gasto](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) y [solicite un aumento de la cuota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para las vCPU de su región. Cuando crea su área de trabajo de Azure Databricks, puede seleccionar el plan de tarifa de la **Trial (Premium - 14-Days Free DBUs)** para que el área de trabajo acceda a las DBU Premium de Azure Databricks gratis durante 14 días.
+> Si tiene una cuenta gratuita, vaya a su perfil y cambiar la suscripción a **pago por uso**. Para más información consulte el sitio de [cuentas gratuitas de Azure](https://azure.microsoft.com/free/). Después, [quite el límite de gasto](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) y [solicite un aumento de la cuota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) para las vCPU de su región. Cuando crea su área de trabajo de Azure Databricks, puede seleccionar el plan de tarifa de la **Trial (Premium - 14-Days Free DBUs)** para que el área de trabajo acceda a las DBU Premium de Azure Databricks gratis durante 14 días.
 
 ## <a name="create-a-storage-account-and-blob-container"></a>Crear un contenedor de blobs y una cuenta de almacenamiento
 
@@ -76,7 +76,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
    |Propiedad|Descripción|
    |--------|-----------|
-   |NOMBRE|Nombre único del almacén de claves.|
+   |Nombre|Nombre único del almacén de claves.|
    |Subscription|Elija una suscripción.|
    |Resource group|Elija un grupo de recursos o cree uno.|
    |Location|Elija una ubicación.|
@@ -91,11 +91,11 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 5. En la página **Crear un secreto** proporcione la información siguiente y mantenga los valores predeterminados para los campos restantes:
 
-   |Propiedad|Valor|
+   |Propiedad|Value|
    |--------|-----------|
    |Opciones de carga|Manual|
-   |NOMBRE|Nombre descriptivo de la clave de la cuenta de almacenamiento.|
-   |Valor|key1 de la cuenta de almacenamiento.|
+   |Nombre|Nombre descriptivo de la clave de la cuenta de almacenamiento.|
+   |Value|key1 de la cuenta de almacenamiento.|
 
    ![Propiedades del nuevo secreto del almacén de claves](./media/store-secrets-azure-key-vault/create-storage-secret.png)
 
@@ -111,7 +111,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 2. En el **servicio Azure Databricks**, proporcione los valores siguientes para crear un área de trabajo de Databricks.
 
-   |Propiedad  |DESCRIPCIÓN  |
+   |Propiedad  |Descripción  |
    |---------|---------|
    |Nombre del área de trabajo     | Proporcione un nombre para el área de trabajo de Databricks        |
    |Subscription     | En el cuadro desplegable, seleccione la suscripción de Azure.        |

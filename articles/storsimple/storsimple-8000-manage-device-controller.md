@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 5e461f340e1c58f64c6d645a1e47cfd811bc4de5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce49dcaa06288ba9e7a4d232338c727064d59685
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505995"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894842"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Administrar controladores de su dispositivo StorSimple
 
@@ -47,7 +47,7 @@ El reinicio de un dispositivo no es problemático para los iniciadores conectado
 
 > [!IMPORTANT]
 > * **Un controlador en ejecución nunca debe moverse físicamente ya que esto podría provocar una pérdida de redundancia y un mayor riesgo de tiempo de inactividad.**
-> * El siguiente procedimiento se aplica solo al dispositivo de StorSimple físico. Para más información sobre cómo iniciar, detener y reiniciar el dispositivo StorSimple Cloud Appliance, consulte [Uso del dispositivo de nube](storsimple-8000-cloud-appliance-u2.md##work-with-the-storsimple-cloud-appliance).
+> * El siguiente procedimiento se aplica solo al dispositivo de StorSimple físico. Para más información sobre cómo iniciar, detener y reiniciar el dispositivo StorSimple Cloud Appliance, consulte [Uso del dispositivo de nube](storsimple-8000-cloud-appliance-u2.md#work-with-the-storsimple-cloud-appliance).
 
 Puede reiniciar o apagar un solo controlador de dispositivo mediante Azure Portal del servicio StorSimple Device Manager o Windows PowerShell para StorSimple.
 

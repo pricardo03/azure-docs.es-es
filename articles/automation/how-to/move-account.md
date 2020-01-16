@@ -9,16 +9,16 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d1c747a52a1e8dedd0b5ba411b673eee463a2b6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1aa759a2984764169eb28935e095d0f7c0f90c08
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849588"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969832"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Traslado de la cuenta de Azure Automation a otra suscripción
 
-Azure ofrece la posibilidad de mover algunos recursos a un nuevo grupo de recursos o a una nueva suscripción. Puede mover recursos mediante Azure Portal, PowerShell, la CLI de Azure o la API REST. Para más información sobre el proceso, consulte [Movimiento de recursos a un grupo de recursos o suscripción nuevos](../../azure-resource-manager/resource-group-move-resources.md).
+Azure ofrece la posibilidad de mover algunos recursos a un nuevo grupo de recursos o a una nueva suscripción. Puede mover recursos mediante Azure Portal, PowerShell, la CLI de Azure o la API REST. Para más información sobre el proceso, consulte [Movimiento de recursos a un grupo de recursos o suscripción nuevos](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Las cuentas de Azure Automation son uno de los recursos que se pueden mover. En este artículo, conocerá los pasos para mover cuentas de Automation a otro recurso o suscripción.
 
@@ -140,11 +140,11 @@ Una vez finalizado el traslado, compruebe la siguiente lista de tareas que deben
 |Capacidad|Pruebas|Vínculo de solución de problemas|
 |---|---|---|
 |Runbooks|Un runbook puede ejecutar recursos de Azure y conectarse a ellos correctamente.|[Solución de problemas de runbooks](../troubleshoot/runbooks.md)
-|Control de código fuente|Puede ejecutar una sincronización manual en el repositorio de control de código fuente.|[Integrar el control de código fuente](../source-control-integration.md)|
+|Control de código fuente|Puede ejecutar una sincronización manual en el repositorio de control de código fuente.|[Integración de control de código fuente](../source-control-integration.md)|
 |Change Tracking e Inventario|Compruebe que puede ver los datos del inventario actual en las máquinas.|[Solución de problemas de Change Tracking](../troubleshoot/change-tracking.md)|
 |Administración de actualizaciones|Asegúrese de que ve las máquinas y están en buen estado.</br>Ejecute una implementación de actualizaciones de software de prueba.|[Solución de problemas de Update management](../troubleshoot/update-management.md)|
 |Recursos compartidos|Verifique que ve todos los recursos compartidos, como [Credenciales ](../shared-resources/credentials.md), [Variables](../shared-resources/variables.md), etc.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre el traslado de recursos en Azure, consulte [Traslado de recursos de Azure](../../azure-resource-manager/move-support-resources.md).
+Para más información sobre el traslado de recursos en Azure, consulte [Traslado de recursos de Azure](../../azure-resource-manager/management/move-support-resources.md).

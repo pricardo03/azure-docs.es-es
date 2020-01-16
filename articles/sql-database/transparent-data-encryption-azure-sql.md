@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/01/2019
-ms.openlocfilehash: 9eebb181ed7aa1ac5898646c29e308f85dbe0f8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 381dfb4fca7476d5805bff92d58ecbbf49679346
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354877"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979972"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Cifrado de datos transparente para SQL Database y Data Warehouse
 
@@ -79,7 +79,7 @@ Para configurar el cifrado de datos transparente mediante Azure Portal, debe est
 
 Active o desactive el cifrado de datos transparente en el nivel de base de datos. Para habilitar el cifrado de datos transparente en una base de datos, vaya a [Azure Portal](https://portal.azure.com) e inicie sesión con su cuenta de administrador o colaborador de Azure. Busque la configuración de cifrado de datos transparente en la base de datos de usuario. De forma predeterminada, se usa el cifrado de datos transparente administrado por el servicio. Se genera automáticamente un certificado de cifrado de datos transparente para el servidor que contiene la base de datos. Para la Instancia administrada de Azure SQL Database, use T-SQL para activar y desactivar el cifrado de datos transparente en una base de datos.
 
-![Cifrado de datos transparente administrado por el servicio](./media/transparent-data-encryption-azure-sql/service-managed-transparent-data-encryption.png)  
+![Cifrado de datos transparente administrado por el servicio](./media/transparent-data-encryption-azure-sql/service-managed-transparent-data-encryption.png)
 
 Establezca la clave maestra del cifrado de datos transparente, también conocida como protector de cifrado de datos transparente, en el nivel de servidor. Para usar el cifrado de datos transparente con compatibilidad con Bring Your Own Key y proteger las bases de datos con una clave de Key Vault, abra la configuración del cifrado de datos transparente en el servidor.
 

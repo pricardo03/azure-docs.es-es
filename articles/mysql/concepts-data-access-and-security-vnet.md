@@ -6,24 +6,24 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 1ee238e833569bac73bc95932a8d9f044640a59b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b9b84cb2c442e7da65da332da1a78b28c32c4de9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770329"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979659"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for MySQL
 
 Las *reglas de red virtual* son una característica de firewall que controla si el servidor de Azure Database for MySQL acepta las comunicaciones que se envían desde subredes específicas en redes virtuales. En este artículo se explica por qué la característica de la regla de red virtual a veces es la mejor opción para permitir la comunicación de forma segura con el servidor de Azure Database for MySQL.
 
-Para crear una regla de red virtual, primero debe haber una [red virtual][vm-virtual-network-overview] (VNet) y un [punto de conexión de servicio de red virtual][vm-virtual-network-service-endpoints-overview-649d] al que haga referencia la regla. En la imagen siguiente se muestra cómo funciona un punto de conexión de servicio de red virtual con Azure Database for MySQL:
+Para crear una regla de red virtual, primero debe haber una [red virtual][vm-virtual-network-overview] (VNET) y un [punto de conexión de servicio de red virtual][vm-virtual-network-service-endpoints-overview-649d] para la regla a la que hacer referencia. En la imagen siguiente se muestra cómo funciona un punto de conexión de servicio de red virtual con Azure Database for MySQL:
 
 ![Ejemplo de cómo funciona un punto de conexión de servicio de red virtual](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
 > [!NOTE]
 > Esta característica está disponible en todas las regiones de Azure donde se implementa Azure Database for MySQL para servidores de uso general y optimizados para memoria.
-> En el caso de emparejamiento de VNET, si el tráfico fluye a través de una instancia de VNet Gateway común con puntos de conexión de servicio y se supone que lo hace al elemento del mismo nivel, cree una regla de ACL o red virtual para permitir que Microsoft Azure Virtual Machines en la red virtual de puerta de enlace acceda al servidor Azure Database for MySQL.
+> En el caso de emparejamiento de VNET, si el tráfico fluye a través de una instancia de VNet Gateway común con puntos de conexión de servicio y se supone que lo hace al elemento del mismo nivel, cree una regla de ACL o red virtual para permitir que Microsoft Azure Virtual Machines en la red virtual de puerta de enlace acceda al servidor de Azure Database for MySQL.
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -146,7 +146,7 @@ Para ver artículos sobre cómo crear reglas de red virtual, consulte lo siguien
 - [Creación y administración de puntos de conexión de servicio de red virtual de Azure Database for MySQL mediante la CLI de Azure](howto-manage-vnet-using-cli.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
-[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
+[arm-deployment-model-568f]: ../azure-resource-manager/management/deployment-models.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md
 
@@ -160,4 +160,4 @@ Para ver artículos sobre cómo crear reglas de red virtual, consulte lo siguien
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

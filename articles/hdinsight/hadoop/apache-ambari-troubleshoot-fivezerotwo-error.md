@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: d4bcb8475f822675d39ca8e542155779384eacf1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 2b17c2488e47148e8845433f9c7613e1127fbffa
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087847"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895759"
 ---
 # <a name="scenario-apache-ambari-ui-502-error-in-azure-hdinsight"></a>Escenario: Error 502 de la interfaz de usuario de Apache Ambari en Azure HDInsight
 
@@ -26,7 +26,7 @@ Al intentar acceder a la interfaz de usuario de Apache Ambari del clúster de HD
 
 En general, el código de estado HTTP 502 significa que el servidor de Ambari no se está ejecutando correctamente en el nodo principal activo. Las causas principales pueden ser varias.
 
-## <a name="resolution"></a>Resolución
+## <a name="resolution"></a>Solución
 
 En la mayoría de los casos, para mitigar el problema, puede reiniciar el nodo principal activo. O bien, puede elegir un tamaño de máquina virtual mayor para el nodo principal.
 
@@ -52,7 +52,7 @@ service ambari-server start
 En algunos escenarios, el nodo principal se queda sin memoria y oom-killer de Linux comienza a elegir los procesos que se van a terminar. Para confirmar esta situación, busque el identificador de proceso de AmbariServer, que no debería encontrarse. A continuación, examine `/var/log/syslog` y busque algo parecido a esto:
 
 ```
-Jul 27 15:29:30 hn0-xxxxxx kernel: [874192.703153] java invoked oom-killer: gfp_mask=0x23201ca, order=0, oom_score_adj=0
+Jul 27 15:29:30 xxx-xxxxxx kernel: [874192.703153] java invoked oom-killer: gfp_mask=0x23201ca, order=0, oom_score_adj=0
 ```
 
 Luego, identifique qué procesos ocupan las memorias e intente determinar la causa principal.
@@ -73,4 +73,4 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 * Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente, que pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

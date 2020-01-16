@@ -5,12 +5,12 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 description: Obtenga información sobre cómo conectar la máquina de desarrollo a un clúster de AKS con Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: c26d159d6f883e1c368b09a82bc53c621c70e281
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: cba68702155475832930c791c3a7be014375ba04
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482249"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770686"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Conexión de una máquina de desarrollo a un clúster de AKS (versión preliminar)
 
@@ -35,9 +35,9 @@ En esta guía se usa la [aplicación de ejemplo Bike Sharing de Azure Dev Spaces
 
 * UDP no se admite en este momento.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
+* Suscripción a Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
 * [La CLI de Azure instalada][azure-cli].
 * [Visual Studio Code][vs-code] con la extensión [Azure Dev Spaces][azds-vs-code] instalada y ejecutándose en MacOS o Windows 10.
 * La [aplicación de ejemplo Bike Sharing de Azure Dev Spaces](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) o su propia aplicación que se ejecuta en un clúster de AKS.
@@ -254,6 +254,6 @@ Aprenda a usar las acciones de GitHub y Azure Dev Spaces para probar los cambios
 [azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [bike-sharing-github]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
 [gh-actions]: github-actions.md
-[supported-regions]: ../about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [team-quickstart]: ../quickstart-team-development.md
 [vs-code]: https://code.visualstudio.com/download

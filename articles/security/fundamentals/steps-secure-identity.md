@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: d62704feaaa46f6780c302f5564b112dd1badbc1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b416b38cfac48260f3375696caa2ecabcb4d57a9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353230"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973910"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
@@ -47,11 +47,11 @@ Las recomendaciones de este documento se basan en las especificaciones de la [pu
 
 Antes de comenzar a trabajar con esta lista de comprobación, asegúrese de que no se encontrará con problemas mientras lo hace. En primer lugar, necesita proteger sus cuentas con privilegios.
 
-Los atacantes que tomen el control de cuentas con privilegios pueden producir enormes daños, por lo que es fundamental proteger estas cuentas primero. Habilite y solicite que todos los administradores de la organización usen el servicio [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) (MFA) mediante la [Valores predeterminados de Azure AD](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md) o [Acceso condicional](../../active-directory/conditional-access/plan-conditional-access.md). Si no ha implementado MFA, ¡hágalo ahora! Es importantísimo.
+Los atacantes que tomen el control de cuentas con privilegios pueden producir enormes daños, por lo que es fundamental proteger estas cuentas primero. Habilite y solicite que todos los administradores de la organización usen el servicio [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) (MFA) mediante la [Valores predeterminados de Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) o [Acceso condicional](../../active-directory/conditional-access/plan-conditional-access.md). Si no ha implementado MFA, ¡hágalo ahora! Es importantísimo.
 
 ¿Todo listo? Comencemos con la lista de comprobación.
 
-## <a name="step-1---strengthen-your-credentials"></a>Paso 1: Refuerce sus credenciales 
+## <a name="step-1---strengthen-your-credentials"></a>Paso 1: Refuerce sus credenciales
 
 La mayoría de infracciones de seguridad que sufren las empresas se originan con una cuenta que se ha visto comprometida con uno de los diversos métodos existentes, como por ejemplo, los ataques de difusión de contraseña, la reproducción de infracciones de seguridad o la suplantación de identidad (phishing). Obtenga más información acerca de este tipo de ataques en este vídeo (45 minutos):
 > [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
@@ -60,7 +60,7 @@ La mayoría de infracciones de seguridad que sufren las empresas se originan con
 
 Dada la frecuencia de las contraseñas que se adivinan, se suplantan, se roban con malware o se reutilizan, es fundamental fortalecer la contraseña con algún tipo de credencial sólida: obtenga más información sobre [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md).
 
-Para habilitar con facilidad el nivel básico de seguridad de identidad, puede usar la habilitación de un solo clic con [Valores predeterminados de seguridad de Azure AD](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md). Los valores predeterminados de seguridad imponen Azure MFA para todos los usuarios de un inquilino y bloquean los inicios de sesión de los protocolos heredados en todo el inquilino.
+Para habilitar con facilidad el nivel básico de seguridad de identidad, puede usar la habilitación de un solo clic con [Valores predeterminados de seguridad de Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Los valores predeterminados de seguridad imponen Azure MFA para todos los usuarios de un inquilino y bloquean los inicios de sesión de los protocolos heredados en todo el inquilino.
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>Comience a prohibir las contraseñas que sufren ataques con más frecuencia y olvídese de la complejidad y las reglas de expiración tradicionales.
 
@@ -86,7 +86,7 @@ Si la organización utiliza una solución de identidad híbrida con federación 
 Obtenga más información sobre el funcionamiento de la [sincronización del hash de contraseñas](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
 > [!NOTE]
-> Si habilita la sincronización de hash de contraseñas y usa Azure AD Domain Services, los hash de Kerberos (AES 256) y, opcionalmente, de NTLM (RC4, sin valor "salt") se cifrarán y sincronizarán con Azure AD. 
+> Si habilita la sincronización de hash de contraseñas y usa Azure AD Domain Services, los hash de Kerberos (AES 256) y, opcionalmente, de NTLM (RC4, sin valor "salt") se cifrarán y sincronizarán con Azure AD.
 
 ### <a name="implement-ad-fs-extranet-smart-lockout"></a>Implementación del bloqueo inteligente de la extranet de AD FS
 
@@ -106,7 +106,7 @@ Las aplicaciones que usan sus propios métodos heredados para autenticarse con A
 
 1. Bloquee la [autenticación heredada si usa AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Configure [SharePoint Online y Exchange Online para que usen una autenticación moderna](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
-3. Si tiene Azure AD Premium, use [Directivas de acceso condicional](../../active-directory/conditional-access/conditions.md) para bloquear la autenticación heredada; de lo contrario, use [valores predeterminados de seguridad de Azure AD](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md).
+3. Si tiene Azure AD Premium, use [Directivas de acceso condicional](../../active-directory/conditional-access/conditions.md) para bloquear la autenticación heredada; de lo contrario, use [valores predeterminados de seguridad de Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Bloquear los puntos de entrada de autenticación no válidos
 
@@ -123,7 +123,7 @@ Asegúrese de que los usuarios pueden solicitar la aprobación del administrador
 
 ### <a name="implement-azure-ad-privileged-identity-management"></a>Implementar Azure AD Privileged Identity Management
 
-Otro efecto de la "suposición de vulneración de seguridad", es la necesidad de minimizar la probabilidad de que una cuenta en riesgo pueda funcionar con un rol con privilegios. 
+Otro efecto de la "suposición de vulneración de seguridad", es la necesidad de minimizar la probabilidad de que una cuenta en riesgo pueda funcionar con un rol con privilegios.
 
 [Azure AD Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) le permitirá minimizar los privilegios de la cuenta gracias a que podrá:
 
@@ -172,13 +172,13 @@ En [Supervisión de AD FS mediante Azure AD Connect Health](../../active-directo
 
 Azure AD Identity Protection dispone de dos informes importantes que debe supervisar a diario:
 1. Los informes de inicios de sesión de riesgo ponen de manifiesto las actividades de inicio de sesión de los usuarios que deben investigarse, ya que es posible que el inicio de sesión no lo haya realizado el propietario legítimo.
-2. Los informes de riesgo de usuarios ponen de manifiesto las cuentas de usuario que podrían haberse visto comprometidas; por ejemplo, las cuentas en las que se ha detectado una filtración de credenciales o donde el usuario ha iniciado sesión desde una ubicación diferente, lo que indicaría que se ha producido un viaje que no es posible. 
+2. Los informes de riesgo de usuarios ponen de manifiesto las cuentas de usuario que podrían haberse visto comprometidas; por ejemplo, las cuentas en las que se ha detectado una filtración de credenciales o donde el usuario ha iniciado sesión desde una ubicación diferente, lo que indicaría que se ha producido un viaje que no es posible.
 
 ![Usuarios marcados con riesgo](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>Aplicaciones de auditoría y permisos consentidos
 
-Es posible que los usuarios sean víctimas de un engaño y sean conducidos a aplicaciones o sitios web comprometidos que podrían obtener acceso a la información de perfil y los datos del usuario, como el correo electrónico. Un individuo malintencionado podría usar los permisos consentidos que ha recibido para cifrar el contenido del buzón y pedir un rescate para recuperar los datos. [Los administradores deben revisar y auditar](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) los permisos proporcionados por los usuarios o deshabilitar la capacidad de los usuarios de dar su consentimiento de forma predeterminada. 
+Es posible que los usuarios sean víctimas de un engaño y sean conducidos a aplicaciones o sitios web comprometidos que podrían obtener acceso a la información de perfil y los datos del usuario, como el correo electrónico. Un individuo malintencionado podría usar los permisos consentidos que ha recibido para cifrar el contenido del buzón y pedir un rescate para recuperar los datos. [Los administradores deben revisar y auditar](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) los permisos proporcionados por los usuarios o deshabilitar la capacidad de los usuarios de dar su consentimiento de forma predeterminada.
 
 Además de auditar los permisos concedidos por los usuarios, puede ayudar a probar y, en concreto, a [localizar aplicaciones OAuth de riesgo o no deseadas](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth), que es una funcionalidad disponible para los entornos prémium.
 

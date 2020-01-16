@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: f92226a76462289b9f26ae9d3bab22d780fb35db
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2453b29c5efd768930f534df89d4c62320ed4770
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464993"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965337"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server con un recurso compartido de archivos Premium en Azure Virtual Machines
 
@@ -42,7 +42,7 @@ Hay que tener en cuenta, en un clúster de conmutación por error de VM de IaaS 
 También debe tener conocimientos generales de estas tecnologías:
 
 - [Recurso compartido de archivos premium de Azure](../../../storage/files/storage-how-to-create-premium-fileshare.md)
-- [Grupos de recursos de Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
+- [Grupos de recursos de Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > Actualmente, las instancias del clúster de conmutación por error de SQL Server de las máquinas virtuales de Azure solo se admiten con el [modo de administración ligera](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) de la [extensión del agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Para cambiar del modo de extensión total a extensión ligera, elimine el recurso **Máquina virtual SQL** de las máquinas virtuales correspondientes y regístrelas con el proveedor de recursos de VM con SQL en el modo ligero. Al eliminar el recurso **Máquina virtual SQL** desde Azure Portal, **desactive la casilla de la máquina virtual correcta**. La extensión completa admite características como la copia de seguridad automatizada, y la aplicación de revisiones y la administración avanzada del portal. Estas características no funcionarán para las máquinas virtuales de SQL si se vuelve a instalar el agente en modo de administración lightweight.

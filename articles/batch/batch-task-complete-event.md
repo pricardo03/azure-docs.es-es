@@ -2,7 +2,7 @@
 title: Evento completo de tarea de Azure Batch | Microsoft Docs
 description: Referencia del evento completo de tarea de Batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: lahugh
-ms.openlocfilehash: 085ca1d007371c3afd7246078369475da38f9b9f
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.author: jushiman
+ms.openlocfilehash: 0a325060097f11b38e3b35d032c572b9dfbe0cc7
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258256"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026122"
 ---
 # <a name="task-complete-event"></a>Evento de tarea completada
 
@@ -51,11 +51,11 @@ ms.locfileid: "70258256"
 }
 ```
 
-|Nombre del elemento|type|Notas|
+|Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`jobId`|Cadena|Identificador del trabajo que contiene la tarea.|
-|`id`|Cadena|Identificador de la tarea.|
-|`taskType`|Cadena|Tipo de la tarea. Puede ser "JobManager", que indica que es una tarea del administrador de trabajos, o "User", que indica que no lo es. Este evento no se emite para tareas de preparación de trabajos, tareas de liberación de trabajo ni tareas de inicio.|
+|`jobId`|String|Identificador del trabajo que contiene la tarea.|
+|`id`|String|Identificador de la tarea.|
+|`taskType`|String|Tipo de la tarea. Puede ser "JobManager", que indica que es una tarea del administrador de trabajos, o "User", que indica que no lo es. Este evento no se emite para tareas de preparación de trabajos, tareas de liberación de trabajo ni tareas de inicio.|
 |`systemTaskVersion`|Int32|Se trata del contador interno de reintentos de una tarea. De manera interna, el servicio de Batch puede reintentar una tarea para tener en cuenta los problemas transitorios. Estos problemas pueden incluir errores internos de programación o intentos de recuperación a partir de nodos de proceso en estado no válido.|
 |[`nodeInfo`](#nodeInfo)|Tipo complejo|Contiene información sobre el nodo de ejecución en que se ejecutó la tarea.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complejo|Especifica que la tarea es una tarea de instancias múltiples que requiere varios nodos de proceso.  Pulse [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) para ver los detalles.|
@@ -64,26 +64,26 @@ ms.locfileid: "70258256"
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
-|Nombre del elemento|type|Notas|
+|Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`poolId`|Cadena|Identificador del grupo en el que se ejecutó la tarea.|
-|`nodeId`|Cadena|Identificador del nodo en el que se ejecutó la tarea.|
+|`poolId`|String|Identificador del grupo en el que se ejecutó la tarea.|
+|`nodeId`|String|Identificador del nodo en el que se ejecutó la tarea.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
-|Nombre del elemento|type|Notas|
+|Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|
 |`numberOfInstances`|Int32|Número de nodos de proceso que requiere la tarea.|
 
 ###  <a name="constraints"></a> constraints
 
-|Nombre del elemento|type|Notas|
+|Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|
 |`maxTaskRetryCount`|Int32|Número máximo de veces que se puede reintentar la tarea. El servicio de Batch reintenta una tarea su el código de salida es distinto de cero.<br /><br /> Tenga en cuenta que este valor controla específicamente el número de reintentos. El servicio de Batch intentará una vez la tarea y podría reintentarla hasta alcanzar este límite. Por ejemplo, si el conteo de reintentos máximo es 3, Batch intenta una tarea hasta 4 veces (un intento inicial y 3 reintentos).<br /><br /> Si el conteo de intentos máximo es 0, el servicio de Batch no reintenta las tareas.<br /><br /> Si el conteo de intentos máximo es -1, el servicio de Batch reintenta las tareas sin ningún límite.<br /><br /> El valor predeterminado es 0 (sin ningún reintento).|
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|Nombre del elemento|type|Notas|
+|Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|
 |`startTime`|DateTime|Hora a la que empezó a ejecutarse la tarea. "En ejecución" se refiere al estado **running**, por lo que si la tarea especifica archivos de recursos o paquetes de aplicación, la hora inicial refleja la hora a la que la tarea empezó a descargarlos o implementarlos.  Si se reinició o reintentó la tarea, es la hora más reciente a la que comenzó a ejecutarse.|
 |`endTime`|DateTime|Hora a la que finalizó la tarea.|

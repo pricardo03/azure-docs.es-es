@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 0002e61827817af958007e1f789219e9291990d8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5e410dc4e7f47223430497825dc2a26e41c6af67
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647771"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979564"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>¿Qué es una lista de control de acceso de puntos de conexión?
 
 > [!IMPORTANT]
-> Azure tiene dos [modelos de implementación](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) diferentes para crear recursos y trabajar con ellos: el de Resource Manager y el clásico. Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de implementación de Resource Manager. 
+> Azure tiene dos [modelos de implementación](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) diferentes para crear recursos y trabajar con ellos: el de Resource Manager y el clásico. Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de implementación de Resource Manager. 
 
 Una lista de control de acceso (ACL) de puntos de conexión es una mejora de seguridad disponible para la implementación de Azure. Una ACL proporciona la capacidad de permitir o denegar tráfico a un extremo de la máquina virtual de forma selectiva. Esta capacidad de filtro de paquetes proporciona un nivel adicional de seguridad. Puede especificar ACL de red solo para extremos. No se puede especificar una ACL para una red virtual o para una subred específica contenida en una red virtual. Siempre que sea posible, se recomienda utilizar grupos de seguridad de red (NSG) en lugar de ACL. Al utilizar los grupos de seguridad de red, se reemplazará la lista de control de acceso del punto de conexión y ya no se aplicará más. Para obtener más información sobre los grupos de seguridad de red, consulte [Información general de los grupos de seguridad de red](security-overview.md).
 

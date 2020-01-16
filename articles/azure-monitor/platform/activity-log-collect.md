@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: ae71b71ad7c0425893391954f5ffe8b285370273
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 2bf2f012e553e08a1eb829f93d9af0f0e74f638b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531044"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977652"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recopilación y análisis de los registros de actividad de Azure en un área de trabajo de Log Analytics en Azure Monitor
 
 > [!WARNING]
-> Ahora puede recopilar el Registro de actividad en un área de trabajo Log Analytics mediante una configuración de diagnóstico similar a la de la recopilación de registros de recursos. Consulte [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](diagnostic-settings-subscription.md) (Recopilación y análisis de registros de actividad en un área de trabajo de Log Analytics en Azure Monitor).
+> Ahora puede recopilar el Registro de actividad en un área de trabajo Log Analytics mediante una configuración de diagnóstico similar a la de la recopilación de registros de recursos. Consulte [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](diagnostic-settings-legacy.md) (Recopilación y análisis de registros de actividad en un área de trabajo de Log Analytics en Azure Monitor).
 
-El [registro de actividad de Azure](activity-logs-overview.md) proporciona información de los eventos de nivel de suscripción que se han producido en la suscripción de Azure. Este artículo describe cómo recopilar el registro de actividad de un área de trabajo de Log Analytics y cómo usar la [solución de supervisión](../insights/solutions.md) de Activity Log Analytics, que proporciona vistas y consultas de registros para analizar estos datos. 
+El [registro de actividad de Azure](platform-logs-overview.md) proporciona información de los eventos de nivel de suscripción que se han producido en la suscripción de Azure. Este artículo describe cómo recopilar el registro de actividad de un área de trabajo de Log Analytics y cómo usar la [solución de supervisión](../insights/solutions.md) de Activity Log Analytics, que proporciona vistas y consultas de registros para analizar estos datos. 
 
 La conexión del registro de actividad a un área de trabajo de Log Analytics proporciona las siguientes ventajas:
 
@@ -32,7 +32,7 @@ La conexión del registro de actividad a un área de trabajo de Log Analytics pr
 Una sola área de trabajo se puede conectar al registro de actividad de varias suscripciones en el mismo inquilino de Azure. Para obtener información sobre la recopilación en varios inquilinos, consulte [Collect Azure Activity Logs into a Log Analytics workspace across subscriptions in different Azure Active Directory tenants](activity-log-collect-tenants.md) (Recopilación de registros de actividad de Azure en un área de trabajo de Log Analytics entre suscripciones en diferentes inquilinos de Azure Active Directory).
 
 > [!IMPORTANT]
-> Es posible que reciba un error con el siguiente procedimiento si los proveedores de recursos Microsoft.OperationalInsights y Microsoft.OperationsManagement no están registrados para su suscripción. Para registrar estos proveedores, consulte [Tipos y proveedores de recursos de Azure](../../azure-resource-manager/resource-manager-supported-services.md).
+> Es posible que reciba un error con el siguiente procedimiento si los proveedores de recursos Microsoft.OperationalInsights y Microsoft.OperationsManagement no están registrados para su suscripción. Para registrar estos proveedores, consulte [Tipos y proveedores de recursos de Azure](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 Use el procedimiento siguiente para conectar el registro de actividad a su área de trabajo de Log Analytics:
 
@@ -74,6 +74,6 @@ Haga clic en el icono **Registros de actividad de Azure** para abrir la vista **
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre el [registro de actividad](activity-logs-overview.md).
+- Obtenga más información sobre el [registro de actividad](platform-logs-overview.md).
 - Más información sobre la [plataforma de datos de Azure Monitor](data-platform.md).
 - Use las [consultas de registros](../log-query/log-query-overview.md) para ver información detallada de los registros de actividad.

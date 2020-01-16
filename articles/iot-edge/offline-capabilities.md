@@ -7,34 +7,34 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ba64dcdadc5fa670c4502a7d8d92cb35e3b0cacd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 951c81b2d65fe17f6e79dbdd699051ba43b86c49
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924867"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867388"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Uso de funcionalidades sin conexión ampliadas en dispositivos, módulos y dispositivos secundarios IoT Edge
 
 Azure IoT Edge permite realizar operaciones sin conexión ampliadas en dispositivos IoT Edge y también operaciones sin conexión en dispositivos secundarios que no son IoT Edge. Si un dispositivo de IoT Edge ha podido conectarse a IoT Hub aunque sea una sola vez, ese dispositivo y cualquier dispositivo secundario podrán seguir funcionando con una conexión intermitente o sin conexión.
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
-Cuando un dispositivo de IoT Edge está en modo sin conexión, el centro de IoT Edge asume tres roles. En primer lugar, almacena los mensajes que deberían enviarse y los guarda hasta que el dispositivo vuelva a tener conexión. En segundo lugar, actúa en nombre de IoT Hub para autenticar los módulos y los dispositivos secundarios, de forma que puedan seguir trabajando. En tercer lugar, permite la comunicación entre los dispositivos secundarios, que normalmente se realizaría mediante IoT Hub. 
+Cuando un dispositivo de IoT Edge está en modo sin conexión, el centro de IoT Edge asume tres roles. En primer lugar, almacena los mensajes que deberían enviarse y los guarda hasta que el dispositivo vuelva a tener conexión. En segundo lugar, actúa en nombre de IoT Hub para autenticar los módulos y los dispositivos secundarios, de forma que puedan seguir trabajando. En tercer lugar, permite la comunicación entre los dispositivos secundarios, que normalmente se realizaría mediante IoT Hub.
 
 En el ejemplo siguiente, se muestra cómo funciona un escenario de IoT Edge en modo sin conexión:
 
 1. **Configuración de dispositivos**
 
-   De forma automática, los dispositivos de IoT Edge tienen habilitadas funcionalidades sin conexión. Para ampliar esa funcionalidad a otros dispositivos de IoT, debe declarar una relación de tipo primario/secundario entre los dispositivos de IoT Hub. A continuación, se configuran los dispositivos secundarios para que confíen en su dispositivo principal asignado y se enrutan las comunicaciones de dispositivo a nube mediante el principal como puerta de enlace. 
+   De forma automática, los dispositivos de IoT Edge tienen habilitadas funcionalidades sin conexión. Para ampliar esa funcionalidad a otros dispositivos de IoT, debe declarar una relación de tipo primario/secundario entre los dispositivos de IoT Hub. A continuación, se configuran los dispositivos secundarios para que confíen en su dispositivo principal asignado y se enrutan las comunicaciones de dispositivo a nube mediante el principal como puerta de enlace.
 
 2. **Sincronización con IoT Hub**
 
-   Es necesario que, al menos una vez después de instalar el entorno de ejecución de IoT Edge, el dispositivo de IoT Edge tenga conexión para sincronizarse con IoT Hub. En esta sincronización, el dispositivo IoT Edge obtiene información detallada sobre los dispositivos secundarios asignados a él. El dispositivo IoT Edge también actualiza de forma segura su caché local para permitir las operaciones sin conexión y recupera la configuración del almacenamiento local de mensajes de telemetría. 
+   Es necesario que, al menos una vez después de instalar el entorno de ejecución de IoT Edge, el dispositivo de IoT Edge tenga conexión para sincronizarse con IoT Hub. En esta sincronización, el dispositivo IoT Edge obtiene información detallada sobre los dispositivos secundarios asignados a él. El dispositivo IoT Edge también actualiza de forma segura su caché local para permitir las operaciones sin conexión y recupera la configuración del almacenamiento local de mensajes de telemetría.
 
 3. **Desconexión**
 
-   Mientras el dispositivo de IoT Edge está desconectado de IoT Hub, los módulos implementados y los dispositivos secundarios IoT pueden operar indefinidamente. Mientras están sin conexión, los módulos y los dispositivos secundarios pueden iniciarse y reiniciarse autenticándose con el centro de IoT Edge. Los datos de telemetría que deben enviarse a IoT Hub se almacenan localmente. La comunicación entre los módulos o los dispositivos IoT secundarios se realiza mediante mensajes o métodos directos. 
+   Mientras el dispositivo de IoT Edge está desconectado de IoT Hub, los módulos implementados y los dispositivos secundarios IoT pueden operar indefinidamente. Mientras están sin conexión, los módulos y los dispositivos secundarios pueden iniciarse y reiniciarse autenticándose con el centro de IoT Edge. Los datos de telemetría que deben enviarse a IoT Hub se almacenan localmente. La comunicación entre los módulos o los dispositivos IoT secundarios se realiza mediante mensajes o métodos directos.
 
 4. **Nueva conexión y nueva sincronización con IoT Hub**
 
@@ -44,13 +44,11 @@ En el ejemplo siguiente, se muestra cómo funciona un escenario de IoT Edge en m
 
 ## <a name="restrictions-and-limits"></a>Restricciones y límites
 
-Las funcionalidades sin conexión ampliadas que se describen en este artículo están disponibles en [IoT Edge 1.0.7 o versiones posteriores](https://github.com/Azure/azure-iotedge/releases). Las versiones anteriores tienen un subconjunto de características sin conexión. Los dispositivos de IoT Edge existentes que no tienen funcionalidades sin conexión ampliadas no se pueden actualizar cambiando la versión del entorno de ejecución, sino que deben volver a configurarse con una nueva identidad de dispositivo de IoT Edge para obtener estas características. 
+Las funcionalidades sin conexión ampliadas que se describen en este artículo están disponibles en [IoT Edge 1.0.7 o versiones posteriores](https://github.com/Azure/azure-iotedge/releases). Las versiones anteriores tienen un subconjunto de características sin conexión. Los dispositivos de IoT Edge existentes que no tienen funcionalidades sin conexión ampliadas no se pueden actualizar cambiando la versión del entorno de ejecución, sino que deben volver a configurarse con una nueva identidad de dispositivo de IoT Edge para obtener estas características.
 
-La compatibilidad con las funcionalidades sin conexión ampliadas está disponible en todas las regiones en las que lo está IoT Hub, **excepto** en Este de EE. UU.
+Solo los dispositivos que no son IoT Edge pueden agregarse como dispositivos secundarios.
 
-Solo los dispositivos que no son IoT Edge pueden agregarse como dispositivos secundarios. 
-
-Los dispositivos de IoT Edge y sus dispositivos secundarios asignados pueden funcionar indefinidamente sin conexión tras realizar una vez la sincronización inicial. Sin embargo, el almacenamiento de mensajes depende de la configuración del período de vida (TTL) y del espacio en disco disponible para almacenar los mensajes. 
+Los dispositivos de IoT Edge y sus dispositivos secundarios asignados pueden funcionar indefinidamente sin conexión tras realizar una vez la sincronización inicial. Sin embargo, el almacenamiento de mensajes depende de la configuración del período de vida (TTL) y del espacio en disco disponible para almacenar los mensajes.
 
 ## <a name="set-up-parent-and-child-devices"></a>Configuración de dispositivos principales y secundarios
 
@@ -104,7 +102,8 @@ Por último, puede administrar las relaciones principal-secundario mediante prog
 
 Se puede considerar una relación principal-secundario como una puerta de enlace transparente, donde el dispositivo secundario tiene su propia identidad en IoT Hub, pero se comunica a través de la nube por medio de su dispositivo principal. Para una comunicación segura, el dispositivo secundario debe ser capaz de comprobar que el dispositivo principal proviene de un origen de confianza. En caso contrario, terceros podrían configurar dispositivos malintencionados para suplantar a los principales e interceptar las comunicaciones. 
 
-En los siguientes artículos se describe de forma detallada una manera de crear esta relación de confianza: 
+En los siguientes artículos se describe de forma detallada una manera de crear esta relación de confianza:
+
 * [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md)
 * [Conexión de un dispositivo de bajada (secundario) a una puerta de enlace de Azure IoT Edge](how-to-connect-downstream-device.md)
 

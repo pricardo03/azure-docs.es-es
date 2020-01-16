@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 5f95b42fd17aec4e3ec6b7b8fac1965772fefa67
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: aedb9c8d178cb210efedf8ff4bcbbeca39f89e60
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162588"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981801"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>No puede conectarse de forma remota a una VM porque el puerto RDP no está habilitado en NSG
 
@@ -25,7 +25,7 @@ En este artículo se explica cómo resolver un problema por el que no puede cone
 
 
 > [!NOTE] 
-> Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). Se recomienda usar el modelo de implementación de Resource Manager, en lugar del modelo de implementación clásica para las nuevas implementaciones. 
+> Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/management/deployment-models.md). Se recomienda usar el modelo de implementación de Resource Manager, en lugar del modelo de implementación clásica para las nuevas implementaciones. 
 
 ## <a name="symptom"></a>Síntoma
 
@@ -42,7 +42,7 @@ Para habilitar el puerto RDP en un NSG, siga estos pasos:
 4. En **Reglas de puerto de entrada**, compruebe si el puerto de RDP se estableció correctamente. El siguiente es un ejemplo de la configuración: 
 
     **Prioridad**: 300 </br>
-    **Nombre**: Port_3389 </br>
+    **Name**: Port_3389 </br>
     **Puerto (destino)** : 3389 </br>
     **Protocolo**: TCP </br>
     **Origen**: Any </br>

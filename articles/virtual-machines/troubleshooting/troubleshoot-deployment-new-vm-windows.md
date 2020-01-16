@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6dbe4c1533aecfab4a62ce3ad90b694c0c00f4b6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0bc363b87a9f5b2f013c0bae75a07d79a3a7a830
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103488"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981402"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Solución de problemas de implementación al crear una nueva máquina virtual Windows en Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -35,7 +35,7 @@ Para consultar otros problemas de implementación de máquinas virtuales y pregu
 ## <a name="collect-activity-logs"></a>Recopilación de registros de actividad
 Para iniciar la solución de problemas, recopile los registros de actividad para identificar el error asociado con el problema. Los vínculos siguientes contienen información detallada sobre el proceso que se debe seguir.
 
-[Ver operaciones de implementación](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[Ver operaciones de implementación](../../azure-resource-manager/templates/deployment-history.md)
 
 [Ver registros de actividad para administrar recursos de Azure](../../resource-group-audit.md)
 
@@ -70,7 +70,7 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
 
 **Causa 1:** El clúster no admite el tamaño de VM solicitado.
 
-**Resolución 1:**
+**Solución 1:**
 
 * Vuelva a intentar la solicitud con un tamaño de máquina virtual menor.
 * Si no se puede cambiar el tamaño de la máquina virtual solicitada:
@@ -81,7 +81,7 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
 
 **Causa 2:** El clúster no tiene recursos disponibles.
 
-**Resolución 2:**
+**Solución 2:**
 
 * Vuelva a intentar la solicitud más tarde.
 * Si la nueva máquina virtual puede formar parte de un conjunto de disponibilidad diferente

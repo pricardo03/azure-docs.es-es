@@ -3,7 +3,7 @@ title: 'Envío de un gran número de tareas: Azure Batch | Microsoft Docs'
 description: Envío eficaz de un gran número de tareas en un único trabajo de Azure Batch
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 08/24/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: ''
-ms.openlocfilehash: fc47b18dd51bbaa48d950515cccfe618d9e58426
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 29d5ca378f13e047773c4e036c5e43f944fd08e3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132755"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029517"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Envío de un gran número de tareas a un trabajo de Batch
 
@@ -35,7 +35,7 @@ El tamaño máximo de la colección de tareas que se puede agregar en una sola l
 
 * Las siguientes API de Batch limitan la colección a **100 tareas**. El límite podría ser menor en función del tamaño de las tareas, por ejemplo, si tienen mayor número de archivos de recursos o variables de entorno.
 
-    * [API DE REST](/rest/api/batchservice/task/addcollection)
+    * [REST API](/rest/api/batchservice/task/addcollection)
     * [API de Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
     * [API de Node.js](/javascript/api/@azure/batch/task?view=azure-node-latest)
 

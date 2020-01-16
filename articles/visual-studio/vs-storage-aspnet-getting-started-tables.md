@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ec391db0e18128ad85d3bacb79fa51770aa70ea1
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c49df689ae859c93046c19af043aa2001dbb5481
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298880"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979622"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Introducción a Azure Table Storage y a Servicios conectados de Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -29,10 +29,10 @@ El almacenamiento de tabla de Azure permite almacenar una gran cantidad de datos
 
 Este tutorial muestra cómo escribir código ASP.NET para algunos escenarios comunes mediante entidades de Azure Table Storage. Entre los escenarios descritos se incluyen crear, consultar y eliminar entidades de tabla. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Cuenta de Almacenamiento de Azure](../storage/common/storage-quickstart-create-account.md)
+* [Cuenta de Almacenamiento de Azure](../storage/common/storage-account-create.md)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -134,7 +134,7 @@ Los siguientes pasos muestran cómo crear una tabla:
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Llame a la **CloudTable.CreateIfNotExists** método para crear la tabla si aún no existe. El método **CloudTable.CreateIfNotExists** devuelve **True** si la tabla no existe y se ha creado correctamente. En caso contrario, se devuelve **False**.    
+1. Llame a la **CloudTable.CreateIfNotExists** método para crear la tabla si aún no existe. El método **CloudTable.CreateIfNotExists** devuelve **True** si la tabla no existe y se ha creado correctamente. En caso contrario, se devuelve **false**.    
 
     ```csharp
     ViewBag.Success = table.CreateIfNotExists();

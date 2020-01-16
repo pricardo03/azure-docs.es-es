@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 12522de6bec4698f8a5b7a931bbc382f65a74265
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 19b7fbe5541bda5e6e2c265681e292f452cd57c0
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75534316"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044275"
 ---
 # <a name="model-interpretability-for-local-and-remote-runs"></a>Interpretación de modelos para ejecuciones locales y remotas
 
@@ -333,10 +333,10 @@ Para cargar el trazado local de importancia de la característica para cualquier
     jupyter labextension install microsoft-mli-widget
     ```
 
-Para cargar el panel de visualización, use el siguiente código:
+Para cargar el panel de visualización, use el código siguiente.
 
 ```python
-from azureml.contrib.interpret.visualize import ExplanationDashboard
+from interpret_community.widget import ExplanationDashboard
 
 ExplanationDashboard(global_explanation, model, x_test)
 ```
@@ -362,7 +362,7 @@ Siga una de estas rutas de acceso para llegar al panel de visualización de Azur
    [![Importancia de características locales del panel de visualización](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * Panel **Models** (Modelos)
-  1. Si registró el modelo original siguiendo los pasos descritos en [Implementación de modelos con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where), puede seleccionar **Models** (Modelos) en el panel izquierdo para verlo.
+  1. Si registró el modelo original siguiendo los pasos descritos en [Implementación de modelos con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), puede seleccionar **Models** (Modelos) en el panel izquierdo para verlo.
   1. Desde aquí, haga clic en la pestaña **Explanations** (Explicaciones) para ver el panel de visualización de explicaciones.
 
 ## <a name="interpretability-at-inference-time"></a>Interpretación en tiempo de inferencia
@@ -427,7 +427,7 @@ Puede implementar el explicador junto con el modelo original y usarlo a la hora 
 
 1. Implemente la imagen en un destino de proceso, para lo que debe seguir estos pasos:
 
-   1. Si lo necesita, registre el modelo de predicción original; para ello, siga los pasos de [Implementación de modelos con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+   1. Si lo necesita, registre el modelo de predicción original; para ello, siga los pasos de [Implementación de modelos con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
    1. Cree un archivo de puntuación.
 

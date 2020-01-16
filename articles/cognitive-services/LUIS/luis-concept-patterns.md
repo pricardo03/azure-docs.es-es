@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 32b9b42ee0962353405616e501de95b19e40ea1a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6c1b548de25369c162b4a08dfa20fce62c17f99f
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280852"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890286"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Los patrones mejoran la precisión de las predicciones
 Los patrones están diseñados para mejorar la precisión cuando varias expresiones son muy parecidas.  Un patrón permite lograr más precisión en una intención sin proporcionar muchas más expresiones. 
@@ -73,7 +73,7 @@ Aprenda la sintaxis del patrón desde la [referencia de sintaxis del patrón](re
 Más información sobre los patrones:
 
 * [Incorporación de patrones](luis-how-to-model-intent-pattern.md)
-* [Incorporación de la entidad pattern.any](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [Incorporación de la entidad pattern.any](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [Sintaxis de patrones](reference-pattern-syntax.md)
 
 > [!div class="nextstepaction"]

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: fe0eb6c2305dd01d8ff3df5be7056cbeae92fff2
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 98c76b2be6a5cc801f9e7b31357cbeb158a966fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74762724"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771298"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos útiles al trabajar con Azure Sentinel
 
@@ -32,7 +32,7 @@ Conectores de Azure Logic Apps: <https://docs.microsoft.com/connectors/>
 
 
 ## <a name="auditing-and-reporting"></a>Informes y auditoría
-Los registros de auditoría de Azure Sentinel se mantienen en los [registros de actividades de Azure](../azure-monitor/platform/activity-logs-overview.md).
+Los registros de auditoría de Azure Sentinel se mantienen en los [registros de actividades de Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 Se pueden auditar las siguientes operaciones admitidas.
 
@@ -44,8 +44,6 @@ Se pueden auditar las siguientes operaciones admitidas.
 |Eliminar flujo de trabajo    |Microsoft.Logic/workflows|
 |Crear búsqueda guardada    |Microsoft.OperationalInsights/workspaces/savedSearches|
 |Eliminar búsqueda guardada    |Microsoft.OperationalInsights/workspaces/savedSearches|
-|Establecer panel  |Microsoft.Portal/dashboards|
-|Eliminar panel   |Microsoft.Portal/dashboards|
 |Actualizar reglas de alerta |Microsoft.SecurityInsights/alertRules|
 |Eliminar reglas de alerta |Microsoft.SecurityInsights/alertRules|
 |Actualizar acciones de respuesta de la regla de alerta |Microsoft.SecurityInsights/alertRules|

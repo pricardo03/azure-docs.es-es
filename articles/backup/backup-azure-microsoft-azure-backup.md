@@ -3,12 +3,12 @@ title: Uso de Azure Backup Server para realizar copias de seguridad de cargas de
 description: En este artículo, aprenderá a preparar su entorno para proteger las cargas de trabajo y hacer copias de seguridad de ellas mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 7379992eeb441372a9140621f9d90b337ad0d2e2
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: db2bac3464939edc5dec2ee2947faf7a05ad6812
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172986"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979892"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalación y actualización de Azure Backup Server
 
@@ -31,7 +31,7 @@ En este artículo se explica cómo preparar el entorno para la copia de segurida
 Una instancia de MABS implementada en una máquina virtual de Azure puede crear copias de seguridad de máquinas virtuales en Azure, pero deben encontrarse en el mismo dominio para habilitar dicha operación. El proceso para realizar una copia de una máquina virtual de Azure es el mismo que al realizar una copia de seguridad de máquinas virtuales locales, aunque la implementación de MABS en Azure tiene algunas limitaciones. Para más información sobre las limitaciones, consulte [DPM como máquina virtual de Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites).
 
 > [!NOTE]
-> Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se proporcionan información y procedimientos para restaurar las máquinas virtuales implementadas mediante el modelo de Resource Manager.
+> Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/management/deployment-models.md). En este artículo se proporcionan información y procedimientos para restaurar las máquinas virtuales implementadas mediante el modelo de Resource Manager.
 >
 >
 
@@ -90,7 +90,7 @@ Para editar la configuración de replicación de almacenamiento:
 
 ### <a name="downloading-the-software-package"></a>Descarga del paquete de software
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Si ya tiene abierto un almacén de Recovery Services, vaya al paso 3. Si no tiene abierto un almacén de Recovery Services pero está en Azure Portal, en el menú principal, haga clic en **Examinar**.
 
    * En la lista de recursos, escriba **Recovery Services**.
@@ -286,11 +286,11 @@ Una vez que conozca el estado de la conectividad y suscripción de Azure, puede 
 | Estado de conectividad | Suscripción de Azure | Copia de seguridad en Azure | Copia de seguridad en disco | Restauración desde Azure | Restauración desde disco |
 | --- | --- | --- | --- | --- | --- |
 | Conectado |Active |Permitida |Permitida |Permitida |Permitida |
-| Conectado |Expirada |Stopped |Stopped |Permitida |Permitida |
-| Conectado |Desaprovisionada |Stopped |Stopped |Detenida y puntos de recuperación de Azure eliminados |Stopped |
-| Pérdida de conectividad > 15 días |Active |Stopped |Stopped |Permitida |Permitida |
-| Pérdida de conectividad > 15 días |Expirada |Stopped |Stopped |Permitida |Permitida |
-| Pérdida de conectividad > 15 días |Desaprovisionada |Stopped |Stopped |Detenida y puntos de recuperación de Azure eliminados |Stopped |
+| Conectado |Expirada |Detenido |Detenido |Permitida |Permitida |
+| Conectado |Desaprovisionada |Detenido |Detenido |Detenida y puntos de recuperación de Azure eliminados |Detenido |
+| Pérdida de conectividad > 15 días |Active |Detenido |Detenido |Permitida |Permitida |
+| Pérdida de conectividad > 15 días |Expirada |Detenido |Detenido |Permitida |Permitida |
+| Pérdida de conectividad > 15 días |Desaprovisionada |Detenido |Detenido |Detenida y puntos de recuperación de Azure eliminados |Detenido |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperación de una pérdida de conectividad
 
@@ -341,7 +341,7 @@ Para actualizar MABS, realice los siguientes pasos:
 4. Las copias de seguridad deben continuar sin necesidad de reiniciar los servidores de producción.
 5. Puede comenzar a proteger sus datos ahora mismo. Si va a actualizar a Modern Backup Storage, al tiempo que protege, también puede elegir en qué volúmenes quiere almacenar las copias de seguridad y comprobar la existencia de espacio insuficiente. [Más información](backup-mabs-add-storage.md).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si el servidor de Microsoft Azure Backup produce un error durante la fase de instalación (o copia de seguridad o restauración), consulte este [documento de códigos de error](https://support.microsoft.com/kb/3041338) para más información.
 También puede consultar [Azure Backup - Preguntas más frecuentes](backup-azure-backup-faq.md)

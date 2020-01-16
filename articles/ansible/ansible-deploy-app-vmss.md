@@ -3,13 +3,13 @@ title: 'Tutorial: Implementación de aplicaciones en conjuntos de escalado de m�
 description: Obtenga información sobre cómo usar Ansible para configurar conjuntos de escalado de máquinas virtuales de Azure e implementar una aplicación en el conjunto de escalado.
 keywords: ansible, azure, devops, bash, cuaderno de estrategias, máquina virtual, conjunto de escalado de máquinas virtuales, vmss
 ms.topic: tutorial
-ms.date: 04/30/2019
-ms.openlocfilehash: 7c54790a3d988341caa65bdf0ce33c240f0580fb
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 01/13/2020
+ms.openlocfilehash: d638ae3f0c33734b42ef5456772fcd2bc62e35a4
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156395"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940853"
 ---
 # <a name="tutorial-deploy-apps-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutorial: Implementación de aplicaciones en conjuntos de escalado de máquinas virtuales de Azure con Ansible
 
@@ -26,7 +26,7 @@ ms.locfileid: "74156395"
 > * Instalar el JRE (Java Runtime Environment) en un conjunto de escalado
 > * Implementar la aplicación Java en un conjunto de escalado
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
@@ -56,13 +56,13 @@ Guarde el siguiente cuaderno de estrategias de ejemplo como `get-hosts-tasks.yml
   - name: Add all hosts
     add_host:
       groups: scalesethosts
-      hostname: "{{ output_ip_address.ansible_facts.azure_publicipaddresses[0].properties.ipAddress }}_{{ item.properties.frontendPort }}"
-      ansible_host: "{{ output_ip_address.ansible_facts.azure_publicipaddresses[0].properties.ipAddress }}"
+      hostname: "{{ output_ip_address.publicipaddresses[0].ip_address }}_{{ item.properties.frontendPort }}"
+      ansible_host: "{{ output_ip_address.publicipaddresses[0].ip_address }}"
       ansible_port: "{{ item.properties.frontendPort }}"
       ansible_ssh_user: "{{ admin_username }}"
       ansible_ssh_pass: "{{ admin_password }}"
     with_items:
-      - "{{ output.ansible_facts.azure_loadbalancers[0].properties.inboundNatRules }}"
+      - "{{ output.ansible_info.azure_loadbalancers[0].properties.inboundNatRules }}"
   ```
 
 ## <a name="prepare-an-application-for-deployment"></a>Preparación de una aplicación para la implementación

@@ -1,26 +1,25 @@
 ---
 title: 'Inicio rápido: Reconocimiento de la voz a través de un micrófono en C# (Unity): servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: b0a9eddf147eedfa972e0574e62c9e7c2eace84f
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 149ec84732171cd57b3f8a9590d5340107536eac
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818876"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75927866"
 ---
 > [!NOTE]
 > El SDK de Voz para Unity es compatible con Windows Desktop (x86 y x64) o con la Plataforma universal de Windows (x86, x64, ARM o ARM64), Android (x86, ARM32/64) e iOS (simulador de x64, ARM32 y ARM64)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar:
 
@@ -34,7 +33,7 @@ Si ya lo ha hecho, perfecto. Vamos a continuar.
 
 ## <a name="create-a-unity-project"></a>Creación de un proyecto de Unity
 
-1. Abra Unity. Si usa Unity por primera vez, aparece la ventana de **Unity Hub** *<version number>* . (También puede abrir Unity Hub directamente para obtener acceso a esta ventana).
+1. Abra Unity. Si es la primera vez que usa Unity, aparece la ventana **Unity Hub** (Centro de Unity) *<version number>* . (También puede abrir Unity Hub directamente para obtener acceso a esta ventana).
 
    [![Ventana de Unity Hub](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-hub.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-hub.png#lightbox)
 1. Seleccione **Nuevo**. Aparece la ventana **Create a new project with Unity** *<version number>* (Crear un proyecto con Unity).

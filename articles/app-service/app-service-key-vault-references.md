@@ -6,17 +6,14 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f0d3d36d3489557f0a07e9400c59debb2dca7073
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 7fdb7c980a278e2dcd4b64a4b70de50721d0b72a
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671468"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75728759"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Uso de referencias de Key Vault para App Service y Azure Functions
-
-> [!NOTE] 
-> Las referencias de Key Vault no están actualmente disponibles en los planes de consumo de Linux.
 
 En este tema se muestra cómo trabajar con secretos de Azure Key Vault en la aplicación de App Service o Azure Functions sin necesidad de realizar cambios en el código. [Azure Key Vault](../key-vault/key-vault-overview.md) es un servicio que proporciona administración centralizada de los secretos, con control total sobre las directivas de acceso y el historial de auditoría.
 
@@ -41,7 +38,7 @@ Para leer secretos desde Key Vault, debe tener creado un almacén y proporcionar
 Una referencia de Key Vault tiene el formato `@Microsoft.KeyVault({referenceString})`, donde `{referenceString}` se sustituye por una de las opciones siguientes:
 
 > [!div class="mx-tdBreakAll"]
-> | Cadena de referencia                                                            | DESCRIPCIÓN                                                                                                                                                                                 |
+> | Cadena de referencia                                                            | Descripción                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | SecretUri=_secretUri_                                                       | **SecretUri** debe ser el URI completo del plano de datos de un secreto en Key Vault, incluida una versión, por ejemplo, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931.  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** debe ser el nombre del recurso de Key Vault. **SecretName** debe ser el nombre del secreto de destino. **SecretVersion** debe ser la versión del secreto que se va a usar. |

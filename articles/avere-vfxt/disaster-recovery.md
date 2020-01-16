@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 19f31a2fafc112f499ff87eed23843915cab32a2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 28278f76497d6e9d0fee221bb4ef32fe6d369db0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75414231"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966661"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Guía de recuperación ante desastres para Avere vFXT for Azure
 
@@ -60,7 +60,7 @@ En esta sección se ofrecen sugerencias sobre cómo proteger aún más los datos
 Los procedimientos recomendados para proteger los datos en Azure Blob Storage incluyen:
 
 * Copie los datos críticos en otra cuenta de almacenamiento de otra región con frecuencia (con la frecuencia que se determine en el plan de recuperación ante desastres).
-* Controle el acceso a los datos de todos los sistemas de destino para evitar daños o eliminaciones accidentales. Considere la posibilidad de utilizar [bloqueos de recursos](../azure-resource-manager/resource-group-lock-resources.md) en el almacenamiento de datos.
+* Controle el acceso a los datos de todos los sistemas de destino para evitar daños o eliminaciones accidentales. Considere la posibilidad de utilizar [bloqueos de recursos](../azure-resource-manager/management/lock-resources.md) en el almacenamiento de datos.
 * Habilite la característica de [instantánea de nube](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_snapshot_policies.html>) de Avere vFXT for Azure para los archivadores básicos de Blob.
 
 ### <a name="copy-avere-vfxt-core-filer-data-to-a-backup-account"></a>Copia de los datos del archivador básico de Avere vFXT en una cuenta de copia de seguridad

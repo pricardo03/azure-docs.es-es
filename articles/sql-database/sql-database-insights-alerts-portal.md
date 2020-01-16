@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/02/2018
-ms.openlocfilehash: ec625f203e9282d070e6c1b3b3d712be7ab789cf
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c2b889d4013abb60c9ad7bb4bcdc4e6546cfa37c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810381"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745939"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Creación de alertas para Azure SQL Database y Data Warehouse con Azure Portal
 
@@ -74,49 +74,49 @@ Una vez que haya creado una alerta, puede seleccionarla y:
 
 ## <a name="sql-database-alert-values"></a>Valores de las alertas de SQL Database
 
-| Tipo de recurso | Nombre de métrica | Nombre descriptivo | Tipo de agregación | Ventana de tiempo mínimo de la alerta|
+| Tipo de recurso | Nombre de la métrica | Nombre descriptivo | Tipo de agregación | Ventana de tiempo mínimo de la alerta|
 | --- | --- | --- | --- | --- |
-| Base de datos SQL | cpu_percent | Porcentaje de CPU | Media | 5 minutos |
-| Base de datos SQL | physical_data_read_percent | Porcentaje de E/S de datos | Media | 5 minutos |
-| Base de datos SQL | log_write_percent | Porcentaje de E/S de registro | Media | 5 minutos |
-| Base de datos SQL | dtu_consumption_percent | Porcentaje de DTU | Media | 5 minutos |
+| Base de datos SQL | cpu_percent | Porcentaje de CPU | Average | 5 minutos |
+| Base de datos SQL | physical_data_read_percent | Porcentaje de E/S de datos | Average | 5 minutos |
+| Base de datos SQL | log_write_percent | Porcentaje de E/S de registro | Average | 5 minutos |
+| Base de datos SQL | dtu_consumption_percent | Porcentaje de DTU | Average | 5 minutos |
 | Base de datos SQL | storage | Tamaño total de base de datos | Máxima | 30 minutos |
 | Base de datos SQL | connection_successful | Conexiones correctas | Total | 10 minutos |
 | Base de datos SQL | connection_failed | Conexiones con errores | Total | 10 minutos |
 | Base de datos SQL | blocked_by_firewall | Bloqueado por el firewall | Total | 10 minutos |
 | Base de datos SQL | deadlock | Interbloqueos | Total | 10 minutos |
 | Base de datos SQL | storage_percent | Porcentaje de tamaño de base de datos | Máxima | 30 minutos |
-| Base de datos SQL | xtp_storage_percent | Porcentaje de almacenamiento de OLTP en memoria (versión preliminar) | Media | 5 minutos |
-| Base de datos SQL | workers_percent | Porcentaje de trabajos | Media | 5 minutos |
-| Base de datos SQL | sessions_percent | Porcentaje de sesiones | Media | 5 minutos |
-| Base de datos SQL | dtu_limit | Límite de DTU | Media | 5 minutos |
-| Base de datos SQL | dtu_used | DTU utilizada | Media | 5 minutos |
+| Base de datos SQL | xtp_storage_percent | Porcentaje de almacenamiento de OLTP en memoria (versión preliminar) | Average | 5 minutos |
+| Base de datos SQL | workers_percent | Porcentaje de trabajos | Average | 5 minutos |
+| Base de datos SQL | sessions_percent | Porcentaje de sesiones | Average | 5 minutos |
+| Base de datos SQL | dtu_limit | Límite de DTU | Average | 5 minutos |
+| Base de datos SQL | dtu_used | DTU utilizada | Average | 5 minutos |
 ||||||
-| Grupo elástico | cpu_percent | Porcentaje de CPU | Media | 10 minutos |
-| Grupo elástico | physical_data_read_percent | Porcentaje de E/S de datos | Media | 10 minutos |
-| Grupo elástico | log_write_percent | Porcentaje de E/S de registro | Media | 10 minutos |
-| Grupo elástico | dtu_consumption_percent | Porcentaje de DTU | Media | 10 minutos |
-| Grupo elástico | storage_percent | Porcentaje de almacenamiento | Media | 10 minutos |
-| Grupo elástico | workers_percent | Porcentaje de trabajos | Media | 10 minutos |
-| Grupo elástico | eDTU_limit | Límite de eDTU | Media | 10 minutos |
-| Grupo elástico | storage_limit | Límite de almacenamiento | Media | 10 minutos |
-| Grupo elástico | eDTU_used | eDTU utilizada | Media | 10 minutos |
-| Grupo elástico | storage_used | Almacenamiento utilizado | Media | 10 minutos |
+| Grupo elástico | cpu_percent | Porcentaje de CPU | Average | 10 minutos |
+| Grupo elástico | physical_data_read_percent | Porcentaje de E/S de datos | Average | 10 minutos |
+| Grupo elástico | log_write_percent | Porcentaje de E/S de registro | Average | 10 minutos |
+| Grupo elástico | dtu_consumption_percent | Porcentaje de DTU | Average | 10 minutos |
+| Grupo elástico | storage_percent | Porcentaje de almacenamiento | Average | 10 minutos |
+| Grupo elástico | workers_percent | Porcentaje de trabajos | Average | 10 minutos |
+| Grupo elástico | eDTU_limit | Límite de eDTU | Average | 10 minutos |
+| Grupo elástico | storage_limit | Límite de almacenamiento | Average | 10 minutos |
+| Grupo elástico | eDTU_used | eDTU utilizada | Average | 10 minutos |
+| Grupo elástico | storage_used | Almacenamiento utilizado | Average | 10 minutos |
 ||||||               
-| SQL Data Warehouse | cpu_percent | Porcentaje de CPU | Media | 10 minutos |
-| SQL Data Warehouse | physical_data_read_percent | Porcentaje de E/S de datos | Media | 10 minutos |
+| SQL Data Warehouse | cpu_percent | Porcentaje de CPU | Average | 10 minutos |
+| SQL Data Warehouse | physical_data_read_percent | Porcentaje de E/S de datos | Average | 10 minutos |
 | SQL Data Warehouse | connection_successful | Conexiones correctas | Total | 10 minutos |
 | SQL Data Warehouse | connection_failed | Conexiones con errores | Total | 10 minutos |
 | SQL Data Warehouse | blocked_by_firewall | Bloqueado por el firewall | Total | 10 minutos |
 | SQL Data Warehouse | service_level_objective | Nivel de servicio de la base de datos | Total | 10 minutos |
 | SQL Data Warehouse | dwu_limit | Límite de DWU | Máxima | 10 minutos |
-| SQL Data Warehouse | dwu_consumption_percent | Porcentaje de DWU | Media | 10 minutos |
-| SQL Data Warehouse | dwu_used | DWU utilizada | Media | 10 minutos |
+| SQL Data Warehouse | dwu_consumption_percent | Porcentaje de DWU | Average | 10 minutos |
+| SQL Data Warehouse | dwu_used | DWU utilizada | Average | 10 minutos |
 ||||||
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Obtenga información general sobre la supervisión de Azure](../monitoring-and-diagnostics/monitoring-overview.md) , incluidos los tipos de información que puede recopilar y supervisar.
 * Obtenga más información sobre cómo [configurar webhooks en las alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Obtenga [información general sobre los registros de diagnóstico](../azure-monitor/platform/resource-logs-overview.md) para recopilar métricas detalladas de alta frecuencia sobre el servicio.
+* Obtenga [información general sobre los registros de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) para recopilar métricas detalladas de alta frecuencia sobre el servicio.
 * Obtenga [información general sobre la colección de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para garantizar que el servicio está disponible y que responder adecuadamente.

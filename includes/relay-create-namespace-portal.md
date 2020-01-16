@@ -4,18 +4,18 @@ ms.service: service-bus-relay
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
-ms.openlocfilehash: 3e3617f68d58e51f24affaae7d69812195b72fd0
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 500db9f6d299ea81b1f1b1be864df5d91ba1eae7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71210342"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020841"
 ---
-1. Inicie sesión en el [Azure Portal][Azure portal].
+1. Inicie sesión en [Azure Portal][Azure portal].
 1. Seleccione **Crear un recurso**. Seleccione **Integración** > **Retransmisión**. Si no ve **Retransmisión** en la lista, seleccione **Ver todo** en la esquina superior derecha.
 1. Seleccione **Crear** y escriba un nombre de espacio de nombres en el campo **Nombre**. Azure Portal comprueba si el nombre está disponible.
 1. Elija la suscripción de Azure en la que se va a crear el espacio de nombres.
-1. En [Grupo de recursos](../articles/azure-resource-manager/manage-resource-groups-portal.md), elija un grupo de recursos existente en el que se colocará el espacio de nombres o cree uno.  
+1. En [Grupo de recursos](../articles/azure-resource-manager/management/manage-resource-groups-portal.md), elija un grupo de recursos existente en el que se colocará el espacio de nombres o cree uno.  
 1. Seleccione el país o región donde se debe hospedar el espacio de nombres.
 
     ![Crear un espacio de nombres][create-namespace]

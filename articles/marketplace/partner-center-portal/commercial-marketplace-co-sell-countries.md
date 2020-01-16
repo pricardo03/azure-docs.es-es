@@ -1,19 +1,19 @@
 ---
 title: Códigos de país y región de venta conjunta | Azure Marketplace
 description: Use estos códigos de país o región de dos letras al proporcionar información de contacto sobre la página de venta conjunta de su oferta.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: dc27756cd231bc744e539321af7884cc85ca1e9a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 925218879ce0dc1c69054f861e37e86c122d47f9
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812923"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934352"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Códigos de país y región de venta conjunta
 
@@ -147,7 +147,7 @@ Si un contacto cubre más de un país o región, escriba cada uno de los código
 | Corea (Sur)                       | KR        |
 | Kuwait                              | KW        |
 | Kirguistán                          | KG        |
-| Laos                                | LA        |
+| Laos                                | Los Ángeles        |
 | Letonia                              | LV        |
 | Líbano                             | LB        |
 | Lesoto                             | LS        |
@@ -192,7 +192,7 @@ Si un contacto cubre más de un país o región, escriba cada uno de los código
 | Corea del Norte                         | KP        |
 | Islas Marianas del Norte            | MP        |
 | Macedonia del Norte                     | MK        |
-| Noruega                              | NO        |
+| Noruega                              | No        |
 | Omán                                | OM        |
 | Pakistán                            | PK        |
 | Palaos                               | PW        |
@@ -263,8 +263,8 @@ Si un contacto cubre más de un país o región, escriba cada uno de los código
 | Reino Unido                      | GB        |
 | Estados Unidos                       | US        |
 | Uruguay                             | UY        |
-| Datos de agencias y alejadas de los EE.UU.               | UM        |
-| Datos de agencias y Vírgenes de EE. UU.                 | VI        |
+| EE. UU. alejadas de los EE.UU.               | UM        |
+| EE. UU. Vírgenes de EE. UU.                 | VI        |
 | Uzbekistán                          | UZ        |
 | Vanuatu                             | VU        |
 | Ciudad del Vaticano                        | VA        |

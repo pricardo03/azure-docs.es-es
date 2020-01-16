@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: 0723a3b0c96339ba86b98ab851c44d2a65e6f34b
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 6bc6f1ca29343e027730cbbd99d210f911fcb492
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672377"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967294"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar un nombre de dominio personalizado para Azure App Service
 
@@ -18,12 +18,12 @@ Los dominios de App Service son dominios de nivel superior que se administran di
 
 Para Azure Virtual Machines o Azure Storage, vea [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/) (Asignación del dominio de App Service a Azure Virtual Machines o Azure Storage). Para Cloud Services, vea [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial:
 
 * [Cree una aplicación de App Service](/azure/app-service/) o use alguna aplicación que haya creado para otro tutorial.
-* [Elimine el límite de gasto en mi suscripción](../billing/billing-spending-limit.md#remove). No puede comprar dominios de App Service con créditos de una suscripción gratuita.
+* [Elimine el límite de gasto en mi suscripción](../cost-management-billing/manage/spending-limit.md#remove). No puede comprar dominios de App Service con créditos de una suscripción gratuita.
 
 ## <a name="prepare-the-app"></a>Preparación de la aplicación
 
@@ -106,7 +106,7 @@ Es importante que rellene todos los campos obligatorios con la mayor precisión 
 
 A continuación, seleccione las opciones que quiera para el dominio. Para obtener explicaciones, vea la tabla siguiente:
 
-| Configuración | Valor sugerido | DESCRIPCIÓN |
+| Configuración | Valor sugerido | Descripción |
 |-|-|-|
 |Protección de la privacidad | Habilitar | Utilice la "Protección de la privacidad", que se incluye _gratis_ en el precio de compra. Algunos dominios de primer nivel los administran registradores que no admiten la protección de la privacidad, y estos se indican en la página **Protección de la privacidad**. |
 | Asignar nombres de host predeterminados | **www** y **\@** | Seleccione los enlaces de nombre de host deseados, si quiere. Una vez completada la operación de compra de dominio, puede acceder a la aplicación en los nombres de host seleccionados. Si la aplicación está detrás de [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), no verá la opción para asignar el dominio raíz (@), ya que Traffic Manager no admite registros A. Puede realizar cambios en las asignaciones de nombre de host una vez completada la compra del dominio. |

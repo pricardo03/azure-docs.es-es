@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: e1393b02948f2d86329263504d582fe78a474377
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 696f4bdc22bed01a4b5be8bff63ade482a8dbe0a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974349"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890251"
 ---
 # <a name="pattern-syntax"></a>Sintaxis del patrón
 
@@ -63,7 +63,7 @@ Una combinación de sintaxis de **agrupación** con **opcional** tiene un límit
 |Permitida|Ejemplo|
 |--|--|
 |Sí|( [ ( test1 &#x7c; test2 ) ] &#x7c; test3 )|
-|Sin|( [ ( [ test1 ] &#x7c; test2 ) ] &#x7c; test3 )|
+|No|( [ ( [ test1 ] &#x7c; test2 ) ] &#x7c; test3 )|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Límites de anidamiento para grupos con sintaxis or-ing
 
@@ -72,7 +72,7 @@ Una combinación de sintaxis de **agrupación** con sintaxis **or-ing** tiene un
 |Permitida|Ejemplo|
 |--|--|
 |Sí|( test1 &#x7c; test2 &#x7c; ( test3 &#x7c; test4 ) )|
-|Sin|( test1 &#x7c; test2 &#x7c; test3 &#x7c; ( test4 &#x7c; test5 ) ) |
+|No|( test1 &#x7c; test2 &#x7c; test3 &#x7c; ( test4 &#x7c; test5 ) ) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Sintaxis para agregar una entidad a una plantilla de patrón
 Para agregar una entidad a la plantilla de patrón, incluya el nombre de la entidad entre llaves, por ejemplo, `Who does {Employee} manage?`.
@@ -142,7 +142,7 @@ Los signos de puntuación (`?`, `!`, `.`) se deben omitir y deberá omitirlos us
 Más información sobre los patrones:
 
 * [Incorporación de patrones](luis-how-to-model-intent-pattern.md)
-* [Incorporación de la entidad pattern.any](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [Incorporación de la entidad pattern.any](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [Conceptos de patrones](luis-concept-patterns.md)
 
 Comprenda cómo se devuelve [opinión](luis-reference-prebuilt-sentiment.md) en la respuesta .json.

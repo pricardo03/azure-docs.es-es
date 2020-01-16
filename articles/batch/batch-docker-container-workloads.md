@@ -2,20 +2,20 @@
 title: 'Cargas de trabajo de contenedor: Azure Batch | Microsoft Docs'
 description: Aprenda a ejecutar aplicaciones desde imágenes de contenedor en Azure Batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.workload: na
 ms.date: 08/09/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: c9e24924472e0bb8dbd0e529b739263469b631fb
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 097ab13ad64477274e756d8e8e93e3614dd1a4e8
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090748"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029724"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Ejecución de aplicaciones de contenedor en Azure Batch
 
@@ -27,7 +27,7 @@ Debe estar familiarizado con los conceptos de contenedor y cómo crear un trabaj
 
 El uso de contenedores proporciona una manera sencilla de ejecutar tareas de Batch sin tener que administrar un entorno ni dependencias para ejecutar las aplicaciones. Los contenedores implementan aplicaciones como unidades ligeras, portátiles y autosuficientes que se pueden ejecutar en varios entornos distintos. Por ejemplo, cree y pruebe localmente un contenedor y, después cargue la imagen de contenedor en un registro en Azure o en otro lugar. El modelo de implementación de contenedor garantiza que el entorno en tiempo de ejecución de la aplicación siempre esté correctamente instalado y configurado donde sea que se hospede la aplicación. Las tareas basadas en contenedor en Batch también pueden aprovechar las características de tareas no en contenedor, incluidos los paquetes de aplicación y la administración de archivos de recursos y archivos de salida. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Versiones del SDK**: los SDK de Batch admiten las imágenes de contenedor en las siguientes versiones:
     * API de REST de Batch versión 2017-09-01.6.0

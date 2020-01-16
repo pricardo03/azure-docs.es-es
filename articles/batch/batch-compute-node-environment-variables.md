@@ -2,7 +2,7 @@
 title: 'Variables de entorno de tiempo de ejecución de tareas: Azure Batch | Microsoft Docs'
 description: Instrucciones y referencia de las variable de entorno de tiempo de ejecución de tareas para Azure Batch Analytics.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/12/2019
-ms.author: lahugh
-ms.openlocfilehash: cb087b261780ba88bd26bea3e14fc875e5c63566
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.author: jushiman
+ms.openlocfilehash: fd3c8ac9e65f7f77be070e1d1d108490e61eb248
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177154"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027189"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variables de entorno de tiempo de ejecución de Azure Batch
 
@@ -26,7 +26,7 @@ Para obtener más información sobre el uso de variables de entorno con Batch, c
 
 ## <a name="environment-variable-visibility"></a>Visibilidad de la variable del entorno
 
-Estas variables del entorno solo son visibles en el contexto de la **tarea del usuario**, es decir, la cuenta de usuario en el nodo donde se ejecuta una tarea. *No* las verá si [se conecta de forma remota](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) a un nodo de ejecución a través del protocolo de escritorio remoto (RDP) o de Secure Shell (SSH) y muestra la lista de variables del entorno. Esto se debe a que la cuenta de usuario que se usa para la conexión remota no es la misma que la cuenta que utiliza la tarea.
+Estas variables del entorno solo son visibles en el contexto de la **tarea del usuario**, es decir, la cuenta de usuario en el nodo donde se ejecuta una tarea. *No* las verá si [se conecta de forma remota](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) a un nodo de proceso a través del protocolo de escritorio remoto (RDP) o de Secure Shell (SSH) y muestra la lista de variables de entorno. Esto se debe a que la cuenta de usuario que se usa para la conexión remota no es la misma que la cuenta que utiliza la tarea.
 
 Para obtener el valor actual de una variable de entorno, inicie `cmd.exe` en un nodo de proceso de Windows o `/bin/sh` en un nodo de Linux:
 
@@ -44,7 +44,7 @@ Las líneas de comandos que ejecutan las tareas en nodos de proceso no se ejecut
 
 ## <a name="environment-variables"></a>Variables de entorno
 
-| Nombre de la variable                     | DESCRIPCIÓN                                                              | Disponibilidad | Ejemplo |
+| Nombre de la variable                     | Descripción                                                              | Disponibilidad | Ejemplo |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | El nombre de la cuenta de Batch a la que pertenece la tarea.                  | Todas las tareas.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | La dirección URL de la cuenta de Batch. | Todas las tareas. | `https://myaccount.westus.batch.azure.com` |

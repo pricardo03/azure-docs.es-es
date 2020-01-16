@@ -2,18 +2,18 @@
 title: Aprovisionamiento de un grupo personalizado desde una imagen personalizada de Azure Batch |Microsoft Docs
 description: Cree un grupo de Batch a partir de un recurso de imagen personalizada para aprovisionar los nodos de proceso con el software y los datos para su aplicación.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: lahugh
-ms.openlocfilehash: 82a5f79ca7b7a16cd8f7294ebd1f70816b40ad82
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.author: jushiman
+ms.openlocfilehash: 3c7aafb5cfdd2e0127aa9969b904976cb93db614
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "73519261"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029747"
 ---
 # <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Uso de una imagen administrada para crear un grupo de máquinas virtuales
 
@@ -22,7 +22,7 @@ Para crear una imagen personalizada para las máquinas virtuales (VM) del grupo 
 > [!TIP]
 > En la mayoría de los casos, debe crear imágenes personalizadas mediante Shared Image Gallery. Con Shared Image Gallery, puede aprovisionar grupos más rápido, escalar cantidades más grandes de VM y mejorar la confiabilidad al aprovisionar las VM. Para obtener más información, consulte [Uso de Shared Image Gallery para crear un grupo personalizado](batch-sig-images.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - **Un recurso de imagen administrada**. Para crear un grupo de máquinas virtuales con una imagen personalizada, tiene que tener o crear un recurso de imagen administrada en la misma suscripción y región de Azure que la cuenta de Batch. La imagen debe crearse desde instantáneas del disco del sistema operativo de la máquina virtual y, opcionalmente, de sus discos de datos conectados. Para más información y los pasos para preparar una imagen administrada, consulte la siguiente sección.
   - Use una imagen personalizada única para cada grupo que cree.

@@ -7,14 +7,14 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/12/2019
+ms.date: 01/07/2020
 ms.custom: include file
-ms.openlocfilehash: 57373f31b91be81021d3f8382331d491e39b0f9c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 096e28c875634e248ee95e1010fa915dd35bddab
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74062926"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75752076"
 ---
 > [!TIP]
 > Se proporciona un preestreno de Swagger para demostrar el conjunto de características de la API.
@@ -26,7 +26,7 @@ Puede acceder a su propia documentación de Management API generada con Swagger 
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| NOMBRE | Reemplazar por |
+| Nombre | Reemplazar por |
 | --- | --- |
 | YOUR_INSTANCE_NAME | El nombre de la instancia de Azure Digital Twins |
 | YOUR_LOCATION | La región de servidor en la que está hospedada la instancia |

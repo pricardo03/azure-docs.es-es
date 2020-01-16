@@ -4,12 +4,12 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 07/01/2019
 ms.author: amberb
-ms.openlocfilehash: ef2b428eded71de23cae86bca8e29eced78af683
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bc60e7d39e6dbdf04744a10ef6c6f286e1b1ea52
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449221"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75984364"
 ---
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
  
@@ -21,7 +21,7 @@ ms.locfileid: "75449221"
  
     ![Captura de pantalla que muestra el contrato de cliente de Microsoft en la página de propiedades](./media/billing-check-account-type/billing-mca-property.png)
     
-    El **tipo** de la página de propiedades determina el tipo de la cuenta. Puede ser Microsoft Online Service Program, Contrato Enterprise, contrato de cliente de Microsoft o Microsoft Partner Agreement. Para más información sobre el tipo de cuentas de facturación, consulte [Visualización de las cuentas de facturación en Azure Portal](../articles/billing/billing-view-all-accounts.md).  
+    El **tipo de cuenta de facturación** de la página de propiedades determina el tipo de la cuenta. Puede ser Microsoft Online Service Program, Contrato Enterprise, contrato de cliente de Microsoft o Microsoft Partner Agreement. Para más información sobre el tipo de cuentas de facturación, consulte [Visualización de las cuentas de facturación en Azure Portal](../articles/cost-management-billing/manage/view-all-accounts.md).  
  
 4. Si tiene acceso a varios ámbitos de facturación, compruebe el tipo en la columna **Tipo de cuenta de facturación**.
  

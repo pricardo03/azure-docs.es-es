@@ -1,18 +1,18 @@
 ---
 title: 'Habilitar MFA para usuarios de VPN: Autenticación de Azure AD'
 description: Habilitar la autenticación multifactor para los usuarios de VPN
-services: vpn-gateway
+services: virtual-wan
 author: anzaman
-ms.service: vpn-gateway
+ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: alzam
-ms.openlocfilehash: 3700014752233e29d157f1695906babe4fa35c74
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 9329ac33a771c829b8d67670bc07d9a353c58ff1
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74820418"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930596"
 ---
 # <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Habilitar Azure Multi-Factor Authentication (MFA) para los usuarios de VPN
 
@@ -24,7 +24,7 @@ El requisito previo para esta configuración es un inquilino de Azure AD config
 
 ## <a name="mfa"></a>Abrir la página de MFA
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en Azure Portal.
 2. Vaya a **Azure Active Directory -> Todos los usuarios**.
 3. Seleccione **Multi-Factor Authentication** para abrir la página de la autenticación multifactor.
 

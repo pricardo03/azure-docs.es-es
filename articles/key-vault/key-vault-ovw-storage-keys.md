@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 62faf33dc8b3690036407972e12633e741a85d78
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 880a85676ff7a0364431b33b90093298b12bffed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176746"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980457"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Administración de claves de cuenta de almacenamiento con Key Vault y la CLI de Azure
 
@@ -47,13 +47,13 @@ Key Vault es una aplicación de Microsoft que previamente se ha registrado en to
 | Azure AD | Pública de Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | Otros  | Any | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar esta guía, antes debe completar los pasos siguientes:
 
 - [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 - [Creación de un Almacén de claves](quick-create-cli.md)
-- [Creación de una cuenta de almacenamiento de Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-cli). El nombre de la cuenta de almacenamiento solo debe contener letras minúsculas y números. El nombre debe tener entre 3 y 24 caracteres.
+- [Creación de una cuenta de almacenamiento de Azure](../storage/common/storage-account-create.md?tabs=azure-cli). El nombre de la cuenta de almacenamiento solo debe contener letras minúsculas y números. El nombre debe tener entre 3 y 24 caracteres.
       
 ## <a name="manage-storage-account-keys"></a>Administración de las claves de cuenta de almacenamiento
 
@@ -65,7 +65,7 @@ Autentique la sesión de la CLI de Azure mediante los comandos [az login](/power
 az login
 ``` 
 
-### <a name="give-key-vault-access-to-your-storage-account"></a>Proporcione a Key Vault acceso a la cuenta de almacenamiento
+### <a name="give-key-vault-access-to-your-storage-account"></a>Proporcionar a Key Vault acceso a la cuenta de almacenamiento
 
 Use el comando de la CLI de Azure [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest) para proporcionar acceso a Key Vault a la cuenta de almacenamiento. Proporcione al comando los siguientes valores de parámetro:
 
@@ -100,7 +100,7 @@ Los comandos de esta sección completan las acciones siguientes:
 - Establecer una definición de firma de acceso compartido de almacenamiento administrado de Key Vault en el almacén. La definición tiene el URI de plantilla del token de firma de acceso compartido que se creó. La definición tiene el tipo de firma de acceso compartido `account` y es válido durante N días.
 - Compruebe que la firma de acceso compartido se haya guardado en el almacén de claves como secreto.
 
-### <a name="create-a-shared-access-signature-token"></a>Crear un token de firma de acceso compartido
+### <a name="create-a-shared-access-signature-token"></a>Creación de un token de firma de acceso compartido
 
 Cree una definición de firma de acceso compartido mediante el comando de la CLI de Azure [az storage account generate-sas](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas). Esta operación requiere los permisos `storage` y `setsas`.
 
@@ -116,7 +116,7 @@ Después de que la operación se ejecute correctamente, copie la salida.
 
 Esta salida se pasará al parámetro `--template-id` en el paso siguiente.
 
-### <a name="generate-a-shared-access-signature-definition"></a>Generar una definición de firma de acceso compartido
+### <a name="generate-a-shared-access-signature-definition"></a>Generación de una definición de firma de acceso compartido
 
 Use el comando de la CLI de Azure [az keyvault storage sas-definition create](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) para pasar el resultado del paso anterior al parámetro `--template-id` para crear una definición de firma de acceso compartido.  Puede proporcionar el nombre que elija al parámetro `-n`.
 
@@ -124,7 +124,7 @@ Use el comando de la CLI de Azure [az keyvault storage sas-definition create](/c
 az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <OutputOfSasTokenCreationStep>
 ```
 
-### <a name="verify-the-shared-access-signature-definition"></a>Comprobar la definición de firma de acceso compartido
+### <a name="verify-the-shared-access-signature-definition"></a>Comprobación de la definición de firma de acceso compartido
 
 Puede comprobar que la definición de la firma de acceso compartido se ha almacenado en el almacén de claves mediante los comandos de la CLI de Azure [az keyvault secret list](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) y [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show).
 

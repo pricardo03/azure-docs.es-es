@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: f6e1af2fdf43eb4351e996297f7dba775b7ffcef
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4baa65ca5dda6b266cd6c739225ebd01d011268c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278805"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980084"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Trasladar un área de trabajo de Log Analytics a otro grupo de recursos o suscripción
 
-En este artículo, aprenderá los pasos para trasladar un área de trabajo de Log Analytics a otro grupo de recursos o suscripción de la misma región. Puede obtener más información sobre cómo trasladar recursos de Azure a través del Azure portal, PowerShell, la CLI de Azure o la API de REST. en [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/resource-group-move-resources.md). 
+En este artículo, aprenderá los pasos para trasladar un área de trabajo de Log Analytics a otro grupo de recursos o suscripción de la misma región. Puede obtener más información sobre cómo trasladar recursos de Azure a través del Azure portal, PowerShell, la CLI de Azure o la API de REST. en [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/management/move-resource-group-and-subscription.md). 
 
 > [!IMPORTANT]
 > No puede trasladar un área de trabajo a otra región.
@@ -107,4 +107,4 @@ Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Para una lista de qué recursos son compatibles con el traslado, consulte [Compatibilidad con la operación de traslado para recursos](../../azure-resource-manager/move-support-resources.md).
+- Para una lista de qué recursos son compatibles con el traslado, consulte [Compatibilidad con la operación de traslado para recursos](../../azure-resource-manager/management/move-support-resources.md).

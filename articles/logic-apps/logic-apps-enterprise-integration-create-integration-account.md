@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 2738e7be6ae40afd5f0d94f1ad32b7b4cda0417f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3cdabbd5f527934492ce7ff37ae7d0f756d91fc1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453414"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979432"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Creación y administración de cuentas de integración para la integración empresarial B2B en Azure Logic Apps
 
@@ -77,7 +77,7 @@ Para esta tarea, puede usar Azure Portal si sigue los pasos de esta sección, [A
 
 ## <a name="link-to-logic-app"></a>Vincular a la aplicación lógica
 
-Para que las aplicaciones lógicas accedan a una cuenta de integración que contiene los artefactos B2B, primero debe vincular la cuenta de integración a la aplicación lógica. La cuenta de integración y la aplicación lógica deben estar en la misma región. Para completar esta tarea, puede utilizar Azure Portal. Si usa Visual Studio y la aplicación lógica está en un [proyecto de grupo de recursos de Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), puede [vincular la aplicación lógica a una cuenta de integración mediante Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account).
+Para que las aplicaciones lógicas accedan a una cuenta de integración que contiene los artefactos B2B, primero debe vincular la cuenta de integración a la aplicación lógica. La cuenta de integración y la aplicación lógica deben estar en la misma región. Para completar esta tarea, puede utilizar Azure Portal. Si usa Visual Studio y la aplicación lógica está en un [proyecto de grupo de recursos de Azure](../azure-resource-manager/templates/create-visual-studio-deployment-project.md), puede [vincular la aplicación lógica a una cuenta de integración mediante Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account).
 
 1. En Azure Portal, busque y abra la aplicación lógica.
 

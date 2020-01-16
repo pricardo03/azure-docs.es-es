@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 2a749e9345fec0e91751641cd15805d7f7d62d95
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: a48edda31f19ef4ce1ba23664eef1f51ba9cf8d1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961408"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970500"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Mover las VM de Azure entre Azure Government y las regiones públicas 
 
@@ -65,7 +65,7 @@ Configure una [red de Azure](../virtual-network/quick-create-portal.md) de desti
 
 ### <a name="set-up-an-azure-storage-account"></a>Configurar una cuenta de Azure Storage
 
-Configure una [cuenta de almacenamiento de Azure](../storage/common/storage-quickstart-create-account.md).
+Configure una [cuenta de almacenamiento de Azure](../storage/common/storage-account-create.md).
 
 - Site Recovery replica máquinas virtuales locales en Azure Storage. Las máquinas virtuales de Azure se crean en el almacenamiento después de producirse la conmutación por error.
 - La cuenta de almacenamiento debe estar en la misma región que el almacén de Recovery Services.
@@ -197,8 +197,8 @@ La directiva se asocia automáticamente al servidor de configuración. De forma 
    > [!WARNING]
    > Debe especificar la dirección IP de la VM de Azure que va a mover.
 
-10. En **Propiedades** > **Configurar propiedades**, seleccione la cuenta que utilizará el servidor de procesos para instalar automáticamente Mobility Service en la máquina.
-11. En **Configuración de la replicación** > **Establecer configuración de replicación**, compruebe que se haya seleccionado la directiva de replicación correcta. 
+10. En **Propiedades** > **Configurar propiedades**, seleccione la cuenta que va a usar el servidor de procesos para instalar automáticamente Mobility Service en el equipo.
+11. En **Configuración de la replicación** > **Establecer configuración de replicación**, compruebe que se ha seleccionado la directiva de replicación correcta. 
 12. Haga clic en **Enable Replication**. Puede hacer un seguimiento del progreso del trabajo **Habilitar protección** en **Configuración** > **Trabajos** > **Trabajos de Site Recovery**. La máquina estará preparada para la conmutación por error después de que finalice el trabajo **Finalizar la protección** .
 
 

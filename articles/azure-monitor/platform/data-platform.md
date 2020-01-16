@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 4e9779f612bc4a2521459bf76a6e2b399fc89e07
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b5d35fc14d69da2246c0ef5d4ef6d19a9e0c8462
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894137"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751004"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de datos de Azure Monitor
 
@@ -48,7 +48,7 @@ Los [registros](data-platform-logs.md) son eventos que se produjeron dentro del 
 Los registros de Azure Monitor se almacenan en un área de trabajo de Log Analytics basado en [Azure Data Explorer](/azure/data-explorer/) que proporciona un motor de análisis eficaz y un [lenguaje de consulta completo](/azure/kusto/query/). Los registros normalmente proporcionan información suficiente para ofrecer un contexto completo del problema identificado y son valiosos para identificar la causa de los problemas.
 
 > [!NOTE]
-> Es importante distinguir entre registros de Azure Monitor y orígenes de datos de registro de Azure. Por ejemplo, los eventos de nivel de suscripción de Azure se escriben en un [registro de actividad](activity-logs-overview.md) que puede verse en el menú de Azure Monitor. La mayoría de los recursos escriben información operativa en un [registro de recursos](resource-logs-overview.md) que se puede reenviar a distintas ubicaciones. Los registros de Azure Monitor son una plataforma de datos de registro que recopila los registros de actividad y los registros de recursos, junto con otros datos de supervisión, para proporcionar un análisis profundo de todo el conjunto de recursos.
+> Es importante distinguir entre registros de Azure Monitor y orígenes de datos de registro de Azure. Por ejemplo, los eventos de nivel de suscripción de Azure se escriben en un [registro de actividad](platform-logs-overview.md) que puede verse en el menú de Azure Monitor. La mayoría de los recursos escriben información operativa en un [registro de recursos](platform-logs-overview.md) que se puede reenviar a distintas ubicaciones. Los registros de Azure Monitor son una plataforma de datos de registro que recopila los registros de actividad y los registros de recursos, junto con otros datos de supervisión, para proporcionar un análisis profundo de todo el conjunto de recursos.
 
 
  Puede trabajar con [consultas de registro](../log-query/log-query-overview.md) de manera interactiva con [Log Analytics](../log-query/portals.md) en Azure Portal o agregar los resultados a un [panel de Azure](../learn/tutorial-app-dashboards.md) para su visualización en combinación con otros datos. También puede crear [alertas de registro](alerts-log.md), que desencadenarán una alerta según los resultados de una consulta de programación.
@@ -70,8 +70,8 @@ En la tabla siguiente se comparan las métricas y los registros de Azure Monitor
 | Atributo  | Métricas | Registros |
 |:---|:---|:---|
 | Ventajas | Ligero y capaz de escenarios casi en tiempo real, como la alerta. Ideal para la detección rápida de problemas. | Analizado con lenguaje de consulta enriquecido. Ideal para análisis profundo e identificación de la causa principal. |
-| Datos | Solo valores numéricos | Datos numéricos o texto |
-| sección Estructura | Conjunto estándar de propiedades, como el tiempo de muestra, el recurso supervisado, un valor numérico. Algunas métricas incluyen varias dimensiones para una mejor definición. | Conjunto único de propiedades que dependen del tipo de registro. |
+| data | Solo valores numéricos | Datos numéricos o texto |
+| Estructura | Conjunto estándar de propiedades, como el tiempo de muestra, el recurso supervisado, un valor numérico. Algunas métricas incluyen varias dimensiones para una mejor definición. | Conjunto único de propiedades que dependen del tipo de registro. |
 | Colección | Se recopila a intervalos regulares. | Se pueden recopilar esporádicamente cuando los eventos desencadenan un registro que se va a crear. |
 | Ver en Azure Portal | Explorador de métricas | Log Analytics |
 | Inclusión de orígenes de datos | Métricas de la plataforma recopiladas de recursos de Azure.<br>Aplicaciones supervisadas por Application Insights.<br>Personalización definida por la aplicación o API. | Registros de aplicaciones y recursos.<br>Soluciones de supervisión.<br>Agentes y extensiones de máquina virtual.<br>Solicitudes y excepciones de aplicación.<br>Azure Security Center.<br>API de recopilador de datos. |

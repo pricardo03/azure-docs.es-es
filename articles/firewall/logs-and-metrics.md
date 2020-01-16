@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: f233b1a60202b440abf34edd1c56eebaecba18e2
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1267b3295762f6eb6af92b1cec909bae768886c1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166987"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974517"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Métricas y registros de Azure Firewall
 
@@ -20,7 +20,7 @@ Puede supervisar Azure Firewall mediante los registros del firewall. También pu
 
 Se puede acceder a algunos de estos registros mediante el portal. Se pueden enviar registros a los [registros de Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), a Storage y a Event Hubs, y se pueden analizar en los registros de Azure Monitor o mediante otras herramientas como Excel y Power BI.
 
-Las métricas son ligeras y pueden admitir escenarios casi en tiempo real, lo que las hace útiles para alertas y detección rápida de problemas. 
+Las métricas son ligeras y pueden admitir escenarios casi en tiempo real, lo que las hace útiles para alertas y detección rápida de problemas.
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
 
@@ -33,7 +33,7 @@ Las métricas son ligeras y pueden admitir escenarios casi en tiempo real, lo qu
    ```
    Category: application rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -56,7 +56,7 @@ Las métricas son ligeras y pueden admitir escenarios casi en tiempo real, lo qu
    ```
    Category: network rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -83,7 +83,7 @@ Tiene tres opciones para almacenar los archivos de registro:
 
    Las entradas del registro de actividades se recopilan de forma predeterminada y se pueden ver en Azure Portal.
 
-   Puede usar el [registro de actividades de Azure](../azure-resource-manager/resource-group-audit.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a sus suscripciones de Azure.
+   Puede usar el [registro de actividades de Azure](../azure-resource-manager/management/view-activity-logs.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a sus suscripciones de Azure.
 
 ## <a name="metrics"></a>Métricas
 

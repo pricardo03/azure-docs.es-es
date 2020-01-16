@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: hamusa
-ms.openlocfilehash: 828f3078c992bed4fa556a374468e69dd58ebc04
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 75b2120b9fef904114d532e83d571c08e1a1034d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75494511"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772319"
 ---
 # <a name="dependency-visualization"></a>Visualización de dependencia
 
@@ -93,6 +93,6 @@ La visualización de dependencias requiere Service Map y un área de trabajo de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Agrupación de máquinas con dependencias de máquina](how-to-create-group-machine-dependencies.md)
-- [Más información](https://docs.microsoft.com/azure/migrate/resources-faq#what-is-dependency-visualization) sobre las preguntas más frecuentes sobre visualización de dependencias.
+- [Más información](common-questions-discovery-assessment.md#what-is-dependency-visualization) sobre las preguntas más frecuentes sobre visualización de dependencias.
 
 

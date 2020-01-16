@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
-ms.openlocfilehash: 5fc338e83c172e26d621ef89dcfb047d01d510fa
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: fa02ac0dfe229f3e82d1c1c62d83ca06a81efca6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091682"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887332"
 ---
 # <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>Escenario: el comando `hbase hbck` devuelve incoherencias en Azure HDInsight
 
@@ -26,7 +26,7 @@ La región xxx está en HDFS, pero no se muestra en `hbase:meta` ni está implem
 
 Varía.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 1. Corrija la tabla meta mediante la ejecución de lo siguiente:
 
@@ -49,7 +49,7 @@ La región xxx no está implementada en ningún RegionServer. Esto significa que
 
 Varía.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Ponga en línea las regiones mediante la ejecución de lo siguiente:
 
@@ -65,7 +65,7 @@ hbase hbck -ignorePreCheckPermission –fixAssignment
 
 Varía.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Combine manualmente las regiones superpuestas. Vaya a la sección de tabla de la interfaz de usuario web de HBase HMaster y seleccione el vínculo de tabla que tiene el problema. Verá la clave de inicio y de fin de cada región que pertenezca a esa tabla. Después, combine manualmente las regiones superpuestas. En el shell de HBase, establezca `merge_region 'xxxxxxxx','yyyyyyy', true`. Por ejemplo:
 
@@ -89,7 +89,7 @@ No se puede cargar `.regioninfo` para la región `/hbase/data/default/tablex/reg
 
 Lo más probable es que se deba a la eliminación parcial de la región cuando se bloquea RegionServer o se reinicia la máquina virtual. Actualmente, Azure Storage es un sistema de archivos de blobs sin formato y algunas operaciones de archivo no son atómicas.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Limpie manualmente los archivos y carpetas restantes:
 
@@ -109,4 +109,4 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 * Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

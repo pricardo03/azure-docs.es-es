@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: c72357b0e60f36082a468063ecf2bca329cd70be
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68d37bfbc629062a788ba32793b95c6f1653ff42
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355298"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749659"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guía de solución de problemas de Azure Security Center
 
@@ -44,7 +44,7 @@ Los clientes pueden compartir comentarios para la descripción de la alerta y la
 
 ## <a name="audit-log"></a>Registro de auditoría
 
-La mayoría de las soluciones de problemas en Security Center se realizan examinando primero el [registro de auditoría](../azure-monitor/platform/activity-logs-overview.md) del componente afectado. A través de los registros de auditoría puede determinar:
+La mayoría de las soluciones de problemas en Security Center se realizan examinando primero el [registro de auditoría](../azure-monitor/platform/platform-logs-overview.md) del componente afectado. A través de los registros de auditoría puede determinar:
 
 * Qué operaciones se han llevado a cabo
 * Quién inició la operación

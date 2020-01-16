@@ -3,16 +3,16 @@ title: 'Tutorial: Administración de gobernanza de etiquetas'
 description: En este tutorial, usará el efecto Modify de Azure Policy para crear y aplicar un modelo de gobernanza de etiquetas en los recursos nuevos y existentes.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: e3d6e279b293ea8063c690f9fb69a6f183b2838d
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 5e9cb9a4acb930c117374281a3debaeecce47110
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482264"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965998"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Administración de la gobernanza de etiquetas con Azure Policy
 
-Las [etiquetas](../../../azure-resource-manager/resource-group-using-tags.md) son una parte fundamental de la organización de los recursos de Azure en una taxonomía. Cuando se siguen [procedimientos recomendados para la administración de etiquetas](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), las etiquetas pueden ser la base para aplicar las directivas empresariales con Azure Policy o para realizar el [seguimiento de los costos con Cost Management](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+Las [etiquetas](../../../azure-resource-manager/management/tag-resources.md) son una parte fundamental de la organización de los recursos de Azure en una taxonomía. Cuando se siguen [procedimientos recomendados para la administración de etiquetas](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), las etiquetas pueden ser la base para aplicar las directivas empresariales con Azure Policy o para realizar el [seguimiento de los costos con Cost Management](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources).
 Independientemente de cómo o por qué use las etiquetas, es importante que pueda agregar, cambiar y quitar rápidamente estas etiquetas en los recursos de Azure.
 
 El efecto [Modify](../concepts/effects.md#modify) de Azure Policy está diseñado para ayudar en la gobernanza de las etiquetas, sin importar la fase de gobernanza de los recursos en la que se encuentre. **Modify** sirve de ayuda en las siguientes circunstancias:
@@ -28,7 +28,7 @@ En este tutorial, va a completar las siguientes tareas:
 > - Asignar cada requisito a una definición de directiva
 > - Agrupar las directivas de etiqueta en una iniciativa
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesitará una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -204,7 +204,7 @@ Si terminó de trabajar con los recursos de este tutorial, use los pasos siguien
 
 1. Haga clic con el botón derecho en la fila o seleccione los puntos suspensivos al final de la definición (o asignación) y elija **Eliminar definición** (o **Eliminar asignación** ).
 
-## <a name="review"></a>Revisión
+## <a name="review"></a>Revisar
 
 En este tutorial ha obtenido información sobre las siguientes tareas:
 

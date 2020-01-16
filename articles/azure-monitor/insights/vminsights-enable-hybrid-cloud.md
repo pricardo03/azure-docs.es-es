@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 40d89dd675e063283d1ed90cf145575b8164e4e5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0afc67bf6d9e997ef615ecadc6836b36ed73e2ea
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400701"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969682"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Habilitar Azure Monitor para VM (versión preliminar) para un entorno híbrido
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-En este artículo se explica cómo habilitar Azure Monitor para VM (versión preliminar) para máquinas virtuales o equipos físicos hospedados en el centro de datos o en otro entorno en la nube. Al final de este proceso, habrá empezado a supervisar todas las máquinas virtuales de su entorno y a aprender si están experimentando problemas de rendimiento o disponibilidad. 
+En este artículo se explica cómo habilitar Azure Monitor para VM (versión preliminar) para máquinas virtuales o equipos físicos hospedados en el centro de datos o en otro entorno en la nube. Al final de este proceso, habrá empezado a supervisar todas las máquinas virtuales de su entorno y a aprender si están experimentando problemas de rendimiento o disponibilidad.
 
 Antes de comenzar, asegúrese de revisar los [requisitos previos](vminsights-enable-overview.md) y compruebe que su suscripción y sus recursos los cumplen. Revise los requisitos y los métodos de implementación para el [Agente Linux y Windows de Log Analytics](../../log-analytics/log-analytics-agent-overview.md).
 
@@ -121,7 +121,7 @@ configuration ServiceMap {
     Node localhost
     {
         # Download and install the Dependency agent
-        xRemoteFile DAPackage 
+        xRemoteFile DAPackage
         {
             Uri = "https://aka.ms/dependencyagentwindows"
             DestinationPath = $DAPackageLocalPath
@@ -154,8 +154,8 @@ Si el área de trabajo de Log Analytics a la que la solución hace referencia no
 Este método incluye una plantilla JSON que especifica la configuración para habilitar los componentes de la solución en el área de trabajo de Log Analytics.
 
 Si no sabe cómo implementar los recursos mediante una plantilla, consulte:
-* [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
+* [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
 Para usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecuta la versión 2.0.27 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Para instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -232,13 +232,13 @@ Si la instalación del agente de dependencia se completó correctamente, pero no
 
 1. ¿Se ha instalado Dependency Agent correctamente? Para validarlo, compruebe si el servicio está instalado y se ejecuta.
 
-    **Windows**: Busque el servicio llamado "Microsoft Dependency Agent". 
+    **Windows**: Busque el servicio llamado "Microsoft Dependency Agent".
 
     **Linux**: Busque el proceso en ejecución "microsoft-dependency-agent".
 
 2. ¿Está en el [plan de tarifa gratuito de Log Analytics ](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? El plan gratuito permite hasta cinco equipos únicos. Ningún equipo posterior aparecerá en la asignación, incluso si los cinco anteriores ya no envían datos.
 
-3. ¿El equipo envía datos de registro y de rendimiento a los registros de Azure Monitor? Realice la consulta siguiente para el equipo: 
+3. ¿El equipo envía datos de registro y de rendimiento a los registros de Azure Monitor? Realice la consulta siguiente para el equipo:
 
     ```Kusto
     Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
@@ -248,7 +248,7 @@ Si la instalación del agente de dependencia se completó correctamente, pero no
 
 #### <a name="computer-appears-on-the-map-but-has-no-processes"></a>El equipo aparece en la asignación, pero no tiene ningún proceso
 
-Si ve el servidor en el mapa, pero no tienen datos de procesos ni de conexión, eso indica que Dependency Agent está instalado y se está ejecutando, pero el controlador del kernel no se cargó. 
+Si ve el servidor en el mapa, pero no tienen datos de procesos ni de conexión, eso indica que Dependency Agent está instalado y se está ejecutando, pero el controlador del kernel no se cargó.
 
 Revise el archivo C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log (Windows) o el archivo /var/opt/microsoft/dependency-agent/log/service.log (Linux). Las últimas líneas del archivo deben indicar por qué no se cargó el kernel. Por ejemplo, es posible que el kernel no sea compatible con Linux si actualizó el kernel.
 
@@ -256,7 +256,7 @@ Revise el archivo C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log (
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que la supervisión está habilitada para las máquinas virtuales, esta información está disponible para analizarse con Azure Monitor para VM.
- 
+
 - Para ver las dependencias de las aplicaciones detectadas, consulte [Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación](vminsights-maps.md).
 
 - Para identificar los cuellos de botella y el uso general con el rendimiento de la máquina virtual, vea [Cómo representar el rendimiento en gráficos con Azure Monitor para VM (versión preliminar)](vminsights-performance.md).

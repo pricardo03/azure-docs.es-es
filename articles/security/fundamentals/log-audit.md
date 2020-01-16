@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: f53c7e7b045805a28223fb5670afc45c980454bc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bd0f42507e22559690e2682a391c53b9c090aa6c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498391"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750792"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Registro y auditoría de seguridad de Azure
 
@@ -38,9 +38,9 @@ Las aplicaciones de nube son complejas y tienen muchas partes móviles. Los dato
 - Automatizar acciones que, de otro modo, requerirían intervención manual
 
 Los registros de Azure se clasifican en los tipos siguientes:
-* Los **registros de control y administración** proporcionan información sobre las operaciones CREATE, UPDATE y DELETE de Azure Resource Manager. Para más información, consulte [Registros de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md).
+* Los **registros de control y administración** proporcionan información sobre las operaciones CREATE, UPDATE y DELETE de Azure Resource Manager. Para más información, consulte [Registros de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
-* Los **registros del plano de datos** proporcionan información sobre los eventos desencadenados como parte del uso de los recursos de Azure. Ejemplos de este tipo de registro son los registros de eventos del sistema de Windows, de seguridad y de aplicaciones en una máquina virtual, así como los [registros de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md) que se han configurado mediante Azure Monitor.
+* Los **registros del plano de datos** proporcionan información sobre los eventos desencadenados como parte del uso de los recursos de Azure. Ejemplos de este tipo de registro son los registros de eventos del sistema de Windows, de seguridad y de aplicaciones en una máquina virtual, así como los [registros de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md) que se han configurado mediante Azure Monitor.
 
 * Los **eventos procesados** proporcionan información sobre eventos y alertas analizados que se han procesado en su nombre. Ejemplos de este tipo son las [alertas de Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md), donde [Azure Security Center](../../security-center/security-center-intro.md) ha procesado y analizado su suscripción y proporciona unas alertas de seguridad concisas.
 
@@ -48,8 +48,8 @@ En la tabla siguiente se enumeran los tipos más importante de registros disponi
 
 | Categoría del registro | Tipo de registro | Uso | Integración |
 | ------------ | -------- | ------ | ----------- |
-|[Registros de actividad](../../azure-monitor/platform/activity-logs-overview.md)|Eventos de plano de control de los recursos de Azure Resource Manager|  Proporciona información detallada sobre las operaciones que se realizaron en los recursos de la suscripción.|    API REST y [Azure Monitor](../../azure-monitor/platform/activity-logs-overview.md)|
-|[Registros de recursos de Azure](../../azure-monitor/platform/resource-logs-overview.md)|Datos frecuentes acerca del funcionamiento de los recursos de Azure Resource Manager de la suscripción|   Proporciona información detallada sobre las operaciones que el mismo recurso realiza.| Azure Monitor|
+|[Registros de actividad](../../azure-monitor/platform/platform-logs-overview.md)|Eventos de plano de control de los recursos de Azure Resource Manager|  Proporciona información detallada sobre las operaciones que se realizaron en los recursos de la suscripción.|    API REST y [Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md)|
+|[Registros de recursos de Azure](../../azure-monitor/platform/platform-logs-overview.md)|Datos frecuentes acerca del funcionamiento de los recursos de Azure Resource Manager de la suscripción|   Proporciona información detallada sobre las operaciones que el mismo recurso realiza.| Azure Monitor|
 |[Informes de Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md)|Registros e informes | Informa sobre las actividades de inicio de sesión de usuario e información de actividades del sistema acerca de la administración de grupos y usuarios.|[Graph API](../../active-directory/develop/active-directory-graph-api-quickstart.md)|
 |[Máquinas virtuales y servicios en la nube](../../azure-monitor/learn/quick-collect-azurevm.md)|Servicio de Registro de eventos de Windows y Syslog de Linux|  Captura los datos del sistema y los datos de registro en las máquinas virtuales, y transfiere estos datos a la cuenta de almacenamiento que elija.|   Windows con [WAD](../../monitoring-and-diagnostics/azure-diagnostics.md) (almacenamiento de Windows Azure Diagnostics) y Linux en Azure Monitor|
 |[Análisis de Azure Storage](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|El registro de almacenamiento proporciona datos de métricas de una cuenta de almacenamiento|Proporciona información detallada sobre seguimiento de solicitudes, análisis de tendencias de uso y diagnóstico de problemas con la cuenta de almacenamiento.|   API de REST o [biblioteca de cliente](https://msdn.microsoft.com/library/azure/mt347887.aspx)|

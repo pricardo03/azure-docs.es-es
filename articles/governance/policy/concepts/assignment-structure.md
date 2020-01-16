@@ -3,12 +3,12 @@ title: Detalles de la estructura de asignaciones de directivas
 description: Describe la definición de asignación de directiva utilizada por Azure Policy para relacionar las definiciones de directiva y los parámetros con los recursos para su evaluación.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5f6b097b82d31926b7b5d3099d1f3f23669e78c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436376"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747203"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estructura de asignaciones de Azure Policy
 
@@ -55,7 +55,7 @@ Use **displayName** y **description** para identificar la asignación de directi
 
 ## <a name="enforcement-mode"></a>Modo de cumplimiento
 
-La propiedad **enforcementMode** proporciona a los clientes la capacidad de probar el resultado de una directiva en los recursos existentes sin necesidad de iniciar el efecto de la directiva ni de desencadenar entradas en el [registro de actividad de Azure](../../../azure-monitor/platform/activity-logs-overview.md). Este escenario se conoce comúnmente como "What If" y se alinea con las prácticas de implementación segura. **enforcementMode** es diferente del efecto [Deshabilitado](./effects.md#disabled), ya que ese efecto evita que se produzca la evaluación de recursos.
+La propiedad **enforcementMode** proporciona a los clientes la capacidad de probar el resultado de una directiva en los recursos existentes sin necesidad de iniciar el efecto de la directiva ni de desencadenar entradas en el [registro de actividad de Azure](../../../azure-monitor/platform/platform-logs-overview.md). Este escenario se conoce comúnmente como "What If" y se alinea con las prácticas de implementación segura. **enforcementMode** es diferente del efecto [Deshabilitado](./effects.md#disabled), ya que ese efecto evita que se produzca la evaluación de recursos.
 
 Esta propiedad tiene los siguientes valores:
 

@@ -10,16 +10,16 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/06/2019
-ms.openlocfilehash: adfcd79d209f98b664f18b89ceea65bdc84f36dc
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: bbc62aa153e6ecb5d9ae65c37392c2697b9beaa2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535620"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979718"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Machine Learning
 
-Obtenga información sobre los datos y los recursos recopilados por Azure Monitor de su área de trabajo de Azure Machine Learning. Consulte [Supervisión de Azure Machine Learning](service/monitor-azure-machine-learning.md) para obtener más información sobre la recopilación y el análisis de datos de supervisión.
+Obtenga información sobre los datos y los recursos recopilados por Azure Monitor de su área de trabajo de Azure Machine Learning. Consulte [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md) para obtener más información sobre la recopilación y el análisis de datos de supervisión.
 
 ## <a name="resource-logs"></a>Registros del recurso
 
@@ -194,5 +194,5 @@ Los valores válidos para la dimensión RunType son:
 
 ## <a name="see-also"></a>Consulte también
 
-- Consulte [Supervisión de Azure Machine Learning](service/monitor-azure-machine-learning.md) para obtener una descripción de la supervisión de Azure Machine Learning.
+- Consulte [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md) para obtener una descripción de la supervisión de Azure Machine Learning.
 - Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource).

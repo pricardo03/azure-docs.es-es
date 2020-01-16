@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 06/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 4162775153a48dc8ea28e06f7c99f9927b9c602a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8280bb057edea5697b8fa3248ddf755376f62c49
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444774"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978245"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Service Bus mediante una plantilla de Azure Resource Manager
 
@@ -82,9 +82,9 @@ Write-Host "Press [ENTER] to continue ..."
 
 En este tutorial se usa Azure PowerShell para implementar la plantilla. Para otros métodos de implementación de plantillas, consulte:
 
-* [Mediante Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
-* [Mediante la CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md).
-* [Mediante la API REST](../azure-resource-manager/resource-group-template-deploy-rest.md).
+* [Mediante Azure Portal](../azure-resource-manager/templates/deploy-portal.md).
+* [Mediante la CLI de Azure](../azure-resource-manager/templates/deploy-cli.md).
+* [Mediante la API REST](../azure-resource-manager/templates/deploy-rest.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

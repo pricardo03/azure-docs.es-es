@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 8cb328c36a1120e5a30732c36e53d9669fc6a67c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: e99a0e8e42bcfb5c7967a9cb1c91631bacbea53a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530874"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980070"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Archivado de registros de recurso de Azure en la cuenta de almacenamiento
-Los [registros de plataforma](resource-logs-overview.md) en Azure, incluidos los registros de recurso y los registros de actividad de Azure, proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma de Azure de la que dependen.  En este artículo se describe la recopilación de registros de plataforma en una cuenta de almacenamiento de Azure para conservar los datos para su archivado.
+Los [registros de plataforma](platform-logs-overview.md) en Azure, incluidos los registros de recurso y los registros de actividad de Azure, proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma de Azure de la que dependen.  En este artículo se describe la recopilación de registros de plataforma en una cuenta de almacenamiento de Azure para conservar los datos para su archivado.
 
 ## <a name="prerequisites"></a>Prerequisites
-Si no la tiene, puede crear una [cuenta de almacenamiento de Azure](../../storage/common/storage-quickstart-create-account.md). La cuenta de almacenamiento no tiene que estar en la misma suscripción que la del recurso que envía los registros, siempre que el usuario que realiza la configuración tenga el acceso RBAC adecuado a ambas suscripciones.
+Si no la tiene, puede crear una [cuenta de almacenamiento de Azure](../../storage/common/storage-account-create.md). La cuenta de almacenamiento no tiene que estar en la misma suscripción que la del recurso que envía los registros, siempre que el usuario que realiza la configuración tenga el acceso RBAC adecuado a ambas suscripciones.
 
 
 > [!IMPORTANT]
@@ -63,7 +63,7 @@ En el archivo PT1H.json, los eventos se almacenan con este formato; con un esque
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Más información sobre los registros de recurso](resource-logs-overview.md).
+* [Más información sobre los registros de recurso](platform-logs-overview.md).
 * [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](diagnostic-settings.md).
 * [Descargar blobs para el análisis](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 * [Archivar registros de Azure Active Directory con Azure Monitor](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).

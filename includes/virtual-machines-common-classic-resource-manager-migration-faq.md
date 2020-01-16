@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: c8629975d375dda32fdd9aee42b4ae09069a2049
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: a7a3c6edbbeca96a90f8003fda1b92fc8bf99fec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005410"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021144"
 ---
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>¿Afecta este plan de migración a alguno de los servicios o las aplicaciones existentes que se ejecutan en máquinas virtuales de Azure? 
 
@@ -21,7 +21,7 @@ No. Las máquinas virtuales (clásicas) son servicios totalmente compatibles en 
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>¿Qué ocurre con mis máquinas virtuales si por ahora no tengo planeado migrar? 
 
-Las API y el modelo de recursos clásicos existentes no van a quedar en desuso. Queremos facilitar la migración, dadas las características avanzadas disponibles en el modelo de implementación de Resource Manager. Es muy recomendable que repase [algunos de los avances realizados](../articles/azure-resource-manager/resource-manager-deployment-model.md) como parte de IaaS en Resource Manager.
+Las API y el modelo de recursos clásicos existentes no van a quedar en desuso. Queremos facilitar la migración, dadas las características avanzadas disponibles en el modelo de implementación de Resource Manager. Es muy recomendable que repase [algunos de los avances realizados](../articles/azure-resource-manager/management/deployment-models.md) como parte de IaaS en Resource Manager.
 
 ## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>¿Qué supone este plan de migración para las herramientas existentes? 
 
@@ -52,7 +52,7 @@ Durante la migración, los recursos se transforman del modelo clásico al de Res
 <a name="vault">Cuando</a> traslade una máquina virtual del modo clásico al de Resource Manager, las copias de seguridad realizadas antes de la migración no migrarán a la máquina virtual de Resource Manager recién migrada. Sin embargo, si quiere mantener las copias de seguridad de las máquinas virtuales clásicas, siga estos pasos antes de la migración. 
 
 1. En el almacén de Recovery Services, vaya a la pestaña **Elementos protegidos** y seleccione la máquina virtual. 
-2. Haga clic en Stop Protection (Detener protección). Deje la opción *Eliminar los datos de copia de seguridad asociados* **desactivada**.
+2. Haga clic en Stop Protection (Detener protección). Deje la opción *Eliminar los datos de copia de seguridad asociados***desactivada**.
 
 > [!NOTE]
 > Se le cobrará el costo de la instancia de la copia de seguridad hasta que retenga los datos. Las copias de seguridad se eliminarán según el intervalo de retención. Sin embargo, siempre se conserva la última copia de seguridad hasta que elimina explícitamente los datos de copia de seguridad. Se recomienda comprobar el intervalo de retención de la máquina virtual y el desencadenador "Eliminar datos de copia de seguridad" en el elemento protegido en el almacén una vez finalizado el intervalo de retención. 

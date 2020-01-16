@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 794f4ad5bba46af53280d35b55b762b9eef8e1a1
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: aa2f3481b63c98ec23e1db8213939278684a4cd6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675249"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977642"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Solución de problemas de alertas de registro en Azure Monitor  
 
-En este artículo se muestra cómo solucionar problemas habituales que pueden surgir al configurar las alertas de registro en Azure Monitor. Además, se proporcionan soluciones a los problemas comunes sobre la funcionalidad o la configuración de las alertas de registro. 
+En este artículo se muestra cómo solucionar problemas habituales que pueden surgir al configurar las alertas de registro en Azure Monitor. Además, se proporcionan soluciones a los problemas comunes sobre la funcionalidad o la configuración de las alertas de registro.
 
 El término *alertas de registro* describe las reglas que se desencadenan en función de una consulta de registros en un [área de trabajo de Azure Log Analytics](../learn/tutorial-viewdata.md) o en [Azure Application Insights](../../azure-monitor/app/analytics.md). Obtenga más información acerca de la funcionalidad, la terminología y los tipos en [Alertas de registro en Azure Monitor](../platform/alerts-unified-log.md).
 
@@ -26,17 +26,17 @@ El término *alertas de registro* describe las reglas que se desencadenan en fun
 
 ## <a name="log-alert-didnt-fire"></a>No se activó la alerta de registro
 
-Estas son algunas causas habituales por las que el estado de una [regla de alerta de registro en Azure Monitor](../platform/alerts-log.md) configurada no se muestra [como *desencadenada* cuando se espera](../platform/alerts-managing-alert-states.md). 
+Estas son algunas causas habituales por las que el estado de una [regla de alerta de registro en Azure Monitor](../platform/alerts-log.md) configurada no se muestra [como *desencadenada* cuando se espera](../platform/alerts-managing-alert-states.md).
 
 ### <a name="data-ingestion-time-for-logs"></a>Tiempo de ingesta de datos para registros
 
 La alerta de registro ejecuta periódicamente la consulta basada en [Log Analytics](../learn/tutorial-viewdata.md) o [Application Insights](../../azure-monitor/app/analytics.md). Dado que Azure Monitor procesa muchos terabytes de datos de miles de clientes desde diferentes orígenes en todo el mundo, el servicio es susceptible de sufrir retrasos variables. Para obtener más información, consulte [Tiempo de la ingesta de datos de registro en Azure Monitor](../platform/data-ingestion-time.md).
 
-Para mitigar los retrasos, el sistema espera y vuelve a intentar la consulta de alerta varias veces si detecta que aún no se han ingerido los datos necesarios. El sistema tiene un tiempo de espera establecido que aumenta exponencialmente. La alerta de registro solo se desencadena una vez que los datos están disponibles, por lo que el retraso puede deberse a una ingesta de datos de registro lenta. 
+Para mitigar los retrasos, el sistema espera y vuelve a intentar la consulta de alerta varias veces si detecta que aún no se han ingerido los datos necesarios. El sistema tiene un tiempo de espera establecido que aumenta exponencialmente. La alerta de registro solo se desencadena una vez que los datos están disponibles, por lo que el retraso puede deberse a una ingesta de datos de registro lenta.
 
 ### <a name="incorrect-time-period-configured"></a>Período de tiempo configurado incorrectamente
 
-Como se describe en el artículo sobre la [terminología para alertas de registro](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types), el período de tiempo que se indica en la configuración especifica el intervalo de tiempo para la consulta. La consulta devuelve solo los registros que se crearon dentro de este intervalo. 
+Como se describe en el artículo sobre la [terminología para alertas de registro](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types), el período de tiempo que se indica en la configuración especifica el intervalo de tiempo para la consulta. La consulta devuelve solo los registros que se crearon dentro de este intervalo.
 
 El período restringe los datos capturados para una consulta de registros, con el fin de evitar abusos, y evita todos los comandos de tiempo (como **ago**) utilizados en la consulta de registros. Por ejemplo, si el período se establece en 60 minutos, y la consulta se ejecuta a la 1:15 p. m., los registros creados entre las 12:15 p. m. y la 1:15 p. m. son los únicos que se usan para la consulta de registros. Si la consulta de registros usa un comando de tiempo como **ago (1d)** , seguirá utilizando solo los datos entre las 12:15 p. m. y la 1:15 p. m., ya que el período está establecido en ese intervalo.
 
@@ -52,9 +52,9 @@ Como se describe en el paso 8 del artículo sobre cómo [crear una regla de aler
 
 ### <a name="metric-measurement-alert-rule-is-incorrect"></a>Regla de alertas de unidades métricas
 
-*Las alertas de registro de unidades métricas* constituyen un subtipo de alertas de registro que tienen funcionalidades especiales y una sintaxis de consulta de alerta restringida. Una regla para una alerta de registro de unidades métricas requiere que el resultado de la consulta sea una serie temporal métrica. Es decir, el resultado es una tabla con períodos de tiempo distintos, de igual tamaño, junto con los valores agregados correspondientes. 
+*Las alertas de registro de unidades métricas* constituyen un subtipo de alertas de registro que tienen funcionalidades especiales y una sintaxis de consulta de alerta restringida. Una regla para una alerta de registro de unidades métricas requiere que el resultado de la consulta sea una serie temporal métrica. Es decir, el resultado es una tabla con períodos de tiempo distintos, de igual tamaño, junto con los valores agregados correspondientes.
 
-Puede optar por tener variables adicionales en la tabla junto con **AggregatedValue**. Estas variables se pueden usar para ordenar la tabla. 
+Puede optar por tener variables adicionales en la tabla junto con **AggregatedValue**. Estas variables se pueden usar para ordenar la tabla.
 
 Por ejemplo, suponga que se ha configurado una regla para una alerta de registro de unidades métricas como:
 
@@ -68,9 +68,9 @@ Dado que el comando incluye **summarize ... by** (resumir … por) y se han prop
 
 ![Ejecución de consultas de unidades métricas con varios valores](media/alert-log-troubleshoot/LogMMQuery.png)
 
-Dado que **Aggregate Upon** está definido en **$table**, los datos se ordenan en una columna **$table** (se indica en rojo). A continuación, se agrupan y buscan los tipos de campo **Aggregate Upon**. 
+Dado que **Aggregate Upon** está definido en **$table**, los datos se ordenan en una columna **$table** (se indica en rojo). A continuación, se agrupan y buscan los tipos de campo **Aggregate Upon**.
 
-Por ejemplo, para **$table**, los valores de **availabilityResults** se considerarán un trazado o una entidad (se indica en naranja). En el trazado o la entidad de este valor, el servicio de alerta busca tres infracciones consecutivas (se indican en verde). Las infracciones desencadenan una alerta para el valor de la tabla **availabilityResults**. 
+Por ejemplo, para **$table**, los valores de **availabilityResults** se considerarán un trazado o una entidad (se indica en naranja). En el trazado o la entidad de este valor, el servicio de alerta busca tres infracciones consecutivas (se indican en verde). Las infracciones desencadenan una alerta para el valor de la tabla **availabilityResults**.
 
 De forma similar, si se producen tres infracciones consecutivas para cualquier otro valor de **$table**, se desencadena otra notificación de alerta para el mismo fin. El servicio de alertas ordena automáticamente los valores en un trazado o una entidad (se indica en naranja) por tiempo.
 
@@ -91,7 +91,7 @@ Una [regla de alertas de registro en Azure Monitor](../platform/alerts-log.md) c
 
 Log Analytics y Application Insights están sujetos al procesamiento y a retrasos de ingesta. Al ejecutar una consulta de alerta de registro, es posible que encuentre que no hay datos disponibles o que solo algunos datos estén disponibles. Para obtener más información, consulte [Tiempo de la ingesta de datos de registro en Azure Monitor](../platform/data-ingestion-time.md).
 
-En función de cómo configure la regla de alertas, puede producirse una activación incorrecta si no hay ningún dato en los registros, o los datos que hay son parciales, en el momento de la ejecución de la alerta. En tales casos, se recomienda cambiar la configuración o la consulta de alerta. 
+En función de cómo configure la regla de alertas, puede producirse una activación incorrecta si no hay ningún dato en los registros, o los datos que hay son parciales, en el momento de la ejecución de la alerta. En tales casos, se recomienda cambiar la configuración o la consulta de alerta.
 
 Por ejemplo, si la regla de alertas de registro se configura para desencadenarse cuando el número de resultados de una consulta de Analytics sea menor que 5, la alerta se desencadenará cuando no haya datos (cero registros) o los resultados sean parciales (un registro). Sin embargo, después del retraso de la ingesta de datos, la misma consulta con todos los datos podría proporcionar un resultado de 10 registros.
 
@@ -111,7 +111,7 @@ En las siguientes secciones se enumeran algunos de los motivos por los que Azure
 
 Las reglas de alertas de registro creadas en Azure Monitor están destinadas a un recurso específico, como un área de trabajo de Azure Log Analytics, una aplicación de Azure Application Insights y un recurso de Azure. A continuación, el servicio de alertas de registro ejecutará una consulta de Analytics proporcionada en la regla para el destino especificado. No obstante, tras la creación de la regla, los usuarios tienden a eliminarla de Azure, o a moverla en Azure (el destino de la regla de alertas de registro). Dado que el destino de la regla de alertas ya no es válido, se produce un error en la ejecución de la regla.
 
-En estos casos, Azure Monitor se deshabilita la alerta de registro y se asegura que no se le facture innecesariamente si la regla no se puede ejecutar continuamente durante un período cuantificable (por ejemplo, una semana). Puede averiguar la hora exacta en que Azure Monitor deshabilitó la alerta de registro a través del [registro de actividad de Azure](../../azure-resource-manager/resource-group-audit.md). En el registro de actividad de Azure, se agrega un evento cuando Azure Monitor deshabilita la regla de alertas de registro.
+En estos casos, Azure Monitor se deshabilita la alerta de registro y se asegura que no se le facture innecesariamente si la regla no se puede ejecutar continuamente durante un período cuantificable (por ejemplo, una semana). Puede averiguar la hora exacta en que Azure Monitor deshabilitó la alerta de registro a través del [registro de actividad de Azure](../../azure-resource-manager/management/view-activity-logs.md). En el registro de actividad de Azure, se agrega un evento cuando Azure Monitor deshabilita la regla de alertas de registro.
 
 El siguiente evento de ejemplo del registro de actividad de Azure es para una regla de alertas que se ha deshabilitado debido a un error continuo.
 
@@ -187,7 +187,7 @@ Cada regla de alertas de registro creada en Azure Monitor como parte de su confi
 
 [Azure Advisor](../../advisor/advisor-overview.md) le advierte acerca de este comportamiento. Se agregó una recomendación para la regla de alertas de registro específica en Azure Advisor, bajo la categoría de alta disponibilidad con un impacto medio y una descripción similar a "Reparar la regla de alertas de registro para garantizar la supervisión". Si una consulta de alerta de la regla de alertas de registro no se rectifica después de que Azure Advisor proporcione una recomendación durante siete días, Azure Monitor deshabilitará la alerta de registro y se asegurará de que no le facturen innecesariamente cuando la regla no pueda ejecutarse continuamente durante un período cuantificable (por ejemplo, una semana).
 
-Para averiguar la hora exacta en que Azure Monitor deshabilitó la regla de alertas de registro, puede buscar un evento en el [registro de actividad de Azure](../../azure-resource-manager/resource-group-audit.md).
+Para averiguar la hora exacta en que Azure Monitor deshabilitó la regla de alertas de registro, puede buscar un evento en el [registro de actividad de Azure](../../azure-resource-manager/management/view-activity-logs.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

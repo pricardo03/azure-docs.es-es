@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 4e95cc6a724c17402ed1ed0cda83377492787a3a
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: afd6ded6dc027e118694078f8b8eeadfe8dd80e4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644926"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981475"
 ---
 # <a name="azure-devtest-labs-faq"></a>Preguntas más frecuentes sobre Azure DevTest Labs
 En este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre Azure DevTest Labs.
@@ -46,13 +46,13 @@ Nuestro identificador de Twitter: [@azlabservices](https://twitter.com/azlabserv
 ### <a name="what-if-my-question-isnt-answered-here"></a>Mi pregunta no está respondida aquí. ¿Qué debo hacer?
 Si su pregunta no aparece aquí, háganoslo saber para que podamos ayudarlo a encontrar una respuesta.
 
-- Publique una pregunta al final de este documento. 
+- Publique una pregunta al final de este documento.
 - Para llegar a un público más amplio, publique una pregunta en el [foro de MSDN de Azure DevTest Labs](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Póngase en contacto con el equipo de Azure DevTest Labs y otros miembros de la comunidad.
 - Para solicitudes de características, envíe sus solicitudes e ideas al sitio [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
 ### <a name="what-is-a-microsoft-account"></a>¿Qué es una cuenta Microsoft?
 Usa una cuenta de Microsoft para casi todo lo que hace con los servicios y los dispositivos de Microsoft. Es una dirección de correo electrónico y una contraseña que utiliza para iniciar sesión en Skype, Outlook.com, OneDrive, Windows Phone y Xbox Live. Tener una sola cuenta significa que puede disponer de los archivos, fotografías, contactos y configuración desde cualquier dispositivo.
- 
+
 > [!NOTE]
 > La cuenta de Microsoft antes se llamaba Windows Live ID.
 
@@ -145,18 +145,18 @@ En última instancia, es necesario aplicar el mismo tipo de restricciones en tod
 ## <a name="lab-configuration"></a>Configuración del laboratorio
 
 ### <a name="how-do-i-create-a-lab-from-a-resource-manager-template"></a>¿Cómo se crea un laboratorio a partir de una plantilla de Resource Manager?
-Hemos ofrecido un [repositorio de GitHub de plantillas de Azure Resource Manager para laboratorios](https://azure.microsoft.com/resources/templates/101-dtl-create-lab) que se pueden implementar tal cual o modificar para crear plantillas personalizadas para los laboratorios. Cada plantilla tiene un vínculo para implementar el laboratorio tal cual está en su propia suscripción de Azure. O bien, puede personalizar la plantilla e [implementarla con PowerShell o la CLI de Azure](../azure-resource-manager/resource-group-template-deploy.md).
+Hemos ofrecido un [repositorio de GitHub de plantillas de Azure Resource Manager para laboratorios](https://azure.microsoft.com/resources/templates/101-dtl-create-lab) que se pueden implementar tal cual o modificar para crear plantillas personalizadas para los laboratorios. Cada plantilla tiene un vínculo para implementar el laboratorio tal cual está en su propia suscripción de Azure. O bien, puede personalizar la plantilla e [implementarla con PowerShell o la CLI de Azure](../azure-resource-manager/templates/deploy-powershell.md).
 
 
-### <a name="can-i-have-all-virtual-machines-to-be-created-in-a-common-resource-group-instead-having-each-machine-in-its-own-resource-group"></a>¿Es posible tener todas las máquinas virtuales que se van a crear en un grupo de recursos común en lugar de tener cada máquina en su propio grupo de recursos? 
-Sí, como propietario de laboratorio, puede permitir que el laboratorio controle la asignación del grupo de recursos automáticamente o tener todas las máquinas virtuales creadas en un grupo de recursos común que especifique. 
+### <a name="can-i-have-all-virtual-machines-to-be-created-in-a-common-resource-group-instead-having-each-machine-in-its-own-resource-group"></a>¿Es posible tener todas las máquinas virtuales que se van a crear en un grupo de recursos común en lugar de tener cada máquina en su propio grupo de recursos?
+Sí, como propietario de laboratorio, puede permitir que el laboratorio controle la asignación del grupo de recursos automáticamente o tener todas las máquinas virtuales creadas en un grupo de recursos común que especifique.
 
 Escenario del grupo de recursos independiente:
 -   DevTest Labs crea un nuevo grupo de recursos para todas las máquinas virtuales de IP pública o privada que establezca.
 -   DevTest Labs crea un grupo de recursos para máquinas de IP compartida que pertenecen al mismo tamaño.
 
 Escenario del grupo de recursos común:
--   Todas las máquinas virtuales se establecen en el grupo de recursos común que especifique. Obtenga más información en el artículo sobre la [asignación del grupo de recursos para el laboratorio](https://aka.ms/RGControl). 
+-   Todas las máquinas virtuales se establecen en el grupo de recursos común que especifique. Obtenga más información en el artículo sobre la [asignación del grupo de recursos para el laboratorio](https://aka.ms/RGControl).
 
 ### <a name="how-do-i-maintain-a-naming-convention-across-my-devtest-labs-environment"></a>¿Cómo se puede mantener una convención de nomenclatura en un entorno de DevTest Labs?
 Es posible que desee ampliar las convenciones de nomenclatura empresariales actuales para las operaciones de Azure y que sean coherentes en todo el entorno de DevTest Labs. Al implementar DevTest Labs, se recomienda que tenga directivas específicas de partida. Implemente estas directivas mediante plantillas JSON y un script central para garantizar la coherencia. Las directivas de nomenclatura se pueden implementar mediante directivas de Azure aplicadas a nivel de suscripción. Para consultar ejemplos de JSON para Azure Policy, vea [Ejemplos de Azure Policy](../governance/policy/samples/index.md).
@@ -196,7 +196,7 @@ Cuando crea una máquina virtual en DevTest Labs, se le otorgan permisos para ac
 Tiene dos opciones para crear al mismo tiempo varias máquinas virtuales desde la misma plantilla:
 
 - Puede usar la [extensión Tareas de Azure DevOps](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
-- Puede [generar una plantilla de Resource Manager](devtest-lab-add-vm.md#save-azure-resource-manager-template) mientras crea una máquina virtual e [implementar la plantilla de Resource Manager desde Windows PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+- Puede [generar una plantilla de Resource Manager](devtest-lab-add-vm.md#save-azure-resource-manager-template) mientras crea una máquina virtual e [implementar la plantilla de Resource Manager desde Windows PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 - También puede especificar más de una instancia de una máquina que se va a crear durante la creación de la máquina virtual. Para obtener más información sobre cómo crear varias instancias de máquinas virtuales, consulte la documentación sobre cómo [crear una máquina virtual de laboratorio](devtest-lab-add-vm.md).
 
 ### <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>¿Cómo se pueden mover las máquinas virtuales de Azure existentes a mi laboratorio de DevTest Labs?
@@ -252,7 +252,7 @@ foreach($labVM in $labVMs)
 }
 ```
 
-## <a name="environments"></a>Entornos 
+## <a name="environments"></a>Entornos
 
 ### <a name="how-can-i-use-resource-manager-templates-in-my-devtest-labs-environment"></a>¿Cómo se pueden usar plantillas de Resource Manager en un entorno de DevTest Labs?
 Para implementar las plantillas de Resource Manager en un entorno de DevTest Labs, aplique los pasos mencionados en el artículo sobre la [característica de entornos de DevTest Labs](devtest-lab-test-env.md). Básicamente, consulte las plantillas de Resource Manager en un repositorio de GIT (Azure Repos o GitHub) y agregue un [repositorio privado para las plantillas](devtest-lab-test-env.md) al laboratorio. Este escenario puede no ser útil si usa DevTest Labs para hospedar máquinas de desarrollo, pero sí puede serlo si va a crear un entorno de ensayo, que es representativo de producción.
@@ -264,7 +264,7 @@ También merece la pena tener en cuenta que el número de máquinas virtuales po
 ### <a name="how-can-i-set-up-an-easily-repeatable-process-to-bring-my-custom-organizational-images-into-a-devtest-labs-environment"></a>¿Cómo se configura un proceso repetible fácilmente para incorporar imágenes de la organización personalizadas en un entorno de DevTest Labs?
 Vea este [vídeo sobre el patrón de un generador de imágenes](https://sec.ch9.ms/ch9/8e8a/9ea0b8d4-b803-4f23-bca4-4808d9368e8a/dtlimagefactory_mid.mp4). Este escenario es un escenario avanzado, y los scripts se proporcionan solo como ejemplo. Si se requieren cambios, deberá administrar y mantener los scripts usados en su entorno.
 
-Para obtener información detallada sobre cómo crear un generador de imágenes, consulte [Creación de un generador de imágenes personalizadas en Azure DevTest Labs](image-factory-create.md). 
+Para obtener información detallada sobre cómo crear un generador de imágenes, consulte [Creación de un generador de imágenes personalizadas en Azure DevTest Labs](image-factory-create.md).
 
 ### <a name="what-is-the-difference-between-a-custom-image-and-a-formula"></a>¿Cuál es la diferencia entre una imagen personalizada y una fórmula?
 Una imagen personalizada es una imagen administrada. Una fórmula es una imagen que puede configurar con opciones adicionales y, a continuación, guardar y reproducir. Si lo que quiere es crear rápidamente varios entornos con la misma imagen básica inmutable, puede ser preferible una imagen personalizada. En cambio, si desea reproducir la configuración de la máquina virtual con los últimos bits, como parte de una red o una subred virtual, o como máquina virtual de un tamaño específico, es mejor una fórmula. Para una explicación más detallada, consulte [Comparación de imágenes personalizadas y fórmulas en DevTest Labs](devtest-lab-comparing-vm-base-image-types.md).
@@ -343,19 +343,19 @@ Las siguientes entradas de blog proporcionan orientación e información sobre e
 - [Deploy a new VM in an existing DevTest Labs lab from Azure DevOps Services](https://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS) (Implementación de una nueva máquina virtual en un laboratorio de DevTest Labs existente desde Azure DevOps Services)
 - [Using Azure DevOps Services release management for continuous deployments to Dev Test Labs](https://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs) (Uso de la administración de versiones de Azure DevOps Services para implementaciones continuas en Dev Test Labs)
 
-Para otras cadenas de herramientas de entrega continua (CD) o integración continua (CI), puede lograr los mismos escenarios implementando [plantillas de Azure Resource Manager](https://azure.microsoft.com/resources/templates/) mediante [cmdlets de Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) y [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). También puede usar las [API de REST para DevTest Labs](https://aka.ms/dtlrestapis) a fin de integrarlas con su cadena de herramientas.
+Para otras cadenas de herramientas de entrega continua (CD) o integración continua (CI), puede lograr los mismos escenarios implementando [plantillas de Azure Resource Manager](https://azure.microsoft.com/resources/templates/) mediante [cmdlets de Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) y [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). También puede usar las [API de REST para DevTest Labs](https://aka.ms/dtlrestapis) a fin de integrarlas con su cadena de herramientas.
 
 ## <a name="networking"></a>Redes
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>¿Cuándo se debe crear una red virtual para un entorno de DevTest Labs en lugar de usar una red virtual existente?
-Si las máquinas virtuales necesitan interactuar con la infraestructura existente, considere la posibilidad de utilizar una red virtual existente dentro de su entorno de DevTest Labs. Si usa ExpressRoute, es posible que desee minimizar la cantidad de redes virtuales y subredes para no fragmentar el espacio de direcciones IP que se asigna para su uso en las suscripciones. 
+Si las máquinas virtuales necesitan interactuar con la infraestructura existente, considere la posibilidad de utilizar una red virtual existente dentro de su entorno de DevTest Labs. Si usa ExpressRoute, es posible que desee minimizar la cantidad de redes virtuales y subredes para no fragmentar el espacio de direcciones IP que se asigna para su uso en las suscripciones.
 
-Considere la posibilidad de usar aquí también el patrón de emparejamiento de la red virtual ([modelo tipo hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)). Este enfoque permite la comunicación de red virtual o subred entre suscripciones. En caso contrario, cada entorno de DevTest Labs podría tener su propia red virtual. 
+Considere la posibilidad de usar aquí también el patrón de emparejamiento de la red virtual ([modelo tipo hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)). Este enfoque permite la comunicación de red virtual o subred entre suscripciones. En caso contrario, cada entorno de DevTest Labs podría tener su propia red virtual.
 
 Hay [límites](../azure-resource-manager/management/azure-subscription-service-limits.md) en el número de redes virtuales por suscripción. La cantidad predeterminada es 50, aunque este límite puede aumentarse a 100.
 
 ### <a name="when-should-i-use-a-shared-ip-vs-public-ip-vs-private-ip"></a>¿Cuándo se debe usar una dirección IP compartida en lugar de una pública o privada?
- 
+
 Si usa una VPN de sitio a sitio o ExpressRoute, considere la posibilidad de usar direcciones IP privadas para que se pueda acceder a las máquinas a través de la red interna, pero no a través de Internet.
 
 > [!NOTE]
@@ -383,15 +383,15 @@ Una posibilidad es que el nombre de la red virtual contenga puntos. Si es así, 
 ### <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>¿Por qué aparece el error "No se encuentra el recurso primario" al aprovisionar una máquina virtual desde PowerShell?
 Cuando un recurso es un elemento primario de otro recurso, el primario debe existir antes de crear el secundario. Si el recurso primario no existe, verá un mensaje **ParentResourceNotFound**. Si no se especifica una dependencia del recurso primario, es posible que el recurso secundario se implemente antes que el primario.
 
-Las máquinas virtuales son recursos secundarios en un laboratorio en un grupo de recursos. Cuando se usan plantillas de Resource Manager para la implementación de máquinas virtuales con PowerShell, el nombre del grupo de recursos proporcionado en el script de PowerShell debe ser el del grupo de recursos del laboratorio. Para más información, vea, [Solución de errores comunes de implementación de Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md).
+Las máquinas virtuales son recursos secundarios en un laboratorio en un grupo de recursos. Cuando se usan plantillas de Resource Manager para la implementación de máquinas virtuales con PowerShell, el nombre del grupo de recursos proporcionado en el script de PowerShell debe ser el del grupo de recursos del laboratorio. Para más información, vea, [Solución de errores comunes de implementación de Azure](../azure-resource-manager/templates/common-deployment-errors.md).
 
 ### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>¿Dónde puedo encontrar más información sobre errores relativos a la implementación de VM?
 Los errores de implementación de máquinas virtuales se capturan en los registros de actividad. Puede encontrar los registros de actividad de las máquinas virtuales de laboratorio en **Registros de auditoría** o **Diagnóstico de máquina virtual** en el menú de recursos de la página de máquina virtual del laboratorio (la página se muestra una vez que selecciona la máquina virtual en la lista Mis máquinas virtuales).
 
-En ocasiones, el error de implementación se produce antes de que comience la implementación de la máquina virtual. Un ejemplo es cuando se supera el límite de suscripciones para un recurso que se creó con la máquina virtual. En este caso, los detalles del error se capturan en los registros de actividad de nivel de laboratorio. Los registros de actividad se encuentran en la parte inferior de las opciones de **Configuración y directivas**. Para obtener más información sobre el uso de los registros de actividad en Azure, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](../azure-resource-manager/resource-group-audit.md).
+En ocasiones, el error de implementación se produce antes de que comience la implementación de la máquina virtual. Un ejemplo es cuando se supera el límite de suscripciones para un recurso que se creó con la máquina virtual. En este caso, los detalles del error se capturan en los registros de actividad de nivel de laboratorio. Los registros de actividad se encuentran en la parte inferior de las opciones de **Configuración y directivas**. Para obtener más información sobre el uso de los registros de actividad en Azure, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](../azure-resource-manager/management/view-activity-logs.md).
 
 ### <a name="why-do-i-get-location-is-not-available-for-resource-type-error-when-trying-to-create-a-lab"></a>¿Por qué aparece el error "la ubicación no está disponible para el tipo de recurso" al intentar crear un laboratorio?
-Es posible que vea un mensaje de error similar al siguiente al intentar crear un laboratorio: 
+Es posible que vea un mensaje de error similar al siguiente al intentar crear un laboratorio:
 
 ```
 The provided location 'australiacentral' is not available for resource type 'Microsoft.KeyVault/vaults'. List of available regions for the resource type is 'northcentralus,eastus,northeurope,westeurope,eastasia,southeastasia,eastus2,centralus,southcentralus,westus,japaneast,japanwest,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia,canadacentral,canadaeast,uksouth,ukwest,westcentralus,westus2,koreacentral,koreasouth,francecentral,southafricanorth
@@ -400,9 +400,7 @@ The provided location 'australiacentral' is not available for resource type 'Mic
 Puede resolver este error realizando uno de los siguientes pasos:
 
 #### <a name="option-1"></a>Opción 1
-Compruebe la disponibilidad del tipo de recurso en las regiones de Azure en la página de [productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Si el tipo de recurso no está disponible en una región determinada, DevTest Labs no admitirá la creación de un laboratorio en esa región. Seleccione otra región al crear el laboratorio. 
+Compruebe la disponibilidad del tipo de recurso en las regiones de Azure en la página de [productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Si el tipo de recurso no está disponible en una región determinada, DevTest Labs no admitirá la creación de un laboratorio en esa región. Seleccione otra región al crear el laboratorio.
 
 #### <a name="option-2"></a>Opción 2
-Si el tipo de recurso está disponible en su región, compruebe si está registrado con su suscripción. Se puede realizar en el nivel de propietario de la suscripción como se muestra en [este artículo](../azure-resource-manager/resource-manager-supported-services.md). 
-
-
+Si el tipo de recurso está disponible en su región, compruebe si está registrado con su suscripción. Se puede realizar en el nivel de propietario de la suscripción como se muestra en [este artículo](../azure-resource-manager/management/resource-providers-and-types.md).

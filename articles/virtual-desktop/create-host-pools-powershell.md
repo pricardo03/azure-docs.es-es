@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: a50a7966af8f6453441ac19c9dafac064015f9a2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: f510879e7df967944f5e7a3deac308a430d53d0c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607095"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771315"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Creación de un grupo host con PowerShell
 
@@ -37,7 +37,7 @@ New-RdsHostPool -TenantName <tenantname> -Name <hostpoolname>
 Ejecute el siguiente cmdlet para crear un token de registro para autorizar que un host de sesión se una el grupo de hosts y guárdelo en un archivo nuevo en el equipo local. Puede especificar cuánto tiempo es válido el token de registro mediante el parámetro -ExpirationHours.
 
 ```powershell
-New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token > <PathToRegFile>
+New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token | Out-File -FilePath <PathToRegFile>
 ```
 
 Después, ejecute este cmdlet para agregar usuarios de Azure Active Directory al grupo de aplicaciones de escritorio predeterminado para el grupo de hosts.
@@ -96,7 +96,7 @@ Para registrar los agentes de Windows Virtual Desktop, realice los siguientes pa
 1. [Conéctese a la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) con las credenciales que proporcionó al crear la máquina virtual.
 2. Descargue e instale el agente de Windows Virtual Desktop.
    - Descargue el [agente de Windows Virtual Desktop](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
-   - Haga clic en el instalador descargado, seleccione **Propiedades**, seleccione **Desbloquear** y, a continuación, seleccione **Aceptar**. Esto permitirá que el sistema confíe en el instalador.
+   - Haga clic con el botón derecho en el instalador descargado, seleccione **Propiedades**, seleccione **Desbloquear** y, a continuación, seleccione **Aceptar**. Esto permitirá que el sistema confíe en el instalador.
    - Ejecute al programa de instalación. Cuando el instalador le solicite el token de registro, escriba el valor obtenido del cmdlet **Export-RdsRegistrationInfo**.
 3. Descargue e instale el cargador de arranque del agente de Windows Virtual Desktop.
    - Descargue el [cargador de arranque del agente de Windows Virtual Desktop](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).

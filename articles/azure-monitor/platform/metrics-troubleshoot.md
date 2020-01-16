@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d31b046bf02893affff84069ee92b3bd7735b904
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 072e62d89e8febc4837c10874398daea3b8114ed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243221"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974868"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Solución de problemas de gráficos de métricas
 
@@ -37,7 +37,7 @@ En ocasiones, puede que los gráficos no muestren ningún dato después de selec
 
 ### <a name="microsoftinsights-resource-provider-isnt-registered-for-your-subscription"></a>El proveedor de recursos Microsoft.Insights no se ha registrado para la suscripción
 
-La exploración de métricas requiere que el proveedor de recursos *Microsoft.Insights* esté registrado en su suscripción. En muchos casos, se registra automáticamente (es decir, después de configurar una regla de alerta, personalizar la configuración de diagnóstico para cualquier recurso o configurar una regla de escalado automático). Si el proveedor de recursos Microsoft.Insights no está registrado, debe registrarlo manualmente siguiendo los pasos descritos en [Tipos y proveedores de recursos de Azure](../../azure-resource-manager/resource-manager-supported-services.md).
+La exploración de métricas requiere que el proveedor de recursos *Microsoft.Insights* esté registrado en su suscripción. En muchos casos, se registra automáticamente (es decir, después de configurar una regla de alerta, personalizar la configuración de diagnóstico para cualquier recurso o configurar una regla de escalado automático). Si el proveedor de recursos Microsoft.Insights no está registrado, debe registrarlo manualmente siguiendo los pasos descritos en [Tipos y proveedores de recursos de Azure](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 **Solución:** Abra **Suscripciones**, pestaña **Proveedores de recursos** y verifique que *Microsoft.Insights* esté registrado para su suscripción.
 
@@ -95,7 +95,7 @@ En muchos casos, la caída percibida en los valores de métrica es una falta de 
 
 ## <a name="cannot-pick-guest-os-namespace-and-metrics"></a>No se pueden elegir las métricas y el espacio de nombres del SO invitado
 
-Las máquinas virtuales y los conjunto de escalado de máquinas virtuales tienen dos categorías de métricas: Métricas del **host de máquina virtual** recopiladas por el entorno de hospedaje de Azure y métricas del **sistema operativo invitado (clásico)** recopiladas por el [agente de supervisión](agents-overview.md) que se ejecuta en las máquinas virtuales. El agente de supervisión se instala al habilitar la [extensión de Azure Diagnostics](diagnostics-extension-overview.md).
+Las máquinas virtuales y los conjunto de escalado de máquinas virtuales tienen dos categorías de métricas: Las métricas del **host de máquina virtual** recopiladas por el entorno de hospedaje de Azure y las métricas del **sistema operativo invitado (clásico)** recopiladas por el [agente de supervisión](agents-overview.md) que se ejecuta en las máquinas virtuales. El agente de supervisión se instala al habilitar la [extensión de Azure Diagnostics](diagnostics-extension-overview.md).
 
 De forma predeterminada, las métricas del SO invitado se almacenan en la cuenta de Azure Storage, que elige en la pestaña **Configuración de diagnóstico** del recurso. Si no se recopilan métricas del SO invitado o el explorador de métricas no puede acceder a ellas, solo verá el espacio de nombres de las métricas del **host de máquina virtual**:
 

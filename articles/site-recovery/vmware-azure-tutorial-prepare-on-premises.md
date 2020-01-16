@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c82f8130340dfc3848159a6f88db0a304a3ab149
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4969a1f14e53aabf79495e179213f9763d4c8803
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953738"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893631"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores de VMware locales para la recuperación ante desastres en Azure
 
@@ -22,7 +22,7 @@ En este artículo se describe cómo preparar servidores de VMware locales para l
 Este es el segundo tutorial de una serie que muestra cómo configurar la recuperación ante desastres en Azure para máquinas virtuales locales de VMware. En el primer tutorial, se [configuraron los componentes de Azure](tutorial-prepare-azure.md) necesarios para la recuperación ante desastres de VMware.
 
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Preparar una cuenta en el servidor vCenter o en el host ESXi de vSphere para automatizar la detección de VM.
@@ -108,7 +108,7 @@ Para conectarse a máquinas virtuales Linux mediante SSH después de la conmutac
 
 
 ## <a name="failback-requirements"></a>Requisitos de conmutación por recuperación
-Si planea realizar la conmutación por recuperación a su sitio local, hay varios [requisitos previos para la conmutación por recuperación](vmware-azure-reprotect.md##before-you-begin). Puede prepararlos ahora, pero no es necesario. Puede prepararlos después de realizar la conmutación por error a Azure.
+Si planea realizar la conmutación por recuperación a su sitio local, hay varios [requisitos previos para la conmutación por recuperación](vmware-azure-reprotect.md#before-you-begin). Puede prepararlos ahora, pero no es necesario. Puede prepararlos después de realizar la conmutación por error a Azure.
 
 
 

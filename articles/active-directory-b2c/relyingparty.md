@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b1bfa945843d185a46f1f1d79fd4dab0e991c769
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: c2b74830463702e7de02d00bcfe88521fce2c803
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063806"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932042"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-El elemento **RelyingParty** especifica el recorrido del usuario para ejecutar la solicitud actual en Azure Active Directory B2C (Azure AD B2C). También se especifica la lista de notificaciones que la aplicación del usuario de confianza necesita como parte del token emitido. Una aplicación del usuario de confianza, como una aplicación web, de escritorio o para dispositivos móviles, llama al archivo de la directiva del usuario de confianza. El archivo de la directiva del usuario de confianza ejecuta una tarea específica, como iniciar sesión, restablecer una contraseña o editar un perfil. Hay varias aplicaciones que pueden usar la misma directiva del usuario de confianza y una sola aplicación puede usar varias directivas. Todas las aplicaciones de usuario de confianza reciben el mismo token con notificaciones y el usuario sigue el mismo recorrido del usuario.
+El elemento **RelyingParty** especifica el recorrido del usuario para ejecutar la solicitud actual en Azure Active Directory B2C (Azure AD B2C). También se especifica la lista de notificaciones que la aplicación del usuario de confianza necesita como parte del token emitido. Una aplicación del usuario de confianza, como una aplicación web, de escritorio o para dispositivos móviles, llama al archivo de la directiva del usuario de confianza. El archivo de directiva de usuario de confianza ejecuta una tarea específica, como iniciar sesión, restablecer una contraseña o editar un perfil. Hay varias aplicaciones que pueden usar la misma directiva del usuario de confianza y una sola aplicación puede usar varias directivas. Todas las aplicaciones de usuario de confianza reciben el mismo token con notificaciones y el usuario sigue el mismo recorrido del usuario.
 
 En el ejemplo siguiente se muestra un elemento **RelyingParty** en el archivo de directiva *B2C_1A_signup_signin*:
 
@@ -74,7 +74,7 @@ En el ejemplo siguiente se muestra un elemento **RelyingParty** en el archivo de
 
 El elemento **RelyingParty** opcional contiene los siguientes elementos:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | El recorrido del usuario predeterminado para la aplicación de usuario de confianza. |
 | UserJourneyBehaviors | 0:1 | El ámbito de los comportamientos del recorrido del usuario. |
@@ -102,7 +102,7 @@ Directiva de *B2C_1A_signup_signin*:
 
 El elemento **DefaultUserJourney** contiene el siguiente atributo:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | ReferenceId | Sí | Identificador del recorrido del usuario en la directiva. Para más información, consulte los [recorridos del usuario](userjourneys.md). |
 
@@ -110,7 +110,7 @@ El elemento **DefaultUserJourney** contiene el siguiente atributo:
 
 El elemento **UserJourneyBehaviors** contiene los siguientes elementos:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | Ámbito del comportamiento de sesión de inicio de sesión único (SSO) de un recorrido del usuario. |
 | SessionExpiryType |0:1 | El comportamiento de autenticación de la sesión. Valores posibles: `Rolling` o `Absolute`. El valor (predeterminado) `Rolling` indica que el usuario permanece conectado siempre y cuando el usuario esté activo en la aplicación. El valor `Absolute` indica que el usuario está obligado a autenticarse de nuevo tras el período de tiempo especificado por la duración de sesión de la aplicación. |
@@ -122,7 +122,7 @@ El elemento **UserJourneyBehaviors** contiene los siguientes elementos:
 
 El elemento **SingleSignOn** contiene el atributo siguiente:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | Ámbito | Sí | El ámbito del comportamiento de inicio de sesión único. Valores posibles: `Suppressed`, `Tenant`, `Application` o `Policy`. El valor `Suppressed` indica que se suprime el comportamiento. Por ejemplo, en el caso de una sesión de inicio de sesión único, no se mantiene ninguna sesión para el usuario y siempre se solicita al usuario una selección del proveedor de identidades. El valor `TrustFramework` indica que el comportamiento se aplica a todas las directivas del marco de confianza. Por ejemplo, un usuario que navega por dos recorridos de directiva para un marco de confianza no se solicita para una selección del proveedor de identidades. El valor `Tenant` indica que el comportamiento se aplica a todas las directivas del inquilino. Por ejemplo, a un usuario que sigue dos recorridos de directiva para un inquilino no se le solicita que seleccione el proveedor de identidades. El valor `Application` indica que el comportamiento se aplica a todas las directivas de la aplicación que hace la solicitud. Por ejemplo, a un usuario que sigue dos recorridos de directiva para una aplicación no se le solicita que seleccione el proveedor de identidades. El valor `Policy` indica que el comportamiento solo se aplica a una directiva. Por ejemplo, a un usuario que sigue dos recorridos de directiva para un marco de confianza se le solicita que seleccione el proveedor de identidades al cambiar de una directiva a otra. |
 | KeepAliveInDays | Sí | Controla cuánto tiempo permanece el usuario con la sesión iniciada. Si se establece el valor en 0, se desactiva la funcionalidad KMSI. Para más información, consulte [Mantener la sesión iniciada](active-directory-b2c-reference-kmsi-custom.md). |
@@ -131,7 +131,7 @@ El elemento **SingleSignOn** contiene el atributo siguiente:
 
 El elemento **JourneyInsights** contiene los siguientes atributos:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | TelemetryEngine | Sí | El valor tiene que ser `ApplicationInsights`. |
 | InstrumentationKey | Sí | Cadena que contiene la clave de instrumentación para el elemento de Application Insights. |
@@ -152,15 +152,15 @@ En el ejemplo siguiente se pasa un parámetro denominado `campaignId` con un val
 
 El elemento **ContentDefinitionParameters** contiene el elemento siguiente:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | ContentDefinitionParameter | 0:n | Una cadena que contiene el par clave-valor que se anexa a la cadena de consulta de un URI de carga de definición de contenido. |
 
 El elemento **ContentDefinitionParameter** contiene el atributo siguiente:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| Name | Sí | El nombre del par clave-valor. |
+| Nombre | Sí | El nombre del par clave-valor. |
 
 Para obtener más información, vea [Configuración de la interfaz de usuario con contenido dinámico usando directivas personalizadas](active-directory-b2c-ui-customization-custom-dynamic.md).
 
@@ -168,16 +168,16 @@ Para obtener más información, vea [Configuración de la interfaz de usuario co
 
 El elemento **TechnicalProfile** contiene el atributo siguiente:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| Id | Sí | El valor tiene que ser `PolicyProfile`. |
+| Identificador | Sí | El valor tiene que ser `PolicyProfile`. |
 
 El elemento **TechnicalProfile** contiene los elementos siguientes:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | Cadena que contiene el nombre del perfil técnico que se muestra a los usuarios. |
-| DESCRIPCIÓN | 0:1 | Cadena que contiene la descripción del perfil técnico que se muestra a los usuarios. |
+| Descripción | 0:1 | Cadena que contiene la descripción del perfil técnico que se muestra a los usuarios. |
 | Protocolo | 1:1 | Protocolo usado para la federación. |
 | Metadatos | 0:1 | La colección de *Item* de los pares clave-valor usados por el protocolo para comunicarse con el punto de conexión en el transcurso de una transacción para configurar la interacción entre el usuario de confianza y otros participantes de la comunidad. |
 | OutputClaims | 0:1 | Una lista de tipos de notificación que se consideran el resultado del perfil técnico. Cada uno de estos elementos contiene la referencia a un **ClaimType** ya definido en la sección **ClaimsSchema** o en una directiva de la que este archivo de directiva es heredero. |
@@ -185,35 +185,35 @@ El elemento **TechnicalProfile** contiene los elementos siguientes:
 
 El elemento **Protocol** contiene el siguiente atributo:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| Name | Sí | El nombre de un protocolo válido admitido por Azure AD B2C que se usará como parte del perfil técnico. Valores posibles: `OpenIdConnect` o `SAML2`. El valor `OpenIdConnect` representa el estándar del protocolo OpenID Connect 1.0 según la especificación de la fundación de OpenID. `SAML2` representa el estándar del protocolo SAML 2.0 según la especificación de OASIS. No use un token de SAML en producción. |
+| Nombre | Sí | El nombre de un protocolo válido admitido por Azure AD B2C que se usará como parte del perfil técnico. Valores posibles: `OpenIdConnect` o `SAML2`. El valor `OpenIdConnect` representa el estándar del protocolo OpenID Connect 1.0 según la especificación de la fundación de OpenID. `SAML2` representa el estándar del protocolo SAML 2.0 según la especificación de OASIS. No use un token de SAML en producción. |
 
 ## <a name="outputclaims"></a>OutputClaims
 
 El elemento **OutputClaims** contiene el elemento siguiente:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | El nombre de un tipo de notificación esperado en la lista admitida para la directiva en la que se suscribe el usuario de confianza. Esta notificación actúa como un resultado del perfil técnico. |
 
 El elemento **OutputClaim** contiene los atributos siguientes:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sí | Una referencia a un **ClaimType** ya definido en la sección **ClaimsSchema** del archivo de directiva. |
-| DefaultValue | Sin | Un valor predeterminado que se puede usar si el valor de notificación está vacío. |
-| PartnerClaimType | Sin | Envía la notificación con un nombre distinto al configurado en la definición de ClaimType. |
+| DefaultValue | No | Un valor predeterminado que se puede usar si el valor de notificación está vacío. |
+| PartnerClaimType | No | Envía la notificación con un nombre distinto al configurado en la definición de ClaimType. |
 
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 Con el elemento **SubjectNameingInfo**, controla el valor del asunto del token:
-- **Token JTW**: la notificación `sub`. Esta es la entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. Se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando el token se usa para acceder a un recurso. De manera predeterminada, la notificación del asunto se rellena con el identificador de objeto del usuario del directorio. Para obtener más información, vea [Configuración de token, sesión e inicio de sesión único](active-directory-b2c-token-session-sso.md).
+- **Token JTW**: la notificación `sub`. Esta es la entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. Se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando el token se usa para acceder a un recurso. De manera predeterminada, la notificación del asunto se rellena con el identificador de objeto del usuario del directorio. Para obtener más información, vea [Configuración de token, sesión e inicio de sesión único](session-behavior.md).
 - **Token SAML**: el elemento `<Subject><NameID>` que identifica el elemento del asunto.
 
 El elemento **SubjectNamingInfo** contiene el siguiente atributo:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | ClaimType | Sí | Una referencia a un **PartnerClaimType** de una notificación de salida. La notificación de salida debe definirse en la colección **OutputClaims** de la directiva del usuario de confianza. |
 
@@ -246,5 +246,3 @@ El token JWT incluye la notificación `sub` con el objectId del usuario:
   ...
 }
 ```
-
-

@@ -4,12 +4,12 @@ description: Aprenda a controlar la interacción humana y los tiempos de espera 
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9346c53ec122b3e6fac124298029c7f8e70bf622
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6a442ac0d515f9cca9201767087a9b59588edeed
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232821"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769581"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Las interacciones humanas en Durable Functions: comprobación telefónica de ejemplo
 
@@ -153,7 +153,7 @@ Content-Length: 145
 Esta es la orquestación como archivo único de C# en un proyecto de Visual Studio:
 
 > [!NOTE]
-> Deberá instalar el paquete Nuget `Microsoft.Azure.WebJobs.Extensions.Twilio` para ejecutar el siguiente código de ejemplo.
+> Habrá de instalar el paquete NuGet `Microsoft.Azure.WebJobs.Extensions.Twilio` para ejecutar el siguiente código de ejemplo.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 

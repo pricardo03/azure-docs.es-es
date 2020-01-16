@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: de02e94014fa2a28e364c4f85bcb31a1a4827b8c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3e7d747901fb73afa78b6162316709d7d2e78927
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495058"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981131"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Escenarios para análisis avanzado en Azure Machine Learning
 En este artículo se describen los distintos escenarios de origen y destino de datos de ejemplo que se pueden administrar con el [proceso de ciencia de datos en equipos (TDSP)](overview.md). El TDSP proporciona un enfoque sistemático a los equipos que colaboran en la compilación de aplicaciones inteligentes. Los escenarios que se exponen aquí muestran las opciones disponibles en el flujo de trabajo de procesamiento de datos en función de las características de datos, las ubicaciones de origen y los repositorios de destino de Azure.
@@ -29,7 +29,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 > **Para todos los escenarios siguientes, debe:**
 > <br/>
 > 
-> * [Cree una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md)
+> * [Cree una cuenta de almacenamiento](../../storage/common/storage-account-create.md)
 >   <br/>
 > * [Creación de un área de trabajo de Azure Machine Learning](../studio/create-workspace.md)
 > 
@@ -186,7 +186,7 @@ Para replicar toda la base de datos de SQL Server en la máquina virtual de SQL 
 
 1. Desasocie la base de datos en la ubicación de origen. Para más información, consulte [Desasociar una base de datos](https://technet.microsoft.com/library/ms191491\(v=sql.110\).aspx).
 1. En el Explorador de Windows o en la ventana del símbolo del sistema de Windows, copie los archivos de base de datos desasociados o los archivos de registro a la ubicación de destino en la máquina virtual de SQL Server en Azure.
-1. Asocie los archivos copiados a la instancia de SQL Server de destino. Para más información, consulte [Asociar una base de datos](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx).
+1. Asocie los archivos copiados a la instancia de SQL Server de destino. Para obtener más información, consulte [Attach a Database](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx).
 
 [Mover una base de datos mediante las opciones desasociación y asociación (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 

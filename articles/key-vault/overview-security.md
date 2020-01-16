@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: 728398aeec4715d15ebe44ae6d4e4bfa5f295df8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 74dac926ea67b9f6a31993a72dc6331aa48155b7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884787"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981567"
 ---
 # <a name="azure-key-vault-security"></a>Seguridad de Azure Key Vault
 
@@ -87,12 +87,12 @@ Los registros de Key Vault guardan información acerca de las actividades realiz
     - Firmar, comprobar, cifrar, descifrar, encapsular y desencapsular claves, obtener secretos y elaborar listados de claves y secretos (y sus versiones).
 - Solicitudes no autenticadas que dan como resultado una respuesta 401. Por ejemplo, las solicitudes que no tienen un token de portador, cuyo formato es incorrecto o está caducado o que tienen un token no válido.
 
-Puede acceder a la información de registro 10 minutos después de la operación del almacén de claves. Es decisión suya administrar los registros en la cuenta de almacenamiento. 
+Puede acceder a la información de registro 10 minutos después de la operación del almacén de claves. Es decisión suya administrar los registros en la cuenta de almacenamiento.
 
 - Utilice los métodos de control de acceso de Azure estándar para proteger los registros mediante la restricción de quién puede tener acceso a ellos.
 - Elimine los registros que ya no desee mantener en la cuenta de almacenamiento.
 
-Para obtener recomendaciones sobre la administración segura de las cuentas de almacenamiento, revise la [guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md)
+Para obtener recomendaciones sobre la administración segura de las cuentas de almacenamiento, revise la [guía de seguridad de Azure Storage](../storage/blobs/security-recommendations.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

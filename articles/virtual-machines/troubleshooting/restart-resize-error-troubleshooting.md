@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cd05f9f7db0db22759c5e19dbfb59cc377e63f4d
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: a6532558107463311c4225b9855bc4cd3f19eed9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155467"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965622"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Solución de problemas de implementación con el reinicio o el cambio de tamaño de una máquina virtual Windows existente en Azure
 Al intentar iniciar una máquina virtual de Azure detenida o cambiar el tamaño de una máquina virtual de Azure existente, es común encontrarse un error de asignación. Dicho error se produce cuando el clúster o la región no tienen recursos disponibles o no admiten el tamaño de máquina virtual solicitado.
@@ -28,7 +28,7 @@ Al intentar iniciar una máquina virtual de Azure detenida o cambiar el tamaño 
 ## <a name="collect-activity-logs"></a>Recopilación de registros de actividad
 Para iniciar la solución de problemas, recopile los registros de actividad para identificar el error asociado con el problema. Los vínculos siguientes contienen información detallada sobre el proceso:
 
-[Ver operaciones de implementación](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[Ver operaciones de implementación](../../azure-resource-manager/templates/deployment-history.md)
 
 [Ver registros de actividad para administrar recursos de Azure](../../resource-group-audit.md)
 
@@ -38,7 +38,7 @@ Intenta iniciar una máquina virtual detenida, pero obtiene un error de asignaci
 ### <a name="cause"></a>Causa
 La solicitud de iniciar la máquina virtual detenida se debe intentar en el clúster original que hospeda el servicio en la nube. Sin embargo, el clúster no tiene espacio libre disponible para responder a la solicitud.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 * Detenga todas las máquinas virtuales del conjunto de disponibilidad y reinicie las máquinas virtuales.
   
   1. Haga clic en **Grupos de recursos** > *su grupo de recursos* > **Recursos** > *su conjunto de disponibilidad* > **Virtual Machines** > *su máquina virtual* > **Detener**.
@@ -51,7 +51,7 @@ Intenta cambiar el tamaño de una máquina virtual existente, pero obtiene un er
 ### <a name="cause"></a>Causa
 La solicitud de cambiar el tamaño de la máquina virtual se debe realizar en el clúster original que alberga el servicio en la nube. Sin embargo, el clúster no admite el tamaño de máquina virtual solicitado.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 * Vuelva a intentar la solicitud con un tamaño de máquina virtual menor.
 * Si no se puede cambiar el tamaño de la máquina virtual solicitada:
   

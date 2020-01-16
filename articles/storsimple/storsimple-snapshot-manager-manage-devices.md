@@ -3,7 +3,7 @@ title: Administración de dispositivos con StorSimple Snapshot Manager | Microso
 description: Describe cómo usar el complemento MMC para Administrador de instantáneas StorSimple para conectar y administrar dispositivos StorSimple.
 services: storsimple
 documentationcenter: ''
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 966ecbe3-a7fa-4752-825f-6694dd949946
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: 51632b8b68640814fc113a94925b6d6deaca4c5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: a037ddc5a43b288349b17dc7d954991a2c634aa3
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64682483"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931729"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Uso de Administrador de instantáneas StorSimple para conectar y administrar dispositivos StorSimple
 ## <a name="overview"></a>Información general
@@ -31,9 +31,9 @@ Puede usar los nodos en el panel **Ámbito** de Administrador de instantáneas S
 
 Dependiendo de su selección de **Vista**, el panel **Resultados** muestra la siguiente información sobre cada dispositivo. Para obtener más información acerca de cómo configurar una vista, vaya a [Menú Ver](storsimple-use-snapshot-manager.md#view-menu).
 
-| Columna Resultados | DESCRIPCIÓN |
+| Columna Resultados | Descripción |
 |:--- |:--- |
-| NOMBRE |El nombre del dispositivo tal como está configurado en el Portal de Azure clásico |
+| Nombre |El nombre del dispositivo tal como está configurado en el Portal de Azure clásico |
 | Modelo |El número de modelo del dispositivo |
 | Versión |La versión del software instalado en el dispositivo |
 | Status |Si el dispositivo está disponible |
@@ -49,7 +49,7 @@ Si hace clic con el botón derecho en el nodo **Dispositivos** en el panel **Ám
 Si hace clic en el nodo **Dispositivos** y, luego, hace clic con el botón derecho en el nombre del dispositivo en el panel **Resultados**, puede seleccionar entre las siguientes acciones:
 
 * Autenticar un dispositivo
-* Vista de detalles de dispositivo
+* Ver los detalles de dispositivo
 * Actualizar un dispositivo
 * Eliminación de una configuración de dispositivo
 * Cambiar una contraseña de dispositivo

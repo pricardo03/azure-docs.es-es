@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 13fbab52c16fcde72da8073b429fe6fb4665c21b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: afa03399933bdc8bd8ff869125955cfd9e0abecb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74763885"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981927"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Introducción a la continuidad empresarial con Azure Database for PostgreSQL con un único servidor
 
@@ -23,13 +23,13 @@ Azure Database for PostgreSQL proporciona características de continuidad empres
 
 La tabla siguiente compara los valores de ERT y RPO para las características disponibles:
 
-| **Funcionalidad** | **Básico** | **Uso general** | **Memoria optimizada** |
+| **Funcionalidad** | **Basic** | **Uso general** | **Memoria optimizada** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Restauración a un momento dado a partir de una copia de seguridad | Cualquier punto de restauración dentro del período de retención | Cualquier punto de restauración dentro del período de retención | Cualquier punto de restauración dentro del período de retención |
 | Restauración geográfica de las copias de seguridad con replicación geográfica | No compatible | ERT < 12 horas<br/>RPO < 1 hora | ERT < 12 horas<br/>RPO < 1 hora |
 
 > [!IMPORTANT]
-> Los servidores eliminados **no se pueden** restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. Use el [bloqueo de recursos de Azure](../azure-resource-manager/resource-group-lock-resources.md) para evitar la eliminación accidental del servidor.
+> Los servidores eliminados **no se pueden** restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. Use el [bloqueo de recursos de Azure](../azure-resource-manager/management/lock-resources.md) para evitar la eliminación accidental del servidor.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperación de un servidor tras un error del usuario o la aplicación
 
@@ -43,7 +43,7 @@ Aunque es poco habitual, en los centros de datos de Azure pueden producirse inte
 
 Una opción consiste en esperar a que el servidor vuelva a estar en línea cuando termine la interrupción del centro de datos. Esta opción es válida para aquellas aplicaciones que se pueden permitir tener el servidor sin conexión durante un período de tiempo, por ejemplo las aplicaciones de un entorno de producción. Cuando se produce una interrupción en un centro de datos, no sabe cuánto durará, por lo que esta opción solo es útil si no necesita utilizar el servidor durante un tiempo.
 
-## <a name="geo-restore"></a>Restauración geográfica
+## <a name="geo-restore"></a>Geo-restore
 
 La característica de restauración geográfica restaura el servidor mediante copias de seguridad con redundancia geográfica. Las copias de seguridad se hospedan en la [región emparejada](../best-practices-availability-paired-regions.md) del servidor. Puede realizar la restauración a partir de estas copias de seguridad en cualquier otra región. La restauración geográfica crea un nuevo servidor con los datos de las copias de seguridad. Obtenga más información sobre la restauración geográfica en el [artículo sobre los conceptos de copia de seguridad y restauración](concepts-backup.md).
 

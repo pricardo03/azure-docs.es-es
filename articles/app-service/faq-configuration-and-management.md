@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: fc13b0939563f93c31683b432b0410035d892de0
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 047579550172995378d92327ecf22d63712bf407
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672503"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967136"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la configuración y administración de Web Apps en Azure
 
@@ -23,7 +23,7 @@ Este artículo contiene respuestas a las preguntas más frecuentes (P+F) sobre l
 
 ## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>¿Existen limitaciones que debo conocer si quiero mover recursos de App Service?
 
-Si tiene previsto mover recursos de App Service a un nuevo grupo de recursos o suscripción, hay algunas limitaciones que debe conocer. Para más información, consulte [Limitaciones de App Service](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+Si tiene previsto mover recursos de App Service a un nuevo grupo de recursos o suscripción, hay algunas limitaciones que debe conocer. Para más información, consulte [Limitaciones de App Service](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 ## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>¿Cómo se usa un nombre de dominio personalizado para una aplicación web?
 
@@ -49,11 +49,11 @@ Para saber cómo comprar y configurar un certificado SSL para la aplicación web
 
 Actualmente, Azure Application Insights no admite la operación de movimiento. Si su grupo de recursos original incluye un recurso de Application Insights, no puede mover ese recurso. Si se incluye el recurso de Application Insights al intentar mover una aplicación de App Service, la operación entera de movimiento dará error. Sin embargo, no es necesario que el plan de App Service y Application Insights residan en el mismo grupo de recursos que la aplicación para que esta funcione correctamente.
 
-Para más información, consulte [Limitaciones de App Service](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+Para más información, consulte [Limitaciones de App Service](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 ## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>¿Dónde puedo encontrar una lista de comprobación guía y aprender más sobre las operaciones de movimiento de recursos?
 
-En [Limitaciones de App Service](../azure-resource-manager/move-limitations/app-service-move-limitations.md) se muestra cómo mover los recursos a una nueva suscripción o a un nuevo grupo de recursos de la misma suscripción. Podrá obtener información sobre la lista de comprobación de movimiento de recursos, aprender qué servicios admite la operación de movimiento y saber más sobre las limitaciones de App Service y otros temas.
+En [Limitaciones de App Service](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md) se muestra cómo mover los recursos a una nueva suscripción o a un nuevo grupo de recursos de la misma suscripción. Podrá obtener información sobre la lista de comprobación de movimiento de recursos, aprender qué servicios admite la operación de movimiento y saber más sobre las limitaciones de App Service y otros temas.
 
 ## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>¿Cómo se establece la zona horaria del servidor para una aplicación web?
 
@@ -69,7 +69,7 @@ Para los servicios de aplicación que se ejecutan en Windows, consulte la column
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>¿Por qué mis trabajos web continuos en ocasiones dan error?
 
-De forma predeterminada, las aplicaciones web se descargan si están inactivas durante algún tiempo. Esto permite que el sistema conserve recursos. En los planes Básico y Estándar, puede activar el valor **Siempre activado** para que la aplicación web se mantenga cargada en todo momento. Si la aplicación web ejecuta trabajos web continuos, debe seleccionar **Siempre activado** o dichos trabajos podrían no ejecutarse de manera confiable. Para más información, consulte [Creación de un trabajo eb de ejecución continua](webjobs-create.md#CreateContinuous).
+De forma predeterminada, las aplicaciones web se descargan si están inactivas durante algún tiempo. Esto permite que el sistema conserve recursos. En los planes Básico y Estándar, puede activar el valor **Siempre activado** para que la aplicación web se mantenga cargada en todo momento. Si la aplicación web ejecuta trabajos web continuos, debe seleccionar **Siempre activado** o dichos trabajos podrían no ejecutarse de manera confiable. Para más información, consulte [Creación de un trabajo web de ejecución continua](webjobs-create.md#CreateContinuous).
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>¿Cómo se obtiene una dirección IP de salida para una aplicación web?
 
@@ -141,7 +141,7 @@ Si usa conexiones híbridas para acceder a SQL Server, una actualización de Mic
 Exception: System.Data.Entity.Core.EntityException: The underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
 ```
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 La excepción se produjo debido a un problema con el Administrador de conexiones híbridas que ya se ha corregido. Asegúrese de [actualizar el Administrador de conexiones híbridas](https://go.microsoft.com/fwlink/?LinkID=841308) para resolver este problema.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/26/2019
-ms.openlocfilehash: 607eacc531166d9d770f31cc64825e8ffea9ca76
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ea60faf5b5689fa674095201d3db18422d3e0f1b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810676"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980494"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Solución de errores de creación de clústeres con Azure HDInsight
 
@@ -51,7 +51,7 @@ Los firewalls de la red virtual o la cuenta de almacenamiento pueden denegar la 
 
 Permita el tráfico procedente de las direcciones IP indicadas en la tabla siguiente.
 
-| Dirección IP de origen | Destino | Dirección |
+| Dirección IP de origen | Destination | Dirección |
 |---|---|---|
 | 168.61.49.99 | *:443 | Entrada |
 | 23.99.5.239 | *:443 | Entrada |
@@ -64,7 +64,7 @@ Si usa una instancia de ExpressRoute o su propio servidor DNS personalizado, con
 
 ## <a name="resources-locks"></a>Bloqueos de recursos  
 
-Asegúrese de que no hay [bloqueos en la red virtual ni el grupo de recursos](../../azure-resource-manager/resource-group-lock-resources.md).  
+Asegúrese de que no hay [bloqueos en la red virtual ni el grupo de recursos](../../azure-resource-manager/management/lock-resources.md).  
 
 ## <a name="unsupported-component-versions"></a>Versiones de componentes no compatibles
 

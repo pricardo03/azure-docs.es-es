@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 25d0adecb51811cae4b3670010588e68bcc7433c
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 952103d517e03230cdfa4e7531e27bb2d5f53a07
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563950"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934320"
 ---
 # <a name="security-control-penetration-tests-and-red-team-exercises"></a>Control de seguridad: Pruebas de penetración y ejercicios del equipo rojo
 
@@ -29,7 +29,7 @@ Siga las reglas de compromiso de Microsoft para asegurarse de que las pruebas de
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-Puede encontrar más información sobre la estrategia de Microsoft y la ejecución de las pruebas de penetración de equipo rojo y sitios activos en la nube, los servicios y las aplicaciones administradas por Microsoft aquí: 
+Puede encontrar más información sobre la estrategia de Microsoft y la ejecución de las pruebas de penetración de equipo rojo y sitios activos en la nube, los servicios y las aplicaciones administradas por Microsoft aquí:
 
 https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a298505779def353834c294f7b5a406720fdd46c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936176"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980313"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar la recuperación ante desastres para servidores físicos locales en Azure
 
@@ -27,7 +27,7 @@ Este tutorial muestra cómo configurar la recuperación ante desastres de servid
 > * Creación de una directiva de replicación
 > * Habilitar la replicación para un servidor
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial:
 
@@ -54,7 +54,7 @@ Obtenga una [cuenta de Microsoft Azure](https://azure.microsoft.com/).
 - Obtenga información sobre los [precios de Site Recovery](site-recovery-faq.md#pricing) y conozca los [detalles de los precios](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Averigüe qué [regiones se admiten](https://azure.microsoft.com/pricing/details/site-recovery/) en Site Recovery.
 
-### <a name="verify-azure-account-permissions"></a>Comprobación de los permisos de cuenta de Azure
+### <a name="verify-azure-account-permissions"></a>Comprobar los permisos de cuenta de Azure
 
 Asegúrese de que la cuenta de Azure tiene permisos para la replicación de máquinas virtuales en Azure.
 
@@ -73,7 +73,7 @@ Configure una [red de Azure](../virtual-network/quick-create-portal.md).
 
 ## <a name="set-up-an-azure-storage-account"></a>Configurar una cuenta de Azure Storage
 
-Configure una [cuenta de almacenamiento de Azure](../storage/common/storage-quickstart-create-account.md).
+Configure una [cuenta de almacenamiento de Azure](../storage/common/storage-account-create.md).
 
 - Site Recovery replica máquinas virtuales locales en Azure Storage. Las máquinas virtuales de Azure se crean en el almacenamiento después de producirse la conmutación por error.
 - La cuenta de almacenamiento debe estar en la misma región que el almacén de Recovery Services.
@@ -178,8 +178,8 @@ Habilite la replicación para cada servidor.
 7. Seleccione la red y la subred de Azure a la que se conectarán las máquinas virtuales de Azure cuando se creen después de la conmutación por error.
 8. Seleccione la opción **Configurar ahora para las máquinas seleccionadas** con el fin de aplicar la configuración de red a todas las máquinas que seleccione para su protección. Seleccione **Configurar más tarde** para seleccionar la red de Azure por máquina. 
 9. En **Máquinas físicas**, haga clic en **+ Máquina física**. Especifique el nombre y la dirección IP. Seleccione el sistema operativo del equipo que quiere replicar. Los servidores tardan unos minutos en detectarse y mostrarse. 
-10. En **Propiedades** > **Configurar propiedades**, seleccione la cuenta que utilizará el servidor de procesos para instalar automáticamente Mobility Service en la máquina.
-11. En **Configuración de la replicación** > **Establecer configuración de replicación**, compruebe que se haya seleccionado la directiva de replicación correcta. 
+10. En **Propiedades** > **Configurar propiedades**, seleccione la cuenta que va a usar el servidor de procesos para instalar automáticamente Mobility Service en el equipo.
+11. En **Configuración de la replicación** > **Establecer configuración de replicación**, compruebe que se ha seleccionado la directiva de replicación correcta. 
 12. Haga clic en **Enable Replication**. Puede hacer un seguimiento del progreso del trabajo **Habilitar protección** en **Configuración** > **Trabajos** > **Trabajos de Site Recovery**. La máquina estará preparada para la conmutación por error después de que finalice el trabajo **Finalizar la protección** .
 
 

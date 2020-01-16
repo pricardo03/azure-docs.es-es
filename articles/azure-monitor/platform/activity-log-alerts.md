@@ -7,17 +7,17 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/17/2018
-ms.openlocfilehash: 42a8b53f8d1fee2d657ccaa2d57e72b3edfdd4f3
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: c42f72800a93de714f0cc126939a28a8a6b5fce4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531061"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747530"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas de registro de actividad 
 
 ## <a name="overview"></a>Información general
-Las alertas del registro de actividad son alertas que se activan cuando un nuevo [evento del registro de actividad](activity-log-schema.md) cumple las condiciones especificadas en la alerta. Según el orden y el volumen de los eventos registrados en el [registro de actividad de Azure](activity-logs-overview.md), se activará la regla de alerta. Las regla de alertas del registro de actividad son recursos de Azure, por lo que pueden crearse con una plantilla de Azure Resource Manager. También se pueden crear, actualizar o eliminar en Azure Portal. Este artículo presenta los conceptos relativos a las alertas del registro de actividad. Para más información sobre cómo crear o usar reglas de alertas de registro de actividad, consulte [Creación y administración de alertas del registro de actividad](alerts-activity-log.md).
+Las alertas del registro de actividad son alertas que se activan cuando un nuevo [evento del registro de actividad](activity-log-schema.md) cumple las condiciones especificadas en la alerta. Según el orden y el volumen de los eventos registrados en el [registro de actividad de Azure](platform-logs-overview.md), se activará la regla de alerta. Las regla de alertas del registro de actividad son recursos de Azure, por lo que pueden crearse con una plantilla de Azure Resource Manager. También se pueden crear, actualizar o eliminar en Azure Portal. Este artículo presenta los conceptos relativos a las alertas del registro de actividad. Para más información sobre cómo crear o usar reglas de alertas de registro de actividad, consulte [Creación y administración de alertas del registro de actividad](alerts-activity-log.md).
 
 > [!NOTE]
 > **No se pueden** crear alertas para eventos en la categoría Alerta del registro de actividad.

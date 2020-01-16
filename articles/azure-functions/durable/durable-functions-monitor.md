@@ -4,12 +4,12 @@ description: Aprenda a implementar un monitor de estado con la extensión Durabl
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9c8edf5e8fb32160280a1ce9bff827c2e3fa14f8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f8a589bd4ab4de396c0688f8022515d6fbec96a2
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232855"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769598"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Escenario de supervisión en Durable Functions: ejemplo de supervisión meteorológica
 
@@ -174,7 +174,7 @@ POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a
 Esta es la orquestación como archivo único de C# en un proyecto de Visual Studio:
 
 > [!NOTE]
-> Deberá instalar el paquete Nuget `Microsoft.Azure.WebJobs.Extensions.Twilio` para ejecutar el siguiente código de ejemplo.
+> Habrá de instalar el paquete NuGet `Microsoft.Azure.WebJobs.Extensions.Twilio` para ejecutar el siguiente código de ejemplo.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs)]
 

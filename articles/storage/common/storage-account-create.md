@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/11/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0d12f50b059bf74cc1bbc55913d4ce49b77f81fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 203bff23b2ae1a5e5e19b4abc323c3ffeb31f367
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477058"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975929"
 ---
 # <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 
@@ -260,7 +260,7 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 
 ---
 
-Como alternativa, puede eliminar el grupo de recursos, que elimina la cuenta de almacenamiento y otros recursos de ese grupo de recursos. Para obtener más información sobre cómo eliminar un grupo de recursos, consulte [Eliminación del grupo de recursos y los recursos](../../azure-resource-manager/resource-group-delete.md).
+Como alternativa, puede eliminar el grupo de recursos, que elimina la cuenta de almacenamiento y otros recursos de ese grupo de recursos. Para obtener más información sobre cómo eliminar un grupo de recursos, consulte [Eliminación del grupo de recursos y los recursos](../../azure-resource-manager/management/delete-resource-group.md).
 
 > [!WARNING]
 > No es posible restaurar una cuenta de almacenamiento eliminada ni recuperar el contenido que contenía antes de la eliminación. Asegúrese de hacer una copia de seguridad de cualquier contenido que desee guardar antes de eliminar la cuenta. Esto también es verdad para los recursos de la cuenta: cuando se elimina un blob, tabla, cola o archivo, este se eliminará definitivamente.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 09179ff0cf8275e96cb87e0c183eb4a384dcb37b
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 5e3f25727204343de107bacb9fc99d6cfb77d76f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564680"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021095"
 ---
 Es importante saber cómo y donde operan las máquinas virtuales (VM) en Azure, así como las opciones para maximizar el rendimiento, la disponibilidad y la redundancia. Este artículo proporciona una visión general de las características de disponibilidad y redundancia de Azure.
 
@@ -51,7 +51,7 @@ Entre los ejemplos de pares de región se incluyen:
 Puede consultar en su totalidad la [lista de pares regionales aquí](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
 ## <a name="feature-availability"></a>Disponibilidad de características
-Algunos servicios o características de las máquinas virtuales solo están disponibles en determinadas regiones, como, por ejemplo, tipos de almacenamiento o tamaños de VM específicos. También hay algunos servicios globales de Azure que no requieren que seleccione una región concreta, como [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md) o [DNS de Azure](../articles/dns/dns-overview.md). Para obtener ayuda con el diseño del entorno de la aplicación, puede comprobar la [disponibilidad de servicios de Azure en cada región](https://azure.microsoft.com/regions/#services). También puede [consultar mediante programación los tamaños de máquina virtual admitidos y las restricciones de cada región](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md).
+Algunos servicios o características de las máquinas virtuales solo están disponibles en determinadas regiones, como, por ejemplo, tipos de almacenamiento o tamaños de VM específicos. También hay algunos servicios globales de Azure que no requieren que seleccione una región concreta, como [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md) o [DNS de Azure](../articles/dns/dns-overview.md). Para obtener ayuda con el diseño del entorno de la aplicación, puede comprobar la [disponibilidad de servicios de Azure en cada región](https://azure.microsoft.com/regions/#services). También puede [consultar mediante programación los tamaños de máquina virtual admitidos y las restricciones de cada región](../articles/azure-resource-manager/templates/error-sku-not-available.md).
 
 ## <a name="storage-availability"></a>Disponibilidad de almacenamiento
 Es importante comprender las regiones y zonas geográficas de Azure a la hora de considerar las opciones de replicación de almacenamiento disponibles. Según el tipo de almacenamiento, tendrá opciones de replicación diferentes.

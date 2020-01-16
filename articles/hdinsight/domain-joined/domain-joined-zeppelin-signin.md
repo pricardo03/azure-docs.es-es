@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/12/2019
-ms.openlocfilehash: d4bb9e090b238eacec77f4c19bbf9afb3e09a912
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: e9a81d458d1bab68bf94e9e9d0ebd87fac4580c8
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091059"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896150"
 ---
 # <a name="scenario-unable-to-sign-in-to-apache-zeppelin-in-azure-hdinsight"></a>Escenario: No se puede iniciar sesión en Apache Zeppelin en Azure HDInsight.
 
@@ -26,7 +26,7 @@ No se puede iniciar sesión en Apache Zeppelin después de cambiar la contraseñ
 
 El usuario mencionado en `activeDirectoryRealm.systemUsername` del archivo `shiro_ini` ha cambiado la contraseña de Active Directory.
 
-## <a name="resolution"></a>Resolución
+## <a name="resolution"></a>Solución
 
 1. Compruebe que la contraseña modificada es la causa principal mediante la inclusión de `activeDirectoryRealm.systemPassword = <new password>` en la configuración `shiro_ini` de Zeppelin en Ambari. Quite la configuración `activeDirectoryRealm.hadoopSecurityCredentialPath`. A continuación se muestra la ubicación de `shiro ini`.
 
@@ -42,4 +42,4 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 * Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

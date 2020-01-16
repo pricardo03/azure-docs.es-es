@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: f3ecb3bedb8e0f55590aca1aa1c0e0c185f9acc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2146b1bd782aba5d98729a2d37d956744e469ba1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369259"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860255"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Elección de la tecnología de análisis en tiempo real y procesamiento de flujos en Azure
 
@@ -41,10 +41,6 @@ Azure Stream Analytics ofrece una experiencia muy completa de fábrica. Puede ap
 * Latencia de un extremo a otro por debajo de 100 ms de la entrada que llega a Event Hubs, incluido el retraso de red desde y hacia Event Hubs, con alto rendimiento sostenido
 
 ## <a name="when-to-use-other-technologies"></a>Cuándo usar otras tecnologías
-
-### <a name="you-need-to-input-from-or-output-to-kafka"></a>Necesita una entrada o salida de o hacia Kafka
-
-Azure Stream Analytics no tiene una entrada de Apache Kafka ni un adaptador de salida. Si tiene eventos que llegan o necesita enviar a Kafka y no tiene un requisito para ejecutar su propio clúster de Kafka, puede seguir usando Stream Analytics enviando de eventos a Event Hubs mediante la API de Kafka de Event Hubs sin cambiar el remitente del evento. Si necesita ejecutar su propio clúster de Kafka, puede usar Spark Structured Streaming, que es totalmente compatible con [Azure Databricks](../azure-databricks/index.yml), o Storm en [Azure HDInsight](../hdinsight/storm/apache-storm-overview.md).
 
 ### <a name="you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c"></a>Quiere escribir UDF, UDA y deserializadores personalizados en un lenguaje distinto de JavaScript o C#
 

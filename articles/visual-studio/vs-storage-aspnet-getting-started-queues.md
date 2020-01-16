@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5b57f171a9407acea8231d796a80c3a1cc1d9474
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f229661ca78dc75adbc0b49073dc6f0feaf2ba22
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300117"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980752"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Introducción a Azure Queue Storage y a Servicios conectados de Visual Studio (ASP.NET)
 
@@ -30,10 +30,10 @@ Azure Queue Storage proporciona mensajería en la nube entre componentes de apli
 
 Este tutorial muestra cómo escribir código ASP.NET para algunos escenarios comunes mediante entidades de Azure Queue Storage. Estos escenarios incluyen tareas comunes como crear una cola de Azure y agregar, modificar, leer y eliminar mensajes de la cola.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Cuenta de Almacenamiento de Azure](../storage/common/storage-quickstart-create-account.md)
+* [Cuenta de Almacenamiento de Azure](../storage/common/storage-account-create.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -150,7 +150,7 @@ Una vez que se haya [creado una cola](#create-a-queue), puede agregar mensajes a
 
 > [!NOTE]
 > 
-> Se da por supuesto que ha completado los pasos de [Configuración del entorno de desarrollo](#set-up-the-development-environment). 
+> En esta sección se da por supuesto que ha completado los pasos de [Configuración del entorno de desarrollo](#set-up-the-development-environment). 
 
 1. Abra el archivo `QueuesController.cs` .
 
@@ -239,7 +239,7 @@ En esta sección se muestra cómo inspeccionar un mensaje en cola (leer el prime
 
 > [!NOTE]
 > 
-> Se da por supuesto que ha completado los pasos de [Configuración del entorno de desarrollo](#set-up-the-development-environment). 
+> En esta sección se da por supuesto que ha completado los pasos de [Configuración del entorno de desarrollo](#set-up-the-development-environment). 
 
 1. Abra el archivo `QueuesController.cs` .
 
@@ -323,7 +323,7 @@ En esta sección, aprenderá a leer y eliminar un mensaje de una cola.
 
 > [!NOTE]
 > 
-> Se da por supuesto que ha completado los pasos de [Configuración del entorno de desarrollo](#set-up-the-development-environment). 
+> En esta sección se da por supuesto que ha completado los pasos de [Configuración del entorno de desarrollo](#set-up-the-development-environment). 
 
 1. Abra el archivo `QueuesController.cs` .
 
@@ -414,7 +414,7 @@ En esta sección se muestra cómo obtener la longitud de cola (número de mensaj
 
 > [!NOTE]
 > 
-> Se da por supuesto que ha completado los pasos de [Configuración del entorno de desarrollo](#set-up-the-development-environment). 
+> En esta sección se da por supuesto que ha completado los pasos de [Configuración del entorno de desarrollo](#set-up-the-development-environment). 
 
 1. Abra el archivo `QueuesController.cs` .
 
@@ -501,7 +501,7 @@ En esta sección se muestra cómo eliminar una cola.
 
 > [!NOTE]
 > 
-> Se da por supuesto que ha completado los pasos de [Configuración del entorno de desarrollo](#set-up-the-development-environment). 
+> En esta sección se da por supuesto que ha completado los pasos de [Configuración del entorno de desarrollo](#set-up-the-development-environment). 
 
 1. Abra el archivo `QueuesController.cs` .
 

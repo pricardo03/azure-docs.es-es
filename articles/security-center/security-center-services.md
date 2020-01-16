@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 6325af9f577fbee1ab1621acbf10497fab2b78df
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 7ffab200b50a7c4d1af60a230f237b18e8afc621
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689163"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754229"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Características compatibles disponibles en Azure Security Center
 
@@ -40,7 +40,7 @@ En las secciones siguientes se muestran las características disponibles en Secu
 ||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Máquinas que no son de Azure**|**Precios**
 |[Integración de ATP de Microsoft Defender](security-center-wdatp.md)|✔ (en versiones compatibles)|✔ (en versiones compatibles)|✔|Estándar|
 |[Alertas de detección de amenazas de análisis de comportamiento de máquinas virtuales](security-center-alerts-iaas.md)|✔|✔|✔|Detección de amenazas de recomendaciones (gratis) (Estándar)|
-|[Alertas de detección de amenazas sin archivo](alerts-reference.md#alerts-filelessattackdetect)|✔|✔|✔|Estándar|
+|[Alertas de detección de amenazas sin archivo](alerts-reference.md#alerts-windows)|✔|✔|✔|Estándar|
 |[Alertas de detección de amenazas basadas en red](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Estándar|
 |[Acceso de máquina virtual Just-In-Time](security-center-just-in-time.md)|✔|-|-|Estándar|
 |[Evaluación de vulnerabilidades nativa](built-in-vulnerability-assessment.md)|✔|-|-|Estándar|
@@ -66,7 +66,7 @@ En las secciones siguientes se muestran las características disponibles en Secu
 ||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Máquinas que no son de Azure**|**Precios**
 |[Integración de ATP de Microsoft Defender](security-center-wdatp.md)|-|-|-|Estándar|
 |[Alertas de detección de amenazas de análisis de comportamiento de máquinas virtuales](security-center-alerts-iaas.md)|✔ (en versiones compatibles)|✔ (en versiones compatibles)|✔|Detección de amenazas de recomendaciones (gratis) (Estándar)|
-|[Alertas de detección de amenazas sin archivo](alerts-reference.md#alerts-filelessattackdetect)|-|-|-|Estándar|
+|[Alertas de detección de amenazas sin archivo](alerts-reference.md#alerts-windows)|-|-|-|Estándar|
 |[Alertas de detección de amenazas basadas en red](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Estándar|
 |[Acceso de máquina virtual Just-In-Time](security-center-just-in-time.md)|✔|-|-|Estándar|
 |[Evaluación de vulnerabilidades nativa](built-in-vulnerability-assessment.md)|✔|-|-|Estándar|

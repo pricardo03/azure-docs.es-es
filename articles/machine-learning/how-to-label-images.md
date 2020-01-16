@@ -7,16 +7,16 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 7ff3651d082f1649326e1b41b13fa177069c40d3
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 1e27fca86613757c36ac664e2e449cabed68d550
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532348"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772455"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Etiquetado de imágenes en un proyecto de etiquetado
 
-Después de que el administrador del proyecto [cree un proyecto de etiquetado](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-labeling-projects#create-a-labeling-project) en Azure Machine Learning, puede usar la herramienta de etiquetado para preparar rápidamente los datos para un proyecto de Machine Learning. En este artículo se describe:
+Después de que el administrador del proyecto [cree un proyecto de etiquetado](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) en Azure Machine Learning, puede usar la herramienta de etiquetado para preparar rápidamente los datos para un proyecto de Machine Learning. En este artículo se describe:
 
 > [!div class="checklist"]
 > * Cómo acceder a proyectos de etiquetado
@@ -114,5 +114,5 @@ Cuando haya terminado de etiquetar, seleccione su nombre en la esquina superior 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprenda a [entrenar modelos de clasificación de imágenes en Azure](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml).
+* Aprenda a [entrenar modelos de clasificación de imágenes en Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml).
 * Obtenga información sobre la [detección de objetos con Azure y la técnica denominada "R-CNN más rápida"](https://www.microsoft.com/developerblog/2017/10/24/bird-detection-with-azure-ml-workbench/).

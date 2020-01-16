@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e4cab8963e3083d265d0254c81b78fbabb84a269
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3bb7a62433993f1af26b1ce8bcb4ed258c34623c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091535"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973129"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pago por adelantado de planes de software de Azure
 
@@ -47,7 +47,7 @@ El descuento de reserva se aplica automáticamente al medidor de software que pa
 
 ## <a name="discount-applies-to-different-suse-vm-sizes"></a>Descuento aplicado a diferentes tamaños de máquina virtual de SUSE
 
-Del mismo modo que con las instancias reservadas de VM, los planes SUSE Linux ofrecen flexibilidad de tamaño de instancia. El descuento se aplica incluso cuando se implementa una VM con un tamaño distinto al del plan SUSE que compró. Para más información, consulte [Descubra cómo se aplica el descuento del plan de software](../../billing/billing-understand-suse-reservation-charges.md).
+Del mismo modo que con las instancias reservadas de VM, los planes SUSE Linux ofrecen flexibilidad de tamaño de instancia. El descuento se aplica incluso cuando se implementa una VM con un tamaño distinto al del plan SUSE que compró. Para más información, consulte [Descubra cómo se aplica el descuento del plan de software](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
 
 ## <a name="redhat-plan-discount"></a>Descuento del plan RedHat
 
@@ -58,7 +58,7 @@ Se aplican descuentos de plan RedHat solo para el tamaño de máquina virtual se
 
 ## <a name="cancellation-and-exchanges-not-allowed"></a>No se admiten cambios ni cancelaciones
 
-Una vez comprado, un plan SUSE o RedHat no se puede cancelar ni cambiar. Compruebe el uso para asegurarse de comprar el plan adecuado. Para saber identificar lo que se tiene que comprar, consulte [Descubra cómo se aplica el descuento del plan de software](../../billing/billing-understand-suse-reservation-charges.md).
+Una vez comprado, un plan SUSE o RedHat no se puede cancelar ni cambiar. Compruebe el uso para asegurarse de comprar el plan adecuado. Para saber identificar lo que se tiene que comprar, consulte [Descubra cómo se aplica el descuento del plan de software](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
@@ -66,12 +66,12 @@ Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técni
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo administrar una reserva, consulte [Administración de reservas de Azure](../../billing/billing-manage-reserved-vm-instance.md).
+Para más información sobre cómo administrar una reserva, consulte [Administración de reservas de Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
-Para obtener más información, consulte los artículos siguientes:
+Para más información, vea los siguientes artículos:
 
-- [¿Qué es Azure Reservations?](../../billing/billing-save-compute-costs-reservations.md)
-- [Administración de reservas de Azure](../../billing/billing-manage-reserved-vm-instance.md)
-- [Información sobre cómo se aplica el descuento por la reserva de SUSE](../../billing/billing-understand-suse-reservation-charges.md)
-- [Información sobre el uso de reservas para suscripciones de pago por uso](../../billing/billing-understand-reserved-instance-usage.md)
-- [Información sobre el uso de reservas para la inscripción Enterprise](../../billing/billing-understand-reserved-instance-usage-ea.md)
+- [¿Qué es Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Administración de reservas en Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+- [Información sobre cómo se aplica el descuento por la reserva de SUSE](../../cost-management-billing/reservations/understand-suse-reservation-charges.md)
+- [Información sobre el uso de reservas para suscripciones de pago por uso](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)
+- [Información sobre el uso de reservas para la inscripción Enterprise](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)

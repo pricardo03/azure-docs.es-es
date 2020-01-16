@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.service: batch
-ms.openlocfilehash: 7f471032d69213fc11ff748e3fa9093991ee23d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 03e383e43cbe90ae2f59766a235f167cff623b6a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449796"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982713"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usar Azure Pipelines para compilar e implementar soluciones HPC
 
@@ -192,7 +192,7 @@ La siguiente plantilla muestra un ejemplo de creación de un grupo de Azure Batc
 
 Por último, tenemos una plantilla que actúa como un orquestador. Esta plantilla se encarga de implementar las plantillas de capacidad.
 
-En un artículo aparte encontrará también más información sobre cómo [crear plantillas de Azure Resource Manager vinculadas](../azure-resource-manager/resource-manager-tutorial-create-linked-templates.md).
+En un artículo aparte encontrará también más información sobre cómo [crear plantillas de Azure Resource Manager vinculadas](../azure-resource-manager/templates/template-tutorial-create-linked-templates.md).
 
 ```json
 {
@@ -368,7 +368,7 @@ Azure Pipelines también sirve para implementar la aplicación y la infraestruct
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>Implementar la aplicación y la infraestructura subyacente
 
-Implementar la infraestructura conlleva una serie de pasos. Como hemos usado [plantillas vinculadas](../azure-resource-manager/resource-group-linked-templates.md), estas deberán estar accesibles desde un punto de conexión público (HTTP o HTTPS), ya sea un repositorio de GitHub, una cuenta de Azure Blob Storage u otra ubicación de almacenamiento. Los artefactos de plantilla cargados están protegidos porque se pueden mantener en modo privado, pero se puede permitir el acceso a ellos mediante algún tipo de token de firma de acceso compartido (SAS). En el siguiente ejemplo se muestra cómo implementar una infraestructura con plantillas de un Azure Storage Blob.
+Implementar la infraestructura conlleva una serie de pasos. Como hemos usado [plantillas vinculadas](../azure-resource-manager/templates/linked-templates.md), estas deberán estar accesibles desde un punto de conexión público (HTTP o HTTPS), ya sea un repositorio de GitHub, una cuenta de Azure Blob Storage u otra ubicación de almacenamiento. Los artefactos de plantilla cargados están protegidos porque se pueden mantener en modo privado, pero se puede permitir el acceso a ellos mediante algún tipo de token de firma de acceso compartido (SAS). En el siguiente ejemplo se muestra cómo implementar una infraestructura con plantillas de un Azure Storage Blob.
 
 1. Cree una **definición de versión** y seleccione una definición vacía. A continuación, debemos cambiar el nombre del entorno recién creado por uno que sea relevante en nuestra canalización.
 

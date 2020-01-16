@@ -1,25 +1,22 @@
 ---
-title: Implementar hosts dedicados de Azure mediante el Azure Portal
+title: Implementación de hosts dedicados de Azure mediante Azure Portal
 description: Implementación de máquinas virtuales en hosts dedicados mediante Azure Portal.
 services: virtual-machines-linux
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/25/2019
+ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: 296c43c7c1345c67cc5b83749272e56c122ee535
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: c8e2ac929b3285b0ba122928485b423e34dc8f4f
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036421"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835128"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-portal"></a>Vista previa: implementación de máquinas virtuales en hosts dedicados mediante el portal
+# <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>implementación de máquinas virtuales en hosts dedicados mediante el portal
 
 En este artículo se ofrecen instrucciones para crear un [host dedicado](dedicated-hosts.md) de Azure en el que se pueden hospedar máquinas virtuales (VM). 
 
@@ -47,7 +44,7 @@ La implementación de la máquina virtual tardará unos minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información, consulte la introducción [Hosts dedicados](dedicated-hosts.md).
+- Para obtener más detalles, consulte la introducción a los [hosts dedicados](dedicated-hosts.md).
 
 - [Aquí](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) encontrará una plantilla de ejemplo en la que se usan zonas y dominios de error para obtener la máxima resistencia en una región.
 

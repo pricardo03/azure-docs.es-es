@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 780db0cc5a99adfd2e7f8cd5be20a191bba009e8
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: c9f10815f2fbc8a17b8b712b6e5f8391fc7d541e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708136"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980300"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Protección de un servidor de archivos mediante Azure Site Recovery 
 
@@ -132,7 +132,7 @@ Los siguientes pasos describen la replicación de una máquina virtual de VMware
 2. Amplíe Active Directory local.
 3. [Cree y aprovisione una máquina virtual de servidor de archivos](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) en la red virtual de Azure.
 Asegúrese de que la máquina virtual esté agregada a la misma red virtual de Azure, la cual dispone de conectividad cruzada con el entorno local. 
-4. Instale y [configure DFSR](https://blogs.technet.microsoft.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx) en Windows Server.
+4. Instale y [configure DFSR](https://techcommunity.microsoft.com/t5/storage-at-microsoft/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of/ba-p/424877) en Windows Server.
 5. [Implemente un espacio de nombres DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces).
 6. Con el espacio de nombres DFS implementado, la conmutación por error de las carpetas compartidas de producción a los sitios de recuperación ante desastres puede realizarse actualizando los destinos de las carpetas del espacio de nombres DFS. Una vez que estos cambios del espacio de nombres DFS se replican con Active Directory, los usuarios se conectan a los destinos de carpeta apropiados de forma transparente.
 

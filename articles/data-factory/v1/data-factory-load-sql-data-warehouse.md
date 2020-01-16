@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b5fec342cf9f228edce80e3f0e8fb5243196973d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 68afc782e13f967bc1b455434c3ae952baff81b9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924169"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980918"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carga de 1 TB en Azure SQL Data Warehouse en 15 minutos con Data Factory
 > [!NOTE]
@@ -40,12 +40,12 @@ Este artículo proporciona instrucciones paso a paso para mover datos a Azure SQ
 > [!NOTE]
 >  Para obtener información general acerca de las funcionalidades de Data Factory para el movimiento de datos hacia y desde Azure SQL Data Warehouse, consulte el artículo [Movimiento de datos hacia y desde SQL Data Warehouse mediante Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md).
 >
-> También puede crear canalizaciones de compilación utilizando Visual Studio, PowerShell, etc. Vea [Tutorial: Copia de datos de un blob de Azure a Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para ver un tutorial rápido con instrucciones detalladas para usar la actividad de copia en Azure Data Factory.  
+> También puede crear canalizaciones de compilación utilizando Visual Studio, PowerShell, etc. Consulte [Tutorial: Copia de datos de un blob de Azure a Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para ver un tutorial rápido con instrucciones detalladas para usar la actividad de copia en Azure Data Factory.  
 >
 >
 
-## <a name="prerequisites"></a>Requisitos previos
-* Azure Blob Storage: este experimento usa Azure Blob Storage (GRS) para almacenar un conjunto de datos de prueba TPC-H.  Si no dispone de una cuenta de Azure Storage, infórmese sobre [cómo crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md).
+## <a name="prerequisites"></a>Prerequisites
+* Azure Blob Storage: este experimento usa Azure Blob Storage (GRS) para almacenar un conjunto de datos de prueba TPC-H.  Si no dispone de una cuenta de Azure Storage, infórmese sobre [cómo crear una cuenta de almacenamiento](../../storage/common/storage-account-create.md).
 * Datos [TPC-H](http://www.tpc.org/tpch/): vamos a usar TPC-H como conjunto de datos de prueba.  Para ello, tiene que utilizar `dbgen` desde el Kit de herramientas de TPC-H, lo que le ayudará a generar el conjunto de datos.  Puede descargar código fuente para `dbgen` en las [herramientas de TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) y compilarlo usted mismo, o descargar el binario compilado desde [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Ejecute dbgen.exe con los siguientes comandos para generar un archivo sin formato de 1 TB para la tabla `lineitem` propagada a través de 10 archivos:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
@@ -123,7 +123,7 @@ Este artículo proporciona instrucciones paso a paso para mover datos a Azure SQ
       2. Seleccione **Crear nuevo** y escriba un nombre para un grupo de recursos.
    4. Seleccione una **ubicación** para la factoría de datos.
    5. Seleccione la casilla **Anclar al panel** en la parte inferior de la hoja.  
-   6. Haga clic en **Create**(Crear).
+   6. Haga clic en **Crear**.
 4. Una vez completada la creación, puede ver la hoja **Data Factory** como se muestra en la siguiente imagen:
 
    ![Página principal Factoría de datos](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)

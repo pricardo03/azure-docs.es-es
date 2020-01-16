@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2019
-ms.openlocfilehash: 5f37971e9680468c29efd5733517cb900852431f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4fc5afe3bbb4b2ccf2329432347b23fe9a69c5ea
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400754"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977671"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Habilitar Azure Monitor para VM (versión preliminar) mediante Azure PowerShell o plantillas de Resource Manager
 
@@ -20,7 +20,7 @@ ms.locfileid: "75400754"
 
 En este artículo se explica cómo habilitar Azure Monitor para VM (versión preliminar) para máquinas virtuales o conjuntos de escalado de máquinas virtuales de Azure mediante Azure PowerShell o plantillas de Azure Resource Manager. Al final de este proceso, habrá empezado a supervisar todas sus máquinas virtuales y a aprender si alguna está experimentando problemas de rendimiento o disponibilidad.
 
-## <a name="set-up-a-log-analytics-workspace"></a>Configure un área de trabajo de Log Analytics 
+## <a name="set-up-a-log-analytics-workspace"></a>Configure un área de trabajo de Log Analytics
 
 Si no tiene un área de trabajo de Log Analytics deberá crear una. Revise los métodos que se sugieren en la sección [Requisitos previos](vminsights-enable-overview.md#log-analytics) antes de continuar con los pasos para configurarla. Después puede finalizar la implementación de Azure Monitor para VM mediante el método de plantillas de Azure Resource Manager.
 
@@ -35,8 +35,8 @@ Si el área de trabajo de Log Analytics a la que la solución hace referencia no
 Este método incluye una plantilla JSON que especifica la configuración para habilitar los componentes de la solución en el área de trabajo de Log Analytics.
 
 Si no sabe cómo implementar los recursos mediante una plantilla, consulte:
-* [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
+* [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
 Para usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecuta la versión 2.0.27 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Para instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -91,7 +91,7 @@ Para usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe 
 1. Capture los valores de *WorkspaceName*, *ResourceGroupName* y *WorkspaceLocation*. El valor de *WorkspaceName* es el nombre del área de trabajo de Log Analytics. El valor de *WorkspaceLocation* es la región en la que el área de trabajo está definida.
 
 1. Ya está listo para implementar esta plantilla.
- 
+
     * Use los siguientes comandos de PowerShell en la carpeta que contenga la plantilla:
 
         ```powershell
@@ -105,7 +105,7 @@ Para usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe 
         ```
 
     * Para ejecutar el comando siguiente mediante la CLI de Azure:
-    
+
         ```azurecli
         az login
         az account set --subscription "Subscription Name"
@@ -126,14 +126,14 @@ Hemos creado plantillas de Azure Resource Manager de ejemplo para incorporar sus
 >La plantilla debe implementarse en el mismo grupo de recursos que el recurso que se incorporará.
 
 Si no sabe cómo implementar los recursos mediante una plantilla, consulte:
-* [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
+* [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
 Para usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecuta la versión 2.0.27 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Para instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="download-templates"></a>Descargar las plantillas
 
-Las plantillas de Azure Resource Manager se suministran en un archivo de almacenamiento (.zip) que puede [descargar](https://aka.ms/VmInsightsARMTemplates) desde nuestro repositorio de GitHub. El contenido del archivo incluye carpetas que representan cada escenario de implementación con un archivo de plantilla y un archivo de parámetros. Antes de ejecutarlos, modifique el archivo de parámetros y especifique los valores necesarios. No modifique el archivo de plantilla a menos que necesite personalizarlo para que admita unos requisitos determinados. Tras modificar el archivo de parámetros, puede implementarlo mediante los métodos que se describen más adelante en este artículo. 
+Las plantillas de Azure Resource Manager se suministran en un archivo de almacenamiento (.zip) que puede [descargar](https://aka.ms/VmInsightsARMTemplates) desde nuestro repositorio de GitHub. El contenido del archivo incluye carpetas que representan cada escenario de implementación con un archivo de plantilla y un archivo de parámetros. Antes de ejecutarlos, modifique el archivo de parámetros y especifique los valores necesarios. No modifique el archivo de plantilla a menos que necesite personalizarlo para que admita unos requisitos determinados. Tras modificar el archivo de parámetros, puede implementarlo mediante los métodos que se describen más adelante en este artículo.
 
 El archivo de descarga contiene las siguientes plantillas para distintos escenarios:
 
@@ -180,7 +180,7 @@ provisioningState       : Succeeded
 Para habilitar Azure Monitor para VM en varias máquinas virtuales o conjuntos de escalado de máquinas virtuales, use el script de PowerShell [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0). Está disponible en la Galería de Azure PowerShell. Este script procesa una iteración en:
 
 - Cada máquina virtual y conjunto de escalado de máquinas virtuales de su suscripción.
-- El grupo de recursos con ámbito especificado por *ResourceGroup*. 
+- El grupo de recursos con ámbito especificado por *ResourceGroup*.
 - Una única VM o conjunto de escalado de máquinas virtuales que se especifica mediante *Name*.
 
 En cada máquina virtual o conjunto de escalado de máquinas virtuales, el script comprueba si la extensión de la máquina virtual ya está instalada. Si lo está, el script vuelve a intentar instalarla. Si la extensión de máquina virtual no está instalada, el script instala las extensiones de máquina virtual del agente de Log Analytics y de Dependency Agent.
@@ -341,7 +341,7 @@ Failed: (0)
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que la supervisión está habilitada para las máquinas virtuales, esta información está disponible para analizarse con Azure Monitor para VM.
- 
-- Para ver las dependencias de las aplicaciones detectadas, consulte [Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación](vminsights-maps.md). 
 
-- Para identificar los cuellos de botella y el uso general con el rendimiento de la máquina virtual, vea [Cómo representar el rendimiento en gráficos con Azure Monitor para VM (versión preliminar)](vminsights-performance.md). 
+- Para ver las dependencias de las aplicaciones detectadas, consulte [Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación](vminsights-maps.md).
+
+- Para identificar los cuellos de botella y el uso general con el rendimiento de la máquina virtual, vea [Cómo representar el rendimiento en gráficos con Azure Monitor para VM (versión preliminar)](vminsights-performance.md).

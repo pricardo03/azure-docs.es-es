@@ -3,7 +3,7 @@ title: 'Creación de soluciones con plantillas de Visual Studio: Azure Batch | M
 description: Descubra cómo las plantillas de proyecto de Visual Studio pueden ayudarlo a implementar y ejecutar cargas de trabajo de proceso intensivo en Azure Batch.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 60662e723a55c969fdd4b70e732303c90bbf9e8b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a8cbc630be684371d8dc7917870d581c9a072db5
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094341"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029586"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Uso de plantillas de proyecto de Visual Studio para empezar a crear soluciones de Batch
 
@@ -51,7 +51,7 @@ Como se muestra en el diagrama siguiente, un trabajo de proceso que usa estas pl
 
 ![Diagrama que muestra cómo interactúa el código de cliente con el servicio Batch][diagram01]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para utilizar las plantillas de Batch, necesita lo siguiente:
 
 * Un equipo con Visual Studio 2015 instalado. Las plantillas de proceso por lotes solo se admiten actualmente para Visual Studio 2015.
@@ -190,7 +190,7 @@ Las excepciones y los códigos de salida proporcionan un mecanismo para determin
 
 Una tarea del administrador de trabajos que se implementa con la plantilla del administrador de trabajos puede devolver tres códigos de salida posibles:
 
-| Código | DESCRIPCIÓN |
+| Código | Descripción |
 | --- | --- |
 | 0 |El administrador de trabajos se ha completado correctamente. El código del separador de trabajos se ejecutó hasta completarse, y todas las tareas se han agregado al trabajo. |
 | 1 |Error de la tarea del administrador de trabajos con una excepción en un elemento “esperado” del programa. La excepción se ha traducido a JobManagerException con información de diagnóstico y, cuando sea posible, con sugerencias para resolver el error. |
@@ -198,7 +198,7 @@ Una tarea del administrador de trabajos que se implementa con la plantilla del a
 
 En el caso de errores de tareas del administrador de trabajos, algunas tareas aún pueden haberse agregado al servicio antes de producirse el error. Estas tareas se ejecutarán como normales. Vea la sección "Error del separador de trabajos" más arriba para consultar el análisis de esta ruta de acceso del código.
 
-Toda la información devuelta por las excepciones se escribe en archivos stdout.txt y stderr.txt. Para obtener más información, vea [Control de errores](batch-api-basics.md#error-handling).
+Toda la información devuelta por las excepciones se escribe en archivos stdout.txt y stderr.txt. Para más información, consulte [Control de errores](batch-api-basics.md#error-handling).
 
 ### <a name="client-considerations"></a>Consideraciones de cliente
 En esta sección se describen algunos requisitos de implementación de cliente al invocar un administrador de trabajos basado en esta plantilla. Vea [cómo pasar parámetros y variables de entorno desde el código de cliente](#pass-environment-settings) para obtener más información sobre cómo pasar los parámetros y la configuración del entorno.
@@ -368,7 +368,7 @@ Las excepciones y los códigos de salida proporcionan un mecanismo para determin
 
 Una tarea del procesador de tareas que se implementa con la plantilla del procesador de tareas puede devolver tres códigos de salida posibles:
 
-| Código | DESCRIPCIÓN |
+| Código | Descripción |
 | --- | --- |
 | [Process.ExitCode][process_exitcode] |El procesador de tareas se ejecutó hasta completarse. Tenga en cuenta que esto no implica que el programa invocado sea correcto, solo que el procesador de tareas lo invocó correctamente y realizó cualquier procesamiento posterior sin excepciones. El significado de los códigos de salida depende del programa invocado, normalmente el código de salida 0 significa que el programa se ha ejecutado correctamente y cualquier otro código de salida significa que se ha producido algún error en el programa. |
 | 1 |Error del procesador de tareas con una excepción en un elemento “esperado” del programa. La excepción se ha traducido a `TaskProcessorException` con información de diagnóstico y, cuando sea posible, con sugerencias para resolver el error. |

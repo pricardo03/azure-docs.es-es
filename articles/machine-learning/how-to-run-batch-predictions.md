@@ -11,12 +11,12 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 47fa0d97f21c5e3734cb1104c7d0ab72c14d9679
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ee594bf4e17a06c8333f0836a17e75cc99a2dde3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532278"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771860"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Ejecución de la inferencia por lotes en grandes cantidades de datos mediante Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,7 +92,7 @@ Ahora debe configurar las entradas y salidas de datos, entre las que se incluyen
 
 También puede hacer referencia a otros conjuntos de datos del script de inferencia personalizado. Por ejemplo, puede utilizarlo para acceder a las etiquetas del script para etiquetar las imágenes mediante `Dataset.register` y `Dataset.get_by_name`.
 
-Para más información sobre los conjuntos de datos de Azure Machine Learning, consulte [Creación de conjuntos de datos y acceso a ellos (versión preliminar)](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets).
+Para más información sobre los conjuntos de datos de Azure Machine Learning, consulte [Creación de conjuntos de datos y acceso a ellos (versión preliminar)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
 Los objetos `PipelineData` se usan para transferir los datos intermedios entre los pasos de la canalización. En este ejemplo, se usa para las salidas de inferencia.
 

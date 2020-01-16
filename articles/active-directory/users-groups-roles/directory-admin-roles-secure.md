@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87cdd5ff303cbb001e482137df1d4241487fc6d2
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: c5f36e82c2ff95800a058f56f9cc6b80ddf02dbf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900801"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967704"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -74,7 +74,7 @@ Microsoft recomienda que se desarrolle una hoja de ruta, y se siga, para protege
 
 El marco de esta hoja de ruta está diseñado para maximizar el uso de tecnologías de Microsoft que es posible que ya haya implementado. También se puede sacar provecho de las principales tecnologías de seguridad actuales y futuras, e integrar herramientas de seguridad de otros proveedores que ya se hayan implementado o que se puedan implementar. 
 
-## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>Fase 1: elementos críticos que es aconsejable realizar de inmediato
+## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>Fase 1 elementos críticos que es aconsejable realizar de inmediato
 
 ![Fase 1, elementos críticos que se hacen primero](./media/directory-admin-roles-secure/stage-one.png)
 
@@ -362,7 +362,7 @@ Para mejorar su plan, Microsoft recomienda validar periódicamente que funciona 
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Pasos adicionales para las organizaciones que administran el acceso a Azure 
 
-Determine si necesita [transferir la propiedad de una suscripción de Azure a otra cuenta](../../billing/billing-subscription-transfer.md).
+Determine si necesita [transferir la propiedad de una suscripción de Azure a otra cuenta](../../cost-management-billing/manage/billing-subscription-transfer.md).
 ‎
 
 ## <a name="break-glass-what-to-do-in-an-emergency"></a>"Romper el cristal": qué hacer en caso de emergencia
@@ -375,7 +375,7 @@ Determine si necesita [transferir la propiedad de una suscripción de Azure a ot
 
 3. Acceda a la combinación de nombre de usuario y contraseña de su cuenta "de emergencia" para iniciar sesión en Azure AD. 
 
-4. Obtenga ayuda de Microsoft, para lo que debe [abrir una solicitud de soporte técnico de Azure](../../azure-supportability/how-to-create-azure-support-request.md).
+4. Obtenga ayuda de Microsoft, para lo que debe [abrir una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 5. Examine los [informes de inicio de sesión de Azure AD](../reports-monitoring/overview-reports.md). Puede haber un retraso entre el momento en que se produce un evento y cuándo está incluido en el informe.
 

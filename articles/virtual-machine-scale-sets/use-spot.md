@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: d2c8e599e44e48517920862e1fcf83e1a5e24910
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b57c13d4a5c671595a3e82ac7858c027456107f2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647635"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894074"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Vista previa: Máquinas virtuales de Azure Spot para los conjuntos de escalado 
 
@@ -156,7 +156,7 @@ En el ejemplo siguiente se crea un conjunto de escalado de Linux de Spot llamado
 
 **P:** ¿Puedo solicitar una cuota adicional para Spot?
 
-**R:** Sí, podrá enviar la solicitud para aumentar su cuota para las máquinas virtuales de Spot mediante el [proceso de solicitud de cuota estándar](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+**R:** Sí, podrá enviar la solicitud para aumentar su cuota para las máquinas virtuales de Spot mediante el [proceso de solicitud de cuota estándar](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
 
 
 **P:** ¿Puedo convertir los conjuntos de escalado existentes en conjuntos de escalado de Spot?

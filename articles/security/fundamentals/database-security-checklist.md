@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 4a6796c0a9a64bc40255de64b39ce881e1b8855c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 9298b802417f5a7162ef74bb0f7906144aae4e35
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934725"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745713"
 ---
 # <a name="azure-database-security-checklist"></a>Lista de comprobación de la seguridad de Azure Database
 
@@ -44,7 +44,7 @@ La informática en la nube requiere nuevos paradigmas de seguridad que son poco 
 Le recomendamos que lea el artículo [Prácticas recomendadas de seguridad de Azure Database](database-best-practices.md) antes de revisar esta lista. Una vez que conozca las prácticas recomendadas, podrá obtener el máximo partido de esta lista de comprobación. A continuación, puede usarla para asegurarse de que ha abordado las cuestiones importantes de la seguridad para las bases de datos de Azure.
 
 
-|Categoría de la lista de comprobación| DESCRIPCIÓN|
+|Categoría de la lista de comprobación| Descripción|
 | ------------ | -------- |
 |**Protección de datos**||
 | <br> Cifrado en movimiento o tránsito| <ul><li>[Seguridad de la capa de transporte](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), para el cifrado de datos cuando los datos se pasan a las redes.</li><li>Las bases de datos requieren una comunicación segura desde los clientes basados en el protocolo [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) a través de TLS (Seguridad de la capa de transporte).</li></ul> |
@@ -53,7 +53,7 @@ Le recomendamos que lea el artículo [Prácticas recomendadas de seguridad de Az
 |<br> Acceso a la base de datos | <ul><li>[Autenticación](../../sql-database/sql-database-control-access.md) (Autenticación de Azure Active Directory). La autenticación de AD usa las identidades administradas por Azure Active Directory.</li><li>[Autorización](../../sql-database/sql-database-control-access.md). Conceda a los usuarios los privilegios mínimos necesarios.</li></ul> |
 |<br>Acceso a las aplicaciones| <ul><li>[Seguridad de nivel de fila](https://msdn.microsoft.com/library/dn765131). Se usa la directiva de seguridad, al mismo tiempo que se restringe el acceso de nivel de fila según el contexto de ejecución, rol o identidad de un usuario).</li><li>[Enmascaramiento dinámico de datos](../../sql-database/sql-database-dynamic-data-masking-get-started.md). El uso de directivas y permisos limita la exposición de información confidencial al enmascararla para los usuarios sin privilegios</li></ul>|
 |**Supervisión proactiva**||  
-| <br>Seguimiento y detección| <ul><li>[La auditoría](../../sql-database/sql-database-auditing.md) realiza un seguimiento de los eventos de bases de datos y los escribe en un registro de auditoría y de actividad en su [cuenta de Azure Storage](../../storage/common/storage-create-storage-account.md).</li><li>Seguimiento del estado de Azure Database mediante [registros de actividad de Azure Monitor](../../azure-monitor/platform/activity-logs-overview.md).</li><li>[Detección de amenazas](../../sql-database/sql-database-threat-detection.md) detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad. </li></ul> |
+| <br>Seguimiento y detección| <ul><li>[La auditoría](../../sql-database/sql-database-auditing.md) realiza un seguimiento de los eventos de bases de datos y los escribe en un registro de auditoría y de actividad en su [cuenta de Azure Storage](../../storage/common/storage-create-storage-account.md).</li><li>Seguimiento del estado de Azure Database mediante [registros de actividad de Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md).</li><li>[Detección de amenazas](../../sql-database/sql-database-threat-detection.md) detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad. </li></ul> |
 |<br>Azure Security Center| <ul><li>[Supervisión de datos](../../security-center/security-center-enable-auditing-on-sql-databases.md) Use Azure Security Center como solución de supervisión de seguridad centralizada para SQL y otros servicios de Azure.</li></ul>|       
 
 ## <a name="conclusion"></a>Conclusión
