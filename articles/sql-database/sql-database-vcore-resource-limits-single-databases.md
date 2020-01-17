@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: ''
-ms.date: 12/11/2019
-ms.openlocfilehash: 4455181ddf69613ba07bcaeedb26273a4bb5a74d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.reviewer: carlrab
+ms.date: 01/09/2020
+ms.openlocfilehash: 27868f062cd628347e38b5fdb9f243347dea3e23
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647856"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834985"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra en núcleos virtuales
 
@@ -57,7 +57,7 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. El número real de IOPS depende de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
+\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Generación de proceso Gen5 (parte 2)
 
@@ -83,7 +83,7 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. El número real de IOPS depende de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
+\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## <a name="hyperscale---provisioned-compute---gen4"></a>Hiperescala: proceso aprovisionado: Gen4
 
@@ -135,7 +135,7 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Retención de almacenamiento de copia de seguridad|7 días|7 días|7 días|7 días|7 días|7 días|
 |||
 
-\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. El número real de IOPS depende de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
+\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## <a name="hyperscale---provisioned-compute---gen5"></a>Hiperescala: proceso aprovisionado: Gen5
 
@@ -163,7 +163,7 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Retención de almacenamiento de copia de seguridad|7 días|7 días|7 días|7 días|7 días|7 días|7 días|
 |||
 
-\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. El número real de IOPS depende de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
+\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Generación de proceso Gen5 (parte 2)
 
@@ -189,7 +189,7 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Retención de almacenamiento de copia de seguridad|7 días|7 días|7 días|7 días|7 días|7 días|7 días|
 |||
 
-\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. El número real de IOPS depende de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
+\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
 
 #### <a name="notes"></a>Notas
 
@@ -227,7 +227,7 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. El número real de IOPS depende de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
+\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### <a name="gen4-compute-generation-part-2"></a>Generación de proceso Gen4 (parte 2)
 
@@ -252,7 +252,7 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. El número real de IOPS depende de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
+\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## <a name="general-purpose---provisioned-compute---gen5"></a>Uso general: proceso aprovisionado: Gen5
 
@@ -279,7 +279,7 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. El número real de IOPS depende de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
+\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Generación de proceso Gen5 (parte 2)
 
@@ -304,7 +304,7 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. El número real de IOPS depende de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
+\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Uso general: proceso aprovisionado: serie Fsv2
 
@@ -322,16 +322,17 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Tamaño máximo de datos de TempDB (GB)|333|
 |Tipo de almacenamiento|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|
-|Número máx. de IOPS de datos *|23 040|
+|Número máx. de IOPS de datos *|12.800|
 |Velocidad de registro máx. (Mbps)|30|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|3600|
+|Máximo de inicios de sesión simultáneos|3600|
 |N.º máximo de sesiones simultáneas|30,000|
 |Número de réplicas|1|
 |AZ múltiple|N/D|
 |Escalado horizontal de lectura|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|
 
-\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. El número real de IOPS depende de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
+\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## <a name="business-critical---provisioned-compute---gen4"></a>Crítico para la empresa: proceso aprovisionado: Gen4
 
@@ -362,7 +363,7 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. El número real de IOPS depende de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
+\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### <a name="gen4-compute-generation-part-2"></a>Generación de proceso Gen4 (parte 2)
 
@@ -388,7 +389,7 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. El número real de IOPS depende de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
+\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## <a name="business-critical---provisioned-compute---gen5"></a>Crítico para la empresa: proceso aprovisionado: Gen5
 
@@ -416,7 +417,7 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. El número real de IOPS depende de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
+\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Generación de proceso Gen5 (parte 2)
 
@@ -442,34 +443,35 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. El número real de IOPS depende de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
+\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## <a name="business-critical---provisioned-compute---m-series"></a>Crítico para la empresa: proceso aprovisionado: serie M
 
 ### <a name="m-series-compute-generation-preview"></a>Generación de proceso de la serie M (versión preliminar)
 
-|Tamaño de proceso|GP_M_128|
+|Tamaño de proceso|BC_M_128|
 |:--- | --: |
 |Generación de procesos|Serie M|
 |Núcleos virtuales|128|
-|Memoria (GB)|3767|
+|Memoria (GB)|3767.1|
 |Compatible con almacén de columnas|Sí|
-|Almacenamiento OLTP en memoria (GB)|481|
+|Almacenamiento OLTP en memoria (GB)|1768|
 |Tamaño máximo de datos (GB)|4096|
 |Tamaño máximo de registro (GB)|2048|
 |Tamaño máximo de datos de TempDB (GB)|4096|
 |Tipo de almacenamiento|SSD local|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|
-|Número máx. de IOPS de datos *|204 800|
-|Velocidad de registro máx. (Mbps)|192|
-|Cantidad máxima de trabajos (solicitudes) simultáneos|12800|
+|Número máx. de IOPS de datos *|160 000|
+|Velocidad de registro máx. (Mbps)|264|
+|Cantidad máxima de trabajos (solicitudes) simultáneos|12.800|
+|Máximo de inicios de sesión simultáneos|12.800|
 |N.º máximo de sesiones simultáneas|30000|
 |Número de réplicas|4|
 |AZ múltiple|Sí|
 |Escalado horizontal de lectura|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|
 
-\* Valor máximo para los tamaños de E/S que oscilan entre 8 KB y 64 KB. El número real de IOPS depende de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
+\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](sql-database-resource-limits-database-server.md#resource-governance).
 
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
