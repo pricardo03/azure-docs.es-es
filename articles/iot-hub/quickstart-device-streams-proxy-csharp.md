@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: d131e0112070dcc60e601b2859e8c9df8d40764a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b48c43f90be3f43b05dcb4028c774836ffd196b7
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084350"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045979"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Inicio rápido: Habilitar SSH y RDP mediante un flujo de dispositivo de IoT Hub con una aplicación proxy en C# (versión preliminar)
 
@@ -26,7 +26,7 @@ Microsoft Azure IoT Hub actualmente admite flujos de dispositivos como una [ve
 
 En este artículo se describe primero la configuración de SSH (mediante el puerto 22) y, a continuación, se describe cómo modificar este puerto para RDP. Como los flujos de dispositivos son independientes del protocolo y de la aplicación, se puede modificar el mismo ejemplo para dar cabida a otros tipos de tráfico de la aplicación. Esta modificación solo conlleva normalmente el cambio del puerto de comunicación al puerto que usa la aplicación deseada.
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 En la siguiente ilustración se muestra cómo configurar las aplicaciones de proxy local de dispositivo y local de servicio del ejemplo para permitir la conectividad de un extremo a otro entre los procesos de cliente y demonio de SSH. En este caso se supone que el demonio se está ejecutando en el mismo dispositivo que la aplicación de proxy de dispositivo local.
 
@@ -47,7 +47,7 @@ En la siguiente ilustración se muestra cómo configurar las aplicaciones de pro
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * La versión preliminar de los flujos de dispositivo solo se admite en este momento en instancias de IoT Hub creadas en las siguientes regiones:
 
@@ -152,7 +152,7 @@ dotnet run {DeviceConnectionString} localhost 22
 
 ### <a name="run-the-service-local-proxy-application"></a>Ejecución de la aplicación de proxy local de servicio
 
-En otra ventana de terminal local, vaya a `device-streams-proxy/service` la carpeta del proyecto descomprimida. Tenga la siguiente información a mano:
+En otra ventana de terminal local, vaya a `iot-hub/quickstarts/device-streams-proxy/service` la carpeta del proyecto descomprimida. Tenga la siguiente información a mano:
 
 | Nombre de parámetro | Valor del parámetro |
 |----------------|-----------------|

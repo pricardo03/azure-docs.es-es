@@ -10,18 +10,18 @@ keywords: azure automation, DSC, powershell, desired state configuration, update
 ms.date: 08/25/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: 2ae7c8545286baebc83077276e356cd2e41f0dc3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 26c79db956b2703bf037fc6f7790d4ee13874410
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668674"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834244"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---portal"></a>Inicio rápido: Conexión de máquinas a Azure mediante Azure Arc para servidores mediante el portal
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Revise los clientes compatibles y la configuración de red necesaria en la [introducción de Azure Arc para servidores](overview.md).
 
@@ -69,7 +69,7 @@ Para desconectar una máquina de Azure Arc para servidores, debe realizar dos pa
   
   ![Aplicaciones y características](./media/quickstart-onboard/apps-and-features.png)
 
-   Si desea crear un script para la desinstalación, puede utilizar el ejemplo siguiente, que recupera el **PackageId**, y desinstalar el agente mediante `msiexec /X`.
+   Si desea crear un script para la desinstalación, puede utilizar el ejemplo siguiente, que recupera el **PackageId** y desinstalar el agente mediante `msiexec /X`.
 
    Busque en la clave del Registro `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` y busque **PackageId**. A continuación, puede desinstalar el agente mediante `msiexec`.
 

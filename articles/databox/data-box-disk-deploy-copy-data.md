@@ -10,12 +10,12 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: c309a7cb18086526b23c875b41d9d4f4db4bc213
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: be2bda4e1bfd6a679076f79969e4829aa1a847c9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70231382"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895962"
 ---
 ::: zone target="docs"
 
@@ -41,12 +41,12 @@ En este tutorial, aprenderá a:
 > * Copia de datos a Data Box Disk
 > * Comprobación de datos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, asegúrese de que:
 - Ha completado el [Tutorial: Instalación y operación configuración de Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Los discos se desbloquean y se conectan a un equipo cliente.
-- El equipo cliente que se utiliza para copiar datos en los discos debe ejecutar un [sistema operativo compatible](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
+- El equipo cliente que se utiliza para copiar datos en los discos debe ejecutar un [sistema operativo compatible](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
 - Asegúrese de que el tipo de almacenamiento previsto para los datos coincide con los [tipos de almacenamiento admitidos](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
 - Revise los [límites de los discos administrados en los límites de tamaño de objeto de Azure](data-box-disk-limits.md#azure-object-size-limits).
 
@@ -101,10 +101,10 @@ Realice los pasos siguientes para conectarse y copiar datos desde el equipo a Da
     
     Los parámetros y las opciones para el comando se tabulan como sigue:
     
-    |Parámetros/opciones  |DESCRIPCIÓN |
+    |Parámetros/opciones  |Descripción |
     |--------------------|------------|
     |Source            | Especifica la ruta de acceso del directorio de origen.        |
-    |Destino       | Especifica la ruta de acceso del directorio de destino.        |
+    |Destination       | Especifica la ruta de acceso del directorio de destino.        |
     |/E                  | Copia los subdirectorios incluyendo los directorios vacíos. |
     |/MT[:N]             | Crea copias multiproceso con N subprocesos, donde N es un entero entre 1 y 128. <br>El valor predeterminado de N es 8.        |
     |/R: \<N>             | Especifica el número de reintentos en las copias con errores. El valor predeterminado de N es 1 000 000 (un millón de reintentos).        |
@@ -238,7 +238,7 @@ Este procedimiento opcional se puede usar cuando se utilizan varios discos y se 
  
 7. Abra una ventana de símbolo del sistema. 
 
-8. Ejecute `DataBoxDiskSplitCopy.exe`. type
+8. Ejecute `DataBoxDiskSplitCopy.exe`. Tipo
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 

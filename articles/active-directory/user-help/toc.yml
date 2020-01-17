@@ -2,44 +2,36 @@
   href: index.yml
 - name: Ayuda para la verificación en dos pasos
   items:
-    - name: Información general
-      href: user-help-two-step-verification-overview.md
-    - name: Configuración de los métodos de comprobación de dos factores
-      items:
-        - name: Información general
-          href: multi-factor-authentication-end-user-first-time.md
-        - name: Configuración de una aplicación autenticadora
-          href: multi-factor-authentication-setup-auth-app.md
-        - name: Configuración de un dispositivo móvil
-          href: multi-factor-authentication-setup-phone-number.md
-        - name: Configuración de un teléfono de la oficina
-          href: multi-factor-authentication-setup-office-phone.md
+    - name: ¿Qué es la página Comprobación adicional?
+      href: multi-factor-authentication-end-user-first-time.md
+    - name: Configuración de una aplicación autenticadora
+      href: multi-factor-authentication-setup-auth-app.md
+    - name: Configuración de un dispositivo móvil
+      href: multi-factor-authentication-setup-phone-number.md
+    - name: Configuración de un teléfono de la oficina
+      href: multi-factor-authentication-setup-office-phone.md
     - name: Administración de la configuración
       href: multi-factor-authentication-end-user-manage-settings.md
-    - name: Obtención de ayuda
-      href: multi-factor-authentication-end-user-troubleshoot.md
     - name: Administración de las contraseñas de aplicación
       href: multi-factor-authentication-end-user-app-passwords.md
     - name: Inicio de sesión
       href: user-help-sign-in.md?toc=./toc.json
+    - name: Obtener ayuda
+      href: multi-factor-authentication-end-user-troubleshoot.md
 - name: Ayuda para el restablecimiento de contraseña
   items:
-    - name: Información general
-      href: user-help-password-reset-overview.md
     - name: Registro para restablecer la contraseña
       href: active-directory-passwords-reset-register.md
     - name: Restablecimiento de la contraseña
       href: active-directory-passwords-update-your-own-password.md
 - name: Ayuda de la aplicación Microsoft Authenticator
   items:
-    - name: Información general
+    - name: ¿Qué es la aplicación Microsoft Authenticator?
       href: user-help-auth-app-overview.md
     - name: Descarga e instalación de la aplicación
       href: user-help-auth-app-download-install.md
     - name: Adición de cuentas
       items:
-        - name: Información general
-          href: user-help-auth-app-add-account-overview.md
         - name: Adición de una cuenta profesional o educativa
           href: user-help-auth-app-add-work-school-account.md
         - name: Adición de una cuenta Microsoft personal
@@ -56,10 +48,10 @@
       href: user-help-auth-app-faq.md
 - name: Ayuda del portal Mi cuenta
   items:
-    - name: Información general
+    - name: ¿Qué es el portal Mi cuenta?
       href: my-account-portal-overview.md
     - name: Administración de la información de seguridad
-      href: user-help-security-info-overview.md
+      href: security-info-setup-signin.md
     - name: Administración de los dispositivos conectados
       href: my-account-portal-devices-page.md
     - name: Cambio de la contraseña
@@ -72,14 +64,10 @@
       href: my-account-portal-sign-ins-page.md
 - name: Ayuda sobre la información de seguridad (versión preliminar)
   items:
-    - name: Información general
-      href: user-help-security-info-overview.md
     - name: Incorporación de la información de seguridad durante el inicio de sesión
       href: security-info-setup-signin.md
     - name: Incorporación o actualización de los métodos de información de seguridad
       items:
-        - name: Información general
-          href: security-info-add-update-methods-overview.md
         - name: Configuración de una aplicación autenticadora
           href: security-info-setup-auth-app.md
         - name: Configuración de mensajería de texto
@@ -98,8 +86,6 @@
       href: user-help-sign-in.md?toc=./toc.json
 - name: Ayuda para la administración de dispositivos
   items:
-    - name: Información general
-      href: user-help-device-mgmt-overview.md
     - name: Unión del dispositivo de trabajo
       href: user-help-join-device-on-network.md
     - name: Registro de un dispositivo personal para el trabajo
@@ -108,8 +94,6 @@
       href: user-help-device-remediation.md
 - name: Ayuda del portal Mis aplicaciones
   items:
-    - name: Información general
-      href: my-apps-portal-end-user-overview.md
     - name: Acceso y uso del portal Mis aplicaciones
       href: my-apps-portal-end-user-access.md
     - name: Actualización de la información del perfil y de la cuenta
@@ -122,8 +106,6 @@
       href: my-apps-portal-end-user-troubleshoot.md
 - name: Ayuda del portal de Aplicaciones (versión preliminar)
   items:
-    - name: Información general
-      href: my-applications-portal-overview.md
     - name: Acceso y uso del portal Mis aplicaciones
       href: my-applications-portal-access.md
     - name: Acceso y uso de áreas de trabajo

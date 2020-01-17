@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 61436b4317e85b67387a75e87c31a1c6cd13d84f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 8aaf5f5fbcabf3476284f0d5e9f4f50ef3e92bd6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895404"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891635"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Inicio rápido: Inicio de una aplicación de Azure Spring Cloud mediante el complemento Maven
 
@@ -27,7 +27,7 @@ En este inicio rápido aprenderá a:
 > * Asignar un punto de conexión público para la aplicación
 
 >[!Note]
-> Azure Spring Cloud se ofrece actualmente como versión preliminar pública. Las ofertas de versión preliminar pública permiten a los clientes experimentar con nuevas características antes de su publicación oficial.  Los servicios y las características en versión preliminar pública no están diseñados para su uso en producción.  Para obtener más información sobre el soporte técnico durante las versiones preliminares, revise las [preguntas frecuentes](https://azure.microsoft.com/support/faq/) o envíe una [solicitud de soporte técnico](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) para obtener más información.
+> Azure Spring Cloud se ofrece actualmente como versión preliminar pública. Las ofertas de versión preliminar pública permiten a los clientes experimentar con nuevas características antes de su publicación oficial.  Los servicios y las características en versión preliminar pública no están diseñados para su uso en producción.  Para más información sobre el soporte técnico durante las versiones preliminares, revise las [preguntas frecuentes](https://azure.microsoft.com/support/faq/) o envíe una [solicitud de soporte técnico](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) para obtener más información.
 
 
 >[!TIP]
@@ -57,6 +57,9 @@ Para completar esta guía de inicio rápido:
 
 El servicio tarda aproximadamente 5 minutos en implementarse. Una vez implementado el servicio, seleccione **Ir al recurso**, y aparecerá la página **Información general** de la instancia de servicio.
 
+> [!div class="nextstepaction"]
+> [He tenido un problema](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=provision)
+
 ## <a name="set-up-your-configuration-server"></a>Configuración del servidor de configuración
 
 1. En la página **Información general** del servicio y seleccione **Config Server**.
@@ -64,6 +67,9 @@ El servicio tarda aproximadamente 5 minutos en implementarse. Una vez implement
 
     > [!div class="mx-imgBorder"]
     > ![Definir y aplicar valores de configuración](media/maven-qs-apply-config.jpg)
+
+> [!div class="nextstepaction"]
+> [He tenido un problema](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=config-server)
 
 ## <a name="clone-and-build-the-sample-application-repository"></a>Clonación y compilación del repositorio de aplicaciones de ejemplo
 
@@ -105,6 +111,9 @@ El servicio tarda aproximadamente 5 minutos en implementarse. Una vez implement
    ```
 
 1. Después de que haya terminado la implementación, puede acceder a PiggyMetrics desde la dirección URL que se proporciona en la salida del comando anterior.
+
+> [!div class="nextstepaction"]
+> [He tenido un problema](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=deploy)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

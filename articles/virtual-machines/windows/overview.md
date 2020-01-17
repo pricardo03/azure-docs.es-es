@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b479717491c9bf4962ff633795b98e1d016ed288
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: efcbdb2ebd7f4830214dbd0f2ea2ea1cfe36c3de
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646938"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893513"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Máquinas virtuales Windows en Azure
 
@@ -65,7 +65,7 @@ El [tamaño](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) de l
 Azure cobra un [precio por hora](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) en función del tamaño y el sistema operativo de la máquina virtual. Para las fracciones de hora, solo cobra los minutos usados. El precio del almacenamiento se calcula y se cobra por separado.
 
 ## <a name="vm-limits"></a>Límites de máquina virtual
-Su suscripción tiene [límites de cuota](../../azure-resource-manager/management/azure-subscription-service-limits.md) predeterminados que pueden afectar a la implementación de numerosas máquinas virtuales en su proyecto. El límite actual por suscripción es 20 máquinas virtuales por región. Para aumentar estos límites, [cree una incidencia de soporte técnico y solicite un aumento](../../azure-supportability/resource-manager-core-quotas-request.md)
+Su suscripción tiene [límites de cuota](../../azure-resource-manager/management/azure-subscription-service-limits.md) predeterminados que pueden afectar a la implementación de numerosas máquinas virtuales en su proyecto. El límite actual por suscripción es 20 máquinas virtuales por región. Para aumentar estos límites, [cree una incidencia de soporte técnico y solicite un aumento](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
 
 ### <a name="operating-system-disks-and-images"></a>Imágenes y discos del sistema operativo
 Las máquinas virtuales usan [discos duros virtuales (VHD)](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para almacenar el sistema operativo y los datos. Estos discos también se usan para las imágenes entre las que se puede elegir para instalar un sistema operativo. 

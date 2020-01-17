@@ -19,6 +19,8 @@
       href: concept-conditional-access-policy-common.md
     - name: Componentes de la directiva de acceso condicional
       href: concept-conditional-access-policies.md
+    - name: Aplicaciones y acciones en la nube
+      href: concept-conditional-access-cloud-apps.md
     - name: Condiciones
       href: conditions.md
     - name: Condiciones de ubicación
@@ -35,7 +37,7 @@
       href: policy-migration.md
     - name: Directivas de protección básicas
       href: concept-baseline-protection.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   expanded: true
   items:
     - name: Planeamiento de la implementación del acceso condicional
@@ -78,7 +80,7 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Migración de directivas clásicas
       href: policy-migration-mfa.md
-    - name: solución de problemas
+    - name: Solución de problemas
       items:
         - name: Solución de problemas con la herramienta What If
           href: troubleshoot-conditional-access-what-if.md

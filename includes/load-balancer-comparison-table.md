@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 02/08/2018
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: d694a7030f96ef8e652d76cfb6036674aaa71249
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 4b419bd8c19cffaf84582cb4fa9e46592746da3f
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660227"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751857"
 ---
 | | SKU Estándar | SKU Básico |
 | --- | --- | --- |
-| Tamaño del grupo de servidores back-end | Admite hasta 1000 instancias. | Admite hasta 100 instancias. |
-| Puntos de conexión del grupo de servidores back-end | Cualquier máquina virtual en una única red virtual, lo que incluye las combinaciones de máquinas virtuales, conjuntos de disponibilidad y grupos de escalado de máquinas virtuales. | Máquinas virtuales en un único conjunto de disponibilidad o conjunto de escalado de máquinas virtuales. |
+| Tamaño de grupo de back-end | Admite hasta 1000 instancias. | Admite hasta 100 instancias. |
+| Puntos de conexión del grupo de back-end | Cualquier máquina virtual en una única red virtual, lo que incluye las combinaciones de máquinas virtuales, conjuntos de disponibilidad y grupos de escalado de máquinas virtuales. | Máquinas virtuales en un único conjunto de disponibilidad o conjunto de escalado de máquinas virtuales. |
 | [Sondeos de mantenimiento](../articles/load-balancer/load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
 | [Comportamiento del sondeo de mantenimiento](../articles/load-balancer/load-balancer-custom-probe-overview.md#probedown) | Las conexiones TCP permanecen activas en el sondeo de la instancia __y__ en todos los sondeos. | Las conexiones TCP permanecen activas en un sondeo de instancia. Todas las conexiones TCP finalizan cuando todos los sondeos están inactivos. |
 | Zonas de disponibilidad | Servidores front-end con redundancia de zona y zonas para el tráfico entrante y saliente. Las asignaciones de flujos salientes sobreviven a errores de zona. Equilibrio de carga entre zonas. | No disponible |

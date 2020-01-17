@@ -9,12 +9,12 @@ ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 9ecffc25461a909d47329d536d1c19724b3c22ac
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 1aa8c9ff26b85f5af8095ad1cff062b224abff83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718073"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982178"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Inicio rápido: Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con Azure Portal
 
@@ -24,7 +24,7 @@ Azure Event Grid es un servicio de eventos para la nube. En este artículo, se u
 
 Cuando haya terminado, verá que los datos del evento se han enviado a la aplicación web.
 
-![Visualización de los resultados](./media/blob-event-quickstart-portal/view-results.png)
+![Vista de resultados](./media/blob-event-quickstart-portal/view-results.png)
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
@@ -38,7 +38,7 @@ Cuando haya terminado, verá que los datos del evento se han enviado a la aplica
 
    ![Selección de Storage](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. Para suscribirse a eventos, cree una cuenta de almacenamiento de uso general v2 o una cuenta de Blob Storage. Para obtener más información, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md).
+1. Para suscribirse a eventos, cree una cuenta de almacenamiento de uso general v2 o una cuenta de Blob Storage. Para obtener más información, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-account-create.md).
 
    ![Pasos iniciales](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

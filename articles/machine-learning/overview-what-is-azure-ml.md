@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: aea3e6d0e7b0a1d2f28d67f013701a9af5c3ba70
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: cd94001cfe795e7aa78a1332325052afce6b8ec6
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75542191"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762814"
 ---
 # <a name="what-is-azure-machine-learning"></a>¿Qué es Azure Machine Learning?
 
@@ -46,13 +46,13 @@ Azure Machine Learning proporciona todas las herramientas que los desarrolladore
 
 + Scripts o cuadernos de R en los que usa el <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK para R</a> para escribir su propio código, o use los módulos de R en el diseñador.
 
-+ [Extensión de Visual Studio Code](service/how-to-vscode-tools.md)
++ [Extensión de Visual Studio Code](how-to-vscode-tools.md)
 
 + [CLI de Machine Learning](reference-azure-machine-learning-cli.md)
 
 + Plataformas de código abierto como PyTorch, TensorFlow y scikit-learn, entre muchas otras
 
-Incluso puede usar [MLflow para realizar un seguimiento de las métricas e implementar modelos](service/how-to-use-mlflow.md) o Kubeflow para [compilar canalizaciones de flujo de trabajo de un extremo a otro](https://www.kubeflow.org/docs/azure/).
+Incluso puede usar [MLflow para realizar un seguimiento de las métricas e implementar modelos](how-to-use-mlflow.md) o Kubeflow para [compilar canalizaciones de flujo de trabajo de un extremo a otro](https://www.kubeflow.org/docs/azure/).
 
 ## <a name="build-ml-models-in-python-or-r"></a>Creación de modelos de aprendizaje automático en Python o R
 
@@ -104,12 +104,12 @@ Azure Machine Learning funciona con otros servicios de la plataforma Azure y tam
 
 + Destinos de proceso, como __Azure Kubernetes Service__, __Azure Container Instances__, __Azure Databricks__, __Azure Data Lake Analytics__ y __de Azure HDInsight__. Para más información sobre los destinos de proceso, consulte [¿Qué son los destinos de proceso?](concept-compute-target.md).
 + __Azure Event Grid__. Para más información, consulte [Consumo de eventos de Azure Machine Learning](concept-event-grid-integration.md).
-+ __Azure Monitor__. Para más información, consulte [Supervisión de Azure Machine Learning](service/monitor-azure-machine-learning.md).
++ __Azure Monitor__. Para más información, consulte [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md).
 + Almacenes de datos, como las __cuentas de Azure Storage__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__ y __Azure Open Datasets__. Para más información, consulte [Acceso a los datos en los servicios de almacenamiento de Azure](how-to-access-data.md) y [Creación de conjuntos de datos con Azure Open Datasets](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets).
 + __Redes virtuales de Azure__. Para más información, consulte [Protección de experimentos e inferencias en una red virtual](how-to-enable-virtual-network.md).
 + __Azure Pipelines__. Para más información, consulte [Entrenamiento e implementación de modelos de aprendizaje automático](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Registros del repositorio de Git__. Para más información, consulte [Integración de Git](concept-train-model-git-integration.md).
-+ __MLFlow__. Para más información, consulte[MLflow para realizar un seguimiento de las métricas e implementar modelos](service/how-to-use-mlflow.md). 
++ __MLFlow__. Para más información, consulte[MLflow para realizar un seguimiento de las métricas e implementar modelos](how-to-use-mlflow.md). 
 + __Kubeflow__. Para más información, consulte [Compilación de canalizaciones de flujo de trabajo de un extremo a otro](https://www.kubeflow.org/docs/azure/).
 
 ### <a name="secure-communications"></a>Comunicaciones seguras
@@ -135,10 +135,10 @@ Los clientes son responsables de los costos en los que se incurre en el proceso 
 - Cree el primer experimento con el método que prefiera:
   + [Uso de cuadernos de Python para entrenar e implementar modelos de aprendizaje automático](tutorial-1st-experiment-sdk-setup.md)
   + [Uso de R Markdown para entrenar e implementar modelos de aprendizaje automático](tutorial-1st-r-experiment.md) 
-  + [Uso del aprendizaje automático automatizado para entrenar e implementar modelos de aprendizaje automático](  service/tutorial-first-experiment-automated-ml.md) 
+  + [Uso del aprendizaje automático automatizado para entrenar e implementar modelos de aprendizaje automático](tutorial-first-experiment-automated-ml.md) 
   + [Uso de las funcionalidades de arrastrar y colocar del diseñador para entrenar e implementar](tutorial-designer-automobile-price-train-score.md) 
   + [Uso de la CLI de Machine Learning para entrenar e implementar un modelo](tutorial-train-deploy-model-cli.md)
 
-- Aprenda sobre [la canalización de aprendizaje automático ](/azure/machine-learning/service/concept-ml-pipelines) para crear, optimizar y administrar los escenarios de aprendizaje automático.
+- Aprenda sobre [la canalización de aprendizaje automático ](concept-ml-pipelines.md) para crear, optimizar y administrar los escenarios de aprendizaje automático.
 
 - Lea el artículo detallado [Arquitectura y conceptos del servicio Azure Machine Learning](concept-azure-machine-learning-architecture.md).

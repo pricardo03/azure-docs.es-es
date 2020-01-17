@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019
-ms.openlocfilehash: e63892962802d38ac7337a99a9a33f3770785ad2
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 62455b395e6cad3ccf7650534d92d94a6a0a2417
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170266"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977494"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-using-python"></a>Inicio rápido: Creación de una instancia de Azure Data Factory y una canalización con Python
 
@@ -32,9 +32,9 @@ Azure Data Factory es un servicio de integración de datos basado en la nube que
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* **Cuenta de Azure Storage**. El almacenamiento de blobs se puede usar como almacén de datos de **origen** y **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación.
+* **Cuenta de Azure Storage**. El almacenamiento de blobs se puede usar como almacén de datos de **origen** y **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para ver los pasos para su creación.
 * **Cree una aplicación en Azure Active Directory**. Para ello, siga [estas instrucciones](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Tome nota de los valores siguientes; los usará en pasos posteriores: **id. de aplicación**, **clave de autenticación** e **id. de inquilino**. Siga las instrucciones del mismo artículo para asignar la aplicación al rol "**Colaborador**".
 
 ### <a name="create-and-upload-an-input-file"></a>Crear y cargar un archivo de entrada
@@ -169,7 +169,7 @@ Los servicios vinculados se crean en una factoría de datos para vincular los al
 
 En esta sección, se crean dos conjuntos de datos: uno para el origen y otro para el receptor.
 
-### <a name="create-a-dataset-for-source-azure-blob"></a>Crear un conjunto de datos para un blob de Azure
+### <a name="create-a-dataset-for-source-azure-blob"></a>Creación de un conjunto de datos para el blob de Azure de origen
 
 Agregue el código siguiente al método main que crea un conjunto de datos de blob de Azure. Para obtener más información sobre las propiedades del conjunto de datos de blob, consulte el artículo [Conector de blob de Azure](connector-azure-blob-storage.md#dataset-properties).
 
@@ -186,7 +186,7 @@ Se define un conjunto de datos que representa los datos de origen del blob de Az
     print_item(ds)
 ```
 
-### <a name="create-a-dataset-for-sink-azure-blob"></a>Crear un conjunto de datos para un blob de Azure de receptor
+### <a name="create-a-dataset-for-sink-azure-blob"></a>Creación de un conjunto de datos para el blob de Azure receptor
 
 Agregue el código siguiente al método main que crea un conjunto de datos de blob de Azure. Para obtener más información sobre las propiedades del conjunto de datos de blob, consulte el artículo [Conector de blob de Azure](connector-azure-blob-storage.md#dataset-properties).
 

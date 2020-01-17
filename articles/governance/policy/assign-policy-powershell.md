@@ -3,12 +3,12 @@ title: 'Inicio rápido: Asignación de directivas nuevas con PowerShell'
 description: En este inicio rápido, se usa Azure PowerShell para crear una asignación de Azure Policy para identificar recursos no compatibles.
 ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 3ce823a7abfe16e4433128dcdfe073dfcfaeba50
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 3fd6060d1f38c523ccf22e80807f6220bfdf3cbc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482389"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978303"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante Azure PowerShell
 
@@ -17,7 +17,7 @@ El primer paso para entender el cumplimiento en Azure es identificar el estado d
 El módulo Azure PowerShell se usa para administrar recursos de Azure desde la línea de comandos o en scripts.
 En esta guía se explica cómo usar el módulo Az para crear una asignación de directiva.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -30,7 +30,7 @@ En esta guía se explica cómo usar el módulo Az para crear una asignación de 
   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
-  Para más información sobre el registro y la visualización de los proveedores de recursos, consulte [Tipos y proveedores de recursos](../../azure-resource-manager/resource-manager-supported-services.md).
+  Para más información sobre el registro y la visualización de los proveedores de recursos, consulte [Tipos y proveedores de recursos](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

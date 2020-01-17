@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d4fae87d999bd0f6b0b388613098a17c181dae0c
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 78440b8150a0992bed2e2a3e597fdac8e7a1c7b0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70392744"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749713"
 ---
 # <a name="latency-in-blob-storage"></a>Latencia en Blob Storage
 
@@ -67,5 +67,5 @@ Para evaluar la latencia, establezca primero métricas de referencia para su esc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Objetivos de escalabilidad y rendimiento de Azure Storage en cuentas de almacenamiento](../common/storage-scalability-targets.md)
-- [Lista de comprobación del rendimiento y la escalabilidad de Azure Storage](../common/storage-performance-checklist.md)
+- [Objetivos de escalabilidad y rendimiento de Blob Storage](scalability-targets.md)
+- [Lista de comprobación de escalabilidad y rendimiento para Blob Storage](storage-performance-checklist.md)

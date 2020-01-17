@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 46f8e59713896cd94b96de62d982072119c32513
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 700dd305cf5365a604a5613bd5b48dbd2ac8f840
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050178"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021303"
 ---
 En esta sección se describe cómo crear un centro de IoT mediante [Azure Portal](https://portal.azure.com).
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Seleccione **Crear un recurso** y, después, escriba *IoT Hub* en el campo **Buscar en Marketplace**.
 
@@ -27,7 +27,7 @@ En esta sección se describe cómo crear un centro de IoT mediante [Azure Portal
 
    - **Suscripción**: seleccione la suscripción que quiera usar para el centro.
 
-   - **Grupo de recursos**: seleccione un grupo de recursos o cree uno. Para crear uno, haga clic en **Crear** y escriba el nombre que quiera usar. Para usar un grupo de recursos existente, selecciónelo. Para más información, consulte [Administración de grupos de recursos de Azure Resource Manager](../articles/azure-resource-manager/manage-resource-groups-portal.md).
+   - **Grupo de recursos**: seleccione un grupo de recursos o cree uno. Para crear uno, haga clic en **Crear** y escriba el nombre que quiera usar. Para usar un grupo de recursos existente, selecciónelo. Para más información, consulte [Administración de grupos de recursos de Azure Resource Manager](../articles/azure-resource-manager/management/manage-resource-groups-portal.md).
 
    - **Región**: seleccione la región a la que quiera ubicar el centro. Seleccione una región que admita la versión preliminar de los flujos de dispositivo de IoT Hub, bien **Centro de EE. UU.** o **EUAP de centro de EE. UU.** .
 

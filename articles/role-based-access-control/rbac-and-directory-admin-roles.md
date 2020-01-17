@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 8dbccdfdcf2a309c8324328f46336bab74839da4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1d0966737964c44fc4a6778cdb811a4ecc732ffc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75357536"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979304"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD
 
@@ -81,7 +81,7 @@ RBAC de Azure es un sistema de autorización basado en [Azure Resource Manager](
 
 Los demás roles integrados permiten la administración de recursos específicos de Azure. Por ejemplo, el rol de [colaborador de máquina virtual](built-in-roles.md#virtual-machine-contributor) permite al usuario crear y administrar máquinas virtuales. Para una lista de todos los roles integrados, consulte [Roles integrados en los recursos de Azure](built-in-roles.md).
 
-RBAC de Azure solo es compatible con Azure Portal y las API de Azure Resource Manager. Los usuarios, los grupos y las aplicaciones a los que se asignan roles de RBAC no pueden usar las [API del modelo de implementación clásica de Azure](../azure-resource-manager/resource-manager-deployment-model.md).
+RBAC de Azure solo es compatible con Azure Portal y las API de Azure Resource Manager. Los usuarios, los grupos y las aplicaciones a los que se asignan roles de RBAC no pueden usar las [API del modelo de implementación clásica de Azure](../azure-resource-manager/management/deployment-models.md).
 
 En Azure Portal, las asignaciones de roles mediante RBAC aparecen en la hoja **Control de acceso (IAM)** . Esta hoja se puede encontrar en todo el portal, como en grupos de administración, suscripciones, grupos de recursos y distintos recursos.
 

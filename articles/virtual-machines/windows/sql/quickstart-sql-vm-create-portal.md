@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bbf127f105f0ef22a23f00541396c2ac66b0e5f9
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 801a6fc0602882d1af49c06bafcfd51942e6da2e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828355"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965647"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Inicio rápido: Creación de una máquina virtual Windows de SQL Server 2017 en Azure Portal
 
@@ -97,7 +97,7 @@ En la pestaña **Revisar y crear**, revise el resumen y seleccione **Crear** par
 
 Puede supervisar la implementación desde Azure Portal. En el botón **Notificaciones** de la parte superior de la pantalla, se muestra el estado básico de la implementación. La implementación puede tardar varios minutos. 
 
-## <a name="connect-to-sql-server"></a>Conexión con SQL Server
+## <a name="connect-to-sql-server"></a>Conectar a SQL Server
 
 1. En el portal, busque la **dirección IP pública** de la VM con SQL Server en la sección **Información general** de las propiedades de la máquina virtual.
 
@@ -128,7 +128,7 @@ El acceso a la máquina le permite cambiar directamente la máquina y la configu
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si no necesita que la máquina virtual de SQL se ejecute continuamente, puede detenerla cuando no esté en uso y así evitar cargos innecesarios. También puede eliminar de forma definitiva todos los recursos asociados con la máquina virtual mediante la eliminación de su grupo de recursos asociado en el portal. Como esta acción también elimina la máquina virtual definitivamente, use este comando con cuidado. Para más información, consulte [Administración de recursos de Azure en el portal](../../../azure-resource-manager/manage-resource-groups-portal.md).
+Si no necesita que la máquina virtual de SQL se ejecute continuamente, puede detenerla cuando no esté en uso y así evitar cargos innecesarios. También puede eliminar de forma definitiva todos los recursos asociados con la máquina virtual mediante la eliminación de su grupo de recursos asociado en el portal. Como esta acción también elimina la máquina virtual definitivamente, use este comando con cuidado. Para más información, consulte [Administración de recursos de Azure en el portal](../../../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

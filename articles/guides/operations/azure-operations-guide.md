@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 9b23e3b69b4970e765ea1cd5af690cf074bad774
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: e6ef4cc825d40615fa8a6aee7dff8d4542407974
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693446"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970857"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introducción para operadores de TI de Azure
 
@@ -178,7 +178,7 @@ Los administradores pueden acceder a Azure PowerShell y la CLI de Azure mediante
 
 ## <a name="azure-subscriptions"></a>Suscripciones de Azure
 
-Una suscripción es una agrupación lógica de servicios de Azure que está vinculada a una cuenta de Azure. Una única cuenta de Azure puede contener varias suscripciones. La facturación de los servicios de Azure se realiza por suscripción. Las suscripciones de Azure tienen un administrador de cuenta, que tiene control total sobre la suscripción y un administrador de servicios, que tiene control sobre todos los servicios de la suscripción. Para saber más sobre los administradores de suscripción clásica, vea [Agregar o cambiar los administradores de la suscripción de Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Además de a los administradores, se puede conceder control detallado de los recursos de Azure con [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md) a cuentas individuales.
+Una suscripción es una agrupación lógica de servicios de Azure que está vinculada a una cuenta de Azure. Una única cuenta de Azure puede contener varias suscripciones. La facturación de los servicios de Azure se realiza por suscripción. Las suscripciones de Azure tienen un administrador de cuenta, que tiene control total sobre la suscripción y un administrador de servicios, que tiene control sobre todos los servicios de la suscripción. Para saber más sobre los administradores de suscripción clásica, vea [Agregar o cambiar los administradores de la suscripción de Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Además de a los administradores, se puede conceder control detallado de los recursos de Azure con [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md) a cuentas individuales.
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Seleccionar y habilitar una suscripción de Azure
 
@@ -206,7 +206,7 @@ Para saber más, vea [Administración del acceso mediante RBAC y Azure Portal](.
 
 Un componente importante del uso de Azure es la funcionalidad para ver información de facturación. Azure Portal proporciona una visión detallada de la información de facturación de Azure.
 
-Para más información, consulte [Cómo descargar las datos de uso diario y de factura de facturación de Azure](../../billing/billing-download-azure-invoice-daily-usage-date.md).
+Para más información, consulte [Cómo descargar las datos de uso diario y de factura de facturación de Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
 
 ### <a name="get-billing-information-from-billing-apis"></a>Obtención de la información de facturación desde las API de facturación
 
@@ -216,7 +216,7 @@ Además de ver la facturación en el portal, puede tener acceso a la informació
 
 - Puede usar la API Rate Card de Azure para enumerar todos los recursos disponibles, junto con los metadatos y la información de precios de cada uno de esos recursos.
 
-Para más información, consulte [Obtención de información sobre el consumo de recursos de Microsoft Azure](../../billing/billing-usage-rate-card-overview.md).
+Para más información, consulte [Obtención de información sobre el consumo de recursos de Microsoft Azure](../../cost-management-billing/manage/usage-rate-card-overview.md).
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Previsión del costo con la calculadora de precios
 
@@ -298,7 +298,7 @@ Estos son algunos ejemplos de [roles integrados en Azure](../../role-based-acces
 
 - **Lector**: un usuario con este rol puede leer recursos de todos los tipos (excepto los secretos) pero no puede realizar cambios.
 
-- **Colaborador de máquina virtual**: un usuario con este rol puede administrar máquinas virtuales, pero no puede administrar la red virtual a la que está conectado o la cuenta de almacenamiento donde reside el archivo de disco duro virtual.
+- **Colaborador de la máquina virtual**: un usuario con este rol puede administrar máquinas virtuales, pero no puede administrar la red virtual a la que está conectado o la cuenta de almacenamiento donde reside el archivo de disco duro virtual.
 
 - **Colaborador de base de datos SQL**: un usuario con este rol puede administrar bases de datos SQL, pero no sus directivas relacionadas con la seguridad.
 
@@ -328,19 +328,19 @@ Puede implementar máquinas virtuales de Azure mediante Azure Portal, mediante a
 
 La implementación de una máquina virtual mediante Azure Portal requiere solo una suscripción activa de Azure y acceso a un explorador web. Puede seleccionar muchas imágenes de sistema operativo diferentes con distintas configuraciones. Todos los requisitos de almacenamiento y redes se configuran durante la implementación. Para más información, consulte "Creación de una máquina virtual en Azure Portal" para [Windows](../../virtual-machines/windows/quick-create-portal.md) y [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
-Además de implementar una máquina virtual desde Azure Portal, puede implementar una plantilla de Azure Resource Manager desde el portal. Esto implementará y configurará todos los recursos, tal y como se define en la plantilla. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Además de implementar una máquina virtual desde Azure Portal, puede implementar una plantilla de Azure Resource Manager desde el portal. Esto implementará y configurará todos los recursos, tal y como se define en la plantilla. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 #### <a name="powershell"></a>PowerShell
 
 La implementación de una máquina virtual de Azure mediante PowerShell permite la automatización completa de la implementación de todos los recursos de máquina virtual relacionados, incluidos el almacenamiento y las redes. Para más información, consulte [Creación de una máquina virtual Windows mediante Resource Manager y PowerShell](../../virtual-machines/windows/quick-create-powershell.md).
 
-Además de implementar individualmente los recursos de proceso de Azure, puede usar el módulo Azure PowerShell para implementar una plantilla de Azure Resource Manager. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+Además de implementar individualmente los recursos de proceso de Azure, puede usar el módulo Azure PowerShell para implementar una plantilla de Azure Resource Manager. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 #### <a name="command-line-interface-cli"></a>Interfaz de la línea de comandos (CLI)
 
 Al igual que con el módulo de PowerShell, la interfaz de línea de comandos de Azure proporciona automatización de la implementación y puede usarse en sistemas Windows, OS X o Linux. Cuando se usa el comando **vm quick-create** de la CLI de Azure, se implementan todos los recursos relacionados con la máquina virtual (incluidos almacenamiento y redes) y la propia máquina virtual. Para más información, consulte [Creación de una máquina virtual Linux en Azure mediante la CLI](../../virtual-machines/linux/quick-create-cli.md).
 
-Del mismo modo, puede utilizar la CLI de Azure para implementar una plantilla de Azure Resource Manager. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md).
+Del mismo modo, puede utilizar la CLI de Azure para implementar una plantilla de Azure Resource Manager. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/templates/deploy-cli.md).
 
 ### <a name="access-and-security-for-virtual-machines"></a>Acceso y seguridad para máquinas virtuales
 
@@ -408,15 +408,15 @@ Hay varias opciones para implementar una cuenta de almacenamiento.
 
 #### <a name="portal"></a>Portal
 
-La implementación de una cuenta de almacenamiento mediante Azure Portal requiere solo una suscripción activa de Azure y acceso a un explorador web. Puede implementar una nueva cuenta de almacenamiento en un grupo de recursos nuevo o existente. Después de crear la cuenta de almacenamiento, puede crear un recurso compartido de archivo o contenedor de blobs mediante el portal. Puede crear entidades de Table Storage y de Queue Storage mediante programación. Para obtener más información, consulte [Creación de una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md).
+La implementación de una cuenta de almacenamiento mediante Azure Portal requiere solo una suscripción activa de Azure y acceso a un explorador web. Puede implementar una nueva cuenta de almacenamiento en un grupo de recursos nuevo o existente. Después de crear la cuenta de almacenamiento, puede crear un recurso compartido de archivo o contenedor de blobs mediante el portal. Puede crear entidades de Table Storage y de Queue Storage mediante programación. Para obtener más información, consulte [Creación de una cuenta de almacenamiento](../../storage/common/storage-account-create.md).
 
-Además de implementar una cuenta de almacenamiento desde Azure Portal, puede implementar una plantilla de Azure Resource Manager desde el portal. Esto implementará y configurará todos los recursos tal como se define en la plantilla, incluida cualquier cuenta de almacenamiento. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Además de implementar una cuenta de almacenamiento desde Azure Portal, puede implementar una plantilla de Azure Resource Manager desde el portal. Esto implementará y configurará todos los recursos tal como se define en la plantilla, incluida cualquier cuenta de almacenamiento. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 #### <a name="powershell"></a>PowerShell
 
 La implementación de una cuenta de Azure Storage mediante PowerShell permite la automatización de la implementación completa de la cuenta de almacenamiento. Para más información, consulte [Uso de Azure PowerShell con Azure Storage](../../storage/common/storage-powershell-guide-full.md).
 
-Además de implementar individualmente los recursos de Azure, puede usar el módulo Azure PowerShell para implementar una plantilla de Azure Resource Manager. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+Además de implementar individualmente los recursos de Azure, puede usar el módulo Azure PowerShell para implementar una plantilla de Azure Resource Manager. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 #### <a name="command-line-interface-cli"></a>Interfaz de la línea de comandos (CLI)
 
@@ -473,8 +473,8 @@ Hay varias opciones para implementar una red virtual.
 
 - Plantillas del Administrador de recursos de Azure
 
-> **Cuándo se deben usar**: siempre que trabaje con máquinas virtuales en Azure, trabajará con redes virtuales. Esto permite segmentar las máquinas virtuales en subredes públicas y privadas de forma similar a los centros de datos en el entorno local.
-> 
+> **Cuándo se debe usar**: siempre que trabaje con máquinas virtuales en Azure, trabajará con redes virtuales. Esto permite segmentar las máquinas virtuales en subredes públicas y privadas de forma similar a los centros de datos en el entorno local.
+>
 > **Introducción**: La implementación de una red virtual de Azure mediante Azure Portal requiere solo una suscripción activa de Azure y acceso a un explorador web. Puede implementar una nueva red virtual en un grupo de recursos nuevo o existente. Al crear una nueva máquina virtual desde el portal, puede seleccionar una red virtual existente o crear una nueva. Introducción y [Creación de una red virtual mediante Azure Portal](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Acceso y seguridad para redes virtuales

@@ -17,6 +17,8 @@
   items:
     - name: Inicio del Lector inmersivo (Python)
       href: tutorial-python.md
+    - name: Uso de varios recursos del Lector inmersivo
+      href: tutorial-multiple-resources.md
 - name: Procedimiento
   items:
     - name: Creación de un recurso del Lector inmersivo

@@ -452,7 +452,9 @@
           href: how-to-use-logging.md
         - name: Seguimiento del uso de la memoria
           href: how-to-track-speech-sdk-memory-usage.md
-          displayName: 'memory usage, memory consumption, object logging, object tracking, memory'
+        - name: Configuración de OpenSSL para Linux
+          href: how-to-configure-openssl-linux.md
+          displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
     - name: Ejemplos
       items:
         - name: Ejemplos del SDK de voz (GitHub)

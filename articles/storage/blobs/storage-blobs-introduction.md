@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 51f72011b89656d8f56e996d4654a2714f2f482b
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 8c2bbd3aff8c2c10864fb2fa8937c9159ecd3606
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615597"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972451"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introducción a Azure Blob Storage
 
@@ -41,7 +41,7 @@ Por ejemplo, si la cuenta de almacenamiento se llama *mystorageaccount*, los pun
 http://mystorageaccount.blob.core.windows.net 
 ```
 
-Para crear una cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](../common/storage-quickstart-create-account.md). Para más información sobre las cuentas de almacenamiento, consulte la [Información general acerca de la cuenta de Azure Storage](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para crear una cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](../common/storage-account-create.md). Para más información sobre las cuentas de almacenamiento, consulte la [Información general acerca de la cuenta de Azure Storage](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="containers"></a>Contenedores
 
@@ -50,7 +50,7 @@ Un contenedor organiza un conjunto de blobs, de forma parecida a un directorio e
   > [!NOTE]
   > El nombre del contenedor debe estar en minúsculas. Para más información sobre la asignación de nombre a los contenedores, consulte [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) (Asignación de nombres y referencia a contenedores, blobs y metadatos).
 
-### <a name="blobs"></a>Blobs
+### <a name="blobs"></a>Datos BLOB
  
 Azure Storage admite tres tipos de blobs:
 
@@ -73,5 +73,5 @@ Existen varias soluciones para migrar datos existentes a Blob Storage:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Cree una cuenta de almacenamiento](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Objetivos de escalabilidad y rendimiento de Azure Storage](../common/storage-scalability-targets.md)
+- [Cree una cuenta de almacenamiento](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Objetivos de escalabilidad y rendimiento de Blob Storage](scalability-targets.md)

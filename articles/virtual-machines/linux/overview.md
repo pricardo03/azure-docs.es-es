@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 46a1198b4052cb8663c60e53e8c2b965f78af948
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: bfda5fe7592d4c3f3f9550f406cf7635c43168ed
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644297"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896206"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Máquinas virtuales Linux en Azure
 
@@ -65,7 +65,7 @@ El [tamaño](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) de la 
 Azure cobra un [precio por hora](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) en función del tamaño y el sistema operativo de la máquina virtual. Para las fracciones de hora, solo cobra los minutos usados. El precio del almacenamiento se calcula y se cobra por separado.
 
 ## <a name="vm-limits"></a>Límites de máquina virtual
-Su suscripción tiene [límites de cuota](../../azure-resource-manager/management/azure-subscription-service-limits.md) predeterminados que pueden afectar a la implementación de numerosas máquinas virtuales en su proyecto. El límite actual por suscripción es 20 máquinas virtuales por región. Para aumentar estos límites, [cree una incidencia de soporte técnico y solicite un aumento](../../azure-supportability/resource-manager-core-quotas-request.md)
+Su suscripción tiene [límites de cuota](../../azure-resource-manager/management/azure-subscription-service-limits.md) predeterminados que pueden afectar a la implementación de numerosas máquinas virtuales en su proyecto. El límite actual por suscripción es 20 máquinas virtuales por región. Para aumentar estos límites, [cree una incidencia de soporte técnico y solicite un aumento](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
 
 ## <a name="managed-disks"></a>Managed Disks
 

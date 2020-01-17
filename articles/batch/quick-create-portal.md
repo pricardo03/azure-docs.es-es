@@ -2,19 +2,19 @@
 title: Inicio rápido de Azure - Ejecución de un trabajo de Batch - Portal
 description: Aprenda rápidamente a ejecutar un trabajo de Batch con Azure Portal.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 92f8499a10c07e7d5ea74e49c374cef192b8a47f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 294d1658559dd426245cf66a47a8791f8b370533
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094120"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029415"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Inicio rápido: Ejecución del primer trabajo de Batch en Azure Portal
 
@@ -56,7 +56,7 @@ Ahora que tiene una cuenta de Batch, cree un grupo de ejemplo de nodos de proces
 
 3. En **Sistema operativo**, seleccione la siguiente configuración (puede explorar otras opciones).
   
-   |Configuración  |Valor  |
+   |Configuración  |Value  |
    |---------|---------|
    |**Tipo de imagen**|Marketplace (Linux/Windows)|
    |**Publicador**     |Microsoft Windows Server|
@@ -67,7 +67,7 @@ Ahora que tiene una cuenta de Batch, cree un grupo de ejemplo de nodos de proces
 
 4. Desplácese hacia abajo para especificar los valores de **Tamaño de nodo** y **Escala**. El tamaño del nodo que se sugiere ofrece un buen equilibrio entre rendimiento y costo para este ejemplo rápido.
   
-   |Configuración  |Valor  |
+   |Configuración  |Value  |
    |---------|---------|
    |**Plan de tarifa del nodo**     |Standard_A1|
    |**Nodos dedicados de destino**     |2|

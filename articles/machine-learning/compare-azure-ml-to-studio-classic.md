@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: a808387c891b4078092c5cac1bf95df8472ff0f6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: a3122a3ae1687369b87d193efc693b3b7c659aac
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529563"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974132"
 ---
 # <a name="how-azure-machine-learning-differs-from-machine-learning-studio-classic"></a>Diferencias entre Azure Machine Learning y Machine Learning Studio (clásico)
 
@@ -29,7 +29,7 @@ Mientras, [Azure Machine Learning](overview-what-is-azure-ml.md) proporciona una
 El diseñador de Azure Machine Learning proporciona una experiencia de arrastrar y colocar similar a Studio (clásico). Sin embargo, a diferencia de la plataforma de proceso propietaria de Studio (clásico), el diseñador utiliza sus propios recursos de proceso, es escalable y está totalmente integrado en Azure Machine Learning.  
 
 > [!TIP]
-> Se recomienda a los clientes que usen o evalúen Machine Learning Studio (clásico) que prueben el [diseñador de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/ui-concept-visual-interface) (versión preliminar), que proporciona módulos de Machine Learning de arrastrar y colocar, __además de__ escalabilidad, control de versiones y seguridad de la empresa.
+> Se recomienda a los clientes que usen o evalúen Machine Learning Studio (clásico) que prueben el [diseñador de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer) (versión preliminar), que proporciona módulos de Machine Learning de arrastrar y colocar, __además de__ escalabilidad, control de versiones y seguridad de la empresa.
 
 ## <a name="comparison-azure-machine-learning-vs-machine-learning-studio-classic"></a>Comparación: Azure Machine Learning frente a Machine Learning Studio (clásico)
 

@@ -9,19 +9,19 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: a94e67af927365eda2b8b98240285e7cd3079a95
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 8b6a9978d6db1a8978f993abf16d7cfbfb2f44a9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688137"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771026"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Inicio rápido: Creación de un centro de eventos mediante Azure Portal
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
 
 En esta guía de inicio rápido se crea un centro de eventos mediante [Azure Portal](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar esta guía de inicio rápido, asegúrese de que tiene:
 
@@ -29,11 +29,11 @@ Para completar esta guía de inicio rápido, asegúrese de que tiene:
 - [Visual Studio 2019](https://www.visualstudio.com/vs) o cualquier versión posterior.
 - [SDK de .NET Standard](https://www.microsoft.com/net/download/windows), versión 2.0 o posterior.
 
-## <a name="create-a-resource-group"></a>Creación de un grupo de recursos
+## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
 Un grupo de recursos es una recopilación lógica de recursos de Azure. Todos los recursos se implementan y administran en un grupo de recursos. Para crear un grupo de recursos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En el panel de la izquierda, seleccione **Grupos de recursos**. A continuación, haga clic en **Agregar**.
 
    ![Grupos de recursos: botón Agregar](./media/event-hubs-quickstart-portal/resource-groups1.png)
@@ -102,7 +102,7 @@ En este artículo, ha creado un grupo de recursos, un espacio de nombres de Even
 - [Node.js](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (solo enviar)](event-hubs-c-getstarted-send.md)
-- [Apache Storm (solo recibir)](event-hubs-storm-getstarted-receive.md)
+- [Apache Storm (solo recibir)](event-hubs-storm-getstarted-receive.md)
 
 
 [Azure portal]: https://portal.azure.com/

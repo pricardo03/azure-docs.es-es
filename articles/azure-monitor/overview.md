@@ -7,12 +7,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: d02ea18422e20aa2fede4f25cdffa985607e7b5c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 58dd53d9380448f177da48659b4f48c261bcfc14
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597339"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745441"
 ---
 # <a name="azure-monitor-overview"></a>Introducción a Azure Monitor
 
@@ -55,9 +55,9 @@ Azure Monitor puede recopilar datos de diversos orígenes. Puede pensar en super
 - **Datos de supervisión de la suscripción de Azure**: datos sobre el funcionamiento y la administración de una suscripción de Azure, así como sobre el estado y el funcionamiento del propio Azure. 
 - **Datos de supervisión de inquilino de Azure**: datos sobre el funcionamiento de los servicios de Azure en el nivel del inquilino, como Azure Active Directory.
 
-En cuanto crea una suscripción a Azure y empieza a agregar recursos, como máquinas virtuales y aplicaciones web, Azure Monitor comienza a recopilar datos.  Los [registros de actividad](platform/activity-logs-overview.md) registran la creación y modificación de recursos. Las [métricas](platform/data-platform.md) indican cómo está funcionando un recurso y los recursos que consume. 
+En cuanto crea una suscripción a Azure y empieza a agregar recursos, como máquinas virtuales y aplicaciones web, Azure Monitor comienza a recopilar datos.  Los [registros de actividad](platform/platform-logs-overview.md) registran la creación y modificación de recursos. Las [métricas](platform/data-platform.md) indican cómo está funcionando un recurso y los recursos que consume. 
 
-Amplíe los datos que recopila y obtenga información sobre el funcionamiento real de los recursos [habilitando diagnósticos](platform/resource-logs-overview.md) y [agregando un agente](platform/agent-windows.md) a los recursos de proceso. De este modo, recopilará datos de telemetría sobre el funcionamiento interno de un recurso y podrá configurar diferentes [orígenes de datos](platform/agent-data-sources.md) para recopilar registros y métricas del sistema operativo invitado Windows y Linux. 
+Amplíe los datos que recopila y obtenga información sobre el funcionamiento real de los recursos [habilitando diagnósticos](platform/platform-logs-overview.md) y [agregando un agente](platform/agent-windows.md) a los recursos de proceso. De este modo, recopilará datos de telemetría sobre el funcionamiento interno de un recurso y podrá configurar diferentes [orígenes de datos](platform/agent-data-sources.md) para recopilar registros y métricas del sistema operativo invitado Windows y Linux. 
 
 Habilite la supervisión de la [aplicación de App Services](app/azure-web-apps.md) o de la [máquina virtual y aplicación del conjunto de escalado de máquinas virtuales](app/azure-vm-vmss-apps.md) para permitir que Application Insights recopile información detallada acerca de la aplicación, como vistas de página, solicitudes de aplicación y excepciones. Compruebe de forma más exhaustiva la disponibilidad de la aplicación configurando una [prueba de disponibilidad](app/monitor-web-app-availability.md) para simular el tráfico de usuarios.
 
@@ -112,7 +112,7 @@ Las [visualizaciones](visualizations.md), como los gráficos y las tablas, son h
 ### <a name="dashboards"></a>Paneles
 Los [paneles de Azure](../azure-portal/azure-portal-dashboards.md) permiten combinar distintos tipos de datos, como métricas y registros, en un único panel de [Azure Portal](https://portal.azure.com). Si lo desea, también compartir el panel con otros usuarios de Azure. Los elementos que componen Azure Monitor pueden agregarse a un panel de Azure, así como a la salida de cualquier consulta de registro o gráfico de métricas. Por ejemplo, puede crear un panel que contenga diferentes iconos que muestren un gráfico de métricas, una tabla de registros de actividad, un gráfico de uso de Application Insights y la salida de una consulta de registro.
 
-![panel](media/overview/dashboard.png)
+![Panel](media/overview/dashboard.png)
 
 ### <a name="views"></a>Vistas
 Las [vistas](../log-analytics/log-analytics-view-designer.md) representan visualmente los datos de registro de Azure Monitor.  Cada vista contiene un icono que da acceso a una combinación de visualizaciones, como gráficos de barras y líneas, así como a listas en las que resumen los datos críticos.  Las soluciones de supervisión contienen vistas en las que se resumen los datos de una determinada aplicación. Puede crear sus propias vistas para presentar los datos de cualquier consulta de registros. Al igual que otros elementos de Azure Monitor, las vistas se pueden agregar a los paneles de Azure.

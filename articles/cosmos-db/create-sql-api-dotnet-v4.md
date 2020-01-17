@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 362662cb6ac9b0535a0e762e5c484b31dcc009a6
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.date: 01/10/2020
+ms.openlocfilehash: b69d67a5c4fc1d907f676cf4e400f9fa7df2653b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796111"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867258"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Inicio rápido: Compilación de una aplicación de consola mediante el SDK de .NET V4 para administrar recursos de la cuenta de SQL API de Azure Cosmos DB.
 
 > [!div class="op_single_selector"]
-> * [.NET V3](create-sql-api-dotnet.md)
+> * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
@@ -31,15 +31,15 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 
 * Crear una base de datos y un contenedor de Azure Cosmos
 * Agregar datos de ejemplo al contenedor
-* Consulta de los datos 
+* Consultar los datos 
 * Eliminación de la base de datos
 
 [Código fuente de la biblioteca](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/v4) | [Paquete (NuGet)](https://www.nuget.org/packages/Azure.Cosmos)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Suscripción de Azure: [cree una de forma gratuita](https://azure.microsoft.com/free/) o [pruebe Azure Cosmos DB de forma gratuita](https://azure.microsoft.com/try/cosmosdb/) sin necesidad de tener una suscripción de Azure, sin cargos ni compromiso. 
-* [SDK de .NET Core 3](https://dotnet.microsoft.com/download/dotnet-core). Puede comprobar qué versión está disponible en su entorno mediante la ejecución de `dotnet --version`.
+* [SDK de .NET Core 3](https://dotnet.microsoft.com/download/dotnet-core). Puede comprobar qué versión está disponible en su entorno mediante la ejecución de `dotnet --version`.
 
 ## <a name="setting-up"></a>Instalación
 
@@ -115,14 +115,14 @@ Time Elapsed 00:00:34.17
 Mientras sigue en el directorio de aplicaciones, instale el paquete de la biblioteca cliente de Azure Cosmos DB para .NET Core con el comando dotnet add package.
 
    ```bash
-   dotnet add package Azure.Cosmos --version 4.0.0-preview
+   dotnet add package Azure.Cosmos --version 4.0.0-preview3
    ```
 
 ### <a name="copy-your-azure-cosmos-account-credentials-from-the-azure-portal"></a>Copiar las credenciales de la cuenta de Azure Cosmos desde Azure Portal
 
 La aplicación de ejemplo debe autenticarse para la cuenta de Azure Cosmos. Para realizar la autenticación, debe pasar las credenciales de cuenta de Azure Cosmos a la aplicación. Para obtener las credenciales de cuenta de Azure Cosmos, siga estos pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Vaya a la cuenta de Azure Cosmos.
 

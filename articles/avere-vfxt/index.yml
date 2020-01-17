@@ -8,7 +8,7 @@ metadata:
   author: ekpgh
   ms.service: avere-vfxt
   ms.topic: landing-page
-  ms.date: 10/09/2019
+  ms.date: 12/19/2019
   ms.author: rohogue
 abstract:
   description: 'Avere vFXT para Azure proporciona una capa de caché en la nube para tareas de informática de alto rendimiento en las que se usan muchos datos. Al almacenar los archivos en la caché cerca de los nodos de proceso, Avere vFXT reduce los tiempos de lectura y permite trabajar más fácilmente, incluso en los momentos de máxima carga. Avere vFXT funciona de forma idónea con sistemas que tienen entre 1000 y 40 000 núcleos de clientes. <p>Avere vFXT funciona con el almacenamiento de datos existente para acercar los archivos a los recursos informáticos basados en Azure. Los archivos activos se siguen almacenando a largo plazo en el centro de datos.'

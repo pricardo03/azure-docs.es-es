@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3c6fd3de43f80c4cbe8f1f822faebad861c64d64
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: cbd452fcf4056c1bcf4d5b8d6debb9d8f4a6f11c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610614"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976103"
 ---
 # <a name="connect-data-sources"></a>Conexión con orígenes de datos
 
@@ -97,7 +97,7 @@ También puede implementar el agente manualmente en una máquina virtual existen
 | **Tipo de datos** | **Conexión** | **¿Conector de datos?** | **Comentarios** |
 |------|---------|-------------|------|
 | AWSCloudTrail | [Conexión de AWS](connect-aws.md) | V | |
-| AzureActivity | [Conexión del registro de actividad de Azure](connect-azure-activity.md) e [Introducción a los registros de actividad](../azure-monitor/platform/activity-logs-overview.md)| V | |
+| AzureActivity | [Conexión del registro de actividad de Azure](connect-azure-activity.md) e [Introducción a los registros de actividad](../azure-monitor/platform/platform-logs-overview.md)| V | |
 | AuditLogs | [Conexión de Azure AD](connect-azure-active-directory.md)  | V | |
 | SigninLogs | [Conexión de Azure AD](connect-azure-active-directory.md)  | V | |
 | AzureFirewall |[Diagnóstico de Azure](../firewall/tutorial-diagnostics.md) | V | |
@@ -105,7 +105,7 @@ También puede implementar el agente manualmente en una máquina virtual existen
 | AzureNetworkAnalytics_CL  | [Esquema de análisis de tráfico](../network-watcher/traffic-analytics.md) [Análisis de tráfico](../network-watcher/traffic-analytics.md)  | | |
 | CommonSecurityLog  | [Conexión de CEF](connect-common-event-format.md)  | V | |
 | OfficeActivity | [Conexión de Office 365](connect-office-365.md) | V | |
-| SecurityEvents | [Conexión de eventos de seguridad de Windows](connect-windows-security-events.md)  | V | Para los libros de protocolos poco seguros, vea [Configuración de libros de protocolos poco seguros](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/)  |
+| SecurityEvents | [Conexión de eventos de seguridad de Windows](connect-windows-security-events.md)  | V | Para los libros de protocolos poco seguros, vea [Configuración de libros de protocolos poco seguros](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks)  |
 | syslog | [Conexión de Syslog](connect-syslog.md) | V | |
 | Firewall de aplicaciones web (WAF) de Microsoft: (AzureDiagnostics) |[Conexión del firewall de aplicaciones web de Microsoft](connect-microsoft-waf.md) | V | |
 | SymantecICDx_CL | [Conexión de Symantec](connect-symantec.md) | V | |
