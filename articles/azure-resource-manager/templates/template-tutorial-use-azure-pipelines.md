@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2dfe17b99c1a9b1130695c8e5cd9c65ca7681d35
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e7d6b23aa3f35c99cf03f855152b2b231a60a965
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470950"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921620"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integración continua de plantillas de Azure Resource Manager en Azure Pipelines
 
@@ -194,7 +194,7 @@ Para crear una canalización con un paso para implementar una plantilla:
 
     Se han realizado los siguientes cambios:
 
-    * **deloymentScope**: seleccione el ámbito de implementación entre las opciones: `Management Group`, `Subscription` y `Resource Group`. En este tutorial, use **Grupo de recursos**. Para más información sobre los ámbitos, consulte [Ámbitos de implementación](deploy-rest.md#deployment-scope).
+    * **DeploymentScope**: (opcional) seleccione el ámbito de implementación entre las opciones: `Management Group`, `Subscription` y `Resource Group`. En este tutorial, use **Grupo de recursos**. Para más información sobre los ámbitos, consulte [Ámbitos de implementación](deploy-rest.md#deployment-scope).
     * **ConnectedServiceName**: especifique el nombre de la conexión de servicio que creó anteriormente.
     * **SubscriptionName**:  especifique el identificador de la suscripción de destino.
     * **action**: La acción **Create Or Update Resource Group** se encarga de 2 acciones: 1. crear un grupo de recursos si se proporciona un nuevo nombre de grupo de recursos; 2. implementar la plantilla especificada.

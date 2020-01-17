@@ -61,7 +61,7 @@ Siga estos pasos para asignar un rol en distintos ámbitos.
 
 1. Haga clic en el recurso específico.
 
-1. Haga clic en **Control de acceso (IAM)** .
+1. Haga clic en **Control de acceso (IAM).**
 
 1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles en este ámbito.
 
@@ -75,7 +75,7 @@ Siga estos pasos para asignar un rol en distintos ámbitos.
 
 1. En la lista desplegable **Rol**, seleccione un rol como **Colaborador de la máquina virtual**.
 
-1. En la lista **Seleccionar**, seleccione un usuario, grupo, entidad de servicio o identidad administrada. Si no ve la entidad de seguridad en la lista, puede escribir en el cuadro **Seleccionar** para nombres para mostrar, direcciones de correo electrónico e identificadores de objeto en el directorio.
+1. En la lista **Seleccionar**, seleccione un usuario, grupo, entidad de servicio o identidad administrada. Si no ve la entidad de seguridad en la lista, puede escribir en el cuadro **Seleccionar** para buscar nombres para mostrar, direcciones de correo electrónico e identificadores de objeto en el directorio.
 
 1. Haga clic en **Guardar** para asignar el rol.
 
@@ -89,7 +89,7 @@ Para que un usuario sea administrador de una suscripción de Azure, asígnele el
 
 1. Haga clic en la suscripción en la que desea agregar una asignación de roles.
 
-1. Haga clic en **Control de acceso (IAM)** .
+1. Haga clic en **Control de acceso (IAM).**
 
 1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles para esta suscripción.
 
@@ -103,7 +103,7 @@ Para que un usuario sea administrador de una suscripción de Azure, asígnele el
 
 1. En la lista desplegable **Rol**, seleccione el rol **Propietario**.
 
-1. En la lista **Seleccionar**, seleccione un usuario. Si no ve el usuario en la lista, puede escribir en el cuadro **Seleccionar** para buscar en el directorio por nombres para mostrar y direcciones de correo electrónico.
+1. En la lista **Seleccionar**, seleccione un usuario. Si no ve el usuario en la lista, puede escribir en el cuadro **Seleccionar** para buscar nombres para mostrar y direcciones de correo electrónico en el directorio.
 
 1. Haga clic en **Guardar** para asignar el rol.
 
