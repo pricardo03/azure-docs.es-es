@@ -851,8 +851,6 @@
         - name: Administración de los niveles de coherencia
           displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
           href: how-to-manage-consistency.md
-        - name: Implementación de la sincronización personalizada
-          href: how-to-custom-synchronization.md
         - name: Aprenda a configurar directivas de resolución de conflictos.
           href: how-to-manage-conflicts.md
     - name: Rendimiento aprovisionado

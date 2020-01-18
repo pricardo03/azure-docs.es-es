@@ -33,7 +33,7 @@
         - name: Load Balancer
           items:
             - name: ¿Qué es el Equilibrador de carga?
-              href: ../load-balancer/load-balancer-standard-overview.md
+              href: ../load-balancer/load-balancer-overview.md
             - name: Load Balancer estándar y zonas de disponibilidad
               href: ../load-balancer/load-balancer-standard-availability-zones.md
             - name: Creación de una instancia de Load Balancer estándar pública con redundancia de zonas

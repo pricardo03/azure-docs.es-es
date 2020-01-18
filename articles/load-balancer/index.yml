@@ -11,12 +11,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 12/05/2019
-  ms.openlocfilehash: 13bb60bac49f0f84251efc6c416a2c230a2a49c3
-  ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+  ms.openlocfilehash: d215bbfb80d634780ebfb7e33129c19f241d12a7
+  ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 12/08/2019
-  ms.locfileid: "74928895"
+  ms.lasthandoff: 01/17/2020
+  ms.locfileid: "76263530"
 landingContent:
 - title: Acerca de Load Balancer
   linkLists:
@@ -24,9 +24,7 @@ landingContent:
     links:
     - text: ¿Qué es el Equilibrador de carga?
       url: load-balancer-overview.md
-    - text: ¿Qué es Load Balancer Estándar?
-      url: load-balancer-standard-overview.md
-- title: Primeros pasos
+- title: Introducción
   linkLists:
   - linkListType: quickstart
     links:
@@ -88,5 +86,5 @@ landingContent:
     links:
     - text: Azure PowerShell
       url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0#load_balancer
-    - text: CLI de Azure
+    - text: Azure CLI
       url: https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest
