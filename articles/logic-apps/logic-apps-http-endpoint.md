@@ -142,7 +142,7 @@ De manera predeterminada, el desencadenador de tipo Solicitud espera una solicit
 
 Si quiere que la dirección URL del punto de conexión acepte parámetros, especifique la ruta de acceso relativa en el desencadenador. También debe [establecer explícitamente el método](#set-method) que espera la solicitud HTTP.
 
-1. En el desencadenador de solicitud, abra la lista **Agregar nuevo parámetro** y seleccione **Puta de acceso relativa** para agregar esta propiedad al desencadenador.
+1. En el desencadenador de solicitud, abra la lista **Agregar nuevo parámetro** y seleccione **Puerta de acceso relativa** para agregar esta propiedad al desencadenador.
 
    ![Agregar la propiedad "Ruta de acceso relativa" al desencadenador](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
