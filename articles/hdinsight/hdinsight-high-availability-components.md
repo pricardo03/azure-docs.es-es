@@ -29,9 +29,9 @@ HDInsight proporciona una infraestructura personalizada para garantizar que los 
 
 Esta infraestructura consta de una serie de servicios y componentes de software, algunos de los cuales están diseñados por Microsoft. Los siguientes componentes son exclusivos de la plataforma HDInsight:
 
-- Controlador de conmutación por error esclavo
+- Controlador de conmutación por error subordinado
 - Controlador de conmutación por error maestro
-- Servicio de alta disponibilidad esclavo
+- Servicio de alta disponibilidad subordinado
 - Servicio de alta disponibilidad maestro
 
 ![infraestructura de alta disponibilidad](./media/hdinsight-high-availability-components/high-availability-architecture.png)
@@ -62,15 +62,15 @@ Microsoft ofrece compatibilidad con los cuatro servicios de Apache de la tabla s
 
 Cada clúster de HDInsight tiene dos nodos principales en los modos activo y en espera, respectivamente. Los servicios de alta disponibilidad de HDInsight solo se ejecutan en nodos principales. Estos servicios se deben ejecutar siempre en el nodo principal activo y detenerse y ponerse en modo de mantenimiento en el nodo principal en espera.
 
-Para mantener los estados correctos de los servicios de alta disponibilidad y proporcionar una conmutación por error rápida, HDInsight emplea Apache ZooKeeper, que es un servicio de coordinación para aplicaciones distribuidas empleado para realizar la elección del nodo principal activo. HDInsight también aprovisiona algunos procesos de Java en segundo plano, que coordinan el procedimiento de conmutación por error de los servicios de alta disponibilidad de HDInsight. Estos servicios son los siguientes: el controlador de conmutación por error maestro, el controlador de conmutación por error esclavo, *master-ha-service* y *slave-ha-service*.
+Para mantener los estados correctos de los servicios de alta disponibilidad y proporcionar una conmutación por error rápida, HDInsight emplea Apache ZooKeeper, que es un servicio de coordinación para aplicaciones distribuidas empleado para realizar la elección del nodo principal activo. HDInsight también aprovisiona algunos procesos de Java en segundo plano, que coordinan el procedimiento de conmutación por error de los servicios de alta disponibilidad de HDInsight. Estos servicios son los siguientes: el controlador de conmutación por error maestro, el Controlador de conmutación por error subordinado, *master-ha-service* y *slave-ha-service*.
 
 ### <a name="apache-zookeeper"></a>Apache ZooKeeper
 
 Apache ZooKeeper es un servicio de coordinación de alto rendimiento para aplicaciones distribuidas. En producción, ZooKeeper normalmente se ejecuta en modo replicado, donde un grupo replicado de servidores ZooKeeper forman un cuórum. Cada clúster de HDInsight tiene tres nodos de ZooKeeper que permiten que tres servidores ZooKeeper formen un cuórum. HDInsight tiene dos cuórums de ZooKeeper que se ejecutan en paralelo con respecto al otro. Un cuórum decide el nodo principal activo de un clúster en el que se deben ejecutar los servicios de alta disponibilidad de HDInsight. Otro cuórum se usa para coordinar los servicios de alta disponibilidad proporcionados por Apache, tal como se detalla en secciones posteriores.
 
-### <a name="slave-failover-controller"></a>Controlador de conmutación por error esclavo
+### <a name="slave-failover-controller"></a>Controlador de conmutación por error subordinado
 
-El controlador de conmutación por error esclavo se ejecuta en todos los nodos de un clúster de HDInsight. Este controlador es responsable de iniciar el agente de Ambari y el servicio *slave-ha-service* en cada nodo. Periódicamente, consulta el primer cuórum ZooKeeper para conocer el nodo principal activo. Cuando los nodos principales activo y en espera cambian, el controlador de conmutación por error esclavo hace lo siguiente:
+El Controlador de conmutación por error subordinado se ejecuta en todos los nodos de un clúster de HDInsight. Este controlador es responsable de iniciar el agente de Ambari y el servicio *slave-ha-service* en cada nodo. Periódicamente, consulta el primer cuórum ZooKeeper para conocer el nodo principal activo. Cuando los nodos principales activo y en espera cambian, el Controlador de conmutación por error subordinado hace lo siguiente:
 
 1. Actualiza el archivo de configuración del host.
 1. Reinicia el agente Ambari.
