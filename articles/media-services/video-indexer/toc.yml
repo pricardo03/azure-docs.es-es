@@ -7,7 +7,7 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Primeros pasos
+    - name: Introducción
       href: video-indexer-get-started.md
     - name: Invitar a usuarios
       href: invite-users.md
@@ -37,15 +37,15 @@
           href: customize-brands-model-overview.md
         - name: Idioma
           href: customize-language-model-overview.md
-        - name: Persona
+        - name: Person
           href: customize-person-model-overview.md
 - name: Guías de procedimientos
   items:
-    - name: Conexión a Azure
+    - name: Conexión con Azure
       href: connect-to-azure.md
     - name: Administración de una cuenta conectada a Azure
       href: manage-account-connected-to-azure.md
-    - name: Uso de la API para cargar e indexar vídeos
+    - name: Carga e indexación de vídeos
       href: upload-index-videos.md
     - name: Análisis de la salida de Video Indexer
       href: video-indexer-output-json-v2.md
@@ -67,7 +67,7 @@
       items:
         - name: Caracteres animados
           href: animated-characters-recognition.md
-        - name: Persona
+        - name: Person
           items:
             - name: mediante el sitio web de Video Indexer
               href: customize-person-model-with-website.md

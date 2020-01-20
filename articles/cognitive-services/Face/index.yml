@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentación de Face
-summary: Face API basada en la nube ofrece a los desarrolladores acceso a avanzados algoritmos de información facial. Los algoritmos de Microsoft Face habilitan la detección de atributos faciales y el reconocimiento facial. Aprenda a analizar el contenido de varias maneras con guías de inicio rápido, tutoriales y ejemplos.
+summary: El servicio Face de la nube ofrece a los desarrolladores acceso a avanzados algoritmos de información facial. Los algoritmos de Microsoft Face habilitan la detección de atributos faciales y el reconocimiento facial. Aprenda a analizar el contenido de varias maneras con guías de inicio rápido, tutoriales y ejemplos.
 metadata:
-  title: 'Documentación de Face API: Guías de inicio rápido, tutoriales, referencia de API - Azure Cognitive Services | Microsoft Docs'
-  description: Face API basada en la nube ofrece a los desarrolladores acceso a avanzados algoritmos de información facial. Los algoritmos de Microsoft Face habilitan la detección de atributos faciales y el reconocimiento facial. Aprenda a analizar el contenido de varias maneras con guías de inicio rápido, tutoriales y ejemplos.
+  title: 'Documentación de Face: inicios rápidos, tutoriales, referencia de API - Azure Cognitive Services | Microsoft Docs'
+  description: El servicio Face de la nube ofrece a los desarrolladores acceso a avanzados algoritmos de información facial. Los algoritmos de Microsoft Face habilitan la detección de atributos faciales y el reconocimiento facial. Aprenda a analizar el contenido de varias maneras con guías de inicio rápido, tutoriales y ejemplos.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: face-api
@@ -11,18 +11,18 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/24/2019
-  ms.openlocfilehash: 438fe3ff0e48eba21acea596f8cbed4498aaca18
-  ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+  ms.openlocfilehash: 6a078d8504ea988d44ff5d4bce190c72da28452f
+  ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/16/2019
-  ms.locfileid: "74132711"
+  ms.lasthandoff: 01/17/2020
+  ms.locfileid: "76166389"
 landingContent:
-- title: Acerca de la API Face
+- title: Acerca del servicio API
   linkLists:
   - linkListType: overview
     links:
-    - text: ¿Qué es Face API?
+    - text: ¿Qué es el servicio API?
       url: Overview.md
 - title: Detección de caras
   linkLists:

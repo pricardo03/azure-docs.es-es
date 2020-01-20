@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentación de Azure Maps
-summary: Microsoft Azure Maps ofrece a los desarrolladores de todos los sectores unas potentes funcionalidades geoespaciales, integradas con los datos de asignación más recientes disponibles para proporcionar contexto geográfico a aplicaciones web y móviles. Azure Maps es un conjunto de API REST compatibles con Azure One API para mapas, búsqueda, rutas, tráfico, movilidad, datos meteorológicos, zonas horarias, geolocalización, geovalla, datos de mapas y operaciones espaciales, que incluye SDK de web y Android SDK que hacen que el desarrollo sea sencillo, flexible y portable entre varias plataformas.
+summary: 'Microsoft Azure Maps proporciona a todos los desarrolladores, independientemente de cuál sea su sector, eficaces funcionalidades geoespaciales. Esas funcionalidades geoespaciales vienen empaquetadas con los datos de asignación más recientes. Azure Maps está disponible para aplicaciones web y para dispositivos móviles. Azure Maps es un conjunto de API REST compatible con Azure One API. A continuación encontrará una descripción general de alto nivel de los servicios que Azure Maps ofrece: Maps, Search, Routing, Traffic, Mobility, Weather, Time Zones, Geolocation, Geofencing, Map Data y Spatial Operations. Los SDK de web y Android hacen que el desarrollo sea sencillo, flexible y portátil en varias plataformas.'
 metadata:
   title: Documentación de Azure Maps | Microsoft Docs
   description: Obtenga información sobre Azure Maps y cómo usarlo para proporcionar servicios geoespaciales a su aplicación web o móvil.
@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
-  ms.date: 12/19/2019
-  ms.openlocfilehash: 66721caadce09816368d673c217c9bf97daf1b6c
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.date: 1/15/2020
+  ms.openlocfilehash: f4ae414179f77413e5d5daa4fda635e0bf24c2aa
+  ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75408650"
+  ms.lasthandoff: 01/17/2020
+  ms.locfileid: "76264108"
 landingContent:
 - title: Acerca de Azure Maps
   linkLists:

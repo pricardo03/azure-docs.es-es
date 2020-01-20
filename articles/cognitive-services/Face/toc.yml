@@ -1,9 +1,9 @@
-- name: Documentación de Face API
+- name: Documentación de Face
   href: index.yml
 - name: Información general
   expanded: true
   items:
-    - name: ¿Qué es Face API?
+    - name: ¿Qué es el servicio Face?
       href: Overview.md
 - name: Guías de inicio rápido
   items:
@@ -77,7 +77,7 @@
           href: face-resource-container-config.md
         - name: Uso de instancias de contenedores
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
-    - name: Usar el servicio conectado de Face API
+    - name: Uso del servicio conectado Face
       href: vs-face-connected-service.md
 - name: Referencia
   items:
@@ -101,7 +101,7 @@
   items:
     - name: Ejemplos
       items:
-        - name: Ejemplos de Face API
+        - name: Ejemplos de Face
           href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=face'
     - name: Precios y límites
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
