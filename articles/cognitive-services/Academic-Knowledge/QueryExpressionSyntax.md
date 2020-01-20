@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b87e04c2d6380a0ee4157e73db0cd4057fadee1
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 4056ecba7ac80436952228da9e1b74dc7382448c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704925"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448948"
 ---
 # <a name="query-expression-syntax"></a>Sintaxis de expresión de consulta
 
@@ -28,6 +28,7 @@ Cada atributo de entidad que se puede incluir en una expresión de consulta tien
 
 Algunos de los datos de entidad se almacenan como atributos compuestos, como se indica mediante un punto '.' en el nombre del atributo. Por ejemplo, la información de autor/afiliación se representa como un atributo compuesto. Contiene 4 componentes: AuN, AuId, AfN y AfId. Estos componentes son partes independientes de datos que forman un valor de atributo de entidad única.
 
+Nota: Todas las expresiones de consulta deben estar en minúsculas y no pueden tener caracteres especiales.
 
 **Atributo de cadena: valor único** (incluye coincidencias con sinónimos)  
 Ti = 'indexación por análisis semántico latente'  
@@ -41,7 +42,7 @@ Composite(AA.AuN=='susan t dumais')
 Ti = 'indexación por análisis semán'...  
 Composite(AA.AuN='sue du'...)
 
-**Atributo numérico: Valor único**  
+**Atributo numérico: valor único**  
 Y=2010
  
 **Atributo numérico: valor de rango**  
