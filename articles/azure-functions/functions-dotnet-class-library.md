@@ -3,12 +3,12 @@ title: Referencia para desarrolladores de C# de Azure Functions
 description: Cómo desarrollar funciones de Azure con C#.
 ms.topic: reference
 ms.date: 09/12/2018
-ms.openlocfilehash: f412e5ea358fe7b97476802f432616c37b05dbd9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 89b3ae927b14454ac3f58fb510626e315842240f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975489"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921046"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referencia para desarrolladores de C# de Azure Functions
 
@@ -29,7 +29,7 @@ Las versiones del entorno en tiempo de ejecución de Functions funcionan con ver
 
 | Versiones del entorno en tiempo de ejecución de Functions | Versión máxima de .NET |
 | ---- | ---- |
-| Functions 3.x | .NET Core 3.1 |
+| Functions 3.x | .NET Core 3.1 |
 | Functions 2.x | .NET Core 2.2 |
 | Functions 1.x | .NET Framework 4.6 |
 

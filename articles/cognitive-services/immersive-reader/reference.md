@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 09244b634fa2603a7dc92af3c78d171f8d6bd9df
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 47d10f75775c49fda0effe10c32e219b3682866d
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903105"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945274"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Guía de referencia del SDK del Lector inmersivo
 
@@ -41,10 +41,10 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 ### <a name="parameters"></a>Parámetros
 
-| NOMBRE | type | DESCRIPCIÓN |
+| Nombre | Tipo | Descripción |
 | ---- | ---- |------------ |
-| `token` | string | Token de autenticación de Azure AD Consulte el [procedimiento de autenticación de Azure AD](./azure-active-directory-authentication.md). |
-| `subdomain` | string | El subdominio personalizado del recurso Lector inmersivo en Azure. Consulte el [procedimiento de autenticación de Azure AD](./azure-active-directory-authentication.md). |
+| `token` | string | Token de autenticación de Azure AD |
+| `subdomain` | string | El subdominio personalizado del recurso Lector inmersivo en Azure. |
 | `content` | [Contenido](#content) | Un objeto que contiene el contenido que se mostrará en el Lector inmersivo. |
 | `options` | [Opciones](#options) | Opciones para configurar ciertos comportamientos del Lector inmersivo. Opcional. |
 
@@ -80,7 +80,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 ### <a name="parameters"></a>Parámetros
 
-| NOMBRE | type | DESCRIPCIÓN |
+| Nombre | Tipo | Descripción |
 | ---- | ---- |------------ |
 | `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Opciones para configurar ciertos comportamientos de la función renderButtons. Opcional. |
 
@@ -109,13 +109,21 @@ Un único fragmento de datos, que se pasará al contenido del lector inmersivo.
 }
 ```
 
+### <a name="cookiepolicy-enum"></a>Enumeración CookiePolicy
+
+Enumeración que se usa para establecer la directiva para el uso de cookies del Lector inmersivo. Vea [opciones](#options).
+
+```typescript
+enum CookiePolicy { Disable, Enable }
+```
+
 #### <a name="supported-mime-types"></a>Tipos MIME compatibles
 
-| Tipo MIME | DESCRIPCIÓN |
+| Tipo MIME | Descripción |
 | --------- | ----------- |
 | text/plain | Texto sin formato. |
 | text/html | Contenido HTML. [Más información](#html-support)|
-| application/mathml+xml | Lenguaje de marcado matemático (MathML). [Más información](https://developer.mozilla.org/en-US/docs/Web/MathML).
+| application/mathml+xml | Lenguaje de marcado matemático (MathML). [Más información](./how-to/display-math.md).
 | application/vnd.openxmlformats-officedocument.wordprocessingml.document | Documento de Microsoft Word con formato .docx.
 
 ### <a name="html-support"></a>Compatibilidad con HTML
@@ -142,6 +150,7 @@ Contiene propiedades que configuran ciertos comportamientos del Lector inmersivo
     customDomain?: string;     // Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null).
     allowFullscreen?: boolean; // The ability to toggle fullscreen (default is true).
     hideExitButton?: boolean;  // Whether or not to hide the Immersive Reader's exit button arrow (default is false). This should only be true if there is an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow).
+    cookiePolicy?: CookiePolicy; // Setting for the Immersive Reader's cookie usage (default is CookiePolicy.Disable). It's the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy.
 }
 ```
 
@@ -168,7 +177,7 @@ Contiene información sobre el error.
 
 #### <a name="error-codes"></a>Códigos de error
 
-| Código | DESCRIPCIÓN |
+| Código | Descripción |
 | ---- | ----------- |
 | BadArgument | El argumento proporcionado no es válido; consulte `message` para detalles. |
 | Tiempo de espera | El Lector inmersivo no se pudo cargar en el tiempo de espera especificado. |
@@ -187,9 +196,9 @@ El SDK proporciona el estilo predeterminado para el botón para iniciar el Lecto
 
 Use los siguientes atributos para configurar la apariencia y sensibilidad del botón.
 
-| Atributo | DESCRIPCIÓN |
+| Atributo | Descripción |
 | --------- | ----------- |
-| `data-button-style` | Establece el estilo del botón. Puede ser `icon`, `text` o `iconAndText`. De manera predeterminada, su valor es `icon`. |
+| `data-button-style` | Establece el estilo del botón. Puede ser `icon`, `text` o `iconAndText`. Su valor predeterminado es `icon`. |
 | `data-locale` | Establece la configuración regional. Por ejemplo, `en-US` o `fr-FR`. El valor predeterminado es el idioma inglés `en`. |
 | `data-icon-px-size` | Establece el tamaño del icono en píxeles. El valor predeterminado es 20 píxeles. |
 

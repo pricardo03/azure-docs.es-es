@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3bea04ba077aebe9a52400a1292c5cd27c15b72e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 8bc6a9c8910c25f5fdb403e7f45c5f567f7c1224
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950925"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930655"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integración de intercambios de notificaciones de API de REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario
 
@@ -48,7 +48,7 @@ La integración con los servicios REST se pueden diseñar de las siguientes mane
 
 En este tutorial, se desarrolla una API web de .NET Framework que valida la entrada del usuario y proporciona un número de fidelidad del usuario. Por ejemplo, la aplicación puede conceder acceso a *beneficios Platinum* en función del número de fidelidad.
 
-Información general:
+Introducción:
 
 * Desarrollo del servicio RESTful (API web de .NET Framework)
 * Uso del servicio RESTful en el recorrido del usuario
@@ -57,7 +57,7 @@ Información general:
 * Devolución de un número de fidelidad
 * Incorporación del número de fidelidad a JSON Web Token (JWT)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Complete los pasos del artículo [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).
 
@@ -74,7 +74,7 @@ Complete los pasos del artículo [Introducción a las directivas personalizadas]
     ![Selección de una plantilla de API web en Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
 
 1. Asegúrese de seleccionar **Sin autenticación** en el campo Autenticación.
-1. Haga clic en **Aceptar** para crear el proyecto.
+1. Seleccione **Aceptar** para crear el proyecto.
 
 ## <a name="step-2-prepare-the-rest-api-endpoint"></a>Paso 2: Preparación del punto de conexión de API REST
 
@@ -337,7 +337,9 @@ Después de agregar la nueva notificación, el código del usuario de confianza 
 
 ## <a name="step-7-upload-the-policy-to-your-tenant"></a>Paso 7: Carga de la directiva en el inquilino
 
-1. En [Azure Portal](https://portal.azure.com), cambie al [contexto del inquilino de Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) y abra **Azure AD B2C**.
+1. En **Azure Portal**, seleccione el icono [Directorio y suscripción](https://portal.azure.com) en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 
 1. Seleccione **Marco de experiencia de identidad**.
 

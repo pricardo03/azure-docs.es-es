@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 3569c6a066b09daa0c24975b9de840a844b6ba2c
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 716f6813e37aec086a7d496e001fe2ca0f4aab57
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670222"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945175"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implementación de una aplicación en Azure App Service con un archivo ZIP o WAR
 
@@ -20,7 +20,7 @@ Esta implementación del archivo ZIP usa el mismo servicio de Kudu que permite r
 
 - La eliminación de archivos restantes de una implementación anterior.
 - La opción de activar el proceso de compilación predeterminado, en el que se incluye la restauración del paquete.
-- La [personalización de la implementación](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), incluida la ejecución de scripts de implementación.  
+- La personalización de la implementación, incluyendo la ejecución de scripts de implementación.  
 - Registros de implementación. 
 - Un límite de tamaño de archivo de 2048 MB.
 
@@ -28,47 +28,25 @@ Para obtener más información, consulte la [documentación de Kudu](https://git
 
 La implementación del archivo WAR implementa su archivo [WAR](https://wikipedia.org/wiki/WAR_(file_format)) en Azure App Service para ejecutar la aplicación web de Java. Consulte [Implementación de un archivo WAR](#deploy-war-file).
 
+## <a name="prerequisites"></a>Prerequisites
+
+Para completar los pasos en este artículo, [cree una aplicación de App Service](/azure/app-service/) o use alguna aplicación que haya creado para otro tutorial.
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
-
-Para completar los pasos de este artículo:
-
-* [Cree una aplicación de App Service](/azure/app-service/) o use alguna aplicación que haya creado para otro tutorial.
-
-## <a name="create-a-project-zip-file"></a>Creación de un archivo ZIP de proyecto
-
->[!NOTE]
-> Si descargó los archivos en un archivo ZIP, extráigalos primero. Por ejemplo, si descargó un archivo ZIP de GitHub, no puede implementar ese archivo tal cual. GitHub agrega directorios anidados adicionales que no funcionan con App Service. 
->
-
-En la ventana de un terminal local, navegue hasta el directorio raíz del proyecto de la aplicación. 
-
-Este directorio debería contener el archivo de entrada para la aplicación web como, por ejemplo, _index.html_, _index.php_ y _app.js_. También puede contener archivos de administración de paquetes como _project.json_, _composer.json_, _package.json_, _bower.json_ y _requirements.txt_.
-
-Cree un archivo ZIP con todo el contenido del proyecto. El siguiente comando usa la herramienta predeterminada de su terminal:
-
-```
-# Bash
-zip -r <file-name>.zip .
-
-# PowerShell
-Compress-Archive -Path * -DestinationPath <file-name>.zip
-``` 
+[!INCLUDE [Create a project ZIP file](../../includes/app-service-web-deploy-zip-prepare.md)]
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 El punto de conexión anterior no funciona en este momento con App Services de Linux. Considere la posibilidad de usar en su lugar FTP o la [API de implementación de ZIP](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#continuous-integration-and-deployment).
 
 ## <a name="deploy-zip-file-with-azure-cli"></a>Implementación del archivo ZIP con la CLI de Azure
 
-Asegúrese de que su versión de la CLI de Azure sea la 2.0.21 o posterior. Para ver qué versión tiene, ejecute el comando `az --version` en la ventana del terminal.
-
 Implemente el archivo ZIP cargado en la aplicación web mediante el comando [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip).  
 
 En el ejemplo siguiente se implementa el archivo ZIP que cargó. Cuando use una instalación local de la CLI de Azure, debe especificar la ruta de acceso al archivo ZIP local de `--src`.
 
 ```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResourceGroup --name <app_name> --src clouddrive/<filename>.zip
+az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src clouddrive/<filename>.zip
 ```
 
 Este comando implementa los archivos y directorios del archivo ZIP en la carpeta predeterminada de la aplicación App Service (`\home\site\wwwroot`) y reinicia la aplicación.
@@ -76,10 +54,8 @@ Este comando implementa los archivos y directorios del archivo ZIP en la carpeta
 De forma predeterminada, el motor de implementación da por supuesto que un archivo ZIP está listo para ejecutarse tal cual y no ejecuta ninguna automatización de la compilación. Para habilitar la misma automatización de la compilación que en una [implementación de Git](deploy-local-git.md), establezca la configuración de la aplicación `SCM_DO_BUILD_DURING_DEPLOYMENT` ejecutando el siguiente comando en [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 ```
-
-
 
 Para obtener más información, consulte la [documentación de Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
@@ -87,7 +63,9 @@ Para obtener más información, consulte la [documentación de Kudu](https://git
 
 ## <a name="deploy-war-file"></a>Implementación de un archivo WAR
 
-Para implementar un archivo WAR en App Service, envíe una solicitud POST a `https://<app_name>.scm.azurewebsites.net/api/wardeploy`. La solicitud POST debe contener el archivo .war en el cuerpo del mensaje. Las credenciales de implementación de la aplicación se proporcionan en la solicitud mediante la autenticación de HTTP BASIC.
+Para implementar un archivo WAR en App Service, envíe una solicitud POST a `https://<app-name>.scm.azurewebsites.net/api/wardeploy`. La solicitud POST debe contener el archivo .war en el cuerpo del mensaje. Las credenciales de implementación de la aplicación se proporcionan en la solicitud mediante la autenticación de HTTP BASIC.
+
+Use siempre `/api/wardeploy` al implementar archivos WAR. Esta API expandirá el archivo WAR y lo colocará en la unidad de archivos compartidos. el uso de otras API de implementación puede dar lugar a un comportamiento incoherente. 
 
 Para la autenticación básica HTTP, necesita las credenciales de implementación de App Service. Para ver cómo establecer sus credenciales de implementación, consulte [Establecimiento y restablecimiento de credenciales de nivel de usuario](deploy-configure-credentials.md#userscope).
 
@@ -96,7 +74,7 @@ Para la autenticación básica HTTP, necesita las credenciales de implementació
 En el ejemplo siguiente se usa la herramienta cURL para implementar un archivo .war. Reemplace los marcadores de posición `<username>`, `<war-file-path>` y `<app-name>`. Cuando cURL se lo solicite, escriba la contraseña.
 
 ```bash
-curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
+curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app-name>.scm.azurewebsites.net/api/wardeploy
 ```
 
 ### <a name="with-powershell"></a>Con PowerShell

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/13/2019
-ms.openlocfilehash: 548b74dbaf36fa0a0b5f999d1de61a0c05241c61
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.date: 01/13/2020
+ms.openlocfilehash: f1cedd9851e425de1e4b6392d42a11dbf9f92644
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690817"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934382"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Protección de los trabajos de experimentación e inferencia de ML en una instancia de Azure Virtual Network
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -58,7 +58,7 @@ Para usar una cuenta de Azure Storage para el área de trabajo en una red virtua
 
    ![El área "Firewalls y redes virtuales" de la página de Azure Storage de Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
-1. En la página __Firewalls y redes virtuales__, realice estas acciones:
+1. En la página __Firewalls y redes virtuales__, realice las acciones siguientes:
     - Seleccione __Redes seleccionadas__.
     - En __Redes virtuales__, seleccione el vínculo __Agregar red virtual existente__. Esta acción agrega la red virtual en la que reside el proceso (consulte el paso 1).
 
@@ -88,7 +88,8 @@ Azure Machine Learning usa la instancia de Key Vault que está asociada al área
 * Contraseñas para las instancias de Azure Container Repository
 * Cadenas de conexión a almacenes de datos
 
-Para usar las funcionalidades de experimentación de Azure Machine Learning con Azure Key Vault detrás de una red virtual, siga estos pasos:
+Para usar las funcionalidades de experimentación de Azure Machine Learning con Azure Key Vault detrás de una red virtual, siga los pasos siguientes:
+
 1. Vaya a la instancia de Key Vault asociada al área de trabajo.
 
    [![Instancia de Key Vault asociada al área de trabajo de Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
@@ -97,7 +98,7 @@ Para usar las funcionalidades de experimentación de Azure Machine Learning con 
 
    ![Sección "Firewalls y redes virtuales" del panel de Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
 
-1. En la página __Firewalls y redes virtuales__, realice estas acciones:
+1. En la página __Firewalls y redes virtuales__, realice las acciones siguientes:
     - Haga clic en __Redes seleccionadas__ en __Permitir el acceso desde__.
     - En __Redes virtuales__, seleccione __Agregar redes virtuales existentes__ para agregar la red virtual donde reside el proceso de experimentación.
     - En __¿Quiere permitir que los servicios de confianza de Microsoft puedan omitir este firewall?__ , seleccione __Sí__.
@@ -158,15 +159,15 @@ La configuración de la regla de NSG en Azure Portal se muestra en las siguiente
 
 ### <a id="limiting-outbound-from-vnet"></a> Limitación de la conectividad saliente de la red virtual
 
-Si no desea usar las reglas de salida predeterminadas y desea limitar el acceso de salida de la red virtual, siga estos pasos:
+Si no quiere usar las reglas de salida predeterminadas y quiere limitar el acceso de salida de la red virtual, siga los pasos siguientes:
 
 - Deniegue la conexión saliente a Internet mediante las reglas de NSG.
 
-- Limite el tráfico de salida a lo siguiente:
+- Limite el tráfico de salida a los elementos siguiente:
    - Azure Storage, mediante la __etiqueta de servicio__ de __Storage.Region_Name__ (por ejemplo, Storage.EastUS)
    - Azure Container Registry, mediante la __etiqueta de servicio__ de __AzureContainerRegistry.Region_Name__ (por ejemplo, AzureContainerRegistry.EastUS)
    - Azure Machine Learning, mediante la __etiqueta de servicio__ de __AzureMachineLearning__
-   - En el caso de la instancia de proceso, la nube de Azure, mediante la __Etiqueta de servicio__ de __AzureCloud.Region_Name__ (por ejemplo, AzureCloud.NorthCentralUS)
+   - En el caso de una instancia de proceso, Azure Cloud, mediante la __etiqueta de servicio__ de __AzureResourceManager__
 
 La configuración de la regla de NSG en Azure Portal se muestra en la siguiente imagen:
 
@@ -223,13 +224,13 @@ Para más información, consulte [Creación de un grupo de Azure Batch en una re
 
 ### <a name="create-a-compute-cluster-in-a-virtual-network"></a>Creación de un clúster de proceso en una red virtual
 
-Para crear un clúster de Proceso de Machine Learning, siga estos pasos:
+Para crear un clúster de Proceso de Machine Learning, siga los pasos siguientes:
 
 1. En [Azure Portal](https://portal.azure.com), seleccione el área de trabajo para Azure Machine Learning.
 
 1. En la sección __Aplicación__, seleccione __Proceso__, y, después, __Agregar proceso__.
 
-1. Para configurar este recurso de proceso para que use una red virtual, siga estos pasos:
+1. Para configurar este recurso de proceso para que use una red virtual, realice las acciones siguientes:
 
     a. En __Configuración de red__, seleccione __Opciones avanzadas__.
 
@@ -297,14 +298,14 @@ Para obtener información específica sobre el uso de Azure Databricks con una r
 > [!IMPORTANT]
 > Azure Machine Learning solo admite máquinas virtuales que ejecuten Ubuntu.
 
-Para usar una máquina virtual o un clúster de Azure HDInsight en una red virtual con su área de trabajo, realice las siguientes operaciones:
+Para usar una máquina virtual o un clúster de Azure HDInsight en una red virtual con el área de trabajo, siga estos pasos:
 
 1. Cree una máquina virtual o un clúster de HDInsight mediante Azure Portal o la CLI de Azure y colóquelo en una red virtual de Azure. Para más información, consulte los siguientes artículos.
     * [Creación y administración de redes virtuales de Azure para máquinas virtuales Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 
     * [Extender HDInsight mediante una red virtual de Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
 
-1. Para permitir que Azure Machine Learning se comunique con el puerto SSH en la máquina virtual o el clúster, configure una entrada de origen para el grupo de seguridad de red. El puerto SSH suele ser el 22. Para permitir el tráfico desde este origen, siga estos pasos:
+1. Para permitir que Azure Machine Learning se comunique con el puerto SSH en la máquina virtual o el clúster, configure una entrada de origen para el grupo de seguridad de red. El puerto SSH suele ser el 22. Para permitir el tráfico desde este origen, realice las acciones siguientes:
 
     * En la lista desplegable __Origen__, seleccione __Etiqueta de servicio__.
 
@@ -332,7 +333,7 @@ Para usar una máquina virtual o un clúster de Azure HDInsight en una red virtu
 
 ## <a name="use-azure-kubernetes-service-aks"></a>Uso de Azure Kubernetes Service (AKS)
 
-Para agregar Azure Kubernetes Service de una red virtual a su área de trabajo, siga estos pasos:
+Para agregar AKS en una red virtual a su área de trabajo, siga los pasos siguientes:
 
 > [!IMPORTANT]
 > Antes de comenzar el siguiente procedimiento, debe cumplir los requisitos previos indicados en el procedimiento de [configuración de redes avanzadas en Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking#prerequisites) y planear el direccionamiento IP para el clúster.
@@ -347,7 +348,7 @@ Para agregar Azure Kubernetes Service de una red virtual a su área de trabajo, 
 
 1. En la sección __Aplicación__, seleccione __Proceso__, y, después, __Agregar proceso__.
 
-1. Para configurar este recurso de proceso para que use una red virtual, siga estos pasos:
+1. Para configurar este recurso de proceso para que use una red virtual, realice las acciones siguientes:
 
     - En __Configuración de red__, seleccione __Opciones avanzadas__.
 
@@ -393,6 +394,82 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 Cuando finalice el proceso de creación, puede ejecutar una inferencia, o puntuación de modelos, en un clúster de AKS detrás de una red virtual. Para más información, consulte [Implementación en AKS](how-to-deploy-and-where.md).
 
+### <a name="use-private-ips-with-azure-kubernetes-service"></a>Uso de IP privadas con Azure Kubernetes Service
+
+De forma predeterminada, se asigna una dirección IP pública a las implementaciones de AKS. Al usar AKS dentro de una red virtual, puede usar una dirección IP privada en su lugar. Solo se puede acceder a las direcciones IP privadas desde dentro de la red virtual o las redes unidas.
+
+Una dirección IP privada se habilita mediante la configuración de AKS para usar un _equilibrador de carga interno_. 
+
+> [!IMPORTANT]
+> No se puede habilitar la IP privada al crear el clúster de Azure Kubernetes Service. Debe habilitarse como una actualización de un clúster existente.
+
+En el siguiente fragmento de código se muestra cómo **crear un nuevo clúster de AKS** y, después, actualizarlo para que use una IP privada y un equilibrador de carga interno:
+
+```python
+import azureml.core
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute import AksCompute, ComputeTarget
+
+# Verify that cluster does not exist already
+try:
+    aks_target = AksCompute(workspace=ws, name=aks_cluster_name)
+    print("Found existing aks cluster")
+
+except:
+    print("Creating new aks cluster")
+
+    # Create AKS configuration
+    prov_config = AksCompute.provisioning_configuration(location = "eastus2")
+    # Set info for existing virtual network to create the cluster in
+    prov_config.vnet_resourcegroup_name = "myvnetresourcegroup"
+    prov_config.vnet_name = "myvnetname"
+    prov_config.service_cidr = "10.0.0.0/16"
+    prov_config.dns_service_ip = "10.0.0.10"
+    prov_config.subnet_name = "default"
+    prov_config.docker_bridge_cidr = "172.17.0.1/16"
+
+    # Create compute target
+    aks_target = ComputeTarget.create(workspace = ws, name = “myaks”, provisioning_configuration = prov_config)
+    # Wait for the operation to complete
+    aks_target.wait_for_completion(show_output = True)
+    
+    # Update AKS configuration to use an internal load balancer
+    update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", "default")
+    aks_target.update(update_config)
+    # Wait for the operation to complete
+    aks_target.wait_for_completion(show_output = True)
+```
+
+__CLI de Azure__
+
+```azurecli-interactive
+az rest --method put --uri https://management.azure.com"/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>?api-version=2018-11-19 --body @body.json
+```
+
+El contenido del archivo `body.json` al que hace referencia el comando es similar al siguiente documento JSON:
+
+```json
+{ 
+    "location": “<region>”, 
+    "properties": { 
+        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>", 
+        "computeType": "AKS", 
+        "provisioningState": "Succeeded", 
+        "properties": { 
+            "loadBalancerType": "InternalLoadBalancer", 
+            "agentCount": <agent-count>, 
+            "agentVmSize": "vm-size", 
+            "clusterFqdn": "<cluster-fqdn>" 
+        } 
+    } 
+} 
+```
+
+> [!NOTE]
+> Actualmente, no se puede configurar el equilibrador de carga al realizar una operación __adjuntar__ en un clúster existente. Primero debe adjuntar el clúster y, después, realizar una operación de actualización para cambiar el equilibrador de carga.
+
+Para más información sobre el uso del equilibrador de carga interno con AKS, consulte [Uso del equilibrador de carga interno con Azure Kubernetes Service](/azure/aks/internal-lb).
+
 ## <a name="use-azure-firewall"></a>Uso de Azure Firewall
 
 Al usar Azure Firewall, debe configurar una regla de red para permitir el tráfico en ambos sentidos en las siguientes direcciones:
@@ -414,4 +491,3 @@ Para más información sobre la configuración de una regla de red, consulte [Im
 * [Configuración de entornos de entrenamiento](how-to-set-up-training-targets.md)
 * [Lugar de implementación de modelos](how-to-deploy-and-where.md)
 * [Implementación segura de modelos con SSL](how-to-secure-web-service.md)
-

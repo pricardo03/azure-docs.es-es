@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: a947ff11fbbe418af84ff49033cba3857bb8447f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 108294e3f125da9fb009eb0a85585dab026c8d01
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925178"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933332"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Desencadenador de preparación de Azure Functions
 
@@ -30,11 +30,11 @@ El paquete NuGet [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/pack
 
 ## <a name="trigger"></a>Desencadenador
 
-El desencadenador de preparación permite definir una función que se ejecutará en una instancia cuando se agregue a la aplicación en ejecución. Puede usar una función de preparación para abrir conexiones, cargar dependencias o ejecutar cualquier otra lógica personalizada antes de que la aplicación comience a recibir tráfico. 
+El desencadenador de preparación permite definir una función que se ejecutará en una nueva instancia cuando se agregue a la aplicación en ejecución. Puede usar una función de preparación para abrir conexiones, cargar dependencias o ejecutar cualquier otra lógica personalizada antes de que la aplicación comience a recibir tráfico. 
 
 El desencadenador de preparación está diseñado para crear dependencias compartidas que usarán las demás funciones de la aplicación. [Vea ejemplos de dependencias compartidas aquí](./manage-connections.md#client-code-examples).
 
-Tenga en cuenta que solo se llama al desencadenador de preparación durante las operaciones de escalado vertical, no durante los reinicios u otros inicios sin escala. Debe asegurarse de que la lógica pueda cargar todas las dependencias necesarias sin usar el desencadenador de preparación. La carga diferida es un buen patrón para lograrlo.
+Tenga en cuenta que solo se llama al desencadenador de preparación durante las operaciones de escalado horizontal, no durante los reinicios u otros inicios sin escala. Debe asegurarse de que la lógica pueda cargar todas las dependencias necesarias sin usar el desencadenador de preparación. La carga diferida es un buen patrón para lograrlo.
 
 ## <a name="trigger---example"></a>Desencadenador: ejemplo
 
@@ -243,7 +243,7 @@ El desencadenador de preparación no se admite en Java como atributo.
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `WarmupTrigger`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
 | **type** | N/D| Requerida: se debe establecer en `warmupTrigger`. |
 | **direction** | N/D| Requerida: se debe establecer en `in`. |

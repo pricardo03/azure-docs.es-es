@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dbc932bd7a68212ce94f2ad07de6e625d26c0918
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: ae29a068ef29898c3fa27d3620d1e6be0be4bf3b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950245"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931202"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Configuración de la interfaz de usuario con contenido dinámico usando directivas personalizadas
 
@@ -24,7 +24,7 @@ ms.locfileid: "74950245"
 
 Mediante el uso de las directivas personalizadas de Azure Active Directory B2C (Azure AD B2C), puede enviar un parámetro en una cadena de consulta. Al pasar dicho parámetro al punto de conexión HTML, puede cambiar de forma dinámica el contenido de la página. Por ejemplo, puede cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro que se pasa desde la aplicación web o dispositivo móvil.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Este artículo se centra en cómo personalizar la interfaz de usuario de Azure AD B2C con *contenido dinámico* utilizando directivas personalizadas. Para empezar, consulte el artículo sobre [personalización de la interfaz de usuario en una directiva personalizada](active-directory-b2c-ui-customization-custom.md).
 
 >[!NOTE]
@@ -40,7 +40,7 @@ En una directiva personalizada, una definición de contenido define el identific
 
 La sección `ContentDefinitions` contiene una serie de elementos XML `ContentDefinition`. El atributo ID del elemento `ContentDefinition` especifica el tipo de página que se relaciona con la definición de contenido. Es decir, el elemento define el contexto que una plantilla personalizada de HTML5/CSS va a aplicar. En la tabla siguiente se describe el conjunto de identificadores de definición de contenido reconocidos por el motor IEF y el tipo de páginas relacionadas con ellos.
 
-| Id. de definición de contenido | Plantilla HTML5 predeterminada| DESCRIPCIÓN |
+| Id. de definición de contenido | Plantilla HTML5 predeterminada| Descripción |
 |-----------------------|--------|-------------|
 | *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de error**. Esta página se muestra cuando se produce una excepción o un error. |
 | *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Página de selección del proveedor de identidades**. Esta página contiene una lista de proveedores de identidades entre los que el usuario puede elegir durante el inicio de sesión. Las opciones normalmente son proveedores de identidades de empresa, proveedores de identidades sociales como Facebook y Google+ o cuentas locales. |
@@ -81,7 +81,7 @@ En este tutorial realizará lo siguiente:
 
     ![Seleccione la plantilla Aplicación Web](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-create-project2.png)
 
-6. Haga clic en **Aceptar** para crear el proyecto.
+6. Seleccione **Aceptar** para crear el proyecto.
 
 ## <a name="step-2-create-mvc-view"></a>Paso 2: Creación de la vista de MVC
 ### <a name="step-21-download-the-b2c-built-in-html5-template"></a>Paso 2.1: Descarga de la plantilla HTML5 integrada de B2C
@@ -122,7 +122,7 @@ La plantilla HTML5 personalizada se basa en la plantilla HTML5 integrada de Azur
 
 ### <a name="step-23-change-the-background-image"></a>Paso 2.3: Cambio de la imagen de fondo
 
-Ubique el elemento `<img>` que contiene el valor de `ID` *background_background_image* y reemplace el valor `src` por **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** o cualquier otra imagen de fondo que quiera utilizar.
+Ubique el elemento `<img>` que contiene el valor de `ID`*background_background_image* y reemplace el valor `src` por **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** o cualquier otra imagen de fondo que quiera utilizar.
 
 ![Elemento img con el valor src background_background_image personalizado](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 
@@ -217,17 +217,19 @@ Para configurar `ContentDefinition` haga lo siguiente:
     ![Fragmento de código XML de ejemplo con el elemento LoadUri resaltado](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>Paso 6: Carga de la directiva en el inquilino
-1. En [Azure Portal](https://portal.azure.com), cambie al [contexto del inquilino de Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) y seleccione **Azure AD B2C**.
+1. En **Azure Portal**, seleccione el icono [Directorio y suscripción](https://portal.azure.com) en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 
-2. Seleccione **Marco de experiencia de identidad**.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 
-3. Seleccione **Todas las directivas**.
+1. Seleccione **Marco de experiencia de identidad**.
 
-4. Seleccione **Cargar directiva**.
+1. Seleccione **Todas las directivas**.
 
-5. Active la casilla **Sobrescribir la directiva si existe**.
+1. Seleccione **Cargar directiva**.
 
-6. Cargue el archivo *TrustFrameworkExtensions.xml* y asegúrese de que pasa la validación.
+1. Active la casilla **Sobrescribir la directiva si existe**.
+
+1. Cargue el archivo *TrustFrameworkExtensions.xml* y asegúrese de que pasa la validación.
 
 ## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Paso 7: Probar la directiva personalizada con Ejecutar ahora
 1. Seleccione **Configuración de Azure AD B2C** y, después, **Marco de experiencia de identidad**.
@@ -342,10 +344,6 @@ Si selecciona el vínculo **Regístrese ahora** en la página de inicio de sesi�
 
 5. Ejecute la prueba de la directiva y haga seleccione **Registrarse ahora** para ver el resultado.
 
-## <a name="optional-download-the-complete-policy-files-and-code"></a>(Opcional) Descarga de los archivos y código de la directiva completos
+## <a name="optional-download-the-complete-policy-files-and-code"></a>(Opcional) Descargue el código y los archivos de la directiva completos
 * Una vez completado el tutorial [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md), le recomendamos que compile su escenario mediante sus archivos de directiva personalizados. Hemos proporcionado [archivos de directiva de ejemplo](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization) para que los tenga como referencia.
 * El código completo se puede descargar en [Ejemplo de solución de Visual Studio para referencia](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization).
-
-
-
-

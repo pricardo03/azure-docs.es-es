@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 804eb63406b33b94e70ef56e0066fa213be04708
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 2cbe5066974734093e440e64eb0b47542e569765
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997061"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940906"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
@@ -71,6 +71,7 @@ Además de esta propiedad, las asignaciones de atributos también admiten los si
 
 - **Atributo de origen**: especifica el atributo de usuario del sistema de origen (por ejemplo, Azure Active Directory).
 - **Atributo de destino**: especifica el atributo de usuario del sistema de destino (por ejemplo, ServiceNow).
+- **Valor predeterminado si es nulo (opcional)** : valor que se enviará al sistema de destino si el atributo de origen es NULL. Este valor solo se aprovisionará cuando se cree un usuario. El "valor predeterminado si es nulo" no se aprovisionará al actualizar un usuario existente. Si, por ejemplo, quiere aprovisionar todos los usuarios existentes en el sistema de destino con un puesto determinado (cuando es NULL en el sistema de origen), puede usar la siguiente [expresión](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Asegúrese de reemplazar el "valor predeterminado" con lo que le gustaría aprovisionar cuando sea NULL en el sistema de origen. 
 - **Hacer coincidir objetos con este atributo**: especifica si se debe usar o no esta asignación para identificar de forma unívoca a los usuarios entre los sistemas de origen y de destino. Normalmente esto se establece en el atributo userPrincipalName o mail en Azure AD, que se suele asignar a un campo de nombre de usuario en una aplicación de destino.
 - **Precedencia de coincidencia**: se pueden establecer varios atributos coincidentes. Si hay varios, se evalúan en el orden definido por este campo. En el momento en que se encuentre una coincidencia, no se evaluarán más atributos coincidentes.
 - **Aplicar esta asignación**

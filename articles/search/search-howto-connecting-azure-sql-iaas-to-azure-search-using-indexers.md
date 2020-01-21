@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 426ec57b3dbce884e55ef7a11ccca32ed295d70d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 7933e2608ae0b59a6dce89169f4bb1faba0aa25e
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111895"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934149"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configuración de una conexión desde un indexador de Búsqueda cognitiva de Azure a SQL Server en una máquina virtual de Azure
 
@@ -47,7 +47,7 @@ Búsqueda cognitiva de Azure requiere un canal cifrado para todas las solicitude
    
     Asegúrese de que a la cuenta de servicio de SQL Server se le concede el permiso adecuado en la clave privada del certificado SSL. Si pasa por alto este paso, SQL Server no se iniciará. Puede usar el complemento **Certificados** o **CertUtils** para esta tarea.
     
-4. Reinicie el servicio de SQL Server.
+4. Reinicie el servicio SQL Server.
 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configuración de la conectividad de SQL Server en la máquina virtual
 Después de configurar la conexión cifrada requerida por Búsqueda cognitiva de Azure, existen pasos adicionales de configuración intrínsecos a SQL Server en las máquinas virtuales de Azure. Si aún no lo ha hecho, el paso siguiente es finalizar la configuración mediante cualquiera de estos artículos:
@@ -72,8 +72,12 @@ Los vínculos siguientes proporcionan instrucciones para la configuración de NS
 
 La dirección IP puede plantear ciertos problemas, que se solucionan fácilmente si se conoce el problema y las posibles soluciones. En las restantes secciones encontrará recomendaciones para el control de los problemas relacionados con las direcciones IP de la ACL.
 
-#### <a name="restrict-access-to-the-search-service-ip-address"></a>Restricción del acceso a la dirección IP del servicio de búsqueda
-Se recomienda encarecidamente restringir el acceso a la dirección IP del servicio de búsqueda en la ACL en lugar de abrir totalmente las máquinas virtuales de SQL Azure a cualquier solicitud de conexión. Puede averiguar fácilmente la dirección IP haciendo ping en el FQDN (por ejemplo, `<your-search-service-name>.search.windows.net`) del servicio de búsqueda.
+#### <a name="restrict-access-to-the-azure-cognitive-search"></a>Restricción del acceso a Azure Cognitive Search
+Se recomienda encarecidamente restringir el acceso a la dirección IP del servicio de búsqueda y el rango de direcciones IP de la [etiqueta de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) `AzureCognitiveSearch` en la ACL en lugar de abrir las máquinas virtuales de SQL Azure a todas las solicitudes de conexión.
+
+Puede averiguar la dirección IP haciendo ping en el FQDN (por ejemplo, `<your-search-service-name>.search.windows.net`) del servicio de búsqueda.
+
+Puede averiguar el intervalo de direcciones IP de la [etiqueta de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) `AzureCognitiveSearch` mediante el uso de [archivos JSON descargables](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) o a través de la [API de detección de etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). El intervalo de direcciones IP se actualiza semanalmente.
 
 #### <a name="managing-ip-address-fluctuations"></a>Administración de las fluctuaciones de dirección IP
 Si el servicio de búsqueda tiene solo una unidad de búsqueda (es decir, una réplica y una partición), la dirección IP cambiará durante los reinicios rutinarios, lo que invalida una ACL existente con la dirección IP de su servicio de búsqueda.

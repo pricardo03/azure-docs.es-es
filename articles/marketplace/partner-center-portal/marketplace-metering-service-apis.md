@@ -1,19 +1,19 @@
 ---
 title: API del servicio de medición de Marketplace | Azure Marketplace
 description: Ofertas del evento de uso para SaaS en Azure Marketplace.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 36ca95191e0e6422bd93360b98243393acad8147
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dea950ff72eff2372fc10f989d4ce77fa746c4bf
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825474"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933588"
 ---
 # <a name="marketplace-metering-service-apis"></a>API del servicio de medición de Marketplace
 
@@ -52,7 +52,7 @@ La API de eventos de uso permite emitir eventos de uso para una entidad específ
 ### <a name="responses"></a>Respuestas
 
 Código: 200<br>
-OK 
+Aceptar 
 
 ```json
 {
@@ -161,7 +161,7 @@ La API de eventos de uso por lotes permite emitir a la vez eventos de uso para m
 ### <a name="responses"></a>Respuestas
 
 Código: 200<br>
-OK
+Aceptar
 
 ```json
 {
@@ -195,7 +195,7 @@ OK
 
 Descripción del código de estado al que se hace referencia en respuesta de la API `BatchUsageEvent`:
 
-| status code  | DESCRIPCIÓN |
+| status code  | Descripción |
 | ---------- | -------------------- |
 | `Accepted` | Código aceptado. |
 | `Expired` | Uso expirado. |

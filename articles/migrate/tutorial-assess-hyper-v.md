@@ -1,32 +1,28 @@
 ---
 title: Evaluación de máquinas virtuales de Hyper-V para la migración a Azure con Azure Migrate | Microsoft Docs
 description: Describe cómo evaluar máquinas virtuales de Hyper-V locales para su migración a Azure mediante Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/18/2019
-ms.author: raynew
+ms.date: 01/01/2020
 ms.custom: mvc
-ms.openlocfilehash: d8a4a6d650684cd5c8c0f22ad683c3952e2f6d08
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f36b0fbae01b25e604222c76d41ac21c0a7ae5a9
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158387"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029029"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Evaluación de las máquinas virtuales de Hyper-V con Azure Migrate Server Assessment
 
-En este artículo se muestra cómo evaluar máquinas virtuales de Hyper-V locales mediante Azure Migrate: Herramienta Server Assessment.
+En este artículo se muestra cómo evaluar máquinas virtuales de Hyper-V locales mediante Azure Migrate: Server Assessment.
 
-[Azure Migrate](migrate-services-overview.md) proporciona un centro de herramientas que le ayuda a detectar las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Dicho centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros.
+[Azure Migrate](migrate-services-overview.md) proporciona un centro de herramientas que le ayuda a detecta las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Este centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros.
 
 
 
 Este tutorial es el segundo de una serie que muestra cómo evaluar máquinas virtuales de Hyper-V y migrarlas a Azure. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Configurar un proyecto de Azure Migrate.
+> * Crear un proyecto de Azure Migrate.
 > * Configurar y registrar un dispositivo de Azure Migrate.
 > * Iniciar la detección continua de máquinas virtuales locales.
 > * Agrupar las máquinas virtuales detectadas y evaluar el grupo.
@@ -38,12 +34,13 @@ Este tutorial es el segundo de una serie que muestra cómo evaluar máquinas vir
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Complete](tutorial-prepare-hyper-v.md) el primer tutorial de esta serie. Si no lo hace, las instrucciones de este tutorial no funcionarán.
 - Esto es lo que debería haber hecho en el primer tutorial:
     - [Configurar los permisos de Azure](tutorial-prepare-hyper-v.md#prepare-azure) para Azure Migrate.
-    - [Preparar clústeres, hosts y máquinas virtuales de Hyper-V](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-assessment) para su evaluación.
+    - [Preparar clústeres, hosts y máquinas virtuales de Hyper-V](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) para su evaluación.
+    - [Prepararlo todo para la implementación](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) del dispositivo de Azure Migrate, que se usa para la detección y la evaluación de máquinas virtuales de Hyper-V.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configuración de un proyecto de Azure Migrate
 
@@ -51,14 +48,14 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 2. En los resultados de la búsqueda, seleccione **Azure Migrate**.
 3. En **Información general**, en **Detectar, evaluar y migrar servidores**, haga clic en **Evaluar y migrar servidores**.
 
-    ![Detectar y evaluar servidores](./media/tutorial-assess-hyper-v/assess-migrate.png)
+    ![Detección y evaluación de servidores](./media/tutorial-assess-hyper-v/assess-migrate.png)
 
 4. En **Introducción**, haga clic en **Agregar herramientas**.
 5. En la pestaña **Migrar proyecto**, seleccione la suscripción a Azure y cree un grupo de recursos si no lo tiene.
 6. En **Detalles del proyecto**, especifique el nombre del proyecto y la región en la que desea crearlo.
 
 
-    ![Creación de un proyecto de Azure Migrate](./media/tutorial-assess-hyper-v/migrate-project.png)
+    ![Crear un proyecto de Azure Migrate](./media/tutorial-assess-hyper-v/migrate-project.png)
 
     Puede crear un proyecto de Azure Migrate en estas regiones.
 
@@ -91,8 +88,8 @@ Azure Migrate Server Assessment ejecuta un dispositivo ligero de máquina virtua
 - Este dispositivo realiza detección de máquinas virtuales y envía metadatos y datos de rendimiento de estas a Azure Migrate: Server Assessment.
 - Para configurar el dispositivo:
     - Descargue un disco duro virtual de Hyper-V comprimido desde Azure Portal.
-    - Cree el dispositivo y compruebe que se puede conectar a Azure Migrate Server Assessment.
-    - Configure el dispositivo por primera vez y regístrelo en el proyecto de Azure Migrate.
+    - Crear el dispositivo y comprobar que se puede conectar a Azure Migrate Server Assessment.
+    - Configurar el dispositivo por primera vez y registrarlo en el proyecto de Azure Migrate.
 
 ### <a name="download-the-vhd"></a>Descarga del disco duro virtual
 
@@ -146,9 +143,9 @@ Importe el archivo descargado y cree la VM.
 7. En Administrador de Hyper-V > **Máquinas virtuales**, inicie la VM.
 
 
-### <a name="verify-appliance-access-to-azure"></a>Verificación de que el dispositivo puede acceder a Azure
+### <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
 
-Asegúrese de que la máquina virtual del dispositivo se puede conectar a las [direcciones URL de Azure](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Asegúrese de que la máquina virtual del dispositivo se puede conectar a las [direcciones URL de Azure](migrate-appliance.md#url-access).
 
 ### <a name="configure-the-appliance"></a>Configuración del dispositivo
 
@@ -165,7 +162,7 @@ Configure el dispositivo por primera vez.
       - Haga clic en **Configuración de proxy** y especifique el puerto de escucha y la dirección del proxy con los formatos http://ProxyIPAddress o http://ProxyFQDN.
       - Especifique las credenciales si el proxy requiere autenticación.
       - Solo se admite un proxy HTTP.
-    - **Time sync** (Sincronización de hora): Se verifica la hora. Para que la detección funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
+    - **Time sync** (Sincronización de hora): Se comprueba la hora. Para que la detección funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
     - **Instalación de actualizaciones**: Azure Migrate Server Assessment comprueba que el dispositivo tiene instaladas las actualizaciones más recientes.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registro del dispositivo en Azure Migrate
@@ -184,7 +181,7 @@ Configure el dispositivo por primera vez.
 
 Si va a ejecutar discos duros virtuales en SMB, debe habilitar la delegación de credenciales desde el dispositivo a los hosts de Hyper-V. Esto requiere lo siguiente:
 
-- Permita que cada host actúe como delegado para el dispositivo. Esto debió de hacerlo en el tutorial anterior, cuando preparó Hyper-V para la evaluación y la migración. Debería haber configurado CredSSP para los hosts [manualmente](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts) o mediante[ la ejecución del script de configuración de requisitos previos de Hyper-V](tutorial-prepare-hyper-v.md#hyper-v-prerequisites-configuration-script).
+- Permita que cada host actúe como delegado para el dispositivo. Si ha seguido los tutoriales en orden, esto debió hacerlo en el tutorial anterior, al preparar Hyper-V para la evaluación y la migración. Debería haber configurado CredSSP para los hosts [manualmente](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts) o mediante la [ejecución de un script](tutorial-prepare-hyper-v.md#prepare-with-a-script).
 - Habilite la delegación CredSSP para que el dispositivo de Azure Migrate pueda actuar como cliente y delegar las credenciales en un host.
 
 Habilite en el dispositivo de la manera siguiente:
@@ -234,7 +231,7 @@ Una vez finalizada la detección, puede verificar que las VM aparezcan en el por
 
 Se pueden ejecutar dos tipos de evaluaciones mediante Azure Migrate Server Assessment.
 
-**Valoración** | **Detalles** | **Datos**
+**Valoración** | **Detalles** | **Data**
 --- | --- | ---
 **Basada en el rendimiento** | Evaluaciones basadas en los datos de rendimiento recopilados | **Tamaño de máquina virtual recomendado**: se basa en los datos de uso de la CPU y de la memoria.<br/><br/> **Tipo de disco recomendado (disco administrado estándar o Premium**): se basa en IOPS y en el rendimiento de los discos locales.
 **Como local** | Evaluaciones que se basan en el tamaño local. | **Tamaño de máquina virtual recomendado**: se basa en el tamaño de la máquina virtual local<br/><br> **Tipo de disco recomendado**: se basa en el valor del tipo de almacenamiento que se selecciona para la evaluación.
@@ -248,7 +245,7 @@ Las evaluaciones se realizan como se indica a continuación:
 1. Consulte los [procedimientos recomendados](best-practices-assessment.md) para crear evaluaciones.
 2. En **Servidores** > **Azure Migrate: Server Assessment**, haga clic en **Evaluar**.
 
-    ![Evaluación](./media/tutorial-assess-hyper-v/assess.png)
+    ![Evaluar](./media/tutorial-assess-hyper-v/assess.png)
 
 3. En **Evaluar los servidores**, especifique el nombre de la evaluación.
 4. Haga clic en **View all** (Ver todo) para revisar la configuración de la valoración.

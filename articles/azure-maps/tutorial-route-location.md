@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Búsqueda de rutas con Azure Maps'
-description: 'Tutorial: Ruta a un punto de interés mediante Azure Maps'
+title: 'Tutorial: Búsqueda de la ruta a una ubicación | Microsoft Azure Maps'
+description: En este tutorial se muestra cómo representar la ruta a una ubicación (punto de interés) en un mapa mediante el servicio de enrutamiento de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: efc60acae78c96983e79044ae1ba7399154f3568
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 7f13e5342e880a9ed5e2cb35ebaf558a1641618b
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613608"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910846"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Tutorial: Ruta a un punto de interés mediante Azure Maps
 
@@ -168,7 +168,7 @@ En este tutorial, se representará una ruta simple mediante un icono de símbolo
 
 3. Guarde el archivo **MapRoute.html** y actualice el explorador. Ahora el mapa se centra en Seattle, y puede ver como la chincheta azul marca el punto inicial y otra chincheta azul redonda, el punto final.
 
-   ![Visualización del mapa con los puntos de inicio y fin marcados](media/tutorial-route-location/map-pins.png)
+   ![Visualización de los puntos de inicio y fin de las rutas en el mapa](media/tutorial-route-location/map-pins.png)
 
 <a id="getroute"></a>
 

@@ -3,12 +3,12 @@ title: 'Creación de alertas de Azure Resource Health: plantillas de Resource Ma
 description: Creación de alertas mediante programación que notifiquen cuándo dejan de estar disponibles los recursos de Azure.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: 34367c89666fd486f233136ce7968c7f3bf61912
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: d42dfdc5806fa6340cf4bb7051b53764e98c26e3
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551725"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922767"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configuración de alertas de estado de los recursos con plantillas de Resource Manager
 
@@ -17,7 +17,7 @@ En este artículo se muestra cómo crear alertas del registro de actividad de Re
 Azure Resource Health le mantiene informado sobre el estado actual y pasado de sus recursos de Azure. Además, le notifica casi en tiempo real de los cambios de estado en estos recursos. La creación y la personalización de alertas mediante programación en Resource Health se puede realizar en bloque.
 
 > [!NOTE]
-> Las alertas de Resource Health están actualmente en la versión preliminar.
+> Las alertas de Resource Health están actualmente en versión preliminar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

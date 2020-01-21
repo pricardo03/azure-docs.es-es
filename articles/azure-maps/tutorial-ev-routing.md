@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python)'
-description: 'Tutorial: Enrutamiento de vehículos eléctricos mediante las API de enrutamiento de Azure Maps y Azure Notebooks.'
+title: 'Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python) | Microsoft Azure Maps'
+description: Enrutamiento de vehículos eléctricos mediante las API de enrutamiento de Microsoft Azure Maps y Azure Notebooks.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 7039cd73263388f206075a53d7898e0d15da6b03
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: f45859370ae178fb186399fdd2648bf37f0985aa
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613693"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910903"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python)
 

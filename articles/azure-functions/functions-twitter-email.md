@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: c7b8e41cc09137ee06e975d136dd999ba146731b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7d121e9aeb897897322f1253c332e7a1baabdc9e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226608"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768969"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creación de una función que se integre con Azure Logic Apps
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 > * Conectar la aplicación lógica a la función.
 > * Enviar un correo electrónico en función de la respuesta de la función.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 + Una cuenta de [Twitter](https://twitter.com/) activa. 
 + Una cuenta de [Outlook.com](https://outlook.com/) (para enviar las notificaciones).
@@ -43,7 +43,7 @@ Si aún no lo hecho, lleve a cabo estos pasos ahora para crear la aplicación de
 
 Cognitive Services APIs están disponibles en Azure como recursos individuales. Use la API Text Analytics para detectar la opinión de los tweets que se supervisan.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 2. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
@@ -129,7 +129,7 @@ Ahora, tiene una función que clasifica las puntuaciones de opinión. A continua
 
 ## <a name="create-a-logic-app"></a>Creación de una aplicación lógica   
 
-1. En Azure Portal, haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
+1. En Azure Portal, haga clic en el botón **Crear un recurso** de la esquina superior izquierda.
 
 2. Haga clic en **Web** > **Aplicación lógica**.
  
@@ -161,11 +161,11 @@ En primer lugar, cree una conexión a la cuenta de Twitter. La aplicación lógi
 
     ![Configuración del conector de Twitter](media/functions-twitter-email/10-tweet-settings.png)
 
-    | Configuración      |  Valor sugerido   | DESCRIPCIÓN                                        |
+    | Configuración      |  Valor sugerido   | Descripción                                        |
     | ----------------- | ------------ | ------------- |
     | **Texto de búsqueda** | #Azure | Use un hashtag lo suficientemente popular como para generar nuevos tweets en el intervalo elegido. Si usa el nivel Gratis y el hashtag es demasiado popular, puede agotar rápidamente la cuota de transacciones de la API Cognitive Services. |
     | **Intervalo** | 15 | El tiempo transcurrido entre solicitudes a Twitter, en unidades de frecuencia. |
-    | **Frecuencia** | Minuto | La unidad de frecuencia utilizada para el sondeo de Twitter.  |
+    | **Frecuencia** | Minute | La unidad de frecuencia utilizada para el sondeo de Twitter.  |
 
 3.  Haga clic en **Guardar** para conectarse a su cuenta de Twitter. 
 
@@ -232,10 +232,10 @@ La última parte del flujo de trabajo consiste en desencadenar el envío de un c
 
     ![Configure el correo electrónico para la acción de envío de correo electrónico.](media/functions-twitter-email/21-configure-email.png)
     
-| Configuración      |  Valor sugerido   | DESCRIPCIÓN  |
+| Configuración      |  Valor sugerido   | Descripción  |
 | ----------------- | ------------ | ------------- |
 | **To** | Escriba su dirección de correo electrónico | La dirección de correo electrónico que recibe la notificación. |
-| **Asunto** | Detectada opinión de tweet negativa  | La línea de asunto de la notificación de correo electrónico.  |
+| **Subject** | Detectada opinión de tweet negativa  | La línea de asunto de la notificación de correo electrónico.  |
 | **Cuerpo** | Texto de tweet, ubicación | Haga clic en los parámetros **Texto de tweet** y **Ubicación**. |
 
 1. Haga clic en **Save**(Guardar).
@@ -283,7 +283,7 @@ Para deshabilitar la aplicación lógica, haga clic en **Información general** 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Crear un recurso de API de Cognitive Services.

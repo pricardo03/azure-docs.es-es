@@ -5,24 +5,24 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b8f5708aa14b4cc7cffa62da055f92f8d99dee5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a07d019893e69308b35b4a941fe50d2736efe01
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409099"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921910"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escalado y hospedaje de Azure Functions
 
-Cuando crea una aplicación de funciones en Azure, debe elegir un plan de hospedaje para su aplicación. Hay tres planes de hospedaje disponibles para Azure Functions: [Plan de consumo](#consumption-plan), [plan Prémium](#premium-plan) y [plan de App Service](#app-service-plan).
+Cuando crea una aplicación de funciones en Azure, debe elegir un plan de hospedaje para su aplicación. Hay tres planes de hospedaje disponibles para Azure Functions: [Plan de consumo](#consumption-plan), [plan Premium](#premium-plan) y [plan Dedicado (App Service)](#app-service-plan).
 
 El plan de hospedaje que elija determina los comportamientos siguientes:
 
 * Cómo se escala la aplicación de funciones.
 * Los recursos disponibles para cada instancia de aplicación de funciones.
-* Compatibilidad con características avanzadas, como la conectividad de red virtual.
+* Compatibilidad con características avanzadas, como la conectividad con Azure Virtual Network.
 
-Los planes de consumo y Prémium agregan automáticamente la capacidad de proceso cuando se ejecuta su código. La aplicación se escala horizontalmente cuando es necesario para administrar la carga, y se reduce verticalmente cuando el código se deja de ejecutar. En el caso del plan de consumo, tampoco tiene que pagar para las VM inactivas ni la capacidad reservada de antemano.  
+Los planes de consumo y Prémium agregan automáticamente la capacidad de proceso cuando se ejecuta su código. La aplicación se escala horizontalmente cuando es necesario para administrar la carga, y se reduce horizontalmente cuando el código se deja de ejecutar. En el caso del plan de consumo, tampoco tiene que pagar para las VM inactivas ni la capacidad reservada de antemano.  
 
 El plan Prémium proporciona características adicionales, como instancias de proceso prémium, la capacidad de conservar las instancias semiactivas indefinidamente y la conectividad de red virtual.
 
@@ -68,17 +68,17 @@ Cuando se usa el plan Prémium, las instancias del host de Azure Functions se ag
 * Precios más previsibles
 * Asignación de aplicaciones de alta densidad para planes con varias aplicaciones de funciones
 
-Puede encontrar información sobre cómo configurar estas opciones en el [documento del plan prémium de Azure Functions](functions-premium-plan.md).
+Puede encontrar información sobre cómo configurar estas opciones en el [documento del plan Premium de Azure Functions](functions-premium-plan.md).
 
 En lugar de la facturación por ejecución y la memoria consumida, la facturación del plan Premium se basa en la cantidad de núcleos por segundo y en la memoria utilizada en las instancias necesarias y preparadas previamente. Al menos debe haber una instancia preparada en todo momento en cada plan. Esto significa que hay un costo mensual por plan activo, independientemente del número de ejecuciones. Tenga en cuenta que todas las aplicaciones de función de un plan Premium comparten instancias activas y preparadas.
 
-Considere la posibilidad de elegir el plan Prémium de Azure Functions en las siguientes situaciones:
+Considere la posibilidad de elegir el plan Premium de Azure Functions en las siguientes situaciones:
 
 * La aplicación de función se ejecuta de forma continua, o casi continua.
-* Tiene un gran número de ejecuciones pequeñas y tiene una factura de ejecución alta, pero una segunda factura de pocos gigabytes en el plan de consumo.
+* Tiene un gran número de ejecuciones pequeñas y tiene una factura de ejecución alta, pero una factura de pocos GB por segundo en el plan de consumo.
 * Necesita más opciones de CPU o memoria de las que proporciona el plan de consumo.
 * Su código debe ejecutarse durante más tiempo del [máximo permitido](#timeout) en el plan de consumo.
-* Necesita características que solo están disponibles en un plan Prémium, como conectividad de red virtual o VPN.
+* Necesita características que solo están disponibles en un plan Premium, como la conectividad de red virtual.
 
 Al ejecutar las funciones de JavaScript en un plan Prémium, debe elegir una instancia que tenga menos vCPU. Para obtener más información, consulte [Elección de los planes de App Service de un solo núcleo](functions-reference-node.md#considerations-for-javascript-functions).  
 
@@ -136,7 +136,7 @@ Para obtener más información sobre los tipos de cuenta de almacenamiento, vea 
 
 ## <a name="how-the-consumption-and-premium-plans-work"></a>Cómo funcionan los planes de consumo y Prémium
 
-En los planes de consumo y Prémium, la infraestructura de Azure Functions escala automáticamente los recursos de CPU y memoria. Para ello, agrega instancias adicionales del host de Functions, según el número de eventos en los que se desencadenan sus funciones. Cada instancia del host de Functions del plan de consumo tiene una limitación de 1,5 GB de memoria y una CPU.  Una instancia del host es la aplicación de funciones completa, lo que significa que todas las funciones de una aplicación de funciones comparten recursos al mismo tiempo en una instancia y escala determinadas. Las aplicaciones de funciones que comparten el mismo plan de consumo se escalan de manera independiente.  En el plan Prémium, el tamaño de plan determinará la memoria disponible y la CPU para todas las aplicaciones de ese plan en esa instancia.  
+En los planes de consumo y Premium, la infraestructura de Azure Functions escala los recursos de CPU y memoria. Para ello, agrega instancias adicionales del host de Functions, según el número de eventos en los que se desencadenan sus funciones. Cada instancia del host de Functions del plan de consumo tiene una limitación de 1.5 GB de memoria y una CPU.  Una instancia del host es la aplicación de funciones completa, lo que significa que todas las funciones de una aplicación de funciones comparten recursos al mismo tiempo en una instancia y escala determinadas. Las aplicaciones de función que comparten el mismo plan de consumo se escalan de manera independiente.  En el plan Premium, el tamaño del plan determinará la memoria y la CPU disponibles para todas las aplicaciones de ese plan en esa instancia.  
 
 Los archivos de código de función se almacenan en recursos compartidos de Azure Files en la cuenta de almacenamiento principal de la función. Al eliminarse la cuenta de almacenamiento principal de la aplicación de función, los archivos de código de función también se eliminan y no se pueden recuperar.
 

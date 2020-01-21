@@ -1,67 +1,63 @@
 ---
-title: Conexión de un contenedor de Storage personalizado en Linux
+title: Servicio de contenido desde Azure Storage a contenedores de Linux
 description: Aprenda a conectar un recurso compartido de red personalizado a un contenedor de Linux en Azure App Service. Comparta archivos entre aplicaciones, administre el contenido estático de forma remota y acceda a él de forma local, etc.
 author: msangapu-msft
 ms.topic: article
-ms.date: 2/04/2019
+ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: 00c60edeefa5fd8d1304aa5fc301a3b0304f5ca3
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 752c9dfd1ae67397713cdffce9ba530ad6a2c159
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671784"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930008"
 ---
-# <a name="attach-azure-storage-containers-to-linux-containers"></a>Conexión de contenedores de Azure Storage a contenedores de Linux
-
-En esta guía se muestra cómo conectar recursos compartidos de red a App Service en Linux mediante [Azure Storage](/azure/storage/common/storage-introduction). Entre las ventajas se incluye protección y portabilidad del contenido, almacenamiento persistente, acceso a varias aplicaciones y varios métodos de transferencia.
-
-## <a name="prerequisites"></a>Requisitos previos
-
-- Una aplicación web existente (App Service en Linux o Web Apps for Containers).
-- [CLI de Azure](/cli/azure/install-azure-cli) (2.0.46 o posterior).
-
-## <a name="create-azure-storage"></a>Creación de una instancia de Azure Storage
+# <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Servicio de contenido desde Azure Storage en App Service en Linux
 
 > [!NOTE]
-> Azure Storage es almacenamiento no predeterminado y se factura por separado, es decir, no se incluye con la aplicación web.
->
-> Traiga su propio almacenamiento no admite el uso de la configuración del firewall de Storage debido a limitaciones de la infraestructura.
+> Este artículo se aplica a los contenedores de Linux. Para implementar en contenedores de Windows personalizados, consulte [Configuración de Azure Files en un contenedor de Windows en App Service](../configure-connect-to-azure-storage.md). Azure Storage en App Service en Linux es una característica en **vista previa**. Esta característica **no se admite para escenarios de producción**.
 >
 
-Cree una [cuenta de almacenamiento de Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).
+En esta guía se muestra cómo adjuntar Azure Storage a App Service en Linux. Entre las ventajas se incluye protección y portabilidad del contenido, almacenamiento persistente, acceso a varias aplicaciones y varios métodos de transferencia.
 
-```azurecli
-#Create Storage Account
-az storage account create --name <storage_account_name> --resource-group myResourceGroup
+## <a name="prerequisites"></a>Prerequisites
 
-#Create Storage Container
-az storage container create --name <storage_container_name> --account-name <storage_account_name>
-```
+- [CLI de Azure](/cli/azure/install-azure-cli) (2.0.46 o posterior).
+- Una [aplicación de App Service en Linux](https://docs.microsoft.com/azure/app-service/containers/) existente.
+- Una [cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).
+- Un [recurso compartido y un directorio de Azure](https://docs.microsoft.com/azure/storage/common/storage-azure-cli#create-and-manage-file-shares).
 
-## <a name="upload-files-to-azure-storage"></a>Carga de archivos en Azure Storage
 
-Para cargar un directorio local en la cuenta de almacenamiento, use el comando [ `az storage blob upload-batch`](https://docs.microsoft.com/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-upload-batch), como en el ejemplo siguiente:
+## <a name="limitations-of-azure-storage-with-app-service"></a>Limitaciones de Azure Storage con App Service
 
-```azurecli
-az storage blob upload-batch -d <full_path_to_local_directory> --account-name <storage_account_name> --account-key "<access_key>" -s <source_location_name>
-```
+- Azure Storage con App Service está en **versión preliminar** para App Service en Linux y Web App for Containers. **No se admite** para **escenarios de producción**.
+- Azure Storage con App Service admite el montaje de **contenedores de Azure Files** (lectura y escritura) y **contenedores de blobs de Azure** (solo lectura)
+- Azure Storage con App Service **no admite** el uso de la configuración del **firewall de Storage** debido a limitaciones de la infraestructura.
+- Azure Storage con App Service le permite especificar **hasta cinco** puntos de montaje por aplicación.
+- Azure Storage **no se incluye** con la aplicación web y se factura por separado. Obtenga más información sobre los [precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage).
 
-## <a name="link-storage-to-your-web-app-preview"></a>Vinculación del almacenamiento a la aplicación web (versión preliminar)
+> [!WARNING]
+> Las configuraciones de App Service que usan Azure Blob Storage serán de solo lectura a partir de febrero de 2020. [Más información](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/mounting_azure_blob.md)
+>
+
+## <a name="configure-your-app-with-azure-storage"></a>Configuración de la aplicación con Azure Storage
+
+Una vez que haya creado la [cuenta de Azure Storage, el recurso compartido y el directorio](#prerequisites), ahora puede configurar la aplicación con Azure Storage.
+
+Para montar una cuenta de almacenamiento en un directorio en la aplicación de App Service, use el comando [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add). El tipo de almacenamiento puede ser AzureBlob o AzureFiles. AzureFiles se usa en este ejemplo.
+
 
 > [!CAUTION]
-> Al vincular un directorio existente en una aplicación web a una cuenta de almacenamiento, se eliminará el contenido del directorio. Si va a migrar archivos de una aplicación existente, realice una copia de seguridad de la aplicación y de su contenido antes de comenzar.
+> El directorio especificado como ruta de acceso de montaje en la aplicación web debe estar vacío. Cualquier contenido almacenado en este directorio se eliminará cuando se agregue un montaje externo. Si va a migrar archivos de una aplicación existente, realice una copia de seguridad de la aplicación y de su contenido antes de comenzar.
 >
 
-Para montar una cuenta de almacenamiento en un directorio en la aplicación de App Service, use el comando [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add). El tipo de almacenamiento puede ser AzureBlob o AzureFiles. Usará AzureBlob con este contenedor.
-
 ```azurecli
-az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureBlob --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory>
+az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureFiles --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory>
 ```
 
 Este paso debe realizarlo con cualquier otro directorio que quiera vincular a una cuenta de almacenamiento.
 
-## <a name="verify"></a>Verify
+## <a name="verify-azure-storage-link-to-the-web-app"></a>Comprobación del vínculo de Azure Storage a la aplicación web
 
 Una vez que un contenedor de almacenamiento está vinculado a una aplicación web, puede ejecutar el siguiente comando para comprobarlo:
 
@@ -69,7 +65,7 @@ Una vez que un contenedor de almacenamiento está vinculado a una aplicación we
 az webapp config storage-account list --resource-group <resource_group> --name <app_name>
 ```
 
-## <a name="use-custom-storage-in-docker-compose"></a>Uso del almacenamiento personalizado en Docker Compose
+## <a name="use-azure-storage-in-docker-compose"></a>Uso de Azure Storage en Docker Compose
 
 Azure Storage se puede montar con aplicaciones de varios contenedores mediante custom-id. Para ver el nombre de custom-id, ejecute [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
 
@@ -85,3 +81,4 @@ wordpress:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Configuración de aplicaciones web en Azure App Service](../configure-common.md)
+

@@ -9,16 +9,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
-ms.openlocfilehash: 394c674da63bbda643246c3d61fb670d6ac8d1f7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d1a59e7ad86191bcc30b7d898d00f327c20fbc5e
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928617"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945614"
 ---
 # <a name="azure-hybrid-benefit"></a>Ventaja híbrida de Azure
 
-En el nivel de proceso aprovisionado del modelo de compra basado en núcleo virtual, puede intercambiar sus licencias existentes por tarifas de descuento en SQL Database mediante la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Esta ventaja de Azure le permite ahorrar hasta un 30 % en Azure SQL Database al utilizar las licencias de SQL Server locales con Software Assurance. 
+En el nivel de proceso aprovisionado del modelo de compra basado en núcleo virtual, puede intercambiar sus licencias existentes por tarifas de descuento en SQL Database mediante la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Esta ventaja de Azure le permite ahorrar hasta un 30 % o más en Azure SQL Database al utilizar las licencias de SQL Server locales con Software Assurance. Use la calculadora de Ventaja híbrida de Azure con el vínculo mencionado anteriormente para los valores correctos. 
 
 > [!NOTE]
 > Cambiar a Ventaja híbrida de Azure no requiere ningún tiempo de inactividad.
@@ -49,7 +49,7 @@ Para establecer o actualizar el tipo de licencia mediante la CLI de Azure:
 - [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create)
 - [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update)
 
-# <a name="rest-apitabrest"></a>[API DE REST](#tab/rest)
+# <a name="rest-apitabrest"></a>[REST API](#tab/rest)
 
 Para establecer o actualizar el tipo de licencia mediante la API REST:
 

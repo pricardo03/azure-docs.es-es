@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: babanisa
-ms.openlocfilehash: 6a0e24ce7fa11c6373fbaada40cd9f1b1e7f55a2
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 78498f06a1ec921813d886b426d62452f850f5e5
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325467"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922746"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Uso del esquema CloudEvents v1.0 con Event Grid
 
@@ -60,7 +60,7 @@ Este es un ejemplo de un evento de Azure Blob Storage en formato de CloudEvents:
 }
 ```
 
-Una descripción detallada de los campos disponibles, sus tipos y definiciones en CloudEvents v0.1 se encuentra [disponible aquí](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
+Una descripción detallada de los campos disponibles, sus tipos y definiciones en CloudEvents v1.0 se encuentra [disponible aquí](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
 Los valores de encabezados de los eventos proporcionados en el esquema de CloudEvents y el esquema de Event Grid son los mismos excepto para `content-type`. En el esquema de CloudEvents, ese valor de encabezado es `"content-type":"application/cloudevents+json; charset=utf-8"`. En el esquema de Event Grid, ese valor de encabezado es `"content-type":"application/json; charset=utf-8"`.
 

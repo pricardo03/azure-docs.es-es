@@ -1,20 +1,20 @@
 ---
-title: Migración de una aplicación web desde Google Maps | Microsoft Docs
-description: Un tutorial sobre cómo migrar de una aplicación web de Google Maps a Microsoft Azure Maps.
+title: 'Tutorial: Migración de una aplicación web desde Google Maps | Microsoft Azure Maps'
+description: Migración de una aplicación web de Google Maps a Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: a414d7b15f81ab81783b66f8297a207afe569365
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 08566283181a4bb15f77016834c4dc0dffc184b7
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562177"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910866"
 ---
 # <a name="migrate-a-web-app-from-google-maps"></a>Migración de una aplicación web desde Google Maps
 
@@ -415,7 +415,7 @@ Cuando se usa una capa de símbolos, los datos se deben agregar a un origen de d
 
 ### <a name="adding-a-custom-marker"></a>Adición de un marcador personalizado
 
-Las imágenes personalizadas se pueden usar para representar puntos en un mapa. En la siguiente imagen, usada en los ejemplos posteriores, se usa una imagen personalizada para mostrar un punto en el mapa en (latitud: 51,5, longitud: -0,2) y desplaza la posición del marcador de modo que el punto del icono de marcador se alinee con la posición correcta en el mapa.
+Se pueden usar imágenes personalizadas para representar puntos en un mapa. En los ejemplos siguientes se usa una imagen personalizada para mostrar un punto en el mapa en (latitud: 51,5, longitud: -0,2) y desplaza la posición del marcador de modo que el punto del icono de marcador se alinee con la posición correcta en el mapa.
 
 <center>
 
@@ -544,7 +544,7 @@ Además, las capas de símbolos de Azure Maps admiten imágenes personalizadas, 
 
 ### <a name="adding-a-polyline"></a>Adición de una polilínea
 
-Las polilíneas se usan para representar una línea o una ruta en el mapa. En los siguientes ejemplos se muestra cómo crear una polilínea con guiones en el mapa.
+Las polilíneas se usan para representar una línea o una ruta en el mapa. En los ejemplos siguientes se muestra cómo crear una polilínea con guiones en el mapa.
 
 **Antes: Google Maps**
 
@@ -1365,7 +1365,7 @@ trafficLayer.setMap(map);
 
 **Después: Azure Maps**
 
-Azure Maps proporciona varias opciones diferentes para mostrar el tráfico. Los incidentes de tráfico, como los cierres de carreteras y los accidentes, se pueden mostrar como iconos en el mapa. El flujo de tráfico o las carreteras codificadas mediante colores, se pueden superponer en el mapa y los colores se pueden modificar para que se basen en el límite de velocidad registrado, el retraso normal esperado o el retraso absoluto. Los datos de incidentes en Azure Maps se actualizan cada minuto y el flujo de datos se produce cada dos minutos.
+Azure Maps proporciona varias opciones diferentes para mostrar el tráfico. Los incidentes de tráfico, como los cierres de carreteras y los accidentes, se pueden mostrar como iconos en el mapa. El flujo de tráfico o las carreteras codificadas mediante colores se pueden superponer en el mapa y los colores se pueden modificar para que se basen en el límite de velocidad registrado, el retraso normal esperado o el retraso absoluto. Los datos de incidentes en Azure Maps se actualizan cada minuto y el flujo de datos se produce cada dos minutos.
 
 ```javascript
 map.setTraffic({

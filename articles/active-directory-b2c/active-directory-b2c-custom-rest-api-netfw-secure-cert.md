@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1d396de57a12285fb6cc682510fa6f95585465d0
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 0201c0947c2f6052182721294e8972e29479825d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949864"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930637"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteja los servicios REST mediante certificados de cliente
 
@@ -34,7 +34,7 @@ En este artículo se detalla cómo:
 * Cargar el certificado en las claves de la directiva de Azure AD B2C.
 * Configurar una directiva personalizada para usar el certificado de cliente.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * Complete los pasos del artículo [Integración de intercambios de notificaciones de API de REST en los recorridos de usuario de Azure AD B2C como un paso de orquestación](active-directory-b2c-custom-rest-api-netfw.md).
 * Obtener tener un certificado válido (un archivo .pfx con clave privada).
 
@@ -100,17 +100,19 @@ Para admitir la autenticación de certificado de cliente en la directiva persona
 
 ## <a name="step-4-upload-the-policy-to-your-tenant"></a>Paso 4: Carga de la directiva en el inquilino
 
-1. En [Azure Portal](https://portal.azure.com), cambie al [contexto del inquilino de Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) y seleccione **Azure AD B2C**.
+1. En **Azure Portal**, seleccione el icono [Directorio y suscripción](https://portal.azure.com) en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 
-2. Seleccione **Marco de experiencia de identidad**.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 
-3. Seleccione **Todas las directivas**.
+1. Seleccione **Marco de experiencia de identidad**.
 
-4. Seleccione **Cargar directiva**.
+1. Seleccione **Todas las directivas**.
 
-5. Active la casilla **Sobrescribir la directiva si existe**.
+1. Seleccione **Cargar directiva**.
 
-6. Cargue el archivo *TrustFrameworkExtensions.xml* y asegúrese de que pasa la validación.
+1. Active la casilla **Sobrescribir la directiva si existe**.
+
+1. Cargue el archivo *TrustFrameworkExtensions.xml* y asegúrese de que pasa la validación.
 
 ## <a name="step-5-test-the-custom-policy-by-using-run-now"></a>Paso 5: Probar la directiva personalizada con Ejecutar ahora
 1. Abra **Configuración de Azure AD B2C** y seleccione **Marco de experiencia de identidad**.

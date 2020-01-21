@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 32c1ca95c01edec74f22fc051e453f2ac0dbd03f
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 88b19257a6a7d335e6a928a9eaf7526fbfd5b02e
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564714"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942818"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores del rendimiento de las aplicaciones
 
@@ -126,7 +126,7 @@ Para obtener más información sobre los tamaños de máquina virtual y la IOPS,
 | **Tamaño de E/S** |Un tamaño de E/S menor produce una mayor IOPS. |Un tamaño de E/S mayor produce un mayor rendimiento. | &nbsp;|
 | **Tamaño de VM** |Use un tamaño de máquina virtual que ofrezca una IOPS mayor que los requisitos de la aplicación. |Use un tamaño de máquina virtual con un límite de rendimiento mayor que los requisitos de la aplicación. |Use un tamaño de máquina virtual que ofrezca una escala de límites mayor que los requisitos de la aplicación. |
 | **Tamaño del disco** |Use un tamaño de disco que ofrezca una IOPS mayor que los requisitos de la aplicación. |Use un tamaño de disco con un límite de rendimiento mayor que los requisitos de la aplicación. |Use un tamaño de disco que ofrezca una escala de límites mayor que los requisitos de la aplicación. |
-| **Máquina virtual y límites de escala de disco** |El límite de IOPS del tamaño de la máquina virtual elegido debe ser mayor que la IOPS total controlada por los discos de almacenamiento premium conectados. |El límite de rendimiento del tamaño de la máquina virtual elegido debe ser mayor que el rendimiento total controlado por los discos de almacenamiento premium conectados. |Los límites de la escala del tamaño de la máquina virtual elegidos deben ser mayores que los límites de escala total de los discos de almacenamiento premium conectados. |
+| **Máquina virtual y límites de escala de disco** |El límite de IOPS del tamaño de la máquina virtual elegido debe ser mayor que la IOPS total controlada por los discos de almacenamiento conectados. |El límite de rendimiento del tamaño de la máquina virtual elegido debe ser mayor que el rendimiento total controlado por los discos de almacenamiento premium conectados. |Los límites de la escala del tamaño de la máquina virtual elegidos deben ser mayores que los límites de escala total de los discos de almacenamiento premium conectados. |
 | **Almacenamiento en caché de disco** |Habilite la caché de solo lectura en los discos de almacenamiento premium con operaciones intensivas de lectura para obtener una mayor IOPS de lectura. | &nbsp; |Habilite la caché de solo lectura en los discos de almacenamiento premium con operaciones intensivas de lectura para obtener latencias de lectura muy bajas. |
 | **Seccionamiento del disco** |Use varios discos y secciónelos conjuntamente para conseguir un límite de IOPS y rendimiento combinado superior. El límite combinado por máquina virtual debe ser mayor que los límites combinados de los discos premium conectados. | &nbsp; | &nbsp; |
 | **Tamaño de franja** |Un menor tamaño de franja para un patrón de E/S pequeño y aleatorio visto en las aplicaciones OLTP. Por ejemplo, puede usar un tamaño de franja de 64 KB para aplicaciones OLTP de SQL Server. |Un mayor tamaño de franja para un patrón de E/ grande y secuencial visto en las aplicaciones de Almacenamiento de datos. Por ejemplo, puede usar un tamaño de franja de 256 KB para aplicaciones de Almacenamiento de datos de SQL Server. | &nbsp; |

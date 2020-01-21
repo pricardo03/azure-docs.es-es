@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager y volúmenes | Microsoft Docs
 description: Describe cómo usar el complemento MMC de Snapshot Manager de StorSimple para ver y administrar volúmenes y configurar copias de seguridad.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: carmonm
 editor: ''
 ms.assetid: 78896323-e57c-431e-bbe2-0cbde1cf43a2
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
-ms.author: v-sharos
-ms.openlocfilehash: 260dfdd4b8fe7c277358fa5773029ea9a532740a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: f09d4dd46a50f1794e51342a939b8919c5c523ef
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61078365"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931626"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Uso de Administrador de instantáneas StorSimple para ver y administrar volúmenes
 ## <a name="overview"></a>Información general
@@ -49,7 +49,7 @@ Utilice el procedimiento siguiente para montar, inicializar y dar formato a vol�
 
 #### <a name="to-mount-volumes"></a>Para montar volúmenes
 1. En el equipo host, inicie el iniciador iSCSI de Microsoft.
-2. Proporcione una de las direcciones IP de interfaz como el portal de destino o la dirección IP de detección y conéctese al dispositivo. Una vez conectado el dispositivo, los volúmenes estarán accesibles para el sistema Windows. Para obtener más información sobre el uso del iniciador iSCSI de Microsoft, vaya a la sección "Conectar a un dispositivo de destino iSCSI" en [Installing and Configuring Microsoft iSCSI Initiator][1] (Instalación y configuración del iniciador iSCSI de Microsoft).
+2. Proporcione una de las direcciones IP de interfaz como el portal de destino o la dirección IP de detección y conéctese al dispositivo. Una vez conectado el dispositivo, los volúmenes estarán accesibles para el sistema Windows. Para obtener más información sobre el uso del iniciador iSCSI de Microsoft, vaya a la sección "Conexión a un dispositivo de destino iSCSI" en [Instalación y configuración del iniciador iSCSI de Microsoft][1].
 3. Utilice cualquiera de las siguientes opciones para iniciar Administración de discos:
    
    * Escriba Diskmgmt.msc en el cuadro **Ejecutar** .
@@ -91,9 +91,9 @@ Utilice el procedimiento siguiente para ver información acerca de volúmenes lo
    
     ![Configurar las columnas](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
    
-   | Columna Resultados | DESCRIPCIÓN |
+   | Columna Resultados | Descripción |
    |:--- |:--- |
-   |  NOMBRE |La columna **Nombre** contiene la letra de unidad asignada a cada volumen detectado. |
+   |  Nombre |La columna **Nombre** contiene la letra de unidad asignada a cada volumen detectado. |
    |  Dispositivo |La columna **Dispositivo** contiene la dirección IP del dispositivo conectado al equipo host. |
    |  Nombre del volumen del dispositivo |La columna **Nombre del volumen del dispositivo** contiene el nombre del volumen del dispositivo al que pertenece el volumen seleccionado. Este es el nombre del volumen definido en Azure Portal para ese volumen específico. |
    |  Rutas de acceso |La columna **Rutas de acceso** muestra la ruta de acceso al volumen. Es la letra de unidad o el punto de montaje en el que el volumen es accesible en el equipo host. |
@@ -130,7 +130,7 @@ Use el procedimiento siguiente para volver a examinar los volúmenes conectados 
 ## <a name="configure-and-back-up-a-basic-volume"></a>Configuración y copia de seguridad de un volumen básico
 Utilice el siguiente procedimiento para configurar una copia de seguridad de un volumen básico e iniciar inmediatamente una copia de seguridad o crear una directiva de copias de seguridad programadas.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 Antes de empezar:
 
 * Asegúrese de que el equipo host y el dispositivo StorSimple están configurados correctamente. Para obtener más información, vaya a [Implementación del dispositivo StorSimple local](storsimple-deployment-walkthrough-u2.md).
@@ -158,7 +158,7 @@ Complete los pasos siguientes para configurar la copia de seguridad de un volume
 * Paso 1: Uso de Administración de discos para crear un volumen reflejado dinámico. 
 * Paso 2: Uso de Snapshot Manager de StorSimple para configurar la copia de seguridad.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 Antes de empezar:
 
 * Asegúrese de que el equipo host y el dispositivo StorSimple están configurados correctamente. Para obtener más información, vaya a [Implementación del dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).

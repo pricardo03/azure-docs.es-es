@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Varias rutas con Azure Maps'
-description: 'Tutorial: Búsqueda de rutas para diferentes modos de desplazamiento mediante Azure Maps'
+title: 'Tutorial: Búsqueda de varias rutas por forma de viajar | Microsoft Azure Maps'
+description: En este tutorial aprenderá a buscar rutas para distintas formas de viajar con Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cec7027ee0eadae2284e9aa2b127c195870ee929
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 258572d4451be6d9a1090c032467e85889148d14
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613642"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910861"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: Búsqueda de rutas para diferentes modos de desplazamiento mediante Azure Maps
 
@@ -117,7 +117,7 @@ En los pasos siguientes se muestra cómo crear una página HTML estática insert
 
 2. Guarde el archivo **MapTruckRoute.html** y actualice la página en el explorador. Si interactúa con el mapa y lo acerca para centrarse en Los Ángeles, debería ver las calles con los datos de tráfico actuales.
 
-   ![Visualización del mapa del tráfico](./media/tutorial-prioritized-routes/traffic-map.png)
+   ![Visualización del tráfico en un mapa](./media/tutorial-prioritized-routes/traffic-map.png)
 
 <a id="queryroutes"></a>
 

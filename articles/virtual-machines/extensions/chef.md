@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
-ms.openlocfilehash: 2b69a17c7f9de62187d9dc99f7c1d5c5b74c25ad
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8a5b54131210d243015b37bf234408fd9d2b4c12
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073203"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933620"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensión de máquina virtual de Chef para Linux y Windows
 
 Chef Software proporciona una plataforma de automatización de DevOps para Linux y Windows que permite la administración de las configuraciones de servidor físicas y virtuales. La extensión de máquina virtual de Chef es una extensión que habilita Chef en máquinas virtuales.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -67,7 +67,7 @@ En el siguiente JSON, se muestra el esquema para la extensión de máquina virtu
 
 ### <a name="core-property-values"></a>Valores de propiedad básicos
 
-| NOMBRE | Valor / ejemplo | Tipo de datos
+| Nombre | Valor / ejemplo | Tipo de datos
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
@@ -76,7 +76,7 @@ En el siguiente JSON, se muestra el esquema para la extensión de máquina virtu
 
 ### <a name="settings"></a>Configuración
 
-| NOMBRE | Valor / ejemplo | Tipo de datos | ¿Necesario?
+| Nombre | Valor / ejemplo | Tipo de datos | ¿Necesario?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | Y |
 | settings/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
@@ -84,7 +84,7 @@ En el siguiente JSON, se muestra el esquema para la extensión de máquina virtu
 
 ### <a name="protected-settings"></a>Configuración protegida
 
-| NOMBRE | Ejemplo | Tipo de datos | ¿Necesario?
+| Nombre | Ejemplo | Tipo de datos | ¿Necesario?
 | ---- | ---- | ---- | ---- |
 | protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | Y |
 
@@ -151,6 +151,9 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 | 51 | Esta extensión no se admite en el sistema operativo de la máquina virtual. | |
 
 Se puede encontrar más información adicional para solucionar problemas en el [archivo Léame de la extensión de máquina virtual de Chef](https://github.com/chef-partners/azure-chef-extension).
+
+> [!NOTE]
+> Para cualquier cosa relacionada directamente con Chef, póngase en contacto con el [soporte técnico de Chef](https://www.chef.io/support/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

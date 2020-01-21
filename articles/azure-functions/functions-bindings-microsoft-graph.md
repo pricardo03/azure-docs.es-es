@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 77915409e3c44a01e26c35c0facb2d577c331fd8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ef65904b19c5f42548c7b98cb37f6609124e0541
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914935"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922426"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para Azure Functions
 
@@ -205,7 +205,7 @@ En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el 
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `Token`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función para el token de autenticación. Consulte [Uso de un enlace de entrada del token de autenticación desde el código](#token-input-code).|
 |**type**||Requerida: se debe establecer en `token`.|
@@ -340,7 +340,7 @@ En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el 
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `Excel`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función para la tabla de Excel. Consulte [Uso de un enlace de entrada de la tabla de Excel desde el código](#excel-input-code).|
 |**type**||Requerida: se debe establecer en `excel`.|
@@ -350,7 +350,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**userToken**|**UserToken**|Necesario si y solo si _identity_ está establecido en `userFromToken`. Token válido para la aplicación de función. |
 |**path**|**Path**|(Requerido): ruta de acceso de OneDrive al libro de Excel.|
 |**worksheetName**|**WorksheetName**|Hoja de cálculo en la que se encuentra la tabla.|
-|**tableName**|**TableName**|El nombre de la tabla. Si no se especifica, se usará el contenido de la hoja de cálculo.|
+|**tableName**|**TableName**|Nombre de la tabla. Si no se especifica, se usará el contenido de la hoja de cálculo.|
 
 <a name="excel-input-code"></a>
 ### <a name="excel-input---usage"></a>Entrada de Excel: uso
@@ -502,7 +502,7 @@ En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el 
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `Excel`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función para el token de autenticación. Consulte [Uso de un enlace de salida de la tabla de Excel desde el código](#excel-output-code).|
 |**type**||Requerida: se debe establecer en `excel`.|
@@ -512,7 +512,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**userToken**|**UserToken**|Necesario si y solo si _identity_ está establecido en `userFromToken`. Token válido para la aplicación de función. |
 |**path**|**Path**|(Requerido): ruta de acceso de OneDrive al libro de Excel.|
 |**worksheetName**|**WorksheetName**|Hoja de cálculo en la que se encuentra la tabla.|
-|**tableName**|**TableName**|El nombre de la tabla. Si no se especifica, se usará el contenido de la hoja de cálculo.|
+|**tableName**|**TableName**|Nombre de la tabla. Si no se especifica, se usará el contenido de la hoja de cálculo.|
 |**updateType**|**UpdateType**|(Requerido): tipo de cambio para realizar en la tabla. Puede ser uno de los siguientes valores:<ul><li><code>update</code>: reemplaza el contenido de la tabla en OneDrive.</li><li><code>append</code>: agrega la carga al final de la tabla de OneDrive mediante la creación de nuevas filas.</li></ul>|
 
 <a name="excel-output-code"></a>
@@ -648,7 +648,7 @@ En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el 
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `OneDrive`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función para el archivo. Consulte [Configuración de un enlace de entrada del archivo de OneDrive](#onedrive-input-code).|
 |**type**||Requerida: se debe establecer en `onedrive`.|
@@ -669,7 +669,7 @@ Este enlace requiere los siguientes permisos de Azure AD:
 
 El enlace expone los siguientes tipos de funciones. NET:
 - byte[]
-- Stream
+- STREAM
 - string
 - Microsoft.Graph.DriveItem
 
@@ -796,7 +796,7 @@ En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el 
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `OneDrive`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función del archivo. Consulte [Uso de un enlace de salida del archivo de OneDrive desde código](#onedrive-output-code).|
 |**type**||Requerida: se debe establecer en `onedrive`.|
@@ -817,7 +817,7 @@ Este enlace requiere los siguientes permisos de Azure AD:
 
 El enlace expone los siguientes tipos de funciones. NET:
 - byte[]
-- Stream
+- STREAM
 - string
 - Microsoft.Graph.DriveItem
 
@@ -947,7 +947,7 @@ En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el 
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `Outlook`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función del mensaje de correo. Consulte [Configuración de un enlace de salida del archivo de OneDrive](#outlook-output-code).|
 |**type**||Requerida: se debe establecer en `outlook`.|
@@ -1090,7 +1090,7 @@ En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el 
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `GraphWebhookTrigger`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función del mensaje de correo. Consulte [Configuración de un enlace de salida del archivo de OneDrive](#outlook-output-code).|
 |**type**||Requerida: se debe establecer en `graphWebhook`.|
@@ -1242,7 +1242,7 @@ En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el 
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `GraphWebhookSubscription`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función del mensaje de correo. Consulte [Configuración de un enlace de salida del archivo de OneDrive](#outlook-output-code).|
 |**type**||Requerida: se debe establecer en `graphWebhookSubscription`.|
@@ -1383,7 +1383,7 @@ En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el 
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `GraphWebhookSubscription`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función del mensaje de correo. Consulte [Configuración de un enlace de salida del archivo de OneDrive](#outlook-output-code).|
 |**type**||Requerida: se debe establecer en `graphWebhookSubscription`.|

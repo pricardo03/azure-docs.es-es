@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: a013d4cfcfddc709e60e91adf57bc27c98934a96
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 2e55f98f8c7b6ddbc21f7ea8633467461ea5be29
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596565"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922176"
 ---
 # <a name="azure-security-center-for-iot-architecture"></a>Arquitectura de Azure Security Center para IoT
 
@@ -38,7 +38,7 @@ Azure Security Center para IoT consta de los siguientes componentes:
 
 Azure Security Center para IoT funciona en uno de dos flujos de trabajo de características: Integrado y mejorado  
 
-### <a name="built-in"></a>Característica integrada
+### <a name="built-in"></a>Integrada
 En el modo **Integrado**, Azure Security Center para IoT se habilita al elegir la activación de la opción **Seguridad** en IoT Hub. Con la oferta de alertas, recomendaciones y supervisión en tiempo real, el modo integrado proporciona una seguridad sin precedentes y una visibilidad de los dispositivos en un solo paso. El modo de integración no requiere la instalación del agente en ningún dispositivo y usa el análisis avanzado en las actividades registradas para analizar y proteger el dispositivo de campo. 
 
 ### <a name="enhanced"></a>Mejorada 

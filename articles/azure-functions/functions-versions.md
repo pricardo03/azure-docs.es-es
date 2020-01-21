@@ -3,12 +3,12 @@ title: Introducción a las versiones de tiempo de ejecución de Azure Functions
 description: Azure Functions admite varias versiones del runtime. Conozca las diferencias entre ellas y cómo elegir la más adecuada en su caso.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 977d0cb445369cbc51ce3b90712d58ce8b6ebdc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 88c151149d1d960746ff449819d31e8b32d98120
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433076"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921869"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Introducción a las versiones de tiempo de ejecución de Azure Functions
 
@@ -78,7 +78,7 @@ En la versión 2.x se han realizado los siguientes cambios:
 
 ## <a name="migrating-from-2x-to-3x"></a>Migración de 2.x a 3.x
 
-Azure Functions versión 3.x es una versión muy compatible con versiones anteriores a la versión 2.x.  Muchas aplicaciones deben poder actualizarse a 3.x sin ningún cambio de código.  Aunque se recomienda pasar a 3.x, asegúrese de ejecutar unas pruebas exhaustivas antes de cambiar la versión principal en las aplicaciones de producción.
+Azure Functions versión 3.x es una versión muy compatible con la versión 2.x.  Muchas aplicaciones deben poder actualizarse a 3.x sin ningún cambio de código.  Aunque se recomienda pasar a 3.x, asegúrese de ejecutar unas pruebas exhaustivas antes de cambiar la versión principal en las aplicaciones de producción.
 
 ### <a name="breaking-changes-between-2x-and-3x"></a>Cambios importantes entre 2.x y 3.x
 
@@ -119,7 +119,7 @@ Puede hacer que las siguientes actualizaciones de las aplicaciones de funciones 
 
 #### <a name="visual-studio-runtime-versions"></a>Versiones de Runtime en Visual Studio
 
-En Visual Studio se selecciona la versión del entorno de ejecución al crear un proyecto. Las herramientas de Azure Functions para Visual Studio son compatibles con las dos versiones principales del entorno de ejecución. Se usa la versión correcta al depurar y publicar en función de configuración del proyecto. La configuración de la versión se define en el archivo `.csproj` en las siguientes propiedades:
+En Visual Studio se selecciona la versión del entorno de ejecución al crear un proyecto. Las herramientas de Azure Functions para Visual Studio son compatibles con las tres versiones principales del entorno de ejecución. Se usa la versión correcta al depurar y publicar en función de configuración del proyecto. La configuración de la versión se define en el archivo `.csproj` en las siguientes propiedades:
 
 ##### <a name="version-1x"></a>Versión 1.x
 
@@ -150,7 +150,7 @@ En Visual Studio se selecciona la versión del entorno de ejecución al crear un
 Puede abrir una función existente que tenga como destino 2.x y pasar a 3.x editando el archivo `.csproj` y actualizando los valores anteriores.  Visual Studio administra las versiones del entorno en tiempo de ejecución automáticamente en función de los metadatos del proyecto.  Sin embargo, es posible si nunca ha creado una aplicación 3.x antes de que Visual Studio no tuviera aún las plantillas y el entorno en tiempo de ejecución de 3.x en la máquina.  Esto puede presentar un error como "no hay ningún entorno en tiempo de ejecución de Functions disponible que coincida con la versión especificada en el proyecto".  Para obtener las plantillas y el entorno en tiempo de ejecución más recientes, consulte la experiencia para crear un nuevo proyecto de función.  Cuando llegue a la pantalla de selección de versión y plantilla, espere a que Visual Studio complete la captura de las plantillas más recientes.  Una vez que las plantillas más recientes de .NET Core 3 están disponibles y se muestran, debería poder ejecutar y depurar cualquier proyecto configurado para la versión 3.x.
 
 > [!IMPORTANT]
-> Las funciones de la versión 3.x solo se pueden desarrollar en Visual Studio si se usa la versión 16.4 o una más reciente.
+> Las funciones de la versión 3.x solo se pueden desarrollar en Visual Studio si se usa la Visual Studio versión 16.4 o una más reciente.
 
 #### <a name="vs-code-and-azure-functions-core-tools"></a>VS Code y Azure Functions Core Tools
 

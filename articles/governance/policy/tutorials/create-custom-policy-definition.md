@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de una definición de directiva personalizada'
 description: En este tutorial, creará una definición de directiva personalizada para Azure Policy para aplicar reglas de negocio personalizadas a los recursos de Azure.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: 51899491d7a75dc41bdab94d17769393ab4a6659
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f7c303956b209b88ce3c697b5b66243e37071c83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885456"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966019"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Creación de una definición de directiva personalizada
 
@@ -31,7 +31,7 @@ El enfoque para crear una directiva personalizada sigue estos pasos:
 > - Determinar qué efecto usar
 > - Elaborar la definición de directiva
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -58,7 +58,7 @@ Hay muchas maneras de determinar las propiedades de un recurso de Azure. Se anal
   - Experiencia de creación
   - Plantillas de inicio rápido (GitHub)
   - Documentos de referencia de plantilla
-- Explorador de recursos de Azure
+- Azure Resource Explorer
 
 ### <a name="view-resources-in-vs-code-extension"></a>Visualización de recursos en la extensión de VS Code
 
@@ -66,7 +66,7 @@ La [extensión de VS Code](../how-to/extension-for-vscode.md#search-for-and-view
 
 ### <a name="resource-manager-templates"></a>Plantillas de Resource Manager
 
-Hay varias maneras de examinar una [plantilla de Resource Manager](../../../azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md) que incluye la propiedad que quiere administrar.
+Hay varias maneras de examinar una [plantilla de Resource Manager](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md) que incluye la propiedad que quiere administrar.
 
 #### <a name="existing-resource-in-the-portal"></a>Recurso existente en el portal
 
@@ -151,7 +151,7 @@ Las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quick
 Para validar que **supportsHttpsTrafficOnly** es la propiedad correcta, compruebe la referencia de la plantilla de Resource Manager correspondiente al [recurso de cuenta de almacenamiento](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) en el proveedor de almacenamiento.
 El objeto de propiedades tiene una lista de parámetros válidos. Al seleccionar el vínculo [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) se muestra una tabla de propiedades aceptables. **supportsHttpsTrafficOnly** existe y la descripción coincide con lo que se busca para satisfacer los requisitos empresariales.
 
-### <a name="azure-resource-explorer"></a>Explorador de recursos de Azure
+### <a name="azure-resource-explorer"></a>Azure Resource Explorer
 
 Otra forma de explorar los recursos de Azure es mediante [Azure Resource Explorer](https://resources.azure.com) (versión preliminar). Esta herramienta usa el contexto de su suscripción, así que debe autenticarse en el sitio web con sus credenciales de Azure. Una vez autenticado, puede examinar por proveedores, suscripciones, grupos de recursos y recursos.
 
@@ -164,7 +164,7 @@ Se ha identificado la propiedad de recurso, pero es necesario asignarle un [alia
 Hay varias maneras de determinar los alias de un recurso de Azure. Se analizará cada una de ellas en este tutorial:
 
 - Extensión de Azure Policy para VS Code
-- CLI de Azure
+- Azure CLI
 - Azure PowerShell
 - Azure Resource Graph
 
@@ -172,7 +172,7 @@ Hay varias maneras de determinar los alias de un recurso de Azure. Se analizará
 
 La extensión de Azure Policy para la extensión de VS Code facilita el examen de los recursos y la [detección de alias](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties).
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 En la CLI de Azure, el grupo de comandos `az provider` se usa para buscar alias de recursos. Se va a filtrar por el espacio de nombres **Microsoft.Storage** según los detalles que se tienen anteriormente sobre el recurso de Azure.
 
@@ -216,7 +216,7 @@ az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' |
 Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Los resultados son similares a lo que se puede ver en las plantillas de Resource Manager y mediante Azure Resource Explorer. Sin embargo, los resultados de Azure Resource Graph también pueden incluir información del [alias](../concepts/definition-structure.md#aliases) _proyectando_ la matriz _aliases_:
+Los resultados son similares a lo que se puede ver en las plantillas de Resource Manager y mediante Azure Resource Explorer. Sin embargo, los resultados de Azure Resource Graph también pueden incluir información del [alias](../concepts/definition-structure.md#aliases)_proyectando_ la matriz _aliases_:
 
 ```kusto
 Resources
@@ -386,7 +386,7 @@ Elaborar la [regla de directiva](../concepts/definition-structure.md#policy-rule
 - Que el **tipo** de la cuenta de almacenamiento es **Microsoft.Storage/storageAccounts**
 - Que la propiedad **supportsHttpsTrafficOnly** de la cuenta de almacenamiento no es **true**
 
-Como es necesario que ambas instrucciones sean true, se va a usar el [operador lógico](../concepts/definition-structure.md#logical-operators)**allOf**. Se pasará el parámetro **effectType** al efecto en lugar de realizar una declaración estática. La regla finalizada se parece a la de este ejemplo:
+Como es necesario que ambas instrucciones sean true, se va a usar el [operador lógico](../concepts/definition-structure.md#logical-operators) **allOf**. Se pasará el parámetro **effectType** al efecto en lugar de realizar una declaración estática. La regla finalizada se parece a la de este ejemplo:
 
 ```json
 "if": {
@@ -463,7 +463,7 @@ Si terminó de trabajar con los recursos de este tutorial, use los pasos siguien
 
 1. Haga clic con el botón derecho en la fila o seleccione los puntos suspensivos al final de la definición (o asignación) y elija **Eliminar definición** (o **Eliminar asignación** ).
 
-## <a name="review"></a>Revisión
+## <a name="review"></a>Revisar
 
 En este tutorial, ha realizado correctamente las tareas siguientes:
 

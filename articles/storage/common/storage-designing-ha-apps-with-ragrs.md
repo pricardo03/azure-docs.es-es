@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 01/14/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8cb644495d99b331ec95eb0a9759be45a65e97a6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: bab95f6494fad86c9fdfc0b8fb044c22a7c5a628
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895338"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945450"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Diseño de aplicaciones de alta disponibilidad mediante almacenamiento con redundancia geográfica con acceso de lectura
 
@@ -42,7 +42,7 @@ Cuando diseñe su aplicación para RA-GRS o RA-GZRS debe tener en cuenta estos p
 
 * La copia de solo lectura es de [coherencia final](https://en.wikipedia.org/wiki/Eventual_consistency) con los datos en la región primaria.
 
-* Para blobs, tablas y colas, puede consultar en la región secundaria un valor *Hora de última sincronización* que indica cuándo se produjo la última replicación desde la región primaria a la secundaria. (Esto no se admite para Azure Files, que no tiene redundancia RA-GRS en este momento).
+* Para blobs, tablas y colas, puede consultar en la región secundaria un valor *Hora de última sincronización* que indica cuándo se produjo la última replicación desde la región primaria a la secundaria (Esto no se admite para Azure Files, que no tiene redundancia RA-GRS en este momento).
 
 * Puede usar la biblioteca cliente de Storage para leer y escribir los datos en la región primaria o la secundaria. También puede redirigir solicitudes de lectura automáticamente a la región secundaria si se agota el tiempo de espera de una solicitud de lectura a la región principal.
 
@@ -99,7 +99,7 @@ Existen muchas formas de controlar solicitudes de actualización durante la ejec
 
 ## <a name="handling-retries"></a>Control de los reintentos
 
-La biblioteca cliente de Azure Storage le ayuda a determinar qué errores se pueden reintentar. Por ejemplo, un error 404 (recurso no encontrado) se puede reintentar porque no es probable que el reintento se complete de forma correcta. Por otro lado, un error 500 no se puede reintentar porque es un error del servidor y puede tratarse simplemente de un problema transitorio. Para más detalles, visite el [código fuente abierto de la clase ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) en la biblioteca del cliente de almacenamiento de .NET. (Busque el método ShouldRetry).
+La biblioteca cliente de Azure Storage le ayuda a determinar qué errores se pueden reintentar. Por ejemplo, un error 404 (recurso no encontrado) no se intentaría de nuevo porque no es probable que el nuevo intento se complete de forma correcta. Por otro lado, un error 500 se puede intentar de nuevo porque es un error del servidor y puede tratarse simplemente de un problema transitorio. Para más detalles, visite el [código fuente abierto de la clase ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) en la biblioteca del cliente de almacenamiento de .NET. (Busque el método ShouldRetry).
 
 ### <a name="read-requests"></a>Solicitudes de lectura
 
@@ -200,7 +200,7 @@ El almacenamiento con redundancia geográfica funciona mediante la replicación 
 
 En la tabla siguiente, se muestra un ejemplo de lo que podría suceder al actualizar los detalles de un empleado para convertirlo en miembro del rol de *administrador*. Para este ejemplo, esto requiere actualizar la entidad **empleado** y actualizar una entidad **rol de administrador** con un recuento del número total de administradores. Observe cómo se aplican las actualizaciones desordenadas en la región secundaria.
 
-| **Hora** | **Transacción**                                            | **Replicación**                       | **Hora de última sincronización** | **Resultado** |
+| **Time** | **Transacción**                                            | **Replicación**                       | **Hora de última sincronización** | **Resultado** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transacción A: <br> Insertar entidad <br> empleado en región primaria |                                   |                    | Transacción A insertada en región primaria,<br> aún sin replicar. |
 | T1       |                                                            | Transacción A <br> replicada en<br> región secundaria | T1 | Transacción A replicada en región secundaria. <br>Hora de última sincronización actualizada.    |
@@ -234,7 +234,7 @@ $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
     -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
 ```
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Para obtener la hora de la última sincronización para la cuenta de almacenamiento mediante la CLI de Azure, compruebe la propiedad **geoReplicationStats.lastSyncTime** de la cuenta de almacenamiento. Use el parámetro `--expand` para devolver valores para las propiedades anidadas bajo **geoReplicationStats**. Recuerde reemplazar los valores de marcador de posición por los propios:
 

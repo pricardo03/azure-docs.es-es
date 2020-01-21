@@ -8,17 +8,17 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d9890a393d9b2955c1eb0c9894d454a774af68ef
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3cba7781ac80ae567b2bfd54c4131429ed94b90f
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701843"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772370"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: Creación e implementación de módulos personalizados de IoT Edge
 
 > [!NOTE]
-> Este artículo forma parte de un tutorial sobre el uso de Azure Machine Learning en IoT Edge. Si ha llegado directamente a este artículo, le recomendamos que comience desde el [primer el artículo](tutorial-machine-learning-edge-01-intro.md) de la serie para obtener los mejores resultados.
+> Este artículo forma parte de un tutorial sobre el uso de Azure Machine Learning en IoT Edge. Si ha llegado directamente a este artículo, le recomendamos que comience con el [primer el artículo](tutorial-machine-learning-edge-01-intro.md) de la serie para obtener los mejores resultados.
 
 En este artículo, crearemos tres módulos de IoT Edge que reciben mensajes desde dispositivos hoja, ejecutan los datos a través de un modelo de Machine Learning y, después, reenvían la información a IoT Hub.
 
@@ -45,7 +45,7 @@ Para realizar estas tareas, usamos tres módulos personalizados:
 
   * Salidas:
     * **classify:** envía mensajes a "amlInput"
-    * **writeAvro:** envía mensajes "avroModuleInput"
+    * **writeAvro:** envía mensajes a "avroModuleInput"
     * **toIotHub:** envía mensajes a $upstream, que pasa los mensajes a la instancia conectada de IoT Hub
 
 En el diagrama siguiente se muestran los módulos, entradas, salidas y rutas de IoT Edge Hub para la solución completa:
@@ -524,7 +524,7 @@ Es necesario agregar un enlace más para el módulo de escritor. Este enlace pro
 
 3. Realice los cambios correspondientes en deployment.debug.template.json.
 
-## <a name="install-dependencies"></a>Instalación de dependencias
+## <a name="install-dependencies"></a>Instalar dependencias
 
 El módulo escritor toma una dependencia en las dos bibliotecas de Python, fastavro y PyYAML. Es necesario instalar las dependencias en nuestro equipo de desarrollo e indicarle al proceso de compilación de Docker que las instale en la imagen de nuestro módulo.
 
@@ -825,7 +825,7 @@ Al iniciar sesión en el dispositivo IoT Edge, puede obtener acceso a una gran c
 
 En este artículo, hemos creado una solución de IoT Edge en Visual Studio Code con tres módulos, un clasificador, un enrutador y un sistema de escritura/carga de archivos. Configuramos las rutas para permitir que los módulos se comuniquen entre sí en el dispositivo Edge, modificamos la configuración del dispositivo Edge y actualizamos los archivos Dockerfiles para instalar las dependencias y agregar montajes de enlace a los contenedores de los módulos. A continuación, hemos actualizado la configuración de IoT Hub para enrutar los mensajes según el tipo y controlar las cargas de archivos. Con todo preparado, implementamos los módulos en el dispositivo IoT Edge y garantizamos que los módulos se estaban ejecutando correctamente.
 
-Puede encontrar más información en las páginas siguientes:
+Puedes encontrar más información en las páginas siguientes:
 
 * [Obtenga información sobre cómo implementar módulos y establecer rutas en IoT Edge](module-composition.md)
 * [Sintaxis de las consultas de enrutamiento de mensajes de IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md)

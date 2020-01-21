@@ -3,7 +3,7 @@ title: Instalación del adaptador de StorSimple para SharePoint | Microsoft Docs
 description: Describe cómo instalar y configurar o quitar el adaptador de StorSimple para SharePoint en una granja de servidores de SharePoint.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 36c20b75-f2e5-4184-a6b5-9c5e618f79b2
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
-ms.author: v-sharos
-ms.openlocfilehash: a2f8e75578e396085e7d80f43c1180e158967061
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: twooley
+ms.openlocfilehash: a841ce8b664389ccd8fdf55de9965f09412fecf5
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60633425"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930219"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instalar y configurar el adaptador de StorSimple para SharePoint
 ## <a name="overview"></a>Información general
@@ -32,7 +32,7 @@ El adaptador de StorSimple para SharePoint funciona como un proveedor de almacen
 
 
 * Para descargar el adaptador de StorSimple para SharePoint, vaya a [Adaptador de StorSimple para SharePoint][1] en el Centro de descarga de Microsoft.
-* Para obtener información sobre planeación de RBS y sus limitaciones, vaya a [Optar por usar RBS en SharePoint 2013][2] o [Planeación de RBS (SharePoint Server 2010)][3].
+* Para obtener información sobre el planeamiento de RBS y sus limitaciones, vaya a [Optar por usar RBS en SharePoint 2013][2] o [Planeamiento de RBS (SharePoint Server 2010)][3].
 
 El resto de esta introducción describe brevemente el rol del adaptador de StorSimple para SharePoint y los límites de capacidad y rendimiento de SharePoint que debe tenerse en cuenta antes de instalar y configurar el adaptador. Después de revisar esta información, vaya a [Instalación del adaptador de StorSimple para SharePoint](#storsimple-adapter-for-sharepoint-installation) para comenzar a configurar el adaptador.
 
@@ -50,7 +50,7 @@ La implementación de RBS en Microsoft Azure StorSimple proporciona los siguient
 * Puede utilizar software de recuperación de datos, como Kroll Ontrack PowerControls, con las instantáneas de StorSimple de datos BLOB para realizar la recuperación a nivel de elemento de contenido de SharePoint. (Este software de recuperación de datos se compra por separado).
 * El adaptador de StorSimple para SharePoint se conecta al portal de administración central de SharePoint, lo que le permite administrar toda la solución de SharePoint desde una ubicación central.
 
-El traslado de contenido BLOB al sistema de archivos puede proporcionar otros ahorros de costos y beneficios. Por ejemplo, al utilizar RBS, puede reducirse la necesidad de costosos almacenamientos de capa 1 y, dado que reduce la base de datos de contenido, RBS puede reducir el número de bases de datos requeridas en la granja de servidores de SharePoint. Sin embargo, otros factores, como los límites de tamaño de bases de datos y la cantidad de contenido no RBS, también pueden afectar los requisitos de almacenamiento. Para obtener más información sobre los costos y las ventajas de utilizar RBS, vea [Planeación de RBS (SharePoint Foundation 2010)][4] y [Optar por usar RBS en SharePoint 2013][5].
+El traslado de contenido BLOB al sistema de archivos puede proporcionar otros ahorros de costos y beneficios. Por ejemplo, al utilizar RBS, puede reducirse la necesidad de costosos almacenamientos de capa 1 y, dado que reduce la base de datos de contenido, RBS puede reducir el número de bases de datos requeridas en la granja de servidores de SharePoint. Sin embargo, otros factores, como los límites de tamaño de bases de datos y la cantidad de contenido no RBS, también pueden afectar los requisitos de almacenamiento. Para obtener más información sobre los costes y las ventajas de utilizar RBS, vea [Planeamiento de RBS (SharePoint Foundation 2010)][4] y [Optar por usar RBS en SharePoint 2013][5].
 
 ### <a name="capacity-and-performance-limits"></a>Límites de capacidad y rendimiento
 Antes de considerar la utilización de RBS en la solución de SharePoint, debe conocer los límites probados de rendimiento y capacidad de SharePoint Server 2010 y SharePoint Server 2013, y cómo estos límites se relacionan con el rendimiento aceptable. Para obtener más información, consulte [Restricciones y límites de software de SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).

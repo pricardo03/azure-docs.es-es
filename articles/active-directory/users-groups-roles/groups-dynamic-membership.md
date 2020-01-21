@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92dbeec706ff8c4f892632243353549295dd26b
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 8ff2ff69ca00a9ed9c48ebd6f1704fac0b16d068
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538791"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940990"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
@@ -48,9 +48,9 @@ Estos son algunos ejemplos de reglas o sintaxis avanzadas para las que se recomi
 > [!NOTE]
 > Es posible que el generador de reglas no pueda mostrar algunas reglas construidas en el cuadro de texto. En este caso, podría aparecer un mensaje. El generador de reglas no cambia la sintaxis admitida, la validación ni el procesamiento de reglas de grupos dinámicos de ninguna manera.
 
-Para obtener instrucciones paso a paso, consulte [Actualización de un grupo dinámico](groups-update-rule.md).
+Para obtener instrucciones paso a paso, consulte [Creación o actualización de un grupo dinámico](groups-create-rule.md).
 
-![Adición de una regla de pertenencia a un grupo dinámico](./media/groups-update-rule/update-dynamic-group-rule.png)
+![Adición de una regla de pertenencia a un grupo dinámico](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
 
 ### <a name="rule-syntax-for-a-single-expression"></a>Sintaxis de regla para una sola expresión
 
@@ -70,7 +70,7 @@ Una regla de pertenencia que rellena automáticamente un grupo con usuarios o di
 
 - Propiedad
 - Operator
-- Valor
+- Value
 
 El orden de los elementos de una expresión es importante para evitar errores de sintaxis.
 
@@ -79,21 +79,21 @@ El orden de los elementos de una expresión es importante para evitar errores de
 Hay tres tipos de propiedades que se pueden usar para construir una regla de pertenencia.
 
 - Boolean
-- Cadena
+- String
 - Colección de cadenas
 
 Las siguientes son las propiedades de usuario que puede utilizar para crear una expresión única.
 
 ### <a name="properties-of-type-boolean"></a>Propiedades de tipo booleano
 
-| properties (Propiedades) | Valores permitidos | Uso |
+| Propiedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Propiedades de tipo cadena
 
-| properties (Propiedades) | Valores permitidos | Uso |
+| Propiedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | city |Cualquier valor de cadena o *null* |(user.city -eq "value") |
 | country |Cualquier valor de cadena o *null* |(user.country -eq "value") |
@@ -124,7 +124,7 @@ Las siguientes son las propiedades de usuario que puede utilizar para crear una 
 
 ### <a name="properties-of-type-string-collection"></a>Propiedades de colección de cadenas de tipo
 
-| properties (Propiedades) | Valores permitidos | Uso |
+| Propiedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | otherMails |Cualquier valor de cadena |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -140,7 +140,7 @@ En la tabla siguiente se enumeran todos los operadores admitidos y su sintaxis p
 | Not Equals |-ne |
 | Equals |-eq |
 | Not Starts With |-notStartsWith |
-| Starts With |-startsWith |
+| Empieza por |-startsWith |
 | Not Contains |-notContains |
 | Contains |-contains |
 | Not Match |-notMatch |
@@ -249,7 +249,7 @@ Una regla de pertenencia puede constar de expresiones complejas donde las propie
 
 Las propiedades de varios valores son colecciones de objetos del mismo tipo. Se pueden usar para crear reglas de pertenencia mediante los operadores lógicos -any y -all.
 
-| properties (Propiedades) | Valores | Uso |
+| Propiedades | Valores | Uso |
 | --- | --- | --- |
 | assignedPlans | Cada objeto de la colección expone las siguientes propiedades de cadena: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
@@ -321,7 +321,12 @@ Puede crear un grupo que contenga todos los usuarios de un inquilino mediante un
 La regla de "Todos los usuarios" se construye con una expresión única con el operador -ne y el valor null. Esta regla agrega usuarios invitados de B2B, así como usuarios miembros al grupo.
 
 ```
-user.objectid -ne null
+user.objectId -ne null
+```
+Si quiere que el grupo excluya los usuarios invitados e incluya solo los miembros de su inquilino, puede usar la siguiente sintaxis:
+
+```
+(user.objectId -ne null) -and (user.userType -eq “Member”)
 ```
 
 ### <a name="create-an-all-devices-rule"></a>Creación de una regla de "Todos los dispositivos"
@@ -331,7 +336,7 @@ Puede crear un grupo que contenga todos los dispositivos de un inquilino mediant
 La regla de "Todos los dispositivos" se construye con una expresión única con el operador -ne y el valor null:
 
 ```
-device.objectid -ne null
+device.objectId -ne null
 ```
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Propiedades de extensión y propiedades de extensión personalizadas
@@ -396,6 +401,6 @@ En estos artículos se proporciona información adicional sobre los grupos en Az
 
 - [Consulta de los grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Crear un nuevo grupo y agregar miembros](../fundamentals/active-directory-groups-create-azure-portal.md)
-- [Administrar la configuración de un grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [Administración de la configuración de un grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Administrar la pertenencia a grupos](../fundamentals/active-directory-groups-membership-azure-portal.md)
 - [Administrar reglas dinámicas de los usuarios de un grupo](groups-create-rule.md)

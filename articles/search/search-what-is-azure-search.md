@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 1df8bb293834fca123b2573f02871410754a6bdc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 01/06/2020
+ms.openlocfilehash: 0d2fca7b46cd0392fe8e94c1371443e7fcebc2fd
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73479641"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922496"
 ---
 # <a name="what-is-azure-cognitive-search"></a>¿Qué es Azure Cognitive Search?
 
@@ -53,8 +53,9 @@ Azure Cognitive Search es adecuado en los siguientes escenarios de aplicación:
 
 | Enriquecimiento&nbsp;por IA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Características |
 |-------------------|----------|
-|Documentos enriquecidos con inteligencia artificial | El [**enriquecimiento con inteligencia artificial**](cognitive-search-concept-intro.md) para el análisis de texto e imágenes se puede aplicar a una canalización de indexación para extraer información de texto a partir de contenido sin formato. Algunos ejemplos de [habilidades integradas](cognitive-search-predefined-skills.md) incluyen el reconocimiento óptico de caracteres (para realizar búsquedas en archivos JPEG escaneados), el reconocimiento de entidades (identificación de una organización, nombre o ubicación) y el reconocimiento de frases principales. También puede [codificar habilidades personalizadas](cognitive-search-create-custom-skill-example.md) para adjuntar a la canalización. |
-| Enriquecimientos almacenados para su análisis y consumo| [**Knowledge Store (versión preliminar)** ](knowledge-store-concept-intro.md) es una extensión de indexación basada en inteligencia artificial. Con el almacenamiento de Azure como back-end, puede guardar enriquecimientos creados durante la indización. Estos artefactos pueden usarse para ayudarle a diseñar mejores conjuntos de aptitudes, o a crear formas y estructuras a partir de datos amorfos o ambiguos. Puede crear proyecciones de estas estructuras que estén dirigidas a cargas de trabajo o usuarios específicos. También puede analizar directamente los datos extraídos o cargarlos en otras aplicaciones.<br/><br/> |
+|Procesamiento de IA durante la indexación | El [**enriquecimiento con inteligencia artificial**](cognitive-search-concept-intro.md) para el análisis de texto e imágenes se puede aplicar a una canalización de indexación para extraer información de texto a partir de contenido sin formato. Algunos ejemplos de [habilidades integradas](cognitive-search-predefined-skills.md) incluyen el reconocimiento óptico de caracteres (para realizar búsquedas en archivos JPEG escaneados), el reconocimiento de entidades (identificación de una organización, nombre o ubicación) y el reconocimiento de frases principales. También puede [codificar habilidades personalizadas](cognitive-search-create-custom-skill-example.md) para adjuntar a la canalización. |
+| Almacenamiento de contenido enriquecido para su análisis y consumo en escenarios que no son de búsqueda | [**Knowledge Store (versión preliminar)** ](knowledge-store-concept-intro.md) es una extensión de indexación basada en inteligencia artificial. Con el almacenamiento de Azure como back-end, puede guardar enriquecimientos creados durante la indización. Estos artefactos pueden usarse para ayudarle a diseñar mejores conjuntos de aptitudes, o a crear formas y estructuras a partir de datos amorfos o ambiguos. Puede crear proyecciones de estas estructuras que estén dirigidas a cargas de trabajo o usuarios específicos. También puede analizar directamente los datos extraídos o cargarlos en otras aplicaciones.<br/><br/> |
+| Contenido almacenado en caché | El [**enriquecimiento en incrementos (versión preliminar)** ](cognitive-search-incremental-indexing-conceptual.md) limita el procesamiento a solo los documentos que se modifican mediante una edición específica de la canalización, y utiliza el contenido almacenado en caché para las partes de la canalización que no cambian. |
 
 | Importación/indexación&nbsp;de datos | Características |
 |----------------------------------|----------|
@@ -67,7 +68,7 @@ Azure Cognitive Search es adecuado en los siguientes escenarios de aplicación:
 |-------------------|----------|
 | Herramientas para la creación de prototipos y la inspección | En el portal, puede usar el [**Asistente para importación de datos**](search-import-data-portal.md) para configurar los indexadores, el diseñador de índices para crear un índice y el [**Explorador de búsqueda**](search-explorer.md) para probar consultas y perfeccionar los perfiles de puntuación. También puede abrir cualquier índice para ver su esquema. |
 | Supervisión y diagnóstico | [**Habilite las características de supervisión**](search-monitor-usage.md) para ir más allá de las "métricas de un vistazo" que están siempre disponibles en el portal. Las métricas sobre consultas por segundo, latencia y limitación se capturan y notifican en páginas del portal sin que sea necesaria ninguna configuración adicional.|
-| Cifrado del servidor | El [**cifrado en reposo administrado por Microsoft**](search-security-overview.md#encrypted-transmission-and-storage) está integrado en la capa de almacenamiento interno y es irrevocable. Si lo desea, puede complementar el cifrado predeterminado con [ **claves de cifrado administradas por el cliente (versión preliminar)** ](search-security-manage-encryption-keys.md). Las claves que se crean y administran en Azure Key Vault se usan para cifrar los índices y asignaciones de sinónimos en Azure Cognitive Search. |
+| Cifrado del servidor | El [**cifrado en reposo administrado por Microsoft**](search-security-overview.md#encrypted-transmission-and-storage) está integrado en la capa de almacenamiento interno y es irrevocable. Si quiere, puede complementar el cifrado predeterminado con [**claves de cifrado administradas por el cliente**](search-security-manage-encryption-keys.md). Las claves que se crean y administran en Azure Key Vault se usan para cifrar los índices y asignaciones de sinónimos en Azure Cognitive Search. |
 | Infraestructura | La **plataforma de alta disponibilidad** garantiza una experiencia de servicio de búsqueda muy confiable. Cuando se escala correctamente, [Azure Cognitive Search ofrece un contrato de nivel de servicio del 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Totalmente administrada y escalable** como cualquier solución completa, Azure Cognitive Search no requiere ninguna administración de la infraestructura en absoluto. El servicio se puede adaptar a sus necesidades mediante el escalado en dos dimensiones para controlar un mayor almacenamiento de documentos, mayores cargas de consultas o ambos.<br/><br/>|
 
 ## <a name="how-to-use-azure-cognitive-search"></a>Uso de Azure Cognitive Search
@@ -79,12 +80,12 @@ Puede aprovisionar un servicio de Azure Cognitive Search en [Azure Portal](https
 
 Controlar el almacenamiento de documentos y el procesamiento de consultas por separado, con lo que podrá calibrar los recursos en función de los requisitos de producción.
 
-### <a name="step-2-create-index"></a>Paso 2: Creación de índice
+### <a name="step-2-create-index"></a>Paso 2: Crear índice
 Para cargar el contenido en el que quiere realizar búsquedas, primero debe definir un índice de Azure Cognitive Search. Un índice es como una tabla de base de datos que contiene los datos y puede aceptar consultas de búsqueda. El esquema de índice se define para su asignación y reflejo en la estructura de los documentos que desea buscar, igual que los campos de una base de datos.
 
 Es posible crear un esquema en Azure Portal, o mediante programación con el [SDK de .NET](search-howto-dotnet-sdk.md) o la [API de REST](/rest/api/searchservice/).
 
-### <a name="step-3-load-data"></a>Paso 3: Carga de datos
+### <a name="step-3-load-data"></a>Paso 3: Cargar datos
 Una vez definido un índice, estará listo para cargar contenido. Puede usar un modelo de inserción o de extracción.
 
 El modelo de extracción recupera datos de orígenes de datos externos. Se admite mediante *indexadores* que agilizan y automatizan diversos aspectos de la ingesta de datos, como conectarse, leer y serializar datos. Los [indexadores](/rest/api/searchservice/Indexer-operations) están disponibles para Azure Cosmos DB, Azure SQL Database, Azure Blob Storage y SQL Server hospedado en Azure Virtual Machines. Puede configurar un indexador para una actualización de datos programada o a petición.
@@ -138,7 +139,7 @@ Si no es un suscriptor, puede [abrir una cuenta de Azure de forma gratuita](http
 
 Opcionalmente, puede [activar las ventajas de suscriptores de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago. 
 
-## <a name="how-to-get-started"></a>Primeros pasos
+## <a name="how-to-get-started"></a>Introducción
 
 1. Cree un [servicio gratis](search-create-service-portal.md). Todas las guías de inicio rápido y los tutoriales se pueden realizar en el servicio gratis.
 

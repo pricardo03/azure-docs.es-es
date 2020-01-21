@@ -3,12 +3,12 @@ title: Referencia de configuración de aplicación para Azure Functions
 description: Documentación de referencia para la configuración de la aplicación de Azure Functions o de variables de entorno.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 1c7f5f9f8f6f198c5fe74baa613306732fa9b55b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 87852d940204f574350321e2690b70c9835093d9
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977274"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921091"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -109,6 +109,19 @@ La versión del tiempo de ejecución de Functions para usar en esta aplicación 
 |---|------------|
 |VERSIÓN DE LA \_EXTENSIÓN\_ DE FUNCTIONS|~2|
 
+## <a name="functions_v2_compatibility_mode"></a>FUNCTIONS\_V2\_COMPATIBILITY\_MODE
+
+Esta opción permite que la aplicación de funciones se ejecute en un modo compatible con la versión 2.x en el tiempo de ejecución de la versión 3.x. Use esta opción solo si se encuentra con problemas al [actualizar la aplicación de funciones de la versión 2.x a la 3.x del tiempo de ejecución](functions-versions.md#migrating-from-2x-to-3x). 
+
+>[!IMPORTANT]
+> Esta opción está pensada solo como una solución alternativa a corto plazo mientras actualiza la aplicación para que se ejecute correctamente en la versión 3.x. Esta opción se admite siempre que [se admita el tiempo de ejecución 2.x](functions-versions.md). Si encuentra problemas que impiden que la aplicación se ejecute en la versión 3.x sin usar esta configuración, [informe de su problema](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
+
+Requiere que [FUNCTIONS\_EXTENSION\_VERSION](functions-app-settings.md#functions_extension_version) se establezca en `~3`.
+
+|Clave|Valor de ejemplo|
+|---|------------|
+|FUNCTIONS\_V2\_COMPATIBILITY\_MODE|true|
+
 ## <a name="functions_worker_process_count"></a>FUNCTIONS\_WORKER\_PROCESS\_COUNT
 
 Especifica el número máximo de procesos de trabajo de lenguaje, con un valor predeterminado de `1`. El valor máximo permitido es `10`. Las invocaciones de función se distribuyen uniformemente entre los procesos de trabajo de lenguaje. Los procesos de trabajo de lenguaje se generan cada diez segundos hasta que se alcanza el número establecido por FUNCTIONS\_WORKER\_PROCESS\_COUNT. El uso de varios procesos de trabajo de lenguaje no es el mismo que el [escalado](functions-scale.md). Considere la posibilidad de usar esta opción cuando la carga de trabajo tenga una combinación de invocaciones vinculadas a la E/S y vinculadas a la CPU. Esta configuración se aplica a todos los lenguajes que no son .NET.
@@ -176,17 +189,17 @@ Los valores válidos son una dirección URL que se resuelve en la ubicación de 
 
 De forma predeterminada, las proxies de Functions usarán accesos directos para enviar llamadas de API desde servidores proxy directamente a funciones en la misma instancia de Function App, en lugar de crear una nueva solicitud HTTP. Esta configuración le permite deshabilitar este comportamiento.
 
-|Clave|Valor|DESCRIPCIÓN|
+|Clave|Value|Descripción|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Las llamadas con una dirección URL de back-end que señala a una instancia de Function App local ya no se enviarán directamente a la función y, en su lugar, se dirigirán al front-end HTTP para la instancia de Function App.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Este es el valor predeterminado. Las llamadas con una dirección URL de back-end que señale a una instancia de Function App local se reenviarán directamente a esa función.|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Las llamadas con una dirección URL de back-end que apunte a una instancia de Function App local ya no se enviarán directamente a la función y, en su lugar, se dirigirán al front-end HTTP de la instancia de Function App.|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Este es el valor predeterminado. Las llamadas con una dirección URL de back-end que apunte a una instancia de Function App local se reenviarán directamente a esa función.|
 
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
 Esta opción de configuración controla si se descodifica %2F como barras diagonales en los parámetros de ruta cuando se insertan en la URL del back-end. 
 
-|Clave|Valor|DESCRIPCIÓN|
+|Clave|Value|Descripción|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Los parámetros de ruta con barras diagonales codificadas los descodificarán. `example.com/api%2ftest` se convertirá en `example.com/api/test`|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Este es el comportamiento predeterminado. Todos los parámetros de ruta se pasarán sin cambios|

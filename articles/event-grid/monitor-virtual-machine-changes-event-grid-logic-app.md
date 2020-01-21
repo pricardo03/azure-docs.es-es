@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 10/11/2019
-ms.openlocfilehash: 5d852378812d8e69480ceb2c5dcea95f1d5f3770
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f5aac7fe63b2afc997ff69e5d976c755440c1bea
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488609"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982569"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Tutorial: Supervisión de los cambios en las máquinas virtuales con Azure Event Grid y Logic Apps
 
@@ -41,9 +41,9 @@ En este tutorial, aprenderá a:
 > * Incorporar una condición que comprueba específicamente cambios en la máquina virtual.
 > * Enviar un mensaje de correo electrónico cuando la máquina virtual cambia.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Una cuenta de correo electrónico de cualquier proveedor de correo electrónico que sea compatible con Azure Logic Apps, como Office 365 Outlook, Outlook.com o Gmail, para el envío de notificaciones. En el caso de otros proveedores, [consulte la lista de conectores que se muestra aquí](/connectors/).
 
@@ -63,7 +63,7 @@ En este tutorial, aprenderá a:
 
    ![Proporcione los detalles de la aplicación lógica](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | **Nombre** | Sí | <*nombre-de-la-aplicación-lógica*> | Proporcione un nombre único para la aplicación lógica. |
    | **Suscripción** | Sí | <*Azure-subscription-name*> | Seleccione la misma suscripción de Azure para todos los servicios de este tutorial. |
@@ -98,13 +98,13 @@ Ahora, agregue el desencadenador de Event Grid que usa para supervisar el grupo 
 
    ![Proporcione detalles de la suscripción de eventos](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    | -------- | -------- | ----- | ----------- |
    | **Suscripción** | Sí | <*event-publisher-Azure-subscription-name*> | Seleccione el nombre de la suscripción de Azure asociada con el *publicador de eventos*. Para este tutorial, seleccione el nombre de la suscripción de Azure de la máquina virtual. |
-   | **Tipo de recurso** | Sí | <*event-publisher-Azure-resource-type*> | Seleccione el tipo de recurso de Azure para el publicador de eventos. Para más información sobre los tipos de recursos de Azure, consulte [Tipos y proveedores de recursos de Azure](../azure-resource-manager/resource-manager-supported-services.md). Para este tutorial, seleccione el valor `Microsoft.Resources.ResourceGroups` para supervisar los grupos de recursos de Azure. |
+   | **Tipo de recurso** | Sí | <*event-publisher-Azure-resource-type*> | Seleccione el tipo de recurso de Azure para el publicador de eventos. Para más información sobre los tipos de recursos de Azure, consulte [Tipos y proveedores de recursos de Azure](../azure-resource-manager/management/resource-providers-and-types.md). Para este tutorial, seleccione el valor `Microsoft.Resources.ResourceGroups` para supervisar los grupos de recursos de Azure. |
    | **Nombre de recurso** |  Sí | <*event-publisher-Azure-resource-name*> | Seleccione el nombre de recurso de Azure para el publicador de eventos. Esta lista varía según el tipo de recurso que ha seleccionado. Para este tutorial, seleccione el nombre del grupo de recursos de Azure que incluye la máquina virtual. |
-   | **Elemento de tipo de evento** |  Sin | <*event-types*> | Seleccione uno o varios tipos de evento específicos para filtrar y enviar a Event Grid. Por ejemplo, si lo desea puede agregar estos tipos de eventos para detectar cuándo se cambian o eliminan los recursos: <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>Para más información, consulte los temas siguientes: <p><p>- [Esquema de eventos de Azure Event Grid para grupos de recursos](../event-grid/event-schema-resource-groups.md) <br>- [Descripción del filtrado de eventos](../event-grid/event-filtering.md) <br>- [Filtrado de eventos para Event Grid](../event-grid/how-to-filter-events.md) |
-   | Para agregar propiedades opcionales, seleccione **Agregar nuevo parámetro** y seleccione las propiedades que desee. | Sin | {ver descripciones} | * **Filtro de prefijo**: En este tutorial, deje esta propiedad vacía. El comportamiento predeterminado coincide con todos los valores. Sin embargo, puede especificar una cadena de prefijo como un filtro, por ejemplo, una ruta de acceso y un parámetro para un recurso concreto. <p>* **Filtro de sufijo**: En este tutorial, deje esta propiedad vacía. El comportamiento predeterminado coincide con todos los valores. Sin embargo, puede especificar una cadena de sufijo como un filtro, por ejemplo, una extensión de nombre de archivo, si desea solo determinados tipos de archivos. <p>* **Nombre de la suscripción**: Para este tutorial puede proporcionar un nombre único para la suscripción a eventos. |
+   | **Elemento de tipo de evento** |  No | <*event-types*> | Seleccione uno o varios tipos de evento específicos para filtrar y enviar a Event Grid. Por ejemplo, si lo desea puede agregar estos tipos de eventos para detectar cuándo se cambian o eliminan los recursos: <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>Para más información, consulte los temas siguientes: <p><p>- [Esquema de eventos de Azure Event Grid para grupos de recursos](../event-grid/event-schema-resource-groups.md) <br>- [Descripción del filtrado de eventos](../event-grid/event-filtering.md) <br>- [Filtrado de eventos para Event Grid](../event-grid/how-to-filter-events.md) |
+   | Para agregar propiedades opcionales, seleccione **Agregar nuevo parámetro** y seleccione las propiedades que desee. | No | {ver descripciones} | * **Filtro de prefijo**: En este tutorial, deje esta propiedad vacía. El comportamiento predeterminado coincide con todos los valores. Sin embargo, puede especificar una cadena de prefijo como un filtro, por ejemplo, una ruta de acceso y un parámetro para un recurso concreto. <p>* **Filtro de sufijo**: En este tutorial, deje esta propiedad vacía. El comportamiento predeterminado coincide con todos los valores. Sin embargo, puede especificar una cadena de sufijo como un filtro, por ejemplo, una extensión de nombre de archivo, si desea solo determinados tipos de archivos. <p>* **Nombre de la suscripción**: Para este tutorial puede proporcionar un nombre único para la suscripción a eventos. |
    |||
 
 1. Guarde la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar). Para contraer y ocultar los detalles de una acción en la aplicación lógica, seleccione la barra de título de la acción.
@@ -196,10 +196,10 @@ Ahora, agregue una [*acción*](../logic-apps/logic-apps-overview.md#logic-app-co
    > [!TIP]
    > Para seleccionar salidas de los pasos anteriores del flujo de trabajo, haga clic en un cuadro de edición para que aparezca la lista de contenido dinámico o seleccione **Agregar contenido dinámico**. Para más resultados, seleccione **Ver más** para cada sección de la lista. Para cerrar la lista de contenido dinámico, seleccione **Agregar contenido dinámico** de nuevo.
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    | -------- | -------- | ----- | ----------- |
    | **To** | Sí | <*destinatario\@dominio*> | Escriba la dirección de correo electrónico del destinatario. Para realizar pruebas, puede usar su propia dirección de correo electrónico. |
-   | **Subject** | Sí | `Resource updated:` **Subject** (Asunto) | Escriba el contenido del asunto del correo electrónico. Para este tutorial, escriba el texto especificado y seleccione el campo **Asunto** del evento. En este caso, el asunto del correo electrónico incluye el nombre del recurso actualizado (máquina virtual). |
+   | **Subject** | Sí | `Resource updated:` **Asunto** | Escriba el contenido del asunto del correo electrónico. Para este tutorial, escriba el texto especificado y seleccione el campo **Asunto** del evento. En este caso, el asunto del correo electrónico incluye el nombre del recurso actualizado (máquina virtual). |
    | **Cuerpo** | Sí | `Resource:` **Tema** <p>`Event type:` **Tipo de evento**<p>`Event ID:` **ID**<p>`Time:` **Hora del evento** | Escriba el contenido del cuerpo del correo electrónico. Para este tutorial, escriba el texto especificado y seleccione los campos **Tema**, **Tipo de evento**, **ID** y **Hora del evento** del evento para que el correo electrónico incluya el recurso que desencadenó el evento, el tipo de evento, la marca de tiempo del evento y el identificador del evento de la actualización. Para este tutorial, el recurso es el grupo de recursos de Azure seleccionado en el desencadenador. <p>Para agregar líneas en blanco en el contenido, presione MAYÚS + ENTRAR. |
    ||||
 

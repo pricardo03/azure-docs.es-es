@@ -8,17 +8,17 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d51a577b8a460e872b2baddcb668b13981609e40
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1c56dd23084feabeb72f084b03e055d4aa09a11d
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707741"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912272"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Tutorial: Generación de datos de dispositivos simulados
 
 > [!NOTE]
-> Este artículo forma parte de un tutorial sobre el uso de Azure Machine Learning en IoT Edge. Si ha llegado directamente a este artículo, le recomendamos que comience desde el [primer el artículo](tutorial-machine-learning-edge-01-intro.md) de la serie para obtener los mejores resultados.
+> Este artículo forma parte de un tutorial sobre el uso de Azure Machine Learning en IoT Edge. Si ha llegado directamente a este artículo, le recomendamos que comience con el [primer el artículo](tutorial-machine-learning-edge-01-intro.md) de la serie para obtener los mejores resultados.
 
 En este artículo, se usan datos de entrenamiento de aprendizaje automático para simular un dispositivo que envía datos de telemetría a IoT Hub. Como se indica en la introducción, este tutorial completo usa el [conjunto de datos de simulación de degradación del motor de turbofán](https://c3.nasa.gov/dashlink/resources/139/) para simular datos de un conjunto de motores de avión para entrenamiento y pruebas.
 
@@ -123,7 +123,7 @@ Ahora que el proyecto se está compilando, conéctese a su instancia de IoT Hub 
 
 1. Puede ver los mensajes que se envían al centro si hace clic con el botón derecho en cualquier dispositivo y selecciona **Start Monitoring Built-in Event Endpoint** (Iniciar supervisión del punto de conexión del evento integrado). Los mensajes se mostrarán en el panel de salida de Visual Studio Code.
 
-1. Para detener la supervisión, haga clic en el panel de salida de **Azure IoT Hub Toolkit** y seleccione **Stop Monitoring Built-in Event Endpoint** (Detener supervisión del punto de conexión del evento integrado).
+1. Para detener la supervisión, haga clic en el panel de salida de **Azure IoT Hub** y seleccione **Detener la supervisión del punto de conexión de eventos integrado**.
 
 1. Deje que la aplicación se ejecute hasta que finalice, lo que tardará unos minutos.
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: 23d2c771c8918099c0db2b68c290e7d90077932a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ad9b4b69b0be34c89d03b677c1889e486aae0379
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687738"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931691"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desarrollo de la acción de script con HDInsight
 
@@ -26,7 +26,7 @@ Se puede aplicar una acción de script a través de los métodos siguientes:
 
 | Use este método para aplicar un script... | Durante la creación del clúster... | En un clúster en ejecución... |
 | --- |:---:|:---:|
-| Azure Portal |✓ |✓ |
+| Portal de Azure |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
 | CLI de Azure clásica |&nbsp; |✓ |
 | SDK .NET de HDInsight |✓ |✓ |
@@ -235,7 +235,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 Los siguientes asistentes están disponibles para su uso en el script:
 
-| Uso del asistente | DESCRIPCIÓN |
+| Uso del asistente | Descripción |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Descarga un archivo del URI de origen en la ruta de acceso de archivo especificada. De forma predeterminada, no sobrescribirá un archivo existente. |
 | `untar_file TARFILE DESTDIR` |Extrae un archivo tar (mediante `-xf`) en el directorio de destino. |
@@ -322,12 +322,9 @@ Para obtener más información sobre el uso de cada método, consulte [Personali
 
 ## <a name="sampleScripts"></a>Ejemplos de scripts personalizados
 
-Microsoft proporciona scripts de ejemplo para instalar los componentes en un clúster de HDInsight. Consulte los vínculos siguientes para ver más acciones de script de ejemplo.
+Microsoft proporciona scripts de ejemplo para instalar los componentes en un clúster de HDInsight. Consulte [Instalación y uso de Hue en clústeres de HDInsight](hdinsight-hadoop-hue-linux.md) como acción de script de ejemplo.
 
-* [Instalación y uso de Hue en clústeres de HDInsight](hdinsight-hadoop-hue-linux.md)
-* [Instalación y uso de Apache Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md)
-
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Estos son los errores que pueden producirse al usar los scripts desarrollados:
 
@@ -337,7 +334,7 @@ Estos son los errores que pueden producirse al usar los scripts desarrollados:
 
 Este problema suele producirse cuando se crea el script en un entorno Windows, ya que CRLF es una línea común final para muchos editores de texto en Windows.
 
-*Resolución*: si es una opción en el editor de texto, seleccione formato UNIX o LF para el final de la línea. También puede usar los siguientes comandos en un sistema UNIX para cambiar un CRLF por un LF:
+*Solución:* si es una opción en el editor de texto, seleccione formato UNIX o LF para el final de la línea. También puede usar los siguientes comandos en un sistema UNIX para cambiar un CRLF por un LF:
 
 > [!NOTE]  
 > Los siguientes comandos son aproximadamente equivalentes en que deben cambiar los finales de línea CRLF a LF. Seleccione uno en función de las utilidades disponibles en el sistema.
@@ -353,7 +350,7 @@ Este problema suele producirse cuando se crea el script en un entorno Windows, y
 
 *Causa*: este error se produce cuando el script se guarda como UTF-8 con una marca BOM (Byte Order Mark).
 
-*Resolución*: guarde el archivo como ASCII o UTF-8 sin una marca BOM. También puede usar el siguiente comando en un sistema Linux o UNIX para crear un archivo sin marca BOM:
+*Solución:* guarde el archivo como ASCII o UTF-8 sin una marca BOM. También puede usar el siguiente comando en un sistema Linux o UNIX para crear un archivo sin marca BOM:
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 

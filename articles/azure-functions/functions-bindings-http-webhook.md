@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: f1bb2731f5f14b80ca46f4fb28b9b9cb4284c4d7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e97a6e1adff02001e36a43d9fb4a917b7e133257
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972377"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922445"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces y desencadenadores HTTP de Azure Functions
 
@@ -30,7 +30,7 @@ Los enlaces HTTP se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.Ex
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="packages---functions-2x-and-higher"></a>Paquetes: Functions 2.x y posteriores
+## <a name="packages---functions-2x-and-higher"></a>Paquetes: Functions 2.x y versiones posteriores
 
 Los enlaces HTTP se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http), versión 3.x. El código fuente del paquete está en el repositorio [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) de GitHub.
 
@@ -515,7 +515,7 @@ Para obtener un ejemplo completo, vea el [ejemplo del desencadenador](#trigger--
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `HttpTrigger`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
 | **type** | N/D| Requerida: se debe establecer en `httpTrigger`. |
 | **direction** | N/D| Requerida: se debe establecer en `in`. |
@@ -682,7 +682,7 @@ De forma predeterminada, todas las rutas de la función tienen el prefijo *api*.
 
 ### <a name="using-route-parameters"></a>Uso de parámetros de ruta
 
-Los parámetros de ruta definidos por el patrón de `route` de una función están disponibles para cada enlace. Por ejemplo, si tiene una ruta definida como `"route": "products/{id}"`, un enlace de almacenamiento de tabla puede utilizar el valor del parámetro `{id}` en la configuración de enlace.
+Los parámetros de ruta que definían el patrón `route` de una función están disponibles para cada enlace. Por ejemplo, si tiene una ruta definida como `"route": "products/{id}"`, un enlace de almacenamiento de tabla puede utilizar el valor del parámetro `{id}` en la configuración de enlace.
 
 La configuración siguiente muestra cómo se pasa el parámetro `{id}` al elemento `rowKey` del enlace.
 
@@ -825,20 +825,20 @@ La clave se puede incluir en una variable de cadena de consulta denominada `code
 Puede permitir solicitudes anónimas, que no requieren claves. También puede exigir que se use la clave principal. Cambie el nivel de autorización predeterminado mediante la propiedad `authLevel` en el JSON de enlace. Para más información, consulte [Desencadenador: configuración](#trigger---configuration).
 
 > [!NOTE]
-> Cuando las funciones se ejecutan localmente, la autorización se deshabilita independientemente del valor del nivel de autenticación especificado. Después de publicar en Azure, se aplica el valor `authLevel` del desencadenador. Las claves siguen siendo necesarias cuando se ejecutan [localmente en un contenedor](functions-create-function-linux-custom-image.md#run-the-image-locally).
+> Cuando las funciones se ejecutan localmente, la autorización se deshabilita independientemente del valor del nivel de autorización especificado. Después de publicar en Azure, se aplica el valor `authLevel` del desencadenador. Las claves siguen siendo necesarias cuando se ejecutan [localmente en un contenedor](functions-create-function-linux-custom-image.md#run-the-image-locally).
 
 
 ### <a name="secure-an-http-endpoint-in-production"></a>Proteger un punto de conexión HTTP en producción
 
 Para proteger totalmente los puntos de conexión de función en producción, considere la posibilidad de implementar una de las siguientes opciones de seguridad de nivel de aplicación de función:
 
-* Activar la autenticación o autorización de App Service para la aplicación de función. La plataforma App Service permite usar Azure Active Directory (AAD) y varios proveedores de identidades de terceros para autenticar a los clientes. Se puede usar para implementar reglas de autorización personalizadas para las funciones y permite trabajar con información de usuario desde el código de función. Para obtener más información, vea [Autenticación y autorización en Azure App Service](../app-service/overview-authentication-authorization.md) y [Uso de identidades de cliente](#working-with-client-identities).
+* Activar la autenticación o autorización de App Service para la aplicación de función. La plataforma App Service le permite usar Azure Active Directory (AAD) y varios proveedores de identidades de terceros para autenticar a los clientes. Se puede usar para implementar reglas de autorización personalizadas para las funciones y permite trabajar con información de usuario desde el código de función. Para obtener más información, vea [Autenticación y autorización en Azure App Service](../app-service/overview-authentication-authorization.md) y [Uso de identidades de cliente](#working-with-client-identities).
 
 * Usar Azure API Management (APIM) para autenticar las solicitudes. APIM proporciona una serie de opciones de seguridad de API para las solicitudes entrantes. Para obtener más información, vea [Directivas de autenticación de Azure API Management](../api-management/api-management-authentication-policies.md). Con APIM, puede configurar la aplicación de función de modo que solo acepte solicitudes de la dirección IP de la instancia de APIM. Para obtener más información, vea [Restricciones de las direcciones IP](ip-addresses.md#ip-address-restrictions).
 
 * Implementar la aplicación de función en una instancia de Azure App Service Environment (ASE). ASE proporciona un entorno de hospedaje dedicado en el que ejecutar las funciones. ASE le permite configurar una puerta de enlace de front-end única que se puede usar para autenticar todas las solicitudes entrantes. Para obtener más información, vea [Configuración de un firewall de aplicaciones web (WAF) para entornos de App Service](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
 
-Cuando use alguno de estos métodos de seguridad de nivel de aplicación de función, debe establecer el nivel de autenticación de función desencadenada por HTTP en `anonymous`.
+Cuando use alguno de estos métodos de seguridad de nivel de aplicación de función, debe establecer el nivel de autorización de función desencadenado por HTTP en `anonymous`.
 
 ### <a name="webhooks"></a>webhooks
 
@@ -868,7 +868,7 @@ La autorización de webhook se controla mediante el componente receptor de webho
 
 La longitud de la solicitud HTTP está limitada a 100 MB (104 857 600 bytes) y la longitud de la dirección URL a 4 KB (4 096 bytes). El elemento `httpRuntime` del [archivo Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) especifica estos límites.
 
-Si una función que usa el desencadenador HTTP no se completa en menos de 2,5 minutos, la puerta de enlace agota el tiempo de espera y devuelve un error HTTP 502. La función seguirá ejecutándose, pero no podrá devolver una respuesta HTTP. En el caso de funciones de ejecución prolongada, se recomienda que siga patrones asincrónicos y que devuelva una ubicación donde pueda hacer ping con el estado de la solicitud. Para más información sobre cuánto tiempo se puede ejecutar una función, consulte [Escalado y hospedaje: Plan de consumo](functions-scale.md#timeout).
+Si una función que usa el desencadenador HTTP no se completa en menos de 230 segundos, [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) agotará el tiempo de espera y devolverá un error HTTP 502. La función seguirá ejecutándose, pero no podrá devolver una respuesta HTTP. En el caso de funciones de ejecución prolongada, se recomienda que siga patrones asincrónicos y que devuelva una ubicación donde pueda hacer ping con el estado de la solicitud. Para más información sobre cuánto tiempo se puede ejecutar una función, consulte [Escalado y hospedaje: Plan de consumo](functions-scale.md#timeout).
 
 ## <a name="output"></a>Output
 
@@ -878,10 +878,10 @@ Use el enlace de salida HTTP para responder al remitente de la solicitud HTTP. E
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se establecen en el archivo *function.json*. En las bibliotecas de clases de C#, no hay ninguna propiedad de atributo que corresponda a estas propiedades *function.json*.
 
-|Propiedad  |DESCRIPCIÓN  |
+|Propiedad  |Descripción  |
 |---------|---------|
 | **type** |Se debe establecer en `http`. |
-| **dirección** | Se debe establecer en `out`. |
+| **direction** | Se debe establecer en `out`. |
 | **name** | Nombre de la variable usado en el código de la función para la respuesta, o `$return` para usar el valor devuelto. |
 
 ## <a name="output---usage"></a>Uso de salidas
@@ -892,7 +892,7 @@ Para obtener respuestas de ejemplo, vea el [ejemplo de desencadenador](#trigger-
 
 ## <a name="hostjson-settings"></a>configuración de host.json
 
-En esta sección se describen las opciones de configuración globales disponibles para este enlace en las versiones 2.x y posteriores. El siguiente archivo host.json de ejemplo contiene solo la configuración de la versión 2.x (y posteriores) para este enlace. Para obtener más información acerca de las opciones de configuración globales de la versión 2.x y posteriores, consulte la [referencia de host.json para Azure Functions](functions-host-json.md).
+En esta sección se describen las opciones de configuración globales disponibles para este enlace en las versiones 2.x y posteriores. El siguiente archivo host.json de ejemplo contiene solo la configuración de la versión 2.x+ para este enlace. Para más información acerca de las opciones de configuración globales de la versión 2.x y posteriores, consulte [Referencia de host.json para Azure Functions](functions-host-json.md).
 
 > [!NOTE]
 > Para obtener una referencia de host.json en Functions 1.x, consulte la [referencia de host.json para Azure Functions, versión 1.x](functions-host-json-v1.md#http).
@@ -917,13 +917,13 @@ En esta sección se describen las opciones de configuración globales disponible
 }
 ```
 
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------| 
 | customHeaders|None|Permite establecer encabezados personalizados en la respuesta HTTP. En el ejemplo anterior se agrega el encabezado `X-Content-Type-Options` a la respuesta para evitar el examen de tipos de contenido. |
 |dynamicThrottlesEnabled|true<sup>\*</sup>|Cuando se habilita, esta configuración hace que la canalización de procesamiento de la solicitud compruebe periódicamente contadores de rendimiento del sistema como conexiones, subprocesos, procesos, memoria o cpu y, si cualquiera de esos contadores superan un umbral alto integrado (80 %), las solicitudes se rechazarán con una respuesta 429 "Ocupado" hasta que los contadores vuelvan a niveles normales.<br/><sup>\*</sup>El valor predeterminado en un plan de consumo es `true`. El valor predeterminado en un plan dedicado es `false`.|
-|hsts|no habilitado|Cuando `isEnabled` se establece en `true`, se aplica [el comportamiento de la Seguridad de transporte estricta de HTTP (HSTS) de .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts), tal como se define en la [ clase `HstsOptions`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). En el ejemplo anterior también se establece la propiedad [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) en 10 días. Las propiedades de `hsts` que se admiten son: <table><tr><th>Propiedad</th><th>DESCRIPCIÓN</th></tr><tr><td>excludedHosts</td><td>Matriz de cadenas de nombres de host para los que no se agrega el encabezado HSTS.</td></tr><tr><td>includeSubDomains</td><td>Valor booleano que indica si está habilitado el parámetro includeSubDomain del encabezado Strict-Transport-Security.</td></tr><tr><td>maxAge</td><td>Cadena que define el parámetro max-age del encabezado Strict-Transport-Security.</td></tr><tr><td>preload</td><td>Valor booleano que indica si está habilitado el parámetro preload del encabezado Strict-Transport-Security.</td></tr></table>|
-|maxConcurrentRequests|100<sup>\*</sup>|El número máximo de funciones HTTP que se ejecutan en paralelo. Esto permite controlar la simultaneidad, que a su vez puede ayudar a administrar el uso de recursos. Por ejemplo, podría tener una función HTTP que utiliza una gran cantidad de recursos del sistema (memoria/cpu/sockets) y causa problemas cuando la simultaneidad es demasiado alta. O bien podría tener una función que realiza solicitudes de salida a un servicio de terceros y puede que haya que limitar la velocidad de dichas llamadas. En estos casos puede ayudar aplicar una limitación. <br/><sup>*</sup>El valor predeterminado para un plan de consumo es 100. El valor predeterminado para un plan dedicado es ilimitado (`-1`).|
-|maxOutstandingRequests|200<sup>\*</sup>|Número máximo de solicitudes pendientes que se mantienen en un momento dado. Este límite incluye las solicitudes que están en cola pero no han empezado a ejecutarse, así como todas las ejecuciones en curso. Se rechazan todas las solicitudes entrantes que superen este límite con una respuesta 429 "Too Busy" (demasiado ocupado). Esto permite que los llamadores empleen estrategias de reintento basadas en tiempo y también le ayuda a controlar las latencias de solicitud máximas. Únicamente se controlan los movimientos de la cola que se producen dentro de la ruta de ejecución del host del script. Otras colas, como la cola de solicitudes de ASP.NET, siguen en efecto y no se ven alteradas por esta opción de configuración. <br/><sup>\*</sup>El valor predeterminado para un plan de consumo es 200. El valor predeterminado para un plan dedicado es ilimitado (`-1`).|
+|hsts|no habilitado|Cuando `isEnabled` se establece en `true`, se aplica [el comportamiento de la Seguridad de transporte estricta de HTTP (HSTS) de .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts), tal como se define en la [ clase `HstsOptions`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). En el ejemplo anterior también se establece la propiedad [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) en 10 días. Las propiedades de `hsts` que se admiten son: <table><tr><th>Propiedad</th><th>Descripción</th></tr><tr><td>excludedHosts</td><td>Matriz de cadenas de nombres de host para los que no se agrega el encabezado HSTS.</td></tr><tr><td>includeSubDomains</td><td>Valor booleano que indica si está habilitado el parámetro includeSubDomain del encabezado Strict-Transport-Security.</td></tr><tr><td>maxAge</td><td>Cadena que define el parámetro max-age del encabezado Strict-Transport-Security.</td></tr><tr><td>preload</td><td>Valor booleano que indica si está habilitado el parámetro preload del encabezado Strict-Transport-Security.</td></tr></table>|
+|maxConcurrentRequests|100<sup>\*</sup>|Número máximo de funciones HTTP que se ejecutan en paralelo. Esto permite controlar la simultaneidad, que a su vez puede ayudar a administrar el uso de recursos. Por ejemplo, podría tener una función HTTP que utiliza una gran cantidad de recursos del sistema (memoria/cpu/sockets) y causa problemas cuando la simultaneidad es demasiado alta. O bien podría tener una función que realiza solicitudes de salida a un servicio de terceros y puede que haya que limitar la velocidad de dichas llamadas. En estos casos puede ayudar aplicar una limitación. <br/><sup>*</sup>El valor predeterminado para un plan de consumo es 100. El valor predeterminado para un plan dedicado es ilimitado (`-1`).|
+|maxOutstandingRequests|200<sup>\*</sup>|Número máximo de solicitudes pendientes que se mantienen en un momento dado. Este límite incluye las solicitudes que están en cola pero no han empezado a ejecutarse, así como todas las ejecuciones en curso. Se rechazan todas las solicitudes entrantes que superen este límite con una respuesta 429 "Too Busy" (demasiado ocupado). Esto permite que los llamadores empleen estrategias de reintento basadas en tiempo y también le ayuda a controlar las latencias de solicitud máximas. Únicamente se controlan los movimientos de la cola que se producen dentro de la ruta de ejecución del host del script. Otras colas, como la cola de solicitudes de ASP.NET, siguen en efecto y no se ven alteradas por esta opción de configuración. <br/><sup>\*</sup>El valor predeterminado para un plan de consumo es 200. El valor predeterminado para un plan dedicado es ilimitado (`-1`).|
 |routePrefix|api|Prefijo de ruta que se aplica a todas las rutas. Use una cadena vacía para quitar el prefijo predeterminado. |
 
 

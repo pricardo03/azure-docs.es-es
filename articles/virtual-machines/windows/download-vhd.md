@@ -12,65 +12,61 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 01/13/2019
 ms.author: cynthn
-ms.openlocfilehash: c5891d7ea2b53ab3524cfff267e71b4f05779cfc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d1c98fa4f3572c40279978d787b1719746478a06
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033606"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940451"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Descargar un VHD de Windows desde Azure
 
 En este artículo aprenderá a descargar un archivo de disco duro virtual (VHD) de Windows desde Azure mediante Azure Portal.
 
+## <a name="optional-generalize-the-vm"></a>Opcional: Generalización de la máquina virtual
+
+Si quiere usar el VHD como una [imagen](tutorial-custom-images.md) para crear otras máquinas virtuales, debe usar [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) para generalizar el sistema operativo. 
+
+Para usar el VHD como imagen para crear otras máquinas virtuales, generalice la máquina virtual.
+
+1. Si aún no lo ha hecho, inicie sesión en el [Azure Portal](https://portal.azure.com/).
+2. [Conecte a la máquina virtual](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+3. En la máquina virtual, abra la ventana del símbolo del sistema como administrador.
+4. Cambie el directorio a *%windir%\system32\sysprep* y ejecute sysprep.exe.
+5. En el cuadro de diálogo Herramienta de preparación del sistema, seleccione **Iniciar la configuración rápida (OOBE) del sistema** y asegúrese de que **Generalizar** está activado.
+6. En Opciones de apagado, seleccione **Apagar** y luego haga clic en **Aceptar**. 
+
+
 ## <a name="stop-the-vm"></a>Parada de la máquina virtual
 
-No se puede descargar un VHD desde Azure si está conectado a una máquina virtual en ejecución. Debe detener la máquina virtual para descargar un VHD. Si quiere usar un VHD como [imagen](tutorial-custom-images.md) para crear otras máquinas virtuales con discos nuevos, use [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) para generalizar el sistema operativo incluido en el archivo y luego detenga la máquina virtual. Para usar el VHD como disco para una nueva instancia de una máquina virtual o un disco de datos existente, basta con detener y cancelar la asignación de la máquina virtual.
+No se puede descargar un VHD desde Azure si está conectado a una máquina virtual en ejecución. Debe detener la máquina virtual para descargar un VHD. 
 
-Para usar el VHD como imagen para crear otras máquinas virtuales, siga estos pasos:
+1. En el menú Concentrador de Azure Portal, haga clic en **Máquinas virtuales**.
+1. Seleccione la máquina virtual en la lista.
+1. En la hoja de la máquina virtual, haga clic en **Detener**.
 
-1.  Si aún no lo ha hecho, inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2.  [Conecte a la máquina virtual](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-3.  En la máquina virtual, abra la ventana del símbolo del sistema como administrador.
-4.  Cambie el directorio a *%windir%\system32\sysprep* y ejecute sysprep.exe.
-5.  En el cuadro de diálogo Herramienta de preparación del sistema, seleccione **Iniciar la configuración rápida (OOBE) del sistema** y asegúrese de que **Generalizar** está activado.
-6.  En Opciones de apagado, seleccione **Apagar** y luego haga clic en **Aceptar**. 
 
-Para usar el VHD como disco para una nueva instancia de una máquina virtual o un disco de datos existente, realice estos pasos:
-
-1.  En el menú Concentrador de Azure Portal, haga clic en **Máquinas virtuales**.
-2.  Seleccione la máquina virtual en la lista.
-3.  En la hoja de la máquina virtual, haga clic en **Detener**.
-
-    ![Detención de la máquina virtual](./media/download-vhd/export-stop.png)
-
-## <a name="generate-sas-url"></a>Generación de dirección URL de SAS
+## <a name="generate-download-url"></a>Generación de la dirección URL de descarga
 
 Para descargar el archivo de VHD, debe generar una dirección URL de [firma de acceso compartido (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Una vez generada la dirección URL, se asigna un tiempo de expiración a la dirección URL.
 
-1.  En el menú de la hoja de la máquina virtual, haga clic en **Discos**.
-2.  Seleccione el disco de sistema operativo de la máquina virtual y luego haga clic en **Exportación del disco**.
-3.  Establezca el tiempo de expiración de la dirección URL en *36000*.
-4.  Haga clic en **Generar dirección URL**.
-
-    ![Generar dirección URL](./media/download-vhd/export-generate-new.png)
+1. En la página de la máquina virtual, haga clic en **Discos** en el menú de la izquierda.
+1. Seleccione el disco de sistema operativo de la máquina.
+1. En la página del disco, seleccione **Exportación del disco** en el menú de la izquierda.
+1. El tiempo de expiración predeterminado de la dirección URL es de *3600* segundos. Auméntelo a **36000** para los discos del sistema operativo Windows.
+1. Haga clic en **Generar dirección URL**.
 
 > [!NOTE]
 > El tiempo de expiración se aumenta con respecto al valor predeterminado para proporcionar tiempo suficiente para descargar el archivo de VHD grande de un sistema operativo Windows Server. Es de esperar que un archivo de VHD que contenga el sistema operativo Windows Server tarde varias horas en descargarse según la conexión. Si va a descargar un VHD de un disco de datos, el tiempo predeterminado es suficiente. 
 > 
 > 
 
-## <a name="download-vhd"></a>Descargar VHD
+## <a name="download-vhd"></a>Descarga de VHD
 
-1.  En la dirección URL generada, haga clic en Descargar el archivo VHD.
-
-    ![Descarga de VHD](./media/download-vhd/export-download.png)
-
-2.  Es posible que tenga que hacer clic en **Guardar** en el explorador para iniciar la descarga. El nombre predeterminado del archivo de VHD es *abcd*.
-
-    ![Haga clic en Guardar en el explorador](./media/download-vhd/export-save.png)
+1. En la dirección URL generada, haga clic en Descargar el archivo VHD.
+1. Es posible que tenga que hacer clic en **Guardar** en el explorador para iniciar la descarga. El nombre predeterminado del archivo de VHD es *abcd*.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

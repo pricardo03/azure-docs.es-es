@@ -3,28 +3,23 @@ title: Creación y carga de un VHD de Ubuntu Linux en Azure
 description: Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene el sistema operativo Ubuntu Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 3e097959-84fc-4f6a-8cc8-35e087fd1542
+author: MicahMcKittrick-MSFT
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: szark
-ms.openlocfilehash: cdf2c6c0d5621223655fc4571affcdde4563ac97
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.author: mimckitt
+ms.openlocfilehash: adea86420c974d7e342dc5803d9d814d5792fe78
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258262"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934045"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Preparación de una máquina virtual Ubuntu para Azure
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="official-ubuntu-cloud-images"></a>Imágenes oficiales de Ubuntu Cloud
+
 Ahora Ubuntu publica discos duros virtuales de Azure oficiales que se pueden descargar en [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/). Si necesita crear su propia imagen de Ubuntu especializada para Azure, en lugar de usar el siguiente procedimiento manual se recomienda comenzar con estos VHD conocidos y personalizarlos según sea necesario. Las versiones más recientes de las imágenes siempre se encuentran en las siguientes ubicaciones:
 
 * Ubuntu 12.04/precisa: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
@@ -33,7 +28,7 @@ Ahora Ubuntu publica discos duros virtuales de Azure oficiales que se pueden des
 * Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vhd.zip)
 * Ubuntu 18.10/Cosmic: [cosmic-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/releases/cosmic/release/ubuntu-18.10-server-cloudimg-amd64.vhd.zip)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linux en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](https://technet.microsoft.com/library/hh846766.aspx).
 
 **Notas de instalación de Ubuntu**
@@ -54,7 +49,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 
 2. Haga clic en **Conectar** para abrir la ventana de la máquina virtual.
 
-3. Sustituya los repositorios actuales de la imagen para utilizar los repositorios de Azure de Ubuntu. Los pasos varían ligeramente en función de la versión de Ubuntu.
+3. Sustituya los repositorios actuales de la imagen para utilizar el repositorio de Azure de Ubuntu. Los pasos varían ligeramente en función de la versión de Ubuntu.
    
     Antes de editar `/etc/apt/sources.list` se recomienda realizar una copia de seguridad:
    
@@ -102,7 +97,16 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
         (recommended) sudo apt-get dist-upgrade
 
         # sudo reboot
+    
+    Ubuntu 18.04.04:
+    
+        # sudo apt-get update
+        # sudo apt-get install --install-recommends linux-generic-hwe-18.04 xserver-xorg-hwe-18.04
+        # sudo apt-get install --install-recommends linux-cloud-tools-generic-hwe-18.04
+        (recommended) sudo apt-get dist-upgrade
 
+        # sudo reboot
+    
     **Consulte también:**
     - [https://wiki.ubuntu.com/Kernel/LTSEnablementStack](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
     - [https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack)

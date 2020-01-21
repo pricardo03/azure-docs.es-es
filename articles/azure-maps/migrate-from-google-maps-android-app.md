@@ -1,20 +1,20 @@
 ---
-title: Migración de una aplicación Android | Microsoft Docs
-description: Un tutorial sobre cómo migrar de una aplicación Android de Google Maps a Microsoft Azure Maps.
+title: 'Tutorial: Migración de una aplicación Android | Microsoft Azure Maps'
+description: Migración de una aplicación Android de Google Maps a Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 60d8fcc9879e89276aad80bbaf3a0edf244a45b8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 643d48cb931bcec1a8a3385d2ec24a394660c368
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475422"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75909186"
 ---
 # <a name="migrate-an-android-app-from-google-maps"></a>Migración de una aplicación Android desde Google Maps
 
@@ -182,7 +182,7 @@ Para mostrar un mapa mediante el SDK de Azure Maps para Android, debe seguir est
         > El Android SDK de Azure Maps se actualiza y mejora periódicamente. Puede ver la documentación de [introducción al control de mapa de Android](how-to-use-android-map-control-library.md) para obtener el número de versión de implementación más reciente de Azure Maps. Además, puede establecer el número de versión "0.2" en "0+" para que apunte siempre a la versión más reciente.
     
     4. Vaya a **Archivo** en la barra de herramientas y haga clic en **Sincronizar proyecto con archivos de Gradle**.
-3. Agregue un fragmento de mapa a la actividad principal (res \> layout \> activity\_main.xml):
+3. Agregue un fragmento de mapa a la actividad principal (recurso \> diseño \> activity\_main.xml):
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -721,7 +721,7 @@ public void onMapReady(GoogleMap googleMap) {
 En Azure Maps, se puede agregar una capa de icono al mapa de la misma manera que cualquier otra. Una dirección URL con formato que tiene marcadores de posición X, Y y zoom (`{x}`, `{y}`, `{z}` respectivamente) se usa para indicar a la capa dónde acceder a los iconos. Las capas de icono en Azure Maps también admiten los marcadores de posición `{quadkey}`, `{bbox-epsg-3857}` y `{subdomain}`. Para que la capa de icono sea semitransparente, se usa un valor de opacidad de 0,8. Tenga en cuenta que la opacidad y la transparencia, aunque son similares, usan valores invertidos. Para realizar la conversión entre ellos simplemente reste su valor del número uno.
 
 > [!TIP]
-> En Azure Maps las capas se pueden representar fácilmente bajo otras capas, incluidas las capas base del mapa. A menudo es conveniente representar las capas de icono debajo de las etiquetas de mapa para que resulten fáciles de leer. El método `map.layers.add` toma un segundo parámetro que es el identificador de la capa en la que se va a insertar la nueva capa siguiente. Para insertar una capa de icono debajo de las etiquetas de mapa se puede usar el código siguiente: `map.layers.add(myTileLayer, "labels");`
+> En Azure Maps las capas se pueden representar fácilmente bajo otras capas, incluidas las capas base del mapa. A menudo es conveniente representar las capas de mosaicos debajo de las etiquetas del mapa para que resulten fáciles de leer. El método `map.layers.add` toma un segundo parámetro que es el identificador de la capa en la que se va a insertar la siguiente capa nueva. Para insertar una capa de mosaicos debajo de las etiquetas del mapa se puede usar el código siguiente: `map.layers.add(myTileLayer, "labels");`
 
 ```java
 mapControl.onReady(map -> {

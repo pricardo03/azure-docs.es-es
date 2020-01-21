@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1a956638e8bd74c974012834ca650195e5bee37e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 24aa0d3d3f12934c54ac9aaa5ab8ae5c0d710825
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949447"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930503"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Protección de los servicios REST mediante la autenticación HTTP básica
 
@@ -28,7 +28,7 @@ En dicho artículo se agrega una autenticación HTTP básica al servicio REST, c
 
 Para más información, consulte [Basic authentication in ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication) (Autenticación básica en ASP.NET Web API).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Complete los pasos del artículo [Azure Active Directory B2C: integración de intercambios de notificaciones de API de REST en el recorrido del usuario de Azure AD B2C como validación en entradas de usuario](active-directory-b2c-custom-rest-api-netfw.md).
 
@@ -303,17 +303,19 @@ Tras proteger el servicio REST con el identificador (nombre de usuario) y el sec
 
 ## <a name="step-5-upload-the-policy-to-your-tenant"></a>Paso 5: Carga de la directiva en el inquilino
 
-1. En [Azure Portal](https://portal.azure.com), cambie al [contexto del inquilino de Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) y abra **Azure AD B2C**.
+1. En **Azure Portal**, seleccione el icono [Directorio y suscripción](https://portal.azure.com) en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 
-2. Seleccione **Marco de experiencia de identidad**.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 
-3. Abra **Todas las directivas**.
+1. Seleccione **Marco de experiencia de identidad**.
 
-4. Seleccione **Cargar directiva**.
+1. Abra **Todas las directivas**.
 
-5. Active la casilla **Sobrescribir la directiva si existe**.
+1. Seleccione **Cargar directiva**.
 
-6. Cargue el archivo *TrustFrameworkExtensions.xml* y asegúrese de que pasa la validación.
+1. Active la casilla **Sobrescribir la directiva si existe**.
+
+1. Cargue el archivo *TrustFrameworkExtensions.xml* y asegúrese de que pasa la validación.
 
 ## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>Paso 6: Probar la directiva personalizada con Ejecutar ahora
 

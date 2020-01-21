@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2019
-ms.openlocfilehash: 784e31b823c65c0b908dc07582805e7a69d19563
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.date: 01/10/2020
+ms.openlocfilehash: 3d0220f23c8098222b93473dc6c7aa7a4f2dd791
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304851"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933438"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Configuración de Postman para Azure Digital Twins
 
@@ -66,7 +66,7 @@ Configure la aplicación Azure Active Directory para usar el flujo de concesión
 
     Consulte **Tokens de acceso** para habilitar la opción **oauth2AllowImplicitFlow** en el archivo Manifest.json.
 
-    [![Opciones de configuración de cliente público](../../includes/media/digital-twins-permissions/aad-public-client.png)](../../includes/media/digital-twins-permissions/aad-public-client.png#lightbox)
+    [![Opciones de configuración de cliente público](../../includes/media/digital-twins-permissions/aad-configure-public-client.png)](../../includes/media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
 
 1. Copie y mantenga el valor de **Id. de aplicación** de la aplicación de Azure Active Directory. Se usa en los pasos siguientes.
 
@@ -86,13 +86,13 @@ Instale y configure Postman para obtener un token de Azure Active Directory. Des
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | NOMBRE  | Reemplazar por | Ejemplo |
+    | Nombre  | Reemplazar por | Ejemplo |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | El nombre de su inquilino u organización | `microsoft` |
 
 1. Seleccione la **pestaña Autorización**, seleccione **OAuth 2.0** y luego **Get New Access Token** (Obtener nuevo token de acceso).
 
-    | Campo  | Valor |
+    | Campo  | Value |
     |---------|---------|
     | Tipo de concesión | `Implicit` |
     | Dirección URL de devolución de llamadas | `https://www.getpostman.com/oauth2/callback` |
@@ -130,7 +130,13 @@ Después de completar los pasos anteriores, configure Postman para realizar una 
    > * No es necesario especificar esos encabezados para cada parte.
    > * Debe seleccionar `multipart/mixed` u otro **Content-Type** adecuado para toda la solicitud.
 
-1. Por último, seleccione **Enviar** para enviar la solicitud HTTP POST con varias partes. Un código de estado de `200` o `201` indica una solicitud correcta. También verá el mensaje de respuesta adecuado.
+1. Por último, seleccione **Enviar** para enviar la solicitud HTTP POST con varias partes. Un código de estado de `200` o `201` indica una solicitud correcta. El mensaje de respuesta correspondiente aparecerá en la interfaz de cliente.
+
+1. Valide los datos de la solicitud HTTP POST llamando al punto de conexión de la API: 
+
+   ```URL
+   YOUR_MANAGEMENT_API_URL/spaces/blobs?includes=description
+   ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
