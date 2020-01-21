@@ -14,8 +14,10 @@
   items:
     - name: Biblioteca de cliente
       items:
-        - name: Análisis de texto con la biblioteca de cliente
+        - name: Análisis de texto con la versión 3.0-preview
           href: quickstarts/text-analytics-sdk.md
+        - name: Análisis de texto con la versión 2
+          href: quickstarts/text-analytics-sdk-v2.md
     - name: API DE REST
       items:
         - name: Usar Java
@@ -42,7 +44,7 @@
     - name: 'Uso de Flask para traducir texto, analizar opiniones y sintetizar voz'
       maintainContext: true
       href: 'https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis'
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Llamada a la API de Text Analytics
       href: How-tos/text-analytics-how-to-call-api.md
