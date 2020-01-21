@@ -5,12 +5,12 @@ ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: be8d7abc6d7bb583516ca75f316edd18965ac395
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 65717e4373f64ae38a324fd19624f049dba9dfb1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227162"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769309"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Crear una función desencadenada por Azure Blob Storage
 
@@ -18,10 +18,10 @@ Obtenga información sobre cómo crear una función que se desencadena cuando se
 
 ![Vea el mensaje en los registros.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 + Descargue e instale el [Explorador de Microsoft Azure Storage](https://storageexplorer.com/).
-+ Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
++ Suscripción a Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="create-an-azure-function-app"></a>Creación de una Function App de Azure
 
@@ -45,7 +45,7 @@ Después, cree una función en la nueva Function App.
 
 1. En el campo de búsqueda, escriba `blob` y, a continuación, elija la plantilla **Desencadenador de blob**.
 
-1. Si se le pide, seleccione **Instalar** para instalar la extensión de Azure Storage en cualquiera de las dependencias de la aplicación de función. Una vez finalizada correctamente la instalación, seleccione **Continuar**.
+1. Si se le solicita, seleccione **Instalar** para instalar la extensión de Azure Storage y cualquiera de las dependencias de la aplicación de funciones. Una vez finalizada correctamente la instalación, seleccione **Continuar**.
 
     ![Instalación de extensiones de enlace](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
 

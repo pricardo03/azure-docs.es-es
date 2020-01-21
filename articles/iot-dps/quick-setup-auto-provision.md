@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e2b2f13c3570683b575d13b5aadb3e03ec549cab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 765b7e5bb7341974a6a16d3f1ed0bcabf415f9f3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434593"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029182"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Inicio rápido: Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal
 
@@ -44,7 +44,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
     * **Nombre:** escriba un nombre único para la nueva instancia de Device Provisioning Service. Si el nombre que escribe está disponible, aparece una marca de verificación verde.
     * **Subscription** (Suscripción): elija la suscripción que desea usar para crear esta instancia de Device Provisioning Service.
-    * **Grupo de recursos:** este campo le permite crear un nuevo grupo de recursos o elegir uno existente para que contenga la nueva instancia. Elija el mismo grupo de recursos que contenga el centro de Iot que creó anteriormente, por ejemplo, **TestResources**. Al colocar juntos todos los recursos relacionados en un grupo, puede administrarlos juntos también. Por ejemplo, si elimina el grupo de recursos también se eliminarán todos los recursos que contiene. Para más información, consulte [Administración de grupos de recursos de Azure Resource Manager](../azure-resource-manager/manage-resource-groups-portal.md).
+    * **Grupo de recursos:** este campo le permite crear un nuevo grupo de recursos o elegir uno existente para que contenga la nueva instancia. Elija el mismo grupo de recursos que contenga el centro de Iot que creó anteriormente, por ejemplo, **TestResources**. Al colocar juntos todos los recursos relacionados en un grupo, puede administrarlos juntos también. Por ejemplo, si elimina el grupo de recursos también se eliminarán todos los recursos que contiene. Para más información, consulte [Administración de grupos de recursos de Azure Resource Manager](../azure-resource-manager/management/manage-resource-groups-portal.md).
     * **Ubicación:** seleccione la ubicación más cercana a sus dispositivos.
 
       ![Especificar la información básica de la instancia de Device Provisioning Service en la hoja del portal](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
@@ -57,7 +57,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 En esta sección, agregará una configuración a la instancia de Device Provisioning Service. Esta configuración establece el centro de IoT para el que los dispositivos se aprovisionarán.
 
-1. Seleccione el botón **Todos los recursos** en el menú de la izquierda de Azure Portal. Seleccione la instancia del servicio Device Provisioning que creó en la sección anterior.  
+1. Seleccione el botón **Todos los recursos** en el menú de la izquierda de Azure Portal. Seleccione la instancia del servicio Device Provisioning que creó en la sección anterior. 
+
+    Si el menú se configura mediante un **control flotante** en lugar del modo **acoplado** en la configuración del portal, tendrá que hacer clic en las tres líneas de la parte superior izquierda para abrir el menú del portal a la izquierda.  
 
 2. En el menú de Device Provisioning Service, seleccione **Instancias de IoT Hub vinculadas**. Pulse el botón **+ Agregar** que aparece en la parte superior. 
 

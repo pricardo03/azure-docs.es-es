@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: bc8141b951dbc27972dc2efb6819a7c0137ea7fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 491ba986c6ca71be0bc5b13e2f9f0717ffec99a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459943"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028883"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Inicio rápido: Creación de un punto de conexión privado mediante Azure Portal
 
@@ -162,7 +162,7 @@ En esta sección, creará un servidor SQL Server y le agregará un punto de cone
     | ------- | ----- |
     |**REDES**| |
     | Virtual network| Seleccione *MyVirtualNetwork*. |
-    | Subnet | Seleccione  *mySubnet*. |
+    | Subnet | Seleccione *mySubnet*. |
     |**INTEGRACIÓN DE DNS PRIVADO**||
     |Integración con una zona DNS privada |Seleccione **Sí**. |
     |Zona DNS privada |Seleccione *(New)privatelink.database.windows.net* |
@@ -199,9 +199,9 @@ Después de crear **myVm**, conéctese a ella desde Internet como se indica a co
 
 ## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Acceso al servidor de SQL Database de forma privada desde la máquina virtual
 
-1. En el Escritorio remoto de  *myVm*, abra PowerShell.
+1. En el Escritorio remoto de *myVm*, abra PowerShell.
 
-2. Escriba  `nslookup myserver.database.windows.net`. 
+2. Escriba `nslookup myserver.database.windows.net`. 
 
     Recibirá un mensaje similar a este:
     ```azurepowershell
@@ -227,11 +227,11 @@ Después de crear **myVm**, conéctese a ella desde Internet como se indica a co
 1. Seleccione **Conectar**.
 2. Examine las bases de datos en el menú izquierdo.
 3. (Opcionalmente) Cree o consulte la información de mydatabase.
-4. Cierre la conexión de Escritorio remoto a  *myVm*. 
+4. Cierre la conexión de Escritorio remoto a *myVm*. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 Cuando haya terminado mediante el punto de conexión privado, el servidor SQL y la máquina virtual, elimine el grupo de recursos y todos los recursos que contiene: 
-1. Escriba *myResourceGroup* en el cuadro **Buscar** de la parte superior del portal y seleccione *myResourceGroup* en los resultados de la búsqueda. 
+1. Escriba *myResourceGroup* en el cuadro **Buscar** de la parte superior del portal y seleccione *myResourceGroup* en los resultados de búsqueda. 
 2. Seleccione **Eliminar grupo de recursos**. 
 3. Escriba myResourceGroup en **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS** y seleccione **Eliminar**.
 

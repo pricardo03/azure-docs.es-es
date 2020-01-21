@@ -4,12 +4,12 @@ description: Aprenda a crear su primera función de Python en Azure mediante Azu
 ms.date: 11/07/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: bd20c55fdaef5e820773b4ff4e0ddf3d36c6e371
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3de8c42c59455cc326fa909bc520a94daac68706
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433193"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769343"
 ---
 # <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Inicio rápido: Creación de una función de Python desencadenada mediante HTTP en Azure
 
@@ -122,7 +122,7 @@ Para poder implementar la aplicación, deberá crear algunos recursos de Azure.
 
 ## <a name="create-a-function-app-in-azure"></a>Creación de una aplicación de función en Azure
 
-Una aplicación de función proporciona un entorno para la ejecución del código de su función. Le permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación y el uso compartido de recursos. 
+Una aplicación de función proporciona un entorno para la ejecución del código de su función. Le permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación, el escalado y el uso compartido de recursos.
 
 Ejecute el siguiente comando: Reemplace `<APP_NAME>` por un nombre único de aplicación de funciones. Reemplace `<STORAGE_NAME>` por el nombre de la cuenta de almacenamiento. `<APP_NAME>` también es el dominio DNS predeterminado de la aplicación de función. Este nombre debe ser único entre todas las aplicaciones de Azure.
 

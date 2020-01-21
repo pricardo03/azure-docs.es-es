@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Controlar máquinas virtuales de Azure con la CLI de Azure'
-description: En este tutorial obtendrá información sobre cómo usar la CLI de Azure para administrar máquinas virtuales de Azure aplicando RBAC, directivas, bloqueos y etiquetas
+title: 'Tutorial: Administración de máquinas virtuales con la CLI'
+description: En este tutorial aprenderá a usar la CLI de Azure para administrar máquinas virtuales de Azure aplicando RBAC, directivas, bloqueos y etiquetas.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: e9475f4226a65ad06d45170e0ab802c6cdb79d8f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b9595c6ce464cf9e4ab0baff9ef842e76f3d18a3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034540"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970135"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutorial: Información acerca de la gobernanza de máquinas virtuales Linux con la CLI de Azure
+# <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Tutorial: Información acerca de la administración de máquinas virtuales Linux con la CLI de Azure
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -82,7 +82,7 @@ Ve las definiciones de directiva existentes. El tipo de directiva es **BuiltIn**
 * Limite las SKU para las máquinas virtuales.
 * Realice auditorías de las máquinas virtuales que no usen discos administrados.
 
-En el siguiente ejemplo, se recuperan tres definiciones de directivas en función del nombre para mostrar. Puede usar el comando [az policy assignment create](https://docs.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) para asignar esas definiciones al grupo de recursos. En algunas directivas, puede proporcionar valores de los parámetros para especificar los valores permitidos.
+En el siguiente ejemplo, se recuperan tres definiciones de directivas en función del nombre para mostrar. Puede usar el comando [az policy assignment create](https://docs.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) para asignar esas definiciones al grupo de recursos. En algunas directivas, puede proporcionar los valores de los parámetros para especificar los valores permitidos.
 
 ```azurecli-interactive
 # Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
@@ -140,7 +140,7 @@ Una vez finalizada la implementación, puede aplicar más opciones de configurac
 
 ## <a name="lock-resources"></a>Bloqueo de recursos
 
-Los [bloqueos de recursos](../../azure-resource-manager/resource-group-lock-resources.md) impiden que los usuarios de una organización eliminen o modifiquen de forma accidental recursos críticos. A diferencia del control de acceso basado en rol, los bloqueos de recursos aplican una restricción a todos los usuarios y roles. Puede establecer el bloqueo de nivel en *CanNotDelete* o *ReadOnly*.
+Los [bloqueos de recursos](../../azure-resource-manager/management/lock-resources.md) impiden que los usuarios de una organización eliminen o modifiquen de forma accidental recursos críticos. A diferencia del control de acceso basado en rol, los bloqueos de recursos aplican una restricción a todos los usuarios y roles. Puede establecer el bloqueo de nivel en *CanNotDelete* o *ReadOnly*.
 
 Para crear o eliminar bloqueos de administración, debe tener acceso a las acciones `Microsoft.Authorization/locks/*`. Entre los roles integrados, solamente se conceden esas acciones al **propietario** y al **administrador de acceso de usuarios**.
 
@@ -172,7 +172,7 @@ Verá un error en el que se indica que la operación de eliminación no se puede
 
 ## <a name="tag-resources"></a>Etiquetado de recursos
 
-Se aplican [etiquetas](../../azure-resource-manager/resource-group-using-tags.md) a los recursos de Azure para organizarlos de forma lógica por categorías. Cada etiqueta consta de un nombre y un valor. Por ejemplo, puede aplicar el nombre "Environment" y el valor "Production" a todos los recursos en producción.
+Se aplican [etiquetas](../../azure-resource-manager/management/tag-resources.md) a los recursos de Azure para organizarlos de forma lógica por categorías. Cada etiqueta consta de un nombre y un valor. Por ejemplo, puede aplicar el nombre "Environment" y el valor "Production" a todos los recursos en producción.
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 

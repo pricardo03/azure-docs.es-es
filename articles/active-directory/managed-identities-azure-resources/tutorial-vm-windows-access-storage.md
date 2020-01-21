@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2018
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d7200dd89d51817a5d146ff4d33e2501ed2826
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 182bf02bfaad598a447304cc9f2ed42f6221176d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278010"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971961"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Storage
 
@@ -36,11 +36,22 @@ En este tutorial se muestra cómo usar una identidad administrada asignada por e
 > [!NOTE]
 > La autenticación de Azure Active Directory para Azure Storage está en versión preliminar pública.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
+
+
+## <a name="enable"></a>Habilitar
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## <a name="grant-access"></a>Conceder acceso
+
+
+### <a name="create-storage-account"></a>Crear cuenta de almacenamiento
 
 En esta sección se creará una cuenta de almacenamiento.
 
@@ -49,11 +60,11 @@ En esta sección se creará una cuenta de almacenamiento.
 3. En **Name** (Nombre), escriba un nombre para la cuenta de almacenamiento.
 4. **Deployment model** (Modelo de implementación) y **Account kind** (Clase de cuenta) se deben establecer en **Resource Manager** y **Storage (general purpose v1)** (Almacenamiento [de uso general v1]).
 5. Asegúrese de que **Suscripción** y **Grupo de recursos** coinciden con los que especificó cuando creó la máquina virtual en el paso anterior.
-6. Haga clic en **Create**(Crear).
+6. Haga clic en **Crear**.
 
     ![Creación de una nueva cuenta de almacenamiento](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
-## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Creación de un contenedor de blobs y carga de un archivo a la cuenta de almacenamiento
+### <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Creación de un contenedor de blobs y carga de un archivo a la cuenta de almacenamiento
 
 Los archivos requieren almacenamiento de blobs, por lo que es necesario crear un contenedor de blobs donde se almacenará el archivo. Luego cargará un archivo en el contenedor de blobs de la cuenta de almacenamiento nueva.
 
@@ -69,9 +80,9 @@ Los archivos requieren almacenamiento de blobs, por lo que es necesario crear un
 7. En el panel **Carga de blob**, en **Archivos**, haga clic en el icono de carpeta y vaya al archivo **hello_world.txt** en la máquina virtual, selecciónelo y haga clic en **Cargar**.
     ![Carga de un archivo de texto](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Concesión de acceso a un contenedor de Azure Storage para la máquina virtual
+### <a name="grant-access"></a>Conceder acceso
 
-Puede usar la identidad administrada asignada por el sistema de la máquina virtual para recuperar los datos en Azure Storage Blob.
+En esta sección se muestra cómo conceder acceso a un contenedor de Azure Storage para la máquina virtual. Puede usar la identidad administrada asignada por el sistema de la máquina virtual para recuperar los datos en Azure Storage Blob.
 
 1. Vuelva a la cuenta de almacenamiento recién creada.
 2. Haga clic en el vínculo **Control de acceso (IAM)** en el panel izquierdo.
@@ -83,7 +94,7 @@ Puede usar la identidad administrada asignada por el sistema de la máquina virt
 
     ![Asignación de permisos](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
-## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Obtención de un token de acceso y su uso para llamar a Azure Storage 
+## <a name="access-data"></a>Acceso a los datos 
 
 Azure Storage admite de manera nativa la autenticación de Azure AD, por lo que puede aceptar directamente los tokens de acceso obtenidos mediante una identidad administrada. Forma parte de la integración de Azure Storage con Azure AD y es diferente de proporcionar las credenciales en la cadena de conexión.
 
@@ -161,9 +172,16 @@ La respuesta incluye el contenido del archivo:
 
 `Hello world! :)`
 
+
+## <a name="disable"></a>Disable
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido a habilitar una identidad asignada por el sistema de una máquina virtual Windows para acceder a Azure Storage.  Para más información sobre Azure Storage, consulte:
 
 > [!div class="nextstepaction"]
-> [Azure Storage](/azure/storage/common/storage-introduction)
+> [Almacenamiento de Azure](/azure/storage/common/storage-introduction)

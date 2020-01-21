@@ -5,12 +5,12 @@ ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 8e89c3923daab15793707ff99dbbed6deeb6a0b0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 808f0f81f937da688a8873e5f6ee959976e9d6aa
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227169"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769292"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Cree una función en Azure que se desencadena mediante un temporizador
 
@@ -18,7 +18,7 @@ Aprenda a usar Azure Functions para crear una función [sin servidor](https://az
 
 ![Creación de una aplicación de función en Azure Portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial:
 
@@ -53,7 +53,7 @@ Después, cree una función en la nueva Function App.
     | **Nombre** | Valor predeterminado | Define el nombre de la función desencadenada por el temporizador. |
     | **Programación** | 0 \*/1 \* \* \* \* | [Expresión CRON](functions-bindings-timer.md#ncrontab-expressions) de seis campos que programa la función para que se ejecute cada minuto. |
 
-4. Haga clic en **Create**(Crear). Se crea una función en el lenguaje elegido que se ejecuta cada minuto.
+4. Haga clic en **Crear**. Se crea una función en el lenguaje elegido que se ejecuta cada minuto.
 
 5. Vea la información de seguimiento que se escribe en los registros para comprobar la ejecución.
 
@@ -65,11 +65,11 @@ Ahora puede cambiar la programación de la función para que se ejecute una vez 
 
 1. Expanda la función y haga clic en **Integrar**. Aquí es donde se definen los enlaces de entrada y salida de la función y se establece la programación. 
 
-2. Escriba el nuevo valor de **Programación** `0 0 */1 * * *` y, después, haga clic en **Guardar**.  
+2. Escriba el nuevo valor de **Programación**`0 0 */1 * * *` y, después, haga clic en **Guardar**.  
 
 ![Programación del temporizador de actualización de funciones en Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 
-Ahora tiene una función que se ejecuta una vez cada hora. 
+Ahora tiene una función que se ejecuta una vez cada hora.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

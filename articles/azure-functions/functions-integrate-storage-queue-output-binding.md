@@ -5,12 +5,12 @@ ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: quickstart
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: fb5fc2fadf4087ebc42253cf568af424a80cb9d5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 73f8d23dcd53b4cbbb3fbd902c789e868c2b021b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226882"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769190"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Agregar mensajes a una cola de Azure Storage con Functions
 
@@ -18,7 +18,7 @@ En Azure Functions, los enlaces de entrada y salida proporcionan una forma decla
 
 ![Mensaje de la cola que se muestra en el Explorador de Storage](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar esta guía de inicio rápido:
 
@@ -48,7 +48,7 @@ En esta sección, se va a utilizar la interfaz de usuario del portal para agrega
 
     ![Agregue un enlace de salida de Queue Storage a una función en Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
-    | Configuración      |  Valor sugerido   | DESCRIPCIÓN                              |
+    | Configuración      |  Valor sugerido   | Descripción                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nombre del parámetro de mensaje** | outputQueueItem | El nombre del parámetro del enlace de salida. | 
     | **Conexión de la cuenta de almacenamiento** | AzureWebJobsStorage | Puede usar la conexión de cuenta de almacenamiento que ya usa la Function App o crear una nueva.  |
@@ -103,7 +103,7 @@ En esta sección, va a agregar código que escribe un mensaje en la cola de sali
 
     ![Agregue un enlace de salida de Queue Storage a una función en Azure Portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-    Tenga en cuenta que el **cuerpo de la solicitud** contiene el valor de `name` *Azure*. Este valor aparece en el mensaje de la cola que se crea cuando se invoca la función.
+    Tenga en cuenta que el **cuerpo de la solicitud** contiene el valor de `name`*Azure*. Este valor aparece en el mensaje de la cola que se crea cuando se invoca la función.
     
     Como alternativa a la selección de **Ejecutar** aquí, puede llamar a la función mediante la introducción de una dirección URL en un navegador y de la especificación del valor `name` en la cadena de consulta. El método de explorador se muestra en la [guía de inicio rápido anterior](functions-create-first-azure-function.md#test-the-function).
 

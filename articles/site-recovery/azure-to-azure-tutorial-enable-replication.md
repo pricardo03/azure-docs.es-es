@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/28/2019
+ms.date: 1/8/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8a99bdb1d181142b456c00f696d0271805f1567a
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: a7d25dfad20d8eff25020070d0bb32d5777fdb62
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561498"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754596"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -30,7 +30,7 @@ Este tutorial muestra cómo configurar la recuperación ante desastres en máqui
 > [!NOTE]
 > En este artículo se proporcionan instrucciones para implementar la recuperación ante desastres con la configuración más sencilla. Si desea obtener información acerca de la configuración personalizada, consulte los artículos de [esta sección](azure-to-azure-how-to-enable-replication.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial:
 
@@ -70,22 +70,25 @@ Si usa un proxy de firewall basado en dirección URL para controlar la conectivi
 
 | **URL** | **Detalles** |
 | ------- | ----------- |
-| \* .blob.core.windows.net | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. |
+| *.blob.core.windows.net | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. |
 | login.microsoftonline.com | Proporciona autorización y autenticación de las direcciones URL del servicio Site Recovery. |
 | *.hypervrecoverymanager.windowsazure.com | Permite que la máquina virtual se comunique con el servicio Site Recovery. |
 | *.servicebus.windows.net | Permite que la máquina virtual escriba los datos de diagnóstico y supervisión de Site Recovery. |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividad de salida para rangos de direcciones IP
 
-Si desea controlar la conectividad de salida mediante direcciones IP, en lugar de direcciones URL, permita dichas direcciones en los firewalls basados en IP, el proxy o las reglas del grupo de seguridad de red.
+Si usa NSG, cree reglas de NSG basadas en etiquetas de servicio para el acceso a Azure Storage, Azure Active Directory, el servicio de Site Recovery y la supervisión de Site Recovery. [Más información](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
+
+Si desea controlar la conectividad de salida mediante direcciones IP, en lugar de reglas de NSG, permita a dichas direcciones en los firewalls basados en IP, el proxy o las reglas de NSG.
+
+>[!NOTE]
+>Se recomienda configurar siempre las reglas de NSG con etiquetas de servicio para el acceso de salida.
 
   - [Intervalos de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653)
   - [Intervalos de direcciones IP del centro de datos de Windows Azure en Alemania](https://www.microsoft.com/download/details.aspx?id=54770)
   - [Intervalos de direcciones IP del centro de datos de Windows Azure en China](https://www.microsoft.com/download/details.aspx?id=42064)
   - [Direcciones URL e intervalos de direcciones IP de Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Direcciones IP de puntos de conexión del servicio Site Recovery](https://aka.ms/site-recovery-public-ips)
-
-Si usa NSG, puede crear reglas de NSG de etiquetas de servicio de almacenamiento para la región de origen. [Más información](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
 
 ## <a name="verify-azure-vm-certificates"></a>Comprobación de los certificados de la máquina virtual de Azure
 
@@ -132,7 +135,7 @@ Site Recovery crea la configuración predeterminada y la directiva de replicaci�
 1. Haga clic en **Configuración** para ver la configuración de destino y de replicación.
 2. Para invalidar la configuración de destino predeterminada, haga clic en **Personalizar** junto a **Grupo de recursos, red, almacenamiento y disponibilidad**.
 
-   ![Definición de la configuración](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+   ![Definición de configuración](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 3. Personalice la configuración del destino como se resume en la tabla.

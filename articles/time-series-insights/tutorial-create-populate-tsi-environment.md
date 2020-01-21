@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 387f3df7313c26c5cd8f7fee7c9b58ec3b5c4552
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 83462d47af49a02817dcfa05afcd8fdb5e0beab1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872416"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863713"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutorial: Creación de un entorno de Azure Time Series Insights
 
@@ -30,9 +30,9 @@ Este tutorial le guía a través del proceso de creación de un entorno de Azure
 > [!IMPORTANT]
 > Regístrese para obtener [suscripción gratuita a Azure](https://azure.microsoft.com/free/), en caso de que no tenga ninguna.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* La cuenta de inicio de sesión de Azure también debe ser miembro del rol **Propietario** de la suscripción. Para más información, consulte [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md).
+* La cuenta de inicio de sesión de Azure también debe ser miembro del rol **Propietario** de la suscripción. Para más información, consulte el artículo sobre [administración del acceso mediante el control de acceso basado en roles y Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="review-video"></a>Revisión del vídeo
 
@@ -61,7 +61,7 @@ En primer lugar, cree la solución de simulación de dispositivo, que genera dat
 
 1.  Seleccione **Try Now** (Intentar ahora). A continuación, escriba los parámetros necesarios en la página **Crear la solución Simulación de dispositivos**.
 
-   Parámetro|DESCRIPCIÓN
+   Parámetro|Descripción
    ---|---
    **Nombre de la implementación** | Este valor único se usa para crear un grupo de recursos. Los recursos de Azure enumerados se crean y se asigna al grupo de recursos.
    **Suscripción de Azure** | Especifique la misma suscripción que se usó para crear el entorno de Time Series Insights en la sección anterior.
@@ -72,7 +72,7 @@ En primer lugar, cree la solución de simulación de dispositivo, que genera dat
 
    [![Aprovisionamiento de la solución de simulación de dispositivos](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png#lightbox)
 
-1. Una vez finalizado el aprovisionamiento, verá dos actualizaciones que muestran que el estado de la implementación ha pasado de **Aprovisionamiento** a **Listo**. 
+1. Una vez finalizado el aprovisionamiento, se mostrarán dos actualizaciones que le notifican que el estado de la implementación ha pasado de **Aprovisionamiento** a **Listo**. 
 
    >[!IMPORTANT]
    > No escriba todavía su acelerador de soluciones. Mantenga abierta esta página web, ya que volverá a ella más adelante.
@@ -95,7 +95,7 @@ En segundo lugar, cree un entorno de Time Series Insights en la suscripción de 
 
 1. En la página **Entorno de Time Series Insights**, rellene los parámetros necesarios.
 
-   Parámetro|DESCRIPCIÓN
+   Parámetro|Descripción
    ---|---
    **Nombre del entorno** | Elija un nombre único para el entorno de Time Series Insights. Los nombres los utilizan el explorador de Time Series Insights y las [Query API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
    **Suscripción** | Las suscripciones son contenedores para recursos de Azure. Elija una suscripción para crear el entorno de Time Series Insights.
@@ -134,7 +134,7 @@ Junto con el centro de IoT, se generó una aplicación web de Azure App Service 
 
 1. Seleccione **+ New simulation** (+ Nueva simulación). Después de que se cargue la página **Configuración de simulación**, escriba los parámetros necesarios.
 
-   Parámetro|DESCRIPCIÓN
+   Parámetro|Descripción
    ---|---
    **Target IoT Hub** (IoT Hub de destino) | Seleccione **Use pre-provisioned IoT Hub** (Usar IoT Hub aprovisionado previamente).
    **Device model** (Modelo de dispositivo) | Seleccione **Refrigerador**.
@@ -162,7 +162,7 @@ En esta sección final, va a comprobar que los datos de telemetría se han gener
 
    [![Explorador de Time Series Insights](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
-1. El explorador de Time Series Insights se carga y se autentica mediante su cuenta de Azure Portal. En la vista inicial, se puede ver en el área del gráfico que el entorno de Time Series Insights estaba relleno con datos de telemetría simulados. Para filtrar por un rango de tiempo más reducido, seleccione el menú desplegable en la esquina superior izquierda. Escriba un rango de tiempo lo suficientemente amplio como para abarcar la duración de la simulación del dispositivo. A continuación, seleccione la lupa de buscar.
+1. El explorador de Time Series Insights se carga y se autentica mediante su cuenta de Azure Portal. En principio aparecerá el área del gráfico con la que se rellenó el entorno de Time Series Insights, junto con sus datos de telemetría simulados. Para filtrar por un rango de tiempo más reducido, seleccione el menú desplegable en la esquina superior izquierda. Escriba un rango de tiempo lo suficientemente amplio como para abarcar la duración de la simulación del dispositivo. A continuación, seleccione la lupa de buscar.
 
    [![Filtro de intervalo de tiempo del explorador de Time Series Insights](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png#lightbox)
 
@@ -186,7 +186,7 @@ En el menú de la izquierda de Azure Portal:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Cree el entorno de Time Series Insights.

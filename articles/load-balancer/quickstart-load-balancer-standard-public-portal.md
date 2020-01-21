@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/11/2019
+ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: d15223dfe6d9ce710f2a3d402a49203ef169132e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 027e05b3fbf7163c4a1b927a2b83db84c7eef1ff
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225203"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771468"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: Cree mediante Azure Portal una instancia de Load Balancer Estándar para equilibrar la carga de máquinas virtuales
 
@@ -34,18 +34,18 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-a-standard-load-balancer"></a>Crear un equilibrador de carga estándar
 
-En esta sección, se crea una instancia de Standard Load Balancer que ayuda a equilibrar la carga de las máquinas virtuales. La versión Estándar de Load Balancer solo admite direcciones IP públicas estándar. Cuando se crea una instancia de Load Balancer Estándar, también se debe crear una nueva dirección IP pública estándar que se configura como front-end (denominado *LoadBalancerFrontend* de forma predeterminada) para dicha instancia. 
+En esta sección, se crea una instancia de Standard Load Balancer que ayuda a equilibrar la carga de las máquinas virtuales. Puede crear una instancia de Standard Load Balancer pública o una instancia de Standard Load Balancer interna. Standard Load Balancer solo admite una dirección IP pública estándar; no se admiten direcciones IP públicas básicas. Cuando se crea una instancia pública de Standard Load Balancer, también se debe crear una nueva dirección IP pública estándar que se configura como front-end (denominado *LoadBalancerFrontend* de forma predeterminada) para dicha instancia. 
 
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Load Balancer**.
 2. En la pestaña **Datos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información, acepte los valores predeterminados del resto de la configuración y, luego, seleccione **Revisar y crear**:
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba *MyResourceGroupSLB* en el cuadro de texto.|
-    | NOMBRE                   | *myLoadBalancer*                                   |
+    | Nombre                   | *myLoadBalancer*                                   |
     | Region         | Seleccione **Europa Occidental**.                                        |
-    | type          | Seleccione **Público**.                                        |
+    | Tipo          | Seleccione **Público**.                                        |
     | SKU           | Seleccione **Estándar**.                          |
     | Dirección IP pública | Seleccione **Crear nuevo**. |
     | Nombre de la dirección IP pública              | Escriba *myPublicIP* en el cuadro de texto.   |
@@ -73,9 +73,9 @@ Para permitir que Load Balancer supervise el estado de la aplicación, utilice u
 1. Seleccione **Todos los servicios** en el menú de la izquierda, **Todos los recursos** y, después, en la lista de recursos, **myLoadBalancer**.
 2. En **Configuración**, seleccione **Sondeos de estado** y, a continuación, seleccione **Agregar**.
     
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
-    | NOMBRE | Escriba *myHealthProbe*. |
+    | Nombre | Escriba *myHealthProbe*. |
     | Protocolo | Seleccione **HTTP**. |
     | Port | Escriba *80*.|
     | Intervalo | Escriba *15* como número de **Intervalo**, en segundos, entre los intentos de sondeo. |
@@ -84,15 +84,15 @@ Para permitir que Load Balancer supervise el estado de la aplicación, utilice u
 4. Seleccione **Aceptar**.
 
 ### <a name="create-a-load-balancer-rule"></a>Creación de una regla de Load Balancer
-Las reglas de Load Balancer se utilizan para definir cómo se distribuye el tráfico a las máquinas virtuales. Defina la configuración de la IP de front-end para el tráfico entrante y el grupo de IP de back-end para el tráfico entrante, junto con los puertos de origen y destino requeridos. Cree una regla de Load Balancer *myLoadBalancerRuleWeb* para escuchar el puerto 80 en el front-end *FrontendLoadBalancer* y enviar tráfico de red con equilibrio de carga al conjunto de direcciones de back-end, *myBackEndPool*, que también usan el puerto 80. 
+Las reglas de Load Balancer se utilizan para definir cómo se distribuye el tráfico a las máquinas virtuales. Defina la configuración de la IP de front-end para el tráfico entrante y el grupo de IP de back-end para el tráfico entrante, junto con los puertos de origen y destino requeridos. Cree una regla de Load Balancer *myLoadBalancerRuleWeb* para escuchar el puerto 80 en el front-end *FrontendLoadBalancer* y enviar tráfico de red con equilibrio de carga al conjunto de direcciones back-end, *myBackEndPool*, que también usan el puerto 80. 
 
 1. Seleccione **Todos los servicios** en el menú de la izquierda, **Todos los recursos** y, después, en la lista de recursos, **myLoadBalancer**.
 2. En **Configuración**, seleccione **Reglas de equilibrio de carga** y, a continuación, seleccione **Agregar**.
 3. Use estos valores para configurar la regla de equilibrio de carga:
     
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
-    | NOMBRE | Escriba *myHTTPRule*. |
+    | Nombre | Escriba *myHTTPRule*. |
     | Protocolo | seleccione **TCP**. |
     | Port | Escriba *80*.|
     | Puerto back-end | Escriba *80*. |
@@ -110,9 +110,9 @@ En esta sección, se crea una red virtual, luego tres máquinas virtuales para e
 
 1. En **Creación de una red virtual**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
-    | NOMBRE | Escriba *myVNet*. |
+    | Nombre | Escriba *myVNet*. |
     | Espacio de direcciones | Escriba *10.1.0.0/16*. |
     | Subscription | Seleccione su suscripción.|
     | Resource group | Seleccione el recurso existente: *myResourceGroupSLB*. |
@@ -154,7 +154,7 @@ La instancia de Standard Load Balancer solo admite las máquinas virtuales con d
 
     | Configuración | VM 2| VM 3|
     | ------- | ----- |---|
-    | NOMBRE |  *myVM2* |*myVM3*|
+    | Nombre |  *myVM2* |*myVM3*|
     | Zona de disponibilidad | 2 |3|
     |Dirección IP pública| SKU **estándar**|SKU **estándar**|
     | IP pública: zona de disponibilidad| **Con redundancia de zona** |**Con redundancia de zona**|

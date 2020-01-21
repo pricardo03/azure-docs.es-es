@@ -7,18 +7,21 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 3fc18646270bbec3836845bcf317afc2c1d3a6df
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 7f694ee51989023a3e7a72f40700edcbb6a97bae
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351160"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747994"
 ---
 # <a name="azure-storage-samples-using-python"></a>Ejemplos de Azure Storage con Python
 
 En la tabla siguiente se proporciona información general sobre el repositorio de ejemplos y los escenarios que abarca cada ejemplo. Haga clic en los vínculos para ver el código de ejemplo correspondiente en GitHub.
 
-## <a name="blob-samples"></a>Ejemplos de blob
+> [!NOTE]
+> En estos ejemplos se usa la biblioteca Python v2.1 de Azure Storage. Para ver el código de v12, consulte [samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples) en el repositorio de GitHub.
+
+## <a name="blob-samples-v21"></a>Ejemplos de blob (V2.1)
 
 | **Escenario** | **Código de ejemplo** |
 |--------------|-----------------|
@@ -39,7 +42,7 @@ En la tabla siguiente se proporciona información general sobre el repositorio d
 | Propiedades de servicio | [Introducción a Azure Blob service en Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L540) |
 | Instantánea de blob | [Introducción a Azure Blob service en Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L214) |
 
-## <a name="file-samples"></a>Ejemplos de archivo
+## <a name="file-samples-v21"></a>Ejemplos de archivo (v2.1)
 
 | **Escenario** | **Código de ejemplo** |
 |--------------|-----------------|
@@ -53,7 +56,7 @@ En la tabla siguiente se proporciona información general sobre el repositorio d
 | Recursos compartidos de lista | [Introducción al servicio Azure Files en Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py#L82) |
 | Propiedades/metadatos/estadísticas de recurso compartido | [Introducción al servicio Azure Files en Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py#L144) |
 
-## <a name="queue-samples"></a>Ejemplos de cola
+## <a name="queue-samples-v21"></a>Ejemplos de cola (v2.1)
 
 | **Escenario** | **Código de ejemplo** |
 |--------------|-----------------|
@@ -66,7 +69,7 @@ En la tabla siguiente se proporciona información general sobre el repositorio d
 | Propiedades de Queue Service | [Introducción al servicio Azure Queue en Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_advanced_samples.py#L128) |
 | Actualizar mensaje | [Introducción al servicio Azure Queue en Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L120) |
 
-## <a name="table-samples"></a>Ejemplos de tabla
+## <a name="table-samples-v21"></a>Ejemplos de tabla (v2.1)
 
 | **Escenario** | **Código de ejemplo** |
 |--------------|-----------------|

@@ -2,24 +2,20 @@
 title: 'Ejemplo de script de Azure PowerShell: cambiar el intervalo de puertos RDP | Microsoft Docs'
 description: 'Ejemplo de script de Azure PowerShell: cambiar el intervalo de puertos RDP de un clúster implementado.'
 services: service-fabric
-documentationcenter: ''
-author: athinanthny
-manager: chackdan
-editor: ''
 tags: azure-service-management
-ms.assetid: ''
+author: athinanthny
+ms.author: atsenthi
 ms.service: service-fabric
 ms.workload: multiple
 ms.topic: sample
 ms.date: 03/19/2018
-ms.author: atsenthi
-ms.custom: mvc
-ms.openlocfilehash: 4ca7b4085a3978dc3218480c5c8a42679d80de23
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.custom: sfrev
+ms.openlocfilehash: b3d922cb5a7cdf34e63731ab32f21c94d7b6bca0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035660"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76025007"
 ---
 # <a name="update-the-rdp-port-range-values"></a>Actualización de los valores del intervalo de puertos RDP
 
@@ -27,7 +23,7 @@ Este script de ejemplo cambia los valores del intervalo de puertos RDP en las VM
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Si es necesario, instale PowerShell con la instrucción que se encuentra en la [Guía de instalación de Azure PowerShell](/powershell/azure/overview). 
+Si es necesario, instale PowerShell con la instrucción que se encuentra en la [Guía de instalación de Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="sample-script"></a>Script de ejemplo
 

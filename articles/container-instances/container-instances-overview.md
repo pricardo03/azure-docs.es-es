@@ -4,12 +4,12 @@ description: El servicio Azure Container Instances ofrece la forma más rápida 
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 040f246fa687dfe3ca56877c11c140ddb40247a4
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: c871c09e29b64c4f0dcd107361154efdce306481
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552328"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888040"
 ---
 # <a name="what-is-azure-container-instances"></a>¿Qué es Azure Container Instances?
 
@@ -54,7 +54,7 @@ Algunas características están restringidas actualmente a los contenedores Linu
 * Varios contenedores por grupo de contenedor
 * Montaje del volumen ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [secreto](container-instances-volume-secret.md))
 * [Métrica de uso de recursos](container-instances-monitor.md) con Azure Monitor
-* [Implementación de red virtual](container-instances-vnet.md) (versión preliminar)
+* [Implementación de Virtual Network](container-instances-vnet.md)
 * [Recursos de GPU](container-instances-gpu.md) (versión preliminar)
 
 En el caso de las implementaciones de contenedores de Windows, use imágenes basadas en [imágenes base de Windows](container-instances-faq.md#what-windows-base-os-images-are-supported) comunes.
@@ -66,12 +66,9 @@ En el caso de las implementaciones de contenedores de Windows, use imágenes bas
 
 Azure Container Instances admite la programación de [grupos con varios contenedores](container-instances-container-groups.md) que comparten una máquina host, la red local, el almacenamiento y el ciclo de vida. Esto le permite combinar el contenedor de la aplicación principal con otros contenedores que actúan en una función auxiliar, como los patrones sidecar de registro.
 
-## <a name="virtual-network-deployment-preview"></a>Implementación de red virtual (versión preliminar)
+## <a name="virtual-network-deployment"></a>Implementación de Virtual Network
 
-Actualmente en versión preliminar, esta característica de Azure Container Instances permite la [implementación de instancias de contenedor en una red virtual de Azure](container-instances-vnet.md). Al implementar instancias de contenedor en una subred dentro de la red virtual, pueden comunicarse de forma segura con otros recursos de la red virtual, incluidos los que están en el entorno local (mediante [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ ExpressRoute](../expressroute/expressroute-introduction.md)).
-
-> [!IMPORTANT]
-> Algunas características de Azure Container Instances están en versión preliminar y [se aplican algunas limitaciones](container-instances-vnet.md#preview-limitations). Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de estas características cambien antes que se ofrezca la disponibilidad general.
+Actualmente disponible para cargas de trabajo de producción en un subconjunto de regiones de Azure, esta característica de Azure Container Instances permite la [implementación de instancias de contenedor en una red virtual de Azure](container-instances-vnet.md). Al implementar instancias de contenedor en una subred dentro de la red virtual, pueden comunicarse de forma segura con otros recursos de la red virtual, incluidos los que están en el entorno local (mediante [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

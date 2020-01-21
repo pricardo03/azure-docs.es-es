@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/12/2019
-ms.openlocfilehash: 20174a4eafb4e72fb62eeff6df2d129b91016b9e
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/10/2020
+ms.openlocfilehash: bf07a165b6ea933719eb06b6625a91033030a120
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383021"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895398"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: Implementación de la versión preliminar de Azure Digital Twins y configuración de un grafo espacial
 
@@ -36,9 +36,9 @@ En el primer tutorial de esta serie, aprenderá a:
 
 Estos tutoriales utilizan y modifican los mismos ejemplos que usa la [guía de inicio rápido para buscar salas disponibles](quickstart-view-occupancy-dotnet.md) para proporcionar una cobertura más detallada y exhaustiva de los conceptos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Una suscripción de Azure. Si no tiene una cuenta de Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Suscripción a Azure. Si no tiene una cuenta de Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - SDK de .NET Core. Los ejemplos de Azure Digital Twins usados en estos tutoriales están escritos en C#. Para compilar y ejecutar el ejemplo, asegúrese de instalar la [versión 2.1.403 del SDK de .NET Core, o cualquier versión superior](https://www.microsoft.com/net/download) en la máquina de desarrollo. Para comprobar que está instalada la versión correcta en la máquina, ejecute `dotnet --version` en una ventana de comandos.
 
@@ -75,7 +75,7 @@ En la carpeta de ejemplo extraída, abra el archivo **digital-twins-samples-csha
 
 * Puede usar el ejemplo de aprovisionamiento **occupancy-quickstart** para configurar y aprovisionar un [grafo de inteligencia espacial](concepts-objectmodel-spatialgraph.md#digital-twins-object-models). Este grafo es la imagen digitalizada de los espacios físicos y de los recursos que hay en ellos. Usa un [modelo de objetos](concepts-objectmodel-spatialgraph.md#digital-twins-object-models), que define los objetos de un edificio inteligente. Para obtener una lista completa de los objetos y las API REST de Digital Twins, visite [esta documentación de la API REST](https://docs.westcentralus.azuresmartspaces.net/management/swagger) o la dirección URL de API Management que se creó para [su instancia](#deploy-digital-twins).
 
-   Para explorar el ejemplo y ver cómo se comunica con su instancia de Digital Twins, puede comenzar con la carpeta **src\actions**. Los archivos de esta carpeta implementan los comandos que usará en estos tutoriales:
+   Para explorar el ejemplo y entender cómo se comunica con su instancia de Digital Twins, puede comenzar con la carpeta **src\actions**. Los archivos de esta carpeta implementan los comandos que usará en estos tutoriales:
     - El archivo **provisionSample.cs** muestra cómo aprovisionar el grafo espacial.
     - El archivo **getSpaces.cs** obtiene información sobre los espacios aprovisionados.
     - El archivo **getAvailableAndFreshSpaces.cs** obtiene los resultados de una función personalizada llamada función definida por el usuario.
@@ -97,12 +97,12 @@ En la carpeta de ejemplo extraída, abra el archivo **digital-twins-samples-csha
     dotnet restore
     ```
 
-1. En Visual Studio Code, abra el archivo [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) en el proyecto **occupancy-quickstart**. Actualice los valores siguientes:
+1. En Visual Studio Code, abra el archivo [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) en el proyecto **occupancy-quickstart**. Actualice los siguientes valores:
    * **ClientId**: Escriba el identificador de aplicación de su registro de aplicaciones de Azure AD. Este identificador lo anotó en la sección donde se [establecen los permisos de aplicación](#grant-permissions-to-your-app).
    * **Tenant**: Escriba el identificador de directorio de su [inquilino de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). También anotó este identificador en la sección donde se [establecen los permisos de aplicación](#grant-permissions-to-your-app).
    * **BaseUrl**: Escriba la dirección URL de la instancia de Digital Twins. Para obtener esta dirección URL, sustituya los marcadores de posición de esta por los valores de su instancia: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Para obtener esta dirección URL, también puede modificar la dirección URL de Management API en la [sección de implementación](#deploy-digital-twins). Reemplace **swagger/** por **api/v1.0/** .
 
-1. Consulte una lista de características de Digital Twins que puede explorar mediante el ejemplo. Ejecute el siguiente comando:
+1. Revise una lista de las características de Digital Twins que puede explorar mediante el ejemplo. Ejecute el siguiente comando:
 
     ```cmd/sh
     dotnet run
@@ -129,7 +129,6 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
     return results;
 }
-
 ```
 
 Esta función usa el archivo [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) de la misma carpeta. Abra este archivo y anote la jerarquía de un edificio de oficinas: *Venue*, *Floor*, *Area* y *Rooms*. Todos estos espacios físicos pueden contener *dispositivos* y *sensores*. Cada entrada tiene un valor de `type`&mdash; predefinido, por ejemplo, Floor o Room.
@@ -150,7 +149,7 @@ El archivo **provisionSample.yaml** contiene los siguientes nodos:
 
 - **devices**: Los espacios pueden contener `devices`, que son entidades físicas o virtuales que administran varios sensores. Por ejemplo, un dispositivo puede ser el teléfono de un usuario, un pod de un sensor de Raspberry Pi o una puerta de enlace. En el edificio imaginario del ejemplo, observe que la sala llamada **Focus Room** contiene un dispositivo **Raspberry Pi 3 A1**. Cada nodo de dispositivo se identifica mediante un valor de `hardwareId` único, que está codificado de forma rígida en el ejemplo. Para configurar este ejemplo para una producción real, reemplácelos por los valores de su configuración.  
 
-- **sensors**: Un dispositivo puede contener varios valores de `sensors`. Estos sensores pueden detectar y registrar cambios físicos, como temperatura, movimiento y nivel de batería. Cada nodo de sensor se identifica de forma única mediante `hardwareId`, que aquí está codificado de forma rígida. En una aplicación real, reemplácelos por los identificadores únicos de los sensores de su configuración. El archivo provisionSample.yaml tiene dos sensores para registrar los valores de *Motion* y *CarbonDioxide*. Para agregar otro sensor para registrar el valor de *Temperature*, agregue las líneas siguientes debajo de las líneas del sensor CarbonDioxide. Tenga en cuenta que estas líneas se proporcionan en provisionSample.yaml como líneas comentadas. Puede quitarles las marcas de comentario si elimina el carácter `#` que aparece delante de cada línea. 
+- **sensors**: Un dispositivo puede contener varios valores de `sensors`. Estos sensores pueden detectar y registrar cambios físicos, como temperatura, movimiento y nivel de batería. Cada nodo de sensor se identifica de forma única mediante `hardwareId`, que aquí está codificado de forma rígida. En una aplicación real, reemplácelos por los identificadores únicos de los sensores de su configuración. El archivo provisionSample.yaml tiene dos sensores para registrar los valores de *Motion* y *CarbonDioxide*. Para agregar otro sensor para registrar el valor de *Temperature*, agregue las líneas siguientes debajo de las líneas del sensor CarbonDioxide. Estas líneas se proporcionan en provisionSample.yaml como líneas comentadas. Puede quitarles las marcas de comentario si elimina el carácter `#` que aparece delante de cada línea. 
 
     ```yaml
             - dataType: Temperature

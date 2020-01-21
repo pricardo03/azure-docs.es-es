@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 545e3efc0815e48d5bd16beabbf9f6ef283fea8d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e3d984fee75dcdb8d4e14e7b454e74a3f7c629f2
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464408"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75730151"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Inicio rápido: Implementación de una aplicación de .NET Reliable Services en Service Fabric
 
@@ -51,6 +51,8 @@ Después de instalar el entorno de ejecución, los SDK, las herramientas de Visu
 > La razón para hacer que Docker se ejecute cuando se crea el clúster es que se cree con las características de contenedor habilitadas. Si Docker no se está ejecutando, tendrá que volver a crear el clúster para habilitar las características del contenedor.
 > Aunque sea innecesario para este inicio rápido concreto, la instrucción para que Docker se ejecute cuando cree el clúster se incluye como procedimiento recomendado.
 > Compruebe que Docker se está ejecutando. Para ello, abra una ventana de terminal y ejecute `docker ps` para ver si se produce un error. Si la respuesta no indica un error, Docker se está ejecutando y ya está listo para compilar un clúster.
+>
+> [Configuración de Windows 10 o Windows Server para contenedores](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
 
 1. Abra una nueva ventana de PowerShell con privilegios elevados como administrador.
 2. Ejecute el siguiente comando de PowerShell para crear un clúster de desarrollo:

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 92fe564b849c728952dd549757be42b8b5131b25
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2ef7f273d6838b1bc051c70539ef7d9da59d7148
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791034"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754585"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introducción a la inteligencia artificial en Azure Cognitive Search
 
@@ -32,7 +32,7 @@ Tanto el lenguaje natural como el procesamiento de imágenes se aplican durante 
 > [!NOTE]
 > A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Azure Cognitive Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="when-to-use-cognitive-skills"></a>Cuándo se usan las aptitudes cognitivas
 
@@ -103,7 +103,7 @@ Los índices se generan a partir de un esquema de índice que define los campos,
 
 ## <a name="key-features-and-concepts"></a>Características y conceptos principales
 
-| Concepto | DESCRIPCIÓN| Vínculos |
+| Concepto | Descripción| Vínculos |
 |---------|------------|-------|
 | Conjunto de aptitudes | Recurso con nombre de nivel superior que contiene una colección de aptitudes. Un conjunto de aptitudes es la canalización de enriquecimiento. Se invoca durante la indexación por parte del indexador. | Consulte [Definición de conjuntos de aptitudes](cognitive-search-defining-skillset.md) |
 | Aptitud cognitiva | Transformación atómica en una canalización de enriquecimiento. Normalmente, se trata de un componente que extrae o deduce la estructura y, por tanto, aumenta el reconocimiento de los datos de entrada. Casi siempre, la salida se basa en el texto y el procesamiento es el procesamiento de lenguaje natural o el procesamiento de imagen que extrae o genera texto a partir de entradas de imágenes. La salida de una aptitud se puede asignar a un campo en un índice o usar como entrada para el enriquecimiento de nivel inferior. Microsoft predefinida y proporciona una aptitud, o bien puede ser personalizada, es decir, el usuario puede crearla e implementarla. | [Aptitudes cognitivas integradas](cognitive-search-predefined-skills.md) |
@@ -113,19 +113,19 @@ Los índices se generan a partir de un esquema de índice que define los campos,
 | Descifrado de documentos | Proceso de extraer o crear contenido de texto a partir de orígenes que no son de texto durante el indexado. El reconocimiento óptico de caracteres (OCR) es un ejemplo pero, en general, se refiere a la funcionalidad de indexador principal cuando el indexador extrae contenido los archivos de aplicación. El origen de datos que proporciona la ubicación del archivo de origen y la definición del indexador que brinda las asignaciones de campo son factores clave en el descifrado de documentos. | Consulte [Introducción a los indexadores](search-indexer-overview.md) |
 | Formas | Consolide los fragmentos de texto en una estructura más grande o, a la inversa, desglose fragmentos de texto de gran tamaño a un tamaño que se pueda administrar para un procesamiento adicional. | [Aptitud de conformador](cognitive-search-skill-shaper.md), [Aptitud de combinación de texto](cognitive-search-skill-textmerger.md), [Aptitud de división de texto](cognitive-search-skill-textsplit.md) |
 | Documentos enriquecidos | Una estructura interna transitoria, generada durante el procesamiento, con el resultado final reflejado en un índice de búsqueda. Un conjunto de aptitudes determina qué enriquecimientos se llevan a cabo. Las asignaciones de campos determinan los elementos de datos que se agregan al índice. Opcionalmente, puede crear un almacén de conocimientos para conservar y explorar documentos enriquecidos mediante herramientas como Explorador de Storage, Power BI o cualquier otra herramienta que se conecte a Azure Blob Storage. | Consulte [Knowledge Store (versión preliminar)](knowledge-store-concept-intro.md) |
-| Indexer |  Un rastreador (crawler) que extrae datos y metadatos utilizables en búsquedas de un origen de datos externo y rellena un índice basado en las asignaciones de un campo a otro entre el índice y su origen de datos para el descifrado de documentos. En el caso de los enriquecimientos de la inteligencia artificial, el indexador invoca un conjunto de aptitudes y contiene las asignaciones de campos que asocian la salida del enriquecimiento con los campos de destino del índice. La definición del indexador contiene todas las instrucciones y referencias de las operaciones de la canalización y esta se invoca cuando se ejecuta el indexador. Con la configuración adicional, puede volver a usar el procesamiento existente y ejecutar solo los pasos y las aptitudes que se han modificado. | Consulte [Indexadores](search-indexer-overview.md) e [Indexación incremental (versión preliminar)](cognitive-search-incremental-indexing-conceptual.md). |
+| Indexer |  Un rastreador (crawler) que extrae datos y metadatos utilizables en búsquedas de un origen de datos externo y rellena un índice basado en las asignaciones de un campo a otro entre el índice y su origen de datos para el descifrado de documentos. En el caso de los enriquecimientos de la inteligencia artificial, el indexador invoca un conjunto de aptitudes y contiene las asignaciones de campos que asocian la salida del enriquecimiento con los campos de destino del índice. La definición del indexador contiene todas las instrucciones y referencias de las operaciones de la canalización y esta se invoca cuando se ejecuta el indexador. Con la configuración adicional, puede volver a usar el contenido procesado existente y ejecutar solo los pasos y las aptitudes que se han modificado. | Consulte [Indexadores](search-indexer-overview.md) y [Enriquecimiento incremental (versión preliminar)](cognitive-search-incremental-indexing-conceptual.md). |
 | Origen de datos  | Un objeto que un indexador usa para conectarse a un origen de datos externo de tipos compatibles en Azure. | Consulte [Introducción a los indexadores](search-indexer-overview.md) |
 | Índice | Índice de búsqueda persistente en Azure Cognitive Search que se crea a partir de un esquema de índice que define el uso y estructura de los campos. | Consulte [Creación de un índice básico](search-what-is-an-index.md) | 
 | Knowledge Store | Una cuenta de almacenamiento en la que se puede dar forma y proyectar los documentos enriquecidos, además del índice de búsqueda | Consulte [Introducción al almacén de conocimiento](knowledge-store-concept-intro.md) | 
-| Caché de indexador | El indexador almacena en la caché las salidas de las aptitudes de la cuenta de almacenamiento. La caché permite al indexador minimizar el costo de volver a procesar un gran número de documentos cuando se edita una habilidades. | Consulte [Indexación incremental](cognitive-search-incremental-indexing-conceptual.md) | 
+| Cache | Una cuenta de almacenamiento que contiene la salida en caché creada por una canalización de enriquecimiento. Al habilitar la caché, se conservan los resultados existentes que no se ven afectados por los cambios en un conjunto de aptitudes o en otros componentes de la canalización de enriquecimiento. | Consulte [Enriquecimiento incremental](cognitive-search-incremental-indexing-conceptual.md). | 
 
 <a name="where-do-i-start"></a>
 
 ## <a name="where-do-i-start"></a>¿Por dónde empiezo?
 
-**Paso 1: [Creación de un recurso de Azure Cognitive Search](search-create-service-portal.md)** 
+**Paso 1: [Creación de un recurso de Azure Cognitive Search](search-create-service-portal.md)** 
 
-**Paso 2: Pruebe algunos Inicios rápidos y ejemplos de experiencia práctica**
+**Paso 2: Pruebe algunos Inicios rápidos y ejemplos de experiencia práctica**
 
 + [Inicio rápido (portal)](cognitive-search-quickstart-blob.md)
 + [Tutorial (solicitudes HTTP)](cognitive-search-tutorial-blob.md)
@@ -133,13 +133,13 @@ Los índices se generan a partir de un esquema de índice que define los campos,
 
 Para fines de aprendizaje se recomienda usar el servicio Gratis; sin embargo, el número de transacciones gratuitas se limita a 20 documentos al día. Para ejecutar tanto el inicio rápido como el tutorial en un solo día, use un conjunto de archivos más pequeño (10 documentos) para que pueda adaptarlo a ambos ejercicios, o bien elimine el indexador que usó en el inicio rápido o tutorial para devolver el contador a cero.
 
-**Paso 3: Revise la API**
+**Paso 3: Revise la API**
 
 Puede usar la versión `api-version=2019-05-06` de REST en solicitudes o el SDK. de NET. Si explora Knowledge Store, use la API REST de la versión preliminar (`api-version=2019-05-06-Preview`).
 
 Este paso usa las API REST para crear una solución de enriquecimiento con inteligencia artificial. Para el enriquecimiento con inteligencia artificial solo se agregan o extienden dos API. Otras API tienen la misma sintaxis que las versiones con disponibilidad general.
 
-| API DE REST | DESCRIPCIÓN |
+| API DE REST | Descripción |
 |-----|-------------|
 | [Create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source) (Creación de un origen de datos)  | Recurso que identifica un origen de datos externo que proporciona los datos de origen que se usan para crear documentos enriquecidos.  |
 | [Create Skillset (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Esta API es específica del enriquecimiento con inteligencia artificial. Es un recurso que coordina el uso de las [aptitudes integradas](cognitive-search-predefined-skills.md) y las [aptitudes cognitivas personalizadas](cognitive-search-custom-skill-interface.md) que se usan en una canalización de enriquecimiento durante la indexación. |
@@ -173,5 +173,5 @@ Para más información sobre preguntas o problemas específicos, consulte las [s
 + [Vínculos de la documentación del enriquecimiento con inteligencia artificial](cognitive-search-resources-documentation.md)
 + [Inicio rápido: Tutorial de la prueba del enriquecimiento con inteligencia artificial en un portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Más información sobre las API de enriquecimiento con inteligencia artificial](cognitive-search-tutorial-blob.md)
-+ [Knowledge Store (versión preliminar)](knowledge-store-concept-intro.md)
-+ [Tutorial de Knowledge Store](knowledge-store-howto.md)
++ [Almacén de conocimiento (versión preliminar)](knowledge-store-concept-intro.md)
++ [Creación de un almacén de conocimiento con REST](knowledge-store-create-rest.md)

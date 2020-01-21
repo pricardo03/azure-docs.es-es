@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Búsqueda interactiva de mapas con Azure Maps'
-description: 'Inicio rápido de Azure: Creación de una demostración de búsqueda de interactiva de mapas con Azure Maps'
+title: 'Inicio rápido: Búsqueda interactiva de mapas con Azure Maps | Microsoft Azure Maps'
+description: Aprenda a crear una aplicación web de demostración para la búsqueda interactiva de mapas mediante el SDK web de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7553499dc9aba8d20bee126204b6d19f2386d295
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5f11fa4fce38b125e21564b4cfbe4582e55a7b64
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408411"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910694"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Inicio rápido: Creación de una búsqueda interactiva de mapas mediante Azure Maps
 
@@ -57,7 +57,7 @@ Una vez que se haya creado correctamente la cuenta de Maps, recupere la clave qu
 2. En la sección de configuración, seleccione **Autenticación**.
 3. Copie la **clave principal** al Portapapeles. Guárdela localmente para usarla más adelante en este tutorial.
 
-![Obtención de la clave principal en el portal](./media/quick-demo-map-app/get-key.png)
+![Obtención de la clave principal de Azure Maps en Azure Portal](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>Descarga de la aplicación
 
@@ -73,7 +73,7 @@ Una vez que se haya creado correctamente la cuenta de Maps, recupere la clave qu
 4. Pruebe la experiencia de búsqueda interactiva. En el cuadro de búsqueda de la esquina superior izquierda de la aplicación web de demostración, busque **restaurants**.
 5. Mueva el mouse sobre la lista de direcciones y ubicaciones que aparecen debajo del cuadro de búsqueda. Observe cómo el correspondiente alfiler en el mapa muestra información sobre esa ubicación. Para proteger la privacidad de empresas privadas, se muestran nombres y direcciones ficticios.
 
-    ![Aplicación web de búsqueda interactiva](./media/quick-demo-map-app/interactive-search.png)
+    ![Aplicación web de búsqueda interactiva de mapas](./media/quick-demo-map-app/interactive-search.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

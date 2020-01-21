@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Creación de una instancia de Standard Load Balancer: Azure PowerShell'
+title: 'Inicio rápido: Creación de una instancia de Standard Load Balancer: Azure PowerShell'
 titleSuffix: Azure Load Balancer
 description: En esta guía de inicio rápido se muestra cómo crear un Standard Load Balancer mediante Azure PowerShell
 services: load-balancer
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: b387df5049fff2cb17e8d0758f1cf5fd8f0d0853
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 21488fbc8a5a9354db74d5b93719d100bce8878c
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049103"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045668"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>Inicio rápido: Creación de una instancia de Standard Load Balancer mediante Azure PowerShell
 
@@ -105,7 +105,7 @@ $rule = New-AzLoadBalancerRuleConfig `
 
 ### <a name="create-the-nat-rules"></a>Creación de las reglas NAT
 
-Cree las reglas NAT con [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig). En el ejemplo siguiente, se crean unas reglas NAT denominadas *myLoadBalancerRDP1* y *myLoadBalancerRDP2* para permitir conexiones RDP con los servidores back-end a través de los puertos 4221 y 4222:
+Cree reglas NAT con [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig). En el ejemplo siguiente, se crean unas reglas NAT denominadas *myLoadBalancerRDP1* y *myLoadBalancerRDP2* para permitir conexiones RDP con los servidores back-end a través de los puertos 4221 y 4222:
 
 ```azurepowershell
 $natrule1 = New-AzLoadBalancerInboundNatRuleConfig `
@@ -356,7 +356,7 @@ Remove-AzResourceGroup -Name myResourceGroupSLB
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha creado un equilibrador de carga estándar, le ha asociado máquinas virtuales, ha configurado la regla de tráfico del equilibrador de carga y el sondeo de estado y, después, ha probado el equilibrador de carga. Para más información acerca de Azure Load Balancer, diríjase a los tutoriales de Azure Load Balancer.
+En esta guía de inicio rápido, ha creado un equilibrador de carga estándar, le ha asociado máquinas virtuales, ha configurado la regla de tráfico del equilibrador de carga y el sondeo de estado y, después, ha probado el equilibrador de carga. Para más información acerca de Azure Load Balancer, diríjase a los tutoriales correspondientes.
 
 > [!div class="nextstepaction"]
 > [Tutoriales de Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)

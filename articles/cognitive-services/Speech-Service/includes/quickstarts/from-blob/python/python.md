@@ -1,32 +1,25 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz almacenada en Blob Storage en C#: servicio de voz'
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 2f06d0015bd80b37407df28045d4ced4a128e47e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.author: dapine
+ms.openlocfilehash: bfecfa1918d2e9199971b2f9738530dc1b4e3c4c
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466736"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942674"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, compruebe lo siguiente:
 
 > [!div class="checklist"]
-> * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
-> * [Ha cargado de un archivo de origen en un blob de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 > * [Ha configurado el entorno de desarrollo](../../../../quickstarts/setup-platform.md)
 > * [Ha creado un proyecto de ejemplo vacío](../../../../quickstarts/create-project.md)
+> * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
+> * [Ha cargado de un archivo de origen en un blob de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## <a name="download-and-install-the-api-client-library"></a>Descarga e instalación de la biblioteca cliente de API
 
@@ -43,7 +36,8 @@ Siga estos pasos para la instalación:
 1. Instale el módulo python-client extraído en el entorno de Python mediante pip: `pip install path/to/package/python-client`.
 1. El paquete instalado tiene el nombre `swagger_client`. Puede comprobar que la instalación ha funcionado con el comando `python -c "import swagger_client"`.
 
-> **Nota:** Debido a un [error conocido en la generación automática de Swagger](https://github.com/swagger-api/swagger-codegen/issues/7541), pueden producirse errores al importar el paquete `swagger_client`.
+> [!NOTE]
+> Debido a un `swagger_client`error conocido en la generación automática de Swagger](https://github.com/swagger-api/swagger-codegen/issues/7541), pueden producirse errores al importar el paquete `swagger_client`.
 > Para corregirlos, elimine la línea con el contenido
 > ```py
 > from swagger_client.models.model import Model  # noqa: F401,E501
@@ -67,7 +61,8 @@ pip install requests
 Vamos a agregar código que funcione como el esqueleto del proyecto.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-2,7-34,115-119)]
-(Deberá reemplazar los valores de `YourSubscriptionKey`, `YourServiceRegion` y `YourFileUrl` por los suyos propios).
+
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
 ## <a name="create-and-configure-an-http-client"></a>Creación y configuración de un cliente HTTP
 Lo primero que necesitamos es un cliente HTTP con una dirección URL base y un conjunto de autenticación correctos.

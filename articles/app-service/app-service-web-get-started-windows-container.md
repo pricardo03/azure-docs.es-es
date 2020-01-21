@@ -4,12 +4,12 @@ description: Implemente su primer contenedor de Windows personalizado en Azure A
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b618c4f1a24e4089cac2ddf34e61bab156aefdd
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 7901498772b8e746fb2c87a5237f06ab279e3b64
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671345"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922308"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Ejecución de un contenedor de Windows personalizado en Azure (versión preliminar)
 
@@ -17,7 +17,7 @@ ms.locfileid: "74671345"
 
 En este inicio rápido se muestra cómo implementar una aplicación ASP.NET, que está en una imagen de Windows, en [Docker Hub](https://hub.docker.com/) desde Visual Studio. La aplicación se ejecuta en un contenedor personalizado en Azure App Service.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial:
 
@@ -79,7 +79,7 @@ Cree una aplicación web ASP.NET siguiendo estos pasos:
 
 ## <a name="create-a-windows-container-app"></a>Creación de una aplicación de contenedor de Windows
 
-1. Inicie sesión en el [Azure Portal]( https://portal.azure.com).
+1. Inicie sesión en [Azure Portal]( https://portal.azure.com).
 
 1. Elija **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
@@ -163,7 +163,7 @@ Vuelva a [desplazarse a la aplicación de contenedor](#browse-to-the-container-a
 
 ## <a name="use-a-different-parent-image"></a>Uso de una imagen primaria diferente
 
-Puede usar otra imagen personalizada de Docker para ejecutar la aplicación. Sin embargo, debe elegir la [imagen primaria](https://docs.docker.com/develop/develop-images/baseimages/) correcta para la plataforma que desee:
+Puede usar otra imagen personalizada de Docker para ejecutar la aplicación. Sin embargo, debe elegir la [imagen primaria (imagen base)](https://docs.docker.com/develop/develop-images/baseimages/) correcta para la plataforma que desee:
 
 - Para implementar aplicaciones de .NET Framework, use una imagen primaria basada en la versión del [canal de mantenimiento a largo plazo (LTSC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) de Windows Server Core 2019. 
 - Para implementar aplicaciones de .NET Core, use una imagen primaria basada en la versión del [canal de servicio semianual (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) de Windows Server Nano 1809. 
@@ -171,7 +171,7 @@ Puede usar otra imagen personalizada de Docker para ejecutar la aplicación. Sin
 La descarga de una imagen primaria tarda un tiempo en completarse durante el inicio de la aplicación. Sin embargo, puede reducir el tiempo de inicio mediante una de las siguientes imágenes primarias que ya están almacenadas en caché en Azure App Service:
 
 - [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
-- [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809 (esta imagen es el contenedor base que se usa en las imágenes de Microsoft Windows Nano Server de Microsoft [ASP.NET Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet)).
+- [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809 (esta imagen es el contenedor base que se usa en las imágenes de Microsoft Windows Nano Server de Microsoft [ASP.NET Core](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/)).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

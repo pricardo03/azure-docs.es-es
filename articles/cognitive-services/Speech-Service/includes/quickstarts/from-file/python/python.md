@@ -1,23 +1,22 @@
 ---
 title: 'Inicio rápido: Reconocimiento de la voz de un archivo de audio en Python: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: Use esta guía para crear una aplicación de consola de conversión de voz a texto que use el SDK de Voz para Python. Cuando termine, puede usar el micrófono del equipo para realizar la conversión de voz en texto en tiempo real.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
+ms.topic: include
+ms.date: 01/14/2020
 ms.author: chlandsi
-ms.openlocfilehash: 8a5652f6cb8b42200e24221921868b084bd6e62f
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 587a0e83eb6b8c96b44589f7f5701526c23e2aae
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819478"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76037918"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, compruebe lo siguiente:
 
@@ -54,8 +53,7 @@ También, puede descargar este tutorial de inicio rápido como un cuaderno de [J
 > [!NOTE]
 > El SDK de Voz se usará de forma predeterminada para reconocer el uso de en-us como idioma. Para más información sobre cómo elegir el idioma de origen, consulte [Especificación del idioma de origen para la conversión de voz a texto](../../../../how-to-specify-source-language.md).
 
-````Python
-
+```python
 import azure.cognitiveservices.speech as speechsdk
 
 # Creates an instance of a speech config with specified subscription key and service region.
@@ -72,7 +70,6 @@ audio_input = speechsdk.AudioConfig(filename=audio_filename)
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
 
 print("Recognizing first result...")
-
 
 # Starts speech recognition, and returns after a single utterance is recognized. The end of a
 # single utterance is determined by listening for silence at the end or until a maximum of 15
@@ -92,8 +89,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
     print("Speech Recognition canceled: {}".format(cancellation_details.reason))
     if cancellation_details.reason == speechsdk.CancellationReason.Error:
         print("Error details: {}".format(cancellation_details.error_details))
-
-````
+```
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Instalación y uso del SDK de Voz con Visual Studio Code
 
@@ -115,14 +111,14 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 1. Copie, pegue y guarde el [código de Python](#sample-code) en el archivo recién creado.
 1. Inserte la información de la suscripción del servicio Voz.
 1. Si se selecciona, se muestra un intérprete de Python en el lado izquierdo de la barra de estado en la parte inferior de la ventana.
-   En caso contrario, aparecerá una lista de los intérpretes de Python disponibles. Abra la paleta de comandos (Ctrl+Mayús+P) y escriba **Python: Select Interpreter** (Seleccionar intérprete). Elija un valor apropiado.
+   En caso contrario, aparecerá una lista de los intérpretes de Python disponibles. Abra la paleta de comandos <kbd>Ctrl+Mayús+P</kbd> y escriba **Python: Select Interpreter** (Seleccionar intérprete). Elija un valor apropiado.
 1. Puede instalar el paquete de Python del SDK de Voz desde dentro de Visual Studio Code. Hágalo si no está instalado aún para el intérprete de Python seleccionado.
-   Para instalar el paquete del SDK de Voz, abra un terminal. Abra de nuevo la paleta de comandos (Ctrl+Mayús+P) y escriba **Terminal: Create New Integrated Terminal** (Crear terminal integrado).
+   Para instalar el paquete del SDK de Voz, abra un terminal. Abra de nuevo la paleta de comandos <kbd>Ctrl+Mayús+P</kbd> y escriba **Terminal: Create New Integrated Terminal** (Crear terminal integrado).
    En el terminal que se abre, escriba el comando `python -m pip install azure-cognitiveservices-speech` o el que sea apropiado para su sistema.
 1. Para ejecutar el código de ejemplo, haga clic con el botón derecho en algún lugar dentro del editor. Seleccione **Run Python File in Terminal** (Ejecutar archivo de Python en terminal).
    Los primeros 15 segundos de la entrada de voz a través del archivo de audio se reconocen y registran en la ventana de consola.
 
-   ```text
+   ```console
    Recognizing first result...
    We recognized: What's the weather like?
    ```

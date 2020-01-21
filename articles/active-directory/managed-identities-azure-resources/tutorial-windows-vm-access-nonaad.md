@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 106252b7c77f9ee3d6b9bdebafce3441d9c4b090
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cd9f85e3bfd11ee655ce581c60a5b65e13f4497b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224239"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971908"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Key Vault 
 
@@ -35,13 +35,20 @@ Aprenderá a:
 > * Concesión de acceso a la máquina virtual a un secreto almacenado en un almacén de claves 
 > * Obtener un token de acceso mediante la identidad de máquina virtual y usarlo para recuperar el secreto de Key Vault 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Concesión de acceso a la máquina virtual a un secreto almacenado en un almacén de claves 
+
+## <a name="enable"></a>Habilitar
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## <a name="grant-access"></a>Conceder acceso  
  
-Mediante Managed Identities for Azure Resources, el código puede obtener tokens de acceso para autenticarse en aquellos recursos que admitan la autenticación de Azure AD.  Sin embargo, no todos los servicios de Azure admiten la autenticación de Azure AD. Para usar Managed Identities for Azure Resources con esos servicios, almacene las credenciales del servicio en Azure Key Vault y use una identidad administrada de la máquina virtual a fin de acceder a Key Vault y recuperar las credenciales. 
+En esta sección se muestra cómo conceder acceso a la máquina virtual a un secreto almacenado en un almacén de claves. Mediante Managed Identities for Azure Resources, el código puede obtener tokens de acceso para autenticarse en aquellos recursos que admitan la autenticación de Azure AD.  Sin embargo, no todos los servicios de Azure admiten la autenticación de Azure AD. Para usar Managed Identities for Azure Resources con esos servicios, almacene las credenciales del servicio en Azure Key Vault y use una identidad administrada de la máquina virtual a fin de acceder a Key Vault y recuperar las credenciales. 
 
 En primer lugar, es necesario crear un almacén de claves y conceder a la identidad administrada asignada por el sistema de la máquina virtual acceso al mismo.   
 
@@ -66,9 +73,9 @@ A continuación, agregue un secreto al almacén de claves, de forma que más ade
 5. Deje la fecha de activación y la fecha de expiración y deje la opción **Habilitado** en **Sí**. 
 6. Haga clic en **Crear** para crear el secreto. 
  
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Obtener un token de acceso mediante la identidad de máquina virtual y usarlo para recuperar el secreto del almacén de claves  
+## <a name="access-data"></a>Acceso a los datos  
 
-Si no tiene PowerShell 4.3.1 o superior instalado, necesitará [descargar e instalar la versión más reciente](https://docs.microsoft.com/powershell/azure/overview).
+En esta sección se muestra cómo obtener un token de acceso mediante la identidad de máquina virtual y usarlo para recuperar el secreto del almacén de claves. Si no tiene PowerShell 4.3.1 o superior instalado, necesitará [descargar e instalar la versión más reciente](https://docs.microsoft.com/powershell/azure/overview).
 
 En primer lugar, vamos a usar la identidad administrada asignada por el sistema de la máquina virtual a fin de obtener un token de acceso para autenticarse en Key Vault:
  
@@ -108,6 +115,13 @@ En primer lugar, vamos a usar la identidad administrada asignada por el sistema 
     ```
     
 Cuando haya recuperado el secreto del almacén de claves, podrá usarlo para autenticarse en un servicio que requiere un nombre y una contraseña. 
+
+
+## <a name="disable"></a>Disable
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

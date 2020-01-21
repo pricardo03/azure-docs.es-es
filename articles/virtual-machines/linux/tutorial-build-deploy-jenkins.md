@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 734b0a516d4a9fe882545dd5cde5a57d8af719cb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1265861a872b01d558646ea2adb6cba27fa3ebd4
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034567"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778420"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: Implementación de la aplicación en máquinas virtuales Linux de Azure con Jenkins y Azure DevOps Services
 
@@ -163,7 +163,7 @@ Para crear la canalización de versión en Azure Pipelines:
 
 1. Seleccione **+ Versión** y **Crear versión**.
 2. Seleccione la compilación completada en la lista desplegable resaltada y después **Poner en cola**.
-3. Seleccione el enlace de versión en el mensaje emergente. Por ejemplo:  "Se creó la versión **Release-1**".
+3. Seleccione el enlace de versión en el mensaje emergente. Por ejemplo: "Se creó la versión **Release-1**".
 4. Abra la pestaña **Registros** para ver la salida de la consola de la versión.
 5. En el explorador, abra la dirección URL de uno de los servidores agregados al grupo de implementación. Por ejemplo, escriba **http://{your-server-ip-address}** .
 6. Vaya al repositorio de Git de origen y modifique el contenido del encabezado **h1** del archivo app/views/index.jade con parte del texto modificado.
@@ -182,9 +182,11 @@ En este tutorial se ha automatizado la implementación de una aplicación en Azu
 > * Compilar la aplicación en Jenkins.
 > * Configurar Jenkins para la integración con Azure DevOps Services.
 > * Crear un grupo de implementación para las máquinas virtuales de Azure.
-> * Crear una canalización de versión que configure las máquinas virtuales e implemente la aplicación.
+> * Crear una canalización de Azure que configure las máquinas virtuales e implemente la aplicación.
 
-Para aprender a implementar una pila LAMP (Linux, Apache, MySQL y PHP), pase al siguiente tutorial.
+Para obtener información sobre cómo usar Azure Pipelines para los pasos de compilación y versión, consulte [este artículo](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-linuxvm-deploygroups).
+
+Para obtener información sobre cómo crear una canalización de CI/CD basada en YAML para implementarla en máquinas virtuales, avance al siguiente tutorial.
 
 > [!div class="nextstepaction"]
-> [Implementación de una pila de LAMP](tutorial-lamp-stack.md)
+> [CI/CD con Azure Pipelines](tutorial-build-deploy-azure-pipelines.md)

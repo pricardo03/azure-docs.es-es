@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Asignación de directivas nuevas con la CLI de Azure'
 description: En este inicio rápido, se usa la CLI de Azure para crear una asignación de Azure Policy para identificar recursos no compatibles.
-ms.date: 11/25/2019
+ms.date: 01/11/2020
 ms.topic: quickstart
-ms.openlocfilehash: 80dbccdb728da94d9f9fdd0aeb506ade40fd7394
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7f76191d97a936c745fc2b13b54011e787e0b5e6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482643"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978318"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante la CLI de Azure
 
@@ -19,7 +19,7 @@ Al finalizar este proceso, habrá identificado correctamente máquinas virtuales
 
 La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía se usa la CLI de Azure para crear una asignación de directiva e identificar recursos no compatibles en el entorno de Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -31,7 +31,7 @@ La CLI de Azure se usa para crear y administrar recursos de Azure desde la líne
   az provider register --namespace 'Microsoft.PolicyInsights'
   ```
 
-  Para más información acerca del registro y la visualización de los proveedores de recursos, consulte [Tipos y proveedores de recursos](../../azure-resource-manager/resource-manager-supported-services.md)
+  Para más información acerca del registro y la visualización de los proveedores de recursos, consulte [Tipos y proveedores de recursos](../../azure-resource-manager/management/resource-providers-and-types.md)
 
 - Si aún no lo ha hecho, instale [ARMClient](https://github.com/projectkudu/ARMClient). Esta es una herramienta que envía solicitudes HTTP a las API basadas en Azure Resource Manager.
 
@@ -58,17 +58,16 @@ El comando anterior usa la siguiente información:
 
 Para ver los recursos que no son compatibles con esta nueva asignación, ejecute los siguientes comandos para obtener el identificador de asignación de directiva:
 
-```azurepowershell-interactive
-$policyAssignment = Get-AzPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
-$policyAssignment.PolicyAssignmentId
+```azurecli-interactive
+az policy assignment list --query "[?displayName=='Audit VMs without managed disks Assignment'].id"
 ```
 
-Para más información sobre los identificadores de asignación de directiva, consulte [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment).
+Para más información sobre los identificadores de asignación de directivas, consulte [az policy assignment](/cli/azure/policy/assignment).
 
 A continuación, ejecute el siguiente comando para obtener los identificadores de los recursos no compatibles que se copian en un archivo JSON:
 
 ```console
-armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
+armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-09-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 
 Los resultados deben tener una apariencia similar al ejemplo siguiente:

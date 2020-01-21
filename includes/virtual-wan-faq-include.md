@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b65cf26bcea628f784eb086d1b9c88febade25f6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 0101573675d96694ee94c45288342dad8183e7fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828999"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772989"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>¿Cuál es la diferencia entre una puerta de enlace de Azure Virtual Network (VPN Gateway) y una instancia de VPN Gateway de Azure Virtual WAN?
 
@@ -22,6 +22,9 @@ Virtual WAN proporciona conectividad de sitio a sitio y a gran escala, y se ha c
 ### <a name="how-is-virtual-wan-different-from-an-azure-virtual-network-gateway"></a>¿En qué difiere Virtual WAN de una puerta de enlace de Azure Virtual Network?
 
 Una VPN de puerta de enlace de red virtual se limita a 30 túneles. En las conexiones, debe usar Virtual WAN para VPN a gran escala. Puede conectar hasta 1000 conexiones de rama por región (centro de conectividad virtual) con agregados de 20 Gbps por centro. Una conexión es un túnel de activo a activo del dispositivo VPN local al concentrador virtual. Puede tener un único concentrador por región, lo que significa que puede conectar más de 1000 ramas en total con todos los concentradores.
+
+### <a name="what-is-a-virtual-wan-gateway-scale-unit"></a>¿Qué es una unidad de escalado de puerta de enlace de Virtual WAN?
+Una unidad de escalado es una unidad definida para obtener un rendimiento agregado de una puerta de enlace de un centro virtual. 1 unidad de escalado de VPN = 500 Mbps. 1 unidad de escalado de ExpressRoute = 2 Gbps. Ejemplo: 10 unidades de escalado de VPN significarían 500 Mbps * 10 = 5 Gbps
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported"></a>¿Qué proveedores de dispositivos (asociados de Virtual WAN) se admiten?
 
@@ -111,9 +114,11 @@ Se puede crear una configuración simple de una instancia de Virtual WAN con un 
 
 Puede conectar una red virtual en una región distinta a la de Virtual WAN.
 
-### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>¿Pueden las redes virtuales radiales conectadas a un concentrador virtual comunicarse entre sí?
+### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other-v2v-transit"></a>¿Pueden las redes virtuales radiales conectadas a un centro virtual comunicarse entre sí (tránsito V2V)?
 
-Sí. Virtual WAN Estándar admite la conectividad transitiva entre redes virtuales mediante el centro de conectividad de Virtual WAN al que están conectadas las redes virtuales. En la terminología de Virtual WAN, llamamos a estas rutas de acceso "tránsito local de red virtual de Virtual WAN" para las redes virtuales conectadas a un centro de conectividad de Virtual WAN dentro de una única región, y "tránsito global de red virtual de Virtual WAN" en el caso de las redes virtuales conectadas mediante varios centros de conectividad de Virtual WAN en dos o más zonas. El tránsito de red virtual tiene una capacidad de procesamiento máxima de 3 Gbps durante la versión preliminar pública. Esta capacidad aumentará cuando el tránsito global pase a estar disponible de manera general.   
+Sí. Virtual WAN Estándar admite la conectividad transitiva entre redes virtuales mediante el centro de conectividad de Virtual WAN al que están conectadas las redes virtuales. En la terminología de Virtual WAN, llamamos a estas rutas de acceso "tránsito local de red virtual de Virtual WAN" para las redes virtuales conectadas a un centro de conectividad de Virtual WAN dentro de una única región, y "tránsito global de red virtual de Virtual WAN" en el caso de las redes virtuales conectadas mediante varios centros de conectividad de Virtual WAN en dos o más zonas. El tránsito de red virtual tiene una capacidad de procesamiento máxima de 3 Gbps durante la versión preliminar pública. Esta capacidad aumentará cuando el tránsito global pase a estar disponible de manera general.
+
+NOTA:  Actualmente, la versión preliminar del tránsito V2V requiere la implementación de una puerta de enlace de VPN en un centro virtual para desencadenar los elementos de enrutamiento que se van a iniciar. Esta puerta de enlace de VPN no se utiliza para la ruta de acceso del tránsito V2V. Se trata de una limitación conocida que se solucionará cuando se publique la versión con disponibilidad general de V2V. Puede eliminar la puerta de enlace de VPN de los centros una vez que se haya iniciado totalmente, ya que no es necesaria para la funcionalidad de tránsito V2V. 
 
 En algunos escenarios, las redes virtuales radiales también se pueden emparejar directamente entre sí mediante el [emparejamiento de red virtual](../articles/virtual-network/virtual-network-peering-overview.md), además del tránsito local o global de red virtual de Virtual WAN. En este caso, el emparejamiento de red virtual tiene prioridad sobre la conexión transitiva del centro de conectividad de Virtual WAN. 
 

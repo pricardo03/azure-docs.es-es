@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: f8bd768dc7c01310874cd484f59869fbafcf3fe7
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9bdcf9ea247adb8d5941c75f90f7db3915af20bc
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074203"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940938"
 ---
 # <a name="api-management-policy-samples"></a>Ejemplos de directivas de API Management
 
@@ -33,9 +33,10 @@ Las [directivas](api-management-howto-policies.md) constituyen una funcionalidad
 | [Autorización de acceso con notificaciones JWT](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json)                                              | Muestra cómo autorizar el acceso a los métodos HTTP específicos en una API con notificaciones JWT.                                                                                                                                       |
 | [Autorización de solicitudes mediante un autorizador externo](./policies/authorize-request-using-external-authorizer.md)                                                   | Muestra cómo utilizar un autorizador externo para proteger el acceso de una API.                                                                                                                                                               |
 | [Autorización de acceso con el token de OAuth de Google](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json)                                            | Muestra cómo autorizar el acceso a los puntos de conexión con Google como proveedor de tokens de OAuth.                                                                                                                                    |
+| [Filtrado de direcciones IP al usar una instancia de Application Gateway](./policies/filter-ip-addresses-when-using-appgw.md) | Muestra cómo filtrar direcciones IP en las directivas cuando se accede a la instancia de API Management mediante una instancia de Application Gateway.
 | [Generación de la firma de acceso compartido y reenvío de la solicitud a Azure Storage](./policies/generate-shared-access-signature.md?toc=api-management/toc.json)                  | Muestra cómo generar una [firma de acceso compartido](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) mediante expresiones y reenviar la solicitud a Azure Storage con la directiva de reescritura del identificador URI. |
 | [Obtención del token de acceso de OAuth2 desde AAD y reenvío al back-end](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json)                             | Proporciona un ejemplo de uso de OAuth2 para la autorización entre la puerta de enlace y un back-end. Muestra cómo obtener un token de acceso en AAD y reenviarlo al back-end.                                                    |
-| [Obtención del token de X-CSRF en la puerta de enlace de SAP mediante la directiva de solicitud de envío](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json)                           | Muestra cómo implementar el patrón X-CSRF que utilizan muchas API. En este ejemplo es específico de la puerta de enlace de SAP.                                                                                                                           |
+| [Obtención del token de X-CSRF en la puerta de enlace de SAP mediante la directiva de solicitud de envío](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json)                           | Muestra cómo implementar el patrón X-CSRF que utilizan muchas API. Este ejemplo es específico de puerta de enlace de SAP.                                                                                                                           |
 | [Enrutamiento de la solicitud en función del tamaño de su cuerpo](./policies/route-requests-based-on-size.md?toc=api-management/toc.json)                                            | Muestra cómo enrutar las solicitudes en función del tamaño de su cuerpo.                                                                                                                                                       |
 | [Envío de información contextual de la solicitud al servicio de back-end](./policies/send-request-context-info-to-backend-service.md?toc=api-management/toc.json)                    | Muestra cómo enviar información contextual al servicio de back-end para el registro o el procesamiento.                                                                                                                                |
 | [Establecimiento de la duración en caché de las respuestas](./policies/set-cache-duration.md?toc=api-management/toc.json)                                                                          | Muestra cómo establecer la duración en caché de las respuestas con el valor maxAge en el encabezado de control de caché que envía el back-end.                                                                                                             |

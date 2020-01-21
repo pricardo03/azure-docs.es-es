@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/02/2019
 ms.author: dylankil
-ms.openlocfilehash: 6404a5d49bd7af1ed5d74299f03eda8d0bb14b89
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 3293c4ea76010e5f39c793a1faee14d9a74226a0
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326440"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945224"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Tutorial: Inicio del Lector inmersivo con el proyecto de ejemplo de Python
 
@@ -28,9 +28,9 @@ En la [introducción](./overview.md), se indica lo que es el Lector inmersivo y 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Un recurso de Lector inmersivo configurado para la autenticación de Azure Active Directory (Azure AD). Siga [estas instrucciones](./azure-active-directory-authentication.md) para realizar la configuración. Necesitará algunos de los valores que se crean aquí cuando configure las propiedades del entorno. Guarde la salida de la sesión en un archivo de texto para futuras referencias.
+* Un recurso del Lector inmersivo configurado para la autenticación de Azure Active Directory. Siga [estas instrucciones](./how-to-create-immersive-reader.md) para realizar la configuración. Necesitará algunos de los valores que se crean aquí cuando configure las propiedades del entorno. Guarde la salida de la sesión en un archivo de texto para futuras referencias.
 * [Git](https://git-scm.com/)
 * [SDK del Lector inmersivo](https://github.com/microsoft/immersive-reader-sdk)
 * [Python](https://www.python.org/downloads/) y [pip](https://docs.python.org/3/installing/index.html). A partir de Python 3.4, pip se incluye de forma predeterminada con los instaladores binarios de Python.
@@ -40,20 +40,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 * [Módulo requests](https://pypi.org/project/requests/2.7.0/)
 * Un IDE como [Visual Studio Code](https://code.visualstudio.com/)
 
-## <a name="acquire-an-azure-ad-authentication-token"></a>Adquisición de un token de autenticación de Azure AD
+## <a name="configure-authentication-credentials"></a>Configuración de las credenciales de autenticación
 
-Escriba una API de back-end para recuperar un token de autenticación de Azure AD.
-
-Necesita algunos valores del paso del requisito previo de configuración de la autenticación de Azure AD para esta parte. Vuelva a consultar el archivo de texto que ha guardado de esa sesión.
-
-````text
-TenantId     => Azure subscription TenantId
-ClientId     => Azure AD ApplicationId
-ClientSecret => Azure AD Application Service Principal password
-Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
-````
-
-Una vez que tenga estos valores, cree un nuevo archivo llamado _.env_ y pegue el siguiente código en él, proporcionando sus valores de propiedad personalizados desde arriba. Reemplace el archivo _.env_ de la aplicación de ejemplo por el archivo recién creado.
+Cree un nuevo archivo denominado _.env_, pegue en él el siguiente código, y proporcione los valores especificados al crear el recurso del Lector inmersivo.
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}

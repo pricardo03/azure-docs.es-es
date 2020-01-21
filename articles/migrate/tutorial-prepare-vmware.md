@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 34bc62a9cb7e5d1358322500a8929b6f8b36d422
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4dec76140f61c433561ccfea07b833d9821acfc5
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454550"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028912"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparación de máquinas virtuales de VMware para la evaluación y migración a Azure
 
@@ -104,8 +104,9 @@ Para preparar la valoración de máquinas virtuales de VMware, tiene que:
 
 ### <a name="verify-vmware-settings"></a>Comprobación de la configuración de VMware
 
-1. [Compruebe](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements) los requisitos del servidor de VMware para la valoración.
-2. [Asegúrese](migrate-support-matrix-vmware.md#assessment-port-requirements) de que los puertos necesarios están abiertos en vCenter Server.
+1. [Compruebe](migrate-support-matrix-vmware.md#vmware-requirements) los requisitos del servidor de VMware para la valoración.
+2. [Asegúrese](migrate-support-matrix-vmware.md#port-access) de que los puertos necesarios están abiertos en vCenter Server.
+3. En vCenter Server, asegúrese de que la cuenta tiene permisos para crear una máquina virtual mediante un archivo OVA. Puede implementar el dispositivo de Azure Migrate como una máquina virtual de VMware mediante un archivo OVA.
 
 
 ### <a name="set-up-an-account-for-assessment"></a>Configuración de una cuenta para la evaluación
@@ -120,15 +121,12 @@ Azure Migrate necesita acceder a vCenter Server para detectar máquinas virtuale
 
 ### <a name="verify-appliance-settings-for-assessment"></a>Comprobación de la configuración del dispositivo para su evaluación
 
-Compruebe los requisitos del dispositivo antes de implementarlo.
+Antes de configurar el dispositivo de Azure Migrate y comenzar la evaluación en el siguiente tutorial, prepare la implementación del dispositivo.
 
-1. [Compruebe](migrate-support-matrix-vmware.md#assessment-appliance-requirements) los requisitos del dispositivo y las limitaciones.
-2. Si usa un proxy de firewall basado en URL, [revise](migrate-support-matrix-vmware.md#assessment-url-access-requirements) las direcciones URL de Azure a las que el dispositivo necesitará tener acceso. Asegúrese de que el proxy resuelve todos los registros CNAME recibidos al buscar las direcciones URL.
-3. Revise los [datos de rendimiento](migrate-appliance.md#collected-performance-data-vmware) y los [metadatos](migrate-appliance.md#collected-metadata-vmware) que el dispositivo recopila durante la detección y la evaluación.
-4. [Tenga en cuenta](migrate-support-matrix-vmware.md#assessment-port-requirements) los puertos a los que accede el dispositivo.
-5. En vCenter Server, asegúrese de que la cuenta tiene permisos para crear una máquina virtual mediante un archivo OVA. Puede implementar el dispositivo de Azure Migrate como una máquina virtual de VMware mediante un archivo OVA.
-
-Si va a usar un proxy de firewall basado en direcciones URL, permita el acceso a las [URL de Azure](migrate-support-matrix-vmware.md#assessment-url-access-requirements) necesarias.
+1. [Compruebe](migrate-appliance.md#appliance---vmware) los requisitos del dispositivo para las máquinas virtuales de VMware.
+2. [Revise](migrate-appliance.md#url-access) las direcciones URL de Azure a las que tendrá acceso el dispositivo. Si usa un proxy de firewall basado en direcciones URL, asegúrese de que permiten el acceso a las URL necesarias.
+3. [Revise](migrate-appliance.md#collected-data---vmware) lo que el dispositivo va a recopilar durante la detección y la evaluación.
+4. [Tenga en cuenta](migrate-support-matrix-vmware.md#port-access) los requisitos de acceso a puertos del dispositivo.
 
 
 
@@ -137,23 +135,22 @@ Si va a usar un proxy de firewall basado en direcciones URL, permita el acceso a
 
 Revise los requisitos para la migración sin agente de máquinas virtuales de VMware.
 
-1. [Revise](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) los requisitos del servidor de VMware.
-2. Configure una cuenta con los [permisos necesarios](migrate-support-matrix-vmware.md#agentless-migration-vcenter-server-permissions), de modo que Azure Migrate pueda acceder a vCenter Server para la migración sin agente mediante Azure Migrate Server Migration.
-3. [Revise](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements) los requisitos de las máquinas virtuales de VMware que desee migrar a Azure mediante la migración sin agente.
-4. [Revise](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements) los requisitos para usar el dispositivo de Azure Migrate para la migración sin agente.
-5. Tenga en cuenta el [acceso de URL](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) y el [acceso a los puertos](migrate-support-matrix-vmware.md#agentless-migration-port-requirements) que el dispositivo Azure Migrate necesita para la migración sin agente.
+1. [Revise](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) los requisitos del servidor de VMware y los [permisos](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) que necesita Azure Migrate para acceder a vCenter Server para la migración sin agente mediante Server Migration de Azure Migrate.
+2. [Revise](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms) los requisitos de las máquinas virtuales de VMware que desee migrar a Azure mediante la migración sin agente.
+4. [Revise](migrate-support-matrix-vmware-migration.md#agentless-azure-migrate-appliance) los requisitos para usar el dispositivo de Azure Migrate para la migración sin agente.
+5. Tenga en cuenta el [acceso a direcciones URL](migrate-appliance.md#url-access) y el [acceso a puertos](migrate-support-matrix-vmware-migration.md#agentless-ports) necesarios para la migración sin agente.
 
 
 ## <a name="prepare-for-agent-based-vmware-migration"></a>Preparación para la migración de VMware basada en agente
 
 Revise los requisitos para la [migración basada en agente](server-migrate-overview.md) de máquinas virtuales de VMware.
 
-1. [Revise](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) los requisitos del servidor de VMware.
-2. Configure una cuenta con los [permisos necesarios](migrate-support-matrix-vmware.md#agent-based-migration-vcenter-server-permissions). Así, Azure Migrate puede acceder a vCenter Server para la migración sin agente mediante Azure Migrate Server Migration.
-3. [Revise](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) los requisitos de las máquinas virtuales de VMware que desea migrar a Azure mediante la migración basada en agente, incluida la instalación de Mobility Service en cada máquina virtual que desee migrar.
-4. Tenga en cuenta el [acceso a direcciones URL](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements).
-5. Revise el [acceso al puerto](migrate-support-matrix-vmware.md#agent-based-migration-port-requirements) que los componentes de Azure Migrate necesitan para el acceso basado en agente.
-
+1. [Revise](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) los requisitos del servidor de VMware y los permisos que necesita Azure Migrate para acceder a vCenter Server para la migración con agente mediante Server Migration de Azure Migrate.
+2. [Revise](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) los requisitos de las máquinas virtuales de VMware que desea migrar a Azure mediante la migración basada en agente, incluida la instalación de Mobility Service en cada máquina virtual que desee migrar.
+3. La migración basada en agente usa un dispositivo de replicación:
+    - [Revise](migrate-replication-appliance.md#appliance-requirements) los requisitos de implementación para el dispositivo de replicación y las [opciones](migrate-replication-appliance.md#mysql-installation) para instalar MySQL en el dispositivo.
+    - Revise los requisitos de acceso a [direcciones URL](migrate-replication-appliance.md#url-access) y [puertos](migrate-replication-appliance.md#port-access) para el dispositivo de replicación.
+    
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, hizo lo siguiente:

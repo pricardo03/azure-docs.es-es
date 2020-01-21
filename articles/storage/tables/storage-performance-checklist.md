@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 588f9595dbe04b98cb8d70a33beb5740d812bd7c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 89581c8ae2fbdbb55a2abfbd527c8fdcf4b65761
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457619"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749556"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de comprobación de rendimiento y de escalabilidad para Table Storage
 
 Microsoft ha desarrollado varios procedimientos de eficacia probada para desarrollar aplicaciones de alto rendimiento con Table Storage. Esta lista de comprobación identifica los procedimientos clave que pueden seguir los desarrolladores para optimizar su rendimiento. Tenga presente estos procedimientos tanto para diseñar su aplicación como a lo largo de todo el proceso.
 
-Azure Storage tiene objetivos de escalabilidad y rendimiento en lo que se refiere a capacidad, tasa de transacciones y ancho de banda. Para más información acerca de los objetivos de escalabilidad, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage en cuentas de almacenamiento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+Azure Storage tiene objetivos de escalabilidad y rendimiento en lo que se refiere a capacidad, tasa de transacciones y ancho de banda. Para más información sobre los objetivos de escalabilidad de Azure Storage, consulte [Objetivos de escalabilidad y rendimiento para cuentas de almacenamiento estándar](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json) y [Objetivos de escalabilidad y rendimiento de Table Storage](scalability-targets.md).
 
 ## <a name="checklist"></a>Lista de comprobación
 
@@ -289,5 +289,6 @@ Si va a realizar inserciones por lotes y, después, a recuperar intervalos de en
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Objetivos de escalabilidad y rendimiento de Azure Storage en cuentas de almacenamiento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
+- [Objetivos de escalabilidad y rendimiento para Table Storage](scalability-targets.md)
+- [Destinos de escalabilidad y rendimiento para cuentas de almacenamiento estándar](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
 - [Estado y códigos de error](/rest/api/storageservices/Status-and-Error-Codes2)

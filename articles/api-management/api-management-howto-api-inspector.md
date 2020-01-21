@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b646c64b0ec45a11f99350ff5bd81a89418b2ecd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: fc5e8c7a7aa0d4693d96c3405ec0e180a6d13f8e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072521"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768541"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Depuración de las API con el seguimiento de solicitudes
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 
 ![API inspector](media/api-management-howto-api-inspector/api-inspector001.PNG)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 + Conocer la [terminología de API Management de Azure](api-management-terminology.md).
 + Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
@@ -47,10 +47,12 @@ En este tutorial, aprenderá a:
 4. Seleccione la operación **GetSpeakers**.
 5. Asegúrese de incluir un encabezado HTTP denominado **Ocp-Apim-Trace** con el valor establecido en **true**.
 
-    > [!NOTE]
-    > Si Ocp-Apim-Subscription-Key no se rellena automáticamente, puede recuperar el valor del Portal para desarrolladores y exponer las claves en la página de perfil.
+   > [!NOTE]
+   > * Si Ocp-Apim-Subscription-Key no se rellena automáticamente, puede recuperar el valor del Portal para desarrolladores y exponer las claves en la página de perfil.
+   > * Para realizar un seguimiento cuando se use el encabezado HTTP Apim-Trace, se debe habilitar la opción **Permitir seguimiento** para la clave de suscripción. Para configurar la opción **Permitir seguimiento**, en **Administración de API** en el menú de la izquierda, seleccione **Suscripciones**.
+   >   ![Permitir seguimiento en el panel Suscripciones de Administración de API](media/api-management-howto-api-inspector/allowtracing.png)
 
-6. Haga clic en **"Enviar"** para realizar una llamada API. 
+6. Haga clic en **Enviar** para realizar una llamada API. 
 7. Espere a que se complete la llamada. 
 8. Vaya a la pestaña de **seguimiento** en el **consola de la API**. Puede hacer clic en cualquiera de los siguientes vínculos para saltar a la información de seguimiento detallada: **entrada**, **back-end**, **salida**.
 
@@ -65,7 +67,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Realizar el seguimiento de una llamada

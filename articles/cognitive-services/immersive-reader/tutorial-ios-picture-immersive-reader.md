@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: metan
-ms.openlocfilehash: bdaee97c8c5d7e19076847c5f1f7c07c528c1747
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 48e74f7dd6fa6f2c7fafe10797a301b3d4cc7f1d
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899371"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045241"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Tutorial: Creación de una aplicación iOS que inicia el Lector inmersivo con contenido de una foto (Swift)
 
@@ -26,10 +26,10 @@ En este tutorial, creará una aplicación iOS desde cero e integrará la API Rea
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
-* Un recurso de Lector inmersivo configurado para la autenticación de Azure Active Directory (Azure AD). Siga [estas instrucciones](./azure-active-directory-authentication.md) para realizar la configuración. Al configurar las propiedades del proyecto de ejemplo, necesitará algunos de los valores creados aquí. Guarde la salida de la sesión en un archivo de texto para futuras referencias.
+* Un recurso del Lector inmersivo configurado para la autenticación de Azure Active Directory. Siga [estas instrucciones](./how-to-create-immersive-reader.md) para realizar la configuración. Al configurar las propiedades del proyecto de ejemplo, necesitará algunos de los valores creados aquí. Guarde la salida de la sesión en un archivo de texto para futuras referencias.
 * El uso de este ejemplo requiere una suscripción de Azure a Computer Vision de Cognitive Services. [Cree un recurso de Computer Vision de Cognitive Services en Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
 
 ## <a name="create-an-xcode-project"></a>Creación de un proyecto de Xcode
@@ -73,19 +73,13 @@ Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the reso
 
 En la carpeta principal del proyecto, que contiene el archivo ViewController.swift, cree un archivo de clase Swift denominado Constants.swift. Reemplace la clase por el código siguiente y agregue sus propios valores cuando proceda. Conserve este archivo como un archivo local que solo existe en el equipo y asegúrese de no confirmar este archivo en el control de código fuente, ya que contiene secretos que no deben hacerse públicos. Se recomienda no mantener secretos en la aplicación. En su lugar, se recomienda usar un servicio back-end para obtener el token; así los secretos se pueden mantener fuera de la aplicación y del dispositivo. El punto de conexión de la API de back-end debe estar protegido mediante algún tipo de autenticación (por ejemplo, [OAuth](https://oauth.net/2/)) para evitar que usuarios no autorizados obtengan tokens y los utilicen en el servicio Lector inmersivo y su facturación; este trabajo está fuera del ámbito de este tutorial.
 
-[!code-swift[Constants](~/ImmersiveReaderSdk/iOS/samples/picture-to-immersive-reader-swift/picture-to-immersive-reader-swift/Constants.swift)]
-
 ## <a name="set-up-the-app-to-run-without-a-storyboard"></a>Configuración de la aplicación para que se ejecute sin un guion gráfico
 
 Abra AppDelegate.swift y reemplace el archivo por el siguiente código.
 
-[!code-swift[AppDelegate](~/ImmersiveReaderSdk/iOS/samples/picture-to-immersive-reader-swift/picture-to-immersive-reader-swift/AppDelegate.swift)]
-
 ## <a name="add-functionality-for-taking-and-uploading-photos"></a>Incorporación de funcionalidad para tomar y cargar fotos
 
 Cambie el nombre de ViewController.swift a PictureLaunchViewController.swift y reemplace el archivo por el código siguiente.
-
-[!code-swift[PictureLaunchViewController](~/ImmersiveReaderSdk/iOS/samples/picture-to-immersive-reader-swift/picture-to-immersive-reader-swift/PictureLaunchViewController.swift)]
 
 ## <a name="build-and-run-the-app"></a>Compilación y ejecución de la aplicación
 
@@ -105,4 +99,4 @@ Dentro de la aplicación, haga clic en el botón 'Take Photo’ (Tomar foto) o �
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Explore el [SDK del Lector inmersivo para iOS](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS) y la [Referencia del SDK del Lector inmersivo para iOS](./ios-reference.md).
+* Lea la [referencia del SDK del Lector inmersivo](./reference.md)

@@ -5,22 +5,22 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: daveba
-editor: daveba
+editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2018
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97a89e87dad1e940f30e255a919f3f2cf25f21d7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f99859fb695281324148683fac24c9e7b8463ef5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224245"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977897"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Cosmos DB
 
@@ -34,13 +34,23 @@ En este tutorial se muestra cómo usar una identidad administrada asignada por e
 > * Obtener un token de acceso mediante una identidad administrada asignada por el sistema de la máquina virtual Windows para llamar a Azure Resource Manager
 > * Obtención de las claves de acceso desde Azure Resource Manager para realizar llamadas a Cosmos DB
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
 - [Instalar la versión más reciente de Azure PowerShell](/powershell/azure/install-az-ps)
 
-## <a name="create-a-cosmos-db-account"></a>Creación de una cuenta de Cosmos DB 
+
+## <a name="enable"></a>Habilitar
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## <a name="grant-access"></a>Conceder acceso
+
+
+### <a name="create-a-cosmos-db-account"></a>Creación de una cuenta de Cosmos DB 
 
 Si aún no tiene una, cree una cuenta de Cosmos DB. También puede omitir este paso y usar una cuenta de Cosmos DB existente. 
 
@@ -49,9 +59,9 @@ Si aún no tiene una, cree una cuenta de Cosmos DB. También puede omitir este p
 3. Escriba un **identificador** para la cuenta de Cosmos DB, el cual se utilizará más adelante.  
 4. **API** se debe establecer en "SQL". El enfoque descrito en este tutorial se puede utilizar con los otros tipos de API disponibles, pero los pasos de este tutorial son para la API de SQL.
 5. Asegúrese de que **Suscripción** y **Grupo de recursos** coinciden con los que especificó cuando creó la máquina virtual en el paso anterior.  Seleccione una **Ubicación** en la que Cosmos DB esté disponible.
-6. Haga clic en **Create**(Crear).
+6. Haga clic en **Crear**.
 
-## <a name="create-a-collection-in-the-cosmos-db-account"></a>Creación de una colección en la cuenta de Cosmos DB
+### <a name="create-a-collection"></a>Creación de una colección 
 
 A continuación, agregue una colección de datos en la cuenta de Cosmos DB que podrá consultar en pasos posteriores.
 
@@ -59,9 +69,10 @@ A continuación, agregue una colección de datos en la cuenta de Cosmos DB que p
 2. En la pestaña **Información general**, haga clic en el botón **+/Agregar colección** y aparecerá un panel "Agregar colección".
 3. Proporcione para la colección un identificador de base de datos, el identificador de la colección, seleccione una capacidad de almacenamiento, escriba una clave de partición, escriba un valor de rendimiento y, luego, haga clic en **Aceptar**.  Para este tutorial, es suficiente con utilizar "Test" como identificador de la base de datos e identificador de la colección, seleccionar una capacidad de almacenamiento fijo y el rendimiento más bajo (400 RU/s).  
 
-## <a name="grant-windows-vm-system-assigned-managed-identity-access-to-the-cosmos-db-account-access-keys"></a>Conceder acceso a la identidad administrada asignada por el sistema en la máquina virtual Windows a las claves de acceso de la cuenta de Cosmos DB
 
-Cosmos DB no admite la autenticación de Azure AD de forma nativa. No obstante, puede usar una identidad administrada asignada por el sistema para recuperar una clave de acceso de Cosmos DB desde Resource Manager y usar dicha clave para acceder a Cosmos DB. En este paso, va a conceder a la identidad administrada asignada por el sistema de la máquina virtual Windows acceso a las claves de la cuenta de Cosmos DB.
+### <a name="grant-access-to-the-cosmos-db-account-access-keys"></a>Concesión de acceso a las claves de acceso de la cuenta de Cosmos DB
+
+En esta sección se muestra cómo conceder acceso a la identidad administrada asignada por el sistema en la máquina virtual Windows a las claves de acceso de la cuenta de Cosmos DB. Cosmos DB no admite la autenticación de Azure AD de forma nativa. No obstante, puede usar una identidad administrada asignada por el sistema para recuperar una clave de acceso de Cosmos DB desde Resource Manager y usar dicha clave para acceder a Cosmos DB. En este paso, va a conceder a la identidad administrada asignada por el sistema de la máquina virtual Windows acceso a las claves de la cuenta de Cosmos DB.
 
 Para conceder a la identidad administrada asignada por el sistema de la máquina virtual Windows acceso a la cuenta de Cosmos DB en Azure Resource Manager mediante PowerShell, actualice los valores de `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` y `<COSMOS DB ACCOUNT NAME>` para su entorno. Cosmos DB admite dos niveles de granularidad en las claves de acceso: acceso de lectura y escritura a la cuenta y acceso de solo lectura a la cuenta.  Asigne el rol `DocumentDB Account Contributor` si desea obtener claves de lectura y escritura para la cuenta o bien asigne el rol `Cosmos DB Account Reader Role` si desea obtener claves de solo lectura para la cuenta.  Para este tutorial, asigne `Cosmos DB Account Reader Role`:
 
@@ -69,11 +80,15 @@ Para conceder a la identidad administrada asignada por el sistema de la máquina
 $spID = (Get-AzVM -ResourceGroupName myRG -Name myVM).identity.principalid
 New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Reader Role" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>"
 ```
-## <a name="get-an-access-token-using-the-windows-vm-system-assigned-managed-identity-to-call-azure-resource-manager"></a>Obtener un token de acceso mediante una identidad administrada asignada por el sistema de la máquina virtual Windows para llamar a Azure Resource Manager
+## <a name="access-data"></a>Acceso a los datos
 
-En el resto del tutorial, vamos a trabajar desde la máquina virtual que se creó anteriormente. 
+En esta sección se muestra cómo llamar a Azure Resource Manager con un token de acceso para la identidad administrada asignada por el sistema de la máquina virtual Windows. En el resto del tutorial, vamos a trabajar desde la máquina virtual que se creó anteriormente. 
 
-Necesitará instalar la versión más reciente de la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en la máquina virtual Windows.
+Tiene que instalar la versión más reciente de la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en la máquina virtual Windows.
+
+
+
+### <a name="get-an-access-token"></a>Obtención de un token de acceso
 
 1. En Azure Portal, vaya a **Máquinas virtuales**, vaya a la máquina virtual Windows y, a continuación, desde la página **Información general**, haga clic en **Conectar** en la parte superior. 
 2. Escriba su **nombre de usuario** y **contraseña** que agregó cuando creó la máquina virtual Windows. 
@@ -98,9 +113,9 @@ Necesitará instalar la versión más reciente de la [CLI de Azure](https://docs
    $ArmToken = $content.access_token
    ```
 
-## <a name="get-access-keys-from-azure-resource-manager-to-make-cosmos-db-calls"></a>Obtención de las claves de acceso desde Azure Resource Manager para realizar llamadas a Cosmos DB
+### <a name="get-access-keys"></a>Obtención de las claves de acceso 
 
-Ahora, utilice PowerShell para llamar a Resource Manager mediante el token de acceso que se recuperó en la sección anterior, para recuperar la clave de acceso de la cuenta de Cosmos DB. Una vez que tenemos la clave de acceso, podemos realizar consultas en Cosmos DB. Asegúrese de reemplazar los valores de los parámetros `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` y `<COSMOS DB ACCOUNT NAME>` con sus propios valores. Reemplace el valor de `<ACCESS TOKEN>` por el token de acceso que se recuperó anteriormente.  Si quiere recuperar claves de lectura y escritura, use el tipo de operación de claves `listKeys`.  Si quiere recuperar claves de solo lectura, use el tipo de operación de claves `readonlykeys`:
+En esta sección se muestra cómo obtener las claves de acceso desde Azure Resource Manager para realizar llamadas a Cosmos DB. Ahora, utilice PowerShell para llamar a Resource Manager mediante el token de acceso que se recuperó en la sección anterior, para recuperar la clave de acceso de la cuenta de Cosmos DB. Una vez que tenemos la clave de acceso, podemos realizar consultas en Cosmos DB. Asegúrese de reemplazar los valores de los parámetros `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` y `<COSMOS DB ACCOUNT NAME>` con sus propios valores. Reemplace el valor de `<ACCESS TOKEN>` por el token de acceso que se recuperó anteriormente.  Si quiere recuperar claves de lectura y escritura, use el tipo de operación de claves `listKeys`.  Si quiere recuperar claves de solo lectura, use el tipo de operación de claves `readonlykeys`:
 
 ```powershell
 Invoke-WebRequest -Uri 'https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>/listKeys/?api-version=2016-03-31' -Method POST -Headers @{Authorization="Bearer $ARMToken"}
@@ -176,6 +191,13 @@ Este comando de la CLI devuelve detalles acerca de la colección:
   }
 }
 ```
+
+
+## <a name="disable"></a>Disable
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

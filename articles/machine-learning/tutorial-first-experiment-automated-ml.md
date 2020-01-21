@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: c13b2a24147c542e36b78e8ae17af8e85414cd74
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 93cbf8e9e60ef48e1ff3516dd4e9e123f70e0f42
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532478"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982433"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: Creación del primer modelo de clasificación con el aprendizaje automático automatizado
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -138,9 +138,9 @@ Complete los siguientes pasos de configuración y ejecución del experimento en 
         Validación | Elija un tipo de validación cruzada y un número de pruebas.|Tipo de validación:<br>validación cruzada de&nbsp;k iteraciones&nbsp; <br> <br> Número de validaciones: 2
         Simultaneidad| Número máximo de iteraciones paralelas ejecutadas y núcleos usados por iteración| Máximo de iteraciones&nbsp;simultáneas&nbsp;: 5<br> Máximo de núcleos&nbsp;por&nbsp;iteración&nbsp;: None
         
-        Seleccione **Aceptar**.
+        Seleccione **Guardar**.
 
-1. Para ejecutar el experimento, seleccione **Create** (Crear). La pantalla **Run Detail** (Detalles de ejecución) se abrirá con **Run status** (Estado de ejecución) al comenzar la preparación del experimento.
+1. Para ejecutar el experimento, seleccione **Finalizar**. La pantalla **Run Detail** (Detalles de ejecución) se abrirá con **Run status** (Estado de ejecución) al comenzar la preparación del experimento.
 
 >[!IMPORTANT]
 > La preparación necesita de **10 a 15 minutos** en preparar la ejecución del experimento.
@@ -165,7 +165,7 @@ El aprendizaje automático automatizado en Azure Machine Learning Studio permite
 
 En este experimento, la implementación em un servicio web significa que la institución financiera tiene ahora una solución web iterativa y escalable para identificar posibles clientes de depósitos a plazo fijo. 
 
-Una vez finalizada la ejecución, vuelva a la página **Run Detail** (Detalles de ejecución) y seleccione la pestaña **Models** (Modelos). Seleccione Refresh (Actualizar). 
+Una vez finalizada la ejecución, vuelva a la página **Run Detail** (Detalles de ejecución) y seleccione la pestaña **Models** (Modelos). Seleccione **Refresh** (Actualizar). 
 
 En el contexto de este experimento, **VotingEnsemble** se considera el mejor modelo, según la métrica **AUC_weighted**.  Se implementa este modelo, pero se recomienda que la implementación tarda unos 20 minutos en completarse. El proceso de implementación conlleva varios pasos, como el registro del modelo, la generación de recursos y su configuración para el servicio web.
 

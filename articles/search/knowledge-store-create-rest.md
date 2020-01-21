@@ -8,19 +8,19 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 12/30/2019
-ms.openlocfilehash: 4d9810b9075bc3049758e03ba8376621661b79ba
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 7dd1f07d44bd3b71bb83becee5405cf5c100460c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563231"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754090"
 ---
-# <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>Creación de un almacén de conocimiento de Azure Cognitive Search mediante REST
+# <a name="create-a-knowledge-store-using-rest-and-postman"></a>Creación de un almacén de conocimiento mediante REST y Postman
 
 > [!IMPORTANT] 
 > El almacén de conocimiento está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). En la [API REST versión 2019-05-06-Preview](search-api-preview.md) se proporcionan características en versión preliminar. Actualmente hay compatibilidad limitada con el portal y no la hay con el SDK de .NET.
 
-La característica de almacén de conocimiento de Azure Cognitive Search conserva la salida de una canalización de enriquecimiento de inteligencia artificial para su posterior análisis o procesamiento de nivel inferior. Una canalización enriquecida de inteligencia artificial acepta archivos de imagen o de texto no estructurados, los indexa mediante Azure Cognitive Search, aplica los enriquecimientos de inteligencia artificial de Azure Cognitive Services (como el análisis de imágenes y el procesamiento de lenguaje natural) y guarda los resultados en un almacén de conocimiento en Azure Storage. Puede usar herramientas como Power BI o el Explorador de Storage de Azure Portal para explorar el almacén de conocimiento.
+Un almacén de conocimiento contiene la salida de una canalización de enriquecimiento de Azure Cognitive Search para su posterior análisis o procesamiento de nivel inferior. Una canalización enriquecida de inteligencia artificial acepta archivos de imagen o de texto no estructurados, los indexa mediante Azure Cognitive Search, aplica los enriquecimientos de inteligencia artificial de Cognitive Services (como el análisis de imágenes y el procesamiento de lenguaje natural) y guarda los resultados en un almacén de conocimiento en Azure Storage. Puede usar herramientas como Power BI o el Explorador de Storage de Azure Portal para explorar el almacén de conocimiento.
 
 En este artículo se usa la interfaz de API REST para ingerir, indexar y aplicar los enriquecimientos de inteligencia artificial a un conjunto de reseñas sobre hoteles. Las reseñas sobre hoteles se importan en Azure Blob Storage. Los resultados se guardan como almacén de información en Azure Table Storage.
 
@@ -43,7 +43,7 @@ Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en
 
    Elija el tipo de cuenta **StorageV2 (uso general V2)** .
 
-1. Abra las páginas de Blob service y cree un contenedor llamado *hotel-reviews*.
+1. Abra las páginas de Blob service y cree un contenedor denominado *hotel-reviews*.
 
 1. Haga clic en **Cargar**.
 

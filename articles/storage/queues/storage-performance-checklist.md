@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: 55bcefc19723dc275cc8b421d5620c5dfe2c96e7
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: eb1821537e6e25b05dfdca3107729eecf4c6e1bf
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614970"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750501"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Lista de comprobación de rendimiento y escalabilidad para Queue Storage
 
 Microsoft ha desarrollado varios procedimientos de eficacia probada para desarrollar aplicaciones de alto rendimiento con Queue Storage. Esta lista de comprobación identifica los procedimientos clave que pueden seguir los desarrolladores para optimizar su rendimiento. Tenga presente estos procedimientos tanto para diseñar su aplicación como a lo largo de todo el proceso.
 
-Azure Storage tiene objetivos de escalabilidad y rendimiento en lo que se refiere a capacidad, tasa de transacciones y ancho de banda. Para más información acerca de los objetivos de escalabilidad, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage en cuentas de almacenamiento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+Azure Storage tiene objetivos de escalabilidad y rendimiento en lo que se refiere a capacidad, tasa de transacciones y ancho de banda. Para más información sobre los objetivos de escalabilidad de Azure Storage, consulte [Objetivos de escalabilidad y rendimiento para cuentas de almacenamiento estándar](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) y [Objetivos de escalabilidad y rendimiento de Queue Storage](scalability-targets.md).
 
 ## <a name="checklist"></a>Lista de comprobación
 
@@ -194,5 +194,6 @@ Use colas para que la arquitectura de la aplicación sea escalable. A continuaci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Objetivos de escalabilidad y rendimiento de Azure Storage en cuentas de almacenamiento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+- [Objetivos de escalabilidad y rendimiento para Queue Storage](scalability-targets.md)
+- [Destinos de escalabilidad y rendimiento para cuentas de almacenamiento estándar](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [Estado y códigos de error](/rest/api/storageservices/Status-and-Error-Codes2)

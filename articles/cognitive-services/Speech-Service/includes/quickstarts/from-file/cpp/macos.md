@@ -1,23 +1,22 @@
 ---
 title: 'Inicio rápido: Reconocimiento de la voz de un archivo de audio en C++ (macOS): servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a reconocer la voz en C++ para macOS mediante el SDK de Voz.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
+ms.topic: include
+ms.date: 01/14/2020
 ms.author: wolfma
-ms.openlocfilehash: 5cd7173d2df6f08b79d544a3a371039c24d5882a
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 4a043c246cc859706e062cdc11d30cbd657bc6b2
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819262"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76037617"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, compruebe lo siguiente:
 
@@ -32,8 +31,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 1. Cree un archivo de código fuente C++ denominado `helloworld.cpp` y pegue el siguiente código en él.
 
-   ````C++
-
+   ```cpp
     // Creates an instance of a speech config with specified subscription key and service region.
     // Replace with your own subscription key and service region (e.g., "westus").
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -53,28 +51,27 @@ Antes de comenzar, compruebe lo siguiente:
     auto result = recognizer->RecognizeOnceAsync().get();
 
     // Checks result.
-    if (result->Reason == ResultReason::RecognizedSpeech)
+    switch (result->Reason)
     {
-        cout << "RECOGNIZED: Text=" << result->Text << std::endl;
-    }
-    else if (result->Reason == ResultReason::NoMatch)
-    {
-        cout << "NOMATCH: Speech could not be recognized." << std::endl;
-    }
-    else if (result->Reason == ResultReason::Canceled)
-    {
-        auto cancellation = CancellationDetails::FromResult(result);
-        cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
+        case ResultReason::RecognizedSpeech:
+            cout << "RECOGNIZED: Text=" << result->Text << std::endl;
+            break;
+        case ResultReason::NoMatch:
+            cout << "NOMATCH: Speech could not be recognized." << std::endl;
+            break;
+        case ResultReason::Canceled:
+            auto cancellation = CancellationDetails::FromResult(result);
+            cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
 
-        if (cancellation->Reason == CancellationReason::Error)
-        {
-            cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
-            cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
-            cout << "CANCELED: Did you update the subscription info?" << std::endl;
-        }
+            if (cancellation->Reason == CancellationReason::Error)
+            {
+                cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
+                cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
+                cout << "CANCELED: Did you update the subscription info?" << std::endl;
+            }
+            break;
     }
-
-   ````
+   ```
 
 1. En este nuevo archivo, reemplace la cadena `YourSubscriptionKey` por su clave de suscripción del servicio Voz.
 
@@ -96,7 +93,7 @@ Antes de comenzar, compruebe lo siguiente:
   g++ helloworld.cpp -o helloworld --std=c++14 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
   ```
 
-## <a name="run-the-app"></a>Ejecución de la aplicación
+## <a name="run-the-app"></a>Ejecución la aplicación
 
 1. Configuración de la ruta de acceso de la biblioteca del cargador para que apunte a la biblioteca del SDK de Voz.
 

@@ -7,18 +7,21 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 2d08180d40233c0ab990bc700f0412d11647d5f1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dfdde1ae981dcd2d539dec3667e44e90cef4d1c8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349953"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748033"
 ---
 # <a name="azure-storage-samples-using-java"></a>Ejemplos de Azure Storage con Java
 
 En la tabla siguiente se proporciona información general sobre el repositorio de ejemplos y los escenarios que abarca cada ejemplo. Haga clic en los vínculos para ver el código de ejemplo correspondiente en GitHub.
 
-## <a name="blob-samples"></a>Ejemplos de blob
+> [!NOTE]
+> En estos ejemplos se usa la biblioteca Java v11 de Azure Storage. Para ver el código de v12, consulte [samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob) en el repositorio de GitHub.
+
+## <a name="blob-samples-v11"></a>Ejemplos de blob (V11)
 
 | **Escenario** | **Código de ejemplo** |
 |--------------|-----------------|
@@ -39,7 +42,7 @@ En la tabla siguiente se proporciona información general sobre el repositorio d
 | Propiedades de servicio | [Getting Started with Azure Blob Service in Java](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java) (Introducción a Blob service de Azure en Java) |
 | Instantánea de blob | [Getting Started with Azure Blob Service in Java](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) (Introducción a Blob service de Azure en Java) |
 
-## <a name="file-samples"></a>Ejemplos de archivo
+## <a name="file-samples-v11"></a>Ejemplos de archivo (v11)
 
 | **Escenario** | **Código de ejemplo** |
 |--------------|-----------------|
@@ -53,7 +56,7 @@ En la tabla siguiente se proporciona información general sobre el repositorio d
 | Recursos compartidos de lista | [Getting Started with Azure File Service in Java](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java) (Introducción a Azure File service en Java) |
 | Propiedades/metadatos/estadísticas de recurso compartido | [Getting Started with Azure File Service in Java](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java) (Introducción a Azure File service en Java) |
 
-## <a name="queue-samples"></a>Ejemplos de cola
+## <a name="queue-samples-v11"></a>Ejemplos de cola (v11)
 
 | **Escenario** | **Código de ejemplo** |
 |--------------|-----------------|
@@ -66,7 +69,7 @@ En la tabla siguiente se proporciona información general sobre el repositorio d
 | Propiedades de Queue Service | [Introducción al servicio Cola de Azure en .NET](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java) |
 | Actualizar mensaje | [Introducción al servicio Cola de Azure en .NET](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java)
 |
-## <a name="table-samples"></a>Ejemplos de tabla
+## <a name="table-samples-v11"></a>Ejemplos de tabla (v11)
 
 | **Escenario** | **Código de ejemplo** |
 |--------------|-----------------|

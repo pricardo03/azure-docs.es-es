@@ -56,7 +56,7 @@ Algunos ejemplos de actividad de datos que son perfectos candidatos para excluir
 
 ## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Ejemplo 1: Exclusión del disco de la base de datos tempdb de SQL Server
 
-Veamos cómo controlar la exclusión de discos, la conmutación por error y la conmutación por recuperación de una máquina virtual SQL Server Windows de origen (**SalesDB***) donde queremos excluir tempdb. 
+Veamos cómo controlar la exclusión de discos, la conmutación por error y la conmutación por recuperación de una máquina virtual SQL Server Windows de origen (**SalesDB** *) donde queremos excluir tempdb. 
 
 ### <a name="exclude-disks-from-replication"></a>Excluir discos de la replicación
 

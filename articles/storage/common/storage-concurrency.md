@@ -252,7 +252,7 @@ En la siguiente tabla se resume cómo las operaciones de entidad de tabla usan v
 | Insert or Replace Entity |Sí |No |
 | Insert or Merge Entity |Sí |No |
 
-Tenga en cuenta que las operaciones **Insert or Replace Entity** e **Insert or Merge Entity***no* realizan ninguna comprobación de simultaneidad porque no envían un valor ETag a Table service.  
+Tenga en cuenta que las operaciones **Insert or Replace Entity** e **Insert or Merge Entity** *no* realizan ninguna comprobación de simultaneidad porque no envían un valor ETag a Table service.  
 
 En general, los desarrolladores que usan tablas deben basarse en simultaneidad optimista cuando desarrollan aplicaciones escalables. Si se necesita el bloqueo pesimista, un enfoque que los desarrolladores pueden usar cuando obtienen acceso a tablas es asignar un blob designado para cada tabla e intentar llevar a cabo una concesión en el blob antes de realizar operaciones en la tabla. Este enfoque no requiere que la aplicación garantice que todas las rutas de acceso a los datos obtienen la concesión antes de realizar operaciones en la tabla. También debe tener en cuenta que el tiempo mínimo de concesión es 15 segundos, lo que requiere una consideración cuidadosa para escalabilidad.  
 

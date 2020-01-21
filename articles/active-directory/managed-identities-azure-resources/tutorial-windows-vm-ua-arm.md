@@ -5,22 +5,22 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: daveba
-editor: daveba
+editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2018
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0999492f0d9c7d28da3ac896792fb2d7b898fd18
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ec9956f0c5d834633646938da19f03e5467a9f6d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224217"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977852"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Tutorial: Uso de identidades administradas asignadas por el usuario en máquinas virtuales Windows para acceder a Azure Resource Manager
 
@@ -39,7 +39,7 @@ Aprenderá a:
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -54,9 +54,18 @@ Aprenderá a:
 - Ejecutar `Install-Module -Name PowerShellGet -AllowPrerelease` para obtener la versión preliminar del módulo `PowerShellGet` (es posible que deba usar `Exit` para salir de la sesión actual de PowerShell después de ejecutar este comando para instalar el módulo `Az.ManagedServiceIdentity`).
 - Ejecutar `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease` para instalar la versión preliminar del módulo `Az.ManagedServiceIdentity` con el fin de realizar las operaciones de identidad asignadas por el usuario que se indican en este artículo.
 
-## <a name="create-a-user-assigned-identity"></a>Creación de una identidad asignada por el usuario
 
-Las identidades asignadas por el usuario se crean como recursos de Azure independientes. Mediante [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity), Azure crea una identidad en el inquilino de Azure AD que puede asignarse a una o varias instancias de servicio de Azure.
+## <a name="enable"></a>Habilitar
+
+Para un escenario basado en una identidad asignada por el usuario, debe realizar los siguientes pasos:
+
+- Creación de una identidad
+ 
+- Asignación de la identidad recién creada
+
+### <a name="create-identity"></a>Creación de la identidad
+
+En esta sección se muestra cómo crear una identidad asignada por el usuario. Las identidades asignadas por el usuario se crean como recursos de Azure independientes. Mediante [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity), Azure crea una identidad en el inquilino de Azure AD que puede asignarse a una o varias instancias de servicio de Azure.
 
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -80,18 +89,18 @@ Type: Microsoft.ManagedIdentity/userAssignedIdentities
 }
 ```
 
-## <a name="assign-the-user-assigned-identity-to-a-windows-vm"></a>Asociación de una identidad asignada por el usuario con una máquina virtual Windows
+### <a name="assign-identity"></a>Asignación de la identidad
 
-Los clientes pueden usar las identidades asignadas por el usuario en diversos recursos de Azure. Use los comandos siguientes para asociar la identidad asignada por el usuario con una única máquina virtual. Use la propiedad `Id` devuelta en el paso anterior para el parámetro `-IdentityID`.
+En esta sección se muestra cómo asignar una identidad asignada por el usuario a una máquina virtual Windows. Los clientes pueden usar las identidades asignadas por el usuario en diversos recursos de Azure. Use los comandos siguientes para asociar la identidad asignada por el usuario con una única máquina virtual. Use la propiedad `Id` devuelta en el paso anterior para el parámetro `-IdentityID`.
 
 ```azurepowershell-interactive
 $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzVM -ResourceGroupName TestRG -VM $vm -IdentityType "UserAssigned" -IdentityID "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
 ```
 
-## <a name="grant-your-user-assigned-identity-access-to-a-resource-group-in-azure-resource-manager"></a>Concesión a la identidad asignada por el usuario de acceso a un grupo de recursos de Azure Resource Manager 
+## <a name="grant-access"></a>Conceder acceso 
 
-Managed Identities for Azure Resources dispone de identidades que el código puede utilizar para solicitar tokens de acceso que le permitan autenticarse en las API de recursos compatibles con la autenticación de Azure AD. En este tutorial, el código accederá a la API de Azure Resource Manager. 
+En esta sección se muestra cómo conceder a la identidad asignada por el usuario el acceso a un grupo de recursos de Azure Resource Manager. Managed Identities for Azure Resources dispone de identidades que el código puede utilizar para solicitar tokens de acceso que le permitan autenticarse en las API de recursos compatibles con la autenticación de Azure AD. En este tutorial, el código accederá a la API de Azure Resource Manager. 
 
 Antes de que el código pueda acceder a la API, debe conceder a la identidad acceso a un recurso en Azure Resource Manager. En este caso, se trata del grupo de recursos que contiene la máquina virtual. Actualice el valor de `<SUBSCRIPTION ID>` según corresponda en su entorno.
 
@@ -114,7 +123,9 @@ ObjectType: ServicePrincipal
 CanDelegate: False
 ```
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>Obtenga un token de acceso con la identidad de la máquina virtual y úselo para llamar a Resource Manager 
+## <a name="access-data"></a>Acceso a los datos
+
+### <a name="get-an-access-token"></a>Obtención de un token de acceso 
 
 En el resto del tutorial, trabajará desde la máquina virtual que ha creado anteriormente.
 
@@ -126,7 +137,7 @@ En el resto del tutorial, trabajará desde la máquina virtual que ha creado ant
 
 4. Ahora que ha creado una **conexión a Escritorio remoto** con la máquina virtual, abra **PowerShell** en la sesión remota.
 
-5. Utilizando `Invoke-WebRequest` de PowerShell, realice una solicitud al punto de conexión local de Managed Identities for Azure Resources para obtener un token de acceso de Azure Resource Manager.  El valor `client_id` es el valor que se devuelve al [crear la identidad administrada asignada por el usuario](#create-a-user-assigned-identity).
+5. Utilizando `Invoke-WebRequest` de PowerShell, realice una solicitud al punto de conexión local de Managed Identities for Azure Resources para obtener un token de acceso de Azure Resource Manager.  `client_id` es el valor que se devuelve al crear la identidad administrada asignada por el usuario.
 
     ```azurepowershell
     $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=af825a31-b0e0-471f-baea-96de555632f9&resource=https://management.azure.com/' -Method GET -Headers @{Metadata="true"}
@@ -134,7 +145,7 @@ En el resto del tutorial, trabajará desde la máquina virtual que ha creado ant
     $ArmToken = $content.access_token
     ```
 
-## <a name="read-the-properties-of-a-resource-group"></a>Leer las propiedades de un grupo de recursos
+### <a name="read-properties"></a>Lectura de las propiedades
 
 Use el token de acceso que ha recuperado en el paso anterior para acceder a Azure Resource Manager y lea las propiedades del grupo de recursos para el que ha concedido acceso a la identidad asignada por el usuario. Reemplace `<SUBSCRIPTION ID>` con el identificador de la suscripción de su entorno.
 

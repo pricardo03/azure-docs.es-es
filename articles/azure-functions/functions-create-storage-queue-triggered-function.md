@@ -5,12 +5,12 @@ ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 3f4e9f8a607856e3de92a4824a4221071f3c02a4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3d4cfc40f1849ecd2745b1d662973c7f64a0a60c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227139"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769258"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Crear una función desencadenada por Azure Queue Storage
 
@@ -18,11 +18,11 @@ Obtenga información sobre cómo crear una función que se desencadena cuando se
 
 ![Vea el mensaje en los registros.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Descargue e instale el [Explorador de Microsoft Azure Storage](https://storageexplorer.com/).
 
-- Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+- Suscripción a Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="create-an-azure-function-app"></a>Creación de una Function App de Azure
 
@@ -46,7 +46,7 @@ Después, cree una función en la nueva Function App.
 
 1. En el campo de búsqueda, escriba `queue` y, a continuación, elija la plantilla **Desencadenador de cola**.
 
-1. Si se le pide, seleccione **Instalar** para instalar la extensión de Azure Storage en cualquiera de las dependencias de la aplicación de función. Una vez finalizada correctamente la instalación, seleccione **Continuar**.
+1. Si se le solicita, seleccione **Instalar** para instalar la extensión de Azure Storage y cualquiera de las dependencias de la aplicación de funciones. Una vez finalizada correctamente la instalación, seleccione **Continuar**.
 
     ![Instalación de extensiones de enlace](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
 
@@ -58,7 +58,7 @@ Después, cree una función en la nueva Function App.
     |---|---|---|
     | **Nombre** | Único en la Function App | Nombre de la función desencadenada por la cola. |
     | **Nombre de la cola**   | myqueue-items    | Nombre de la cola a la que se va a conectar en la cuenta de almacenamiento. |
-    | **Conexión de cuenta de Storage** | AzureWebJobStorage | Puede usar la conexión de cuenta de almacenamiento que ya usa la Function App o crear una nueva.  |    
+    | **Conexión de la cuenta de almacenamiento** | AzureWebJobsStorage | Puede usar la conexión de cuenta de almacenamiento que ya usa la Function App o crear una nueva.  |    
 
 1. Haga clic en **Crear** para crear la función.
 

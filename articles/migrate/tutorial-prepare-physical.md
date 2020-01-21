@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 363549662a17a87513c8426347909142ee405cae
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: f81f47349610cd72489df305ccf544c8346cb9b3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196398"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028672"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparación de la evaluación y migración de servidores físicos a Azure
 
@@ -95,18 +95,18 @@ Para preparar la valoración de los servidores físicos, tiene que comprobar su 
 
 ### <a name="verify-physical-server-settings"></a>Comprobación de la configuración de los servidores físicos
 
-1. Compruebe los [requisitos de los servidores físicos](migrate-support-matrix-physical.md#assessment-physical-server-requirements) para la valoración de los servidores.
-2. Asegúrese de que los [puertos necesarios](migrate-support-matrix-physical.md#assessment-port-requirements) están abiertos en los servidores físicos.
+1. Compruebe los [requisitos de los servidores físicos](migrate-support-matrix-physical.md#physical-server-requirements) para la valoración de los servidores.
+2. Asegúrese de que los [puertos necesarios](migrate-support-matrix-physical.md#port-access) están abiertos en los servidores físicos.
 
 
 ### <a name="verify-appliance-settings"></a>Comprobación de la configuración del dispositivo
 
 Antes de configurar el dispositivo de Azure Migrate y comenzar la evaluación en el siguiente tutorial, prepare la implementación del dispositivo.
 
-1. [Compruebe](migrate-support-matrix-physical.md#assessment-appliance-requirements) los requisitos del dispositivo.
-2. [Revise](migrate-support-matrix-physical.md#assessment-appliance-url-access) las direcciones URL de Azure a las que tendrá acceso el dispositivo.
-3. Revise los datos que el dispositivo va a recopilar durante la detección y la evaluación.
-4. [Tenga en cuenta](migrate-support-matrix-physical.md#assessment-port-requirements) los requisitos de acceso a puertos del dispositivo.
+1. [Compruebe](migrate-appliance.md#appliance---physical) los requisitos del dispositivo para los servidores físicos.
+2. [Revise](migrate-appliance.md#url-access) las direcciones URL de Azure a las que tendrá acceso el dispositivo.
+3. [Revise](migrate-appliance.md#collected-data---vmware) lo que el dispositivo va a recopilar durante la detección y la evaluación.
+4. [Consulte](migrate-support-matrix-physical.md#port-access) los requisitos de acceso a los puertos para la evaluación del servidor físico.
 
 
 ### <a name="set-up-an-account-for-physical-server-discovery"></a>Configuración de una cuenta para la detección de servidores físicos
@@ -114,7 +114,16 @@ Antes de configurar el dispositivo de Azure Migrate y comenzar la evaluación en
 Azure Migrate necesita permisos para detectar los servidores en el entorno local.
 
 - **Windows:** configure una cuenta de usuario local en todos los servidores de Windows que desee incluir en la detección. Es necesario agregar la cuenta de usuario a los grupos siguientes: - Usuarios de administración remota       - Usuarios de Monitor de rendimiento       - Usuarios de Registro de rendimiento
-- **Linux:** necesita una cuenta raíz en los servidores Linux que desee detectar.
+- **Linux:** Necesita una cuenta raíz en los servidores Linux que desee detectar.
+
+## <a name="prepare-for-physical-server-migration"></a>Preparación para la migración de servidores físicos
+
+Revise los requisitos para la migración de servidores físicos.
+
+- [Revise](migrate-support-matrix-physical-migration.md#physical-server-requirements) requisitos del servidor físico para la migración.
+- Azure Migrate: Server Migration utiliza un servidor de replicación para la migración del servidor físico:
+    - [Revise](migrate-replication-appliance.md#appliance-requirements) los requisitos de implementación para el dispositivo de replicación y las [opciones](migrate-replication-appliance.md#mysql-installation) para instalar MySQL en el dispositivo.
+    - Revise los requisitos de acceso a la [dirección URL](migrate-replication-appliance.md#url-access) y los [puertos] (migrate-replication-appliance.md#port-access) para el dispositivo de replicación.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,6 +1,6 @@
 ---
-title: Información general de Azure Maps | Microsoft Docs
-description: Introducción a Azure Maps
+title: Introducción | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre los servicios y las funcionalidades de Microsoft Azure Maps y cómo usarlos en sus aplicaciones.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/04/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: dbcb0e87159efc7cc33101cdd5eee55afbdf3c10
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 353850cacb06dcc8a0db1b957114db314d7002a3
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516637"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911850"
 ---
 # <a name="what-is-azure-maps"></a>¿Qué es Azure Maps?
 

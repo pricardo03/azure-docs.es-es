@@ -8,14 +8,14 @@ ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: spelluru
-ms.openlocfilehash: ded2c83bc648e509c8cf00236cdf453b9c61af53
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 39087b189c424866fffcc3ea8723c712883f288c
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720561"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940728"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-nodejs"></a>Inicio rápido: Envío o recepción de eventos en Event Hubs mediante Node.js
 
@@ -23,10 +23,13 @@ Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de inge
 
 En este tutorial se describe cómo crear aplicaciones de Node.js para enviar o recibir eventos en un centro de eventos.
 
+> [!IMPORTANT]
+> Este inicio rápido usa la versión 2 del SDK del script de Java para Azure Event Hubs. Si no está familiarizado con Azure Event Hubs, use la versión 5 del SDK del script de Java. Para ver un inicio rápido que use la versión 5 del SDK del script de Java, consulte [este artículo](get-started-node-send-v2.md). Si tiene que migrar el código existente de la versión 2 a la versión 5, consulte la [guía de migración](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md).
+
 > [!NOTE]
 > Puede descargar esta guía de inicio rápido como un ejemplo desde [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client), reemplazar las cadenas `EventHubConnectionString` y `EventHubName` por los valores del centro de eventos, y ejecutarlo. También puede seguir los pasos de este tutorial para crear el suyo propio.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
@@ -37,10 +40,10 @@ Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
 
 ### <a name="install-npm-package"></a>Instalación del paquete de npm
-Para instalar el [paquete de npm para Event Hubs](https://www.npmjs.com/package/@azure/event-hubs), abra un símbolo del sistema que tenga `npm` en la ruta de acceso, cambie el directorio a la carpeta en la que quiere tener los ejemplos y ejecute este comando.
+Para instalar el [paquete de npm para Event Hubs](https://www.npmjs.com/package/@azure/event-hubs/v/2.1.0), abra un símbolo del sistema que tenga `npm` en la ruta de acceso, cambie el directorio a la carpeta en la que quiere tener los ejemplos y ejecute este comando.
 
 ```shell
-npm install @azure/event-hubs
+npm install @azure/event-hubs@2
 ```
 
 Para instalar el [paquete de npm para el Host de procesador de eventos](https://www.npmjs.com/package/@azure/event-processor-host), ejecute el comando siguiente.
@@ -57,7 +60,7 @@ En esta sección se muestra cómo crear una aplicación de Node.js que envíe ev
 2. Cree un archivo denominado `send.js` y pegue en él el código siguiente. Obtenga la cadena de conexión para el espacio de nombres del centro de eventos siguiendo las instrucciones del artículo: [Obtenga la cadena de conexión](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). 
 
     ```javascript
-    const { EventHubClient } = require("@azure/event-hubs");
+    const { EventHubClient } = require("@azure/event-hubs@2");
 
     // Connection string - primary key of the Event Hubs namespace. 
     // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -95,7 +98,7 @@ En esta sección se muestra cómo crear una aplicación de Node.js que recibe ev
 1. Abra el editor que prefiera, como [Visual Studio Code](https://code.visualstudio.com). 
 2. Cree un archivo denominado `receive.js` y pegue en él el código siguiente.
     ```javascript
-    const { EventHubClient, delay } = require("@azure/event-hubs");
+    const { EventHubClient, delay } = require("@azure/event-hubs@2");
 
     // Connection string - primary key of the Event Hubs namespace. 
     // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

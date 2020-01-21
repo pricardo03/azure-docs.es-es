@@ -5,20 +5,20 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: b17bec5663cc8e9d199ad79bb5282b052b8c0182
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 74b0f83500903170616034d9d18d8ad31fa7065c
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670389"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834314"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configuración de una aplicación de Ruby en Linux para Azure App Service
 
-En este artículo se describe la forma en que [Azure App Service](app-service-linux-intro.md) ejecuta aplicaciones de Ruby y cómo se puede personalizar el comportamiento de App Service cuando es necesario. Las aplicaciones de Ruby deben implementarse con todos los módulos [pip](https://pypi.org/project/pip/) requeridos.
+En este artículo se describe la forma en que [Azure App Service](app-service-linux-intro.md) ejecuta aplicaciones de Ruby y cómo se puede personalizar el comportamiento de App Service cuando es necesario. Las aplicaciones de Ruby deben implementarse con todos los archivos [gem](https://rubygems.org/gems) requeridos.
 
 En esta guía se incluyen conceptos clave e instrucciones para los desarrolladores de Ruby que usan un contenedor Linux integrado en App Service. Si nunca ha usado Azure App Service, debe seguir primero el [inicio rápido de Ruby](quickstart-ruby.md) y el [tutorial de Ruby con PostgreSQL](tutorial-ruby-postgres-app.md).
 
-## <a name="show-ruby-version"></a>Visualización de la versión de Ruby
+## <a name="show-ruby-version"></a>Consulta de la versión de Ruby
 
 Para mostrar la versión actual de Ruby, ejecute el siguiente comando en [Cloud Shell](https://shell.azure.com):
 
@@ -32,7 +32,7 @@ Para mostrar todas las versiones compatibles de Ruby, ejecute el siguiente coman
 az webapp list-runtimes --linux | grep RUBY
 ```
 
-Para ejecutar una versión no compatible de Ruby, cree una imagen de su propio imagen de contenedor. Para más información, consulte [Uso de una imagen personalizada de Docker](tutorial-custom-docker-image.md).
+Para ejecutar una versión no compatible de Ruby, cree su propia imagen de contenedor. Para más información, consulte [Uso de una imagen personalizada de Docker](tutorial-custom-docker-image.md).
 
 ## <a name="set-ruby-version"></a>Establecimiento de la versión de Ruby
 
@@ -47,7 +47,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > ```
 > Your Ruby version is 2.3.3, but your Gemfile specified 2.3.1
 > ```
-> o
+> or
 > ```
 > rbenv: version `2.3.1' is not installed
 > ```
@@ -96,7 +96,7 @@ De forma predeterminada, el contenedor de Ruby inicia el servidor de Rails en la
 
 1. Genere un valor de [secret_key_base](https://edgeguides.rubyonrails.org/security.html#environmental-security), si aún no existe ninguno. Este valor es necesario para que la aplicación se ejecute en modo de producción.
 1. Establezca la variable de entorno `RAILS_ENV` en `production`.
-1. Elimine cualquier archivo *.pid* del directorio *tmp/PID* que haya dejado un servidor de Rails que se ejecutara previamente.
+1. Elimine cualquier archivo *.pid* del directorio *tmp/PID* que haya dejado un servidor de Rails que se ejecutó previamente.
 1. Compruebe si están instaladas todas las dependencias. Si no, pruebe a instalar los archivos gem desde el directorio *vendor/cache*.
 1. Ejecute `rails server -e $RAILS_ENV`.
 
@@ -133,7 +133,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ### <a name="set-secret_key_base-manually"></a> Establecimiento manual de secret_key_base
 
-Para utilizar su propio valor de `secret_key_base` en lugar de dejar que App Service genere uno automáticamente, establezca la [opción de configuración](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) de la aplicación `SECRET_KEY_BASE` en el valor que desee. Por ejemplo:
+Para utilizar su propio valor de `secret_key_base` en lugar de dejar que App Service genere uno automáticamente, establezca la [configuración de la aplicación](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `SECRET_KEY_BASE` en el valor que desee. Por ejemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings SECRET_KEY_BASE="<key-base-value>"

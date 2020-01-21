@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Creación de una geoárea mediante Azure Maps'
-description: 'Tutorial: Configure una geovalla con Azure Maps.'
+title: 'Tutorial: Creación de una geovalla y seguimiento de dispositivos en un mapa | Microsoft Azure Maps'
+description: En este tutorial aprenderá a configurar una geovalla y a realizar un seguimiento de los dispositivos en relación con la geovalla mediante el servicio espacial de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2998c67bf00c74422baa19af0b389118600ba1c7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0e408adfe1daed402ef690224368e846bd0a97c8
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407831"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910940"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configuración de una geovalla con Azure Maps
 
@@ -58,7 +58,7 @@ Abra la aplicación Postman y siga estos pasos para cargar la geovalla del sitio
 
 3. Haga clic en **Params** (Parámetros) y escriba los siguientes pares de clave-valor que se usarán para la dirección URL de la solicitud POST. Reemplace el valor de subscription-key por su clave de Azure Maps.
    
-    ![Parámetros de clave-valor de Postman](./media/tutorial-geofence/postman-key-vals.png)
+    ![Parámetros de carga de datos (geovalla) en Postman](./media/tutorial-geofence/postman-key-vals.png)
 
 4. Haga clic en **Body** (Cuerpo), seleccione el formato de entrada sin procesar y elija JSON como formato de entrada en la lista desplegable. Proporcione el siguiente código JSON como datos que se van a cargar:
 
@@ -177,7 +177,7 @@ Para más información, puede ver todos los [controladores de eventos admitidos]
 
 1. Creación de una aplicación lógica en Azure Portal
 
-   ![Creación de instancias de Logic Apps](./media/tutorial-geofence/logic-app.png)
+   ![Creación de aplicaciones lógicas de Azure para controlar eventos de geovalla](./media/tutorial-geofence/logic-app.png)
 
 2. Seleccione un desencadenador de la solicitud HTTP y después seleccione "Send an email" (Enviar un correo electrónico) como acción en el conector de Outlook
   
@@ -185,7 +185,7 @@ Para más información, puede ver todos los [controladores de eventos admitidos]
 
 3. Guarde la aplicación lógica para generar el punto de conexión de la dirección URL HTTP y copie dicha dirección.
 
-   ![Punto de conexión de Logic Apps](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![Generación de un punto de conexión de Logic Apps](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Creación de una suscripción a eventos de Azure Maps
@@ -196,15 +196,15 @@ Siga estos pasos para crear una suscripción de eventos para los eventos de entr
 
 1. Vaya a la cuenta de Azure Maps mediante [este vínculo del portal](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/dashboard/) y seleccione la pestaña Events (Eventos).
 
-   ![Eventos de Azure Maps](./media/tutorial-geofence/events-tab.png)
+   ![Events (Eventos) en la cuenta de Azure Maps](./media/tutorial-geofence/events-tab.png)
 
 2. Para crear una suscripción de eventos, seleccione la suscripción de eventos desde la página correspondiente.
 
-   ![Suscripción a eventos de Azure Maps](./media/tutorial-geofence/create-event-subscription.png)
+   ![Creación de una suscripción a eventos de Azure Maps](./media/tutorial-geofence/create-event-subscription.png)
 
 3. Asigne un nombre a la suscripción de eventos y suscríbase al tipo de evento de entrada. Ahora, seleccione webhook como Tipo de punto de conexión y copie el punto de conexión de la dirección URL HTTP de la aplicación lógica en Endpoint (Punto de conexión).
 
-   ![Suscripción de eventos](./media/tutorial-geofence/events-subscription.png)
+   ![Detalles de la suscripción a Events (Eventos) de Azure Maps](./media/tutorial-geofence/events-subscription.png)
 
 
 ## <a name="use-geofence-api"></a>Uso de Geofence API
@@ -214,7 +214,7 @@ Puede usar Geofence API para comprobar si un **dispositivo** (el equipo forma pa
 > [!Note]
 > El escenario y el comportamiento anteriores se basan en el mismo **id. de dispositivo**, de modo que refleja las cinco ubicaciones diferentes como en la siguiente ilustración.
 
-![Mapa de geovalla](./media/tutorial-geofence/geofence.png)
+![Mapa de geovallas en Azure Maps](./media/tutorial-geofence/geofence.png)
 
 En la aplicación Postman, abra una nueva pestaña en la misma colección que ha creado anteriormente. Seleccione el método GET HTTP en la pestaña del generador:
 

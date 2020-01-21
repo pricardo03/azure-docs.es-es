@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b447a0328de210caeb23a1beb91c532853c180bc
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e80194f53a406b8b378d0fb787df627937125a27
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550484"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867483"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Inicio rápido: Uso de un modelo de funcionalidad de dispositivo para crear un dispositivo de versión preliminar de IoT Plug and Play (Windows)
 
@@ -85,9 +85,9 @@ En este inicio rápido, utilizará el administrador de bibliotecas [Vcpkg](https
 
 En este inicio rápido, se usa un modelo de funcionalidad del dispositivo de ejemplo existente y las interfaces asociadas.
 
-1. Cree un directorio `pnp_app` en su unidad local. Use esta carpeta para los archivos del modelo de dispositivo y el código auxiliar del código de dispositivo.
+1. Cree una carpeta `pnp_app` en su unidad local. Use esta carpeta para los archivos del modelo de dispositivo y el código auxiliar del código de dispositivo.
 
-1. Descargue el [modelo de capacidad del dispositivo y los archivos de muestra de interfaz](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) y [ muestra de interfaz ](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) y guarde los archivos en la carpeta `pnp_app`.
+1. Descargue el [modelo de capacidad del dispositivo y los archivos de ejemplo de interfaz](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) y el [ejemplo de interfaz](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) y guarde los archivos en la carpeta `pnp_app`.
 
     > [!TIP]
     > Para descargar un archivo de GitHub, vaya hasta el archivo, haga clic con el botón derecho en **Sin procesar** y seleccione **Guardar vínculo como**.
@@ -109,7 +109,7 @@ Ahora que ya tiene un DCM y sus interfaces asociadas, puede generar el código d
 
 1. Elija el archivo de **SampleDevice.capabilitymodel.json** que se usará para generar el código auxiliar del dispositivo.
 
-1. Escriba el nombre del proyecto **sample_device**. Este será el nombre de la aplicación de su dispositivo.
+1. Escriba el nombre del proyecto **sample_device**. Este es el nombre de la aplicación del dispositivo.
 
 1. Elija **ANSI C** como lenguaje.
 
@@ -124,7 +124,7 @@ Ahora que ya tiene un DCM y sus interfaces asociadas, puede generar el código d
 
 ## <a name="build-and-run-the-code"></a>Compilación y ejecución del código
 
-El código fuente del SDK del dispositivo se usa para compilar el código auxiliar del dispositivo generado. La aplicación que se compila simula un dispositivo que se conecta a un centro de IoT. La aplicación envía datos de telemetría y propiedades, y recibe comandos.
+El paquete Vcpkg se usa para compilar el código auxiliar del dispositivo generado. La aplicación que se compila simula un dispositivo que se conecta a un centro de IoT. La aplicación envía datos de telemetría y propiedades, y recibe comandos.
 
 1. Cree un subdirectorio `cmake` en la carpeta `sample_device` y vaya a esa carpeta:
 

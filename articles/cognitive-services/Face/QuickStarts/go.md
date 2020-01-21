@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ed5df90ba4e88e2b6bd20ce2e559c89a552bbe0a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3ebcd7dfb7b1138f52663d7c919d4ce4d8bd088a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977835"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890538"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y Go
 
 En este inicio rápido, usará la API REST de Azure Face con Go para detectar caras humanas en una imagen.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Una clave de suscripción de Face API. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Face API y obtener la clave.
 - Un editor de código como [Visual Studio Code](https://code.visualstudio.com/download)
@@ -114,7 +114,7 @@ Deberá actualizar el valor `subscriptionKey` con la clave de suscripción y cam
 
 También es posible que desee cambiar el campo `imageUrl` para que apunte a su propia imagen de entrada. Del mismo modo, puede querer cambiar el campo `returnFaceAttributes` que especifica qué atributos de cara se van a recuperar.
 
-## <a name="run-the-script"></a>Ejecute el script
+## <a name="run-the-script"></a>Ejecute el script.
 
 Abra un símbolo del sistema y compile el programa con el comando siguiente:
 
@@ -311,7 +311,7 @@ Debería ver una cadena JSON de los datos de la cara detectada impresos en la co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha escrito un script de Ruby que llama a Azure Face API para detectar caras en una imagen y devolver sus atributos. A continuación, explore la documentación de referencia de Face API para más información.
+En este inicio rápido, ha escrito una aplicación de consola de Go que llama a Azure Face API para detectar caras en una imagen y devolver sus atributos. A continuación, explore la documentación de referencia de Face API para más información.
 
 > [!div class="nextstepaction"]
 > [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

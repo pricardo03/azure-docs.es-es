@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f12ec41b661ac2cb462c6bf9ef62d6d831ebac0a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a0fe442741ae0b8fa817c9ea177ff244a413720e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224282"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888522"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Tutorial: Uso de identidades administradas asignadas por el sistema de una máquina virtual Linux para acceder a Azure Data Lake Store
 
@@ -34,13 +34,13 @@ En este tutorial, aprenderá a:
 > * Conceder a la máquina virtual acceso a Azure Data Lake Store.
 > * Obtener un token de acceso utilizando la identidad administrada asignada por el sistema de la máquina virtual para acceder a Azure Data Lake Store.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Concesión a una máquina virtual del acceso a Azure Data Lake Store
+## <a name="grant-access"></a>Conceder acceso
 
-Ahora puede conceder a la máquina virtual el acceso a los archivos y las carpetas de Azure Data Lake Store. En este paso, puede usar una instancia ya existente de Data Lake Store o crear una nueva. Para crear una instancia de Data Lake Store mediante Azure Portal, siga la [guía de inicio rápido de Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). También se pueden encontrar guías de inicio rápido que utilizan la CLI de Azure y Azure PowerShell en la [documentación de Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
+En esta sección se muestra cómo conceder a la máquina virtual el acceso a los archivos y las carpetas de Azure Data Lake Store. En este paso, puede usar una instancia ya existente de Data Lake Store o crear una nueva. Para crear una instancia de Data Lake Store mediante Azure Portal, siga la [guía de inicio rápido de Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). También se pueden encontrar guías de inicio rápido que utilizan la CLI de Azure y Azure PowerShell en la [documentación de Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
 En Data Lake Store, cree una nueva carpeta y conceda a la identidad administrada asignada por el sistema de la máquina virtual Linux permisos de lectura, escritura y ejecución de archivos en dicha carpeta:
 
@@ -58,9 +58,9 @@ En Data Lake Store, cree una nueva carpeta y conceda a la identidad administrada
 
 Ahora, Managed Identities for Azure Resources puede realizar todas las operaciones en los archivos de la carpeta que ha creado. Para más información sobre cómo administrar el acceso a Data Lake Store, consulte [Control de acceso en Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
-## <a name="get-an-access-token-and-call-the-data-lake-store-file-system"></a>Obtención de un token de acceso y llamada al sistema de archivos de Data Lake Store
+## <a name="get-an-access-token"></a>Obtención de un token de acceso 
 
-Azure Data Lake Store admite de forma nativa la autenticación de Azure AD, por lo que puede aceptar directamente los tokens de acceso obtenidos con Managed Identities for Azure Resources. Para autenticarse en el sistema de archivos de Data Lake Store, se envía un token de acceso emitido por Azure AD al punto de conexión del sistema de archivos de Data Lake Store. El token de acceso está en un encabezado de autorización en el formato "Bearer \<ACCESS_TOKEN_VALUE\>".  Para más información sobre la compatibilidad de Data Lake Store con la autenticación de Azure AD, consulte [Autenticación con Data Lake Store mediante Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
+En esta sección se muestra cómo obtener un token de acceso y llamar al sistema de archivos de Data Lake Store. Azure Data Lake Store admite de forma nativa la autenticación de Azure AD, por lo que puede aceptar directamente los tokens de acceso obtenidos con Managed Identities for Azure Resources. Para autenticarse en el sistema de archivos de Data Lake Store, se envía un token de acceso emitido por Azure AD al punto de conexión del sistema de archivos de Data Lake Store. El token de acceso está en un encabezado de autorización en el formato "Bearer \<ACCESS_TOKEN_VALUE\>".  Para más información sobre la compatibilidad de Data Lake Store con la autenticación de Azure AD, consulte [Autenticación con Data Lake Store mediante Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
 
 En este tutorial, se autenticará en la API de REST del sistema de archivos de Data Lake Store mediante cURL para realizar solicitudes de REST.
 

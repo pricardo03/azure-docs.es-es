@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.openlocfilehash: 71308b7f17d6009e8650cafbb02afd577fd73cf4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2020
+ms.openlocfilehash: 42638af9f51770a9a5738cd92f91c28439af273a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437730"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750088"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Azure Database Migration Service mediante Azure Portal
 
@@ -55,11 +55,11 @@ Registre el proveedor de recursos Microsoft.DataMigration antes de crear su prim
     - Seleccione la **suscripción** de Azure donde desea crear la instancia.
     - Seleccione un **Grupo de recursos** existente o cree uno.
     - Elija la **ubicación** más cercana a su servidor de origen o de destino.
-    - Seleccione una **red virtual** (VNet) existente o cree una nueva.
+    - Seleccione una **red virtual** existente o cree una.
 
-        La VNet proporciona a Azure Database Migration Service acceso a la base de datos de origen y al entorno de destino.
+        La red virtual proporciona a Azure Database Migration Service acceso a la base de datos de origen y al entorno de destino.
 
-        Para más información sobre cómo crear una VNet en Azure Portal, consulte el artículo [Creación de una red virtual mediante Azure Portal](https://aka.ms/vnet).
+        Para más información sobre cómo crear una red virtual en Azure Portal, consulte el artículo [Creación de una red virtual con Azure Portal](https://aka.ms/vnet).
 
     - Seleccione Básico: 1 núcleo virtual para el **plan de tarifa**.
 

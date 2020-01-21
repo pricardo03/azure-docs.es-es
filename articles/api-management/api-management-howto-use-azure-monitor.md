@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 6ecce4dc97272f03a3151708cd9c047212c36e03
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707197"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028353"
 ---
 # <a name="monitor-published-apis"></a>Supervisión de las API publicadas
 
@@ -36,7 +36,7 @@ En el vídeo siguiente se muestra cómo supervisar API Management con Azure Moni
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 + Conocer la [terminología de API Management de Azure](api-management-terminology.md).
 + Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
@@ -48,7 +48,7 @@ En el vídeo siguiente se muestra cómo supervisar API Management con Azure Moni
 
 API Management emite métricas cada minuto, lo que le ofrece visibilidad casi en tiempo real sobre el estado y el mantenimiento de las API. El siguiente es un resumen de algunas de las métricas disponibles:
 
-* Capacidad (versión preliminar): ayuda a tomar decisiones acerca de cómo actualizar o degradar los servicios de APIM. La métrica se emite por minuto y refleja la capacidad de la puerta de enlace en el momento del informe. La métrica oscila entre 0 y 100, y se calcula en función de los recursos de la puerta de enlace, como el uso de la CPU y de la memoria.
+* Capacidad: ayuda a tomar decisiones acerca de cómo actualizar o degradar los servicios de APIM. La métrica se emite por minuto y refleja la capacidad de la puerta de enlace en el momento del informe. La métrica oscila entre 0 y 100, y se calcula en función de los recursos de la puerta de enlace, como el uso de la CPU y de la memoria.
 * Solicitudes de puerta de enlace en total: el número de solicitudes API en el período. 
 * Solicitudes de puerta de enlace correctas: el número de solicitudes de API que recibieron códigos de respuesta HTTP correctos, como 304, 307 y los menores de 301 (por ejemplo, 200).
 * Solicitudes de puerta de enlace con error: el número de solicitudes de API que recibieron códigos de respuesta HTTP erróneos, como 400 y cualquiera mayor que 500.
@@ -180,7 +180,7 @@ Actualmente, API Management proporciona registros de diagnóstico (de los que se
 }  
 ```
 
-| Propiedad  | Escriba | DESCRIPCIÓN |
+| Propiedad  | Tipo | Descripción |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | boolean | True si la solicitud HTTP se completó con el código de estado de respuesta dentro del intervalo 2xx o 3xx |
 | time | date-time | Marca de tiempo del momento en que la puerta de enlace comienza a procesar la solicitud |
@@ -189,7 +189,7 @@ Actualmente, API Management proporciona registros de diagnóstico (de los que se
 | durationMs | integer | Número de milisegundos transcurridos desde el momento en que la puerta de enlace recibió la solicitud hasta que se envió toda la respuesta. Incluye clienTime, cacheTime y backendTime. |
 | callerIpAddress | string | Dirección IP del llamador inmediato de la puerta de enlace (puede ser un intermediario) |
 | correlationId | string | Identificador único de la solicitud HTTP asignado por API Management |
-| location | string | Nombre de la región de Azure donde se encontraba la puerta de enlace que procesó la solicitud |
+| ubicación | string | Nombre de la región de Azure donde se encontraba la puerta de enlace que procesó la solicitud |
 | httpStatusCodeCategory | string | Categoría del código de estado de respuesta HTTP: Correcto (301 o menos, 304 o 307), No autorizado (401, 403, 429), Erróneo (400, entre 500 y 600), Otro |
 | resourceId | string | Identificador del recurso de API Management /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | Propiedades de la solicitud actual |
@@ -203,7 +203,7 @@ Actualmente, API Management proporciona registros de diagnóstico (de los que se
 | backendProtocol | string | Versión del protocolo HTTP de la solicitud enviada a un back-end | 
 | requestSize | integer | Número de bytes recibidos de un cliente durante el procesamiento de solicitudes | 
 | responseSize | integer | Número de bytes enviados a un cliente durante el procesamiento de solicitudes | 
-| cache | string | Estado de participación de la caché de API Management en el procesamiento de la solicitud (es decir, acierto, error, ninguno) | 
+| caché | string | Estado de participación de la caché de API Management en el procesamiento de la solicitud (es decir, acierto, error, ninguno) | 
 | cacheTime | integer | Número de milisegundos empleados en la E/S de la caché global de API Management (conexión, envío y recepción de bytes) | 
 | backendTime | integer | Número de milisegundos empleados en la E/S global de back-end (conexión, envío y recepción de bytes) | 
 | clientTime | integer | Número de milisegundos empleados en la E/S global del cliente (conexión, envío y recepción de bytes) | 
@@ -223,7 +223,7 @@ Actualmente, API Management proporciona registros de diagnóstico (de los que se
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Visualización de registros de actividad

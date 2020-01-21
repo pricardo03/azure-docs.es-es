@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 10/03/2017
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 7208825581a0bf16f6ee3a3947387b01abfd16d0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5488606939bafc402210ad35f3a17e71ac072010
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433066"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044535"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Introducción a Azure Functions  
 Azure Functions es una solución para ejecutar fácilmente pequeños fragmentos de código, o "funciones", en la nube. Simplemente, puede escribir el código que necesita para el problema en cuestión, sin preocuparse de toda la aplicación o la infraestructura para ejecutarlo. Con Functions, puede conseguir que el desarrollo sea aún más productivo y, además, le permite usar el lenguaje de desarrollo que prefiera, como C#, Java, JavaScript, PowerShell y Python. Pague solo el tiempo durante el que se ejecuta el código y confíe en Azure para escalar según sea necesario. Azure Functions permite desarrollar aplicaciones [sin servidor](https://azure.microsoft.com/solutions/serverless/) en Microsoft Azure.
@@ -21,7 +21,7 @@ Este tema proporciona información general de alto nivel de Azure Functions. Si 
 ## <a name="features"></a>Características
 Estas son algunas características clave de Functions:
 
-* **Opción de lenguaje**: escriba funciones usando el lenguaje C#, Java, Javascript, Python u otro de su elección. Consulte [Lenguajes admitidos](supported-languages.md) para ver la lista completa.
+* **Opción de lenguaje**: escriba funciones usando el lenguaje C#, Java, JavaScript, Python u otro de su elección. Consulte [Lenguajes admitidos](supported-languages.md) para ver la lista completa.
 * **Modelo de precios de pago por uso** : pague solo el tiempo que haya empleado ejecutando el código. Consulte la opción del plan de hospedaje de Consumo en la [sección de precios](#pricing).  
 * **Traiga sus propias dependencias** : Funciones de Azure admite NuGet y NPM, para que pueda usar sus bibliotecas favoritas.  
 * **Seguridad integrada** : proteja las funciones desencadenadas por HTTP con los proveedores de OAuth como Azure Active Directory, Facebook, Google, Twitter y cuenta Microsoft.  
@@ -30,7 +30,7 @@ Estas son algunas características clave de Functions:
 * **Código abierto** : el tiempo de ejecución de Funciones de Azure es de código abierto y está [disponible en GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ## <a name="what-can-i-do-with-functions"></a>¿Qué puedo hacer con las funciones?
-Functions es una excelente solución para procesar datos e integrar sistemas, trabajar con Internet de las cosas (IoT) y generar API simples y microservicios. Puede usar Functions para tareas como procesamiento de imágenes o pedidos, mantenimiento de archivos o para tareas que quiera ejecutar según una programación. 
+Functions es una excelente solución para procesar datos e integrar sistemas, trabajar con Internet de las cosas (IoT) y generar API simples y microservicios. Puede usar Functions para tareas como API web, procesamiento de imágenes o pedidos, mantenimiento de archivos o para tareas que quiera ejecutar según una programación. 
 
 Funciones de Azure ofrece plantillas para comenzar con situaciones clave, incluidas las siguientes:
 

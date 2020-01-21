@@ -5,22 +5,21 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: daveba
-editor: bryanla
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/16/2019
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a743df545450f87a01785f6f8a15fe08b8eafe
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 2fc5596c6914b77b09db10528af891d7e6bd0159
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74181176"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977856"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutorial: Uso de una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Azure SQL
 
@@ -34,11 +33,17 @@ En este tutorial se muestra cómo usar una identidad asignada por el sistema en 
 > * Cree un usuario contenido en la base de datos que represente la identidad asignada por el sistema de la máquina virtual.
 > * Obtener un token de acceso mediante la identidad de máquina virtual y usarla para consultar un servidor SQL de Azure
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Conceda a la máquina virtual acceso a un servidor SQL de Azure
+
+## <a name="enable"></a>Habilitar
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+## <a name="grant-access"></a>Conceder acceso
 
 Para conceder a la máquina virtual acceso a una base de datos de Azure SQL Server, puede usar un servidor SQL existente o crear uno. Para crear un servidor y una base de datos con Azure Portal, siga esta [Guía de inicio rápido de Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). También hay guías de inicio rápido que utilizan la CLI de Azure y Azure PowerShell en la [documentación de Azure SQL](https://docs.microsoft.com/azure/sql-database/).
 
@@ -47,9 +52,9 @@ Hay dos pasos para conceder a la máquina virtual acceso a una base de datos:
 1. Habilitar la autenticación de Azure AD para el servidor SQL.
 2. Cree un **usuario contenido** en la base de datos que represente la identidad asignada por el sistema de la máquina virtual.
 
-## <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Habilite la autenticación de Azure AD para el servidor SQL
+### <a name="enable-azure-ad-authentication"></a>Habilitación de la autenticación de Azure AD
 
-[Configure la autenticación de Azure AD para SQL Server](/azure/sql-database/sql-database-aad-authentication-configure) mediante los siguientes pasos:
+**Para [configurar la autenticación de Azure AD para el servidor SQL](/azure/sql-database/sql-database-aad-authentication-configure):**
 
 1.  En Azure Portal, seleccione **Servidores SQL Server** en el panel de navegación izquierdo.
 2.  Haga clic en el servidor SQL para habilitarlo para la autenticación de Azure AD.
@@ -58,14 +63,16 @@ Hay dos pasos para conceder a la máquina virtual acceso a una base de datos:
 5.  Seleccione una cuenta de usuario de Azure AD para que se convierta en administrador del servidor y haga clic en **Seleccionar.**
 6.  En la barra de comandos, haga clic en **Guardar**
 
-## <a name="create-a-contained-user-in-the-database-that-represents-the-vms-system-assigned-identity"></a>Cree un usuario contenido en la base de datos que represente la identidad asignada por el sistema de la máquina virtual.
+### <a name="create-contained-user"></a>Creación del usuario contenido
 
-En el paso siguiente, necesitará [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Antes de comenzar, también puede ser útil revisar los artículos siguientes para obtener información sobre la integración de Azure AD:
+En esta sección se muestra cómo crear un usuario contenido en la base de datos que represente la identidad asignada por el sistema de la máquina virtual. En este paso, necesita [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Antes de comenzar, también puede ser útil revisar los artículos siguientes para obtener información sobre la integración de Azure AD:
 
 - [Autenticación universal con SQL Database y SQL Data Warehouse (compatibilidad de SSMS con MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
 - [Configuración y administración de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
 
 SQL DB requiere nombres para mostrar de AAD únicos. Con esto, las cuentas de AAD tales como usuarios, grupos y entidades de servicio (aplicaciones) y nombres de máquina virtual habilitados para la identidad administrada deben definirse de forma única en ADD en relación con sus nombres para mostrar. SQL DB comprueba el nombre para mostrar de AAD durante la creación de T-SQL de dichos usuarios y, si no es único, el comando no puede solicitar que se proporcione un nombre para mostrar de AAD único para una cuenta especificada.
+
+**Para crear un usuario contenido:**
 
 1. Inicie SQL Server Management Studio.
 2. En el cuadro de diálogo **Conectar al servidor**, escriba el nombre del servidor SQL en el campo **Nombre del servidor**.
@@ -99,9 +106,9 @@ SQL DB requiere nombres para mostrar de AAD únicos. Con esto, las cuentas de AA
 
 El código que se ejecuta en la máquina virtual ahora puede obtener un token con su identidad administrada asignada por el sistema y usarlo para autenticarse en el servidor SQL.
 
-## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-sql"></a>Obtención de un token de acceso con una identidad administrada asignada por el sistema de la máquina virtual y su uso para llamar a Azure SQL
+## <a name="access-data"></a>Acceso a los datos
 
-Azure SQL admite de forma nativa la autenticación de Azure AD, por lo que puede aceptar directamente los tokens de acceso obtenidos con la característica Managed Identities for Azure Resources. Se usa el método **token de acceso** para la creación de una conexión a SQL. Forma parte de la integración de Azure SQL con Azure AD y es diferente de proporcionar las credenciales en la cadena de conexión.
+En esta sección se muestra cómo obtener un token de acceso con una identidad administrada asignada por el sistema de la máquina virtual y usarla para llamar a Azure SQL. Azure SQL admite de forma nativa la autenticación de Azure AD, por lo que puede aceptar directamente los tokens de acceso obtenidos con la característica Managed Identities for Azure Resources. Se usa el método **token de acceso** para la creación de una conexión a SQL. Forma parte de la integración de Azure SQL con Azure AD y es diferente de proporcionar las credenciales en la cadena de conexión.
 
 Este es un ejemplo de código .NET para abrir una conexión a SQL con un token de acceso. Este código se debe ejecutar en la máquina virtual para poder acceder al punto de conexión de la identidad administrada asignada por el sistema de la máquina virtual. Se requiere **.NET Framework 4.6** o **.NET Core 2.2** o posterior para usar el método de token de acceso. Reemplace los valores de SQL-SERVERNAME y DATABASE en consecuencia. Tenga en cuenta el identificador de recurso para Azure SQL es `https://database.windows.net/`.
 
@@ -192,6 +199,12 @@ Como alternativa, un método rápido para probar la configuración de extremo a 
     ```
 
 Examine el valor de `$DataSet.Tables[0]` para ver los resultados de la consulta.
+
+
+## <a name="disable"></a>Disable
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
