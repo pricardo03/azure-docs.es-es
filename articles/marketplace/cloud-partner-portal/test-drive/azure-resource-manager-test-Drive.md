@@ -375,7 +375,7 @@ La última sección que hay que rellenar permite implementar las versiones de pr
 
 ![Suscripciones de Azure](./media/azure-resource-manager-test-drive/subdetails2.png)
 
-**Identificador de inquilino de Azure AD***obligatorio* si ya tiene un identificador de inquilino disponible, puede encontrarlo en Propiedades:\> identificador de directorio.
+**Identificador de inquilino de Azure AD** *obligatorio* si ya tiene un identificador de inquilino disponible, puede encontrarlo en Propiedades:\> identificador de directorio.
 
 ![Propiedades de Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails3.png)
 
