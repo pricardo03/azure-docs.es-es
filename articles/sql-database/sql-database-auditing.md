@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 450f40c8ba49028d99143d7cf2b2995eb354f8fd
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 0994ebe451bddea371f375e4d39172833df4d88a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551631"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028532"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introducción a la auditoría de bases de datos SQL
 
@@ -86,8 +86,11 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
     ![Panel de navegación][3]
 
 5. **Nuevo**: ahora tiene varias opciones para configurar dónde se escribirán los registros de auditoría. Puede escribir registros en una cuenta de almacenamiento de Azure, en un área de trabajo de Log Analytics para su consumo en registros de Azure Monitor, o en un centro de eventos para consumirlos mediante el centro de eventos. Puede configurar cualquier combinación de estas opciones, y los registros de auditoría se escribirán en cada una.
-
-   > [!WARNING]
+  
+  > [!NOTE]
+   >Los clientes que quieran configurar un almacén de registros inmutable para los eventos de auditoría a nivel de servidor o de base de datos deben seguir las [instrucciones que proporciona Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes).
+  
+  > [!WARNING]
    > La habilitación de la auditoría en Log Analytics incurrirá en costos en función de las tarifas de ingesta. Tenga en cuenta el costo asociado al uso de esta [opción](https://azure.microsoft.com/pricing/details/monitor/), o considere la posibilidad de almacenar los registros de auditoría en una cuenta de almacenamiento de Azure.
 
     ![opciones de almacenamiento](./media/sql-database-auditing-get-started/auditing-select-destination.png)
@@ -241,6 +244,16 @@ En el entorno de producción, es probable que actualice periódicamente las clav
     Puede configurar la auditoría de los distintos tipos de acciones y grupos de acciones con PowerShell, según se describe en la sección [Administración de auditorías de SQL Database mediante Azure PowerShell](#subheading-7).
 
 - Cuando se usa la autenticación de Azure AD, los registros de inicios de sesión con error *no* aparecerán en el registro de auditoría SQL. Para ver los registros de auditoría de inicio de sesión con error, debe visitar el [portal de Azure Active Directory]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que registra los detalles de estos eventos.
+
+- La auditoría de Azure SQL Database está optimizada para el rendimiento y la disponibilidad. Cuando Azure SQL Database tiene una actividad muy elevada, permite que las operaciones continúen y es posible que no grabe algunos eventos auditados.
+
+- Para configurar la auditoría inmutable en una cuenta de almacenamiento, consulte [Permitir escrituras de blobs en anexos protegidos](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage#allow-protected-append-blobs-writes). Tenga en cuenta que el nombre del contenedor para la auditoría es **sqldbauditlogs**.
+
+> [!IMPORTANT] 
+>  Actualmente, la configuración para permitir escrituras de blobs en anexos protegidos en la retención de duración definida solo es visible y está disponible en las regiones siguientes:
+> - East US
+> - Centro-Sur de EE. UU
+> - Oeste de EE. UU. 2
 
 
 ## <a id="subheading-7"></a>Administración de auditorías de Azure SQL Server y Database mediante Azure PowerShell

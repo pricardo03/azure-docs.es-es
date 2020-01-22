@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: a4746a945f1a89c34308a3bd968f6341e0e25ac5
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 1867164954a3f9dff7a8a8c04e249a13edccb84a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541541"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020832"
 ---
 En esta sección se proporciona información sobre las generaciones anteriores de tamaños de máquina virtual. Estos tamaños todavía se admiten, pero no recibirán capacidad adicional. Hay tamaños alternativos o versiones más recientes que están disponibles con carácter general. Consulte [Tamaños de las máquinas virtuales Windows en Azure](../articles/virtual-machines/windows/sizes.md) o [Tamaños de las máquinas virtuales Linux en Azure](../articles/virtual-machines/linux/sizes.md) para elegir el tamaño de máquina virtual que mejor se ajuste a sus necesidades.  
 
@@ -95,7 +95,7 @@ Los tamaños A8-A11 los de la serie H también se conocen como *instancias de pr
 | Standard_A10 |8 |56 |382 |32 |32x500 |2  |
 | Standard_A11 |16 |112 |382 |64 |64x500 |4 |
 
-<sup>1</sup>Para las aplicaciones MPI, la red de back-end RDMA dedicada está habilitada por la red InfiniBand FDR, que ofrece una latencia sumamente baja y un alto ancho de banda.  
+<sup>1</sup>Para las aplicaciones MPI, la red de back-end RDMA dedicada está habilitada mediante la red InfiniBand QDR, que ofrece una latencia sumamente baja y un alto ancho de banda.  
 
 <br>
 

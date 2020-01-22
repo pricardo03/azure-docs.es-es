@@ -8,24 +8,28 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 439617c07b8059860c6d412cc60d56d4ac8c36a5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 39dea152545d210c48e21853c3c03c63843a4d81
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818662"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779109"
 ---
 # <a name="offer-listing-best-practices"></a>Procedimientos recomendados para la publicación de ofertas
 
 En las tablas de esta sección se ofrecen sugerencias para crear ofertas atractivas en Marketplace. Para escribir y configurar estos materiales de marketing, vaya a [Cloud Partner Portal](https://cloudpartner.azure.com/#insights). 
 
 ## <a name="storefront-offer-details"></a>Detalles de la oferta del escaparate
+
 | Configuración del escaparate | Procedimiento recomendado |
 |:--- |:--- |  
-| Nombre de la oferta | Proporcione un título evocador:<br> <ul> <li> El nombre de la aplicación debe comunicar el valor principal para los clientes. </li> <li> Incluya palabras clave de búsqueda en el título de la aplicación para recibir una clasificación más alta en los resultados del motor de búsqueda. </li> </ul> Siga un formato de títulos establecido para las publicaciones de servicios de consultoría:<br>[Nombre de la oferta]: [duración] [tipo de oferta] \(por ejemplo, *Contoso: implementación de dos semanas*) <br><br> Tenga en cuenta las directrices de la marca:<br>Siga las [directrices de marca y marca comercial de Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx), así como otras directrices específicas de cada producto, cuando haga referencia a marcas comerciales de Microsoft y a nombres de software, productos y servicios de Microsoft. |
+| Nombre de la oferta | Proporcione un título evocador:<br> <ul> <li> El nombre de la aplicación debe comunicar el valor principal para los clientes. </li> <li> Incluya palabras clave de búsqueda en el título de la aplicación para recibir una clasificación más alta en los resultados del motor de búsqueda. </li> </ul> Siga un formato de títulos establecido para las publicaciones de servicios de consultoría:<br>[Nombre de la oferta: [duración] [tipo de oferta] \(por ejemplo, *Contoso: implementación de dos semanas*) <br><br> Tenga en cuenta las directrices de la marca:<br>Siga las [directrices de marca y marca comercial de Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx), así como otras directrices específicas de cada producto, cuando haga referencia a marcas comerciales de Microsoft y a nombres de software, productos y servicios de Microsoft. |
 | Descripción de la oferta | Proporcione una clara descripción de la oferta:<br> <ul> <li> Describa claramente la propuesta de valor de la oferta en las primeras frases de su descripción. </li> <li> Tenga en cuenta que estas primeras frases podrían mostrarse en los resultados de los motores de búsqueda. </li> <li> No se base exclusivamente en las características y funcionalidades para vender su producto. En su lugar, céntrese en el valor que proporciona. </li> <li> Use tanto como se pueda un vocabulario específico del sector o palabras relacionadas con las ventajas.</li> <li> Además, las publicaciones de servicios de consultoría deben indicar claramente los servicios profesionales que proporcionan. </li></ul> Los componentes principales de la propuesta de valor deben incluir esta información:<ul><li>Descripción del producto.</li><li>Tipo de usuario que se beneficia del producto.</li><li>Necesidad o preocupación del cliente que aborda el producto.</li></ul> |
 
+En las tablas de esta sección se ofrecen sugerencias para crear ofertas atractivas en Marketplace. Para escribir y configurar estos materiales de marketing, vaya a [Cloud Partner Portal](https://cloudpartner.azure.com/#insights). 
+
 ## <a name="storefront-listing-details"></a>Detalles de la publicación de productos del escaparate
+
 | Configuración del escaparate | Procedimiento recomendado |
 |:--- |:--- |  
 | Sectores: solo aplicaciones de AppSource y servicios de consultoría | Seleccione estos sectores si su oferta aborda necesidades específicas para ellos: <ul><li> Indique las funcionalidades específicas para los sectores en la descripción de la oferta.</li> </ul> **Nota**: El número máximo de opciones varía según el tipo de oferta y se indica en [Cloud Partner Portal](https://cloudpartner.azure.com/#insights). |
@@ -56,6 +60,18 @@ Puede seleccionar un máximo de dos categorías y dos subcategorías para una of
 | *Hostelería y viajes  | *Hoteles y ocio <br> *Viajes y transporte <br> *Restaurantes y servicios de hostelería |
 | *Otros sectores de la administración pública  | *Silvicultura y pesca <br> *ONG |
 | *Bienes inmuebles  | *Otros: No segmentados |
+
+### <a name="industries"></a>Industrias
+
+La selección de sector solo se aplica a las ofertas publicadas en AppSource y a los servicios de consultoría publicados en Azure Marketplace. Seleccione sectores o verticales si la oferta aborda las necesidades específicas del sector, con lo que se destacan las funcionalidades específicas del sector en la descripción de la oferta. Puede seleccionar hasta dos (2) sectores, así como dos (2) verticales por cada sector seleccionado.
+
+### <a name="applicable-products"></a>Productos aplicables
+
+Seleccione los productos aplicables con los que funciona la aplicación para que la oferta se muestre con los productos seleccionados en AppSource.
+
+### <a name="search-keywords"></a>Palabras clave de búsqueda
+
+Pueden ayudar a los clientes a encontrar su oferta cuando realicen búsquedas Identifique las principales palabras clave de búsqueda de su oferta, agréguelas en el resumen de la oferta y la descripción, así como en la sección de palabras claves de los detalles de la oferta.
 
 ## <a name="storefront-marketing-details"></a>Detalles de marketing del escaparate
 | Configuración del escaparate | Procedimiento recomendado |

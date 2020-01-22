@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: da733eef4dcfc15db10bb5bf303086ae601189ed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 04fb34ff9c0ba9822e9760bcd3989bd0b5675506
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443222"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044726"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configuración de ServiceNow para el aprovisionamiento automático de usuarios
 
@@ -142,6 +142,7 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 * **EntryJoiningPropertyValueIsMissing:** Revise las [asignaciones de atributos ](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) para identificar el atributo coincidente. Este valor debe estar presente en el usuario o grupo que está intentando aprovisionar. 
 * Revise la [API de SOAP de ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) para comprender los requisitos o las limitaciones (por ejemplo, el formato para especificar el código de país de un usuario).
 * Algunas implementaciones de ServiceNow requieren que se permitan intervalos IP para el servicio de aprovisionamiento de Azure AD. Los intervalos IP reservados para el servicio de aprovisionamiento de Azure AD se pueden encontrar [aquí](https://www.microsoft.com/download/details.aspx?id=56519) en "AzureActiveDirectoryDomainServices".
+* Actualmente no se admite el aprovisionamiento de usuarios en la nube de administración pública de ServiceNow.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

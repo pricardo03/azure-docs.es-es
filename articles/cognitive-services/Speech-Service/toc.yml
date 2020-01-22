@@ -180,9 +180,9 @@
             - name: Notas de la versión
               href: releasenotes.md
               displayName: 'release notes,updates,what''s new,what is new,changes'
-        - name: Servicio LUIS
+        - name: Servicio de LUIS
           items:
-            - name: Recursos para el desarrollador de LUIS
+            - name: Recursos para desarrolladores de LUIS
               href: 'https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource'
 - name: Traducción de voz
   expanded: false
@@ -201,7 +201,7 @@
           href: quickstarts/translate-speech-to-speech.md
     - name: Tutoriales
       items:
-        - name: Compilación de una aplicación en Flask para traducir y sintetizar texto mediante REST
+        - name: Compilación de una aplicación en Flask para traducir y sintetizar texto mediante varias API REST
           href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
     - name: Referencia
       items:
@@ -327,7 +327,7 @@
       items:
         - name: Realización de comandos personalizados con el SDK de voz
           href: how-to-custom-speech-commands-fulfill-sdk.md
-        - name: Adición de parámetros de validación a comandos personalizados
+        - name: Adición de validación de parámetros a un comando personalizado
           href: how-to-custom-speech-commands-validations.md
         - name: Adición de una confirmación a un comando personalizado
           href: how-to-custom-speech-commands-confirmations.md
@@ -360,7 +360,7 @@
               href: how-to-custom-speech-train-model.md
             - name: Implementación de un modelo personalizado
               href: how-to-custom-speech-deploy-model.md
-            - name: Guía de creación de transcripciones con la etiqueta humana
+            - name: Creación de transcripciones con la etiqueta humana
               href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: Modelos de inquilino
           items:
@@ -395,13 +395,13 @@
               href: record-custom-voice-samples.md
         - name: Audio Content Creation
           items:
-            - name: 'Procedimiento: Audio Content Creation'
+            - name: Audio Content Creation
               href: how-to-audio-content-creation.md
     - name: Directrices de nomenclatura de palabras clave personalizadas
       href: speech-devices-sdk-kws-guidelines.md
     - name: Detección de palabras clave personalizadas
       href: speech-devices-sdk-create-kws.md
-- name: Speech Service
+- name: Servicio de voz
   expanded: false
   items:
     - name: Escenarios
@@ -411,9 +411,9 @@
           displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
     - name: Guías paso a paso
       items:
-        - name: Prueba gratuita de Speech Service
+        - name: Prueba gratuita del servicio Voz
           href: get-started.md
-        - name: Creación de recurso del servicio de voz
+        - name: Creación de un recurso del servicio Voz
           href: 'get-started.md#create-a-speech-resource-in-azure'
         - name: Contenedores
           expanded: false
@@ -470,7 +470,7 @@
       items:
         - name: Habilitación del registro
           href: how-to-use-logging.md
-        - name: Seguimiento del uso de la memoria
+        - name: Seguimiento de uso de la memoria
           href: how-to-track-speech-sdk-memory-usage.md
         - name: Configuración de OpenSSL para Linux
           href: how-to-configure-openssl-linux.md
@@ -479,7 +479,7 @@
       items:
         - name: Ejemplos del SDK de voz (GitHub)
           href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk'
-        - name: Ejemplos del SDK para dispositivos de voz (GitHub)
+        - name: Ejemplos del SDK de dispositivos de voz (GitHub)
           href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
     - name: Referencia
       items:
@@ -526,7 +526,7 @@
           href: speech-devices-sdk-troubleshooting.md
     - name: Referencia
       items:
-        - name: Notas de la versión de Speech Devices SDK
+        - name: Notas de la versión del SDK de dispositivos de voz
           href: devices-sdk-release-notes.md
 - name: Migración
   expanded: false

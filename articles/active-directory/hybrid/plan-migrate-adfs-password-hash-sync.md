@@ -12,18 +12,19 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9603cdf11373891aaa3541330cb7f65c09352496
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b621c9cbc35d0e9956f6648d870102affd84c24f
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818904"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028400"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migración de la federación a la sincronización de hash de contraseña para Azure Active Directory
 
 En este artículo se describe cómo mover los dominios de la organización de Servicios de federación de Active Directory (AD FS) a la sincronización de hash de contraseña.
 
-Puede [descargarlo](https://aka.ms/ADFSTOPHSDPDownload) si así lo desea.
+> [!NOTE]
+> Cambiar el método de autenticación requiere planificación, pruebas y un posible tiempo de inactividad. El [lanzamiento preconfigurado](how-to-connect-staged-rollout.md) proporciona una forma alternativa de probar y migrar gradualmente la autenticación de la federación a la nube mediante la sincronización de hash de contraseña.
 
 ## <a name="prerequisites-for-migrating-to-password-hash-synchronization"></a>Requisitos previos para migrar a la sincronización de hash de contraseña
 
@@ -37,7 +38,7 @@ Para realizar correctamente los pasos necesarios para migrar a la sincronizació
 > [!IMPORTANT]
 > Es posible que lea en documentación, herramientas y blogs obsoletos que se requiere la conversión de los usuarios al convertir dominios de identidad federada a identidad administrada. Pues bien, la *conversión de los usuarios* ya no es necesaria. Microsoft está trabajando para actualizar la documentación y las herramientas de forma que reflejen este cambio.
 
-Para actualizar Azure AD Connect, realice los pasos que se describen en [Azure AD Connect: actualización de una versión anterior a la versión más reciente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
+Para actualizar Azure AD Connect, realice los pasos que se describen en [Azure AD Connect: actualización a la versión más reciente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
 
 ### <a name="password-hash-synchronization-required-permissions"></a>Permisos necesarios para la sincronización del hash de contraseñas
 
@@ -56,7 +57,7 @@ Puede elegir entre dos métodos para migrar de la administración de identidades
 
 * **Azure AD Connect**. Si originalmente configuró AD FS con Azure AD Connect, *debe* cambiar a la sincronización de hash de contraseña mediante el Asistente de Azure AD Connect.
 
-   ‎Azure AD Connect ejecuta automáticamente el cmdlet **Set-MsolDomainAuthentication** al cambiar el método de inicio de sesión de usuario. Azure AD Connect automáticamente anula la federación de todos los dominios federados comprobados en el inquilino de Azure AD.
+   ‎Azure AD Connect ejecuta automáticamente el cmdlet **Set-MsolDomainAuthentication** al cambiar el método de inicio de sesión de usuario. Azure AD Connect anula automáticamente la federación de todos los dominios federados comprobados en el inquilino de Azure AD.
 
    > [!NOTE]
    > En la actualidad, si utilizó originalmente Azure AD Connect para configurar AD FS, no puede evitar que se anule la federación de todos los dominios del inquilino cuando se cambia el inicio de sesión del usuario a la sincronización de hash de contraseña. ‎
@@ -68,13 +69,13 @@ Para entender qué método debe usar, siga los pasos de las próximas secciones.
 
 Para comprobar la configuración del inicio de sesión del usuario actual:
 
-1. Inicie sesión en el portal de [Azure AD](https://aad.portal.azure.com/) con una cuenta de administrador global.
+1. Inicie sesión en el [portal de Azure AD](https://aad.portal.azure.com/) con una cuenta de administrador global.
 2. En la sección **Inicio de sesión de usuario**, compruebe la configuración siguiente:
    * **Federación** está establecido en **Habilitado**.
    * **Inicio de sesión único de conexión directa** está establecido en **Deshabilitado**.
    * **Autenticación de paso a través** está establecido en **Deshabilitado**.
 
-   ![Captura de pantalla de la configuración en la sección de inicio de sesión de usuario de Azure AD Connect](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image1.png)
+   ![Captura de pantalla de la configuración de la sección de inicio de sesión de usuario de Azure AD Connect](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image1.png)
 
 #### <a name="verify-the-azure-ad-connect-configuration"></a>Comprobación de la configuración de Azure AD Connect
 
@@ -88,8 +89,8 @@ Para comprobar la configuración del inicio de sesión del usuario actual:
    * Si **Sincronización de hash de contraseña** está establecido en **Habilitado**, puede omitir la sección **Paso 1: Habilitación de la sincronización de hash de contraseñas** de este artículo.
 4. En la página **Revisar su solución**, desplácese hasta **Servicios de federación de Active Directory (AD FS)** .<br />
 
-   * ‎Si la configuración de AD FS aparece en esta sección, puede suponer con seguridad que AD FS se configuró originalmente con Azure AD Connect. Puede convertir los dominios de identidad federada en identidad administrada mediante la opción **Cambiar inicio de sesión de usuario** de Azure AD Connect. El proceso se detalla en la sección **Opción A: Cambio de la federación a la sincronización de hash de contraseña mediante Azure AD Connect**.
-   * Si AD FS no aparece en la configuración actual, debe convertir manualmente los dominios de identidad federada a identidad administrada mediante el uso de PowerShell. Para obtener más información sobre este proceso, consulte la sección **Opción B: Cambio de la federación a la sincronización de hash de contraseña mediante Azure AD Connect y PowerShell**.
+   * ‎Si la configuración de AD FS aparece en esta sección, puede suponer con seguridad que AD FS se configuró originalmente con Azure AD Connect. Puede convertir los dominios de identidad federada a identidad administrada mediante la opción **Cambiar inicio de sesión de usuario** de Azure AD Connect. El proceso se detalla en la sección **Opción A: Cambio de la federación a la sincronización de hash de contraseña mediante Azure AD Connect**.
+   * Si AD FS no aparece en la configuración actual, debe convertir manualmente los dominios de identidad federada a identidad administrada mediante PowerShell. Para obtener más información sobre este proceso, consulte la sección **Opción B: Cambio de la federación a la sincronización de hash de contraseña mediante Azure AD Connect y PowerShell**.
 
 ### <a name="document-current-federation-settings"></a>Documentación de la configuración actual de la federación
 
@@ -174,7 +175,7 @@ Si su organización [personalizó las páginas de inicio de sesión de AD FS](ht
 Aunque hay personalizaciones similares disponibles, cabe esperar que haya algunos cambios visuales en las páginas de inicio de sesión tras la conversión. Es posible que desee proporcionar información sobre los cambios previstos en sus comunicaciones a los usuarios.
 
 > [!NOTE]
-> La personalización de marca de empresa solo está disponible si ha adquirido las licencias Premium o Básico de Azure Active Directory, o si tiene una licencia de Office 365.
+> La personalización de marca de empresa solo está disponible si ha adquirido las licencias Premium o Básica de Azure Active Directory, o si tiene una licencia de Office 365.
 
 ## <a name="plan-deployment-and-support"></a>Planeación de la implementación y el soporte técnico
 
@@ -204,7 +205,7 @@ Para planear la reversión, consulte la documentación sobre el diseño y la imp
 
 ### <a name="plan-communications"></a>Planeamiento de las comunicaciones
 
-Una parte importante del planeamiento de la implementación y el soporte técnico es garantizar que a los usuarios finales se les informe con antelación de los próximos cambios. Los usuarios deberían saber de antemano lo que podrían experimentar y qué se necesita de ellos. 
+Una parte importante del planeamiento de la implementación y el soporte técnico es garantizar que a los usuarios finales se les informe con antelación de los próximos cambios. Los usuarios deben saber de antemano lo que podrían experimentar y qué se necesita de ellos. 
 
 Una vez que se hayan implementado tanto la sincronización de hash de contraseña como el inicio de sesión único de conexión directa, cambia la experiencia de inicio de sesión del usuario para acceder a Office 365 y otros recursos autenticados mediante Azure AD. Los usuarios que están fuera de la red solo ven la página de inicio de sesión de Azure AD. Estos usuarios no son redirigidos a la página basada en formularios que se presenta por los servidores proxy de aplicación web de uso externo.
 
@@ -221,7 +222,7 @@ Incluya los siguientes elementos en su estrategia de comunicación:
 Ya ha planeado la solución. Ahora, ya puede implementarla. La implementación incluye los siguientes componentes:
 
 * Habilitación de la sincronización de hash de contraseña.
-* Preparación para el inicio de sesión único de conexión directa.
+* Preparación para el SSO de conexión directa.
 * Cambio del método de inicio de sesión a sincronización de hash de contraseñas y habilitación del inicio de sesión único de conexión directa.
 
 ### <a name="step-1-enable-password-hash-synchronization"></a>Paso 1: Habilitación de la sincronización de hash de contraseñas
@@ -268,7 +269,7 @@ De forma predeterminada, los exploradores web calculan automáticamente la zona 
 Siga los pasos para [implementar](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start) los cambios necesarios en los dispositivos.
 
 > [!IMPORTANT]
-> Hacer este cambio no modifica la forma en que los usuarios inician sesión en Azure AD. Sin embargo, es importante que aplique esta configuración a todos los dispositivos antes de continuar. Los usuarios que inicien sesión en dispositivos que no han recibido esta configuración solo tendrán que escribir el nombre de usuario y contraseña para iniciar sesión Azure AD.
+> Hacer este cambio no modifica la forma en que los usuarios inician sesión en Azure AD. Sin embargo, es importante que aplique esta configuración a todos los dispositivos antes de continuar. Los usuarios que inicien sesión en dispositivos que no hayan recibido esta configuración solo tendrán que escribir un nombre de usuario y una contraseña para iniciar sesión Azure AD.
 
 ### <a name="step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso"></a>Paso 3: Cambio del método de inicio de sesión a la sincronización de hash de contraseña y habilitación de SSO de conexión directa
 
@@ -276,16 +277,16 @@ Tiene dos opciones para cambiar el método de inicio de sesión a sincronizació
 
 #### <a name="option-a-switch-from-federation-to-password-hash-synchronization-by-using-azure-ad-connect"></a>Opción A: Cambio de la federación a la sincronización de hash de contraseña mediante Azure AD Connect
 
-Utilice este método si ha configurado inicialmente su entorno de AD FS con Azure AD Connect. No puede utilizar este método si *no* configuró inicialmente su entorno de AD FS con Azure AD Connect.
+Use este método si ha configurado inicialmente su entorno de AD FS con Azure AD Connect. No puede usar este método si *no* configuró inicialmente su entorno de AD FS con Azure AD Connect.
 
-En primer lugar cambie el método de inicio de sesión:
+En primer lugar, cambie el método de inicio de sesión:
 
 1. En el servidor de Azure AD Connect, abra el asistente de Azure AD Connect.
 2. Seleccione **Cambiar inicio de sesión de usuario** y, después, seleccione **Siguiente**. 
 
    ![Captura de pantalla de la opción Cambiar inicio de sesión de usuario en la página Tareas adicionales](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image7.png)<br />
 3. En la pantalla **Conectar a Azure AD**, indique el nombre de usuario y la contraseña de una cuenta de administrador global.
-4. En la página **Inicio de sesión de usuario**, seleccione el **botón de sincronización de hash de contraseña**. Asegúrese de activar la casilla **No convertir las cuentas de usuario**. La opción está en desuso. Seleccione **Habilitar el inicio de sesión único** y, después, **Siguiente**.
+4. En la página **Inicio de sesión de usuario**, seleccione el **botón de sincronización de hash de contraseña**. Asegúrese de activar la casilla **No convertir las cuentas de usuario**. La opción está en desuso. Seleccione **Habilitar inicio de sesión único** y, después, **Siguiente**.
 
    ![Captura de pantalla de la página Habilitar el inicio de sesión único](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image8.png)<br />
 
@@ -300,7 +301,7 @@ En primer lugar cambie el método de inicio de sesión:
    ![Captura de pantalla de la página Habilitar el inicio de sesión único](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
 
    > [!NOTE]
-   > Las credenciales de la cuenta del administrador de dominio son necesarias para habilitar el inicio de sesión único de conexión directa. Durante el proceso se realizan las acciones siguientes, que requieren estos permisos elevados. Las credenciales de la cuenta de administrador de dominio no se almacenan en Azure AD Connect ni en Azure AD. Las credenciales de la cuenta de administrador de dominio se usan solo para activar la característica. Cuando el proceso finaliza correctamente, estas credenciales se descartan.
+   > Las credenciales de la cuenta de administrador de dominio son necesarias para habilitar el inicio de sesión único de conexión directa. Durante el proceso se realizan las acciones siguientes, que requieren estos permisos elevados. Las credenciales de la cuenta de administrador de dominio no se almacenan en Azure AD Connect ni en Azure AD. Las credenciales de la cuenta de administrador de dominio se usan solo para activar la característica. Cuando el proceso finaliza correctamente, estas credenciales se descartan.
    >
    > 1. Se crea una cuenta de equipo denominada AZUREADSSOACC (que representa a Azure AD) en la instancia local de Active Directory.
    > 2. La clave de descifrado de Kerberos de la cuenta de equipo se comparte de manera segura con Azure AD.
@@ -330,10 +331,10 @@ Vaya a [Pruebas y pasos siguientes](#testing-and-next-steps).
 
 Use esta opción si no configuró inicialmente los dominios federados con Azure AD Connect. Como parte de este proceso, ha habilitado el inicio de sesión único de conexión directa y ha cambiado los dominios de federados a administrados.
 
-1. En el servidor de Azure AD Connect, abra el Asistente de Azure AD Connect.
+1. En el servidor de Azure AD Connect, abra el asistente de Azure AD Connect.
 2. Seleccione **Cambiar inicio de sesión de usuario** y, después, seleccione **Siguiente**.
 3. En la pantalla **Conectar a Azure AD**, indique el nombre de usuario y la contraseña de una cuenta de administrador global.
-4. En la página **Inicio de sesión de usuario**, seleccione el botón de **sincronización de hash de contraseña**. Seleccione **Habilitar el inicio de sesión único** y, después, **Siguiente**.
+4. En la página **Inicio de sesión de usuario**, seleccione el botón de **sincronización de hash de contraseña**. Seleccione **Habilitar inicio de sesión único** y, después, **Siguiente**.
 
    Antes de habilitar la sincronización de hash de contraseña: ![Captura de pantalla que muestra la opción No configurar en la página Inicio de sesión de usuario](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
@@ -345,7 +346,7 @@ Use esta opción si no configuró inicialmente los dominios federados con Azure 
 5. En la página **Habilitar el inicio de sesión único**, escriba las credenciales de la cuenta del administrador del dominio y, después, seleccione **Siguiente**.
 
    > [!NOTE]
-   > Las credenciales de la cuenta del administrador de dominio son necesarias para habilitar el inicio de sesión único de conexión directa. Durante el proceso se realizan las acciones siguientes, que requieren estos permisos elevados. Las credenciales de la cuenta de administrador de dominio no se almacenan en Azure AD Connect ni en Azure AD. Las credenciales de la cuenta de administrador de dominio se usan solo para activar la característica. Cuando el proceso finaliza correctamente, estas credenciales se descartan.
+   > Las credenciales de la cuenta de administrador de dominio son necesarias para habilitar el inicio de sesión único de conexión directa. Durante el proceso se realizan las acciones siguientes, que requieren estos permisos elevados. Las credenciales de la cuenta de administrador de dominio no se almacenan en Azure AD Connect ni en Azure AD. Las credenciales de la cuenta de administrador de dominio se usan solo para activar la característica. Cuando el proceso finaliza correctamente, estas credenciales se descartan.
    >
    > 1. Se crea una cuenta de equipo denominada AZUREADSSOACC (que representa a Azure AD) en la instancia local de Active Directory.
    > 2. La clave de descifrado de Kerberos de la cuenta de equipo se comparte de manera segura con Azure AD.
@@ -395,11 +396,11 @@ Complete las tareas siguientes para comprobar la sincronización de hash de cont
 
 ### <a name="test-authentication-by-using-password-hash-synchronization"></a>Autenticación de prueba mediante la sincronización de hash de contraseña 
 
-Cuando el inquilino usaba la identidad federada, los usuarios se redirigían de la página de inicio de sesión de Azure AD al entorno de AD FS. Ahora que el inquilino está configurado para usar la sincronización de hash de contraseña en lugar de autenticación federada, los usuarios no se redirigen a AD FS. En su lugar, los usuarios inician sesión directamente en la página de inicio de sesión de Azure AD.
+Cuando el inquilino usaba la identidad federada, los usuarios eran redirigidos desde la página de inicio de sesión de Azure AD hasta el entorno de AD FS. Ahora que el inquilino está configurado para usar la sincronización de hash de contraseña en lugar de autenticación federada, los usuarios no se redirigen a AD FS. En su lugar, los usuarios inician sesión directamente en la página de inicio de sesión de Azure AD.
 
 Para probar la sincronización de hash de contraseña:
 
-1. Abra Internet Explorer en modo de InPrivate para que el inicio de sesión único de conexión directa no inicie su sesión automáticamente.
+1. Abra Internet Explorer en modo InPrivate para que el inicio de sesión único de conexión directa no inicie su sesión automáticamente.
 2. Vaya a la página de inicio de sesión de Office 365 ([https://portal.office.com](https://portal.office.com/)).
 3. Escriba un nombre principal de usuario y, a continuación, seleccione **Siguiente**. Asegúrese de escribir el nombre principal de usuario de un usuario híbrido que se sincronizó desde la instancia de Active Directory local y que usaba anteriormente la autenticación federada. Aparece una página en la que se escribe el nombre de usuario y la contraseña:
 
@@ -414,7 +415,7 @@ Para probar la sincronización de hash de contraseña:
 
 ### <a name="test-seamless-sso"></a>Prueba del inicio de sesión único de conexión directa
 
-1. Inicie sesión en un equipo unido a un dominio que esté conectado a la red corporativa.
+1. Inicie sesión en una máquina unida a un dominio que esté conectada a la red corporativa.
 2. En Internet Explorer o Chrome, vaya a una de las siguientes direcciones URL (reemplace "contoso" por su dominio):
 
    * https:\/\/myapps.microsoft.com/contoso.com
@@ -453,9 +454,9 @@ Históricamente, las actualizaciones para el atributo **UserPrincipalName**, que
 * El usuario está en un dominio de identidad administrada (no federada).
 * Al usuario no se le ha asignado una licencia.
 
-Para obtener información sobre cómo comprobar o activar esta característica, consulte [Sincronización de actualizaciones de userPrincipalName](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsyncservice-features).
+Para saber cómo comprobar o activar esta característica, consulte [Sincronización de actualizaciones de userPrincipalName](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsyncservice-features).
 
-### <a name="troubleshooting"></a>solución de problemas
+### <a name="troubleshooting"></a>Solución de problemas
 
 El equipo de soporte técnico debe saber solucionar cualquier problema de autenticación que surja durante el cambio de federación a administrado, o después. Use la siguiente documentación de solución de problemas para ayudar al equipo de soporte técnico a familiarizarse con los pasos comunes para la solución de problemas comunes y las acciones adecuadas que pueden ayudar a aislar y resolver el problema.
 
@@ -469,7 +470,7 @@ Es importante implementar con frecuencia la clave de descifrado de Kerberos de l
 
 Inicie la sustitución de la clave de descifrado de Kerberos del inicio de sesión único de conexión directa en el servidor local que ejecuta Azure AD Connect.
 
-Para obtener más información, consulte [¿Cómo puedo implementar la clave de descifrado de Kerberos de la cuenta de equipo AZUREADSSOACC?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-faq)
+Para más información, consulte [¿Cómo puedo implementar la clave de descifrado de Kerberos de la cuenta de equipo AZUREADSSOACC?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-faq).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

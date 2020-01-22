@@ -13,26 +13,20 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: 4565eb86727e768ba894d701cbc5e0073c07ee01
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 4ef8bc029c63aaf297462a7b53f6daba1a7c850b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185521"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028431"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Solución de problemas de una máquina virtual de Azure mediante la virtualización anidada en Azure
 
 En este artículo se muestra cómo crear un entorno de virtualización anidada en Microsoft Azure con el fin de que pueda montar el disco de la máquina virtual con problemas en el host de Hyper-V (máquina virtual de rescate) y solucionar los problemas que puedan surgir.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Para montar la máquina virtual con problemas, la máquina virtual de rescate debe cumplir los siguientes requisitos previos:
-
--   La máquina virtual de rescate debe estar en la misma ubicación que la máquina virtual con problemas.
-
--   La máquina virtual de rescate debe estar en el mismo grupo de recursos que la máquina virtual con problemas.
-
--   La máquina virtual de rescate debe usar el mismo tipo de cuenta de almacenamiento (Estándar o Premium) que la máquina virtual con problemas.
+Para montar la máquina virtual con problemas, la máquina virtual de rescate debe usar el mismo tipo de cuenta de almacenamiento (Estándar o Prémium) que la máquina virtual con problemas.
 
 ## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Paso 1: Creación de una máquina virtual de rescate e instalación del rol de Hyper-V
 
@@ -40,7 +34,7 @@ Para montar la máquina virtual con problemas, la máquina virtual de rescate de
 
     -  Sistema operativo: Windows Server 2016 Datacenter
 
-    -  Tamaño Cualquier serie V3 con al menos dos núcleos que admitan la virtualización anidada. Para obtener más información, consulte la sección [Introducción a los nuevos tamaños Dv3 y Ev3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
+    -  Tamaño: Cualquier serie V3 con al menos dos núcleos que admitan la virtualización anidada. Para obtener más información, consulte la sección [Introducción a los nuevos tamaños Dv3 y Ev3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
 
     -  La ubicación, la cuenta de almacenamiento y el grupo de recursos deben ser los mismos que los de la máquina virtual con problemas.
 

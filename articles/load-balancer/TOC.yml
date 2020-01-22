@@ -63,7 +63,7 @@
     - name: Puertos de alta disponibilidad
       href: load-balancer-ha-ports-overview.md
     - name: Compatibilidad de IPv6
-      href: load-balancer-ipv6-overview.md
+      href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-overview'
     - name: Varios servidores front-end
       href: load-balancer-multivip-overview.md
     - name: Conexiones de salida
@@ -107,11 +107,11 @@
     - name: Creación de Load Balancer público con IPv6
       items:
         - name: Azure CLI
-          href: load-balancer-ipv6-internet-cli.md
+          href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli'
         - name: Azure PowerShell
-          href: load-balancer-ipv6-internet-ps.md
+          href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell'
         - name: Plantilla
-          href: load-balancer-ipv6-internet-template.md
+          href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
     - name: Configuración de Load Balancer interno
       items:
         - name: Azure CLI

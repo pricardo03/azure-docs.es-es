@@ -5,27 +5,28 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 12/09/2019
+ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: d6cc6c787e38cc72a0a3d4340d55c0248918dba6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 17558b44c91425ce1a06625f8fd5c1806a762ba2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75392320"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021060"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes: Azure Resource Manager Los siguientes límites solo son válidos en los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
-> Recientemente hemos aumentado todos los límites predeterminados a sus límites máximos. Si no hay ninguna columna de límite máximo, el recurso no tiene límites ajustables. Si el soporte técnico ha aumentado estos límites en el pasado y no ve los límites actualizados en las tablas siguientes, [abra una solicitud de soporte técnico al cliente en línea sin cargo](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+> Recientemente hemos aumentado todos los límites predeterminados a sus límites máximos. Si no hay ninguna columna de límite máximo, el recurso no tiene límites ajustables. Si el soporte técnico ha aumentado estos límites en el pasado y no ve los límites actualizados en las tablas siguientes, [abra una solicitud de soporte técnico al cliente en línea sin cargo](../articles/azure-resource-manager/templates/error-resource-quota.md)
 
 | Resource | Límite predeterminado/máximo | 
 | --- | --- |
 | Redes virtuales |1,000 |
 | Subredes por red virtual |3000 |
 | Emparejamientos de redes virtuales por red virtual |500 |
-| [Puertas de enlace de red virtual (VPN Gateway) por red virtual](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |30 |
+| [Puertas de enlace de red virtual (puertas de enlace VPN) por red virtual](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |1 |
+| [Puertas de enlace de red virtual (puertas de enlace ExpressRoute) por red virtual](../articles/expressroute/expressroute-about-virtual-network-gateways.md#gwsku) |1 |
 | Servidores DNS por red virtual |20 |
 | Direcciones IP privadas por red virtual |65 536 |
 | Direcciones IP privadas por interfaz de red |256 |
@@ -58,20 +59,29 @@ ms.locfileid: "75392320"
 #### <a name="load-balancer"></a>Límites del equilibrador de carga
 Los límites siguientes solo se aplican a los recursos de redes administrados a través de Azure Resource Manager por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
-| Resource | Límite predeterminado/máximo |
-| --- | --- |
-| Equilibradores de carga | 1,000 | 
-| Reglas por recurso, básico | 250 |
-| Reglas por recurso, estándar | 1500 | 
-| Reglas por NIC (en todas las direcciones IP de una NIC) | 300 |
-| Configuraciones de direcciones IP de front-end, Básico | 200 |
-| Configuraciones de direcciones IP de front-end, Estándar | 600 |
-| Grupo de servidores back-end, Básico | 100, conjunto de disponibilidad único |
-| Grupo de servidores back-end, Estándar | 1000, red virtual única |
-| Recursos del servidor back-end por equilibrador de carga, Estándar<sup>1</sup> | 150 |
-| Puertos de alta disponibilidad, Estándar | 1 por front-end interno |
+**Standard Load Balancer**
 
-<sup>1</sup>El límite es de hasta 150 recursos, en cualquier combinación de recursos de máquinas virtuales independientes, recursos de conjuntos de disponibilidad y recursos de conjuntos de escalado de máquinas virtuales.
+| Resource                                | Límite predeterminado/máximo         |
+|-----------------------------------------|-------------------------------|
+| Equilibradores de carga                          | 1,000                         |
+| Reglas por recurso                      | 1500                         |
+| Reglas por NIC (en todas las direcciones IP de una NIC) | 300                           |
+| Configuraciones de direcciones IP de front-end              | 600                           |
+| Tamaño de grupo de back-end                       | 1000 configuraciones de IP, una sola red virtual |
+| Puertos de alta disponibilidad                 | 1 por front-end interno       |
+| Reglas de salida por Load Balancer         | 20                            |
+
+
+**Load Balancer básico**
+
+| Resource                                | Límite predeterminado/máximo        |
+|-----------------------------------------|------------------------------|
+| Equilibradores de carga                          | 1,000                        |
+| Reglas por recurso                      | 250                          |
+| Reglas por NIC (en todas las direcciones IP de una NIC) | 300                          |
+| Configuraciones de direcciones IP de front-end              | 200                          |
+| Tamaño de grupo de back-end                       | 300 configuraciones de IP, un solo conjunto de disponibilidad |
+| Conjuntos de disponibilidad por Load Balancer     | 150                          |
 
 #### <a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo a los recursos de redes administrados a través del modelo de implementación **clásico** por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
