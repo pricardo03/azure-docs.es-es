@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 91150251140379c15d4ab3711ded571c9ad2c024
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ace19f17f5d7a5e920808b76258459c0eba62890
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101643"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750534"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configuración de ASM de Oracle en una máquina virtual Linux en Azure  
 
@@ -32,8 +32,6 @@ Las máquinas virtuales de Azure proporcionan un entorno informático completame
 > * Inicializar una instalación de ASM de Oracle
 > * Crear una base de datos de Oracle administrada por ASM
 
-
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
 Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
 
@@ -211,7 +209,7 @@ Para este tutorial, el usuario predeterminado es *grid* y el grupo predeterminad
    fdisk /dev/sdc
    ```
    
-   Con las respuestas proporcionadas anteriormente, la salida del comando fdisk debe ser similar a la siguiente:
+   Con las respuestas proporcionadas anteriormente, la salida del comando `fdisk` debe ser similar a la siguiente:
 
    ```bash
    Device contains not a valid DOS partition table, or Sun, SGI or OSF disklabel
@@ -247,7 +245,7 @@ Para este tutorial, el usuario predeterminado es *grid* y el grupo predeterminad
    Syncing disks.
    ```
 
-4. Repita el comando fdisk anterior para `/dev/sdd`, `/dev/sde` y `/dev/sdf`.
+4. Repita el comando `fdisk` anterior para `/dev/sdd`, `/dev/sde` y `/dev/sdf`.
 
 5. Compruebe la configuración del disco:
 

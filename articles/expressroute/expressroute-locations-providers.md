@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 01/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1eb68f527bd764189459d454f929def0fd71d987
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 803451ca3e011cc60a4b87ce0d6a1e15a09c5f40
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561140"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750555"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -115,7 +115,7 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 | **Nueva York** | [Equinix NY9](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny9/) | 1 | N/D | N/D | CenturyLink Cloud Connect, Colt, Coresite, Equinix, InterCloud, Megaport, Packet, Zayo |
 | **Newport (Gales)** | [Datos de última generación](https://www.nextgenerationdata.co.uk) | 1 | Oeste de Reino Unido | N/D | British Telecom, Colt, Level 3 Communications, Next Generation Data |
 | **Osaka** | [Equinix OS1](https://www.equinix.com/locations/asia-colocation/japan-colocation/osaka-data-centers/os1/) | 2 | Oeste de Japón | 10 Gb/s, 100 Gb/s | Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
-| **Oslo** | [DigiPlex Ulven](https://www.digiplex.com/locations/oslo-datacentre) | 1 | Este de Noruega | 10 Gb/s, 100 Gb/s | Telenor |
+| **Oslo** | [DigiPlex Ulven](https://www.digiplex.com/locations/oslo-datacentre) | 1 | Este de Noruega | 10 Gb/s, 100 Gb/s | Megaport, Telenor, Telia Carrier |
 | **París** | [Interxion PAR5](https://www.interxion.com/Locations/paris/) | 1 | Centro de Francia | N/D | CenturyLink Cloud Connect, Colt, Equinix, Intercloud, Interxion, Orange, Telia Carrier, Zayo |
 | **Perth** | [NextDC P1](https://www.nextdc.com/data-centres/p1-perth-data-centre) | 2 | N/D | 10 Gb/s | Megaport, NextDC |
 | **Quebec ciudad** | [Vantage](https://vantage-dc.com/data_centers/quebec-city-data-center-campus/) | 1 | Este de Canadá | N/D | Bell Canada, Megaport |
@@ -134,8 +134,8 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 | **Taipéi** | Chief Telecom | 2 | N/D | 10 Gb/s | Chief Telecom, FarEasTone |
 | **Tokio** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | Este de Japón | 10 Gb/s, 100 Gb/s | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, Megaport, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
 | **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Centro de Canadá | 10 Gb/s, 100 Gb/s | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Verizon, Zayo |
-| **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | 1 | Este de EE. UU., Este de EE. UU. 2 | 10 Gb/s, 100 Gb/s | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Cologix, Colt, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, Neutrona Networks, NTT Communications, Orange, PacketFabric, SES, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
-| **Washington DC2** | [Coresite Reston](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | 1 | Este de EE. UU., Este de EE. UU. 2 | 10 Gb/s, 100 Gb/s | CenturyLink Cloud Connect, Coresite, Viasat, Zayo | 
+| **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | 1 | Este de EE. UU., Este de EE. UU. 2 | 10 Gb/s, 100 Gb/s | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Cologix, Colt, Comcast, Coresite, Equinix, Internet2, InterCloud, IX Reach, Level 3 Communications, Megaport, Neutrona Networks, NTT Communications, Orange, PacketFabric, SES, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
+| **Washington DC2** | [Coresite Reston](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | 1 | Este de EE. UU., Este de EE. UU. 2 | 10 Gb/s, 100 Gb/s | CenturyLink Cloud Connect, Coresite, Intelsat, Viasat, Zayo | 
 | **Zúrich** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | Norte de Suiza | N/D | Intercloud, Interxion, Megaport, Swisscom |
 
  **+** indica próximamente

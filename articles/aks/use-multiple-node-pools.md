@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: f507619a1c8e80623a756b91f3fd6187283212f0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 9c72c8431907c52dab338114ce09be139608ab0a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996738"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768595"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creación y administración de varios grupos de nodos para un clúster de Azure Kubernetes Service (AKS)
 
@@ -35,11 +35,11 @@ Se aplican las siguientes limitaciones cuando crea y administra clústeres de AK
 * El complemento de enrutamiento de aplicación HTTP no se puede utilizar.
 * El clúster de AKS debe usar el equilibrador de carga de SKU estándar para usar varios grupos de nodos; la característica no es compatible con los equilibradores de carga de SKU básica.
 * El clúster de AKS debe usar conjuntos de escalado de máquinas virtuales para los nodos.
-* No pueden agregar ni eliminar grupos de nodos mediante una plantilla de Resource Manager como sucede con la mayoría de las operaciones. En su lugar, [use una plantilla de Resource Manager independiente](#manage-node-pools-using-a-resource-manager-template) para realizar cambios en los grupos de nodos de un clúster de AKS.
 * El nombre de un grupo de nodos solo puede contener caracteres alfanuméricos en minúsculas y debe comenzar con una letra minúscula. En el caso de los grupos de nodos de Linux, la longitud debe estar comprendida entre 1 y 12 caracteres. Para los grupos de nodos de Windows, la longitud debe estar comprendida entre 1 y 6 caracteres.
 * El clúster de AKS puede tener un máximo de ocho grupos de nodos.
 * El clúster de AKS puede tener un máximo de 800 nodos distribuidos entre esos ocho grupos de nodos.
-* Todos los grupos de nodos deben residir en la misma subred.
+* Todos los grupos de nodos deben residir en la misma red virtual y la misma subred.
+* Al crear varios grupos de nodos durante la creación del clúster, todas las versiones de Kubernetes que se usen en los grupos de nodos deben coincidir con la versión establecida para el plano de control. Se puede actualizar después de aprovisionar el clúster mediante operaciones en función del grupo de nodos.
 
 ## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
 

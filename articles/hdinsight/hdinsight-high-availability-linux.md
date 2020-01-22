@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 8b914b8ffe995cf31f8a22b6f80250431facc770
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 68f4eb4fbad2a571e078cb9aedcfd56c80ffe054
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682245"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747863"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidad y fiabilidad de clústeres de Apache Hadoop en HDInsight
 
@@ -33,7 +33,7 @@ Los nodos de un clúster de HDInsight se implementan mediante Azure Virtual Mach
 
 HDInsight proporciona dos nodos principales para garantizar una alta disponibilidad de los servicios de Hadoop. Ambos nodos principales están activos y en ejecución dentro del clúster de HDInsight al mismo tiempo. Algunos servicios, como Apache HDFS o Apache Hadoop YARN, solo están “activos” en un nodo principal en un determinado momento. Otros servicios como HiveServer2 o MetaStore de Hive están activos en ambos nodos principales al mismo tiempo.
 
-Los nodos principales y otros nodos de HDInsight tienen un valor numérico como parte del nombre de host del nodo. Por ejemplo, `hn0-CLUSTERNAME` o `hn4-CLUSTERNAME`.
+Para obtener los nombres de host de los distintos tipos de nodo del clúster, use la [API de REST de Ambari](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
 
 > [!IMPORTANT]  
 > No asocie el valor numérico a si un nodo es principal o secundario. El valor numérico solo está presente para proporcionar un nombre único para cada nodo.
@@ -64,7 +64,7 @@ Se proporciona acceso al clúster a través de Internet mediante una puerta de e
 
 El acceso a través de la puerta de enlace pública se limita a los puertos 443 (HTTPS), 22 y 23.
 
-|Port |DESCRIPCIÓN |
+|Port |Descripción |
 |---|---|
 |443|Se usa para acceder a Ambari y a otra interfaz de usuario web o API de REST hospedadas en los nodos principales.|
 |22|Se usa para acceder al nodo principal primario o al nodo perimetral mediante SSH.|
@@ -88,7 +88,7 @@ curl -u admin:$password "https://$clusterName.azurehdinsight.net/api/v1/clusters
 Este comando devuelve un valor similar al siguiente, que contiene la dirección URL interna para usarla con el comando `oozie`:
 
 ```output
-"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
+"oozie.base.url": "http://<ACTIVE-HEADNODE-NAME>cx.internal.cloudapp.net:11000/oozie"
 ```
 
 Para más información sobre cómo trabajar con la API de REST de Ambari, vea [Supervisión y administración de HDInsight con la API de REST de Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
@@ -97,7 +97,7 @@ Para más información sobre cómo trabajar con la API de REST de Ambari, vea [S
 
 Puede conectarse a los nodos que no son accesibles directamente a través de Internet mediante los métodos siguientes:
 
-|Método |DESCRIPCIÓN |
+|Método |Descripción |
 |---|---|
 |SSH|una vez conectado a un nodo principal mediante SSH, puede usar SSH desde el nodo principal para conectarse a otros nodos del clúster. Para más información, vea el documento [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
 |Tunelización SSH|Si tiene que acceder a un servicio web hospedado en uno de los nodos que no está expuesto a Internet, debe usar un túnel SSH. Para más información, vea el documento [Uso de un túnel SSH con HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).|
@@ -119,7 +119,7 @@ Hay una serie de iconos que pueden aparecer junto a un servicio para indicar el 
 
 Las siguientes alertas ayudan a supervisar la disponibilidad de un clúster:
 
-| Nombre de la alerta                               | DESCRIPCIÓN                                                                                                                                                                                  |
+| Nombre de la alerta                               | Descripción                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Estado del monitor de métricas                    | Esta alerta indica el estado del proceso de supervisión de las métricas según lo determinado por el script de estado del monitor.                                                                                   |
 | Latido del agente de Ambari                   | Esta alerta se desencadena si el servidor ha perdido el contacto con un agente.                                                                                                                        |
@@ -194,7 +194,7 @@ La respuesta es similar al siguiente formato JSON:
 
 ```json
 {
-    "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+    "href" : "http://mycluster.wutj3h4ic1zejluqhxzvckxq0g.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
     "ServiceInfo" : {
     "cluster_name" : "mycluster",
     "service_name" : "HDFS",
@@ -203,7 +203,7 @@ La respuesta es similar al siguiente formato JSON:
 }
 ```
 
-La dirección URL nos indica que el servicio se está ejecutando en el nodo principal **hn0-CLUSTERNAME**.
+La dirección URL nos indica que el servicio se está ejecutando en el nodo principal denominado **mycluster.wutj3h4ic1zejluqhxzvckxq0g**.
 
 El estado nos indica que el servicio se está ejecutando o se ha **INICIADO**.
 

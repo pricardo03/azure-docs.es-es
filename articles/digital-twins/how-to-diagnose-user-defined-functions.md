@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: d362512ac6d06577a5c46bb0c6dab461f07ae709
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 94038d743bf0aafaadb4693ffc48108e5351bca4
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457019"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863553"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Depuración de funciones definidas por el usuario en Azure Digital Twins
 
@@ -35,7 +35,7 @@ Azure Digital Twins es compatible con un eficaz sistema de registro, supervisió
 
 * Para ver una configuración de registro específica de Azure Digital Twins, lea [Configuración de la supervisión y el registro](./how-to-configure-monitoring.md).
 * Consulte la introducción a [Azure Monitor](../azure-monitor/overview.md) para obtener información acerca de la eficaz configuración del registro que se habilita a través de Azure Monitor.
-* Lea el artículo [Recopilación y consumo de datos de registro provenientes de los recursos de Azure](../azure-monitor/platform/resource-logs-overview.md) para configurar el registro de diagnóstico en Azure Digital Twins mediante Azure Portal, la CLI de Azure o PowerShell.
+* Lea el artículo [Recopilación y consumo de datos de registro provenientes de los recursos de Azure](../azure-monitor/platform/platform-logs-overview.md) para configurar el registro de diagnóstico en Azure Digital Twins mediante Azure Portal, la CLI de Azure o PowerShell.
 
 Una vez configurado, podrá seleccionar todas las categorías de registro y métricas, así como usar áreas de trabajo del análisis del registro de Azure Monitor para dar soporte a sus esfuerzos de depuración.
 
@@ -56,7 +56,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | El identificador de correlación que se especificó en los datos del evento |
 
-Para ver todas las consultas de registros de telemetría recientes:
+Para leer todas las consultas de registros de telemetría recientes:
 
 ```Kusto
 AzureDiagnostics
@@ -216,4 +216,4 @@ Si habilita la configuración de diagnóstico, es posible que se produzcan estas
 
 - Obtenga información sobre cómo habilitar [la supervisión y los registros](./how-to-configure-monitoring.md) en Azure Digital Twins.
 
-- Lea el artículo [Información general del registro de actividad de Azure](../azure-monitor/platform/activity-logs-overview.md) para conocer más opciones de registro.
+- Lea el artículo [Información general del registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md) para conocer más opciones de registro.

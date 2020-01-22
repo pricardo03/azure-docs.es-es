@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 1641a1020193395d7d2ddb9c4893bd7bc89cdcd0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 90658e030c907a9fd99dd8fb9a6e90698d72b1f0
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681873"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834475"
 ---
 # <a name="active-and-inactive-events"></a>Eventos activos e inactivos
 
@@ -25,10 +25,11 @@ En algunos escenarios, es posible que la aplicación tenga que llamar a Rank, in
 
 Normalmente, estos escenarios se producen cuando:
 
-* Está preprocesando la interfaz de usuario que el usuario podría o no ver. 
-* La aplicación está haciendo una personalización predictiva en la que las llamadas de Rank se realizan con poco contexto en tiempo real y la aplicación puede utilizar o no la salida. 
+* Está preprocesando la interfaz de usuario que el usuario podría o no ver.
+* La aplicación está haciendo una personalización predictiva en la que las llamadas de Rank se realizan con poco contexto en tiempo real y la aplicación puede utilizar o no la salida.
 
-En estos casos, use Personalizer para llamar a Rank solicitando al evento que esté _inactivo_. Personalizer no esperará una recompensa para este evento y no aplicará ninguna predeterminada. Después, en la lógica de negocios, si la aplicación usa la información de la llamada a Rank, lo único que debe hacer es _activar_ el evento. En cuanto el evento está activo, Personalizer espera una recompensa de evento. Si no se realiza ninguna llamada explícita a la API Rank, Personalizer aplica una recompensa predeterminada.
+En estos casos, use Personalizer para llamar a Rank solicitando al evento que esté _inactivo_. Personalizer no esperará una recompensa para este evento y no aplicará ninguna predeterminada.
+Después, en la lógica de negocios, si la aplicación usa la información de la llamada a Rank, lo único que debe hacer es _activar_ el evento. En cuanto el evento está activo, Personalizer espera una recompensa de evento. Si no se realiza ninguna llamada explícita a la API Rank, Personalizer aplica una recompensa predeterminada.
 
 ## <a name="inactive-events"></a>Eventos inactivos
 
@@ -42,15 +43,28 @@ La configuración del aprendizaje determina los *hiperparámetros* del entrenami
 
 Puede importar y exportar archivos de directivas de aprendizaje desde Azure Portal. Use este método para guardar las directivas existentes, probarlas, reemplazarlas y archivarlas en el control de código fuente como artefactos para futuras referencias y auditorías.
 
+Obtenga información sobre [cómo](how-to-learning-policy.md) importar y exportar una directiva de aprendizaje.
+
 ### <a name="understand-learning-policy-settings"></a>Comprensión de la configuración de directivas de aprendizaje
 
 La configuración de la directiva de aprendizaje no está pensada para modificarse. Cambie la configuración solo si comprende cómo afecta a Personalizer. Sin este conocimiento, podría causar problemas, como la invalidación de los modelos de Personalizer.
+
+Personalizer usa [vowpalwabbit](https://github.com/VowpalWabbit) para entrenar y puntuar los eventos. Consulte la [documentación de vowpalwabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) sobre cómo editar la configuración de aprendizaje con vowpalwabbit. Una vez que tenga la propiedad arguments correcta para la línea de comandos, guarde el comando en un archivo con el siguiente formato (reemplace el valor de la propiedad arguments por el comando deseado) y cargue el archivo para importar la configuración de aprendizaje en el panel **Configuración de aprendizaje y modelos** de Azure Portal para el recurso de Personalizer.
+
+El siguiente `.json` es un ejemplo de directiva de aprendizaje.
+
+```json
+{
+  "name": "new learning settings",
+  "arguments": " --cb_explore_adf --epsilon 0.2 --power_t 0 -l 0.001 --cb_type mtr -q ::"
+}
+```
 
 ### <a name="compare-learning-policies"></a>Comparación de directivas de aprendizaje
 
 Puede comparar el rendimiento de las diferentes directivas de aprendizaje con datos anteriores en los registros de Personalizer mediante [evaluaciones sin conexión](concepts-offline-evaluation.md).
 
-[Cargue sus propias directivas de aprendizaje](how-to-offline-evaluation.md) para compararlas con la directiva actual de aprendizaje.
+[Cargue sus propias directivas de aprendizaje](how-to-learning-policy.md) para compararlas con la directiva actual de aprendizaje.
 
 ### <a name="optimize-learning-policies"></a>Optimización de directivas de aprendizaje
 

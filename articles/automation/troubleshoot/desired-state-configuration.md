@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas con Desired State Configuration (DSC) de Azure Automation
+title: Solución de problemas de Desired State Configuration (DSC) de Azure Automation
 description: En este artículo se ofrece información sobre la solución de problemas con Desired State Configuration (DSC).
 services: automation
 ms.service: automation
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3d358ac1fb766804b35d969f4d06bc6c07e62661
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 3c3c9950aab9a5a422ebc9e858daded2888fd82e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951469"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834273"
 ---
-# <a name="troubleshoot-desired-state-configuration-dsc"></a>Solución de problemas de Desired State Configuration (DSC)
+# <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Solución de problemas de Desired State Configuration (DSC) de Azure Automation
 
 En este artículo se ofrece información sobre la solución de problemas con Desired State Configuration (DSC).
 
@@ -59,7 +59,7 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 Este error es un problema temporal que está previsto que se resuelva.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 * Use el cmdlet de Az "Remove-AzAutomationDscConfiguration" para eliminar la configuración.
 * Todavía no se ha actualizado la documentación de este cmdlet.  Hasta entonces, consulte la documentación del módulo AzureRM.
@@ -86,7 +86,7 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 
 Este error se debe normalmente a un firewall, a la máquina que está detrás de un servidor proxy o a otros errores de red.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Compruebe que la máquina tenga acceso a los puntos de conexión adecuadas para DSC de Automatización de Azure y vuelva a intentarlo. Para ver una lista de puertos y direcciones necesarios, consulte [Planeamiento de red](../automation-dsc-overview.md#network-planning).
 
@@ -108,7 +108,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 Este problema se debe a un certificado que no es válido o ha expirado.  Para más información, consulte [Expiración y repetición del registro del certificado](../automation-dsc-onboarding.md#certificate-expiration-and-re-registration).
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Siga los pasos que se indican a continuación para volver a registrar el nodo DSC con errores.
 
@@ -166,7 +166,7 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 
 Este error suele ocurrir cuando se asigna al nodo un nombre de configuración (por ejemplo, ABC), en lugar de un nombre de configuración de nodo (por ejemplo, ABC.WebServer).
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 * Asegúrese de estar asignando al nodo un "nombre de configuración de nodo" y no el "nombre de configuración".
 * Puede asignar una configuración de nodo a un nodo mediante el Portal de Azure o con un cmdlet de PowerShell.
@@ -188,7 +188,7 @@ Compilation completed successfully, but no node configuration.mofs were generate
 
 Cuando la expresión que aparece junto a la palabra clave **Node** en la configuración de DSC se evalúa como `$null`, no se produce ninguna configuración de nodo.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Cualquiera de las siguientes soluciones resolverá el problema:
 
@@ -209,7 +209,7 @@ No instance found with given property values
 
 Ha actualizado la versión de WMF y ha dañado WMI.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Para solucionar el problema, siga las instrucciones que se indican en el artículo [Problemas y limitaciones conocidos de DSC](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc).
 
@@ -227,7 +227,7 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 Ha usado una credencial en una configuración pero no ha proporcionado el valor adecuado de **ConfigurationData** para establecer **PSDscAllowPlainTextPassword** en true para cada configuración de nodo.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 * Asegúrese de pasar el valor adecuado de **ConfigurationData** para establecer **PSDAllowPlainTextPassword** como true para cada configuración de nodo mencionada en la configuración. Para más información, consulte los [recursos en DSC de Azure Automation](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation).
 
@@ -245,7 +245,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 Este error suele producirse cuando se asigna al nodo un nombre de configuración que no existe en el servicio.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 * Asegúrese de que asigna al nodo un nombre de configuración que coincida exactamente con el nombre del servicio.
 * Puede elegir no incluir el nombre de configuración del nodo, lo que dará lugar a la incorporación del nodo, pero no a la asignación de una configuración del nodo
@@ -264,13 +264,13 @@ One or more errors occurred.
 
 Este error se produce cuando se intenta registrar un nodo que reside en una suscripción independiente de la cuenta de Automation.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Trate el nodo entre suscripciones como si se encontrara en una nube independiente o local.
 
 Siga estos pasos para registrar el nodo.
 
-* Windows: [máquinas físicas y virtuales con Windows locales o en una nube que no sea Azure/AWS](../automation-dsc-onboarding.md#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws).
+* Windows: [máquinas físicas y virtuales con Windows locales o en una nube que no sea Azure/AWS](../automation-dsc-onboarding.md#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances).
 * Linux: [máquinas físicas y virtuales Linux locales o en una nube que no sea Azure](../automation-dsc-onboarding.md#physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
 
 ### <a name="agent-has-a-problem"></a>Escenario: mensaje de error: "Error de aprovisionamiento"
@@ -287,7 +287,7 @@ Provisioning has failed
 
 Este mensaje se produce cuando hay un problema de conectividad entre el nodo y Azure.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Determine si el nodo está en una red virtual privada o si tiene otros problemas para conectarse a Azure.
 
@@ -307,7 +307,7 @@ This event indicates that failure happens when LCM is processing the configurati
 
 Los clientes han identificado que si se establece la ubicación `/tmp` en `noexec`, la versión actual de DSC no podrá aplicar las configuraciones.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 * Quite la opción `noexec` de la ubicación `/tmp`.
 
@@ -323,7 +323,7 @@ Por ejemplo, si se usa un único script de configuración para generar configura
 
 Problema conocido con el servicio de compilación.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 La mejor solución sería realizar la compilación localmente o en una canalización de CI/CD y cargar los archivos MOF directamente en el servicio.  Si es necesario que la compilación tenga lugar en el servicio, la siguiente mejor solución sería dividir los trabajos de compilación para que no haya nombres superpuestos.
 

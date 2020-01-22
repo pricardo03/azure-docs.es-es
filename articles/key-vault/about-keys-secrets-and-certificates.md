@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3024d77c02f623f8b8dc1a8956e692c208c8c9e5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6a107936d290609fec73d46a93a277c3bdcce354
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799402"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832915"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Información acerca de claves, secretos y certificados
 
@@ -22,7 +22,7 @@ Azure Key Vault permite a las aplicaciones y los usuarios de Microsoft Azure alm
 
 - Claves de cifrado: admite varios tipos de claves y algoritmos y habilita el uso de módulos de seguridad de hardware (HSM) para claves de alto valor. 
 - Secretos: proporciona un almacenamiento seguro de secretos, como contraseñas y cadenas de conexión de base de datos.
-- Certificados: admite certificados, que se basan en claves y secretos, y agrega una característica de renovación automática.
+- Certificates: admite certificados, que se basan en claves y secretos, y agrega una característica de renovación automática.
 - Azure Storage: puede administrar automáticamente las claves de una cuenta de Azure Storage. Internamente, Key Vault puede enumerar (sincronizar) las claves con una cuenta de almacenamiento de Azure y volver a generar (rotar) las claves periódicamente. 
 
 Para más información sobre Key Vault, vea [¿Qué es Azure Key Vault?](/azure/key-vault/key-vault-overview)
@@ -139,7 +139,7 @@ Los módulos criptográficos que utiliza Key Vault, sean HSM o software, tienen 
 Key Vault admite las siguientes operaciones en objetos de clave:  
 
 -   **Crear**: permite a un cliente crear una clave en Key Vault. El valor de la clave lo genera y almacena Key Vault y no se entrega al cliente. Las claves asimétricas pueden crearse en Key Vault.  
--   **Importar**: permite a un cliente importar una clave existente en Key Vault. Se pueden importar claves asimétricas en Key Vault mediante una serie de métodos de empaquetado diferentes dentro de una construcción JWK. 
+-   **Import**: permite a un cliente importar una clave existente en Key Vault. Se pueden importar claves asimétricas en Key Vault mediante una serie de métodos de empaquetado diferentes dentro de una construcción JWK. 
 -   **Actualizar**: permite a un cliente con los permisos suficientes modificar los metadatos (atributos de la clave) asociados con una clave almacenada previamente en Key Vault.  
 -   **Eliminar**: permite a un cliente con los permisos suficientes eliminar una clave de Key Vault.  
 -   **Enumerar**: permite a un cliente enumerar todas las claves de un determinado almacén de Key Vault.  
@@ -376,7 +376,7 @@ La tabla siguiente representa la correspondencia entre la directiva de uso de cl
 
 Un objeto de certificado de Key Vault contiene una configuración que se usa para comunicarse con un proveedor de emisor de certificados seleccionado para solicitar certificados X.509.  
 
--   Key Vault está asociado con los proveedores de emisión de certificado siguientes para certificados SSL
+-   Key Vault está asociado con los proveedores de emisión de certificado siguientes para certificados TLS/SSL
 
 |**Nombre del proveedor**|**Ubicaciones**|
 |----------|--------|
@@ -389,7 +389,7 @@ Para poder crear un emisor de certificados en un almacén de claves, deben reali
 
     -   Un administrador de la organización debe incorporar su empresa (por ejemplo, Contoso) con al menos un proveedor de CA.  
 
-2. El administrador crea las credenciales del solicitante para que Key Vault inscriba (y renueve) certificados SSL  
+2. El administrador crea las credenciales del solicitante para que Key Vault inscriba (y renueve) certificados TLS/SSL  
 
     -   Proporciona la configuración que se usará para crear un objeto de emisor del proveedor en el almacén de claves  
 
@@ -473,7 +473,7 @@ Los siguientes permisos pueden usarse al autorizar a una entidad de seguridad de
 
 Para más información, vea las [operaciones para cuentas de almacenamiento en la referencia de la API REST de Key Vault](/rest/api/keyvault). Para obtener información sobre cómo establecer permisos, vea [Almacenes: crear o actualizar](/rest/api/keyvault/vaults/createorupdate) y [Almacenes: actualizar directiva de acceso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Autenticación, solicitudes y respuestas](authentication-requests-and-responses.md)
 - [Guía del desarrollador de Key Vault](/azure/key-vault/key-vault-developers-guide)

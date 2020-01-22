@@ -8,14 +8,14 @@ author: axisc
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 356f825524192c3b6cf7df7f0460975f23ea4f7c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6d20d4031f0ed4d1be4dddf9e33946251d6dd523
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851966"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903316"
 ---
-# <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal-preview"></a>Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Service Bus mediante Azure Portal (versión preliminar)
+# <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Service Bus mediante Azure Portal
 Azure Service Bus Premium proporciona cifrado de datos en reposo con Azure Storage Service Encryption (Azure SSE). Service Bus Premium se basa en Azure Storage para almacenar los datos y, de forma predeterminada, todos los datos que se almacenan con Azure Storage se cifran mediante claves administradas por Microsoft. 
 
 ## <a name="overview"></a>Información general
@@ -27,7 +27,6 @@ La habilitación de la característica BYOK es un proceso que solo hay que confi
 > Hay algunas advertencias para la clave administrada por el cliente para el cifrado en el lado del servicio. 
 >   * Esta característica se admite en el nivel [Premium de Azure Service Bus](service-bus-premium-messaging.md). No se puede habilitar para los espacios de nombres estándar de Service Bus.
 >   * El cifrado solo se puede habilitar para espacios de nombres nuevos o vacíos. Si el espacio de nombres contiene datos, se producirá un error en la operación de cifrado.
->   * Si hay [puntos de conexión de servicio de red virtual](service-bus-service-endpoints.md) configurados en Azure Key Vault para el espacio de nombres de Service Bus, no se admitirá BYOK. 
 
 Puede usar Azure Key Vault para administrar las claves y auditar su uso. Puede crear sus propias claves y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generarlas. Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../key-vault/key-vault-overview.md)
 
@@ -40,7 +39,7 @@ En este artículo se muestra cómo configurar un almacén de claves con claves a
 Para habilitar claves administradas del cliente en Azure Portal, siga estos pasos:
 
 1. Vaya al espacio de nombres Premium de Service Bus.
-2. En la página **Configuración** del espacio de nombres de Service Bus, seleccione **Cifrado (vista previa)** .
+2. En la página **Configuración** del espacio de nombres de Service Bus, seleccione **Cifrado**.
 3. Seleccione **Cifrado de claves en reposo que administra el cliente** como se muestra en la siguiente imagen.
 
     ![Habilitación de clave administrada por el cliente](./media/configure-customer-managed-key/enable-customer-managed-key.png)
@@ -107,11 +106,8 @@ Al revocar el acceso a las claves de cifrado, no se purgan los datos de Service 
 
 Una vez revocada la clave de cifrado, el servicio Service Bus en el espacio de nombres cifrado dejará de ser operativo. Si el acceso a la clave está habilitado o si se ha restaurado la clave eliminada, el servicio Service Bus seleccionará la clave para que pueda acceder a los datos desde el espacio de nombres de Service Bus cifrado.
 
-> [!NOTE]
-> Si elimina una clave de cifrado existente del almacén de claves y la reemplaza por una nueva clave en el espacio de nombres de Service Bus, como la clave eliminada sigue siendo válida hasta una hora (ya que está almacenada en caché), es posible que los datos antiguos (que se cifraron con la clave antigua) sigan siendo accesibles junto con los nuevos datos, a los que ahora solo se puede acceder con la nueva clave. Este comportamiento es así por diseño en la versión preliminar de la característica. 
-
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes:
+Vea los artículos siguientes:
 - [Información general de Service Bus](service-bus-messaging-overview.md)
 - [Introducción a Azure Key Vault](../key-vault/key-vault-overview.md)
 

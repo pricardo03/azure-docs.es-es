@@ -8,14 +8,22 @@ ms.topic: include
 ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 93f6bc8533218af7f0e6dcd1c5f7be6fe8c00e29
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: f322803d3484b4ec2d5449e19d67d75b35d6d92f
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69520880"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75752232"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
+
+### <a name="what-should-i-do-if-im-getting-a-certificate-mismatch-when-connecting-using-certificate-authentication"></a>¿Qué debo hacer si obtengo un error de coincidencia de certificado al realizar la conexión mediante la autenticación de certificado?
+
+Desactive **"Verificar la identidad del servidor validando el certificado"** o **agregue el FQDN del servidor junto con el certificado** al crear un perfil de forma manual. Para ello, ejecute **rasphone** desde un símbolo del sistema y elija el perfil en la lista desplegable.
+
+En general, no se recomienda omitir la validación de la identidad del servidor, pero con la autenticación de certificado de Azure, se usa el mismo certificado para la validación del servidor en el protocolo de túnel VPN (IKEv2/SSTP) y el protocolo EAP. Dado que el certificado de servidor y el FQDN ya están validados por el protocolo de túnel de VPN, se produce una redundancia si se vuelven a validar en EAP.
+
+![point-to-site](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Certificado de servidor")
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>¿Puedo usar mi propio CA raíz de PKI interna para generar certificados de conectividad de punto a sitio?
 

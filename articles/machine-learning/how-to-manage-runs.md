@@ -10,18 +10,18 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.openlocfilehash: 1a82b6592782973920f4381129e9659eaebca033
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 01/09/2020
+ms.openlocfilehash: cd9cada24ba5e7d2a2001d4ef0efef2a157b0fd6
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75534296"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834720"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Inicio, supervisión y cancelación de las ejecuciones de entrenamiento en Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-El [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) y la [CLI de Machine Learning](reference-azure-machine-learning-cli.md) proporcionan varios métodos para supervisar, organizar y administrar las ejecuciones de entrenamiento y experimentación.
+El [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), la [CLI de Machine Learning](reference-azure-machine-learning-cli.md) y [Microsoft Azure Machine Learning Studio](https://ml.azure.com) proporcionan varios métodos para supervisar, organizar y administrar las ejecuciones de entrenamiento y experimentación.
 
 En este artículo se muestran ejemplos de las tareas siguientes:
 
@@ -105,6 +105,16 @@ Para iniciar una ejecución del experimento, use los pasos siguientes:
 
     Para obtener más información, consulte [az ml run submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
+### <a name="using-azure-machine-learning-studio"></a>Utilización de Azure Machine Learning Studio
+
+Para iniciar el envío de una canalización de ejecución en el diseñador (versión preliminar), siga estos pasos:
+
+1. Establezca un destino de proceso predeterminado para la canalización.
+
+1. Seleccione **Ejecutar** en la parte superior del lienzo de la canalización.
+
+1. Seleccione un experimento para agrupar las ejecuciones de la canalización.
+
 ## <a name="monitor-the-status-of-a-run"></a>Supervisión del estado de una ejecución
 
 ### <a name="using-the-sdk"></a>Uso del SDK
@@ -160,6 +170,22 @@ print(notebook_run.get_status())
 
     Para obtener más información, consulte [az ml run show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show).
 
+
+### <a name="using-azure-machine-learning-studio"></a>Utilización de Azure Machine Learning Studio
+
+Para ver el número de ejecuciones activas del experimento en Studio, haga lo siguiente.
+
+1. Vaya a la sección **Experimentos**. 
+
+1. Seleccione un experimento.
+
+    En la página del experimento, puede ver el número de destinos de proceso activos y la duración de cada ejecución. 
+
+1. Seleccione un número de ejecución específico.
+
+1. En la pestaña **Registros**, puede encontrar los registros de diagnóstico y errores de la ejecución de la canalización.
+
+
 ## <a name="cancel-or-fail-runs"></a>Cancelación o ejecuciones erróneas
 
 Si detecta un error o si la ejecución tarda demasiado en finalizar, puede cancelarla.
@@ -194,6 +220,17 @@ az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
 Para obtener más información, consulte [az ml run cancel](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
+
+### <a name="using-azure-machine-learning-studio"></a>Utilización de Azure Machine Learning Studio
+
+Para cancelar una ejecución en Studio, siga estos pasos:
+
+1. Vaya a la canalización en ejecución en la sección **Experimentos** o **Canalizaciones**. 
+
+1. Seleccione el número de ejecución de la canalización que quiere cancelar.
+
+1. En la barra de herramientas, seleccione **Cancelar**.
+
 
 ## <a name="create-child-runs"></a>Creación de ejecuciones secundarias
 
@@ -331,6 +368,12 @@ az ml run list --experiment-name experiment [?properties.author=='azureml-user' 
 ```
 
 Para obtener más información sobre la consulta de resultados de la CLI de Azure, vea [Resultados de los comandos de consulta de la CLI de Azure](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest).
+
+### <a name="using-azure-machine-learning-studio"></a>Utilización de Azure Machine Learning Studio
+
+1. Vaya a la sección **Canalizaciones**.
+
+1. Use la barra de búsqueda para filtrar las canalizaciones mediante etiquetas, descripciones, nombres de experimento y nombres de remitente.
 
 ## <a name="example-notebooks"></a>Cuadernos de ejemplo
 

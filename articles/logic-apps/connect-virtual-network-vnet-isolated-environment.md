@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: c87ff5384c53f53cdec4a6c0f560d2ab40e43a96
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: f024659385a92df97b55e88ae217aa9e1e13d860
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614974"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732355"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectarse a redes virtuales de Azure desde Azure Logic Apps mediante un entorno del servicio de integración (ISE)
 
@@ -225,6 +225,9 @@ En el cuadro de búsqueda, escriba "entorno de servicio de integración" como fi
 1. Para comprobar el estado de la red del ISE, consulte [Administración del entorno del servicio de integración](../logic-apps/ise-manage-integration-service-environment.md#check-network-health).
 
 1. Para empezar a crear aplicaciones lógicas y otros artefactos en el ISE, consulte [Incorporación de artefactos a entornos del servicio de integración](../logic-apps/add-artifacts-integration-service-environment-ise.md).
+
+   > [!IMPORTANT]
+   > Los conectores ISE administrados que están disponibles después de crear el ISE no aparecen automáticamente en el selector de conectores en el Diseñador de aplicación lógica. Para poder usar estos conectores ISE, tiene que [agregarlos manualmente a su ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) para que aparezcan en el Diseñador de aplicación lógica.
 
 <a name="add-capacity"></a>
 

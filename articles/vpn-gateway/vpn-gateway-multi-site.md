@@ -1,26 +1,19 @@
 ---
-title: 'Conexión de una red virtual a varios sitios con VPN Gateway y PowerShell: modelo clásico | Microsoft Docs'
+title: 'Conexión de una red virtual a varios sitios mediante VPN Gateway: Clásico'
 description: Conecte varios sitios locales a una red virtual clásica con una instancia de VPN Gateway.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-service-management
-ms.assetid: b043df6e-f1e8-4a4d-8467-c06079e2c093
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: 77f8b7094c96e507eef1d360a26240627bc0e350
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5bedf5bd6d061d74201dbac3f1f99ed0d4c381aa
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836097"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902438"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Agregar una conexión de sitio a sitio a una red virtual con una conexión de VPN Gateway existente (clásico)
 
@@ -48,7 +41,7 @@ Puede conectar varios sitios locales a una única red virtual. Esto resulta espe
 
 Si ya se ha conectado una puerta de enlace estática a la red virtual, puede cambiar el tipo de puerta de enlace a dinámico sin tener que recompilar la red virtual para dar cabida a varios sitios. Antes de cambiar el tipo de enrutamiento, asegúrese de que la VPN Gateway local admite configuraciones de VPN basadas en ruta.
 
-![multi-site diagram](./media/vpn-gateway-multi-site/multisite.png "multi-site")
+![Diagrama de multisitio](./media/vpn-gateway-multi-site/multisite.png "multisitio")
 
 ## <a name="points-to-consider"></a>Puntos que se deben tener en cuenta
 

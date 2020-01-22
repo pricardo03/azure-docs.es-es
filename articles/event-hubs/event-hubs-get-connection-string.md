@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
-ms.openlocfilehash: edd197fb6d578df064c67a422767e3e70a0c8142
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 744151a1ce8cde630e26c17ccf06569ebd0efb61
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158910"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771009"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obtención de una cadena de conexión de Event Hubs
 
@@ -66,6 +66,12 @@ Puede usar lo siguiente para obtener la cadena de conexión para el espacio de n
 
 ```azurecli-interactive
 az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
+```
+
+O bien puede usar lo siguiente para obtener la cadena de conexión para una entidad EventHub:
+
+```azurecli-interactive
+az eventhubs eventhub authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --eventhub-name dummyeventhub --name RootManageSharedAccessKey
 ```
 
 Para más información sobre los comandos de la CLI de Azure para Event Hubs, consulte [CLI de Azure para Event Hubs](/cli/azure/eventhubs).

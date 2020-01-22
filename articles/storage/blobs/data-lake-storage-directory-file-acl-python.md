@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: e07bb6aa9d1fe22baaebb7bc7239ce03a728c6b9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dbfee5d897d54d68ea6471f0001793a905c95e62
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431807"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835066"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Uso de Python para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2 (versión preliminar)
 
@@ -140,6 +140,9 @@ def delete_directory():
 
 Obtenga la lista de control de acceso (ACL) de un directorio llamando al método **DataLakeDirectoryClient.get_access_control** y establezca dicha lista con una llamada al método **DataLakeDirectoryClient.set_access_control**.
 
+> [!NOTE]
+> Si la aplicación autoriza el acceso mediante Azure Active Directory (Azure AD), asegúrese de que la entidad de seguridad que la aplicación usa para autorizar el acceso tiene asignado el [rol de propietario de datos de blobs de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para obtener más información acerca de cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, consulte [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+
 En este ejemplo se obtiene y después se establece la ACL de un directorio denominado `my-directory`. La cadena `rwxr-xrw-` concede al usuario propietario permisos de lectura, escritura y ejecución, permisos de solo lectura y ejecución al grupo propietario, y permisos de lectura y escritura al resto.
 
 ```python
@@ -195,6 +198,9 @@ def upload_file_to_directory():
 ## <a name="manage-file-permissions"></a>Administración de permisos de archivo
 
 Obtenga la lista de control de acceso (ACL) de un archivo llamando al método **DataLakeFileClient.get_access_control** y establezca dicha lista con una llamada al método **DataLakeFileClient.set_access_control**.
+
+> [!NOTE]
+> Si la aplicación autoriza el acceso mediante Azure Active Directory (Azure AD), asegúrese de que la entidad de seguridad que la aplicación usa para autorizar el acceso tiene asignado el [rol de propietario de datos de blobs de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para obtener más información acerca de cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, consulte [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 En este ejemplo se obtiene y después se establece la ACL de un archivo denominado `my-file.txt`. La cadena `rwxr-xrw-` concede al usuario propietario permisos de lectura, escritura y ejecución, permisos de solo lectura y ejecución al grupo propietario, y permisos de lectura y escritura al resto.
 

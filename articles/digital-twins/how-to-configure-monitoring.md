@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed376a3f500f6d6af3d0eab7f98b68e856513600
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 38f5af3cb2006e4b029f8979a213c0af10f1ed8a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547094"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863587"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Configuración de la supervisión en Azure Digital Twins
 
@@ -26,7 +26,7 @@ En este artículo se resumen las opciones de registro y supervisión y cómo com
 
 ## <a name="review-activity-logs"></a>Revisión de registros de actividad
 
-Los [registros de actividad](../azure-monitor/platform/activity-logs-overview.md) de Azure proporcionan información rápida sobre los eventos a nivel de suscripción y los historiales de operación para cada instancia de servicio de Azure.
+Los [registros de actividad](../azure-monitor/platform/platform-logs-overview.md) de Azure proporcionan información rápida sobre los eventos a nivel de suscripción y los historiales de operación para cada instancia de servicio de Azure.
 
 Los eventos a nivel de suscripción incluyen:
 
@@ -57,7 +57,7 @@ Para el registro de actividad avanzada:
 
 ## <a name="enable-customer-diagnostic-logs"></a>Habilitación de registros de diagnóstico de cliente
 
-Es posible establecer la [configuración de diagnóstico](../azure-monitor/platform/resource-logs-overview.md) de Azure para cada instancia de Azure a fin de complementar el registro de actividad. Si bien los registros de actividad pertenecen a los eventos de nivel de suscripción, el registro de diagnóstico proporciona información sobre el historial de operaciones de los propios recursos.
+Es posible establecer la [configuración de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) de Azure para cada instancia de Azure a fin de complementar el registro de actividad. Si bien los registros de actividad pertenecen a los eventos de nivel de suscripción, el registro de diagnóstico proporciona información sobre el historial de operaciones de los propios recursos.
 
 Estos son algunos ejemplos del registro de diagnóstico:
 
@@ -97,7 +97,7 @@ Estos son algunos ejemplos de uso:
 La consulta del registro completo se proporciona a través de [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md). Para configurar estas eficaces características:
 
 1. Busque **Log Analytics** en Azure Portal.
-1. Verá las instancias de **área de trabajo de Log Analytics** disponibles. Elija una y seleccione **Registros** para consultar:
+1. Se mostrarán las instancias de **área de trabajo de Log Analytics** disponibles. Elija una y seleccione **Registros** para consultar:
 
     [![Log Analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
@@ -109,7 +109,7 @@ Una vez que esté aprovisionada su instancia de **área de trabajo de Log Analyt
 
    [![Administración de registros](media/how-to-configure-monitoring/log-analytics-management.png)](media/how-to-configure-monitoring/log-analytics-management.png#lightbox)
 
-Para obtener más información acerca de estas eficaces operaciones de consulta, lea [Introducción a las consultas](../azure-monitor/log-query/get-started-queries.md).
+Para obtener más información acerca de estas eficaces operaciones de consulta, consulte la [introducción a las consultas](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
 > Podría experimentar un retraso de 5 minutos al enviar eventos al **área de trabajo de Log Analytics** por primera vez.
@@ -123,12 +123,12 @@ Los registros de Azure Monitor también dispone de potentes servicios de notific
 
 ## <a name="other-options"></a>Otras opciones
 
-Azure Digital Twins también admite el registro y la auditoría de seguridad específicos de una aplicación. Para obtener una introducción exhaustiva de todas las opciones de registro de Azure disponibles para la instancia de Azure Digital Twins, consulte el artículo [Registro y auditoría de Azure](../security/fundamentals/log-audit.md).
+Azure Digital Twins también admite el registro y la auditoría de seguridad específicos de una aplicación. Para obtener una introducción exhaustiva de todas las opciones de registro de Azure disponibles para la instancia de Azure Digital Twins, lea el artículo [Registro y auditoría de Azure](../security/fundamentals/log-audit.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre los [registros de actividad](../azure-monitor/platform/activity-logs-overview.md).
+- Obtenga más información sobre los [registros de actividad](../azure-monitor/platform/platform-logs-overview.md).
 
-- Profundice en la configuración de diagnóstico de Azure consultando la [información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/resource-logs-overview.md).
+- Profundice en la configuración de diagnóstico de Azure consultando la [información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 - Obtenga más información sobre [registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md).

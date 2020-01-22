@@ -1,6 +1,6 @@
 ---
-title: Presentación de los resultados de la búsqueda con Azure Maps | Microsoft Docs
-description: Procedimiento para realizar una solicitud de búsqueda con Azure Maps y luego mostrar los resultados en el SDK web de Azure Maps.
+title: Presentación de los resultados de la búsqueda en un mapa | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre cómo realizar una solicitud de búsqueda mediante el SDK web de Microsoft Azure Maps y mostrar los resultados en el mapa.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 7c4c78e1d21754d42391a3762e9f7ed199a7376b
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 7123bfda0baa3054dbed336dc4bed8958680cb62
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975961"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910921"
 ---
 # <a name="show-search-results-on-the-map"></a>Presentación de los resultados de la búsqueda en el mapa
 

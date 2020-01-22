@@ -1,26 +1,18 @@
 ---
-title: Configuraciones de dispositivo VPN asociado para conexión a puertas de enlace de VPN de Azure | Microsoft Docs
+title: Configuraciones de dispositivo VPN asociado para conexión a puertas de enlace de VPN de Azure
 description: Este artículo proporciona información general sobre configuraciones de dispositivo VPN asociado para conectarse a puertas de enlace de VPN de Azure.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: ''
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 7d3a32b5f2b2742a36716bac9747f20c47c98858
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 733add5aa86ebd7faaaab78bb301ba9469433fdd
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150174"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778029"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Información general sobre las configuraciones de dispositivo VPN asociado
 Este artículo proporciona información general sobre configuraciones de dispositivos VPN locales para conectarse a puertas de enlace de VPN de Azure. Se usará una red virtual de Azure de ejemplo y la configuración de la puerta de enlace de VPN para conectarse a distintos dispositivos VPN locales usando los mismos parámetros.

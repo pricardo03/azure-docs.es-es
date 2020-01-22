@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 1/08/2020
 ms.author: raynew
-ms.openlocfilehash: e83c14e5ce337e8a3c4c119acc2397b98afd5b56
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e5fdf0a14586a0a2ea97d222f4be481e8fe31e51
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621121"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754505"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de Azure a Azure
 
@@ -131,7 +131,7 @@ Si se controla el acceso de salida para las máquinas virtuales con direcciones 
 
 | **URL** | **Detalles** |
 | ------- | ----------- |
-| \* .blob.core.windows.net | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. |
+| *.blob.core.windows.net | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. |
 | login.microsoftonline.com | Proporciona autorización y autenticación de las direcciones URL del servicio Site Recovery. |
 | *.hypervrecoverymanager.windowsazure.com | Permite que la máquina virtual se comunique con el servicio Site Recovery. |
 | *.servicebus.windows.net | Permite que la máquina virtual escriba los datos de diagnóstico y supervisión de Site Recovery. |
@@ -145,17 +145,19 @@ Tenga en cuenta que los detalles sobre los requisitos de conectividad de red se 
 
 **Regla** |  **Detalles** | **Etiqueta de servicio**
 --- | --- | --- 
-Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de origen. | Almacenamiento.\<region-name>.
+Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de origen. | Storage.\<nombre-región>
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure Active Directory (Azure AD).<br/><br/> Si se agregan direcciones de Azure AD en el futuro, debe crear reglas de grupo de seguridad de red.  | AzureActiveDirectory
-Permitir HTTPS de salida: puerto 443 | Permitir el acceso a los [puntos de conexión de Site Recovery](https://aka.ms/site-recovery-public-ips) que correspondan a la ubicación de destino. 
+Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan al centro de eventos en la región de destino. | EventsHub.\<nombre-región>
+Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure Site Recovery.  | AzureSiteRecovery
 
 #### <a name="target-region-rules"></a>Reglas de la región de destino
 
 **Regla** |  **Detalles** | **Etiqueta de servicio**
 --- | --- | --- 
-Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de destino. | Almacenamiento.\<region-name>.
+Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de destino. | Storage.\<nombre-región>
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure AD.<br/><br/> Si se agregan direcciones de Azure AD en el futuro, debe crear reglas de grupo de seguridad de red.  | AzureActiveDirectory
-Permitir HTTPS de salida: puerto 443 | Permitir el acceso a los [puntos de conexión de Site Recovery](https://aka.ms/site-recovery-public-ips) que correspondan a la ubicación de origen. 
+Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan al centro de eventos en la región de origen. | EventsHub.\<nombre-región>
+Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure Site Recovery.  | AzureSiteRecovery
 
 
 #### <a name="control-access-with-nsg-rules"></a>Control de acceso con reglas de grupo de seguridad de red

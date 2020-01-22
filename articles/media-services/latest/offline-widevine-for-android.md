@@ -1,5 +1,5 @@
 ---
-title: Configuración de la cuenta para el streaming sin conexión de contenido protegido de Widevine - Azure
+title: Streaming de Widevine sin conexión para Android con Azure Media Services v3
 description: En este tema se muestra cómo configurar la cuenta de Azure Media Services para streaming sin conexión de contenido protegido de Widevine.
 services: media-services
 keywords: DASH, DRM, Modo sin conexión de Widevine, ExoPlayer, Android
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 1c1142f995376a8a640f33402294e20c925bbfbb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 17416fce887f5f5b952232e284873e539fd68337
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974162"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779916"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Streaming de Widevine sin conexión para Android
 
@@ -42,7 +42,7 @@ En el artículo también se responden algunas preguntas frecuentes relacionadas 
 > [!NOTE]
 > DRM sin conexión solo se factura para hacer una única solicitud de una licencia al descargar el contenido. Los errores no se facturan.
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerequisites 
 
 Antes de implementar DRM para Widevine en dispositivos Android, debe hacer lo siguiente:
 

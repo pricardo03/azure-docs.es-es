@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: a836c6b47e0e1346b5e8de9ba5fbe94f88961cbd
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615043"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772625"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Solución de problemas de rendimiento de máquinas virtuales de Azure en Linux o Windows
 
@@ -212,11 +212,11 @@ Con las nuevas ofertas de disco en Standard Storage, los límites de IOPS y rend
 
 #### <a name="references"></a>Referencias
 
-* [Objetivos de escalabilidad para discos de máquinas virtuales](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks)
+* [Objetivos de escalabilidad y rendimiento de las cuentas de almacenamiento de blob en páginas Premium](../../storage/blobs/scalability-targets-premium-page-blobs.md)
 
 El ancho de banda de la cuenta de almacenamiento se mide mediante las métricas de la cuenta de almacenamiento: TotalIngress y TotalEgress. Tiene umbrales diferentes para el ancho de banda en función del tipo de redundancia y regiones.
 
-* [Objetivos de escalabilidad para blobs, colas, tablas y archivos](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-blobs-queues-tables-and-files)
+* [Destinos de escalabilidad y rendimiento para cuentas de almacenamiento estándar](../../storage/common/scalability-targets-standard-account.md)
 
 Compare TotalIngress y TotalEgress con los límites de entrada y salida de la región y el tipo de redundancia de la cuenta de almacenamiento.
 

@@ -3,12 +3,12 @@ title: Matriz de compatibilidad de Azure Backup
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 603bbc715176515afd21f286ea64e79e974266ae
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dc709294b92fd26343e9520e3775b9f079aba94f
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449869"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708487"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -141,6 +141,19 @@ Backup admite la compresión del tráfico de copia de seguridad, tal y como se r
 **Retención de punto de recuperación** | Diariamente, semanalmente, mensualmente y anualmente
 **Período de retención máximo** | Depende de la frecuencia de la copia de seguridad
 **Puntos de recuperación en disco DPM/MABS** | 64 para servidores de archivos; 448 para servidores de aplicaciones. <br/><br/>Puntos de recuperación de cinta ilimitados para DPM en el entorno local.
+
+## <a name="cross-region-restore"></a>Restauración entre regiones
+
+Azure Backup ha agregado la característica Restauración entre regiones para reforzar la disponibilidad de los datos y la capacidad de resistencia, lo que otorga a los clientes control total para restaurar los datos en una región secundaria. Para configurar esta característica, visite [el artículo Establecimiento de la restauración entre regiones](backup-create-rs-vault.md#set-cross-region-restore). Esta característica es compatible con los siguientes tipos de administración:
+
+| Tipo de administración de copias de seguridad | Compatible                                                    | Regiones admitidas |
+| ---------------------- | ------------------------------------------------------------ | ----------------- |
+| Azure VM               | Sí. Versión preliminar pública limitada que se admite para las VM cifradas y las VM con discos de menos de 4 TB. | Centro occidental de EE.UU.   |
+| Agente de MARS/local | No                                                           | N/D               |
+| SQL/SAP HANA          | No                                                           | N/D               |
+| AFS                    | No                                                           | N/D               |
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

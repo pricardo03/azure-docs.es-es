@@ -14,19 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: f6d521c7003583228990c80a90c1454821f584d3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bbfad994de663881e3aa03292fc0d0611a0d0933
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035261"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747804"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalación y configuración de PostgreSQL en Azure
 PostgreSQL es una base de datos de código abierto avanzada similar a DB2 y Oracle. Incluye características preparadas para el ámbito empresarial, como el cumplimiento de ACID completo, un procesamiento transaccional confiable y un control de simultaneidad de múltiples versiones. También admite estándares como ANSI SQL y SQL/MED (incluidos los contenedores de datos externos para Oracle, MySQL, MongoDB y muchas otras). Es altamente extensible al admitir más de 12 lenguajes procedimentales, índices GIN y GiST, datos espaciales y múltiples características NoSQL para JSON o aplicaciones basadas en clave-valor.
 
 En este artículo aprenderá a instalar y configurar PostgreSQL en una máquina virtual de Azure con Linux.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="install-postgresql"></a>Instalación de PostgreSQL
 > [!NOTE]
@@ -64,7 +63,7 @@ Conéctese a la máquina virtual Linux que creó mediante PuTTY. Si es la primer
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. Si desea compilar todo lo que se puede compilar, incluida la documentación (páginas HTML y man) y módulos adicionales (contrib), ejecute el comando siguiente:
+5. Si desea compilar todo lo que se puede compilar, incluida la documentación (páginas HTML y man) y módulos adicionales (`contrib`), ejecute el comando siguiente:
    
         # gmake install-world
    

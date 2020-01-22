@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/13/2019
-ms.openlocfilehash: 682bda67bb8b310608570062b81608e818b30d9c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 56cc7425eea184cd26010cde48e42e38b27e68a4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440894"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893294"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copia de datos desde Amazon Simple Storage Service mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -154,7 +154,7 @@ Las propiedades siguientes se admiten para Amazon S3 en la configuración `store
 
 | Propiedad                 | Descripción                                                  | Obligatorio                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| type                     | La propiedad type de `storeSettings` se debe establecer en **AmazonS3ReadSetting**. | Sí                                                         |
+| type                     | La propiedad type de `storeSettings` se debe establecer en **AmazonS3ReadSettings**. | Sí                                                         |
 | recursive                | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. Los valores permitidos son: **True** (valor predeterminado) y **False**. | No                                                          |
 | prefix                   | Prefijo para la clave del objeto S3 en el cubo especificado configurado en el conjunto de datos para filtrar objetos de origen. Se seleccionan objetos cuyas claves comienzan por este prefijo. <br>Solo se aplica cuando no se especifican las propiedades `wildcardFolderPath` y `wildcardFileName`. | No                                                          |
 | wildcardFolderPath       | Ruta de acceso de carpeta con caracteres comodín en el cubo especificado configurado en el conjunto de datos para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                                          |
@@ -186,11 +186,11 @@ Las propiedades siguientes se admiten para Amazon S3 en la configuración `store
             "source": {
                 "type": "DelimitedTextSource",
                 "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
+                    "type": "DelimitedTextReadSettings",
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "AmazonS3ReadSetting",
+                    "type": "AmazonS3ReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
                     "wildcardFileName": "*.csv"
@@ -353,4 +353,4 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

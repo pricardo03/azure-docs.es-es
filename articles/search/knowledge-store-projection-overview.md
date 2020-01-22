@@ -1,5 +1,5 @@
 ---
-title: Trabajar con proyecciones en un almacén de conocimiento (versión preliminar)
+title: Proyecciones en un almacén de conocimiento (versión preliminar)
 titleSuffix: Azure Cognitive Search
 description: Dé forma a los datos enriquecidos de la canalización de indexación de enriquecimiento con IA y guárdelos en un almacén de conocimiento para usarlos en escenarios que no sean la búsqueda de texto completo. El almacén de conocimiento está actualmente en versión preliminar pública.
 manager: nitinme
@@ -7,20 +7,20 @@ author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 47c63118888bc0eaf7a025cd95e2a4c43d6a6cfb
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/08/2020
+ms.openlocfilehash: d8302b69f1e868536eb954a650a62f41e4006b82
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790007"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754529"
 ---
-# <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Trabajar con proyecciones en un almacén de conocimiento en Azure Cognitive Search
+# <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Proyecciones en un almacén de conocimiento en Azure Cognitive Search
 
 > [!IMPORTANT] 
 > El almacén de conocimiento está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). En la [API REST versión 2019-05-06-Preview](search-api-preview.md) se proporcionan características en versión preliminar. Actualmente hay compatibilidad limitada con el portal y no la hay con el SDK de .NET.
 
-Azure Cognitive Search permite el enriquecimiento de contenido a través de aptitudes cognitivas integradas y aptitudes personalizadas como parte de la indexación. Los enriquecimientos agregan estructura a los documentos y hacen que las búsquedas sean más eficaces. En muchos casos, los documentos enriquecidos son útiles para escenarios que no son de búsqueda, como, por ejemplo, para la minería de datos de conocimiento.
+Azure Cognitive Search permite el enriquecimiento de contenido a través de aptitudes cognitivas integradas y aptitudes personalizadas como parte de la indexación. Los enriquecimientos crean información nueva donde no existía anteriormente: extracción de información de imágenes, detección de la opinión, frases clave y entidades del texto, por nombrar algunas. Los enriquecimientos también agregan estructura a texto no diferenciado. Todos estos procesos producen documentos que mejoran la eficacia de la búsqueda de texto completo. En muchos casos, los documentos enriquecidos son útiles para escenarios que no son de búsqueda, como, por ejemplo, para la minería de datos de conocimiento.
 
 Las proyecciones, un componente del [almacén de conocimiento](knowledge-store-concept-intro.md), son vistas de documentos enriquecidos que se pueden guardar en el almacenamiento físico para fines de minería de datos de conocimiento. Una proyección le permite "proyectar" los datos en una forma que se adapte a sus necesidades y manteniendo las relaciones para que herramientas como Power BI puedan leer los datos sin ningún trabajo adicional.
 
@@ -34,7 +34,7 @@ El almacén de conocimiento admite tres tipos de proyecciones:
 
 + **Archivos**: Cuando necesita guardar las imágenes extraídas de los documentos, las proyecciones de archivos le permiten guardar las imágenes normalizadas en el almacenamiento de blobs.
 
-Para ver las proyecciones definidas en contexto, consulte [Cómo empezar a trabajar con el almacén de conocimiento](knowledge-store-howto.md).
+Para ver las proyecciones definidas en contexto, consulte [Creación de un almacén de conocimiento con REST](knowledge-store-create-rest.md).
 
 ## <a name="projection-groups"></a>Grupos de proyecciones
 
@@ -114,12 +114,6 @@ A continuación se muestra un ejemplo de proyecciones de tabla.
 
 Como se muestra en este ejemplo, las entidades y frases clave se modelan en tablas diferentes y contendrán una referencia al elemento primario (MainTable) para cada fila.
 
-<!---
-The following illustration is a reference to the Case-law exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
-
-![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
---->
-
 ## <a name="object-projections"></a>Proyecciones de objeto
 
 Las proyecciones de objeto son representaciones JSON del árbol de enriquecimiento que pueden proceder de cualquier nodo. En muchos casos, la misma aptitud de **conformador** que crea una proyección de tabla se puede usar para generar una proyección de objeto. 
@@ -143,10 +137,8 @@ Las proyecciones de objeto son representaciones JSON del árbol de enriquecimien
         {
           "objects": [
             {
-              "storageContainer": "Reviews", 
-              "format": "json", 
-              "source": "/document/Review", 
-              "key": "/document/Review/Id" 
+              "storageContainer": "hotelreviews", 
+              "source": "/document/hotel"
             }
           ]
         },
@@ -160,9 +152,8 @@ Las proyecciones de objeto son representaciones JSON del árbol de enriquecimien
 
 Para generar una proyección de objeto se requieren algunos atributos específicos del objeto:
 
-+ storageContainer: El contenedor donde se guardarán los objetos
++ storageContainer: El contenedor de blobs donde se guardarán los objetos
 + source: La ruta de acceso al nodo del árbol de enriquecimiento que es la raíz de la proyección
-+ key: Una ruta de acceso que representa una clave única para el objeto que se almacenará. Se utilizará para crear el nombre del blob del contenedor.
 
 ## <a name="file-projection"></a>Proyección de archivos
 
@@ -219,4 +210,4 @@ Por último, si tiene que exportar los datos desde el almacén de conocimiento, 
 Como siguiente paso, cree su primer almacén de conocimiento con instrucciones y datos de ejemplo.
 
 > [!div class="nextstepaction"]
-> [Cómo crear un almacén de conocimiento](knowledge-store-howto.md).
+> [Creación de un almacén de conocimiento con REST](knowledge-store-create-rest.md)

@@ -10,12 +10,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: 0c80604bba78289c7612e3ca54a359de1a5e992d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: bfb2d5a5a8918cbfc446c35b39f3e8e9954b7761
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535220"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763528"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Implementación de un modelo en instancias de proceso de Azure Machine Learning
 
@@ -31,7 +31,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para implementar un
 - Está probando un modelo que está en desarrollo.
 
 > [!TIP]
-> La implementación de un modelo de Jupyter Notebook de una instancia de proceso, en un servicio web de la misma máquina virtual es una _implementación local_. En este caso, la máquina "local" es la instancia de proceso. Para más información sobre las implementaciones, consulte [Implementación de modelos con Azure Machine Learning](service/how-to-deploy-and-where.md).
+> La implementación de un modelo de Jupyter Notebook de una instancia de proceso, en un servicio web de la misma máquina virtual es una _implementación local_. En este caso, la máquina "local" es la instancia de proceso. Para más información sobre las implementaciones, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -63,16 +63,33 @@ En la instancia de proceso se incluye un cuaderno de ejemplo en el que se muestr
 
 Para enviar datos de ejemplo al servicio en ejecución, use el código siguiente. Reemplace el valor `service_url` por la dirección URL del paso anterior:
 
+> [!NOTE]
+> Al autenticarse en una implementación en la instancia de proceso, la autenticación se realiza mediante Azure Active Directory. La llamada a `interactive_auth.get_authentication_header()` en el código de ejemplo se autentica mediante AAD y devuelve un encabezado que se puede usar para autenticarse en el servicio en la instancia de proceso. Para obtener más información, consulta el artículo [Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning](how-to-setup-authentication.md#interactive-authentication).
+>
+> Al autenticarse en una implementación en Azure Kubernetes Service o Azure Container Instances, se usa un método de autenticación diferente. Para obtener más información, consulte el artículo [Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning](how-to-setup-authentication.md#web-service-authentication).
+
 ```python
 import requests
 import json
+from azureml.core.authentication import InteractiveLoginAuthentication
+
+# Get a token to authenticate to the compute instance from remote
+interactive_auth = InteractiveLoginAuthentication()
+auth_header = interactive_auth.get_authentication_header()
+
+# Create and submit a request using the auth header
+headers = auth_header
+# Add content type header
+headers.update({'Content-Type':'application/json'})
+
+# Sample data to send to the service
 test_sample = json.dumps({'data': [
     [1,2,3,4,5,6,7,8,9,10],
     [10,9,8,7,6,5,4,3,2,1]
 ]})
 test_sample = bytes(test_sample,encoding = 'utf8')
-access_token = "your bearer token"
-headers = {'Content-Type':'application/json', 'Authorization': 'Bearer ' + access_token}
+
+# Replace with the URL for your compute instance, as determined from the previous section
 service_url = "https://vm-name-6789.northcentralus.notebooks.azureml.net/score"
 # for a compute instance, the url would be https://vm-name-6789.northcentralus.instances.azureml.net/score
 resp = requests.post(service_url, test_sample, headers=headers)
@@ -81,7 +98,7 @@ print("prediction:", resp.text)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Cómo implementar un modelo con una imagen personalizada de Docker](service/how-to-deploy-custom-docker-image.md)
+* [Cómo implementar un modelo con una imagen personalizada de Docker](how-to-deploy-custom-docker-image.md)
 * [Solución de problemas de implementación](how-to-troubleshoot-deployment.md)
 * [Protección de los servicios web de Azure Machine Learning con SSL](how-to-secure-web-service.md)
 * [Consumir un modelo de ML que está implementado como un servicio web](how-to-consume-web-service.md)

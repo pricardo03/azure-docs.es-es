@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn;joelpell
 ms.custom: include file
-ms.openlocfilehash: 5d652eb3bad72bded8e85a6ac841aae7a9c82a40
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: e66314e06aa87a01dcd2a3ff0a51ae86082173e3
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75663101"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75904469"
 ---
 Los tamaños de VM de uso general proporcionan una relación equilibrada entre CPU y memoria. Ideal para desarrollo y pruebas, bases de datos pequeñas o medianas, y servidores web de tráfico bajo o medio. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento para cada tamaño de esta agrupación.
 
@@ -29,7 +29,7 @@ Los tamaños de VM de uso general proporcionan una relación equilibrada entre C
 
   Algunos casos de uso de la serie D son las aplicaciones empresariales, las bases de datos relacionales, el almacenamiento en caché en memoria y el análisis.
 
-- Las series Dav4 y Dasv4 son tamaños nuevos que utilizan el procesador EPYC<sup>TM</sup> 7452 de 2,35 Ghz de AMB en una configuración de varios subprocesos con una caché L3 de hasta 256 GB que dedica 8 GB de esa caché L3 a cada 8 núcleos, lo que aumenta las opciones que tiene el cliente de ejecutar sus cargas de trabajo de uso general. Las series Dav4 y Dasv4 tienen las mismas configuraciones de memoria y disco que las series D y Dsv3.
+- Las series Dav4 y Dasv4 son tamaños nuevos que utilizan el procesador EPYC<sup>TM</sup> 7452 de 2,35 GHz de AMD en una configuración de varios subprocesos con una caché L3 de hasta 256 MB que dedica 8 MB de esa caché L3 a cada 8 núcleos. De este modo, aumentan las opciones que tiene el cliente para ejecutar sus cargas de trabajo de uso general. Las series Dav4 y Dasv4 tienen las mismas configuraciones de memoria y disco que las series D y Dsv3.
   
 ## <a name="b-series"></a>Serie B
 

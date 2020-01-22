@@ -1,26 +1,18 @@
 ---
-title: 'Configuración de la tunelización forzada para conexiones de sitio a sitio de Azure: modelo clásico | Microsoft Docs'
+title: 'Azure VPN Gateway: configuración de la tunelización forzada para conexiones de sitio a sitio: clásica'
 description: Cómo redirigir o forzar todo el tráfico vinculado a Internet a la ubicación local.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management
-ms.assetid: 5c0177f1-540c-4474-9b80-f541fa44240b
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0955d95ebfd9e1f72ed1da577bf3520a70b71624
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b31555215f4f2efc63d0e1df0a7b4bf13a43924
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60506024"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834580"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configuración de la tunelización forzada mediante el modelo de implementación clásica
 
@@ -59,7 +51,7 @@ Esto permite restringir e inspeccionar el acceso a Internet desde sus máquinas 
 ## <a name="before-you-begin"></a>Antes de empezar
 Antes de comenzar con la configuración, comprueba que dispones de los elementos siguientes:
 
-* Una suscripción de Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Suscripción a Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Una red virtual configurada. 
 * Versión más reciente de los cmdlets de Azure PowerShell. Consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) para obtener más información sobre cómo instalar los cmdlets de PowerShell.
 

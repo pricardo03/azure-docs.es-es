@@ -8,20 +8,20 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 01/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 17ba808ebfabb68765cf35bbf0799d117bc6383b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: c117510749abcf997e414371faa6dea1dc79ea7a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133440"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861768"
 ---
 # <a name="azure-time-series-insights-preview-explorer"></a>Explorador de Azure Time Series Insights (versión preliminar)
 
 En este artículo se analizan las distintas características y opciones disponibles en la [aplicación web de demostración](https://insights.timeseries.azure.com/preview/demo) de la versión preliminar de Azure Time Series Insights.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para empezar a usar el explorador de la versión preliminar de Azure Time Series Insights, debe hacer lo siguiente:
 
@@ -48,7 +48,7 @@ El explorador de la versión preliminar de Azure Time Series Insights consta de 
 
 ## <a name="1-environment-panel"></a>1. Panel de entornos
 
-El panel del entorno muestra todos los entornos de Time Series Insights a los que tiene acceso. La lista incluye los entornos de pago por uso (versión preliminar), así como los entornos S1/S2 (disponibilidad general). Solo tiene que hacer clic en el entorno de Time Series Insights que quiera usar para que se le dirija inmediatamente.
+El panel del entorno muestra todos los entornos de Time Series Insights a los que tiene acceso. La lista incluye los entornos de pago por uso (versión preliminar), así como los entornos S1/S2 (disponibilidad general). Solo tiene que seleccionar el entorno de Time Series Insights que quiera usar para que se le dirija inmediatamente.
 
 1. Seleccione la flecha desplegable situada junto a su entorno mostrado.
 
@@ -58,7 +58,7 @@ El panel del entorno muestra todos los entornos de Time Series Insights a los qu
 
 ## <a name="2-navigation-bar"></a>2. Barra de navegación
 
-  [![La barra de navegación](media/v2-update-explorer/navigation-bar.png)](media/v2-update-explorer/navigation-bar.png#lightbox)
+  [![La barra de navegación](media/v2-update-explorer/tsi-preview-navigation-bar.png)](media/v2-update-explorer/tsi-preview-navigation-bar.png#lightbox)
 
 Use la barra de navegación para seleccionar entre dos vistas:
 
@@ -75,13 +75,13 @@ La vista preliminar de Azure Time Series Insights admite operaciones completas d
 * **Jerarquía del modelo de serie temporal**: Las jerarquías son modos de organizar sus datos de forma sistemática. Asimismo, las jerarquías representan las relaciones entre diferentes entidades en sus datos de Time Series Insights.
 * **Instancia del modelo de serie temporal**: Las instancias son la serie temporal en sí mismas. En la mayoría de los casos, son **DeviceID** o **AssetID**, que funcionan como el identificador único del recurso en el entorno.
 
-Para obtener más información sobre el modelo de serie temporal, consulte los [Modelos de serie temporal](./time-series-insights-update-tsm.md).
+Para obtener más información sobre el modelo de serie temporal, lea los [Modelos de serie temporal](./time-series-insights-update-tsm.md).
 
 ## <a name="3-hierarchy-tree-and-search-panel"></a>3. Árbol de jerarquía y panel de búsqueda
 
-El árbol de jerarquía y el panel de búsqueda le permiten buscar y navegar fácilmente en su jerarquía de [modelos de Time Series](./time-series-insights-update-tsm.md) a fin de buscar las instancias de Time Series específicas que quiera mostrar en su gráfico. Cuando selecciona las instancias, estas se agregan tanto al gráfico actual como a los datos. 
+El árbol de jerarquía y el panel de búsqueda le permiten buscar y navegar fácilmente por su jerarquía de [modelos de Time Series](./time-series-insights-update-tsm.md) a fin de buscar las instancias de serie temporal específicas que quiera mostrar en su gráfico. Cuando selecciona las instancias, estas se agregan tanto al gráfico actual como a los datos. 
 
-[![Árbol de jerarquía y panel de búsqueda](media/v2-update-explorer/hierarchy-search.png)](media/v2-update-explorer/hierarchy-search.png#lightbox)
+[![Árbol de jerarquía y panel de búsqueda](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
 El panel Resultados de la búsqueda también le permite ver los resultados en una vista de jerarquía o en una vista de lista, lo que facilita la búsqueda de las instancias que desea mostrar.
  
@@ -89,7 +89,7 @@ El panel Resultados de la búsqueda también le permite ver los resultados en un
 
 El cuadro muestra los campos de instancia y otros metadatos asociados con las instancias de Time Series Insights seleccionadas. Mediante la selección de las casillas del lado derecho, puede ocultar o mostrar instancias específicas del gráfico actual. 
 
-  [![Cuadro de versión preliminar](media/v2-update-explorer/preview-well.png)](media/v2-update-explorer/preview-well.png#lightbox)
+  [![Cuadro de versión preliminar](media/v2-update-explorer/tsi-preview-ui-explorer-well.png)](media/v2-update-explorer/tsi-preview-ui-explorer-well.png#lightbox)
 
 También puede eliminar elementos de datos específicos de su cuadro de datos actual seleccionando el control **Eliminar** (papelera de reciclaje) de color rojo a la izquierda del elemento. El cuadro le permite controlar el modo en que se muestra cada elemento en el gráfico. Puede optar por agregar sombras mínimas/máximas, puntos de datos, desplazar el elemento en el tiempo y visualizar la instancia de forma escalonada. 
 
@@ -98,21 +98,21 @@ Además, el control exploraciones le permite crear fácilmente turnos de tiempo 
   [![Opciones de diseño del cuadro](media/v2-update-explorer/well-layout-options.png)](media/v2-update-explorer/well-layout-options.png#lightbox)
 
 > [!NOTE]
-> Si ve el siguiente mensaje, quiere decir que la instancia no tiene ningún dato durante el intervalo de tiempo seleccionado. Para resolver el problema, aumente el intervalo de tiempo o confirme que la instancia está enviando datos.
+> Si se muestra el siguiente mensaje, quiere decir que la instancia no tiene ningún dato durante el intervalo de tiempo seleccionado. Para resolver el problema, aumente el intervalo de tiempo o confirme que la instancia está enviando datos.
 >
-> ![Sin notificación de datos](media/v2-update-explorer/no-data-warning.png)
+> ![Sin notificación de datos](media/v2-update-explorer/tsi-preview-no-data-warning.png)
 
 ## <a name="5-chart-panel"></a>5. Panel del gráfico
 
 El gráfico le permite mostrar las instancias de serie temporal como líneas. Asimismo, puede contraer el panel de entorno, el modelo de datos y el panel de control de intervalos de tiempo haciendo clic en los controles web para agrandar el gráfico. 
 
-  [![Información general sobre el gráfico de vista previa](media/v2-update-explorer/chart-overview.png)](media/v2-update-explorer/chart-overview.png#lightbox)
+  [![Información general sobre el gráfico de vista previa](media/v2-update-explorer/tsi-preview-chart-overview.png)](media/v2-update-explorer/tsi-preview-chart-overview.png#lightbox)
 
 1. **Tipo de gráfico**: controla qué elementos de datos están disponibles para su visualización.
 
-1. **Tamaño del intervalo**: La herramienta de control deslizante Interval Size (Tamaño del intervalo) permite acercar y alejar los intervalos del mismo intervalo de tiempo. Esto proporciona un control más preciso del movimiento entre intervalos de tiempo de gran tamaño que muestran tendencias uniformes hasta en intervalos tan pequeños como un milisegundo, lo que permite ver cortes de los datos granulares y de alta resolución. El punto inicial predeterminado del control deslizante está establecido como la vista más óptima de los datos de la selección, lo que permite equilibrar la resolución, la velocidad de la consulta y la granularidad.
+1. **Tamaño del intervalo**: La herramienta de control deslizante Interval Size (Tamaño del intervalo) permite acercar y alejar los intervalos del mismo intervalo de tiempo. Esto proporciona un control más preciso del movimiento entre intervalos de tiempo de gran tamaño que muestran tendencias uniformes hasta en intervalos tan pequeños como un milisegundo, lo que permite revisar segmentos granulares y de alta resolución de los datos. El punto inicial predeterminado del control deslizante está establecido como la vista más óptima de los datos de la selección, lo que permite equilibrar la resolución, la velocidad de la consulta y la granularidad.
 
-1. **Acercar y desplazamiento lateral**: Haga clic en este control para acercarse y desplazarse lateralmente por el gráfico.
+1. **Acercar y desplazamiento lateral**: Seleccione este control para acercarse y desplazarse lateralmente por el gráfico.
 
 1. **Control del eje Y**: recorre las opciones de vista del eje Y disponibles:
 
@@ -122,29 +122,29 @@ El gráfico le permite mostrar las instancias de serie temporal como líneas. As
 
 1. **Elemento de marcador**: es el elemento de datos seleccionado actualmente y sus detalles asociados.
 
-Puede profundizar aún más en un segmento de datos específico si hace **clic con el botón izquierdo** en un punto de datos del gráfico actual, lo mantiene presionado y arrastra luego el área seleccionada al punto final que usted elija. Haga **clic con el botón derecho** en el área seleccionada de color gris y, a continuación, haga clic en el **Zoom** tal como se muestra. También puede ver y descargar los eventos de telemetría en el intervalo de tiempo seleccionado.
+Puede profundizar aún más en un segmento de datos específico si hace **clic con el botón izquierdo** en un punto de datos del gráfico actual, lo mantiene presionado y arrastra luego el área seleccionada al punto final que usted elija. **Haga clic con el botón derecho** en el área seleccionada de color azul y, a continuación, seleccione el **Zoom** tal como se muestra. También puede ver y descargar los eventos de telemetría en el intervalo de tiempo seleccionado.
 
   [![Zoom del gráfico de vista previa](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
 
-Después de realizar la acción **Zoom**, verá el conjunto de datos seleccionado. Seleccione el control de formato para desplazarse por las tres representaciones del eje Y de sus datos de Time Series Insights.
+Después de realizar la acción de **Zoom**, se mostrará el conjunto de datos seleccionado. Seleccione el control de formato para desplazarse por las tres representaciones del eje Y de sus datos de Time Series Insights.
 
-  [![Eje Y del gráfico de vista previa](media/v2-update-explorer/standard-chart.png)](media/v2-update-explorer/standard-chart.png#lightbox)
+  [![Eje Y del gráfico de vista previa](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png)](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png#lightbox)
 
-Aquí puede ver un ejemplo de un **gráfico superpuesto**:
+A continuación se proporciona un ejemplo de **gráfico superpuesto**:
 
-  [![Opción de gráfico superpuesto](media/v2-update-explorer/overlapping-chart.png)](media/v2-update-explorer/overlapping-chart.png#lightbox)
+  [![Opción de gráfico superpuesto](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png)](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png#lightbox)
 
-El botón **Más acciones** se expande para mostrar las opciones **Descargar como CSV** y **Exportar a Power BI**.
+El botón **Más acciones** se expande para mostrar las opciones **Descargar como CSV**, **Conectarse a Power BI**, **Mostrar datos de gráfico como tabla** y **Explorar eventos sin formato**.
 
   [![Opción de Más acciones](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
-Lea sobre el [Conector de Power BI nativo de Time Series Insights](concepts-power-bi.md).
+Obtenga más información sobre la opción **Conectarse a Power BI** en [Conector de Power BI nativo para Time Series Insights](concepts-power-bi.md).
 
 ## <a name="6-time-editor-panel"></a>6. Panel del editor de tiempo
 
 Cuando trabaje con Time Series Insights, primero debe seleccionar un intervalo de tiempo. El intervalo de tiempo seleccionado controla el conjunto de datos que está disponible para la manipulación con los widgets de la actualización de Time Series Insights.
 
-  [![Panel de selección de hora](media/v2-update-explorer/timeline-element.png)](media/v2-update-explorer/timeline-element.png#lightbox)
+  [![Panel de selección de hora](media/v2-update-explorer/tsi-preview-explorer-timeline-element.png)](media/v2-update-explorer/tsi-preview-explorer-timeline-element.png#lightbox)
 
 > [!TIP]
 > Una parte de la escala de tiempo se resalta en color ámbar o naranja para indicar el intervalo de datos que está disponible en el almacén semiactivo.
@@ -171,15 +171,15 @@ El panel de navegación de la versión preliminar de Time Series Insights aparec
 
 ### <a name="current-session-share-link-control"></a>Control de vínculo del recurso compartido de la sesión actual
 
-  [![Icono Compartir](media/v2-update-explorer/share-icon.png)](media/v2-update-explorer/share-icon.png#lightbox)
+  [![Icono Compartir](media/v2-update-explorer/tsi-preview-explorer-share-icon.png)](media/v2-update-explorer/tsi-preview-explorer-share-icon.png#lightbox)
 
 Seleccione el nuevo icono **Compartir** para compartir un vínculo URL con su equipo.
 
-  [![Uso compartido de la dirección URL de su instancia](media/v2-update-explorer/share-your-view.png)](media/v2-update-explorer/share-your-view.png#lightbox)
+  [![Uso compartido de la dirección URL de su instancia](media/v2-update-explorer/tsi-preview-explorer-share-your-view.png)](media/v2-update-explorer/tsi-preview-explorer-share-your-view.png#lightbox)
 
 ### <a name="tenant-section"></a>Sección del inquilino
 
-  [![Selección de inquilino](media/v2-update-explorer/tenant-selection.png)](media/v2-update-explorer/tenant-selection.png#lightbox)
+  [![Selección de inquilino](media/v2-update-explorer/tsi-preview-explorer-tenant-selection.png)](media/v2-update-explorer/tsi-preview-explorer-tenant-selection.png#lightbox)
 
 * Muestra la información de cuenta de inicio de sesión actual de Time Series Insights.
 * Use esta opción para cambiar entre los temas disponibles de Time Series Insights.
@@ -189,7 +189,7 @@ Seleccione el nuevo icono **Compartir** para compartir un vínculo URL con su eq
 
 Para seleccionar un nuevo tema, seleccione el icono del perfil ubicado en la esquina superior derecha. A continuación, seleccione **Cambiar tema**.
 
-  [![Selección de tema](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
+  [![Selección de tema](media/v2-update-explorer/tsi-preview-theme-selection.png)](media/v2-update-explorer/tsi-preview-theme-selection.png#lightbox)
 
 > [!TIP]
 > La selección del idioma también está disponible si selecciona el icono del perfil.
@@ -199,7 +199,7 @@ La versión preliminar de Azure Time Series Insights admite dos temas:
 * **Tema claro**: es el tema predeterminado que se muestra en este documento.
 * **Tema oscuro**: representa el explorador tal como se muestra aquí:
 
-  [![Tema oscuro seleccionado](media/v2-update-explorer/dark-theme-selected.png)](media/v2-update-explorer/dark-theme-selected.png#lightbox)
+  [![Tema oscuro seleccionado](media/v2-update-explorer/tsi-preview-dark-theme-selected.png)](media/v2-update-explorer/tsi-preview-dark-theme-selected.png#lightbox)
 
 ## <a name="s1s2-environment-controls"></a>Controles de entorno S1/S2
 
@@ -207,7 +207,7 @@ La versión preliminar de Azure Time Series Insights admite dos temas:
 
 Esta sección se aplica solo a entornos S1/S2 existentes que intentan usar el explorador en la interfaz de usuario actualizada. Puede usar el producto de disponibilidad general y la versión preliminar juntos. Hemos agregado algunas funcionalidades desde la interfaz de usuario existente en el explorador actualizado, pero puede obtener la experiencia completa de la interfaz de usuario para el entorno de S1/S2 en el explorador de Time Series Insights existente. 
 
-En lugar de la jerarquía, se ve el panel de términos de Time Series Insights, donde puede definir consultas en el entorno. Úselo para filtrar los datos según un predicado.
+En lugar de la jerarquía, se muestra el panel de términos de Time Series Insights. El panel de términos permite definir consultas en el entorno. Úselo también para filtrar los datos según un predicado.
 
   [![Panel de consultas con la cláusula Where](media/v2-update-explorer/s1-s2-preview-query.png)](media/v2-update-explorer/s1-s2-preview-query.png#lightbox)
 
@@ -220,13 +220,13 @@ El panel del editor de términos de la versión preliminar de Time Series Insigh
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NULL |
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | Todos los operandos deben ser del mismo tipo o deben ser una constante NULL. |
-| `HAS` | Cadena | En el lado derecho solo se permiten literales de cadenas constantes. No se permiten cadenas vacías ni NULL. |
+| `HAS` | String | En el lado derecho solo se permiten literales de cadenas constantes. No se permiten cadenas vacías ni NULL. |
 
-Para obtener más información sobre las operaciones de consulta y los tipos de datos admitidos, consulte [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) (Expresión de serie temporal [TSX]).
+Para obtener más información sobre las operaciones de consulta y los tipos de datos admitidos, lea [Expresión de serie temporal (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 ### <a name="examples-of-where-clauses"></a>Ejemplos de cláusulas Where
 
-  [![Ejemplos de cláusulas Where](media/v2-update-explorer/example-queries.png)](media/v2-update-explorer/example-queries.png#lightbox)
+  [![Ejemplos de cláusulas Where](media/v2-update-explorer/tsi-preview-example-queries.png)](media/v2-update-explorer/tsi-preview-example-queries.png#lightbox)
 
 **Medida**: lista desplegable que muestra todas las columnas numéricas (**Dobles**) que puede usar como elementos para su gráfico actual.
 

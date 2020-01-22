@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 79d7454722900eb1d9d6280e35313ef2f4a5cd54
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 68b144a838f0c6e65f3e399f610644315d109fde
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74556081"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903470"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs
 
@@ -57,7 +57,7 @@ En este artículo se explica cómo establecer y administrar directivas de inmuta
 
     ![Cuadro "Nombre de etiqueta" en el tipo de directiva](media/storage-blob-immutability-policies-manage/portal-image-set-legal-hold-tags.png)
 
-9. Para borrar una suspensión legal, basta con quitar la etiqueta de identificador de suspensión legal aplicada.
+9. Para borrar una suspensión legal, quite la etiqueta de identificador de suspensión legal aplicada.
 
 ### <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -73,7 +73,7 @@ El módulo Az.Storage admite almacenamiento inmutable.  Para habilitar la caract
 2. Elimine todas las instalaciones anteriores de Azure PowerShell.
 3. Instale Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
 
-El siguiente script de PowerShell de ejemplo se utiliza como referencia. Dicho script crea una nueva cuenta de almacenamiento y un contenedor. Luego muestra cómo establecer y eliminar suspensiones legales, crear y bloquear una directiva de retención con duración definida (también conocida como directiva de inmutabilidad) y amplíe el intervalo de retención.
+El siguiente script de PowerShell de ejemplo se utiliza como referencia. Dicho script crea una nueva cuenta de almacenamiento y un contenedor. Luego, le muestra cómo establecer y eliminar suspensiones legales, además de cómo crear y bloquear una directiva de retención con duración definida (también conocida como directiva de inmutabilidad) y ampliar el intervalo de retención.
 
 En primer lugar, cree una cuenta de Azure Storage:
 
@@ -165,6 +165,20 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 ```
 
 ---
+
+## <a name="enabling-allow-protected-append-blobs-writes"></a>Habilitación de las escrituras de blobs en anexos protegidos
+
+En este momento, solo puede acceder a la configuración `allowProtectedAppendWrites` para las directivas de retención con duración definida a través de este [vínculo de portal](https://aka.ms/immutableappendblobs) específico. 
+
+> [!IMPORTANT] 
+>  Actualmente, la configuración para permitir escrituras de blobs en anexos protegidos en la retención de duración definida solo es visible y está disponible en las siguientes regiones:
+> - East US
+> - Centro-Sur de EE. UU
+> - Oeste de EE. UU. 2
+>
+> Para obtener más información, consulte cómo [permitir la escritura de blobs en anexos protegidos](storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+
+![Permitir escrituras de anexiones adicionales](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

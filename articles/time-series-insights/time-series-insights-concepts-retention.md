@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2c68c64202efec6d7dab745b6e1bdc029fa3976f
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 34cf1e91b1fe5aae516c77bf2c280dfe70000611
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561298"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894755"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Descripción de la retención de datos en Azure Time Series Insights
 
@@ -44,8 +44,8 @@ A continuación se describen con más detalle ambas directivas de retención de 
 ## <a name="purge-old-data"></a>Purgar datos antiguos
 
 - **Purgar datos antiguos** es la configuración predeterminada para los entornos de Azure Time Series Insights.  
-- **Purgar datos antiguos** es la opción preferida cuando los usuarios quieren ver siempre los *datos más recientes* de su entorno de Time Series Insights.
-- La configuración **Purgar datos antiguos** *purga* los datos una vez que se alcanzan los límites del entorno (tiempo de retención, tamaño o cantidad, lo que llegue antes). La retención está establecida en 30 días de forma predeterminada.
+- **Purgar datos antiguos** es la opción preferida cuando los usuarios quieren tener siempre los *datos más recientes* de su entorno de Time Series Insights.
+- La configuración **Purgar datos antiguos***purga* los datos una vez que se alcanzan los límites del entorno (tiempo de retención, tamaño o cantidad, lo que llegue antes). La retención está establecida en 30 días de forma predeterminada.
 - Los datos ingeridos hace más tiempo se purgan primero (enfoque "primero en entrar, primero en salir").
 
 ### <a name="example-one"></a>Ejemplo 1
@@ -56,7 +56,7 @@ El **tiempo de retención de datos** está configurado en un valor de 400 días.
 
 Al día 61.º, el entorno muestra los datos más actuales, pero purga los más antiguos (los que tengan más de 60 días). La purga genera espacio para el flujo entrante de nuevos datos, de manera que puedan seguir explorándose nuevos datos. Si el usuario desea retener los datos durante más tiempo, puede aumentar el tamaño del entorno mediante la adición de unidades adicionales o bien insertar menos datos.  
 
-### <a name="example-two"></a>Segundo ejemplo
+### <a name="example-two"></a>Ejemplo 2
 
 Piense ahora en un entorno que tiene configurado también el comportamiento de retención en el modo de **continuar entrada y purgar datos antiguos**. En este ejemplo, el **tiempo de retención de datos** está configurado e en un valor inferior de 180 días. La **capacidad** es una unidad S1, que contiene 30 GB de capacidad total. Con el fin de almacenar los datos de los 180 días completos, la entrada diaria no puede ser superior a 0,166 GB (166 MB) por día.  
 
@@ -72,7 +72,7 @@ En caso de que la tasa de entrada diaria del entorno sea superior a 0,166 GB por
    - El usuario aumenta la capacidad máxima del entorno para agregar más unidades de escalado, como se describe en [Escalado del entorno de Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
    - Se alcanza el período de retención de datos y estos se purgan, poniendo al entorno por debajo de su capacidad máxima.
 
-### <a name="example-three"></a>Tercer ejemplo
+### <a name="example-three"></a>Ejemplo 3
 
 Piense en un entorno con el comportamiento de retención configurado en **pausar entradas**. En este ejemplo, el **período de retención de datos** está configurado en 60 días. La **capacidad** se establece en tres (3) unidades de S1. Supongamos que este entorno tiene una entrada de datos de 2 GB cada día. En este entorno, la entrada se pausa una vez que se alcance la capacidad máxima.
 

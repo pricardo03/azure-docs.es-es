@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 05/24/2019
+ms.date: 12/20/2019
 ms.author: mlearned
-ms.openlocfilehash: 83ba10dc0df68009666badcc8c673a6f504f80ad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4299846f48524799084efa5456c169d18af4185d
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430799"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75728878"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Creación de un controlador de entrada en Azure Kubernetes Service (AKS)
 
@@ -29,18 +29,18 @@ También puede:
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se usa Helm para instalar el controlador de entrada NGINX, cert-manager y una aplicación web de ejemplo. Debe tener Helm inicializado dentro del clúster de AKS y usar una cuenta de servicio para Tiller. Para obtener más información sobre cómo configurar y usar Helm, consulte [Instalación de aplicaciones con Helm en Azure Kubernetes Service (AKS)][use-helm].
+En este artículo se usa Helm para instalar el controlador de entrada NGINX y una aplicación web de ejemplo.
 
 En este artículo también se requiere que ejecute la versión 2.0.64 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Crear un controlador de entrada
 
-Para crear el controlador de entrada, use `Helm` para instalar *nginx-ingress*. Para obtener redundancia adicional, se implementan dos réplicas de los controladores de entrada NGINX con el parámetro `--set controller.replicaCount`. Para sacar el máximo provecho de las réplicas en ejecución del controlador de entrada, asegúrese de que hay más de un nodo en el clúster de AKS.
+Para crear el controlador de entrada, use Helm para instalar *nginx-ingress*. Para obtener redundancia adicional, se implementan dos réplicas de los controladores de entrada NGINX con el parámetro `--set controller.replicaCount`. Para sacar el máximo provecho de las réplicas en ejecución del controlador de entrada, asegúrese de que hay más de un nodo en el clúster de AKS.
 
 El controlador de entrada también debe programarse en un nodo de Linux. Los nodos de Windows Server (actualmente en versión preliminar en AKS) no deben ejecutar el controlador de entrada. Un selector de nodos se especifica mediante el parámetro `--set nodeSelector` para indicar al programador de Kubernetes que ejecute el controlador de entrada NGINX en un nodo basado en Linux.
 
 > [!TIP]
-> En el siguiente ejemplo se crea un espacio de nombres de Kubernetes para los recursos de entrada denominado *ingress-basic*. Especifique un espacio de nombres para su propio entorno según sea necesario. Si su clúster de AKS no tiene RBAC habilitado, agregue `--set rbac.create=false` a los comandos de Helm.
+> En el siguiente ejemplo se crea un espacio de nombres de Kubernetes para los recursos de entrada denominado *ingress-basic*. Especifique un espacio de nombres para su propio entorno según sea necesario.
 
 > [!TIP]
 > Si quiere habilitar la [conservación de direcciones IP de origen del cliente][client-source-ip] para las solicitudes a los contenedores de su clúster, agregue `--set controller.service.externalTrafficPolicy=Local` al comando de instalación de Helm. La dirección IP de origen del cliente se almacena en el encabezado de la solicitud en *X-Forwarded-For*. Al usar un controlador de entrada con la conservación de direcciones IP de origen del cliente habilitada, el paso a través de SSL no funcionará.
@@ -49,10 +49,12 @@ El controlador de entrada también debe programarse en un nodo de Linux. Los nod
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
 
+# Add the official stable repository
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+
 # Use Helm to deploy an NGINX ingress controller
-helm install stable/nginx-ingress \
+helm install nginx-ingress stable/nginx-ingress \
     --namespace ingress-basic \
-    --name nginx-ingress \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
@@ -63,16 +65,16 @@ Cuando se crea el servicio del equilibrador de carga de Kubernetes para el contr
 ```
 $ kubectl get service -l app=nginx-ingress --namespace ingress-basic
 
-NAME                                                 TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)                      AGE
-aspiring-labradoodle-nginx-ingress-controller        LoadBalancer   10.0.61.144    40.117.74.8   80:30386/TCP,443:32276/TCP   6m2s
-aspiring-labradoodle-nginx-ingress-default-backend   ClusterIP      10.0.192.145   <none>        80/TCP                       6m2s
+NAME                             TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)                      AGE
+nginx-ingress-controller         LoadBalancer   10.0.61.144    EXTERNAL_IP   80:30386/TCP,443:32276/TCP   6m2s
+nginx-ingress-default-backend    ClusterIP      10.0.192.145   <none>        80/TCP                       6m2s
 ```
 
 No se han creado reglas de entrada aún, por lo que aparece la página 404 predeterminada del controlador de entrada NGINX si navega a la dirección IP interna. Las reglas de entrada se configuran en los pasos siguientes.
 
 ## <a name="run-demo-applications"></a>Ejecución de aplicaciones de demostración
 
-Para ver el controlador de entrada en acción, vamos a ejecutar dos aplicaciones de demostración en el clúster de AKS. En este ejemplo, Helm se usa para implementar dos instancias de una aplicación "Hola mundo" sencilla.
+Para ver el controlador de entrada en acción, vamos a ejecutar dos aplicaciones de demostración en el clúster de AKS. En este ejemplo, Helm se usa para implementar dos instancias de una aplicación *Hola mundo* sencilla.
 
 Antes de instalar los gráficos de Helm de ejemplo, agregue el repositorio de ejemplos de Azure al entorno de Helm como se indica a continuación:
 
@@ -83,23 +85,23 @@ helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 Cree la primera aplicación de demostración desde un gráfico de Helm con el comando siguiente:
 
 ```console
-helm install azure-samples/aks-helloworld --namespace ingress-basic
+helm install aks-helloworld azure-samples/aks-helloworld --namespace ingress-basic
 ```
 
 A continuación, instale una segunda instancia de la aplicación de demostración. Para esta segunda instancia, se especifica un nuevo título de manera que las dos aplicaciones se distingan visualmente. También se especifica un nombre de servicio único:
 
 ```console
-helm install azure-samples/aks-helloworld \
+helm install aks-helloworld-two azure-samples/aks-helloworld \
     --namespace ingress-basic \
     --set title="AKS Ingress Demo" \
-    --set serviceName="ingress-demo"
+    --set serviceName="aks-helloworld-two"
 ```
 
 ## <a name="create-an-ingress-route"></a>Creación de una ruta de entrada
 
 Ambas aplicaciones ahora se ejecutan en el clúster de Kubernetes. Para enrutar el tráfico a cada aplicación, cree un recurso de entrada de Kubernetes. El recurso de entrada configura las reglas de enrutamiento del tráfico a una de las dos aplicaciones.
 
-En el ejemplo siguiente, el tráfico a la dirección `http://40.117.74.8/` se enruta al servicio denominado `aks-helloworld`. El tráfico a la dirección `http://40.117.74.8/hello-world-two` se enruta al servicio `ingress-demo`.
+En el ejemplo siguiente, el tráfico a la dirección *EXTERNAL_IP* se enruta al servicio denominado `aks-helloworld`. El tráfico a la dirección *EXTERNAL_IP/hello-world-two* se enruta al servicio `aks-helloworld-two`. El tráfico a la dirección *EXTERNAL_IP/static* se enruta al servicio denominado `aks-helloworld` para los recursos estáticos.
 
 Cree un archivo denominado `hello-world-ingress.yaml` y cópielo en el ejemplo siguiente de YAML.
 
@@ -122,9 +124,27 @@ spec:
           servicePort: 80
         path: /(.*)
       - backend:
-          serviceName: ingress-demo
+          serviceName: aks-helloworld-two
           servicePort: 80
         path: /hello-world-two(/|$)(.*)
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-world-ingress-static
+  namespace: ingress-basic
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/rewrite-target: /static/$2
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: aks-helloworld
+          servicePort: 80
+        path: /static(/|$)(.*)
 ```
 
 Cree el recurso de entrada con el comando `kubectl apply -f hello-world-ingress.yaml`.
@@ -133,15 +153,16 @@ Cree el recurso de entrada con el comando `kubectl apply -f hello-world-ingress.
 $ kubectl apply -f hello-world-ingress.yaml
 
 ingress.extensions/hello-world-ingress created
+ingress.extensions/hello-world-ingress-static created
 ```
 
 ## <a name="test-the-ingress-controller"></a>Prueba del controlador de entrada
 
-Para probar las rutas para el controlador de entrada, vaya a las dos aplicaciones. Abra un explorador web en la dirección IP de su controlador de entrada NGINX, como *http://40.117.74.8* . La primera aplicación de demostración aparece en el explorador web, como se muestra en el ejemplo siguiente:
+Para probar las rutas para el controlador de entrada, vaya a las dos aplicaciones. Abra un explorador web en la dirección IP de su controlador de entrada NGINX, como *EXTERNAL_IP*. La primera aplicación de demostración aparece en el explorador web, como se muestra en el ejemplo siguiente:
 
 ![Primera aplicación ejecutándose detrás del controlador de entrada](media/ingress-basic/app-one.png)
 
-A continuación, agregue la ruta de acceso */hello-world-two* a la dirección IP, como *http://40.117.74.8/hello-world-two* . Se muestra la segunda aplicación de demostración con el título personalizado:
+A continuación, agregue la ruta de acceso */hello-world-two* a la dirección IP, como *EXTERNAL_IP/hello-world-two*. Se muestra la segunda aplicación de demostración con el título personalizado:
 
 ![Segunda aplicación ejecutándose detrás del controlador de entrada](media/ingress-basic/app-two.png)
 
@@ -168,22 +189,22 @@ helm repo remove azure-samples
 Como alternativa, un enfoque más pormenorizado consiste en eliminar los recursos individuales creados. Despliegue una lista de las versiones de Helm con el comando `helm list`. Busque los gráficos denominados *nginx-ingress* y *aks-helloworld*, tal y como se muestra en la salida del ejemplo siguiente:
 
 ```
-$ helm list
+$ helm list --namespace ingress-basic
 
-NAME                    REVISION    UPDATED                     STATUS      CHART                   APP VERSION NAMESPACE
-aspiring-labradoodle    1           Wed Mar 27 19:55:37 2019    DEPLOYED    nginx-ingress-1.3.1     0.22.0      ingress-basic
-esteemed-koala          1           Wed Mar 27 19:59:18 2019    DEPLOYED    aks-helloworld-0.1.0                ingress-basic
-wonderful-puma          1           Wed Mar 27 19:59:07 2019    DEPLOYED    aks-helloworld-0.1.0                ingress-basic
+NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
+aks-helloworld          ingress-basic   1               2020-01-06 19:57:00.131576 -0600 CST    deployed        aks-helloworld-0.1.0               
+aks-helloworld-two      ingress-basic   1               2020-01-06 19:57:10.971365 -0600 CST    deployed        aks-helloworld-0.1.0               
+nginx-ingress           ingress-basic   1               2020-01-06 19:55:46.358275 -0600 CST    deployed        nginx-ingress-1.27.1    0.26.1  
 ```
 
 Elimine las versiones con el comando `helm delete`. En el ejemplo siguiente se elimina la implementación de entrada NGINX y las dos aplicaciones Hola mundo de AKS de ejemplo.
 
 ```
-$ helm delete aspiring-labradoodle esteemed-koala wonderful-puma
+$ helm delete aks-helloworld aks-helloworld-two nginx-ingress --namespace ingress-basic
 
-release "aspiring-labradoodle" deleted
-release "esteemed-koala" deleted
-release "wonderful-puma" deleted
+release "aks-helloworld" uninstalled
+release "aks-helloworld-two" uninstalled
+release "nginx-ingress" uninstalled
 ```
 
 A continuación, elimine el repositorio de Helm para la aplicación Hola mundo de AKS:

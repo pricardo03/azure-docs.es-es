@@ -3,20 +3,20 @@ title: 'Análisis en Azure HDInsight Hadoop con Hive: proceso de ciencia de dato
 description: Ejemplos del proceso de ciencia de datos en equipo donde se examina el uso de Hive en Azure HDInsight Hadoop para la realización de análisis predictivo.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d3c3278a058162632a6ba7ea9731e5f233190700
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f72ea6ed5f0eec076d181ef56c99c4f1308a7741
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60804660"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864169"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Tutoriales de ciencia de datos de HDInsight Hadoop con Hive en Azure 
 
@@ -36,7 +36,7 @@ El escenario se implementa mediante Hive con un [clúster de Azure HDInsight Had
 
 ## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>Predicción de clics de anuncio mediante Hive con HDInsight Hadoop
 
-En el tutorial [Uso de un clúster de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB](hive-criteo-walkthrough.md) se usa un conjunto de datos de clics de [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/), que está disponible públicamente, para predecir si se da una propina y el intervalo de importes esperado. El escenario se implementa mediante Hive con un [clúster de Azure HDInsight Hadoop ](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar, realizar la ingeniería de características y reducir el tamaño de los datos. Se emplea Azure Machine Learning para crear, entrenar y puntuar un modelo de clasificación binario que predice si un usuario hace clic en un anuncio. Para concluir el tutorial, se muestra cómo publicar uno de estos modelos como un servicio web.
+En el tutorial [Uso de un clúster de Azure HDInsight Hadoop en un conjunto de datos de 1 TB](hive-criteo-walkthrough.md) se usa un conjunto de datos de clics de [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/), que está disponible públicamente, para predecir si se da una propina y los importes esperados. El escenario se implementa mediante Hive con un [clúster de Azure HDInsight Hadoop ](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar, realizar la ingeniería de características y reducir el tamaño de los datos. Se emplea Azure Machine Learning para crear, entrenar y puntuar un modelo de clasificación binario que predice si un usuario hace clic en un anuncio. Para concluir el tutorial, se muestra cómo publicar uno de estos modelos como un servicio web.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

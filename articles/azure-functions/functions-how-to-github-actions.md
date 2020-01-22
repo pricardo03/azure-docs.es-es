@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: f30211b2b5863294976420d3f903a36abe76deba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c34847577b7e83228fafad431f541497be9a21ae
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433160"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769156"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega continua con Acciones de GitHub
 
@@ -46,7 +46,7 @@ En este ejemplo, reemplace los marcadores de posición del recurso por su identi
 
 ## <a name="download-the-publishing-profile"></a>Descarga del perfil de publicación
 
-Puede descargar el perfil de publicación de su functionapp. Para ello, vaya a la página **Información general** de la aplicación y haga clic en **Obtener perfil de publicación**.
+Puede descargar el perfil de publicación de su aplicación de funciones. Para ello, vaya a la página **Información general** de la aplicación y haga clic en **Obtener perfil de publicación**.
 
    ![Descargar perfil de publicación](media/functions-how-to-github-actions/get-publish-profile.png)
 
@@ -58,7 +58,10 @@ Copie el contenido del archivo.
 
    ![Agregar secreto](media/functions-how-to-github-actions/add-secret.png)
 
-1. Use `AZURE_CREDENTIALS` para **Nombre** y la salida del comando copiada para **Valor** y, a continuación, seleccione **Add secret** (Agregar secreto). Si usa el perfil de publicación, utilice `SCM_CREDENTIALS` para **Nombre** y el contenido del archivo para **Valor**.
+1. Agregue un nuevo secreto.
+
+   * Si usa la entidad de servicio que creó mediante la CLI de Azure, utilice `AZURE_CREDENTIALS` en **Nombre**. A continuación, pegue la salida del objeto JSON copiado de **Valor** y seleccione **Agregar secreto**.
+   * Si utiliza un perfil de publicación, utilice `SCM_CREDENTIALS` en **Nombre**. A continuación, use el contenido del archivo del perfil de publicación de **Valor** y seleccione **Agregar secreto**.
 
 Ahora GitHub puede autenticarse en su aplicación de funciones de Azure.
 

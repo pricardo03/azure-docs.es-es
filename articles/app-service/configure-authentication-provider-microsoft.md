@@ -5,12 +5,12 @@ ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9158a4094b7d2ec148c2cae85decb3ad959b7c3
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 12e16cc7e17ae217a334fe25d71672ab2cafa5a8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671918"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768442"
 ---
 # <a name="configure-your-app-service-app-to-use-microsoft-account-login"></a>Configuración de la aplicación App Service para usar el inicio de sesión de la cuenta de Microsoft
 
@@ -18,11 +18,11 @@ ms.locfileid: "74671918"
 
 En este tema se muestra cómo configurar Azure App Service para usar la cuenta Microsoft como proveedor de autenticación. 
 
-## <a name="register-microsoft-account"></a>Registro de la aplicación con la cuenta de Microsoft
+## <a name="register-microsoft-account"> </a>Registro de la aplicación con la cuenta de Microsoft
 
 1. Vaya a [**Registros de aplicaciones**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) en Azure Portal. Si es necesario, inicie sesión con la cuenta de Microsoft.
 1. Seleccione **Nuevo registro** y escriba el nombre de la aplicación.
-1. En **URI de redirección**, seleccione **Web** y escriba `https://<app-domain-name>/.auth/login/microsoftaccount/callback supply the endpoint for your application`. Reemplace *\<app-domain-name>* con el nombre de dominio de su aplicación.  Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Asegúrese de usar el esquema HTTPS en la dirección URL.
+1. En **URI de redirección**, seleccione **Web** y escriba `https://<app-domain-name>/.auth/login/microsoftaccount/callback`. Reemplace *\<app-domain-name>* con el nombre de dominio de su aplicación.  Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Asegúrese de usar el esquema HTTPS en la dirección URL.
 
 1. Seleccione **Registrar**.
 1. Copie el **id. de la aplicación (cliente)** . Lo necesitará más adelante.
@@ -30,9 +30,9 @@ En este tema se muestra cómo configurar Azure App Service para usar la cuenta M
 1. Copie el valor que aparece en la página **Certificados y secretos**. Una vez que salga de esta página, ya no se volverá a mostrar.
 
     > [!IMPORTANT]
-    > La contraseña es una credencial de seguridad importante. No la comparta con nadie ni la distribuya en una aplicación cliente.
+    > El valor del secreto de cliente (contraseña) es una credencial de seguridad importante. No la comparta con nadie ni la distribuya en una aplicación cliente.
 
-## <a name="secrets"></a>Incorporación de información de la cuenta de Microsoft a la aplicación de App Service
+## <a name="secrets"> </a>Incorporación de información de la cuenta de Microsoft a la aplicación de App Service
 
 1. Vaya a la aplicación en [Azure Portal].
 1. Haga clic en **Configuración** > **Autenticación/autorización** y asegúrese de que la opción **Autenticación de App Service** está **Activada**.

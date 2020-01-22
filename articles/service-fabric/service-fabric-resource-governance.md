@@ -3,12 +3,12 @@ title: Gobernanza de recursos para contenedores y servicios
 description: Azure Service Fabric permite especificar los límites de recursos de servicios que se ejecutan dentro o fuera de contenedores.
 ms.topic: conceptual
 ms.date: 8/9/2017
-ms.openlocfilehash: 0a4cdc7dd7c2e81447201ca85843c9ba4c7e2af4
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 85520876d7f0c89450b572d28dee6cb66ed2231d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609459"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772387"
 ---
 # <a name="resource-governance"></a>Regulación de recursos
 
@@ -65,7 +65,7 @@ Este es un ejemplo que indica a Service Fabric cómo usar el 50 % de la CPU dis
 </Section>
 ```
 
-Si se necesita una configuración manual completa de las capacidades de nodo, se puede usar el mecanismo habitual para describir los nodos del clúster. Este es un ejemplo de cómo configurar el nodo con cuatro núcleos y 2 GB de memoria:
+Para la mayoría de los clientes y escenarios, la detección automática de las capacidades de nodo para la CPU y la memoria es la configuración recomendada (la detección automática está activada de forma predeterminada). No obstante, si necesita una configuración manual completa de las capacidades de nodo, las puede configurar por tipo de nodo mediante el mecanismo para describir los nodos del clúster. Este es un ejemplo de cómo configurar el tipo de nodo con cuatro núcleos y 2 GB de memoria:
 
 ```xml
     <NodeType Name="MyNodeType">

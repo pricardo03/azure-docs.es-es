@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/25/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 45d34297bf37a6e46bc57e95ff49def49051e32e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 1fc63dc53d61a8b2e26f97cc09a359b3f2c7665c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67622123"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901693"
 ---
-| Recurso | Límite predeterminado/máximo |
+| Resource | Límite predeterminado/máximo |
 | --- | --- |
 | Circuitos ExpressRoute por suscripción |10 |
 | Circuitos ExpressRoute por región y suscripción, con Azure Resource Manager |10 |
@@ -43,3 +43,6 @@ ms.locfileid: "67622123"
 | 100 Gbps* |10 |100 |
 
 **Solo ExpressRoute Direct de 100 Gbps*
+
+> [!NOTE]
+> Las conexiones de Global Reach cuentan para el límite de conexiones de red virtual por circuito ExpressRoute. Por ejemplo, un circuito Premium de 10 Gbps permitiría 5 conexiones de Global Reach y 95 conexiones a las puertas de enlace de ExpressRoute, o bien 95 conexiones de Global Reach y 5 conexiones a las puertas de enlace de ExpressRoute, o cualquier otra combinación hasta alcanzar el límite de 100 conexiones para el circuito.

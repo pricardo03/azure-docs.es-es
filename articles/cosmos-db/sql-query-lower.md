@@ -7,16 +7,18 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8f7cd864d90b8ab17a180a00a7a6d4bb683da9be
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 35efbb8d4d97ab52abb20487d15a80985946c499
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873308"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732610"
 ---
 # <a name="lower-azure-cosmos-db"></a>LOWER (Azure Cosmos DB)
  Devuelve una expresión de cadena después de convertir los datos de caracteres en mayúsculas a minúsculas.  
-  
+
+La función del sistema LOWER no emplea el índice. Si planea realizar con frecuencia comparaciones que no distingan mayúsculas de minúsculas, la función del sistema LOWER puede consumir una cantidad significativa de RU. Si este es el caso, en lugar de usar la función del sistema LOWER para normalizar los datos cada vez que realice comparaciones, puede normalizar el uso de mayúsculas y minúsculas durante la inserción. Al hacerlo, una consulta como SELECT * FROM c WHERE LOWER(c.name) = 'bob' simply se convertirá en SELECT * FROM c WHERE c.name = 'bob'.
+
 ## <a name="syntax"></a>Sintaxis
   
 ```sql
@@ -28,7 +30,7 @@ LOWER(<str_expr>)
 *str_expr*  
    Es una expresión de cadena.  
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión de cadena.  
   

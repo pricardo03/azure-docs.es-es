@@ -15,12 +15,12 @@ ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 805f984ebdb5e95a9f3a46fab010cecf5c811547
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c042cf22334a0163cd5b89e556210db0cd5c15f4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424497"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888773"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedimientos: Agregar roles de aplicación en la aplicación y recibirlos en el token
 
@@ -37,9 +37,9 @@ Estos roles de aplicación se definen en [Azure Portal](https://portal.azure.com
 ### <a name="declare-app-roles-using-azure-portal"></a>Declaración de roles de aplicación mediante Azure Portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. En la barra superior, seleccione la cuenta y, a continuación, seleccione **Cambiar directorio**.
-1. Una vez que se abre el panel **Directorio y suscripción**, elija el inquilino de Active Directory en el que desea registrar la aplicación desde la lista **Favoritos** o **Todos los directorios**.
-1. Seleccione **Todos los servicios** en el panel de navegación izquierdo y elija **Azure Active Directory**.
+1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal.
+1. En la lista **Favoritos** o **Todos los directorios**, elija el inquilino de Active Directory en el que quiere registrar la aplicación.
+1. En Azure Portal, busque y seleccione **Azure Active Directory**.
 1. En el panel **Azure Active Directory**, seleccione **Registros de aplicaciones** para ver una lista de todas las aplicaciones.
 1. Seleccione la aplicación para la que desea definir roles de aplicación. A continuación, seleccione **Manifiesto**.
 1. Localice la opción de configuración `appRoles` para editar el manifiesto de la aplicación y agregar los roles de aplicación.

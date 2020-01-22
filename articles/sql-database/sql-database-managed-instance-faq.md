@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: b409824c2adb544560dfa17b4871ba23760d35c7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 81f776428303ad5e6486ba52c1acdf70d051563e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443854"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835010"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de Instancia administrada de Azure SQL Database
 
@@ -105,7 +105,7 @@ Si las dos generaciones de hardware no se admiten en la misma región, es posibl
 
 ## <a name="tune-performance"></a>Ajustar rendimiento
 
-**¿Cómo se optimiza el rendimiento de una instancia administrada? **
+**¿Cómo se optimiza el rendimiento de una instancia administrada?**
 
 Una instancia administrada de uso general usa el almacenamiento remoto debido a que el tamaño de los archivos de registro y datos es importante para el rendimiento. Para obtener más información, consulte [Impact of log file size on General Purpose Managed Instance performance](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e) (Impacto del tamaño del archivo de registro en el rendimiento de la Instancia administrada de uso general).
 
@@ -180,8 +180,8 @@ Existe un estudio de Forrester en el que se explican a la perfección los benefi
 
 ## <a name="dns-refresh"></a>Actualización de DNS 
 
-¿Puedo actualizar el DNS? **
-  
+**¿Puedo actualizar el DNS?**
+
 Actualmente, no proporcionamos ninguna característica para actualizar la configuración del servidor DNS para la instancia administrada.
 
 La configuración de DNS se actualiza:

@@ -1,5 +1,5 @@
 ---
-title: Creación de filtros con .NET SDK de Azure Media Services
+title: Creación de filtros con el SDK de .NET de Azure Media Services v3
 description: En este tema se describe cómo crear filtros para que su cliente pueda usarlos para el streaming de secciones específicas de una secuencia. Media Services crea manifiestos dinámicos para lograr este streaming selectivo.
 services: media-services
 documentationcenter: ''
@@ -13,25 +13,25 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 2bcb8762b94347f4409507fb89a18cb6c9d0dacd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef04b1b7b5030189482e89e26e4565397cbdd7c8
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494308"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779253"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Creación de filtros con el SDK de .NET de Media Services
 
-Al entregar su contenido a los clientes (streaming de eventos en vivo o vídeo bajo demanda), es posible que su cliente necesite más flexibilidad que lo descrito en el archivo de manifiesto del recurso predeterminado. Azure Media Services le permite definir filtros de cuenta y filtros de recurso para su contenido. 
+Al entregar su contenido a los clientes (streaming de eventos en directo o vídeo bajo demanda), es posible que el cliente necesite más flexibilidad que la descrita en el archivo de manifiesto del recurso predeterminado. Azure Media Services le permite definir filtros de cuenta y filtros de recurso para su contenido. 
 
-Para una descripción detallada de esta característica y los escenarios donde se utiliza, consulte [Manifiestos dinámicos](filters-dynamic-manifest-overview.md) y [Filtros](filters-concept.md).
+Para obtener una descripción detallada de esta característica y los escenarios donde se utiliza, vea [Manifiestos dinámicos](filters-dynamic-manifest-overview.md) y [Filtros](filters-concept.md).
 
 En este tema se muestra cómo usar el SDK de .NET de Media Services para definir un filtro para un recurso Vídeo bajo demanda y crear [Filtros de cuenta](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) y [Filtros de recurso](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
 
 > [!NOTE]
 > No olvide revisar [presentationTimeRange](filters-concept.md#presentationtimerange).
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerequisites 
 
 - Consulte [Filtros y manifiestos dinámicos](filters-dynamic-manifest-overview.md).
 - [Cree una cuenta de Media Services](create-account-cli-how-to.md). Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services. 
@@ -84,7 +84,7 @@ client.AssetFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, enc
 
 ## <a name="associate-filters-with-streaming-locator"></a>Asociación de filtros con localizadores de streaming
 
-Ahora puede especificar una lista de filtros de cuentas o recursos, que se aplicarían a su localizador de streaming. El [empaquetado dinámico (punto de conexión de streaming)](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto con los que el cliente especifica en la dirección URL. Esta combinación genera un [manifiesto dinámico](filters-dynamic-manifest-overview.md), que se basa en los filtros de la dirección URL y en los filtros que especifique en el localizador de streaming. Se recomienda usar esta característica si desea aplicar filtros, pero no desea exponer los nombres de filtro en la dirección URL.
+Ahora puede especificar una lista de filtros de cuentas o recursos, que se aplicarían a su localizador de streaming. El [empaquetado dinámico (punto de conexión de streaming)](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto con los que el cliente especifica en la dirección URL. Esta combinación genera un [manifiesto dinámico](filters-dynamic-manifest-overview.md), que se basa en los filtros de la dirección URL y en los filtros que especifique en el localizador de streaming. Se recomienda usar esta característica si quiere aplicar filtros, pero no quiere exponer los nombres de filtro en la dirección URL.
 
 El siguiente código C# muestra cómo crear un localizador de streaming y especificar `StreamingLocator.Filters`. Esta es una propiedad opcional que toma una `IList<string>` de nombres de filtro.
 

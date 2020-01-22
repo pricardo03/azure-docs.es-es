@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: d3959b9a86ccc2d42cbf7bd188ce86bf4b7a2e63
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 14946a05f021a9b155fd9a9621f73bde980970fa
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670086"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750469"
 ---
 # <a name="deployment-best-practices"></a>Procedimientos recomendados de implementación
 
@@ -66,3 +66,12 @@ Use siempre la memoria caché local junto con [ranuras de implementación](deplo
 ### <a name="high-cpu-or-memory"></a>CPU o memoria elevadas
 
 Si el Plan de App Service usa más del 90 % de la CPU o la memoria disponibles, es posible que la máquina virtual subyacente tenga problemas para procesar la implementación. Cuando esto suceda, escale de forma temporal el número de instancias para realizar la implementación. Una vez finalizada la implementación, puede devolver el número de instancias a su valor anterior.
+
+Para obtener más información sobre los procedimientos recomendados, visite [Diagnósticos de App Service](https://docs.microsoft.com/azure/app-service/overview-diagnostics) para obtener información sobre los procedimientos recomendados viables específicos para el recurso.
+
+- Vaya a la aplicación web en [Azure Portal](https://portal.azure.com).
+- En el panel izquierdo, haga clic en **Diagnosticar y solucionar problemas** para abrir la página Diagnósticos de App Service.
+- Elija el icono **Procedimientos recomendados** de la página principal.
+- Haga clic en **Best Practices for Availability & Performance** (Prácticas recomendadas de disponibilidad y rendimiento) o en **Best Practices for Optimal Configuration** (Procedimientos recomendados para la configuración óptima) para ver el estado actual de la aplicación en lo que respecta a estas prácticas recomendadas.
+
+También puede usar este vínculo para abrir directamente Diagnósticos de App Service para el recurso: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.

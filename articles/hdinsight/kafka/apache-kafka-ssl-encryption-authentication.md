@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5dd698b28a01ed251492cf34e9da2dda4d0c2580
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 180b7c203755553c343e0f7fc65c93092b330124
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241982"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751314"
 ---
 # <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configuración del cifrado y la autenticación de Capa de sockets seguros (SSL) para Apache Kafka en Azure HDInsight
 
@@ -49,7 +49,7 @@ El resumen del proceso de instalación de agente es como sigue:
 Utilice las siguientes instrucciones detalladas para completar la instalación del agente:
 
 > [!Important]
-> En los siguientes fragmentos de código, wnX es una abreviatura de uno de los tres nodos de trabajo y debe sustituirse por `wn0`, `wn1` o `wn2`, según corresponda. `WorkerNode0_Name` y `HeadNode0_Name` deben sustituirse con los nombres de las respectivas máquinas, como `wn0-abcxyz` o `hn0-abcxyz`.
+> En los siguientes fragmentos de código, wnX es una abreviatura de uno de los tres nodos de trabajo y debe sustituirse por `wn0`, `wn1` o `wn2`, según corresponda. `WorkerNode0_Name` y `HeadNode0_Name` deben sustituirse por los nombres de las máquinas respectivas.
 
 1. Realice la instalación inicial en un nodo principal 0, lo que, para HDInsight, rellenará el rol de la entidad de certificación (CA).
 
@@ -157,10 +157,10 @@ Realice los pasos siguientes para completar la modificación de la configuració
 
 Realice los pasos siguientes para finalizar la configuración del cliente:
 
-1. Inicie sesión en la máquina cliente (hn1).
+1. Inicie sesión en la máquina cliente (nodo principal en espera).
 1. Cree un almacén de claves Java y obtenga un certificado firmado para el agente. A continuación, copie el certificado en la máquina virtual donde se ejecuta la entidad de certificación.
-1. Cambie a la máquina de la entidad de certificación (hn0) para firmar el certificado de cliente.
-1. Vaya a la máquina cliente (hn1) y desplácese hasta la carpeta `~/ssl`. Copie el certificado firmado en la máquina cliente.
+1. Cambie a la máquina de la entidad de certificación (nodo principal activo) para firmar el certificado de cliente.
+1. Vaya a la máquina cliente (nodo principal en espera) y desplácese hasta la carpeta `~/ssl`. Copie el certificado firmado en la máquina cliente.
 
 ```bash
 cd ssl
@@ -174,11 +174,11 @@ keytool -keystore kafka.client.keystore.jks -certreq -file client-cert-sign-requ
 # Copy the cert to the CA
 scp client-cert-sign-request3 sshuser@HeadNode0_Name:~/tmp1/client-cert-sign-request
 
-# Switch to the CA machine (hn0) to sign the client certificate.
+# Switch to the CA machine (active head node) to sign the client certificate.
 cd ssl
 openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:MyServerPassword123
 
-# Return to the client machine (hn1), navigate to ~/ssl folder and copy signed cert from the CA (hn0) to client machine
+# Return to the client machine (standby head node), navigate to ~/ssl folder and copy signed cert from the CA (active head node) to client machine
 scp -i ~/kafka-security.pem sshuser@HeadNode0_Name:/tmp1/client-cert-signed
 
 # Import CA cert to trust store

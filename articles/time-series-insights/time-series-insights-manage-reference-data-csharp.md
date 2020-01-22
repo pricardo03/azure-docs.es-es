@@ -11,18 +11,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: ebc616d07c24a02b71010e315f288543dfd92b74
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 964a3865fcb646a52822286e809703d507304ca6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705960"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861887"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Administración de los datos de referencia de GA en un entorno de Azure Time Series Insights con C#
 
 Este artículo describe un proyecto de ejemplo en C# que puede compilar para administrar los datos de referencia para un entorno de Azure Time Series Insights.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Realice los pasos siguientes antes de compilar y ejecutar el código de ejemplo:
 

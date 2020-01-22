@@ -7,14 +7,14 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 03/04/2019
+ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 2156ee6cf27ecfa32b19ad5bbef7549e99c3f7ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6de37daa0b9e0ebc711a5dacbdce352e3675a3db
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61280660"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754430"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solución de problemas cuando se conmuta por error una máquina física o una máquina virtual de VMware en Azure
 
@@ -106,6 +106,18 @@ Si el botón **Conectar** de la máquina virtual conmutada por error de Azure es
 >[!Note]
 >Habilitar cualquier ajuste que no sea Diagnósticos de arranque requiere que el agente de la máquina virtual de Azure esté instalado en la máquina virtual antes de la conmutación por error.
 
+## <a name="unable-to-open-serial-console-after-failover-of-a-uefi-based-machine-into-azure"></a>No se puede abrir la consola serie después de la conmutación por error de una máquina basada en UEFI en Azure
+
+Si puede conectarse a la máquina mediante RDP pero no puede abrir la consola serie, siga los pasos que se indican a continuación:
+
+* Si el sistema operativo de la máquina es Red Hat u Oracle Linux 7.*/8.0, ejecute el siguiente comando en la VM de Azure de conmutación por error con permisos raíz. Reinicie la VM después del comando.
+
+        grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+
+* Si el sistema operativo de la máquina es CentOS 7.*, ejecute el siguiente comando en la VM de Azure de conmutación por error con permisos raíz. Reinicie la VM después del comando.
+
+        grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+
 ## <a name="unexpected-shutdown-message-event-id-6008"></a>Mensaje de cierre inesperado (Id. de evento 6008)
 
 Al arrancar una máquina tras la conmutación por error, si recibe un mensaje de cierre inesperado sobre la máquina virtual recuperada, esto indica que el estado de cierre no se capturó en el punto de recuperación usado para la conmutación por error. Esto ocurre al recuperarse hasta un punto en el que la máquina virtual no se había cerrado completamente.
@@ -153,7 +165,7 @@ Para resolver el problema:
    - Para asegurarse de que el destino maestro puede comunicarse con el servidor de configuración:
   
      - Modifique la configuración del proxy en Internet Explorer para omitir la dirección IP del servidor de destino maestro a través del proxy.   
-     o
+     Or
      - Deshabilite al proxy en el servidor de destino maestro. 
 
 

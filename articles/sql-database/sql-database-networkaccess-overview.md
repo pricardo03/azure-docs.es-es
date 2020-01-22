@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 16de1d9fcf86459b6bcadd9d8c372e436aad0915
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 44fcaa0a4292ac86c7371c27f29faf0e7246e9d5
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802933"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894787"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controles de acceso a la red para Azure SQL Database y Data Warehouse
 
@@ -47,30 +47,59 @@ También puede cambiar esta configuración desde el panel de firewall después d
 
 Cuando se establece en **ACTIVADO**, Azure SQL Server permite la comunicación de todos los recursos dentro de los límites de Azure, que pueden o no formar parte de la suscripción.
 
-En muchos casos, el valor **ACTIVADO** es más permisivo que el que desean la mayoría de los clientes. Es posible que deseen establecer esta opción en **DESACTIVADO** y reemplazarla por reglas de firewall de IP más restrictivas o reglas de firewall de red virtual. Esto afecta a las siguientes características:
+En muchos casos, el valor **ACTIVADO** es más permisivo que el que desean la mayoría de los clientes. Es posible que deseen establecer esta opción en **DESACTIVADO** y reemplazarla por reglas de firewall de IP más restrictivas o reglas de firewall de red virtual. Esta acción afecta a las siguientes características que se ejecutan en máquinas virtuales de Azure que no forman parte de la red virtual y, por tanto, se conectan a SQL Database a través de una dirección IP de Azure.
 
 ### <a name="import-export-service"></a>Import Export Service
+Import Export Service no funciona, **Permitir que los servicios de Azure accedan al servidor** está establecido en OFF. Sin embargo, puede solucionar el problema [al ejecutar manualmente sqlpackage.exe desde una máquina virtual de Azure o realizar la exportación](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) directamente en el código mediante la API de DACFx.
 
-El servicio de importación y exportación de Azure SQL Database se ejecuta en VM de Azure. Estas máquinas virtuales no están en la red virtual y, por tanto, obtienen una dirección IP de Azure al conectarse a la base de datos. Al deshabilitar **Permitir que los servicios de Azure accedan al servidor**, estas máquinas virtuales no podrán acceder a las bases de datos.
-Puede evitar el problema con la ejecución de la importación o exportación de BACPAC directamente en el código mediante la API de DACFx.
+### <a name="data-sync"></a>Sincronización de datos
+Para usar la característica de sincronización de datos con **Permitir que los servicios de Azure accedan al servidor** establecido en OFF, debe crear entradas de reglas de firewall individuales para [agregar direcciones IP](sql-database-server-level-firewall-rule.md) de la **etiqueta de servicio SQL** para la región que hospeda la base de datos **central**.
+Agregue estas reglas de firewall de nivel de servidor a los servidores lógicos que hospedan las bases de datos **central** y **miembro** (que pueden estar en regiones diferentes).
 
-### <a name="sql-database-query-editor"></a>Editor de consultas de SQL Database
+Use el siguiente script de PowerShell para generar las direcciones IP correspondientes a la etiqueta de servicio de SQL para la región Oeste de EE. UU.
+```powershell
+PS C:\>  $serviceTags = Get-AzNetworkServiceTag -Location eastus2
+PS C:\>  $sql = $serviceTags.Values | Where-Object { $_.Name -eq "Sql.WestUS" }
+PS C:\> $sql.Properties.AddressPrefixes.Count
+70
+PS C:\> $sql.Properties.AddressPrefixes
+13.86.216.0/25
+13.86.216.128/26
+13.86.216.192/27
+13.86.217.0/25
+13.86.217.128/26
+13.86.217.192/27
+```
 
-El editor de consultas de Azure SQL Database se implementa en máquinas virtuales de Azure. Estas máquinas virtuales no están en la red virtual. Por tanto, las máquinas virtuales obtienen una dirección IP de Azure cuando se conectan a la base de datos. Al deshabilitar **Permitir que los servicios de Azure accedan al servidor**, estas máquinas virtuales no podrán acceder a las bases de datos.
+> [!TIP]
+> Get-AzNetworkServiceTag devuelve el intervalo global de la etiqueta de servicio SQL a pesar de que se especificó el parámetro Location. Asegúrese de filtrar para usarlo en la región que hospeda la base de datos central que usa el grupo de sincronización.
 
-### <a name="table-auditing"></a>Auditoría de tablas
+Tenga en cuenta que los resultados del script de PowerShell están en la notación Enrutamiento de interdominios sin clases (CIDR) y deben convertirse a un formato de dirección IP inicial y final con [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) de la siguiente forma
+```powershell
+PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26                                                                   
+start        end
+-----        ---
+52.229.17.64 52.229.17.127
+```
 
-En la actualidad hay dos maneras de habilitar la auditoría en SQL Database. La auditoría de tablas produce un error después de haber habilitado los puntos de conexión de servicio en el servidor de Azure SQL Server. La solución en este caso consiste en cambiar a la auditoría de blobs.
+Realice los siguientes pasos adicionales para convertir todas las direcciones IP de CIDR al formato de dirección IP inicial y final.
 
-### <a name="impact-on-data-sync"></a>Impacto en la sincronización de datos
+```powershell
+PS C:\>foreach( $i in $sql.Properties.AddressPrefixes) {$ip,$cidr= $i.split('/') ; Get-IPrangeStartEnd -ip $ip -cidr $cidr;}                                                                                                                
+start          end
+-----          ---
+13.86.216.0    13.86.216.127
+13.86.216.128  13.86.216.191
+13.86.216.192  13.86.216.223
+```
+Ahora puede agregarlas como reglas de firewall independientes y, a continuación, establecer la opción **Permitir que los servicios de Azure accedan al servidor** en OFF.
 
-Azure SQL Database tiene la característica Sincronización de datos, que se conecta a las bases de datos con direcciones IP de Azure. Al utilizar los puntos de conexión de servicio, desactivará la opción **Permitir que los servicios de Azure accedan al servidor** de acceso al servidor de SQL Database e interrumpirá la característica Data Sync.
 
 ## <a name="ip-firewall-rules"></a>Reglas de firewall de IP
 El firewall basado en IP es una característica de Azure SQL Server que impide todo acceso al servidor de bases de datos hasta que se agregan explícitamente las [direcciones IP](sql-database-server-level-firewall-rule.md) de las máquinas cliente.
 
 
-## <a name="virtual-network-firewall-rules"></a>Reglas de firewall de red virtual
+## <a name="virtual-network-firewall-rules"></a>reglas de firewall de red virtual
 
 Además de las reglas de IP, el firewall de Azure SQL Server permite definir *reglas de red virtual*.  
 Para más información, consulte [Uso de reglas y puntos de conexión de servicio de red virtual para Azure SQL Database y SQL Data Warehouse](sql-database-vnet-service-endpoint-rule-overview.md) o vea este vídeo:

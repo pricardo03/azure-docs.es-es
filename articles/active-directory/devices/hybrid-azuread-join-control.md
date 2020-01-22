@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d67a73ca47811e7275a6f2177573e10a09b230df
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 18da289f9d364fa79023809324d59b89b8ac898c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073626"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768119"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validación controlada de la unión a Azure AD híbrido
 
@@ -79,7 +79,7 @@ Use el ejemplo siguiente para crear un objeto de directiva de grupo (GPO) y conf
 
 ### <a name="configure-ad-fs-settings"></a>Configuración de AD FS
 
-Si utiliza AD FS, primero deberá configurar el SCP del cliente mediante las instrucciones mencionadas anteriormente, pero vinculando el GPO a los servidores de AD FS. El objeto SCP define el origen de autoridad de los objetos del dispositivo. Puede ser local o Azure AD. Cuando se configura para AD FS, el origen de los objetos del dispositivo se establece como Azure AD.
+Si utiliza AD FS, primero deberá configurar el SCP del cliente mediante las instrucciones mencionadas anteriormente mediante la vinculación del GPO a los servidores de AD FS. El objeto SCP define el origen de autoridad de los objetos del dispositivo. Puede ser local o Azure AD. Cuando el SCP del cliente se configura para AD FS, el origen de los objetos del dispositivo se establece como Azure AD.
 
 > [!NOTE]
 > Si no pudo configurar SCP en el cliente en los servidores de AD FS, el origen de las identidades de los dispositivos se considerará local. ADFS comenzará a eliminar los objetos de dispositivo del directorio local después del período estipulado definido en el atributo "MaximumInactiveDays" del registro de dispositivos de ADFS. Los objetos del registro de dispositivos de ADFS se pueden encontrar con el [cmdlet Get-AdfsDeviceRegistration](https://docs.microsoft.com/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).

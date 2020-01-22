@@ -1,5 +1,5 @@
 ---
-title: 'Configuración de la cuenta para el streaming sin conexión de contenido protegido de PlayReady: Azure'
+title: 'Streaming de PlayReady sin conexión con Media Services v3: Azure'
 description: En este artículo, se muestra cómo configurar la cuenta de Azure Media Services para transmitir por streaming PlayReady para Windows 10 sin conexión.
 services: media-services
 keywords: DASH, DRM, Modo sin conexión de Widevine, ExoPlayer, Android
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 0798cffdca8d5876373c35f3f5fd657551586d43
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 15a3e2f7fee6d130b1913ec4f74069a09d5aec53
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974060"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779794"
 ---
-# <a name="offline-playready-streaming-for-windows-10"></a>Streaming de PlayReady sin conexión para Windows 10
+# <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Streaming de PlayReady sin conexión para Windows 10 con Media Services v3
 
 Azure Media Services admite la descarga o reproducción sin conexión con protección DRM. En este artículo, se explica la compatibilidad sin conexión de Azure Media Services para clientes de Windows 10/PlayReady. Para obtener información sobre la compatibilidad del modo sin conexión para iOS/FairPlay y dispositivos Android/Widevine, vea los artículos siguientes:
 

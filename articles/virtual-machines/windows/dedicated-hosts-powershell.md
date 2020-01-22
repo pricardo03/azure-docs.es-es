@@ -12,39 +12,23 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 92dca6f4f41ff426aebcb8e580653afaa71afff8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ae7c6f2d5f05b3d4ed3744be57112a62606cf622
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033363"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833837"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Vista previa: Implementación de máquinas virtuales en hosts dedicados mediante Azure PowerShell
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implementación de máquinas virtuales en hosts dedicados mediante Azure PowerShell
 
 En este artículo se ofrecen instrucciones para crear un [host dedicado](dedicated-hosts.md) de Azure en el que se pueden hospedar máquinas virtuales (VM). 
 
-Asegúrese de que tiene instalada la versión 2.4.2 de Azure PowerShell, o cualquier versión posterior, y que inicia sesión en una cuenta de Azure con `Connect-AzAccount`. Para instalar la versión 2.4.2, abra un símbolo del sistema de PowerShell y escriba:
+Asegúrese de que tiene instalada la versión 2.8.0 de Azure PowerShell, o cualquier versión posterior, y que inicia sesión en una cuenta de Azure con `Connect-AzAccount`. 
 
-```powershell
-Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrerelease
-```
+## <a name="limitations"></a>Limitaciones
 
-necesitará al menos la versión 1.6.0 del módulo PowerShellGet para habilitar la funcionalidad del módulo de vista previa en PowerShell. Las versiones más recientes de PowerShell Core lo integran automáticamente, pero en las versiones anteriores de PowerShell, puede ejecutar el siguiente comando para realizar la actualización a la versión más reciente:
-
-```powershell
-Install-Module -Name PowerShellGet -Repository PSGallery -Force
-```
-
-
-> [!IMPORTANT]
-> Azure Dedicated Host está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Limitaciones conocidas de la versión preliminar**
-> - Actualmente, los conjuntos de escalado de máquinas virtuales no se admiten en los hosts dedicados.
-> - La versión preliminar inicial admite las siguientes series de máquinas virtuales: DSv3 y ESv3. 
-
-
+- Actualmente, los conjuntos de escalado de máquinas virtuales no se admiten en los hosts dedicados.
+- Se admiten las siguientes series de máquinas virtuales: DSv3 y ESv3. 
 
 ## <a name="create-a-host-group"></a>Creación de un grupo host
 
@@ -217,6 +201,6 @@ Remove-AzResourceGroup -Name $rgName
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- En [este vínculo](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) encontrará una plantilla de ejemplo en la que se usan zonas y dominios de error para obtener la máxima resistencia en una región.
+- [Aquí](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) encontrará una plantilla de ejemplo en la que se usan zonas y dominios de error para obtener la máxima resistencia en una región.
 
 - También se pueden implementar hosts dedicados desde [Azure Portal](dedicated-hosts-portal.md).

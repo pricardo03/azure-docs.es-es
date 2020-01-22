@@ -2,38 +2,32 @@
 title: Implementación de hosts dedicados de Azure mediante la CLI
 description: Implemente máquinas virtuales en hosts dedicados mediante la CLI de Azure.
 services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/29/2019
+ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: ece9967321cfca44b102d78722f0df3d8f980bdb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b301012425e0a2590fa5ac22985abe9c96fbd419
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036399"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834934"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Vista previa: Implementación de máquinas virtuales en hosts dedicados mediante la CLI de Azure
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Implementación de máquinas virtuales en hosts dedicados mediante la CLI de Azure
  
 
 En este artículo se ofrecen instrucciones para crear un [host dedicado](dedicated-hosts.md) de Azure en el que se pueden hospedar máquinas virtuales (VM). 
 
 Asegúrese de tener instalada la CLI de Azure, versión 2.0.70 o posterior, y de haber iniciado sesión en una cuenta de Azure con `az login`. 
 
-> [!IMPORTANT]
-> Los hosts dedicados de Azure están actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Limitaciones conocidas de la versión preliminar**
-> - Actualmente, los conjuntos de escalado de máquinas virtuales no se admiten en los hosts dedicados.
-> - La versión preliminar inicial admite las siguientes series de máquinas virtuales: DSv3 y ESv3. 
+
+## <a name="limitations"></a>Limitaciones
+
+- Actualmente, los conjuntos de escalado de máquinas virtuales no se admiten en los hosts dedicados.
+- La versión inicial admite las siguientes series de máquinas virtuales: DSv3 y ESv3. 
  
 
 ## <a name="create-resource-group"></a>Creación de un grupo de recursos 
@@ -86,10 +80,9 @@ az vm host group create \
  
 ## <a name="create-a-host"></a>Creación de un host 
 
-Ahora vamos a crear un host dedicado en el grupo host. Además de un nombre para el host, se le pedirá que proporcione el SKU del host. El SKU del host registra la serie de máquinas virtuales admitidas, así como la generación de hardware del host dedicado.  Durante la versión preliminar, se admitirán los siguientes valores de SKU de host: DSv3_Type1 y ESv3_Type1.
+Ahora vamos a crear un host dedicado en el grupo host. Además de un nombre para el host, se le pedirá que proporcione el SKU del host. El SKU del host registra la serie de máquinas virtuales admitidas, así como la generación de hardware del host dedicado.  Se admiten los siguientes valores de SKU: DSv3_Type1 y ESv3_Type1.
 
-
-Para obtener más información sobre los precios y los SKU de host, consulte [Precios de hosts dedicados de Azure](https://aka.ms/ADHPricing).
+Para más información sobre los precios y los SKU de host, consulte [Precios de hosts dedicados de Azure](https://aka.ms/ADHPricing).
 
 Use [az vm host create](/cli/azure/vm/host#az-vm-host-create) para crear un host. Si establece un número de dominios de error para el grupo host, se le pedirá que especifique el dominio de error para su host.  
 
@@ -280,8 +273,8 @@ az group delete -n myDHResourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más detalles, consulte la información general [Hosts dedicados](dedicated-hosts.md).
+- Para obtener más detalles, consulte la introducción a los [hosts dedicados](dedicated-hosts.md).
 
 - También se pueden crear hosts dedicados con [Azure Portal](dedicated-hosts-portal.md).
 
-- En [este vínculo](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) encontrará una plantilla de ejemplo en la que se usan zonas y dominios de error para obtener la máxima resistencia en una región.
+- [Aquí](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) encontrará una plantilla de ejemplo en la que se usan zonas y dominios de error para obtener la máxima resistencia en una región.

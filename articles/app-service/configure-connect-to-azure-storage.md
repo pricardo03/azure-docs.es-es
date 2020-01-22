@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
-ms.openlocfilehash: ad70bbe36369c03225079d1194043e6ceb109c6f
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: c5543470f790d00158297cb7c3f0c06c5fc05e14
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671007"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866976"
 ---
 # <a name="configure-azure-files-in-a-windows-container-on-app-service"></a>Configuración de Azure Files en un contenedor de Windows en App Service
 
@@ -20,7 +20,7 @@ ms.locfileid: "74671007"
 
 Esta guía muestra cómo acceder a Azure Storage en contenedores de Windows. Solo se admiten [recursos compartidos de archivos de Azure Files](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-cli) y [recursos compartidos de archivos Premium](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-premium-fileshare). Puede usar recursos compartidos de archivos de Azure Files en esta guía. Entre las ventajas se incluye protección y portabilidad del contenido, acceso a varias aplicaciones y varios métodos de transferencia.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - [CLI de Azure](/cli/azure/install-azure-cli) (2.0.46 o posterior).
 - [Una aplicación de contenedor de Windows existente en Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-windows-container)
@@ -30,6 +30,15 @@ Esta guía muestra cómo acceder a Azure Storage en contenedores de Windows. Sol
 > [!NOTE]
 > Azure Files es almacenamiento no predeterminado y se factura por separado, es decir, no se incluye con la aplicación web. No admite el uso de una configuración de firewall debido a limitaciones de infraestructura.
 >
+
+## <a name="limitations"></a>Limitaciones
+
+- Azure Storage en los contenedores de Windows se encuentra **en versión preliminar** y **no es compatible** con los **escenarios de producción**.
+- Azure Storage en los contenedores de Windows solo admite el montaje de **contenedores de Azure Files** (lectura y escritura).
+- Actualmente, **no se admite** Azure Storage en los contenedores de Windows para incluir escenarios de código propios en los planes de Windows App Service.
+- Azure Storage en los contenedores de Windows **no admite** el uso de la configuración del **firewall de Storage** debido a limitaciones de la infraestructura.
+- Azure Storage en los contenedores de Windows le permite especificar **hasta cinco** puntos de montaje por aplicación.
+- Azure Storage se factura por separado y **no se incluye** con la aplicación web. Obtenga más información sobre los [precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage).
 
 ## <a name="link-storage-to-your-web-app-preview"></a>Vinculación del almacenamiento a la aplicación web (versión preliminar)
 
@@ -48,7 +57,6 @@ Una vez que un recurso compartido de Azure Files se vincula a una aplicación we
 ```azurecli
 az webapp config storage-account list --resource-group <resource_group> --name <app_name>
 ```
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

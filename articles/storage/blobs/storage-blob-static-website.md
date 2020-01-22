@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 8de36ea9f7bb77443b22e038172ee69bb8435b29
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 8dc5599e681d9aee84f884cd4990163a2481d386
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311222"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708169"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 
@@ -64,6 +64,9 @@ El documento del índice que especifique al habilitar el hospedaje de sitios web
 
 Si el servidor devuelve un error 404 y no se ha especificado un documento de error al habilitar el sitio web, se devuelve una página 404 predeterminada al usuario.
 
+> [!NOTE]
+> [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) no se admite con un sitio web estático.
+
 ## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Impacto de la configuración del nivel de acceso público del contenedor web
 
 Puede modificar el nivel de acceso público del contenedor **$web**, lo cual no afecta al punto de conexión principal del sitio web estático porque estos archivos se proporcionan a través de solicitudes de acceso anónimo. Eso significa acceso público (de solo lectura) a todos los archivos.
@@ -110,7 +113,7 @@ Para habilitar métricas en las páginas de su sitio web estático, consulte [En
 * [Hospedaje de sitios web estáticos en Azure Storage](storage-blob-static-website-how-to.md)
 * [Uso de Azure CDN para acceder a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md)
 * [Configurar un nombre de dominio personalizado para el punto de conexión web o de blob](storage-custom-domain-name.md)
-* [Azure Functions](/azure/azure-functions/functions-overview)
+* [Funciones de Azure](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)
 * [Crear la primera aplicación web sin servidor](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [Tutorial: Hospedaje del dominio en Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

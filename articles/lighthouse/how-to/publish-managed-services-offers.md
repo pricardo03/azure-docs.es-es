@@ -1,14 +1,14 @@
 ---
 title: Publicación de una oferta de servicios administrados en Azure Marketplace
 description: Aprenda a publicar una oferta de servicio administrada que incorpore los clientes a la administración de recursos delegados de Azure.
-ms.date: 12/16/2019
+ms.date: 01/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: d1eb06794551be498e05e2b9c3b893013b718ce9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a1720a3bcfd0b08f8d9c8147b5e47ed42af6fda
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453536"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834090"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicación de una oferta de servicios administrados en Azure Marketplace
 
@@ -63,7 +63,7 @@ Complete las siguientes secciones en **Detalles del plan**:
 |**¿Es un plan privado?**     | Indica si la SKU es pública o privada. El valor predeterminado es **No** (pública). Si deja esta selección, el plan no se restringirá a clientes específicos (o a un número determinado de clientes). Una vez publicado un plan público, no se puede cambiar a privado posteriormente. Para que este plan esté disponible solo para clientes específicos, seleccione **Sí**. Al hacerlo, tendrá que identificar a los clientes proporcionando sus identificadores de suscripción. Se pueden especificar de uno en uno (hasta 10 suscripciones) o mediante la carga de un archivo. csv (hasta 20 000 suscripciones). Asegúrese de incluir sus propias suscripciones aquí para poder probar y validar la oferta. Para obtener más información, vea [SKU y planes privados](../../marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md).  |
 
 > [!IMPORTANT]
-> Una vez publicado un plan como público, no puede cambiarlo a privado. Para controlar qué clientes pueden aceptar su oferta y delegar recursos, use un plan privado. Con un plan público, no puede restringir la disponibilidad a determinados clientes ni a un determinado número de clientes, aunque puede dejar de vender el plan por completo si decide hacerlo. Actualmente, no hay ningún mecanismo para rechazar o quitar delegaciones una vez que un cliente acepta una oferta, aunque siempre puede ponerse en contacto con un cliente y pedirle que le [quite el acceso](view-manage-service-providers.md#add-or-remove-service-provider-offers).
+> Una vez publicado un plan como público, no puede cambiarlo a privado. Para controlar qué clientes pueden aceptar su oferta y delegar recursos, use un plan privado. Con un plan público, no puede restringir la disponibilidad a determinados clientes ni a un determinado número de clientes, aunque puede dejar de vender el plan por completo si decide hacerlo. Puede [quitar el acceso a una delegación](onboard-customer.md#remove-access-to-a-delegation) después de que un cliente acepte una oferta solo si incluyó una **autorización** con la **definición de rol** establecida en [Rol para eliminar la asignación de registros de servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) al publicar la oferta. También puede ponerse en contacto con el cliente y solicitarle [que quite el acceso](view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 ### <a name="manifest-details"></a>Detalles del manifiesto
 
@@ -76,7 +76,10 @@ En primer lugar, proporcione una **Versión** para el manifiesto. Use el formato
 
 A continuación, escriba su **Id. de inquilino**. Se trata de un GUID asociado con el identificador del inquilino de Azure Active Directory de la organización (es decir, el inquilino en el que trabajará para administrar los recursos de sus clientes). Si no lo tiene a mano, para buscarlo, mantenga el mouse sobre el nombre de la cuenta en la parte superior derecha de Azure Portal o seleccione **Cambiar directorio**.
 
-Por último, agregue una o más entradas de **Autorización** al plan. Las autorizaciones definen las entidades que pueden tener acceso a los recursos y las suscripciones para los clientes que compran el plan. Además, asignan roles que conceden niveles de acceso específicos. Para obtener más detalles sobre los roles admitidos, consulte [Inquilinos, roles y usuarios en escenarios de Azure Lighthouse](../concepts/tenants-users-roles.md).
+Por último, agregue una o más entradas de **Autorización** al plan. Las autorizaciones definen las entidades que pueden tener acceso a los recursos y las suscripciones para los clientes que compran el plan. Además, asignan roles que conceden niveles de acceso específicos.
+
+> [!TIP]
+> En la mayoría de los casos, querrá asignar permisos a una entidad de servicio o un grupo de usuarios de Azure AD, en lugar de a una serie de cuentas de usuario individuales. Esto le permite agregar o quitar el acceso de usuarios individuales sin tener que actualizar y volver a publicar el plan cuando cambien los requisitos de acceso. Para recomendaciones adicionales, consulte [Inquilinos, roles y usuarios en escenarios de Azure Lighthouse](../concepts/tenants-users-roles.md).
 
 Para cada **Autorización**, deberá proporcionar la siguiente información. Puede seleccionar **Nueva autorización** tantas veces como sea necesario para agregar más definiciones de roles y usuarios.
 
@@ -86,7 +89,7 @@ Para cada **Autorización**, deberá proporcionar la siguiente información. Pue
 - **Roles asignables**: solo se requiere si ha seleccionado Administrador de acceso de usuario en **Definición de roles** para esta autorización. En ese caso, debe agregar uno o varios roles asignables aquí. El usuario del campo **Id. de objeto de Azure AD** podrá asignar estos **Roles asignables** a [identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md), algo necesario para [implementar directivas que pueden corregirse](deploy-policy-remediation.md). Tenga en cuenta que no se aplicará a este usuario ningún otro permiso asociado normalmente al rol Administrador de acceso de usuario. Si no selecciona uno o más roles aquí, el envío no pasará la certificación. (Si no seleccionó Administrador de acceso de usuario para esta definición de roles, este campo no tiene ningún efecto).
 
 > [!TIP]
-> En la mayoría de los casos, querrá asignar permisos a una entidad de servicio o un grupo de usuarios de Azure AD, en lugar de a una serie de cuentas de usuario individuales. Esto le permite agregar o quitar el acceso de usuarios individuales sin tener que actualizar y volver a publicar el plan cuando cambien los requisitos de acceso. Para recomendaciones adicionales, consulte [Inquilinos, roles y usuarios en escenarios de Azure Lighthouse](../concepts/tenants-users-roles.md).
+> Para asegurarse de que puede [quitar el acceso a una delegación](onboard-customer.md#remove-access-to-a-delegation), si es necesario, incluya una **autorización** con la **definición de rol** establecida en [Rol para eliminar la asignación de registros de servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). Si este rol no está asignado, solo un usuario puede quitar los recursos delegados del inquilino del cliente.
 
 Una vez que haya completado la información, puede seleccionar **Nuevo plan** tantas veces como necesite para crear planes adicionales. Cuando haya terminado, seleccione **Guardar** y continúe a la sección **Marketplace**.
 
@@ -147,7 +150,7 @@ Puede [publicar una versión actualizada de la oferta](../../marketplace/cloud-p
 Después de que un cliente agregue su oferta, podrá [delegar uno o varios grupos de recursos o suscripciones específicos](view-manage-service-providers.md#delegate-resources), que posteriormente se incorporarán a la administración de recursos delegados de Azure. Si un cliente ha aceptado una oferta pero aún no ha delegado los recursos, verá una nota en la parte superior de la sección **Ofertas de proveedor** de la página [**Service providers**](view-manage-service-providers.md) (Proveedores de servicio) en Azure Portal.
 
 > [!IMPORTANT]
-> La delegación debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente que tenga el [rol Propietario integrado](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para la suscripción que se va a incorporar (o que contenga los grupos de recursos que se están incorporando). Para ver todos los usuarios que puedan delegar la suscripción, cualquiera de los usuarios del inquilino del cliente puede seleccionar la suscripción en Azure Portal. Para hacerlo, abra **Control de acceso (IAM)** , [muestre todos los roles](../../role-based-access-control/role-definitions-list.md#list-all-roles) y, a continuación, seleccione **Propietario** para ver todos los usuarios con ese rol.
+> La delegación debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente que tenga el [rol Propietario integrado](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para la suscripción que se va a incorporar (o que contenga los grupos de recursos que se están incorporando). Para ver todos los usuarios que puedan delegar la suscripción, cualquiera de los usuarios del inquilino del cliente puede seleccionar la suscripción en Azure Portal, abrir **Control de acceso (IAM)** y [ver todos los usuarios con el rol Propietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 Después de que el cliente delega una suscripción (o uno o varios grupos de recursos dentro de una suscripción), el proveedor de recursos **Microsoft.ManagedServices** se registrará para esa suscripción, y los usuarios del inquilino podrán acceder a los recursos delegados según las autorizaciones de la oferta.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ef3edace53cf7367716027811cf3061b617a9a6
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: fb7fed7cf5f38f9f7677126aff92492ccacd6e12
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379197"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707951"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Solución de problemas de dispositivos con el comando dsregcmd
 
@@ -28,10 +28,10 @@ En esta sección se enumeran los parámetros de estado de la combinación de dis
 
 | AzureAdJoined | EnterpriseJoined | DomainJoined | Estado del dispositivo |
 | ---   | ---   | ---   | ---   |
-| SÍ | NO | NO | Unido a Azure AD |
-| NO | NO | SÍ | Unido a dominio |
-| SÍ | NO | SÍ | Unido a AD híbrido |
-| NO | SÍ | SÍ | Unido a DRS en el entorno local |
+| SÍ | No | No | Unido a Azure AD |
+| No | No | SÍ | Unido a dominio |
+| SÍ | No | SÍ | Unido a AD híbrido |
+| No | SÍ | SÍ | Unido a DRS en el entorno local |
 
 > [!NOTE]
 > El estado de Workplace Join (registrado en Azure AD) se muestra en la sección "Estado del usuario".
@@ -297,10 +297,22 @@ En esta sección se muestra el resultado de las comprobaciones de validez realiz
 
 ## <a name="ngc-prerequisite-check"></a>Comprobación de los requisitos previos de NGC
 
-En esta sección se realizan las comprobaciones de los requisitos previos para el aprovisionamiento de una clave NGC. 
+En esta sección se realizan las comprobaciones de los requisitos previos para el aprovisionamiento de Windows Hello para empresas (WHFB). 
 
 > [!NOTE]
-> Es posible que no vea los detalles de la comprobación de requisitos previos de NGC en dsregcmd /status si el usuario ya ha configurado correctamente las credenciales de NGC.
+> Es posible que no vea los detalles de la comprobación de requisitos previos de NGC en dsregcmd /status si el usuario ya ha configurado correctamente WHFB.
+
+- **IsDeviceJoined:** establézcalo en "YES" (SÍ) si el dispositivo está unido a Azure AD.
+- **IsUserAzureAD:** establézcalo en "YES" (SÍ) si el usuario que ha iniciado sesión está presente en Azure AD.
+- **PolicyEnabled:** establézcalo en "YES" (SÍ) si la directiva de WHFB está habilitada en el dispositivo.
+- **PostLogonEnabled:** establézcalo en "YES" (SÍ) si la plataforma desencadena la inscripción de WHFB de forma nativa. Si se establece en "NO", indica que la inscripción de Windows Hello para empresas se desencadena mediante un mecanismo personalizado.
+- **DeviceEligible:** establézcalo en "YES" (SÍ) si el dispositivo cumple los requisitos de hardware para inscribirse en WHFB.
+- **SessionIsNotRemote:** establézcalo en "YES" (SÍ) si el usuario actual ha iniciado sesión directamente en el dispositivo y no de forma remota.
+- **CertEnrollment**: elemento específico de la implementación de certificados de confianza de WHFB que indica la entidad de inscripción de certificados de WHFB. Establézcalo en "entidad de inscripción" si el origen de la directiva de WHFB es Directiva de grupo o en "administración de dispositivos móviles" si el origen es MDM. En otros casos, establézcalo en "none".
+- **AdfsRefreshToken:** elemento específico de la implementación de certificados de confianza de WHFB. Solo está presente si CertEnrollment es "entidad de inscripción". Indica si el dispositivo tiene un PRT empresarial para el usuario.
+- **AdfsRaIsReady:** elemento específico de la implementación de certificados de confianza de WHFB.  Solo está presente si CertEnrollment es "entidad de inscripción". Establézcalo en "YES" (SÍ) si ADFS indica en los metadatos de detección que admite WHFB *y* si la plantilla de certificado de inicio de sesión está disponible.
+- **LogonCertTemplateReady:** elemento específico de la implementación de certificados de confianza de WHFB. Solo está presente si CertEnrollment es "entidad de inscripción". Establézcalo en "YES" (SÍ) si el estado de la plantilla de certificado de inicio de sesión es válido y ayuda a solucionar los problemas de ADFS RA.
+- **PreReqResult:** proporciona el resultado de toda la evaluación de requisitos previos de WHFB. Establézcalo en "Will Provision" (Aprovisionará) si la inscripción de WHFB se iniciará como una tarea posterior al inicio de sesión cuando el usuario inicie sesión la próxima vez.
 
 ### <a name="sample-ngc-prerequisite-check-output"></a>Resultado de la comprobación de los requisitos previos de NGC de muestra
 

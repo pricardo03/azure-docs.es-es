@@ -1,5 +1,5 @@
 ---
-title: 'Conexión de una red virtual de Azure a otra mediante una conexión entre redes virtuales: PowerShell | Microsoft Docs'
+title: 'Conexión de una red virtual a otra mediante una conexión entre redes virtuales de Azure VPN Gateway: PowerShell'
 description: Conecte redes virtuales entre sí mediante una conexión entre redes virtuales y PowerShell.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: dbf59740af64bf8d403b6596a17646304c0f1eb0
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: eebe66ca038b31f23ca864b107816b8cf761b29c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385774"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860554"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante PowerShell
 

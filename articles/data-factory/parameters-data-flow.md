@@ -1,23 +1,22 @@
 ---
-title: Parámetros de flujo de datos de asignación de Azure Data Factory
+title: Parametrización de flujos de datos de asignación
 description: Obtenga información sobre cómo parametrizar una asignación de Data Flow desde canalizaciones de Data Factory.
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.openlocfilehash: 0a1051d67bf45e96f82833ef8190008204cdc90b
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.date: 01/07/2020
+ms.openlocfilehash: c589cfeab7a812e09ce7f7620e93b72bd362859a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "72387533"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746136"
 ---
-# <a name="mapping-data-flow-parameters"></a>Parámetros de flujo de datos de asignación
+# <a name="parameterizing-mapping-data-flows"></a>Parametrización de flujos de datos de asignación
 
-
-
-La asignación de instancias de Data Flow en Azure Data Factory admite el uso de parámetros. Es posible definir parámetros en la definición del flujo de datos que, después, se pueden usar en las expresiones. Posteriormente, la canalización que realiza la llamada puede establecer los valores de parámetro mediante la actividad de ejecución de Data Flow. Dispone de tres opciones para establecer los valores en las expresiones de la actividad del flujo de datos:
+La asignación de flujos de datos de asignación en Azure Data Factory admite el uso de parámetros. Es posible definir parámetros en la definición del flujo de datos que, después, se pueden usar en las expresiones. Posteriormente, la canalización que realiza la llamada puede establecer los valores de parámetro mediante la actividad de ejecución de Data Flow. Dispone de tres opciones para establecer los valores en las expresiones de la actividad del flujo de datos:
 
 * Usar el lenguaje de expresiones del flujo de control de canalizaciones para establecer un valor dinámico
 * Usar el lenguaje de expresiones del flujo de datos para establecer un valor dinámico
@@ -28,25 +27,33 @@ Use esta funcionalidad para hacer que los flujos de datos sean flexibles y reuti
 > [!NOTE]
 > Para usar expresiones del flujo de control de canalizaciones, el parámetro del flujo de datos debe ser de tipo cadena.
 
-## <a name="create-parameters-in-mapping-data-flow"></a>Creación de parámetros en flujo de datos de asignación
+## <a name="create-parameters-in-a-mapping-data-flow"></a>Creación de parámetros en un flujo de datos de asignación
 
-Para agregar parámetros a un flujo de datos, haga clic en la parte en blanco del lienzo del flujo de datos para ver las propiedades generales. En el panel de configuración, verá una pestaña denominada Parámetros. Haga clic en el botón Nuevo para generar un nuevo parámetro. Para cada parámetro, debe asignar un nombre, seleccionar un tipo y opcionalmente establecer un valor predeterminado.
+Para agregar parámetros a un flujo de datos, haga clic en la parte en blanco del lienzo del flujo de datos para ver las propiedades generales. En el panel de configuración, verá una pestaña denominada **Parámetro**. Seleccione **Nuevo** para generar un nuevo parámetro. Para cada parámetro, debe asignar un nombre, seleccionar un tipo y opcionalmente establecer un valor predeterminado.
 
 ![Creación de parámetros de Data Flow](media/data-flow/create-params.png "Creación de parámetros de Data Flow")
 
-Los parámetros se pueden usar en cualquier expresión de flujo de datos. Los parámetros comienzan por $ y son inmutables. Encontrará la lista de parámetros disponibles en el Generador de expresiones en la pestaña Parámetros.
+## <a name="use-parameters-in-a-mapping-data-flow"></a>Uso de parámetros en un flujo de datos de asignación 
+
+Se puede hacer referencia a los parámetros en cualquier expresión de flujo de datos. Los parámetros comienzan por $ y son inmutables. Encontrará la lista de parámetros disponibles en el Generador de expresiones en la pestaña **Parámetros**.
 
 ![Expresión de parámetros de flujo de datos](media/data-flow/parameter-expression.png "Expresión de parámetros de flujo de datos")
 
-## <a name="use-parameters-in-your-data-flow"></a>Uso de parámetros en el flujo de datos
+Para agregar parámetros adicionales rápidamente, puede seleccionar **Nuevo parámetro** y especificar el nombre y el tipo.
 
-* Puede usar valores de parámetro en las expresiones de transformación. Encontrará la lista de parámetros en la pestaña Parámetros del Generador de expresiones. ![Uso de parámetros de Data Flow](media/data-flow/params9.png "UUso de parámetros de Data Flow")
+![Expresión de parámetros de flujo de datos](media/data-flow/new-parameter-expression.png "Expresión de parámetros de flujo de datos")
 
-* Los parámetros también se usan para configurar valores dinámicos para los valores de configuración de transformación Origen y Receptor. Al hacer clic en los campos configurables, aparece el vínculo Agregar contexto dinámico. Al hacer clic en él, se le dirigirá a un Generador de expresiones donde puede usar parámetros para emplear valores dinámicos. ![Contenido dinámico de flujo de datos](media/data-flow/params6.png "DContenido dinámico de flujo de datos")
+### <a name="passing-in-a-column-name-as-a-parameter"></a>Paso de un nombre de columna como un parámetro
 
-## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>Establecimiento de parámetros de flujo de datos de asignación desde la canalización
+Un patrón común es pasar un nombre de columna como un valor de parámetro. Para hacer referencia a la columna asociada al parámetro, utilice la función `byName()`. Recuerde convertir la columna a su tipo adecuado con una función de conversión como `toString()`.
 
-Una vez que haya creado el flujo de datos con parámetros, podrá ejecutarlo desde una canalización con la actividad de ejecución de Data Flow. Después de agregar la actividad al lienzo de la canalización, se le mostrarán los parámetros de flujo de datos disponibles en la pestaña Parámetros de la actividad.
+Por ejemplo, si desea asignar una columna de cadena basada en un parámetro `columnName`, puede agregar una transformación de columna derivada igual a `toString(byName($columnName))`.
+
+![Paso de un nombre de columna como un parámetro](media/data-flow/parameterize-column-name.png "Paso de un nombre de columna como un parámetro")
+
+## <a name="assign-parameter-values-from-a-pipeline"></a>Asignación de valores de parámetros de una canalización
+
+Una vez que haya creado el flujo de datos con parámetros, podrá ejecutarlo desde una canalización con la actividad de ejecución de Data Flow. Después de agregar la actividad al lienzo de la canalización, se le mostrarán los parámetros de flujo de datos disponibles en la pestaña **Parámetros** de la actividad.
 
 ![Establecimiento de un parámetro de Data Flow](media/data-flow/parameter-assign.png "Establecimiento de un parámetro de Data Flow")
 

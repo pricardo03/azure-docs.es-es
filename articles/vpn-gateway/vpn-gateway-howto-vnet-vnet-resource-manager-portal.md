@@ -1,18 +1,18 @@
 ---
-title: Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante Azure Portal | Microsoft Docs
+title: 'Configuración de una conexión de VPN Gateway entre redes virtuales: Portal de Azure'
 description: Crear una conexión de VPN Gateway entre redes virtuales mediante Resource Manager y Azure Portal.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7ad83327d5b85784f523a5931f277cd00009e0ed
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: b98fb4044028ec9b335dc314732da04d18a3e2f9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266465"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894959"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante Azure Portal
 
@@ -74,51 +74,51 @@ En este artículo se muestra cómo conectar redes virtuales mediante el tipo de 
 **Valores para TestVNet1:**
 
 - **Configuración de la red virtual**
-    - **Nombre**: Escriba *TestVNet1*.
+    - **Name**: Escriba *TestVNet1*.
     - **Espacio de direcciones**: Escriba *10.11.0.0/16*.
     - **Suscripción**: Seleccione la suscripción que quiere usar.
     - **Grupo de recursos**: Escriba *TestRG1*.
     - **Ubicación**: Seleccione **Este de EE. UU**.
     - **Subred**
-        - **Nombre**: Escriba *FrontEnd*.
+        - **Name**: escriba *FrontEnd*.
         - **Intervalo de direcciones**: Escriba *10.11.0.0/24*.
     - **Subred de puerta de enlace**:
-        - **Nombre**: *GatewaySubnet* se rellena automáticamente.
+        - **Name**: *GatewaySubnet* se rellena automáticamente.
         - **Intervalo de direcciones**: Escriba *10.11.255.0/27*.
 
 - **Configuración de puerta de enlace de red virtual** 
-    - **Nombre**: Escriba *TestVNet1GW*.
+    - **Name**: Escriba *TestVNet1GW*.
     - **Tipo de puerta de enlace**: Seleccione **VPN**.
     - **Tipo de VPN**: seleccione **Basada en rutas**.
     - **SKU**: Seleccione la SKU de puerta de enlace que quiere usar.
     - **Nombre de dirección IP pública**: Escriba *TestVNet1GWIP*
     - **Connection** 
-       - **Nombre**: Escriba *TestVNet1toTestVNet4*.
+       - **Name**: Escriba *TestVNet1toTestVNet4*.
        - **Clave compartida**: Escriba *abc123*. Puede crear usted mismo la clave compartida. Cuando crea la conexión entre las redes virtuales, los valores deben coincidir.
 
 **Valores para TestVNet4:**
 
 - **Configuración de la red virtual**
-   - **Nombre**: Escriba *TestVNet4*.
+   - **Name**: Escriba *TestVNet4*.
    - **Espacio de direcciones**: Escriba *10.41.0.0/16*.
    - **Suscripción**: Seleccione la suscripción que quiere usar.
    - **Grupo de recursos**: Escriba *TestRG4*.
    - **Ubicación**: Seleccione **Oeste de EE. UU.**
    - **Subred** 
-      - **Nombre**: Escriba *FrontEnd*.
+      - **Name**: escriba *FrontEnd*.
       - **Intervalo de direcciones**: Escriba *10.41.0.0/24*.
    - **GatewaySubnet** 
-      - **Nombre**: *GatewaySubnet* se rellena automáticamente.
+      - **Name**: *GatewaySubnet* se rellena automáticamente.
       - **Intervalo de direcciones**: Escriba *10.41.255.0/27*.
 
 - **Configuración de puerta de enlace de red virtual** 
-    - **Nombre**: Escriba *TestVNet4GW*.
+    - **Name**: Escriba *TestVNet4GW*.
     - **Tipo de puerta de enlace**: Seleccione **VPN**.
     - **Tipo de VPN**: seleccione **Basada en rutas**.
     - **SKU**: Seleccione la SKU de puerta de enlace que quiere usar.
     - **Nombre de dirección IP pública**: Escriba *TestVNet4GWIP*.
     - **Connection** 
-       - **Nombre**: Escriba *TestVNet4toTestVNet1*.
+       - **Name**: Escriba *TestVNet4toTestVNet1*.
        - **Clave compartida**: Escriba *abc123*. Puede crear usted mismo la clave compartida. Cuando crea la conexión entre las redes virtuales, los valores deben coincidir.
 
 ## <a name="create-and-configure-testvnet1"></a>Creación y configuración de TestVNet1
@@ -150,13 +150,13 @@ Cuando se hayan completado las puertas de enlace de red virtual de TestVNet1 y T
 
 1. En Azure Portal, seleccione **Todos los recursos**, escriba *puerta de enlace de red virtual* en el cuadro de búsqueda y vaya a la puerta de enlace de su red virtual. Por ejemplo, **TestVNet1GW**. Selecciónela para abrir la página **Puerta de enlace de red virtual**.
 
-   ![Página de conexiones](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "Página de conexiones")
+   ![Página Conexiones](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "Página Conexiones")
 2. En **Configuración**, seleccione **Conexiones** y, luego, **Agregar** para abrir la página **Agregar conexión**.
 
    ![Agregar conexión](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Agregar una conexión")
 3. En la página **Agregar conexión**, rellene los valores de la conexión:
 
-   - **Nombre**: Escriba un nombre para la conexión. Por ejemplo, *TestVNet1toTestVNet4*.
+   - **Name**: Escriba un nombre para la conexión. Por ejemplo, *TestVNet1toTestVNet4*.
 
    - **Tipo de conexión**: Seleccione **De red virtual a red virtual** en la lista desplegable.
 
@@ -183,7 +183,7 @@ Busque la puerta de enlace de red virtual en Azure Portal. En la página **Puert
 
 Cuando se inicia el flujo de datos, aparecerán los valores para **Datos de entrada** y **Datos de salida**.
 
-![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
+![Información esencial](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
 ## <a name="add-additional-connections"></a>Incorporación de conexiones adicionales
 

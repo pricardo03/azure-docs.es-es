@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: a63202fd5f29c3c2eee4ecaaae9a940078c15edc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f61fdedcd3c910ef5d09685fea00473a83b321f1
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421872"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834281"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory
 
@@ -59,7 +59,7 @@ Si el área de trabajo seleccionada ya tiene la solución, esta no se implementa
 
 Cuando un equipo se agrega a las soluciones Update Management o Change Tracking e Inventario, se agrega a una de las dos búsquedas guardadas en el área de trabajo. Estas búsquedas guardadas son consultas que contienen los equipos de destino de estas soluciones.
 
-Vaya a la cuenta de Automation y seleccione **Búsquedas guardadas** en **General**. Las dos búsquedas guardadas utilizadas por estas soluciones se pueden ver en la tabla siguiente:
+Vaya al área de trabajo de Log Analytics y seleccione **Búsquedas guardadas** en **General**. Las dos búsquedas guardadas utilizadas por estas soluciones se pueden ver en la tabla siguiente:
 
 |Nombre     |Category  |Alias  |
 |---------|---------|---------|

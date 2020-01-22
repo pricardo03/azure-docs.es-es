@@ -3,12 +3,12 @@ title: Referencia para desarrolladores de Java para Azure Functions
 description: Aprenda a desarrollar funciones con Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 50fc4dc278e274109725ff60ea8d438310ce464d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4af2a860657f6066112146e1f88d81861d9430ea
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230401"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769037"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guía de Azure Functions para desarrolladores de Java
 
@@ -160,7 +160,7 @@ Puede proporcionar argumentos adicionales en una configuración de la aplicació
 
 En [Azure Portal](https://portal.azure.com), utilice la pestaña [Configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings) para agregar la configuración `JAVA_OPTS`.
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Puede usar el comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) para establecer `JAVA_OPTS`, como en el siguiente ejemplo:
 
@@ -181,7 +181,7 @@ Azure Functions admite el uso de bibliotecas de terceros. De forma predeterminad
 
 La dependencia `com.microsoft.azure.functions:azure-functions-java-library` se proporciona en la ruta de acceso de la clase de forma predeterminada y no debe incluirse en el directorio `lib`. Asimismo, [azure-functions-java-worker](https://github.com/Azure/azure-functions-java-worker) agrega a la ruta de clase las dependencias que figuran [aquí](https://github.com/Azure/azure-functions-java-worker/wiki/Azure-Java-Functions-Worker-Dependencies).
 
-## <a name="data-type-support"></a>Compatibilidad con los tipos de datos
+## <a name="data-type-support"></a>Compatibilidad con tipos de datos
 
 Puede usar objetos de Java POJO (Plain Old Java Object), tipos definidos en `azure-functions-java-library` o tipos de datos primitivos como String e Integer para enlazar con enlaces de entrada o salida.
 
@@ -431,7 +431,7 @@ Debe haber habilitado el registro del sistema de archivos en Azure Portal o la C
 
 En Functions, [la configuración de la aplicación](functions-app-settings.md), como las cadenas de conexión del servicio, se exponen como variables de entorno durante la ejecución. Puede obtener acceso a estas opciones mediante `System.getenv("AzureWebJobsStorage")`.
 
-En el siguiente ejemplo se obtiene la [configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings), con la clave llamada `myAppSetting`:
+En el siguiente ejemplo se obtiene la [configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings), con la clave denominada `myAppSetting`:
 
 ```java
 

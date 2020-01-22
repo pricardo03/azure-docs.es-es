@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
-ms.openlocfilehash: a59b62e19ac1e470dcdaaf0281dde9904a70b583
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0e8c93ea6d5c2b525ccbea2af900f100afcc3d93
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230683"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769224"
 ---
 # <a name="azure-functions-deployment-slots"></a>Ranuras de implementación de Azure Functions
 
-Las ranuras de implementación de Azure Functions permiten que la aplicación de funciones ejecute instancias diferentes conocidas como "ranuras". Las ranuras son entornos diferentes que se exponen a través de un punto de conexión disponible públicamente. Una instancia de la aplicación siempre se asigna a la ranura de producción, y se pueden intercambiar instancias asignadas a una ranura a petición. Las aplicaciones de función que se ejecutan en el plan de App Service pueden tener varias ranuras, mientras que en consumo solo se permite una ranura.
+Las ranuras de implementación de Azure Functions permiten que la aplicación de funciones ejecute instancias diferentes conocidas como "ranuras". Las ranuras son entornos diferentes que se exponen a través de un punto de conexión disponible públicamente. Una instancia de la aplicación siempre se asigna a la ranura de producción, y se pueden intercambiar instancias asignadas a una ranura a petición. Las aplicaciones de funciones que se ejecutan en el plan de App Service pueden tener varias ranuras, mientras que en el plan de consumo solo se permite una ranura.
 
 Aquí se indica cómo se ven afectadas las funciones cuando se intercambian ranuras:
 
@@ -81,7 +81,7 @@ Use los siguientes pasos para crear una configuración de implementación:
 
 Cuando se crean ranuras, estas están vacías. Puede utilizar cualquiera de las [tecnologías de implementación admitidas](./functions-deployment-technologies.md) para implementar la aplicación en una ranura.
 
-## <a name="scaling"></a>Escalado
+## <a name="scaling"></a>Ampliación
 
 Todas las ranuras escalan al mismo número de trabajos que la ranura de producción.
 
@@ -107,7 +107,7 @@ Las ranuras se pueden intercambiar a través de la [CLI](https://docs.microsoft.
 1. Vaya a la aplicación de funciones.
 1. Haga clic en el nombre de la ranura de origen que quiera intercambiar.
 1. En la pestaña *Información general*, haga clic en el botón **Intercambiar**. ![Intercambiar una ranura de implementación de Azure Functions](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
-1. Compruebe la configuración del intercambio y haga clic en **Intercambiar**. ![Intercambiar una ranura de implementación de Azure Functions](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+1. Compruebe la configuración del intercambio y haga clic en **Intercambiar** ![Intercambiar una ranura de implementación de Azure Functions](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
 
 La operación puede tardar un rato mientras la operación de intercambio se lleva a cabo.
 

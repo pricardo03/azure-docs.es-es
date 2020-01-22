@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 75fe07dc9847ae32248688bc20fac01e74c7b26a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ee929fa227cb105b73bc929c13a768aabef37ce3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821853"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771690"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Procedimientos recomendados para SQL Data Sync 
 
@@ -50,7 +50,7 @@ Azure SQL Database solo admite un único conjunto de credenciales. Para realizar
 -   Cambie las credenciales para las distintas fases (por ejemplo, utilice *credencial1* para la configuración y *credencial2* para la sincronización en curso).  
 -   Cambie el permiso de las credenciales (es decir, cambie el permiso una vez configurada la sincronización).
 
-## <a name="setup"></a>Configuración
+## <a name="setup"></a>Configurar
 
 ### <a name="database-considerations-and-constraints"></a> Restricciones y consideraciones de la base de datos
 
@@ -217,6 +217,14 @@ No intente quitar una base de datos de un grupo de sincronización para después
 En su lugar, primero quite una base de datos de un grupo de sincronización. A continuación, implemente el cambio y espere a que el desaprovisionamiento finalice. Una vez finalizado el desaprovisionamiento, puede editar el grupo de sincronización e implementar los cambios.
 
 Si intenta quitar una base de datos para después modificar un grupo de sincronización sin implementar primero uno de los cambios, se produce un error en una de las dos operaciones. La interfaz del portal puede quedar en un estado incoherente. En este caso, actualice la página para restaurar el estado correcto.
+
+### <a name="avoid-schema-refresh-timeout"></a>Evitar el tiempo de espera de actualización del esquema
+
+Si tiene un esquema complejo para la sincronización, es posible que experimente un "tiempo de espera de la operación" durante una actualización del esquema si la base de datos de metadatos de sincronización tiene una SKU inferior (ejemplo: básica). 
+
+#### <a name="solution"></a>Solución
+
+Para mitigar este problema, escale verticalmente la base de datos de metadatos de sincronización para que tenga una SKU superior, como S3. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de SQL Data Sync, consulte:

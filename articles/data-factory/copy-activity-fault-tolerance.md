@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: yexu
-ms.openlocfilehash: b874c0dcc1f394866e74b45e6bc335a25ce24499
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 42c637839172dab09a8721a93a67785a748afd2f
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930011"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708909"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerancia a errores de la actividad de copia en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -33,15 +33,15 @@ La actividad de copia admite tres escenarios para detectar, omitir y registrar d
 
 - **Incompatibilidad entre el tipo de datos de origen y el tipo nativo de receptor**. 
 
-    Por ejemplo:  Copie datos desde un archivo CSV en Blob Storage a una base de datos SQL con una definición de esquema que contenga tres columnas de tipo INT. Las filas del archivo CSV que contienen datos numéricos, como 123 456 789, se copian correctamente en el almacén de receptor. Pero las filas que contienen valores no numéricos, como 123 456 abc, se detectan como incompatibles y se omiten.
+    Por ejemplo: Copie datos desde un archivo CSV en Blob Storage a una base de datos SQL con una definición de esquema que contenga tres columnas de tipo INT. Las filas del archivo CSV que contienen datos numéricos, como 123 456 789, se copian correctamente en el almacén de receptor. Pero las filas que contienen valores no numéricos, como 123 456 abc, se detectan como incompatibles y se omiten.
 
 - **Error de coincidencia en el número de columnas entre el origen y el receptor**.
 
-    Por ejemplo:  Copie datos desde un archivo CSV en Blob Storage a una base de datos SQL con una definición de esquema que contenga seis columnas. Las filas del archivo CSV que contiene seis columnas se copian correctamente en el almacén de receptor. Las filas del archivo CSV que contienen más o menos de seis columnas se detectan como incompatibles y se omiten.
+    Por ejemplo: Copie datos desde un archivo CSV en Blob Storage a una base de datos SQL con una definición de esquema que contenga seis columnas. Las filas del archivo CSV que contiene seis columnas se copian correctamente en el almacén de receptor. Las filas del archivo CSV que contienen más de seis columnas se detectan como incompatibles y se omiten.
 
 - **Infracción de clave principal al escribir en SQL Server, Azure SQL Database o Azure Cosmos DB**.
 
-    Por ejemplo:  Copie datos desde un servidor SQL a una base de datos SQL. Se define una clave principal en la base de datos SQL de receptor, pero no se define en el servidor SQL de origen. Las filas duplicadas que existen en el origen no se pueden copiar en el receptor. La actividad de copia solo copia la primera fila de los datos de origen en el receptor. Las filas de origen subsiguientes que contienen el valor de clave principal duplicado se detectan como incompatibles y se omiten.
+    Por ejemplo: Copie datos desde un servidor SQL a una base de datos SQL. Se define una clave principal en la base de datos SQL de receptor, pero no se define en el servidor SQL de origen. Las filas duplicadas que existen en el origen no se pueden copiar en el receptor. La actividad de copia solo copia la primera fila de los datos de origen en el receptor. Las filas de origen subsiguientes que contienen el valor de clave principal duplicado se detectan como incompatibles y se omiten.
 
 >[!NOTE]
 >- Para cargar datos en SQL Data Warehouse mediante PolyBase, defina la configuración de tolerancia a errores nativa de PolyBase especificando directivas de rechazo a través de "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" en la actividad de copia. Aún puede habilitar la redirección de filas incompatibles de PolyBase a Blob o ADLS de la forma habitual, como se muestra a continuación.
@@ -70,12 +70,12 @@ En el ejemplo siguiente se proporciona una definición JSON para configurar la o
 }
 ```
 
-Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
+Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | -------- 
-enableSkipIncompatibleRow | Especifica si se deben omitir las filas incompatibles durante la copia o no. | True<br/>False (valor predeterminado) | Sin
-redirectIncompatibleRowSettings | Un grupo de propiedades que puede especificarse cuando quiere registrar las filas incompatibles. | &nbsp; | Sin
-linkedServiceName | Servicio vinculado de [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) para almacenar el registro que contiene las filas que se omiten. | Nombre de un servicio vinculado de tipo `AzureStorage` o `AzureDataLakeStore`, que hace referencia a la instancia que quiere usar para almacenar el archivo de registro. | Sin
-path | La ruta de acceso del archivo de registro que contiene las filas que se omiten. | Especifique la ruta de acceso que quiere usar para registrar los datos incompatibles. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para usted. | Sin
+enableSkipIncompatibleRow | Especifica si se deben omitir las filas incompatibles durante la copia o no. | True<br/>False (valor predeterminado) | No
+redirectIncompatibleRowSettings | Un grupo de propiedades que puede especificarse cuando quiere registrar las filas incompatibles. | &nbsp; | No
+linkedServiceName | Servicio vinculado de [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) para almacenar el registro que contiene las filas que se omiten. | Nombre de un servicio vinculado de tipo `AzureStorage` o `AzureDataLakeStore`, que hace referencia a la instancia que quiere usar para almacenar el archivo de registro. | No
+path | La ruta de acceso del archivo de registro que contiene las filas que se omiten. | Especifique la ruta de acceso que quiere usar para registrar los datos incompatibles. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para usted. | No
 
 ## <a name="monitor-skipped-rows"></a>Supervisar filas omitidas
 Una vez finalizada la ejecución de la actividad de copia, puede ver el número de filas omitidas en la salida de la actividad de copia:

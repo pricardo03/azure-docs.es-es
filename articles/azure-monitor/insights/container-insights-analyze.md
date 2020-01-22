@@ -2,13 +2,13 @@
 title: Supervisión de Kubernetes con Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo puede ver y analizar el rendimiento de un clúster de Kubernetes con Azure Monitor para contenedores.
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: 3fc8d8d1f8c214c3bebe7af2cf670732b20529d3
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.date: 01/07/2020
+ms.openlocfilehash: f57f8982b2aa045156e6f48316610137260d6597
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690040"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75731023"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Supervisión del rendimiento del clúster de Kubernetes con Azure Monitor para contenedores
 
@@ -20,14 +20,7 @@ Para obtener información acerca de cómo habilitar Azure Monitor para contenedo
 
 Azure Monitor proporciona una vista de varios clústeres que muestra el estado de mantenimiento de todos los clústeres de Kubernetes que ejecutan Linux y Windows Server 2019 supervisados implementados en los grupos de recursos de sus suscripciones. Muestra los clústeres detectados en todos los entornos que la solución no supervisa. Puede comprender de forma inmediata el estado del clúster y desde aquí puede explorar en profundidad la página de rendimiento del controlador y del nodo, o explorar para ver los gráficos de rendimiento del clúster. En el caso de los clústeres de AKS que se detectaron e identificaron como no supervisados, puede habilitar la supervisión para ellos en cualquier momento. 
 
-Estas son las principales diferencias al supervisar los contenedores de un clúster de Windows Server con Azure Monitor en comparación con un clúster de Linux:
-
-- La métrica RSS de memoria no está disponible para los contenedores y nodos de Windows.
-- La información sobre la capacidad de almacenamiento del disco no está disponible para los nodos de Windows.
-- Los registros de contenedor no están disponibles para los contenedores que se ejecutan en nodos de Windows.
-- La compatibilidad con registros dinámicos está disponible, con la excepción de los registros de contenedores de Windows.
-- Solo se supervisan los entornos de pods, no los entornos de Docker.
-- Con la versión preliminar, se admite un máximo de 30 contenedores de Windows Server. Esta limitación no se aplica a los contenedores de Linux. 
+Las principales diferencias al supervisar los contenedores de un clúster de Windows Server con Azure Monitor en comparación con un clúster de Linux se describen [aquí](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) en el artículo de información general.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 

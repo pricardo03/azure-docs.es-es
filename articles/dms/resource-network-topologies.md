@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 06/07/2019
-ms.openlocfilehash: db875ea099b0093bf1d43bd64b1ae4c07db05b45
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2020
+ms.openlocfilehash: 9a313ea798519273ce57961544ec5b37c4d9c5ca
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437713"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749257"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-azure-database-migration-service"></a>Topologías de red para migraciones de Instancia administrada de Azure SQL Database mediante Azure Database Migration Service
 
@@ -31,7 +31,7 @@ Use esta topología si su instancia administrada de Azure SQL Database está con
 
 **Requisitos**
 
-- En este escenario, Instancia administrada de Azure SQL Database y la instancia de Azure Database Migration Service se crean en la misma red virtual de Azure pero usan diferentes subredes.  
+- En este escenario, la instancia administrada de Azure SQL Database y la instancia de Azure Database Migration Service se crean en la misma instancia de Microsoft Azure Virtual Network, pero usan diferentes subredes.  
 - La red virtual que se utiliza en este escenario también está conectada a la red local mediante [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
 ## <a name="azure-sql-database-managed-instance-isolated-from-the-on-premises-network"></a>Instancia administrada de Azure SQL Database aislada de la red local
@@ -47,11 +47,11 @@ Use esta topología de red si su entorno requiere uno o varios de los siguientes
 **Requisitos**
 
 - La red virtual que utiliza Azure Database Migration Service para este escenario también debe estar conectada a la red local mediante (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Configure un [emparejamiento de red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre la red virtual que se usa para Instancia administrada de Azure SQL Database y Azure Database Migration Service.
+- Configure el [emparejamiento de red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre la red virtual que se usa para Instancia administrada de Azure SQL Database y Azure Database Migration Service.
 
-## <a name="cloud-to-cloud-migrations-shared-vnet"></a>Migraciones de nube a nube: red virtual compartida
+## <a name="cloud-to-cloud-migrations-shared-virtual-network"></a>Migraciones de nube a nube: red virtual compartida
 
-Use esta topología si el servidor SQL Server de origen se hospeda en una máquina virtual de Azure y comparte la misma red virtual con Instancia administrada de Azure SQL Database y Azure Database Migration Service.
+Use esta topología si el servidor SQL Server de origen se hospeda en una VM de Azure y comparte la misma red virtual con Instancia administrada de Azure SQL Database y Azure Database Migration Service.
 
 ![Topología de red para migraciones de nube a nube con una red virtual compartida](media/resource-network-topologies/cloud-to-cloud.png)
 
@@ -59,11 +59,11 @@ Use esta topología si el servidor SQL Server de origen se hospeda en una máqui
 
 - No hay requisitos adicionales.
 
-## <a name="cloud-to-cloud-migrations-isolated-vnet"></a>Migraciones de nube a nube: red virtual aislada
+## <a name="cloud-to-cloud-migrations-isolated-virtual-network"></a>Migraciones de nube a nube: red virtual aislada
 
 Use esta topología de red si su entorno requiere uno o varios de los siguientes escenarios:
 
-- Instancia administrada de Azure SQL Database se aprovisiona en una red virtual aislada.
+- La instancia administrada de Azure SQL Database se aprovisiona en una red virtual aislada.
 - Si se han implementado directivas de control de acceso basado en roles (RBAC) y tiene que limitar el acceso de los usuarios a la misma suscripción que hospeda Instancia administrada de Azure SQL Database.
 - Las redes virtuales que se usan para Instancia administrada de Azure SQL Database y Azure Database Migration Service se encuentran en suscripciones distintas.
 
@@ -71,7 +71,7 @@ Use esta topología de red si su entorno requiere uno o varios de los siguientes
 
 **Requisitos**
 
-- Configure un [emparejamiento de red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre la red virtual que se usa para Instancia administrada de Azure SQL Database y Azure Database Migration Service.
+- Configure el [emparejamiento de red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre la red virtual que se usa para Instancia administrada de Azure SQL Database y Azure Database Migration Service.
 
 ## <a name="inbound-security-rules"></a>Reglas de seguridad de entrada
 

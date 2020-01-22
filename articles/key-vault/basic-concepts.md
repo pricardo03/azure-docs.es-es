@@ -1,5 +1,5 @@
 ---
-title: ¿Qué es Azure Key Vault? | Microsoft Docs
+title: ¿Qué es el Almacén de claves de Azure? | Microsoft Docs
 description: Obtenga información sobre cómo Azure Key Vault protege las claves criptográficas y los secretos que usan los servicios y aplicaciones en la nube.
 services: key-vault
 author: msmbaldwin
@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 63d02dc3e098a48292731de84089fc4547987a25
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 7f32664f4bb9407d915b7909f9ecdeebe96bd551
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004157"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771945"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceptos básicos de Azure Key Vault
 

@@ -1,18 +1,18 @@
 ---
 title: Solución de problemas de replicación de máquinas virtuales de Azure en Azure Site Recovery
 description: Solución de errores al replicar máquinas virtuales de Azure para la recuperación ante desastres.
-author: asgang
+author: rochakm
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: asgang
-ms.openlocfilehash: b3c459c0eaac98a1cb704b4346153f77ec974188
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.author: rochakm
+ms.openlocfilehash: 3f97975f09d846cd3277bb8a53a4ad922f1b5b69
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084921"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902556"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solución de errores de replicación de máquinas virtuales de Azure en Azure
 
@@ -34,7 +34,7 @@ Si no hay ningún tamaño que admita la configuración de la máquina virtual de
 
 ### <a name="fix-the-problem"></a>Corrección del problema
 
-Para permitir que su suscripción cree máquinas virtuales de los tamaños necesarios en la ubicación de destino, póngase en contacto con el [soporte de facturación de Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Vuelva a intentar la operación con error.
+Para permitir que su suscripción cree máquinas virtuales de los tamaños necesarios en la ubicación de destino, póngase en contacto con el [soporte de facturación de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Vuelva a intentar la operación con error.
 
 Si la ubicación de destino tiene una restricción de capacidad, deshabilite la replicación en ella. A continuación, habilite la replicación en una ubicación diferente donde su suscripción tenga cuota suficiente para crear máquinas virtuales de los tamaños necesarios.
 
@@ -66,7 +66,7 @@ Para más información, consulte [Configurar raíces de confianza y certificados
 
 Para obtener los certificados raíz de confianza y la lista de revocación de certificados más recientes en la máquina virtual, siga las instrucciones proporcionadas por el distribuidor de su versión del sistema operativo Linux.
 
-Como SuSE Linux usa vínculos simbólicos (o *symlink*) para mantener una lista de certificados, siga estos pasos:
+Como SUSE Linux usa vínculos simbólicos (o *symlinks*) para mantener una lista de certificados, siga estos pasos:
 
 1. Inicie sesión con un usuario raíz.
 
@@ -241,7 +241,7 @@ Para especificar las [direcciones URL requeridas](azure-to-azure-about-networkin
 
 Se debe inicializar un nuevo disco asociado a la máquina virtual. Si no se encuentra el disco, aparece este mensaje:
 
-> "El disco de datos de Azure *DiskName* *DiskUri* con el número de unidad lógica *LUN* *LUNValue* no se ha asignado a un disco correspondiente que se notifica desde la máquina virtual como que tiene el mismo valor de LUN.
+> "El disco de datos *DiskName* *DiskURI* con el número de unidad lógica *LUN* *LUNValue* no se ha asignado al disco correspondiente de la máquina virtual con el mismo valor de LUN.
 
 ### <a name="possible-causes"></a>Causas posibles
 

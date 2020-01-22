@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82360dacd68de512bc12ff5d39ddbd3a21578aa7
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 1f018edfa7cbb244c57f12c3b83dba086e1590f2
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120120"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778352"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito
 El objetivo de este artículo es explicar cómo usar filtros de ámbito para definir reglas basadas en atributos que determinarán qué usuarios se aprovisionarán en una aplicación.
@@ -94,8 +94,9 @@ Los filtros de ámbito se configuran como parte de las asignaciones de atributos
    g. **REGEX MATCH**. La cláusula devuelve "true" si el atributo que se evalúa coincide con el patrón de una expresión regular. Ejemplo: ([1-9][0-9]) coincide con cualquier número entre 10 y 99.
 
    h. **NOT REGEX MATCH**. La cláusula devuelve "true" si el atributo que se evalúa no coincide con el patrón de una expresión regular.
-
-8. Seleccione **Agregar nueva cláusula de control**.
+ 
+>[!IMPORTANT] 
+> No se admiten los filtros Includes e IsMemberOf. Pronto se quitarán de la interfaz de usuario.
 
 9. Si lo desea, repita los pasos 7 y 8 para agregar más cláusulas de ámbito.
 
@@ -112,7 +113,7 @@ Los filtros de ámbito se configuran como parte de las asignaciones de atributos
 
 
 ## <a name="common-scoping-filters"></a>Filtros de ámbito comunes
-| Atributo de destino| Operator | Valor | DESCRIPCIÓN|
+| Atributo de destino| Operator | Value | Descripción|
 |----|----|----|----|
 |userPrincipalName|REGEX MATCH|.\*@domain.com |Todos los usuarios con un elemento userPrincipal con el dominio @domain.com estarán en el ámbito del aprovisionamiento.|
 |userPrincipalName|NOT REGEX MATCH|.\*@domain.com|Todos los usuarios con un elemento userPrincipal con el dominio @domain.com estarán fuera del ámbito del aprovisionamiento.|

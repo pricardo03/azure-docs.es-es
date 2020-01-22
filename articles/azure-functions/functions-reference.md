@@ -4,12 +4,12 @@ description: Obtenga información sobre los conceptos y las técnicas de Azure F
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 3ccfc28dc332d2ff90ec09256a43a9143e37c03b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7dd7ef3c4833fb9ffa3781f06faba4f40cd40cfb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974230"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769020"
 ---
 # <a name="azure-functions-developers-guide"></a>Guía para desarrolladores de Azure Functions
 En Azure Functions, determinadas funciones comparten algunos componentes y conceptos técnicos básicos, independientemente del idioma o el enlace que use. Antes de ir a detalles de aprendizaje específicos de un idioma o un enlace determinados, asegúrese de leer al completo esta información general que se aplica a todos ellos.
@@ -42,7 +42,7 @@ La propiedad `bindings` es donde configura los enlaces y los desencadenadores. C
 
 | Propiedad | Valores/tipos | Comentarios |
 | --- | --- | --- |
-| `type` |string |Tipo de enlace. Por ejemplo: `queueTrigger`. |
+| `type` |string |Tipo de enlace. Por ejemplo, `queueTrigger`. |
 | `direction` |'in', 'out' |Indica si el enlace está disponible para recibir datos en la función o enviar datos de la función. |
 | `name` |string |El nombre que se usa para los datos enlazados en la función. En C# es un nombre de argumento; en JavaScript es la clave en una lista de clave-valor. |
 
@@ -78,7 +78,7 @@ Puede configurar la versión del entorno en tiempo de ejecución de Functions me
 ## <a name="repositories"></a>Repositorios
 El código de Azure Functions es código abierto y está almacenado en repositorios de GitHub:
 
-* [Azure Functions](https://github.com/Azure/Azure-Functions)
+* [Funciones de Azure](https://github.com/Azure/Azure-Functions)
 * [Host de Azure Functions](https://github.com/Azure/azure-functions-host/)
 * [Portal de Azure Functions](https://github.com/azure/azure-functions-ux)
 * [Plantillas de Azure Functions](https://github.com/azure/azure-functions-templates)
@@ -102,4 +102,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Codificación y comprobación de Azure Functions en un entorno local](./functions-develop-local.md)
 * [Procedimientos recomendados de Azure Functions](functions-best-practices.md)
 * [Referencia para desarrolladores de C# de Azure Functions](functions-dotnet-class-library.md)
-* [Referencia para desarrolladores de NodeJS de Azure Functions](functions-reference-node.md)
+* [Referencia para desarrolladores de Node.js de Azure Functions](functions-reference-node.md)

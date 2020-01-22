@@ -3,24 +3,24 @@ title: Tutoriales para ejecutar el proceso de ciencia de datos en equipos en Azu
 description: Cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el fin de crear una aplicación inteligente.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 98595ea0ef5b6d9d4cef0f239390b364fb1e4e75
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589061"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864084"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Tutoriales para ejecutar el proceso de ciencia de datos en equipo en Azure
 
-Estos **tutoriales completos** demuestran los pasos del proceso de ciencia de datos en equipo para escenarios específicos. Se ilustra cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el fin de crear una **aplicación inteligente**. Los tutoriales se agrupan por la **plataforma** que usan:
+Estos **tutoriales detallados** demuestran los pasos del proceso de ciencia de datos en equipo para escenarios específicos. En ellos se ilustra cómo combinar herramientas y servicios locales y en la nube en un flujo de trabajo para una **aplicación inteligente**. Los tutoriales se agrupan por la **plataforma** que usan:
 
 
 ## <a name="walkthrough-descriptions"></a>Descripciones del tutorial
@@ -40,7 +40,7 @@ Las siguientes son descripciones breves de lo que proporcionan estos ejemplos de
 
 Para obtener una explicación de los componentes clave que conforman el proceso de ciencia de datos en equipo, consulte [Información general del proceso de ciencia de datos en equipo](overview.md).
 
-Para obtener una explicación del ciclo de vida del proceso de ciencia de datos en equipo que puede usar para estructurar los proyectos de ciencia de datos, consulte [Team Data Science Process lifecycle](lifecycle.md) (Ciclo de vida del proceso de ciencia de datos en equipo). El ciclo de vida describe el proceso, de principio a fin, que suelen seguir los proyectos al ejecutarlos. 
+Para obtener una explicación del ciclo de vida del proceso de ciencia de datos en equipo, consulte [Ciclo de vida del proceso de ciencia de datos en equipo](lifecycle.md). Este ciclo de vida describe el proceso, de principio a fin, que suelen seguir los proyectos al ejecutarlos. 
 
-Para ver una introducción a los temas que lo guiarán por las tareas que componen el proceso de ciencia de datos en Azure, consulte [Proceso de ciencia de los datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
+Para obtener la información general, consulte el [proceso de ciencia de datos](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
 

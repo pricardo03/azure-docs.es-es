@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 11/06/2019
+ms.date: 01/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: e3966a93f15d8853348d314d078fa1fa5fc90941
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 4c3e60e9c296dc8e3a1e31a52a262d8462237407
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535392"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75765670"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir un modelo de Azure Machine Learning que está implementado como un servicio web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -72,6 +72,15 @@ Existen tres formas de recuperar esta información para los servicios web implem
     print(service.scoring_uri)
     print(service.swagger_uri)
     ```
+
+### <a name="secured-web-service"></a>Servicio web protegido
+
+Si protegió el servicio web implementado mediante un certificado SSL, puede usar [HTTPS](https://en.wikipedia.org/wiki/HTTPS) para conectarse al servicio mediante la puntuación o el URI de Swagger. HTTPS le ayuda a proteger las comunicaciones entre un cliente y un servicio web mediante el cifrado de las comunicaciones entre los dos. El cifrado usa [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS se conoce a veces todavía como *Capa de sockets seguros* (SSL), que fue su predecesor.
+
+> [!IMPORTANT]
+> Los servicios web implementados a través de Azure Machine Learning solo admiten la versión 1.2 de TLS. Al crear una aplicación cliente, asegúrese de que es compatible con esta versión.
+
+Para más información, consulte [Uso de SSL para proteger un servicio web con Azure Machine Learning](how-to-secure-web-service.md).
 
 ### <a name="authentication-for-services"></a>Autenticación para servicios
 
@@ -495,7 +504,7 @@ Los resultados devueltos son similares al siguiente documento JSON:
 
 Power BI admite el consumo de servicios web de Azure Machine Learning para enriquecer los datos de Power BI con predicciones. 
 
-Para generar un servicio web cuyo consumo se admita en Power BI, el esquema debe admitir el formato que requiere Power BI. [Aprenda a crear un esquema admitido por Power BI](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-entry-script).
+Para generar un servicio web cuyo consumo se admita en Power BI, el esquema debe admitir el formato que requiere Power BI. [Aprenda a crear un esquema admitido por Power BI](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#example-entry-script).
 
 Una vez implementado el servicio web, los flujos de datos de Power BI lo podrán consumir. [Aprenda a consumir un servicio web de Azure Machine Learning desde Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 

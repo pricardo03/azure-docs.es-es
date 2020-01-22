@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: dbd6762906bc189cad74d78dcd8f28b0cfeba183
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4c6ccf9dce0fc119bd666871489a42a3ef734f81
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226985"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769207"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Uso de la inserción de dependencias en Azure Functions con .NET
 
@@ -21,7 +21,7 @@ Azure Functions admite el modelo de diseño de software de inserción de depende
 
 - La compatibilidad con la inserción de dependencias comienza con Azure Functions 2.x.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para poder usar la inserción de dependencias, debe instalar los siguientes paquetes NuGet:
 
@@ -136,7 +136,7 @@ Si necesita su propio proveedor de registro, registre un tipo personalizado como
 
 El host de la función registra muchos servicios. Los siguientes servicios son seguros para tomar como dependencia en la aplicación:
 
-|Tipo de servicio|Vigencia|DESCRIPCIÓN|
+|Tipo de servicio|Vigencia|Descripción|
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Configuración del entorno en tiempo de ejecución|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Responsable de proporcionar el id. de la instancia de host|

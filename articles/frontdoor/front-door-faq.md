@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 39051014e5e474264a44983fb366bc08f02c31e0
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dd315277e6e8f29a103760d605a7da4603190c20
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639861"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75908866"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Preguntas más frecuentes sobre Azure Front Door Service
 
@@ -99,7 +99,7 @@ Para que la aplicación solo acepte tráfico procedente de su Front Door espec�
     > El espacio de back-end IP de Front Door puede cambiar más adelante; sin embargo, nos aseguraremos de que antes de que eso suceda nos hayamos integrado con los [intervalos de IP y etiquetas de servicio de Azure](https://www.microsoft.com/download/details.aspx?id=56519). Recomendamos que se suscriba a los [intervalos de IP y etiquetas de servicio de Azure](https://www.microsoft.com/download/details.aspx?id=56519) para conocer los cambios o actualizaciones.
 
 -   Filtre los valores para el encabezado de entrada "**X-Forwarded-Host**" enviados por Front Door. Los únicos valores permitidos para el encabezado deben ser todos los hosts de front-end, tal como están definidos en la configuración de Front Door. Para ser más específicos, solo los nombres de host para los que quiere aceptar tráfico en este back-end determinado.
-    - Por ejemplo, supongamos que su configuración de Front Door incluye los siguientes hosts de front-end _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _ (C) y _`notifications.contoso.com`_ (D). Supongamos que tiene dos back-ends X e Y. 
+    - Por ejemplo, supongamos que su configuración de Front Door incluye los siguientes hosts de front-end: _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _`api.contoso.com`_ (C) y _`notifications.contoso.com`_ (D). Supongamos que tiene dos back-ends X e Y. 
     - El back-end X solo debe recibir tráfico de los nombres de host A y B. El back-end Y puede recibir el tráfico de A, C y D.
     - Por lo tanto, el back-end X solo debe aceptar tráfico que tenga el encabezado "**X-Forwarded-Host**" establecido en _`contoso.azurefd.net`_ o _`www.contoso.com`_ . Por todos los demás, el back-end X debe rechazar el tráfico.
     - De igual modo, el back-end Y solo debe aceptar el tráfico que tenga el encabezado "**X-Forwarded-Host**" establecido en _`contoso.azurefd.net`_ , _`api.contoso.com`_ o _`notifications.contoso.com`_ . Para todos los demás, el back-end Y debe rechazar el tráfico.

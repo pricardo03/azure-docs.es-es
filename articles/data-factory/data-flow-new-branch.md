@@ -1,31 +1,28 @@
 ---
-title: Transformación Nueva rama del flujo de datos de asignación
-description: Transformación Nueva rama de flujo de datos de asignación de Azure Data Factory
+title: Varias ramas en un flujo de datos de asignación
+description: Replicación de flujos de datos en el flujo de datos de asignación con varias ramas
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: b4617689fe1ab14856bde9a4e8134b12aa6d815b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/08/2020
+ms.openlocfilehash: 71fb9f1ba9952be0e6b3910dd1079aa6d3c0482d
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930313"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834499"
 ---
-# <a name="azure-data-factory-mapping-data-flow-new-branch-transformation"></a>Transformación Nueva rama de flujo de datos de asignación de Azure Data Factory
+# <a name="creating-a-new-branch-in-mapping-data-flow"></a>Creación de una nueva rama en el flujo de datos de asignación
 
-![Opciones de rama](media/data-flow/menu.png "menú")
+Agregue una nueva rama para realizar varios conjuntos de operaciones y transformaciones en la misma secuencia de datos. La incorporación de una nueva rama resulta útil si quiere utilizar el mismo origen para varios receptores o para autocombinar datos.
 
-La creación de ramas toma la secuencia de datos actual en el flujo de datos y la replica en otra secuencia. Use Nueva rama para realizar varios conjuntos de operaciones y transformaciones en la misma secuencia de datos.
+Se puede agregar una nueva rana desde la lista de transformación del mismo modo en que se agregan otras transformaciones. La opción **Nueva rama** solo estará disponible como acción cuando exista una transformación después de la transformación que está intentando ramificar.
 
-Ejemplo: El flujo de datos tiene una transformación de origen con un conjunto de columnas y conversiones de tipos de datos seleccionado. Después, coloca una columna derivada inmediatamente después de ese origen. En la columna derivada, crea un nuevo campo que combina el nombre y el apellido para crear un nuevo campo "nombre completo".
+![Adición de una nueva rama](media/data-flow/new-branch2.png "Adición de una nueva rama")
 
-Puede tratar esa nueva secuencia con un conjunto de transformaciones y un receptor en una fila y usar Nueva rama para crear una copia de la secuencia en la que puede transformar esos mismos datos con un conjunto de transformaciones diferente. Al transformar los datos copiados en una rama independiente, podrá enviarlos a una ubicación diferente.
+En el ejemplo siguiente, el flujo de datos está leyendo los datos de carreras de taxi. Es obligatorio agregar los resultados por día y por proveedor. En lugar de crear dos flujos de datos independientes que leen del mismo origen, se puede agregar una nueva rama. De este modo, ambas agregaciones se pueden ejecutar como parte del mismo flujo de datos. 
 
-> [!NOTE]
-> "Nueva rama" solo se muestra como una acción en el menú + Transformación cuando hay una transformación posterior después de la ubicación actual en la que está intentando crear la rama. Esto quiere decir que no verá una opción "Nueva rama" hasta que agregue otra transformación después de Seleccionar.
-
-![Rama](media/data-flow/branch2.png "Rama 2")
+![Adición de una nueva rama](media/data-flow/new-branch.png "Adición de una nueva rama")

@@ -7,22 +7,20 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: c6f7e921886a6acdaa31d0f69f57119c339c0b8b
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 0f935999b68a7283c032d43c42d688b273d5c450
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172591"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720351"
 ---
-# <a name="secure-your-cluster-in-azure-data-explorer"></a>Protección de clústeres en Azure Data Explorer
+# <a name="secure-your-cluster-in-azure-data-explorer---azure-portal"></a>Protección de clústeres en Azure Data Explorer - Azure Portal
 
-[Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview) ayuda a custodiar y proteger sus datos con el fin de satisfacer los compromisos de cumplimiento y seguridad de su organización. Proporciona cifrado de volúmenes tanto para los discos de datos como para los del sistema operativo de las máquinas virtuales del clúster. También se integra con [Azure Key Vault](/azure/key-vault/), lo que permite controlar y administrar los secretos y las claves de cifrado de discos, y garantiza que todos los datos de los discos de la máquina virtual se cifran en reposo mientras se encuentran en Azure Storage. 
-
-La configuración de seguridad del clúster le permite habilitar el cifrado de disco en el clúster.
+[Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview) ayuda a custodiar y proteger sus datos con el fin de satisfacer los compromisos de cumplimiento y seguridad de su organización. Proporciona cifrado de volúmenes tanto para los discos de datos como para los del sistema operativo de las máquinas virtuales del clúster. También se integra con [Azure Key Vault](/azure/key-vault/), lo que nos permite controlar y administrar los secretos y las claves de cifrado de discos, y garantiza el cifrado de todos los datos de los discos de VM. 
   
-## <a name="enable-encryption-at-rest"></a>Habilitación del cifrado de datos en reposo
+## <a name="enable-encryption-at-rest-in-the-azure-portal"></a>Habilitación del cifrado en reposo en Azure Portal
   
-La habilitación del [cifrado en reposo](/azure/security/fundamentals/encryption-atrest) en su clúster proporciona protección de datos para los datos almacenados (en reposo). 
+La configuración de seguridad del clúster le permite habilitar el cifrado de disco en el clúster. La habilitación del [cifrado en reposo](/azure/security/fundamentals/encryption-atrest) en su clúster proporciona protección de datos para los datos almacenados (en reposo). 
 
 1. En Azure Portal, vaya al recurso de clúster de Azure Data Explorer. En el encabezado **Configuración**, seleccione **Seguridad**. 
 

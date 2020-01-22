@@ -1,18 +1,19 @@
 ---
-title: 'Conexión de una red local a una instancia de Azure Virtual Network con una VPN de sitio a sitio: CLI | Microsoft Docs'
+title: 'Conexión de redes locales a una red virtual: VPN de sitio a sitio: CLI'
 description: Pasos para crear una conexión de IPsec desde la red local a una red virtual de Azure a través de la red pública de Internet. Estos pasos le ayudarán a crear una conexión de VPN Gateway de sitio a sitio entre locales mediante la CLI.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6cf427ee1dbd47d3b762035abc2236bda65db116
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d28a5a37be2947ea6cc7019d2b3cc73932c60d6
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161521"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779134"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Creación de una red virtual con una conexión VPN de sitio a sitio mediante la CLI
 

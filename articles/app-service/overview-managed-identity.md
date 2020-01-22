@@ -6,19 +6,19 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: f341f5bbf7221664301ca53eea1edd6af7544950
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e2a76e40206e1562d565571dbe22e5d9d0e930e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422050"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834161"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
 > [!Important] 
 > Las identidades administradas de App Service y Azure Functions no se comportarán según lo esperado si la aplicación se migra entre suscripciones e inquilinos. La aplicación necesitará obtener una nueva identidad, lo que se puede hacer deshabitando y volviendo a habilitar la función. Consulte [Eliminación de una identidad](#remove) a continuación. Los recursos de nivel inferior también necesitarán tener directivas de acceso actualizadas para utilizar la nueva identidad.
 
-En este tema se muestra cómo crear una identidad administrada para las aplicaciones App Service y Azure Functions y cómo usarla para acceder a otros recursos. Una identidad administrada de Azure Active Directory permite a la aplicación acceder fácilmente a otros recursos protegidos por AAD, como Azure Key Vault. La identidad está administrada por la plataforma Azure y no requiere que aprovisione o rote los secretos. Para más información sobre las identidades administradas en AAD, consulte [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
+En este tema se muestra cómo crear una identidad administrada para las aplicaciones App Service y Azure Functions y cómo usarla para acceder a otros recursos. Una identidad administrada de Azure Active Directory (AAD) permite a la aplicación acceder fácilmente a otros recursos protegidos por AAD, como Azure Key Vault. La identidad está administrada por la plataforma Azure y no requiere que aprovisione o rote los secretos. Para más información sobre las identidades administradas en AAD, consulte [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 La aplicación puede tener dos tipos de identidades: 
 - Una **identidad asignada por el sistema** está asociada a la aplicación y se elimina si se elimina la aplicación. Una aplicación solo puede tener una identidad asignada por el sistema.
@@ -77,7 +77,7 @@ Los siguientes pasos le guiarán por la creación de una aplicación web y la as
 
 Los siguientes pasos le guiarán por la creación de una aplicación web y la asignación a la misma de una identidad mediante Azure PowerShell:
 
-1. Si es necesario, instale Azure PowerShell con la instrucción que se encuentra en la [Guía de Azure PowerShell](/powershell/azure/overview) y, luego, ejecute `Login-AzAccount` para crear una conexión con Azure.
+1. Si es necesario, instale Azure PowerShell con las instrucciones que se encuentra en la [guía de Azure PowerShell](/powershell/azure/overview) y luego ejecute `Login-AzAccount` para crear una conexión con Azure.
 
 2. Cree una aplicación web mediante Azure PowerShell. Para ver más ejemplos de cómo utilizar Azure PowerShell con App Service, consulte los [ejemplos de PowerShell de App Service](../app-service/samples-powershell.md):
 
@@ -235,10 +235,10 @@ Donde `<PRINCIPALID>` y `<CLIENTID>` se reemplazan por GUID. El valor principalI
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>Obtención de tokens para recursos de Azure
 
-Una aplicación puede utilizar su identidad para obtener tokens para otros recursos protegidos por AAD, como Azure Key Vault. Estos tokens representan a la aplicación que accede al recurso, y no a un usuario específico de la aplicación. 
+Una aplicación puede utilizar su identidad administrada para obtener tokens de acceso a otros recursos protegidos por AAD, como Azure Key Vault. Estos tokens representan a la aplicación que accede al recurso, y no a un usuario específico de la aplicación. 
 
 > [!IMPORTANT]
-> Es posible que tenga que configurar el recurso de destino para permitir el acceso desde la aplicación. Por ejemplo, si se solicita un token a Key Vault, debe asegurarse de que ha agregado una directiva de acceso que incluya la identidad de la aplicación. De lo contrario, las llamadas a Key Vault se rechazarán, incluso si incluyen el token. Para más información sobre los recursos que admiten tokens de Azure Active Directory, consulte [Servicios de Azure que admiten autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+> Es posible que tenga que configurar el recurso de destino para permitir el acceso desde la aplicación. Por ejemplo, si se solicita un token para acceder a Key Vault, debe asegurarse de que ha agregado una directiva de acceso que incluya la identidad de la aplicación. De lo contrario, las llamadas a Key Vault se rechazarán, incluso si incluyen el token. Para más información sobre los recursos que admiten tokens de Azure Active Directory, consulte [Servicios de Azure que admiten autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 Hay un protocolo de REST sencillo para obtener un token en App Service y Azure Functions. Se puede usar con todas las aplicaciones y todos los lenguajes. En el caso de .NET y Java, el SDK de Azure ofrece una abstracción sobre este protocolo y facilita una experiencia de desarrollo local.
 

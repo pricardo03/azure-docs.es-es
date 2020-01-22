@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 5/30/2019
+ms.date: 01/08/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: e1db978dbb7b63aaa4e9d189486faa0dfef520d1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 34e828a43567ffc701c1645c55f4ff0352b0e8d3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75662903"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75772881"
 ---
 Azure Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Para elevar los límites al máximo de la suscripción, póngase en contacto con el servicio de soporte técnico.
 
@@ -25,7 +25,7 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 | Número total de entidades, como canalizaciones, conjuntos de datos, desencadenadores, servicios vinculados y entornos de ejecución de integración, dentro de una factoría de datos | 5\.000 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Núcleos de CPU totales para Azure-SSIS Integration Runtime en una suscripción | 256 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Ejecuciones de canalizaciones simultáneas por factoría de datos compartida entre todas las canalizaciones de la factoría | 10 000  | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Ejecuciones de actividades externas simultáneas por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Las actividades externas se administran en el entorno de ejecución de integración, pero se ejecutan en servicios vinculados, incluidos Databricks, procedimiento almacenado, HDInsights, etc.</small> | 3000 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Ejecuciones de actividades externas simultáneas por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Las actividades externas se administran en el entorno de ejecución de integración, pero se ejecutan en servicios vinculados, incluidos Databricks, procedimiento almacenado, HDInsights, Web, etc.</small> | 3000 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Ejecuciones de actividades de canalización simultáneas por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) <br><small>Las actividades de canalización se ejecutan en el entorno de ejecución de integración, lo que incluye Lookup, GetMetadata y Delete.</small>| 1000 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Operaciones de creación simultáneas por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Se incluye la prueba de la conexión, el examen de las listas de carpetas y tablas y la vista previa de los datos. | 200 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Uso de unidades de integración de datos simultáneas<sup>1</sup> por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Grupo de regiones 1<sup>2</sup>: 6000<br>Grupo de regiones 2<sup>2</sup>: 3000<br>Grupo de regiones 3<sup>2</sup>: 1.500 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |

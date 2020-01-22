@@ -1,6 +1,6 @@
 ---
-title: Soporte de localización en Azure Maps | Microsoft Docs
-description: Conozca los idiomas admitidos en los servicios de Azure Maps
+title: Soporte de localización | Microsoft Azure Maps
+description: En este artículo, obtendrá información acerca de los idiomas admitidos en Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 64197cc85822997926a8011af8cb3b981fa9064d
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 4926cb2bb4cb1aa15b212cc7130e0db995a24ed9
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286416"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910429"
 ---
 # <a name="localization-support-in-azure-maps"></a>Soporte de localización en Azure Maps
 
@@ -25,7 +25,7 @@ Azure Maps admite varios idiomas y vistas según el país o región. En este art
 Los servicios de Azure Maps se han localizado en diversos idiomas. En la tabla siguiente se proporcionan los códigos de idioma admitidos para cada servicio.  
   
 
-| id         | NOMBRE                   |  Mapas | Search | Enrutamiento | Tiempo | Incidentes de tráfico | Control de mapa JS |
+| id         | Nombre                   |  Mapas | Search | Enrutamiento | Tiempo | Incidentes de tráfico | Control de mapa JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Afrikáans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Árabe                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -46,7 +46,7 @@ Los servicios de Azure Maps se han localizado en diversos idiomas. En la tabla s
 | en-AU      | Inglés (Australia)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | en-NZ      | Inglés (Nueva Zelanda)  |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | en-GB      | Inglés (Gran Bretaña) |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
-| en-US      | Inglés (EE. UU.)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
+| es-ES      | Inglés (EE. UU.)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | et-EE      | Estonio               |       |    ✓   |         |      ✓    |         ✓         |                |
 | fil-PH     | Filipino               |       |       |         |     ✓    |                   |                |
 | fi-FI      | Finés                |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
@@ -148,7 +148,7 @@ De forma predeterminada, el parámetro Vista está establecido en **Unificado**,
 
 La siguiente tabla proporciona vistas compatibles.
 
-| Ver         | DESCRIPCIÓN                            |  Mapas | Search | Control de mapa JS |
+| Ver         | Descripción                            |  Mapas | Search | Control de mapa JS |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Emiratos Árabes Unidos (vista árabe)    |   ✓   |        |     ✓          |
 | AR           | Argentina (vista argentina)           |   ✓   |    ✓   |     ✓          |

@@ -2,26 +2,26 @@
 title: Tareas del responsable de equipo en el equipo de proceso de ciencia de datos en equipos
 description: Un tutorial detallado de las tareas de un responsable de equipo en un equipo de proceso de ciencia de datos en equipo
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9c6d0fcc20afc613094f10e9f3fb7c917ec6fa73
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327245"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864288"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Tareas del responsable de equipo en el equipo de proceso de ciencia de datos en equipo
 
 En este artículo se describen las tareas que completa un *responsable de equipo* para su equipo de ciencia de datos. El objetivo del responsable de equipo es establecer el entorno de colaboración de equipo que se estandariza en el [proceso de ciencia de datos en equipo](overview.md) (TDSP). Este proceso está diseñado para ayudar a mejorar la colaboración y el aprendizaje en equipo. 
 
-El TDSP es una metodología de ciencia de datos ágil e iterativa para proporcionar de manera eficiente soluciones de análisis predictivo y aplicaciones inteligentes. El proceso es una extracción de los procedimientos recomendados y las estructuras, tanto de Microsoft como de la industria, que son necesarios para la correcta implementación de iniciativas de ciencia de datos con el fin de ayudar a las empresas a darse cuenta verdaderamente de las ventajas de sus programas de análisis. Para ver un esquema de los roles del personal y las tareas asociadas de las que se ocupa un equipo de ciencia de datos que sigue este proceso como estándar, consulte [Roles y tareas del proceso de ciencia de datos en equipo](roles-tasks.md).
+El TDSP es una metodología de ciencia de datos ágil e iterativa para proporcionar de manera eficiente soluciones de análisis predictivo y aplicaciones inteligentes. El proceso sintetiza las estructuras y procedimientos recomendados de Microsoft y el sector.  El objetivo es implementar correctamente las iniciativas de ciencia de datos y aprovechar por completo las ventajas de sus programas de análisis. Para ver un esquema de los roles del personal y las tareas asociadas de las que se ocupa un equipo de ciencia de datos que sigue este proceso como estándar, consulte [Roles y tareas del proceso de ciencia de datos en equipo](roles-tasks.md).
 
 Un responsable de equipo administra un equipo que consiste en varios científicos de datos de la unidad de ciencia de datos de una empresa. Dependiendo del tamaño y de la estructura de la unidad de ciencia de datos, el [administrador del grupo](group-manager-tasks.md) y el responsable de equipo podrían ser la misma persona o podrían delegar sus tareas a los suplentes. Pero las tareas en sí no cambian. 
 
@@ -44,12 +44,12 @@ En el diagrama siguiente se muestra el flujo de trabajo de las tareas que el res
    - Cree un almacenamiento de **Azure File Storage** para almacenar los recursos de datos que puedan ser útiles para todo el equipo. 
    - Monte el almacenamiento de Azure File Storage en la instancia de **Data Science Virtual Machine** (DSVM) del responsable de equipo y agréguele los recursos de datos.
 
-En el siguiente tutorial se explican los pasos en detalle:
+En el siguiente tutorial se explican los pasos en detalle.
 
 > [!NOTE] 
 > En este artículo se utilizan Azure DevOps y DSVM para configurar un entorno de equipo de TDSP, ya que se explica cómo implementar TDSP en Microsoft. Si el equipo usa otras plataformas de desarrollo o hospedaje de código, las tareas del responsable de equipo son las mismas, pero la manera de completarlas puede ser diferente.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En este tutorial se da por supuesto que los siguientes recursos y permisos están configurados por el [administrador de grupo](group-manager-tasks.md):
 
@@ -59,10 +59,10 @@ En este tutorial se da por supuesto que los siguientes recursos y permisos está
 
 Para poder clonar los repositorios y modificar su contenido en el equipo local o en la DSVM, o configurar el almacenamiento de Azure File Storage y montarlo en la DSVM, necesita lo siguiente:
 
-- Una suscripción de Azure.
+- Suscripción a Azure.
 - Git instalado en la máquina. Si usa una DSVM, GIT está preinstalado. En caso contrario, consulte el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix).
 - Si desea usar la DSVM, la DSVM de Windows o Linux creada y configurada en Azure. Para más información e instrucciones, consulte la [documentación de Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/).
-- Para una DSVM de Windows, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en la máquina. En el archivo *README.md*, desplácese a la sección **Descargar e instalar** y haga clic en el **instalador más reciente**. Descargue al instalador *.exe* desde la página del instalador y ejecútelo. 
+- Para una DSVM de Windows, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en la máquina. En el archivo *README.md*, desplácese a la sección **Descargar e instalar** y haga clic en el **instalador más reciente**. Descargue el instalador *.exe* desde la página del instalador y ejecútelo. 
 - En el caso de una DSVM de Linux, se configura una clave pública SSH en la DSVM y se agrega en Azure DevOps. Para más información e instrucciones, consulte la sección acerca de cómo **crear una clave pública SSH** en el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix). 
 
 ## <a name="create-a-team-project-and-repositories"></a>Creación de un proyecto de equipo y de los repositorios
@@ -116,13 +116,13 @@ Se abre la página **Resumen** del proyecto de equipo con la dirección URL de l
 
 1. En la página **Configuración del repositorio**, seleccione **Nuevo repositorio**. 
    
-   ![Selección de Nuevo repositorio](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
+   ![Seleccionar Nuevo repositorio](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
    
    O bien, seleccione **Repositorios** en el panel de navegación izquierdo de la página **Resumen** del proyecto **MyTeam**, seleccione un repositorio en la parte superior de la página y, después, seleccione **Nuevo repositorio**.
    
 1. En el cuadro de diálogo **Crear un nuevo repositorio**, asegúrese de que **Git** esté seleccionado en **Tipo**. Escriba *TeamTemplate* en **Nombre del repositorio** y, a continuación, seleccione **Crear**.
    
-   ![Creación del repositorio](./media/team-lead-tasks/team-leads-10-create-team-utilities-2.png)
+   ![Crear repositorio](./media/team-lead-tasks/team-leads-10-create-team-utilities-2.png)
    
 1. Confirme que puede ver los dos repositorios **TeamUtilities** y **TeamTemplate** en la página de configuración del proyecto. 
    
@@ -138,7 +138,7 @@ Para rellenar los repositorios de equipo con el contenido de los repositorios co
    
 1. En la página **TeamTemplate está vacío**, seleccione **Importar**. 
    
-   ![Selección de Importar](./media/team-lead-tasks/import-repo.png)
+   ![Seleccionar Importar](./media/team-lead-tasks/import-repo.png)
    
 1. En el cuadro de diálogo **Importar un repositorio GIT**, seleccione **Git** como **Tipo de origen** y escriba la dirección URL del repositorio de plantillas comunes del grupo en **Dirección URL de clonación**. La dirección URL es *https:\//\<nombreDeServidor>/\<nombreDeOrganización>/_git/\<nombreDeRepositorio>* . Por ejemplo: *https:\//dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 6b3d52f1f6bd0390ab6ccafa80b2979cb0e498fd
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: fe70bd5994d835bdc2651a64d35c988ea38b8511
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130411"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770040"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Introducción a la directiva SSL de Application Gateway
 
@@ -26,27 +26,27 @@ Application Gateway tiene tres directivas de seguridad predefinidas. Puede confi
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
-|Propiedad  |Valor  |
+|Propiedad  |Value  |
 |---|---|
-|NOMBRE     | AppGwSslPolicy20150501        |
+|Nombre     | AppGwSslPolicy20150501        |
 |MinProtocolVersion     | TLSv1_0        |
 |Valor predeterminado| True (si no se ha especificado ninguna directiva predefinida) |
 |CipherSuites     |TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_DHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_3DES_EDE_CBC_SHA<br>TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA |
   
 ### <a name="appgwsslpolicy20170401"></a>AppGwSslPolicy20170401
   
-|Propiedad  |Valor  |
+|Propiedad  |Value  |
 |   ---      |  ---       |
-|NOMBRE     | AppGwSslPolicy20170401        |
+|Nombre     | AppGwSslPolicy20170401        |
 |MinProtocolVersion     | TLSv1_1        |
 |Valor predeterminado| False |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA |
   
 ### <a name="appgwsslpolicy20170401s"></a>AppGwSslPolicy20170401S
 
-|Propiedad  |Valor  |
+|Propiedad  |Value  |
 |---|---|
-|NOMBRE     | AppGwSslPolicy20170401S        |
+|Nombre     | AppGwSslPolicy20170401S        |
 |MinProtocolVersion     | TLSv1_2        |
 |Valor predeterminado| False |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 <br>    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 <br>    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br> |
@@ -97,6 +97,17 @@ Application Gateway admite los siguientes conjuntos de cifrado desde los que pue
 
 > [!NOTE]
 > Los conjuntos de cifrado SSL que se usan para la conexión también se basan en el tipo de certificado que se utiliza. En las conexiones de cliente a Application Gateway, los conjuntos de cifrado usados se basan en el tipo de certificados de servidor en el agente de escucha de Application Gateway. En las conexiones de Application Gateway a grupo de back-end, los conjuntos de cifrado usados se basan en el tipo de certificados de servidor en los servidores de grupo de back-end.
+
+## <a name="known-issue"></a>Problema conocido
+Application Gateway v2 no es compatible actualmente con los siguientes cifrados:
+- DHE-RSA-AES128-GCM-SHA256
+- DHE-RSA-AES128-SHA
+- DHE-RSA-AES256-GCM-SHA384
+- DHE-RSA-AES256-SHA
+- DHE-DSS-AES128-SHA256
+- DHE-DSS-AES128-SHA
+- DHE-DSS-AES256-SHA256
+- DHE-DSS-AES256-SHA
 
 ## <a name="next-steps"></a>Pasos siguientes
 

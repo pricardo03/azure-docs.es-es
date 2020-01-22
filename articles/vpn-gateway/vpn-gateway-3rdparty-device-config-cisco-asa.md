@@ -1,5 +1,5 @@
 ---
-title: Ejemplo de configuración para conectar dispositivos Cisco ASA a puertas de enlace de VPN de Azure | Microsoft Docs
+title: Ejemplo de configuración para conectar dispositivos Cisco ASA a puertas de enlace de VPN de Azure
 description: En este artículo se proporciona un ejemplo de configuración para conectar dispositivos Cisco ASA a puertas de enlace de VPN de Azure.
 services: vpn-gateway
 author: yushwang
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 96e5c26ea7b5f1baa33fd8830491ee3aa1e60221
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648758"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778089"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Configuración de ejemplo: Dispositivo Cisco ASA (IKEv2/sin BGP)
 En este artículo se proporciona un ejemplo de configuración para conectar dispositivos Cisco Adaptive Security Appliance (ASA) a puertas de enlace de VPN de Azure. El ejemplo se aplica a dispositivos Cisco ASA que ejecutan IKEv2 sin Border Gateway Protocol (BGP). 
@@ -27,7 +27,7 @@ En este artículo se proporciona un ejemplo de configuración para conectar disp
 | Modelo probado           | ASA 5505                          |
 | Versión probada         | 9.2                               |
 | Versión de IKE            | IKEv2                             |
-| BGP                    | Sin                                |
+| BGP                    | No                                |
 | Tipo de puerta de enlace de VPN de Azure | Puerta de enlace de VPN basada en rutas           |
 |                        |                                   |
 
@@ -56,7 +56,7 @@ En esta sección se muestran los parámetros de este ejemplo.
 | **Parámetro**                | **Valor**                    |
 | ---                          | ---                          |
 | Prefijos de direcciones de red virtual        | 10.11.0.0/16<br>10.12.0.0/16 |
-| IP de la puerta de enlace de VPN de Azure         | Azure_Gateway_Public_IP      |
+| Dirección IP de la puerta de enlace de VPN de Azure         | Azure_Gateway_Public_IP      |
 | Prefijos de direcciones locales | 10.51.0.0/16<br>10.52.0.0/16 |
 | Dirección IP del dispositivo VPN local    | OnPrem_Device_Public_IP     |
 | *Red Virtual BGP ASN                | 65010                        |

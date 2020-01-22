@@ -1,5 +1,5 @@
 ---
-title: Introducción a la comunidad de Azure Media Services | Microsoft Docs
+title: Introducción a la comunidad de Azure Media Services v3 | Microsoft Docs
 description: Esta página de la comunidad de Azure Media Services habla sobre diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: f241ac3e1369e32a1f2a4b9ac80492094105ff8c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 2bfa50068c5a61e8d6807da895dd5bf932ef05ba
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598344"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780358"
 ---
-# <a name="azure-media-services-community"></a>Comunidad de Azure Media Services  
+# <a name="azure-media-services-v3-community"></a>Comunidad de Azure Media Services v3  
 
 Esta página de la comunidad de Azure Media Services habla sobre diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 

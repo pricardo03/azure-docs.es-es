@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 734bb48d1ddb50af7c28e948c8267b4cd88fcdf7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f2b106df531dfdf26c2c83b765e3f7270a63df5
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437026"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770992"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -48,6 +48,14 @@ Sí. Los circuitos ExpressRoute están configurados para aumentar hasta dos vece
 
 Sí. Un circuito ExpressRoute, una vez configurado, le permitirá acceder a los servicios de una red virtual y a otros servicios de Azure simultáneamente. Se conectará a redes virtuales a través de la ruta de acceso de emparejamiento privado y a otros servicios a través de la ruta de acceso de emparejamiento de Microsoft.
 
+### <a name="how-are-vnets-advertised-on-expressroute-private-peering"></a>¿Cómo se anuncian las redes virtuales en el emparejamiento privado de ExpressRoute?
+
+La puerta de enlace de ExpressRoute anunciará el *espacio de direcciones* de la red virtual de Azure. No se puede incluir ni excluir en el nivel de la subred. Siempre es el espacio de direcciones de la red virtual que se anuncia. Además, si se usa el emparejamiento de la red virtual y la red virtual emparejada tiene habilitada la opción "Use Remote Gateway" (Usar puerta de enlace remota), también se anunciará el espacio de direcciones de la red virtual emparejada.
+
+### <a name="can-i-filter-routes-coming-from-my-on-premises-network"></a>¿Se pueden filtrar las rutas procedentes de mi red local?
+
+Solo se pueden filtrar o incluir rutas en el enrutador perimetral local. Las rutas definidas por el usuario se pueden agregar en la red virtual para afectar al enrutamiento específico, pero este será estático y no formará parte del anuncio de BGP.
+
 ### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>¿ExpressRoute ofrece un contrato de nivel de servicio (SLA)?
 
 Para más información, vea la página del [contrato de nivel de servicio de ExpressRoute](https://azure.microsoft.com/support/legal/sla/).
@@ -73,7 +81,8 @@ Si el circuito ExpressRoute está habilitado para el emparejamiento de Microsoft
 * Azure Active Directory
 * [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (comunidad de Servicios globales de Azure)
-* Se admiten la mayoría de los servicios de Azure. Compruébelo directamente con el servicio que desea utilizar para comprobar la compatibilidad.
+* Direcciones IP públicas de Azure para IaaS (máquinas virtuales, puertas de enlace de red virtual, equilibradores de carga, etc.)  
+* También se admiten la mayoría de los servicios de Azure. Compruébelo directamente con el servicio que desea utilizar para comprobar la compatibilidad.
 
 **No se admite:**
 

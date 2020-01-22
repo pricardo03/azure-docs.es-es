@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: f29bd4ab679d734c3acce967a5d60784b9884ba6
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 5000d79db0d9036fe8904322764e4c480111d6cc
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561377"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863400"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Supervisión y reducción de la limitación para reducir la latencia en Azure Time Series Insights
 
@@ -56,7 +56,7 @@ Las alertas pueden ayudarle a diagnosticar y mitigar los problemas de latencia c
 
    Desde allí, puede configurar alertas mediante algunas de las siguientes condiciones:
 
-   |Métrica  |DESCRIPCIÓN  |
+   |Métrica  |Descripción  |
    |---------|---------|
    |**Bytes de entrada recibidos**     | Número de bytes sin procesar leídos desde los orígenes de eventos. El número sin procesar normalmente incluye el nombre y el valor de la propiedad.  |  
    |**Mensajes no válidos de entrada recibidos**     | Número de mensajes no válidos leídos desde todos los orígenes de eventos de Azure Event Hubs o Azure IoT Hub.      |
@@ -74,11 +74,11 @@ Las alertas pueden ayudarle a diagnosticar y mitigar los problemas de latencia c
 
 ## <a name="throttling-and-ingress-management"></a>Limitación y administración de entrada
 
-* Si experimenta alguna limitación, verá un valor en *Ingress Received Message Time Lag* (Tiempo de retardo de los mensajes de entrada recibidos) que indica cuántos segundos de retraso tiene el entorno de Time Series Insights respecto al momento real en el que el mensaje llega al origen del evento (sin contar el tiempo de indexación, unos 30-60 segundos).  
+* Si experimenta alguna limitación, se registrará un valor en *Ingress Received Message Time Lag* (Tiempo de retardo de los mensajes de entrada recibidos) que indica cuántos segundos de retraso tiene el entorno de Time Series Insights respecto al momento real en el que el mensaje llega al origen del evento (sin contar el tiempo de indexación, unos 30-60 segundos).  
 
   *Ingress Received Message Count Lag* (Retardo de recuento de los mensajes de entrada recibidos) también debe tener un valor para que pueda determinar los mensajes que tiene detrás.  La manera más fácil de mantenerse al día es aumentar la capacidad del entorno a un tamaño que le permita compensar la diferencia.  
 
-  Por ejemplo, si el entorno S1 muestra un retraso de 5 millones de mensajes, puede aumentar el tamaño del entorno a seis unidades durante un día aproximadamente para la actualización.  Podría aumentarlo más para ponerse al día más rápidamente. Este período para ponerse al día es común al aprovisionar inicialmente un entorno, en particular al conectarlo a un origen de eventos que no esté vacío o con la carga masiva de numerosos datos históricos.
+  Por ejemplo, si el entorno S1 muestra un retraso de 5 millones de mensajes, puede aumentar el tamaño del entorno a seis unidades durante un día aproximadamente para que se actualice.  Podría aumentarlo más para ponerse al día más rápidamente. Este período para ponerse al día es común al aprovisionar inicialmente un entorno, en particular al conectarlo a un origen de eventos que no esté vacío o con la carga masiva de numerosos datos históricos.
 
 * Otra de estas técnicas consiste en establecer una alerta de **eventos de entrada almacenados** >= un umbral ligeramente por debajo de la capacidad total del entorno durante un período de 2 horas.  Esta alerta le ayudará a conocer si se encuentra continuamente en el límite de la capacidad, lo cual indica una alta probabilidad de latencia. 
 
@@ -90,7 +90,7 @@ Las alertas pueden ayudarle a diagnosticar y mitigar los problemas de latencia c
 
 Para reducir la limitación o la posibilidad de experimentar latencia, la mejor forma de solucionarlo es aumentar la capacidad del entorno.
 
-Para evitarlo, configure correctamente el entorno para la cantidad de datos que desee analizar. Para más información acerca de cómo agregar capacidad al entorno, consulte [Escalado del entorno](time-series-insights-how-to-scale-your-environment.md).
+Para evitarlo, configure correctamente el entorno para la cantidad de datos que desee analizar. Para obtener más información acerca de cómo agregar capacidad al entorno, lea [Escalado del entorno](time-series-insights-how-to-scale-your-environment.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

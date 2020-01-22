@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 13c58ddf5f51e5b63d2dbe425b3ec795e21dabb8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5a45b9e3ba59a91f580ce0f2dc180adf5d20c87d
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810349"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754054"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Guía paso a paso sobre los grupos de instancias de Azure SQL Database (versión preliminar)
 
@@ -28,11 +28,11 @@ En la tabla siguiente se muestran las operaciones disponibles relacionadas con l
 
 |Get-Help|Portal de Azure|PowerShell|
 |:---|:---|:---|
-|Crear un grupo de instancias|Sin|Sí|
-|Actualizar un grupo de instancias (número limitado de propiedades)|Sin |Sí |
-|Comprobar el uso de un grupo de instancias y sus propiedades|Sin|Sí |
-|Eliminar un grupo de instancias|Sin|Sí|
-|Crear una instancia administrada dentro del grupo de instancias|Sin|Sí|
+|Crear un grupo de instancias|No|Sí|
+|Actualizar un grupo de instancias (número limitado de propiedades)|No |Sí |
+|Comprobar el uso de un grupo de instancias y sus propiedades|No|Sí |
+|Eliminar un grupo de instancias|No|Sí|
+|Crear una instancia administrada dentro del grupo de instancias|No|Sí|
 |Actualizar el uso de un recurso de instancia administrada|Sí |Sí|
 |Comprobar el uso de una instancia administrada y sus propiedades|Sí|Sí|
 |Eliminar una instancia administrada del grupo|Sí|Sí|
@@ -41,7 +41,7 @@ En la tabla siguiente se muestran las operaciones disponibles relacionadas con l
 
 [Comandos de PowerShell](https://docs.microsoft.com/powershell/module/az.sql/) disponibles
 
-|Cmdlet |DESCRIPCIÓN |
+|Cmdlet |Descripción |
 |:---|:---|
 |[New-AzSqlInstancePool](/powershell/module/az.sql/new-azsqlinstancepool/) | Crea un grupo de instancias de Azure SQL Database. |
 |[Get-AzSqlInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | Devuelve información sobre el grupo de instancias de Azure SQL. |
@@ -92,11 +92,17 @@ Las restricciones siguientes se aplican a los grupos de instancias:
 
 - Solo los grupos de instancias de uso general y Gen5 están disponibles en la versión preliminar pública.
 - El nombre del grupo solo puede contener minúsculas, números y guiones y no puede empezar con un guion.
-- Para obtener el identificador de subred, use `Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork`.
 - Si quiere usar AHB (Ventaja híbrida de Azure), se aplica en el nivel de grupo de instancias. Puede establecer el tipo de licencia durante la creación del grupo o actualizarlo en cualquier momento después de la creación.
 
 > [!IMPORTANT]
 > La implementación de un grupo de instancias es una operación de larga duración que tarda aproximadamente 4,5 horas.
+
+Para obtener parámetros de red:
+
+```powershell
+$virtualNetwork = Get-AzVirtualNetwork -Name "miPoolVirtualNetwork" -ResourceGroupName "myResourceGroup"
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork
+```
 
 Para crear un grupo de instancias:
 
@@ -104,7 +110,7 @@ Para crear un grupo de instancias:
 $instancePool = New-AzSqlInstancePool `
   -ResourceGroupName "myResourceGroup" `
   -Name "mi-pool-name" `
-  -SubnetId "/subscriptions/subscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/miPoolVirtualNetwork/subnets/miPoolSubnet" `
+  -SubnetId $subnet.Id `
   -LicenseType "LicenseIncluded" `
   -VCore 80 `
   -Edition "GeneralPurpose" `

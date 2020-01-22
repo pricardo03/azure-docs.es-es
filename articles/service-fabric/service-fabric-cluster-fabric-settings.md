@@ -3,12 +3,12 @@ title: Cambio de la configuración de un clúster de Azure Service Fabric
 description: En este artículo se describe la configuración de Fabric y las directivas de actualización de Fabric que se pueden personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: aab59af7031d8b2d8aa52e9ba13b73a204f19acc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ba98d4d30d14cb3a1981652fc0b86354923a8851
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458342"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772132"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -555,7 +555,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |PlacementSearchTimeout | Tiempo en segundos, el valor predeterminado es 0.5. |Dinámica| Especifique el intervalo de tiempo en segundos. Al ubicar servicios, busque como máximo este período antes de devolver un resultado. |
 |PLBRefreshGap | Tiempo en segundos, el valor predeterminado es 1. |Dinámica| Especifique el intervalo de tiempo en segundos. Define la cantidad mínima de tiempo que debe transcurrir antes de que PLB actualice el estado de nuevo. |
 |PreferredLocationConstraintPriority | Int, el valor predeterminado es 2.| Dinámica|Determina la prioridad de la restricción de ubicación preferida: 0: máxima; 1: mínima; 2: optimización; negativo: Ignore |
-|PreferUpgradedUDs|bool, el valor predeterminado es TRUE.|Dinámica|Activa o desactiva la lógica que prefiere mover a UD ya actualizados.|
+|PreferUpgradedUDs|bool, el valor predeterminado es FALSE.|Dinámica|Activa o desactiva la lógica que prefiere mover a UD ya actualizados. A partir de SF 7.0, el valor predeterminado de este parámetro cambia de TRUE a FALSE.|
 |PreventTransientOvercommit | Bool, el valor predeterminado es false. | Dinámica|Determina si PLB cuenta inmediatamente con los recursos que liberarán los movimientos iniciados. De forma predeterminada, PLB puede iniciar movimientos dentro y fuera en el mismo nodo, lo que puede generar confirmaciones en exceso transitorias. Si establece este parámetro en true, impedirá esta clase de confirmaciones en exceso y se deshabilitará la desfragmentación a petición (también conocida como placementWithMove). |
 |ScaleoutCountConstraintPriority | Int, el valor predeterminado es 0. |Dinámica| Determina la prioridad de la restricción de recuento de escalado horizontal: 0: máxima; 1: mínima; negativo: omitir |
 |SwapPrimaryThrottlingAssociatedMetric | string, el valor predeterminado es "".|estática| El nombre de métrica asociado de esta limitación. |

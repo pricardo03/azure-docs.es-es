@@ -4,16 +4,16 @@ description: Aprenda a supervisar una cuenta de almacenamiento en Azure usando e
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/31/2018
+ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 143574ff02960fcd0fd33ccaed5a80a9bb4f3147
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: e9ef700e45acc55f476d72883107b0c5c958fa7f
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211854"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862839"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Supervisión de una cuenta de almacenamiento en el Portal de Azure
 
@@ -53,7 +53,7 @@ Se muestra un conjunto predeterminado de métricas en los gráficos de la hoja d
 Puede deshabilitar la recopilación y el registro de métricas estableciendo el **estado** en **Desactivado**.
 
 > [!NOTE]
-> Azure Storage usa [Table Storage](storage-introduction.md#table-storage) para almacenar las métricas para la cuenta de almacenamiento y almacena las métricas en tablas en su cuenta. Para más información, consulte [Cómo se almacenan las métricas](storage-analytics-metrics.md#how-metrics-are-stored).
+> Azure Storage usa [Table Storage](storage-introduction.md#table-storage) para almacenar las métricas para la cuenta de almacenamiento y almacena las métricas en tablas en su cuenta. Para obtener más información, vea: [Cómo se almacenan las métricas](storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>Personalización de gráficos de métricas
@@ -129,7 +129,7 @@ También puede indicar a Azure Storage que guarde los registros de diagnóstico 
 >
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **Cuentas de almacenamiento**y, después, seleccione el nombre de la cuenta de almacenamiento para abrir la hoja de esta.
-1. En la sección **SUPERVISIÓN** de la hoja de menú, seleccione **Diagnósticos**.
+1. En la sección **Supervisión (clásica)** de la hoja de menú, seleccione **Configuración de diagnóstico (clásica)** .
 
     ![Elemento de menú Diagnóstico de la sección SUPERVISIÓN de Azure Portal.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 

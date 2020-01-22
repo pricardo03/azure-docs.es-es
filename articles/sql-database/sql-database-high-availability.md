@@ -11,16 +11,16 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: 86a3fd7c67dc2e544a1510dc910951452c32245d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b560cee23855d1c0e8a7b3c2cb9d82c184a1ebf6
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811345"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732406"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Alta disponibilidad y Azure SQL Database
 
-El objetivo de la arquitectura de alta disponibilidad en Azure SQL Database es garantizar que la base de datos funciona el 99,99 % de las veces, sin preocuparse del impacto de las operaciones de mantenimiento y las interrupciones. Azure controla automáticamente tareas de mantenimiento críticas, como aplicación de revisiones, copias de seguridad, actualizaciones de Windows y SQL, así como los eventos no planeados, como los errores subyacentes de hardware, software o red.  Cuando se conmute por error la instancia de SQL subyacente o se le apliquen revisiones, no se notará el tiempo de inactividad si [usa la lógica de reintento](sql-database-develop-overview.md#resiliency) de su aplicación. Azure SQL Database puede recuperarse rápidamente, incluso en las circunstancias más críticas, asegurando que los datos estén siempre disponibles.
+El objetivo de la arquitectura de alta disponibilidad de Azure SQL Database es garantizar que la base de datos funciona como mínimo el 99,99 % de las veces (para obtener más información en relación con el SLA específico de los distintos niveles, consulte [Contrato de nivel de servicio para Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/)), sin preocuparse del impacto de las operaciones de mantenimiento y las interrupciones. Azure controla automáticamente tareas de mantenimiento críticas, como aplicación de revisiones, copias de seguridad, actualizaciones de Windows y SQL, así como los eventos no planeados, como los errores subyacentes de hardware, software o red.  Cuando se conmute por error la instancia de SQL subyacente o se le apliquen revisiones, no se notará el tiempo de inactividad si [usa la lógica de reintento](sql-database-develop-overview.md#resiliency) de su aplicación. Azure SQL Database puede recuperarse rápidamente, incluso en las circunstancias más críticas, asegurando que los datos estén siempre disponibles.
 
 La solución de alta disponibilidad está diseñada para garantizar que los datos confirmados nunca se pierden debido a errores, que las operaciones de mantenimiento no afectan a la carga de trabajo y que la base de datos no será un único punto de error en la arquitectura de software. No hay ventanas de mantenimiento ni tiempos de inactividad que puedan requerir que detenga la carga de trabajo mientras se actualiza o se mantiene la base de datos. 
 

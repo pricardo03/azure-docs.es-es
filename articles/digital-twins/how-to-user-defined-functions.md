@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 824fe611867216233e223e505f5321b23b7406fb
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7334d4292db710a32b888d9a3ad4e78872d15227
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383309"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863519"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Creación de funciones definidas por el usuario en Azure Digital Twins
 
@@ -69,7 +69,7 @@ Con el cuerpo JSON:
 }
 ```
 
-| Valor | Reemplazar por |
+| Value | Reemplazar por |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | La región de servidor en la que está hospedada la instancia |
 
@@ -109,7 +109,7 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Valor | Reemplazar por |
+| Value | Reemplazar por |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | Nombre de un límite de contenido de varias partes |
 | YOUR_SPACE_IDENTIFIER | El identificador de espacio  |
@@ -193,11 +193,11 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Para obtener un ejemplo más complejo de código de función definida por el usuario, vea la [Guía de inicio rápido sobre ocupación](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
+Para obtener un ejemplo más complejo de código de función definida por el usuario, consulte la [Guía de inicio rápido sobre ocupación](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
 
 ## <a name="create-a-role-assignment"></a>Crear una asignación de rol
 
-Cree una asignación de roles para que se ejecute la función definida por el usuario. Si no existe ninguna asignación de roles para la función definida por el usuario, no tendrá los permisos adecuados para interactuar con la API de Administración ni tendrá acceso para realizar acciones en objetos gráficos. Las acciones que puede realizar la función definida por el usuario se especifican y definen a través del control de acceso basado en roles dentro de las API de Administración de Azure Digital Twins. Por ejemplo, las funciones definidas por el usuario pueden limitar su ámbito mediante la especificación de determinados roles o rutas de control de acceso. Para más información, consulte la documentación de [Control de acceso basado en rol](./security-role-based-access-control.md).
+Cree una asignación de roles para que se ejecute la función definida por el usuario. Si no existe ninguna asignación de roles para la función definida por el usuario, no tendrá los permisos adecuados para interactuar con la API de Administración ni tendrá acceso para realizar acciones en objetos gráficos. Las acciones que puede realizar la función definida por el usuario se especifican y definen a través del control de acceso basado en roles dentro de las API de Administración de Azure Digital Twins. Por ejemplo, las funciones definidas por el usuario pueden limitar su ámbito mediante la especificación de determinados roles o rutas de control de acceso. Para obtener más información, lea la documentación de [Control de acceso basado en rol](./security-role-based-access-control.md).
 
 1. [Consulte la API del sistema](./security-create-manage-role-assignments.md#retrieve-all-roles) para que todos los roles obtengan el identificador de rol que desea asignar a la función definida por el usuario. Para ello, realice una solicitud HTTP GET autenticada a:
 
@@ -214,7 +214,7 @@ Cree una asignación de roles para que se ejecute la función definida por el us
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | Valor | Reemplazar por |
+    | Value | Reemplazar por |
     | --- | --- |
     | YOUR_SPACE_NAME | El nombre del espacio que quiere usar |
 
@@ -234,7 +234,7 @@ Cree una asignación de roles para que se ejecute la función definida por el us
     }
     ```
 
-    | Valor | Reemplazar por |
+    | Value | Reemplazar por |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | El identificador para el rol deseado |
     | YOUR_USER_DEFINED_FUNCTION_ID | El identificador de la función definida por el usuario que desea usar |

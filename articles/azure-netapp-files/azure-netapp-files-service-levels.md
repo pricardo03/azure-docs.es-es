@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 01/09/2019
 ms.author: b-juche
-ms.openlocfilehash: 1f9c427045c9d42f6a11cc4bcc798cfc47a4428c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0398cc6a5336141f51dde26ed7cf4cce8c2c0bb4
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523106"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832581"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Niveles de servicio para Azure NetApp Files
 Los niveles de servicio son un atributo de los grupos de capacidad. Los niveles de servicio se definen y se diferencian por el rendimiento máximo permitido en un volumen en el grupo de capacidad en función de la cuota asignada a ese volumen.
@@ -59,3 +59,4 @@ En el ejemplo 2 anterior, un volumen de un grupo de capacidad con el nivel de al
 - Consulte la [página de precios de Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/) para conocer el precio de los diferentes niveles de servicio
 - Consulte [Modelo de costes de Azure NetApp Files](azure-netapp-files-cost-model.md) para ver el cálculo de consumo de capacidad de un grupo de capacidad. 
 - [Configuración de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)
+- Consulte el [Acuerdo de Nivel de Servicio (SLA) para Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/).

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30006d0dcccdd1b160289c72769340d141198d3c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bfd49a4429dc0d7f5db07a577016c21de8fc58d8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847599"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762882"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueo inteligente de Azure Active Directory
 
@@ -56,7 +56,7 @@ Siga estas instrucciones para comprobar la directiva de bloqueo de cuentas de Ac
 
 1. Abra las herramientas de administración de directivas de grupo.
 2. Edite el grupo de directivas que incluye la directiva de bloqueo de cuentas de su organización, por ejemplo, la **directiva de dominio predeterminada**.
-3. Vaya a **Configuración del equipo** > **Directivas** > **Configuración de Windows** > **Configuración de seguridad**  >  **Directivas de cuenta** > **Directiva de bloqueo de cuenta**.
+3. Vaya a **Configuración del equipo** > **Directivas** > **Configuración de Windows** > **Configuración de seguridad** > **Directivas de cuenta** > **Directiva de bloqueo de cuenta**.
 4. Compruebe los valores de **Umbral de bloqueo de cuenta** y **Restablecer contador de bloqueo de cuenta tras**.
 
 ![Modificación de la directiva de bloqueo de cuentas de Active Directory local](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
@@ -67,8 +67,8 @@ En función de los requisitos de su organización, puede ser necesario personali
 
 Para comprobar o modificar los valores de bloqueo inteligente para su organización, siga estos pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-1. Busque y seleccione *Azure Active Directory*. Seleccione **Métodos de autenticación** > **Protección con contraseña**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Busque y seleccione *Azure Active Directory*. Seleccione **Seguridad** > **Métodos de autenticación** > **Protección con contraseña**.
 1. Establezca la opción **Umbral de bloqueo** en función del número de inicios de sesión con error permitidos en una cuenta antes de su primer bloqueo. El valor predeterminado es 10.
 1. En **Lockout duration in seconds** (Duración de bloqueo en segundos), establezca la longitud en segundos de cada bloqueo. El valor predeterminado es 60 segundos (un minuto).
 

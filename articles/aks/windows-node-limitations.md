@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 3a57fbb010f8a04352d09d4b6d57cf465e3e6988
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3dd7399b68388d92d38b0f64c6e816cb94b3f295
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279152"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768578"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitaciones actuales para las cargas de trabajo de aplicaciones y los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 
@@ -65,6 +65,10 @@ Los nodos de Windows Server en AKS deben estar *actualizados* para obtener las 
 > [!NOTE]
 > La imagen de Windows Server actualizada solo se usará si se ha realizado una actualización de clúster (actualización del plano de control) antes de actualizar el grupo de nodos.
 >
+
+## <a name="how-do-i-rotate-the-service-principal-for-my-windows-node-pool"></a>¿Cómo se realiza la rotación de la entidad de servicio para el grupo de nodos de Windows?
+
+Durante la versión preliminar, los grupos de nodos de Windows no admiten la rotación de la entidad de servicio como limitación de la versión preliminar. Para actualizar la entidad de servicio, cree un nuevo grupo de nodos de Windows y migre los pods del grupo anterior al nuevo. Cuando termine, elimine el grupo de nodos antiguo.
 
 ## <a name="how-many-node-pools-can-i-create"></a>¿Cuántos grupos de nodos puedo crear?
 

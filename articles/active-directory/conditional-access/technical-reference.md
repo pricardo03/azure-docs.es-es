@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1023583b5527e4d565580e8f094dc2f68d38f4ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 78f148f435edee16805cc8b0ae78652a17826727
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424807"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768155"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referencia de configuración del acceso condicional de Azure Active Directory
 
@@ -29,8 +29,6 @@ En este artículo se proporciona información de soporte técnico para las sigui
 - Condición de aplicaciones cliente
 - Requisito de aplicación cliente aprobado
 
-Si no es la información que está buscando, deje un comentario al final de este artículo.
-
 ## <a name="cloud-apps-assignments"></a>Asignaciones de aplicaciones de nube
 
 Con las directivas de acceso condicional, puede controlar la forma en que los usuarios acceden a las [aplicaciones en la nube](conditions.md#cloud-apps-and-actions). Al configurar una directiva de acceso condicional, debe seleccionar al menos una aplicación en la nube. 
@@ -41,6 +39,7 @@ Con las directivas de acceso condicional, puede controlar la forma en que los us
 
 Puede asignar una directiva de acceso condicional a las siguientes aplicaciones en la nube de Microsoft:
 
+- Office 365 (versión preliminar)
 - Azure Analysis Services
 - Azure DevOps
 - Azure SQL Database y Data Warehouse: [más información](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
@@ -73,6 +72,22 @@ Puede asignar una directiva de acceso condicional a las siguientes aplicaciones 
 - Skype Empresarial Online
 - Red privada virtual (VPN)
 - ATP de Windows Defender
+
+### <a name="office-365-preview"></a>Office 365 (versión preliminar)
+
+Office 365 proporciona servicios de colaboración y productividad basados en la nube, como Exchange, SharePoint y Microsoft Teams. Los servicios en la nube de Office 365 están profundamente integrados para garantizar experiencias de colaboración fluidas. La aplicación Office 365 (versión preliminar) permite la segmentación de todos estos servicios a la vez. Se recomienda usar la nueva aplicación Office 365 (versión preliminar), en lugar segmentar aplicaciones en la nube individuales como Office 365 Exchange Online y Office 365 SharePoint Online para evitar problemas que pueden surgir debido a dependencias de servicio y directivas incoherentes.
+
+Aplicaciones clave que se incluyen en la aplicación cliente Office 365 (versión preliminar):
+
+- Office 365 Exchange Online
+- Office 365 SharePoint Online
+- Equipos de Microsoft
+- Yammer para Office 365
+- Portal de Office
+- Microsoft Forms
+- Microsoft Power Automate
+- Microsoft Planner
+- Microsoft PowerApps
 
 ### <a name="other-applications"></a>Otras aplicaciones
 

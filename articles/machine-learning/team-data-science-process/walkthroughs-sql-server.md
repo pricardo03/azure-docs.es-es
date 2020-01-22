@@ -1,38 +1,38 @@
 ---
 title: 'Análisis en SQL Server con R, Python y T-SQL: proceso de ciencia de datos en equipo'
-description: Ejemplos que guían por el uso de R, Python y T-SQL en SQL Server para realizar análisis predictivos.
+description: Ejemplos que explican cómo usar R, Python y T-SQL en SQL Server para realizar análisis predictivos.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 342db6cc7c6c9f50345d7e72b7d68d5f116c87f9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 880ee0a4a1eb396312ea9692b7586d724d6fd410
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589102"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864101"
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Tutoriales de ciencia de datos de SQL Server mediante R, Python y T-SQL
 
-Estos tutoriales usan SQL Server, SQL Server R Services y servicios de Python de SQL Server para realizar análisis predictivos. El código R y Python se implementa en los procedimientos almacenados. Siguen los pasos descritos en el proceso de ciencia de datos en equipo. Para obtener información general sobre el proceso de ciencia de datos en equipo, consulte [Proceso de ciencia de datos](overview.md). 
+Estos tutoriales usan SQL Server, SQL Server R Services y servicios de Python de SQL Server para realizar análisis predictivos. El código R y Python se implementa en los procedimientos almacenados. En ellos se siguen los pasos descritos en el proceso de ciencia de datos en equipo. Para obtener información general sobre el proceso de ciencia de datos en equipo, consulte [Proceso de ciencia de datos](overview.md). 
 
 Los otros tutoriales de ciencia de datos donde se ejecuta el Proceso de ciencia de datos en equipo se agrupan por la **plataforma** que usan. Consulte [Walkthroughs executing the Team Data Science Process](walkthroughs.md) (Tutoriales para ejecutar el Proceso de ciencia de datos en equipo) para ver ejemplos.
 
 
 ## <a name="predict-taxi-tips-using-python-and-sql-queries-with-sql-server"></a>Predicción de propinas para taxis mediante Python y consultas SQL con SQL Server 
 
-En el tutorial sobre el [uso de SQL Server](sql-walkthrough.md) se muestra cómo crear e implementar modelos de clasificación y regresión de aprendizaje automático mediante SQL Server y un conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York disponible públicamente.
+En el tutorial sobre el [uso de SQL Server](sql-walkthrough.md) se muestra cómo crear e implementar modelos de clasificación y regresión de aprendizaje automático.  Los datos corresponden a un conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York disponible públicamente.
 
 
 ## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>Predicción de propinas para taxis mediante Microsoft R con SQL Server 
 
-En el tutorial sobre [uso de SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) se proporciona a los científicos de datos una combinación de código de R, datos de SQL Server y funciones SQL personalizadas para compilar e implementar un modelo de R en SQL Server. El tutorial está pensado para introducir los desarrolladores de R para R Services (In-Database).
+En el tutorial sobre el [uso de SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) se muestra cómo crear e implementar un modelo de R en SQL Server. El tutorial está pensado para introducir los desarrolladores de R para R Services (In-Database).
 
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Predicción de propinas para taxis con R de T-SQL o procedimientos almacenados con SQL Server

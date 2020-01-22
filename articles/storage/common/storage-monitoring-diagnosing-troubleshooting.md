@@ -8,12 +8,12 @@ ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 34aa4ff6c54b34acf865af0b57c3dfa7945a637c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 3d5f3ade3ef3b79ddb3996b5bf2d609b11aff8a5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212837"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748566"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -137,7 +137,7 @@ Las métricas de Storage solo almacenan las métricas de capacidad de Blob servi
 >
 >
 
-Para que le resulte más fácil estimar el tamaño de diversos objetos de almacenamiento, como los blobs, consulte la entrada de blog [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)(Información acerca de la facturación del Almacenamiento de Azure: ancho de banda, transacciones y capacidad).
+Para que le resulte más fácil estimar el tamaño de diversos objetos de almacenamiento, como los BLOB, consulte la entrada de blog sobre facturación del [Azure Storage: ancho de banda, transacciones y capacidad](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
 ### <a name="monitoring-availability"></a>Supervisión de la disponibilidad
 Debe supervisar la disponibilidad de los servicios de almacenamiento de la cuenta de almacenamiento. Para ello, supervise el valor de la columna **Availability** (Disponibilidad) en las tablas de métricas horarias o por minuto: **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. La columna **Availability** (Disponibilidad) contiene un valor de porcentaje que indica la disponibilidad del servicio o de la operación de API representada por la fila (**RowKey** señala si la fila contiene métricas del servicio completo o de una operación de API específica).
@@ -417,7 +417,7 @@ Si observa un retraso entre el momento en el que una aplicación agrega un mensa
 * Examine los registros del registro de Almacenamiento para ver si hay operaciones de la cola que tengan valores de **E2ELatency** y **ServerLatency** superiores a los que se esperaban durante un período de tiempo más largo de lo habitual.
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>Las métricas muestran un aumento de PercentThrottlingError
-Los errores de limitación se producen cuando supera los objetivos de escalabilidad de un servicio de almacenamiento. El servicio de almacenamiento aplica la limitación para asegurarse de que ningún cliente o inquilino pueda usar el servicio a expensas de otros. Para obtener más información, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](storage-scalability-targets.md) para ver detalles sobre los objetivos de escalabilidad de las cuentas de almacenamiento y los objetivos de rendimiento de las particiones que hay dentro de las cuentas de almacenamiento.
+Los errores de limitación se producen cuando supera los objetivos de escalabilidad de un servicio de almacenamiento. El servicio de almacenamiento aplica la limitación para asegurarse de que ningún cliente o inquilino pueda usar el servicio a expensas de otros. Para obtener más información, consulte [Objetivos de escalabilidad y rendimiento para cuentas de almacenamiento estándar](scalability-targets-standard-account.md) para obtener detalles sobre los objetivos de escalabilidad de las cuentas de almacenamiento y los objetivos de rendimiento de las particiones que hay dentro de las cuentas de almacenamiento.
 
 Si la métrica **PercentThrottlingError** muestra un aumento en el porcentaje de solicitudes que tienen errores de limitación, debe investigar uno de estos dos escenarios:
 
@@ -473,9 +473,9 @@ Si la aplicación cliente inicia errores HTTP 403 (prohibido), uno de los motivo
 | Microsoft.Azure.Storage |Information |3 |85d077ab-… |Iniciando operación con ubicación Primary según modo de ubicación PrimaryOnly. |
 | Microsoft.Azure.Storage |Information |3 |85d077ab -… |Iniciando solicitud sincrónica a <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14>. |
 | Microsoft.Azure.Storage |Information |3 |85d077ab -… |Esperando respuesta. |
-| Microsoft.Azure.Storage |Advertencia |2 |85d077ab -… |Excepción que se produce mientras se espera una respuesta: El servidor remoto devolvió un error: 403 Prohibido. |
+| Microsoft.Azure.Storage |Advertencia |2 |85d077ab -… |Excepción que se produce mientras se espera una respuesta: Error en el servidor remoto: 403 Prohibido. |
 | Microsoft.Azure.Storage |Information |3 |85d077ab -… |Respuesta recibida. Código de estado = 403, Id. de solicitud = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
-| Microsoft.Azure.Storage |Advertencia |2 |85d077ab -… |Excepción producida durante la operación: El servidor remoto devolvió un error: 403 Prohibido. |
+| Microsoft.Azure.Storage |Advertencia |2 |85d077ab -… |Excepción producida durante la operación: Error en el servidor remoto: 403 Prohibido. |
 | Microsoft.Azure.Storage |Information |3 |85d077ab -… |Comprobando si se debe reintentar la operación. Número de reintentos = 0, Código de estado HTTP = 403, Excepción = El servidor remoto devolvió un error: 403 Prohibido. |
 | Microsoft.Azure.Storage |Information |3 |85d077ab -… |La siguiente ubicación se estableció como Primary, de acuerdo con el modo de ubicación. |
 | Microsoft.Azure.Storage |Error |1 |85d077ab -… |La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: 403 Prohibido. |
@@ -536,7 +536,7 @@ Entradas del registro:
 | de8b1c3c-... |A partir de una solicitud sincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Preparándose para escribir datos de solicitud. |
-| e2d06d78-... |Excepción que se produce mientras se espera una respuesta: El servidor remoto devolvió un error: 404 No encontrado. |
+| e2d06d78-... |Excepción que se produce mientras se espera una respuesta: Error en el servidor remoto: 404 No encontrado. |
 | e2d06d78-... |Respuesta recibida. Código de estado = 404, Id. de solicitud = 353ae3bc-..., Content-MD5 = , ETag = . |
 | e2d06d78-... |Los encabezados de respuesta se procesaron correctamente y se continuó con el resto de la operación. |
 | e2d06d78-... |Descargando el cuerpo de respuesta. |
@@ -546,12 +546,12 @@ Entradas del registro:
 | e2d06d78-... |Esperando respuesta. |
 | de8b1c3c-... |Escribiendo datos de solicitud. |
 | de8b1c3c-... |Esperando respuesta. |
-| e2d06d78-... |Excepción que se produce mientras se espera una respuesta: El servidor remoto devolvió un error: 409 Conflicto. |
+| e2d06d78-... |Excepción que se produce mientras se espera una respuesta: Error en el servidor remoto: 409 Conflicto. |
 | e2d06d78-... |Respuesta recibida. Código de estado = 409, Id. de solicitud = c27da20e-..., Content-MD5 = , ETag = . |
 | e2d06d78-... |Descargando el cuerpo de respuesta del error. |
-| de8b1c3c-... |Excepción que se produce mientras se espera una respuesta: El servidor remoto devolvió un error: 404 No encontrado. |
+| de8b1c3c-... |Excepción que se produce mientras se espera una respuesta: Error en el servidor remoto: 404 No encontrado. |
 | de8b1c3c-... |Respuesta recibida. Código de estado = 404, Id. de solicitud = 0eaeab3e-..., Content-MD5 = , ETag = . |
-| de8b1c3c-... |Excepción producida durante la operación: El servidor remoto devolvió un error: 404 No encontrado. |
+| de8b1c3c-... |Excepción producida durante la operación: Error en el servidor remoto: 404 No encontrado. |
 | de8b1c3c-... |La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: 404 No encontrado. |
 | e2d06d78-... |La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: 409 Conflicto. |
 
@@ -562,7 +562,7 @@ Si la aplicación cliente trata de usar una clave SAS que no incluye los permiso
 
 En la siguiente tabla, puede ver una muestra de un mensaje de registro del lado servidor del archivo de registro del registro de Almacenamiento:
 
-| NOMBRE | Valor |
+| Nombre | Value |
 | --- | --- |
 | Hora de inicio de la solicitud | 2014-05-30T06:17:48.4473697Z |
 | Tipo de operación     | GetBlobProperties            |

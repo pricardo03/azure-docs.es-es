@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: be9331ccd548628bfc27172c4f6e625bdba1632c
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 81ef598c846d98548be2d3e7647166d655398921
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158903"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912814"
 ---
 # <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Protección de las aplicaciones web y API de Azure App Service
 
@@ -29,7 +29,7 @@ Para habilitar la protección contra amenazas avanzada para su plan de Azure App
 
 Con el plan de App Service habilitado, Security Center evalúa los recursos incluidos en el plan de App Service y genera recomendaciones de seguridad en función de sus hallazgos. Security Center protege la instancia de la VM en la que se está ejecutando la instancia de App Service y la interfaz de administración. También supervisa las solicitudes y respuestas enviadas a las aplicaciones que se ejecutan en App Service, y desde ellas.
 
-Security Center aprovecha la escala de la nube y la visibilidad que tiene Azure como proveedor de servicios en la nube, para supervisar los ataques a las aplicaciones web comunes. Security Center puede descubrir ataques a las aplicaciones e identificar ataques emergentes, incluso mientras los atacantes se encuentran en la fase de reconocimiento, explorando para identificar vulnerabilidades en varias aplicaciones hospedadas en Azure. Como servicio nativo de Azure, Security Center también se encuentra en una posición única para ofrecer análisis de seguridad basados en host que cubren los nodos de proceso subyacentes para este PaaS, lo que permite a Security Center detectar ataques contra aplicaciones web que ya se habían aprovechado.
+Security Center aprovecha la escala de la nube y la visibilidad que tiene Azure como proveedor de servicios en la nube, para supervisar los ataques a las aplicaciones web comunes. Security Center puede descubrir ataques a las aplicaciones e identificar ataques emergentes, incluso mientras los atacantes se encuentran en la fase de reconocimiento, explorando para identificar vulnerabilidades en varias aplicaciones hospedadas en Azure. Como servicio nativo de Azure, Security Center también se encuentra en una posición única para ofrecer análisis de seguridad basados en host que cubren los nodos de proceso subyacentes para este PaaS, lo que permite a Security Center detectar ataques contra aplicaciones web que ya se habían aprovechado. Para obtener más información sobre las alertas de detección de amenazas de Security Center de Azure App Service, consulte [Detección de amenazas para la informática nativa en la nube](security-center-alerts-compute.md#azure-app-service-).
 
 
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>Habilitación de la supervisión y protección de App Service
@@ -57,7 +57,7 @@ Para deshabilitar la supervisión y recomendaciones para la instancia de App Ser
 
 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 En este artículo, aprendió a usar las funcionalidades de supervisión en Azure Security Center. Para obtener más información sobre Azure Security Center, consulte los siguientes artículos:
 
 * [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): Aprenda a configurar opciones de seguridad en Azure Security Center.

@@ -1,0 +1,170 @@
+---
+title: Solución de problemas de evaluación y visualización de dependencias en Azure Migrate
+description: Obtenga ayuda con la solución de problemas de evaluación y visualización de dependencias en Azure Migrate.
+ms.service: azure-migrate
+ms.topic: troubleshooting
+author: musa-57
+ms.manager: abhemraj
+ms.author: hamusa
+ms.date: 01/02/2020
+ms.openlocfilehash: 3098e85fd21b6185defc4bbcf0a71d412846ab25
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722133"
+---
+# <a name="troubleshoot-assessmentdependency-visualization"></a>Solución de problemas de evaluación o visualización de dependencias
+
+Este artículo incluye ayuda para la solución de problemas de evaluación y visualización de dependencias con [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool).
+
+
+## <a name="assessment-readiness-issues"></a>Problemas de preparación de la evaluación
+
+Revise los problemas de preparación de la evaluación como se indica a continuación:
+
+**Problema** | **Revisión**
+--- | ---
+Tipo de arranque no compatible | Azure no admite máquinas virtuales con el tipo de arranque EFI. Se recomienda convertir el tipo de arranque a BIOS antes de ejecutar una migración. <br/><br/>Puede usar Azure Migrate Server Migration para controlar la migración de estas máquinas virtuales. Durante la migración, el tipo de arranque de la máquina virtual se convertirá a BIOS.
+Sistemas operativos Windows condicionalmente compatibles | El sistema operativo alcanzó la fecha de finalización del soporte técnico y necesita un contrato de soporte técnico personalizado (CSA) para [recibir soporte técnico en Azure](https://aka.ms/WSosstatement). Considere la posibilidad de actualizar antes de migrar a Azure.
+Sistemas operativos Windows no compatibles | Azure solo admite [versiones del sistema operativo Windows seleccionadas](https://aka.ms/WSosstatement). Considere la posibilidad de actualizar la máquina antes de migrar a Azure.
+Sistema operativo Linux aprobado con condiciones | Azure aprueba solo [versiones del sistema operativo Linux seleccionadas](../virtual-machines/linux/endorsed-distros.md). Considere la posibilidad de actualizar la máquina antes de migrar a Azure.
+Sistema operativo Linux no aprobado | La máquina puede iniciarse en Azure, pero Azure no proporciona compatibilidad con el sistema operativo. Considere la actualización a una [versión de Linux aprobada](../virtual-machines/linux/endorsed-distros.md) antes de migrar a Azure.
+Sistema operativo desconocido | El sistema operativo de la máquina virtual se especificó como "Otros" en vCenter Server. Este comportamiento impide que Azure Migrate compruebe la preparación para Azure de la máquina virtual. Asegúrese de que Azure [admite](https://aka.ms/azureoslist) el sistema operativo antes de migrarla.
+Versión de bits no admitida | Las máquinas virtuales con un sistema operativo de 32 bits pueden arrancar en Azure, pero se recomienda que actualice a 64 bits antes de migrar a Azure.
+Requiere una suscripción de Microsoft Visual Studio | En la máquina se ejecuta un sistema operativo cliente Windows, que solo se admite mediante una suscripción de Visual Studio.
+No se encontró ninguna máquina virtual para el rendimiento de almacenamiento requerido | El rendimiento del almacenamiento (operaciones de entrada/salida por segundo [IOPS] y rendimiento) necesario para la máquina supera la compatibilidad con máquinas virtuales de Azure. Reduzca los requisitos de almacenamiento de la máquina antes de realizar la migración.
+No se encontró ninguna máquina virtual para el rendimiento de red requerido | El rendimiento de red (entrada/salida) requerido para la máquina excede el soporte técnico de máquina virtual de Azure. Reduzca los requisitos de red de la máquina.
+No se encontró ninguna máquina virtual en la ubicación especificada | Utilice una ubicación de destino diferente antes de la migración.
+Uno o varios discos no son adecuados | Uno o varios discos conectados a la máquina virtual no cumplen los requisitos de Azure.<br/><br/> Azure Migrate: Server Assessment no admite actualmente discos Ultra SSD y evalúa los discos en función de los límites de disco de los discos administrados Premium (32 TB).<br/><br/> Para cada disco conectado a la máquina virtual, asegúrese de que el tamaño del disco es menor que 64 TB (compatible con discos SSD Ultra).<br/><br/> Si no lo es, reduzca el tamaño de los discos antes de la migración o bien use varios discos en Azure y [colóquelos juntos](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) para obtener mayores límites de almacenamiento. Asegúrese de que el rendimiento (IOPS y rendimiento) necesario para cada disco sea compatible con los [discos de máquinas virtuales administradas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#storage-limits) de Azure.
+Uno o varios adaptadores de red no son adecuados | Quite los adaptadores de red no utilizados de la máquina antes de realizar la migración.
+El recuento del disco supera el límite | Quite los discos no utilizados del equipo antes de la migración.
+El tamaño del disco supera el límite | Azure Migrate: Server Assessment no admite actualmente discos Ultra SSD y evalúa los discos en función de los límites de los discos Premium (32 TB).<br/><br/> Sin embargo, Azure admite discos con un tamaño de hasta 64 TB (compatible con discos SSD Ultra). Reduzca los discos a menos de 64 TB antes de la migración o use varios discos en Azure y [colóquelos juntos](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) para obtener mayores límites de almacenamiento.
+El disco no está disponible en la ubicación especificada | Asegúrese de que el disco está en la ubicación de destino antes de realizar la migración.
+El disco no está disponible para la redundancia especificada | El disco debe usar el tipo de almacenamiento de redundancia definido en la configuración de evaluación (LRS de forma predeterminada).
+No se pudo determinar la idoneidad del disco debido a un error interno | Intente crear una evaluación para el grupo.
+No se encontró ninguna máquina virtual con los núcleos y memoria requeridos | Azure no pudo encontrar un tipo de máquina virtual adecuado. Reduzca la memoria y el número de núcleos de la máquina local antes de realizar la migración.
+No se pudo determinar la idoneidad de la máquina virtual debido a un error interno | Intente crear una evaluación para el grupo.
+No se pudo determinar la idoneidad de uno o varios discos debido a un error interno | Intente crear una evaluación para el grupo.
+No se pudo determinar la idoneidad de uno o varios adaptadores de red debido a un error interno | Intente crear una evaluación para el grupo.
+
+## <a name="linux-vms-are-conditionally-ready"></a>Las máquinas virtuales Linux están "condicionalmente preparadas"
+
+Server Assessment marca las máquinas virtuales Linux como "condicionalmente preparadas" debido a una brecha conocida en Server Assessment.
+
+- La brecha evita que detecte la versión secundaria del sistema operativo Linux instalada en las máquinas virtuales locales.
+- Por ejemplo, para RHEL 6.10, Server Assessment actualmente solo detecta RHEL 6 como la versión del sistema operativo.
+-  Puesto que Azure solo aprueba versiones específicas de Linux, las máquinas virtuales Linux actualmente se marcan como listas con condiciones en Server Assessment.
+- Puede determinar si el sistema operativo Linux en ejecución en la máquina virtual local está aprobado en Azure; para ello, consulte [Soporte técnico de Linux en Azure](https://aka.ms/migrate/selfhost/azureendorseddistros).
+-  Una vez haya comprobado que la distribución está aprobada, puede omitir esta advertencia.
+
+## <a name="azure-skus-bigger-than-on-premises"></a>SKU de Azure de mayor tamaño que el local
+
+Azure Migrate Server Assessment podría recomendar las SKU de máquinas virtuales de Azure con más núcleos y memoria que la asignación local actual según el tipo de evaluación:
+
+
+- La recomendación de las SKU de máquinas virtuales depende de las propiedades de la evaluación.
+- Esto se ve afectado por el tipo de evaluación que realiza en Server Assessment: *Basado en el rendimiento* y *Como local*.
+- Para obtener evaluaciones en función del rendimiento, Server Assessment tiene en cuenta los datos de uso de las máquinas virtuales en el entorno local (uso de CPU, memoria, disco y red) para determinar la SKU de máquina virtual de destino correcta para las máquinas virtuales en el entorno local. También agrega un factor de confort al determinar el uso efectivo.
+- Para el ajuste de tamaño en la opción como en el entorno local, no se tienen en cuenta los datos de rendimiento y se recomienda una SKU de destino en función de la asignación local.
+
+Para mostrar cómo esto puede afectar a las recomendaciones, veamos un ejemplo:
+
+Tenemos una máquina virtual local con cuatro núcleos y 8 GB de memoria, con un uso de CPU del 50 % y un uso de memoria del 50 % y un factor de confort específico de 1,3.
+
+-  Si la evaluación es **Como local**, se recomienda una SKU de VM de Azure con 4 núcleos y 8 GB de memoria.
+- Si la evaluación está basada en el rendimiento, en función de la utilización de memoria y CPU efectiva (el 50 % de 4 núcleos * 1,3 = 2,6 núcleos y el 50 % de 8 GB de memoria * 1,3 = 5,3 GB de memoria), se recomienda la SKU de máquina virtual más barata de cuatro núcleos (número de núcleos admitidos más cercano) y 8 GB de memoria (tamaño de memoria admitido más cercano).
+- [Más información](concepts-assessment-calculation.md#assessments-in-server-assessment) sobre el ajuste de tamaño de evaluación.
+
+## <a name="azure-disk-skus-bigger-than-on-premises"></a>SKU de discos de Azure de mayor tamaño que el local
+
+Azure Migrate Server Assessment podría recomendar un disco más grande según el tipo de evaluación.
+- El ajuste de tamaño del disco en Server Assessment depende de dos propiedades de la evaluación: el criterio de ajuste de tamaño y el tipo de almacenamiento.
+- Si el criterio de ajuste de tamaño es **Basado en el rendimiento** y el tipo de almacenamiento es **Automático**, se tendrán en cuenta los valores de rendimiento y de IOPS del disco para identificar el tipo de disco de destino (discos HDD estándar, SSD estándar o Premium). Se recomienda una SKU de disco del tipo de disco y esta recomendación tiene en cuenta los requisitos de tamaño del disco en el entorno local.
+- Si el criterio de ajuste de tamaño es **En función del rendimiento** y el tipo de almacenamiento es **Premium**, se recomienda una SKU de disco Premium de Azure en función de los requisitos de IOPS, rendimiento y tamaño del disco en el entorno local. Se usa la misma lógica para ajustar el tamaño del disco cuando el criterio de ajuste de tamaño es **Como local** y el tipo de almacenamiento es **HDD estándar**, **SSD estándar** o **Premium**.
+
+Por ejemplo, si tiene un disco en el entorno local con 32 GB de memoria, pero las IOPS de lectura y escritura agregadas son 800 IOPS, Server Assessment recomienda un tipo de disco Premium (debido a los mayores requisitos de IOPS) y, a continuación, una SKU de disco que pueda admitir el tamaño y las IOPS necesarias. La coincidencia más cercana en este ejemplo sería P15 (256 GB, 1100 IOPS). Aunque el tamaño requerido por el disco en el entorno local fue de 32 GB, Server Assessment recomienda un disco con un tamaño mayor debido a los altos requisitos de IOPS del disco en el entorno local.
+
+## <a name="utilized-corememory-percentage-missing"></a>Falta el porcentaje de núcleos/memoria usado
+
+Los informes de Server Assessment "PercentageOfCoresUtilizedMissing" o "PercentageOfMemoryUtilizedMissing" cuando el dispositivo de Azure Migrate no puede recopilar datos de rendimiento de las máquinas virtuales locales pertinentes.
+
+- Esto puede ocurrir si las máquinas virtuales están desactivadas durante la duración de la evaluación. El dispositivo no puede recopilar datos de rendimiento de una máquina virtual cuando está desactivada.
+- Si solo faltan los contadores de memoria e intenta evaluar máquinas virtuales de Hyper-V, compruebe si tiene habilitada la memoria dinámica en estas máquinas virtuales. Existe un problema conocido solo para las máquinas virtuales de Hyper-V, en el que un dispositivo de Azure Migrate no puede recopilar los datos de uso de memoria de las máquinas virtuales que no tienen habilitada la memoria dinámica.
+- Si falta alguno de los contadores de rendimiento, Azure Migrate Server Assessment recurre a la memoria y los núcleos asignados y recomienda un tamaño de máquina virtual correspondiente.
+
+## <a name="is-the-operating-system-license-included"></a>¿Se incluye la licencia del sistema operativo?
+
+Azure Migrate Server Assessment solo tiene en cuenta el costo de la licencia del sistema operativo para las máquinas Windows. Los costos de las licencias para las máquinas Linux no se tienen en cuenta actualmente.
+
+## <a name="how-does-performance-based-sizing-work"></a>¿Cómo funciona el ajuste del tamaño basado en el rendimiento?
+
+Server Assessment recopila continuamente datos de rendimiento de las máquinas en el entorno local y los usa para recomendar la SKU de máquina virtual y la SKU de disco de Azure. [Obtenga información](concepts-assessment-calculation.md#calculate-sizing-performance-based) sobre cómo se recopilan datos basados en el rendimiento.
+
+
+## <a name="dependency-visualization-in-azure-government"></a>Visualización de dependencias en Azure Government
+
+Azure Migrate depende de Service Map para la funcionalidad de visualización de dependencias. Como Service Map actualmente no está disponible en Azure Government, esta funcionalidad no está disponible en Azure Government.
+
+## <a name="dependencies-dont-show-after-agent-install"></a>Las dependencias no se muestran después de la instalación del agente
+
+Después de instalar los agentes de visualización de dependencias en las máquinas virtuales locales, Azure Migrate suele tardar entre 15 y 30 minutos en mostrar las dependencias en el portal. Si ha esperado durante más de 30 minutos, asegúrese de que Microsoft Monitoring Agent (MMA) puede conectarse al área de trabajo de Log Analytics.
+
+Para las máquinas virtuales de Windows:
+1. En el Panel de control, inicie MMA.
+2. En **Propiedades de Microsoft Monitoring Agent** > **Azure Log Analytics (OMS)** , asegúrese de que el **estado** del área de trabajo esté en verde.
+3. Si el estado no está en verde, intente quitar el área de trabajo y vuelva a agregarla a MMA.
+
+    ![Estado de MMA](./media/troubleshoot-assessment/mma-properties.png)
+
+Para las máquinas virtuales Linux, asegúrese de que se hayan completado correctamente los comandos de instalación de MMA y el agente de dependencias.
+
+## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
+
+- **Agente de MMS**: Revise los sistemas operativos [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) y [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) admitidos.
+- **Agente de dependencias**: sistemas operativos [Windows y Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) admitidos.
+
+## <a name="visualize-dependencies-for--hour"></a>Visualización de dependencias de > hora
+
+Aunque Azure Migrate le permite volver atrás a una fecha determinada en el último mes, el tiempo máximo durante el que se pueden visualizar las dependencias es de una hora.
+
+Por ejemplo, puede usar la característica de duración de tiempo en el mapa de dependencias para ver las dependencias de ayer, pero solo puede verlas durante un período de una hora.
+
+Sin embargo, puede usar los registros de Azure Monitor para [consultar los datos de dependencia](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) durante un período más largo.
+
+## <a name="visualized-dependencies-for--10-machines"></a>Visualización de dependencias de > 10 máquinas
+
+En Azure Migrate Server Assessment, puede [visualizar las dependencias para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) que tengan un máximo de diez máquinas virtuales. En el caso de los grupos más grandes, se recomienda dividir las máquinas virtuales en grupos más pequeños para visualizar las dependencias.
+
+## <a name="machines-show-install-agent"></a>Las máquinas muestran "Instalar agente"
+
+Después de migrar las máquinas con la visualización de dependencias habilitada en Azure, es posible que las máquinas muestren la acción "Instalar agente" en lugar de "Ver dependencias" debido al comportamiento siguiente:
+
+
+- Después de la migración a Azure, las máquinas locales están desconectadas y las máquinas virtuales equivalentes trabajan en Azure. Estos equipos adquieren una dirección MAC diferente.
+- Las máquinas también pueden adquirir una dirección IP distinta en función de si el se elige conservar o no la dirección IP local.
+- Si las direcciones IP y MAC difieren de las locales, Azure Migrate no asocia las máquinas locales con ningún dato de dependencias de Service Map. En este caso, se mostrará la opción para instalar el agente en lugar de ver las dependencias.
+- Después de una migración de prueba a Azure, las máquinas locales permanecen encendidas según lo previsto. Las máquinas equivalentes que se activan en Azure adquieren una dirección MAC distinta y pueden adquirir una dirección IP diferente. A menos que bloquee el tráfico saliente del registro de Azure Monitor procedente de estas máquinas, Azure Migrate no asociará las máquinas locales con ningún dato de dependencias de Service Map y, por tanto, mostrará la opción de instalar los agentes en lugar de visualizar las dependencias.
+
+
+## <a name="capture-network-traffic"></a>Captura del tráfico de red
+
+Recopile registros de tráfico de red como se indica a continuación:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+2. Presione F12 para iniciar las Herramientas de desarrollo. Si es necesario, desactive la opción **Borrar entradas de navegación**.
+3. Seleccione la pestaña **Red** para empezar a capturar el tráfico de red:
+   - En Chrome, seleccione **Preserve log** (Conservar registro). La grabación debe iniciarse automáticamente. Un círculo rojo indica que la captura del tráfico está en curso. Si no aparece el círculo rojo, seleccione el círculo negro para comenzar.
+   - En Microsoft Edge e Internet Explorer, la grabación debe iniciarse automáticamente. Si no es así, seleccione el botón de reproducción de color verde.
+4. Pruebe a reproducir el error.
+5. Una vez haya encontrado el error durante la grabación, detenga la grabación y guarde una copia de la actividad grabada:
+   - En Chrome, haga clic con el botón derecho y seleccione **Guardar como HAR con contenido**. Esta acción comprime y exporta los registros como un archivo .har.
+   - En Microsoft Edge o Internet Explorer, seleccione la opción **Exportar tráfico capturado**. Esta acción comprime y exporta el registro.
+6. Seleccione la pestaña **Consola** para ver si hay alguna advertencia o error. Para guardar el registro de la consola:
+   - En Chrome, haga clic con el botón derecho en cualquier lugar en el registro de la consola. Seleccione **Save as** (Guardar como) para exportar y comprimir el registro.
+   - En Microsoft Edge o Internet Explorer, haga clic con el botón derecho sobre los errores y seleccione **Copiar todo**.
+7. Cierre las Herramientas de desarrollo.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Crear](how-to-create-assessment.md) o [personalizar](how-to-modify-assessment.md) una evaluación.

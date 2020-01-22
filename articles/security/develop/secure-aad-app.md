@@ -4,7 +4,7 @@ description: Esta sencilla aplicación de ejemplo implementa procedimientos reco
 keywords: na
 services: security
 documentationcenter: na
-author: fehase
+author: TerryLanfear
 manager: alclabo
 editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
-ms.author: v-fehase
-ms.openlocfilehash: 88ef0874d760fb87700eac83c0d615be5887ddee
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.author: terrylan
+ms.openlocfilehash: a936fb4a0a6eadc2840fc6d642428091a6b0fe9e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159834"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771281"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Desarrollo de una aplicación segura para una aplicación de Azure AD
 ## <a name="overview"></a>Información general
@@ -39,7 +39,7 @@ Al desarrollar e implementar esta aplicación, aprenderá a:
 
 Después de desarrollar e implementar esta aplicación, habrá configurado la aplicación web de ejemplo siguiente junto con las medidas de configuración y seguridad que se describen.
 
-## <a name="architecture"></a>Arquitectura
+## <a name="architecture"></a>Architecture
 La aplicación es una aplicación de n niveles típica con tres niveles. El front-end, el back-end y el nivel de base de datos con los componentes de supervisión y administración de secretos integrados se muestran aquí:
 
 ![Arquitectura de la aplicación](./media/secure-aad-app/architecture.png)
@@ -71,7 +71,7 @@ En la captura de pantalla siguiente se muestran algunas amenazas de ejemplo y po
 
 ![Salida del modelo de amenazas](./media/secure-aad-app/threat-model-output.png)
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 Para poner en marcha la aplicación, debe instalar estas herramientas:
 
 - Un editor de código para modificar y ver el código de la aplicación. [Visual Studio Code](https://code.visualstudio.com/) es una opción de código abierto.
@@ -443,7 +443,7 @@ Los servicios de Azure proporcionan un registro completo de la actividad de usua
 1.  Vuelva a Azure Portal. En el panel de navegación izquierdo, seleccione el servicio Azure Active Directory y, después, elija Registros de aplicaciones.
 2.  En la pantalla resultante, seleccione la aplicación WebApp-OpenIDConnect-DotNet-code-v2.
 3.  En la pestaña Autenticación o en la sección URI de redirección, seleccione Web en el cuadro combinado y agregue los siguientes URI de redirección.
-    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc. En la sección Configuración avanzada, establezca la URL de cierre de sesión en https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc.
+    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc O bien, en la sección Configuración avanzada, establezca la URL de cierre de sesión en https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc.
 4.  En la pestaña Personalización de marca, actualice la dirección URL de la página principal a la dirección del servicio de aplicación, por ejemplo https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net.
         Guarde la configuración.
 5.  Si la aplicación llama a una API web, asegúrese de aplicar los cambios necesarios en el archivo appsettings.json del proyecto, de forma que llame a la dirección URL de la API publicada en lugar de a localhost.

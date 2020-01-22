@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: 8d9a6664caa7d0d84de54de232d6f8d0eab0a793
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8e8eec8af81832992a27206efcd7b7e7051a83b8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356242"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772557"
 ---
 # <a name="set-up-msix-app-attach"></a>Configuración de la asociación de aplicaciones en formato .MSIX
 
@@ -40,7 +40,7 @@ En primer ligar, debe obtener la imagen del sistema operativo que se va a usar p
      >[!NOTE]
      >Para acceder al portal de Windows Insider, debe ser miembro del programa Windows Insider. Para más información sobre el programa Windows Insider, revise la [documentación sobre Windows Insider](https://docs.microsoft.com/windows-insider/at-home/).
 
-2. Desplácese hasta la sección **Select edition** (Seleccionar edición) y seleccione **Windows 10 Insider Preview Enterprise (FAST) – Build XXXXX** (Windows 10 Insider Preview Enterprise (FAST), compilación XXXXX).
+2. Desplácese hasta la sección **Seleccionar edición** y seleccione **Windows 10 Insider Preview Enterprise (FAST) – Build 19035** [Windows 10 Insider Preview Enterprise (FAST), compilación 19035] o posterior.
 
 3. Seleccione **Confirmar**, el idioma que quiere usar y, luego, vuelva a seleccionar **Confirmar**.
     

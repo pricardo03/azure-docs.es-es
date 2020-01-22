@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/13/2019
-ms.openlocfilehash: e1729d9e0c793b944b1e02d3108388f9d2533e5d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2020
+ms.openlocfilehash: c32fbef3db0c0df2af1e07c062eb178e5516d736
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441083"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893205"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copia y transformación de los datos de Azure Data Lake Storage Gen2 mediante Azure Data Factory
 
@@ -119,7 +119,7 @@ Antes de usar la autenticación de entidad de servicio, siga estos pasos.
     - **Como receptor**: en el Explorador de Storage, conceda al menos permiso de **ejecución** para TODAS las carpetas de nivel superior y el sistema de archivos, junto con el permiso de **escritura** para la carpeta del receptor. Como alternativa, en el control de acceso (IAM), conceda al menos el rol **Colaborador de datos de Storage Blob**.
 
 >[!NOTE]
->Si usa la interfaz de usuario de Data Factory para la creación, y la entidad de servicio no está configurada con el rol "Lector o colaborador de datos de Storage Blob" en IAM, al realizar las pruebas de conexión o al explorar las carpetas o navegar por ellas, elija "Test connection to file path" (Probar conexión con la ruta de acceso del archivo) o "Browse from specified path" (Examinar desde la ruta de acceso especificada) y especifique una ruta de acceso con permiso de lectura y ejecución para continuar. Por ahora, se producirá un error en la conexión de prueba a un sistema de archivos. Especifique un subdirectorio para la prueba u omita esta operación.
+>Si usa la interfaz de usuario de Data Factory para la creación, y la entidad de servicio no está configurada con el rol "Lector o colaborador de datos de Storage Blob" en IAM, al realizar las pruebas de conexión o al explorar las carpetas o navegar por ellas, elija "Test connection to file path" (Probar conexión con la ruta de acceso del archivo) o "Browse from specified path" (Examinar desde la ruta de acceso especificada) y especifique una ruta de acceso con el permiso de **lectura y ejecución** para continuar.
 
 Estas propiedades son compatibles con el servicio vinculado:
 
@@ -170,7 +170,7 @@ Para usar identidades administradas para la autenticación de recursos de Azure,
     - **Como receptor**: en el Explorador de Storage, conceda al menos permiso de **ejecución** para TODAS las carpetas de nivel superior y el sistema de archivos, junto con el permiso de **escritura** para la carpeta del receptor. Como alternativa, en el control de acceso (IAM), conceda al menos el rol **Colaborador de datos de Storage Blob**.
 
 >[!NOTE]
->Si usa la interfaz de usuario de Data Factory para la creación, y la identidad administrada no está configurada con el rol "Lector o colaborador de datos de Storage Blob" en IAM, al realizar las pruebas de conexión o al explorar las carpetas o navegar por ellas, elija "Test connection to file path" (Probar conexión con la ruta de acceso del archivo) o "Browse from specified path" (Examinar desde la ruta de acceso especificada) y especifique una ruta de acceso con permiso de lectura y ejecución para continuar. Por ahora, se producirá un error en la conexión de prueba a un sistema de archivos. Especifique un subdirectorio para la prueba u omita esta operación.
+>Si usa la interfaz de usuario de Data Factory para la creación, y la identidad administrada no está configurada con el rol "Lector o colaborador de datos de Storage Blob" en IAM, al realizar las pruebas de conexión o al explorar las carpetas o navegar por ellas, elija "Test connection to file path" (Probar conexión con la ruta de acceso del archivo) o "Browse from specified path" (Examinar desde la ruta de acceso especificada) y especifique una ruta de acceso con el permiso de **lectura y ejecución** para continuar.
 
 >[!IMPORTANT]
 >Si usa PolyBase para cargar datos desde Data Lake Storage Gen2 en SQL Data Warehouse, al utilizar la autenticación de identidad administrada de Data Lake Storage Gen2 asegúrese de que también sigue los pasos 1 y 2 de [esta guía](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) para 1) registrar el servidor de SQL Database con Azure Active Directory (Azure AD) y 2) asignar el rol Colaborador de datos de Storage Blob a su servidor de SQL Database. Lo demás lo controlará Data Factory. Si la instancia de Data Lake Storage Gen2 está configurada con un punto de conexión de Azure Virtual Network, para usar PolyBase para cargar datos desde este deberá usar la autenticación de identidad administrada como requiere PolyBase.
@@ -255,7 +255,7 @@ Las propiedades siguientes se admiten para Data Lake Store Gen2 en la configurac
 
 | Propiedad                 | Descripción                                                  | Obligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | La propiedad type de `storeSettings` se debe establecer en **AzureBlobFSReadSetting**. | Sí                                           |
+| type                     | La propiedad type de `storeSettings` se debe establecer en **AzureBlobFSReadSettings**. | Sí                                           |
 | recursive                | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. Los valores permitidos son: **True** (valor predeterminado) y **False**. | No                                            |
 | wildcardFolderPath       | Ruta de acceso de carpeta con caracteres comodín en el sistema de archivos especificado configurado en el conjunto de datos para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter). Use `^` como escape si el nombre real de la carpeta contiene un carácter comodín o este carácter de escape. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                            |
 | wildcardFileName         | Nombre de archivo con caracteres comodín en la propiedad file system + folderPath o wildcardFolderPath indicada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter). Use `^` como escape si el nombre real de la carpeta contiene un carácter comodín o este carácter de escape. Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí, si no se ha especificado `fileName` en el conjunto de datos |
@@ -286,11 +286,11 @@ Las propiedades siguientes se admiten para Data Lake Store Gen2 en la configurac
             "source": {
                 "type": "DelimitedTextSource",
                 "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
+                    "type": "DelimitedTextReadSettings",
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "AzureBlobFSReadSetting",
+                    "type": "AzureBlobFSReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
                     "wildcardFileName": "*.csv"
@@ -312,7 +312,7 @@ Las propiedades siguientes se admiten para Data Lake Store Gen2 en la configurac
 
 | Propiedad                 | Descripción                                                  | Obligatorio |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | La propiedad type de `storeSettings` se debe establecer en **AzureBlobFSWriteSetting**. | Sí      |
+| type                     | La propiedad type de `storeSettings` se debe establecer en **AzureBlobFSWriteSettings**. | Sí      |
 | copyBehavior             | Define el comportamiento de copia cuando el origen son archivos de un almacén de datos basados en archivos.<br/><br/>Los valores permitidos son:<br/><b>- PreserveHierarchy (valor predeterminado)</b>: conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen a la carpeta de origen es idéntica que la ruta de acceso relativa del archivo de destino a la carpeta de destino.<br/><b>- FlattenHierarchy</b>: todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen nombres generados automáticamente. <br/><b>- MergeFiles</b>: combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre del archivo, el nombre de archivo combinado es el nombre especificado. De lo contrario, es un nombre de archivo generado automáticamente. | No       |
 | maxConcurrentConnections | Número de conexiones para conectarse al almacén de datos de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | No       |
 
@@ -342,7 +342,7 @@ Las propiedades siguientes se admiten para Data Lake Store Gen2 en la configurac
             "sink": {
                 "type": "ParquetSink",
                 "storeSettings":{
-                    "type": "AzureBlobFSWriteSetting",
+                    "type": "AzureBlobFSWriteSettings",
                     "copyBehavior": "PreserveHierarchy"
                 }
             }
@@ -452,18 +452,18 @@ En este caso, todos los subdirectorios cuyo origen se encuentra en /data/sales s
 
 En la transformación del receptor, puede escribir en un contenedor o una carpeta en Azure Data Lake Storage Gen2. La pestaña **Configuración** le permite administrar cómo se escriben los archivos.
 
-![opciones de receptor](media/data-flow/file-sink-settings.png "opciones de receptor")
+![Opciones del receptor](media/data-flow/file-sink-settings.png "opciones de receptor")
 
-**Clear the folder (Borrar la carpeta):** determina si se borra o no la carpeta de destino antes de escribir los datos.
+**Clear the folder** (Borrar la carpeta): determina si se borra o no la carpeta de destino antes de escribir los datos.
 
-**File name option (Opción de nombre de archivo):** determina cómo se denominan los archivos de destino en la carpeta de destino. Las opciones de nombre de archivo son:
+**File name option** (Opción de nombre de archivo): determina cómo se denominan los archivos de destino en la carpeta de destino. Las opciones de nombre de archivo son:
    * **Valor predeterminado**: permita que Spark nombre los archivos según los valores predeterminados de PART.
-   * **Patrón**: Escriba un patrón que enumere los archivos de salida por partición. Por ejemplo, **loans[n].csv** creará loans1.csv, loans2.csv, etc.
+   * **Patrón**: escriba un patrón que enumere los archivos de salida por partición. Por ejemplo, **loans[n].csv** creará loans1.csv, loans2.csv, etc.
    * **Por partición**: escriba un nombre de archivo por partición.
    * **Como datos de columna**: establezca el archivo de salida en el valor de una columna. La ruta de acceso es relativa al contenedor del conjunto de datos, no a la carpeta de destino.
    * **Salida en un solo archivo**: combine los archivos de salida con particiones en un solo archivo con nombre. La ruta de acceso es relativa a la carpeta del conjunto de datos. Tenga en cuenta que la operación de combinación probablemente produzca un error en función del tamaño del nodo. Esta opción no se recomienda para conjuntos de datos de gran tamaño.
 
-**Entrecomillar todo:** determina si se deben entrecomillar todos los valores.
+**Quote all** (Entrecomillar todo): determina si se deben entrecomillar todos los valores.
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 
@@ -480,7 +480,7 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 ## <a name="legacy-models"></a>Modelos heredados
 
 >[!NOTE]
->Los modelos siguientes siguen admitiéndose tal cual a efectos de compatibilidad con versiones anteriores. Se recomienda usar el nuevo modelo mencionado en la sección anterior de ahora en adelante; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
+>Estos modelos siguen siendo compatibles con versiones anteriores. Se recomienda usar el nuevo modelo mencionado en la sección anterior de ahora en adelante; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de datos heredado
 
@@ -609,4 +609,4 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver la lista de almacenes de datos que la actividad de copia de Data Factory admite como orígenes y receptores consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md##supported-data-stores-and-formats).
+Para ver la lista de almacenes de datos que la actividad de copia de Data Factory admite como orígenes y receptores consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

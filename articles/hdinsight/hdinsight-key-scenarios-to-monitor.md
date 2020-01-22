@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: c6e60474f74a23add429bf13ca7744afb8e8e1a3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 72006f907a1c1641308c8ee43e7a405765410789
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74777611"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770890"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Supervisión del rendimiento de un clúster en Azure HDInsight
 
@@ -27,7 +27,7 @@ Los clústeres de Hadoop pueden ofrecer el rendimiento más óptimo cuando la ca
 
 Para obtener una visión de alto nivel de los nodos de un clúster y su carga, inicie sesión en la [interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md) y seleccione la pestaña **Hosts**. Los hosts se enumeran por sus nombres de dominio completos. El estado de funcionamiento de cada host se muestra mediante un indicador de mantenimiento de color:
 
-| Color | DESCRIPCIÓN |
+| Color | Descripción |
 | --- | --- |
 | Rojo | Al menos un componente maestro del host está inactivo. Mueva el puntero encima para una información sobre herramientas que enumera los componentes afectados. |
 | Naranja | Al menos un componente subordinado del host está inactivo. Mueva el puntero encima para una información sobre herramientas que enumera los componentes afectados. |
@@ -72,7 +72,7 @@ En la interfaz de usuario de Resource Manager, seleccione **Scheduler** (Program
 
 ## <a name="storage-throttling"></a>Limitación del almacenamiento
 
-Se puede producir un cuello de botella de rendimiento de un clúster a nivel de almacenamiento. Con mucha frecuencia, este tipo de cuello de botella se debe al *bloqueo* de operaciones de entrada y salida (E/S), que se produce cuando las tareas en ejecución envían más operaciones de E/S de las que el servicio de almacenamiento puede controlar. Este bloqueo crea una cola de solicitudes de E/S que esperan a que se procesen las E/S actuales para procesarse. Los bloqueos se deben a una *limitación del almacenamiento*, que no es un límite físico, sino más bien un límite que impone el servicio de almacenamiento mediante un Acuerdo de Nivel de Servicio (SLA). Este límite garantiza que ningún cliente o inquilino individuales pueden monopolizar el servicio. El Acuerdo de Nivel de Servicio limita el número de operaciones de E/S por segundo (IOPS) de Azure Storage (para más información, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](https://docs.microsoft.com/azure/storage/storage-scalability-targets)).
+Se puede producir un cuello de botella de rendimiento de un clúster a nivel de almacenamiento. Con mucha frecuencia, este tipo de cuello de botella se debe al *bloqueo* de operaciones de entrada y salida (E/S), que se produce cuando las tareas en ejecución envían más operaciones de E/S de las que el servicio de almacenamiento puede controlar. Este bloqueo crea una cola de solicitudes de E/S que esperan a que se procesen las E/S actuales para procesarse. Los bloqueos se deben a una *limitación del almacenamiento*, que no es un límite físico, sino más bien un límite que impone el servicio de almacenamiento mediante un Acuerdo de Nivel de Servicio (SLA). Este límite garantiza que ningún cliente o inquilino individuales pueden monopolizar el servicio. El Acuerdo de Nivel de Servicio limita el número de operaciones de E/S por segundo (IOPS) de Azure Storage (para más información, consulte [Objetivos de escalabilidad y rendimiento para cuentas de almacenamiento estándar](../storage/common/scalability-targets-standard-account.md)).
 
 Si usa Azure Storage, para información acerca de la supervisión de problemas relacionados con el almacenamiento, incluida la limitación, consulte el artículo [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
 

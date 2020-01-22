@@ -2,21 +2,21 @@
 title: Plantilla de planeamiento del proyecto del proceso de ciencia de datos en equipo
 description: Plantillas de Microsoft Project y Excel que ayudan a planear y administrar proyectos de ciencia de datos.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bbedaa554e9c97a24e26c7927c1bf9c94d5cd507
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c003145acd423fd96dd0ac6c054884024c2ce4a0
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253048"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864237"
 ---
 # <a name="team-data-science-process-project-planning"></a>Plantilla de planeamiento del proyecto del proceso de ciencia de datos en equipo
 
@@ -58,7 +58,7 @@ Utilice este [repositorio de plantillas de proyecto](https://github.com/Azure/Az
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Desarrollo ágil de proyectos de ciencia de datos](agile-development.md) En este documento se describe cómo ejecutar un proyecto de ciencia de datos de forma sistemática, con control de versiones y de manera colaborativa dentro de un equipo de proyecto mediante el proceso de ciencia de datos en equipo.
+[Desarrollo ágil de proyectos de ciencia de datos](agile-development.md): en este documento se describe un proyecto de ciencia de datos de forma sistemática, con control de versiones y de manera colaborativa mediante el proceso de ciencia de datos en equipo.
 
 También se proporcionan tutoriales que muestran todos los pasos del proceso en **escenarios concretos**. Se enumeran y enlazan con descripciones en miniatura en los [tutoriales de ejemplo](walkthroughs.md). En ellos se ilustra cómo combinar herramientas y servicios locales y en la nube en un flujo de trabajo o canalización para crear una aplicación inteligente. 
 

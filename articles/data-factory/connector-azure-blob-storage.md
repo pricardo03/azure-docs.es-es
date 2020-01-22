@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 734af90c01481f59a33f2d31f7458526f0f07b52
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9001a7837e6106df4e052277168388064e65e7ee
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444452"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893305"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Blob Storage mediante Azure Data Factory
 
@@ -363,7 +363,7 @@ Las propiedades siguientes se admiten para Azure Blob en la configuración `stor
 
 | Propiedad                 | Descripción                                                  | Obligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | La propiedad type de `storeSettings` se debe establecer en **AzureBlobStorageReadSetting**. | Sí                                           |
+| type                     | La propiedad type de `storeSettings` se debe establecer en **AzureBlobStorageReadSettings**. | Sí                                           |
 | recursive                | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. Los valores permitidos son: **True** (valor predeterminado) y **False**. | No                                            |
 | wildcardFolderPath       | Ruta de acceso de carpeta con caracteres comodín en el contenedor especificado configurado en el conjunto de datos para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                            |
 | wildcardFileName         | Nombre de archivo con caracteres comodín en el contenedor y la propiedad folderPath o wildcardFolderPath indicada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí, si no se ha especificado `fileName` en el conjunto de datos |
@@ -397,11 +397,11 @@ Las propiedades siguientes se admiten para Azure Blob en la configuración `stor
             "source": {
                 "type": "DelimitedTextSource",
                 "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
+                    "type": "DelimitedTextReadSettings",
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "AzureBlobStorageReadSetting",
+                    "type": "AzureBlobStorageReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
                     "wildcardFileName": "*.csv"
@@ -423,7 +423,7 @@ Las propiedades siguientes se admiten para Azure Blob en la configuración `stor
 
 | Propiedad                 | Descripción                                                  | Obligatorio |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | La propiedad type de `storeSettings` se debe establecer en **AzureBlobStorageWriteSetting**. | Sí      |
+| type                     | La propiedad type de `storeSettings` se debe establecer en **AzureBlobStorageWriteSettings**. | Sí      |
 | copyBehavior             | Define el comportamiento de copia cuando el origen son archivos de un almacén de datos basados en archivos.<br/><br/>Los valores permitidos son:<br/><b>- PreserveHierarchy (valor predeterminado)</b>: conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen que apunta a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino que apunta a la carpeta de destino.<br/><b>- FlattenHierarchy</b>: todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen nombres generados automáticamente. <br/><b>- MergeFiles</b>: combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre del blob o del archivo, el nombre de archivo combinado es el nombre especificado. De lo contrario, es un nombre de archivo generado automáticamente. | No       |
 | maxConcurrentConnections | Número de conexiones para conectarse al almacén de almacenamiento de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | No       |
 
@@ -453,7 +453,7 @@ Las propiedades siguientes se admiten para Azure Blob en la configuración `stor
             "sink": {
                 "type": "ParquetSink",
                 "storeSettings":{
-                    "type": "AzureBlobStorageWriteSetting",
+                    "type": "AzureBlobStorageWriteSettings",
                     "copyBehavior": "PreserveHierarchy"
                 }
             }
@@ -556,18 +556,18 @@ En este caso, todos los subdirectorios cuyo origen se encuentra en /data/sales s
 
 En la transformación del receptor, puede escribir en un contenedor o una carpeta en Azure Blob Storage. La pestaña **Configuración** le permite administrar cómo se escriben los archivos.
 
-![opciones de receptor](media/data-flow/file-sink-settings.png "opciones de receptor")
+![Opciones del receptor](media/data-flow/file-sink-settings.png "opciones de receptor")
 
-**Clear the folder (Borrar la carpeta):** determina si se borra o no la carpeta de destino antes de escribir los datos.
+**Clear the folder** (Borrar la carpeta): determina si se borra o no la carpeta de destino antes de escribir los datos.
 
-**File name option (Opción de nombre de archivo):** determina cómo se denominan los archivos de destino en la carpeta de destino. Las opciones de nombre de archivo son:
+**File name option** (Opción de nombre de archivo): determina cómo se denominan los archivos de destino en la carpeta de destino. Las opciones de nombre de archivo son:
    * **Valor predeterminado**: permita que Spark nombre los archivos según los valores predeterminados de PART.
-   * **Patrón**: Escriba un patrón que enumere los archivos de salida por partición. Por ejemplo, **loans[n].csv** creará loans1.csv, loans2.csv, etc.
+   * **Patrón**: escriba un patrón que enumere los archivos de salida por partición. Por ejemplo, **loans[n].csv** creará loans1.csv, loans2.csv, etc.
    * **Por partición**: escriba un nombre de archivo por partición.
    * **Como datos de columna**: establezca el archivo de salida en el valor de una columna. La ruta de acceso es relativa al contenedor del conjunto de datos, no a la carpeta de destino.
    * **Salida en un solo archivo**: combine los archivos de salida con particiones en un solo archivo con nombre. La ruta de acceso es relativa a la carpeta del conjunto de datos. Tenga en cuenta que la operación de combinación probablemente produzca un error en función del tamaño del nodo. Esta opción no se recomienda para conjuntos de datos de gran tamaño.
 
-**Entrecomillar todo:** determina si se deben entrecomillar todos los valores.
+**Quote all** (Entrecomillar todo): determina si se deben entrecomillar todos los valores.
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 
@@ -584,7 +584,7 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 ## <a name="legacy-models"></a>Modelos heredados
 
 >[!NOTE]
->Los modelos siguientes siguen admitiéndose tal cual a efectos de compatibilidad con versiones anteriores. Se recomienda usar el nuevo modelo mencionado en la sección anterior de ahora en adelante; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
+>Estos modelos siguen siendo compatibles con versiones anteriores. Se recomienda usar el nuevo modelo mencionado en la sección anterior de ahora en adelante; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de datos heredado
 
@@ -713,4 +713,4 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver la lista de almacenes de datos que la actividad de copia de Data Factory admite como orígenes y receptores consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md##supported-data-stores-and-formats).
+Para ver la lista de almacenes de datos que la actividad de copia de Data Factory admite como orígenes y receptores consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

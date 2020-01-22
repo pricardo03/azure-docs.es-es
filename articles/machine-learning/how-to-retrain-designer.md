@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 12/15/2019
-ms.openlocfilehash: 462b41b3f75857c85ea82916ed94860c39ce5866
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 734acd712eb954e66a9c0b037d10b7b1fd626c6a
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535012"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732168"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Volver a entrenar modelos con el diseñador de Azure Machine Learning (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -56,7 +56,7 @@ Para volver a entrenar un modelo, necesita un modelo inicial. En esta sección, 
 
 1. Especifique la ruta de acceso a los datos. También puede seleccionar **Examinar ruta de acceso** para navegar visualmente por el almacén de datos. 
 
-1. Seleccione **Ejecutar** en la parte superior del lienzo para ejecutar la canalización.
+1. En la parte superior del lienzo, seleccione **Ejecutar**.
     
     > [!NOTE]
     > Si ya ha establecido un proceso predeterminado para este borrador de canalización, la canalización se ejecutará automáticamente. De lo contrario, puede seguir las indicaciones del panel de configuración que aparece para establecer uno ahora.
@@ -77,7 +77,7 @@ El diseñador guarda todas las salidas de canalización, incluidos los modelos e
 
 ## <a name="create-a-pipeline-parameter"></a>Creación de un parámetro de canalización
 
-Puede agregar parámetros de canalización para establecer dinámicamente variables en tiempo de ejecución. Para esta canalización, agregue un parámetro de canalización para la ruta de acceso a los datos de entrenamiento para que pueda volver a entrenar el modelo en conjuntos de datos nuevos.
+Agregue parámetros de canalización para establecer variables de forma dinámica en tiempo de ejecución. Para esta canalización, agregue un parámetro para la ruta de acceso a los datos de entrenamiento para que pueda volver a entrenar el modelo en un nuevo conjunto de datos.
 
 1. Seleccione el módulo **Importación de datos**.
 1. En el panel Configuración, seleccione los puntos suspensivos que se encuentran encima del campo **Ruta de acceso**.
@@ -87,11 +87,11 @@ Puede agregar parámetros de canalización para establecer dinámicamente variab
     > [!NOTE]
     > Puede inspeccionar y editar los parámetros de canalización mediante la selección del **icono de engranaje de configuración** situado junto al título del borrador de la canalización. 
 
-[Captura de pantalla que muestra cómo crear un parámetro de canalización](media/how-to-retrain-designer/add-pipeline-parameter.png)
+![Captura de pantalla que muestra cómo crear un parámetro de canalización](media/how-to-retrain-designer/add-pipeline-parameter.png)
 
 ## <a name="publish-a-training-pipeline"></a>Publicación de una canalización de entrenamiento
 
-Al publicar una canalización, se crea un punto de conexión de canalización. Los puntos de conexión de canalización permiten reutilizar y administrar las canalizaciones para la repetibilidad y automatización. En este escenario, publique la canalización de entrenamiento para volver a usarla para volver a entrenar.
+Al publicar una canalización, se crea un punto de conexión de canalización. Los puntos de conexión de canalización permiten reutilizar y administrar las canalizaciones para la repetibilidad y automatización. En este ejemplo, ha configurado la canalización para volver a realizar el entrenamiento.
 
 1. Seleccione la opción **Publicar** situada sobre el lienzo del diseñador.
 1. Seleccione o cree un nuevo punto de conexión de canalización.

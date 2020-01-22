@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 11/07/2019
-ms.openlocfilehash: 48eb9cfe16062ac587a12b845b2fb226ac5faf23
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 1/05/2020
+ms.openlocfilehash: 73314cb2d3ac77347e0de720a6a3ab0084181218
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75348871"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732423"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 
@@ -152,34 +152,57 @@ El grupo de conmutación por error automática debe estar configurado en el serv
 
 Al diseñar un servicio teniendo en cuenta la continuidad empresarial, siga estas directrices:
 
-- **Utilizar uno o varios grupos de conmutación por error para administrar la conmutación por error de varias bases de datos**
+### <a name="using-one-or-several-failover-groups-to-manage-failover-of-multiple-databases"></a>Uso de uno o varios grupos de conmutación por error para administrar la conmutación por error de varias bases de datos
 
-  Se pueden crear uno o más grupos de conmutación por error entre dos servidores en regiones distintas (servidor principal y servidor secundario). Cada grupo puede incluir una o varias bases de datos que se recuperan como unidad en caso de que una o todas las bases de datos principales dejen de estar disponibles debido a una interrupción en la región primaria. El grupo de conmutación por error crea la base de datos geográfica secundaria con el mismo objetivo de servicio que la principal. Si agrega una relación de replicación geográfica existente al grupo de conmutación por error, asegúrese de que la base de datos geográfica secundaria esté configurada con el mismo nivel de servicio y tamaño de proceso que la principal.
+Se pueden crear uno o más grupos de conmutación por error entre dos servidores en regiones distintas (servidor principal y servidor secundario). Cada grupo puede incluir una o varias bases de datos que se recuperan como unidad en caso de que una o todas las bases de datos principales dejen de estar disponibles debido a una interrupción en la región primaria. El grupo de conmutación por error crea la base de datos geográfica secundaria con el mismo objetivo de servicio que la principal. Si agrega una relación de replicación geográfica existente al grupo de conmutación por error, asegúrese de que la base de datos geográfica secundaria esté configurada con el mismo nivel de servicio y tamaño de proceso que la principal.
   
-  > [!IMPORTANT]
-  > La creación de grupos de conmutación por error entre dos servidores en distintas suscripciones no se admite actualmente para bases de datos únicas y grupos elásticos. Si migra el servidor principal o secundario a otra suscripción una vez creado el grupo de conmutación por error, podría dar lugar a errores en las solicitudes de conmutación por error y en otras operaciones.
+> [!IMPORTANT]
+> La creación de grupos de conmutación por error entre dos servidores en distintas suscripciones no se admite actualmente para bases de datos únicas y grupos elásticos. Si migra el servidor principal o secundario a otra suscripción una vez creado el grupo de conmutación por error, podría dar lugar a errores en las solicitudes de conmutación por error y en otras operaciones.
 
-- **Utilizar el agente de escucha de lectura-escritura para la carga de trabajo de OLTP**
+### <a name="using-read-write-listener-for-oltp-workload"></a>Uso del agente de escucha de lectura-escritura para la carga de trabajo de OLTP
 
-  Al realizar operaciones OLTP, use `<fog-name>.database.windows.net` como dirección URL del servidor y las conexiones se redirigirán automáticamente a la base de datos principal. Esta dirección URL no cambia después de la conmutación por error. Tenga en cuenta que la conmutación por error implica actualizar el registro DNS para que las conexiones de cliente se redirijan a la nueva base de datos principal cuando la caché DNS del cliente se haya actualizado.
+Al realizar operaciones OLTP, use `<fog-name>.database.windows.net` como dirección URL del servidor y las conexiones se redirigirán automáticamente a la base de datos principal. Esta dirección URL no cambia después de la conmutación por error. Tenga en cuenta que la conmutación por error implica actualizar el registro DNS para que las conexiones de cliente se redirijan a la nueva base de datos principal cuando la caché DNS del cliente se haya actualizado.
 
-- **Utilizar el agente de escucha de solo lectura para la carga de trabajo de solo lectura**
+### <a name="using-read-only-listener-for-read-only-workload"></a>Uso del agente de escucha de solo lectura para la carga de trabajo de solo lectura
 
-  Si tiene una carga de trabajo de solo lectura que es tolerante a una cierta obsolescencia de los datos, puede usar la base de datos secundaria en la aplicación. Para las sesiones de solo lectura, use `<fog-name>.secondary.database.windows.net` como dirección URL del servidor y la conexión se redirigirá automáticamente a la base de datos secundaria. También se recomienda indicar en la cadena de conexión la intención de lectura mediante `ApplicationIntent=ReadOnly`. Si quiere asegurarse de que la carga de trabajo de solo lectura se puede volver a conectar después de la conmutación por error o en caso de que el servidor secundario se quede sin conexión, asegúrese de configurar la propiedad `AllowReadOnlyFailoverToPrimary` de la directiva de conmutación por error.
+Si tiene una carga de trabajo de solo lectura que es tolerante a una cierta obsolescencia de los datos, puede usar la base de datos secundaria en la aplicación. Para las sesiones de solo lectura, use `<fog-name>.secondary.database.windows.net` como dirección URL del servidor y la conexión se redirigirá automáticamente a la base de datos secundaria. También se recomienda indicar en la cadena de conexión la intención de lectura mediante `ApplicationIntent=ReadOnly`. Si quiere asegurarse de que la carga de trabajo de solo lectura se puede volver a conectar después de la conmutación por error o en caso de que el servidor secundario se quede sin conexión, asegúrese de configurar la propiedad `AllowReadOnlyFailoverToPrimary` de la directiva de conmutación por error.
 
-- **Prepararse para la degradación del rendimiento**
+### <a name="preparing-for-performance-degradation"></a>Preparación para la degradación del rendimiento
 
-  La decisión de la conmutación por error de SQL es independiente del resto de la aplicación o de otros servicios usados. La aplicación puede ser una mezcla de componentes de una región y componentes de otra. Para evitar la degradación, garantice la implementación redundante de la aplicación en la región de recuperación ante desastres y siga estas [instrucciones de seguridad de red](#failover-groups-and-network-security).
+Una aplicación de Azure típica usa varios servicios de Azure y consta de varios componentes. La conmutación por error automatizada del grupo de conmutación por error se desencadena en función del estado de los componentes de Azure SQL. Es posible que otros servicios de Azure de la región primaria no se vean afectados por la interrupción y que sus componentes sigan estando disponibles en esa región. Una vez que las bases de datos principales cambien a la región de DR, la latencia entre los componentes dependientes puede aumentar. Para evitar el impacto de una mayor latencia en el rendimiento de la aplicación, compruebe la redundancia de todos los componentes de la aplicación en la región de DR y siga estas [instrucciones de seguridad de red](#failover-groups-and-network-security).
 
-  > [!NOTE]
-  > La aplicación de la región de recuperación ante desastres no tiene que usar una cadena de conexión diferente.  
+### <a name="preparing-for-data-loss"></a>Preparación para la pérdida de datos
 
-- **Prepararse para la pérdida de datos**
+Si se detecta una interrupción, SQL espera durante el período especificado por `GracePeriodWithDataLossHours`. El valor predeterminado es 1 hora. Si no puede permitirse perder datos, asegúrese de establecer `GracePeriodWithDataLossHours` en un número lo suficientemente grande, por ejemplo, 24 horas. Use un grupo de conmutación por error manual para conmutar por recuperación la base de datos secundaria a la principal.
 
-  Si se detecta una interrupción, SQL espera durante el período especificado por `GracePeriodWithDataLossHours`. El valor predeterminado es 1 hora. Si no puede permitirse perder datos, asegúrese de establecer `GracePeriodWithDataLossHours` en un número lo suficientemente grande, por ejemplo, 24 horas. Use un grupo de conmutación por error manual para conmutar por recuperación la base de datos secundaria a la principal.
+> [!IMPORTANT]
+> Los grupos elásticos con 800 o menos DTU y más de 250 bases de datos que utilizan la replicación geográfica pueden encontrar problemas, como conmutaciones por error planeadas más prolongadas y un menor rendimiento.  Es más probable que estos problemas sucedan con cargas de trabajo intensivas de escritura, cuando los puntos de conexión de replicación geográfica están separados por región geográfica, o cuando se utilizan varios puntos de conexión secundarias para cada base de datos.  Los síntomas de estos problemas aparecen si el intervalo de replicación geográfica aumenta con el tiempo.  Este retardo puede supervisarse con [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Si se producen estos problemas, entre las posibles soluciones está el aumento del número de DTU del grupo o la reducción del número de bases de datos con replicación geográfica en el mismo grupo.
 
-  > [!IMPORTANT]
-  > Los grupos elásticos con 800 o menos DTU y más de 250 bases de datos que utilizan la replicación geográfica pueden encontrar problemas, como conmutaciones por error planeadas más prolongadas y un menor rendimiento.  Es más probable que estos problemas sucedan con cargas de trabajo intensivas de escritura, cuando los puntos de conexión de replicación geográfica están separados por región geográfica, o cuando se utilizan varios puntos de conexión secundarias para cada base de datos.  Los síntomas de estos problemas aparecen si el intervalo de replicación geográfica aumenta con el tiempo.  Este retardo puede supervisarse con [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Si se producen estos problemas, entre las posibles soluciones está el aumento del número de DTU del grupo o la reducción del número de bases de datos con replicación geográfica en el mismo grupo.
+### <a name="changing-secondary-region-of-the-failover-group"></a>Cambio de la región secundaria del grupo de conmutación por error
+
+Para ilustrar la secuencia de cambios, supondremos que el servidor A es el principal, el servidor B es el servidor secundario existente y el servidor C es la nueva instancia secundaria de la tercera región.  Para realizar la transición, siga estos pasos:
+
+1.  Cree instancias secundarias adicionales de cada base de datos del servidor A en el servidor C mediante la [replicación geográfica activa](sql-database-active-geo-replication.md). Cada base de datos del servidor A tendrá dos secundarios, uno en el servidor B y otro en el servidor C. Esto garantizará que las bases de datos principales permanezcan protegidas durante la transición.
+2.  Elimine el grupo de conmutación por error. En este momento, se producirá un error en los inicios de sesión. Esto se debe a que se han eliminado los alias de SQL para los agentes de escucha del grupo de conmutación por error y la puerta de enlace no reconoce el nombre del grupo de conmutación por error.
+3.  Vuelva a crear el grupo de conmutación por error con el mismo nombre entre los servidores A y C. En este momento, se dejarán de producir errores en los inicios de sesión.
+4.  Agregue todas las bases de datos principales del servidor A al nuevo grupo de conmutación por error.
+5.  Quite el servidor B. Todas las bases de datos de dicho servidor se eliminarán automáticamente. 
+
+
+### <a name="changing-primary-region-of-the-failover-group"></a>Cambio de la región primaria del grupo de conmutación por error
+
+Para ilustrar la secuencia de cambios, supondremos que el servidor A es el servidor principal, el servidor B es el servidor secundario existente y el servidor C es la nueva instancia principal de la tercera región.  Para realizar la transición, siga estos pasos:
+
+1.  Realice una conmutación por error planeada para cambiar el servidor principal a B. El servidor A se convertirá en el nuevo servidor secundario. La conmutación por error puede producir varios minutos de tiempo de inactividad. El tiempo real dependerá del tamaño del grupo de conmutación por error.
+2.  Cree instancias secundarias adicionales de cada base de datos del servidor B en el servidor C mediante la [replicación geográfica activa](sql-database-active-geo-replication.md). Cada base de datos del servidor B tendrá dos secundarios, uno en el servidor A y otro en el servidor C. Esto garantizará que las bases de datos principales permanezcan protegidas durante la transición.
+3.  Elimine el grupo de conmutación por error. En este momento, se producirá un error en los inicios de sesión. Esto se debe a que se han eliminado los alias de SQL para los agentes de escucha del grupo de conmutación por error y la puerta de enlace no reconoce el nombre del grupo de conmutación por error.
+4.  Vuelva a crear el grupo de conmutación por error con el mismo nombre entre los servidores A y C. En este momento, se dejarán de producir errores en los inicios de sesión.
+5.  Agregue todas las bases de datos principales del servidor B al nuevo grupo de conmutación por error. 
+6.  Realice una conmutación por error planeada del grupo de conmutación por error para cambiar los servidores B y C. Ahora, el servidor C será el principal y el B será el secundario. Todas las bases de datos secundarias del servidor A se vincularán automáticamente a las instancias principales de C. Como en el paso 1, la conmutación por error puede producir varios minutos de tiempo de inactividad.
+6.  Quite el servidor A. Todas las bases de datos de dicho servidor se eliminarán automáticamente.
+
+> [!IMPORTANT]
+> Cuando se elimina el grupo de conmutación por error, también se eliminan los registros de DNS de los puntos de conexión del agente de escucha. En ese momento, hay una probabilidad distinta de cero de otra persona cree un grupo de conmutación por error o un alias de servidor con el mismo nombre, lo que le impedirá volver a usarlo. Para minimizar el riesgo, no utilice nombres de grupo de conmutación por error genéricos.
 
 ## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Procedimientos recomendados para usar grupos de conmutación por error con instancias administradas
 
@@ -194,62 +217,86 @@ En el siguiente diagrama se ilustra una configuración típica de una aplicació
 
 Si la aplicación usa una instancia administrada como capa de datos, siga estas directrices generales al diseñar para la continuidad empresarial:
 
-- **Crear la instancia secundaria en la misma zona DNS que la principal**
+### <a name="creating-the-secondary-instance"></a>Creación de la instancia secundaria 
 
-  Para garantizar la conectividad sin interrupciones a la instancia principal después de la conmutación por error, las instancias principales y secundarias deben estar en la misma zona DNS. Esto garantizará que se pueda usar el mismo certificado de varios dominios (SAN) para autenticar las conexiones de cliente a cualquiera de las dos instancias del grupo de conmutación por error. Cuando la aplicación esté lista para la implementación en producción, cree una instancia secundaria en una región distinta y asegúrese de que comparte la zona DNS con la instancia principal. Para ello, especifique un parámetro `DNS Zone Partner` opcional mediante Azure Portal, PowerShell o la API de REST.
+Para garantizar la conectividad sin interrupciones a la instancia principal después de la conmutación por error, las instancias principales y secundarias deben estar en la misma zona DNS. Esto garantizará que se pueda usar el mismo certificado de varios dominios (SAN) para autenticar las conexiones de cliente a cualquiera de las dos instancias del grupo de conmutación por error. Cuando la aplicación esté lista para la implementación en producción, cree una instancia secundaria en una región distinta y asegúrese de que comparte la zona DNS con la instancia principal. Para ello, especifique un parámetro `DNS Zone Partner` opcional mediante Azure Portal, PowerShell o la API de REST.
 
 > [!IMPORTANT]
 > La primera instancia creada en la subred determina la zona DNS de todas las instancias posteriores de la misma subred. Esto significa que dos instancias de la misma subred no pueden pertenecer a zonas DNS diferentes.
 
-  Para obtener más información sobre cómo crear la instancia secundaria en la misma zona DNS que la instancia principal, consulte [Creación de una instancia administrada secundaria](sql-database-managed-instance-failover-group-tutorial.md#3---create-a-secondary-managed-instance).
+Para obtener más información sobre cómo crear la instancia secundaria en la misma zona DNS que la instancia principal, consulte [Creación de una instancia administrada secundaria](sql-database-managed-instance-failover-group-tutorial.md#3---create-a-secondary-managed-instance).
 
-- **Habilitar el tráfico de replicación entre dos instancias**
+### <a name="enabling-replication-traffic-between-two-instances"></a>Habilitación del tráfico de replicación entre dos instancias
 
-  Dado que cada instancia está aislada en su propia red virtual, se debe permitir el tráfico bidireccional entre estas redes virtuales. Consulte [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Dado que cada instancia está aislada en su propia red virtual, se debe permitir el tráfico bidireccional entre estas redes virtuales. Consulte [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-- **Crear un grupo de conmutación por error entre instancias administradas en distintas suscripciones**
+### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Creación de un grupo de conmutación por error entre instancias administradas en distintas suscripciones
 
-  Puede crear un grupo de conmutación por error entre instancias administradas en dos suscripciones diferentes. Al usar PowerShell API, puede hacerlo especificando el parámetro `PartnerSubscriptionId` de la instancia secundaria. Al usar la API REST, cada identificador de instancia incluido en el parámetro `properties.managedInstancePairs` puede tener su propio subscriptionID.
+Puede crear un grupo de conmutación por error entre instancias administradas en dos suscripciones diferentes. Al usar PowerShell API, puede hacerlo especificando el parámetro `PartnerSubscriptionId` de la instancia secundaria. Al usar la API REST, cada identificador de instancia incluido en el parámetro `properties.managedInstancePairs` puede tener su propio subscriptionID.
   
-  > [!IMPORTANT]
-  > Azure Portal no admite grupos de conmutación por error en distintas suscripciones.
+> [!IMPORTANT]
+> Azure Portal no admite grupos de conmutación por error en distintas suscripciones.
 
-- **Configurar un grupo de conmutación por error para administrar la conmutación por error de la instancia completa**
+### <a name="managing-failover-to-secondary-instance"></a>Administración de la conmutación por error en la instancia secundaria
 
-  El grupo de conmutación por error administrará la conmutación por error de todas las bases de datos de la instancia. Cuando se crea un grupo, cada base de datos de la instancia se replicará geográficamente de manera automática a la instancia secundaria. No se pueden usar grupos de conmutación por error para iniciar una conmutación por error parcial de un subconjunto de las bases de datos.
+El grupo de conmutación por error administrará la conmutación por error de todas las bases de datos de la instancia. Cuando se crea un grupo, cada base de datos de la instancia se replicará geográficamente de manera automática a la instancia secundaria. No se pueden usar grupos de conmutación por error para iniciar una conmutación por error parcial de un subconjunto de las bases de datos.
 
-  > [!IMPORTANT]
-  > Si se quita una base de datos de la instancia principal, también se eliminará automáticamente en la instancia secundaria de replicación geográfica.
+> [!IMPORTANT]
+> Si se quita una base de datos de la instancia principal, también se eliminará automáticamente en la instancia secundaria de replicación geográfica.
 
-- **Utilizar el agente de escucha de lectura-escritura para la carga de trabajo de OLTP**
+### <a name="using-read-write-listener-for-oltp-workload"></a>Uso del agente de escucha de lectura-escritura para la carga de trabajo de OLTP
 
-  Al realizar operaciones OLTP, use `<fog-name>.zone_id.database.windows.net` como dirección URL del servidor y las conexiones se redirigirán automáticamente a la base de datos principal. Esta dirección URL no cambia después de la conmutación por error. La conmutación por error implica actualizar el registro DNS para que las conexiones de cliente se redirijan a la nueva base de datos principal cuando la caché DNS del cliente se haya actualizado. Dado que la instancia secundaria comparte la zona DNS con la principal, la aplicación cliente podrá volver a conectarse a ella con el mismo certificado de SAN.
+Al realizar operaciones OLTP, use `<fog-name>.zone_id.database.windows.net` como dirección URL del servidor y las conexiones se redirigirán automáticamente a la base de datos principal. Esta dirección URL no cambia después de la conmutación por error. La conmutación por error implica actualizar el registro DNS para que las conexiones de cliente se redirijan a la nueva base de datos principal cuando la caché DNS del cliente se haya actualizado. Dado que la instancia secundaria comparte la zona DNS con la principal, la aplicación cliente podrá volver a conectarse a ella con el mismo certificado de SAN.
 
-- **Conectar directamente a la base de datos secundaria con replicación geográfica para las consultas de solo lectura**
+### <a name="using-read-only-listener-to-connect-to-the-secondary-instance"></a>Uso del agente de escucha de solo lectura para conectarse a la instancia secundaria
 
-  Si tiene una carga de trabajo de solo lectura que es tolerante a una cierta obsolescencia de los datos, puede usar la base de datos secundaria en la aplicación. Para conectarse directamente a la base de datos secundaria con replicación geográfica, use `server.secondary.zone_id.database.windows.net` como dirección URL del servidor y la conexión se realizará directamente a dicha base de datos.
+Si tiene una carga de trabajo de solo lectura que es tolerante a una cierta obsolescencia de los datos, puede usar la base de datos secundaria en la aplicación. Para conectarse directamente a la base de datos secundaria con replicación geográfica, use `server.secondary.zone_id.database.windows.net` como dirección URL del servidor y la conexión se realizará directamente a dicha base de datos.
 
-  > [!NOTE]
-  > En determinados niveles de servicio, Azure SQL Database admite el uso de [réplicas de solo lectura](sql-database-read-scale-out.md) para equilibrar las cargas de trabajo de consultas de solo lectura mediante la capacidad de una réplica de solo lectura y el uso del parámetro `ApplicationIntent=ReadOnly` en la cadena de conexión. Cuando se ha configurado una base de datos secundaria con replicación geográfica, puede usar esta funcionalidad para conectarse a una réplica de solo lectura de la ubicación principal o de la ubicación con replicación geográfica.
-  > - Para conectarse a una réplica de solo lectura en la ubicación principal, use `<fog-name>.zone_id.database.windows.net`.
-  > - Para conectarse a una réplica de solo lectura en la ubicación secundaria, use `<fog-name>.secondary.zone_id.database.windows.net`.
+> [!NOTE]
+> En determinados niveles de servicio, Azure SQL Database admite el uso de [réplicas de solo lectura](sql-database-read-scale-out.md) para equilibrar las cargas de trabajo de consultas de solo lectura mediante la capacidad de una réplica de solo lectura y el uso del parámetro `ApplicationIntent=ReadOnly` en la cadena de conexión. Cuando se ha configurado una base de datos secundaria con replicación geográfica, puede usar esta funcionalidad para conectarse a una réplica de solo lectura de la ubicación principal o de la ubicación con replicación geográfica.
+> - Para conectarse a una réplica de solo lectura en la ubicación principal, use `<fog-name>.zone_id.database.windows.net`.
+> - Para conectarse a una réplica de solo lectura en la ubicación secundaria, use `<fog-name>.secondary.zone_id.database.windows.net`.
 
-- **Prepararse para la degradación del rendimiento**
+### <a name="preparing-for-performance-degradation"></a>Preparación para la degradación del rendimiento
 
-  La decisión de la conmutación por error de SQL es independiente del resto de la aplicación o de otros servicios usados. La aplicación puede ser una mezcla de componentes de una región y componentes de otra. Para evitar la degradación, garantice la implementación redundante de la aplicación en la región de recuperación ante desastres y siga estas [instrucciones de seguridad de red](#failover-groups-and-network-security).
+Una aplicación de Azure típica usa varios servicios de Azure y consta de varios componentes. La conmutación por error automatizada del grupo de conmutación por error se desencadena en función del estado de los componentes de Azure SQL. Es posible que otros servicios de Azure de la región primaria no se vean afectados por la interrupción y que sus componentes sigan estando disponibles en esa región. Una vez que las bases de datos principales cambien a la región de DR, la latencia entre los componentes dependientes puede aumentar. Para evitar el impacto de una mayor latencia en el rendimiento de la aplicación, compruebe la redundancia de todos los componentes de la aplicación en la región de DR y siga estas [instrucciones de seguridad de red](#failover-groups-and-network-security).
 
-- **Prepararse para la pérdida de datos**
+### <a name="preparing-for-data-loss"></a>Preparación para la pérdida de datos
 
-  Si se detecta una interrupción, SQL desencadena automáticamente la conmutación por error de lectura/escritura si nos consta que hay cero pérdida de datos. En caso contrario, espera el período especificado por `GracePeriodWithDataLossHours`. Si especificó `GracePeriodWithDataLossHours`, prepárese para la pérdida de datos. Por lo general, durante las interrupciones, Azure favorece la disponibilidad. Si no puede permitirse perder datos, asegúrese de establecer GracePeriodWithDataLossHours en un número lo suficientemente grande, por ejemplo, 24 horas.
+Si se detecta una interrupción, SQL desencadena automáticamente la conmutación por error de lectura/escritura si nos consta que hay cero pérdida de datos. En caso contrario, espera el período especificado por `GracePeriodWithDataLossHours`. Si especificó `GracePeriodWithDataLossHours`, prepárese para la pérdida de datos. Por lo general, durante las interrupciones, Azure favorece la disponibilidad. Si no puede permitirse perder datos, asegúrese de establecer GracePeriodWithDataLossHours en un número lo suficientemente grande, por ejemplo, 24 horas.
 
-  La actualización de DNS del agente de escucha de lectura y escritura sucederá inmediatamente después de que se inicie la conmutación por error. Esta operación no ocasionará pérdida de datos. Sin embargo, el proceso de conmutación de roles de base de datos puede tardar hasta 5 minutos en condiciones normales. Hasta que se complete, algunas bases de datos de la nueva instancia principal seguirán siendo de solo lectura. Si se inicia la conmutación por error mediante PowerShell, toda la operación es sincrónica. Si se inicia mediante Azure Portal, la interfaz de usuario indicará el estado de finalización. Si se inicia mediante la API REST, use el mecanismo de sondeo estándar de Azure Resource Manager para supervisar la finalización.
+La actualización de DNS del agente de escucha de lectura y escritura sucederá inmediatamente después de que se inicie la conmutación por error. Esta operación no ocasionará pérdida de datos. Sin embargo, el proceso de conmutación de roles de base de datos puede tardar hasta 5 minutos en condiciones normales. Hasta que se complete, algunas bases de datos de la nueva instancia principal seguirán siendo de solo lectura. Si se inicia la conmutación por error mediante PowerShell, toda la operación es sincrónica. Si se inicia mediante Azure Portal, la interfaz de usuario indicará el estado de finalización. Si se inicia mediante la API REST, use el mecanismo de sondeo estándar de Azure Resource Manager para supervisar la finalización.
 
-  > [!IMPORTANT]
-  > Use un grupo de conmutación por error manual para mover las bases de datos principales de vuelta a la ubicación original. Cuando se corrija la interrupción que causó la conmutación por error, puede mover las bases de datos principales a la ubicación original. Para ello, debe iniciar la conmutación por error manual del grupo.
+> [!IMPORTANT]
+> Use un grupo de conmutación por error manual para mover las bases de datos principales de vuelta a la ubicación original. Cuando se corrija la interrupción que causó la conmutación por error, puede mover las bases de datos principales a la ubicación original. Para ello, debe iniciar la conmutación por error manual del grupo.
+  
+### <a name="changing-secondary-region-of-the-failover-group"></a>Cambio de la región secundaria del grupo de conmutación por error
 
-- **Reconocimiento de las limitaciones conocidas de los grupos de conmutación por error**
+Supongamos que la instancia A es la principal, la B es la instancia secundaria existente y la C es la nueva instancia secundaria de la tercera región.  Para realizar la transición, siga estos pasos:
 
-  No se admiten los cambios de nombre de base de datos para las instancias del grupo de conmutación por error. Tendrá que eliminar temporalmente el grupo de conmutación por error para poder cambiar el nombre a una base de datos.
+1.  Cree la instancia C con el mismo tamaño que la instancia A y en la misma zona DNS. 
+2.  Elimine el grupo de conmutación por error entre las instancias A y B. En este momento, se producirá un error en los inicios de sesión porque se han eliminado los alias de SQL de los agentes de escucha del grupo de conmutación por error y la puerta de enlace no reconocerá el nombre del grupo de conmutación por error. Las bases de datos secundarias se desconectarán de las principales y se convertirán en bases de datos de lectura y escritura. 
+3.  Cree un grupo de conmutación por error con el mismo nombre entre las instancias A y C. Siga las instrucciones del [tutorial sobre el grupo de conmutación por error con instancia administrada](sql-database-managed-instance-failover-group-tutorial.md). Se trata de una operación de tamaño de datos, que se completará cuando todas las bases de datos de la instancia A se inicialicen y se sincronicen.
+4.  Si no es necesario, elimine la instancia B para evitar cargos innecesarios.
+
+> [!NOTE]
+> Después del paso 2 y hasta que se complete el paso 3, las bases de datos de la instancia A permanecerán desprotegidas frente a un error catastrófico en la instancia A.
+
+### <a name="changing-primary-region-of-the-failover-group"></a>Cambio de la región primaria del grupo de conmutación por error
+
+Supongamos que la instancia A es la principal, la B es la instancia secundaria existente y la C es la nueva instancia principal de la tercera región.  Para realizar la transición, siga estos pasos:
+
+1.  Cree la instancia C con el mismo tamaño que la instancia B y en la misma zona DNS. 
+2.  Conéctese a la instancia B y conmute por error manualmente para cambiar la instancia principal a B. La instancia A se convertirá en la nueva instancia secundaria automáticamente.
+3.  Elimine el grupo de conmutación por error entre las instancias A y B. En este momento, se producirá un error en los inicios de sesión porque se han eliminado los alias de SQL de los agentes de escucha del grupo de conmutación por error y la puerta de enlace no reconocerá el nombre del grupo de conmutación por error. Las bases de datos secundarias se desconectarán de las principales y se convertirán en bases de datos de lectura y escritura. 
+4.  Cree un grupo de conmutación por error con el mismo nombre entre las instancias A y C. Siga las instrucciones del [tutorial sobre el grupo de conmutación por error con instancia administrada](sql-database-managed-instance-failover-group-tutorial.md). Se trata de una operación de tamaño de datos, que se completará cuando todas las bases de datos de la instancia A se inicialicen y se sincronicen.
+5.  Si no es necesario, elimine la instancia A para evitar cargos innecesarios.
+
+> [!NOTE] 
+> Después del paso 3 y hasta que se complete el paso 4, las bases de datos de la instancia A permanecerán desprotegidas frente a un error catastrófico en la instancia A.
+
+> [!IMPORTANT]
+> Cuando se elimina el grupo de conmutación por error, también se eliminan los registros de DNS de los puntos de conexión del agente de escucha. En ese momento, hay una probabilidad distinta de cero de otra persona cree un grupo de conmutación por error o un alias de servidor con el mismo nombre, lo que le impedirá volver a usarlo. Para minimizar el riesgo, no utilice nombres de grupo de conmutación por error genéricos.
 
 ## <a name="failover-groups-and-network-security"></a>Grupos de conmutación por error y la seguridad de red
 
@@ -290,16 +337,16 @@ La configuración anterior garantizará que la conmutación por error automátic
 Al configurar un grupo de conmutación por error entre instancias administradas principales y secundarias en dos regiones diferentes, cada instancia se aísla mediante una red virtual independiente. Para permitir el tráfico de replicación entre estas redes virtuales, asegúrese de que se cumplen estos requisitos previos:
 
 1. Las dos instancias administradas deben estar en diferentes regiones de Azure.
-1. Las dos instancias administradas deben ser del mismo nivel de servicio y tener el mismo tamaño de almacenamiento.
-1. La instancia administrada secundaria debe estar vacía (sin bases de datos de usuario).
-1. Las redes virtuales que usan las instancias administradas deben estar conectadas mediante [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) o ExpressRoute. Si dos redes virtuales se conectan a través de una red local, asegúrese de que no haya ninguna regla de firewall bloqueando los puertos 5022 y 11000-11999. No se admite el emparejamiento de VNet global.
-1. Las dos redes virtuales de instancia administrada no pueden tener direcciones IP superpuestas.
-1. Debe configurar sus grupos de seguridad de red (NSG) de forma que los puertos 5022 y el intervalo 11000~12000 estén abiertos a las conexiones entrantes y salientes desde la otra subred con instancia administrada. Esto es para permitir el tráfico de replicación entre las instancias.
+2. Las dos instancias administradas deben ser del mismo nivel de servicio y tener el mismo tamaño de almacenamiento.
+3. La instancia administrada secundaria debe estar vacía (sin bases de datos de usuario).
+4. Las redes virtuales que se usan en las instancias administradas deben estar conectadas mediante [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Si dos redes virtuales se conectan a través de una red local, asegúrese de que no haya ninguna regla de firewall bloqueando los puertos 5022 y 11000-11999. No se admite el emparejamiento de VNet global.
+5. Las dos redes virtuales de instancia administrada no pueden tener direcciones IP superpuestas.
+6. Debe configurar sus grupos de seguridad de red (NSG) de forma que los puertos 5022 y el intervalo 11000~12000 estén abiertos a las conexiones entrantes y salientes de la subred de la otra instancia administrada. Esto es para permitir el tráfico de replicación entre las instancias.
 
    > [!IMPORTANT]
    > Las reglas de seguridad de NSG mal configuradas dan lugar a operaciones de copia de base de datos bloqueadas.
 
-1. La instancia secundaria está configurada con el identificador de zona DNS correcto. La zona DNS es una propiedad de una instancia administrada y un clúster virtual, cuyo identificador se incluye en la dirección del nombre de host. El identificador de zona se genera como una cadena aleatoria cuando se crea la primera instancia administrada en cada red virtual, y este mismo identificador se asigna a todas las demás instancias de la subred. Una vez que se ha asignado, no se puede modificar la zona DNS. Las instancias administradas incluidas en el mismo grupo de conmutación por error deben compartir la zona DNS. Para lograrlo, debe pasar el identificador de zona de la instancia principal como valor del parámetro DnsZonePartner al crear la instancia secundaria. 
+7. La instancia secundaria está configurada con el identificador de zona DNS correcto. La zona DNS es una propiedad de una instancia administrada y un clúster virtual, cuyo identificador se incluye en la dirección del nombre de host. El identificador de zona se genera como una cadena aleatoria cuando se crea la primera instancia administrada en cada red virtual, y este mismo identificador se asigna a todas las demás instancias de la subred. Una vez que se ha asignado, no se puede modificar la zona DNS. Las instancias administradas incluidas en el mismo grupo de conmutación por error deben compartir la zona DNS. Para lograrlo, debe pasar el identificador de zona de la instancia principal como valor del parámetro DnsZonePartner al crear la instancia secundaria. 
 
    > [!NOTE]
    > Consulte [Adición de una instancia administrada a un grupo de conmutación por error](sql-database-managed-instance-failover-group-tutorial.md) para obtener un tutorial detallado sobre la configuración de grupos de conmutación por error con una instancia administrada.
@@ -324,6 +371,14 @@ Debido a la elevada latencia de las redes de área extensa, la copia continua us
 
 Para información sobre el uso de la restauración a un momento dado con grupos de conmutación por error, consulte [Recuperación a un momento dado (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
 
+## <a name="limitations-of-failover-groups"></a>Limitaciones de los grupos de conmutación por error
+
+Tenga en cuenta las siguientes limitaciones:
+
+- No se puede crear el grupo de conmutación por error entre dos servidores o instancias en las mismas regiones de Azure.
+- No se puede cambiar el nombre del grupo de conmutación por error. Tendrá que eliminar el grupo y volver a crearlo con un nombre diferente. 
+- No se admiten los cambios de nombre de base de datos para las instancias del grupo de conmutación por error. Tendrá que eliminar temporalmente el grupo de conmutación por error para poder cambiar el nombre a una base de datos.
+
 ## <a name="programmatically-managing-failover-groups"></a>Administración mediante programación de grupos de conmutación por error
 
 Como se ha mencionado antes, los grupos de conmutación automática por error y la replicación geográfica activa también pueden administrarse mediante programación con Azure PowerShell y la API REST. En las tablas siguientes se describe el conjunto de comandos disponibles. La replicación geográfica activa incluye un conjunto de API de Azure Resource Manager para la administración, en el que se incluyen la [API REST de Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) y los [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Estas API requieren que se usen grupos de recursos y admiten la seguridad basada en roles (RBAC). Para más información sobre cómo implementar los roles de acceso, consulte [Control de acceso basado en roles de Azure](../role-based-access-control/overview.md).
@@ -335,20 +390,20 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 | Cmdlet | Descripción |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
-| [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Quita el grupo de conmutación por error del servidor y elimina todas las bases de datos secundarias incluidas en el grupo |
-| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Recupera la configuración del grupo de conmutación por error |
-| [Set-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Modifica la configuración del grupo de conmutación por error |
-| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | Desencadena la conmutación por error del grupo de conmutación por error al servidor secundario |
-| [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|Agrega una o varias bases de datos a un grupo de conmutación por error de Azure SQL Database.|
+| [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Quita un grupo de conmutación por error del servidor. |
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Recupera la configuración de un grupo de conmutación por error. |
+| [Set-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Modifica la configuración de un grupo de conmutación por error. |
+| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | Desencadena la conmutación por error de un grupo de conmutación por error en el servidor secundario. |
+| [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|Agrega una o varias bases de datos a un grupo de conmutación por error.|
 
 ### <a name="manage-sql-database-failover-groups-with-managed-instances"></a>Administración de grupos de conmutación por error de SQL Database con instancias administradas
 
 | Cmdlet | Descripción |
 | --- | --- |
-| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup) |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
-| [Set-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Modifica la configuración del grupo de conmutación por error|
-| [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) |Recupera la configuración del grupo de conmutación por error|
-| [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) |Desencadena la conmutación por error del grupo de conmutación por error al servidor secundario|
+| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup) |Este comando crea un grupo de conmutación por error y lo registra en las instancias principal y secundaria.|
+| [Set-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Modifica la configuración de un grupo de conmutación por error.|
+| [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) |Recupera la configuración de un grupo de conmutación por error.|
+| [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) |Desencadena la conmutación por error de un grupo de conmutación por error en la instancia secundaria.|
 | [Remove-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/remove-azsqldatabaseinstancefailovergroup) | Quita un grupo de conmutación por error.|
 
 # <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
@@ -358,19 +413,19 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 | Get-Help | Descripción |
 | --- | --- |
 | [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
-| [az sql failover-group delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Quita el grupo de conmutación por error del servidor y elimina todas las bases de datos secundarias incluidas en el grupo |
-| [az sql failover-group show](/cli/azure/sql/failover-group#az-sql-failover-group-show) | Recupera la configuración del grupo de conmutación por error |
-| [az sql failover-group update](/cli/azure/sql/failover-group#az-sql-failover-group-update) |Modifica la configuración del grupo de conmutación por error o agrega una o varias bases de datos a un grupo de conmutación por error de Azure SQL Database.|
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Desencadena la conmutación por error del grupo de conmutación por error al servidor secundario |
+| [az sql failover-group delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Quita un grupo de conmutación por error del servidor. |
+| [az sql failover-group show](/cli/azure/sql/failover-group#az-sql-failover-group-show) | Recupera la configuración de un grupo de conmutación por error. |
+| [az sql failover-group update](/cli/azure/sql/failover-group#az-sql-failover-group-update) |Modifica la configuración de un grupo de conmutación por error, o bien agrega una o varias bases de datos a un grupo de conmutación por error.|
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Desencadena la conmutación por error de un grupo de conmutación por error en el servidor secundario. |
 
 ### <a name="manage-sql-database-failover-groups-with-managed-instances"></a>Administración de grupos de conmutación por error de SQL Database con instancias administradas
 
 | Get-Help | Descripción |
 | --- | --- |
-| [az sql instance-failover-group create](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-create) | Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
-| [az sql instance-failover-group update](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-update) | Modifica la configuración del grupo de conmutación por error|
-| [az sql instance-failover-group show](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-show) | Recupera la configuración del grupo de conmutación por error|
-| [az sql instance-failover-group set-primary](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-set-primary) | Desencadena la conmutación por error del grupo de conmutación por error al servidor secundario|
+| [az sql instance-failover-group create](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-create) | Este comando crea un grupo de conmutación por error y lo registra en las instancias principal y secundaria. |
+| [az sql instance-failover-group update](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-update) | Modifica la configuración de un grupo de conmutación por error.|
+| [az sql instance-failover-group show](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-show) | Recupera la configuración de un grupo de conmutación por error.|
+| [az sql instance-failover-group set-primary](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-set-primary) | Desencadena la conmutación por error de un grupo de conmutación por error en la instancia secundaria.|
 | [az sql instance-failover-group delete](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-delete) | Quita un grupo de conmutación por error. |
 
 * * *
@@ -383,22 +438,22 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 | API | Descripción |
 | --- | --- |
 | [Crear o actualizar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Crea o actualiza un grupo de conmutación por error. |
-| [Eliminar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Quita el grupo de conmutación por error del servidor. |
-| [Conmutación por error (planeada)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Conmuta por error desde el servidor principal actual en este servidor. |
-| [Forzar la conmutación por error ocasiona la pérdida de datos](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) |Conmuta por error desde el servidor principal actual en este servidor. Esta operación puede ocasionar pérdida de datos. |
-| [Obtener grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Obtiene un grupo de conmutación por error. |
-| [Enumerar grupos de conmutación por error por servidor](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Enumera los grupos de conmutación por error de un servidor. |
-| [Actualizar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Actualiza un grupo de conmutación por error. |
+| [Eliminar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Quita un grupo de conmutación por error del servidor. |
+| [Conmutación por error (planeada)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Desencadena la conmutación por error del servidor principal actual en el servidor secundario con sincronización de datos completa.|
+| [Forzar la conmutación por error ocasiona la pérdida de datos](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) | Desencadena la conmutación por error del servidor principal actual en el servidor secundario sin sincronización de datos. Esta operación puede ocasionar pérdida de datos. |
+| [Obtener grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Recupera la configuración de un grupo de conmutación por error. |
+| [Enumerar grupos de conmutación por error por servidor](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Enumera los grupos de conmutación por error en un servidor. |
+| [Actualizar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Actualiza la configuración de un grupo de conmutación por error. |
 
 ### <a name="rest-api-manage-failover-groups-with-managed-instances"></a>API REST: Administración de grupos de conmutación por error con instancias administradas
 
 | API | Descripción |
 | --- | --- |
-| [Crear o actualizar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Crea o actualiza un grupo de conmutación por error. |
-| [Eliminar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Quita el grupo de conmutación por error del servidor. |
-| [Conmutación por error (planeada)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Conmuta por error desde el servidor principal actual en este servidor. |
-| [Forzar la conmutación por error ocasiona la pérdida de datos](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |Conmuta por error desde el servidor principal actual en este servidor. Esta operación puede ocasionar pérdida de datos. |
-| [Obtener grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Obtiene un grupo de conmutación por error. |
+| [Crear o actualizar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Crea o actualiza la configuración de un grupo de conmutación por error. |
+| [Eliminar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Quita un grupo de conmutación por error de la instancia. |
+| [Conmutación por error (planeada)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Desencadena la conmutación por error del servidor principal actual en esta instancia con sincronización de datos completa. |
+| [Forzar la conmutación por error ocasiona la pérdida de datos](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) | Desencadena la conmutación por error de la instancia principal actual en la instancia secundaria sin sincronización de datos. Esta operación puede ocasionar pérdida de datos. |
+| [Obtener grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Recupera la configuración de un grupo de conmutación por error. |
 | [Lista de grupos de conmutación por error: por ubicación](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Enumera los grupos de conmutación por error de una ubicación. |
 
 ## <a name="next-steps"></a>Pasos siguientes

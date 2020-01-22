@@ -8,12 +8,12 @@ ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 19b5635d8444c28e66bcf4c6d34f602c9914e7e4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e7d5438c03fa8fd61dc0d5b89bbb197092c6873e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75371537"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772081"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferencia de datos con AzCopy y Blob Storage
 
@@ -244,40 +244,52 @@ En esta sección se incluyen los ejemplos siguientes:
 > * Copia de un contenedor a otra cuenta de almacenamiento
 > * Copia de todos los contenedores, directorios y archivos a otra cuenta de almacenamiento
 
-Estos ejemplos también funcionan con las cuentas que tienen un espacio de nombres jerárquico.
-
 Para obtener documentos de referencia detallados, consulte [azcopy copy](storage-ref-azcopy-copy.md).
 
 > [!TIP]
 > En los ejemplos de esta sección se delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
+ Estos ejemplos también funcionan con las cuentas que tienen un espacio de nombres jerárquico. El [acceso multiprotocolo en Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) le permite usar la misma sintaxis de URL (`blob.core.windows.net`) en esas cuentas. 
+
 ### <a name="copy-a-blob-to-another-storage-account"></a>Copia de un blob a otra cuenta de almacenamiento
+
+Use la misma sintaxis de URL (`blob.core.windows.net`) para las cuentas que tienen un espacio de nombres jerárquico.
 
 |    |     |
 |--------|-----------|
 | **Sintaxis** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>?<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>'` |
 | **Ejemplo** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
+| **Ejemplo** (espacio de nombres jerárquico) | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
 
 ### <a name="copy-a-directory-to-another-storage-account"></a>Copia de un directorio a otra cuenta de almacenamiento
+
+Use la misma sintaxis de URL (`blob.core.windows.net`) para las cuentas que tienen un espacio de nombres jerárquico.
 
 |    |     |
 |--------|-----------|
 | **Sintaxis** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>?<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
 | **Ejemplo** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
+| **Ejemplo** (espacio de nombres jerárquico)| `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 
 ### <a name="copy-a-container-to-another-storage-account"></a>Copia de un contenedor a otra cuenta de almacenamiento
+
+Use la misma sintaxis de URL (`blob.core.windows.net`) para las cuentas que tienen un espacio de nombres jerárquico.
 
 |    |     |
 |--------|-----------|
 | **Sintaxis** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
 | **Ejemplo** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
+| **Ejemplo** (espacio de nombres jerárquico)| `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 
 ### <a name="copy-all-containers-directories-and-blobs-to-another-storage-account"></a>Copia de todos los contenedores, directorios y blobs en otra cuenta de almacenamiento
+
+Use la misma sintaxis de URL (`blob.core.windows.net`) para las cuentas que tienen un espacio de nombres jerárquico.
 
 |    |     |
 |--------|-----------|
 | **Sintaxis** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/?<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/' --recursive` |
 | **Ejemplo** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive` |
+| **Ejemplo** (espacio de nombres jerárquico)| `azcopy copy 'https://mysourceaccount.blob.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive` |
 
 ## <a name="synchronize-files"></a>Sincronización de archivos
 

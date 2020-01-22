@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: ff42c6e9bd3c25721d2b77e49c2dd98a3eebdb43
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: f5fa39e07eba6bdf24d96e72c9229e215ff6730b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048724"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772047"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico de Standard Load Balancer con métricas, alertas y estado de los recursos
 
 Azure Standard Load Balancer proporciona las siguientes funcionalidades de diagnóstico:
 
-* **Métricas y alertas multidimensionales**: Proporciona nuevas funcionalidades de diagnóstico multidimensionales para configuraciones de Standard Load Balancer mediante [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview). Puede supervisar, administrar y solucionar problemas con los recursos del equilibrador de carga estándar.
+* **Métricas y alertas multidimensionales**: Proporciona funcionalidades de diagnóstico multidimensionales para configuraciones de Standard Load Balancer mediante [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview). Puede supervisar, administrar y solucionar problemas con los recursos del equilibrador de carga estándar.
 
 * **Estado de los recursos**: La página Load Balancer en Azure Portal y la página Resource Health (en Monitor) exponen la sección Resource Health de Standard Load Balancer. 
 
@@ -31,18 +31,18 @@ En este artículo se proporciona una introducción a estas funcionalidades y man
 
 ## <a name = "MultiDimensionalMetrics"></a>Métricas multidimensionales
 
-Azure Load Balancer proporciona las nuevas métricas multidimensionales en la nueva página Métricas de Azure (versión preliminar) de Azure Portal y le ayuda a obtener información detallada de diagnóstico en tiempo real sobre los recursos del equilibrador de carga. 
+Azure Load Balancer proporciona métricas multidimensionales en la página Métricas de Azure de Azure Portal y le ayuda a obtener información detallada de diagnóstico en tiempo real sobre los recursos del equilibrador de carga. 
 
 Las distintas configuraciones de Load Balancer Estándar proporcionan las siguientes métricas:
 
-| Métrica | Tipo de recurso | DESCRIPCIÓN | Agregación recomendada |
+| Métrica | Tipo de recurso | Descripción | Agregación recomendada |
 | --- | --- | --- | --- |
-| Disponibilidad de ruta de acceso de datos (disponibilidad VIP)| Equilibrador de carga interno y público | Load Balancer Estándar usa continuamente la ruta de acceso a los datos desde una región hasta el servidor front-end del equilibrador de carga y, finalmente, hasta la pila de SDN que respalda la máquina virtual. Siempre que permanezcan las instancias correctas, la medida sigue la misma ruta de acceso que el tráfico con equilibrio de carga de las aplicaciones. También se valida la ruta de acceso a los datos que usan los clientes. La medida es invisible para la aplicación y no interfiere con otras operaciones.| Media |
-| Estado de sondeo de mantenimiento (disponibilidad DIP) | Equilibrador de carga interno y público | Load Balancer Estándar usa un servicio de sondeo de mantenimiento distribuido que supervisa el mantenimiento del punto de conexión de la aplicación de acuerdo con la configuración. Esta métrica proporciona una vista agregada o filtrada por punto de conexión de cada punto de conexión de instancia del grupo del equilibrador de carga. Puede ver cómo Load Balancer observa el estado de su aplicación según se indica en la configuración de sondeo de estado. |  Media |
-| Paquetes SYN (sincronizar) | Equilibrador de carga interno y público | Load Balancer Estándar no finaliza las conexiones de Protocolo de control de transmisión (TCP) ni interactúa con los flujos de paquetes TCP o UDP. Los flujos y los protocolos de enlace son siempre entre el origen y la instancia de máquina virtual. Para solucionar mejor los escenarios de protocolo TCP, puede hacer uso de estos contadores de paquetes SYN para saber el número de intentos de conexión TCP realizados. La métrica indica el número de paquetes TCP SYN recibidos.| Media |
-| Conexiones SNAT | Equilibrador de carga público |Load Balancer Estándar informa del número de flujos salientes enmascarados en el servidor front-end de dirección IP pública. Los puertos de traducción de direcciones de red de origen (SNAT) son un recurso agotable. Esta métrica puede proporcionar una indicación de la dependencia que su aplicación tiene de SNAT en los flujos salientes originados. Los contadores de los flujos de salida de SNAT que se realizaron con éxito y los que tuvieron algún error se notifican y se pueden utilizar para solucionar problemas y comprender el estado de los flujos de salida.| Media |
-| Contadores de bytes |  Equilibrador de carga interno y público | Load Balancer Estándar informa de los datos procesados por front-end.| Media |
-| Contadores de paquetes |  Equilibrador de carga interno y público | Load Balancer Estándar informa de los paquetes procesados por front-end.| Media |
+| Disponibilidad de ruta de acceso de datos (disponibilidad VIP)| Equilibrador de carga interno y público | Load Balancer Estándar usa continuamente la ruta de acceso a los datos desde una región hasta el servidor front-end del equilibrador de carga y, finalmente, hasta la pila de SDN que respalda la máquina virtual. Siempre que permanezcan las instancias correctas, la medida sigue la misma ruta de acceso que el tráfico con equilibrio de carga de las aplicaciones. También se valida la ruta de acceso a los datos que usan los clientes. La medida es invisible para la aplicación y no interfiere con otras operaciones.| Average |
+| Estado de sondeo de mantenimiento (disponibilidad DIP) | Equilibrador de carga interno y público | Load Balancer Estándar usa un servicio de sondeo de mantenimiento distribuido que supervisa el mantenimiento del punto de conexión de la aplicación de acuerdo con la configuración. Esta métrica proporciona una vista agregada o filtrada por punto de conexión de cada punto de conexión de instancia del grupo del equilibrador de carga. Puede ver cómo Load Balancer observa el estado de su aplicación según se indica en la configuración de sondeo de estado. |  Average |
+| Paquetes SYN (sincronizar) | Equilibrador de carga interno y público | Load Balancer Estándar no finaliza las conexiones de Protocolo de control de transmisión (TCP) ni interactúa con los flujos de paquetes TCP o UDP. Los flujos y los protocolos de enlace son siempre entre el origen y la instancia de máquina virtual. Para solucionar mejor los escenarios de protocolo TCP, puede hacer uso de estos contadores de paquetes SYN para saber el número de intentos de conexión TCP realizados. La métrica indica el número de paquetes TCP SYN recibidos.| Average |
+| Conexiones SNAT | Equilibrador de carga público |Load Balancer Estándar informa del número de flujos salientes enmascarados en el servidor front-end de dirección IP pública. Los puertos de traducción de direcciones de red de origen (SNAT) son un recurso agotable. Esta métrica puede proporcionar una indicación de la dependencia que su aplicación tiene de SNAT en los flujos salientes originados. Los contadores de los flujos de salida de SNAT que se realizaron con éxito y los que tuvieron algún error se notifican y se pueden utilizar para solucionar problemas y comprender el estado de los flujos de salida.| Average |
+| Contadores de bytes |  Equilibrador de carga interno y público | Load Balancer Estándar informa de los datos procesados por front-end.| Average |
+| Contadores de paquetes |  Equilibrador de carga interno y público | Load Balancer Estándar informa de los paquetes procesados por front-end.| Average |
 
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Visualización de las métricas del equilibrador de carga en Azure Portal
 
@@ -193,7 +193,7 @@ Para ver el mantenimiento de los recursos públicos de Load Balancer Estándar:
  
 En la tabla siguiente se enumeran los estados de mantenimiento de varios recursos y su descripción. 
 
-| Estado de mantenimiento de los recursos | DESCRIPCIÓN |
+| Estado de mantenimiento de los recursos | Descripción |
 | --- | --- |
 | Disponible | El recurso de Standard Load Balancer está listo y disponible. |
 | No disponible | El recurso de Standard Load Balancer público no es correcto. Diagnostique el estado seleccionando **Azure Monitor** > **Métricas**.<br>(El estado *No disponible* también puede significar que el recurso no está conectado a Standard Load Balancer). |

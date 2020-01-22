@@ -1,28 +1,28 @@
 ---
-title: Registros de recursos para grupos de contenedores
+title: Recopilar y analizar registros de recursos
 description: Obtenga información sobre cómo enviar registros de recursos y datos de eventos de grupos de contenedores en Azure Container Instances a los registros de Azure Monitor.
 ms.topic: article
-ms.date: 09/02/2019
+ms.date: 01/08/2020
 ms.author: danlep
-ms.openlocfilehash: 02f950917f43b514f83bd7e10078c79634c6c751
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 304e98fff386911b878877d2f03d489d0eef5dd7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533727"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770550"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registro de instancias y grupos de contenedores con registros de Azure Monitor
 
 Las áreas de trabajo de Log Analytics proporcionan una ubicación centralizada para almacenar y consultar datos de registro no solo de los recursos de Azure, sino también de los recursos locales y de los recursos de otras nubes. Azure Container Instances incluye compatibilidad integrada para el envío de registros y datos de evento a los registros de Azure Monitor.
 
-Para enviar un registro de grupo de contenedores y datos de eventos a los registros de Azure Monitor, debe especificar una clave y un identificador del área de trabajo de Log Analytics al crear un grupo de contenedores. En las secciones siguientes se describe tanto la creación de un grupo de contenedores con el registro habilitado como la consulta de registros.
+Para enviar un registro de grupo de contenedores y datos de eventos a los registros de Azure Monitor, especifique una clave y un identificador del área de trabajo de Log Analytics al crear un grupo de contenedores. En las secciones siguientes se describe cómo crear un grupo de contenedores con el registro habilitado y cómo consultar registros.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 > [!NOTE]
 > Actualmente, solo puede enviar datos de eventos desde instancias de contenedor de Linux a Log Analytics.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para habilitar el registro en las instancias de los contenedores, necesita lo siguiente:
 
@@ -46,7 +46,7 @@ Para obtener el identificador y la clave principal del área de trabajo de Log A
 
 Ahora que tiene el identificador y la clave principal del área de trabajo de Log Analytics, ya puede crear un grupo de contenedores con el registro habilitado.
 
-En los ejemplos siguientes se muestran dos maneras de crear un grupo de contenedores con un solo contenedor [fluentd][fluentd]: CLI de Azure y la CLI de Azure con una plantilla de YAML. El contenedor Fluentd genera varias líneas de salida en su configuración predeterminada. Dado que esta salida se envía a su área de trabajo de Log Analytics, sirve para mostrar la visualización y consulta de registros.
+En los ejemplos siguientes se muestran dos maneras de crear un grupo de contenedores formado por un solo contenedor [fluentd][fluentd]: CLI de Azure y la CLI de Azure con una plantilla de YAML. El contenedor fluentd genera varias líneas de salida en su configuración predeterminada. Dado que esta salida se envía a su área de trabajo de Log Analytics, sirve para mostrar la visualización y consulta de registros.
 
 ### <a name="deploy-with-azure-cli"></a>Implementación con la CLI de Azure
 

@@ -1,6 +1,6 @@
 ---
-title: Estilos de mapa admitidos en Azure Maps | Microsoft Docs
-description: Estilos de mapa admitidos por Azure Maps
+title: Estilos de mapa admitidos | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre los distintos estilos de representación de mapas compatibles con Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 05/06/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 5368aec04eb0a57654adf5b0d5914282a979dcfd
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 92e48486777d82589a56074790dd709c5d525859
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325411"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910634"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Estilos de mapa admitidos en Azure Maps
 Azure Maps es compatible con varios estilos de mapa integrados, tal como se describe a continuación.
@@ -21,7 +21,7 @@ Azure Maps es compatible con varios estilos de mapa integrados, tal como se desc
 ## <a name="road"></a>carreteras
 Un mapa de **carreteras** es un mapa estándar que muestra las carreteras y características naturales y artificiales con las etiquetas de esas características.
 
-![carreteras](./media/supported-map-styles/road.png)
+![estilo de mapa de carreteras](./media/supported-map-styles/road.png)
 
 **API correspondientes:**
 * [Imagen de mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -42,7 +42,7 @@ Los estilos de mapa **blank** y **blank_accessible** proporcionan un lienzo en b
 ## <a name="satellite"></a>satélite 
 El mapa estilo **satélite** es una combinación de imágenes aéreas o por satélite.
 
-![satélite](./media/supported-map-styles/satellite.png)
+![estilo de mapa de mosaico satelital](./media/supported-map-styles/satellite.png)
 
 **API correspondientes:**
 * [Mosaico de satélite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
@@ -52,7 +52,7 @@ El mapa estilo **satélite** es una combinación de imágenes aéreas o por sat�
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a imágenes aéreas o por satélite.
 
-![satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
+![estilo de mapa satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
 
 **API correspondientes:**
 * Control de mapa de SDK web
@@ -61,7 +61,7 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 ## <a name="grayscale_dark"></a>grayscale_dark
 **escala de grises oscuros** es una versión oscura del estilo de mapa de carreteras.
 
-![gray_scale](./media/supported-map-styles/grayscale_dark.png)
+![estilo de mapa gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
 **API correspondientes:**
 * [Imagen de mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -73,7 +73,7 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 ## <a name="grayscale_light"></a>grayscale_light
 **escala de grises claros** es una versión clara del estilo de mapa de carreteras.
 
-![escala de grises claros](./media/supported-map-styles/grayscale_light.png)
+![estilo de mapa de escala de grises claros](./media/supported-map-styles/grayscale_light.png)
 
 **API correspondientes:**
 * Control de mapa de SDK web
@@ -83,7 +83,7 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 ## <a name="night"></a>noche
 **noche** es una versión oscura del estilo de mapa de carreteras con símbolos y carreteras en color.
 
-![noche](./media/supported-map-styles/night.png)
+![estilo de mapa de noche](./media/supported-map-styles/night.png)
 
 **API correspondientes:**
 * Control de mapa de SDK web
@@ -92,7 +92,7 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 ## <a name="road_shaded_relief"></a>road_shaded_relief
 **relieve sombreado del camino** es un estilo principal de Azure Maps completado con los contornos de la tierra.
 
-![relieve sombreado](./media/supported-map-styles/shaded-relief.png)
+![estilo de mapa de relieve sombreado](./media/supported-map-styles/shaded-relief.png)
 
 **API correspondientes:**
 * [Mosaico de mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)

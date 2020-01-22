@@ -1,6 +1,6 @@
 ---
 title: Solución de problemas relativos a errores con recursos compartidos de Azure Automation
-description: Aprenda sobre la solución de problemas relacionados con los recursos compartidos de Azure Automation.
+description: Obtenga información sobre la solución de problemas relacionados con los recursos compartidos de Azure Automation que admiten runbooks.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,12 +8,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 9313b042433489307a2bd2822a96d1e0e127362b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4cea558b11d7ee7bbe838cecbd061cd487b536d2
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849299"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769870"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Solución de problemas relativos a errores con recursos compartidos
 
@@ -31,7 +31,7 @@ Al importar o actualizar los módulos en Azure Automation, encuentra un módulo 
 
 La importación de módulos de PowerShell es un proceso complejo de varios pasos. En este proceso existe la posibilidad de que un módulo no se importe correctamente. Si esto ocurre, el módulo que se va a importar puede bloquearse en un estado transitorio. Para más información sobre este proceso, vea [Importing a PowerShell Module](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process) (Importación de un módulo de PowerShell).
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Para resolver este problema, debe quitar el módulo que está bloqueado en el estado de **importación** con el uso del cmdlet [Remove-AzureRmAutomationModule](/powershell/module/azurerm.automation/remove-azurermautomationmodule). A continuación, puede volver a intentar importar el módulo.
 
@@ -53,7 +53,7 @@ Azure modules are being updated
 
 Hay un problema conocido con la actualización de los módulos de AzureRM de una cuenta de Automation que se encuentra en un grupo de recursos con un nombre numérico que empieza por 0.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Para actualizar los módulos de Azure en la cuenta de Automation, esta debe estar en un grupo de recursos con un nombre alfanumérico. En este momento, los grupos de recursos con nombres numéricos que empiezan por 0 no pueden actualizar módulos de AzureRM.
 
@@ -72,7 +72,7 @@ Algunas razones comunes por las que un módulo no se importa correctamente a Azu
 * Al módulo le faltan sus dependencias en la carpeta.
 * El cmdlet `New-AzureRmAutomationModule` se está usando para cargar el módulo y no se ha proporcionado la ruta de acceso de almacenamiento completa o no se ha cargado el módulo usando una dirección URL de acceso público.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Cualquiera de las siguientes soluciones resolverá el problema:
 
@@ -90,7 +90,7 @@ Al usar el runbook [Update-AzureModule.ps1](https://github.com/azureautomation/r
 
 La configuración predeterminada para determinar cuántos módulos se actualizan simultáneamente es 10 cuando se usa el script `Update-AzureModule.ps1`. El proceso de actualización es propenso a errores cuando se actualizan demasiados módulos al mismo tiempo.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 No es común que todos los módulos de AzureRM se necesiten en la misma cuenta de Automation. Se recomienda importar únicamente los módulos de AzureRM que necesite.
 
@@ -132,7 +132,7 @@ You do not have permissions to create…
 
 No tiene los permisos que necesita para crear o actualizar la cuenta de ejecución o el recurso está bloqueado en un nivel de grupo de recursos.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Para crear o actualizar una cuenta de ejecución, debe tener los permisos adecuados para los distintos recursos que usa la cuenta de ejecución. Para obtener información acerca de los permisos necesarios para crear o actualizar una cuenta de ejecución, consulte [Permisos para configurar cuentas de ejecución](../manage-runas-account.md#permissions).
 
@@ -152,7 +152,7 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 Este error suele deberse a una configuración incorrecta de la [cuenta de ejecución](../manage-runas-account.md).
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Asegúrese de que la [cuenta de ejecución](../manage-runas-account.md) está correctamente configurada. Una vez que está correctamente configurada, asegúrese de que tiene el código adecuado en el runbook para autenticarse con Azure. En el ejemplo siguiente se muestra un fragmento de código para la autenticación en Azure en un runbook mediante una cuenta de ejecución.
 

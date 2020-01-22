@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 35ffc7f3c97ca7ab14f94c3607560ffb6ea0b399
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a896c98040773179f9a0911162bbfdc5689b1a2e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146854"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768561"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conexión a orígenes de datos locales con la puerta de enlace de datos local
 
-La puerta de enlace de datos local proporciona una transferencia de datos segura entre orígenes de datos locales y los servidores de Azure Analysis Services en la nube. Además de funcionar con varios servidores de Azure Analysis Services en la misma región, la versión más reciente de la puerta de enlace también funciona con Azure Logic Apps, Power BI, Power Apps y Microsoft Flow. Puede asociar varios servicios de la misma suscripción y región con una sola puerta de enlace. Si bien la puerta de enlace que instala es la misma en todos estos servicios, Azure Analysis Services y Logic Apps tienen algunos pasos adicionales.
+La puerta de enlace de datos local proporciona una transferencia de datos segura entre orígenes de datos locales y los servidores de Azure Analysis Services en la nube. Además de funcionar con varios servidores de Azure Analysis Services en la misma región, la versión más reciente de la puerta de enlace también funciona con Azure Logic Apps, Power BI, Power Apps y Power Automate. Puede asociar varios servicios de la misma suscripción y región con una sola puerta de enlace. Si bien la puerta de enlace que instala es la misma en todos estos servicios, Azure Analysis Services y Logic Apps tienen algunos pasos adicionales.
 
 Para Azure Analysis Services, el proceso de instalación de la puerta de enlace consta de cuatro partes:
 
@@ -28,10 +28,10 @@ Para Azure Analysis Services, el proceso de instalación de la puerta de enlace 
 
 - **Conectar los servidores a los recursos de puerta de enlace**: una vez que tiene un recurso de puerta de enlace en la suscripción, puede empezar a conectar los servidores a él. Puede conectar varios servidores y otros recursos, siempre que se encuentren en la misma suscripción y región.
 
-## <a name="how-it-works"></a>Funcionamiento
+## <a name="how-it-works"> </a>Funcionamiento
 La puerta de enlace que se instala en un equipo de la organización funciona como un servicio de Windows, **Puerta de enlace de datos local**. Este servicio local se registra en el servicio en la nube de puerta de enlace a través de Azure Service Bus. Luego crea un recurso de puerta de enlace de datos local para la suscripción a Azure. Posteriormente, los servidores de Azure Analysis Services se conectan al recurso de puerta de enlace de Azure. Cuando los modelos del servidor necesitan conectarse a los orígenes de datos locales para realizar consultas o procesamiento, un flujo de datos y consultas atraviesa el recurso de puerta de enlace, Azure Service Bus, el servicio de puerta de enlace de datos local y los orígenes de datos. 
 
-![Cómo funciona](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
+![Funcionamiento](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
 Flujo de datos y consultas:
 
@@ -48,20 +48,20 @@ En una instalación para un entorno de Azure Analysis Services, es importante qu
 
 ## <a name="ports-and-communication-settings"></a>Configuración de puertos y comunicación
 
-La puerta de enlace crea una conexión de salida con Azure Service Bus. Se comunica en los puertos de salida siguientes: TCP 443 (valor predeterminado), 5671, 5672 y del 9350 al 9354.  La puerta de enlace no requiere puertos de entrada.
+La puerta de enlace crea una conexión de salida con Azure Service Bus. Se comunica en los puertos de salida siguientes: TCP 443 (predeterminado), 5671, 5672 y del 9350 al 9354.  La puerta de enlace no requiere puertos de entrada.
 
 Es posible que tenga que incluir direcciones IP de la región de datos en el firewall. Puede descargar la [lista de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). La lista se actualiza semanalmente. Las direcciones IP mostradas en la lista de direcciones IP del centro de datos de Azure están en notación CIDR. Para obtener más información, consulte [Enrutamiento de interdominios sin clases](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Estos son los nombres de dominio completos usados por la puerta de enlace.
 
-| Nombres de dominio | Puertos de salida | DESCRIPCIÓN |
+| Nombres de dominio | Puertos de salida | Descripción |
 | --- | --- | --- |
 | *.powerbi.com |80 |HTTP que se utiliza para descargar el instalador. |
 | *.powerbi.com |443 |HTTPS |
 | *. analysis.windows.net |443 |HTTPS |
 | *.login.windows.net, login.live.com, aadcdn.msauth.net |443 |HTTPS |
 | *.servicebus.windows.net |5671-5672 |Advanced Message Queuing Protocol (AMQP) |
-| *.servicebus.windows.net |443, 9350-9354 |Agentes de escucha en Service Bus Relay sobre TCP (requiere 443 para la adquisición del token de Access Control) |
+| *.servicebus.windows.net |443, 9350-9354 |Agentes de escucha de Service Bus Relay sobre TCP (requiere 443 para la adquisición del token de Access Control) |
 | *.frontend.clouddatahub.net |443 |HTTPS |
 | *.core.windows.net |443 |HTTPS |
 | login.microsoftonline.com |443 |HTTPS |

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 01/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 5fd13531e438b8bcda8e3720758e338c964f77af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 736cf03b58ec09b291c91857177a32c7dad89c6a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444257"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892057"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copia de datos con Oracle como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -69,7 +69,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado Oracle:
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type se debe establecer en: **Oracle**. | Sí |
-| connectionString | Especifica la información necesaria para conectarse a la instancia de Oracle Database. <br/>También puede poner una contraseña en Azure Key Vault y extraer la configuración de `password` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. <br><br>**Tipo de conexión admitido**: para identificar su base de datos, puede usar el **SID de Oracle** o el **nombre de servicio de Oracle**:<br>- Si usa el SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si usa el nombre del servicio: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sí |
+| connectionString | Especifica la información necesaria para conectarse a la instancia de Oracle Database. <br/>También puede poner una contraseña en Azure Key Vault y extraer la configuración de `password` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. <br><br>**Tipo de conexión admitido**: para identificar su base de datos, puede usar el **SID de Oracle** o el **nombre de servicio de Oracle**:<br>- Si usa el SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si usa el nombre del servicio: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>En el caso de opciones avanzadas de conexión nativa de Oracle, puede optar por agregar una entrada en el archivo [TNSNAMES.ORA](http://www.orafaq.com/wiki/Tnsnames.ora) en el servidor de Oracle; por otro lado, en el servicio vinculado de Oracle de ADF, elija usar el tipo de conexión del nombre de servicio de Oracle y configure el correspondiente. | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |No |
 
 >[!TIP]
@@ -379,4 +379,4 @@ Al copiar datos con Oracle como origen y destino, se aplican las siguientes asig
 Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para ver la lista de almacenes de datos que la actividad de copia de Data Factory admite como orígenes y receptores consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md##supported-data-stores-and-formats).
+Para ver la lista de almacenes de datos que la actividad de copia de Data Factory admite como orígenes y receptores consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 0a1139f7bf1711a5f6d980e67a8a9027bfd3af52
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b3f622b360f565ef5b16d5376cb1aa2498655017
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665318"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744735"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitectura de red virtual de Azure HDInsight
 
@@ -22,7 +22,7 @@ En este artículo se explican los recursos que están presentes cuando se implem
 
 Los clústeres de Azure HDInsight tienen distintos tipos de máquinas virtuales o nodos. Cada tipo de nodo desempeña un papel en el funcionamiento del sistema. En la tabla siguiente se resumen estos tipos de nodo y sus roles en el clúster.
 
-| type | DESCRIPCIÓN |
+| Tipo | Descripción |
 | --- | --- |
 | Nodo principal |  Para todos los tipos de clúster excepto Apache Storm, los nodos principales hospedan los procesos que administran la ejecución de la aplicación distribuida. El nodo principal es también el nodo al que puede acceder mediante SSH y ejecutar aplicaciones que después se coordinan para ejecutarse en los recursos de clúster. El número de nodos principales se fija en dos para los tipos de clúster. |
 | Nodo de ZooKeeper | ZooKeeper coordina las tareas entre los nodos que realizan el procesamiento de datos. También realiza la elección de líder del nodo principal y realiza un seguimiento de qué nodo principal ejecuta un servicio maestro específico. El número de nodos de ZooKeeper se fija en tres. |
@@ -31,6 +31,16 @@ Los clústeres de Azure HDInsight tienen distintos tipos de máquinas virtuales 
 | Nodo regional | Para el tipo de clúster de HBase, el nodo regional (también denominado un nodo de datos) ejecuta el servidor de regiones. Los servidores de regiones atienden y administran una parte de los datos administrados por HBase. Los nodos regionales se pueden agregar o quitar del clúster para escalar la funcionalidad de computación y administrar los costos.|
 | Nodo Nimbus | Para el tipo de clúster de Storm, el nodo Nimbus proporciona una funcionalidad similar a la del nodo principal. El nodo de Nimbus asigna tareas a otros nodos de un clúster mediante ZooKeeper, que coordina la ejecución de topologías de Storm. |
 | Nodo de supervisión | Para el tipo de clúster de Storm, el nodo de supervisor ejecuta las instrucciones que el nodo Nimbus proporciona para realizar el procesamiento deseado. |
+
+## <a name="resource-naming-conventions"></a>Convenciones de nomenclatura de recursos
+
+Use nombres de dominio completos (FQDN) al tratar nodos del clúster. Puede obtener los FQDN de varios tipos de nodo del clúster mediante [Ambari API](hdinsight-hadoop-manage-ambari-rest-api.md). 
+
+Estos FQDN tendrán el formato `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
+
+El valor de `<node-type-prefix>` será *hn* para los nodos principales, *wn* para los nodos de trabajo y *zn* para los nodos de Zookeeper.
+
+Si solo necesita el nombre de host, use solo la primera parte del FQDN: `<node-type-prefix><instance-number>-<abbreviated-clustername>`.
 
 ## <a name="basic-virtual-network-resources"></a>Recursos de red virtual básicos
 

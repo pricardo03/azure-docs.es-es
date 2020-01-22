@@ -1,6 +1,6 @@
 ---
-title: Estado de Linux Hybrid Runbook Worker en Azure Update Management
-description: Aprenda a solucionar problemas con Hybrid Runbook Worker en Linux que admite Update Management.
+title: Diagnóstico de Linux Hybrid Runbook Worker - Azure Update Management
+description: Aprenda a solucionar problemas con Azure Automation Hybrid Runbook Worker en Linux que admite Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 924c2fd176b5b8e45352d616d226f484e814450d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: e60ba71607b99f0ea97e0725ffdd0740f3e9c579
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849266"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769836"
 ---
-# <a name="understand-the-linux-hybrid-runbook-worker-health-in-update-management"></a>Estado de Linux Hybrid Runbook Worker en Update Management
+# <a name="understand-and-resolve-linux-hybrid-runbook-worker-health-for-update-management"></a>Explicación y corrección del estado de Linux Hybrid Runbook Worker para Update Management
 
 Puede haber muchas razones por las que el equipo no muestre el estado **Listo** en Update Management. En Update Management, puede comprobar el estado de un agente de Hybrid Runbook Worker para determinar el problema subyacente. En este artículo se explica cómo ejecutar el solucionador de problemas para máquinas de Azure desde Azure Portal y para máquinas que no son de Azure en el [escenario sin conexión](#troubleshoot-offline).
 

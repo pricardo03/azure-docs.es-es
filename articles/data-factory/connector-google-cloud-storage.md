@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 338575158b91e90112548af5be0dcef68d521852
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d811076e0d78ed2812681447bebe8e6e07aa33e2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444299"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892662"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Copia de datos de Google Cloud Storage con Azure Data Factory
 
@@ -145,7 +145,7 @@ Las propiedades siguientes se admiten para Google Cloud Storage en la configurac
 
 | Propiedad                 | Descripción                                                  | Obligatorio                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| type                     | La propiedad type de `storeSettings` se debe establecer en **AmazonS3ReadSetting**. | Sí                                                         |
+| type                     | La propiedad type de `storeSettings` se debe establecer en **AmazonS3ReadSettings**. | Sí                                                         |
 | recursive                | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. Los valores permitidos son: **True** (valor predeterminado) y **False**. | No                                                          |
 | prefix                   | Prefijo para la clave del objeto S3 en el cubo especificado configurado en el conjunto de datos para filtrar objetos de origen. Se seleccionan objetos cuyas claves comienzan por este prefijo. Solo se aplica cuando no se especifican las propiedades `wildcardFolderPath` y `wildcardFileName`. |                                                             |
 | wildcardFolderPath       | Ruta de acceso de carpeta con caracteres comodín en el cubo especificado configurado en el conjunto de datos para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                                          |
@@ -177,11 +177,11 @@ Las propiedades siguientes se admiten para Google Cloud Storage en la configurac
             "source": {
                 "type": "DelimitedTextSource",
                 "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
+                    "type": "DelimitedTextReadSettings",
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "AmazonS3ReadSetting",
+                    "type": "AmazonS3ReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
                     "wildcardFileName": "*.csv"
@@ -221,7 +221,7 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 ## <a name="legacy-models"></a>Modelos heredados
 
 >[!NOTE]
->Los siguientes modelos siguen admitiéndose tal cual a efectos de la compatibilidad con versiones anteriores. Se recomienda usar el nuevo modelo mencionado en la sección anterior de ahora en adelante; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
+>Estos modelos siguen siendo compatibles con versiones anteriores. Se recomienda usar el nuevo modelo mencionado en la sección anterior de ahora en adelante; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de datos heredado
 
@@ -311,4 +311,4 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

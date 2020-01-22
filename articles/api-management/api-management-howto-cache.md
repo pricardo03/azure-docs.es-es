@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 76a87d539e19acc30944a6a896cb0e01f431fa37
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bf8d8a2c11962467300ae8d65fe5bbbe9a65cf92
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073577"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708362"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Incorporación del almacenamiento en caché para mejorar el rendimiento en Azure API Management
 
@@ -39,7 +39,7 @@ Temas que se abordarán:
 > [!NOTE]
 > La memoria caché interna no está disponible en el nivel **Consumo** de Azure API Management. Puede [usar una instancia externa de Azure Redis Cache](api-management-howto-cache-external.md) en su lugar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial:
 
@@ -70,14 +70,14 @@ Con las directivas de almacenamiento en caché que se muestran en este ejemplo, 
 
 9. En el elemento **outbound**, agregue la siguiente directiva:
 
-        <cache-store caching-mode="cache-on" duration="20" />
+        <cache-store duration="20" />
 
     **Duración** especifica el intervalo de expiración de las respuestas almacenadas en caché. En este ejemplo, el intervalo es **20** segundos.
 
 > [!TIP]
 > Si usa una memoria caché externa, como se describe en [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md), es posible que desee especificar el atributo `caching-type` de las directivas de almacenamiento en caché. Consulte [Directivas de almacenamiento en caché de API Management](api-management-caching-policies.md) para más detalles.
 
-## <a name="test-operation"></a>Llamada a una operación y prueba del almacenamiento en caché
+## <a name="test-operation"> </a>Llamada a una operación y prueba del almacenamiento en caché
 Para ver cómo funciona el almacenamiento en caché, llame a la operación desde el portal para desarrolladores.
 
 1. En Azure Portal, vaya a la instancia de APIM.

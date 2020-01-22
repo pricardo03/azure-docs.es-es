@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: f9f0a74a6ca57f90ed8bd217d0d2f57e4bc16749
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 5c2c519ece9806b92c3e455d5f550bc2abfc9f3b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660348"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862482"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Entrada de datos de telemetría y conectividad de dispositivo
 
@@ -21,7 +21,7 @@ Los datos de telemetría enviados por los dispositivos y sensores son la columna
 
 Para empezar, cree un recurso de Azure IoT Hub en la raíz del grafo espacial. El recurso IoT Hub permite a todos los dispositivos situados debajo del espacio raíz enviar mensajes. Después de crear la instancia de IoT Hub, registre los dispositivos con sensores dentro de la instancia de Digital Twins. Los dispositivos pueden enviar datos a un servicio de Digital Twins mediante el [SDK de dispositivo IoT de Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
 
-Para obtener una guía paso a paso sobre cómo incorporar dispositivos, consulte el [tutorial para implementar y configurar Digital Twins](tutorial-facilities-setup.md). En resumen, los pasos son:
+Para obtener una guía paso a paso sobre cómo incorporar dispositivos, lea el [tutorial para implementar y configurar Digital Twins](tutorial-facilities-setup.md). En resumen, los pasos son:
 
 - Implementar una instancia de Digital Twins desde [Azure Portal](https://portal.azure.com)
 - Crear espacios en el grafo

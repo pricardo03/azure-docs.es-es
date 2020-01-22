@@ -2,13 +2,14 @@
 title: Preguntas generales sobre el servicio Azure Site Recovery
 description: En este artículo se analizan las preguntas generales más frecuentes acerca de Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: f64b885e82d2f790d7d146e16bb6ccb44e207465
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 1/10/2020
+ms.author: raynew
+ms.openlocfilehash: 44abe9eafa9aef9e027778470d3f0483f99b0d32
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497538"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863570"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Preguntas generales acerca de Azure Site Recovery
 
@@ -101,7 +102,8 @@ Sí. Al crear un almacén de Site Recovery en una región, garantizamos que todo
 ### <a name="does-site-recovery-encrypt-replication"></a>¿Site Recovery cifra la replicación?
 Al replicar máquinas virtuales y servidores físicos entre sitios locales, se admite el cifrado en tránsito. En el caso de las máquinas virtuales y los servidores físicos que se replican en Azure, se admite tanto el cifrado en tránsito como el [cifrado en reposo (en Azure)](https://docs.microsoft.com/azure/storage/storage-service-encryption).
 
-
+### <a name="how-can-i-enforce-tls-12-on-all-on-premises-azure-site-recovery-components"></a>¿Cómo puedo aplicar TLS 1.2 en todos los componentes de Azure Site Recovery locales?
+Los agentes de Mobility instalados en los elementos replicados se comunican con el servidor de procesos solo a través de TLS 1.2. Sin embargo, la comunicación del servidor de configuración a Azure y del servidor de procesos a Azure podría usar TLS 1.1 o 1.0. Siga las [instrucciones](https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi) para aplicar TLS 1.2 en todos los servidores de configuración y servidores de procesos configurados por el usuario.
 
 
 ## <a name="disaster-recovery"></a>Recuperación ante desastres

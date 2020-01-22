@@ -4,22 +4,35 @@ description: Aprenda a analizar datos de diagnóstico en Azure Spring Cloud
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/06/2019
+ms.date: 01/06/2020
 ms.author: jeconnoc
-ms.openlocfilehash: ebe438bd2dc5b4921ce733001f3c9df19bc592fe
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 347867bc59206a24d32ca01f15bbff35fb73e1d0
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607856"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75730049"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Análisis de registros y métricas con la configuración de diagnóstico
 
 Mediante la funcionalidad de diagnóstico de Azure Spring Cloud puede analizar los registros y las métricas con uno de los siguientes servicios:
 
-* Use Azure Log Analytics, donde los datos se escriben inmediatamente sin tener que escribirlos primero en el almacenamiento.
-* Guárdelos en una cuenta de almacenamiento para auditarlos o para inspeccionarlos manualmente. Puede especificar el tiempo de retención (en días).
-* Transmítalos al centro de eventos para la ingesta en un servicio de terceros o una solución de análisis personalizada.
+* Use Azure Log Analytics, donde los datos se escriben en Azure Storage. Se produce un retraso al exportar registros a Log Analytics.
+* Guarde los registros en una cuenta de almacenamiento para auditarlos o para inspeccionarlos manualmente. Puede especificar el tiempo de retención (en días).
+* Transmita los registros al centro de eventos para la ingesta en un servicio de terceros o una solución de análisis personalizada.
+
+Elija la categoría de registro y la categoría de métrica que desea supervisar.
+
+## <a name="logs"></a>Registros
+
+|Log | Descripción |
+|----|----|
+| **ApplicationConsole** | Registro de la consola de todas las aplicaciones del cliente. | 
+| **SystemLogs** | Actualmente, solo el [servidor de configuración de Spring Cloud](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) mantiene registros en esta categoría. |
+
+## <a name="metrics"></a>Métricas
+
+Para obtener una lista completa de las métricas, consulte la sección [Métricas de Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options).
 
 Para empezar, habilite uno de estos servicios para recibir los datos. Para más información sobre la configuración de Log Analytics, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md). 
 
@@ -38,17 +51,44 @@ Para empezar, habilite uno de estos servicios para recibir los datos. Para más 
 > [!NOTE]
 > Puede transcurrir un intervalo de hasta 15 minutos desde que se emiten los registros o las métricas hasta que aparecen en la cuenta de almacenamiento, el centro de eventos o Log Analytics.
 
-## <a name="view-the-logs"></a>Visualización de los registros
+## <a name="view-the-logs-and-metrics"></a>Visualización de registros y métricas
+Existen varios métodos para ver los registros y las métricas, tal y como se describe en los apartados siguientes.
+
+### <a name="use-logs-blade"></a>Uso de la hoja Registros
+
+1. En Azure Portal, vaya a la instancia de Azure Spring Cloud.
+1. Para abrir el panel **Búsqueda de registros**, seleccione **Registros**.
+1. En el cuadro de búsqueda **Registro**
+   * Para ver los registros, escriba una consulta simple como la siguiente:
+
+    ```sql
+    AppPlatformLogsforSpring
+    | limit 50
+    ```
+   * Para ver las métricas, escriba una consulta simple como la siguiente:
+
+    ```sql
+    AzureMetrics
+    | limit 50
+    ```
+1. Para ver el resultado de la búsqueda, seleccione **Ejecutar**.
 
 ### <a name="use-log-analytics"></a>Uso de Log Analytics
 
 1. En Azure Portal, en el panel izquierdo, seleccione **Log Analytics**.
 1. Seleccione el área de trabajo de Log Analytics que eligió al agregar la configuración de diagnóstico.
 1. Para abrir el panel **Búsqueda de registros**, seleccione **Registros**.
-1. En el cuadro Búsqueda de **registros**, escriba una consulta simple como:
+1. En el cuadro de búsqueda **Registro**
+   * Para ver los registros, escriba una consulta simple como la siguiente:
 
     ```sql
     AppPlatformLogsforSpring
+    | limit 50
+    ```
+    * Para ver las métricas, escriba una consulta simple como la siguiente:
+
+    ```sql
+    AzureMetrics
     | limit 50
     ```
 
@@ -60,6 +100,8 @@ Para empezar, habilite uno de estos servicios para recibir los datos. Para más 
     | where ServiceName == "YourServiceName" and AppName == "YourAppName" and InstanceName == "YourInstanceName"
     | limit 50
     ```
+> [!NOTE]  
+> `==` distingue mayúsculas de minúsculas, pero `=~` no.
 
 Para más información sobre el lenguaje de consulta que se utiliza en Log Analytics, consulte [Consultas de registros de Azure Monitor](../azure-monitor/log-query/query-language.md).
 
@@ -87,9 +129,9 @@ Para más información sobre cómo enviar información de diagnóstico a un cent
 
 ## <a name="analyze-the-logs"></a>Análisis de los registros
 
-Azure Log Analytics proporciona Kusto para que pueda consultar los registros para el análisis. Revise el [tutorial de Log Analytics](../azure-monitor/log-query/get-started-portal.md) para una introducción rápida a la consulta de registros con Kusto.
+Azure Log Analytics se ejecuta con un motor Kusto para que pueda consultar los registros para el análisis. Revise el [tutorial de Log Analytics](../azure-monitor/log-query/get-started-portal.md) para una introducción rápida a la consulta de registros con Kusto.
 
-Los registros de aplicaciones proporcionan información crítica sobre el estado de la aplicación, el rendimiento y mucho más. En las siguientes secciones se muestran algunas consultas sencillas que le ayudarán a comprender los estados actual y anterior de la aplicación.
+Los registros de aplicaciones proporcionan información crítica y registros detallados sobre el estado de la aplicación, el rendimiento y mucho más. En las siguientes secciones se muestran algunas consultas sencillas que le ayudarán a comprender los estados actual y anterior de la aplicación.
 
 ### <a name="show-application-logs-from-azure-spring-cloud"></a>Visualización de los registros de aplicaciones de Azure Spring Cloud
 

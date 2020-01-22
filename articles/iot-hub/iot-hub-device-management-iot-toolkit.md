@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 03997bb6999af9ebaad36cc95f7834e3b9ed4569
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 9d4d82472664900c96b77b31740573d0463465b8
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953210"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911905"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Uso de Azure IoT Tools para Visual Studio Code para la administración de dispositivos de Azure IoT Hub
 
@@ -71,7 +71,7 @@ Ejecute Azure IoT Tools para Visual Studio Code con diversas opciones de adminis
 
 2. Escriba el nombre del método y la carga en el cuadro de entrada.
 
-3. Se mostrarán los resultados en la vista **SALIDA** > **Azure IoT Hub Toolkit**.
+3. Se mostrarán los resultados en la vista **SALIDA** > **Azure IoT Hub**.
 
 ## <a name="read-device-twin"></a>Leer dispositivo gemelo
 
@@ -95,7 +95,7 @@ Para enviar un mensaje desde el IoT Hub al dispositivo, siga estos pasos:
 
 2. Escriba el mensaje en el cuadro de entrada.
 
-3. Se mostrarán los resultados en la vista **SALIDA** > **Azure IoT Hub Toolkit**.
+3. Se mostrarán los resultados en la vista **SALIDA** > **Azure IoT Hub**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

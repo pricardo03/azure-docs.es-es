@@ -3,12 +3,12 @@ title: 'Copias de seguridad de archivos y carpetas: preguntas comunes'
 description: Responde las preguntas habituales acerca de la realización de copias de seguridad de archivos y carpetas con Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: d2049036d52eea29b03a2ca3cea29e3d6c52e9cc
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 45c01a08151060b60b0f3e3b27b2fcc16ec8e60b
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611635"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720368"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas
 
@@ -76,7 +76,7 @@ El agente de MARS usa NTFS y utiliza la especificación de longitud de la ruta d
 
 El agente de MARS usa NTFS y permite los [caracteres compatibles](/windows/desktop/FileIO/naming-a-file#naming-conventions) en los nombres de archivo o las rutas de acceso.
 
-### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>Aparece la advertencia "Azure Backups have not been configured for this server" (No se han copiado instancias de Azure Backup para este servidor).
+### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>Aparece la advertencia "Azure Backups have not been configured for this server" (No se han configurado instancias de Azure Backup para este servidor).
 
 Esta advertencia puede aparecer aunque se haya configurado una directiva de copia de seguridad cuando la configuración de programación de la copia de seguridad almacenada en el servidor local no es la misma que la configuración del almacén de copia de seguridad.
 
@@ -145,38 +145,41 @@ No se admiten los siguientes atributos ni sus combinaciones para la carpeta de c
 * Dispersos
 * Punto de reanálisis
 
-Ni la carpeta de caché ni los metadatos del disco duro virtual tienen los atributos necesarios para el agente de Azure Backup.
+Ni la carpeta de caché ni el disco duro virtual de metadatos tienen los atributos necesarios para el agente de Azure Backup.
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>¿Hay alguna forma de ajustar la cantidad de ancho de banda que se utiliza para la copia de seguridad?
 
 Sí, puede usar la opción **Cambiar propiedades** del agente de MARS para ajustar el ancho de banda y el tiempo. [Más información](backup-configure-vault.md#enable-network-throttling).
 
 ## <a name="restore"></a>Restauración
+
 ### <a name="manage"></a>Administrar
-**¿Puedo recuperar mi frase de contraseña si la olvidé?**<br>
-El agente de Azure Backup requiere una frase de contraseña (que proporcionó durante el registro) para descifrar los datos de los que se ha realizado una copia de seguridad durante la restauración. Revise los escenarios siguientes para conocer las opciones de control de una frase de contraseña perdida:<br>
+
+**¿Puedo recuperar mi frase de contraseña si la olvidé?**
+El agente de Azure Backup requiere una frase de contraseña (que proporcionó durante el registro) para descifrar los datos de los que se ha realizado una copia de seguridad durante la restauración. Revise los escenarios siguientes para conocer las opciones de control de una frase de contraseña perdida:
 
 | Máquina original <br> *(máquina de origen donde se realizaron las copias de seguridad)* | Passphrase | Opciones disponibles |
 | --- | --- | --- |
-| Disponible |Perdida |Si la máquina original (donde se realizaron las copias de seguridad) está disponible y aún está registrada en el mismo almacén de Recovery Services, podrá volver a generar la frase de contraseña siguiendo estos [pasos](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase).  |
+| Disponible |Perdida |Si la máquina original (donde se realizaron las copias de seguridad) está disponible y aún está registrada en el mismo almacén de Recovery Services, puede volver a generar la frase de contraseña siguiendo estos [pasos](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase).  |
 | Perdida |Perdida |No es posible recuperar los datos o los datos no están disponibles |
 
 Tenga en cuenta las siguientes condiciones:
-- Si desinstala y vuelve a registrar el agente en el mismo equipo original con
-  - *la misma frase de contraseña*, podrá restaurar los datos de copia de seguridad.<br>
-  - *una frase de contraseña diferente*, no podrá restaurar los datos de copia de seguridad.
--   Si instala el agente en una *máquina diferente* con<br>
-  - la misma frase de contraseña (usada en la máquina original), podrá restaurar los datos de copia de seguridad.<br>
-  - una frase de contraseña diferente, no podrá restaurar los datos de copia de seguridad.<br>
--   Además, si la máquina original está dañada (lo que le impide volver a generar la frase de contraseña a través de la consola de MARS), pero puede restaurar o tener acceso a la carpeta temporal original utilizada por el agente de MARS, entonces es posible que pueda realizar una restauración (si olvidó la contraseña). Para obtener más ayuda, póngase en contacto con el servicio de soporte al cliente.
 
-**¿Cómo recupero las copias de seguridad si perdí mi máquina original (donde se realizaban las copias de seguridad)?**<br>
+* Si desinstala y vuelve a registrar el agente en la misma máquina original con
+  * *la misma frase de contraseña*, podrá restaurar los datos de copia de seguridad.
+  * *una frase de contraseña diferente*, no podrá restaurar los datos de copia de seguridad.
+* Si instala el agente en una *máquina diferente* con
+  * *la misma frase de contraseña* (usada en la máquina original), podrá restaurar los datos de copia de seguridad.
+  * *una frase de contraseña diferente*, no podrá restaurar los datos de copia de seguridad.
+* Si la máquina original está dañada (lo que impide volver a generar la frase de contraseña a través de la consola de MARS), pero puede restaurar o acceder a la carpeta temporal original utilizada por el agente de MARS, es posible que pueda realizar una restauración (si olvidó la contraseña). Para obtener más ayuda, póngase en contacto con el servicio de soporte al cliente.
 
-Si tiene la misma frase de contraseña (que proporcionó durante el registro) del equipo original, puede restaurar los datos de copia de seguridad en una máquina alternativa. Revise los escenarios siguientes para conocer las opciones de restauración.
+**¿Cómo recupero las copias de seguridad si perdí mi máquina original (donde se realizaban las copias de seguridad)?**
+
+Si tiene la misma frase de contraseña (que proporcionó durante el registro) de la máquina original, puede restaurar los datos de copia de seguridad en una máquina alternativa. Revise los escenarios siguientes para conocer las opciones de restauración.
 
 | Máquina original | Passphrase | Opciones disponibles |
 | --- | --- | --- |
-| Perdida |Disponible |Puede instalar y registrar el agente de MARS en otro equipo con la misma frase de contraseña que proporcionó durante el registro de la máquina original. Elija **Opción de recuperación** > **Otra ubicación** para realizar la restauración. Para más información, consulte [este artículo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Perdida |Disponible |Puede instalar y registrar el agente de MARS en otro equipo con la misma frase de contraseña que proporcionó durante el registro de la máquina original. Elija **Opción de recuperación** > **Otra ubicación** para realizar la restauración. Para más información, consulte este [artículo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Perdida |Perdida |No es posible recuperar los datos o los datos no están disponibles |
 
 

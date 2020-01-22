@@ -1,6 +1,6 @@
 ---
-title: Presentación de indicaciones con Azure Maps | Microsoft Docs
-description: Procedimiento para mostrar indicaciones entre dos ubicaciones en un mapa con el SDK de Azure Maps para web.
+title: Presentación de indicaciones de ruta en un mapa | Microsoft Azure Maps
+description: En este artículo aprenderá cómo mostrar las indicaciones entre dos ubicaciones en un mapa mediante el SDK web de Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: cf997d4ae120f3e9309892b112f9954bde97bc76
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 53e207e33c56455642edc9dcfcf328f5ca87945f
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976486"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910982"
 ---
 # <a name="show-directions-from-a-to-b"></a>Presentación de indicaciones de ruta de A a B
 

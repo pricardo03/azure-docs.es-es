@@ -7,12 +7,12 @@ ms.date: 01/11/2019
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 454ed6123d65d49947d90075c2fa68e11c6e36ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 640ec54e9634751d05c2cea90d7c03d02e7a3387
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462567"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720062"
 ---
 # <a name="benchmarking-a-disk"></a>Pruebas comparativas de un disco
 
@@ -26,7 +26,6 @@ Para seguir estos ejemplos, cree una máquina virtual estándar DS14 y conecte 1
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Continúe con nuestro artículo sobre el diseño para lograr un alto rendimiento. En dicho artículo, se crea una lista de comprobación similar a la aplicación existente para el prototipo. Con herramientas de pruebas comparativas puede simular las cargas de trabajo y medir el rendimiento de las aplicaciones de prototipo. De este modo, puede determinar qué oferta de disco puede alcanzar o superar los requisitos de rendimiento de las aplicaciones. A continuación, puede implementar las mismas directrices para la aplicación de producción.
+Diríjase al artículo sobre el [diseño para lograr un alto rendimiento](premium-storage-performance.md).
 
-> [!div class="nextstepaction"]
-> Consulte el artículo sobre el [diseño para lograr un alto rendimiento](premium-storage-performance.md).
+En dicho artículo, se crea una lista de comprobación similar a la aplicación existente para el prototipo. Con herramientas de pruebas comparativas puede simular las cargas de trabajo y medir el rendimiento de las aplicaciones de prototipo. De este modo, puede determinar qué oferta de disco puede alcanzar o superar los requisitos de rendimiento de las aplicaciones. A continuación, puede implementar las mismas directrices para la aplicación de producción.

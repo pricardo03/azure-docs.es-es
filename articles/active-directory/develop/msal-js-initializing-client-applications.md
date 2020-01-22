@@ -14,17 +14,17 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b041d8777f81f1796a2e2f7926f324e3b601bd93
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7c5022533cf0db57779bc36bd74cfb38932f10d6
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916509"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777843"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicialización de aplicaciones cliente con MSAL.js
-En este artículo se describe la inicialización de la biblioteca de autenticación de Microsoft para JavaScript (MSAL.js) con una instancia de una aplicación de agente de usuario. La aplicación de agente de usuario es una forma de aplicación cliente pública en la que el código cliente se ejecuta en un agente de usuario, como un explorador web. Estos clientes no almacenan secretos, ya que el contexto del explorador es de acceso público. Para más información sobre los tipos de aplicaciones cliente y las opciones de configuración de la aplicación, lea la [Introducción](msal-client-applications.md).
+En este artículo se describe la inicialización de la biblioteca de autenticación de Microsoft para JavaScript (MSAL.js) con una instancia de una aplicación de agente de usuario. La aplicación de agente de usuario es una forma de aplicación cliente pública en la que el código cliente se ejecuta en un agente de usuario, como un explorador web. Estos clientes no almacenan secretos, ya que el contexto del explorador es de acceso público. Para obtener más información sobre los tipos de aplicaciones cliente y las opciones de configuración de la aplicación, lea la [Introducción](msal-client-applications.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Antes de inicializar una aplicación, primero tendrá que [registrarla en Azure Portal](scenario-spa-app-registration.md) para que se pueda integrar con la plataforma de identidad de Microsoft. Después del registro, es posible que necesite la información siguiente (que puede encontrar en Azure Portal):
 
 - El identificador de cliente (una cadena que representa un GUID para la aplicación)
@@ -116,7 +116,7 @@ A continuación se muestra el conjunto total de opciones configurables que se ad
         * `https://login.microsoftonline.com/common`: se usa para el inicio de sesión de los usuarios con cuentas profesionales y educativas, o una cuenta personal de Microsoft.
         * `https://login.microsoftonline.com/organizations/`: se usa para el inicio de sesión de los usuarios con cuentas profesionales y educativas.
         * `https://login.microsoftonline.com/consumers/`: se usa para el inicio de sesión de los usuarios solo con una cuenta personal de Microsoft (activa).
-    * En Azure AD B2C, tiene el formato `https://<instance>/tfp/<tenant>/<policyName>/`, donde instancia es el dominio de Azure AD B2C, inquilino es el nombre del inquilino de Azure AD B2C y nombreDirectiva es el nombre de la directiva de B2C que se va a aplicar.
+    * En Azure AD B2C, tiene el formato `https://<instance>/tfp/<tenant>/<policyName>/`, donde instancia es el dominio de Azure AD B2C (es decir, {nombre-del-inquilino}.b2clogin.com), inquilino es el nombre del inquilino de Azure AD B2C (es decir, {nombre-del-inquilino}.onmicrosoft.com) y policyName es el nombre de la directiva de B2C que se va a aplicar.
 
 
 - **validateAuthority**: Opcional.  Valida el emisor de tokens. El valor predeterminado es `true`. Para las aplicaciones B2C, como el valor de autoridad es conocido y puede ser diferente según la directiva, la validación de la autoridad no funcionará y se tiene que establecer en `false`.

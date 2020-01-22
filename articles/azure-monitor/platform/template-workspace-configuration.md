@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/22/2019
-ms.openlocfilehash: 4ec542609d8984d1d03c326854590c834840b33f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/09/2020
+ms.openlocfilehash: 9ba4fe318db86760e0dbc326730d03ad09203a88
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363394"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834219"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Administración del área de trabajo de Log Analytics mediante las plantillas de Azure Resource Manager
 
@@ -20,7 +20,7 @@ ms.locfileid: "75363394"
 
 Puede utilizar las [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para crear y configurar áreas de trabajo de Log Analytics en Azure Monitor. Estos son algunos ejemplos de las tareas que puede realizar con las plantillas:
 
-* Crear un área de trabajo, incluyendo el establecimiento del plan de tarifa 
+* Crear un área de trabajo, incluyendo el establecimiento del plan de tarifa y la reserva de capacidad
 * Agregar una solución
 * Crear búsquedas guardadas
 * Crear un grupo de equipos
@@ -47,7 +47,19 @@ En la tabla siguiente se muestra la versión de API de los recursos usados en es
 
 ## <a name="create-a-log-analytics-workspace"></a>Creación de un área de trabajo de Log Analytics
 
-En el ejemplo siguiente se crea un área de trabajo mediante una plantilla desde la máquina local. La plantilla JSON está configurada para requerir solo el nombre y la ubicación del nuevo área de trabajo (con los valores predeterminados para los demás parámetros del área de trabajo, como el plan de tarifa y la retención).  
+En el ejemplo siguiente se crea un área de trabajo mediante una plantilla desde la máquina local. La plantilla JSON está configurada para solicitar solo el nombre y la ubicación de la nueva área de trabajo. Usa los valores especificados para otros parámetros del área de trabajo, como el [modo de control de acceso](design-logs-deployment.md#access-control-mode), el plan de tarifa, la retención y el nivel de reserva de capacidad.
+
+Para la reserva de capacidad, se define una reserva de capacidad determinada para la ingesta de datos al especificar la SKU `CapacityReservation` y un valor en GB para la propiedad `capacityReservationLevel`. En la siguiente lista se detallan los valores admitidos y el comportamiento resultante al configurarlos.
+
+- Una vez establecido el límite de reserva, no se puede cambiar a una SKU diferente durante un plazo de 31 días.
+
+- Una vez establecido el valor de reserva, solo puede aumentarlo durante un plazo de 31 días.
+
+- Solo puede establecer el valor de `capacityReservationLevel` en múltiplos de 100, con un valor máximo de 50 000.
+
+- Si aumenta el nivel de reserva, el temporizador se restablece y no puede cambiarlo durante 31 días adicionales a partir de esta actualización.  
+
+- Si modifica cualquier otra propiedad del área de trabajo, pero conserva el límite de reserva en el mismo nivel, el temporizador no se restablece. 
 
 ### <a name="create-and-deploy-template"></a>Creación e implementación de una plantilla
 
@@ -64,6 +76,21 @@ En el ejemplo siguiente se crea un área de trabajo mediante una plantilla desde
               "description": "Specifies the name of the workspace."
             }
         },
+      "pricingTier": {
+      "type": "string",
+      "allowedValues": [
+        "pergb2018",
+        "Free",
+        "Standalone",
+        "PerNode",
+        "Standard",
+        "Premium"
+      ],
+      "defaultValue": "pergb2018",
+      "metadata": {
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+           }
+       },
         "location": {
             "type": "String",
             "allowedValues": [
@@ -101,11 +128,18 @@ En el ejemplo siguiente se crea un área de trabajo mediante una plantilla desde
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
+                "sku": { 
+                    "name": "CapacityReservation",
+                    "capacityReservationLevel": 100
+                },
+                "retentionInDays": 120,
                 "features": {
-                    "searchVersion": 1
+                    "searchVersion": 1,
+                    "legacy": 0,
+                    "enableLogAccessUsingOnlyResourcePermissions": true
                 }
             }
           }
@@ -168,9 +202,9 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
         "Standard",
         "Premium"
       ],
-      "defaultValue": "PerGB2018",
+      "defaultValue": "pergb2018",
       "metadata": {
-        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+        "description": "Pricing tier: pergb2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
       }
     },
     "dataRetention": {
@@ -257,7 +291,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
   },
   "resources": [
     {
-      "apiVersion": "2015-11-01-preview",
+      "apiVersion": "2017-03-15-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -267,7 +301,9 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]"
+          "name": "[parameters('pricingTier')]",
+          "name": "CapacityReservation",
+          "capacityReservationLevel": 100
         }
       },
       "resources": [

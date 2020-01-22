@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 1.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 256cd47fa0f309bef46c7f72951810d5f76d0fba
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2b00e2343e0959e07b195e2e98c6719a1893b8c8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975472"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769615"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Referencia de host.json para Azure Functions 1.x
 
@@ -136,7 +136,7 @@ Opciones de configuración para los [desencadenadores y enlaces de Azure Cosmos 
 }
 ```
 
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------|
 |GatewayMode|Puerta de enlace|Modo de conexión que usa la función al conectarse al servicio de Azure Cosmos DB. Las opciones son `Direct` y `Gateway`|
 |Protocolo|Https|Protocolo de conexión que usa la función al conectarse al servicio de Azure Cosmos DB.  Lea [aquí para obtener una explicación de los dos modos](../cosmos-db/performance-tips.md#networking)|
@@ -188,7 +188,7 @@ Configuración del [monitor de estado de host](https://github.com/Azure/azure-we
 }
 ```
 
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------| 
 |enabled|true|Especifica si está habilitada la característica. | 
 |healthCheckInterval|10 segundos|El intervalo de tiempo entre las comprobaciones periódicas de mantenimiento en segundo plano. | 
@@ -211,7 +211,7 @@ Opciones de configuración para los [desencadenadores y enlaces HTTP](functions-
 }
 ```
 
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------| 
 |dynamicThrottlesEnabled|false|Cuando se habilita, esta configuración hace que la canalización de procesamiento de la solicitud compruebe periódicamente contadores de rendimiento del sistema como conexiones, subprocesos, procesos, memoria o cpu y, si cualquiera de esos contadores superan un umbral alto integrado (80 %), las solicitudes se rechazarán con una respuesta 429 "Ocupado" hasta que los contadores vuelvan a niveles normales.|
 |maxConcurrentRequests|sin enlazar (`-1`)|Número máximo de funciones HTTP que se ejecutarán en paralelo. Esto permite controlar la simultaneidad, que a su vez puede ayudar a administrar el uso de recursos. Por ejemplo, podría tener una función HTTP que utiliza una gran cantidad de recursos del sistema (memoria/cpu/sockets) y causa problemas cuando la simultaneidad es demasiado alta. O bien podría tener una función que realiza solicitudes de salida a un servicio de terceros y puede que haya que limitar la velocidad de dichas llamadas. En estos casos puede ayudar aplicar una limitación.|
@@ -249,7 +249,7 @@ Controla el filtrado de los registros escritos por un [objeto ILogger](functions
 }
 ```
 
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------| 
 |categoryFilter|N/D|Especifica el filtrado por categoría| 
 |defaultLevel|Information|Para las categorías no especificadas en la matriz `categoryLevels`, envía registros en este nivel y superiores a Application Insights.| 
@@ -271,7 +271,7 @@ Opciones de configuración para los [desencadenadores y enlaces de la cola de St
 }
 ```
 
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------| 
 |maxPollingInterval|60000|Intervalo máximo, en milisegundos, entre sondeos de la cola.| 
 |visibilityTimeout|0|Intervalo de tiempo entre los reintentos cuando se produce un error al procesar un mensaje.| 
@@ -290,9 +290,9 @@ Opción de configuración para [el enlace de salida de SendGrind](functions-bind
     }
 ```
 
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------| 
-|De|N/D|Dirección de correo electrónico del remitente en todas las funciones.| 
+|desde|N/D|Dirección de correo electrónico del remitente en todas las funciones.| 
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -308,7 +308,7 @@ Opción de configuración para los [desencadenadores y enlaces de Service Bus](f
 }
 ```
 
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|Número máximo de llamadas simultáneas a la devolución de llamada que el bombeo de mensajes debe iniciar. De forma predeterminada, el entorno de ejecución de Functions procesa simultáneamente varios mensajes. Para indicar al entorno de ejecución que procese solo los mensajes de una única cola o tema, establezca `maxConcurrentCalls` en 1. | 
 |prefetchCount|N/D|Valor predeterminado de PrefetchCount que utilizará el receptor de mensajes subyacente.| 
@@ -330,7 +330,7 @@ Opciones de configuración para el comportamiento de bloqueo Singleton. Para má
 }
 ```
 
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Período durante el cual se producen los bloqueos de nivel de función. Los bloqueos se renuevan automáticamente.| 
 |listenerLockPeriod|00:01:00|Período durante el cual se producen los bloqueos de agente de escucha.| 
@@ -353,7 +353,7 @@ Opciones de configuración para los registros que se crean mediante un objeto `T
 }
 ```
 
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------| 
 |consoleLevel|info|Nivel de seguimiento para el registro de la consola. Las opciones son: `off`, `error`, `warning`, `info` y `verbose`.|
 |fileLoggingMode|debugOnly|Nivel de seguimiento para el registro de archivos. Las opciones son `never`, `always`, `debugOnly`.| 

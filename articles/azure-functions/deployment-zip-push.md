@@ -3,12 +3,12 @@ title: Implementación para insertar archivos ZIP en Azure Functions
 description: Use las funciones de implementación de archivos ZIP del servicio de implementación de Kudu para publicar sus instancias de Azure Functions.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: 88455e85607c608757067cea9d54b60e30cacb50
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6bda0859ca4741fe74f572b204e40130c56c46fc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233059"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769681"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Implementación de archivos ZIP en Azure Functions
 
@@ -16,7 +16,7 @@ En este artículo se describe la manera de implementar los archivos de proyecto 
 
 Azure Functions tiene toda una gama de opciones de implementación e integración continuas que se proporcionan con Azure App Service. Para más información, vea [Implementación continua para Azure Functions](functions-continuous-deployment.md).
 
-Para acelerar el desarrollo, puede que le resulte más fácil implementar los archivos de proyecto de la aplicación de función directamente desde un archivo ZIP. La API de implementación de ZIP toma el contenido de un archivo ZIP y lo extrae en la carpeta `wwwroot` de la aplicación de función. Esta implementación del archivo .zip usa el servicio Kudu que permite realizar implementaciones basadas en integraciones continuas, entre las que se incluye:
+Para acelerar el desarrollo, puede que le resulte más fácil implementar los archivos de proyecto de la aplicación de funciones directamente desde un archivo ZIP. La API de implementación de ZIP toma el contenido de un archivo ZIP y lo extrae en la carpeta `wwwroot` de la aplicación de función. Esta implementación del archivo .zip usa el servicio Kudu que permite realizar implementaciones basadas en integraciones continuas, entre las que se incluye:
 
 + La eliminación de archivos que se omitieron en implementaciones anteriores.
 + La personalización de la implementación, incluyendo la ejecución de scripts de implementación.
@@ -66,10 +66,10 @@ Igualmente, también puede descargar un archivo .zip desde un repositorio de Git
 
 Puede usar la CLI de Azure para desencadenar una implementación de inserción. Para implementar el archivo .zip en la aplicación de función, use el comando [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Para usar este comando, debe usar la versión 2.0.21 o posterior de la CLI de Azure. Para ver qué versión de CLI de Azure está usando, use el comando `az --version`.
 
-En el siguiente comando, reemplace el marcador de posición `<zip_file_path>` por la ruta de acceso a la ubicación del archivo .zip. Reemplace también `<app_name>` por el nombre exclusivo de la aplicación de función. 
+En el siguiente comando, reemplace el marcador de posición `<zip_file_path>` por la ruta de acceso a la ubicación del archivo .zip. Asimismo, reemplace `<app_name>` por el nombre único de su aplicación de funciones y `<resource_group>` por el nombre del grupo de recursos.
 
 ```azurecli-interactive
-az functionapp deployment source config-zip  -g myResourceGroup -n \
+az functionapp deployment source config-zip -g <resource_group> -n \
 <app_name> --src <zip_file_path>
 ```
 

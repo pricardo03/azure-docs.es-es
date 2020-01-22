@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 72327e116e498ce0f6881a5c585a08e56c8bf8c2
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: 1a45e744db36be651e770f7b5c7cc6df530f887d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038675"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772064"
 ---
 # <a name="discover-and-register-your-spring-cloud-services"></a>Detección y registro de los servicios de Spring Cloud
 
@@ -20,24 +20,7 @@ La característica de detección de servicios es un requisito clave para una arq
 ## <a name="register-your-application-using-spring-cloud-service-registry"></a>Registro de la aplicación mediante el registro de servicios de Spring Cloud
 
 Para que la aplicación pueda administrar el registro y la detección de servicios mediante el registro de servicios de Spring Cloud, deben incluirse varias dependencias en el archivo *pom.xml* de la aplicación.
-
-Para empezar, agregue un repositorio de instantáneas a la sección *repository* del archivo *pom.xml*
-
-```xml
-    <repositories>
-        <repository>
-            <id>nexus-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-```
-
-## <a name="include-dependencies"></a>Inclusión de dependencias
-
-A continuación se incluyen las dependencias de *spring-cloud-starter-netflix-eureka-client* y *spring-cloud-starter-azure-spring-cloud-client* en el archivo *pom.xml*
+Incluya las dependencias de *spring-cloud-starter-netflix-eureka-client* y *spring-cloud-starter-azure-spring-cloud-client* en el archivo *pom.xml*.
 
 ```xml
     <dependency>
@@ -47,7 +30,7 @@ A continuación se incluyen las dependencias de *spring-cloud-starter-netflix-eu
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.0-SNAPSHOT</version>
+        <version>2.1.0</version>
     </dependency>
 ```
 

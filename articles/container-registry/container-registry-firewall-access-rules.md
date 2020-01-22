@@ -1,45 +1,45 @@
 ---
 title: Reglas de acceso del firewall
-description: Configure reglas para acceder a un registro de contenedor de Azure desde detrás de un firewall.
+description: Configure reglas para acceder a un registro de contenedor de Azure desde detrás de un firewall. Para ello, permita el acceso a la API de REST ("inclusión en lista blanca") y los nombres de dominio del punto de conexión de almacenamiento o los intervalos de direcciones IP específicos del servicio.
 ms.topic: article
 ms.date: 07/17/2019
-ms.openlocfilehash: 6a0a169f7e5a7e07771cb9fee474b7f4a9391a4e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 4d3c4ff4ca19d8b563c185e5c314011823081df1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455188"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745207"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configuración de reglas para acceder a un registro de contenedor de Azure desde detrás de un firewall
 
 En este artículo se explica cómo configurar reglas en el firewall para permitir el acceso a un registro de contenedor de Azure. Por ejemplo, es posible que un dispositivo Azure IoT Edge que esté detrás de un firewall o de un servidor proxy necesite acceder a un registro de contenedor para extraer una imagen del contenedor. O bien, que un servidor bloqueado de una red local necesite tener acceso para enviar una imagen.
 
-Por en vez de eso desea configurar reglas de acceso de red de entrada en un registro de contenedor para permitir el acceso solo dentro de una red virtual de Azure o de un intervalo de direcciones IP públicas, consulte [Restricción del acceso a un registro de contenedor de Azure desde una red virtual](container-registry-vnet.md).
+Si en vez de eso desea configurar reglas de acceso de red de entrada en un registro de contenedor solo en una instancia de Azure Virtual Network o desde un intervalo de direcciones IP públicas, consulte [Restricción del acceso a un registro de contenedor de Azure desde una red virtual](container-registry-vnet.md).
 
 ## <a name="about-registry-endpoints"></a>Acerca de los puntos de conexión del registro
 
 Para extraer imágenes u otros artefactos de un registro de contenedor de Azure (o para insertarlas en él), un cliente (por ejemplo, un demonio de Docker) debe interactuar a través de HTTPS con dos puntos de conexión distintos.
 
-* **Punto de conexión de la API de REST del registro**: las operaciones de autenticación y administración del registro se administran a través del punto de conexión público de la API de REST del registro. Este punto de conexión es la dirección URL del servidor de inicio de sesión del registro, o bien un intervalo de direcciones IP asociado. 
+* **Punto de conexión de la API de REST del registro**: las operaciones de autenticación y administración del registro se administran a través del punto de conexión público de la API de REST del registro. Este punto de conexión es el nombre del servidor de inicio de sesión del registro, o bien un intervalo de direcciones IP asociado. 
 
-* **Punto de conexión de almacenamiento**: Azure [asigna almacenamiento de blobs](container-registry-storage.md) en cuentas de almacenamiento de Azure en nombre de cada registro para administrar imágenes de contenedor y otros artefactos. Cuando un cliente accede a capas de imagen en un registro de contenedor de Azure, realiza solicitudes mediante un punto de conexión de la cuenta de almacenamiento proporcionado por el registro.
+* **Punto de conexión de almacenamiento**: Azure [asigna Blob Storage](container-registry-storage.md) en cuentas de Azure Storage en nombre de cada registro para administrar los datos de imágenes de contenedor y otros artefactos. Cuando un cliente accede a capas de imagen en un registro de contenedor de Azure, realiza solicitudes mediante un punto de conexión de la cuenta de almacenamiento proporcionado por el registro.
 
 Si el registro está [replicado geográficamente](container-registry-geo-replication.md), es posible que el cliente tenga que interactuar con los puntos de conexión de REST y de almacenamiento en una región específica o en varias regiones replicadas.
 
-## <a name="allow-access-to-rest-and-storage-urls"></a>Permitir el acceso a las direcciones URL de REST y de almacenamiento
+## <a name="allow-access-to-rest-and-storage-domain-names"></a>Permitir el acceso a REST y a los nombres de dominio de almacenamiento
 
-* **Punto de conexión de REST**: permite el acceso a la dirección URL del servidor de registro, como `myregistry.azurecr.io`.
-* **Punto de conexión de almacenamiento**: permite el acceso a todas las cuentas de Azure Blob Storage usando el carácter comodín `*.blob.core.windows.net`.
+* **Punto de conexión de REST**: permite el acceso al nombre del servidor de inicio de sesión del registro completo, como `myregistry.azurecr.io`.
+* **Punto de conexión de almacenamiento (datos)** : permite el acceso a todas las cuentas de Azure Blob Storage usando el carácter comodín `*.blob.core.windows.net`.
 
 
 ## <a name="allow-access-by-ip-address-range"></a>Permitir el acceso por intervalo de direcciones IP
 
-Si necesita permitir el acceso a direcciones IP específicas, descargue [Intervalos IP de Azure y etiquetas de servicio: nube pública](https://www.microsoft.com/download/details.aspx?id=56519).
+Si su organización tiene directivas para permitir el acceso solo a direcciones o intervalos de direcciones IP específicos, descargue [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) (Intervalos de direcciones IP y etiquetas de servicio de Azure: nube pública).
 
 Para buscar los intervalos IP del punto de conexión de REST de ACR, busque **AzureContainerRegistry** en el archivo JSON.
 
 > [!IMPORTANT]
-> Los intervalos de direcciones IP de los servicios de Azure pueden cambiar. Estos cambios se publican semanalmente. Descargue el archivo JSON con regularidad y realice las modificaciones necesarias en las reglas de acceso. Si para tener acceso a Azure Container Registry, su escenario implica configurar reglas de grupo de seguridad de red en una red virtual de Azure, use la [etiqueta de servicio](#allow-access-by-service-tag) **AzureContainerRegistry**.
+> Los intervalos de direcciones IP de los servicios de Azure pueden cambiar. Estos cambios se publican semanalmente. Descargue el archivo JSON con regularidad y realice las modificaciones necesarias en las reglas de acceso. Si para acceder a Azure Container Registry, su escenario implica configurar reglas de grupo de seguridad de red en una instancia de Azure Virtual Network, use la [etiqueta de servicio](#allow-access-by-service-tag) **AzureContainerRegistry** en su lugar.
 >
 
 ### <a name="rest-ip-addresses-for-all-regions"></a>Direcciones IP de REST para todas las regiones

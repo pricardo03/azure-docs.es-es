@@ -10,37 +10,40 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: d11239aa49a53a90a38f2b5336d36cea6c97e9df
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7c25455e28e57ff40664a69718a2e406b52b7632
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824177"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834293"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Cómo usar valores con nombre en las directivas de Azure API Management
 
 En API Management, las directivas constituyen una funcionalidad eficaz del sistema que permite a Azure Portal cambiar el comportamiento de la API mediante la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Las instrucciones de las directivas se pueden crear con valores de texto literal, expresiones de directiva y valores con nombre.
 
-Cada instancia del servicio de API Management tiene una colección de propiedades de pares clave-valor, que se denominan valores con nombre y que son globales para la instancia del servicio. No se impone ningún límite en el número de elementos de la colección. Los valores con nombre se pueden usar para administrar valores de cadena constantes en todas las directivas y la configuración de API. Cada valor con nombre puede tener los siguientes atributos:
+Cada instancia del servicio de API Management tiene una colección de pares clave-valor, que se denominan valores con nombre y que son globales para la instancia del servicio. No se impone ningún límite en el número de elementos de la colección. Los valores con nombre se pueden usar para administrar valores de cadena constantes en todas las directivas y la configuración de API. Cada valor con nombre puede tener los siguientes atributos:
 
-| Atributo      | type            | DESCRIPCIÓN                                                                                                                         |
-| -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Atributo      | Tipo            | Descripción                                                                                                                            |
+| -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | `Display name` | string          | Se usa para hacer referencia al valor con nombre en las directivas. Una cadena que contenga entre 1 y 256 caracteres. Solo se permiten letras, números, punto y guión. |
-| `Value`        | string          | Valor real. No debe estar vacío ni contener solo espacios en blanco. 4096 caracteres como máximo.                                     |
-| `Secret`       | boolean         | Determina si el valor es secreto y si se debe cifrar.                                                            |
+| `Value`        | string          | Valor real. No debe estar vacío ni contener solo espacios en blanco. 4096 caracteres como máximo.                                        |
+| `Secret`       | boolean         | Determina si el valor es secreto y si se debe cifrar.                                                               |
 | `Tags`         | matriz de cadena | Se usa para filtrar la lista de valores con nombre. Hasta 32 etiquetas.                                                                                    |
 
 ![Valores con nombre](./media/api-management-howto-properties/named-values.png)
 
 Los valores con nombre pueden contener cadenas literales y [expresiones de directiva](/azure/api-management/api-management-policy-expressions). Por ejemplo, el valor de `Expression` es una expresión de directiva que devuelve una cadena que contiene la fecha y la hora actuales. El valor con nombre `Credential` está marcado como secreto, por lo que su valor no se muestra de forma predeterminada.
 
-| NOMBRE       | Valor                      | Secret | Etiquetas          |
+| Nombre       | Value                      | Secreto | Etiquetas          |
 | ---------- | -------------------------- | ------ | ------------- |
-| Valor      | 42                         | False  | vital-numbers |
+| Value      | 42                         | False  | vital-numbers |
 | Credential: | ••••••••••••••••••••••     | True   | security      |
 | Expression | @(DateTime.Now.ToString()) | False  |               |
+
+> [!NOTE]
+> En lugar de los valores con nombre almacenados en un servicio de API Management, puede usar los valores almacenados en el servicio [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) como se muestra en este [ejemplo](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml).
 
 ## <a name="to-add-and-edit-a-named-value"></a>Para agregar y editar un valor con nombre
 
@@ -50,9 +53,9 @@ Los valores con nombre pueden contener cadenas literales y [expresiones de direc
 2. Seleccione **Valores con nombre**.
 3. Presione **+Agregar**.
 
-    Los campos Nombre y Valor son necesarios. Si el valor es un secreto, marque la casilla *Este valor es un secreto*. Escriba una o varias etiquetas opcionales que le ayuden a organizar los valores con nombre y haga clic en Guardar.
+    Los campos Nombre y Valor son necesarios. Si el valor es un secreto, marque la casilla _Este valor es un secreto_. Escriba una o varias etiquetas opcionales que le ayuden a organizar los valores con nombre y haga clic en Guardar.
 
-4. Haga clic en **Create**(Crear).
+4. Haga clic en **Crear**.
 
 Una vez creado el valor con nombre, es posible editarlo haciendo clic en él. Si cambia el nombre del valor con nombre, las directivas que hagan referencia a ese valor con nombre se actualizarán automáticamente para utilizar el nuevo nombre.
 
@@ -111,7 +114,7 @@ Aunque los valores con nombre pueden contener expresiones de directiva, no puede
 
 -   Obtenga más información sobre cómo trabajar con directivas
     -   [Directivas de Azure API Management](api-management-howto-policies.md)
-    -   [Referencia de directiva](/azure/api-management/api-management-policies)
+    -   [Referencia de la directiva](/azure/api-management/api-management-policies)
     -   [Expresiones de directiva](/azure/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png

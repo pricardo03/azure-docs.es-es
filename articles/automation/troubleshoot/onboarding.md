@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas de errores al incorporar Update Management, Change Tracking e Inventory
+title: Solución de problemas durante la incorporación de soluciones de administración de Azure Automation
 description: Aprenda a solucionar los errores de incorporación de las soluciones Update Management, Change Tracking e Inventory
 services: automation
 author: mgoedtel
@@ -8,14 +8,14 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 0371c59ae63389bc3f7f0132260b0d98f496086c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c949556949e0c187d7c23c4dd32436e245bfbb95
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849316"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889331"
 ---
-# <a name="troubleshoot-errors-when-onboarding-solutions"></a>Solución de problemas de errores al incorporar soluciones
+# <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>Solución de errores al incorporar Update Management, Change Tracking e Inventory
 
 Al incorporar soluciones como Update Management, Change Tracking o Inventory, pueden producirse errores. En este artículo se describen los diversos errores que pueden producirse y cómo resolverlos.
 
@@ -31,7 +31,7 @@ Un nodo se registra en Azure Automation y, a continuación, se cambia el nombre 
 
 Al cambiar el nombre de los nodos registrados, no actualiza el nombre del nodo en Azure Automation.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Anule el registro del nodo en State Configuration de Azure Automation y, a continuación, vuelva a registrarlo.  Los informes publicados en el servicio antes de ese momento ya no estarán disponibles.
 
@@ -46,7 +46,7 @@ Los clientes han comunicado que, al conectarse con una solución de proxy que fi
 
 Azure Automation no permite volver a firmar los certificados usados para cifrar el tráfico.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 No hay ninguna solución alternativa para este problema.
 
@@ -70,7 +70,7 @@ The solution cannot be enabled on this VM because the permission to read the wor
 
 Este error se produce porque faltan permisos en la máquina virtual, el área de trabajo o para el usuario, o dichos permisos son incorrectos.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Asegúrese de tener los permisos correctos para incorporar la máquina virtual. Revise los [permisos necesarios para incorporar máquinas](../automation-role-based-access-control.md#onboarding) y vuelva a intentar incorporar la solución. Si recibe el error `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, asegúrese de tener el permiso `Microsoft.OperationalInsights/workspaces/read` para averiguar si la máquina virtual está incorporada a un área de trabajo.
 
@@ -88,7 +88,7 @@ Failed to configure automation account for diagnostic logging
 
 Este error puede producirse si el plan de tarifa no coincide con el modelo de facturación de la suscripción. Para más información, consulte [Supervisión del uso y costos estimados en Azure Monitor](https://aka.ms/PricingTierWarning).
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Cree manualmente el área de trabajo de Log Analytics y repita el proceso de incorporación para seleccionar el área de trabajo creada.
 
@@ -102,7 +102,7 @@ Este código de error significa que la consulta de búsqueda guardada del grupo 
 
 Puede que haya cambiado la consulta, o puede que lo haya hecho el sistema.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Puede eliminar la consulta para esta solución y reincorporar la solución, con lo que se vuelve a crear la consulta. La consulta puede encontrarse en el área de trabajo, en **Búsquedas guardadas**. El nombre de la consulta es **MicrosoftDefaultComputerGroup**, y la categoría de la consulta es el nombre de la solución asociada a esta consulta. Si se habilitan varias soluciones, **MicrosoftDefaultComputerGroup** se muestra varias veces en **Búsquedas guardadas**.
 
@@ -116,7 +116,7 @@ Este código de error significa que no se pudo realizar la implementación debid
 
 Existe una directiva que impide que se complete la operación.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Para implementar correctamente la solución, debe considerar modificar la directiva indicada. Dado que hay muchos tipos diferentes de directivas que se pueden definir, los cambios específicos necesarios dependen de la directiva que se ha infringido. Por ejemplo, si se define una directiva en un grupo de recursos que deniega el permiso para cambiar el contenido de ciertos tipos de recursos dentro de ese grupo de recursos podría realizar cualquiera de las siguientes acciones:
 
@@ -140,9 +140,9 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 #### <a name="cause"></a>Causa
 
-Este error se produce cuando todavía dispone de soluciones activas en el área de trabajo de Log Analytics que dependen de su cuenta de Automation y del área de trabajo de Log Analytics que se vincula.
+Este error se produce cuando todavía dispone de soluciones activas en el área de trabajo de Log Analytics que dependen de que su cuenta de Automation y el área de trabajo de Log Analytics estén vinculadas.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Para resolver este problema, deberá quitar las siguientes soluciones del área de trabajo si las está usando:
 
@@ -156,7 +156,7 @@ Una vez que quite las soluciones, puede desvincular el área de trabajo. Es impo
   * Eliminación de implementaciones de actualizaciones (programaciones) de la cuenta de Automation
 * Inicio y detención de máquinas virtuales durante las horas de trabajo
   * Quite los bloqueos sobre los componentes de soluciones de la cuenta de Automation en **Configuración** > **Bloqueos**.
-  * Para conocer otros pasos para quitar la solución Start/Stop VMs during off-hours, consulte, [Eliminación de la solución Start/Stop VM during off-hours](../automation-solution-vm-management.md##remove-the-solution).
+  * Para conocer otros pasos para quitar la solución Start/Stop VMs during off-hours, consulte, [Eliminación de la solución Start/Stop VM during off-hours](../automation-solution-vm-management.md#remove-the-solution).
 
 ## <a name="mma-extension-failures"></a>Errores de extensión MMA
 
@@ -192,7 +192,7 @@ Algunas de las posibles causas de este error son:
 
 * Una configuración de firewall ha bloqueado el acceso a los puertos y las direcciones necesarios.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Asegúrese de que los puertos y las direcciones adecuados están abiertos para la comunicación. Para obtener una lista de direcciones y puertos, consulte [Planeamiento de la red](../automation-hybrid-runbook-worker.md#network-planning).
 
@@ -223,7 +223,7 @@ Algunas de las posibles causas de este error son:
 * Hay otra instalación en curso.
 * El sistema se desencadenó para reiniciarse durante la implementación de plantillas.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Este es un error transitorio por naturaleza. Vuelva a intentar la implementación para instalar la extensión.
 
@@ -243,7 +243,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 Este error se debe a que la máquina virtual está bajo una carga pesada durante la instalación.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Intente instalar la extensión MMA cuando la máquina virtual esté bajo una carga inferior.
 

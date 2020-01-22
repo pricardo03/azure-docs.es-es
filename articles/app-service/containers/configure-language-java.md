@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5ee07e5b0ac9c73a686a0f8c7d489ecc7ee96425
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9c95772c8f10d7170a06d1d6793545a60fc8dd7c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422194"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750740"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configuración de una aplicación de Java en Linux para Azure App Service
 
@@ -238,11 +238,9 @@ Para insertar estos secretos en el archivo de configuración de Spring o Tomcat,
 
 ### <a name="using-the-java-key-store"></a>Uso del almacén de claves de Java
 
-De forma predeterminada, los certificados públicos o privados [cargados en App Service Linux](../configure-ssl-certificate.md) se cargarán en el almacén de claves de Java cuando se inicie el contenedor. Esto significa que los certificados cargados estarán disponibles en el contexto de conexión al realizar conexiones TLS salientes. Después de cargar el certificado, deberá reiniciar la instancia de App Service para que se cargue en el almacén de claves de Java.
+De forma predeterminada, los certificados públicos o privados [cargados en App Service Linux](../configure-ssl-certificate.md) se cargarán en los almacenes de claves de Java respectivos cuando se inicie el contenedor. Después de cargar el certificado, deberá reiniciar la instancia de App Service para que se cargue en el almacén de claves de Java. Los certificados públicos se cargan en el almacén de claves en `$JAVA_HOME/jre/lib/security/cacerts`, y los certificados privados se almacenan en `$JAVA_HOME/lib/security/client.jks`.
 
-Puede depurar o interactuar con la herramienta de claves de Java si [abre una conexión SSH](app-service-linux-ssh-support.md) a la instancia de App Service y ejecuta el comando `keytool`. Consulte la [documentación de la herramienta de claves](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) para obtener una lista de comandos. Los certificados se almacenan en la ubicación predeterminada de archivos del almacén de claves de Java, `$JAVA_HOME/jre/lib/security/cacerts`.
-
-Puede ser necesaria una configuración adicional para el cifrado de la conexión de JDBC. Consulte la documentación del controlador JDBC elegido.
+Puede ser necesaria una configuración adicional para el cifrado de la conexión de JDBC con certificados en el almacén de claves de Java. Consulte la documentación del controlador JDBC elegido.
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
@@ -250,11 +248,27 @@ Puede ser necesaria una configuración adicional para el cifrado de la conexión
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
-#### <a name="manually-initialize-and-load-the-key-store"></a>Inicialización y carga manual del almacén de claves
+#### <a name="initializing-the-java-key-store"></a>Inicialización del almacén de claves de Java
 
-Puede inicializar el almacén de claves y agregar certificados manualmente. Cree una configuración de aplicación, `SKIP_JAVA_KEYSTORE_LOAD`, con un valor de `1` para deshabilitar en App Service la carga automática de los certificados en el almacén de claves. Todos los certificados públicos cargados en App Service a través de Azure Portal se almacenan en `/var/ssl/certs/`. Los certificados privados se almacenan en `/var/ssl/private/`.
+Para inicializar el objeto `import java.security.KeyStore`, cargue el archivo de almacén de claves con la contraseña. La contraseña predeterminada para ambos almacenes de claves es "changeit".
 
-Para más información sobre la API KeyStore, consulte [la documentación oficial](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
+```java
+KeyStore keyStore = KeyStore.getInstance("jks");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/cacets"),
+    "changeit".toCharArray());
+
+KeyStore keyStore = KeyStore.getInstance("pkcs12");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/client.jks"),
+    "changeit".toCharArray());
+```
+
+#### <a name="manually-load-the-key-store"></a>Cargar manualmente el almacén de claves
+
+Puede cargar los certificados manualmente en el almacén de claves. Cree una configuración de aplicación, `SKIP_JAVA_KEYSTORE_LOAD`, con un valor de `1` para deshabilitar en App Service la carga automática de los certificados en el almacén de claves. Todos los certificados públicos cargados en App Service a través de Azure Portal se almacenan en `/var/ssl/certs/`. Los certificados privados se almacenan en `/var/ssl/private/`.
+
+Puede depurar o interactuar con la herramienta de claves de Java si [abre una conexión SSH](app-service-linux-ssh-support.md) a la instancia de App Service y ejecuta el comando `keytool`. Consulte la [documentación de la herramienta de claves](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) para obtener una lista de comandos. Para más información sobre la API KeyStore, consulte [la documentación oficial](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
 
 ## <a name="configure-apm-platforms"></a>Configuración de plataformas APM
 
@@ -372,7 +386,7 @@ El script de inicio realizará una [transformación XSL](https://www.w3schools.c
 apk add --update libxslt
 
 # Usage: xsltproc --output output.xml style.xsl input.xml
-xsltproc --output /usr/local/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /home/tomcat/conf/server.xml
+xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
 
 A continuación se puede ver un archivo XSL de ejemplo. Este archivo agrega un nuevo nodo de conector al archivo server.xml de Tomcat.

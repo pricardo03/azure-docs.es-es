@@ -1,18 +1,19 @@
 ---
-title: 'Conexión de una red local a una instancia de Azure Virtual Network con una VPN de sitio a sitio: Portal | Microsoft Docs'
+title: 'Conexión de una red local a una instancia de Azure Virtual Network: VPN de sitio a sitio: Portal'
 description: Pasos para crear una conexión de IPsec desde la red local a una red virtual de Azure a través de la red pública de Internet. Estos pasos le ayudarán a crear una conexión de VPN Gateway de sitio a sitio entre locales mediante el portal.
 services: vpn-gateway
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 96a8b8d33f713faf96e7a96b32e9e41ca669e6cb
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 2e6aeda0e84b11221af110bda738d6d93f258978
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970834"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894985"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Creación de una conexión de sitio a sitio mediante Azure Portal
 
@@ -45,7 +46,7 @@ Los ejemplos de este artículo utilizan los valores siguientes. Puede usar estos
 * **Nombre de la red virtual:** VNet1
 * **Espacio de direcciones:** 10.1.0.0/16
 * **Subscription** (Suscripción): Suscripción que desea usar.
-* **Grupo de recursos:** TestRG1
+* **Grupos de recursos:** TestRG1
 * **Región:** East US
 * **Subred:** front-end: 10.1.0.0/24, back-end: 10.1.1.0/24 (opcional para este ejercicio)
 * **Intervalo de direcciones de subred de puerta de enlace:** 10.1.255.0/27
