@@ -1,17 +1,14 @@
 ---
-title: Detección de aplicaciones, roles y características instaladas en servidores locales mediante Azure Migrate Server Assessment
-description: Describe cómo detectar aplicaciones, roles y características en servidores locales mediante Azure Migrate Server Assessment.
-author: snehaamicrosoft
-ms.service: azure-migrate
+title: Detección de aplicaciones, roles y características en servidores locales con Azure Migrate
+description: Obtenga información sobre cómo detectar aplicaciones, roles y características en servidores locales con Azure Migrate Server Assessment.
 ms.topic: article
 ms.date: 11/20/2019
-ms.author: snehaa
-ms.openlocfilehash: 279e326ace308b354d7bcb8366d3286980e7b8c6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: adc22925d1152639babe2377a1eae440e0ce418e
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278472"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029079"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Detección de aplicaciones, roles y características de la máquina
 
@@ -30,14 +27,14 @@ Detección de aplicaciones mediante Azure Migrate: Server Assessment es una herr
 1. Revise las [limitaciones de compatibilidad](migrate-support-matrix-vmware.md#application-discovery) para la detección de nivel de aplicación.
 2. Asegúrese de que ha [creado](how-to-add-tool-first-time.md) un proyecto de Azure Migrate.
 3. Si ya ha creado un proyecto, asegúrese de que ha [agregado](how-to-assess.md) la herramienta Azure Migrate: Server Assessment.
-4. Compruebe los [requisitos de VMware](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements) para detectar y evaluar las VM de VMware con el dispositivo de Azure Migrate.
-4. Compruebe los [requisitos ](migrate-support-matrix-vmware.md#assessment-appliance-requirements) para implementar el dispositivo de Azure Migrate.
+4. Compruebe los [requisitos de VMware](migrate-support-matrix-vmware.md#vmware-requirements) para detectar y evaluar las VM de VMware con el dispositivo de Azure Migrate.
+4. Compruebe los [requisitos ](migrate-appliance.md) para implementar el dispositivo de Azure Migrate.
 
 ## <a name="prepare-for-app-discovery"></a>Preparación para la detección de aplicaciones
 
-1. [Prepárese para la implementación del dispositivo](https://docs.microsoft.com/azure/migrate/tutorial-prepare-vmware). La preparación incluye la comprobación de la configuración del dispositivo y la configuración de una cuenta que el dispositivo utilizará para acceder a vCenter Server.
+1. [Prepárese para la implementación del dispositivo](tutorial-prepare-vmware.md). La preparación incluye la comprobación de la configuración del dispositivo y la configuración de una cuenta que el dispositivo utilizará para acceder a vCenter Server.
 2. Asegúrese de que tiene una cuenta de usuario (una para servidores Windows y otra para servidores Linux) con permisos de administrador para las máquinas en las que quiere detectar aplicaciones, roles y características.
-3. [Implemente el dispositivo de VMware](how-to-set-up-appliance-vmware.md) para iniciar la detección. Para implementar el dispositivo, descargue e importe una plantilla de OVA en VMware para crear el dispositivo como una VM de VMware. Configure el dispositivo y, a continuación, regístrelo con Azure Migrate.
+3. [Implemente el dispositivo de Azure Migrate](how-to-set-up-appliance-vmware.md) para iniciar la detección. Para implementar el dispositivo, descargue e importe una plantilla de OVA en VMware para crear el dispositivo como una VM de VMware. Configure el dispositivo y, a continuación, regístrelo con Azure Migrate.
 2. Mientras implementa el dispositivo, especifique lo siguiente para iniciar la detección continua:
     - El nombre de la instancia de vCenter Server que quiere conectar.
     - Las credenciales que ha creado para que el dispositivo se conecte a vCenter Server.

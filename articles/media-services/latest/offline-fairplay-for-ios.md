@@ -1,5 +1,5 @@
 ---
-title: Protección del contenido HLS con Apple FairPlay - Azure sin conexión | Microsoft Docs
+title: Streaming de FairPlay sin conexión para iOS con Azure Media Services v3
 description: En este tema se ofrece información general y se muestra cómo usar Azure Media Services para cifrar dinámicamente el contenido HTTP Live Streaming (HLS) con Apple FairPlay en modo sin conexión.
 services: media-services
 keywords: HLS, DRM, FairPlay Streaming (FPS), Offline, iOS 10
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 83fa8c9c6d98728d48ff4ed8993963cdbd522724
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c0d87de25cae44f17789dfaf7b1ec805138c351c
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974128"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779933"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>FairPlay Streaming sin conexión para iOS 
 
@@ -29,7 +29,7 @@ ms.locfileid: "74974128"
 - Microsoft PlayReady
 - Google Widevine
     
-    Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
+    Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 - Apple FairPlay
 - Cifrado AES-128
 
@@ -46,7 +46,7 @@ En este artículo se trata la compatibilidad con el modo sin conexión de FairPl
 > [!NOTE]
 > DRM sin conexión solo se factura para hacer una única solicitud de una licencia al descargar el contenido. Los errores no se facturan.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de implementar DRM sin conexión para FairPlay en un dispositivo iOS 10 o superior:
 

@@ -1,19 +1,16 @@
 ---
-title: Configuración de la replicación de máquinas virtuales de Azure en Azure Site Recovery | Microsoft Docs
-description: En este artículo se describe cómo configurar la replicación de máquinas virtuales de Azure de una región de Azure a otra mediante Site Recovery.
-services: site-recovery
-author: asgang
+title: Configuración de la replicación de VM de Azure en Azure Site Recovery
+description: Aprenda a configurar la replicación en otra región para VM de Azure mediante Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2018
-ms.author: asgang
-ms.openlocfilehash: 7559bfd3d97f7b430b92578473501b519eb0a07f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1c6b7cfbf193f02598052b6922efec17fb16ec83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934553"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973689"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicación de máquinas virtuales de Azure en otra región de Azure
 
@@ -37,7 +34,7 @@ Habilite la replicación. En este procedimiento se supone que la región princip
    - **Ubicación de origen**: la región de Azure desde la que se quieren proteger las máquinas virtuales. En este ejemplo, la ubicación de origen es "Asia Oriental".
    - **Modelo de implementación**: el modelo de implementación de Azure de las máquinas de origen.
    - **Suscripción de origen**: suscripción a la que pertenecen las máquinas virtuales de origen. Puede tratarse de cualquier suscripción dentro del mismo inquilino de Azure Active Directory donde exista el almacén de Recovery Services.
-   - **Grupos de recursos**: el grupo de recursos al que pertenecen las máquinas virtuales de origen. Todas las máquinas virtuales del grupo de recursos seleccionado se enumeran para su protección en el paso siguiente.
+   - **Grupo de recursos**: el grupo de recursos al que pertenecen las máquinas virtuales de origen. Todas las máquinas virtuales del grupo de recursos seleccionado se enumeran para su protección en el paso siguiente.
 
      ![Habilitar replicación](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
 
@@ -65,7 +62,7 @@ Habilite la replicación. En este procedimiento se supone que la región princip
      >[!NOTE]
      >No puede cambiar el tipo de disponibilidad (instancia única, zona de disponibilidad o conjunto de disponibilidad) después de habilitar la replicación. Tendrá que deshabilitar y habilitar la replicación para cambiar el tipo de disponibilidad.
      >
-    
+
    - **Directiva de replicación**: define la configuración del historial de retención del punto de recuperación y la frecuencia de instantánea coherente con la aplicación. De manera predeterminada, Azure Site Recovery crea una nueva directiva de replicación con la configuración predeterminada de "24 horas" para la retención del punto de recuperación y "4 horas" para la frecuencia de instantánea coherente con la aplicación.
 
      ![Habilitar replicación](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
@@ -77,7 +74,7 @@ Si se agregan discos a una máquina virtual de Azure para la que está habilitad
 -   Si habilita la protección para los discos agregados, la advertencia desaparecerá después de la replicación inicial del disco.
 -   Si decide no habilitar la replicación para el disco, puede seleccionar descartar la advertencia.
 
-    
+
     ![Nuevo disco agregado](./media/azure-to-azure-how-to-enable-replication/newdisk.png)
 
 Para habilitar la replicación para un disco agregado, haga lo siguiente:
@@ -91,7 +88,7 @@ Para habilitar la replicación para un disco agregado, haga lo siguiente:
 Después de la ejecución del trabajo de habilitación de la replicación y cuando la replicación inicial finaliza, se elimina la advertencia de mantenimiento de replicación de la incidencia del disco.
 
 
-  
+
 ## <a name="customize-target-resources"></a>Personalizar los recursos de destino
 
 Puede modificar la configuración de destino predeterminada utilizada por Site Recovery.
@@ -115,7 +112,7 @@ Puede modificar la configuración de destino predeterminada utilizada por Site R
     - Asegúrese de que no haya ningún dispositivo de firewall que bloquee la comunicación interna entre las máquinas virtuales en el puerto 20004.
     - Si desea que las máquinas virtuales Linux formen parte de un grupo de replicación, asegúrese de que el tráfico saliente en el puerto 20004 se abra manualmente según la guía de la versión específica de Linux.
 ![Habilitar replicación](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
-    
+
 5. Haga clic en **Crear recurso de destino** > **Habilitar replicación**.
 6. Después de que las máquinas virtuales están habilitadas para la replicación, puede comprobar el estado de mantenimiento de las máquinas virtuales en **Elementos replicados**.
 

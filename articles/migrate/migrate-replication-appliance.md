@@ -1,28 +1,24 @@
 ---
-title: Arquitectura del dispositivo de replicación de Azure Migrate
-description: Proporciona información general sobre el dispositivo de replicación de Azure Migrate para la migración basada en agente.
-author: rayne-wiselman
-ms.service: azure-migrate
+title: Dispositivo de replicación con Azure Migrate
+description: Obtenga más información sobre el dispositivo de replicación de Azure Migrate para la migración de VMware basada en agente.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: ba14767bde5d6cdca3a82dbe4e8a115ec25cc911
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.date: 01/08/2020
+ms.openlocfilehash: 574877c6a0a5ade068cff08041b29d2465430ed1
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186552"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029038"
 ---
 # <a name="replication-appliance"></a>Dispositivo de replicación
 
-En este artículo se describe el dispositivo de replicación que usa Azure Migrate: Server Assessment al migrar máquinas virtuales de VMware, máquinas físicas y máquinas virtuales de nube privada o pública a Azure mediante una migración basada en agente. 
-
-La herramienta está disponible en el centro de [Azure Migrate](migrate-overview.md). El centro proporciona herramientas nativas para la evaluación y la migración, así como herramientas de otros servicios de Azure y de proveedores de software independientes (ISV) de terceros.
+En este artículo se describe el dispositivo de replicación que usa la herramienta [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-migration-tool) al migrar VM de VMware, máquinas físicas y VM de nube privada o pública a Azure mediante una migración basada en agente. 
 
 
-## <a name="appliance-overview"></a>Información general del dispositivo
+## <a name="overview"></a>Información general
 
-El dispositivo de replicación se implementa como una máquina local individual, ya sea como una máquina virtual de VMware o como un servidor físico. Ejecuta lo siguiente:
+El dispositivo de replicación se implementa cuando se configura la migración basada en agente de VM de VMware o servidores físicos. Se implementa como una máquina local individual, ya sea como una VM de VMware o como un servidor físico. Ejecuta lo siguiente:
+
 - **Dispositivo de replicación**: el dispositivo de replicación coordina las comunicaciones y administra la replicación de datos para las máquinas virtuales de VMware locales y los servidores físicos que se replican en Azure.
 - **Servidor de proceso**: el servidor de proceso, que se instala de forma predeterminada en el dispositivo de replicación, hace lo siguiente:
     - **Puerta de enlace de replicación**: actúa como puerta de enlace de replicación. Recibe datos de replicación de las máquinas habilitadas para la replicación. Optimiza los datos de replicación con el almacenamiento en caché, la compresión y el cifrado, y los envía a Azure.
@@ -30,19 +26,77 @@ El dispositivo de replicación se implementa como una máquina local individual,
 
 ## <a name="appliance-deployment"></a>Implementación del dispositivo
 
-**Implementación como** | **Se usa para** | **Detalles**
---- | --- |  ---
-Máquina virtual de VMware | Normalmente se usa al migrar máquinas virtuales de VMware mediante la herramienta de migración de Azure Migrate con la migración basada en agente. | Descargue la plantilla OVA del centro de Azure Migrate e impórtela en vCenter Server para crear la máquina virtual del dispositivo.
-Máquina física | Se usa al migrar servidores físicos locales si no se tiene una infraestructura de VMware o si no se puede crear una máquina virtual de VMware mediante una plantilla OVA. | Descargue un instalador de software del centro de Azure Migrate y ejecútelo para configurar el equipo de la aplicación.
+**Se usa para** | **Detalles**
+--- |  ---
+Migración basada en agente de VM de VMware | Descargue la plantilla OVA del centro de Azure Migrate e impórtela en vCenter Server para crear la máquina virtual del dispositivo.
+Migración basada en agente de máquinas físicas | Si no tiene una infraestructura de VMware o si no puede crear una VM de VMware mediante una plantilla OVA, descargue un instalador de software desde el Centro de Azure Migrate y ejecútelo para configurar la máquina de la aplicación.
 
-## <a name="appliance-deployment-requirements"></a>Requisitos de implementación del dispositivo
+## <a name="appliance-requirements"></a>Requisitos de los dispositivos
 
-[Revise](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements) los requisitos de implementación.
+Al configurar el dispositivo de replicación con la plantilla OVA proporcionada en el concentrador de Azure Migrate, el dispositivo ejecuta Windows Server 2016 y cumple los requisitos de compatibilidad. Si configura el dispositivo de replicación manualmente en un servidor físico, asegúrese de que cumple los requisitos.
 
+**Componente** | **Requisito**
+--- | ---
+ | **Dispositivo de VM de VMware**
+PowerCLI | Si el dispositivo de replicación se ejecuta en una máquina virtual de VMware, se debe instalar [PowerCLI versión 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1).
+Tipo de NIC | VMXNET3 (si el dispositivo es una máquina virtual de VMware)
+ | **Configuración de hardware**
+Núcleos de CPU | 8
+RAM | 16 GB
+Número de discos | Tres: el disco del sistema operativo, el disco de la caché del servidor de procesos y la unidad de retención.
+Espacio libre en disco (caché) | 600 GB
+Espacio libre en el disco (disco de retención) | 600 GB
+**Configuración de software** |
+Sistema operativo | Windows Server 2016 o Windows Server 2012 R2
+Licencia | El dispositivo viene con una licencia de evaluación de Windows Server 2016 que es válida durante 180 días.<br/><br/> Si el período de evaluación está a punto de expirar, se recomienda descargar e implementar un nuevo dispositivo, o bien activar la licencia del sistema operativo de la máquina virtual del dispositivo.
+Configuración regional del sistema operativo | Español (es-es)
+TLS | TLS 1.2 debe estar habilitado.
+.NET Framework | .NET Framework 4.6 o posterior debe estar instalado en la máquina (con criptografía segura habilitada).
+MySQL | MySQL debe estar instalado en el dispositivo.<br/> Se debe instalar MySQL. Se puede instalar manualmente o lo puede instalar Site Recovery durante la implementación.
+Otras aplicaciones | No ejecute otras aplicaciones en el dispositivo de replicación.
+Roles de Windows Server | No habilite estos roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
+Directivas de grupo | No habilite estas directivas de grupo: <br> - Impedir el acceso al símbolo del sistema. <br> - Impedir el acceso a herramientas de edición del Registro. <br> - Confiar en la lógica de datos adjuntos de archivos. <br> - Activar la ejecución de scripts. <br> [Más información](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+IIS | - Ningún sitio web predeterminado debe existir previamente <br> - Ningún sitio web o aplicación que escuche en el puerto 443 deben existir previamente <br>- Habilitar la [autenticación anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar la configuración de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)
+**Configuración de red** |
+Tipo de dirección IP | estática
+Puertos | 443 (orquestación del canal de control)<br>9443 (Transporte de datos)
+Tipo de NIC | VMXNET3
 
+## <a name="mysql-installation"></a>Instalación de MySQL 
 
-## <a name="appliance-license"></a>Licencia del dispositivo
-El dispositivo viene con una licencia de evaluación de Windows Server 2016 que es válida durante 180 días. Si el período de evaluación está a punto de expirar, se recomienda descargar e implementar un nuevo dispositivo, o bien activar la licencia del sistema operativo de la máquina virtual del dispositivo.
+MySQL debe estar instalado en la máquina de la aplicación de replicación. Se puede instalar con uno de estos métodos.
+
+**Método** | **Detalles**
+--- | ---
+Descargar e instalar manualmente | Descargue la aplicación MySQL y colóquela en la carpeta C:\Temp\ASRSetup; luego, instálela manualmente.<br/> Al configurar el dispositivo, MySQL se mostrará como ya instalado.
+Sin descarga en línea | Coloque la aplicación del instalador de MySQL en la carpeta C:\Temp\ASRSetup. Al instalar el dispositivo y hacer clic para descargar e instalar MySQL, el programa de instalación usará el instalador que ha agregado.
+Descargar e instalar en Azure Migrate | Cuando instale el dispositivo y se le solicite MySQL, seleccione **Descargar e instalar**.
+
+## <a name="url-access"></a>acceso URL
+
+El dispositivo de replicación necesita acceso a estas direcciones URL.
+
+**URL** | **Detalles**
+--- | ---
+\*.backup.windowsazure.com | Se usa para la transferencia y coordinación de datos replicados
+\*.store.core.windows.net | Se usa para la transferencia y coordinación de datos replicados
+\*blob.core.windows.net | Se usa para tener acceso a la cuenta de almacenamiento que almacena los datos replicados
+\*.hypervrecoverymanager.windowsazure.com | Se usa para las operaciones de administración de replicación y coordinación
+https:\//management.azure.com | Se usa para las operaciones de administración de replicación y coordinación
+*.services.visualstudio.com | Se usa con fines de telemetría (es opcional)
+time.nist.gov | Se usan para comprobar la sincronización de la hora entre el sistema y la hora global.
+time.windows.com | Se usan para comprobar la sincronización de la hora entre el sistema y la hora global.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | La configuración de OVF necesita acceder a estas direcciones URL. Azure Active Directory las usa para la administración de identidades y control de acceso
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para completar la descarga de MySQL
+
+## <a name="port-access"></a>Acceso a puertos
+
+**Dispositivo** | **Connection**
+--- | ---
+Máquinas virtuales | El servicio de movilidad que se ejecuta en las máquinas virtuales se comunica con el dispositivo de replicación local (servidor de configuración) en el puerto HTTPS 443 entrante para la administración de la replicación.<br/><br/> Las máquinas virtuales envían datos de replicación al servidor de procesos (que se ejecuta en la máquina del servidor de configuración) en el puerto HTTPS 9443 entrante. Este puerto se puede modificar.
+Dispositivo de replicación | El dispositivo de replicación organiza la replicación con Azure a través del puerto HTTPS 443 saliente.
+Servidor de proceso | El servidor de procesos recibe los datos de la replicación, los optimiza, los cifra y los envía a Azure Storage a través del puerto 443 de salida.<br/> De forma predeterminada, el servidor de procesos se ejecuta en el dispositivo de replicación.
+
 
 ## <a name="replication-process"></a>Proceso de replicación
 
@@ -51,12 +105,12 @@ El dispositivo viene con una licencia de evaluación de Windows Server 2016 que
 3. Cuando finaliza esta replicación inicial, comienza la replicación diferencial. Las marcas de revisión de una máquina se registran.
 4. Comunicación se realiza como se indica a continuación:
     - Las máquinas virtuales se comunican con el dispositivo de replicación en el puerto HTTPS 443 entrante para la administración de la replicación.
-    - El dispositivo de replicación organiza la replicación con Azure a través del puerto HTTPS 443 saliente.
+    - El dispositivo de replicación organiza la replicación con Azure a través del puerto HTTPS 443 saliente.
     - Las máquinas virtuales envían los datos de replicación al servidor de procesos (que se ejecuta en el dispositivo de replicación) en el puerto HTTPS 9443 entrante. Este puerto se puede modificar.
     - El servidor de procesos recibe datos de replicación, los optimiza y los cifra para enviarlos después a Azure Storage a través del puerto 443 de salida.
 5. Los datos de replicación registran el primer aterrizaje en una cuenta de almacenamiento en caché de Azure. Estos registros se procesan y los datos se almacenan en un disco administrado de Azure.
 
-![Arquitectura](./media/migrate-replication-appliance/architecture.png)
+![Architecture](./media/migrate-replication-appliance/architecture.png)
 
 ## <a name="appliance-upgrades"></a>Actualizaciones del dispositivo
 
@@ -68,6 +122,5 @@ El dispositivo se actualiza manualmente desde el centro de Azure Migrate. Se rec
  
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Obtenga información](tutorial-assess-vmware.md#set-up-the-appliance-vm) sobre cómo configurar el dispositivo para VMware.
-[Obtenga información](tutorial-assess-hyper-v.md#set-up-the-appliance-vm) sobre cómo configurar el dispositivo para Hyper-V.
-
+- [Obtenga información](tutorial-migrate-vmware-agent.md#set-up-the-replication-appliance) sobre cómo configurar el dispositivo de replicación para la migración de VM de VMware basada en agente.
+- [Obtenga información](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance) sobre cómo configurar el dispositivo de replicación para servidores físicos.

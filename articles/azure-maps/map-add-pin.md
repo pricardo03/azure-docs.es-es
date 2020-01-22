@@ -1,6 +1,6 @@
 ---
-title: Adición de una capa de símbolo a Azure Maps | Microsoft Docs
-description: Cómo agregar símbolos al SDK web de Azure Maps.
+title: Adición de una capa de símbolo a un mapa | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre cómo usar la capa de símbolo para personalizar y agregar símbolos a un mapa mediante el SDK web de Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: fff73801d20333a6df5e7952d02ed664c17fe40b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 744d5ecd3aab02071f7c3aaff7dd760fc14a2a62
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480606"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911156"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Adición de una capa de símbolo a un mapa
 
@@ -77,7 +77,7 @@ Las capas de símbolo se representan mediante WebGL. Por tanto, todos los recurs
 </iframe>
 
 > [!TIP]
-> El SDK web de Azure Maps proporciona varias plantillas de imagen personalizables que puede usar con la capa de símbolo. Para más información, consulte el documento [How to use image templates](how-to-use-image-templates-web-sdk.md) (Uso de plantillas de imagen).
+> El SDK de Azure Maps para web proporciona varias plantillas de imagen personalizables que puede usar con la capa de símbolo. Para más información, consulte el documento [How to use image templates](how-to-use-image-templates-web-sdk.md) (Uso de plantillas de imagen).
 
 ## <a name="customize-a-symbol-layer"></a>Personalización de una capa de símbolo 
 

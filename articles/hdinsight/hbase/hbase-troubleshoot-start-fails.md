@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: d994fe1501dedf6a8ea2c3366f6559c7abac0892
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 290b541d9b5e86616373d2e426241fca07e780ed
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091613"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887213"
 ---
 # <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Apache HBase Master (HMaster) no se inicia en Azure HDInsight
 
@@ -30,7 +30,7 @@ Durante el proceso de inicio, HMaster realiza muchos pasos de inicialización, i
 
 HMaster realiza un comando de lista básico en las carpetas de WAL. Si en algún momento HMaster ve un archivo inesperado en cualquiera de estas carpetas, genera una excepción y no se inicia.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Compruebe la pila de llamadas e intente determinar qué carpeta puede ser la causante del problema (por ejemplo, puede ser la carpeta de WAL o la carpeta .tmp). Después, en Cloud Explorer o mediante los comandos de HDFS, pruebe a buscar el archivo problemático. Normalmente, se trata de un archivo `*-renamePending.json`. (`*-renamePending.json` es un archivo de diario que se utiliza para implementar la operación de cambio de nombre atómico en el controlador WASB. Debido a los errores de esta implementación, estos archivos se pueden dejar después de que el proceso se bloquea, y así sucesivamente). Fuerce la eliminación de este archivo en Cloud Explorer o mediante los comandos de HDFS.
 
@@ -50,7 +50,7 @@ Es posible que vea un mensaje que indica que la tabla `hbase: meta` no está en 
 
 No se pudo inicializar HMaster después de reiniciar HBase.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 1. En el shell de HBase, especifique los siguientes comandos (cambie los valores reales según corresponda):
 
@@ -81,7 +81,7 @@ HMaster agota el tiempo de espera con una excepción grave, similar a `java.io.I
 
 Este problema puede aparecer si hay muchas tablas y regiones que no se han vaciado al reiniciar los servicios de HMaster. El tiempo de espera es un defecto conocido de HMaster. Las tareas de inicio de los clústeres generales pueden tardar mucho tiempo. HMaster se cierra si la tabla de espacios de nombres todavía no está asignada. Las tareas de inicio largas tienen lugar cuando existe una gran cantidad de datos sin vaciar y no basta con un tiempo de espera de cinco minutos.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 1. En la interfaz de usuario de Apache Ambari, vaya a **HBase** > **Configs** (Configuraciones). En el archivo `hbase-site.xml` personalizado, agregue la siguiente configuración:
 
@@ -109,13 +109,13 @@ Los nodos se reinician periódicamente. En los registros del servidor de regione
 
 Pausa larga de la recolección de elementos no utilizados de Máquina virtual Java en `regionserver`. La pausa hará que `regionserver` deje de responder y no pueda enviar latidos a HMaster dentro del tiempo de espera de sesión de Zookeeper de 40 s. HMaster creerá que `regionserver` está inactivo, anulará `regionserver` y reiniciará.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Cambie el tiempo de espera de sesión de Zookeeper; no solo es necesario cambiar el valor `zookeeper.session.timeout` de `hbase-site`, sino también el valor `maxSessionTimeout` de `zoo.cfg` de Zookeeper.
 
 1. Acceda a la interfaz de usuario de Ambari, vaya a **HBase -> Configs -> Settings** (HBase -> Configuraciones -> Configuración) y, en la sección, Timeouts (Tiempos de espera), cambie el valor del tiempo de espera de la sesión de Zookeeper.
 
-1. Acceda a la interfaz de usuario de Ambari UI, vaya a **Zookeeper -> Configs -> Custom** (Zookeeper -> Configuraciones -> Personalizar) `zoo.cfg`, y agregue o cambie el siguiente valor. Asegúrese de que el valor sea el mismo que `zookeeper.session.timeout` de HBase.
+1. Acceda a la interfaz de usuario de Ambari UI, vaya a **Zookeeper -> Configs -> Custom** (Zookeeper -> Configuraciones -> Personalizar) `zoo.cfg` y agregue o cambie el siguiente valor. Asegúrese de que el valor sea el mismo que `zookeeper.session.timeout` de HBase.
 
     ```
     Key: maxSessionTimeout Value: 120000  
@@ -135,7 +135,7 @@ HMasters no se pudo mostrar en un clúster de HBase.
 
 Error de configuración de HDFS y HBase en una cuenta de almacenamiento secundaria.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Establezca hbase.rootdir: wasb://@.blob.core.windows.net/hbase y reinicie los servicios de Ambari.
 
@@ -149,4 +149,4 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 * Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

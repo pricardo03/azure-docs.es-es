@@ -1,6 +1,6 @@
 ---
-title: Incorporación de controles a Azure Maps | Microsoft Docs
-description: Cómo agregar control de zoom, control de inclinación, control de giro y un selector de estilos a un mapa en Azure Maps.
+title: Incorporación de controles a un mapa | Microsoft Azure Maps
+description: Cómo agregar control de zoom, control de inclinación, control de giro y un selector de estilos a un mapa en Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 07/29/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 7267f77ed3d296ac586dcfd0f525b94d5e6eb7a0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 6652ca30d9f38eb6184fce5f1ff5428d29c271a6
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976223"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911263"
 ---
 # <a name="add-controls-to-a-map"></a>Incorporación de controles a un mapa
 

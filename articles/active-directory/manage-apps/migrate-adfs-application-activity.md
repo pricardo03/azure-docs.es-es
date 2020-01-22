@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/22/2019
+ms.date: 01/14/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de64385e21604188a5c9002f2e007dad86b2674c
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 333e440fdd5f5062dda45fb12a83543c63e66c04
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420437"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978032"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Uso del informe de actividades de aplicaciones de AD FS (versión preliminar) para migrar aplicaciones a Azure AD
 
@@ -32,7 +32,7 @@ El informe de actividades de aplicaciones de AD FS (versión preliminar) de Azu
 
 Los datos de actividad de aplicaciones de AD FS están disponibles para los usuarios que tienen asignados cualquiera de estos roles de administrador: administrador global, lector de informes, lector de seguridad, administrador de aplicaciones o administrador de aplicaciones en la nube.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * En estos momentos, su organización debe usar AD FS para acceder a las aplicaciones.
 * Azure AD Connect Health debe estar habilitado en el inquilino de Azure AD.
@@ -73,7 +73,7 @@ El informe de actividades de aplicaciones de AD FS está disponible en Azure P
 
 En la tabla siguiente se enumeran todas las pruebas de configuración que se realizan en aplicaciones de AD FS.
 
-|Resultado  |Sin errores/Advertencia/Error  |DESCRIPCIÓN  |
+|Resultado  |Sin errores/Advertencia/Error  |Descripción  |
 |---------|---------|---------|
 |Test-ADFSRPAdditionalAuthenticationRules <br> Se detectó al menos una regla no migrable para AdditionalAuthentication.       | Aprobada/Con advertencias          | El usuario de confianza tiene reglas para solicitar Multi-Factor Authentication (MFA). Para desplazarse a Azure AD, traduzca dichas reglas en directivas de acceso condicional. Si usa una aplicación local de MFA, se recomienda que se traslade a Azure MFA. [Obtenga más información sobre el acceso condicional](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).        |
 |Test-ADFSRPAdditionalWSFedEndpoint <br> El usuario de confianza tiene establecido el valor de AdditionalWSFedEndpoint establecido en true.       | Sin errores/Error          | El usuario de confianza de AD FS permite varios puntos de conexión de aserción de WS-FED. Actualmente, Azure AD solo admite una. Si tiene un escenario en el que este resultado bloquea la migración, [háganoslo saber](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints).     |
@@ -109,7 +109,7 @@ Si ha configurado una regla de notificaciones para la aplicación en AD FS, la 
 
 En la tabla siguiente se enumeran todas las pruebas de reglas de notificaciones que se realizan en aplicaciones de AD FS.
 
-|Propiedad  |DESCRIPCIÓN  |
+|Propiedad  |Descripción  |
 |---------|---------|
 |UNSUPPORTED_CONDITION_PARAMETER      | La instrucción de condición utiliza expresiones regulares para evaluar si la notificación coincide con un patrón determinado.  Para lograr una funcionalidad similar en Azure AD, puede usar la transformación predefinida como IfEmpty(), StartWith() o Contains(). Para obtener más información, consulte [Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).          |
 |UNSUPPORTED_CONDITION_CLASS      | La instrucción de condición tiene varias condiciones que deben evaluarse antes de ejecutar la instrucción de emisión. Azure AD puede admitir esta funcionalidad con las funciones de transformación de la notificación, donde puede evaluar varios valores de notificaciones.  Para obtener más información, consulte [Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).          |
@@ -124,6 +124,7 @@ En la tabla siguiente se enumeran todas las pruebas de reglas de notificaciones 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Vídeo: Cómo usar el informe de actividades de AD FS para migrar una aplicación](https://www.youtube.com/watch?v=OThlTA239lU)
 - [Administración de aplicaciones con Azure Active Directory](what-is-application-management.md)
 - [Administración del acceso a aplicaciones](what-is-access-management.md)
 - [Federación de Azure AD Connect](../hybrid/how-to-connect-fed-whatis.md)

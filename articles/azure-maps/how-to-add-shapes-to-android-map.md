@@ -1,6 +1,6 @@
 ---
-title: Adición de formas a mapas de Android en Azure Maps | Microsoft Docs
-description: Cómo agregar formas a un mapa mediante el Android SDK de Azure Maps
+title: Adición de formas a mapas de Android | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre cómo representar formas distintas en un mapa mediante Android SDK de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c8e3f16b939d05a4c055fba3a9f1ab5e47e54070
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 8135d11624fa57547528b023b6d2dc5c3caecb39
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976593"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911590"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Adición de formas a un mapa mediante el Android SDK de Azure Maps
 
 En este artículo se muestra cómo representar formas en un mapa mediante el Android SDK de Azure Maps.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar el proceso en este artículo, debe instalar [Android SDK de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para cargar un mapa.
 
@@ -178,7 +178,7 @@ Si ejecuta la aplicación ahora, debe ver una línea en el mapa tal como se mues
 
 <center>
 
-![Línea en un mapa de Android](./media/how-to-add-shapes-to-android-map/android-map-line.png)</center>
+![Una línea representada en un mapa de Android](./media/how-to-add-shapes-to-android-map/android-map-line.png)</center>
 
 
 ## <a name="add-a-polygon-to-the-map"></a>Adición de un polígono al mapa
@@ -350,7 +350,7 @@ Si ejecuta la aplicación ahora, debe ver un polígono en el mapa tal como se mu
 
 <center>
 
-![Polígono en un mapa de Android](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</center>
+![Un polígono representado en un mapa de Android](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</center>
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,6 +1,6 @@
 ---
-title: Geometrías GeoJSON extendidas en Azure Maps | Microsoft Docs
-description: Obtenga información sobre cómo extender las geometrías GeoJSON en Azure Maps
+title: Geometrías GeoJSON extendidas | Microsoft Azure Maps
+description: En este artículo aprenderá cómo Microsoft Azure Maps amplía las especificaciones de GeoJSON para representar determinadas geometrías.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/17/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 52325248d21a5d5112c9a7f9497c3e03fdf102a4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 75ad83411edfdfe7545e8f80df17fea56e317ee0
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881979"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911620"
 ---
 # <a name="extended-geojson-geometries"></a>Geometrías GeoJSON extendidas
 
@@ -27,7 +27,7 @@ Las [especificaciones de GeoJSON][1] solo admiten las geometrías siguientes:
 * MultiLineString
 * MultiPoint
 * MultiPolygon
-* Point
+* Punto
 * Polygon
 
 Algunas API de Azure Maps (por ejemplo: [Search Inside Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) aceptan geometrías como "Circle", que no son parte de las [especificaciones de GeoJSON][1].
@@ -38,7 +38,7 @@ Este artículo proporciona una explicación detallada sobre cómo Azure Maps amp
 
 La geometría `Circle` no es compatible con las [especificaciones de GeoJSON][1]. Usamos el objeto `GeoJSON Point Feature` para representar un círculo.
 
-Una geometría `Circle` representada mediante el objeto `GeoJSON Feature` __debe__ contener lo siguiente:
+Una geometría `Circle` representada mediante el objeto `GeoJSON Feature`__debe__ contener lo siguiente:
 
 - Center
 
@@ -74,7 +74,7 @@ Así es cómo representará un círculo centrado en (latitud: 47.639754, longitu
 
 La geometría `Rectangle` no es compatible con las [especificaciones de GeoJSON][1]. Usamos el objeto `GeoJSON Polygon Feature` para representar un rectángulo. La extensión de rectángulo se usa principalmente en el módulo de herramientas de dibujo del SDK para web.
 
-Una geometría `Rectangle` representada mediante el objeto `GeoJSON Polygon Feature` __debe__ contener lo siguiente:
+Una geometría `Rectangle` representada mediante el objeto `GeoJSON Polygon Feature`__debe__ contener lo siguiente:
 
 - Esquinas
 

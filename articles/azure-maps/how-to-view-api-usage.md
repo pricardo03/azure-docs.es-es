@@ -1,6 +1,6 @@
 ---
-title: Procedimiento para ver el uso de la API de Azure Maps | Microsoft Docs
-description: Aprenda a ver las métricas de las llamadas de la API de Azure Maps en el portal.
+title: Visualización de las métricas de uso de la API de Azure Maps | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre cómo ver las métricas de las llamadas API de Microsoft Azure Maps en Azure Portal.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/06/2018
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 716f9fbc02905a8981771c2fd9dd2be0baeb8196
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 7ba50f63fb015a8696904df3decd13c811625459
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460189"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911333"
 ---
-# <a name="view-azure-maps-api-usage"></a>Vista del uso de la API de Azure Maps
+# <a name="view-azure-maps-api-usage-metrics"></a>Visualización de las métricas de uso de la API de Azure Maps
 
 En este artículo se muestra cómo ver las métricas de uso de la API de su cuenta de Azure Maps en el [portal](https://portal.azure.com). Las métricas se muestran en un práctico formato gráfico a lo largo de una duración de tiempo personalizable.
 
@@ -23,7 +23,7 @@ En este artículo se muestra cómo ver las métricas de uso de la API de su cuen
 
 Puede ver algunas métricas comunes en la página **Overview** (Información general) de su cuenta de Maps. Actualmente se muestra *Total Requests* (Solicitudes totales), *Total Errors* (Errores totales) y *Availability* (Disponibilidad) durante una longitud de tiempo seleccionable.
 
-![Introducción a las métricas de Azure Maps](media/how-to-view-api-usage/portal-overview.png)
+![Introducción a las métricas de uso de Azure Maps](media/how-to-view-api-usage/portal-overview.png)
 
 Si necesita personalizar estos gráficos para su análisis en particular, continúe con la siguiente sección.
 
@@ -40,7 +40,7 @@ Si necesita personalizar estos gráficos para su análisis en particular, contin
    1. **Availability** (Disponibilidad): que muestra el *promedio* de disponibilidad de la API durante un período de tiempo.
    2. **Usage** (Uso): que muestra cómo es el *recuento* de uso para su cuenta.
 
-      ![Panel de métricas de Azure Maps](media/how-to-view-api-usage/portal-metrics.png)
+      ![Panel de métricas de uso de Azure Maps](media/how-to-view-api-usage/portal-metrics.png)
 
 5. A continuación, puede seleccionar *Time range* (Intervalo de tiempo) haciendo clic en **Last 24 hours (Automatic)** (Últimas 24 horas [automático]). De forma predeterminada, el intervalo de tiempo se establece en 24 horas. Después de hacer clic, verá todos los intervalos de tiempo seleccionables. Puede seleccionar la *granularidad del tiempo* y elegir mostrar el tiempo como *local* o *GMT* en la misma lista desplegable. Haga clic en **Aplicar**.
 
@@ -48,11 +48,11 @@ Si necesita personalizar estos gráficos para su análisis en particular, contin
 
 6. Después de agregar la métrica, puede seleccionar **Add filter** (Agregar filtro) para filtrar las propiedades pertinentes para esa métrica, y luego seleccionar el valor de la propiedad que quiere ver en el gráfico.
 
-    ![Filtro de métricas de Azure Maps](media/how-to-view-api-usage/filter.png)
+    ![Filtro de las métricas de uso de Azure Maps](media/how-to-view-api-usage/filter.png)
 
 7. También puede seleccionar **Apply splitting** (Aplicar división) para la métrica en función de la propiedad de métrica seleccionada. Esto permite que el gráfico se divida en varios gráficos, uno por cada valor de esa propiedad. En la imagen siguiente el color de cada gráfico corresponde al valor de propiedad que se muestra en la parte inferior del gráfico.
 
-    ![División de métricas de Azure Maps](media/how-to-view-api-usage/splitting.png)
+    ![División de las métricas de uso de Azure Maps](media/how-to-view-api-usage/splitting.png)
 
 8. También puede observar varias métricas en el mismo gráfico con solo hacer clic en el botón **Add metric** (Agregar métrica) en la parte superior.
 

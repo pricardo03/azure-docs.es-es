@@ -1,6 +1,6 @@
 ---
-title: Visualización del tráfico con Azure Maps | Microsoft Docs
-description: Procedimiento para mostrar los datos de tráfico en el SDK de Azure Maps para web.
+title: Visualización del tráfico en un mapa | Microsoft Azure Maps
+description: En este artículo aprenderá cómo mostrar los datos de tráfico en un mapa mediante el SDK web de Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b765f6f35cecfdd3183b4432954fcfb2548de046
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8370b71bfa980dbd099ade59a3a19633dfd5dc72
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874872"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910892"
 ---
 # <a name="show-traffic-on-the-map"></a>Visualización del tráfico en el mapa
 

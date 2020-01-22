@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas de inicio y detención de máquinas virtuales con Azure Automation
-description: En este artículo se proporciona información sobre la solución de problemas de inicio y detención de máquinas virtuales en Azure Automation.
+title: 'Solución de problemas de inicio y detención de VM: Azure Automation'
+description: En este artículo se proporciona información sobre la solución de problemas de inicio y detención de VM en Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1817d8e060f944b1bcc31c8ea9eb4fbcff58a165
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: aa71e1e6b58906953dfa22d08405c05c10c83242
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850115"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966683"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Solución de problemas de la solución Start/Stop VMs during off-hours
 
@@ -62,18 +62,18 @@ Es posible que se produzcan errores de implementación por uno de los siguientes
 4. Su área de trabajo de Log Analytics tiene un bloqueo.
 5. Tiene una versión no actualizada de los módulos de AzureRM o la solución de inicio o detención.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Revise la siguiente lista de posibles soluciones para su problema o para saber dónde buscar:
 
 1. Las cuentas de Automation deben ser únicas en una misma región de Azure, incluso si se encuentran en distintos grupos de recursos. Compruebe sus cuentas de Automation existentes en la región de destino.
-2. Una directiva existente impide que se implemente un recurso necesario para la solución Start/Stop VM. Vaya a las asignaciones de directivas en Azure Portal y compruebe si tiene una asignación de directiva que no permite la implementación de este recurso. Para más información acerca de esto, consulte [RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md).
+2. Una directiva existente impide que se implemente un recurso necesario para la solución Start/Stop VM. Vaya a las asignaciones de directivas en Azure Portal y compruebe si tiene una asignación de directiva que no permite la implementación de este recurso. Para más información acerca de esto, consulte [RequestDisallowedByPolicy](../../azure-resource-manager/templates/error-policy-requestdisallowedbypolicy.md).
 3. Para implementar la solución Start/Stop VM, la suscripción debe estar registrada en los siguientes espacios de nombres de recursos de Azure:
     * `Microsoft.OperationsManagement`
     * `Microsoft.Insights`
     * `Microsoft.Automation`
 
-   Consulte [Resolución de errores del registro del proveedor de recursos](../../azure-resource-manager/resource-manager-register-provider-errors.md) para más información acerca de errores al registrar los proveedores.
+   Consulte [Resolución de errores del registro del proveedor de recursos](../../azure-resource-manager/templates/error-register-resource-provider.md) para más información acerca de errores al registrar los proveedores.
 4. Si tiene un bloqueo en el área de trabajo de Log Analytics, vaya al área de trabajo de Azure Portal y quite los bloqueos en el recurso.
 5. Si las soluciones anteriores no resuelven su problema, siga las instrucciones que aparecen en [Actualizar la solución](../automation-solution-vm-management.md#update-the-solution) para volver a implementar la solución de inicio o detención.
 
@@ -92,7 +92,7 @@ Este error puede deberse a alguna de las siguientes razones:
 3. Un runbook puede presentar errores.
 4. Las máquinas virtuales pueden haberse excluido.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Revise la siguiente lista de posibles soluciones para su problema o para saber dónde buscar:
 
@@ -133,7 +133,7 @@ Este error puede deberse a alguna de las siguientes razones:
 3. La cuenta de ejecución puede no tener suficientes permisos en la máquina virtual.
 4. La máquina virtual puede tener alguna configuración que impide su inicio o detención.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Revise la siguiente lista de posibles soluciones para su problema o para saber dónde buscar:
 
@@ -165,7 +165,7 @@ Ha creado un runbook personalizado o ha descargado uno de la Galería de PowerSh
 
 La causa del error podría ser una entre muchas. Vaya a la cuenta de Automation en Azure Portal y seleccione **Trabajos** en **Automatización de procesos**. En la página **Trabajos**, busque los trabajos del runbook para ver cualquier error que pueda haber en ellos.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Se recomienda usar la [solución Start/Stop VMs during off-hours](../automation-solution-vm-management.md) para iniciar y detener máquinas virtuales en Azure Automation. Esta solución la creó Microsoft. Los runbooks personalizados no son compatibles con Microsoft. Puede encontrar una solución para su runbook personalizado en el artículo [Solución de problemas relativos a errores con runbooks](runbooks.md). En este artículo se proporcionan instrucciones generales y solución de problemas para runbooks de todos los tipos. Compruebe los [flujos de trabajo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) para buscar errores. En Azure Portal, vaya a la cuenta de Automation y seleccione **Trabajos** en **Automatización de procesos**.
 
@@ -179,7 +179,7 @@ Las máquinas virtuales configuradas en la solución no se inician o detienen en
 
 Esto se debe a un etiquetado incorrecto de las máquinas virtuales.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Realice los pasos siguientes para asegurarse de que la solución está configurada correctamente.
 
@@ -199,7 +199,7 @@ Puede encontrar trabajos con el error `403 forbidden` para los runbooks de la so
 
 Este problema puede deberse a una cuenta de ejecución mal configurada o expirada. La causa también puede ser que la cuenta de ejecución de Cuentas de Automation tenga permisos inadecuados para los recursos de máquina virtual.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Para comprobar si la cuenta de ejecución está configurada correctamente, vaya a la cuenta de Automation en Azure Portal y seleccione **Cuentas de ejecución** en **Configuración de la cuenta**. Aquí verá el estado de las cuentas de ejecución; si alguna de ellas está configurada incorrectamente o expirada, el estado lo indicará.
 
@@ -222,7 +222,7 @@ Muchas veces los errores pueden deberse a que se usa una versión anterior y obs
 > [!NOTE]
 > La solución Start/Stop VMs during off-hours se ha probado con los módulos de Azure que se importan en su cuenta de Automation al implementar la solución. La solución no funciona actualmente con las versiones más recientes del módulo de Azure. Esto solo afecta a la cuenta de Automation que use para ejecutar la solución Start/Stop VMs during off-hours. Puede seguir usando las versiones más recientes del módulo de Azure en sus otras cuentas de Automation, tal como se describe en [Actualización de módulos de Azure PowerShell en Azure Automation](../automation-update-azure-modules.md).
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Para resolver muchos errores, se recomienda quitar y actualizar la solución. Para obtener información sobre cómo actualizar la solución, vea [Actualización de la solución](../automation-solution-vm-management.md#update-the-solution). Además, puede comprobar los [flujos de trabajo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) para buscar errores. En Azure Portal, vaya a la cuenta de Automation y seleccione **Trabajos** en **Automatización de procesos**.
 

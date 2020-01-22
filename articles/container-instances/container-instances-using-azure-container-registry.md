@@ -3,21 +3,21 @@ title: Implementación de una imagen de contenedor de Azure Container Registry
 description: Obtenga información acerca de cómo implementar contenedores en Azure Container Instances mediante imágenes de contenedor de Azure Container Registry.
 services: container-instances
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 12/30/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: adc2c95874c1cc20e49506891c9972ebcfe71f94
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0d39c83646357cf9426239d28e445c4791ddceb0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533289"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981685"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementación en Azure Container Instances desde Azure Container Registry
 
 [Azure Container Registry](../container-registry/container-registry-intro.md) es un servicio de registro de contenedores administrado basado en Azure que se usa para almacenar imágenes de contenedor de Docker privadas. En este artículo se describe cómo implementar imágenes de contenedor almacenadas en una instancia de Azure Container Registry en Azure Container Instances.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 **Azure Container Registry**: se necesita una instancia de Azure Container Registry, y al menos una imagen de contenedor en el registro, para completar los pasos descritos en este artículo. Si necesita un registro, consulte [Creación de un registro de contenedor con la CLI de Azure](../container-registry/container-registry-get-started-azure-cli.md).
 
@@ -25,7 +25,9 @@ ms.locfileid: "74533289"
 
 ## <a name="configure-registry-authentication"></a>Configurar la autenticación del registro
 
-En cualquier escenario de producción, se debe proporcionar acceso a una instancia de Azure Container Registry mediante [entidades de servicio](../container-registry/container-registry-auth-service-principal.md). Las entidades de servicio permiten proporcionar [control de acceso basado en rol](../container-registry/container-registry-roles.md) a las imágenes de contenedor. Por ejemplo, puede configurar una entidad de servicio con acceso de solo extracción a un registro.
+En un escenario de producción donde se brinda acceso a servicios y aplicaciones "sin periféricos", se recomienda configurar el acceso al registro mediante una [entidad de servicio](../container-registry/container-registry-auth-service-principal.md). Una entidad de servicio permite proporcionar [control de acceso basado en rol](../container-registry/container-registry-roles.md) a las imágenes de contenedor. Por ejemplo, puede configurar una entidad de servicio con acceso de solo extracción a un registro.
+
+Azure Container Registry ofrece [opciones de autenticación](../container-registry/container-registry-authentication.md) adicionales.
 
 En la siguiente sección, cree un almacén de claves de Azure y una entidad de servicio, y almacene las credenciales de la entidad de servicio en el almacén. 
 
@@ -33,7 +35,9 @@ En la siguiente sección, cree un almacén de claves de Azure y una entidad de s
 
 Si todavía no tiene un almacén en [Azure Key Vault](../key-vault/key-vault-overview.md), cree uno con la CLI de Azure mediante los siguientes comandos.
 
-Actualice la variable `RES_GROUP` con el nombre de un grupo de recursos existente en el que crear el almacén de claves, y la variable `ACR_NAME` con el nombre de su registro de contenedor. Especifique un nombre para el nuevo almacén de claves en `AKV_NAME`. El nombre del almacén debe ser exclusivo en Azure, tener entre 3 y 24 caracteres alfanuméricos, comenzar con una letra y terminar con una letra o un número y no puede contener guiones consecutivos.
+Actualice la variable `RES_GROUP` con el nombre de un grupo de recursos existente en el que crear el almacén de claves, y la variable `ACR_NAME` con el nombre de su registro de contenedor. Para abreviar, los comandos de este artículo suponen que el registro, el almacén de claves y las instancias de contenedor se han creado en el mismo grupo de recursos.
+
+ Especifique un nombre para el nuevo almacén de claves en `AKV_NAME`. El nombre del almacén debe ser exclusivo en Azure, tener entre 3 y 24 caracteres alfanuméricos, comenzar con una letra y terminar con una letra o un número y no puede contener guiones consecutivos.
 
 ```azurecli
 RES_GROUP=myresourcegroup # Resource Group name
@@ -45,12 +49,12 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 ### <a name="create-service-principal-and-store-credentials"></a>Creación de la entidad de servicio y almacenamiento de credenciales
 
-Ahora debe crear una entidad de servicio y almacenar sus credenciales en el almacén de claves.
+Ahora cree una entidad de servicio y almacene sus credenciales en el almacén de claves.
 
 El siguiente comando usa [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] para crear la entidad de servicio y [az keyvault secret set][az-keyvault-secret-set] para almacenar la **contraseña** de la entidad de servicio en el almacén.
 
 ```azurecli
-# Create service principal, store its password in AKV (the registry *password*)
+# Create service principal, store its password in vault (the registry *password*)
 az keyvault secret set \
   --vault-name $AKV_NAME \
   --name $ACR_NAME-pull-pwd \
@@ -67,14 +71,14 @@ El argumento `--role` en el comando anterior configura la entidad de servicio co
 A continuación, almacene el *appId* de la entidad de servicio en el almacén, que es el **nombre de usuario** que pasa a Azure Container Registry para la autenticación.
 
 ```azurecli
-# Store service principal ID in AKV (the registry *username*)
+# Store service principal ID in vault (the registry *username*)
 az keyvault secret set \
     --vault-name $AKV_NAME \
     --name $ACR_NAME-pull-usr \
     --value $(az ad sp show --id http://$ACR_NAME-pull --query appId --output tsv)
 ```
 
-Ha creado una instancia de Azure Key Vault y almacenado dos secretos en ella:
+Ha creado una instancia de Azure Key Vault y almacenado dos secretos allí:
 
 * `$ACR_NAME-pull-usr`: el identificador de la entidad de servicio, para su uso como **nombre de usuario** del registro de contenedor.
 * `$ACR_NAME-pull-pwd`: la contraseña de la entidad de servicio, para su uso como **contraseña** del registro de contenedor.
@@ -116,9 +120,10 @@ Una vez que se ha iniciado correctamente el contenedor, puede desplazarse a su F
 
 ## <a name="deploy-with-azure-resource-manager-template"></a>Implementación con plantillas de Azure Resource Manager
 
-Puede especificar las propiedades de Azure Container Registry en una plantilla de Azure Resource Manager; para ello, se debe incluir la propiedad `imageRegistryCredentials` en la definición del grupo de contenedores:
+Puede especificar las propiedades de Azure Container Registry en una plantilla de Azure Resource Manager; para ello, debe incluir la propiedad `imageRegistryCredentials` en la definición del grupo de contenedores. Por ejemplo, puede especificar las credenciales del registro directamente:
 
 ```JSON
+[...]
 "imageRegistryCredentials": [
   {
     "server": "imageRegistryLoginServer",
@@ -126,9 +131,12 @@ Puede especificar las propiedades de Azure Container Registry en una plantilla d
     "password": "imageRegistryPassword"
   }
 ]
+[...]
 ```
 
-Para más información acerca de cómo hacer referencia a secretos de Azure Key Vault en una plantilla de Resource Manager, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+Para obtener la configuración de grupo de contenedores completa, consulte la [referencia de plantillas de Resource Manager](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups).    
+
+Para más información acerca de cómo hacer referencia a secretos de Azure Key Vault en una plantilla de Resource Manager, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](../azure-resource-manager/templates/key-vault-parameter.md).
 
 ## <a name="deploy-with-azure-portal"></a>Implementación con Azure Portal
 

@@ -1,6 +1,6 @@
 ---
-title: Plantillas de imagen en el SDK de Azure Maps para web | Microsoft Docs
-description: Procedimiento para usar plantillas de imagen en el SDK de Azure Maps para web.
+title: Plantillas de imagen en el SDK web de Azure Maps | Microsoft Azure Maps
+description: En este artículo, aprenderá a usar plantillas de imagen con marcadores HTML y varias capas en el SDK web de Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019
@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: b9b1543ca37c636f4a82ff9ada3dfe212fa9b8d0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: cb182a5db77a517b11fb1863665f8c54d58b254a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976673"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911573"
 ---
 # <a name="how-to-use-image-templates"></a>Uso de plantillas de imagen
 
-Las imágenes se pueden usar como marcadores HTML y varias capas dentro del SDK de Azure Maps para web:
+Las imágenes se pueden usar con los marcadores HTML y varias capas dentro del SDK web de Azure Maps:
 
  - Las capas de símbolos pueden representar puntos en el mapa con un icono de imagen. Los símbolos también se pueden representar a lo largo de una ruta de acceso de líneas.
  - Las capas de polígono se pueden representar con una imagen de patrón de relleno. 
@@ -108,7 +108,7 @@ Consulte el fragmento de código (pen) de un <a href='https://codepen.io/azurema
 
 Si la aplicación usa el mismo icono con iconos diferentes o si va a crear un módulo que agrega plantillas de imagen adicionales, puede agregar y recuperar fácilmente estos iconos desde el SDK de Azure Maps para web mediante las siguientes funciones estáticas en el espacio de nombres `atlas`.
 
-| NOMBRE | Tipo de valor devuelto | DESCRIPCIÓN | 
+| Nombre | Tipo de valor devuelto | Descripción | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Agrega una plantilla de imagen SVG personalizada al espacio de nombres atlas. |
 |  `getImageTemplate(templateName: string, scale?: number)`| string | Recupera una plantilla de SVG por nombre. |
@@ -116,7 +116,7 @@ Si la aplicación usa el mismo icono con iconos diferentes o si va a crear un m�
 
 Las plantillas de imagen SVG admiten los siguientes valores del marcador de posición:
 
-| Marcador de posición | DESCRIPCIÓN |
+| Marcador de posición | Descripción |
 |-|-|
 | `{color}` | El color principal. | 
 | `{secondaryColor}` | El color secundario. | 

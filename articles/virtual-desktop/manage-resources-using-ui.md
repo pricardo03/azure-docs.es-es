@@ -1,25 +1,22 @@
 ---
-title: 'Implementación de una herramienta de administración: Azure'
-description: Cómo instalar una herramienta de interfaz de usuario para administrar los recursos de Windows Virtual Desktop.
+title: 'Implementación de una herramienta de administración con una plantilla de Azure Resource Manager: Azure'
+description: Cómo instalar una herramienta de interfaz de usuario con una plantilla de Azure Resource Manager para administrar los recursos de Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: tutorial
-ms.date: 11/09/2019
+ms.topic: conceptual
+ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: ad0c67cea6a5a9b487cd47aa7c10d10da1438050
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 187c92f8e5b0148577f204f68077c58ea9ab9a3d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384278"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887366"
 ---
-# <a name="tutorial-deploy-a-management-tool"></a>Tutorial: Implementación de una herramienta de administración
+# <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Implementación de una herramienta de administración con una plantilla de Azure Resource Manager
 
-La herramienta de administración proporciona una interfaz de usuario para administrar los recursos de Microsoft Virtual Desktop. En este tutorial, obtendrá información sobre cómo implementar y conectarse a la herramienta de administración.
-
->[!NOTE]
->Estas instrucciones son específicas de una configuración de Windows Virtual Desktop concreta que se puede usar con los procesos existentes de su organización.
+Las instrucciones de este artículo le indicarán cómo implementar la interfaz de usuario mediante una plantilla de Azure Resource Manager.
 
 ## <a name="important-considerations"></a>Consideraciones importantes
 
@@ -33,18 +30,17 @@ Los siguientes exploradores son compatibles con la herramienta de administració
 - Mozilla Firefox 52.0 o una versión posterior
 - Safari 10 o una versión posterior (solo macOS)
 
-## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>¿Qué se necesita para ejecutar la plantilla de Azure Resource Manager?
+## <a name="what-you-need-to-deploy-the-management-tool"></a>Requisitos para implementar la herramienta de administración
 
-Antes de implementar la plantilla de Azure Resource Manager, necesitará un usuario de Azure Active Directory para implementar la interfaz de usuario de administración. Dicho usuario debe:
+Antes de implementar la herramienta de administración, necesitará que un usuario de Azure Active Directory (Azure AD) cree un registro de aplicaciones e implemente la interfaz de usuario de administración. Dicho usuario debe:
 
 - Deshabilitar la autenticación multifactor (MFA) de Azure.
 - Tener los permisos para crear recursos en la suscripción de Azure.
-- Tener los permisos para crear una aplicación de Azure AD. Siga estos pasos para comprobar si el usuario tiene los [permisos necesarios](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+- Tener los permisos para crear una aplicación de Azure AD. Siga los pasos que se describen en la sección [Permisos necesarios](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) para comprobar si el usuario tiene los permisos que necesita.
 
-Después de implementar la plantilla de Azure Resource Manager, debe iniciar la interfaz de usuario de administración que va a validar. Dicho usuario debe:
-- Tener una asignación de roles para ver o editar el inquilino de Windows Virtual Desktop.
+Después de implementar y configurar la herramienta de administración, se recomienda pedir a un usuario que inicie la interfaz de usuario de administración para asegurarse de que todo funciona correctamente. El usuario que inicie la interfaz de usuario de administración deberá tener una asignación de roles que le permita ver o editar el inquilino de Windows Virtual Desktop.
 
-## <a name="run-the-azure-resource-manager-template-to-provision-the-management-ui"></a>Ejecutar la plantilla de Azure Resource Manager para aprovisionar la interfaz de usuario de administración.
+## <a name="deploy-the-management-tool"></a>Implementación de la herramienta de administración
 
 Antes de empezar, asegúrese de que las aplicaciones cliente y servidor tienen su consentimiento al visitar la [página de consentimiento de Windows Virtual Desktop](https://rdweb.wvd.microsoft.com) de la instancia de Azure Active Directory (AAD) representada.
 
@@ -52,26 +48,24 @@ Siga las instrucciones para implementar la plantilla de Azure Resource Manager:
 
 1. Vaya a la [página RDS-Templates de Azure de GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
 2. Implemente la plantilla en Azure.
-    - Si va a implementarla en una suscripción Enterprise, desplácese hacia abajo y seleccione **Implementar en Azure**. Consulte la [Guía sobre los parámetros de la plantilla](#guidance-for-template-parameters).
+    - Si va a implementarla en una suscripción Enterprise, desplácese hacia abajo y seleccione **Implementar en Azure**. 
     - Si va a realizar la implementación en una suscripción de proveedor de soluciones en la nube, siga estas instrucciones para implementar en Azure:
         1. Desplácese hacia abajo, haga clic con el botón derecho en **Implementar en Azure** y, después, seleccione **Copy Link Location** (Copiar ubicación del vínculo).
         2. Abra un editor de texto como el Bloc de notas y pegue el vínculo ahí.
         3. Justo después de <https://portal.azure.com/> y antes de la almohadilla (#), escriba una arroba (@) seguida del nombre de dominio del inquilino. Este es un ejemplo del formato: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
         4. Inicie sesión en el Azure Portal como un usuario con permisos de administrador o colaborador en la suscripción del proveedor de soluciones en la nube.
         5. Pegue el vínculo que ha copiado en el editor de texto en la barra de direcciones.
-
-### <a name="guidance-for-template-parameters"></a>Guía sobre los parámetros de la plantilla
-Aquí le mostramos cómo especificar parámetros de configuración para la herramienta:
-
-- Para el parámetro **isServicePrincipal** seleccione **false**.
-- Para las credenciales, escriba sus credenciales de Azure Active Directory con la autenticación multifactor deshabilitada. Estas credenciales serán las que use para iniciar sesión en Azure y crear tanto la aplicación de Azure AD como los recursos de la aplicación web de Azure. Para más información, consulte el apartado [¿Qué se necesita para ejecutar la plantilla de Azure Resource Manager?](#what-you-need-to-run-the-azure-resource-manager-template).
-- En el caso de **applicationName**, use para la aplicación un nombre único que se registrará en Azure Active Directory. Este nombre también se usará para la dirección URL de la aplicación web. Por ejemplo, puede usar un nombre como "Apr3UX".
+3. Al especificar los parámetros, haga lo siguiente:
+    - Para el parámetro **isServicePrincipal** seleccione **false**.
+    - Para las credenciales, escriba sus credenciales de Azure AD con la autenticación multifactor deshabilitada. Estas se usarán para crear la aplicación de Azure AD y los recursos de Azure. Para obtener más información, consulte los [requisitos para implementar la herramienta de administración](#what-you-need-to-deploy-the-management-tool).
+    - En el caso de **applicationName**, use para la aplicación un nombre único que se registrará en Azure Active Directory. Este nombre también se usará para la dirección URL de la aplicación web. Por ejemplo, puede usar un nombre como "Apr3UX".
+4. Una vez que haya especificado los parámetros, acepte los términos y condiciones y seleccione **Comprar**.
 
 ## <a name="provide-consent-for-the-management-tool"></a>Consentimiento para la herramienta de administración
 
 Después de completar la plantilla de Azure Resource Manager de GitHub, encontrará un grupo de recursos que contiene dos instancias de App Services junto con un plan de App Service en Azure Portal.
 
-Antes de iniciar sesión y usar la herramienta de administración, deberá dar su consentimiento para la nueva aplicación de Azure Active Directory que está asociada con la herramienta de administración. Al dar su consentimiento, permitirá que la herramienta de administración realice llamadas de administración a Windows Virtual Desktop en nombre del usuario que ha iniciado sesión en la herramienta.
+Antes de iniciar sesión y usar la herramienta de administración, debe dar su consentimiento para la nueva aplicación de Azure AD asociada con la herramienta de administración. Al dar su consentimiento, la herramienta de administración puede realizar llamadas de administración a Windows Virtual Desktop en nombre del usuario que ha iniciado sesión en la herramienta.
 
 ![Captura de pantalla que muestra los permisos proporcionados al dar su consentimiento a la herramienta de administración de la interfaz de usuario.](media/management-ui-delegated-permissions.png)
 
@@ -102,18 +96,15 @@ Siga estas instrucciones para iniciar la herramienta:
 1. Seleccione el recurso de Azure App Services con el nombre proporcionado en la plantilla (por ejemplo, Apr3UX) y vaya a la dirección URL asociada a él. Por ejemplo, <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Inicie sesión con sus credenciales de Windows Virtual Desktop.
 3. Cuando se le pida que elija un grupo de inquilinos, seleccione **Default Tenant Group** (grupo de inquilinos predeterminado) en la lista desplegable.
-4. Al seleccionar Default Tenant Group (Grupo de inquilinos predeterminado), debería aparecer un menú en el lado derecho de la ventana. En este menú, busque el nombre del grupo de inquilinos y selecciónelo.
-
-> [!NOTE]
-> Si tiene un grupo de inquilinos personalizado, escriba el nombre manualmente en lugar de elegirlo en la lista desplegable.
+4. Al seleccionar **Default Tenant Group** (grupo de inquilinos predeterminado), debería aparecer un menú en la parte izquierda de la ventana. En este menú, busque el nombre de su grupo de inquilinos y selecciónelo.
+  
+  > [!NOTE]
+  > Si tiene un grupo de inquilinos personalizado, escriba el nombre manualmente en lugar de elegirlo en la lista desplegable.
 
 ## <a name="report-issues"></a>Informar de problemas
 
-Si surge algún problema con la herramienta de administración, o con cualquier otra herramienta de Windows Virtual Desktop, siga las instrucciones que encontrará en el artículo sobre [plantillas de ARM para Servicios de Escritorio remoto](https://github.com/Azure/RDS-Templates/blob/master/README.md) para notificarlo en GitHub.
+Si experimenta algún problema con la herramienta de administración o con cualquier otra herramienta de Windows Virtual Desktop, siga las instrucciones que encontrará en el artículo sobre [plantillas de Azure Resource Manager para Servicios de Escritorio remoto](https://github.com/Azure/RDS-Templates/blob/master/README.md) para notificarlo en GitHub.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a implementar y conectarse a la herramienta de administración, puede obtener más información sobre cómo usar Azure Service Health para supervisar problemas de servicio y avisos de estado.
-
-> [!div class="nextstepaction"]
-> [Tutorial de configuración de alertas de servicio](./set-up-service-alerts.md)
+Ahora que ha aprendido a implementar y conectarse a la herramienta de administración, puede obtener más información sobre cómo usar Azure Service Health para supervisar problemas de servicio y avisos de estado. Para obtener más información, consulte nuestro [tutorial Configuración de alertas de servicio](./set-up-service-alerts.md).

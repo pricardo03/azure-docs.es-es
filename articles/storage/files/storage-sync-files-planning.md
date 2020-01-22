@@ -4,15 +4,15 @@ description: Conozca los aspectos que debe tener en cuenta al planear una implem
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c81f06d924a0ba871115e0ae0164d61449855263
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: d2dbe29c5a348363172f57da86483ccf3fd787f0
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665258"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046087"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -347,13 +347,13 @@ En la tabla siguiente, se proporciona tanto el tamaño del espacio de nombres co
 | Tamaño del espacio de nombres: archivos y directorios (millones)  | Capacidad típica (TiB)  | Núcleos de CPU  | Memoria recomendada (GiB) |
 |---------|---------|---------|---------|
 | 3        | 1.4     | 2        | 8 (sincronización inicial)/2 (renovación típica)      |
-| 5        | 2.3     | 2        | 16 (sincronización inicial)/4 (renovación típica)    |
-| 10       | 4,7     | 4        | 32 (sincronización inicial)/8 (renovación típica)   |
-| 30       | 14,0    | 8        | 48 (sincronización inicial)/16 (renovación típica)   |
-| 50       | 23,3    | 16       | 64 (sincronización inicial)/32 (renovación típica)  |
-| 100*     | 46,6    | 32       | 128 (sincronización inicial)/32 (renovación típica)  |
+| 5        | 2.4     | 2        | 16 (sincronización inicial)/4 (renovación típica)    |
+| 10       | 4.8     | 4        | 32 (sincronización inicial)/8 (renovación típica)   |
+| 30       | 14.3    | 8        | 48 (sincronización inicial)/16 (renovación típica)   |
+| 50       | 23.8    | 16       | 64 (sincronización inicial)/32 (renovación típica)  |
+| 100*     | 47.7   | 32       | 128 (sincronización inicial)/32 (renovación típica)  |
 
-\*En este momento no se admiten más de 100 millones de archivos y directorios. Se trata de un límite flexible.
+\*No se han probado más de 100 millones de archivos y directorios. Se trata de un límite flexible.
 
 > [!TIP]
 > La sincronización inicial de un espacio de nombres es una operación intensiva y se recomienda asignar más memoria hasta que se complete la sincronización inicial. Esto no es necesario, pero puede acelerar la sincronización inicial. 

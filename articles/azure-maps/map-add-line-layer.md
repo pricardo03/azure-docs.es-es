@@ -1,6 +1,6 @@
 ---
-title: Adición de una capa de línea a Azure Maps | Microsoft Docs
-description: Procedimiento para agregar una capa de línea al SDK de Azure Maps para web.
+title: Adición de una capa de línea a un mapa | Microsoft Azure Maps
+description: En este artículo, aprenderá cómo agregar una capa de línea a un mapa mediante el SDK web de Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f07e36d82c9044a212cda8173df9fe0a9544393a
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 5b59bdc06d455c7bd0ec9cf889f5cfa382948467
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976563"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911183"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Adición de una capa de línea al mapa
 

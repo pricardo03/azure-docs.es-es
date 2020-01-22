@@ -1,5 +1,5 @@
 ---
-title: Introducción a BGP e instancias de Azure VPN Gateway | Microsoft Docs
+title: 'BGP y Azure VPN Gateway: Información general'
 description: Este artículo proporciona información general de BGP con puertas de enlace de VPN de Azure.
 services: vpn-gateway
 author: yushwang
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: yushwang
-ms.openlocfilehash: e85eb756e416f1170a0cb2b19ab68888b5a9422f
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 0b4bb7ed90225fcb52ea170c07be2b57f8afbafe
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516436"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779801"
 ---
 # <a name="about-bgp-with-azure-vpn-gateway"></a>Acerca de BGP con Azure VPN Gateway
 En este artículo se proporciona información general de compatibilidad de BGP (Protocolo de puerta de enlace de borde) en Azure VPN Gateway.

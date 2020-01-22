@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: deefc1cc1d8fe82eab9ec0085b3a11ccd2fe7840
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6b70eb1a6e51c98311ae51648b1a9618f9c3349d
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820598"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861343"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Use Transact-SQL (T-SQL) para crear y administrar trabajos de Elastic Database
 
@@ -405,7 +405,7 @@ Los siguientes procedimientos almacenados se encuentran en la [base de datos de 
 
 
 
-|Procedimiento almacenado  |DESCRIPCIÓN  |
+|Procedimiento almacenado  |Descripción  |
 |---------|---------|
 |[sp_add_job](#sp_add_job)     |     Agrega un nuevo trabajo.    |
 |[sp_update_job](#sp_update_job)    |      Actualiza un trabajo existente.   |
@@ -419,7 +419,7 @@ Los siguientes procedimientos almacenados se encuentran en la [base de datos de 
 |[sp_delete_target_group](#sp_delete_target_group)     |    Elimina un grupo de destino.     |
 |[sp_add_target_group_member](#sp_add_target_group_member)     |    Agrega una base de datos o un grupo de bases de datos a un grupo de destino.     |
 |[sp_delete_target_group_member](#sp_delete_target_group_member)     |     Quita un miembro de un grupo de destino.    |
-|[sp_purge_jobhistory](#sp_purge_jobhistory)    |    Quita los registros del historial de un trabajo.     |
+|[sp_purge_jobhistory](#sp_purge_jobhistory)    |    Quita los registros de historial de un trabajo.     |
 
 
 
@@ -468,19 +468,19 @@ El valor indica cuándo se ejecutará el trabajo. schedule_interval_type es nvar
 Número de períodos de schedule_interval_type que se producirán entre las ejecuciones del trabajo. schedule_interval_count es int, con un valor predeterminado de 1. El valor debe ser mayor o igual que 1.
 
 [ **\@schedule_start_time =** ] schedule_start_time  
-Fecha en que puede comenzar la ejecución del trabajo. schedule_start_time es DATETIME2, con un valor predeterminado de 0001-01-01 00:00:00.0000000.
+Fecha en la que puede comenzar la ejecución del trabajo. schedule_start_time es DATETIME2, con un valor predeterminado de 0001-01-01 00:00:00.0000000.
 
 [ **\@schedule_end_time =** ] schedule_end_time  
-Fecha en que puede detenerse la ejecución del trabajo. schedule_end_time es DATETIME2, con un valor predeterminado de 9999-12-31 11:59:59.0000000. 
+Fecha en la que puede detenerse la ejecución del trabajo. schedule_end_time es DATETIME2, con un valor predeterminado de 9999-12-31 11:59:59.0000000. 
 
 [ **\@job_id =** ] job_id OUTPUT  
-Número de identificación del trabajo asignado al trabajo si se creó correctamente. job_id es una variable de salida de tipo uniqueidentifier.
+Número de identificación que se ha asignado al trabajo si este se ha creado correctamente. job_id es una variable de salida de tipo uniqueidentifier.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
 
 0 (correcto) o 1 (error)
 
-#### <a name="remarks"></a>Comentarios
+#### <a name="remarks"></a>Observaciones
 sp_add_job se debe ejecutar desde la base de datos del agente de trabajo especificada al crear al agente de trabajo.
 Después de ejecutar sp_add_job para agregar un trabajo, sp_add_jobstep puede utilizarse para agregar pasos que realice las actividades del trabajo. El número de versión inicial del trabajo es 0, que se incrementará en 1 cuando se agregue el primer paso.
 
@@ -535,15 +535,15 @@ El valor indica cuándo se ejecutará el trabajo. schedule_interval_type es nvar
 Número de períodos de schedule_interval_type que se producirán entre las ejecuciones del trabajo. schedule_interval_count es int, con un valor predeterminado de 1. El valor debe ser mayor o igual que 1.
 
 [ **\@schedule_start_time=** ] schedule_start_time  
-Fecha en que puede comenzar la ejecución del trabajo. schedule_start_time es DATETIME2, con un valor predeterminado de 0001-01-01 00:00:00.0000000.
+Fecha en la que puede comenzar la ejecución del trabajo. schedule_start_time es DATETIME2, con un valor predeterminado de 0001-01-01 00:00:00.0000000.
 
 [ **\@schedule_end_time=** ] schedule_end_time  
-Fecha en que puede detenerse la ejecución del trabajo. schedule_end_time es DATETIME2, con un valor predeterminado de 9999-12-31 11:59:59.0000000. 
+Fecha en la que puede detenerse la ejecución del trabajo. schedule_end_time es DATETIME2, con un valor predeterminado de 9999-12-31 11:59:59.0000000. 
 
 #### <a name="return-code-values"></a>Valores de código de retorno
 0 (correcto) o 1 (error)
 
-#### <a name="remarks"></a>Comentarios
+#### <a name="remarks"></a>Observaciones
 Después de ejecutar sp_add_job para agregar un trabajo, sp_add_jobstep puede utilizarse para agregar pasos que realice las actividades del trabajo. El número de versión inicial del trabajo es 0, que se incrementará en 1 cuando se agregue el primer paso.
 
 #### <a name="permissions"></a>Permisos
@@ -575,7 +575,7 @@ Especifica la eliminación si el trabajo tiene ejecuciones en curso y la cancela
 #### <a name="return-code-values"></a>Valores de código de retorno
 0 (correcto) o 1 (error)
 
-#### <a name="remarks"></a>Comentarios
+#### <a name="remarks"></a>Observaciones
 El historial de trabajos se elimina automáticamente cuando se elimina un trabajo.
 
 #### <a name="permissions"></a>Permisos
@@ -622,10 +622,10 @@ Agrega un paso a un trabajo.
 #### <a name="arguments"></a>Argumentos
 
 [ **\@job_name =** ] 'job_name'  
-Nombre del trabajo al que se va a agregar el paso. job_name es nvarchar(128).
+El nombre del trabajo al que se agrega el paso. job_name es nvarchar(128).
 
 [ **\@step_id =** ] step_id  
-Número de identificación de secuencia del paso de trabajo. Los números de identificación de pasos se inician en 1 e incrementan sin interrupciones. Si un paso existente ya tiene este identificador, dicho paso y todos los pasos siguientes verán su identificador incrementado para que se pueda insertar el nuevo paso en la secuencia. Si no se especifica, step_id se asignará automáticamente al último paso de la secuencia. step_id es int.
+Número de identificación de secuencia del paso del trabajo. Los números de identificación de pasos se inician en 1 e incrementan sin interrupciones. Si un paso existente ya tiene este identificador, dicho paso y todos los pasos siguientes verán su identificador incrementado para que se pueda insertar el nuevo paso en la secuencia. Si no se especifica, step_id se asignará automáticamente al último paso de la secuencia. step_id es int.
 
 [ **\@step_name =** ] step_name  
 Nombre del paso. Debe especificarse, excepto para el primer paso de un trabajo que (por comodidad) tiene un nombre predeterminado de 'JobStep'. step_name es nvarchar(128).
@@ -700,7 +700,7 @@ Nivel máximo de paralelismo por grupo elástico. Si está establecido, el paso 
 #### <a name="return-code-values"></a>Valores de código de retorno
 0 (correcto) o 1 (error)
 
-#### <a name="remarks"></a>Comentarios
+#### <a name="remarks"></a>Observaciones
 Si sp_add_jobstep se ejecuta correctamente, se incrementa el número de versión actual del trabajo. La próxima vez que se ejecute el trabajo, se usará la nueva versión. Si el trabajo se está ejecutando actualmente, la ejecución en curso no contendrá el nuevo paso.
 
 #### <a name="permissions"></a>Permisos
@@ -746,10 +746,10 @@ Actualiza un paso de trabajo.
 
 #### <a name="arguments"></a>Argumentos
 [ **\@job_name =** ] 'job_name'  
-Nombre del trabajo al que pertenece el paso. job_name es nvarchar(128).
+El nombre del trabajo al que pertenece el paso. job_name es nvarchar(128).
 
 [ **\@step_id =** ] step_id  
-Número de identificación del paso de trabajo que se va a modificar. Debe especificarse step_id o step_name. step_id es int.
+Número de identificación del paso de trabajo que va a modificarse. Debe especificarse step_id o step_name. step_id es int.
 
 [ **\@step_name =** ] 'step_name'  
 Nombre del paso que se va a modificar. Debe especificarse step_id o step_name. step_name es nvarchar(128).
@@ -824,7 +824,7 @@ Nivel máximo de paralelismo por grupo elástico. Si está establecido, el paso 
 #### <a name="return-code-values"></a>Valores de código de retorno
 0 (correcto) o 1 (error)
 
-#### <a name="remarks"></a>Comentarios
+#### <a name="remarks"></a>Observaciones
 Las ejecuciones en curso del trabajo no se verán afectadas. Si sp_update_jobstep se ejecuta correctamente, se incrementa el número de versión del trabajo. La próxima vez que se ejecute el trabajo, se usará la nueva versión.
 
 #### <a name="permissions"></a>Permisos
@@ -867,7 +867,7 @@ Parámetro de salida al que se asignará el número de versión de trabajo nuevo
 #### <a name="return-code-values"></a>Valores de código de retorno
 0 (correcto) o 1 (error)
 
-#### <a name="remarks"></a>Comentarios
+#### <a name="remarks"></a>Observaciones
 Las ejecuciones en curso del trabajo no se verán afectadas. Si sp_update_jobstep se ejecuta correctamente, se incrementa el número de versión del trabajo. La próxima vez que se ejecute el trabajo, se usará la nueva versión.
 
 Los demás pasos del trabajo se renumerarán automáticamente para ocupar el espacio que dejó el paso de trabajo eliminado.
@@ -905,7 +905,7 @@ Parámetro de salida al que se asignará el identificador de la ejecución del t
 #### <a name="return-code-values"></a>Valores de código de retorno
 0 (correcto) o 1 (error)
 
-#### <a name="remarks"></a>Comentarios
+#### <a name="remarks"></a>Observaciones
 Ninguno.
  
 #### <a name="permissions"></a>Permisos
@@ -933,7 +933,7 @@ Número de identificación de la ejecución del trabajo que se va a detener. job
 #### <a name="return-code-values"></a>Valores de código de retorno
 0 (correcto) o 1 (error)
 
-#### <a name="remarks"></a>Comentarios
+#### <a name="remarks"></a>Observaciones
 Ninguno.
  
 #### <a name="permissions"></a>Permisos
@@ -965,7 +965,7 @@ Nombre del grupo de destino que se va a crear. target_group_name es nvarchar(128
 #### <a name="return-code-values"></a>Valores de código de retorno
 0 (correcto) o 1 (error)
 
-#### <a name="remarks"></a>Comentarios
+#### <a name="remarks"></a>Observaciones
 Los grupos de destino proporcionan una manera sencilla de dirigir un trabajo a una colección de bases de datos.
 
 #### <a name="permissions"></a>Permisos
@@ -993,7 +993,7 @@ Nombre del grupo de destino que se va a eliminar. target_group_name es nvarchar(
 #### <a name="return-code-values"></a>Valores de código de retorno
 0 (correcto) o 1 (error)
 
-#### <a name="remarks"></a>Comentarios
+#### <a name="remarks"></a>Observaciones
 Ninguno.
 
 #### <a name="permissions"></a>Permisos
@@ -1049,7 +1049,7 @@ Nombre del grupo de mapas de particiones que se debe agregar al grupo de destino
 Número de identificación de destino asignado al miembro del grupo de destino si se agregó al grupo de destino. target_id es una variable de salida de tipo uniqueidentifier, con un valor predeterminado de NULL.
 Valores de código de retorno 0 (correcto) o 1 (error)
 
-#### <a name="remarks"></a>Comentarios
+#### <a name="remarks"></a>Observaciones
 Un trabajo se ejecuta en todas las bases de datos únicas de un servidor de SQL Database o grupo elástico en tiempo de ejecución cuando un servidor de SQL Database o un grupo elástico está incluido en el grupo de destino.
 
 #### <a name="permissions"></a>Permisos
@@ -1114,7 +1114,7 @@ Nombre del grupo de destino del que se va a quitar el miembro del grupo de desti
 #### <a name="return-code-values"></a>Valores de código de retorno
 0 (correcto) o 1 (error)
 
-#### <a name="remarks"></a>Comentarios
+#### <a name="remarks"></a>Observaciones
 Los grupos de destino proporcionan una manera sencilla de dirigir un trabajo a una colección de bases de datos.
 
 #### <a name="permissions"></a>Permisos
@@ -1144,7 +1144,7 @@ GO
 
 ### <a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
-Quita los registros del historial de un trabajo.
+Quita los registros de historial de un trabajo.
 
 #### <a name="syntax"></a>Sintaxis
 
@@ -1157,7 +1157,7 @@ Quita los registros del historial de un trabajo.
 
 #### <a name="arguments"></a>Argumentos
 [ **\@job_name =** ] 'job_name'  
-Nombre del trabajo del que se van a eliminar los registros de historial. job_name es nvarchar(128), con un valor predeterminado de NULL. Se debe especificar job_id o job_name, pero no pueden especificarse ambos.
+Nombre del trabajo del que se van a eliminar registros de historial. job_name es nvarchar(128), con un valor predeterminado de NULL. Se debe especificar job_id o job_name, pero no pueden especificarse ambos.
 
 [ **\@job_id =** ] job_id  
  Número de identificación del trabajo para los registros que se van a eliminar. job_id es uniqueidentifier, con un valor predeterminado de NULL. Se debe especificar job_id o job_name, pero no pueden especificarse ambos.
@@ -1192,7 +1192,7 @@ GO
 Las siguientes vistas están disponibles en la [base de datos de trabajos](sql-database-job-automation-overview.md#job-database).
 
 
-|Ver  |DESCRIPCIÓN  |
+|Ver  |Descripción  |
 |---------|---------|
 |[job_executions](#job_executions-view)     |  Muestra el historial de ejecuciones de trabajos.      |
 |[jobs](#jobs-view)     |   Muestra todos los trabajos.      |
@@ -1200,7 +1200,7 @@ Las siguientes vistas están disponibles en la [base de datos de trabajos](sql-d
 |[jobsteps](#jobsteps-view)     |     Muestra todos los pasos de la versión actual de cada trabajo.    |
 |[jobstep_versions](#jobstep_versions-view)     |     Muestra todos los pasos de todas las versiones de cada trabajo.    |
 |[target_groups](#target_groups-view)     |      Muestra todos los grupos de destino.   |
-|[target_group_members](#target_groups_members-view)     |   Muestra todos los miembros de todos los grupos de destino.      |
+|[target_group_members](#target_group_members-view)     |   Muestra todos los miembros de todos los grupos de destino.      |
 
 
 ### <a name="job_executions-view"></a>vista de job_executions
@@ -1210,13 +1210,13 @@ Las siguientes vistas están disponibles en la [base de datos de trabajos](sql-d
 Muestra el historial de ejecuciones de trabajos.
 
 
-|Nombre de la columna|   Tipo de datos   |DESCRIPCIÓN|
+|Nombre de la columna|   Tipo de datos   |Descripción|
 |---------|---------|---------|
-|**job_execution_id**   |uniqueidentifier|  Identificador único de una instancia de ejecución de un trabajo.
+|**job_execution_id**   |UNIQUEIDENTIFIER|  Identificador único de una instancia de ejecución de un trabajo.
 |**job_name**   |nvarchar(128)  |Nombre del trabajo.
-|**job_id** |uniqueidentifier|  Identificador único del trabajo.
-|**job_version**    |int    |Versión del trabajo (se actualiza automáticamente cada vez que se modifica el trabajo).
-|**step_id**    |int|   Identificador único (de este trabajo) para el paso. NULL indica que se trata de la ejecución del trabajo principal.
+|**job_id** |UNIQUEIDENTIFIER|  Id. único del trabajo.
+|**job_version**    |int    |Versión del trabajo (se actualiza automáticamente cada vez que el trabajo se modifica).
+|**step_id**    |int|   Identificador único del paso (en este trabajo). NULL indica que se trata de la ejecución del trabajo principal.
 |**is_active**| bit |Indica si la información está activa o inactiva. 1 indica trabajos activos y 0, trabajos inactivos.
 |**lifecycle**| nvarchar(50)|Valor que indica el estado del trabajo: "Created", "In Progress", "Failed", "Succeeded", "Skipped", "SucceededWithSkipped".|
 |**create_time**|   datetime2(7)|   Fecha y hora en que se creó el trabajo.
@@ -1224,9 +1224,9 @@ Muestra el historial de ejecuciones de trabajos.
 |**end_time**|  datetime2(7)    |Fecha y hora en que el trabajo finalizó la ejecución. NULL si todavía no se ejecutó el trabajo o no se completó la ejecución.
 |**current_attempts**   |int    |Número de veces que se reintentó el paso. El trabajo principal será 0 y las ejecuciones del trabajo secundario, 1 o un valor mayor según la directiva de ejecución.
 |**current_attempt_start_time** |datetime2(7)|  Fecha y hora en que el trabajo inició la ejecución. NULL indica que se trata de la ejecución del trabajo principal.
-|**last_message**   |nvarchar(max)| Mensaje del historial del trabajo o el paso. 
+|**last_message**   |nvarchar(max)| Mensaje del historial de trabajos o pasos. 
 |**target_type**|   nvarchar(128)   |Tipo de base de datos de destino o colección de bases de datos, incluidas todas las bases de datos de un servidor, todas las bases de datos de un grupo elástico o una base de datos. Los valores válidos para target_type son ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’ o ‘SqlDatabase’. NULL indica que se trata de la ejecución del trabajo principal.
-|**target_id**  |uniqueidentifier|  Identificador único del miembro del grupo de destino.  NULL indica que se trata de la ejecución del trabajo principal.
+|**target_id**  |UNIQUEIDENTIFIER|  Identificador único del miembro del grupo de destino.  NULL indica que se trata de la ejecución del trabajo principal.
 |**target_group_name**  |nvarchar(128)  |Nombre del grupo de destino. NULL indica que se trata de la ejecución del trabajo principal.
 |**target_server_name**|    nvarchar(256)|  Nombre del servidor de SQL Database incluido en el grupo de destino. Solo se especifica si target_type es ‘SqlServer’. NULL indica que se trata de la ejecución del trabajo principal.
 |**target_database_name**   |nvarchar(128)| Nombre de la base de datos incluida en el grupo de destino. Solo se especifica si target_type es ‘SqlDatabase’. NULL indica que se trata de la ejecución del trabajo principal.
@@ -1238,12 +1238,12 @@ Muestra el historial de ejecuciones de trabajos.
 
 Muestra todos los trabajos.
 
-|Nombre de la columna|   Tipo de datos|  DESCRIPCIÓN|
+|Nombre de la columna|   Tipo de datos|  Descripción|
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |Nombre del trabajo.|
-|**job_id**|    uniqueidentifier    |Identificador único del trabajo.|
-|**job_version**    |int    |Versión del trabajo (se actualiza automáticamente cada vez que se modifica el trabajo).|
-|**descripción**    |nvarchar(512)| Descripción del trabajo. enabled es bit. Indica si el trabajo está habilitado o deshabilitado. 1 indica trabajos habilitados y 0, trabajos deshabilitados.|
+|**job_id**|    UNIQUEIDENTIFIER    |Id. único del trabajo.|
+|**job_version**    |int    |Versión del trabajo (se actualiza automáticamente cada vez que el trabajo se modifica).|
+|**description**    |nvarchar(512)| Descripción del trabajo. enabled es bit. Indica si el trabajo está habilitado o deshabilitado. 1 indica trabajos habilitados y 0, trabajos deshabilitados.|
 |**schedule_interval_type** |nvarchar(50)   |Valor que indica cuándo se ejecutará el trabajo: 'Once', 'Minutes', 'Hours', 'Days', 'Weeks' o 'Months'
 |**schedule_interval_count**|   int|    Número de períodos schedule_interval_type que se producirán entre las ejecuciones del trabajo.|
 |**schedule_start_time**    |datetime2(7)|  Fecha y hora en que el trabajo inició la ejecución por última vez.|
@@ -1256,11 +1256,11 @@ Muestra todos los trabajos.
 
 Muestra todas las versiones del trabajo.
 
-|Nombre de la columna|   Tipo de datos|  DESCRIPCIÓN|
+|Nombre de la columna|   Tipo de datos|  Descripción|
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |Nombre del trabajo.|
-|**job_id**|    uniqueidentifier    |Identificador único del trabajo.|
-|**job_version**    |int    |Versión del trabajo (se actualiza automáticamente cada vez que se modifica el trabajo).|
+|**job_id**|    UNIQUEIDENTIFIER    |Id. único del trabajo.|
+|**job_version**    |int    |Versión del trabajo (se actualiza automáticamente cada vez que el trabajo se modifica).|
 
 
 ### <a name="jobsteps-view"></a>vista jobsteps
@@ -1269,27 +1269,27 @@ Muestra todas las versiones del trabajo.
 
 Muestra todos los pasos de la versión actual de cada trabajo.
 
-|Nombre de la columna    |Tipo de datos| DESCRIPCIÓN|
+|Nombre de la columna    |Tipo de datos| Descripción|
 |------|------|-------|
 |**job_name**   |nvarchar(128)| Nombre del trabajo.|
-|**job_id** |uniqueidentifier   |Identificador único del trabajo.|
-|**job_version**|   int|    Versión del trabajo (se actualiza automáticamente cada vez que se modifica el trabajo).|
-|**step_id**    |int    |Identificador único (de este trabajo) para el paso.|
+|**job_id** |UNIQUEIDENTIFIER   |Id. único del trabajo.|
+|**job_version**|   int|    Versión del trabajo (se actualiza automáticamente cada vez que el trabajo se modifica).|
+|**step_id**    |int    |Identificador único del paso (en este trabajo).|
 |**step_name**  |nvarchar(128)  |Nombre único (de este trabajo) para el paso.|
 |**command_type**   |nvarchar(50)   |Tipo de comando que se ejecutará en el paso de trabajo. Para v1, el valor debe ser igual a ‘TSql’, que es el valor predeterminado.|
 |**command_source** |nvarchar(50)|  Ubicación del comando. Para v1, ‘Inline’ es el valor predeterminado y el único aceptado.|
 |**command**|   nvarchar(max)|  Comandos que ejecutarán los trabajos elásticos por medio de command_type.|
 |**credential_name**|   nvarchar(128)   |Nombre de la credencial de ámbito de base de datos usada para la ejecución del trabajo.|
 |**target_group_name**| nvarchar(128)   |Nombre del grupo de destino.|
-|**target_group_id**|   uniqueidentifier|   Identificador único del grupo de destino.|
+|**target_group_id**|   UNIQUEIDENTIFIER|   Identificador único del grupo de destino.|
 |**initial_retry_interval_seconds**|    int |Retraso antes del primer reintento. El valor predeterminado es 1.|
 |**maximum_retry_interval_seconds** |int|   Retraso máximo entre los reintentos. Si el retraso entre los reintentos creciera por encima de este valor, se limitaría a este valor en su lugar. El valor predeterminado es 120.|
 |**retry_interval_backoff_multiplier**  |real|  Multiplicador que se aplicará al retraso de reintentos si varios intentos de ejecución del paso de trabajo generan un error. El valor predeterminado es 2.0.|
-|**retry_attempts** |int|   Número de reintentos que se usarán si se produce un error en este paso. El valor predeterminado de 10, que indica que no se realiza ningún reintento.|
-|**step_timeout_seconds**   |int|   Cantidad de tiempo en minutos entre reintentos. El valor predeterminado es 0, que indica un intervalo de 0 minutos.|
+|**retry_attempts** |int|   Número de reintentos en caso de que el paso dé error. El valor predeterminado de 10, que indica que no se realiza ningún reintento.|
+|**step_timeout_seconds**   |int|   Tiempo en minutos entre reintentos. El valor predeterminado es 0, que indica un intervalo de 0 minutos.|
 |**output_type**    |nvarchar(11)|  Ubicación del comando. En la versión preliminar actual, ‘Inline’ es el valor predeterminado y el único aceptado.|
 |**output_credential_name**|    nvarchar(128)   |Nombre de las credenciales que se usarán para conectarse al servidor de destino para almacenar el conjunto de resultados.|
-|**output_subscription_id**|    uniqueidentifier|   Identificador único de la suscripción del servidor o la base de destino de destino para el conjunto de resultados de la ejecución de la consulta.|
+|**output_subscription_id**|    UNIQUEIDENTIFIER|   Identificador único de la suscripción del servidor o la base de destino de destino para el conjunto de resultados de la ejecución de la consulta.|
 |**output_resource_group_name** |nvarchar(128)| Nombre del grupo de recursos donde reside el servidor de destino.|
 |**output_server_name**|    nvarchar(256)   |Nombre del servidor de destino para el conjunto de resultados.|
 |**output_database_name**   |nvarchar(128)| Nombre de la base de datos de destino para el conjunto de resultados.|
@@ -1310,26 +1310,26 @@ Muestra todos los pasos de todas las versiones de cada trabajo. El esquema es id
 
 Enumera todos los grupos de destino.
 
-|Nombre de la columna|Tipo de datos| DESCRIPCIÓN|
+|Nombre de la columna|Tipo de datos| Descripción|
 |-----|-----|-----|
 |**target_group_name**| nvarchar(128)   |Nombre del grupo de destino, una colección de bases de datos. 
-|**target_group_id**    |uniqueidentifier   |Identificador único del grupo de destino.
+|**target_group_id**    |UNIQUEIDENTIFIER   |Identificador único del grupo de destino.
 
-### <a name="target_groups_members-view"></a>vista target_groups_members
+### <a name="target_group_members-view"></a>Vista target_group_members
 
-[jobs].[target_groups_members]
+[jobs].[target_group_members]
 
 Muestra todos los miembros de todos los grupos de destino.
 
-|Nombre de la columna|Tipo de datos| DESCRIPCIÓN|
+|Nombre de la columna|Tipo de datos| Descripción|
 |-----|-----|-----|
 |**target_group_name**  |nvarchar(128|Nombre del grupo de destino, una colección de bases de datos. |
-|**target_group_id**    |uniqueidentifier   |Identificador único del grupo de destino.|
+|**target_group_id**    |UNIQUEIDENTIFIER   |Identificador único del grupo de destino.|
 |**membership_type**    |int|   Especifica si se incluirá o excluirá el miembro del grupo de destino en el grupo de destino. Los valores válidos de target_group_name son ‘Include’ o ‘Exclude’.|
 |**target_type**    |nvarchar(128)| Tipo de base de datos de destino o colección de bases de datos, incluidas todas las bases de datos de un servidor, todas las bases de datos de un grupo elástico o una base de datos. Los valores válidos para target_type son ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’ o ‘SqlShardMap’.|
-|**target_id**  |uniqueidentifier|  Identificador único del miembro del grupo de destino.|
+|**target_id**  |UNIQUEIDENTIFIER|  Identificador único del miembro del grupo de destino.|
 |**refresh_credential_name**    |nvarchar(128)  |Nombre de la credencial de ámbito de base de datos usada para conectarse al miembro del grupo de destino.|
-|**subscription_id**    |uniqueidentifier|  Identificador único de la suscripción.|
+|**subscription_id**    |UNIQUEIDENTIFIER|  Identificador único de la suscripción.|
 |**resource_group_name**    |nvarchar(128)| Nombre del grupo de recursos en el que reside el miembro del grupo de destino.|
 |**server_name**    |nvarchar(128)  |Nombre del servidor de SQL Database incluido en el grupo de destino. Solo se especifica si target_type es ‘SqlServer’. |
 |**database_name**  |nvarchar(128)  |Nombre de la base de datos incluida en el grupo de destino. Solo se especifica si target_type es ‘SqlDatabase’.|

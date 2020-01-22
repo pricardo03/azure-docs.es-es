@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: e7a5f9ba865ab555bde3125f40ee8675709bef40
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7ca98723511cc7297b462747d4e1e12ca9bd38c2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932257"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979013"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-azure-powershell"></a>Vista previa: Control de las actualizaciones con el control de mantenimiento y Azure PowerShell
 
@@ -36,7 +36,7 @@ Con el control de mantenimiento, puede:
 ## <a name="limitations"></a>Limitaciones
 
 - Las máquinas virtuales deben estar en un [host dedicado](./linux/dedicated-hosts.md) o bien crearse con un [tamaño de máquina virtual aislada](./linux/isolation.md).
-- Después de 35 días, se aplicará automáticamente una actualización y dejarán de respetarse las restricciones de disponibilidad.
+- Después de 35 días, se aplicará automáticamente una actualización.
 - El usuario debe tener acceso de **propietario del recurso**.
 
 
@@ -109,7 +109,7 @@ New-AzConfigurationAssignment `
    -MaintenanceConfigurationId $config.Id
 ```
 
-### <a name="dedicate-host"></a>Host dedicado
+### <a name="dedicated-host"></a>Host dedicado
 
 Para aplicar una configuración a un host dedicado, también es preciso incluir `-ResourceType hosts`, `-ResourceParentName` con el nombre del grupo host y `-ResourceParentType hostGroups`. 
 
@@ -129,7 +129,9 @@ New-AzConfigurationAssignment `
 
 ## <a name="check-for-pending-updates"></a>Búsqueda de actualizaciones pendientes
 
-Use [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) para ver si hay actualizaciones pendientes. Use `-subscription` para especificar la suscripción de Azure de la máquina virtual, en caso de que no sea la misma en la que ha iniciado sesión. 
+Use [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) para ver si hay actualizaciones pendientes. Use `-subscription` para especificar la suscripción de Azure de la máquina virtual, en caso de que no sea la misma en la que ha iniciado sesión.
+
+Si no hay ninguna actualización, el comando devolverá un mensaje de error: `Resource not found...StatusCode: 404`.
 
 ### <a name="isolated-vm"></a>Máquina virtual aislada
 
@@ -157,7 +159,7 @@ Get-AzMaintenanceUpdate `
    -ProviderName Microsoft.Compute | Format-Table
 ```
 
-## <a name="apply-updates"></a>Aplicar actualizaciones
+## <a name="apply-updates"></a>Aplicación de actualizaciones
 
 Use [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) para aplicar las actualizaciones pendientes.
 
@@ -185,6 +187,39 @@ New-AzApplyUpdate `
    -ResourceParentName myHostGroup `
    -ResourceParentType hostGroups `
    -ProviderName Microsoft.Compute
+```
+
+## <a name="check-update-status"></a>Comprobación del estado de actualización
+Use [Get-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) para comprobar el estado de una actualización. Los comandos que se muestran a continuación muestran el estado de la última actualización mediante `default` para el parámetro `-ApplyUpdateName`. Puede sustituir el nombre de la actualización (devuelto por el comando [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate)) para obtener el estado de una actualización específica.
+
+Si no hay ninguna actualización para mostrar, el comando devolverá un mensaje de error: `Resource not found...StatusCode: 404`.
+
+### <a name="isolated-vm"></a>Máquina virtual aislada
+
+Compruebe si hay actualizaciones para una máquina virtual específica.
+
+```azurepowershell-interactive
+Get-AzApplyUpdate `
+   -ResourceGroupName myResourceGroup `
+   -ResourceName myVM `
+   -ResourceType VirtualMachines `
+   -ProviderName Microsoft.Compute `
+   -ApplyUpdateName default
+```
+
+### <a name="dedicated-host"></a>Host dedicado
+
+Compruebe las actualizaciones a un host dedicado.
+
+```azurepowershell-interactive
+Get-AzApplyUpdate `
+   -ResourceGroupName myResourceGroup `
+   -ResourceName myHost `
+   -ResourceType hosts `
+   -ResourceParentName myHostGroup `
+   -ResourceParentType hostGroups `
+   -ProviderName Microsoft.Compute `
+   -ApplyUpdateName default
 ```
 
 ## <a name="remove-a-maintenance-configuration"></a>Eliminación de una configuración de mantenimiento

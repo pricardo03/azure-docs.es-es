@@ -16,20 +16,20 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc92fb7bc5ddf451279e6c157f9e93aa7fe9a12a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9cf660cbf981079ca20111e34fcd34504d8dcbfb
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423617"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044121"
 ---
-# <a name="web-api-that-calls-web-apis---acquire-a-token-for-the-app"></a>API web que llama a las API web: adquisición de un token para la aplicación
+# <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>API web que llama a API web: Adquisición de un token para la aplicación
 
 Una vez que ha creado un objeto de aplicación cliente, lo puede usar para adquirir un token y usarlo para llamar a una API web.
 
 ## <a name="code-in-the-controller"></a>Código del controlador
 
-Este es un ejemplo de código que se llamará en las acciones de los controladores de API, en el que se llama a una API de nivel inferior (denominada todolist).
+A continuación, se muestra un ejemplo de código que se llama en las acciones de los controladores de API. Llama a una API de bajada denominada *todolist*.
 
 ```csharp
 private async Task GetTodoList(bool isAppStarting)
@@ -50,9 +50,9 @@ private async Task GetTodoList(bool isAppStarting)
 }
 ```
 
-`BuildConfidentialClient()` es similar a lo que ha visto en el artículo [API web que llama a las API web: configuración de la aplicación ](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` crea una instancia de `IConfidentialClientApplication` con una caché que contiene únicamente información de una cuenta. La cuenta se proporciona mediante el método `GetAccountIdentifier`.
+`BuildConfidentialClient()` es similar al escenario de [Una API web que llama a las API web: configuración de la aplicación](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` crea una instancia de `IConfidentialClientApplication` con una caché que contiene información de una única cuenta. La cuenta se proporciona mediante el método `GetAccountIdentifier`.
 
-El método `GetAccountIdentifier` usa las notificaciones asociadas con la identidad del usuario para el que la API web ha recibido el JWT:
+El método `GetAccountIdentifier` usa las notificaciones asociadas con la identidad del usuario para el que la API web ha recibido el JSON Web Token (JWT):
 
 ```csharp
 public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
@@ -73,4 +73,4 @@ public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Llamada a una API web](scenario-web-api-call-api-call-api.md)
+> [API web que llama a las API web: llamada a una API](scenario-web-api-call-api-call-api.md)

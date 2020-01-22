@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: a6b696e16d2c946572cc213115fb440775fce3fe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9efd053bde11a29c37e3ff6afb7c6fc4492338db
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442979"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967550"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
@@ -95,24 +95,24 @@ Para mantener la funcionalidad y el rendimiento de los nodos, AKS reserva los si
 |---|---|---|---|---|---|---|---|
 |Reservado para Kube (milinúcleos)|60|100|140|180|260|420|740|
 
-- **Memoria**: la memoria reservada incluye la suma de dos valores
+- **Memoria**: La memoria utilizada por AKS incluye la suma de dos valores.
 
-1. El demonio kubelet se instala en todos los nodos de agente de Kubernetes para administrar la creación y terminación de contenedores. De forma predeterminada en AKS, este demonio tiene la siguiente regla de desalojo: memory.available <750Mi, lo que significa que un nodo siempre debe tener al menos 750 Mi asignables en todo momento.  Cuando un host está por debajo de ese umbral de memoria disponible, el kubelet terminará uno de los pods en ejecución para liberar memoria en la máquina host y protegerla.
+1. El demonio kubelet se instala en todos los nodos de agente de Kubernetes para administrar la creación y terminación de contenedores. De forma predeterminada en AKS, este demonio tiene la siguiente regla de desalojo: *memory.available <750Mi*, lo que significa que un nodo siempre debe tener al menos 750 Mi asignables en todo momento.  Cuando un host está por debajo de ese umbral de memoria disponible, el kubelet terminará uno de los pods en ejecución para liberar memoria en la máquina host y protegerla. Se trata de una acción reactiva una vez que la memoria disponible disminuye más allá del umbral de 750 Mi.
 
-2. El segundo valor es una tasa progresiva de memoria reservada para que el demonio kubelet funcione correctamente (kube-reserved).
+2. El segundo valor es una tasa progresiva de reservas de memoria para que el demonio kubelet funcione correctamente (kube-reserved).
     - 25 % de los primeros 4 GB de memoria
     - 20 % de los siguientes 4 GB de memoria (hasta 8 GB)
     - 10 % de los siguientes 8 GB de memoria (hasta 16 GB)
     - 6 % de los siguientes 112 GB de memoria (hasta 128 GB)
     - 2 % de cualquier memoria que esté por encima de 128 GB
 
-Como resultado de estas dos reglas definidas impuestas para mantener a los Kubernetes y los nodos de agente en buen estado, la cantidad de CPU y memoria asignables parecerá menos de lo que el nodo en sí podría ofrecer. Las reservas de recursos definidas anteriormente no se pueden cambiar.
+Las reglas anteriores para la asignación de memoria y CPU se usan para mantener el estado correcto de los nodos del agente, algunos pods del sistema de hospedaje son críticos para el mantenimiento del clúster. Estas reglas de asignación también hacen que el nodo informe una menor memoria y CPU asignables que la que informaría si no formase parte de un clúster de Kubernetes. Las reservas de recursos anteriores no se pueden cambiar.
 
-Por ejemplo, si un nodo ofrece 7 GB, informará del 34% de la memoria no asignable:
+Por ejemplo, si un nodo ofrece 7 GB, informará del 34 % de la memoria no asignable por encima del umbral de expulsión estricto de 750 Mi.
 
-`750Mi + (0.25*4) + (0.20*3) = 0.786GB + 1 GB + 0.6GB = 2.386GB / 7GB = 34% reserved`
+`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
 
-Además de las reservas para Kubernetes, el sistema operativo del nodo subyacente también reserva una cantidad de recursos de CPU y memoria para mantener las funciones del sistema operativo.
+Además de las reservas para Kubernetes mismo, el sistema operativo del nodo subyacente también reserva una cantidad de recursos de CPU y memoria para mantener las funciones del sistema operativo.
 
 Para consultar los procedimientos recomendados asociados, consulte[Procedimientos recomendados para características básicas del programador en Azure Kubernetes Service (AKS)][operator-best-practices-scheduler].
 
@@ -292,4 +292,4 @@ En este artículo se tratan algunos de los componentes básicos de Kubernetes y 
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
-[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
+[reservation-discounts]:../cost-management-billing/reservations/save-compute-costs-reservations.md

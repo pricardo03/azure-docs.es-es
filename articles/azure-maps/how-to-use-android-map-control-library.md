@@ -1,6 +1,6 @@
 ---
-title: Introducción al control de mapa de Android en Azure Maps | Microsoft Docs
-description: El control de mapa de Android en Azure Maps.
+title: Introducción al control de mapa de Android | Microsoft Azure Maps
+description: En este artículo, obtendrá una introducción a los controles de mapa de Android mediante Android SDK de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cb79b24a37758307657c1245622fa980123cc5c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bb9dc16eabbd6065e05d26258c1421aa7a46dbd7
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432930"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911396"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introducción a Android SDK para Azure Maps
 
@@ -43,7 +43,7 @@ En primero lugar, cree un proyecto con una actividad vacía. Siga estos pasos pa
 
 Consulte la [documentación de Android Studio](https://developer.android.com/studio/intro/) a fin de obtener más ayuda para la instalación de Android Studio y la creación de un proyecto.
 
-![Crear un proyecto](./media/how-to-use-android-map-control-library/form-factor-android.png)
+![Creación de un proyecto en Android Studio ](./media/how-to-use-android-map-control-library/form-factor-android.png)
 
 ## <a name="set-up-a-virtual-device"></a>Configuración de un dispositivo virtual
 
@@ -217,7 +217,7 @@ Android Studio tardará unos segundos en crear la aplicación. Una vez finalizad
 
 <center>
 
-![Mapa Android](./media/how-to-use-android-map-control-library/android-map.png)</center>
+![Azure Maps en la aplicación de Android](./media/how-to-use-android-map-control-library/android-map.png)</center>
 
 ## <a name="localizing-the-map"></a>Localización del mapa
 
@@ -263,7 +263,7 @@ Este es un ejemplo de Azure Maps con el idioma establecido en "fr-FR" y la vista
 
 <center>
 
-![Imagen del mapa que muestra las etiquetas en francés](./media/how-to-use-android-map-control-library/android-localization.png)
+![Imagen del mapa de Azure Maps que muestra las etiquetas en francés](./media/how-to-use-android-map-control-library/android-localization.png)
 </center>
 
 [Aquí](supported-languages.md) encontrará una lista completa de los idiomas y vistas regionales admitidos.

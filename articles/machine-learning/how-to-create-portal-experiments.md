@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 581b6b4143f5924c27bac726bbea823761574c1b
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 00a316f69cfa77d705a789d40868105e9a098def
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535384"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894022"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Cree, explore e implemente experimentos de aprendizaje automático automatizado con Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -150,11 +150,12 @@ Variance| Medida de la diferencia de los datos de esta columna con respecto a su
 Asimetría| Medida de la diferencia entre los datos de esta columna y la distribución normal.
 Curtosis| La medida de la cantidad de datos en cola de esta columna se compara con una distribución normal.
 
+
 <a name="preprocess"></a>
 
 ## <a name="advanced-preprocessing-options"></a>Opciones de preprocesamiento avanzado
 
-Al configurar los experimentos, puede habilitar la configuración avanzada `Preprocess`. Si lo hace, los pasos siguientes de caracterización y preprocesamiento de los datos se realizarán automáticamente.
+Al configurar los experimentos, puede habilitar la configuración avanzada `Preprocess`. Si lo hace, como parte del preprocesamiento los siguientes pasos de caracterización y protección se realizarán automáticamente.
 
 |Pasos de&nbsp;preprocesamiento| Descripción |
 | ------------- | ------------- |
@@ -167,6 +168,20 @@ Al configurar los experimentos, puede habilitar la configuración avanzada `Prep
 |Codificación de destino de texto|Para la entrada de texto, se usa un modelo lineal apilado con bolsa de palabras para generar la probabilidad de cada clase.|
 |Peso de la evidencia (WoE)|Calcula WoE como una medida de la correlación de las columnas de categorías para la columna de destino. Se calcula como el registro de la relación de las probabilidades dentro de la clase frente a las probabilidades fuera de la clase. Este paso genera una columna de característica numérica por clase y quita la necesidad de atribuir de forma explícita los valores que faltan y el tratamiento de valores atípicos.|
 |Distancia del clúster|Entrena un modelo de agrupamiento k-medias en todas las columnas numéricas.  Genera k nuevas características, una nueva característica numérica por grupo, que contiene la distancia de cada muestra hasta el centroide de cada grupo.|
+
+### <a name="data-guardrails"></a>Límites de protección de datos
+
+El aprendizaje automático automatizado ofrece límites de protección de datos para ayudarle a identificar posibles problemas con los datos (por ejemplo, valores faltantes o desequilibrio de clases) y a realizar acciones correctivas para mejorar los resultados. Hay muchos procedimientos recomendados disponibles y se pueden aplicar para lograr resultados confiables. 
+
+En la tabla siguiente se describen los límites de protección de datos admitidos actualmente, así como los estados asociados que pueden producirse al enviar el experimento.
+
+Límite de protección|Status|Condición&nbsp;para&nbsp;el desencadenador
+---|---|---
+Atribución de&nbsp;valores&nbsp;que faltan |**Superado** <br> <br> **Corregido**|    No falta ningún valor en ninguna de las columnas&nbsp;de entrada <br> <br> Faltan valores en algunas columnas
+Validación cruzada|**Listo**|Si no se proporciona ningún conjunto de validación explícito
+Detección de&nbsp;características de&nbsp;cardinalidad&nbsp;alta|  **Superado** <br> <br>**Listo**|   No se detectó ninguna característica de cardinalidad alta <br><br> Se detectaron columnas de entrada de cardinalidad alta
+Detección de equilibrio de clases |**Superado** <br><br><br>**Con alertas** |Las clases están equilibradas en los datos de entrenamiento. Se considera que un conjunto de datos está equilibrado si todas las clases tienen una representación adecuada en el conjunto de datos según el número y proporción de las muestras. <br> <br> Las clases están desequilibradas en los datos de entrenamiento
+Coherencia de los datos en la serie temporal|**Superado** <br><br><br><br> **Corregido** |<br> Se han analizado los valores seleccionados {horizonte, retardo y período acumulado} sin que se hayan detectado problemas potenciales de memoria insuficiente. <br> <br>Los valores seleccionados {horizonte, retardo y período acumulado} se analizaron y pueden provocar que el experimento se quede sin memoria. Se desactivó el período acumulado o el retardo.
 
 ## <a name="run-experiment-and-view-results"></a>Ejecución del experimento y visualización de los resultados
 
@@ -226,4 +241,4 @@ Ya tiene un servicio web operativo para generar predicciones. Puede probar las p
 * Pruebe el [tutorial de un extremo a otro para crear su primer experimento de ML automatizado con Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
 * [Más información sobre el aprendizaje automático automatizado](concept-automated-ml.md) y Azure Machine Learning.
 * [Descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md).
-* [Obtenga información sobre cómo consumir un servicio web](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).
+* [Obtenga información sobre cómo consumir un servicio web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).

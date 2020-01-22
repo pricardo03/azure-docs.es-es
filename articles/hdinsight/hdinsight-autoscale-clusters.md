@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: 5a8e641c8a1b29d657fe8b0eabf7657ab5973516
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 45804bd3e81e7363010979b7a6e028356b3a5080
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666042"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780069"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Escalado automático de clústeres de Azure HDInsight
 
@@ -28,12 +28,14 @@ En la tabla siguiente se describen las versiones y los tipos de clúster que son
 
 | Versión | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sin ESP | Sí, solo 2.3| Sí | No | No | No | No | Sin |
-| HDInsight 4.0 sin ESP | Sí | Sí | No | No | No | No | Sin |
-| HDInsight 3.6 sin ESP | Sí, solo 2.3 | Sí | No | No | No | No | Sin |
-| HDInsight 4.0 con ESP | Sí | Sí | No | No | No | No | Sin |
+| HDInsight 3.6 sin ESP | Sí | Sí | Sí | Sí* | No | No | No |
+| HDInsight 4.0 sin ESP | Sí | Sí | Sí | Sí* | No | No | No |
+| HDInsight 3.6 sin ESP | Sí | Sí | Sí | Sí* | No | No | No |
+| HDInsight 4.0 con ESP | Sí | Sí | Sí | Sí* | No | No | No |
 
-## <a name="how-it-works"></a>Cómo funciona
+\* Los clústeres de HBase solo se pueden configurar para escalado basado en programación, no basado en cargas.
+
+## <a name="how-it-works"></a>Funcionamiento
 
 Puede elegir el escalado basado en carga o el escalado basado en programación para el clúster de HDInsight. El escalado basado en carga cambia el número de nodos del clúster, dentro de un intervalo establecido, para garantizar la utilización de CPU óptima y minimizar el costo de ejecución.
 
@@ -70,7 +72,7 @@ Cuando se detectan las condiciones siguientes, Escalabilidad automática emitir�
 
 En función del número de contenedores de AM por nodo y de los requisitos actuales de CPU y memoria, Escalabilidad automática emite una solicitud para quitar un número determinado de nodos. El servicio detecta también qué nodos son candidatos para la eliminación en función de la ejecución del trabajo actual. En primer lugar, la operación de reducción vertical retira los nodos y, luego, los quita del clúster.
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Creación de un clúster con Escalabilidad automática basada en carga
 

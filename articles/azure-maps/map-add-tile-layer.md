@@ -1,6 +1,6 @@
 ---
-title: Adición de una capa de mosaico a Azure Maps | Microsoft Docs
-description: Procedimiento para agregar una capa de mosaico al SDK de Azure Maps para web.
+title: Adición de una capa de mosaico a un mapa | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre cómo superponer una capa de mosaico en un mapa mediante el SDK web de Microsoft Azure Maps. Las capas de mosaico permiten representar imágenes en un mapa.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3f047ec1aced55038384cbe29bd3a4b8a948dce9
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 83e8f6d684d6d39102fd682653cd19816a9f7b10
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976452"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911089"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Adición de una capa de mosaico a un mapa
 

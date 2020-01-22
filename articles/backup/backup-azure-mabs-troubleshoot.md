@@ -4,12 +4,12 @@ description: Solucionar problemas de instalación, registro de Azure Backup Serv
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: bf641c4ef27ce561c005709e6de94f40855b9a5f
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 7fc27a2624fc38883135bdb6d2767625ab02a5a5
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665327"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830214"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Solución de problemas de Azure Backup Server
 
@@ -46,11 +46,11 @@ Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS),
 | --- | --- | --- |
 | Copia de seguridad | No se pudo crear el punto de recuperación en línea | **Mensaje de error**: Windows Azure Backup Agent no pudo crear una instantánea del volumen seleccionado. <br> **Solución alternativa**: Intente aumentar el espacio en la réplica y el volumen del punto de recuperación.<br> <br> **Mensaje de error**: Windows Azure Backup Agent no se puede conectar al servicio OBEngine. <br> **Solución alternativa**: Compruebe que el servicio OBEngine figura en la lista de servicios en ejecución en el equipo. Si el servicio OBEngine no se está ejecutando, use el comando "net start OBEngine" para iniciarlo. <br> <br> **Mensaje de error**: No se ha establecido la frase de contraseña de cifrado para este servidor. Configure una frase de contraseña. <br> **Solución alternativa**: Intente configurar una frase de contraseña. Si hay algún problema, realice estos pasos: <br> <ol><li>Compruebe que existe la ubicación temporal. La ubicación mencionada en el Registro **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config** debe existir con el nombre **ScratchLocation**.</li><li> Si no existe la ubicación temporal, intente volver a registrar con la frase de contraseña de cifrado anterior. *Siempre que configure una frase de contraseña de cifrado, guárdela en una ubicación segura.*</li><ol>|
 
-## <a name="the-vault-credentials-provided-are-different-from-the-vault-the-server-is-registered"></a>Las credenciales del almacén proporcionadas son diferentes de las credenciales del almacén en el que está registrado el servidor.
+## <a name="the-original-and-external-dpm-servers-must-be-registered-to-the-same-vault"></a>Los servidores DPM originales y externos deben estar registrados en el mismo almacén
 
 | Operación | Detalles del error | Solución alternativa |
 | --- | --- | --- |
-| Restauración | **Código de error**: CBPServerRegisteredVaultDontMatchWithCurrent/Error en las credenciales del almacén: 100110 <br/> <br/>**Mensaje de error**: Las credenciales del almacén proporcionadas son diferentes de las credenciales del almacén en el que está registrado el servidor. | **Causa**: Este problema se produce cuando intenta restaurar archivos en un servidor alternativo desde el servidor original mediante la opción de recuperación del DPM externo y si el servidor que se va a recuperar y el servidor original desde donde se realiza la copia de seguridad de los datos no están asociados al mismo almacén de Recovery Services.<br/> <br/>**Solución alternativa**: para resolver este problema, asegúrese de que tanto el servidor original como el servidor alternativo están registrados en el mismo almacén.|
+| Restauración | **Código de error**: CBPServerRegisteredVaultDontMatchWithCurrent/Error en las credenciales del almacén: 100110 <br/> <br/>**Mensaje de error**: Los servidores DPM originales y externos deben estar registrados en el mismo almacén | **Causa**: Este problema se produce cuando intenta restaurar archivos en un servidor alternativo desde el servidor original mediante la opción de recuperación del DPM externo y si el servidor que se va a recuperar y el servidor original desde donde se realiza la copia de seguridad de los datos no están asociados al mismo almacén de Recovery Services.<br/> <br/>**Solución alternativa**: para resolver este problema, asegúrese de que tanto el servidor original como el servidor alternativo están registrados en el mismo almacén.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>Hubo un error en los trabajos de creación de puntos de recuperación en línea para la máquina virtual de VMware.
 

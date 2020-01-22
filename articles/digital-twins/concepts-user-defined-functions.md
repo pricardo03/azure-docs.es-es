@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 5b1c3e6dcd106e16ab07f707729f31ee1e269461
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660314"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861105"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Procesamiento de datos y funciones definidas por el usuario
 
@@ -104,7 +104,7 @@ Las funciones definidas por el usuario se pueden escribir en JavaScript. Los mé
 - Crear una notificación cuando se cumplen ciertas condiciones para un lectura entrante del sensor.
 - Asociar metadatos del grafo a la lectura del sensor antes de enviar una notificación.
 
-Para más información, consulte [Uso de funciones definidas por el usuario](./how-to-user-defined-functions.md).
+Para obtener más información, consulte [Uso de funciones definidas por el usuario](./how-to-user-defined-functions.md).
 
 #### <a name="examples"></a>Ejemplos
 
@@ -114,7 +114,7 @@ El [repositorio de GitHub para el ejemplo de C# de Digital Twins](https://github
 
 ### <a name="role-assignment"></a>Asignación de roles
 
-Las acciones de una función definida por el usuario están sujetas al [control de acceso basado en rol](./security-role-based-access-control.md) de Azure Digital Twins para proteger los datos dentro del servicio. Las asignaciones de roles definen las funciones definidas por el usuario que tienen los permisos adecuados para interactuar con el grafo espacial y sus entidades. Por ejemplo, una función definida por el usuario podría tener la capacidad y el permiso para *CREAR*, *LEER*, *ACTUALIZAR* o *ELIMINAR* datos del grafo en un espacio determinado. El nivel de acceso de una función definida por el usuario se comprueba cuando esta solicita datos al grafo o intenta una acción. Para más información, consulte [Control de acceso basado en rol](./security-create-manage-role-assignments.md).
+Las acciones de una función definida por el usuario están sujetas al [control de acceso basado en rol](./security-role-based-access-control.md) de Azure Digital Twins para proteger los datos dentro del servicio. Las asignaciones de roles definen las funciones definidas por el usuario que tienen los permisos adecuados para interactuar con el grafo espacial y sus entidades. Por ejemplo, una función definida por el usuario podría tener la capacidad y el permiso para *CREAR*, *LEER*, *ACTUALIZAR* o *ELIMINAR* datos del grafo en un espacio determinado. El nivel de acceso de una función definida por el usuario se comprueba cuando esta solicita datos al grafo o intenta una acción. Para obtener más información, consulte [Control de acceso basado en rol](./security-create-manage-role-assignments.md).
 
 Es posible que un buscador de coincidencias desencadene una función definida por el usuario que no tiene ninguna asignación de roles. En este caso, la función definida por el usuario no podría leer datos del grafo.
 

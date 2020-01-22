@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: 7ff411ae082acfe2d465ab9d3371982b0693c226
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 24746b7bbbbf3985a9801139b301a829c51a14da
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787053"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030086"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Creación y ejecución de flujos de trabajo basados en eventos automatizados mediante webhooks HTTP en Azure Logic Apps
 
@@ -36,7 +36,16 @@ Una acción de webhook HTTP también está basada en eventos y *se suscribe* a u
 Por ejemplo, la acción [**Enviar correo de aprobación**](connectors-create-api-office365-outlook.md) del conector de Office 365 Outlook es un ejemplo de acción de webhook que sigue este patrón. Puede ampliar este patrón a cualquier servicio mediante el uso de la acción de webhook.
 
 > [!NOTE]
-> Logic Apps aplica la seguridad de la capa de transporte (TLS) 1.2 al recibir la llamada de vuelta al desencadenador o acción de webhook HTTP. Si ve errores de protocolo de enlace SSL, asegúrese de usar TLS 1.2.
+> Logic Apps aplica la seguridad de la capa de transporte (TLS) 1.2 al recibir la llamada de vuelta al desencadenador o acción de webhook HTTP. Si ve errores de protocolo de enlace SSL, asegúrese de usar TLS 1.2. En el caso de las llamadas entrantes, estos son los conjuntos de cifrado compatibles:
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 Para más información, consulte los temas siguientes:
 
@@ -44,9 +53,9 @@ Para más información, consulte los temas siguientes:
 * [Webhooks y suscripciones](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
 * [Creación de API personalizadas compatibles con webhook](../logic-apps/logic-apps-create-api-app.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * La dirección URL para una API o un punto de conexión ya implementado que admita el patrón de suscripción y cancelación de suscripción de webhook para [desencadenadores de webhook en aplicaciones lógicas](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) o [acciones de webhook en aplicaciones lógicas](../logic-apps/logic-apps-create-api-app.md#webhook-actions), según corresponda.
 
@@ -58,7 +67,7 @@ Para más información, consulte los temas siguientes:
 
 Este desencadenador integrado registra una dirección URL de devolución de llamada con el servicio especificado y espera a que ese servicio envíe una solicitud HTTP POST a esa dirección URL. Cuando se produce este evento, el desencadenador se activa y ejecuta inmediatamente la aplicación lógica.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Abra la aplicación lógica en blanco en el Diseñador de aplicaciones lógicas.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Abra la aplicación lógica en blanco en el diseñador de aplicación lógica.
 
 1. En el diseñador, en el cuadro de búsqueda, escriba "webhook http" como filtro. En la lista de **desencadenadores**, seleccione el desencadenador **webhook HTTP**.
 
@@ -76,7 +85,7 @@ Este desencadenador integrado registra una dirección URL de devolución de llam
 
 1. Continúe creando el flujo de trabajo de la aplicación lógica con acciones que se ejecuten cuando se activa el desencadenador.
 
-1. Cuando haya finalizado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Guardar**.
+1. Cuando haya finalizado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
    Al guardar la aplicación lógica, esta llama al punto de conexión de suscripción y registra la dirección URL de devolución de llamada para desencadenar esta aplicación lógica.
 
@@ -86,7 +95,7 @@ Este desencadenador integrado registra una dirección URL de devolución de llam
 
 Esta acción integrada registra una dirección URL de devolución de llamada con el servicio especificado, pausa el flujo de trabajo de la aplicación lógica y espera a que ese servicio envíe una solicitud HTTP POST a esa dirección URL. Cuando se produce este evento, la acción reanuda la ejecución de la aplicación lógica.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
 
    En este ejemplo se usa el desencadenador de webhook HTTP como primer paso.
 
@@ -100,7 +109,7 @@ Esta acción integrada registra una dirección URL de devolución de llamada con
 
    En este ejemplo se cambia el nombre de la acción a "acción de webhook HTTP" para que el paso tenga un nombre más descriptivo.
 
-1. Proporcione los valores para los parámetros de la acción de webhook HTTP, que son parecidos a los [parámetros del desencadenador de webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger), que quiera usar para las llamadas de suscripción y cancelación de suscripción, por ejemplo:
+1. Proporcione los valores para los parámetros de la acción de webhook HTTP, que son parecidos a los [parámetros del desencadenador de webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger), que quiera usar para las llamadas de suscripción y cancelación de suscripción, por ejemplo:
 
    ![Introducción de los parámetros de acción de webhook HTTP](./media/connectors-native-webhook/http-webhook-action-parameters.png)
 
@@ -110,26 +119,26 @@ Esta acción integrada registra una dirección URL de devolución de llamada con
 
    Para obtener más información sobre los tipos de autenticación disponibles para webhook de HTTP, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-1. Cuando haya finalizado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Guardar**.
+1. Cuando haya finalizado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener más información acerca de los parámetros del desencadenador y la acción, que son parecidos entre sí, consulte [Parámetros del webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger).
+Para obtener más información acerca de los parámetros del desencadenador y la acción, que son parecidos entre sí, consulte [Parámetros del webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
 
 ### <a name="output-details"></a>Detalles de salida
 
 Aquí tiene más información acerca de las salidas de un desencadenador o acción de webhook HTTP, que devuelve esta información:
 
-| Nombre de propiedad | type | DESCRIPCIÓN |
+| Nombre de propiedad | Tipo | Descripción |
 |---------------|------|-------------|
 | headers | object | Encabezados de la solicitud |
 | body | object | Objeto JSON | Objeto con el contenido del cuerpo de la solicitud |
 | status code | int | Código de estado de la solicitud |
 |||
 
-| status code | DESCRIPCIÓN |
+| status code | Descripción |
 |-------------|-------------|
-| 200 | OK |
+| 200 | Aceptar |
 | 202 | Accepted |
 | 400 | Solicitud incorrecta |
 | 401 | No autorizado |

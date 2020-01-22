@@ -1,6 +1,6 @@
 ---
-title: Cómo aportar comentarios sobre datos en Azure Maps | Microsoft Docs
-description: Aporte sus comentarios sobre los datos mediante la herramienta de comentarios de Azure Maps.
+title: Aportar comentarios sobre datos en Azure Maps | Microsoft Azure Maps
+description: Aporte sus comentarios sobre los datos mediante la herramienta de comentarios de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/19/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 28c463204080296e431edb3c30b4fdd66f07a189
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 59670742586f596a817ad52383160a38358a6786
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776599"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911384"
 ---
 # <a name="provide-data-feedback-to-azure-maps"></a>Aportar comentarios sobre datos en Azure Maps
 

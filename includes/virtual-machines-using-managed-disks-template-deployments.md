@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: ba49fc72fe07378d702b8c12fcdf77d5cebee9bb
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 126b488d2bb59e2904bee646301240efe6fe71a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013106"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76037764"
 ---
 En este documento se describen las diferencias entre discos administrados y discos no administrados cuando se usan plantillas de Azure Resource Manager para aprovisionar máquinas virtuales. Los ejemplos le ayudarán a actualizar las plantillas existentes que usan discos no administrados a discos administrados. Como referencia, usamos la plantilla [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) como guía. Puede ver la plantilla usando tanto [discos administrados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) como una versión usando [discos no administrados](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) si desea compararlas directamente.
 
@@ -94,7 +94,16 @@ Con Azure Managed Disks, el disco se convierte en un recurso de nivel superior y
 
 ### <a name="default-managed-disk-settings"></a>Configuración predeterminada de discos administrados
 
-Para crear una máquina virtual con discos administrados, ya no es necesario crear el recurso de cuenta de almacenamiento y es posible actualizar el recurso de máquina virtual como se indica a continuación. Observe específicamente que `apiVersion` refleja `2017-03-30` y ni `osDisk` ni `dataDisks` hacen referencia ya a un URI específico para el VHD. Cuando se realiza la implementación sin especificar propiedades adicionales, el disco usará un tipo de almacenamiento acorde con el tamaño de la máquina virtual. Por ejemplo, si usa un tamaño de máquina virtual compatible con Premium (tamaños con "s" en el nombre, como Standard_D2s_v3) el sistema usará un almacenamiento Premium_LRS. Use la configuración de la SKU del disco para especificar un tipo de almacenamiento. Si no se especifica ningún nombre, toma el formato de `<VMName>_OsDisk_1_<randomstring>` para el disco de SO y `<VMName>_disk<#>_<randomstring>` para cada disco de datos. De manera predeterminada, Azure Disk Encryption está deshabilitado; el almacenamiento en caché es Lectura/escritura en el caso del disco de SO y Ninguno para los discos de datos. En el ejemplo siguiente, puede observar que todavía existe una dependencia de cuenta de almacenamiento, pero es solo para el almacenamiento de diagnósticos y no es necesaria para almacenamiento en disco.
+Para crear una VM con discos administrados, ya no es necesario crear el recurso de cuenta de almacenamiento. Con el ejemplo de plantilla siguiente como referencia, existen algunas diferencias en los ejemplos de discos no administrados anteriores que se deben tener en cuenta:
+
+- `apiVersion` es una versión que admite discos administrados.
+- `osDisk` y `dataDisks` ya no hacen referencia a un URI específico para VHD.
+- Cuando se realiza la implementación sin especificar propiedades adicionales, el disco usa un tipo de almacenamiento acorde con el tamaño de la VM. Por ejemplo, si usa un tamaño de VM compatible con Premium Storage (tamaños con "s" en su nombre, como Standard_D2s_v3), los discos Premium se configurarán de manera predeterminada. Para modificar esta opción, use la configuración de la SKU del disco para especificar un tipo de almacenamiento.
+- Si no se especifica ningún nombre para el disco, toma el formato de `<VMName>_OsDisk_1_<randomstring>` para el disco de SO y `<VMName>_disk<#>_<randomstring>` para cada disco de datos.
+  - Si se crea una VM a partir de una imagen personalizada, la configuración predeterminada para el tipo de cuenta de almacenamiento y el nombre del disco se recuperan de las propiedades del disco definidas en el recurso de imagen personalizada. Se pueden invalidar mediante la especificación de valores para estos en la plantilla.
+- De manera predeterminada, Azure Disk Encryption está deshabilitado.
+- De manera predeterminada, el almacenamiento en caché del disco es Lectura/escritura en el caso del disco de SO y Ninguno para los discos de datos.
+- En el ejemplo siguiente todavía existe una dependencia de cuenta de almacenamiento, pero es solo para el almacenamiento de diagnósticos y no es necesaria para almacenamiento en disco.
 
 ```json
 {

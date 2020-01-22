@@ -1,6 +1,6 @@
 ---
-title: Adición de una capa de polígono a Azure Maps | Microsoft Docs
-description: Cómo agregar una capa de polígono al SDK web de Azure Maps.
+title: Adición de una capa de polígono a un mapa | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre cómo representar un polígono y un multipolígono en un mapa del SDK web de Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ca6c0f5e6fde5a31655ed17f4a016bf44216643f
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 77d952666be12d7dea780b3aa8f094cf5f70f2d3
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976141"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911124"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>Adición de una capa de polígono al mapa
 
@@ -73,7 +73,7 @@ Consulte el Pen <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>Patrón de re
 
 
 > [!TIP]
-> El SDK web de Azure Maps proporciona varias plantillas de imagen personalizables que puede usar como patrones de relleno. Para más información, consulte el documento [How to use image templates](how-to-use-image-templates-web-sdk.md) (Uso de plantillas de imagen).
+> El SDK web de Azure Maps proporciona varias plantillas de imagen personalizables que puede usar como patrones de relleno. Para más información, consulte el documento [Uso de plantillas de imagen](how-to-use-image-templates-web-sdk.md).
 
 ## <a name="customize-a-polygon-layer"></a>Personalizar una capa de polígono
 

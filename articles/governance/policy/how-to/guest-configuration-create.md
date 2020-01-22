@@ -3,12 +3,12 @@ title: Cómo crear una directiva de configuración de invitados
 description: Aprenda a crear una directiva de configuración de invitado de Azure Policy para VM de Windows o Linux con Azure PowerShell.
 ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: f2e611998e42510eccde64ff6f945f58133fc4e9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: dbdb4288812b8d1016c3ccc879582f76222d17cd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608531"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867331"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Cómo crear una directiva de configuración de invitados
 
@@ -65,7 +65,7 @@ Cuando la configuración de invitados audita una máquina, primero se ejecuta `T
 
 #### <a name="configuration-requirements"></a>Requisitos de configuración
 
-El único requisito para que la configuración de invitado use una configuración personalizada es que el nombre de la configuración sea coherente en todos los lugares en que se use.  Esto incluye el nombre del archivo .zip del paquete de contenido, el nombre de la configuración en el archivo MOF almacenado en el paquete de contenido y el nombre de configuración utilizado en ARM como nombre de asignación de invitado.
+El único requisito para que la configuración de invitado use una configuración personalizada es que el nombre de la configuración sea coherente en todos los lugares en que se use. Este requisito incluye el nombre del archivo .zip del paquete de contenido, el nombre de la configuración en el archivo MOF almacenado en el paquete de contenido y el nombre de configuración utilizado en la plantilla de Resource Manager como nombre de asignación de invitado.
 
 #### <a name="get-targetresource-requirements"></a>Requisitos de Get-TargetResource
 
@@ -181,7 +181,7 @@ También puede implementar el [punto de conexión de servicio](../../../storage/
 
 En la configuración de invitados de Azure Policy, la manera óptima de administrar los secretos que se usan en tiempo de ejecución es almacenarlos en Azure Key Vault. Este diseño se implementa en los recursos de DSC personalizados.
 
-1. En primer lugar, cree una identidad administrada que haya asignado el usuario en Azure.
+1. Cree una identidad administrada asignada por el usuario en Azure.
 
    Las máquinas usan la identidad para acceder a los secretos almacenados en Key Vault. Para obtener los pasos detallados, consulte [Crear, enumerar y eliminar una identidad administrada que haya asignado el usuario mediante Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
@@ -193,9 +193,9 @@ En la configuración de invitados de Azure Policy, la manera óptima de administ
 1. Asigne a la máquina la identidad asignada por el usuario.
 
    Para obtener los pasos detallados, consulte [Configurar identidades administradas de recursos de Azure en una VM de Azure mediante PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
-   A escala, asigne esta identidad mediante Azure Resource Manager a través de Azure Policy. Para obtener los pasos detallados, consulte [Configurar identidades administradas de recursos de Azure en una VM de Azure mediante una plantilla](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
+   Asigne esta identidad mediante Azure Resource Manager a través de Azure Policy a escala. Para obtener los pasos detallados, consulte [Configurar identidades administradas de recursos de Azure en una VM de Azure mediante una plantilla](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
 
-1. Por último, en el recurso personalizado, use el id. de cliente generado anteriormente para obtener acceso a Key Vault mediante el token disponible en la máquina.
+1. Use el id. de cliente generado anteriormente en el recurso personalizado para obtener acceso a Key Vault mediante el token disponible en la máquina.
 
    El valor de `client_id` y la dirección URL a la instancia de Key Vault se pueden llevar al recurso como [propiedades](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) para que no sea necesario actualizar el recurso en varios entornos o si es necesario cambiar los valores.
 
@@ -305,7 +305,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-En el caso de las directivas de Linux, incluya la propiedad **AttributesYmlContent** en la configuración y sobrescriba los valores según corresponda. El agente de configuración de invitados crea automáticamente el archivo YaML que usa InSpec para almacenar los atributos. Observe el ejemplo siguiente.
+En el caso de las directivas de Linux, incluya la propiedad **AttributesYmlContent** en la configuración y sobrescriba los valores según sea necesario. El agente de configuración de invitados crea automáticamente el archivo YAML que usa InSpec para almacenar los atributos. Observe el ejemplo siguiente.
 
 ```powershell
 Configuration FirewalldEnabled {

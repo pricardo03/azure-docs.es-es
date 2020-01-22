@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/03/2019
+ms.date: 01/14/2020
 ms.author: juliako
-ms.openlocfilehash: beb44c469aa8a03430cd5cb5a162966855aad448
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: c4c39dc53e492fd295cf30a7b7d75c933ebc912f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815402"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972623"
 ---
 # <a name="upload-and-index-your-videos"></a>Carga e indexación de los vídeos  
 
@@ -40,6 +40,7 @@ Una vez cargado el vídeo, Video Indexer codifica opcionalmente el vídeo (lo cu
 - La dirección URL que se proporciona en el parámetro `videoURL` debe estar codificada.
 - La indexación de los recursos de Media Services tiene la misma limitación que la indexación desde la dirección URL.
 - Video Indexer tiene una duración máxima de 4 horas por archivo.
+- Puede cargar hasta 60 películas por minuto.
 
 > [!Tip]
 > Es recomendable que use .NET Framework versión 4.6.2 o superior porque las versiones anteriores de .NET Framework no usan de forma predeterminada TLS 1.2.
@@ -61,15 +62,15 @@ Una dirección URL que se usa para notificar al cliente (mediante una solicitud 
 - Indexación de los cambios de estado: 
     - Propiedades:    
     
-        |NOMBRE|Descripción|
+        |Nombre|Descripción|
         |---|---|
         |id|Identificador del vídeo|
         |state|El estado del vídeo|  
     - Ejemplo: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Persona identificada en el vídeo:
-  - properties (Propiedades)
+  - Propiedades
     
-      |NOMBRE|Descripción|
+      |Nombre|Descripción|
       |---|---|
       |id| Identificador del vídeo|
       |faceId|El identificador de caras que aparece en el índice de vídeo|
@@ -311,9 +312,9 @@ public class AccountContractSlim
 
 La operación Upload puede devolver los códigos de estado que aparecen en la siguiente tabla.
 
-|status code|ErrorType (en el cuerpo de la respuesta)|DESCRIPCIÓN|
+|status code|ErrorType (en el cuerpo de la respuesta)|Descripción|
 |---|---|---|
-|400|VIDEO_ALREADY_IN_PROGRESS|El mismo vídeo ya se está procesando en la cuenta especificada.|
+|409|VIDEO_INDEXING_IN_PROGRESS|El mismo vídeo ya se está procesando en la cuenta especificada.|
 |400|VIDEO_ALREADY_FAILED|El mismo vídeo no se pudo procesar en la cuenta especificada hace menos de 2 horas. Los clientes de API deberán esperar al menos 2 horas antes de volver a cargar un vídeo.|
 
 ## <a name="next-steps"></a>Pasos siguientes

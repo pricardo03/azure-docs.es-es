@@ -1,22 +1,20 @@
 ---
 title: Preguntas comunes sobre la recuperación ante desastres de máquinas virtuales de Azure con Azure Site Recovery
-description: En este artículo se responde a preguntas sobre la recuperación ante desastres de máquinas virtuales de Azure a otra región de Azure mediante Azure Site Recovery.
-author: asgang
+description: En este artículo se responden las preguntas comunes sobre la recuperación ante desastres de VM de Azure con Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 5ed501a9f11e790bcc2196d57c6479beb54f1a17
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 051e8b0add7cf7ab2c4cb2f02ed4e33ea9a23c9b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621069"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973821"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Preguntas frecuentes: Recuperación ante desastres de Azure a Azure
 
-En este artículo se proporcionan respuestas a preguntas comunes sobre la recuperación ante desastres de máquinas virtuales de Azure a otra región de Azure mediante [Site Recovery](site-recovery-overview.md). 
+En este artículo se proporcionan respuestas a preguntas comunes sobre la recuperación ante desastres de máquinas virtuales de Azure a otra región de Azure mediante [Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="general"></a>General
@@ -28,7 +26,7 @@ Todas las instancias protegidas con Azure Site Recovery son gratuitas los primer
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante los primeros 31 días, ¿puedo incurrir en otros cargos de Azure?
 Sí, aunque Azure Site Recovery sea gratuito los primeros 31 días de una instancia protegida, puede incurrir en cargos por Azure Storage, transacciones de almacenamiento y transferencia de datos. Una máquina virtual recuperada también puede incurrir en cargos por proceso de Azure. Obtenga detalles completos sobre los precios [aquí](https://azure.microsoft.com/pricing/details/site-recovery).
 
-### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>¿Dónde puedo encontrar los procedimientos recomendados para la recuperación ante desastres de máquinas virtuales de Azure? 
+### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>¿Dónde puedo encontrar los procedimientos recomendados para la recuperación ante desastres de máquinas virtuales de Azure?
 1. [Descripción de la arquitectura de Azure a Azure](azure-to-azure-architecture.md)
 2. [Revisión de las configuraciones admitidas y no admitidas](azure-to-azure-support-matrix.md)
 3. [Configuración de la recuperación ante desastres de máquinas virtuales de Azure](azure-to-azure-how-to-enable-replication.md)

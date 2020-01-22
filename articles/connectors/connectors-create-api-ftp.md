@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
-ms.openlocfilehash: 71f768506d7cec575c6bd765447397d8d0406859
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0314dceb23f02b723854dfc406e9440bbc14ccf6
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446107"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044289"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Creación, supervisión y administración de archivos FTP mediante Azure Logic Apps
 
@@ -25,7 +25,7 @@ Con Azure Logic Apps y el conector FTP, puede crear tareas y flujos de trabajo a
 
 Puede usar desencadenadores que obtengan respuestas de su servidor FTP y permitan que la salida esté disponible para otras acciones. Puede usar las acciones de ejecución en las aplicaciones lógicas para administrar los archivos del servidor FTP. También puede hacer que otras acciones usen la salida de las acciones de FTP. Por ejemplo, si recupera archivos del servidor FTP habitualmente, puede enviar un correo electrónico sobre esos archivos y su contenido mediante el conector Office 365 Outlook o el conector Outlook.com. Si no está familiarizado con las aplicaciones lógicas, vea [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="limits"></a>límites
+## <a name="limitations"></a>Limitaciones
 
 * El conector de FTP solo admite FTP por SSL (FTPS) explícito y no es compatible con FTPS implícito.
 
@@ -36,6 +36,8 @@ Puede usar desencadenadores que obtengan respuestas de su servidor FTP y permita
   * Use un desencadenador de FTP que devuelva las propiedades de archivo, como **Cuando se agrega o modifica un archivo (solo propiedades)** .
 
   * Siga el desencadenador con la acción **Obtener contenido de archivo** de FTP, que lee el archivo completo y usa implícitamente la fragmentación.
+
+* Si tiene un servidor FTP local, considere la posibilidad de crear un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) o usar [conexiones híbridas de Azure App Service](../app-service/app-service-hybrid-connections.md); ambas opciones permiten obtener acceso a orígenes de datos locales sin usar una puerta de enlace de datos local.
 
 ## <a name="how-ftp-triggers-work"></a>Funcionamiento de desencadenadores de FTP
 

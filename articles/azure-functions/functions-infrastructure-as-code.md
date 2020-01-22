@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo crear una plantilla de Azure Resou
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 10efe5d09771f4c5f3a2564ef99ff9cae8cf06c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 650997cfddc71a8bfe347e29c8992b78d1828034
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433154"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978804"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatización de la implementación de recursos para una aplicación de función en Azure Functions
 
@@ -90,7 +90,7 @@ Para la supervisión de las aplicaciones de funciones, se recomienda Application
             },
             "properties": {
                 "Application_Type": "web",
-                "ApplicationId": "[variables('functionAppName')]"
+                "ApplicationId": "[variables('appInsightsName')]"
             }
         },
 ```
@@ -372,7 +372,7 @@ Una aplicación de funciones en un plan Premium debe tener la propiedad `serverF
 ```
 
 
-<a name="app-service-plan"></a> 
+<a name="app-service-plan"></a>
 
 ## <a name="deploy-on-app-service-plan"></a>Implementación de plan de App Service
 
@@ -419,7 +419,7 @@ Para ejecutar la aplicación en Linux, también debe establecer `kind` en `Linux
 }
 ```
 
-### <a name="create-a-function-app"></a>Creación de una aplicación de función 
+### <a name="create-a-function-app"></a>Creación de una aplicación de función
 
 Una aplicación de funciones en un plan de App Service debe tener la propiedad `serverFarmId` establecida en el identificador de recurso del plan creado anteriormente.
 
@@ -637,10 +637,10 @@ Una aplicación de función tiene muchos recursos secundarios que puede usar en 
 
 Puede usar cualquiera de los siguientes métodos para implementar la plantilla:
 
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
-* [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+* [CLI de Azure](../azure-resource-manager/templates/deploy-cli.md)
+* [Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
+* [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Botón Implementación en Azure
 

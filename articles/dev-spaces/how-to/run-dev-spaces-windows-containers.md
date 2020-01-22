@@ -5,12 +5,12 @@ ms.date: 07/25/2019
 ms.topic: conceptual
 description: Obtenga información sobre cómo ejecutar Azure Dev Spaces en un clúster existente con contenedores de Windows.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, contenedores de Windows
-ms.openlocfilehash: 7410c0e38b84979f0977973b2d6ccf588e2b1230
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 855b877653d4cf60c8165af3094fe0e68ca5e6dd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483994"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867306"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Uso de Azure Dev Spaces para interactuar con contenedores de Windows
 
@@ -26,7 +26,7 @@ Conecte el clúster con [kubectl][kubectl], el cliente de la línea de comandos 
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Para comprobar la conexión con el clúster, use el comando [kubectl get][kubectl-get] para que devuelva una lista de los nodos del clúster.
+Para comprobar la conexión al clúster, use el comando [kubectl get][kubectl-get] para devolver una lista de los nodos del clúster.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -146,7 +146,12 @@ azds prep --public
 azds up
 ```
 
-El comando `azds prep --public` genera el gráfico de Helm y Dockerfile para la aplicación. El comando `azds up` ejecuta el servicio en el espacio de nombres.
+El comando `azds prep --public` genera el gráfico de Helm y Dockerfile para la aplicación.
+
+> [!TIP]
+> Azure Dev Spaces usa [Dockerfile y el gráfico de Helm](../how-dev-spaces-works.md#prepare-your-code) del proyecto para compilar y ejecutar el código, pero el usuario puede modificar estos archivos si desea cambiar la forma en que se compila y se ejecuta el proyecto.
+
+El comando `azds up` ejecuta el servicio en el espacio de nombres.
 
 ```console
 $ azds up

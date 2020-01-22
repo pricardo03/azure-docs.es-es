@@ -8,18 +8,18 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e749dc48b1834aedbfea048c49c1f9090e5b5bb8
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 2591f1846574994b878814f3b08df1de2a6e9fc1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534308"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973375"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Creación de aplicaciones de Azure Storage de alta disponibilidad en almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar)
 
 El almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar) combina la alta disponibilidad del [almacenamiento con redundancia de zona (ZRS)](storage-redundancy-zrs.md) con protección frente a las interrupciones regionales según lo proporcionado por el [almacenamiento con redundancia geográfica (GRS)](storage-redundancy-grs.md). Los datos de una cuenta de almacenamiento de GZRS se replican en las [zonas de disponibilidad de Azure](../../availability-zones/az-overview.md) en la región primaria y también en una región geográfica secundaria para la protección frente a desastres regionales. Cada región de Azure se empareja con otra región de la misma zona geográfica, que juntas forman un emparejamiento regional. Para obtener más información y ver las excepciones, consulte la [documentación](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-Con una cuenta de almacenamiento de GZRS, puede seguir leyendo y escribiendo datos si una zona de disponibilidad deja de estar disponible o es irrecuperable. Además, los datos se mantienen en caso de un apagón regional completo o un desastre del cual la región primaria no se puede recuperar. El almacenamiento con redundancia de zona geográfica (GZRS) está diseñado para proporcionar una durabilidad mínima del 99,99999999999999 % (16 nueves) de los objetos en un año determinado. GZRS también ofrece los mismos[objetivos de escalabilidad](storage-scalability-targets.md) que LRS, ZRS, GRS o RA-GRS. Opcionalmente, puede habilitar el acceso de lectura a los datos de la región secundaria con almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS) si es necesario que las aplicaciones puedan leer datos en caso de que se produzca un desastre en la región primaria.
+Con una cuenta de almacenamiento de GZRS, puede seguir leyendo y escribiendo datos si una zona de disponibilidad deja de estar disponible o es irrecuperable. Además, los datos se mantienen en caso de un apagón regional completo o un desastre del cual la región primaria no se puede recuperar. El almacenamiento con redundancia de zona geográfica (GZRS) está diseñado para proporcionar una durabilidad mínima del 99,99999999999999 % (16 nueves) de los objetos en un año determinado. GZRS también ofrece los mismos objetivos de escalabilidad que LRS, ZRS, GRS o RA-GRS. Opcionalmente, puede habilitar el acceso de lectura a los datos de la región secundaria con almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS) si es necesario que las aplicaciones puedan leer datos en caso de que se produzca un desastre en la región primaria.
 
 Microsoft recomienda el uso de GZRS en aplicaciones que requieran coherencia, durabilidad, alta disponibilidad, rendimiento excelente y resistencia para la recuperación ante desastres. Para la seguridad adicional de acceso de lectura a la región secundaria en caso de un desastre regional, habilite RA-GZRS para la cuenta de almacenamiento.
 
@@ -51,7 +51,7 @@ Cuando los datos se escriben en una cuenta de almacenamiento con GZRS o RA-GZRS 
 > [!IMPORTANT]
 > La replicación asincrónica implica un retraso entre el momento en que se escriben los datos en la región primaria y cunado se replican en la región secundaria. En el caso de un desastre regional, los cambios que no se hayan replicado en la región secundaria pueden perderse si dichos datos no se pueden recuperar desde la región principal.
 
-Al crear una cuenta de almacenamiento, especifique cómo se van a replicar los datos de esa cuenta, así como la región primaria de esa cuenta. La región secundaria emparejada de una cuenta con replicación geográfica se determina según la región primaria y no es posible cambiarla. Para información actualizada sobre las regiones que admite Azure, consulte [Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Para más información sobre la creación de una cuenta de almacenamiento mediante GZRS o RA-GZRS, consulte [Crear una cuenta de almacenamiento](storage-quickstart-create-account.md).
+Al crear una cuenta de almacenamiento, especifique cómo se van a replicar los datos de esa cuenta, así como la región primaria de esa cuenta. La región secundaria emparejada de una cuenta con replicación geográfica se determina según la región primaria y no es posible cambiarla. Para información actualizada sobre las regiones que admite Azure, consulte [Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Para más información sobre la creación de una cuenta de almacenamiento mediante GZRS o RA-GZRS, consulte [Crear una cuenta de almacenamiento](storage-account-create.md).
 
 ### <a name="use-ra-gzrs-for-high-availability"></a>Uso de RA-GZRS para lograr alta disponibilidad
 
@@ -155,8 +155,9 @@ Para solicitar una migración en vivo, use [Azure Portal](https://ms.portal.azur
 
 Un representante de soporte técnico se pondrá en contacto con usted para proporcionarle ayuda.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Replicación de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [Almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
 - [Almacenamiento con redundancia de zona (ZRS): aplicaciones de Azure Storage de alta disponibilidad](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 
+- [Destinos de escalabilidad y rendimiento para cuentas de almacenamiento estándar](scalability-targets-standard-account.md)

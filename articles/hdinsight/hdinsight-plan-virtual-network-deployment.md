@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: d337d026e89d2383e25498288ba11a9c60f77b39
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1e6a21e8bf9c284c83af09885aa66b612b52ad7c
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228986"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044717"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planificación de una red virtual para Azure HDInsight
 
@@ -251,7 +251,13 @@ Para más información sobre las reglas de firewall para aplicaciones virtuales,
 
 ## <a name="load-balancing"></a>Equilibrio de carga
 
-Al crear un clúster de HDInsight, también se crea un equilibrador de carga. El tipo de este equilibrador de carga se encuentra en el [nivel de SKU básico](../load-balancer/load-balancer-overview.md#skus), que tiene ciertas restricciones. Una de estas restricciones es que si tiene dos redes virtuales en diferentes regiones, no puede conectarse a equilibradores de carga básicos. Consulte las [P+F sobre redes virtuales: restricciones en el emparejamiento de VNET global](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obtener más información.
+Al crear un clúster de HDInsight, también se crea un equilibrador de carga. El tipo de este equilibrador de carga se encuentra en el [nivel de SKU básico](../load-balancer/concepts-limitations.md#skus), que tiene ciertas restricciones. Una de estas restricciones es que si tiene dos redes virtuales en diferentes regiones, no puede conectarse a equilibradores de carga básicos. Consulte las [P+F sobre redes virtuales: restricciones en el emparejamiento de VNET global](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obtener más información.
+
+## <a name="transport-layer-security"></a>Seguridad de la capa de transporte
+
+Las conexiones al clúster a través del punto de conexión de clúster público `https://<clustername>.azurehdinsight.net` se procesan a través de los nodos de puerta de enlace del clúster. Estas conexiones están protegidas mediante un protocolo denominado TLS. La aplicación de versiones superiores de TLS en las puertas de enlace mejora la seguridad de estas conexiones. Para obtener más información sobre por qué debe usar las versiones más recientes de TLS, consulte [Resolución del problema de TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
+
+Puede controlar las versiones mínimas de TLS admitidas en los nodos de puerta de enlace para el clúster de HDInsight mediante la propiedad *minSupportedTlsVersion* de una plantilla de Resource Manager en el momento de la implementación. Para ver una plantilla de ejemplo, consulte la [plantilla de inicio rápido de TLS 1.2 (versión mínima) de HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Esta propiedad admite tres valores: "1.0", "1.1" y "1.2", que corresponden a TLS 1.0+, TLS 1.1+ y TLS 1.2+, respectivamente. De manera predeterminada, si no se especifica esta propiedad, los clústeres de Azure HDInsight aceptan conexiones TLS 1.2 en los puntos de conexión HTTPS públicos, así como versiones anteriores por compatibilidad con versiones anteriores. Con el tiempo, HDInsight aplicará TLS 1.2 o posterior en todas las conexiones de nodo de puerta de enlace.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,6 +1,6 @@
 ---
-title: Conceptos de servicios meteorológicos en Azure Maps | Microsoft Docs
-description: Información sobre los servicios meteorológicos de Azure Maps
+title: Conceptos de servicios meteorológicos | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre los conceptos que se aplican a los servicios meteorológicos de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9d464ab172fcb375d62b9928818362574a485231
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4bf13477bfee39b5be39715374592811e8f8cc89
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382804"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911026"
 ---
 # <a name="weather-services-in-azure-maps"></a>Servicios meteorológicos de Azure Maps
 
@@ -23,7 +23,7 @@ En este artículo se presentan los conceptos que se aplican a los [Servicios met
 
 Algunas de las API del servicio meteorológico permiten al usuario especificar si los datos se devuelven en unidades métricas o imperiales. La respuesta devuelta para estas API también incluirá unitType, un valor numérico que se puede usar para las traducciones de unidad. Consulte la tabla siguiente para interpretar estos valores.
 
-|unitType|DESCRIPCIÓN         |
+|unitType|Descripción         |
 |--------|--------------------|
 |0       |feet                |
 |1       |inches              |
@@ -46,7 +46,7 @@ Algunas de las API del servicio meteorológico permiten al usuario especificar s
 |18      |grados Fahrenheit          |
 |19      |grados Kelvin              |
 |20      |percent             |
-|21      |float               |
+|21      |FLOAT               |
 |22      |integer             |
 
 
@@ -56,27 +56,27 @@ Algunas de API de servicios meteorológicos devuelven códigos de icono (iconCod
 
 | Número de icono |Icono| Día | Noche | Texto |
 |-------------|:----:|-----|-------|------|
-| 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Sí |  Sin    | Soleado|
-| 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Sí |  Sin    | Principalmente soleado|
-| 3           |![](./media/weather-services-concepts/partly-sunny.png)                | Sí |  Sin    | Parcialmente soleado|
-| 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Sí |  Sin    | Nubes intermitentes|
-| 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Sí |  Sin    | Calima |
-| 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Sí |  Sin    | Principalmente nublado|
+| 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Sí |  No    | Soleado|
+| 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Sí |  No    | Principalmente soleado|
+| 3           |![](./media/weather-services-concepts/partly-sunny.png)                | Sí |  No    | Parcialmente soleado|
+| 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Sí |  No    | Nubes intermitentes|
+| 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Sí |  No    | Calima |
+| 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Sí |  No    | Principalmente nublado|
 | 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Sí |  Sí   | Nublado |
 | 8           |![](./media/weather-services-concepts/dreary-overcast.png)             | Sí |  Sí   | Cubierto|
 | 11           |![](./media/weather-services-concepts/fog-i.png)                       | Sí |  Sí   | Niebla|
 | 12           |![](./media/weather-services-concepts/showers-i.png)                   | Sí |  Sí   | Chubascos|
-| 13           |![](./media/weather-services-concepts/mostly-cloudy-showers.png)       | Sí |  Sin    | Principalmente nublado con chubascos|
-| 14           |![](./media/weather-services-concepts/partly-sunny-showers.png)        | Sí |  Sin    | Parcialmente soleado con chubascos|
+| 13           |![](./media/weather-services-concepts/mostly-cloudy-showers.png)       | Sí |  No    | Principalmente nublado con chubascos|
+| 14           |![](./media/weather-services-concepts/partly-sunny-showers.png)        | Sí |  No    | Parcialmente soleado con chubascos|
 | 15           |![](./media/weather-services-concepts/tstorms-i.png)                   | Sí |  Sí   | Tormentas|
-| 16           |![](./media/weather-services-concepts/mostly-cloudy-tstorms.png)       | Sí |  Sin    | Principalmente nublado con tormenta|
-| 17           |![](./media/weather-services-concepts/partly-sunny-tstorms.png)        | Sí |  Sin    | Parcialmente soleado con tormenta|
+| 16           |![](./media/weather-services-concepts/mostly-cloudy-tstorms.png)       | Sí |  No    | Principalmente nublado con tormenta|
+| 17           |![](./media/weather-services-concepts/partly-sunny-tstorms.png)        | Sí |  No    | Parcialmente soleado con tormenta|
 | 18           |![](./media/weather-services-concepts/rain-i.png)                      | Sí |  Sí   | Lluvia|
 | 19           |![](./media/weather-services-concepts/flurries-i.png)                  | Sí |  Sí   | Nevisca|
-| 20           |![](./media/weather-services-concepts/mostly-cloudy-flurries.png)      | Sí |  Sin    | Principalmente nublado con nevisca|
-| 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | Sí |  Sin    | Principalmente soleado con nevisca|
+| 20           |![](./media/weather-services-concepts/mostly-cloudy-flurries.png)      | Sí |  No    | Principalmente nublado con nevisca|
+| 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | Sí |  No    | Principalmente soleado con nevisca|
 | 22           |![](./media/weather-services-concepts/snow-i.png)                      | Sí |  Sí   | Nieve|
-| 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Sí |  Sin    | Principalmente nublado con nieve|
+| 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Sí |  No    | Principalmente nublado con nieve|
 | 24           |![](./media/weather-services-concepts/ice-i.png)                       | Sí |  Sí   | Hielo |
 | 25           |![](./media/weather-services-concepts/sleet-i.png)                     | Sí |  Sí   | Aguanieve|
 | 26           |![](./media/weather-services-concepts/freezing-rain.png)              | Sí |  Sí   | Lluvia helada|
@@ -84,18 +84,18 @@ Algunas de API de servicios meteorológicos devuelven códigos de icono (iconCod
 | 30           |![](./media/weather-services-concepts/hot-i.png)                       | Sí |  Sí   | Acceso frecuente|
 | 31           |![](./media/weather-services-concepts/cold-i.png)                      | Sí |  Sí   | Frío|
 | 32           |![](./media/weather-services-concepts/windy-i.png)                     | Sí |  Sí   | Viento|
-| 33           |![](./media/weather-services-concepts/clear-night.png)                | Sin  |  Sí   | Clear|
-| 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | Sin  |  Sí   | Principalmente despejado|
-| 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | Sin  |  Sí   | Parcialmente nublado|
-| 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | Sin  |  Sí   | Nubes intermitentes|
-| 37           |![](./media/weather-services-concepts/hazymoon-light.png)             | Sin  |  Sí   | Calima|
-| 38           |![](./media/weather-services-concepts/mostly-cloudy-night.png)         | Sin  |  Sí   | Principalmente nublado|
-| 39           |![](./media/weather-services-concepts/partly-cloudy-showers-night.png)  | Sin  |  Sí   | Parcialmente nublado con chubascos|
-| 40           |![](./media/weather-services-concepts/mostly-cloudy-showers-night.png)  | Sin  |  Sí   | Principalmente nublado con chubascos|
-| 41           |![](./media/weather-services-concepts/partly-cloudy-tstorms-night.png)  | Sin  |  Sí   | Parcialmente nublado con tormenta|
-| 42           |![](./media/weather-services-concepts/mostly-cloudy-tstorms-night.png)  | Sin  |  Sí   | Principalmente nublado con tormenta|
-| 43           |![](./media/weather-services-concepts/mostly-cloudy-flurries-night.png) | Sin  |  Sí   | Principalmente nublado con nevisca|
-| 44           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Sin  |  Sí   | Principalmente nublado con nieve|
+| 33           |![](./media/weather-services-concepts/clear-night.png)                | No  |  Sí   | Desactivar|
+| 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | No  |  Sí   | Principalmente despejado|
+| 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | No  |  Sí   | Parcialmente nublado|
+| 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | No  |  Sí   | Nubes intermitentes|
+| 37           |![](./media/weather-services-concepts/hazymoon-light.png)             | No  |  Sí   | Calima|
+| 38           |![](./media/weather-services-concepts/mostly-cloudy-night.png)         | No  |  Sí   | Principalmente nublado|
+| 39           |![](./media/weather-services-concepts/partly-cloudy-showers-night.png)  | No  |  Sí   | Parcialmente nublado con chubascos|
+| 40           |![](./media/weather-services-concepts/mostly-cloudy-showers-night.png)  | No  |  Sí   | Principalmente nublado con chubascos|
+| 41           |![](./media/weather-services-concepts/partly-cloudy-tstorms-night.png)  | No  |  Sí   | Parcialmente nublado con tormenta|
+| 42           |![](./media/weather-services-concepts/mostly-cloudy-tstorms-night.png)  | No  |  Sí   | Principalmente nublado con tormenta|
+| 43           |![](./media/weather-services-concepts/mostly-cloudy-flurries-night.png) | No  |  Sí   | Principalmente nublado con nevisca|
+| 44           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | No  |  Sí   | Principalmente nublado con nieve|
 
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Escala de colores de imágenes de satélite y radar

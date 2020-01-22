@@ -1,6 +1,6 @@
 ---
-title: Procedimiento para buscar de forma eficaz con el servicio de búsqueda de Azure Maps | Microsoft Docs
-description: Aprenda a usar los procedimientos recomendados para hacer búsquedas con el servicio de búsqueda de Azure Maps
+title: Búsqueda eficaz con el servicio de búsqueda de Azure Maps | Microsoft Azure Maps
+description: Aprenda a usar los procedimientos recomendados para hacer búsquedas con el servicio de búsqueda de Microsoft Azure Maps
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/08/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6a51d764b8e42419bc331e3d4731ef5c5f511f91
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: aa3c7b58b3a391de40940636a67a4a224c44fe10
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408717"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911366"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Procedimientos recomendados para utilizar el servicio de búsqueda de Azure Maps
 
@@ -33,7 +33,7 @@ Para realizar cualquier llamada a las API del servicio Azure Maps, necesita una 
 > Para hacer una consulta al servicio de búsqueda, puede usar la [aplicación Postman](https://www.getpostman.com/apps) para crear llamadas de REST o el entorno de desarrollo de API que prefiera.
 
 
-## <a name="best-practices-for-geocoding"></a>Procedimientos recomendados para la geocodificación
+## <a name="best-practices-for-geocoding-address-search"></a>Procedimientos recomendados para la geocodificación (búsqueda de direcciones)
 
 Al buscar una dirección completa o parcial mediante el servicio de búsqueda de Azure Maps, se toma el término de búsqueda y se devuelven las coordenadas de longitud y latitud de la dirección. Este proceso se denomina “geocodificación”. La capacidad de obtener las coordenadas geográficas en un país depende de la cobertura de los datos de carretera y la precisión de la codificación geográfica del servicio de geocodificación.
 
@@ -58,10 +58,12 @@ Consulte la [cobertura de geocodificación](https://docs.microsoft.com/azure/azu
 
 
    **Parámetros de búsqueda aproximada**
+   
+   [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) de Azure Maps es el servicio recomendado que se utiliza cuando no se sabe cuáles son las entradas de usuario para una consulta de búsqueda. La API combina la búsqueda de puntos de interés (POI) y la geocodificación en una *búsqueda de una sola línea* canónica. 
 
    1. Los parámetros `minFuzzyLevel` y `maxFuzzyLevel` contribuyen a devolver coincidencias relevantes, incluso cuando los parámetros de consulta no se corresponden exactamente con la información deseada. La mayoría de las consultas de búsqueda tienen como valores predeterminados `minFuzzyLevel=1` y `maxFuzzyLevel=2` para aumentar el rendimiento y reducir los resultados poco comunes. Pongamos como ejemplo el término de búsqueda “restrant”, que coincide con “restaurante” cuando el valor `maxFuzzyLevel` se establece en 2. Los niveles de aproximación predeterminados se pueden invalidar según las necesidades de la solicitud. 
 
-   2. También puede especificar el conjunto exacto de tipos de resultados que se van a devolver usando el parámetro `idxSet`. Con este fin, puede enviar una lista de índices separada por comas, sin tener en cuenta el orden de los elementos. Estos son los índices admitidos:
+   2. También puede clasificar por orden de prioridad el conjunto exacto de tipos de resultados que se van a devolver mediante el parámetro `idxSet`. Con este fin, puede enviar una lista de índices separada por comas sin tener en cuenta el orden de los elementos. Se admiten los índices siguientes:
 
        * `Addr` - **Intervalos de direcciones**: en algunas calles, hay puntos de la dirección que se interpolan desde el principio hasta el final de la calle. Estos puntos se representan como intervalos de direcciones.
        * `Geo` - **Geografías**: áreas en un mapa que representan una división administrativa de un terreno, es decir, país, estado, ciudad.
@@ -317,7 +319,10 @@ La búsqueda de puntos de interés (POI) le permite pedir resultados de POI por 
 
 Para mejorar la relevancia de los resultados y la información de la respuesta, la respuesta de la búsqueda de puntos de interés (POI) incluye la información de marca que se puede usar para analizar la respuesta.
 
+También puede enviar una lista separada por comas de nombres de marca en la solicitud. Puede usar la lista para restringir los resultados a marcas específicas mediante el parámetro `brandSet`. No importa el orden de los elementos. Cuando se especifican varias marcas, solo se devuelven los resultados que pertenecen (como mínimo) a una de las listas proporcionadas.
+
 Haremos una solicitud de [búsqueda de categorías de POI](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) para gasolineras cerca del campus de Microsoft (Redmond, WA). Si observa la respuesta, verá información de la marca para cada punto de interés devuelto.
+
 
 **Consulta de ejemplo:**
 
