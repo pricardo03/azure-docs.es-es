@@ -8,12 +8,12 @@ ms.date: 05/20/2019
 author: rboucher
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 1bab6a990ba38bc32c2b7350bb1d4eac15a7b95e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d38786d3c7b852d3a9b65cd366eed68ebbb01e3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474694"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152959"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métricas de plataforma de Azure Monitor que pueden exportarse con la configuración de diagnóstico
 
@@ -689,10 +689,10 @@ Sí | Microsoft.Devices/IotHubs | d2c.endpoints.latency.eventHubs | Enrutamiento
 Sí | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusQueues | Enrutamiento: latencia de mensajes de la cola de Service Bus | Milisegundos | Average
 Sí | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusTopics | Enrutamiento: latencia de mensajes del tema de Service Bus | Milisegundos | Average
 Sí | Microsoft.Devices/IotHubs | d2c.endpoints.latency.storage | Enrutamiento: latencia de mensajes para almacenamiento | Milisegundos | Average
-Sí | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | Routing: telemetry messages dropped� (Enrutamiento: mensajes de telemetría quitados) | Count | Total
+Sí | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | Enrutamiento: mensajes de telemetría quitados  | Count | Total
 Sí | Microsoft.Devices/IotHubs | d2c.telemetry.egress.fallback | Enrutamiento: mensajes entregados a la reserva | Count | Total
 Sí | Microsoft.Devices/IotHubs | d2c.telemetry.egress.invalid | Enrutamiento: mensajes de telemetría incompatibles | Count | Total
-Sí | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | Routing: telemetry messages orphaned� (Enrutamiento: mensajes de telemetría huérfanos) | Count | Total
+Sí | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | Enrutamiento: mensajes de telemetría huérfanos  | Count | Total
 Sí | Microsoft.Devices/IotHubs | d2c.telemetry.egress.success | Enrutamiento: mensajes de telemetría entregados | Count | Total
 Sí | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.allProtocol | Intentos de envío de mensajes de telemetría | Count | Total
 Sí | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.sendThrottle | Número de errores de limitación | Count | Total

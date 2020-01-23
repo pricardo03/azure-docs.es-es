@@ -8,18 +8,18 @@ ms.date: 01/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ad92d4cf0d5b61c778b87114d4be6c23557f8e26
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ee4f01c3ec57b0cf9e3ecf47254b57be95ea051a
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457142"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510947"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Creación y aprovisionamiento de un dispositivo IoT Edge con un TPM virtual en Windows
 
 Los dispositivos Azure IoT Edge pueden aprovisionarse automáticamente con [Device Provisioning Service](../iot-dps/index.yml), igual que los dispositivos que no están habilitados para Edge. Si no está familiarizado con el proceso de aprovisionamiento automático, revise los [conceptos sobre el aprovisionamiento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar.
 
-DPS ofrece soporte técnico para la atestación de clave simétrica para dispositivos IoT Edge en inscripciones de grupo e individuales. Para la inscripción de grupo, si marca la opción "Dispositivo IoT Edge" como verdadera en la atestación de clave simétrica, todos los dispositivos registrados en ese grupo de inscripción se marcarán como dispositivos IoT Edge. 
+DPS ofrece soporte técnico para la atestación de clave simétrica para dispositivos IoT Edge en inscripciones de grupo e individuales. Para la inscripción de grupo, si marca la opción "Dispositivo IoT Edge" como verdadera en la atestación de clave simétrica, todos los dispositivos registrados en ese grupo de inscripción se marcarán como dispositivos IoT Edge.
 
 En este artículo se muestra cómo probar el aprovisionamiento automático en un dispositivo IoT Edge simulado con los pasos siguientes:
 
@@ -28,16 +28,16 @@ En este artículo se muestra cómo probar el aprovisionamiento automático en un
 * Cree una inscripción individual para el dispositivo.
 * Instale el entorno de ejecución de IoT Edge y conecte el dispositivo a IoT Hub.
 
-> [!NOTE]
-> Se necesita la versión TPM 2.0 al usar la atestación de TPM con DPS y solo se puede usar para crear inscripciones individuales, no de grupo.
-
 > [!TIP]
 > En este artículo se describe la comprobación del aprovisionamiento automático mediante el uso de la atestación de TPM en los dispositivos virtuales, pero gran parte se aplica también al hardware físico de TPM.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una máquina de desarrollo Windows. En este artículo se usa Windows 10.
 * Una instancia de IoT Hub activa.
+
+> [!NOTE]
+> Se necesita la versión TPM 2.0 al usar la atestación de TPM con DPS y solo se puede usar para crear inscripciones individuales, no de grupo.
 
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Configuración de IoT Hub Device Provisioning Service
 
@@ -130,4 +130,4 @@ iotedge list
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-El proceso de inscripción en Device Provisioning Service permite establecer la id. de dispositivo y las etiquetas del dispositivo gemelo al mismo tiempo que aprovisiona el nuevo dispositivo. Puede usar esos valores para dirigirse a dispositivos individuales o grupos de dispositivos con la administración automática de dispositivos. Obtenga información sobre la [Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal](how-to-deploy-monitor.md) o [mediante la CLI de Azure](how-to-deploy-monitor-cli.md)
+El proceso de inscripción en Device Provisioning Service permite establecer el id. de dispositivo y las etiquetas del dispositivo gemelo al mismo tiempo que aprovisiona el nuevo dispositivo. Puede usar esos valores para dirigirse a dispositivos individuales o grupos de dispositivos con la administración automática de dispositivos. Obtenga información sobre la [Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal](how-to-deploy-monitor.md) o [mediante la CLI de Azure](how-to-deploy-monitor-cli.md)

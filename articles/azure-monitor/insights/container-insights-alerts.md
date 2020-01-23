@@ -2,13 +2,13 @@
 title: Creación de alertas de rendimiento para Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo crear alertas personalizadas basadas en consultas de registro para el uso de memoria y de CPU desde Azure Monitor para contenedores.
 ms.topic: conceptual
-ms.date: 04/26/2019
-ms.openlocfilehash: efeb86dc0b71217cf566f7e6671e72601ec69371
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/07/2020
+ms.openlocfilehash: 5d73f4399d10683597fb2a2e8a3a2ab4ba0d1165
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405610"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75730932"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Cómo configurar alertas para problemas de rendimiento en Azure Monitor para contenedores
 
@@ -284,13 +284,14 @@ Siga estos pasos para crear una alerta de registro en Azure Monitor mediante el 
 >
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Seleccione **Monitor** en el panel del lado izquierdo. En **Detalles**, seleccione **Contenedores**.
-3. En la pestaña **Clústeres supervisados**, seleccione un clúster de la lista.
-4. En el panel de la izquierda, bajo **Supervisión**, seleccione **Registros** para abrir la página de registros de Azure Monitor. Utilice esta página para escribir y ejecutar consultas de Azure Log Analytics.
-5. En la página **Registros**, seleccione **+ Nueva regla de alertas**.
-6. En la sección **Condición**, seleccione la condición de registro personalizada predefinida **Cada vez que la búsqueda de registros personalizadas sea \<lógica sin definir>** . El tipo de señal de **búsqueda de registros personalizada** se selecciona automáticamente porque estamos creando una regla de alertas directamente desde la página de registros de Azure Monitor.  
-7. Pegue cualquiera de las [consultas](#resource-utilization-log-search-queries) proporcionadas con anterioridad en el campo **Consulta de búsqueda**.
-8. Configure la alerta de la manera siguiente:
+2. En Azure Portal, busque y seleccione **Áreas de trabajo de Log Analytics**.
+3. En la lista de áreas de trabajo de Log Analytics, seleccione el área de trabajo que admite Azure Monitor para contenedores. 
+4. En el panel de la izquierda, seleccione **Registros** para abrir la página de registros de Azure Monitor. Utilice esta página para escribir y ejecutar consultas de Azure Log Analytics.
+5. En la página **Registros**, pegue una de las [consultas](#resource-utilization-log-search-queries) proporcionadas anteriormente en el campo **Consulta de búsqueda** y luego seleccione **Ejecutar** para validar los resultados. Si no realiza este paso, la opción **Nueva alerta** no está disponible para la selección.
+6. Seleccione **Nueva alerta** para crear una alerta de registro.
+7. En la sección **Condición**, seleccione la condición de registro personalizada predefinida **Cada vez que la búsqueda de registros personalizadas sea \<lógica sin definir>** . El tipo de señal de **búsqueda de registros personalizada** se selecciona automáticamente porque estamos creando una regla de alertas directamente desde la página de registros de Azure Monitor.  
+8. Pegue cualquiera de las [consultas](#resource-utilization-log-search-queries) proporcionadas con anterioridad en el campo **Consulta de búsqueda**.
+9. Configure la alerta de la manera siguiente:
 
     1. En la lista desplegable **Basado en**, seleccione **Unidades métricas**. Una medida de métrica crea una alerta por cada objeto de la consulta con un valor por encima del umbral especificado.
     1. En **Condición**, seleccione **Mayor que** y escriba **75** como un **umbral** de línea de base inicial para las alertas de uso de CPU y memoria. Para la alerta de poco espacio en disco, escriba **90**. O escriba un valor diferente que satisfaga sus criterios.
@@ -298,11 +299,11 @@ Siga estos pasos para crear una alerta de registro en Azure Monitor mediante el 
     1. Para configurar una alerta de uso de CPU o de memoria de contenedor, en **Agregado en**, seleccione **ContainerName**. Para configurar la alerta de poco espacio en disco de nodo de clúster, seleccione **ClusterId**.
     1. En la sección **Se evaluó basándose en**, establezca el valor de **Período** en **60 minutos**. La regla se ejecutará cada cinco minutos y devolverá los registros que se crearon dentro de la última hora a partir del momento actual. El establecimiento del período de tiempo en una ventana amplia considera la latencia de datos potencial. También garantiza que la consulta vaya a devolver datos para evitar un falso negativo en el que la alerta nunca se active.
 
-9. Seleccione **Listo** para completar la regla de alertas.
-10. Escriba un nombre en el campo **Nombre de la regla de alertas**. Especifique una **Descripción** que proporcione los detalles sobre la alerta. Y seleccione un nivel de gravedad adecuado en las opciones proporcionadas.
-11. Para activar inmediatamente la regla de alertas, acepte el valor predeterminado de **Habilitar regla tras la creación**.
-12. Seleccione un **Grupo de acciones** existente o cree uno nuevo. Este paso garantiza que se realizan las mismas acciones cada vez que se desencadena una alerta. Configure en función de cómo el equipo de operaciones de TI o DevOps administra los incidentes.
-13. Seleccione **Crear regla de alertas** para finalizar la regla de alertas. Se iniciará la ejecución de inmediato.
+10. Seleccione **Listo** para completar la regla de alertas.
+11. Escriba un nombre en el campo **Nombre de la regla de alertas**. Especifique una **Descripción** que proporcione los detalles sobre la alerta. Y seleccione un nivel de gravedad adecuado en las opciones proporcionadas.
+12. Para activar inmediatamente la regla de alertas, acepte el valor predeterminado de **Habilitar regla tras la creación**.
+13. Seleccione un **Grupo de acciones** existente o cree uno nuevo. Este paso garantiza que se realizan las mismas acciones cada vez que se desencadena una alerta. Configure en función de cómo el equipo de operaciones de TI o DevOps administra los incidentes.
+14. Seleccione **Crear regla de alertas** para finalizar la regla de alertas. Se iniciará la ejecución de inmediato.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

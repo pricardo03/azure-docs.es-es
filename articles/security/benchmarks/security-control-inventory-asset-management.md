@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 95c1834e997caae13e650df5b588df898a1e361d
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 2f24012a69a7673426644a8ded6162cd1021938e
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563966"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930057"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>Control de seguridad: Administración de recursos y del inventario
 
@@ -21,7 +21,7 @@ Las recomendaciones de administración de recursos e inventario se centran en so
 
 ## <a name="61-use-azure-asset-discovery"></a>6.1: Uso de la detección de recursos de Azure
 
-| Identificador de Azure | Identificadores de CIS | Responsabilidad |
+| Identificador de Azure | Id. de CIS | Responsabilidad |
 |--|--|--|
 | 6.1 | 1.1, 1.2, 1.3, 1.4, 9.1, 12.1 | Customer |
 
@@ -37,13 +37,13 @@ Visualización de las suscripciones de Azure:
 
 https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
-Descripción de RBAC de Azure:
+Descripción de Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
 ## <a name="62-maintain-asset-metadata"></a>6.2: Mantenimiento de metadatos de recursos
 
-| Identificador de Azure | Identificadores de CIS | Responsabilidad |
+| Identificador de Azure | Id. de CIS | Responsabilidad |
 |--|--|--|
 | 6.2 | 1.5 | Customer |
 
@@ -55,7 +55,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 ## <a name="63-delete-unauthorized-azure-resources"></a>6.3: Eliminación de recursos de Azure no autorizados
 
-| Identificador de Azure | Identificadores de CIS | Responsabilidad |
+| Identificador de Azure | Id. de CIS | Responsabilidad |
 |--|--|--|
 | 6.3 | 1.6 | Customer |
 
@@ -65,7 +65,7 @@ Creación de suscripciones de Azure adicionales:
 
 https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Creación de grupos de administración:
+Cómo crear grupos de administración:
 
 https://docs.microsoft.com/azure/governance/management-groups/create
 
@@ -75,7 +75,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 ## <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4: Mantenimiento de un inventario de los recursos de Azure aprobados y títulos de software
 
-| Identificador de Azure | Identificadores de CIS | Responsabilidad |
+| Identificador de Azure | Id. de CIS | Responsabilidad |
 |--|--|--|
 | 6.4 | 2.1 | Customer |
 
@@ -83,7 +83,7 @@ Defina los recursos de Azure y el software aprobados para los recursos de proces
 
 ## <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Supervisión de recursos de Azure no aprobados
 
-| Identificador de Azure | Identificadores de CIS | Responsabilidad |
+| Identificador de Azure | Id. de CIS | Responsabilidad |
 |--|--|--|
 | 6.5 | 2.3, 2.4 | Customer |
 
@@ -101,7 +101,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 ## <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6: Supervisión de aplicaciones de software no aprobadas en recursos de proceso
 
-| Identificador de Azure | Identificadores de CIS | Responsabilidad |
+| Identificador de Azure | Id. de CIS | Responsabilidad |
 |--|--|--|
 | 6.6 | 2.3/2.4 | Customer |
 
@@ -113,7 +113,7 @@ https://docs.microsoft.com/azure/automation/automation-tutorial-installed-softwa
 
 ## <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Eliminación de aplicaciones de software y recursos de Azure no aprobadas
 
-| Identificador de Azure | Identificadores de CIS | Responsabilidad |
+| Identificador de Azure | Id. de CIS | Responsabilidad |
 |--|--|--|
 | 6.7 | 2.5 | Customer |
 
@@ -133,7 +133,7 @@ https://docs.microsoft.com/azure/automation/automation-tutorial-installed-softwa
 
 ## <a name="68-use-only-approved-applications"></a>6.8: Uso exclusivo de aplicaciones aprobadas
 
-| Identificador de Azure | Identificadores de CIS | Responsabilidad |
+| Identificador de Azure | Id. de CIS | Responsabilidad |
 |--|--|--|
 | 6,8 | 2.6 | Customer |
 
@@ -145,7 +145,7 @@ https://docs.microsoft.com/azure/security-center/security-center-adaptive-applic
 
 ## <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-| Identificador de Azure | Identificadores de CIS | Responsabilidad |
+| Identificador de Azure | Id. de CIS | Responsabilidad |
 |--|--|--|
 | 6.9 | 2.6 | Customer |
 
@@ -161,7 +161,7 @@ https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-
 
 ## <a name="610-implement-approved-application-list"></a>6.10: Implementación de la lista de aplicaciones aprobadas
 
-| Identificador de Azure | Identificadores de CIS | Responsabilidad |
+| Identificador de Azure | Id. de CIS | Responsabilidad |
 |--|--|--|
 | 6.1 | 2.7 | Customer |
 
@@ -175,7 +175,7 @@ https://docs.microsoft.com/azure/security-center/security-center-adaptive-applic
 
 ## <a name="611-limit-users-ability-to-interact-with-azure-resource-manager-via-scripts"></a>6.11: Limitación de la capacidad de los usuarios para interactuar con Azure Resource Manager a través de scripts
 
-| Identificador de Azure | Identificadores de CIS | Responsabilidad |
+| Identificador de Azure | Id. de CIS | Responsabilidad |
 |--|--|--|
 | 6.11 | 2.8 | Customer |
 
@@ -187,17 +187,19 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ## <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: Limitación de capacidad de los usuarios para ejecutar scripts en recursos de proceso
 
-| Identificador de Azure | Identificadores de CIS | Responsabilidad |
+| Identificador de Azure | Id. de CIS | Responsabilidad |
 |--|--|--|
 | 6.12 | 2.8 | Customer |
 
 Use configuraciones específicas del sistema operativo o recursos de terceros para limitar la capacidad de los usuarios de ejecutar scripts en los recursos de proceso de Azure.
 
-Por ejemplo, cómo controlar la ejecución de scripts de PowerShell en entornos Windows: https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
+Por ejemplo, cómo controlar la ejecución de scripts de PowerShell en entornos Windows:
+
+https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
 
 ## <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: Segregación física o lógica de aplicaciones de alto riesgo
 
-| Identificador de Azure | Identificadores de CIS | Responsabilidad |
+| Identificador de Azure | Id. de CIS | Responsabilidad |
 |--|--|--|
 | 6.13 | 2.9 | Customer |
 

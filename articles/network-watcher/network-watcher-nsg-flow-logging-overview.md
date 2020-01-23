@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 2530c9b2f366bd64013c7125b4d7984ca2a69248
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 509545443bc08e8613d5f7a9ba7f33d2a90684b8
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454284"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830520"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -90,10 +90,8 @@ El texto que sigue es un ejemplo de un registro de flujo. Como puede ver, hay va
 
 **Consideraciones de la cuenta de almacenamiento**: 
 
-1. Ubicación: la cuenta de almacenamiento usada debe estar en la misma región que NSG.
-2. Sin firewall: los registros de flujos de NSG no se incorporan como un [servicio de confianza de Microsoft para Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). Vea [¿Cómo se deshabilita el firewall en la cuenta de almacenamiento?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-disable-the--firewall-on-my-storage-account) para deshabilitar el firewall. 
-3. Sin puntos de conexión de servicio: debido a una limitación actual, los registros solo se pueden emitir directamente a las cuentas de almacenamiento y no a través de los puntos de conexión de servicio. Vea [¿Cómo se usan los registros de flujos de NSG con puntos de conexión de servicio?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-use-nsg-flow-logs-with-service-endpoints) para obtener ayuda sobre la eliminación de los puntos de conexión de servicio existentes.
-4. Rotación de claves autoadministrable: si se cambian o rotan las claves de acceso a su cuenta de almacenamiento, los registros de flujos de NSG dejarán de funcionar. Para solucionar este problema, se deben deshabilitar y volver a habilitar los registros de flujos de NSG.
+- Ubicación: la cuenta de almacenamiento usada debe estar en la misma región que NSG.
+- Rotación de claves autoadministrable: si se cambian o rotan las claves de acceso a su cuenta de almacenamiento, los registros de flujos de NSG dejarán de funcionar. Para solucionar este problema, se deben deshabilitar y volver a habilitar los registros de flujos de NSG.
 
 **Habilitar el registro de flujo de NSG en todos los NSG asociados a un recurso**: En Azure, el registro de flujo en Azure se configura en el recurso de NSG. Un flujo solo se asociará a una regla de NSG. En escenarios en los que se utilizan varios NSG, se recomienda que los registros de flujo de NSG estén habilitados en todos los NSG aplicados a la interfaz de red o subred de un recurso para garantizar que todo el tráfico se registre. Para obtener más información, consulte [cómo se evalúa el tráfico](../virtual-network/security-overview.md#how-traffic-is-evaluated) en los grupos de seguridad de red.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 7017c3065e41befab6b5d7cdea47e2e3e6720173
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d35c02386b7bcb18781dcbd8c209da43d590868c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928656"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169526"
 ---
 # <a name="support-and-help-options"></a>Opciones de ayuda y soporte técnico
 
@@ -58,17 +58,6 @@ Los clientes de Azure pueden crear y administrar las solicitudes de soporte téc
 * [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure Portal para el gobierno de los Estados Unidos](https://portal.azure.us)
 
-## <a name="post-a-question-to-stack-overflow"></a>Publique una pregunta en Stack Overflow
-
-Stack Overflow es el canal preferido para las preguntas relacionadas con el desarrollo. Es donde los miembros de la comunidad y los miembros del equipo de Microsoft se implican directamente para ayudarle a solucionar problemas.
-
-Si tras buscar una respuesta a su problema no la encuentra, envíe una nueva pregunta a Stack Overflow mediante el uso de las etiquetas [\[microsoft-cognitive\]\[speech\]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech).
-
-> [!TIP]
-> Las siguientes publicaciones de Stack Overflow contienen sugerencias sobre cómo formular preguntas y agregar código fuente. Seguir estas directrices puede ayudarle a aumentar las posibilidades de que los miembros de la comunidad evalúen y respondan a su pregunta rápidamente:  
-> * [Cómo se puede formular una buena pregunta](https://stackoverflow.com/help/how-to-ask)
-> * [Cómo crear un ejemplo mínimo, completo y comprobable](https://stackoverflow.com/help/mcve)
-
 ## <a name="create-a-github-issue"></a>Creación de un problema de GitHub
 
 A menudo se envían ejemplos como código abierto. Para preguntas y problemas, cree un *problema* en el repositorio de GitHub correspondiente. También puede enviar una solicitud de incorporación de cambios. La lista siguiente contiene vínculos a los repositorios de ejemplos:
@@ -85,8 +74,8 @@ Proporcione una descripción clara y concisa de lo que es el error.
 **Pasos de reproducción**
 
 Pasos para reproducir el comportamiento:
-1. ...
-2. ...
+1. …
+2. …
 
 **Comportamiento esperado**
 
@@ -108,6 +97,16 @@ Proporcione una descripción clara y concisa de lo que esperaba que sucediera.
  - Si informa de un error de interacción de un determinado servicio, indique los valores de SessionId y time (incluido timezone) de los incidentes notificados. SessionId se indica en todas las llamadas y eventos que recibe.
  - Cualquier otra información adicional
 
+## <a name="post-a-question-to-stack-overflow"></a>Publique una pregunta en Stack Overflow
+
+Stack Overflow es el canal preferido para las preguntas relacionadas con el desarrollo. Es donde los miembros de la comunidad y los miembros del equipo de Microsoft se implican directamente para ayudarle a solucionar problemas.
+
+Si tras buscar una respuesta a su problema no la encuentra, envíe una nueva pregunta a Stack Overflow mediante el uso de las etiquetas [\[microsoft-cognitive\]\[speech\]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech).
+
+> [!TIP]
+> Las siguientes publicaciones de Stack Overflow contienen sugerencias sobre cómo formular preguntas y agregar código fuente. Seguir estas directrices puede ayudarle a aumentar las posibilidades de que los miembros de la comunidad evalúen y respondan a su pregunta rápidamente:  
+> * [Cómo se puede formular una buena pregunta](https://stackoverflow.com/help/how-to-ask)
+> * [Cómo crear un ejemplo mínimo, completo y comprobable](https://stackoverflow.com/help/mcve)
 
 ## <a name="uservoice-forum"></a>Foro de UserVoice
 

@@ -4,12 +4,12 @@ description: Obtenga información sobre los grupos de contenedores de Azure Cont
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: ca160c62160bc5233139dccc650474811c4cd784
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 73781418321c3932bf3e0190b646dcd3bb178195
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442295"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888063"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contenedores en Azure Container Instances
 
@@ -32,7 +32,7 @@ Este grupo de contenedores de ejemplo:
 * Incluye dos recursos compartidos de archivos de Azure como montajes de volumen y cada contenedor monta uno de los recursos compartidos de forma local.
 
 > [!NOTE]
-> Los grupos de varios contenedores solo admiten actualmente contenedores Linux. Para los contenedores Windows, Azure Container Instances solo admite la implementación de una única instancia. Aunque estamos trabajando para traer todas las características a los contenedores Windows, puede encontrar las diferencias actuales de la plataforma en [Información general](container-instances-overview.md#linux-and-windows-containers).
+> Los grupos de varios contenedores solo admiten actualmente contenedores Linux. Para los contenedores Windows, Azure Container Instances solo admite la implementación de una única instancia de contenedor. Aunque estamos trabajando para traer todas las características a los contenedores Windows, puede encontrar las diferencias actuales de la plataforma en [Información general](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="deployment"></a>Implementación
 
@@ -44,19 +44,19 @@ Para conservar la configuración de un grupo de contenedores, puede exportar la 
 
 ## <a name="resource-allocation"></a>Asignación de recursos
 
-Azure Container Instances asigna recursos como CPU, memoria y, opcionalmente, [GPU][gpus] (versión preliminar) a un grupo de varios contenedores mediante la adición de las [solicitudes de recursos][resource-requests] de las instancias del grupo. Por ejemplo, cuando se toman recursos de CPU y se crea un grupo de contenedores con dos instancias, y cada una de ellas solicita 1 CPU, se asignan 2 CPU al grupo de contenedores.
+Azure Container Instances asigna recursos como CPU, memoria y, opcionalmente, [GPU][gpus] (versión preliminar) a un grupo de varios contenedores mediante la adición de las [solicitudes de recursos][resource-requests] de las instancias del grupo. Por ejemplo, cuando se toman recursos de CPU y se crea un grupo de contenedores con dos instancias de contenedor, y cada una de ellas solicita 1 CPU, se asignan 2 CPU al grupo de contenedores.
 
-### <a name="resource-usage-by-instances"></a>Uso de recursos por instancias
+### <a name="resource-usage-by-container-instances"></a>Uso de recursos por instancias de contenedor
 
-A cada instancia de contenedor de un grupo se le asignan los recursos especificados en su solicitud de recursos. Sin embargo, el número máximo de recursos que usa una instancia de un grupo puede ser diferente si configura su propiedad de [límite de recursos][resource-limits] opcional. El límite de recursos de una instancia debe ser mayor o igual que la propiedad de [solicitud de recurso][resource-requests] obligatoria.
+A cada instancia de contenedor de un grupo se le asignan los recursos especificados en su solicitud de recursos. Pero el número máximo de recursos que usa una instancia de contenedor de un grupo puede ser diferente si configura su propiedad de [límite de recursos][resource-limits] opcional. El límite de recursos de una instancia de contenedor debe ser mayor o igual que la propiedad de [solicitud de recurso][resource-requests] obligatoria.
 
-* Si no especifica un límite de recursos, el uso máximo de recursos de la instancia es el mismo que el de su solicitud de recursos.
+* Si no especifica un límite de recursos, el uso máximo de recursos de la instancia de contenedor es el mismo que el de su solicitud de recursos.
 
-* Si especifica un límite para una instancia, el uso máximo de la instancia puede ser mayor que la solicitud, hasta el límite que establezca. En consecuencia, el uso de recursos por parte de otras instancias del grupo podría disminuir. El límite máximo de recursos que puede establecer para una instancia es el total de recursos asignados al grupo.
+* Si especifica un límite para una instancia de contenedor, el uso máximo de la instancia puede ser mayor que la solicitud, hasta el límite que establezca. Por tanto, el uso de recursos por parte de otras instancias de contenedor del grupo podría disminuir. El límite máximo de recursos que puede establecer para una instancia de contenedor es el total de recursos asignados al grupo.
     
-Por ejemplo, en un grupo con dos instancias que solicitan 1 CPU cada una, uno de los contenedores podría ejecutar una carga de trabajo que requiera mayor número de CPU en ejecución que el otro.
+Por ejemplo, en un grupo con dos instancias de contenedor que solicitan 1 CPU cada una, uno de los contenedores podría ejecutar una carga de trabajo que requiera mayor número de CPU en ejecución que el otro.
 
-En este escenario, puede establecer un límite de recursos de 2 CPU para la instancia. Esta configuración permite que el contenedor use hasta 2 CPU completas si están disponibles.
+En este escenario, podría establecer un límite de recursos de 2 CPU para la instancia de contenedor. Esta configuración permite que la instancia de contenedor use hasta 2 CPU completas si están disponibles.
 
 ### <a name="minimum-and-maximum-allocation"></a>Asignación mínima y máxima
 
@@ -66,15 +66,21 @@ En este escenario, puede establecer un límite de recursos de 2 CPU para la ins
 
 ## <a name="networking"></a>Redes
 
-Los grupos de contenedores pueden compartir una dirección IP externa y un espacio de nombres de puertos en esa dirección IP. Para permitir que los clientes externos lleguen a un contenedor dentro del grupo, debe exponer el puerto en la dirección IP y desde el contenedor. Dado que los contenedores dentro del grupo comparten un espacio de nombres de puerto, no se admite la asignación de puertos. 
+Los grupos de contenedores pueden compartir una dirección IP externa, uno o más puertos de esa dirección IP y una etiqueta DNS con un nombre de dominio completo (FQDN). Para permitir que los clientes externos lleguen a un contenedor dentro del grupo, debe exponer el puerto en la dirección IP y desde el contenedor. Dado que los contenedores dentro del grupo comparten un espacio de nombres de puerto, no se admite la asignación de puertos. Cuando se elimina el grupo de contenedores, se liberará su dirección IP y el FQDN. 
 
-Las instancias de contenedores dentro de un grupo de contenedores pueden comunicarse entre sí mediante localhost en cualquier puerto, incluso si estos puertos no se exponen externamente en la dirección IP del grupo o desde el contenedor.
+Las instancias de contenedor dentro de un grupo de contenedores se pueden comunicar entre sí mediante localhost en cualquier puerto, incluso si estos puertos no se exponen externamente en la dirección IP del grupo o desde el contenedor.
 
-Opcionalmente, implemente grupos de contenedores en una [red virtual de Azure][virtual-network] (versión preliminar) para permitir que los contenedores se comuniquen de forma segura con otros recursos de la red virtual.
+Opcionalmente, implemente grupos de contenedores en una [red virtual de Azure][virtual-network] para permitir que los contenedores se comuniquen de forma segura con otros recursos de la red virtual.
 
 ## <a name="storage"></a>Storage
 
-Puede especificar volúmenes externos para montar dentro de un grupo de contenedores. Puede asignar los volúmenes en rutas de acceso específicas dentro de los contenedores individuales en un grupo.
+Puede especificar volúmenes externos para montar dentro de un grupo de contenedores. Los volúmenes admitidos incluyen:
+* [Recurso compartido de archivos de Azure][azure-files]
+* [Secreto][secret]
+* [Directorio vacío][empty-directory]
+* [Repositorio de Git clonado][volume-gitrepo]
+
+Puede asignar los volúmenes en rutas de acceso específicas dentro de los contenedores individuales en un grupo. 
 
 ## <a name="common-scenarios"></a>Escenarios frecuentes
 
@@ -110,5 +116,8 @@ Obtenga información acerca de cómo implementar un grupo de múltiples contened
 [resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
 [virtual-network]: container-instances-vnet.md
+[secret]: container-instances-volume-secret.md
+[volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md
+[empty-directory]: container-instances-volume-emptydir.md
 [az-container-export]: /cli/azure/container#az-container-export

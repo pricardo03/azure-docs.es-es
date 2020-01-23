@@ -1,5 +1,5 @@
 ---
-title: 'Solución de Azure VMware de CloudSimple: Configuración de DNS y DHCP de carga de trabajo para la nube privada'
+title: 'Azure VMware Solution by CloudSimple: configuración de DNS y DHCP de carga de trabajo para la nube privada'
 description: Describe cómo configurar DNS y DHCP para las aplicaciones y cargas de trabajo que se ejecutan en el entorno de la nube privada de CloudSimple.
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ce2394805bfc302179da807c798445c30ce9daff
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ef1266b783034cf18dc2b3ea4be5ebc01bc12c70
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619465"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121869"
 ---
 # <a name="set-up-dns-and-dhcp-applications-and-workloads-in-your-cloudsimple-private-cloud"></a>Configuración de cargas de trabajo y aplicaciones de DNS y DHCP en la nube privada de CloudSimple
 
 Las aplicaciones y cargas de trabajo que se ejecutan en un entorno de nube privada requieren servicios de resolución de nombres y DHCP para la búsqueda y asignación de direcciones IP.  Para proporcionar estos servicios se requiere una infraestructura de DHCP y DNS adecuada.  Puede configurar una máquina virtual para proporcionar estos servicios en el entorno de nube privada.  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Un grupo de puertos distribuidos con VLAN configurada
 * Ruta configurada a servidores DNS basados en Internet o locales
@@ -27,7 +27,7 @@ Las aplicaciones y cargas de trabajo que se ejecutan en un entorno de nube priva
 
 ## <a name="linux-based-dns-server-setup"></a>Configuración del servidor DNS basado en Linux
 
-Linux ofrece diversos paquetes para la configuración de servidores DNS.  A continuación se muestra un [ejemplo de configuración de DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7) con instrucciones para configurar un servidor DNS BIND de código abierto.
+Linux ofrece diversos paquetes para la configuración de servidores DNS.  A continuación se muestra un [ejemplo de configuración de DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-ubuntu-18-04) con instrucciones para configurar un servidor DNS BIND de código abierto.
 
 ## <a name="windows-based-setup"></a>Configuración basada en Windows
 

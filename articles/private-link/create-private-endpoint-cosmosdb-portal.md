@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: 13b0f7bd37956b51c6dce780d0709abfb3546336
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 23e04bf651c199364f23bf36f327de94c709d643
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430317"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028575"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Conexión privada a una cuenta de Azure Cosmos con Azure Private Link
 
@@ -141,7 +141,7 @@ En esta sección, se conectará de forma privada a la cuenta de Azure Cosmos med
    10.1.255.14 mycosmosaccount-eastus.documents.azure.com
 
 
-1. En el Escritorio remoto de  *myVM*, instale [Explorador de Microsoft Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
+1. En el Escritorio remoto de *myVM*, instale [Explorador de Microsoft Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
 
 1. Elija **Cuentas de Cosmos DB (vista preliminar)** con el botón secundario.
 
@@ -159,22 +159,22 @@ En esta sección, se conectará de forma privada a la cuenta de Azure Cosmos med
 
 1. (Opcionalmente) agregue nuevos elementos a *mycosmosaccount*.
 
-1. Cierre la conexión de Escritorio remoto con  *myVm*.
+1. Cierre la conexión de Escritorio remoto a *myVM*.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando haya terminado de usar el punto de conexión privado, la cuenta de Azure Cosmos y la máquina virtual, elimine el grupo de recursos y todos los recursos que contiene: 
 
-1. Escriba *myResourceGroup* en el cuadro **Buscar** de la parte superior del portal y seleccione *myResourceGroup* en los resultados de la búsqueda.
+1. Escriba *myResourceGroup* en el cuadro **Buscar** de la parte superior del portal y seleccione *myResourceGroup* en los resultados de búsqueda.
 
 1. Seleccione **Eliminar grupo de recursos**.
 
-1. Escriba *myResourceGroup* en **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS** y seleccione **Eliminar**.
+1. Escriba *myResourceGroup* para **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS** y seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, creó una máquina virtual en una red virtual, una cuenta de Azure Cosmos y un punto de conexión privado. Se conectó a una máquina virtual desde Internet y se comunicó de forma segura con la cuenta de Azure Cosmos con el vínculo privado.
 
-* Para más información sobre el punto de conexión privado, consulte  [¿Qué es un punto de conexión privado de Azure? ](private-endpoint-overview.md).
+* Para más información sobre los puntos de conexión privados, vea [¿Qué es un punto de conexión privado de Azure?](private-endpoint-overview.md).
 
 * Para más información sobre la limitación del punto de conexión privado al usar Azure Cosmos DB, consulte el artículo [Vínculo privado de Azure con Azure Cosmos DB](../cosmos-db/how-to-configure-private-endpoints.md).

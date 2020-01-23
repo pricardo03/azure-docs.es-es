@@ -1,20 +1,18 @@
 ---
 title: (EN DESUSO) Administración de un clúster DC/OS de Azure con la interfaz de usuario de Marathon
 description: Implemente contenedores en un clúster del servicio Contenedor de Azure mediante la interfaz de usuario web de Marathon.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 16c16c0217a796ffbb57e10430f90cb4a7660ac6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b251096915506c3c7a4eebf45b6a03e24779a3d8
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61468302"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277799"
 ---
 # <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(EN DESUSO) Administrar un clúster DC/OS de Azure Container Service mediante la interfaz de usuario web de Marathon
 
@@ -25,7 +23,7 @@ DC/OS proporciona un entorno para implementar y escalar cargas de trabajo agrupa
 Si bien hay plataformas disponibles para muchas cargas de trabajo populares, este documento presenta una introducción a la implementación de contenedores con Marathon. 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Antes de trabajar con estos ejemplos, necesita un clúster de DC/OS configurado en el servicio Contenedor de Azure. También debe tener conectividad remota con este clúster. Para más información sobre estos aspectos, consulte los siguientes artículos:
 
 * [Implementación de un clúster del servicio Contenedor de Azure](container-service-deployment.md)
@@ -48,9 +46,9 @@ Para ver la interfaz de usuario de Marathon, vaya a http:\//localhost/marathon. 
 ## <a name="deploy-a-docker-formatted-container"></a>Implementación de un contenedor con formato Docker
 Para implementar un nuevo contenedor mediante Marathon, haga clic en el botón **Create Application** (Crear aplicación) y escriba la siguiente información en las pestañas del formulario:
 
-| Campo | Valor |
+| Campo | Value |
 | --- | --- |
-| ID |nginx |
+| id |nginx |
 | Memoria | 32 |
 | Imagen |nginx |
 | Red |Bridged |
@@ -93,7 +91,7 @@ Para ver el nodo del clúster en el que se está ejecutando la tarea haga clic e
 
 ![Interfaz de usuario web de DC/OS: nodo de clúster de la tarea](./media/container-service-mesos-marathon-ui/dcos9.png)
 
-## <a name="reach-the-container"></a>Alcance del contenedor
+## <a name="reach-the-container"></a>Cobertura del contenedor
 
 En este ejemplo, la aplicación se ejecuta en un nodo de agente público. La aplicación se alcanza desde Internet yendo al FQDN del agente del clúster, `http://[DNSPREFIX]agents.[REGION].cloudapp.azure.com`, donde:
 

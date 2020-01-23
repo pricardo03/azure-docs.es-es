@@ -1,6 +1,6 @@
 ---
-title: Adición de una capa de burbuja a Azure Maps | Microsoft Docs
-description: Procedimiento para agregar una capa de burbuja al SDK de Azure Maps para web.
+title: Adición de una capa de burbuja a un mapa | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre cómo agregar una capa de burbuja a un mapa mediante el SDK web de Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5cc5dbdc89f629c09d47ef683b7ff7fff61d2f49
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 0088cced84da08828d02d3a0f83846babf286b71
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976570"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911277"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Adición de una capa de burbuja a un mapa
 

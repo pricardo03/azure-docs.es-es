@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: rajanaki
-ms.openlocfilehash: 191161c8185f45712052000285013a6e61c9fa6a
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 96ffa34166797945afc04c66b03fe151d26c65bc
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968897"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292865"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalización de las configuraciones de red de la máquina virtual de Azure de destino
 
@@ -27,11 +27,11 @@ Obtenga información sobre cómo Site Recovery proporciona recuperación ante de
 
 Al replicar máquinas virtuales de Azure, se pueden proporcionar las siguientes configuraciones de recursos clave para la máquina virtual de conmutación por error:
 
-- [Equilibrador de carga interno](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#what-is-standard-load-balancer)
+- [Equilibrador de carga interno](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 - [Dirección IP pública](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - [Grupo de seguridad de red](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) tanto de la subred como de la NIC
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Asegúrese de planear las configuraciones de recuperación de antemano.
 - Cree los recursos de red por adelantado. Proporciónelos como una entrada para que el servicio de Azure Site Recovery pueda respetar esta configuración y asegúrese de que la máquina virtual de conmutación por error se adhiere a ella.
@@ -55,7 +55,7 @@ Site Recovery ahora respetará esta configuración y garantizará que la máquin
 
 Al desencadenar la conmutación por error de prueba a través del plan de recuperación, siempre pedirá la red virtual de Azure. Esta red virtual se usará para la conmutación por error de prueba de las máquinas que no tienen la configuración de conmutación por error de prueba preconfigurada.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="unable-to-view-or-select-a-resource"></a>No se puede ver o seleccionar un recurso
 

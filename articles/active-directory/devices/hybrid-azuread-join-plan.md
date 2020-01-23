@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a4f85aeaf2fb263ba2df8f34a51f9e25c212aff
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 36dd80669c6a9495751f577748f48c02a782b920
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379315"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029861"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -30,7 +30,7 @@ Al traer sus dispositivos a Azure AD, está maximizando la productividad de los 
 
 Si tiene un entorno local de Active Directory (AD) y quiere unir sus equipos unidos a un dominio AD a Azure AD, puede realizar una unión a Azure AD híbrido. En este artículo se proporcionan los pasos relacionados con la implementación de una unión a Azure AD híbrido en su entorno. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En este artículo se da por hecho que está familiarizado con la [introducción a la administración de identidades de dispositivos en Azure Active Directory](../device-management-introduction.md).
 
@@ -146,7 +146,7 @@ A veces, los UPN de AD local podrían ser diferentes de los UPN de Azure AD. En 
 
 En la tabla siguiente se proporcionan detalles sobre la compatibilidad de estos UPN de AD local en Unión a Azure AD híbrido para Windows 10.
 
-| Tipo de UPN de AD local | Tipo de dominio | Versión de Windows 10 | DESCRIPCIÓN |
+| Tipo de UPN de AD local | Tipo de dominio | Versión de Windows 10 | Descripción |
 | ----- | ----- | ----- | ----- |
 | Enrutable | Federado | A partir de la versión 1703 | Disponibilidad general |
 | No enrutable | Federado | A partir de la versión 1803 | Disponibilidad general |

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24fa03fe12f584e9da32b547f0d8128e5ff28803
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d8602a9c5b69c47c2f663dab461394ef5e1a9bed
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847735"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762865"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Procedimientos operativos de protección con contraseña de Azure AD
 
@@ -28,7 +28,7 @@ Siga las instrucciones del artículo [Configuración de la lista personalizada d
 
 ## <a name="enable-password-protection"></a>Habilitación de la protección con contraseña
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Azure Active Directory**, **Métodos de autenticación** y **Protección con contraseña**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Azure Active Directory**, **Seguridad**, **Métodos de autenticación** y, luego, **Protección con contraseña**.
 1. Establezca **Habilitar protección con contraseña en Windows Server Active Directory** en **Sí**.
 1. Como se mencionó en la [Guía de implementación](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), inicialmente se recomienda establecer el **Modo** en **Auditoría**
    * Cuando se sienta cómodo con la característica, puede cambiar el **Modo** a **Forzado**

@@ -3,12 +3,12 @@ title: Errores de nombre de cuenta de almacenamiento
 description: Describe los errores que pueden producirse al especificas un nombre de cuenta de almacenamiento.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.openlocfilehash: e682c1f6a0caa0656f8d6a881be5749afad10cba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5b2706d8540ea38ef08bf7ca0f804e6811a93085
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476406"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153979"
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>Resolución de errores de nombres de cuenta de almacenamiento
 
@@ -20,7 +20,7 @@ Si el nombre de cuenta de almacenamiento incluye caracteres prohibidos, recibir�
 
 ```
 Code=AccountNameInvalid
-Message=S!torageckrexph7isnoc is not a valid storage account name. Storage account name must be 
+Message=S!torageckrexph7isnoc is not a valid storage account name. Storage account name must be
 between 3 and 24 characters in length and use numbers and lower-case letters only.
 ```
 
@@ -50,14 +50,14 @@ Asegúrese de que el nombre de cuenta de almacenamiento no supere los 24 caracte
 
 ```json
 "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
+  "storageNamePrefix": {
+    "type": "string",
+    "maxLength": 11,
+    "defaultValue": "storage",
+    "metadata": {
+    "description": "The value to use for starting the storage account name."
     }
+  }
 }
 ```
 

@@ -3,18 +3,18 @@ title: Copia de seguridad y restauración de archivos de Azure Files con PowerSh
 description: En este artículo se aprende a realizar copias de seguridad y a restaurar archivos de Azure Files mediante el servicio Azure Backup y PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 78000bc669eb7a61f8698ad8c39ef49f65b245a2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f9665bbc3562faab760562e1e6729d8be0796acd
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224169"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294055"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Copia de seguridad y restauración de archivos de Azure Files con PowerShell
 
 En este artículo se describe cómo usar Azure PowerShell para realizar una copia de seguridad de un recurso compartido de archivos de Azure Files y recuperarlo mediante el almacén de Recovery Services de [Azure Backup](backup-overview.md).
 
-En este artículo se explica cómo:
+En este artículo se explica lo siguiente:
 
 > [!div class="checklist"]
 >
@@ -27,8 +27,8 @@ En este artículo se explica cómo:
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-* [Obtenga más información](backup-azure-recovery-services-vault-overview.md) sobre los almacenes de Recovery Services.
-* Descubra las funcionalidades de vista previa para realizar una [copia de seguridad de recursos compartidos de archivos de Azure](backup-azure-files.md).
+* [Más información](backup-azure-recovery-services-vault-overview.md) sobre los almacenes de Recovery Services.
+* Descubra las funcionalidades de vista previa para realizar una [copia de seguridad de recursos compartidos de archivos de Azure](backup-afs.md).
 * Revise la jerarquía de objetos de PowerShell para Recovery Services.
 
 ## <a name="recovery-services-object-hierarchy"></a>Jerarquía de objetos de Recovery Services
@@ -419,4 +419,4 @@ $job.ErrorDetails
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Obtenga información](backup-azure-files.md) sobre cómo realizar copias de seguridad de archivos de Azure Files en Azure Portal.
+[Obtenga información](backup-afs.md) sobre cómo realizar copias de seguridad de archivos de Azure Files en Azure Portal.

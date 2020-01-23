@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 96edbd62dcb95fa8f24ea5a8a6f0716c1fefdcd8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bb1913d77616869c889c464a41e8166b3a88b03c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75357573"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028870"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Conexión privada a una cuenta de almacenamiento mediante el punto de conexión privado de Azure
 Un punto de conexión privado de Azure es el bloque de creación fundamental para Private Link en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de Private Link.
@@ -127,11 +127,11 @@ En esta sección, creará una cuenta de almacenamiento privada con un punto de c
     | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     |Location|Seleccione **WestCentralUS**.|
-    |Nombre|Escriba  *myPrivateEndpoint*.  |
+    |Nombre|Escriba *myPrivateEndpoint*.  |
     |Recurso secundario de almacenamiento|Deje el valor predeterminado **Blob**. |
     | **REDES** |  |
-    | Virtual network  | Seleccione *MyVirtualNetwork* en el grupo de recursos *myResourceGroup*. |
-    | Subnet | Seleccione  *mySubnet*. |
+    | Virtual network  | Seleccione *MyVirtualNetwork* en el grupo de recursos *myResourceGroup*. |
+    | Subnet | Seleccione *mySubnet*. |
     | **INTEGRACIÓN DE DNS PRIVADO**|  |
     | Integración con una zona DNS privada  | Deje el valor predeterminado **Sí**. |
     | Zona DNS privada  | Deje el valor predeterminado **(New) privatelink.blob.core.windows.net**. |
@@ -172,8 +172,8 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
 
 En esta sección, se conectará de manera privada a la cuenta de almacenamiento mediante el punto de conexión privado.
 
-1. En el Escritorio remoto de  *myVm*, abra PowerShell.
-2. Escriba  `nslookup mystorageaccount.blob.core.windows.net`. Recibirá un mensaje similar a este:
+1. En el Escritorio remoto de *myVm*, abra PowerShell.
+2. Escriba `nslookup mystorageaccount.blob.core.windows.net`. Recibirá un mensaje similar a este:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -192,19 +192,19 @@ En esta sección, se conectará de manera privada a la cuenta de almacenamiento 
 10. Seleccione **Conectar**.
 11. Examinar los contenedores de blobs desde mystorageaccount 
 12. Opcionalmente, cree carpetas o cargue archivos en *mystorageaccount* . 
-13. Cierre la conexión de Escritorio remoto con  *myVm*. 
+13. Cierre la conexión de Escritorio remoto a *myVM*. 
 
 Opciones adicionales para acceder a la cuenta de almacenamiento:
 - El Explorador de Microsoft Azure Storage es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux. Puede instalar la aplicación para examinar de forma privada el contenido de la cuenta de almacenamiento. 
  
-- La utilidad AzCopy es otra opción para la transferencia de datos que permite ejecutar scripts de alto rendimiento para Azure Storage. Use AzCopy para transferir datos a y desde Blob Storage, File Storage y Table Storage. 
+- La utilidad AzCopy es otra opción para la transferencia de datos que permiten ejecutar scripts de alto rendimiento para Azure Storage. Use AzCopy para transferir datos a y desde Blob Storage, File Storage y Table Storage. 
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 Cuando haya terminado de usar el punto de conexión privado, la cuenta de almacenamiento y la máquina virtual, elimine el grupo de recursos y todos los recursos que contiene: 
-1. Escriba *myResourceGroup* en el cuadro **Buscar** de la parte superior del portal y seleccione *myResourceGroup* en los resultados de la búsqueda. 
+1. Escriba *myResourceGroup* en el cuadro **Buscar** de la parte superior del portal y seleccione *myResourceGroup* en los resultados de búsqueda. 
 2. Seleccione **Eliminar grupo de recursos**. 
-3. Escriba *myResourceGroup* en **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS** y seleccione **Eliminar**. 
+3. Escriba *myResourceGroup* para **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS** y seleccione **Eliminar**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este inicio rápido, ha creado una máquina virtual en una red virtual, una cuenta de almacenamiento y un punto de conexión privado. Se ha conectado a una máquina virtual desde Internet y se ha comunicado de forma segura con la cuenta de almacenamiento mediante el vínculo privado. Para más información sobre el punto de conexión privado, consulte  [¿Qué es un punto de conexión privado de Azure? ](private-endpoint-overview.md).
+En este inicio rápido, ha creado una máquina virtual en una red virtual, una cuenta de almacenamiento y un punto de conexión privado. Se ha conectado a una máquina virtual desde Internet y se ha comunicado de forma segura con la cuenta de almacenamiento mediante el vínculo privado. Para más información sobre los puntos de conexión privados, vea [¿Qué es un punto de conexión privado de Azure?](private-endpoint-overview.md).

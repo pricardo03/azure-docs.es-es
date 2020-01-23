@@ -1,6 +1,6 @@
 ---
-title: Obtenga datos de formas del administrador de dibujos en Azure Maps| Microsoft Docs
-description: Cómo obtener datos de formas mediante SDK Web de Azure Maps
+title: Obtención de datos a partir de formas en un mapa | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre cómo obtener datos de formas dibujados en un mapa mediante el SDK web de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 09/04/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bc8efe46453f76d353842b32bd52b41838979b49
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ca1b9854b118d359167873313f1fcb11bfecee52
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432822"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911009"
 ---
 # <a name="get-shape-data"></a>Obtención de datos de forma
 

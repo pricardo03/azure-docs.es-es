@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1f75e7112a8fc90c6c49ede7cd0ac726401fc1a9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b70604c62ae21f9c433b3cd7d9e59f4ccebb61bd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452667"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861734"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Aprovisionamiento y administración de la versión preliminar de Azure Time Series Insights
 
@@ -86,7 +86,7 @@ Para crear un entorno de versión preliminar de Azure Time Series Insights:
 
 ## <a name="manage-the-environment"></a>Administrar el entorno
 
-Puede administrar su entorno de versión preliminar de Azure Time Series Insights con Azure Portal. Cuando administre en Azure Portal, verá algunas diferencias clave entre el entorno de versión preliminar de Azure Time Series Insights de pago por uso y los entornos S1 o S2 disponibles con carácter general:
+Puede administrar su entorno de versión preliminar de Azure Time Series Insights con Azure Portal. Hay algunas diferencias clave entre un entorno de versión preliminar de Azure Time Series Insights de pago por uso y los entornos S1 o S2 disponibles con carácter general que debe tener en cuenta al administrar el entorno a través de Azure Portal:
 
 * La hoja **Resumen** de la versión preliminar de Azure Portal tiene los siguientes cambios:
 

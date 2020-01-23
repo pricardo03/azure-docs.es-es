@@ -1,6 +1,6 @@
 ---
-title: Modelo de consumo en Azure Maps | Microsoft Docs
-description: Información acerca del modelo de consumo de Azure Maps.
+title: Modelos de consumo del vehículo para enrutamiento | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre los modelos de consumo del vehículo para enrutamiento de Microsoft Azure Maps.
 author: subbarayudukamma
 ms.author: skamma
 ms.date: 05/08/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5f75f656312c11a4668ca9ef9fe7b2a61a7d13e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a8a0778ce279846b0d7a66b1729b6898e80a4b5
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60797903"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911705"
 ---
 # <a name="consumption-model"></a>Modelo de consumo
 

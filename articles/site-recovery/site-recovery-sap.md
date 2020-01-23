@@ -1,18 +1,16 @@
 ---
 title: Configuración de la recuperación ante desastres de SAP NetWeaver con Azure Site Recovery
-description: En este artículo se describe cómo configurar la recuperación ante desastres para la implementación de aplicaciones de SAP NetWeaver mediante Azure Site Recovery.
-author: asgang
+description: Obtenga información sobre cómo configurar la recuperación ante desastres para SAP NetWeaver con Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/27/2018
-ms.author: asgang
-ms.openlocfilehash: 29b3e4af33702c75e92b5e36c5521d9af12b1013
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0cef6332a169b71d7812efdc41247443fbc194f2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533851"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982359"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configuración de la recuperación ante desastres para la implementación de una aplicación de SAP NetWeaver de niveles múltiples
 
@@ -26,7 +24,7 @@ Con Site Recovery, puede:
 
 En este artículo se explica cómo proteger las implementaciones de aplicaciones SAP NetWeaver mediante [Azure Site Recovery](site-recovery-overview.md). En este artículo se describen los procedimientos recomendados para proteger una implementación de SAP NetWeaver de tres niveles en Azure mediante la replicación en otro centro de datos de Azure a través de Site Recovery. Describe los escenarios y las configuraciones compatibles y cómo realizar conmutaciones por error de prueba (maniobras de recuperación ante desastres) y conmutaciones ante desastres reales.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Antes de comenzar, asegúrese de que sabe cómo realizar las tareas siguientes:
 
 * [Replicar una máquina virtual en Azure](azure-to-azure-walkthrough-enable-replication.md)
@@ -62,44 +60,44 @@ Esta arquitectura de referencia muestra la ejecución de SAP NetWeaver en un ent
 Para la recuperación ante desastres (DR), debe ser capaz de realizar la conmutación por error en una región secundaria. Cada nivel utiliza una estrategia diferente para proporcionar protección mediante la recuperación ante desastres (DR).
 
 #### <a name="vms-running-sap-web-dispatcher-pool"></a>Máquinas virtuales que ejecutan el grupo de SAP Web Dispatcher 
-El componente Web Dispatcher se usa como equilibrador de carga para el tráfico SAP que circula entre los servidores de aplicaciones de SAP. Para lograr una alta disponibilidad para el componente de Web Dispatcher, se usa Azure Load Balancer para implementar la configuración paralela de Web Dispatcher en una configuración round-robin para la distribución del tráfico HTTP(S) entre las instancias disponibles de Web Dispatcher del grupo de equilibradores de carga. Esto se replicará mediante Azure Site Recovery (ASR) y los scripts de automatización se usarán para configurar el equilibrador de carga en la región de recuperación ante desastres. 
+El componente Web Dispatcher se usa como equilibrador de carga para el tráfico SAP que circula entre los servidores de aplicaciones de SAP. Para lograr una alta disponibilidad para el componente de Web Dispatcher, se usa Azure Load Balancer para implementar la configuración paralela de Web Dispatcher en una configuración round-robin para la distribución del tráfico HTTP(S) entre las instancias disponibles de Web Dispatcher del grupo de equilibradores de carga. Esto se replicará mediante Site Recovery y los scripts de automatización se usarán para configurar el equilibrador de carga en la región de recuperación ante desastres. 
 
 #### <a name="vms-running-application-servers-pool"></a>Máquinas virtuales que ejecutan el grupo de servidores de aplicaciones
-Para administrar grupos de inicio de sesión para servidores de aplicaciones de ABAP, se utiliza la transacción SMLG. Usa la función de equilibrio de carga en el servidor de mensajes de Central Services para distribuir la carga de trabajo entre el grupo de servidores de aplicaciones de SAP para SAPGUI y el tráfico de RFC. Esto se replicará mediante Azure Site Recovery 
+Para administrar grupos de inicio de sesión para servidores de aplicaciones de ABAP, se utiliza la transacción SMLG. Usa la función de equilibrio de carga en el servidor de mensajes de Central Services para distribuir la carga de trabajo entre el grupo de servidores de aplicaciones de SAP para SAPGUI y el tráfico de RFC. Esto se replicará mediante Site Recovery.
 
 #### <a name="vms-running-sap-central-services-cluster"></a>Máquinas virtuales que ejecutan el clúster de SAP Central Services
 Esta arquitectura de referencia ejecuta Central Services en máquinas virtuales en la capa de aplicación. Central Services es un posible único punto de error (SPOF) cuando se implementa en una sola máquina virtual (que es la implementación más habitual cuando la alta disponibilidad no es un requisito).<br>
 
-Para implementar una solución de alta disponibilidad, se puede utilizar un clúster de disco compartido o un clúster de recurso compartido de archivos. Para configurar las máquinas virtuales en un clúster de disco compartido, use el clúster de conmutación por error de Windows Server. Cloud Witness se recomienda como testigo de cuórum. 
+Para implementar una solución de alta disponibilidad, se puede utilizar un clúster de disco compartido o un clúster de recurso compartido de archivos. Para configurar las máquinas virtuales en un clúster de disco compartido, use el clúster de conmutación por error de Windows Server. Cloud Witness se recomienda como testigo de cuórum.
  > [!NOTE]
- > Azure Site Recovery no replica el testigo en la nube, por tanto, se recomienda implementarlo en la región de recuperación ante desastres.
+ > Site Recovery no replica el testigo en la nube, por lo que se recomienda implementarlo en la región de recuperación ante desastres.
 
-Para admitir el entorno del clúster de conmutación por error, [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) realiza la función de volumen compartido de clústeres mediante la replicación de discos independientes que pertenecen a los nodos del clúster. Azure no admite de forma nativa discos compartidos y, por consiguiente, requiere las soluciones que proporciona SIOS. 
+Para admitir el entorno del clúster de conmutación por error, [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) realiza la función de volumen compartido de clústeres mediante la replicación de discos independientes que pertenecen a los nodos del clúster. Azure no admite de forma nativa discos compartidos y, por consiguiente, requiere las soluciones que proporciona SIOS.
 
-Otra forma de controlar la agrupación en clústeres es implementar un clúster de recurso compartido de archivos. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) ha modificado recientemente el modelo de implementación de Central Services para acceder a los directorios globales de /sapmnt a través de una ruta de acceso UNC. Pero sigue siendo recomendable asegurarse de que el recurso compartido UNC /sapmnt tiene alta disponibilidad. Esto se puede realizar en la instancia de Central Services mediante Windows Server Failover Cluster con las características Servidor de archivos de escalabilidad horizontal (SOFS) y Espacios de almacenamiento directo (S2D) en Windows Server 2016. 
+Otra forma de controlar la agrupación en clústeres es implementar un clúster de recurso compartido de archivos. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) ha modificado recientemente el modelo de implementación de Central Services para acceder a los directorios globales de /sapmnt a través de una ruta de acceso UNC. Pero sigue siendo recomendable asegurarse de que el recurso compartido UNC /sapmnt tiene alta disponibilidad. Esto se puede realizar en la instancia de Central Services mediante Windows Server Failover Cluster con las características Servidor de archivos de escalabilidad horizontal (SOFS) y Espacios de almacenamiento directo (S2D) en Windows Server 2016.
  > [!NOTE]
- > Actualmente, Azure Site Recovery solo admite la replicación de puntos de restauración coherentes con los bloqueos de las máquinas virtuales mediante espacios de almacenamiento directos y el nodo pasivo de SIOS Datakeeper.
+ > En la actualidad, Site Recovery solo admite la replicación de puntos de restauración coherentes con los bloqueos de las máquinas virtuales mediante espacios de almacenamiento directos y el nodo pasivo de SIOS Datakeeper
 
 
 ## <a name="disaster-recovery-considerations"></a>Consideraciones acerca de la recuperación ante desastres
 
-Puede utilizar Azure Site Recovery para orquestar la conmutación por error de la implementación completa de SAP en regiones de Azure.
+Puede usar Site Recovery para orquestar la conmutación por error de la implementación completa de SAP en regiones de Azure.
 A continuación, se muestran los pasos para configurar la recuperación ante desastres. 
 
-1. Replicación de máquinas virtuales 
+1. Replicación de máquinas virtuales
 2. Diseño de una red de recuperación
 3.  Replicación de un controlador de dominio
-4.  Replicación del nivel de base de datos 
-5.  Ejecución de una conmutación por error de prueba 
-6.  Ejecución de una conmutación por error 
+4.  Replicación del nivel de base de datos
+5.  Ejecución de una conmutación por error de prueba
+6.  Ejecución de una conmutación por error
 
-A continuación, se muestra la recomendación para la recuperación ante desastres de cada nivel utilizado en este ejemplo. 
+A continuación, se muestra la recomendación para la recuperación ante desastres de cada nivel utilizado en este ejemplo.
 
  **Niveles SAP** | **Recomendación**
  --- | ---
-**Grupo de SAP Web Dispatcher** |  Replicación con Site Recovery 
-**Grupo de SAP Application Server** |  Replicación con Site Recovery 
-**Clúster de SAP Central Services** |  Replicación con Site Recovery 
+**Grupo de SAP Web Dispatcher** |  Replicación mediante Site Recovery 
+**Grupo de SAP Application Server** |  Replicación mediante Site Recovery 
+**Clúster de SAP Central Services** |  Replicación mediante Site Recovery 
 **Máquinas virtuales de Active Directory** |  Replicación de Active Directory 
 **Servidores de SQL Database** |  SQL siempre en replicación
 
@@ -133,7 +131,7 @@ Un plan de recuperación admite la secuenciación de distintas capas en una apli
 Para que las aplicaciones funciones correctamente, es posible que tenga que realizar algunas operaciones en las máquinas virtuales de Azure después de la conmutación por error o durante una conmutación por error de prueba. Algunas de las operaciones posteriores a la conmutación por error se pueden automatizar. Por ejemplo, puede actualizar la entrada DNS y modificar los enlaces y las conexiones mediante la incorporación de los scripts correspondientes en el plan de recuperación.
 
 
-Puede implementar los scripts de Azure Site Recovery utilizados en su cuenta de Automation haciendo clic en el botón Implementar en Azure más abajo. Si utiliza un script publicado, asegúrese de seguir las instrucciones en el script.
+Puede implementar los scripts de Site Recovery que se usan con más frecuencia en la cuenta de Automation si hace clic en el botón "Implementar en Azure" siguiente. Si utiliza un script publicado, asegúrese de seguir las instrucciones en el script.
 
 [![Implementación en Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
@@ -164,5 +162,5 @@ Para más información, consulte [Conmutación por error de prueba a Azure en Si
 Para más información, consulte [Conmutación por error en Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información acerca de cómo crear una solución de recuperación ante desastres con las implementaciones de SAP NetWeaver mediante Site Recovery, consulte las notas del producto sobre la [creación de una solución de recuperación ante desastres de SAP NetWeaver con Azure Site Recovery](https://aka.ms/asr_sap), que puede descargar. En las notas del producto se analizan las recomendaciones para distintas arquitecturas SAP, se muestran las aplicaciones y los tipos de máquinas virtuales compatibles con SAP en Azure y se describen las opciones del plan de pruebas para la solución de recuperación ante desastres.
+* Para más información acerca de cómo crear una solución de recuperación ante desastres con las implementaciones de SAP NetWeaver mediante Site Recovery, consulte las notas del producto sobre la [creación de una solución de recuperación ante desastres de SAP NetWeaver Creación de una solución de recuperación ante desastres con Site Recovery](https://aka.ms/asr_sap). En las notas del producto se analizan las recomendaciones para distintas arquitecturas SAP, se muestran las aplicaciones y los tipos de máquinas virtuales compatibles con SAP en Azure y se describen las opciones del plan de pruebas para la solución de recuperación ante desastres.
 * Obtenga más información sobre cómo [replicar otras cargas de trabajo](site-recovery-workload.md) con Site Recovery.

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a3d48d53c2d4d0c859b58a94b12ffa94590b18a5
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f78ef583a58b8a51276823a2a4730540b6735bb0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989631"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896355"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VM Linux 
 
@@ -25,6 +25,7 @@ Si utiliza [Azure Security Center](../../security-center/index.yml), se le alert
 > [!WARNING]
 > - Si ya ha usado Azure Disk Encryption con Azure AD para cifrar una VM, debe seguir usando esta opción para cifrar la VM. Para más información, consulte [Azure Disk Encryption con Azure AD (versión anterior)](disk-encryption-overview-aad.md). 
 > - Algunas de las recomendaciones pueden provocar un aumento del uso de datos, de la red o de recursos de proceso, lo que incrementará los costes de las licencias o suscripciones. Para crear recursos en Azure en las regiones admitidas, debe tener una suscripción válida de Azure activa.
+> - Actualmente, las máquinas virtuales de generación 2 no admiten Azure Disk Encryption. Vea [Compatibilidad para máquinas virtuales de generación 2 en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) para obtener más información.
 
 Para obtener información sobre los aspectos básicos de Azure Disk Encryption para Linux en unos minutos, consulte [Inicio rápido: Creación y cifrado de una VM Linux con la CLI de Azure](disk-encryption-cli-quickstart.md) o [Inicio rápido: Creación y cifrado de una VM Linux con Azure Powershell](disk-encryption-powershell-quickstart.md).
 
@@ -44,7 +45,7 @@ Una vez completado el proceso de cifrado de disco del sistema operativo en las m
 
 Azure Disk Encryption también está disponible para las VM con almacenamiento Premium. 
 
-### <a name="supported-operating-systems"></a>Sistemas operativos compatibles
+### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
 Azure Disk Encryption se admite en un subconjunto de las [distribuciones de Linux aprobadas por Azure](endorsed-distros.md), que es en sí mismo un subconjunto de todas las posibles distribuciones de servidores Linux.
 
@@ -62,7 +63,7 @@ Las distribuciones de servidores Linux que no están aprobadas por Azure no admi
 | RHEL | 7.5 | Sistema operativo y disco de datos (véase la nota siguiente) |
 | RHEL | 7.4 | Sistema operativo y disco de datos (véase la nota siguiente) |
 | RHEL | 7.3 | Sistema operativo y disco de datos (véase la nota siguiente) |
-| RHEL | 7,2 | Sistema operativo y disco de datos (véase la nota siguiente) |
+| RHEL | 7.2 | Sistema operativo y disco de datos (véase la nota siguiente) |
 | RHEL | 6,8 | Disco de datos (véase la nota siguiente) |
 | RHEL | 6.7 | Disco de datos (véase la nota siguiente) |
 | CentOS | 7,7 | Sistema operativo y disco de datos |
@@ -103,7 +104,7 @@ Para habilitar la característica Azure Disk Encryption, las VM Linux deben cump
 
 ## <a name="encryption-key-storage-requirements"></a>Requisitos de almacenamiento de la clave de cifrado  
 
-Azure Disk Encryption requiere Azure Key Vault para controlar y administrar las claves y los secretos de cifrado de discos. El almacén de claves y las VM deben residir en la misma región y suscripción de Azure.
+Azure Disk Encryption requiere Azure Key Vault para controlar y administrar las claves y los secretos de cifrado de discos. El almacén de claves y las máquinas virtuales deben residir en la misma región y suscripción de Azure.
 
 Para obtener más información, consulte [Creación y configuración de un almacén de claves para Azure Disk Encryption](disk-encryption-key-vault.md).
 
@@ -113,7 +114,7 @@ En la siguiente tabla se definen algunos de los términos comunes que se usan en
 | Terminología | Definición |
 | --- | --- |
 | Azure Key Vault | Key Vault es un servicio de administración de claves criptográficas basado en módulos de seguridad de hardware validados por el Estándar federal de procesamiento de información (FIPS). Estos estándares ayudan a proteger las claves criptográficas y los secretos confidenciales. Para obtener más información, consulte la documentación de [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) y [Creación y configuración de un almacén de claves para Azure Disk Encryption](disk-encryption-key-vault.md). |
-| CLI de Azure | [La CLI de Azure](/cli/azure/install-azure-cli) está optimizada para administrar recursos de Azure desde la línea de comandos.|
+| Azure CLI | [La CLI de Azure](/cli/azure/install-azure-cli) está optimizada para administrar recursos de Azure desde la línea de comandos.|
 | DM-Crypt |[DM-Crypt](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMCrypt) es el subsistema de cifrado transparente de disco basado en Linux que se usa para habilitar el cifrado de disco en las VM Linux. |
 | Clave de cifrado de claves (KEK) | La clave asimétrica (RSA 2048) que puede usar para proteger o encapsular el secreto. Puede proporcionar una clave protegida mediante módulos de seguridad de hardware (HSM) o una clave protegida mediante software. Para obtener más información, consulte la documentación de [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) y [Creación y configuración de un almacén de claves para Azure Disk Encryption](disk-encryption-key-vault.md). |
 | Cmdlets de PowerShell | Para más información, consulte [Cmdlets de Azure PowerShell](/powershell/azure/overview). |

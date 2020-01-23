@@ -12,21 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: 4cc88e7c04d10907a9a6386b1266eb8031d60926
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 2d588d2707c267097e25176997e58f9573017582
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552685"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780052"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Integración de Azure Container Registry con Security Center (versión preliminar)
 
 Azure Container Registry (ACR) es un servicio de registro de Docker privado y administrado que almacena y administra las imágenes de contenedor de las implementaciones de Azure en un registro central. Se basa en el registro 2.0 de Docker de código abierto.
 
-Para obtener una mayor visibilidad sobre el registro y las vulnerabilidades de las imágenes, los usuarios del nivel estándar de Azure Security Center pueden habilitar la agrupación opcional de registros de contenedor. El costo de usar esta característica se cobra por imagen, no por examen. Para más información, consulte los [precios](security-center-pricing.md). Con la agrupación habilitada, Security Center examina automáticamente las imágenes del registro cada vez que se inserta en él una imagen.
+Si está en el nivel estándar de Azure Security Center, puede agregar el paquete Registros de contenedor. Esta característica opcional proporciona mayor visibilidad sobre las vulnerabilidades de las imágenes en los registros. Habilite o deshabilite el paquete en el nivel de suscripción para abarcar todos los registros de una suscripción. Esta característica se cobra por imagen, no por examen, como se muestra en la [página de precios](security-center-pricing.md). 
 
-> [!NOTE]
-> El primer análisis de Security Center de un registro solo se producirá una vez que se habilite la agrupación de registros de contenedor y se inserte una imagen en el registro.
+Al habilitar el paquete Registros de contenedor se asegura de que Security Center esté listo para examinar las imágenes que se inserten en el registro. Los exámenes se realizan en el nivel de la imagen: Security Center no examina el registro, sino las imágenes almacenadas en el registro. 
+
+Cada vez que se inserta una imagen en el registro, Security Center la examina de forma automática. Para desencadenar el examen de una imagen, insértela en el repositorio.
+
 
 Cuando finaliza el examen (al cabo de 10 minutos aproximadamente), los resultados están disponibles en recomendaciones de Security Center como esta:
 

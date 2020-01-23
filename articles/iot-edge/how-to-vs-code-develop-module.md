@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 09371cc66b54d822db5ad24679d28f40323eb871
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 42431c0db55219c3cb49968986c1a0c7f071b219
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561012"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509282"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar y depurar módulos para Azure IoT Edge
 
@@ -28,9 +28,9 @@ En este artículo se proporcionan instrucciones para desarrollar y depurar módu
 >[!NOTE]
 >El soporte técnico del desarrollo y depuración para dispositivos ARM64 de Linux está en [versión preliminar pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para más información, consulte [Desarrollo y depuración de módulos ARM64 IoT Edge en Visual Studio Code (versión preliminar)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Puede usar un equipo o máquina virtual con Windows, macOS o Linux como equipo de desarrollo. En equipos Windows, puede desarrollar módulos de Windows o Linux. Para desarrollar módulos de Windows, use un equipo Windows que ejecute la versión 1809, la compilación 17763 o una más reciente. Para desarrollar módulos de Linux, use un equipo Windows que cumpla los [requisitos de Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
+Puede usar un equipo o máquina virtual con Windows, macOS o Linux como equipo de desarrollo. En equipos Windows, puede desarrollar módulos de Windows o Linux. Para desarrollar módulos de Windows, use un equipo Windows que ejecute la versión 1809, la compilación 17763 o una más reciente. Para desarrollar módulos de Linux, use un equipo Windows que cumpla los [requisitos de Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
 Instale [Visual Studio Code](https://code.visualstudio.com/) y después agregue las siguientes extensiones:
 
@@ -40,7 +40,7 @@ Instale [Visual Studio Code](https://code.visualstudio.com/) y después agregue 
   - C#, incluyendo Azure Functions: [Extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
   - Python: [Extensión de Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   - Java: [Paquete de extensiones de Java para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
-  - C: [Extensión de C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+  - C. [Extensión de C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 
 También deberá instalar algunas herramientas específicas del lenguaje adicionales para desarrollar el módulo:
 
@@ -66,6 +66,7 @@ A menos que esté desarrollando el módulo en C, también necesitará la [herram
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
+   
 > [!NOTE]
 > Actualmente, iotedgehubdev usa una biblioteca docker-py que no es compatible con Python 3.8.
 >
@@ -334,7 +335,7 @@ Puede omitir esta sección si los módulos se ejecutan en el mismo equipo que Vi
 
   - En el código `ptvsd.enable_attach(('0.0.0.0', 5678))` que insertó anteriormente en `main.py`, cambie **0.0.0.0** a la dirección IP de la máquina que quiere depurar. Compile, inserte y vuelva a implementar los módulos de IoT Edge.
 
-  - En el equipo de desarrollo, abra Visual Studio Code y, después, edite `launch.json` para que el valor `host` del perfil ***&lt;nombre del módulo&gt;*  Remote Debug (Python)** use la dirección IP de la máquina de destino en lugar de `localhost`.
+  - En el equipo de desarrollo, abra Visual Studio Code y, después, edite `launch.json` para que el valor `host` del perfil ***&lt;nombre del módulo&gt;* Remote Debug (Python)** use la dirección IP de la máquina de destino en lugar de `localhost`.
 
 ### <a name="debug-your-module"></a>Depuración del módulo
 

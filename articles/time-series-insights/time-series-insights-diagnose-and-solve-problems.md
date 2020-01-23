@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff723f490a3f6d34f652e0b21e5f6e0b16f0a841
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 3e73afa89ee61243784c5952eeda26a79d508dee
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900257"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863417"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnóstico y solución de problemas de su entorno Time Series Insights
 
@@ -34,7 +34,7 @@ Hay varias razones por las que podría no ver ningún dato en el [explorador de 
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Causa A: los datos de origen del evento no tienen formato JSON
 
-Azure Time Series Insights solo admite datos JSON. Para ver ejemplos de JSON, consulte [Formas de JSON admitidas](./how-to-shape-query-json.md).
+Azure Time Series Insights solo admite datos JSON. Para ver ejemplos de JSON, lea [Formas de JSON admitidas](./how-to-shape-query-json.md).
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Causa B: a la clave de origen del evento le falta un permiso necesario
 
@@ -109,9 +109,9 @@ Asegúrese de que el nombre y el valor de la propiedad timestamp se ajustan a la
 
 La manera más fácil de asegurarse de que el nombre de la propiedad timestamp se captura y funciona correctamente consiste en utilizar el explorador de Time Series Insights. En el explorador de Time Series Insights mediante el gráfico, seleccione un período de tiempo después de proporcionar el nombre de la propiedad timestamp. Haga clic con el botón derecho en la selección y, a continuación, seleccione la opción de **exploración de eventos**.
 
-El primer encabezado de columna debe ser el nombre de propiedad timestamp. Junto a la palabra **Timestamp**, debería ver **($ts)** .
+El primer encabezado de columna debe ser el nombre de propiedad timestamp. Junto a la palabra **Timestamp**, se mostrará **($ts)** .
 
-No debe ver los valores siguientes:
+No se mostrarán estos valores:
 
 - *(abc)* : indica que Time Series Insights lee los valores de datos como cadenas.
 - *Icono de calendario*: indica que Time Series Insights lee los valores de datos como *datetime*.
@@ -121,4 +121,4 @@ No debe ver los valores siguientes:
 
 - Más información sobre la [mitigación de la latencia en Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
 
-- Conozca [cómo escalar su entorno de Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+- Aprenda a [escalar el entorno de Time Series Insights](time-series-insights-how-to-scale-your-environment.md).

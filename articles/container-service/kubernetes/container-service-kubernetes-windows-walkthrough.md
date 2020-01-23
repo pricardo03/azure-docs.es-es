@@ -1,20 +1,18 @@
 ---
 title: '(EN DESUSO) Inicio rápido: Clúster de Azure Kubernetes para Windows'
 description: Aprenda rápidamente a crear un clúster de Kubernetes para contenedores de Windows en Azure Container Service con la CLI de Azure.
-services: container-service
 author: dlepow
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: d7ce702bb726fb89780d251f31023c9490112c36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e36de9f2a6af3643b6f609339d413968f6a8d6e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148816"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277640"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(EN DESUSO) Implementación de un clúster de Kubernetes para los contenedores de Windows
 
@@ -34,7 +32,7 @@ Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido e
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un grupo lógico en el que se implementan y se administran los recursos de Azure. 
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un grupo lógico en el que se implementan y administran recursos de Azure. 
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 

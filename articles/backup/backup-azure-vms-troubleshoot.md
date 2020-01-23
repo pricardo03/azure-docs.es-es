@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar los errores detectados a
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 1e71f6f711bcee78538c573a8869b8fdfa2a10b0
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 9828309b080f5831a073fb7c5149455dc649fa13
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664638"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513803"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
 
@@ -262,7 +262,6 @@ Para comprobar la versión del agente de VM en Windows VM:
 
 La copia de seguridad de máquinas virtuales se basa en la emisión de comandos de instantánea para el almacenamiento subyacente. No tener acceso al almacenamiento o los retrasos en la ejecución de las tarea de instantáneas puede generar un error en el trabajo de copia de seguridad. Las siguientes condiciones pueden producir un error en la tarea de instantáneas.
 
-* **Se bloquea el acceso de red a Storage mediante NSG**. Obtenga más información sobre cómo [establecer el acceso de red](backup-azure-arm-vms-prepare.md#establish-network-connectivity) a Storage mediante listas permitidas de direcciones IP o con un servidor proxy.
 * **Las máquinas virtuales con copia de seguridad de SQL Server configurada pueden provocar un retraso de la tarea de instantánea**. De forma predeterminada, la copia de seguridad de VM crea una copia de seguridad completa de VSS en VM Windows. Las máquinas virtuales que ejecutan SQL Server y tienen configurada la copia de seguridad de SQL Server pueden experimentar retrasos en las instantáneas. Si los retrasos en las instantáneas provocan errores de copia de seguridad, establezca la siguiente clave del Registro:
 
    ```text
@@ -276,29 +275,9 @@ La copia de seguridad de máquinas virtuales se basa en la emisión de comandos 
 
 ## <a name="networking"></a>Redes
 
-Al igual que todas las extensiones, las de Backup necesitan acceso a Internet pública para funcionar. Si no tiene acceso público a Internet, se pueden producir estos problemas:
+DHCP debe estar habilitado dentro del invitado para que la copia de seguridad de máquinas virtuales de IaaS funcione. Si necesita una dirección IP privada estática, configúrela mediante Azure Portal o PowerShell. Asegúrese de que la opción DHCP dentro de la máquina virtual esté habilitada.
+Obtenga más información sobre cómo configurar una dirección IP estática con PowerShell:
 
-* Se puede producir un error en la instalación de la extensión.
-* Se puede producir un error en las operaciones de Backup, por ejemplo, al realizar la instantánea de disco.
-* También al mostrar el estado de la operación de copia de seguridad.
+* [Incorporación de una dirección IP interna estática a una máquina virtual existente](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+* [Cambio del método de asignación para una dirección IP privada asignada a una interfaz de red](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 
-La necesidad de resolver las direcciones públicas de Internet se trata en [esta entrada del blog del servicio de soporte técnico de Azure](https://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Compruebe las configuraciones de DNS para la red virtual y asegúrese de que los URI de Azure se puedan resolver.
-
-Una vez que la resolución de nombres se haya realizado correctamente, también hay que proporcionar acceso a las direcciones IP de Azure. Para desbloquear el acceso a la infraestructura de Azure, siga uno de estos pasos:
-
-* Permita una lista de intervalos IP del centro de datos de Azure:
-   1. Obtenga la lista de [IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) que van a formar parte de la lista de permitidos.
-   1. Desbloquee las direcciones IP mediante el cmdlet [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute). Ejecute este cmdlet en la máquina virtual de Azure, en una ventana de PowerShell con privilegios elevados. Realice la ejecución como administrador.
-   1. Si dispone de un grupo de seguridad de red, agréguele reglas para permitir el acceso a las direcciones IP.
-* Cree una ruta de acceso para el flujo del tráfico HTTP:
-   1. Si tiene alguna restricción de red implementada, implemente un servidor proxy HTTP para enrutar el tráfico. Un ejemplo es un grupo de seguridad de red. Consulte los pasos para implementar un servidor proxy HTTP en [Establecimiento de la conectividad de red](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
-   1. Si dispone de un grupo de seguridad de red, agréguele reglas para permitir el acceso a Internet desde el proxy HTTP.
-
-> [!NOTE]
-> DHCP debe estar habilitado dentro del invitado para que la copia de seguridad de máquinas virtuales de IaaS funcione. Si necesita una dirección IP privada estática, configúrela mediante Azure Portal o PowerShell. Asegúrese de que la opción DHCP dentro de la máquina virtual esté habilitada.
-> Obtenga más información sobre cómo configurar una dirección IP estática con PowerShell:
->
-> * [Incorporación de una dirección IP interna estática a una máquina virtual existente](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-> * [Cambio del método de asignación para una dirección IP privada asignada a una interfaz de red](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
->
->

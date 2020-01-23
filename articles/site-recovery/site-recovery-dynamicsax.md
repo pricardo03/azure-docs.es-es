@@ -1,18 +1,16 @@
 ---
-title: Recuperación ante desastres para una implementación de Dynamics AX en varios niveles mediante Azure Site Recovery | Microsoft Docs
-description: En este artículo se describe cómo configurar la recuperación ante desastres para Dynamics AX con Azure Site Recovery
-author: asgang
+title: Recuperación ante desastres de Dynamics AX con Azure Site Recovery
+description: Obtenga información sobre cómo configurar la recuperación ante desastres para Dynamics AX con Azure Site Recovery
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2018
-ms.author: asgang
-ms.openlocfilehash: 5b8aaff3a3418177f92c3b54fb3bb3e99f93810e
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 0b32f00374aa8ce6c41415e28f319e3e7d5abddb
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620755"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941585"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configuración de la recuperación ante desastres para una implementación de Dynamics AX en varios niveles   
 
@@ -27,7 +25,7 @@ En este artículo se explica cómo crear una solución de recuperación ante des
 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 La implementación de la recuperación ante desastres para aplicaciones de Dynamics AX mediante Site Recovery requiere los siguientes requisitos previos:
 
@@ -39,7 +37,7 @@ La implementación de la recuperación ante desastres para aplicaciones de Dynam
 
 ## <a name="site-recovery-support"></a>Compatibilidad de Site Recovery
 
-Para elaborar este artículo, se utilizaron máquinas virtuales de VMware con Dynamics AX 2012 R3 en Windows Server 2012 R2 Enterprise. Dado que la replicación de la recuperación del sitio no depende de la aplicación, se pretende que estas recomendaciones sirvan también para los escenarios siguientes.
+Para elaborar este artículo, se utilizaron máquinas virtuales de VMware con Dynamics AX 2012 R3 en Windows Server 2012 R2 Enterprise. Como la replicación de Site Recovery no depende de la aplicación, se espera que estas recomendaciones también sirvan para los escenarios siguientes.
 
 ### <a name="source-and-target"></a>Origen y destino
 

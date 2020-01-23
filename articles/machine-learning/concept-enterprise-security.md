@@ -9,19 +9,22 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/17/2019
-ms.openlocfilehash: 4b2f9e7f12b468f12fcfbe1b0af5c2918aa6c6ad
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 01/09/2020
+ms.openlocfilehash: 9dad936e2e6cc7a9b0cdde78a9557a51d3074e71
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535520"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930875"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Seguridad de empresa para Azure Machine Learning
 
 En este artículo conocerá las características de seguridad disponibles con Azure Machine Learning.
 
 Cuando se usa un servicio en la nube, se recomienda restringir el acceso solo a los usuarios que lo necesiten. Para empezar, es necesario comprender el modelo de autenticación y autorización que usa el servicio. Es posible que también quiera restringir el acceso a la red o unir de forma segura los recursos de la red local con la nube. También es fundamental el cifrado de datos, tanto si están en reposo como si se mueven entre los servicios. Por último, debe ser capaz de supervisar el servicio y generar un registro de auditoría de todas las actividades.
+
+> [!NOTE]
+> La información de este artículo se aplica a la versión 1.0.83.1 o a versiones posteriores del SDK de Python de Azure Machine Learning.
 
 ## <a name="authentication"></a>Authentication
 
@@ -33,7 +36,8 @@ Si Azure Active Directory (Azure AD) se ha configurado para usar la autentica
 
 [![Autenticación en Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication-expanded.png#lightbox)
 
-Vea la guía paso a paso [Configuración de la autenticación](how-to-setup-authentication.md) para obtener ejemplos e instrucciones detalladas sobre cómo configurar la autenticación, incluida la autenticación de la entidad de servicio para flujos de trabajo automatizados.
+Para más información, vea el artículo [Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning](how-to-setup-authentication.md). En este artículo se proporcionan información y ejemplos de autenticación, como el uso de entidades de servicio y flujos de trabajo automatizados.
+
 
 ### <a name="authentication-for-web-service-deployment"></a>Autenticación para la implementación de servicios web
 
@@ -44,7 +48,7 @@ Azure Machine Learning admite dos formas de autenticación de los servicios web:
 |Clave|Las claves son estáticas y no es necesario actualizarlas. Las claves se pueden regenerar manualmente.|Deshabilitado de forma predeterminada| Habilitado de forma predeterminada|
 |Token|Los tokens expiran después de un período de tiempo especificado y se deben actualizar.| No disponible| Deshabilitado de forma predeterminada |
 
-Vea la [sección de autenticación de servicio web](how-to-setup-authentication.md#web-service-authentication) para obtener ejemplos de código sobre la autenticación en servicios web en Azure Machine Learning.
+Para consultar ejemplos de código, vaya a la sección [Autenticación de servicio web](how-to-setup-authentication.md#web-service-authentication).
 
 ## <a name="authorization"></a>Authorization
 
@@ -93,7 +97,7 @@ Para más información sobre las identidades administradas, consulte [Identidade
 
 No se recomienda que los administradores revoquen el acceso de la identidad administrada a los recursos mencionados en la tabla anterior. Puede restaurar el acceso mediante la operación de resincronización de claves.
 
-Azure Machine Learning crea una aplicación adicional (el nombre empieza por `aml-` o `Microsoft-AzureML-Support-App-`) con acceso de nivel de colaborador en la suscripción para cada región del área de trabajo. Por ejemplo, si tiene un área de trabajo en el este de Estados Unidos y otra en el norte de Europa en la misma suscripción, verá dos de estas aplicaciones. Estas aplicaciones permiten que Azure Machine Learning le ayude a administrar los recursos de proceso.
+Azure Machine Learning crea una aplicación adicional (el nombre empieza por `aml-` o `Microsoft-AzureML-Support-App-`) con acceso de nivel de colaborador en la suscripción para cada región del área de trabajo. Por ejemplo, si tiene un área de trabajo en la región Este de EE. UU. y otra en la región Norte de Europa en la misma suscripción, verá dos de estas aplicaciones. Estas aplicaciones permiten que Azure Machine Learning le ayude a administrar los recursos de proceso.
 
 ## <a name="network-security"></a>Seguridad de las redes
 
@@ -105,36 +109,93 @@ Para más información, consulte [Ejecución de experimentos y realización de i
 
 ### <a name="encryption-at-rest"></a>Cifrado en reposo
 
+> [!IMPORTANT]
+> Si su área de trabajo contiene datos confidenciales, se recomienda establecer el parámetro [hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) a la hora de crearla. Esto controla la cantidad de datos que Microsoft recopila para fines de diagnóstico y permite el cifrado adicional en entornos administrados por Microsoft.
+
+
 #### <a name="azure-blob-storage"></a>Azure Blob Storage
 
 Azure Machine Learning almacena instantáneas, salidas y registros en la cuenta de Azure Blob Storage vinculada al área de trabajo de Azure Machine Learning y la suscripción. Todos los datos almacenados en Azure Blob Storage se cifran en reposo con claves administradas por Microsoft.
 
-Para más información sobre el uso de claves propias para los datos almacenados en Azure Blob Storage, consulte [Cifrado de Azure Storage con claves administradas por el cliente en Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
+Para más información sobre el uso de claves propias para los datos almacenados en Azure Blob Storage, consulte [Cifrado de Azure Storage con claves administradas por el cliente en Azure Key Vault](../storage/common/storage-encryption-keys-portal.md).
 
 Los datos de entrenamiento también se almacenan en Azure Blob Storage, de modo que están accesibles para los destinos de proceso de entrenamiento. Este almacenamiento no está administrado por Azure Machine Learning, sino que está montado en destinos de proceso como un sistema de archivos remoto.
 
-Para información sobre la regeneración de las claves de acceso para las cuentas de Azure Storage que se usan con el área de trabajo, consulte [Regeneración de las claves de acceso de la cuenta de almacenamiento](how-to-change-storage-access-key.md).
+Para más información sobre cómo regenerar una clave de acceso, vea el artículo [Regeneración de las claves de la cuenta de almacenamiento](how-to-change-storage-access-key.md).
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Azure Machine Learning almacena métricas y metadatos en la instancia de Azure Cosmos DB asociada con una suscripción de Microsoft administrada por Azure Machine Learning. Todos los datos almacenados en Azure Cosmos DB se cifran en reposo con claves administradas por Microsoft.
+Azure Machine Learning almacena métricas y metadatos en una instancia de Azure Cosmos DB. Esta instancia está asociada a una suscripción de Microsoft administrada por Azure Machine Learning. Todos los datos almacenados en Azure Cosmos DB se cifran en reposo con claves administradas por Microsoft.
+
+Si quiere usar sus propias claves (administradas por el cliente) para cifrar su instancia de Azure Cosmos DB, puede crear una instancia de Cosmos DB dedicada para usarla con el área de trabajo. Recomendamos este método si quiere almacenar los datos, como la información del historial de ejecución, fuera de la instancia de Cosmos DB multiinquilino hospedada en la suscripción de Microsoft. 
+
+> [!NOTE]
+> Esta característica solo está disponible actualmente en las regiones Este de EE. UU., Oeste de EE. UU. 2 y Centro y Sur de EE. UU.
+
+Para habilitar el aprovisionamiento de una instancia de Cosmos DB en su suscripción con claves administradas por el cliente, realice estas acciones:
+
+* Habilite las funciones de claves administradas por el cliente para Cosmos DB. Por el momento, debe solicitar acceso para poder usar esta función. Para ello, póngase en contacto con [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
+
+* Si aún no lo ha hecho, registre los proveedores de recursos de Azure Machine Learning y Azure Cosmos DB en su suscripción.
+
+* Autorice la aplicación Machine Learning (en Administración de identidades y acceso) con permisos de colaborador en su suscripción.
+
+    ![Autorización de la aplicación Azure Machine Learning en Administración de identidades y acceso en el portal](./media/concept-enterprise-security/authorize-azure-machine-learning.png)
+
+* Use los parámetros que se indican más abajo al crear el área de trabajo de Azure Machine Learning. Ambos parámetros son obligatorios y se admiten en SDK, CLI, API REST y plantillas de Resource Manager.
+
+    * `resource_cmk_uri`: Este parámetro es el URI de recurso completo de la clave administrada por el cliente en el almacén de claves e incluye la [información de versión de la clave](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning). 
+
+    * `cmk_keyvault`: Este parámetro es el identificador de recurso del almacén de claves de su suscripción. Este almacén de claves debe estar en la misma región y suscripción que usará para el área de trabajo de Azure Machine Learning. 
+    
+        > [!NOTE]
+        > Esta instancia del almacén de claves puede ser diferente a la creada por Azure Machine Learning al aprovisionar el área de trabajo. Si quiere usar la misma instancia del almacén de claves para el área de trabajo, pase el mismo almacén de claves al aprovisionar el área de trabajo mediante el [parámetro key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
+
+Esta instancia de Cosmos DB se crea en un grupo de recursos administrados por Microsoft en su suscripción. 
+
+> [!IMPORTANT]
+> * Si necesita eliminarla, primero debe eliminar el área de trabajo de Azure Machine Learning que la usa. 
+> * Las [__Unidades de solicitud__](../cosmos-db/request-units.md) predeterminadas para esta cuenta de Cosmos DB son __8000__. Este valor no se puede cambiar. 
+
+Para más información sobre las claves administradas por el cliente con Cosmos DB, vea el artículo [Configuración de claves administradas por el cliente para la cuenta de Azure Cosmos DB](../cosmos-db/how-to-setup-cmk.md).
 
 #### <a name="azure-container-registry"></a>Azure Container Registry
 
-Todas las imágenes del contenedor en el registro (Azure Container Registry) se cifran en reposo. Azure cifra automáticamente una imagen antes de almacenarla y la descifra sobre la marcha cuando Azure Machine Learning la extrae.
+Todas las imágenes del contenedor en el registro (Azure Container Registry) se cifran en reposo. Azure cifra automáticamente una imagen antes de almacenarla y la descifra cuando Azure Machine Learning la extrae.
+
+Para usar sus propias claves (administradas por el cliente) para cifrar su instancia de Azure Container Registry, debe crear un ACR y adjuntarlo al aprovisionar el área de trabajo, o bien cifrar la instancia predeterminada que se crea en el momento del aprovisionamiento del área de trabajo.
+
+Para ver ejemplos de cómo crear un área de trabajo con una instancia existente de Azure Container Registry, vea los siguientes artículos:
+
+* [Creación de un área de trabajo para Azure Machine Learning con la CLI de Azure](how-to-manage-workspace-cli.md).
+* [Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning](how-to-create-workspace-template.md).
+
+#### <a name="azure-container-instance"></a>Azure Container Instances
+
+Azure Container Instances no admite el cifrado de discos. Si necesita usar el cifrado de discos, se recomienda [implementar un modelo en una instancia de Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) en su lugar. En este caso, puede que también quiera usar la compatibilidad de Azure Machine Learning con los controles de acceso basado en roles para evitar que se lleven a cabo implementaciones en una instancia de Azure Container en su suscripción.
+
+#### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+
+Puede cifrar un recurso implementado de Azure Kubernetes Service mediante claves administradas por el cliente en cualquier momento. Para más información, vea [https://aka.ms/aks/byok](https://aka.ms/aks/byok). 
+
+Este proceso permite cifrar los datos y el disco del sistema operativo de las máquinas virtuales implementadas en el clúster de Kubernetes.
+
+> [!IMPORTANT]
+> Este proceso solo funciona con la versión 1.16 de AKS K8s o con versiones posteriores. Azure Machine Learning agregó compatibilidad con AKS 1.16 el 13 de enero del 2020.
 
 #### <a name="machine-learning-compute"></a>Proceso de Machine Learning
 
 El disco del sistema operativo de cada nodo de proceso almacenado en Azure Storage se cifra mediante claves administradas por Microsoft en las cuentas de almacenamiento de Azure Machine Learning. Este destino de proceso es efímero y, por lo general, los clústeres se reducen verticalmente cuando no hay ninguna ejecución en cola. La máquina virtual subyacente se desaprovisiona y el disco del sistema operativo se elimina. Azure Disk Encryption no se admite con el disco del sistema operativo.
 
-Cada máquina virtual tiene también un disco local temporal para las operaciones del sistema operativo. Si quiere, puede usar el disco para almacenar temporalmente los datos de entrenamiento. El disco no está cifrado.
+Cada máquina virtual tiene también un disco local temporal para las operaciones del sistema operativo. Si quiere, puede usar el disco para almacenar temporalmente los datos de entrenamiento. El disco se cifra de forma predeterminada para las áreas de trabajo con el parámetro `hbi_workspace` establecido en `TRUE`. Este entorno solo dura el tiempo de la ejecución, y la compatibilidad con el cifrado se limita únicamente a las claves administradas por el sistema.
+
 Para más información sobre cómo funciona el cifrado en reposo en Azure, consulte [Cifrado en reposo de datos de Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 ### <a name="encryption-in-transit"></a>Cifrado en tránsito
 
 Puede usar SSL para proteger la comunicación interna entre los microservicios de Azure Machine Learning y para proteger las llamadas externas al punto de conexión de puntuación. Todo el acceso de Azure Storage se realiza también a través de un canal seguro.
 
-Para más información, consulte [Uso de SSL para proteger un servicio web con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-secure-web-service).
+Para más información, consulte [Uso de SSL para proteger un servicio web con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
 
 ### <a name="using-azure-key-vault"></a>Uso de Azure Key Vault
 
@@ -147,6 +208,22 @@ Azure Machine Learning usa la instancia de Azure Key Vault asociada al área de 
 Las contraseñas y las claves SSH para destinos de proceso, como Azure HDInsight y las máquinas virtuales, se almacenan en un almacén de claves independiente asociado a la suscripción de Microsoft. Azure Machine Learning no almacena las contraseñas ni las claves proporcionadas por los usuarios. En cambio, genera, autoriza y almacena sus propias claves SSH para conectarse a las máquinas virtuales y HDInsight y ejecutar los experimentos.
 
 Cada área de trabajo lleva asociada una identidad administrada asignada por el sistema con el mismo nombre que el área de trabajo. Esta identidad administrada tiene acceso a todas las claves, secretos y certificados del almacén de claves.
+
+## <a name="data-collection-and-handling"></a>Recopilación y tratamiento de los datos
+
+### <a name="microsoft-collected-data"></a>Datos recopilados por Microsoft
+
+Microsoft puede recopilar información de identificación no relacionada con el usuario, como los nombres de los recursos (por ejemplo, el nombre del conjunto de datos o el nombre del experimento de aprendizaje automático) o las variables de entorno de trabajo con fines de diagnóstico. Todos estos datos se almacenan mediante claves administradas por Microsoft en el almacenamiento hospedado en suscripciones propiedad de Microsoft, y siguen los [estándares de tratamiento de los datos y la directiva de privacidad estándar de Microsoft](https://privacy.microsoft.com/privacystatement).
+
+Microsoft también recomienda no almacenar información confidencial (como secretos de clave de cuenta) en variables de entorno. Nosotros no encargamos de registrar, cifrar y almacenar las variables de entorno.
+
+Puede dejar de participar en la recopilación de datos de diagnóstico si establece el parámetro `hbi_workspace` en `TRUE` mientras aprovisiona el área de trabajo. Esta función se admite cuando se usa el SDK de Python de AzureML, la CLI, las API REST o las plantillas de Azure Resource Manager.
+
+### <a name="microsoft-generated-data"></a>Datos generados por Microsoft
+
+Cuando usa servicios como el aprendizaje automático automatizado, Microsoft puede generar datos transitorios previamente procesados para entrenar varios modelos. Estos datos se guardan en un almacén de datos en el área de trabajo, lo que permite aplicar los controles de acceso y el cifrado de forma adecuada.
+
+También puede que quiera cifrar la [información de diagnóstico registrada desde el punto de conexión implementado](how-to-enable-app-insights.md) en su instancia de Azure Application Insights.
 
 ## <a name="monitoring"></a>Supervisión
 
@@ -168,7 +245,15 @@ En esta captura de pantalla se muestra el registro de actividad de un área de t
 
 [![Captura de pantalla que muestra el registro de actividad de un área de trabajo](media/concept-enterprise-security/workspace-activity-log.png)](media/concept-enterprise-security/workspace-activity-log-expanded.png#lightbox)
 
-Los detalles de la solicitud de puntuación se almacenan en Application Insights. Application Insights se crea en la suscripción cuando se crea un área de trabajo. La información registrada incluye campos como HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId y Duration.
+Los detalles de la solicitud de puntuación se almacenan en Application Insights. Application Insights se crea en la suscripción cuando se crea un área de trabajo. La información registrada incluye campos como estos:
+
+* HTTPMethod
+* UserAgent
+* ComputeType
+* RequestUrl
+* StatusCode
+* RequestId
+* Duration
 
 > [!IMPORTANT]
 > Algunas acciones del área de trabajo de Azure Machine Learning no registran información en el registro de actividad. Por ejemplo, el inicio de una ejecución de entrenamiento y el registro de un modelo no se registran.
@@ -181,7 +266,7 @@ Los detalles de la solicitud de puntuación se almacenan en Application Insights
 
 En el siguiente diagrama se muestra el flujo de trabajo de creación del área de trabajo.
 
-* El usuario inicia sesión en Azure AD desde cualquiera de los clientes de Azure Machine Learning admitidos (la CLI de Azure, el SDK de Python, Azure Portal) y solicita el token de Azure Resource Manager adecuado.
+* El usuario inicia sesión en Azure AD desde cualquiera de los clientes de Azure Machine Learning admitidos (la CLI de Azure, el SDK de Python o Azure Portal) y solicita el token de Azure Resource Manager adecuado.
 * El usuario llama a Azure Resource Manager para crear el área de trabajo. 
 * Azure Resource Manager se pone en contacto con el proveedor de recursos de Azure Machine Learning para aprovisionar el área de trabajo.
 

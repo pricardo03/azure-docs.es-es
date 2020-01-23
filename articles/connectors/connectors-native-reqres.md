@@ -7,12 +7,12 @@ ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: b3723ccc247b8a9451b9a5fdc628bff58da361a0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 822a6d1cd812ead8e677a66a9b1e47ebdbcf8aea
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787002"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030152"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Recepción de llamadas HTTPS entrantes y respuesta e ellas mediante Azure Logic Apps
 
@@ -23,11 +23,20 @@ Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador
 * Reciba una llamada HTTPS de otra aplicación lógica, y responda e ella.
 
 > [!NOTE]
-> El desencadenador de solicitud admite *solo* la seguridad de la capa de transporte (TLS) 1.2 para las llamadas entrantes. Las llamadas salientes continúan siendo compatibles con TLS 1.0, 1.1 y 1.2. Si ve errores de protocolo de enlace SSL, asegúrese de usar TLS 1.2.
+> El desencadenador de solicitud admite *solo* la seguridad de la capa de transporte (TLS) 1.2 para las llamadas entrantes. Las llamadas salientes continúan siendo compatibles con TLS 1.0, 1.1 y 1.2. Si ve errores de protocolo de enlace SSL, asegúrese de usar TLS 1.2. En el caso de las llamadas entrantes, estos son los conjuntos de cifrado compatibles:
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción, puede [registrarse para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción, puede [registrarse para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
 * Conocimientos básicos sobre [aplicaciones lógicas](../logic-apps/logic-apps-overview.md). Si es la primera vez que interactúa con las aplicaciones lógicas, consulte el artículo sobre [cómo crear la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -37,7 +46,7 @@ Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador
 
 Este desencadenador integrado crea un punto de conexión HTTPS invocable manualmente que *solo* puede recibir solicitudes HTTPS entrantes. Cuando se produce este evento, el desencadenador se activa y ejecuta la aplicación lógica. Para más información sobre la definición JSON subyacente del desencadenador y sobre cómo llamar a este desencadenador, consulte el [tipo de desencadenador de solicitud](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) y los [flujos de trabajo de llamada, desencadenador o anidamiento con puntos de conexión HTTP en Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Crear una aplicación lógica en blanco.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Crear una aplicación lógica en blanco.
 
 1. Cuando se abra el Diseñador de aplicaciones lógicas, en el cuadro de búsqueda, escriba el filtro "http request". En la lista de desencadenadores, seleccione el desencadenador **Cuando se recibe una solicitud HTTP**, que es el primer paso del flujo de trabajo de la aplicación lógica.
 
@@ -47,10 +56,10 @@ Este desencadenador integrado crea un punto de conexión HTTPS invocable manualm
 
    ![Desencadenador de solicitud](./media/connectors-native-reqres/request-trigger.png)
 
-   | Nombre de propiedad | Nombre de la propiedad JSON | Obligatorio | DESCRIPCIÓN |
+   | Nombre de propiedad | Nombre de la propiedad JSON | Obligatorio | Descripción |
    |---------------|--------------------|----------|-------------|
    | **URL de HTTP POST** | {none} | Sí | URL del punto de conexión que se genera después de guardar la aplicación lógica y se usa para llamar a la aplicación lógica. |
-   | **Esquema JSON del cuerpo de la solicitud** | `schema` | Sin | Esquema JSON que describe las propiedades y los valores del cuerpo de la solicitud entrante. |
+   | **Esquema JSON del cuerpo de la solicitud** | `schema` | No | Esquema JSON que describe las propiedades y los valores del cuerpo de la solicitud entrante. |
    |||||
 
 1. En el cuadro **Esquema JSON de cuerpo de solicitud**, también puede especificar un esquema JSON que describa el cuerpo de la solicitud HTTP en la solicitud entrante, por ejemplo:
@@ -146,10 +155,10 @@ Este desencadenador integrado crea un punto de conexión HTTPS invocable manualm
 
 1. Para especificar propiedades adicionales, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera agregar.
 
-   | Nombre de propiedad | Nombre de la propiedad JSON | Obligatorio | DESCRIPCIÓN |
+   | Nombre de propiedad | Nombre de la propiedad JSON | Obligatorio | Descripción |
    |---------------|--------------------|----------|-------------|
-   | **Método** | `method` | Sin | Método que la solicitud entrante debe usar para llamar a la aplicación lógica |
-   | **Ruta de acceso relativa** | `relativePath` | Sin | Ruta de acceso relativa del parámetro que la URL del punto de conexión de la aplicación lógica puede aceptar |
+   | **Método** | `method` | No | Método que la solicitud entrante debe usar para llamar a la aplicación lógica |
+   | **Ruta de acceso relativa** | `relativePath` | No | Ruta de acceso relativa del parámetro que la URL del punto de conexión de la aplicación lógica puede aceptar |
    |||||
 
    En este ejemplo, se agrega la propiedad **Method**:
@@ -178,7 +187,7 @@ Este desencadenador integrado crea un punto de conexión HTTPS invocable manualm
 
 Aquí encontrará más información sobre las salidas del desencadenador de solicitud:
 
-| Nombre de la propiedad JSON | Tipo de datos | DESCRIPCIÓN |
+| Nombre de la propiedad JSON | Tipo de datos | Descripción |
 |--------------------|-----------|-------------|
 | `headers` | Object | Objeto JSON que describe los encabezados de la solicitud |
 | `body` | Object | Objeto JSON que describe el contenido del cuerpo de la solicitud |
@@ -220,11 +229,11 @@ La aplicación lógica solo mantiene la solicitud entrante abierta durante un mi
 
    Aquí encontrará más información sobre las propiedades que puede establecer en la acción Respuesta. 
 
-   | Nombre de propiedad | Nombre de la propiedad JSON | Obligatorio | DESCRIPCIÓN |
+   | Nombre de propiedad | Nombre de la propiedad JSON | Obligatorio | Descripción |
    |---------------|--------------------|----------|-------------|
    | **Código de estado** | `statusCode` | Sí | Código de estado que se devolverá en la respuesta |
-   | **Encabezados** | `headers` | Sin | Objeto JSON que describe uno o más encabezados que se incluirán en la respuesta |
-   | **Cuerpo** | `body` | Sin | Cuerpo de la respuesta |
+   | **Encabezados** | `headers` | No | Objeto JSON que describe uno o más encabezados que se incluirán en la respuesta |
+   | **Cuerpo** | `body` | No | Cuerpo de la respuesta |
    |||||
 
 1. Para especificar propiedades adicionales, como un esquema JSON para el cuerpo de respuesta, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera agregar.

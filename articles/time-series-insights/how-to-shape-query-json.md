@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d611806d31719899d249b29ed4b0ea499280252
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3b8c25c09b87dc8e9874870881173944fea1ee73
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894911"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864356"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Dar forma a JSON para maximizar el rendimiento de las consultas 
 
@@ -50,7 +50,7 @@ Las siguientes instrucciones le ayudan a garantizar el máximo rendimiento posib
 
 ## <a name="example-overview"></a>Información general de ejemplo
 
-Los dos ejemplos siguientes muestran cómo enviar eventos para resaltar las recomendaciones anteriores. Después de cada ejemplo puede ver cómo se aplicaron las recomendaciones.
+Los dos ejemplos siguientes muestran cómo enviar eventos para resaltar las recomendaciones anteriores. Después de cada ejemplo, puede revisar cómo se han aplicado las recomendaciones.
 
 Los ejemplos se basan en un escenario donde varios dispositivos envían señales o medidas. Las medidas o señales podrían ser Caudal, Presión de aceite del motor, Temperatura y Humedad. En el primer ejemplo, hay algunas medidas en todos los dispositivos. El segundo ejemplo tiene muchos dispositivos y cada uno envía muchas medidas únicas.
 
@@ -165,7 +165,7 @@ Carga JSON de ejemplo:
 
 * Tabla de datos de referencia con las propiedades de clave **deviceId** y **series.tagId**:
 
-   | deviceId | series.tagId | messageId | deviceLocation | Tipo | unit |
+   | deviceId | series.tagId | messageId | deviceLocation | type | unit |
    | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | Caudal | ft3/s |
    | FXXX | oilPressure | LINE\_DATA | EU | Presión de aceite del motor | psi |
@@ -174,7 +174,7 @@ Carga JSON de ejemplo:
 
 * Tabla de eventos de Time Series Insights, después del acoplamiento:
 
-   | deviceId | series.tagId | messageId | deviceLocation | Tipo | unit | timestamp | series.value |
+   | deviceId | series.tagId | messageId | deviceLocation | type | unit | timestamp | series.value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | Caudal | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
    | FXXX | oilPressure | LINE\_DATA | EU | Presión de aceite del motor | psi | 2018-01-17T01:17:00Z | 34.7 |

@@ -1,17 +1,17 @@
 ---
 title: Guía para la solución de problemas de Azure Spring Cloud | Microsoft Docs
 description: Guía para la solución de problemas de Azure Spring Cloud
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 11/04/2019
-ms.author: jeconnoc
-ms.openlocfilehash: af3b0b6113833dfd36be8b604b6b3d3e7b33fe5f
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.author: brendm
+ms.openlocfilehash: 5dcdb03a6d4ec4f448108dbd771a44f362aa7f20
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151129"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277577"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Solución de problemas comunes de Azure Spring Cloud
 
@@ -74,7 +74,7 @@ Para averiguar qué situación se aplica, haga lo siguiente:
 2. Agregue un filtro **App=** para especificar qué aplicación quiere supervisar.
 3. Divida las métricas por **Instancia**.
 
-Si *todas las instancias* experimentan un uso elevado de la CPU o memoria, debe escalar horizontalmente la aplicación o escalar verticalmente e uso de CPU o memoria. Para más información, consulte [Tutorial: Escalado de una aplicación en Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md).
+Si *todas las instancias* experimentan un uso elevado de la CPU o memoria, debe escalar horizontalmente la aplicación o escalar verticalmente e uso de CPU o memoria. Para más información, consulte el [Tutorial: Escalado de una aplicación en Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md).
 
 Si solo *algunas instancias* experimentan un uso elevado de la CPU o de la memoria, compruebe el estado de las instancias y su estado de detección.
 
@@ -158,7 +158,7 @@ Las variables de entorno informan al marco de Azure Spring Cloud, lo que garanti
 > [!WARNING]
 > Este procedimiento expone las variables de entorno mediante un punto de conexión de prueba.  No continúe si se puede acceder de forma pública al punto de conexión de prueba o si ha asignado un nombre de dominio a la aplicación.
 
-1. Vaya a `https://<your application test endpoint>/actuator/health`.  
+1. Ir a `https://<your application test endpoint>/actuator/health`.  
     - Una respuesta similar a `{"status":"UP"}` indica que se ha habilitado el punto de conexión.
     - Si la respuesta es negativa, incluya la siguiente dependencia en el archivo *POM.xml*:
 

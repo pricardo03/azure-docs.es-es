@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 6f0aa8a08b8a502edbd15d3ede157b78a13b8588
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7527cd59ef812c108cc53f84ad19f4d2cff9ec5e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474794"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893558"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalación de controladores de GPU de AMD en máquinas virtuales de la serie N con Windows
 
@@ -37,7 +37,7 @@ Para conocer las especificaciones básicas, las capacidades de almacenamiento y 
 
 1. Conéctese mediante Escritorio remoto a cada máquina virtual de la serie NVv4.
 
-1. Descargue, extraiga e instale el controlador compatible con su sistema operativo Windows.
+1. Descargue y extraiga los archivos de instalación del controlador. Vaya a la carpeta y ejecute "setup. exe" para instalar el controlador compatible con el sistema operativo Windows.
 
 ## <a name="verify-driver-installation"></a>Comprobación de la instalación del controlador
 

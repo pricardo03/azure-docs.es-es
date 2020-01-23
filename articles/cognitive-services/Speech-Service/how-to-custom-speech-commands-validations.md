@@ -3,19 +3,19 @@ title: 'Instrucciones: adición de validaciones a los parámetros de comandos pe
 titleSuffix: Azure Cognitive Services
 description: En este artículo, se explica cómo agregar validaciones a un parámetro en comandos personalizados.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: c89c388f919ca95a331d1d406f5b1776c127ebad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cf6e4e4f0bfab43fb738f8415022e55fcbcbd05a
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446911"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156461"
 ---
 # <a name="how-to-add-validations-to-custom-command-parameters-preview"></a>Instrucciones: adición de validaciones a los parámetros de comandos personalizados (versión preliminar)
 

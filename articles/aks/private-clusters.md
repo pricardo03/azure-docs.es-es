@@ -1,5 +1,5 @@
 ---
-title: Clúster privado de Azure Kubernetes Service
+title: Creación de un clúster privado de Azure Kubernetes Service
 description: Aprenda a crear un clúster privado de Azure Kubernetes Service (AKS).
 services: container-service
 author: mlearned
@@ -7,30 +7,30 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mlearned
-ms.openlocfilehash: 8af0f998df2a92e51078a2e23806cca07ff08ca3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e01579272878a2436abca2ee50f0f6ea6cf78cbf
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475018"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045601"
 ---
-# <a name="public-preview---private-azure-kubernetes-service-cluster"></a>Versión preliminar pública: clúster privado de Azure Kubernetes Service
+# <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Creación de un clúster privado de Azure Kubernetes Service (versión preliminar)
 
-En un clúster privado, el servidor del plano de control o de API tendrá direcciones IP internas definidas en el documento [RFC1918](https://tools.ietf.org/html/rfc1918).  Mediante el uso de un clúster privado, puede asegurarse de que el tráfico entre el servidor de API y los grupos de nodos permanece solo en la red privada.
+En un clúster privado, el servidor de la API o el plano de control tienen direcciones IP internas que se definen en el documento [RFC1918 sobre la asignación de direcciones para conexiones privadas](https://tools.ietf.org/html/rfc1918). Mediante el uso de un clúster privado, puede asegurarse de que el tráfico entre el servidor de la API y los grupos de nodos permanece solo en la red privada.
 
-El servidor del plano de control o de API, que se encuentra en una suscripción de Azure administrada por AKS, y el grupo de clústeres o nodos del cliente, que se encuentra en una suscripción de cliente, se pueden comunicar entre sí a través del [servicio Private Link][private-link-service] de la red virtual del servidor de API y de un punto de conexión privado expuesto en la subred del clúster de AKS del cliente.
+El plano de control o el servidor de la API están en una suscripción de Azure administrada mediante Azure Kubernetes Service (AKS). El grupo de clústeres o nodos de un cliente está en la suscripción del cliente. El servidor y el grupo de clústeres o nodos pueden comunicarse entre sí a través del [servicio de Azure Private Link][private-link-service] en la red virtual del servidor de la API y de un punto de conexión privado expuesto en la subred del clúster de AKS del cliente.
 
 > [!IMPORTANT]
-> Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los contratos de nivel de servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para obtener información adicional, consulte los siguientes artículos de soporte:
+> Las características en vista previa de AKS están disponibles como opción de participación y autoservicio. Las versiones preliminares se proporcionan *tal cual* y *como están disponibles*, y están excluidas del Acuerdo de Nivel de Servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente *en la medida de lo posible*. Por tanto, estas características no están diseñadas para su uso en producción. Para más información, consulte los siguientes artículos de soporte:
 >
 > * [Directivas de soporte técnico para AKS](support-policies.md)
 > * [Preguntas más frecuentes de soporte técnico de Azure](faq.md)
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>Prerequisites
 
-* Necesita la versión 2.0.77 de la CLI de Azure u otra versión posterior y la versión 0.4.18 de la extensión aks-preview.
+* La versión 2.0.77 de la CLI de Azure u otra versión posterior y la versión 0.4.18 de la extensión de la versión preliminar de la CLI de AKS.
 
-## <a name="current-supported-regions"></a>Regiones admitidas actualmente
+## <a name="currently-supported-regions"></a>Regiones admitidas actualmente
 * Oeste de EE. UU.
 * Oeste de EE. UU. 2
 * Este de EE. UU. 2
@@ -39,9 +39,9 @@ El servidor del plano de control o de API, que se encuentra en una suscripción 
 * Europa occidental
 * Este de Australia
 
-## <a name="install-latest-aks-cli-preview-extension"></a>Instalación de la extensión de la versión preliminar de la CLI de AKS más reciente
+## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Instalación de la extensión de la versión preliminar de AKS de la CLI de Azure más reciente
 
-Para usar clústeres privados, necesita la versión 0.4.18 o posterior de la extensión *aks-preview* de la CLI. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
+Para usar clústeres privados, necesita la versión 0.4.18 o una versión posterior de la extensión de la versión preliminar de AKS de la CLI de Azure. Instale la extensión de la versión preliminar de AKS de la CLI de Azure con el comando [az extension add][az-extension-add] y, después, busque las actualizaciones disponibles con este comando [az extension update][az-extension-update]:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -51,19 +51,19 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 > [!CAUTION]
-> Actualmente, al registrar una característica en una suscripción, no se puede anular el registro de esa característica. Después de habilitar algunas características en vista previa, se pueden usar los valores predeterminados en todos los clústeres de AKS y, luego, se pueden crear en la suscripción. No habilite características en vista previa en las suscripciones de producción. Use una suscripción independiente para probar las características en vista previa y recopilar comentarios.
+> Actualmente, al registrar una característica en una suscripción, no se puede anular el registro de esa característica. Después de habilitar algunas características en vista previa, puede usar los valores predeterminados en todos los clústeres de AKS que se crearon en la suscripción. No habilite características en vista previa en las suscripciones de producción. Use una suscripción independiente para probar las características en vista previa y recopilar comentarios.
 
 ```azurecli-interactive
 az feature register --name AKSPrivateLinkPreview --namespace Microsoft.ContainerService
 ```
 
-Pueden pasar unos minutos hasta que el estado aparezca como *Registrado*. Puede comprobar el estado del registro con el comando [az feature list][az-feature-list]:
+Pueden pasar unos minutos hasta que el estado de registro aparezca como *Registrado*. Puede comprobar el estado mediante el siguiente comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSPrivateLinkPreview')].{Name:name,State:properties.state}"
 ```
 
-Cuando el estado sea Registrado, actualice el registro del proveedor de recursos *Microsoft.ContainerService* mediante el comando [az provider register][az-provider-register]:
+Cuando el estado sea registrado, actualice el registro del proveedor de recursos *Microsoft.ContainerService* mediante el siguiente comando [az provider register][az-provider-register]:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -71,59 +71,74 @@ az provider register --namespace Microsoft.Network
 ```
 ## <a name="create-a-private-aks-cluster"></a>Creación de un clúster privado de AKS
 
-#### <a name="default-basic-networking"></a>Redes básicas predeterminadas 
+### <a name="default-basic-networking"></a>Redes básicas predeterminadas 
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
 ```
-Donde --enable-private-cluster es una marca obligatoria para un clúster privado. 
+Donde *--enable-private-cluster* es una marca obligatoria para un clúster privado. 
 
-#### <a name="advanced-networking"></a>Redes avanzadas  
+### <a name="advanced-networking"></a>Redes avanzadas  
 
 ```azurecli-interactive
-az aks create \ 
-    --resource-group <private-cluster-resource-group>\ 
-    --name <private-cluster-name> \ 
-    --load-balancer-sku standard
-    --enable-private-cluster 
-    --network-plugin azure \ 
-    --vnet-subnet-id <subnet-id> \ 
-    --docker-bridge-address 172.17.0.1/16 \ 
-    --dns-service-ip 10.2.0.10 \ 
-    --service-cidr 10.2.0.0/24 \ 
+az aks create \
+    --resource-group <private-cluster-resource-group> \
+    --name <private-cluster-name> \
+    --load-balancer-sku standard \
+    --enable-private-cluster \
+    --network-plugin azure \
+    --vnet-subnet-id <subnet-id> \
+    --docker-bridge-address 172.17.0.1/16 \
+    --dns-service-ip 10.2.0.10 \
+    --service-cidr 10.2.0.0/24 
 ```
-Donde --enable-private-cluster es una marca obligatoria para un clúster privado. 
+Donde *--enable-private-cluster* es una marca obligatoria para un clúster privado. 
 
-## <a name="steps-to-connect-to-the-private-cluster"></a>Pasos para conectarse al clúster privado
-El punto de conexión del servidor de API no tiene ninguna dirección IP pública. Por lo tanto, los usuarios deberán crear una máquina virtual de Azure en una red virtual y conectarse al servidor de API. Los pasos son:
+> [!NOTE]
+> Si la dirección CIDR del puente de Docker (172.17.0.1/16) entra en conflicto con el CIDR de la subred, cambie la dirección del puente de Docker.
 
-* Obtenga credenciales para conectarse al clúster.
+## <a name="connect-to-the-private-cluster"></a>Conexión al clúster privado
+El punto de conexión del servidor de la API no tiene ninguna dirección IP pública. Por lo tanto, deberá crear una máquina virtual de Azure en una red virtual y conectarse al servidor de la API. Para ello, haga lo siguiente:
+
+1. Obtenga las credenciales para conectarse al clúster.
 
    ```azurecli-interactive
    az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
    ```
-* Cree una máquina virtual en la misma red virtual que el clúster de AKS o bien cree una máquina virtual en otra red virtual y empareje esta red virtual con la red virtual del clúster de AKS.
-* Si crea una máquina virtual en una red virtual diferente, deberá configurar un vínculo entre esta red virtual y la zona DNS privada.
-    * Vaya al grupo de recursos MC_* en el portal. 
-    * Haga clic en la zona DNS privada. 
-    * En el panel izquierdo, seleccione el vínculo Red virtual.
-    * Cree un nuevo vínculo para agregar la red virtual de la máquina virtual a la zona DNS privada *(el vínculo de la zona DNS tarda unos minutos en estar disponible)* .
-* Conéctese mediante SSH a la máquina virtual.
-* Instale la herramienta Kubectl y ejecute comandos Kubectl.
+
+1. Realice cualquiera de las siguientes acciones:
+   * Cree una máquina virtual en la misma red virtual que el clúster de AKS.  
+   * Cree una máquina virtual en una red virtual diferente y empareje esta red virtual con la del clúster de AKS.
+
+     Si crea una máquina virtual en una red virtual diferente, deberá configurar un vínculo entre esta red virtual y la zona DNS privada. Para ello:
+    
+     a. Vaya al grupo de recursos MC_* en Azure Portal.  
+     b. Seleccione la zona DNS privada.   
+     c. En el panel izquierdo, seleccione el vínculo **red virtual**.  
+     d. Cree un nuevo vínculo para agregar la red virtual de la máquina virtual a la zona DNS privada. El vínculo de la zona DNS puede tardar unos minutos en estar disponible.  
+     e. Vuelva al grupo de recursos MC_* en Azure Portal.  
+     f. En el panel derecho, seleccione la red virtual. El nombre de la red virtual tiene el formato *aks-vnet-\** .  
+     g. En el panel izquierdo, seleccione **Emparejamientos**.  
+     h. Seleccione **Agregar**, agregue la red virtual de la máquina virtual y, después, cree el emparejamiento.  
+     i. Vaya a la red virtual en la que tiene la máquina virtual, seleccione **Emparejamientos**, seleccione la red virtual de AKS y, después, cree el emparejamiento. Si los intervalos de direcciones de la red virtual de AKS y de la red virtual de la máquina virtual entran en conflicto, se produce un error de emparejamiento. Para más información, vea el artículo [Emparejamiento de redes virtuales][virtual-network-peering].
+
+1. Acceda a la máquina virtual a través de Secure Shell (SSH).
+1. Instale la herramienta Kubectl y ejecute los comandos de Kubectl.
+
 
 ## <a name="dependencies"></a>Dependencias  
-* Solo equilibrador de carga estándar; no se admite el equilibrador de carga básico.  
+* El servicio Azure Private Link solo se admite en Standard Azure Load Balancer. No se admite en Basic Azure Load Balancer.  
 
 ## <a name="limitations"></a>Limitaciones 
-* Se aplican las mismas [limitaciones del servicio Azure Private Link][private-link-service] a los clústeres privados, puntos de conexión privados de Azure y puntos de conexión del servicio de red virtual, que actualmente no se admiten en la misma red virtual.
-* No se admiten nodos virtuales en un clúster privado para poner en marcha instancias privadas de ACI en una red virtual de Azure privada.
+* Las [limitaciones del servicio Azure Private Link][private-link-service] se aplican a los clústeres privados, a puntos de conexión privados de Azure y a puntos de conexión del servicio de red virtual, que actualmente no se admiten en la misma red virtual.
+* No se admiten nodos virtuales en un clúster privado para rotar las instancias privadas de Cisco Application Centric Infrastructure (Cisco ACI) en una red virtual privada de Azure.
 * No se admite de serie la integración de Azure DevOps con clústeres privados.
-* Si los clientes necesitan habilitar ACR para trabajar con clústeres de AKS privados, la red virtual de ACR deberá emparejarse con la red virtual del clúster del agente.
+* En el caso de los clientes que necesitan habilitar Azure Container Registry para trabajar con instancias privadas de AKS, la red virtual de Container Registry debe estar emparejada con la red virtual del clúster del agente.
 * Actualmente no hay compatibilidad con Azure Dev Spaces.
 * No se admite la conversión de clústeres de AKS existentes en clústeres privados.  
 * La eliminación o modificación del punto de conexión privado en la subred del cliente hará que el clúster deje de funcionar. 
 * Actualmente no existe compatibilidad con los datos en directo de Azure Monitor para contenedores.
-* Actualmente no se admite la posibilidad de traer el propio DNS.
+* Actualmente no se admite la posibilidad de *traer el propio DNS*.
 
 
 <!-- LINKS - internal -->
@@ -132,3 +147,5 @@ El punto de conexión del servidor de API no tiene ninguna dirección IP públi
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: https://docs.microsoft.com/azure/private-link/private-link-service-overview
+[virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
+

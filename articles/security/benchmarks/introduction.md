@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: 2d0cceca841a2aff2538dcf8763d245ca8cfd13d
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 8f65eb008d5df6ea3f2f85778d538023e6ce98eb
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564022"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945332"
 ---
-# <a name="azure-security-benchmarks-introduction"></a>Introducción a las pruebas comparativas de seguridad de Azure
+# <a name="azure-security-benchmark-introduction"></a>Introducción a las pruebas comparativas de seguridad de Azure
 
-Puede que tenga varios años o incluso décadas de experiencia con la informática local. Sabe cómo proteger dichas implementaciones. Pero la nube es diferente. ¿Cómo sabe si las implementaciones en la nube son seguras? ¿Cuáles son las diferencias entre los procedimientos de seguridad para los sistemas locales y las prácticas de seguridad para las implementaciones en la nube?
+Puede que tenga varios años o incluso décadas de experiencia con la informática local. Sabe cómo proteger dichas implementaciones, pero las implementaciones en la nube son diferentes. ¿Cómo sabe si las implementaciones en la nube son seguras? ¿Cuáles son las diferencias entre los procedimientos de seguridad para los sistemas locales y para las implementaciones en la nube?
 
-Hay una gran cantidad de notas del producto, procedimientos recomendados, arquitecturas de referencia, guías web, herramientas de código abierto, soluciones comerciales, fuentes de inteligencia, etc. que se pueden usar para proteger la nube. ¿Qué opción debería usar? ¿Qué puede hacer para obtener un nivel aceptable de seguridad en la nube? 
+Hay una gran cantidad de notas del producto, procedimientos recomendados, arquitecturas de referencia, guías web, herramientas de código abierto, soluciones comerciales, fuentes de inteligencia, etc., que se pueden usar para proteger la nube. ¿Qué opción debería usar? ¿Qué puede hacer para obtener un nivel aceptable de seguridad en la nube? 
 
-Una de las mejores formas de proteger las implementaciones en la nube es centrarse en las recomendaciones de las pruebas comparativas de seguridad en la nube. Las recomendaciones de las pruebas comparativas para proteger cualquier servicio comienzan con una comprensión fundamental del riesgo de ciberseguridad y cómo administrarlo. Después, puede usar este conocimiento adoptando las recomendaciones de seguridad comparativa de su proveedor de servicios en la nube para ayudarle a seleccionar opciones de configuración de seguridad específicas en su entorno. 
+Una de las mejores formas de proteger las implementaciones en la nube es centrarse en las recomendaciones de las pruebas comparativas de seguridad en la nube. Las recomendaciones de las pruebas comparativas para proteger cualquier servicio empiezan con una comprensión fundamental del riesgo de ciberseguridad y cómo administrarlo. Después, puede usar este conocimiento adoptando las recomendaciones de seguridad comparativa de su proveedor de servicios en la nube para ayudarle a seleccionar opciones de configuración de seguridad específicas en su entorno. 
 
 La prueba comparativa de seguridad de Azure incluye una recopilación de recomendaciones de seguridad de gran impacto que puede usar para ayudar a proteger la mayoría de los servicios que usa en Azure. Puede considerar estas recomendaciones como "generales" u "organizativas", ya que son aplicables a la mayoría de los servicios de Azure. Las recomendaciones de las pruebas comparativas de seguridad de Azure se personalizan después para cada servicio de Azure y esta guía personalizada se incluye en los artículos de recomendaciones de servicio. 
 
-La documentación de las pruebas comparativas de Azure especifica controles de seguridad y recomendaciones de servicio.
+La documentación de las pruebas comparativas de seguridad de Azure especifica controles de seguridad y recomendaciones de servicio.
 
-- **Controles de seguridad**: Las recomendaciones de las pruebas comparativas de seguridad de Azure se clasifican por controles de seguridad. Los controles de seguridad representan requisitos de seguridad independientes del proveedor de alto nivel, como la seguridad de red y la protección de datos. Cada control de seguridad tiene un conjunto de recomendaciones de seguridad e instrucciones que le ayudan a habilitar esas recomendaciones. 
-- **Recomendaciones de servicio**: Cuando estén disponible, las recomendaciones de pruebas comparativas de los servicios de Azure incluirán recomendaciones de pruebas comparativas de seguridad de Azure personalizadas para el servicio, así como recomendaciones adicionales exclusivas para el servicio en concreto. 
+- **Controles de seguridad**: Las recomendaciones de las pruebas comparativas de seguridad de Azure se clasifican por controles de seguridad. Los controles de seguridad representan requisitos de seguridad independientes del proveedor de alto nivel, como la seguridad de red y la protección de datos. Cada control de seguridad tiene un conjunto de recomendaciones de seguridad e instrucciones que le ayudan a implementar esas recomendaciones. 
+- **Recomendaciones de servicio**: Cuando estén disponibles, las recomendaciones de las pruebas comparativas de los servicios de Azure incluirán recomendaciones de pruebas comparativas de seguridad exclusivas para el servicio en concreto. 
 
 Los términos "control", "prueba comparativa" y "base de referencia" se usan con frecuencia en la documentación de Azure Security Benchmark y es importante comprender cómo usa Azure esos términos. 
 

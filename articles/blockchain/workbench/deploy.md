@@ -1,15 +1,15 @@
 ---
 title: Implementación de Azure Blockchain Workbench (versión preliminar)
 description: Cómo implementar Azure Blockchain Workbench (versión preliminar)
-ms.date: 11/19/2019
+ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: 3b5d79fd5db9729e837b4fca89ca0eddd0f2cb20
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 190f780d7aed30667c23bb97f9ce7726da0f00ca
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326010"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779845"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Implementación de Azure Blockchain Workbench (versión preliminar)
 
@@ -19,7 +19,7 @@ Para más información acerca de los componentes de Blockchain Workbench, consul
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-## <a name="prepare-for-deployment"></a>Preparación de la implementación
+## <a name="prepare-for-deployment"></a>Preparar la implementación
 
 Blockchain Workbench le permite implementar un libro de contabilidad de cadena de bloques junto con un conjunto de los servicios de Azure correspondientes que se usan más frecuentemente para compilar una aplicación basada en cadena de bloques. La implementación de Blockchain Workbench hace que los siguientes servicios de Azure se aprovisionen en un grupo de recursos de la suscripción de Azure.
 
@@ -40,7 +40,7 @@ La siguiente es una implementación de ejemplo creada en el grupo de recursos **
 
 El costo de Blockchain Workbench se agrega al costo de los servicios de Azure subyacentes. La información de precios de los servicios de Azure se pueden calcular mediante la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Azure Blockchain Workbench requiere de registros de aplicación y configuraciones de Azure AD. Puede elegir entre [configurar manualmente](#azure-ad-configuration) Azure AD antes de la implementación o ejecutar un script posterior a la implementación. Si está implementando nuevamente Blockchain Workbench, consulte la [configuración de Azure AD](#azure-ad-configuration) para verificar la configuración de Azure AD.
 
@@ -51,14 +51,14 @@ Azure Blockchain Workbench requiere de registros de aplicación y configuracione
 
 Una vez que se han completado los pasos descritos en los requisitos previos, estará listo para implementar Blockchain Workbench. En las secciones siguientes se describe cómo implementar la plataforma.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione su cuenta en la esquina superior derecha y cambie al inquilino de Azure AD en el que desee implementar Azure Blockchain Workbench.
 1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 1. Seleccione **Cadena de bloques** > **Azure Blockchain Workbench (versión preliminar)** .
 
     ![Creación de Azure Blockchain Workbench](media/deploy/blockchain-workbench-settings-basic.png)
 
-    | Configuración | DESCRIPCIÓN  |
+    | Configuración | Descripción  |
     |---------|--------------|
     | Prefijo de recurso. | Identificador único corto para la implementación. Este valor se utiliza como base para asignar nombres a los recursos. |
     | Nombre de usuario de máquina virtual | El nombre de usuario se utiliza como administrador de todas las máquinas virtuales (VM). |
@@ -81,7 +81,7 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
 
     ![Configuración avanzada para la nueva red de la cadena de bloques](media/deploy/advanced-blockchain-settings-new.png)
 
-    | Configuración | DESCRIPCIÓN  |
+    | Configuración | Descripción  |
     |---------|--------------|
     | Plan de tarifa de Azure Blockchain Service | Elija el nivel de servicio **Básico** o **Estándar** de Azure Blockchain Service que se usa para Blockchain Workbench. |
     | Configuración de Azure Active Directory | Seleccione **Agregar más adelante**.</br>Nota: Si decide [configurar previamente Azure AD](#azure-ad-configuration) o volver a implementar, elija *Agregar ahora*. |
@@ -100,7 +100,7 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
 
      ![Configuración avanzada para la red existente de la cadena de bloques](media/deploy/advanced-blockchain-settings-existing.png)
 
-     | Configuración | DESCRIPCIÓN  |
+     | Configuración | Descripción  |
      |---------|--------------|
      | Punto de conexión RPC de Ethereum | Proporcione el punto de conexión RPC de una red de cadena de bloques PoA existente. El punto de conexión comienza con https:// o http:// y termina con un número de puerto. Por ejemplo: `http<s>://<network-url>:<port>` |
      | Configuración de Azure Active Directory | Seleccione **Agregar más adelante**.</br>Nota: Si decide [configurar previamente Azure AD](#azure-ad-configuration) o volver a implementar, elija *Agregar ahora*. |
@@ -123,7 +123,7 @@ La implementación puede tardar hasta 90 minutos. Puede usar Azure Portal para s
 
 Cuando se haya completado la implementación de Blockchain Workbench, un nuevo grupo de recursos contendrá los recursos de este. Se puede acceder a los servicios de Blockchain Workbench a través de una dirección URL web. Los pasos siguientes muestran cómo recuperar la dirección URL web de la plataforma implementada.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. En el panel de navegación de la izquierda, seleccione **Grupos de recursos**.
 1. Elija el nombre del grupo de recursos que especificó al implementar Blockchain Workbench.
 1. Seleccione el encabezado de columna **TIPO** para ordenar la lista alfabéticamente por tipo.
@@ -147,7 +147,7 @@ Azure AD debe configurarse para completar la implementación de Blockchain Workb
     ![Inicio del script de AAD](media/deploy/launch-aad-script.png)
 
 1. Elija al inquilino de Azure AD en el que se ha implementado Blockchain Workbench.
-1. En Cloud Shell, pegue y ejecute el comando.
+1. En el entorno PowerShell de Cloud Shell, pegue y ejecute el comando.
 1. Cuando se le solicite, escriba al inquilino de Azure AD que desea usar para Blockchain Workbench. Este será el inquilino que contiene los usuarios de Blockchain Workbench.
 
     > [!IMPORTANT]
@@ -167,6 +167,8 @@ Azure AD debe configurarse para completar la implementación de Blockchain Workb
 
 1. Después de dar su consentimiento, puede usar la aplicación web de Blockchain Workbench.
 
+Ha completado la implementación de Azure Blockchain Workbench. Vea [Pasos siguientes](#next-steps) para obtener sugerencias sobre cómo empezar a usar la implementación.
+
 ## <a name="azure-ad-configuration"></a>Configuración de Azure AD
 
 Si decide configurar o comprobar manualmente la configuración de Azure AD antes de la implementación, complete todos los pasos de esta sección. Si prefiere establecer automáticamente la configuración de Azure AD, utilice el [script de configuración de Azure AD](#azure-ad-configuration-script) después de implementar Blockchain Workbench.
@@ -176,7 +178,7 @@ Si decide configurar o comprobar manualmente la configuración de Azure AD antes
 La implementación de Blockchain Workbench requiere el registro de una aplicación de Azure AD. Necesita un inquilino de Azure Active Directory (Azure AD) para registrar la aplicación. Puede usar un inquilino existente o crear uno nuevo. Si va a usar un inquilino de Azure AD ya existente, necesitará suficientes permisos para registrar aplicaciones, otorgar permisos de Graph API y permitir el acceso a los invitados dentro de un inquilino de Azure AD. Si no tiene permisos suficientes en un inquilino de Azure AD existente, cree un inquilino.
 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione su cuenta en la esquina superior derecha y cambie al inquilino de Azure AD que desee. El inquilino debe ser el del administrador de la suscripción en la que está implementado Azure Blockchain Workbench y en la que tenga permisos suficientes para registrar aplicaciones.
 1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory**. Seleccione **Registros de aplicaciones** > **Nuevo registro**.
 
@@ -271,7 +273,7 @@ Si tiene usuarios invitados en su inquilino de Azure AD, siga los pasos adiciona
 
 Una vez que se ha implementado Azure Blockchain Workbench, debe configurar la **dirección URL de respuesta** de la aplicación cliente de Azure Active Directory (Azure AD) correspondiente a la dirección URL web de la instancia de Blockchain Workbench implementada.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Compruebe que se encuentra en el inquilino en el que se ha registrado la aplicación cliente de Azure AD.
 1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory**. Seleccione **App registrations** (Registros de aplicaciones).
 1. Seleccione la aplicación cliente de Azure AD que registró en la sección de requisitos previos.

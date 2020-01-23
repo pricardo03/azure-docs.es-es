@@ -8,16 +8,16 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7f3627a79cad6833b5fb20f3c829c1e3bcbd9c3e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: d11d23cf7d96482028a9d3738196fc5a787fec91
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457344"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510216"
 ---
 # <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Cómo instalar IoT Edge en Kubernetes (versión preliminar)
 
-IoT Edge puede integrarse con Kubernetes como un nivel de infraestructura resistente y altamente disponible. Registra una *definición de recursos personalizada* (CRD) de IoT Edge con el servidor de la API de Kubernetes. Además, proporciona un *operador* (agente de IoT Edge) que concilia el estado deseado administrado por la nube con el estado del clúster local. 
+IoT Edge puede integrarse con Kubernetes como un nivel de infraestructura resistente y altamente disponible. Registra una *definición de recursos personalizada* (CRD) de IoT Edge con el servidor de la API de Kubernetes. Además, proporciona un *operador* (agente de IoT Edge) que concilia el estado deseado administrado por la nube con el estado del clúster local.
 
 El programador de Kubernetes, que mantiene la disponibilidad del módulo y elige su colocación, administra la duración del módulo. IoT Edge administra la plataforma de aplicaciones perimetrales que se ejecutan en la parte superior, conciliando continuamente el estado deseado especificado en IoT Hub con el estado en el clúster de servidores perimetrales. El modelo de aplicaciones perimetrales sigue siendo el modelo conocido basado en los módulos y las rutas de IoT Edge. El operador de agente de IoT Edge realiza la traducción *automática* a las construcciones nativas de Kubernetes como, por ejemplo, pods, implementaciones, servicios, etc.
 
@@ -32,9 +32,9 @@ Todos los componentes de la implementación perimetral se limitan a un espacio d
 
 ## <a name="install-locally-for-a-quick-test-environment"></a>Instalación local para un entorno de prueba rápida
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
-* Kubernetes 1.10 o una versión más reciente. Si no tiene una configuración de clústeres, puede usar [Minikube](https://kubernetes.io/docs/setup/minikube/) para obtener un entorno de clústeres local. 
+* Kubernetes 1.10 o una versión más reciente. Si no tiene una configuración de clústeres, puede usar [Minikube](https://kubernetes.io/docs/setup/minikube/) para obtener un entorno de clústeres local.
 
 * [Helm](https://helm.sh/docs/using_helm/#quickstart-guide), el administrador de paquetes de Kubernetes.
 
@@ -71,6 +71,7 @@ Todos los componentes de la implementación perimetral se limitan a un espacio d
     --set "deviceConnectionString=replace-with-device-connection-string" \
     edgek8s/edge-kubernetes
     ```
+
 1. Abrir el panel de Kubernetes en el explorador
 
     ```shell
@@ -93,6 +94,6 @@ helm delete --purge k8s-edge1
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-### <a name="deploy-as-a-highly-available-edge-gateway"></a>Implementación como puerta de enlace perimetral de alta disponibilidad 
+### <a name="deploy-as-a-highly-available-edge-gateway"></a>Implementación como puerta de enlace perimetral de alta disponibilidad
 
 El dispositivo perimetral de un clúster de Kubernetes puede utilizarse como puerta de enlace de IoT para dispositivos de nivel inferior. Se puede configurar para que sea resistente a errores de nodo, lo que proporciona alta disponibilidad para las implementaciones perimetrales. Consulte este [tutorial detallado](https://github.com/Azure-Samples/iotedge-gateway-on-kubernetes) para utilizar IoT Edge en este escenario.

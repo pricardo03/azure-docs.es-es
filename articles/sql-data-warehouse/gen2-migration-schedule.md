@@ -9,14 +9,14 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 01/21/2020
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 888f50d645c9b3babf95335e434db65423108ccb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f793fd68c83f90b87182647eef47a07eb452f45
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693039"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314783"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Actualización del almacenamiento de datos a Gen2
 
@@ -33,41 +33,12 @@ En la tabla siguiente se resume por región cuándo estará disponible el nivel 
 
 | **Región** | **Proceso inferior Gen2 disponible** | **Fecha de inicio de la actualización automática** |
 |:--- |:--- |:--- |
-| Este de Australia |Disponible |Complete |
-| Sudeste de Australia |Disponible |Complete |
-| Sur de Brasil |Disponible |Complete |
-| Centro de Canadá |Disponible |Complete |
 | Este de Canadá |1 de junio de 2020 |1 de julio de 2020 |
-| Centro de EE. UU. |Disponible |Complete |
 | Este de China |\* |\* |
-| Este de China 2 |Disponible |Complete |
 | Norte de China |\* |\* |
-| Norte de China 2 |Disponible |Complete |
-| Asia oriental |Disponible |Complete |
-| East US |Disponible |Complete |
-| Este de EE. UU. 2 |Disponible |Complete |
-| Centro de Francia |Disponible |En curso |
 | Centro de Alemania |\* |\* |
-| Centro-oeste de Alemania |1 de septiembre de 2019|1 de octubre de 2019 |
-| India central |Disponible |Complete |
-| Sur de India |Disponible |Complete |
-| India occidental |1 de julio de 2019 |En curso |
-| Este de Japón |Disponible |Complete |
-| Oeste de Japón |Disponible |Complete |
-| Corea Central |Disponible |Complete |
-| Corea del Sur |Disponible |Complete |
-| Centro-Norte de EE. UU |Disponible |Complete |
-| Europa del Norte |Disponible |Complete |
-| Norte de Sudáfrica |12 de julio de 2019 |Complete |
-| Centro-Sur de EE. UU |Disponible |Complete |
-| Sudeste de Asia |Disponible |Complete |
-| Norte de Emiratos Árabes Unidos |20 de julio de 2019 |Complete |
-| Sur de Reino Unido 2 |Disponible |En curso |
-| Oeste de Reino Unido |Disponible |En curso |
-| Centro occidental de EE.UU. |1 de noviembre de 2019 |1 de diciembre de 2019|
-| Europa occidental |Disponible |Complete |
-| Oeste de EE. UU. |Disponible |Complete |
-| Oeste de EE. UU. 2 |Disponible |Complete |
+| Centro-oeste de Alemania |Disponible |1 de mayo de 2020 |
+| India occidental |Disponible |1 de mayo de 2020  |
 
 ## <a name="automatic-upgrade-process"></a>Proceso de actualización automática
 
@@ -107,47 +78,47 @@ Para obtener más información, vea [Actualización a Gen2](upgrade-to-latest-ge
 
 **P: ¿Gen2 cuesta lo mismo que Gen1?**
 
-- R: Sí.
+- A. Sí.
 
 **P: ¿Cómo afectarán las actualizaciones a mis scripts de automatización?**
 
-- R: Los scripts de automatización que hacen referencia a un objetivo de nivel de servicio deben cambiarse para que se correspondan con el equivalente de Gen2.  Consulte los detalles [aquí](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
+- A. Los scripts de automatización que hacen referencia a un objetivo de nivel de servicio deben cambiarse para que se correspondan con el equivalente de Gen2.  Consulte los detalles [aquí](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
 
 **P: ¿Cuánto suele tardar una actualización manual?**
 
-- R: Puede actualizar en contexto o desde un punto de restauración.  
+- A. Puede actualizar en contexto o desde un punto de restauración.  
    - La actualización en contexto provocará que, momentáneamente, se pause y reanude el almacenamiento de datos.  Un proceso en segundo plano seguirá ejecutándose mientras el almacenamiento de datos está en línea.  
    - La actualización a través de un punto de restauración tarda más porque se realiza el proceso de restauración completa.
 
 **P: ¿Cuánto tiempo tarda la actualización automática?**
 
-- R: El tiempo de inactividad real de la actualización es solo el necesario para pausar y reanudar el servicio; es decir, entre 5 y 10 minutos. Tras este tiempo de inactividad breve, un proceso en segundo plano ejecutará una migración de almacenamiento. El período del proceso en segundo plano depende del tamaño del almacenamiento de datos.
+- A. El tiempo de inactividad real de la actualización es solo el necesario para pausar y reanudar el servicio; es decir, entre 5 y 10 minutos. Tras este tiempo de inactividad breve, un proceso en segundo plano ejecutará una migración de almacenamiento. El período del proceso en segundo plano depende del tamaño del almacenamiento de datos.
 
 **P: ¿Cuándo se llevará a cabo la actualización automática?**
 
-- R: Durante una programación de mantenimiento. Aprovechar la programación de mantenimiento elegida minimizará la interrupción de su actividad empresarial.
+- A. Durante una programación de mantenimiento. Aprovechar la programación de mantenimiento elegida minimizará la interrupción de su actividad empresarial.
 
 **P: ¿Qué debo hacer si mi proceso de actualización en segundo plano parece estar bloqueado?**
 
- - R: Inicie una reindexación de las tablas de almacén de columnas. Tenga en cuenta que la reindexación de las tablas se realiza sin conexión durante esta operación.
+ - A. Inicie una reindexación de las tablas de almacén de columnas. Tenga en cuenta que la reindexación de las tablas se realiza sin conexión durante esta operación.
 
 **P: ¿Qué ocurre si Gen2 no tiene el objetivo de nivel de servicio necesario en Gen1?**
-- R: Si usa DW600 o DW1200 en Gen1, se recomienda usar DW500c o DW1000c respectivamente, ya que Gen2 proporciona más cantidad de memoria, recursos y rendimiento que Gen1.
+- A. Si usa DW600 o DW1200 en Gen1, se recomienda usar DW500c o DW1000c respectivamente, ya que Gen2 proporciona más cantidad de memoria, recursos y rendimiento que Gen1.
 
 **P: ¿Puedo deshabilitar la copia de seguridad con redundancia geográfica?**
-- R:  No. La copia de seguridad con redundancia geográfica es una característica empresarial que mantiene la disponibilidad del almacenamiento de datos en caso de que una región deje de estar disponible. Abra una [solicitud de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) si tiene más problemas.
+- A. No. La copia de seguridad con redundancia geográfica es una característica empresarial que mantiene la disponibilidad del almacenamiento de datos en caso de que una región deje de estar disponible. Abra una [solicitud de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) si tiene más problemas.
 
 **P: ¿Hay alguna diferencia de sintaxis de T-SQL entre Gen1 y Gen2?**
 
-- R: No hay ningún cambio en la sintaxis del lenguaje T-SQL de Gen1 a Gen2.
+- A. No hay ningún cambio en la sintaxis del lenguaje T-SQL de Gen1 a Gen2.
 
 **P: ¿Gen2 admite ventanas de mantenimiento?**
 
-- R: Sí.
+- A. Sí.
 
 **P: ¿Podré crear una nueva instancia de Gen1 después de actualizar mi región?**
 
-- R:  No. Después de haber actualizado una región, se deshabilitará la creación de instancias de Gen1.
+- A. No. Después de haber actualizado una región, se deshabilitará la creación de instancias de Gen1.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

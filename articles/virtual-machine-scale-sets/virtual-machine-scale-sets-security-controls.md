@@ -1,20 +1,17 @@
 ---
 title: Controles de seguridad para Azure Virtual Machine Scale Sets
 description: Lista de comprobación de los controles de seguridad para evaluar Azure Virtual Machine Scale Sets
-services: virtual-machine-scale-sets
 ms.service: virtual-machine-scale-sets
-documentationcenter: ''
 author: msmbaldwin
-manager: rkarlin
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6aee9edaf3c594a2e7083416726da8e57bbf5c6b
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 51ddd4f3775ae8e41c0d0bdd4ed8a3a2a59b7db4
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529145"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271775"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Controles de seguridad para Azure Virtual Machine Scale Sets
 
@@ -26,7 +23,7 @@ En este artículo se explican los controles de seguridad integrados en Azure Vir
 
 | Control de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con el punto de conexión de servicio| Sí | |
+| Compatibilidad con punto de conexión de servicio| Sí | |
 | Compatibilidad con la inserción de redes virtuales| Sí | |
 | Compatibilidad con el aislamiento de red y los firewalls| Sí |  |
 | Compatibilidad con la tunelización forzada| Sí | Consulte [Configuración de la tunelización forzada mediante el modelo de implementación de Azure Resource Manager](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). |
@@ -37,7 +34,7 @@ En este artículo se explican los controles de seguridad integrados en Azure Vir
 |---|---|--|
 | Compatibilidad con la supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | Consulte [Supervisión y actualización de una máquina virtual Linux en Azure](/azure/virtual-machines/linux/tutorial-monitoring) y [Supervisión y actualización de una máquina virtual Windows en Azure](/azure/virtual-machines/windows/tutorial-monitoring). |
 | Registro y auditoría del plano de administración y de control| Sí |  |
-| Registro y auditoría del plano de datos | Sin |  |
+| Registro y auditoría del plano de datos | No |  |
 
 ## <a name="identity"></a>Identidad
 
@@ -46,7 +43,7 @@ En este artículo se explican los controles de seguridad integrados en Azure Vir
 | Authentication| Sí |  |
 | Authorization| Sí |  |
 
-## <a name="data-protection"></a>Protección de datos
+## <a name="data-protection"></a>Protección de los datos
 
 | Control de seguridad | Sí/No | Notas |
 |---|---|--|

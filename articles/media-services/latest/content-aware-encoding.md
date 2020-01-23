@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 9389466b6291542563c068706479bf981c5880da
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: c2846759a8daa04fc5c1d3b7f69e2c061bacb272
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75692636"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933477"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>Valor preestablecido experimental para la codificación según el contenido
 
@@ -29,7 +29,9 @@ El interés por encontrar un enfoque alternativo al uso de un solo valor preesta
 
 A principios de 2017, Microsoft lanzó el valor preestablecido de [streaming adaptable](autogen-bitrate-ladder.md) para solucionar el problema de la variabilidad en la calidad y la resolución de los vídeos de origen. El contenido de nuestros clientes era muy variado: algunos vídeos tenían una resolución de 1080p, otros 720p, unos cuantos tenían una resolución de SD y otros una resolución inferior. Además, no todo el contenido de origen estaba en formato mezzanine de alta calidad y procedía de estudios de televisión o cinematográficos. El valor preestablecido de streaming adaptable soluciona estos problemas garantizando que la escala de velocidad de bits nunca supere la resolución o la velocidad de bits media del archivo mezzanine de entrada.
 
-El valor preestablecido experimental de codificación en función del contenido amplía este mecanismo incorporando una lógica personalizada que permite al codificador buscar el valor óptimo de velocidad de bits para una resolución determinada, sin requerir un análisis de cálculo exhaustivo. Como resultado, este nuevo valor preestablecido genera una salida con una velocidad de bits inferior a la del valor preestablecido de streaming adaptable, pero una calidad superior. Consulte los siguientes gráficos de ejemplo en los que se muestra la comparación usando métricas de calidad como [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) y [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). El origen se creó mediante la concatenación de clips cortos de capturas de gran complejidad de películas y programas de TV con la finalidad de destacar el codificador. Por definición, este valor predeterminado genera resultados que varían de contenido en contenido. Esto también significa que, para cierto contenido, puede ser que no se produzca una reducción significativa de la velocidad de bits ni una mejora en la calidad.
+El nuevo valor preestablecido de codificación en función del contenido amplía este mecanismo incorporando una lógica personalizada que permite al codificador buscar el valor óptimo de velocidad de bits para una resolución determinada, sin requerir un análisis de cálculo exhaustivo. Este valor predefinido produce un conjunto de archivos MP4s alineados con GOP. Dado cualquier contenido de entrada, el servicio realiza un análisis ligero inicial del mismo y usa los resultados para determinar automáticamente el número óptimo de capas, la velocidad de bits adecuada y la configuración de resolución para la entrega a través del streaming adaptable. Este valor predefinido resulta particularmente eficaz en los vídeos de complejidad media y baja, donde los archivos de salida tendrán velocidades de bits más lentas que el valor predefinido de streaming adaptable, pero una calidad que seguirá ofreciendo una buena experiencia a los visores. La salida contendrá archivos MP4 con el vídeo y audio intercalados.
+
+Consulte los siguientes gráficos de ejemplo en los que se muestra la comparación usando métricas de calidad como [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) y [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). El origen se creó mediante la concatenación de clips cortos de capturas de gran complejidad de películas y programas de TV con la finalidad de destacar el codificador. Por definición, este valor predeterminado genera resultados que varían de contenido en contenido. Esto también significa que, para cierto contenido, puede ser que no se produzca una reducción significativa de la velocidad de bits ni una mejora en la calidad.
 
 ![Curva de distorsión de la velocidad (RD) mediante PSNR](media/cae-experimental/msrv1.png)
 
@@ -39,7 +41,7 @@ El valor preestablecido experimental de codificación en función del contenido 
 
 **Figura 2: Curva de distorsión de la velocidad (RD) con la métrica de VMAF para un origen de gran complejidad**
 
-Actualmente, el valor preestablecido está optimizado para vídeos de origen de gran complejidad y alta calidad (películas, programas de TV). Se está trabajando para adaptarlo a contenido de baja complejidad (por ejemplo, presentaciones de PowerPoint), así como a vídeos de menor calidad. Este valor preestablecido también usa el mismo conjunto de resoluciones que el valor preestablecido de streaming adaptable. Microsoft está trabajando en métodos para seleccionar el conjunto mínimo de resoluciones en función del contenido. A continuación encontrará los resultados de otra categoría de contenido de origen, en la que el codificador pudo determinar que la entrada era de baja calidad (muchos artefactos de compresión debido a una baja velocidad de bits). Tenga en cuenta que, con el valor preestablecido experimental, el codificador decidió generar solo una capa de salida a una velocidad de bits lo suficientemente baja para que la mayoría de los clientes pudieran reproducir la transmisión sin sufrir un estancamiento.
+A continuación encontrará los resultados de otra categoría de contenido de origen, en la que el codificador pudo determinar que la entrada era de baja calidad (muchos artefactos de compresión debido a una baja velocidad de bits). Tenga en cuenta que, con el valor preestablecido en función del contenido, el codificador decidió generar solo una capa de salida a una velocidad de bits lo suficientemente baja para que la mayoría de los clientes pudieran reproducir la transmisión sin sufrir un estancamiento.
 
 ![Curva de RD mediante PSNR](media/cae-experimental/msrv3.png)
 
@@ -62,16 +64,16 @@ TransformOutput[] output = new TransformOutput[]
       // You can customize the encoding settings by changing this to use "StandardEncoderPreset" class.
       Preset = new BuiltInStandardEncoderPreset()
       {
-         // This sample uses the new experimental preset for content-aware encoding
-         PresetName = EncoderNamedPreset.ContentAwareEncodingExperimental
+         // This sample uses the new preset for content-aware encoding
+         PresetName = EncoderNamedPreset.ContentAwareEncoding
       }
    }
 };
 ```
 
 > [!NOTE]
-> El prefijo “experimental” se usa aquí para indicar que los algoritmos subyacentes siguen evolucionando. Es muy probable que, con el tiempo, se produzcan cambios en la lógica utilizada para generar escalas de velocidad de bits con el objetivo de converger en un algoritmo que sea estable y se adapte a una amplia variedad de condiciones de entrada. Los trabajos de codificación en los que se use este valor preestablecido se seguirán facturando en función de los minutos de salida y el recurso de salida se podrá entregar desde nuestros puntos de conexión de streaming en protocolos, como DASH y HLS.
+> Los algoritmos subyacentes están sujetos a mejoras adicionales. Es muy probable que, con el tiempo, se produzcan cambios en la lógica utilizada para generar escalas de velocidad de bits con el objetivo de proporcionar un algoritmo que sea estable y se adapte a una amplia variedad de condiciones de entrada. Los trabajos de codificación en los que se use este valor preestablecido se seguirán facturando en función de los minutos de salida y el recurso de salida se podrá entregar desde nuestros puntos de conexión de streaming en protocolos, como DASH y HLS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha obtenido información sobre esta nueva opción de optimización de vídeos, le invitamos a probarla. Puede enviarnos comentarios usando los vínculos que encontrará al final de este artículo o poniéndose en contacto directamente con nosotros a través de <amsved@microsoft.com>.
+Ahora que ha obtenido información sobre esta nueva opción de optimización de vídeos, le invitamos a probarla. Puede enviarnos comentarios usando los vínculos que encontrará al final de este artículo.

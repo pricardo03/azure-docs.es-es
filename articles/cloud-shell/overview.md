@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: 2edb50910614b47aca5a4d8f7f02c2e3bc69b643
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 513c3da8031774f5f111ee357b5a3c43e1d09d95
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449005"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832466"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Introducción a Azure Cloud Shell
 Azure Cloud Shell es un shell interactivo, autenticado y al que se puede acceder desde un explorador para administrar recursos de Azure.
@@ -40,11 +40,14 @@ Cloud Shell permite el acceso a una experiencia de línea de comandos basada en 
 Aproveche Cloud Shell para trabajar sin restricción de un equipo local que una forma que solo puede proporcionar la nube.
 
 ### <a name="choice-of-preferred-shell-experience"></a>Elección de la experiencia de shell de su preferencia
-Los usuarios pueden elegir entre Bash o PowerShell en la lista desplegable de shell.
+Los usuarios pueden elegir entre Bash o PowerShell.
+1. Seleccione **Cloud Shell**.
 
-![Bash en Cloud Shell](media/overview/overview-bash-pic.png)
+    ![Icono de Cloud Shell](media/overview/overview-cloudshell-icon.png)
 
-![PowerShell en Cloud Shell](media/overview/overview-ps-pic.png)
+2. Seleccione **Bash** o **PowerShell**.
+
+    ![Elección de Bash o PowerShell](media/overview/overview-choices.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>Estación de trabajo de Azure autenticada y configurada
 Microsoft administra Cloud Shell, por lo que incluye herramientas de línea de comandos populares y compatibilidad para distintos lenguajes. Cloud Shell también se autentica de forma segura y automática para obtener acceso inmediato a los recursos mediante la CLI de Azure o los cmdlets de Azure PowerShell.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b00948f8d0e1eb8538354a6c16febf81bd4d1f16
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b1c167c71907e5f8af1006dfabd8f81ce4425d09
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457368"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291165"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Migración masiva de datos a Azure File Sync
 Puede migrar datos de forma masiva a Azure File Sync de dos maneras:
@@ -79,7 +79,7 @@ Después de que el servidor complete la sincronización inicial del espacio de n
 Ahora puede limpiar el recurso compartido de almacenamiento provisional para ahorrar costos:
 
 1. En la hoja **Propiedades del punto de conexión de servidor**, cuando el estado sea **Completado**, seleccione **Deshabilitar la transferencia de datos sin conexión**.
-2. Considere la posibilidad de eliminar el recurso compartido de almacenamiento provisional para ahorrar costos. El recurso compartido de almacenamiento provisional probablemente no contiene las ACL de archivos y carpetas, por lo que no es muy útil. Con fines de realizar copias de seguridad a un momento dado, cree una [instantánea real del recurso compartido de archivos de Azure que se está sincronizando](storage-snapshots-files.md). También puede [configurar Azure Backup para realizar instantáneas]( ../../backup/backup-azure-files.md) según una programación.
+2. Considere la posibilidad de eliminar el recurso compartido de almacenamiento provisional para ahorrar costos. El recurso compartido de almacenamiento provisional probablemente no contiene las ACL de archivos y carpetas, por lo que no es muy útil. Con fines de realizar copias de seguridad a un momento dado, cree una [instantánea real del recurso compartido de archivos de Azure que se está sincronizando](storage-snapshots-files.md). También puede [configurar Azure Backup para realizar instantáneas]( ../../backup/backup-afs.md) según una programación.
 
 Deshabilite el modo de transferencia de datos sin conexión solo si el estado es **Completado** o si desea cancelar debido a una configuración incorrecta. Si deshabilita el modo durante una implementación, los archivos comenzarán a cargarse desde el servidor, aunque el recurso compartido de almacenamiento provisional siga estando disponible.
 

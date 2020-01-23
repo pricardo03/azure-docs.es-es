@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: f5c0f6d9f6f7f35722f3df5f35dc1da945f21b9a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5d2fe5a00d131af54862551991cf984d8576b57e
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229050"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860952"
 ---
 # <a name="azure-digital-twins-security-best-practices"></a>Procedimientos recomendados de seguridad de Azure Digital Twins
 
@@ -46,7 +46,7 @@ Algunos de los procedimientos más importantes para proteger de forma segura un 
 > [!div class="checklist"]
 > * Cifre los datos persistentes, guardados o almacenados.
 > * Exija el cambio o la actualización de claves y contraseñas de forma periódica.
-> * Restrinja cuidadosamente el acceso y los permisos por rol. Consulte la sección [Procedimientos recomendados del control de acceso basado en rol](#role-based-access-control-best-practices).
+> * Restrinja cuidadosamente el acceso y los permisos por rol. Lea la sección [Procedimientos recomendados del control de acceso basado en rol](#role-based-access-control-best-practices) más abajo.
 > * Considere una topología de red dividida para que los dispositivos de cada red estén aislados de los demás.
 > * Use cifrado seguro. Exija contraseñas largas, use protocolos seguros y la [autenticación multifactor](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
@@ -56,7 +56,7 @@ Algunos de los procedimientos más importantes para proteger de forma segura un 
 > Lea el artículo [Procedimientos recomendados para la seguridad de IoT](../iot-fundamentals/iot-security-best-practices.md) de Azure para comenzar una estrategia completa de seguridad de IoT.
 
 > [!NOTE]
-> Para más información sobre el procesamiento y la supervisión de eventos, consulte [Enrutamiento de eventos y mensajes con Azure Digital Twins](./concepts-events-routing.md).
+> Para más información sobre el procesamiento y la supervisión de eventos, lea [Enrutamiento de eventos y mensajes con Azure Digital Twins](./concepts-events-routing.md).
 
 ## <a name="azure-active-directory-best-practices"></a>Procedimientos recomendados de Azure Active Directory
 

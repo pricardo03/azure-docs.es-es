@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 37846aacd9e2c5c63cdf5d29bccb42df8e02fce9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 567770c00c645aeb79e1efb0e9119b9ac829f3fe
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452608"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861666"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Dar forma a los eventos con la versión preliminar de Azure Time Series Insights
 
@@ -31,7 +31,7 @@ Piense en cómo envía eventos a la versión preliminar de Time Series Insights.
 Para garantizar el máximo rendimiento de las consultas, haga lo siguiente:
 
 * No envíe propiedades innecesarias. La versión preliminar de Time Series Insights le facturará en función del uso. Es mejor almacenar y procesar los datos que vaya a consultar.
-* Use campos de instancia para los datos estáticos. Este procedimiento le ayudará a evitar el envío de datos estáticos a través de la red. Los campos de instancia, un componente del modelo de Time Series Insights, funcionan como datos de referencia en el servicio Time Series Insights, que tiene disponibilidad general. Para obtener más información sobre los campos de instancia, consulte [Modelo de Time Series](./time-series-insights-update-tsm.md).
+* Use campos de instancia para los datos estáticos. Este procedimiento le ayudará a evitar el envío de datos estáticos a través de la red. Los campos de instancia, un componente del modelo de Time Series Insights, funcionan como datos de referencia en el servicio Time Series Insights, que tiene disponibilidad general. Para más información sobre los campos de instancia, lea [Modelo de Time Series](./time-series-insights-update-tsm.md).
 * Comparta propiedades de dimensión entre dos o más eventos. Este procedimiento le ayudará a enviar datos a través de la red de manera más eficaz.
 * No utilice el anidamiento profundo de matriz. La versión preliminar de Time Series Insights admite hasta dos niveles de matrices anidadas que contienen objetos. Igualmente, la versión preliminar de Time Series Insights acopla las matrices en mensajes de varios eventos con pares de valores de propiedad.
 * Si solo existen algunas de las medidas para todos o la mayoría de los eventos, es mejor que envíe estas medidas como propiedades independientes dentro del mismo objeto. Al enviarlas por separado se reduce el número de eventos y podría mejorar el rendimiento de consultas, ya que se deben procesar menos eventos.
@@ -156,5 +156,5 @@ En el ejemplo anterior, la propiedad de `data_flow` aplanada presentaría una co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para poner en práctica estas pautas, consulte [Azure Time Series Insights Preview query syntax](./time-series-insights-query-data-csharp.md) (Sintaxis de consultas de la versión preliminar de Azure Time Series Insights). Obtendrá más información sobre la sintaxis de consultas para la API REST de acceso a datos de la versión preliminar de Time Series Insights.
-- Para obtener información sobre las formas JSON admitidas, consulte [Supported JSON shapes](./time-series-insights-send-events.md#supported-json-shapes) (Formas JSON admitidas).
+- Para poner en práctica estas pautas, consulte [Sintaxis de consultas de la versión preliminar de Azure Time Series Insights](./time-series-insights-query-data-csharp.md). Obtendrá más información sobre la sintaxis de consultas para la API REST de acceso a datos de la versión preliminar de Time Series Insights.
+- Para obtener información sobre las formas JSON admitidas, consulte [Formas JSON admitidas](./time-series-insights-send-events.md#supported-json-shapes).

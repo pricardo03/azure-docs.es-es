@@ -4,18 +4,30 @@ description: Procedimientos para editar los destinos de almacenamiento en Azure�
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/4/2019
+ms.date: 1/08/2020
 ms.author: rohogue
-ms.openlocfilehash: 115e75c0149a35104d9c3696710bf8231a98743d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 5635bfc6ea5faea41b125037c76c0b8635e0f528
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168521"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867002"
 ---
 # <a name="edit-storage-targets"></a>Edición de los destinos de almacenamiento
 
-Se pueden editar los destinos de almacenamiento para modificar algunas de sus propiedades. Las distintas propiedades son editables para tipos de almacenamiento diferentes:
+Puede quitar o modificar un destino de almacenamiento desde la página **Destinos de almacenamiento** de la caché.
+
+## <a name="remove-a-storage-target"></a>Eliminación de un destino de almacenamiento
+
+Para quitar un destino de almacenamiento, selecciónelo en la lista y haga clic en el botón **Eliminar**.
+
+Esta acción quita la asociación del destino de almacenamiento con este sistema de Azure HPC Cache, pero no cambia el sistema de almacenamiento de back-end. Por ejemplo, si ha usado un contenedor Azure Blob Storage, el contenedor y su contenido siguen existiendo después de eliminarlo de la memoria caché. Puede agregar el contenedor a otra instancia de Azure HPC Cache, volver a agregarlo a esta caché o eliminarlo con Azure Portal.
+
+Los cambios de archivo almacenados en la caché se escriben en el sistema de almacenamiento de back-end antes de que se quite el destino de almacenamiento. Este proceso puede tardar una hora o más si hay muchos datos cambiados en la caché.
+
+## <a name="update-storage-targets"></a>Actualización de destinos de almacenamiento
+
+Se pueden editar los destinos de almacenamiento para modificar algunas de sus propiedades. Para cada tipo de almacenamiento se pueden modificar distintas propiedades:
 
 * En el caso de los destinos de almacenamiento de blob, se puede cambiar la ruta de acceso del espacio de nombres.
 

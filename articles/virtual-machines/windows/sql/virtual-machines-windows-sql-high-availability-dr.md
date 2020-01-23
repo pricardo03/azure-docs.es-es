@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: ac62ec49803bf55bbe61e08e60b648dd6c268510
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f58bb534728660b85f7d16910dde7a37914fd571
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358012"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933955"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines
 
@@ -77,7 +77,7 @@ Puede tener una solución de recuperación ante desastres para las bases de dato
 
 ## <a name="free-dr-replica-in-azure"></a>Réplica de DR gratuita en Azure
 
-Si tiene [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), puede implementar planes de recuperación ante desastres (DR) híbridos con SQL Server mediante Grupos de disponibilidad Always On o instancias de clúster de conmutación por error sin incurrir en costos de licencias adicionales para la instancia de DR pasiva.
+Si tiene [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), puede implementar planes de recuperación ante desastres (DR) híbridos con SQL Server sin incurrir en costos de licencias adicionales para la instancia de DR pasiva.
 
 En la imagen siguiente, el programa de instalación usa una instancia de SQL Server que se ejecuta en una máquina virtual de Azure con 12 núcleos como réplica de recuperación ante desastres para una implementación de SQL Server local con 12 núcleos. Antiguamente, tendría que licenciar 12 núcleos de SQL Server para la implementación de la máquina virtual local y la de Azure. La nueva ventaja ofrece ventajas de réplica pasivas que se ejecutan en una máquina virtual de Azure. Ahora solo tiene que licenciar 12 núcleos de una instancia de SQL Server que se ejecuta de forma local, siempre y cuando se cumplan los criterios de recuperación ante desastres para la réplica pasiva en la máquina virtual de Azure.
 

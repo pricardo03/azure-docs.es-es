@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 01/07/2020
 ms.author: juliako
-ms.openlocfilehash: 2d1e648a9ea33beb1347a4a635388ee04e46215b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b1c094689c7669f03d5355be7a77b1836c90974c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449757"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750860"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Esquemas de Azure Event Grid para eventos de Media Services
 
@@ -28,11 +28,11 @@ Para obtener una lista de scripts de ejemplo y los tutoriales, consulte [Orígen
 
 Media Services emite los tipos de eventos relacionados con el **trabajo** que se describen a continuación. Existen dos categorías para los eventos relacionados con el **trabajo**: "supervisión de cambios de estado de trabajo" y "supervisión de cambios de estado de salida de trabajo". 
 
-Para registrarse para todos los eventos, puede suscribirse al evento JobStateChange. O bien, puede suscribirse solo a eventos específicos (por ejemplo, estados finales como JobErrored, JobFinished y JobCanceled). 
+Para registrarse para todos los eventos, puede suscribirse al evento JobStateChange. O bien, puede suscribirse solo a eventos específicos (por ejemplo, estados finales como JobErrored, JobFinished y JobCanceled).   
 
 ### <a name="monitoring-job-state-changes"></a>Supervisión de cambios de estado de trabajo
 
-| Tipo de evento | DESCRIPCIÓN |
+| Tipo de evento | Descripción |
 | ---------- | ----------- |
 | Microsoft.Media.JobStateChange| Permite obtener un evento para todos los cambios de estado del trabajo. |
 | Microsoft.Media.JobScheduled| Permite obtener un evento cuando el trabajo realiza la transición al estado programado. |
@@ -46,7 +46,13 @@ Consulte los [Ejemplos de esquema](#event-schema-examples) siguientes.
 
 ### <a name="monitoring-job-output-state-changes"></a>Supervisión de cambios de estado de salida de trabajo
 
-| Tipo de evento | DESCRIPCIÓN |
+Un trabajo puede contener varias salidas de trabajo (si ha configurado la transformación para que tenga varias salidas de trabajo) Si quiere realizar el seguimiento de los detalles de salida de un trabajo individual, escuche un evento de cambio de salida del trabajo.
+
+Cada elemento **Job** estará en un nivel superior al de **JobOutput**, por lo que los eventos de salida de trabajo se activan dentro de un trabajo correspondiente. 
+
+Los mensajes de error de `JobFinished`, `JobCanceled`, `JobError` muestran los resultados agregados para cada salida de trabajo, cuando todos han finalizado. Por su parte, los eventos de salida de trabajo se activan cuando finaliza cada tarea. Por ejemplo, si tiene una salida de codificación, seguida de una de análisis de vídeo, obtendría dos eventos que se desencadenan como eventos de salida de trabajo antes de que el evento JobFinished final se desencadene con los datos agregados.
+
+| Tipo de evento | Descripción |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputStateChange| Permite obtener un evento para todos los cambios de estado de salida del trabajo. |
 | Microsoft.Media.JobOutputScheduled| Permite obtener un evento cuando la salida del trabajo realiza la transición al estado programado. |
@@ -60,7 +66,7 @@ Consulte los [Ejemplos de esquema](#event-schema-examples) siguientes.
 
 ### <a name="monitoring-job-output-progress"></a>Supervisión del progreso de salida del trabajo
 
-| Tipo de evento | DESCRIPCIÓN |
+| Tipo de evento | Descripción |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputProgress| Este evento refleja el progreso del procesamiento de trabajo del 0 % al 100 %. El servicio intenta enviar un evento si se ha producido un aumento del 5 % o mayor en el valor de progreso o han pasado más de 30 segundos desde el último evento (latido). No se garantiza que el valor de progreso se inicie en el 0 %, o que alcance el 100 %, ni tampoco que aumente a una velocidad constante a lo largo del tiempo. No debe utilizar este evento para determinar si se ha completado el procesamiento; en su lugar, utilice los eventos de cambio de estado.|
 
@@ -74,7 +80,7 @@ Media Services emite los tipos de eventos **en directo** que se describen a cont
 
 Los eventos de nivel de transmisión se generan en función de la transmisión o conexión. Cada evento tiene un parámetro `StreamId` que identifica la conexión o la transmisión. Cada transmisión o conexión tiene una o más pistas de diferentes tipos. Por ejemplo, una conexión de un codificador puede tener una pista de audio y cuatro pistas de vídeo. Los tipos de evento de transmisión son:
 
-| Tipo de evento | DESCRIPCIÓN |
+| Tipo de evento | Descripción |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventConnectionRejected | Se rechazó el intento de conexión del codificador. |
 | Microsoft.Media.LiveEventEncoderConnected | El codificador se conectó al evento en directo. |
@@ -91,7 +97,7 @@ Los eventos de nivel de seguimiento se generan por pista.
 
 Los tipos de evento de nivel de seguimiento son:
 
-| Tipo de evento | DESCRIPCIÓN |
+| Tipo de evento | Descripción |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | El servidor multimedia elimina el fragmento de datos porque es demasiado tarde o porque tiene una marca de tiempo superpuesta (la marca de tiempo del nuevo fragmento de datos es menor que el tiempo de finalización del fragmento de datos anterior). |
 | Microsoft.Media.LiveEventIncomingStreamReceived | El servidor multimedia recibe el primer fragmento de datos de cada pista en la transmisión o la conexión. |
@@ -128,7 +134,7 @@ En el ejemplo siguiente, se muestra el esquema de un evento **JobStateChange**:
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | previousState | string | El estado del trabajo antes del evento. |
 | state | string | El nuevo estado del trabajo que se notifica en este evento. Por ejemplo, "Programado: el trabajo está listo para comenzar" o "Finalizado: el trabajo ha finalizado".|
@@ -198,7 +204,7 @@ Para cada cambio de estado de trabajo final (por ejemplo, JobFinished, JobCancel
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | outputs | Array | Permite obtener las salidas del trabajo.|
 
@@ -314,7 +320,7 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventConnectio
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | streamId | string | Identificador de la transmisión o la conexión. El codificador o el cliente es responsable de agregar este id. en la URL de introducción. |  
 | ingestUrl | string | Introducir la dirección URL que proporcionó el evento en directo. |  
@@ -324,7 +330,7 @@ El objeto data tiene las siguientes propiedades:
 
 Los códigos de resultados son:
 
-| Código de resultado | DESCRIPCIÓN |
+| Código de resultado | Descripción |
 | ----------- | ----------- |
 | MPE_RTMP_APPID_AUTH_FAILURE | Dirección URL de introducción incorrecta. |
 | MPE_INGEST_ENCODER_CONNECTION_DENIED | El codificador de IP no está presente en la lista de direcciones IP permitidas configurada. |
@@ -361,7 +367,7 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventEncoderCo
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | streamId | string | Identificador de la transmisión o la conexión. El codificador o el cliente es responsable de proporcionar este id. en la URL de introducción. |
 | ingestUrl | string | Introducir la dirección URL que proporcionó el evento en directo. |
@@ -395,7 +401,7 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventEncoderDi
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | streamId | string | Identificador de la transmisión o la conexión. El codificador o el cliente es responsable de agregar este id. en la URL de introducción. |  
 | ingestUrl | string | Introducir la dirección URL que proporcionó el evento en directo. |  
@@ -405,7 +411,7 @@ El objeto data tiene las siguientes propiedades:
 
 Los códigos de resultado del error son:
 
-| Código de resultado | DESCRIPCIÓN |
+| Código de resultado | Descripción |
 | ----------- | ----------- |
 | MPE_RTMP_SESSION_IDLE_TIMEOUT | La sesión de RTMP agotó el tiempo de espera después de estar inactiva durante el límite de tiempo permitido. |
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | La marca de tiempo de vídeo o audio FLVTag no es válida en el codificador de RTMP. |
@@ -414,7 +420,7 @@ Los códigos de resultado del error son:
 
 Los códigos de resultado del cierre estable son:
 
-| Código de resultado | DESCRIPCIÓN |
+| Código de resultado | Descripción |
 | ----------- | ----------- |
 | S_OK | El codificador se desconectó correctamente. |
 | MPE_CLIENT_TERMINATED_SESSION | Codificador desconectado (RTMP). |
@@ -452,7 +458,7 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIncomingD
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | trackType | string | Tipo de pista (audio/vídeo). |
 | trackName | string | Nombre de la pista. |
@@ -492,7 +498,7 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIncomingS
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | trackType | string | Tipo de pista (audio/vídeo). |
 | trackName | string | Nombre de la pista (lo puede proporcionar el codificador o, en el caso de RTMP, el servidor se genera en formato *TrackType_Bitrate*). |
@@ -531,7 +537,7 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIncomingS
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | minLastTimestamp | string | Mínimo de las últimas marcas de tiempo entre todas las pistas (audio o vídeo). |
 | typeOfTrackWithMinLastTimestamp | string | Tipo de pista (audio o vídeo) con la última marca de tiempo mínima. |
@@ -567,7 +573,7 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIncomingV
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | firstTimestamp | string | Marca de tiempo recibida para una de las pistas o niveles de calidad de tipo de vídeo. |
 | firstDuration | string | Duración del fragmento de datos con la primera marca de tiempo. |
@@ -609,7 +615,7 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIngestHea
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | trackType | string | Tipo de pista (audio/vídeo). |
 | trackName | string | Nombre de la pista (lo puede proporcionar el codificador o, en el caso de RTMP, el servidor se genera en formato *TrackType_Bitrate*). |
@@ -620,9 +626,9 @@ El objeto data tiene las siguientes propiedades:
 | overlapCount | integer | Número de fragmentos de datos que tienen marcas de tiempo superpuestas en los últimos 20 segundos. |
 | discontinuityCount | integer | Número de interrupciones observada en los últimos 20 segundos. |
 | nonIncreasingCount | integer | Número de fragmentos de datos con marcas de tiempo en el pasado que se recibieron en los últimos 20 segundos. |
-| unexpectedBitrate | booleano | Si las velocidades de bits esperadas y reales superan el límite permitido en los últimos 20 segundos. Es "true" si, y solo si, la velocidad de bits incomingBitrate >= 2* O incomingBitrate <= bitrate/2 O IncomingBitrate = 0. |
+| unexpectedBitrate | bool | Si las velocidades de bits esperadas y reales superan el límite permitido en los últimos 20 segundos. Es "true" si, y solo si, la velocidad de bits incomingBitrate >= 2* O incomingBitrate <= bitrate/2 O IncomingBitrate = 0. |
 | state | string | Estado del evento en directo. |
-| healthy | booleano | Indica si la ingesta está en buen estado según los recuentos y las marcas. Estará en buen estado si este tiene el valor "true" y si overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
+| healthy | bool | Indica si la ingesta está en buen estado según los recuentos y las marcas. Estará en buen estado si este tiene el valor "true" y si overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -653,7 +659,7 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventTrackDisc
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | trackType | string | Tipo de pista (audio/vídeo). |
 | trackName | string | Nombre de la pista (lo puede proporcionar el codificador o, en el caso de RTMP, el servidor se genera en formato *TrackType_Bitrate*). |
@@ -667,14 +673,14 @@ El objeto data tiene las siguientes propiedades:
 
 Un evento tiene los siguientes datos de nivel superior:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | topic | string | El tema EventGrid. Esta propiedad tiene el id. de recurso de la cuenta de Media Services. |
 | subject | string | La ruta de acceso del recurso del canal de Media Services en la cuenta de Media Services. Al concatenar los temas, obtendrá la identificación del recurso para el trabajo. |
 | eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. Por ejemplo, "Microsoft.Media.JobStateChange". |
 | eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
 | id | string | Identificador único para el evento |
-| data | objeto | Datos del evento de Media Services. |
+| datos | object | Datos del evento de Media Services. |
 | dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
 | metadataVersion | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
 
@@ -682,7 +688,7 @@ Un evento tiene los siguientes datos de nivel superior:
 
 [Regístrese para los eventos de cambio de estado del trabajo](job-state-events-cli-how-to.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (SDK de .NET en EventGrid que incluye eventos de Media Services)
 - [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json) (Definición de eventos de Media Services)

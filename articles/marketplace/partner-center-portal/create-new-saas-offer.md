@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 0c2441aaf0cffd357f917a8c600f7399b339bfb6
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.date: 01/13/2020
+ms.openlocfilehash: c39f41af8ed2f1e25064324c0e1da4a6603face8
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689087"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045570"
 ---
 # <a name="create-a-new-saas-offer"></a>Creación de una oferta de SaaS
 
@@ -167,7 +167,7 @@ Después de completar estos campos seleccione **Guardar**.
 
 ### <a name="category"></a>Category
 
-Seleccione un mínimo de una (1) y un máximo de tres (3) categorías utilizadas para agrupar la oferta en las áreas de búsqueda de Marketplace adecuadas. En la descripción de la oferta, indique la forma en que la oferta da soporte a estas categorías.
+Seleccione un mínimo de una (1) y un máximo de tres (3) categorías utilizadas para agrupar la oferta en las áreas de búsqueda de Marketplace adecuadas. Indique la forma en que la oferta admite estas categorías en la descripción de la oferta.
 
 ### <a name="industry"></a>Sector
 
@@ -175,7 +175,7 @@ Seleccione un mínimo de una (1) y un máximo de tres (3) categorías utilizadas
 
 ### <a name="app-version"></a>Versión de la aplicación
 
-Se trata de un campo opcional que se utiliza en el Marketplace de AppSource para identificar el número de versión de la oferta.
+Es un campo opcional que se usa en el Marketplace de AppSource para identificar el número de versión de la oferta.
 
 ### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrato estándar para el Marketplace comercial de Microsoft
 
@@ -204,7 +204,7 @@ Hay dos tipos de modificaciones para los anunciantes de Marketplace comercial:
 >[!NOTE]
 > Estos dos tipos de modificaciones se superponen entre sí. Los clientes específicos con modificaciones personalizadas también obtendrán la modificación universal al Contrato estándar durante la compra.
 
-**Términos de modificación universales del contrato estándar de Marketplace comercial de Microsoft**: Escriba los términos de modificación universal en este cuadro. Puede proporcionar una única modificación universal por oferta. Puede escribir un número ilimitado de caracteres en este cuadro. Estos se muestran a los clientes en AppSource, Azure Marketplace y/o Azure Portal durante la detección y el flujo de compra.
+**Términos de modificación universales del contrato estándar de Marketplace comercial de Microsoft**: Escriba los términos de modificación universal en este cuadro. Puede proporcionar una única modificación universal por oferta. Puede escribir un número ilimitado de caracteres en este cuadro. Estos términos se muestran a los clientes en AppSource, Azure Marketplace o Azure Portal durante el flujo de detección y compra.
 
 **Términos de modificación personalizados del contrato estándar para Marketplace comercial de Microsoft**: Comience por seleccionar **Add custom amendment terms** (Agregar términos de modificación personalizados). Puede proporcionar hasta 10 términos de modificación personalizados por oferta.
 
@@ -231,7 +231,7 @@ La pestaña Descripción de la oferta muestra los idiomas (y los mercados) en lo
 
 Especifique los detalles que se muestran en Marketplace, lo que incluye descripciones de la oferta y los recursos de marketing.
 
-- **Nombre** (obligatorio): El nombre que se define aquí aparecerá como título de la descripción de la oferta en los Marketplace que ha elegido. El nombre se rellena previamente en función de lo que se haya escrito en **Nueva oferta**.  Dicho nombre puede ser una marca comercial.  No debe contener emojis (a menos que sean una marca comercial y símbolos de copyright) y no puede tener más de 50 caracteres.
+- **Nombre** (obligatorio): El nombre que se define aquí aparecerá como título de la descripción de la oferta en los Marketplace que ha elegido. El nombre se rellena previamente en función de lo que se haya escrito en **Nueva oferta**. El nombre puede ser una marca comercial. No puede contener emojis (a menos que sean símbolos de marca comercial y copyright), y no puede tener más de 50 caracteres.
 - **Resumen** (se requiere): especifique una descripción breve de la oferta que se va a usar en los resultados de búsqueda en las descripciones de Marketplace. En este campo se puede escribir hasta 100 caracteres de texto.
 - **Descripción** (se requiere): especifique una descripción de la oferta que se va a mostrar en la información general de las descripciones de Marketplace. Considere la posibilidad de incluir una propuesta de valor, los beneficios clave, todas las asociaciones de la categoría o sector, las oportunidades de compra en la aplicación, todas las divulgaciones necesarias y un vínculo para obtener más información.
 En este campo se puede escribir hasta 3000 caracteres de texto. En el artículo [Escribir una excelente descripción de la aplicación](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description) encontrará más sugerencias.
@@ -240,7 +240,7 @@ En este campo se puede escribir hasta 3000 caracteres de texto. En el artículo 
 
 #### <a name="description"></a>**Descripción**
 
-Este campo es obligatorio. Elementos que debe incluir en la descripción:
+Este campo es obligatorio. Elementos que debe incluir en  **Descripción**:
 
 * Describa claramente la propuesta de valor de la oferta en las primeras frases de su descripción.  
 * Tenga en cuenta que estas primeras frases podrían mostrarse en los resultados de los motores de búsqueda.  
@@ -253,76 +253,28 @@ Los componentes principales de la propuesta de valor deben incluir esta informac
 * Tipo de usuario que se beneficia del producto.
 * Necesidad o preocupación del cliente que aborda el producto.
 
-Para que la descripción de la oferta sea más atractiva, puede usar etiquetas HTML para dar formato a la descripción.
+Para que la **descripción** de la oferta sea más atractiva, use el editor de texto enriquecido para darle formato.
 
-1. Si desea crear párrafos, agregue `<p>` al comienzo del texto y agregue `</p>` al final.
+![Uso del editor de texto enriquecido](./media/text-editor2.png)
 
-    **Ejemplo**:
+Siga las instrucciones siguientes para usar el editor de texto enriquecido:
 
-    `<p>` Este es mi primer párrafo. `</p>` <br>
-    `<p>` Este es mi segundo párrafo. `</p>` <br>
+- Para cambiar el formato del contenido, resalte el texto al que quiera dar formato y seleccione un estilo de texto, como se muestra aquí:
 
-    El aspecto de lo anterior debería ser parecido a este:
+     ![Uso del editor de texto enriquecido para cambiar el formato del texto](./media/text-editor3.png)
 
-    <p> Este es mi primer párrafo. </p>
-    <p> Este es mi segundo párrafo. </p>
+- Para agregar una lista con viñetas o numerada al texto, use las opciones siguientes:
 
-1. Si desea agregar una **lista con viñetas de elementos**, coloque el texto dentro de las etiquetas `<li>` siguientes. Puede copiar y pegar más elementos con viñetas (elementos entre las etiquetas `<li>` y `</li>`) dentro de las etiquetas `<ul>` y `</ul>`. Asegúrese de que agrega `<ul></ul>`.
+     ![Uso del editor de texto enriquecido para agregar listas](./media/text-editor4.png)
 
-    **Ejemplo**:
+- Para agregar o quitar la sangría del texto, use las opciones siguientes:
 
-    ```
-    <ul> 
-        <li>add text here</li>
-        <li> add text here </li>
-        <li> add text here </li>
-    </ul>
-    ```
-
-    El aspecto de lo anterior debería ser parecido a este:
-    <ul> 
-        <li>agregue el texto aquí</li>
-        <li> agregue el texto aquí </li>
-        <li> agregue el texto aquí </li>
-    </ul> 
-
-1. Para poner el contenido en **negrita**, agregue `<b>` al comienzo del texto que desea poner en negrita y `</b>` al final.
-
-    **Ejemplo**: `<b>` EVALUACIÓN GRATUITA `</b>`
-    
-    Lo anterior haría que las palabras EVALUACIÓN GRATUITA estuvieran en negrita en la descripción de la oferta en el escaparate.
-
-    **EVALUACIÓN GRATUITA**
-
-1. Para agregar **saltos de línea** en el contenido, agregue `<br>` antes del texto que desea que aparezca en una nueva línea. Si desea dejar un espacio y asegurarse de que el contenido se inicia en una nueva línea, agregue `<br><br>` antes del contenido.
-
-    **Ejemplo**:
-
-    Esta es una línea de texto. `<br>` Esta es una línea de texto que se iniciará en una nueva línea. `<br><br>` Esta es una línea que se iniciará dos líneas más abajo.
-
-    El aspecto de lo anterior debería ser parecido a este:
-
-    Esta es una línea de texto. <br> Esta es una línea de texto que se iniciará en una nueva línea. <br><br> Esta es una línea que se iniciará dos líneas más abajo.
-
-1. Si desea **aumentar el tamaño del texto**, primero elija la dimensión que desea que tenga el texto. Use los siguientes ejemplos. Después de seleccionar el tamaño del texto, agregue las etiquetas `<H*></H*>` correspondientes al principio y al final del texto.
-
-    **Ejemplo**:
-
-    `<h1>`Este es el encabezado 1`</h1>` <br>
-    `<h2>`Este es el encabezado 2`</h2>` <br>
-    `<h3>`Este es el encabezado 3`</h3>` <br>
-    `<h4>`Este es el encabezado 4`</h4>` <br>
-    `<h5>`Este es el encabezado 5`</h5>` <br>
-    `<h6>`Este es el encabezado 6`</h6>` 
-
-    El aspecto de lo anterior debería ser parecido a este:
-
-    ![Encabezados de ejemplo](./media/heading.png)
+     ![Uso del editor de texto enriquecido para aplicar sangría](./media/text-editor5.png)
 
 #### <a name="links"></a>Vínculos
 
 - **Directiva de privacidad** (se requiere): vínculo a la directiva de privacidad de su organización. Usted es el responsable no solo de garantizar que la aplicación cumple la normativa y la legislación en lo tocante a la privacidad, sino también de proporcionar una directiva de privacidad válida
-- **Materiales de marketing del programa CSP** (opcional): Si decide ampliar su oferta al programa [Proveedor de soluciones en la nube (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers), debe incluir un vínculo a los materiales de marketing. CSP amplía su oferta a una rango mayor clientes aptos, ya que permite que los asociados de CSP incluyan su oferta en paquetes, la comercialicen y la distribuyan. Los revendedores necesitarán acceder a estos materiales para comercializar su oferta. Para más información, consulte [Servicios de comercialización](https://partner.microsoft.com/reach-customers/gtm).
+- **Materiales de marketing del programa CSP** (opcional): Si decide ampliar la oferta al programa [Proveedor de soluciones en la nube (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers), proporcione un vínculo a los materiales de marketing. CSP amplía su oferta a una rango mayor clientes aptos, ya que permite que los asociados de CSP incluyan su oferta en paquetes, la comercialicen y la distribuyan. Los revendedores necesitarán acceder a estos materiales para comercializar su oferta. Para más información, consulte [Servicios de comercialización](https://partner.microsoft.com/reach-customers/gtm).
 - **Vínculos útiles** (opcional): Documentos en línea complementarios opcionales acerca de la aplicación o de servicios relacionados que se muestran tras escribir un **título** y una **dirección URL**. Para agregar más vínculos útiles, haga clic en **+ Agregar una dirección URL** .
 
 #### <a name="contact-information"></a>Información de contacto
@@ -353,7 +305,7 @@ No olvide **guardar** antes de pasar a la siguiente sección.
 La pestaña **Versión preliminar** permite definir un **público preliminar** limitado para publicar la oferta antes de ponerla a disposición de un público más amplio de Marketplace.
 
 > [!IMPORTANT]
-> Debe seleccionar **Publicar** para que su oferta se publique en vivo para el público de Marketplace después de comprobar que la oferta está en versión preliminar.
+> Después de comprobar que la oferta está en versión preliminar, seleccione **Publicar** para que se publique en vivo para el público de Marketplace.
 
 - **Definición de un público preliminar: incorporación de un correo electrónico individual de la cuenta de AAD/MSA por línea, junto con una descripción opcional.**
 
@@ -368,13 +320,14 @@ La pestaña **Configuración técnica** define los detalles técnicos (ruta de a
 
 - **Dirección URL de la página de destino** (se requiere): defina la dirección URL a la que se dirigirán a los clientes después de adquirir la oferta en Marketplace. Dicha URL será el punto de conexión que reciba un token cuando un cliente se enrute a la página. Dicho token se puede intercambiar para aprovisionar detalles mediante el uso de resolver en las API de suministro. Tanto estos detalles como otros que recopile pueden utilizarse como parte de una página web interactiva con los clientes basada en su experiencia para completar el registro y activar su compra.
 
-- **Webhook de conexión** (se requiere): Para todos los eventos asincrónicos que Microsoft necesita enviarle en nombre del cliente (ejemplo: la suscripción de SaaS ha dejado de ser válida), le solicitamos que indique un webhook de conexión. Si aún no tiene un sistema de webhooks activo, la configuración más sencilla es una aplicación de lógica de punto de conexión HTTP que escuche los eventos que se publiquen en ella y que, después, los gestione adecuadamente (p. ej., https:\//prod-1westus.logic.azure.com:443/work).). Para obtener más información, consulte [Llamada, desencadenamiento o anidamiento de flujos de trabajo con puntos de conexión HTTP en aplicaciones lógicas](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Webhook de conexión** (se requiere): Para todos los eventos asincrónicos que Microsoft necesita enviarle en nombre del cliente (ejemplo: la suscripción de SaaS ha dejado de ser válida), le solicitamos que indique un webhook de conexión. Si todavía no tiene un sistema de webhooks activo, la configuración más sencilla es una aplicación de lógica de punto de conexión HTTP que escuche los eventos que se publiquen en ella y que, después, los gestione de la forma adecuada (por ejemplo, https:\//prod-1westus.logic.azure.com:443/work). Para obtener más información, consulte [Llamada, desencadenamiento o anidamiento de flujos de trabajo con puntos de conexión HTTP en aplicaciones lógicas](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
-- **Identificador de inquilino de Azure AD** (se requiere): En Azure Portal, es preciso que [cree una aplicación de Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para que podamos validar que la conexión entre nuestros dos servicios está detrás de una comunicación autenticada. Para buscar el [identificador de inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), vaya a Azure Active Directory y seleccione **Propiedades** y, después, busque el número de **identificador de directorio** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e).
+- **Identificador de inquilino de Azure AD** (se requiere): En Azure Portal, es preciso que [cree una aplicación de Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para que podamos validar que la conexión entre nuestros dos servicios está detrás de una comunicación autenticada. Para buscar el [identificador de inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), vaya a Azure Active Directory, seleccione **Propiedades** y, después, busque el número de **identificador de directorio** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Identificador de aplicación de Azure AD** (se requiere): También necesita su [identificador de la aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) y una clave de autenticación. Para obtener dichos valores, vaya a Azure Active Directory, seleccione **Registros de aplicaciones** y busque el número de**identificador de la aplicación** que se muestra (p.ej., 50c464d3-4930-494c-963c-1e951d15360e). Para buscar la clave de autenticación, vaya a **Configuración** y seleccione **Claves**. Deberá proporcionar una descripción y una duración y, después, se proporcionara un valor numérico.
+- **Identificador de aplicación de Azure AD** (se requiere): También necesita su [identificador de la aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) y una clave de autenticación. Para obtener esos valores, vaya a Azure Active Directory, seleccione **Registros de aplicaciones** y, después, busque el número de **identificador de la aplicación** que se muestra (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e). Para buscar la clave de autenticación, vaya a **Configuración** y seleccione **Claves**. Deberá proporcionar una descripción y una duración y, después, se proporcionara un valor numérico.
 
- Tenga en cuenta que el identificador de aplicación de Azure está asociado a su identificador de anunciante, así que asegúrese de que se usa el mismo identificador de aplicación en todas las ofertas.
+>[!Note]
+>El identificador de aplicación de Azure está asociado al identificador de anunciante, por lo que debe asegurarse de que en todas las ofertas se use el mismo identificador de aplicación.
 
 ## <a name="plan-overview"></a>Información general del plan
 
@@ -389,8 +342,8 @@ Las **acciones** disponibles en **Información general del plan** varían en fun
 
 **Crear nuevo plan** (un mínimo de un plan para quienes seleccionen vender a través de Microsoft)
 
-- **Id. de plan:** cree un identificador de plan único para cada plan de esta oferta. Los clientes lo verán en la dirección URL del producto y en las plantillas de Azure Resource Manager (si procede). Use solo caracteres alfanuméricos en minúscula, guiones o caracteres de subrayado. El identificador de este plan no puede tener más de 50 caracteres. Tenga en cuenta que el identificador no se puede modificar después de seleccionar que se cree.
-- **Nombre del plan:** Los clientes verán este nombre al decidir que plan van a seleccionar en su oferta. Cree un nombre de oferta único para cada uno de los planes de esta oferta. El nombre del plan se usa para diferenciar los planes de software que pueden formar parte de la misma oferta (p. ej. Nombre de oferta: Windows Server; planes: Windows Server 2016, Windows Server 2019).
+- **Id. de plan:** cree un identificador de plan único para cada plan de esta oferta. Los clientes lo verán en la dirección URL del producto y en las plantillas de Azure Resource Manager (si procede). Use solo caracteres alfanuméricos en minúscula, guiones o caracteres de subrayado. El identificador de este plan no puede tener más de 50 caracteres. El identificador no se puede modificar después de seleccionar que se cree.
+- **Nombre del plan:** Los clientes verán este nombre al decidir que plan van a seleccionar en su oferta. Cree un nombre de oferta único para cada uno de los planes de esta oferta. El nombre del plan se usa para diferenciar los planes de software que pueden formar parte de la misma oferta (por ejemplo, Nombre de la oferta: Windows Server; planes: Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-listing"></a>Lista del plan
 
@@ -423,7 +376,7 @@ La capacidad de configurar una evaluación gratuita está disponible para cada p
 >[!Note]
 >Una vez que se haya publicado la oferta de la instrucción que permite transacciones con una evaluación gratuita, no se puede deshabilitar para ese plan. Asegúrese de que esta configuración sea correcta para la primera publicación para evitar tener que volver a crear el plan.
 
-Para obtener información sobre las suscripciones de clientes que actualmente participan en una evaluación gratuita, use la nueva propiedad de API `isFreeTrial`, que se marcará como true o false. Para más información, consulte [API para obtener suscripción de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
+Para obtener información sobre las suscripciones de clientes que actualmente participan en una evaluación gratuita, use la nueva propiedad de API `isFreeTrial`, que se marcará como true o false. Para más información, vea la [API para obtener suscripción de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
 
 >[!Note]
 >Las evaluaciones gratuitas no se admiten para los planes que usan el servicio de medición de Marketplace.

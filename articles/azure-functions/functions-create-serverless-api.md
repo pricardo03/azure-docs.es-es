@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 8bb30da9be5a025f87e5c6d17e0233d0793f3acb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 61b930eec1385b8c4054f9c202547a82e61e55e7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230693"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769275"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalización de un punto de conexión HTTP en Azure Functions
 
-En este artículo, aprenderá cómo Azure Functions permite crear API de gran escalabilidad. Azure Functions incluye una colección de enlaces y desencadenadores HTTP integrados que facilitan la creación de un punto de conexión en diversos lenguajes, como Node.JS, C# y muchos más. En este artículo, va a personalizar un desencadenador HTTP para administrar acciones específicas en el diseño de la API. También va a prepararse para ampliar su API integrándola con Servidores proxy de Azure Functions y configurando API simuladas. Todo esto se logra en un entorno de proceso sin servidor de Functions, por lo que no tiene que preocuparse de escalar los recursos; puede centrarse simplemente en la lógica de la API.
+En este artículo, aprenderá cómo Azure Functions permite crear API de gran escalabilidad. Azure Functions incluye una colección de enlaces y desencadenadores HTTP integrados que facilitan la creación de un punto de conexión en diversos lenguajes, como Node.js, C# y muchos más. En este artículo, va a personalizar un desencadenador HTTP para administrar acciones específicas en el diseño de la API. También va a prepararse para ampliar su API integrándola con Servidores proxy de Azure Functions y configurando API simuladas. Todo esto se logra en un entorno de proceso sin servidor de Functions, por lo que no tiene que preocuparse de escalar los recursos; puede centrarse simplemente en la lógica de la API.
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerequisites 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -25,7 +25,7 @@ La función resultante se usará durante el resto de este artículo.
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Abra Azure Portal. Para ello, inicie sesión en [https://portal.azure.com](https://portal.azure.com) con su cuenta de Azure.
+Abra Azure Portal. Para ello, inicie sesión en [https://portal.azure.com](https://portal.azure.com) con su cuenta de Azure.
 
 ## <a name="customize-your-http-function"></a>Personalización de la función HTTP
 
@@ -37,7 +37,7 @@ De forma predeterminada, la función desencadenada por HTTP está configurada pa
 
 1. Use la configuración de desencadenador HTTP como se especifica en la tabla.
 
-    | Campo | Valor de ejemplo | DESCRIPCIÓN |
+    | Campo | Valor de ejemplo | Descripción |
     |---|---|---|
     | Métodos HTTP permitidos | Métodos seleccionados | Determina qué métodos HTTP se pueden usar para invocar esta función. |
     | Métodos HTTP seleccionados | GET | Permite que solo se usen los métodos HTTP seleccionados para invocar esta función. |
@@ -97,15 +97,15 @@ Repita los pasos de [Creación de una aplicación de función](https://docs.micr
     ![Creación de un proxy](./media/functions-create-serverless-api/creating-proxy.png)
 1. Use la configuración de proxy como se especifica en la tabla. 
 
-    | Campo | Valor de ejemplo | DESCRIPCIÓN |
+    | Campo | Valor de ejemplo | Descripción |
     |---|---|---|
-    | NOMBRE | HelloProxy | Un nombre descriptivo que se usa solo para la administración |
+    | Nombre | HelloProxy | Un nombre descriptivo que se usa solo para la administración |
     | Plantilla de ruta | /api/remotehello | Determina qué ruta se utiliza para invocar este proxy. |
     | Dirección URL de back-end | https://%HELLO_HOST%/api/hello | Especifica el punto de conexión al que la solicitud debe remitir a través del proxy. |
     
 1. Tenga en cuenta que en Servidores proxy no se proporciona el prefijo de ruta de acceso base `/api`, y esto debe incluirse en la plantilla de ruta.
 1. La sintaxis `%HELLO_HOST%` hará referencia a la configuración de la aplicación que creó antes. La dirección URL resuelta apuntará a la función original.
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 1. Puede probar el nuevo proxy; para ello, copie la dirección URL del proxy y pruébela en el explorador o con su cliente HTTP favorito.
     1. Para una función anónima, utilice:
         1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"`

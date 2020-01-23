@@ -7,13 +7,13 @@ manager: cshankar
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: ef7d78b292561e87eac12200bc0b9d68299759d9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/07/2020
+ms.openlocfilehash: 22053bdc3a9836b76aa92303234a095cac6448ef
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443630"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863849"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualización de datos de Time Series Insights en Power BI
 
@@ -41,8 +41,8 @@ Asegúrese de que se registra para obtener una [suscripción gratuita a Azure](h
 
 Para conectar un entorno de Time Series Insights a Power BI, siga estos pasos:
 
-1. Abra Time Series Insights Explorer                      
-1. Exporte los datos en forma de consulta o de datos sin procesar                       
+1. Abra Time Series Insights Explorer
+1. Exporte los datos en forma de consulta o de datos sin procesar
 1. Abra Power BI Desktop
 1. Cargue desde una consulta personalizada
 
@@ -51,13 +51,14 @@ Para conectar un entorno de Time Series Insights a Power BI, siga estos pasos:
 Primeros pasos:
 
 1. Abra Time Series Insights Preview Explorer y ajuste los datos.
-1. Una vez que haya creado una vista con la que esté satisfecho, vaya al menú desplegable **Más opciones** y haga clic en **Conectar con Power BI**. 
+1. Una vez que haya creado una vista con la que esté conforme, vaya al menú desplegable **Más acciones** y seleccione **Conectar con Power BI**.
 
     [![Exportación desde el Explorador de versión preliminar de Time Series Insights](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
 1. Establezca los parámetros en esta pestaña:
 
-   1. Especifique el periodo concreto que va a ver. Si no le gusta su vista existente, deje la opción **Periodo existente**. 
+   1. Especifique el periodo concreto que va a ver. Si no le gusta su vista existente, deje la opción **Periodo existente**.
+   
    1. Elija entre **Agregado** y **Eventos sin formato**. 
    
        > [!NOTE]
@@ -117,7 +118,7 @@ Ahora que ha importado los datos en Power BI, es el momento de crear un informe
 
     [![Crear un gráfico de líneas](media/how-to-connect-power-bi/power-bi-line-chart.png)](media/how-to-connect-power-bi/power-bi-line-chart.png#lightbox)
 
-1.  Para agregar otro gráfico al lienzo, haga clic en cualquier lugar del lienzo fuera del gráfico de líneas y repita este proceso.
+1.  Para agregar otro gráfico al lienzo, seleccione cualquier lugar del lienzo fuera del gráfico de líneas y repita este proceso.
 
     [![Crear gráficos adicionales para compartir](media/how-to-connect-power-bi/power-bi-additional-charts.png)](media/how-to-connect-power-bi/power-bi-additional-charts.png#lightbox)
 
@@ -137,7 +138,7 @@ A modo de información general:
 1. Modifique la carga de JSON según sea necesario.
 1. Seleccione **Listo** y, después, **Cerrar y aplicar** en la **ventana del editor Power Query**.
 
-Debería ver que se han aplicado los cambios deseados.  
+Ahora, en la interfaz se reflejarán los cambios que haya aplicado.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -145,4 +146,4 @@ Debería ver que se han aplicado los cambios deseados.
 
 * Más información acerca de [Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
 
-* Consulte [Inicio rápido: Exploración de Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) e [Inicio rápido: Exploración del entorno de demostración de la versión preliminar de Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+* Vea [Explorador de disponibilidad general de Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) y [Explorador de la versión preliminar de Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).

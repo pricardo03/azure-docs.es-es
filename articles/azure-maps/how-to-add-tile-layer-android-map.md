@@ -1,6 +1,6 @@
 ---
-title: Incorporación de una capa de mosaico a los mapas de Android en Azure Maps | Microsoft Docs
-description: Incorporación de una capa de mosaico a un mapa mediante Android SDK de Azure Maps
+title: Adición de una capa de mosaico a mapas de Android | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre cómo representar una capa de mosaico en un mapa mediante Android SDK de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5d5f50a38db95f6e62bdd8c51aefd5957041e682
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e54eeaa6dafd60e5fc481f2f4b45929edda77c44
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886455"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911527"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Incorporación de una capa de mosaico a un mapa mediante Android SDK de Azure Maps
 
@@ -37,7 +37,7 @@ La dirección URL del mosaico pasada a una capa de mosaico debe ser una direcci�
 * `{bbox-epsg-3857}`: una cadena de un cuadro delimitador con el formato `{west},{south},{east},{north}` en el sistema de referencia espacial EPSG 3857.
 * `{subdomain}`: un marcador de posición donde se agregarán los valores de subdominio si se especifican.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar el proceso en este artículo, debe instalar [Android SDK de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para cargar un mapa.
 

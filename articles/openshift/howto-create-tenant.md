@@ -1,18 +1,17 @@
 ---
-title: Creación de un inquilino de Azure AD para Red Hat OpenShift en Azure | Microsoft Docs
+title: Creación de un inquilino de Azure AD para Red Hat OpenShift en Azure
 description: Aquí se muestra cómo crear un inquilino de Azure Active Directory (Azure AD) para hospedar el clúster de Red Hat OpenShift en Microsoft Azure.
 author: jimzim
 ms.author: jzim
 ms.service: container-service
-manager: jeconnoc
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 560cdcf8a99a486c7f5177b675cff327c6fb6a41
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad03538cafcce9c1d660d0f2ac5eb3c6ae5f4f38
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306462"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270462"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Creación de un inquilino de Azure AD para Red Hat OpenShift en Azure
 
@@ -29,7 +28,7 @@ Para crear un inquilino:
 3. Proporcione un **Nombre de organización**.
 4. Proporcione un **Nombre de dominio inicial**. Este tendrá *onmicrosoft.com* anexado a él. Puede volver a usar el valor de *Nombre de organización*.
 5. Elija un país o región donde se creará el inquilino.
-6. Haga clic en **Create**(Crear).
+6. Haga clic en **Crear**.
 7. Una vez creado el inquilino de Azure AD, seleccione el vínculo **Haga clic aquí para administrar el nuevo directorio**. El nombre del nuevo inquilino se debe mostrar en la parte superior derecha de Azure Portal:  
 
     ![Captura de pantalla del portal que muestra el nombre del inquilino en la parte superior derecha][tenantcallout]  

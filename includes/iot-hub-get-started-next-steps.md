@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 02/14/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: fc4b613eb9e77acef4568ef93b7606fb43568f82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8bf7f3a423b97f6cd84f0b575d00d60776c598c
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476021"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911921"
 ---
 Para continuar la introducción a Azure IoT Hub y explorar todos los escenarios de IoT con mayor detalle, consulte lo siguiente:
 
-- [Administración de la mensajería de dispositivos en la nube con la extensión Azure IoT Hub Toolkit para Visual Studio Code](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
+- [Administración de la mensajería de dispositivos en la nube con la extensión de Azure IoT Hub para Visual Studio Code](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
 
-- [Administración de dispositivos con la extensión Azure IoT Hub Toolkit para Visual Studio Code](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)
+- [Administración de dispositivos con la extensión de Azure IoT Hub para Visual Studio Code](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)
 
 - [Configuración del enrutamiento de mensajes](../articles/iot-hub/tutorial-routing.md)
 

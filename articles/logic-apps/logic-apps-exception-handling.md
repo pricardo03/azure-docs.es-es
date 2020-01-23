@@ -1,57 +1,57 @@
 ---
-title: Administración de errores y excepciones
+title: Control de errores y excepciones en flujos de trabajo
 description: Aprenda a administrar errores y excepciones que se producen en tareas y flujos de trabajo automatizados creados con Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: dereklee
 ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
-ms.date: 01/31/2018
+ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: fa197a04b91f398bda2e402b18a638b9bf0ab9a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 21314d3c80832c14538130ce373ccf6d2dd19f18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453401"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965944"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Control de errores y excepciones en Azure Logic Apps
 
-La manera en la que una arquitectura de integración controla correctamente el tiempo de inactividad o los problemas causados por sistemas dependientes puede plantear un desafío. Para ayudarle a crear integraciones sólidas y resistentes que controlen correctamente los problemas y los errores, Logic Apps proporciona una experiencia de primera clase para el control de errores y excepciones. 
+La manera en la que una arquitectura de integración controla correctamente el tiempo de inactividad o los problemas causados por sistemas dependientes puede plantear un desafío. Para ayudarle a crear integraciones sólidas y resistentes que controlen correctamente los problemas y los errores, Logic Apps proporciona una experiencia de primera clase para el control de errores y excepciones.
 
 <a name="retry-policies"></a>
 
 ## <a name="retry-policies"></a>Directivas de reintentos
 
-Para el control de errores y excepciones más básico, puede usar una *directiva de reintentos* en cualquier acción o desencadenador compatible. Una directiva de reintentos especifica cuándo y cómo la acción o desencadenador vuelve a intentar una solicitud cuando se agota el tiempo de espera de la solicitud original o se produce un error, como cualquier solicitud que devuelva una respuesta 408, 429 o 5xx. Si no se utiliza ninguna otra directiva de reintentos, se usará la directiva predeterminada. 
+Para el control de errores y excepciones más básico, puede usar una *directiva de reintentos* en cualquier acción o desencadenador compatible; por ejemplo, vea [Acción HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger). Una directiva de reintentos especifica cuándo y cómo la acción o desencadenador vuelve a intentar una solicitud cuando se agota el tiempo de espera de la solicitud original o se produce un error, como cualquier solicitud que devuelva una respuesta 408, 429 o 5xx. Si no se utiliza ninguna otra directiva de reintentos, se usará la directiva predeterminada.
 
-Estos son los tipos de directivas de reintentos: 
+Estos son los tipos de directivas de reintentos:
 
-| Tipo | Descripción | 
-|------|-------------| 
-| **Valor predeterminado** | Esta directiva envía hasta cuatro reintentos en intervalos que *aumentan exponencialmente* a una escala de 7,5 segundos pero con unos límites de entre 5 y 45 segundos. | 
-| **Intervalo exponencial**  | Esta directiva espera un intervalo aleatorio seleccionado de un intervalo exponencialmente creciente antes de enviar la solicitud siguiente. | 
-| **Intervalo fijo**  | Esta directiva espera el intervalo especificado antes de enviar la solicitud siguiente. | 
-| **None**  | No volver a enviar la solicitud. | 
-||| 
+| Tipo | Descripción |
+|------|-------------|
+| **Valor predeterminado** | Esta directiva envía hasta cuatro reintentos en intervalos que *aumentan exponencialmente* a una escala de 7,5 segundos pero con unos límites de entre 5 y 45 segundos. |
+| **Intervalo exponencial**  | Esta directiva espera un intervalo aleatorio seleccionado de un intervalo exponencialmente creciente antes de enviar la solicitud siguiente. |
+| **Intervalo fijo**  | Esta directiva espera el intervalo especificado antes de enviar la solicitud siguiente. |
+| **None**  | No volver a enviar la solicitud. |
+|||
 
-Para más información acerca de los límites de las directivas de reintentos, consulte [Límites y configuración de Logic Apps](../logic-apps/logic-apps-limits-and-config.md#request-limits). 
+Para más información acerca de los límites de las directivas de reintentos, consulte [Límites y configuración de Logic Apps](../logic-apps/logic-apps-limits-and-config.md#request-limits).
 
 ### <a name="change-retry-policy"></a>Cambio de la directiva de reintentos
 
-Para seleccionar una directiva de reintentos diferente, siga estos pasos: 
+Para seleccionar una directiva de reintentos diferente, siga estos pasos:
 
-1. Abra la aplicación lógica en el Diseñador de aplicaciones lógicas. 
+1. Abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
 
-2. Abra el elemento **Configuración** de una acción o un desencadenador.
+1. Abra el elemento **Configuración** de una acción o un desencadenador.
 
-3. Si la acción o el desencadenador admiten directivas de reintentos, en **Directiva de reintentos**, seleccione el tipo que desee. 
+1. Si la acción o el desencadenador admiten directivas de reintentos, en **Directiva de reintentos**, seleccione el tipo que desee.
 
 O bien, puede especificar manualmente la directiva de reintentos en la sección `inputs` de una acción o un desencadenador que admitan directivas de reintentos. Si no se especifica una directiva de reintentos, la acción utiliza la directiva predeterminada.
 
 ```json
 "<action-name>": {
-   "type": "<action-type>", 
+   "type": "<action-type>",
    "inputs": {
       "<action-specific-inputs>",
       "retryPolicy": {
@@ -59,7 +59,7 @@ O bien, puede especificar manualmente la directiva de reintentos en la sección 
          "interval": "<retry-interval>",
          "count": <retry-attempts>,
          "minimumInterval": "<minimum-interval>",
-         "maximumInterval": "<maximun-interval>"
+         "maximumInterval": "<maximum-interval>"
       },
       "<other-action-specific-inputs>"
    },
@@ -71,18 +71,18 @@ O bien, puede especificar manualmente la directiva de reintentos en la sección 
 
 | Value | Tipo | Descripción |
 |-------|------|-------------|
-| <*retry-policy-type*> | String | El tipo de directiva de reintentos que quiere usar: `default`, `none`, `fixed` o `exponential`. | 
-| <*retry-interval*> | String | El intervalo de reintento, donde se debe usar el [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) para el valor. El intervalo mínimo predeterminado es `PT5S` y el intervalo máximo es `PT1D`. Cuando se usa la directiva de intervalo exponencial, puede especificar diferentes valores mínimos y máximos. | 
-| <*retry-attempts*> | Entero | El número de reintentos, que debe estar comprendido entre 1 y 90 | 
+| <*retry-policy-type*> | String | El tipo de directiva de reintentos que quiere usar: `default`, `none`, `fixed` o `exponential`. |
+| <*retry-interval*> | String | El intervalo de reintento, donde se debe usar el [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) para el valor. El intervalo mínimo predeterminado es `PT5S` y el intervalo máximo es `PT1D`. Cuando se usa la directiva de intervalo exponencial, puede especificar diferentes valores mínimos y máximos. |
+| <*retry-attempts*> | Entero | El número de reintentos, que debe estar comprendido entre 1 y 90 |
 ||||
 
 *Opcional*
 
 | Value | Tipo | Descripción |
 |-------|------|-------------|
-| <*minimum-interval*> | String | Para la directiva de intervalo exponencial, el intervalo más pequeño para el intervalo seleccionado aleatoriamente en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
-| <*maximum-interval*> | String | Para la directiva de intervalo exponencial, el intervalo más grande para el intervalo seleccionado aleatoriamente en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
-|||| 
+| <*minimum-interval*> | String | Para la directiva de intervalo exponencial, el intervalo más pequeño para el intervalo seleccionado aleatoriamente en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
+| <*maximum-interval*> | String | Para la directiva de intervalo exponencial, el intervalo más grande para el intervalo seleccionado aleatoriamente en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
+||||
 
 Aquí tiene más información acerca de los tipos de directivas diferentes.
 
@@ -90,7 +90,7 @@ Aquí tiene más información acerca de los tipos de directivas diferentes.
 
 ### <a name="default"></a>Valor predeterminado
 
-Si no define una directiva de reintentos, la acción utiliza la directiva predeterminada, que es una [directiva de intervalo exponencial](#exponential-interval) que envía hasta cuatro reintentos en intervalos crecientes exponencialmente que aumentan 7,5 segundos cada vez. El intervalo se demora entre 5 y 45 segundos. 
+Si no define una directiva de reintentos, la acción utiliza la directiva predeterminada, que es una [directiva de intervalo exponencial](#exponential-interval) que envía hasta cuatro reintentos en intervalos crecientes exponencialmente que aumentan 7,5 segundos cada vez. El intervalo se demora entre 5 y 45 segundos.
 
 Aunque no definida explícitamente en la acción o el desencadenador, le mostramos cómo se comporta la directiva predeterminada en una acción HTTP de ejemplo:
 
@@ -155,65 +155,107 @@ Esta tabla muestra cómo Logic Apps genera una variable aleatoria uniforme dentr
 | 2 | max(interval, <*minimum-interval*>) | min(2 * interval, <*maximum-interval*>) |
 | 3 | max(2 * interval, <*minimum-interval*>) | min(4 * interval, <*maximum-interval*>) |
 | 4 | max(4 * interval, <*minimum-interval*>) | min(8 * interval, <*maximum-interval*>) |
-| .... | .... | .... | 
-|||| 
+| .... | .... | .... |
+||||
 
-## <a name="catch-and-handle-failures-with-the-runafter-property"></a>Detección y control de errores con la propiedad RunAfter
+<a name="control-run-after-behavior"></a>
 
-Cada acción de aplicación lógica declara las acciones que deben finalizar antes de que dicha acción se inicie, de manera similar a la especificación del orden de los pasos en el flujo de trabajo. En la definición de acción, la propiedad **runAfter** define este orden y es un objeto que describe qué acciones y estados de acción ejecutan la acción.
+## <a name="catch-and-handle-failures-by-changing-run-after-behavior"></a>Detección y control de errores mediante el cambio del comportamiento de "ejecución posterior"
 
-De forma predeterminada, todas las acciones que se agregan en el Diseñador de aplicación lógica están configuradas para que se ejecuten después del paso anterior, si es el resultado del paso anterior es **Succeeded**. Sin embargo, puede personalizar el valor **runAfter** para que las acciones se activen cuando las acciones anteriores den como resultado **Failed**, **Skipped** o alguna combinación de estos valores. Por ejemplo, para agregar un elemento a un tema de Service Bus específico después de que se produzca un error en una determinada acción **Insert_Row**, podría utilizar esta definición **runAfter** de ejemplo:
+Cuando se agregan acciones en el Diseñador de aplicaciones lógicas, se declara de forma implícita el orden que se va a usar para ejecutarlas. Una vez finalizada la ejecución de una acción, se marca con un estado como `Succeeded`, `Failed`, `Skipped` o `TimedOut`. En cada definición de acción, la propiedad `runAfter` especifica la acción predecesora que debe finalizar primero y los estados permitidos para esa predecesora antes de que se pueda ejecutar la acción sucesora. De forma predeterminada, una acción que se agrega en el diseñador solo se ejecuta después de que se complete la predecesora con el estado `Succeeded`.
 
-```json
-"Send_message": {
-    "inputs": {
+Cuando una acción inicia una excepción o un error no controlado, la acción se marca como `Failed` y las acciones sucesoras se marcan como `Skipped`. Si este comportamiento se produce para una acción que tiene ramas paralelas, el motor de Logic Apps sigue las otras ramas para determinar sus estados de finalización. Por ejemplo, si una rama finaliza con una acción `Skipped`, el estado de finalización de esa rama se basa en el estado de la predecesora de la acción omitida. Una vez completada la ejecución de la aplicación lógica, el motor determina el estado de la ejecución completa mediante la evaluación de todos los estados de la rama. Si alguna de las ramas finaliza en un error, la ejecución de toda la aplicación lógica se marca como `Failed`.
+
+![Ejemplos en los que se muestra cómo se evalúan los estados de ejecución](./media/logic-apps-exception-handling/status-evaluation-for-parallel-branches.png)
+
+Para asegurarse de que una acción se pueda seguir ejecutando a pesar del estado de su predecesora, [personalice el comportamiento de "ejecución posterior" de una acción](#customize-run-after) para controlar los estados incorrectos de la predecesora.
+
+<a name="customize-run-after"></a>
+
+### <a name="customize-run-after-behavior"></a>Personalización del comportamiento de "ejecución posterior"
+
+Puede personalizar el comportamiento de "ejecución posterior" de una acción para que la acción se ejecute cuando el estado de la predecesora sea `Succeeded`, `Failed`, `Skipped`, `TimedOut` o cualquiera de estos estados. Por ejemplo, para enviar un correo electrónico después de que la acción predecesora `Add_a_row_into_a_table` de Excel Online se marque como `Failed`, en lugar de `Succeeded`, siga uno de estos pasos para cambiar el comportamiento de "ejecución posterior":
+
+* En la vista de diseño, seleccione el botón de puntos suspensivos ( **...** ) y después **Configurar ejecución posterior**.
+
+  ![Configuración del comportamiento de "ejecución posterior" para una acción](./media/logic-apps-exception-handling/configure-run-after-property-setting.png)
+
+  La forma de la acción muestra el estado predeterminado necesario para la acción predecesora, que en este ejemplo es **Agregar una fila a una tabla**:
+
+  ![Comportamiento de "ejecución posterior" predeterminado para una acción](./media/logic-apps-exception-handling/change-run-after-property-status.png)
+
+  Cambie el comportamiento de "ejecución posterior" al estado que prefiera que, en este ejemplo, es **se ha producido un error**:
+
+  ![Cambio del comportamiento de "ejecución posterior" a "se ha producido un error"](./media/logic-apps-exception-handling/run-after-property-status-set-to-failed.png)
+
+  Para especificar que la acción se ejecute si la acción predecesora se marca como `Failed`, `Skipped` o `TimedOut`, seleccione los otros estados:
+
+  ![Cambio del comportamiento de "ejecución posterior" para que tenga cualquier otro estado](./media/logic-apps-exception-handling/run-after-property-multiple-statuses.png)
+
+* En la vista de código, en la definición de JSON de la acción, edite la propiedad `runAfter`, que sigue esta sintaxis:
+
+  ```json
+  "<action-name>": {
+     "inputs": {
+        "<action-specific-inputs>"
+     },
+     "runAfter": {
+        "<preceding-action>": [
+           "Succeeded"
+        ]
+     },
+     "type": "<action-type>"
+  }
+  ```
+
+  En este ejemplo, cambie la propiedad `runAfter` de `Succeeded` a `Failed`:
+
+  ```json
+  "Send_an_email_(V2)": {
+     "inputs": {
         "body": {
-            "ContentData": "@{encodeBase64(body('Insert_Row'))}",
-            "ContentType": "{ \"content-type\" : \"application/json\" }"
+           "Body": "<p>Failed to&nbsp;add row to &nbsp;@{body('Add_a_row_into_a_table')?['Terms']}</p>",,
+           "Subject": "Add row to table failed: @{body('Add_a_row_into_a_table')?['Terms']}",
+           "To": "Sophia.Owen@fabrikam.com"
         },
         "host": {
-            "api": {
-                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/servicebus"
-            },
-            "connection": {
-                "name": "@parameters('$connections')['servicebus']['connectionId']"
-            }
+           "connection": {
+              "name": "@parameters('$connections')['office365']['connectionId']"
+           }
         },
         "method": "post",
-        "path": "/@{encodeURIComponent('failures')}/messages"
-    },
-    "runAfter": {
-        "Insert_Row": [
-            "Failed"
+        "path": "/v2/Mail"
+     },
+     "runAfter": {
+        "Add_a_row_into_a_table": [
+           "Failed"
         ]
-    }
-}
-```
+     },
+     "type": "ApiConnection"
+  }
+  ```
 
-La propiedad **runAfter** está configurada para ejecutarse cuando el estado de la acción **Insert_Row** es **Failed**. Para ejecutar la acción si el estado de la acción es **Correcta**, **Errónea** u **Omitida**, use esta sintaxis:
+  Para especificar que la acción se ejecute si la acción predecesora se marca como `Failed`, `Skipped` o `TimedOut`, agregue los otros estados:
 
-```json
-"runAfter": {
-        "Insert_Row": [
-            "Failed", "Succeeded", "Skipped"
-        ]
-    }
-```
-
-> [!TIP]
-> Las acciones que se ejecutan y completan correctamente después de que una acción anterior haya producido un error presentan la marca **Succeeded**. Este comportamiento significa que, si detecta correctamente todos los errores de un flujo de trabajo, la propia ejecución se marca como **Succeeded**.
+  ```json
+  "runAfter": {
+     "Add_a_row_into_a_table": [
+        "Failed", "Skipped", "TimedOut"
+     ]
+  },
+  ```
 
 <a name="scopes"></a>
 
 ## <a name="evaluate-actions-with-scopes-and-their-results"></a>Evaluación de las acciones con ámbitos y sus resultados
 
-De forma similar a la ejecución de pasos tras acciones individuales con la propiedad **runAfter**, puede agrupar acciones dentro de un [ámbito](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md). Puede usar ámbitos si desea agrupar acciones lógicamente, evaluar el estado global del ámbito y realizar acciones basadas en ese estado. Una vez que todas las acciones de un ámbito acaben de ejecutarse, el propio ámbito obtiene su estado. 
+De forma similar a la ejecución de pasos tras acciones individuales con la propiedad `runAfter`, puede agrupar acciones dentro de un [ámbito](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md). Puede usar ámbitos si desea agrupar acciones lógicamente, evaluar el estado global del ámbito y realizar acciones basadas en ese estado. Una vez que todas las acciones de un ámbito acaben de ejecutarse, el propio ámbito obtiene su estado.
 
-Para comprobar el estado del ámbito, puede usar los mismos criterios que usa para comprobar el estado de ejecución de la aplicación lógica, como **Succeeded**, **Failed**, etc. 
+Para comprobar el estado de un ámbito, puede usar los mismos criterios que se usan para comprobar el estado de ejecución de la aplicación lógica, como `Succeeded`, `Failed`, etc.
 
-De forma predeterminada, cuando las acciones del ámbito se ejecutan correctamente, el estado del ámbito se marca como **Succeeded**. Si la acción final de un ámbito da como resultado **Failed** o **Aborted**, el estado del ámbito se marca como **Failed**. 
+De forma predeterminada, cuando todas las acciones del ámbito se ejecutan correctamente, el estado del ámbito se marca como `Succeeded`. Si la acción final de un ámbito da como resultado `Failed` o `Aborted`, el estado del ámbito se marca como `Failed`.
 
-Para detectar las excepciones en un ámbito **Failed** y ejecutar acciones que controlen estos errores, puede usar la propiedad **runAfter** para ese ámbito **Failed**. De ese modo, si *cualquier* acción del ámbito produce un error, y usa la propiedad **runAfter** para ese ámbito, puede crear una única acción para detectar errores.
+Para detectar las excepciones en un ámbito `Failed` y ejecutar acciones que controlen estos errores, puede usar la propiedad `runAfter` para ese ámbito `Failed`. De ese modo, si se produce un error en *cualquier* acción del ámbito, y usa la propiedad `runAfter` para ese ámbito, puede crear una única acción para detectar errores.
 
 Para conocer los límites en los ámbitos, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md).
 
@@ -223,9 +265,9 @@ Para conocer los límites en los ámbitos, consulte [Límites y configuración](
 
 Aunque la detección de errores desde un ámbito es útil, quizás también necesite el contexto como ayuda para comprender exactamente qué acciones han producido un error y los errores o códigos de estado que se hayan devuelto.
 
-La función [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) proporciona contexto sobre los resultados de todas las acciones de un ámbito. La función `result()` acepta un único parámetro, que es el nombre del ámbito, y devuelve una matriz que contiene todos los resultados de acción de dentro de ese ámbito. Estos objetos de acción incluyen los mismos atributos que el objeto `@actions()`, como la hora de inicio, la hora de finalización, el estado, las entradas, los identificadores de correlación y las salidas de la acción. Para enviar el contexto de las acciones que produjeron un error dentro de un ámbito, puede emparejar fácilmente una expresión `@result()` con la propiedad `runAfter`.
+La función [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) proporciona contexto sobre los resultados de todas las acciones de un ámbito. La función `result()` acepta un único parámetro, que es el nombre del ámbito, y devuelve una matriz que contiene todos los resultados de acción de dentro de ese ámbito. Estos objetos de acción incluyen los mismos atributos que el objeto `actions()`, como la hora de inicio, la hora de finalización, el estado, las entradas, los identificadores de correlación y las salidas de la acción. Para enviar el contexto de las acciones que produjeron un error dentro de un ámbito, puede emparejar fácilmente una expresión `@result()` con la propiedad `runAfter`.
 
-Para ejecutar una acción para cada una de las acciones de un ámbito que tenga un resultado de **Error**, y para filtrar la matriz de resultados por las acciones con error, puede emparejar una expresión `@result()`[**con una acción**](../connectors/connectors-native-query.md)Filtrar matriz[**y un bucle**For each](../logic-apps/logic-apps-control-flow-loops.md). Puede tomar la matriz de resultados filtrada y realizar una acción para cada error mediante el bucle **For each**.
+Para ejecutar una acción para cada una de las acciones de un ámbito que tenga un resultado de `Failed`, y para filtrar la matriz de resultados por las acciones con error, puede emparejar una expresión `@result()` con una acción [**Filtrar matriz**](logic-apps-perform-data-operations.md#filter-array-action) y un bucle [**For each**](../logic-apps/logic-apps-control-flow-loops.md). Puede tomar la matriz de resultados filtrada y realizar una acción para cada error mediante el bucle `For_each`.
 
 En este ejemplo, seguido de una explicación detallada, se envía una solicitud HTTP POST con el cuerpo de respuesta de todas las acciones que produjeron un error dentro del ámbito "My_Scope":
 
@@ -272,20 +314,19 @@ Este es un tutorial detallado que describe lo que sucede en este ejemplo:
 
 1. Para obtener el resultado de todas las acciones de "My_Scope", la acción **Filter Array** usa esta expresión de filtro: `@result('My_Scope')`.
 
-2. La condición de **Filter Array** es cualquier elemento `@result()` que tenga el estado **Failed** (Erróneo). Esta condición filtra la matriz que contiene todos los resultados de acción de "My_Scope" a una matriz con solo los resultados de acción que hayan producido un error.
+1. La condición para **Filtrar matriz** es cualquier elemento `@result()` que tenga un estado `Failed`. Esta condición filtra la matriz que contiene todos los resultados de acción de "My_Scope" a una matriz con solo los resultados de acción que hayan producido un error.
 
-3. Realiza una acción de bucle **For each** en las salidas de la *matriz filtrada*. Este paso realiza una acción para cada resultado de acción con errores que se filtrara antes.
+1. Realiza una acción de bucle `For_each` en las salidas de la *matriz filtrada*. Este paso realiza una acción para cada resultado de acción con errores que se filtrara antes.
 
-   Si una sola acción del ámbito produjo un error, las acciones del bucle **For each** se ejecutan solo una vez. 
-   Muchas acciones con error causan una acción por cada error.
+   Si solo se produce un error en una acción del ámbito, las acciones del bucle `For_each` solo se ejecutan una vez. Muchas acciones con error causan una acción por cada error.
 
-4. Envía una solicitud HTTP POST en el cuerpo de respuesta del elemento **For each**, que es la expresión `@item()['outputs']['body']`. 
+1. Envía una solicitud HTTP POST en el cuerpo de respuesta del elemento `For_each`, que es la expresión `@item()['outputs']['body']`.
 
    La forma del elemento `@result()` es la misma que la forma de `@actions()` y se puede analizar del mismo modo.
 
-5. Incluya dos encabezados personalizados con el nombre de la acción con errores (`@item()['name']`) y el id. de seguimiento de cliente de la ejecución con errores `@item()['clientTrackingId']`.
+1. Incluya dos encabezados personalizados con el nombre de la acción con errores (`@item()['name']`) y el id. de seguimiento de cliente de la ejecución con errores `@item()['clientTrackingId']`.
 
-Como referencia, este es un ejemplo de un único elemento `@result()`, que muestra las propiedades **name**, **body** y **clientTrackingId** que se analizan en el ejemplo anterior. Fuera de una acción **For each**, `@result()` devuelve una matriz de estos objetos.
+Como referencia, este es un ejemplo de un solo elemento `@result()`, que muestra las propiedades `name`, `body` y `clientTrackingId` que se analizan en el ejemplo anterior. Fuera de una acción `For_each`, `@result()` devuelve una matriz de estos objetos.
 
 ```json
 {
@@ -317,12 +358,11 @@ Como referencia, este es un ejemplo de un único elemento `@result()`, que muest
 }
 ```
 
-Para poner en práctica diferentes patrones de control de excepciones, puede usar las expresiones descritas anteriormente en este artículo. Puede optar por ejecutar una única acción de control de excepciones fuera del ámbito, que acepte toda la matriz filtrada de errores y eliminar la acción **For each**. También puede incluir otras propiedades útiles de la respuesta **\@result()** , tal como se mostró anteriormente.
+Para poner en práctica diferentes patrones de control de excepciones, puede usar las expresiones descritas anteriormente en este artículo. Podría optar por ejecutar una única acción de control de excepciones fuera del ámbito, que acepte toda la matriz filtrada de errores y quite la acción `For_each`. También puede incluir otras propiedades útiles de la respuesta `\@result()`, como se ha mostrado antes.
 
 ## <a name="azure-diagnostics-and-metrics"></a>Azure Diagnostics y métricas
 
-Los patrones anteriores son una manera excelente de controlar errores y excepciones dentro de una ejecución, pero también puede identificar y responder a los errores con independencia de la ejecución en sí. 
-[Azure Diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md) ofrece un método sencillo de enviar todos los eventos del flujo de trabajo (incluidos todos los estados de ejecución y acción) a una cuenta de Azure Storage o a un centro de eventos creado con Azure Event Hubs. 
+Los patrones anteriores son una manera excelente de controlar errores y excepciones dentro de una ejecución, pero también puede identificar y responder a los errores con independencia de la ejecución en sí. [Azure Diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md) ofrece un método sencillo de enviar todos los eventos del flujo de trabajo (incluidos todos los estados de ejecución y acción) a una cuenta de Azure Storage o a un centro de eventos creado con [Azure Event Hubs](../event-hubs/event-hubs-about.md).
 
 Para evaluar los estados de ejecución, puede supervisar los registros y las métricas, o publicarlos en la herramienta de supervisión que prefiera. Una posible opción es transmitir todos los eventos mediante Event Hubs a [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). En Stream Analytics, puede escribir consultas en directo de anomalías, promedios o errores de los registros de diagnóstico. Asimismo, puede usar Stream Analytics para enviar información a otros orígenes de datos, como colas, temas, SQL, Azure Cosmos DB o Power BI.
 
@@ -330,6 +370,3 @@ Para evaluar los estados de ejecución, puede supervisar los registros y las mé
 
 * [Vea cómo un cliente crea el control de errores con Azure Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Encuentre más escenarios y ejemplos de Logic Apps](../logic-apps/logic-apps-examples-and-scenarios.md)
-
-<!-- References -->
-[retryPolicyMSDN]: https://docs.microsoft.com/rest/api/logic/actions-and-triggers#Anchor_9

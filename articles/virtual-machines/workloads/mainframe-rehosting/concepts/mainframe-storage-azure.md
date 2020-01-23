@@ -6,16 +6,16 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: dc78f87d9b47745119da91b8ed1f8f6c8572968c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86419811cdf2c11204caae0ca5bf6f65fba063d2
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190436"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288921"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Mover el almacenamiento del sistema central a Azure
 
-Para ejecutar las cargas de trabajo de los sistemas centrales en Microsoft Azure, debe saber cuáles son las similitudes entre las capacidades de proceso de su sistema central y las de Azure. Los recursos de almacenamiento escalables de forma masiva pueden ayudar a las organizaciones a empezar a modernizarse sin dejar de usar las aplicaciones en las que dependen.
+Para ejecutar cargas de trabajo de sistema central en Microsoft Azure, debe saber cómo las funcionalidades del sistema central se comparan con Azure. Los recursos de almacenamiento escalables de forma masiva pueden ayudar a las organizaciones a empezar a modernizarse sin dejar de usar las aplicaciones en las que dependen.
 
 Azure proporciona características similares a las del sistema central y una capacidad de almacenamiento comparable a la de los sistemas basados en z14 de IBM (el modelo más reciente durante la redacción de este documento). En este artículo se explica cómo obtener resultados comparables en Azure.
 
@@ -51,7 +51,7 @@ El almacenamiento de Azure está disponible como [Azure Disks](/azure/virtual-ma
 
 <table>
 <thead>
-    <tr><th>Type</th><th>DESCRIPCIÓN</th><th>Úselo cuando quiera:</th></tr>
+    <tr><th>Tipo</th><th>Descripción</th><th>Úselo cuando quiera:</th></tr>
 </thead>
 <tbody>
 <tr><td>Archivos de Azure
@@ -94,7 +94,7 @@ El tipo de almacenamiento de un sistema determinado depende de los requisitos de
 
 Las SSD ofrecen el máximo rendimiento de almacenamiento en Azure. Las siguientes opciones están disponibles (en el momento de escribir este documento):
 
-| Type         | Tamaño           | E/S                  |
+| Tipo         | Size           | E/S                  |
 |--------------|----------------|-----------------------|
 | SSD ultra    | De 4 GB a 64 TB  | De 1200 a 160.000 IOPS |
 | SSD Premium  | De 32 GB a 32 TB | De 12 a 15.000 IOPS     |
@@ -121,11 +121,10 @@ El almacenamiento de blobs proporciona el mayor volumen de almacenamiento en Azu
 
 ### <a name="azure-government"></a>Azure Government
 
-- [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/) (Microsoft Azure Government en la nube para aplicaciones del sistema central)
+- [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/) (Nube de Microsoft Azure Government para aplicaciones de sistema central)
 - [Microsoft y FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/FedRAMP)
 
 ### <a name="more-migration-resources"></a>Más recursos sobre migración
 
-- [Platform Modernization Alliance: IBM DB2 on Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx) (Platform Modernization Alliance: IBM DB2 en Azure)
 - [Azure Virtual Data Center Lift and Shift Guide](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/) (Centro de datos virtual de Azure: guía para una migración lift-and-shift)
 - [iSCSI en GlusterFS](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

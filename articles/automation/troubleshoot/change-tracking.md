@@ -1,6 +1,6 @@
 ---
 title: Solución de problemas con la configuración de Azure Change Tracking
-description: Este artículo contiene información sobre la solución de problemas de Change Tracking.
+description: Obtenga información acerca de cómo solucionar problemas con la característica Change Tracking e Inventario de Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 482b263b7c8427276d4fdb8681372c2be1ae69ee
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 51a9dbf8be6538534c05a4b8b6fcd913ef8c6ae3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849401"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769938"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Solución de problemas de Change Tracking e Inventario
 
@@ -35,7 +35,7 @@ Este error puede deberse a las siguientes razones:
 3. No se han descargado los módulos de administración de Change Tracking.
 4. La máquina virtual que se incorpora puede provenir de una máquina clonada que no estaba preparada con sysprep con Microsoft Monitoring Agent instalado.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 1. Compruebe que **Microsoft Monitoring Agent** (HealthService.exe) esté ejecutándose en la máquina.
 1. Consulte el **Visor de eventos** de la máquina y busque cualquier evento que contenga la palabra `changetracking`.

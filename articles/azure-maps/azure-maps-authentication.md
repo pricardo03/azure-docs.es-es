@@ -1,20 +1,20 @@
 ---
-title: Autenticación con Azure Maps | Microsoft Docs
-description: Autenticación para usar los servicios de Azure Maps.
+title: Métodos de autenticación | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre la autenticación de clave compartida o Azure Active Directory (Azure AD) para usar los servicios de Microsoft Azure Maps. Obtenga información sobre cómo obtener una clave de suscripción de Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/24/2019
+ms.date: 12/30/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 84af496a92bd3c7b30062e965335782f7661aa4a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 006adae99b2430f4c08ce5fc692598e48f45c239
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575651"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911819"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticación con Azure Maps
 
@@ -22,12 +22,14 @@ Azure Maps admite dos formas de autenticar las solicitudes: Clave compartida y A
 
 ## <a name="shared-key-authentication"></a>Autenticación de clave compartida
 
-La autenticación de clave compartida pasa las claves generadas por una cuenta de Azure Maps con cada solicitud a Azure Maps.  Cuando se crea la cuenta de Azure Maps se generan dos claves. Cada solicitud a los servicios de Azure Maps requiere que se agregue la clave de suscripción como parámetro a la dirección URL.
+La autenticación de clave compartida pasa las claves generadas por una cuenta de Azure Maps con cada solicitud a Azure Maps. Cada solicitud a los servicios de Azure Maps requiere que se agregue la *clave de suscripción* como parámetro a la dirección URL. Las claves principal y secundaria se generan después de crearse la cuenta de Azure Maps. Recomendamos que use la clave principal como clave de suscripción al llamar a Azure Maps mediante la autenticación de clave compartida. La clave secundaria se puede usar, por ejemplo, para cambios de clave graduales.  
+
+Para obtener información sobre cómo ver sus claves en Azure Portal, consulte [Administración de la autenticación](https://aka.ms/amauthdetails).
 
 > [!Tip]
 > Se recomienda regenerar las claves periódicamente. Como se le proporcionan dos claves, puede mantener las conexiones con una mientras se regenera la otra. Cuando regenere las claves, debe actualizar todas las aplicaciones que acceden a la cuenta para usar las nuevas claves.
 
-Para información sobre cómo ver las claves, consulte [Visualización de los detalles de la autenticación](https://aka.ms/amauthdetails).
+
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>Autenticación con Azure Active Directory (versión preliminar)
 
@@ -57,7 +59,7 @@ Para información general sobre la solicitud de tokens de Azure AD, consulte [¿
 
 Después de recibir un token de Azure AD, se puede enviar una solicitud a Azure Maps con los dos siguientes encabezados de solicitud requeridos establecidos:
 
-| Encabezado de solicitud    |    Valor    |
+| Encabezado de solicitud    |    Value    |
 |:------------------|:------------|
 | x-ms-client-id    | 30d7cc….9f55|
 | Authorization     | Bearer eyJ0e….HNIVN |

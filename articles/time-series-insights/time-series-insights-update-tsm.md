@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d588e11525e5087f8667da4602797e5299c76f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1f560a7aa746ce7c6262dcaddf74c9d573332fa6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75374753"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861394"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Versión preliminar del modelo de serie temporal en Azure Time Series Insights
 
@@ -129,7 +129,7 @@ Las instancias tienen la siguiente representación JSON:
 ```
 
 > [!TIP]
-> Para obtener información sobre la API de instancia de Time Series Insights y la compatibilidad con crear, leer, actualizar y eliminar (CRUD), vea el artículo [Consulta de datos](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) y la [documentación de la API REST de instancia](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+> Para obtener información sobre la API Instance de Time Series Insights y la compatibilidad con crear, leer, actualizar y eliminar (CRUD), lea el artículo [Consulta de datos](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) y la [documentación de la API REST Instance](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
 
 ## <a name="time-series-model-hierarchies"></a>Jerarquías del modelo de serie temporal
 
@@ -186,7 +186,7 @@ En el ejemplo JSON anterior:
 * `ManufactureDate` define una jerarquía con `year` primario y `month`secundario. Cada `ManufactureDate` puede tener varios `years` que, a su vez, pueden tener varios `months`.
 
 > [!TIP]
-> Para obtener información sobre la API de instancia de Time Series Insights y la compatibilidad con CRUD, vea el artículo [Consulta de datos](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) y la [documentación de la API REST de jerarquía](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+> Para obtener información sobre la API Instance de Time Series Insights y la compatibilidad con CRUD, lea el artículo [Consulta de datos](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) y la [documentación de la API REST Hierarchy](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Ejemplo de jerarquía
 
@@ -231,7 +231,7 @@ En la [demostración Contoso Wind Farm](https://insights.timeseries.azure.com/pr
 [![Ejemplo de tipo del modelo de serie temporal](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> Para obtener información sobre la API de instancia de Time Series Insights y la compatibilidad con CRUD, vea el artículo [Consulta de datos](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) y la [documentación de la API REST de tipo](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+> Para obtener información sobre la API Instance de Time Series Insights y la compatibilidad con CRUD, lea el artículo [Consulta de datos](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) y la [documentación de la API REST Type](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
 ### <a name="type-properties"></a>Propiedades de tipo
 
@@ -391,7 +391,7 @@ Las variables se almacenan en la definición de tipo de un modelo de serie tempo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md) (Almacenamiento y entrada de datos en la versión preliminar de Azure Time Series Insights).
+- Lea [Almacenamiento y entrada de datos en la versión preliminar de Azure Time Series Insights](./time-series-insights-update-storage-ingress.md).
 
 - Obtenga información sobre las operaciones comunes del modelo de serie temporal en [Modelado de datos en la versión preliminar de Azure Time Series Insights](./time-series-insights-update-how-to-tsm.md)
 

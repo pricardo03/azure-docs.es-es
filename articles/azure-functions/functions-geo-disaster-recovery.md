@@ -6,12 +6,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: jehollan
-ms.openlocfilehash: db072d90c39b3856127925306cb1407c5837a0bb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bdeff0194bda620250481a215c145b1ec3b2207e
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226969"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920789"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>Recuperación ante desastres geográfica de Azure Functions
 
@@ -34,7 +34,7 @@ Para lograr implementaciones activo/activo de funciones, se necesitan algunos co
 
 ## <a name="activeactive-for-non-https-functions"></a>Patrón activo/activo para funciones no HTTPS
 
-Aunque puede lograr implementaciones activo/activo de funciones no HTTPS,  debe tener en cuenta cómo interactuarán las dos regiones o se coordinarán entre sí.  Si implementó la misma aplicación de función en dos regiones y cada una de ellas se desencadena en la misma cola de Service Bus, estas actuarán como consumidores rivales al quitar de la cola esa cola.  Si bien esto significa que solo una de las instancias procesa el mensaje, también significa que todavía hay un único punto de error en el bus de servicio único.  Si implementa dos colas de Service Bus (una en una región primaria y otra en una región secundaria) y las dos aplicaciones de función apuntan a la cola de su región, la dificultad reside ahora en cómo se distribuyen los mensajes de la cola entre las dos regiones.  A menudo, esto significa que cada publicador intenta publicar un mensaje en *ambas* regiones, y ambas aplicaciones de función activas procesan cada mensaje.  Aunque esta situación crea un patrón activo/activo, presenta otras dificultades relacionadas con la duplicación del proceso y cuándo o cómo se consolidan los datos.  Por estos motivos, se recomienda usar el patrón activo/pasivo para los desencadenadores no HTTPS.
+Aunque puede lograr implementaciones activo/activo de funciones no HTTPS,  debe tener en cuenta cómo interactuarán las dos regiones o se coordinarán entre sí.  Si implementó la misma aplicación de función en dos regiones y cada una de ellas se desencadena en la misma cola de Service Bus, estas actuarán como consumidores rivales al quitar de la cola esa cola.  Aunque esto significa que solo una de las instancias procesa el mensaje, también significa que todavía hay un único punto de error en la instancia única de Service Bus.  Si implementa dos colas de Service Bus (una en una región primaria y otra en una región secundaria) y las dos aplicaciones de funciones apuntan a la cola de su región, la dificultad reside ahora en cómo se distribuyen los mensajes de la cola entre las dos regiones.  A menudo, esto significa que cada publicador intenta publicar un mensaje en *ambas* regiones, y ambas aplicaciones de función activas procesan cada mensaje.  Aunque esta situación crea un patrón activo/activo, presenta otras dificultades relacionadas con la duplicación del proceso y cuándo o cómo se consolidan los datos.  Por estos motivos, se recomienda usar el patrón activo/pasivo para los desencadenadores no HTTPS.
 
 ## <a name="activepassive-for-non-https-functions"></a>Patrón activo/pasivo para funciones no HTTPS
 

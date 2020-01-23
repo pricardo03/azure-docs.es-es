@@ -1,20 +1,18 @@
 ---
 title: '(EN DESUSO) Guía de inicio rápido: clúster de Azure Docker CE para Linux'
 description: Aprenda rápidamente a crear un clúster de Docker CE para contenedores de Linux en Azure Container Service con la CLI de Azure.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: a7a7455ce9167a9c480d317d50fdce49e2ef06a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f492dd2bd270d3f067c05c1dc2235d54e481847
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721798"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274873"
 ---
 # <a name="deprecated-deploy-docker-ce-cluster"></a>(EN DESUSO) Implementación del clúster de Docker CE
 
@@ -30,7 +28,7 @@ Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido e
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un grupo lógico en el que se implementan y se administran los recursos de Azure.
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un grupo lógico en el que se implementan y administran recursos de Azure.
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *westus2*.
 
@@ -65,9 +63,9 @@ az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-grou
 
 En algunos casos, como con las versiones de evaluación de tiempo limitado, una suscripción a Azure tiene un acceso limitado a los recursos de Azure. Si se produce un error en la implementación debido a que los núcleos disponibles son limitados, reduzca el número de agentes predeterminado agregando `--agent-count 1` al comando [az acs create](/cli/azure/acs#az-acs-create). 
 
-Unos minutos después, el comando se completa y devuelve información en formato JSON acerca del clúster.
+En unos minutos, terminará de ejecutarse el comando, que devuelve información con formato JSON sobre el clúster.
 
-## <a name="connect-to-the-cluster"></a>Conexión al clúster
+## <a name="connect-to-the-cluster"></a>Conectarse al clúster
 
 A lo largo de este tutorial de inicio rápido, necesitará el FQDN del maestro de Docker Swarm y del grupo de agentes de Docker. Ejecute el siguiente comando para devolver los FQDN del maestro y del agente.
 
@@ -106,7 +104,6 @@ Cree un archivo llamado `azure-vote.yaml` y copie en él el siguiente contenido.
 
 ```yaml
 version: '3'
-services:
   azure-vote-back:
     image: redis
     ports:

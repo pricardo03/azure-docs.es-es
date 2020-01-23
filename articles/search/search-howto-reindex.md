@@ -1,19 +1,19 @@
 ---
 title: Recompilar un índice de búsqueda
 titleSuffix: Azure Cognitive Search
-description: Agregue elementos nuevos, actualice elementos o documentos existentes o elimine documentos obsoletos en una indexación de recompilación completa o incremental parcial para actualizar un índice de Azure Cognitive Search.
+description: Agregue elementos nuevos, actualice elementos o documentos existentes o elimine documentos obsoletos en una recompilación competa o una indexación parcial para actualizar un índice de Azure Cognitive Search.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b14c153f52e0427e289afeccdfd22d6510e4ace1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 18cfa3c6fde399ea61e09c5788c72ce20e5570e8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112970"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754396"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Cómo recompilar un índice en Azure Cognitive Search
 
@@ -25,7 +25,7 @@ A diferencia de las recompilaciones que aceptan un índice sin conexión, la *ac
 
 ## <a name="rebuild-conditions"></a>Condiciones de recompilación
 
-| Condición | DESCRIPCIÓN |
+| Condición | Descripción |
 |-----------|-------------|
 | Cambiar la definición de un campo | Revisar el nombre, el tipo de datos o los [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) específicos (si se pueden buscar, filtrar, ordenar, clasificar) de un campo requiere una recompilación completa. |
 | Asignar un analizador a un campo | Los [analizadores](search-analyzers.md) se definen en un índice y, a continuación, se asignan a los campos. Puede agregar una nueva definición de analizador a un índice en cualquier momento, pero solo puede *asignar* un analizador cuando se crea el campo. Esto es así tanto para la propiedad **analyzer** como para la propiedad **indexAnalyzer**. La propiedad **searchAnalyzer** es una excepción (puede asignar esta propiedad a un campo existente). |
@@ -93,7 +93,7 @@ Al cargar el índice, el índice invertido de cada campo se rellena con todas la
 
 Puede empezar a consultar un índice en cuanto se carga el primer documento. Si conoce el identificador de un documento, la [API REST para buscar documentos](https://docs.microsoft.com/rest/api/searchservice/lookup-document) devuelve el documento específico. Para realizar pruebas más amplias, debe esperar hasta que el índice se haya cargado completamente y, a continuación, usar consultas para comprobar el contexto que espera ver.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 + [Información general del indexador](search-indexer-overview.md)
 + [Indexación de grandes conjuntos de datos a escala](search-howto-large-index.md)

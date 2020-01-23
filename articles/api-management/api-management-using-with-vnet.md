@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: apimpm
-ms.openlocfilehash: 4a188a8de4f1cbf9d5bc20f7e514e3f5a2c752dc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 26a353251bd85a30ab26c86f3d6b363b0a84e074
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074625"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889543"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (redes virtuales) le permiten colocar cualquier recurso de Azure en una red distinta de Internet que se pueda enrutar y a la que controle el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -31,7 +31,7 @@ Azure API Management se puede implementar dentro de la red virtual (VNET), por l
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir los pasos que se describen en este artículo, debe tener:
 
@@ -41,37 +41,40 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 
 + Una instancia de APIM. Para más información, vea [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 
-## <a name="enable-vpn"></a>Habilitar la conexión de VNET
+## <a name="enable-vpn"> </a>Habilitar la conexión de VNET
 
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Habilitación de la conectividad de VNET mediante Azure Portal
 
-1. Acceda a la instancia de APIM de [Azure Portal](https://portal.azure.com/).
-2. Seleccione **Virtual Network**.
-3. Configure la instancia de API Management que se va a implementar dentro de la red virtual.
+1. Vaya a [Azure Portal](https://portal.azure.com) para buscar la instancia API Management. Busque y seleccione **Servicios API Management**.
+
+2. Elija su instancia de API Management.
+
+3. Seleccione **Red virtual**.
+4. Configure la instancia de API Management que se va a implementar dentro de la red virtual.
 
     ![Menú Red virtual de API Management][api-management-using-vnet-menu]
-4. Seleccione el tipo de acceso que prefiera:
+5. Seleccione el tipo de acceso que prefiera:
 
-   * **Desactivado**: este es el valor predeterminado. API Management no se implementa en una red virtual.
+    * **Off**: Este es el valor predeterminado. API Management no se implementa en una red virtual.
 
-   * **Externo:** la puerta de enlace de API Management y el portal para desarrolladores son accesibles públicamente desde Internet con un equilibrador de carga externo. La puerta de enlace puede acceder a recursos dentro de la red virtual.
+    * **Externas**: la puerta de enlace de API Management y el portal para desarrolladores son accesibles públicamente desde Internet con un equilibrador de carga externo. La puerta de enlace puede acceder a recursos dentro de la red virtual.
 
-     ![Emparejamiento público][api-management-vnet-public]
+        ![Emparejamiento público][api-management-vnet-public]
 
-   * **Interno:** la puerta de enlace de API Management y el portal para desarrolladores solo son accesibles desde la red virtual con un equilibrador de carga interno. La puerta de enlace puede acceder a recursos dentro de la red virtual.
+    * **Internas**: la puerta de enlace de API Management y el portal para desarrolladores solo son accesibles desde la red virtual con un equilibrador de carga interno. La puerta de enlace puede acceder a recursos dentro de la red virtual.
 
-     ![Emparejamiento privado][api-management-vnet-private]
+        ![Emparejamiento privado][api-management-vnet-private]
 
-     Ahora verá una lista de todas las regiones donde se aprovisiona el servicio Administración de API. Seleccione una VNET y la subred de cada región. La lista se rellena con redes virtuales de Resource Manager y clásicas disponibles en las suscripciones de Azure que se configuran en la región que va a configurar.
+6. Si seleccionó **Externo** o **Interno**, verá una lista de todas las regiones donde se aprovisiona el servicio de API Management. Elija una **Ubicación** y, luego, la **Red virtual** y la **Subred**. La lista de redes virtuales se rellena con redes virtuales de Resource Manager y clásicas disponibles en las suscripciones de Azure que se configuran en la región que va a configurar.
 
-     > [!IMPORTANT]
-     > Al implementar una instancia de Azure API Management en una VNET de Resource Manager, el servicio debe estar en una subred dedicada que no contiene ningún otro recurso excepto instancias de Azure API Management. Si se intenta implementar una instancia de Azure API Management en una subred de VNET de Resource Manager que contiene otros recursos, se producirá un error en la implementación.
-     >
+    > [!IMPORTANT]
+    > Al implementar una instancia de Azure API Management en una VNET de Resource Manager, el servicio debe estar en una subred dedicada que no contiene ningún otro recurso excepto instancias de Azure API Management. Si se intenta implementar una instancia de Azure API Management en una subred de VNET de Resource Manager que contiene otros recursos, se producirá un error en la implementación.
 
-     ![Selección de una VPN][api-management-setup-vpn-select]
+    Después, seleccione **Aplicar**. La página **Red virtual** de la instancia API Management se actualiza con las opciones de red virtual y subred nueva.
 
-5. Haga clic en **Guardar** en la barra de navegación superior.
-6. Haga clic en **Aplicar configuración de red** en la barra de navegación superior.
+    ![Selección de una VPN][api-management-setup-vpn-select]
+
+7. En la barra de navegación superior, seleccione **Guardar** y, luego, **Aplicar configuración de red**.
 
 > [!NOTE]
 > Tenga en cuenta que la dirección VIP de la instancia de API Management cambiará cada vez que se habilita o deshabilita VNET.
@@ -81,19 +84,19 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 > [!IMPORTANT]
 > Si elimina API Management de una red virtual o cambia aquella en la que se implementa, la red virtual usada anteriormente puede permanecer bloqueada hasta seis horas. Durante este periodo no será posible eliminar la red virtual ni implementar un nuevo recurso en ella. Este comportamiento se aplica a los clientes que usan la versión 2018-01-01 y anteriores de la API. En los clientes que usan la versión 2019-01-01 y posteriores de la API, la red virtual se libera en cuanto se elimina el servicio de API Management asociado.
 
-## <a name="enable-vnet-powershell"></a>Habilitar una conexión de VNET con cmdlets de PowerShell
-También puede habilitar la conectividad de VNET con los cmdlets de PowerShell
+## <a name="enable-vnet-powershell"> </a>Habilitar una conexión de VNET con cmdlets de PowerShell
+También puede habilitar la conectividad de VNET con los cmdlets de PowerShell.
 
 * **Crear un servicio de API Management dentro de una red virtual**: use el cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) para crear un servicio Azure API Management dentro de una red virtual.
 
 * **Implementar un servicio existente de API Management dentro de una VNET**: use el cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) para mover un servicio Azure API Management existente dentro de una red virtual.
 
-## <a name="connect-vnet"></a>Conectar a un servicio web hospedado en una red virtual
+## <a name="connect-vnet"> </a>Conectar a un servicio web hospedado en una red virtual
 Después de conectar el servicio API Management a la VNET, se accede a los servicios de back-end de la misma forma que a los servicios públicos. Solo tiene que escribir la dirección IP local o el nombre de host (si se ha configurado un servidor DNS para la VNET) del servicio web en el campo **Dirección URL de servicio web** al crear una API o editar una existente.
 
 ![Agregar una API desde VPN][api-management-setup-vpn-add-api]
 
-## <a name="network-configuration-issues"></a>Problemas comunes de configuración de red
+## <a name="network-configuration-issues"> </a>Problemas comunes de configuración de red
 A continuación se muestra una lista de problemas de errores de configuración comunes que pueden producirse al implementar el servicio de API Management en una red virtual.
 
 * **Configuración del servidor DNS personalizado**: el servicio de API Management depende de varios servicios de Azure. Cuando API Management está hospedado en una red virtual con un servidor DNS personalizado, necesita resolver los nombres de host de esos servicios de Azure. Siga [estas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) instrucciones sobre la configuración de DNS personalizado. Vea la siguiente tabla de puertos y otros requisitos de red a efectos de referencia.
@@ -186,7 +189,7 @@ Dado el cálculo anterior, el tamaño mínimo de la subred en la que se puede im
 + Se usará una dirección IP de un intervalo de IP de subred (DIP) para el acceso a los recursos dentro de la red virtual y una dirección IP pública (VIP) para el acceso a los recursos fuera de la red virtual.
 + La dirección IP pública con equilibrio de carga puede encontrarse en la hoja Información general/nformación esencial en Azure Portal.
 
-## <a name="limitations"></a>Limitaciones
+## <a name="limitations"> </a>Limitaciones
 * Una subred que contenga instancias de API Management no puede contener otros tipos de recursos de Azure.
 * La subred y el servicio API Management tienen que estar en la misma suscripción.
 * Una subred que contenga instancias de API Management no se puede mover a otras suscripciones.
@@ -194,7 +197,7 @@ Dado el cálculo anterior, el tamaño mínimo de la subred en la que se puede im
 * La conectividad de un recurso en una VNET emparejada globalmente a otra región con el servicio API Management en modo interno no funciona debido a la limitación de la plataforma. Para obtener más información, consulte el apartado [Los recursos en una red virtual no pueden comunicarse con la dirección IP de un equilibrador de carga interno de Azure en la red virtual emparejada](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
 
 
-## <a name="related-content"></a>Contenido relacionado
+## <a name="related-content"> </a>Contenido relacionado
 * [Conexión de una red virtual a back-end mediante VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Conexión a una red virtual a partir de diferentes modelos de implementación](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Uso de API Inspector para hacer un seguimiento de las llamadas en Azure API Management](api-management-howto-api-inspector.md)

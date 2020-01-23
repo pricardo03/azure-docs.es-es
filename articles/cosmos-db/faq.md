@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: dc627fc4bb7be449547a07cc34eb2cb3694964e9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ac93d1f4f0f148e1f0ce3d0f21ac9a694f2e896d
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445435"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310023"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre diferentes API en Azure Cosmos DB
 
@@ -76,8 +76,6 @@ Para formular una pregunta técnica, puede realizar una publicación en alguno d
 Para solicitar nuevas características, cree una nueva solicitud en [UserVoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 Para corregir un problema con la cuenta, envíe una [solicitud de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) en Azure Portal.
-
-Se pueden enviar otras consultas al equipo a [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com); sin embargo, este no es un alias de soporte técnico.
 
 ## <a id="try-cosmos-db"></a>Prueba de las suscripciones de Azure Cosmos DB
 
@@ -288,8 +286,6 @@ Para el SDK de .NET en concreto, hay algunas clases y métodos que Azure Cosmos 
 | TableServiceEntity | " " |
 | TableServiceExtensions | " " |
 | TableServiceQuery | " " |
-
-Si alguna de estas diferencias supone un problema para el proyecto, póngase en contacto con [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) y háganoslo saber.
 
 ### <a name="how-do-i-provide-feedback-about-the-sdk-or-bugs"></a>¿Cómo se pueden hacer comentarios sobre el SDK o los errores?
 

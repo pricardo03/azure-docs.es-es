@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 051b8780a102a8a1ec4d3979cc53b686e2823dc8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 952a94797e01a3931fdd151461250af0c2590c11
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928594"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120548"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Enlaces de Mobile Apps para Azure Functions 
 
@@ -132,16 +132,16 @@ Para información sobre las propiedades de atributo que puede configurar, consul
 
 ## <a name="input---configuration"></a>Entrada: configuración
 
-En la siguiente tabla se explican las propiedades de configuración de enlace que establece en el archivo *function.json* y el atributo `MobileTable`.
+En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `MobileTable`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
-| **type**|| Se debe establecer en "mobileTable"|
-| **direction**||Se debe establecer en "in"|
-| **name**|| Nombre del parámetro de entrada en la firma de la función.|
+| **type**| N/D | Se debe establecer en "mobileTable"|
+| **direction**| N/D |Se debe establecer en "in"|
+| **name**| N/D | Nombre del parámetro de entrada en la firma de la función.|
 |**tableName** |**TableName**|Nombre de la tabla de datos de la aplicación móvil|
 | **id**| **Id** | El identificador único del registro que se va a recuperar. Puede ser estático o se puede basar en el desencadenador que invoca la función. Por ejemplo, si usa un desencadenador de cola para la función, `"id": "{queueTrigger}"` usa el valor de cadena del mensaje de cola como el identificador de registro que se va a recuperar.|
-|**conexión**|**Connection**|El nombre de una configuración de aplicación que tiene la dirección URL de la aplicación móvil. La función utiliza esta dirección URL para construir las operaciones de REST necesarias en su aplicación móvil. Cree una configuración de aplicación en la aplicación de función que contiene la dirección URL de la aplicación móvil y, luego, especifique el nombre de la configuración de la aplicación en la propiedad `connection` del enlace de entrada. La dirección URL tiene el aspecto siguiente: `http://<appname>.azurewebsites.net`.
+|**connection**|**Connection**|El nombre de una configuración de aplicación que tiene la dirección URL de la aplicación móvil. La función utiliza esta dirección URL para construir las operaciones de REST necesarias en su aplicación móvil. Cree una configuración de aplicación en la aplicación de función que contiene la dirección URL de la aplicación móvil y, luego, especifique el nombre de la configuración de la aplicación en la propiedad `connection` del enlace de entrada. La dirección URL tiene el aspecto siguiente: `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKey**|El nombre de la configuración de una aplicación que tiene la clave de API de la aplicación móvil. Proporcione la clave de API si [implementa una clave de API en la aplicación móvil Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) o [implemente una clave de API en la aplicación móvil .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para proporcionar la clave, cree una configuración de la aplicación en la aplicación de la función que contiene la clave de API y, luego, agregue la propiedad `apiKey` en el enlace de entrada con el nombre de la configuración de la aplicación. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -292,13 +292,13 @@ Para obtener un ejemplo completo, consulte [Salida: ejemplo de C#](#output---c-e
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `MobileTable`.
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
-| **type**|| Se debe establecer en "mobileTable"|
-| **direction**||Debe establecerse en "out"|
-| **name**|| Nombre del parámetro de salida en la firma de la función.|
+| **type**| N/D | Se debe establecer en "mobileTable"|
+| **direction**| N/D |Debe establecerse en "out"|
+| **name**| N/D | Nombre del parámetro de salida en la firma de la función.|
 |**tableName** |**TableName**|Nombre de la tabla de datos de la aplicación móvil|
-|**conexión**|**MobileAppUriSetting**|El nombre de una configuración de aplicación que tiene la dirección URL de la aplicación móvil. La función utiliza esta dirección URL para construir las operaciones de REST necesarias en su aplicación móvil. Cree una configuración de aplicación en la aplicación de función que contiene la dirección URL de la aplicación móvil y, luego, especifique el nombre de la configuración de la aplicación en la propiedad `connection` del enlace de entrada. La dirección URL tiene el aspecto siguiente: `http://<appname>.azurewebsites.net`.
+|**connection**|**MobileAppUriSetting**|El nombre de una configuración de aplicación que tiene la dirección URL de la aplicación móvil. La función utiliza esta dirección URL para construir las operaciones de REST necesarias en su aplicación móvil. Cree una configuración de aplicación en la aplicación de función que contiene la dirección URL de la aplicación móvil y, luego, especifique el nombre de la configuración de la aplicación en la propiedad `connection` del enlace de entrada. La dirección URL tiene el aspecto siguiente: `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKeySetting**|El nombre de la configuración de una aplicación que tiene la clave de API de la aplicación móvil. Proporcione la clave de API si [implementa una clave de API en el back-end de aplicación móvil de Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) o [implementa una clave de API en el back-end de aplicación móvil de .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para proporcionar la clave, cree una configuración de la aplicación en la aplicación de la función que contiene la clave de API y, luego, agregue la propiedad `apiKey` en el enlace de entrada con el nombre de la configuración de la aplicación. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

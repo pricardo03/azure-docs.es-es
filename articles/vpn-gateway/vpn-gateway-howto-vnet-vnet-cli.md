@@ -1,26 +1,19 @@
 ---
-title: 'Conexión de una red virtual a otra mediante una conexión entre redes virtuales: CLI de Azure | Microsoft Docs'
+title: 'Conexión de una red virtual a una red virtual mediante una conexión de red virtual a red virtual: Azure CLI'
 description: Conecte redes virtuales entre sí mediante una conexión entre redes virtuales y la CLI de Azure.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: e18f37b31b7f0a49717e174d8a20d56388ad4808
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a354f8031c26ca86876dc6f3a2092610226cc84b
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60411838"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834568"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configuración de una conexión de puerta de enlace de VPN de red virtual a red virtual mediante la CLI de Azure
 
@@ -99,7 +92,7 @@ En los ejemplos usamos los siguientes valores:
 
 * Nombre de la red virtual: TestVNet1
 * Grupo de recursos: TestRG1
-* Ubicación: Este de EE. UU
+* Ubicación: East US
 * TestVNet1: 10.11.0.0/16 y 10.12.0.0/16
 * front-end: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24

@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 335a056a34412a7ed148613bfff59ecb30053e09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97f354d0a313d58c671366dd0e5f485504823e13
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190327"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288938"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Movimiento del proceso del sistema central a Azure
 
@@ -57,7 +57,7 @@ Azure Virtual Machines proporciona capacidad de proceso en varios tamaños y t
 
 Actualmente, los tamaños de Azure Virtual Machines disponibles van de 1 a 128 vCPU. Los tipos de máquinas virtuales (VM) están optimizados para cargas de trabajo concretas. Por ejemplo, la siguiente lista recoge los tipos de máquina virtual (existentes al redactar este documento) y sus usos recomendados:
 
-| Tamaño     | Tipo y descripción                                                                 |
+| Size     | Tipo y descripción                                                                 |
 |----------|--------------------------------------------------------------------------------------|
 | Serie D | Uso general con 64 vCPU y velocidad de reloj de hasta 3,5 GHz                           |
 | Serie E | Optimizada para memoria con hasta 64 vCPU                                                 |
@@ -121,7 +121,7 @@ Además, cada nivel también puede proporcionar servicios adecuados de recuperac
 ### <a name="ibm-resources"></a>Recursos de IBM
 
 - [Parallel Sysplex on IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources) (Parallel Sysplex en IBM Z)
-- [IBM CICS and the Coupling Facility: Beyond the Basics](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) (IBM CICS y el recurso de acoplamiento: más allá de los aspectos básicos).
+- [IBM CICS and the Coupling Facility: Beyond the Basics](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) (IBM CICS y el recurso de acoplamiento: más allá de los aspectos básicos)
 - [Creación de los usuarios necesarios para una instalación de Db2 pureScale Feature](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 - [Mandato db2icrt - Crear instancia](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
 - [Db2 pureScale Clustered Database Solution](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1) (Solución de base de datos en clúster de Db2 pureScale)
@@ -129,11 +129,10 @@ Además, cada nivel también puede proporcionar servicios adecuados de recuperac
 
 ### <a name="azure-government"></a>Azure Government
 
-- [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/) (Microsoft Azure Government en la nube para aplicaciones del sistema central)
+- [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/) (Nube de Microsoft Azure Government para aplicaciones de sistema central)
 - [Microsoft y FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/FedRAMP)
 
 ### <a name="more-migration-resources"></a>Más recursos sobre migración
 
-- [Platform Modernization Alliance: IBM DB2 on Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx) (Platform Modernization Alliance: IBM DB2 en Azure)
 - [Azure Virtual Data Center Lift and Shift Guide](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/) (Centro de datos virtual de Azure: guía para una migración lift-and-shift)
 - [iSCSI en GlusterFS](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

@@ -5,48 +5,68 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: aa9550d1ec6201f7cbaf552fac5f71c875428e21
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f9bee35ee8e82070b4cf601139b471562ba5e10b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458259"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934206"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Incorporación o eliminación de nodos de un clúster de Service Fabric independiente con Windows Server
 Una vez que [cree su clúster de Service Fabric independiente en máquinas con Windows Server](service-fabric-cluster-creation-for-windows-server.md), puede que las necesidades (empresariales) cambien y que deba agregar o eliminar nodos del clúster. En este artículo, se muestran los pasos detallados para llevarlo a cabo. Tenga en cuenta que no se permite agregar o eliminar nodos en los clústeres de desarrollo local.
 
 ## <a name="add-nodes-to-your-cluster"></a>Incorporación de nodos al clúster
 
-1. Prepare la máquina virtual o la máquina que desea agregar al clúster; para ello, siga los pasos descritos en [Planeamiento y preparación de la implementación de un clúster de Service Fabric](service-fabric-cluster-creation-for-windows-server.md).
-2. Identifique a qué dominio de error y de actualización va a agregar esta máquina o VM.
+1. Prepare la máquina virtual o el equipo que quiera agregar al clúster; para ello, siga los pasos descritos en [Planeamiento y preparación de la implementación de un clúster de Service Fabric](service-fabric-cluster-standalone-deployment-preparation.md).
+
+2. Identifique a qué dominio de error y de actualización se va a agregar este equipo o esta máquina virtual.
+
+   Si usa certificados para proteger el clúster, se espera que estén instalados en los almacenes de certificados locales para preparar el nodo para unirse al clúster. Lo mismo se aplica cuando se usan otras formas de seguridad.
+
 3. Abra una conexión de Escritorio remoto (RDP) en la máquina o VM que desea agregar al clúster.
-4. Copie o [descargue el paquete independiente de Service Fabric para Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) en esta máquina o VM y descomprímalo.
+
+4. Copie o [descargue el paquete independiente de Service Fabric para Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) en el equipo o la máquina virtual, y descomprímalo.
+
 5. Ejecute PowerShell con privilegios elevados y vaya a la ubicación del paquete descomprimido.
-6. Ejecute el script *AddNode.ps1* con los parámetros que describen el nuevo nodo que se va a agregar. En el ejemplo siguiente se agrega un nuevo nodo denominado VM5, con el tipo NodeType0 y la dirección IP 182.17.34.52, en UD1 y fd:/dc1/r0. *ExistingClusterConnectionEndPoint* es un punto de conexión para un nodo que ya está presente en el clúster existente, puede ser la dirección IP de *cualquier* nodo del clúster.
 
-    ```
-    .\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -AcceptEULA
-    ```
-    Una vez que finalice el script, puede comprobar si se ha agregado el nuevo nodo mediante la ejecución del cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps).
+6. Ejecute el script *AddNode.ps1* con los parámetros que describen el nuevo nodo que se va a agregar. En el ejemplo siguiente se agrega un nuevo nodo denominado VM5, con el tipo NodeType0 y la dirección IP 182.17.34.52, en UD1 y fd:/dc1/r0. `ExistingClusterConnectionEndPoint` es un punto de conexión para un nodo que ya está presente en el clúster existente, y que puede ser la dirección IP de *cualquier* nodo del clúster. 
 
-7. Para garantizar la coherencia entre los distintos nodos del clúster, debe iniciar una actualización de la configuración. Ejecute [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) para obtener el archivo de configuración más reciente y agregar el nodo recién agregado a la sección "Nodes". También se recomienda tener siempre la configuración del clúster más reciente disponible en el caso de que deba volver a implementar un clúster con la misma configuración.
+   No seguro (prototipos):
 
-    ```
-        {
-            "nodeName": "vm5",
-            "iPAddress": "182.17.34.52",
-            "nodeTypeRef": "NodeType0",
-            "faultDomain": "fd:/dc1/r0",
-            "upgradeDomain": "UD1"
-        }
-    ```
+   ```
+   .\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -AcceptEULA
+   ```
+
+   Seguro (basado en certificados):
+
+   ```  
+   $CertThumbprint= "***********************"
+    
+   .\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -X509Credential -ServerCertThumbprint $CertThumbprint  -AcceptEULA
+
+   ```
+
+   Cuando finalice la ejecución del script, puede comprobar si se ha agregado el nuevo nodo mediante la ejecución del cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps).
+
+7. Para garantizar la coherencia entre los distintos nodos del clúster, debe iniciar una actualización de la configuración. Ejecute [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) para obtener el archivo de configuración más reciente y agregar el nodo recién agregado a la sección "Nodes". También se recomienda tener siempre la configuración del clúster más reciente disponible en caso de que deba volver a implementar un clúster que tenga la misma configuración.
+
+   ```
+    {
+        "nodeName": "vm5",
+        "iPAddress": "182.17.34.52",
+        "nodeTypeRef": "NodeType0",
+        "faultDomain": "fd:/dc1/r0",
+        "upgradeDomain": "UD1"
+    }
+   ```
+
 8. Ejecute [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) para comenzar la actualización.
 
-    ```
-    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
+   ```
+   Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
+   ```
 
-    ```
-    Puede supervisar el progreso de la actualización en Service Fabric Explorer. Como alternativa, puede ejecutar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+   Puede supervisar el progreso de la actualización en Service Fabric Explorer. Como alternativa, puede ejecutar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
 
 ### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Agregar nodos a clústeres configurados con seguridad de Windows mediante gMSA
 En clústeres configurados con cuentas de servicio administradas de grupo (gMSA) (https://technet.microsoft.com/library/hh831782.aspx) ), se puede agregar un nuevo nodo mediante una actualización de configuración:
@@ -104,7 +124,7 @@ Agregue el parámetro "NodesToBeRemoved" a la sección "Setup" dentro de la secc
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
     ```
-    Puede supervisar el progreso de la actualización en Service Fabric Explorer. Como alternativa, puede ejecutar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+    Puede supervisar el progreso de la actualización en Service Fabric Explorer. Como alternativa, puede ejecutar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
 
 > [!NOTE]
 > La eliminación de nodos puede iniciar varias actualizaciones. Algunos nodos están marcados con la etiqueta `IsSeedNode=”true”` y se pueden identificar consultando el manifiesto del clúster mediante `Get-ServiceFabricClusterManifest`. La eliminación de estos nodos puede tardar más que la de otros, ya que se tendrán que mover los nodos de inicialización en estos escenarios. El clúster debe tener un mínimo de 3 nodos de tipo nodo primario.

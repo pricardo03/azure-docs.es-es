@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/28/2019
 ms.author: radeltch
-ms.openlocfilehash: ae2fb4c13633fa2ac22510a98e193bd9f01efb12
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 15abee96f81bca68575d61be1276d4394e9a6f55
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045257"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293817"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividad del punto de conexión público para las máquinas virtuales que usan Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP
 
@@ -35,7 +35,7 @@ Al implementar la alta disponibilidad para las soluciones de SAP a través de la
 
 El equilibrador de carga estándar de Azure ofrece algunas ventajas en comparación con el equilibrador de carga básico. Por ejemplo, funciona en todas las zonas de disponibilidad de Azure, tiene mejores funcionalidades de supervisión y registro para solucionar problemas más fácilmente y una latencia reducida. La característica "puertos de alta disponibilidad" cubre todos los puertos; es decir, ya no es necesario enumerar todos los puertos individuales.  
 
-Hay algunas diferencias importantes entre las SKU básica y estándar del equilibrador de carga de Azure. Una de ellas es el control del tráfico saliente al punto de conexión público. Para obtener una comparación completa entre las SKU básica y estándar de Load Balancer, consulte [Comparación de las SKU de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus).  
+Hay algunas diferencias importantes entre las SKU básica y estándar del equilibrador de carga de Azure. Una de ellas es el control del tráfico saliente al punto de conexión público. Para obtener una comparación completa entre las SKU básica y estándar de Load Balancer, consulte [Comparación de las SKU de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).  
  
 Cuando las máquinas virtuales sin direcciones IP públicas se colocan en el grupo de back-end de Standard Load Balancer interno de Azure (sin dirección IP pública), no hay conectividad saliente hacia los puntos de conexión públicos, a menos que se realice una configuración adicional.  
 

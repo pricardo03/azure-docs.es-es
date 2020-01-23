@@ -1,5 +1,5 @@
 ---
-title: Configuración de alertas de eventos de registro de diagnóstico de Azure VPN Gateway
+title: 'Azure VPN Gateway: Configuración de alertas en eventos de registro de diagnóstico'
 description: Pasos para configurar alertas en eventos de registro de diagnóstico de VPN Gateway
 services: vpn-gateway
 author: anzaman
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: d914c020553bace7ea5ab8898ac4093fea30e6c9
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: eb8f0204771b204af740c4ddc8e359499520a012
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307005"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045932"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Configuración de alertas de eventos de registro de diagnóstico de VPN Gateway
 
@@ -35,7 +35,7 @@ Los pasos del ejemplo siguiente crearán una alerta para un evento de desconexi�
 
 1. En Azure Portal, seleccione **Log Analytics** en **Todos los servicios** y seleccione **Áreas de trabajo de Log Analytics**.
 
-   ![Selecciones para ir a las áreas de trabajo de Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Crear")
+   ![Selecciones para acceder a las áreas de trabajo de Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Crear")
 
 2. Seleccione **Crear** en la página **Log Analytics**.
 
@@ -47,7 +47,7 @@ Los pasos del ejemplo siguiente crearán una alerta para un evento de desconexi�
 
 4. Busque la instancia de VPN Gateway en la hoja **Monitor** > **Configuración de diagnóstico**.
 
-   ![Selecciones para buscar la instancia de VPN Gateway en Configuración de diagnóstico](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "Seleccionar")
+   ![Selecciones para buscar la puerta de enlace de VPN en Configuración de diagnóstico](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "Seleccionar")
 
 5. Para activar los diagnósticos, haga doble clic en la puerta de enlace y, después, seleccione **Activar diagnósticos**.
 
@@ -55,13 +55,16 @@ Los pasos del ejemplo siguiente crearán una alerta para un evento de desconexi�
 
 6. Rellene los detalles y asegúrese de que **Enviar a Log Analytics** y **TunnelDiagnosticLog** están seleccionados. Elija el área de trabajo de Log Analytics que creó en el paso 3.
 
-   ![Casillas de verificación seleccionadas](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "Seleccionar")
+   ![Casillas seleccionadas](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "Seleccionar")
+
+   > [!NOTE]
+   > Inicialmente, los datos pueden tardar unas horas en mostrarse.
 
 7. Vaya a la introducción del recurso de la puerta de enlace de red virtual y seleccione **Alertas** en la pestaña **Supervisión**. Después, cree una regla de alertas o modifique una existente.
 
    ![Selecciones para crear una nueva regla de alertas](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Seleccionar")
 
-   ![punto a sitio](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Seleccionar")
+   ![point-to-site](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Seleccionar")
 8. Seleccione el área de trabajo de Log Analytics y el recurso.
 
    ![Selecciones para el área de trabajo y el recurso](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "Seleccionar")
@@ -85,7 +88,7 @@ Los pasos del ejemplo siguiente crearán una alerta para un evento de desconexi�
 
     Establezca el valor del umbral en 0 y seleccione **Listo**.
 
-    ![Escriba una consulta y seleccione un umbral](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "Seleccionar")
+    ![Escritura de una consulta y selección de un umbral](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "Seleccionar")
 
 11. En la página **Crear regla**, seleccione **Crear nueva** en la sección **GRUPOS DE ACCIONES**. Rellene los detalles y seleccione **Aceptar**.
 

@@ -1,25 +1,18 @@
 ---
-title: 'Solución de problemas: la conexión VPN de sitio a sitio de Azure no puede conectarse | Microsoft Docs'
+title: 'Solución de problemas: la conexión VPN de sitio a sitio de Azure no puede conectar titleSuffix: Azure VPN Gateway'
 description: Obtenga información acerca de cómo solucionar problemas de una conexión VPN de sitio a sitio que deja de funcionar repentinamente y no se puede volver a conectar.
 services: vpn-gateway
-documentationcenter: na
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: e196c4b512de3fac97347e4c252b697ed6818227
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 4e827c5f6eedc819bc3635cb09a28f65df51312c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058872"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862584"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solución de problemas: una conexión VPN de sitio a sitio de Azure no puede conectarse y deja de funcionar
 
@@ -78,7 +71,7 @@ Para el modelo de implementación clásico:
 -   La definición de IP en el objeto **Puerta de enlace de red local** en Azure debe coincidir con el IP de dispositivo local.
 -   La definición de la dirección IP de la puerta de enlace de Azure establecida en el dispositivo local debe coincidir con la dirección IP de la puerta de enlace de Azure.
 
-### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>Paso 4 Compruebe las UDR y los NSG de la subred de la puerta de enlace
+### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>Paso 4. Compruebe las UDR y los NSG de la subred de la puerta de enlace
 
 Busque y quite Enrutamiento definido por el usuario (UDR) o Grupos de seguridad de red (NSG) en la subred de puerta de enlace y, a continuación, pruebe el resultado. Si se resuelve el problema, valide la configuración de NSG o UDR aplicada.
 

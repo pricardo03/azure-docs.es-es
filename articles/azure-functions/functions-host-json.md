@@ -2,13 +2,13 @@
 title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
-ms.date: 09/08/2018
-ms.openlocfilehash: 374d00a75423274d03320b9c1299a2c2dae080ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/06/2020
+ms.openlocfilehash: 782998e49b9af3bf4d2ae5a561faaca399c6809f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433188"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978808"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
@@ -27,7 +27,7 @@ Algunas opciones de configuración de host.json solo se usan con la ejecución l
 
 ## <a name="sample-hostjson-file"></a>Archivo host.json de ejemplo
 
-El siguiente archivo *host.json* de ejemplo tiene especificadas todas las opciones posibles.
+El siguiente archivo *host.json* de ejemplo tiene especificadas todas las opciones posibles (salvo aquellas que son solo para uso interno).
 
 ```json
 {
@@ -67,7 +67,48 @@ El siguiente archivo *host.json* de ejemplo tiene especificadas todas las opcion
         "applicationInsights": {
             "samplingSettings": {
               "isEnabled": true,
-              "maxTelemetryItemsPerSecond" : 20
+              "maxTelemetryItemsPerSecond" : 20,
+              "evaluationInterval": "01:00:00",
+              "initialSamplingPercentage": 1.0, 
+              "samplingPercentageIncreaseTimeout" : "00:00:01",
+              "samplingPercentageDecreaseTimeout" : "00:00:01",
+              "minSamplingPercentage": 0.1,
+              "maxSamplingPercentage": 0.1,
+              "movingAverageRatio": 1.0
+            },
+            "samplingExcludedTypes" : "Dependency;Event",
+            "samplingIncludedTypes" : "PageView;Trace",
+            "enableLiveMetrics": true,
+            "enableDependencyTracking": true,
+            "enablePerformanceCountersCollection": true,            
+            "httpAutoCollectionOptions": {
+                "enableHttpTriggerExtendedInfoCollection": true,
+                "enableW3CDistributedTracing": true,
+                "enableResponseHeaderInjection": true
+            },
+            "snapshotConfiguration": {
+                "agentEndpoint": null,
+                "captureSnapshotMemoryWeight": 0.5,
+                "failedRequestLimit": 3,
+                "handleUntrackedExceptions": true,
+                "isEnabled": true,
+                "isEnabledInDeveloperMode": false,
+                "isEnabledWhenProfiling": true,
+                "isExceptionSnappointsEnabled": false,
+                "isLowPrioritySnapshotUploader": true,
+                "maximumCollectionPlanSize": 50,
+                "maximumSnapshotsRequired": 3,
+                "problemCounterResetInterval": "24:00:00",
+                "provideAnonymousTelemetry": true,
+                "reconnectInterval": "00:15:00",
+                "shadowCopyFolder": null,
+                "shareUploaderProcess": true,
+                "snapshotInLowPriorityThread": true,
+                "snapshotsPerDayLimit": 30,
+                "snapshotsPerTenMinutesLimit": 1,
+                "tempFolder": null,
+                "thresholdForSnapshotting": 1,
+                "uploaderProxy": null
             }
         }
     },
@@ -97,32 +138,73 @@ Esta configuración es un elemento secundario de [logging](#logging).
 
 Controla las opciones de Application Insights, incluidas las [opciones de muestreo](./functions-monitoring.md#configure-sampling).
 
-```json
-{
-    "applicationInsights": {        
-        "enableDependencyTracking": true,
-        "enablePerformanceCountersCollection": true,
-        "samplingExcludedTypes": "Trace;Exception",
-        "samplingIncludedTypes": "Request;Dependency",
-        "samplingSettings": {
-          "isEnabled": true,
-          "maxTelemetryItemsPerSecond" : 20
-        }
-    }
-}
-```
+Para obtener la estructura JSON completa, consulte el [archivo host.json de ejemplo](#sample-hostjson-file) anterior.
 
 > [!NOTE]
-> Los muestreos de registros pueden provocar que algunas ejecuciones no aparezcan en la hoja de supervisión de Application Insights.
+> Los muestreos de registros pueden provocar que algunas ejecuciones no aparezcan en la hoja de supervisión de Application Insights. Para evitar el muestreo de registros, agregue `samplingExcludedTypes: "Request"` al valor `applicationInsights`.
 
-|Propiedad  |Valor predeterminado | Descripción |
-|---------|---------|---------| 
-|enableDependencyTracking|true|Habilita el seguimiento de dependencias.|
-|enablePerformanceCountersCollection|true|Habilita la recopilación de contadores de rendimiento.|
-|samplingExcludedTypes|null|Una lista delimitada por puntos y coma de tipos que no desea que se muestreen. Los tipos reconocidos son: Dependency, Event, Exception, PageView, Request y Trace. Todas las instancias de los tipos especificados se transmiten; los tipos no especificados se muestrean.| 
-|samplingIncludedTypes|null|Una lista delimitada por puntos y coma de tipos que desea que se muestreen. Los tipos reconocidos son: Dependency, Event, Exception, PageView, Request y Trace. Los tipos especificados se muestrean, todas las instancias del resto de tipos siempre se transmitirán.|
-|samplingSettings.isEnabled|true|Habilita o deshabilita el muestreo.| 
-|samplingSettings.maxTelemetryItemsPerSecond|20|Umbral donde comienza el muestreo.|
+| Propiedad | Valor predeterminado | Descripción |
+| --------- | --------- | --------- | 
+| samplingSettings | N/D | Consulte [applicationInsights.samplingSettings](#applicationinsightssamplingsettings). |
+| samplingExcludedTypes | null | Una lista delimitada por puntos y coma de tipos que no desea que se muestreen. Los tipos reconocidos son: Dependency, Event, Exception, PageView, Request y Trace. Todas las instancias de los tipos especificados se transmiten; los tipos no especificados se muestrean. |
+| samplingIncludedTypes | null | Una lista delimitada por puntos y coma de tipos que desea que se muestreen (con listas vacías se muestrean todos los tipos). El tipo que figura en `samplingExcludedTypes` invalida los tipos que se enumeran aquí. Los tipos reconocidos son: Dependency, Event, Exception, PageView, Request y Trace. Todas las instancias de los tipos especificados se transmiten; los tipos no especificados se muestrean. |
+| enableLiveMetrics | true | Habilita la colección de Live Metrics. |
+| enableDependencyTracking | true | Habilita el seguimiento de dependencias. |
+| enablePerformanceCountersCollection | true | Habilita la colección de contadores de rendimiento Kudu. |
+| liveMetricsInitializationDelay | 00:00:15 | Solo para uso interno. |
+| httpAutoCollectionOptions | N/D | Consulte [applicationInsights.httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
+| snapshotConfiguration | N/D | Consulte [applicationInsights.snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
+
+### <a name="applicationinsightssamplingsettings"></a>applicationInsights.samplingSettings
+
+|Propiedad | Valor predeterminado | Descripción |
+| --------- | --------- | --------- | 
+| isEnabled | true | Habilita o deshabilita el muestreo. | 
+| maxTelemetryItemsPerSecond | 20 | Número de destino de los elementos de telemetría registrados por segundo en cada host de servidor. Si la aplicación se ejecuta en muchos hosts, reduzca este valor para que permanezca dentro de la tasa general de tráfico de destino. | 
+| evaluationInterval | 01:00:00 | Intervalo en el que se vuelve a evaluar la velocidad actual de telemetría. La evaluación se realiza como una media móvil. Se recomienda acortar este intervalo si la telemetría experimenta ráfagas repentinas. |
+| initialSamplingPercentage| 1.0 | Porcentaje de muestreo inicial aplicado al inicio del proceso de muestreo para modificar dinámicamente el porcentaje. No lo reduzca durante la depuración. |
+| samplingPercentageIncreaseTimeout | 00:00:01 | Cuando cambia el valor de porcentaje de muestreo, esta propiedad determina la próxima vez que se permite que Application Insights vuelva a aumentar el porcentaje de muestreo para capturar más datos. |
+| samplingPercentageDecreaseTimeout | 00:00:01 | Cuando cambia el valor de porcentaje de muestreo, esta propiedad determina la próxima vez que se permite que Application Insights vuelva a reducir el porcentaje de muestreo para capturar menos datos. |
+| minSamplingPercentage | 0,1 | A medida que el porcentaje de muestreo va variando, esta propiedad determina el porcentaje de muestreo mínimo permitido. |
+| maxSamplingPercentage | 0,1 | A medida que el porcentaje de muestreo va variando, esta propiedad determina el porcentaje de muestreo máximo permitido. |
+| movingAverageRatio | 1.0 | En el cálculo de la media móvil, peso asignado al valor más reciente. Use un valor igual o menor que 1. Los valores menores hacen que el algoritmo reaccione con menor agilidad a los cambios repentinos. |
+
+### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights.httpAutoCollectionOptions
+
+|Propiedad | Valor predeterminado | Descripción |
+| --------- | --------- | --------- | 
+| enableHttpTriggerExtendedInfoCollection | true | Habilita o deshabilita la información de la solicitud HTTP extendida para los desencadenadores HTTP: encabezados de correlación de solicitud entrantes, compatibilidad con varias claves de instrumentación, método HTTP, ruta de acceso y respuesta. |
+| enableW3CDistributedTracing | true | Habilita o deshabilita la compatibilidad del protocolo de seguimiento distribuido de W3C (y activa el esquema de correlación heredado). Está habilitado de forma predeterminada si el valor de `enableHttpTriggerExtendedInfoCollection` es true. Si `enableHttpTriggerExtendedInfoCollection` es false, esta marca se aplica solo a las solicitudes salientes, no a las entrantes. |
+| enableResponseHeaderInjection | true | Habilita o deshabilita la inserción de encabezados de correlación de varios componentes en respuestas. La habilitación de la inyección permite a Application Insights construir un mapa de aplicación cuando se usan varias claves de instrumentación. Está habilitado de forma predeterminada si el valor de `enableHttpTriggerExtendedInfoCollection` es true. Esta configuración no se aplica si el valor de `enableHttpTriggerExtendedInfoCollection` es false. |
+
+### <a name="applicationinsightssnapshotconfiguration"></a>applicationInsights.snapshotConfiguration
+
+Para obtener más información sobre las instantáneas, vea los artículos sobre cómo [depurar instantáneas cuando se producen excepciones en aplicaciones de .NET](/azure/azure-monitor/app/snapshot-debugger) y [solucionar problemas de habilitación del servicio Snapshot Debugger de Application Insights o ver instantáneas](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
+
+|Propiedad | Valor predeterminado | Descripción |
+| --------- | --------- | --------- | 
+| agentEndpoint | null | Punto de conexión utilizado para conectarse al servicio Snapshot Debugger de Application Insights. Si el valor es NULL, se utiliza un punto de conexión predeterminado. |
+| captureSnapshotMemoryWeight | 0.5 | El peso dado al tamaño de memoria de proceso actual al comprobar si hay suficiente memoria para realizar una instantánea. El valor esperado es mayor que una fracción propia 0 (0 < CaptureSnapshotMemoryWeight < 1). |
+| failedRequestLimit | 3 | Límite en el número de solicitudes con error para solicitar instantáneas antes de que se deshabilite el procesador de telemetría.|
+| handleUntrackedExceptions | true | Habilita o deshabilita el seguimiento de las excepciones de las que la telemetría de Application Insights no realiza un seguimiento. |
+| isEnabled | true | Habilita o deshabilita la recopilación de instantáneas. | 
+| isEnabledInDeveloperMode | false | Habilita o deshabilita la recopilación de instantáneas en el modo de desarrollador. |
+| isEnabledWhenProfiling | true | Habilita o deshabilita la creación de instantáneas incluso si Application Insights Profiler está recopilando una sesión de generación de perfiles detallada. |
+| isExceptionSnappointsEnabled | false | Habilita o deshabilita el filtrado de excepciones. |
+| isLowPrioritySnapshotUploader | true | Determina si se debe ejecutar el proceso SnapshotUploader por debajo de la prioridad normal. |
+| maximumCollectionPlanSize | 50 | El número máximo de problemas de los que podemos realizar un seguimiento en cualquier momento en un intervalo de 1 a 9999. |
+| maximumSnapshotsRequired | 3 | Número máximo de instantáneas recopiladas para un único problema, en un intervalo de 1 a 999. Un problema se puede considerar como una instrucción throw individual en la aplicación. Una vez que el número de instantáneas recopiladas para un problema alcanza este valor, no se recopilarán más instantáneas para ese problema hasta que se restablezcan los contadores de problemas (vea `problemCounterResetInterval`) y se vuelva a alcanzar el límite de `thresholdForSnapshotting`. |
+| problemCounterResetInterval | 24:00:00 | Frecuencia con la que se restablecen los contadores de problemas en un intervalo de 1 minuto a 7 días. Cuando se alcanza este intervalo, todos los recuentos de problemas se restablecen a cero. Problemas que ya han alcanzado el umbral para realizar instantáneas, pero que aún no han generado el número de instantáneas en `maximumSnapshotsRequired`; permanecen activas. |
+| provideAnonymousTelemetry | true | Determina si se va a enviar la telemetría de uso y de errores anónimos a Microsoft. Esta telemetría se puede usar si se pone en contacto con Microsoft para ayudar a solucionar problemas con Snapshot Debugger. También se usa para supervisar los patrones de uso. |
+| reconnectInterval | 00:15:00 | La frecuencia con la que se vuelve a conectar al punto de conexión de Snapshot Debugger. El intervalo permitido es de 1 minuto a 1 día. |
+| shadowCopyFolder | null | Especifica la carpeta que se va a usar para los archivos binarios de copias sombra. Si no se establece, se prueban las carpetas especificadas por las siguientes variables de entorno en orden: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
+| shareUploaderProcess | true | Si es true, solo una instancia de SnapshotUploader recopilará y cargará las instantáneas de varias aplicaciones que compartan InstrumentationKey. Si se establece en false, el valor de SnapshotUploader será único para cada tupla (processName, InstrumentationKey). |
+| snapshotInLowPriorityThread | true | Determina si se procesan o no las instantáneas en un subproceso de prioridad de E/S inferior. La creación de una instantánea es una operación rápida, pero para cargar una instantánea en el servicio Snapshot Debugger, primero debe escribirse en el disco como un minivolcado. Eso sucede en el proceso SnapshotUploader. Al establecer este valor en true, se usa la E/S de baja prioridad para escribir el minivolcado, que no compite por recursos con la aplicación. Si se establece este valor en false, se acelera la creación del minivolcado a costa de ralentizar la aplicación. |
+| snapshotsPerDayLimit | 30 | Número máximo de instantáneas permitidas en 1 día (24 horas). Este límite también se aplica en el lado del servicio de Application Insights. Las cargas se limitan a 50 por día y por aplicación (es decir, por clave de instrumentación). Este valor ayuda a evitar la creación de instantáneas adicionales que finalmente se rechazarán durante la carga. Un valor de cero quita el límite por completo, lo que no se recomienda. |
+| snapshotsPerTenMinutesLimit | 1 | Número máximo de instantáneas permitidas en 10 minutos. Aunque no haya ningún límite superior en este valor, tenga cuidado al aumentarlo en las cargas de trabajo de producción, ya que podría afectar al rendimiento de la aplicación. La creación de una instantánea es rápida, pero la creación de un minivolcado de la instantánea y su carga en el servicio Snapshot Debugger es una operación mucho más lenta que compite con la aplicación por los recursos (CPU y E/S). |
+| tempFolder | null | Especifica la carpeta donde se escribirán los minivolcados y los archivos de registro del cargador. Si no se establece, se usa *%TEMP%\Dumps*. |
+| thresholdForSnapshotting | 1 | Número de veces que Application Insights necesita ver una excepción antes de solicitar instantáneas. |
+| uploaderProxy | null | Invalida el servidor proxy usado en el proceso del cargador de instantáneas. Es posible que tenga que usar esta opción si la aplicación se conecta a Internet a través de un servidor proxy. Snapshot Collector se ejecuta en el proceso de la aplicación y usará la misma configuración de proxy. Sin embargo, el cargador de instantáneas se ejecuta como un proceso independiente y puede que tenga que configurar el servidor proxy manualmente. Si este valor es NULL, Snapshot Collector intentará detectar automáticamente la dirección del proxy examinando System.Net.WebRequest.DefaultWebProxy y pasando el valor al cargador de instantáneas. Si este valor no es NULL, no se usa la detección automática y el servidor proxy especificado aquí se usará en el cargador de instantáneas. |
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -142,7 +224,7 @@ Propiedad que devuelve un objeto que contiene todas las configuraciones específ
 
 ## <a name="extensionbundle"></a>extensionBundle 
 
-Las agrupaciones de extensiones permiten agregar un conjunto compatible de extensiones de enlace de Functions a la aplicación de función. Para obtener más información, consulte [Agrupaciones de extensiones para el desarrollo local](functions-bindings-register.md#extension-bundles).
+Las agrupaciones de extensiones permiten agregar un conjunto compatible de extensiones de enlace de Functions a la aplicación de funciones. Para obtener más información, consulte [Agrupaciones de extensiones para el desarrollo local](functions-bindings-register.md#extension-bundles).
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
@@ -160,7 +242,7 @@ Lista de las funciones que el host de trabajo ejecuta. Una matriz vacía signifi
 
 Indica la duración del tiempo de espera para todas las funciones. Sigue el formato de cadena TimeSpan. En un plan de consumo sin servidor, el intervalo válido es de 1 segundo a 10 minutos, y el valor predeterminado es 5 minutos.  
 
-En el plan Premium, el intervalo válido es de entre 1 segundo y 60 minutos, y el valor predeterminado es 30 minutos.
+En el plan Premium, el intervalo válido es de entre 1 segundo y 60 minutos, y el valor predeterminado es 30 minutos.
 
 En un plan de App Service dedicado, no hay ningún límite general y el valor predeterminado es 30 minutos. Un valor de `-1` indica una ejecución no vinculada, pero se recomienda mantener un límite superior fijo.
 
@@ -221,7 +303,7 @@ Controla los comportamientos de registro de la aplicación de función, Applicat
 |Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qué nivel de registro de archivos está habilitado.  Las opciones son `never`, `always`, `debugOnly`. |
-|logLevel|N/D|Objeto que define el filtrado por categoría de registro para las funciones de la aplicación. En las versiones 2.x y posteriores se sigue el diseño de filtrado por categoría de registro de ASP.NET Core. Esto permite el filtrado del registro de funciones específicas. Para más información, consulte [Filtrado del registro](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) en la documentación de ASP.NET Core. |
+|logLevel|N/D|Objeto que define el filtrado por categoría de registro para las funciones de la aplicación. En las versiones 2.x y posteriores se sigue el diseño de filtrado por categoría de registro de ASP.NET Core. Esta configuración permite el filtrado del registro de funciones específicas. Para más información, consulte [Filtrado del registro](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) en la documentación de ASP.NET Core. |
 |console|N/D| Configuración del registro de [consola](#console). |
 |applicationInsights|N/D| Configuración de [applicationInsights](#applicationinsights). |
 

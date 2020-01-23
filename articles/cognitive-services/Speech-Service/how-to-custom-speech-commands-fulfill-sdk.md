@@ -3,19 +3,19 @@ title: Realización de comandos personalizados en el cliente con el SDK de Voz
 titleSuffix: Azure Cognitive Services
 description: En este artículo, explicamos cómo controlar las actividades de comandos personalizados en el cliente con el SDK de Voz.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 687ae8fb30f7e81f0e35e4d4d9281b9500fd4923
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b55bb1c8379cf0a80a95aa0ba1a29297154d5831
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770752"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156512"
 ---
 # <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>Instrucciones: Realización de comandos en el cliente con el SDK de Voz (versión preliminar)
 

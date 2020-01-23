@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 7221619c8d9388a9f6d46ec1dfbb11e467db861a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/08/2020
+ms.openlocfilehash: c597bc4430e4390f0e29e4fe8ae4014521e1ae74
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793311"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732279"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Incorporación de artefactos al entorno del servicio de integración (ISE) en Azure Logic Apps
 
-Después de crear un [entorno del servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), agregue artefactos como aplicaciones lógicas, cuentas de integración y conectores para que puedan acceder a los recursos de la red virtual de Azure.
+Después de crear un [entorno del servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), agregue artefactos como aplicaciones lógicas, cuentas de integración y conectores para que puedan acceder a los recursos de la red virtual de Azure. Por ejemplo, los conectores ISE administrados que están disponibles después de crear el ISE no aparecen automáticamente en el selector de conectores en el Diseñador de aplicación lógica. Para poder usar estos conectores ISE, tiene que [agregarlos e implementarlos manualmente en su ISE](#add-ise-connectors-environment) para que aparezcan en el Diseñador de aplicación lógica.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * El ISE que creó para ejecutar las aplicaciones lógicas. Si no tiene un ISE, [cree primero uno](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
@@ -84,17 +84,17 @@ Para crear una cuenta de integración que use un ISE, siga estos pasos:
 
 ## <a name="add-ise-connectors"></a>Adición de conectores del ISE
 
-Puede agregar conectores administrados por Microsoft que estén disponibles para su uso en el ISE, pero que no estén implementados en el ISE.
+Los conectores administrados por Microsoft que están disponibles después de crear el ISE no aparecen automáticamente en el selector de conectores en el Diseñador de aplicación lógica. Para poder usar estos conectores ISE, tiene que agregarlos e implementarlos manualmente en su ISE para que aparezcan en el Diseñador de aplicación lógica.
 
 1. En el menú de ISE, en **Configuración**, seleccione **Conectores administrados**. En la barra de herramientas, seleccione **Agregar**.
 
    ![Ver conectores administrados](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
 
-1. En el panel **Agregar un nuevo conector administrado**, abra la lista **Buscar conector**. Si el conector que desea está disponible, selecciónelo y, a continuación, seleccione **Crear**.
+1. En el panel **Agregar un nuevo conector administrado**, abra la lista **Buscar conector**. Seleccione el conector ISE que quiere usar, pero que aún no está implementado en su ISE. Seleccione **Crear**.
 
-   La lista muestra solo los conectores que son válidos pero no están implementados en el ISE. Los conectores que ya están implementados en el ISE aparecen como no disponibles para la selección.
+   ![Seleccione el conector ISE que quiere implementar en su ISE.](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 
-   ![Seleccionar conector válido](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
+   Solo los conectores ISE que son aptos pero que todavía no se han implementado en su ISE aparecen disponibles para su selección. Los conectores que ya están implementados en el ISE aparecen como no disponibles para la selección.
 
 <a name="create-custom-connectors-environment"></a>
 

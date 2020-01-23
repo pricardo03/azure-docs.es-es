@@ -1,5 +1,5 @@
 ---
-title: Adición de una nota de soporte interno a un laboratorio de Azure DevTest Labs | Microsoft Docs
+title: Adición de una nota de soporte interno a un laboratorio de Azure DevTest Labs
 description: Obtenga información sobre cómo publicar una nota de soporte interno en un laboratorio de Azure DevTest Labs
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: deb98c2c633200ab4be1d763a94fd2a04979a3b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 591dcec36dc62143901d3b49db24196e84d58c29
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60562345"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170348"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>Adición de una nota de soporte interno a un laboratorio de Azure DevTest Labs
 
@@ -31,7 +31,7 @@ Puede deshabilitar o editar una nota de soporte técnico con facilidad después 
 
 ## <a name="steps-to-add-a-support-statement-to-an-existing-lab"></a>Pasos para agregar una nota de soporte técnico a un laboratorio existente
 
-1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Si es necesario, seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista. (Puede que su laboratorio ya aparezca en el panel, en **Todos los recursos**).
 1. En la lista de laboratorios, seleccione aquel en el que quiera agregar una nota de soporte técnico.  
 1. En el área **Introducción** del laboratorio, seleccione **Configuración y directivas**.  

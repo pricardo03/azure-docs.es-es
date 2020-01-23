@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f6943a95cd327785d4907bb675958be99b902764
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 0a54416a70a8561edfad5915944100e0ce686bbf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644943"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771264"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Varios servidores front-end para Azure Load Balancer
 
@@ -98,8 +98,28 @@ En este escenario, cada máquina virtual del grupo back-end tiene tres interface
 * Frontend 1: una interfaz de bucle invertido en el sistema operativo invitado que se configura con la dirección IP de Frontend 1
 * Frontend 2: una interfaz de bucle invertido en el sistema operativo invitado que se configura con la dirección IP de Frontend 2
 
+Para cada máquina virtual del grupo de back-end, ejecute los siguientes comandos en un símbolo del sistema de Windows.
+
+Para obtener la lista de nombres de interfaz que tiene en la máquina virtual, escriba este comando:
+
+    netsh interface show interface 
+
+En el caso de la NIC de VM (administrado por Azure), escriba este comando:
+
+    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+   (reemplace interfacename por el nombre de esta interfaz).
+
+Para cada interfaz de bucle invertido que agregue, repita estos comandos:
+
+    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+   (reemplace interfacename por el nombre de esta interfaz de bucle invertido).
+     
+    netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+   (reemplace interfacename por el nombre de esta interfaz de bucle invertido).
+
 > [!IMPORTANT]
 > La configuración de las interfaces de bucle invertido se ejecuta en el sistema operativo invitado. Esta configuración no se ejecuta ni administra en Azure. Sin esta configuración, las reglas no funcionarán. Las definiciones de sondeo de mantenimiento usan la DIP de la máquina virtual en lugar de la interfaz de bucle invertido que representa el front-end de DSR. Por lo tanto, el servicio debe proporcionar respuestas de sondeo en un puerto DIP que reflejen el estado del servicio ofrecido en la interfaz de bucle invertido que representa el front-end de DSR.
+
 
 Se asume que la configuración front-end es la misma que en el escenario anterior:
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: dada1a8ed8b1725905ee2ad159e385d1bee62fc6
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 1deca696ba576849701eb8719de7fbaa7895a26a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615091"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861411"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Almacenamiento y entrada de datos en la versión preliminar de Azure Time Series Insights
 
@@ -116,9 +116,9 @@ Puede que quiera acceder a los datos vistos en el explorador de la versión prel
 
 En general, se puede acceder a los datos de tres maneras:
 
-* Desde el explorador de la versión preliminar de Time Series Insights. Puede exportar datos como archivo CSV desde el explorador. Para más información, consulte el artículo sobre el [Explorador de la versión preliminar de Time Series Insights](./time-series-insights-update-explorer.md).
-* Desde las API de la versión preliminar de Time Series Insights. Puede alcanzar el punto de conexión de API en `/getRecorded`. Para más información acerca de esta API, consulte el artículo sobre las [Consultas en Time Series](./time-series-insights-update-tsq.md).
-* Directamente desde una cuenta de Azure Storage. Necesita acceso de lectura a la cuenta que usa para acceder a los datos de la versión preliminar de Time Series Insights. Para más información, consulte el artículo sobre la [Administración del acceso a los recursos de la cuenta de almacenamiento](../storage/blobs/storage-manage-access-to-resources.md).
+* Desde el explorador de la versión preliminar de Time Series Insights. Puede exportar datos como archivo CSV desde el explorador. Para más información, lea [Explorador de la versión preliminar de Time Series Insights](./time-series-insights-update-explorer.md).
+* Desde las API de la versión preliminar de Time Series Insights. Puede alcanzar el punto de conexión de API en `/getRecorded`. Para más información sobre esta API, lea [Consultas en Time Series](./time-series-insights-update-tsq.md).
+* Directamente desde una cuenta de Azure Storage. Necesita acceso de lectura a la cuenta que usa para acceder a los datos de la versión preliminar de Time Series Insights. Para más información, lea [Administración del acceso a los recursos de la cuenta de almacenamiento](../storage/blobs/storage-manage-access-to-resources.md).
 
 ### <a name="data-deletion"></a>Eliminación de datos
 
@@ -128,7 +128,7 @@ No elimine los archivos de la versión preliminar de Time Series Insights. Los d
 
 Parquet es un formato de archivo en columnas de código abierto diseñado para lograr un almacenamiento y un rendimiento eficaces. La versión preliminar de Time Series Insights usa Parquet por estos motivos. Crea particiones de los datos por identificador de serie temporal para el rendimiento de las consultas a escala.  
 
-Para obtener más información sobre el tipo de archivo de Parquet, vea la [documentación de Parquet](https://parquet.apache.org/documentation/latest/).
+Para más información sobre el tipo de archivo de Parquet, lea la [documentación de Parquet](https://parquet.apache.org/documentation/latest/).
 
 La versión preliminar de Time Series Insights almacena copias de los datos de la siguiente manera:
 

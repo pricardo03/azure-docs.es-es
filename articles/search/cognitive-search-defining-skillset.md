@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e9fd4602d661dd4223c8caa2ec02eaf56284735a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 43251783cbcd6501562913b7b9cafb4f9f7cb3f1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114541"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754563"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Creación de un conjunto de aptitudes en una canalización de enriquecimiento de inteligencia artificial en Azure Cognitive Search 
 
@@ -235,7 +235,7 @@ La salida, en este caso una descripción de la compañía, se genera para cada o
 
 ## <a name="add-structure"></a>Agregar estructura
 
-El conjunto de aptitudes genera información estructurada a partir de datos no estructurados. Considere el siguiente ejemplo:
+El conjunto de aptitudes genera información estructurada a partir de datos no estructurados. Considere el ejemplo siguiente:
 
 *"En el cuarto trimestre, Microsoft registró unos ingresos por valor de 1100 millones de dólares de LinkedIn, la compañía de red social que compró el año pasado. La adquisición permite a Microsoft combinar las funcionalidades de LinkedIn con su CRM y funcionalidades de Office. Los accionistas están satisfechos con el progreso hasta ahora.".*
 
@@ -249,7 +249,7 @@ Hasta ahora, esta estructura ha sido solo de uso interno y solo de memoria, adem
 
 El [almacén de conocimiento](knowledge-store-concept-intro.md) es una característica en versión preliminar de Azure Cognitive Search para guardar el documento enriquecido. Un almacén de conocimiento que se crea, respaldado por una cuenta de Azure Storage, es el repositorio donde se colocan los datos enriquecidos. 
 
-Una definición de almacén de conocimiento se agrega a un conjunto de aptitudes. Para obtener un tutorial de todo el proceso, vea [Introducción a Knowledge Store](knowledge-store-howto.md).
+Una definición de almacén de conocimiento se agrega a un conjunto de aptitudes. Para obtener un tutorial de todo el proceso, vea [Creación de un almacén de conocimiento mediante REST](knowledge-store-create-rest.md).
 
 ```json
 "knowledgeStore": {

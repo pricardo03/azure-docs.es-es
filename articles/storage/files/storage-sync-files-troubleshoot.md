@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/8/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 861d62f40dc9d8ca2c80e295495df8538ea7cd8d
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 1b24258efdd75977b5571506b3eabf952a4ae0a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659549"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027785"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -122,6 +122,9 @@ Este error se produce si la ruta de acceso del punto de conexión de servidor se
 <a id="-2147024894"></a>**Falla la creación de puntos de conexión de servidor, con este error: "MgmtServerJobFailed" (Código de error: -2147024894 o 0x80070002)**  
 Este error se produce si la ruta de acceso del punto de conexión del servidor especificada no es válida. Compruebe que la ruta de acceso del punto de conexión del servidor especificada es un volumen NTFS conectado localmente. Tenga en cuenta que Azure File Sync no admite unidades asignadas como ruta de acceso de punto de conexión de servidor.
 
+<a id="-2134375640"></a>**Falla la creación de puntos de conexión de servidor, con este error: "MgmtServerJobFailed" (Código de error: -2134375640 o 0x80c80328)**  
+Este error se produce si la ruta de acceso del punto de conexión del servidor especificada no es un volumen NTFS. Compruebe que la ruta de acceso del punto de conexión del servidor especificada es un volumen NTFS conectado localmente. Tenga en cuenta que Azure File Sync no admite unidades asignadas como ruta de acceso de punto de conexión de servidor.
+
 <a id="-2134347507"></a>**Falla la creación de puntos de conexión de servidor, con este error: "MgmtServerJobFailed" (Código de error: -2134347507 o 0x80c8710d)**  
 Este error se produce porque Azure File Sync no admite puntos de conexión de servidor en volúmenes que tienen una carpeta Información del volumen de sistema comprimida. Para resolver este problema, descomprima la carpeta Información del volumen de sistema. Si la carpeta Información del volumen de sistema es la única carpeta comprimida en el volumen, realice los pasos siguientes:
 
@@ -172,14 +175,13 @@ En el servidor que se muestra como "Aparece sin conexión" en el portal, consult
 - Si **GetNextJob se ha completado con el estado: -2134347756** se registra, el servidor no puede comunicarse con el servicio de Azure File Sync debido a un firewall o proxy. 
     - Si el servidor está detrás de un firewall, compruebe que se permite el puerto 443 de salida. Si el firewall restringe el tráfico a dominios concretos, confirme que se puede acceder a los dominios enumerados en la [documentación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) del firewall.
     - Si el servidor está detrás de un proxy, configure los valores del proxy aplicables a toda la máquina o específicos de la aplicación mediante los pasos que se describen en la [documentación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy) del proxy.
+    - Use el cmdlet Test-StorageSyncNetworkConnectivity para comprobar la conectividad de red con los puntos de conexión de servicio. Para más información, vea [Prueba de la conectividad de red con los puntos de conexión de servicio](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints).
 
 - Si **GetNextJob se ha completado con el estado: -2134347764** se registra, el servidor no puede comunicarse con el servicio de Azure File Sync debido a un certificado expirado o eliminado.  
     - Ejecute el siguiente comando de PowerShell en el servidor para restablecer el certificado usado para la autenticación:
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-
 <a id="endpoint-noactivity-sync"></a>**El estado de mantenimiento del punto de conexión del servidor es "Sin actividad" y el estado del servidor en la hoja de servidores registrados es "En línea"**  
 
 Si el estado de mantenimiento del punto de conexión del servidor es "Sin actividad", esto significa que el punto de conexión del servidor no ha registrado la actividad de sincronización en las últimas dos horas.
@@ -318,7 +320,7 @@ La siguiente tabla contiene todos los caracteres Unicode que Azure File Sync aú
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### <a name="common-sync-errors"></a>Errores de sincronización comunes
-<a id="-2147023673"></a>**Se canceló la sesión de sincronización.**  
+<a id="-2147023673"></a>**Se ha cancelado la sesión de sincronización.**  
 
 | | |
 |-|-|
@@ -388,6 +390,22 @@ Este error se produce porque el agente de Azure File Sync no puede acceder al re
 2. [Asegúrese de que el recurso compartido de archivos de Azure existe.](#troubleshoot-azure-file-share)
 3. [Asegúrese de que Azure File Sync tiene acceso a la cuenta de almacenamiento.](#troubleshoot-rbac)
 4. [Compruebe que el firewall y la configuración de red virtual de la cuenta de almacenamiento están configurados correctamente (si están habilitados)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings).
+
+<a id="-2134351804"></a>**Error de sincronización porque la solicitud no está autorizada para realizar esta operación.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c86044 |
+| **HRESULT (decimal)** | -2134351804 |
+| **Cadena de error** | ECS_E_AZURE_AUTHORIZATION_FAILED |
+| **Se requiere una corrección** | Sí |
+
+Este error se produce porque el agente de Azure File Sync no está autorizado para acceder al recurso compartido de archivos de Azure. Puede solucionar este error siguiendo estos pasos:
+
+1. [Compruebe que la cuenta de almacenamiento existe.](#troubleshoot-storage-account)
+2. [Asegúrese de que el recurso compartido de archivos de Azure existe.](#troubleshoot-azure-file-share)
+3. [Compruebe que el firewall y la configuración de red virtual de la cuenta de almacenamiento están configurados correctamente (si están habilitados)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings).
+4. [Asegúrese de que Azure File Sync tiene acceso a la cuenta de almacenamiento.](#troubleshoot-rbac)
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**No se pudo resolver el nombre de cuenta de almacenamiento usado.**  
 
@@ -491,7 +509,7 @@ Si se ha eliminado el recurso compartido de archivos de Azure, tiene que crear u
 | **Cadena de error** | ECS_E_SYNC_BLOCKED_ON_SUSPENDED_SUBSCRIPTION |
 | **Se requiere una corrección** | Sí |
 
-Este error se produce cuando se suspende la suscripción a Azure. Se puede volver a habilitar la sincronización cuando se restaure la suscripción a Azure. Consulte [¿Por qué está deshabilitada mi suscripción a Azure y cómo reactivarla?](../../billing/billing-subscription-become-disable.md) para más información.
+Este error se produce cuando se suspende la suscripción a Azure. Se puede volver a habilitar la sincronización cuando se restaure la suscripción a Azure. Consulte [¿Por qué está deshabilitada mi suscripción a Azure y cómo reactivarla?](../../cost-management-billing/manage/subscription-disabled.md) para más información.
 
 <a id="-2134364052"></a>**La cuenta de almacenamiento tiene configurado un firewall o redes virtuales.**  
 

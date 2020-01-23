@@ -7,28 +7,28 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: ae6c2b7257ee6a8184f3a5bb002f24cb75a86d67
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e833e20085d7cfd8f727acb394851e96e7e19368
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083324"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864373"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute
 Esta página le guiará a través del aprovisionamiento de servicios y de los flujos de trabajo de configuración del enrutamiento a alto nivel.
 
 ![flujo de trabajo de circuito](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
-Tanto la ilustración como los pasos correspondientes siguientes muestran las tareas que se deben realizar para aprovisionar un circuito ExpressRoute de un extremo a otro. 
+En la ilustración siguiente y los pasos correspondientes se describen las tareas para aprovisionar un circuito ExpressRoute de un extremo a otro. 
 
 1. Use PowerShell para configurar un circuito ExpressRoute. Para obtener más información, siga las instrucciones del artículo [Creación y modificación de circuitos de ExpressRoute](expressroute-howto-circuit-classic.md) .
 2. Solicite conectividad al proveedor de servicios. Este proceso varía. Para obtener más información sobre cómo solicitar conectividad, póngase en contacto con su proveedor de conectividad.
 3. Asegúrese de que el circuito se ha aprovisionado correctamente, para lo que debe comprobar el estado de aprovisionamiento del circuito ExpressRoute a través de PowerShell. 
-4. Configure los dominios de enrutamiento. Si el proveedor de conectividad administra el nivel 3, configurará el enrutamiento del circuito. Si el proveedor de conectividad solo ofrece servicios de nivel 2, debe configurar el enrutamiento según las instrucciones que se describen en las páginas de [requisitos de enrutamiento](expressroute-routing.md) y [configuración de enrutamiento](expressroute-howto-routing-classic.md).
+4. Configure los dominios de enrutamiento. Si el proveedor de conectividad administra la configuración de nivel 3, configurará el enrutamiento del circuito. Si el proveedor de conectividad solo ofrece servicios de nivel 2, debe configurar el enrutamiento según las instrucciones que se describen en las páginas de [requisitos de enrutamiento](expressroute-routing.md) y [configuración de enrutamiento](expressroute-howto-routing-classic.md).
    
    * Habilitar el emparejamiento privado en Azure: habilite este emparejamiento para conectarse a VM/servicios en la nube implementados en redes virtuales.
 
-   * Habilitar el emparejamiento de Microsoft: habilítelo para acceder a Office 365. Además, se puede acceder a todos los servicios de PaaS de Azure a través del emparejamiento de Microsoft.
+   * Habilitar el emparejamiento de Microsoft: habilítelo para acceder a servicios en línea de Microsoft, como Office 365. Todos los servicios de PaaS de Azure están accesibles a través del emparejamiento de Microsoft.
      
      > [!IMPORTANT]
      > Debe asegurarse de que usa un proxy o borde independientes para conectarse a Microsoft distinto del que usa para Internet. Si usa el mismo borde para ExpressRoute e Internet se producirá un enrutamiento asimétrico y causará interrupciones en la conectividad de la red.
@@ -46,14 +46,14 @@ Cada circuito ExpressRoute tiene dos estados:
 
 Estado representa el estado de aprovisionamiento de Microsoft. Esta propiedad se establece en Habilitado al crear un circuito Expressroute.
 
-El estado de aprovisionamiento del proveedor de conectividad representa el estado del lado del proveedor de conectividad. Puede ser *No aprovisionado*, *Aprovisionando* o *Aprovisionado*. El circuito ExpressRoute debe estar en estado Aprovisionado para poder usarlo.
+El estado de aprovisionamiento del proveedor de conectividad representa el estado del lado del proveedor de conectividad. Puede ser *No aprovisionado*, *Aprovisionando* o *Aprovisionado*. Para configurar el emparejamiento, el circuito ExpressRoute debe estar en un estado aprovisionado.
 
 ### <a name="possible-states-of-an-expressroute-circuit"></a>Posibles estados de un circuito ExpressRoute
 En esta sección se enumeran los posibles estados de un circuito ExpressRoute.
 
 **En tiempo de creación**
 
-Verá el circuito ExpressRoute en el estado siguiente en cuanto ejecute el cmdlet de PowerShell para crear el circuito ExpressRoute.
+El circuito ExpressRoute notificará los estados siguientes durante la creación de recursos.
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
@@ -61,7 +61,7 @@ Verá el circuito ExpressRoute en el estado siguiente en cuanto ejecute el cmdle
 
 **Cuando el proveedor de conectividad está en el proceso de aprovisionamiento del circuito**
 
-Verá el circuito ExpressRoute en el estado siguiente en cuanto pase la clave de servicio al proveedor de conectividad y hayan iniciado el proceso de aprovisionamiento.
+El circuito ExpressRoute notificará los estados siguientes mientras el proveedor de conectividad trabaja para aprovisionar el circuito.
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
@@ -69,16 +69,15 @@ Verá el circuito ExpressRoute en el estado siguiente en cuanto pase la clave de
 
 **Cuando el proveedor de conectividad haya completado el proceso de aprovisionamiento**
 
-Verá el circuito ExpressRoute en el estado siguiente en cuanto el proveedor de conectividad haya completado el proceso de aprovisionamiento.
+El circuito ExpressRoute notificará los estados siguientes una vez que el proveedor de conectividad haya aprovisionado correctamente el circuito.
 
     ServiceProviderProvisioningState : Provisioned
     Status                           : Enabled
 
-Aprovisionado y habilitado es el único estado en que puede estar el circuito para poder usarlo. Si usa un proveedor de nivel 2, puede configurar el enrutamiento para el circuito solo cuando se encuentre en este estado.
 
 **Cuando el proveedor de conectividad está desaprovisionando el circuito**
 
-Si solicitó al proveedor de servicios que desaprovisione el circuito ExpressRoute, verá el circuito establecido en el estado siguiente una vez que el proveedor de servicios haya completado el proceso de desaprovisionamiento.
+Si es necesario cancelar el aprovisionamiento del circuito ExpressRoute, el circuito notificará los estados siguientes una vez que el proveedor de servicios haya completado el proceso de desaprovisionamiento.
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
@@ -87,19 +86,18 @@ Si solicitó al proveedor de servicios que desaprovisione el circuito ExpressRou
 Si es necesario, puede volver a habilitarlo, o bien ejecutar los cmdlets de PowerShell para eliminar el circuito.  
 
 > [!IMPORTANT]
-> Si ejecuta el cmdlet de PowerShell para eliminar el circuito cuando el estado de ServiceProviderProvisioningState es Aprovisionamiento o Aprovisionado, se producirá un error en la operación. Colabore con el proveedor de conectividad para desaprovisionar el circuito ExpressRoute primero y, después, eliminar el circuito. Microsoft seguirá facturando el circuito hasta que se ejecute el cmdlet de PowerShell para eliminar el circuito.
-> 
+> No se puede eliminar un circuito cuando el valor de ServiceProviderProvisioningState sea Aprovisionamiento o Aprovisionado. El proveedor de conectividad debe desaprovisionar el circuito antes de que se pueda eliminar. Microsoft seguirá facturando el circuito hasta que se elimine el recurso del circuito ExpressRoute en Azure.
 > 
 
 ## <a name="routing-session-configuration-state"></a>Estado de configuración de sesión de enrutamiento
-El estado de aprovisionamiento de BGP permite saber si la sesión BGP se ha habilitado en el borde de Microsoft. El estado debe habilitarse para poder usar la configuración entre pares.
+El estado de aprovisionamiento de BGP notifica si la sesión BGP se ha habilitado en el perímetro de Microsoft. El estado debe estar habilitado para usar el emparejamiento privado o de Microsoft.
 
-Es importante comprobar el estado de sesión de BGP, especialmente para la configuración entre pares de Microsoft. Además del estado de aprovisionamiento de BGP, hay otro estado denominado *estado de prefijos públicos anunciados*. El estado de los prefijos públicos anunciados debe estar en estado *configurado* , tanto para que la sesión BGP esté activa como para que el enrutamiento funcione de un extremo a otro. 
+Es importante comprobar el estado de sesión de BGP, especialmente para la configuración entre pares de Microsoft. Además del estado de aprovisionamiento de BGP, hay otro estado denominado *estado de prefijos públicos anunciados*. El estado de los prefijos públicos anunciados debe estar en *configurado*, tanto para que la sesión BGP esté activa como para que el enrutamiento funcione de un extremo a otro. 
 
 Si el estado de los prefijos públicos anunciados se establece en el estado de *validación necesaria* , la sesión BGP no se habilita, ya que los prefijos anunciados no coincidían con el número AS en ninguno de los registros de enrutamiento. 
 
 > [!IMPORTANT]
-> Si el estado de los prefijos públicos anunciados es *validación manual* , debe abrir una incidencia de soporte técnico en el [servicio de soporte técnico de Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) y aportar una evidencia de que posee la dirección IP anunciada, junto con el número del sistema autónomo asociado.
+> Si el estado de los prefijos públicos anunciados es *validación manual*, tendrá que abrir una incidencia de soporte técnico en el [servicio de soporte técnico de Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) y aportar una evidencia de que posee la dirección IP anunciada, junto con el número del sistema autónomo asociado.
 > 
 > 
 

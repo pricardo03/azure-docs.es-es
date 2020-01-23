@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: fa3bcb0ba16c976706c70bbc76daeb8b418a74ea
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9aace01e2f3d514ee5f4b406f4067e104151e5d6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764077"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863332"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Adición de un origen de eventos de IoT Hub al entorno de Time Series Insights
 
@@ -25,12 +25,12 @@ Este artículo describe cómo usar Azure Portal para agregar un origen de evento
 > [!NOTE]
 > Las instrucciones de este artículo se aplican tanto a los entornos de Azure Time Series Insights con disponibilidad general como a los entornos en versión preliminar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Creación de un [entorno de Azure Time Series Insights](time-series-insights-update-create-environment.md).
 * [Creación de una instancia de IoT Hub mediante Azure Portal](../iot-hub/iot-hub-create-through-portal.md).
 * El centro de IoT Hub debe tener eventos de mensajes activos en proceso de envío.
-* Cree un grupo de consumidores dedicado en el centro de IoT Hub para que el entorno de Time Series Insight los consuma. Cada origen del evento de Time Series Insights tiene que tener su propio grupo de consumidores dedicado que no se comparte con ningún otro consumidor. Si varios lectores consumen eventos desde el mismo grupo de consumidores, es probable que todos los lectores vean errores. Para más información, consulte la [Guía para desarrolladores de IoT Hub](../iot-hub/iot-hub-devguide.md).
+* Cree un grupo de consumidores dedicado en el centro de IoT Hub para que el entorno de Time Series Insight los consuma. Cada origen del evento de Time Series Insights tiene que tener su propio grupo de consumidores dedicado que no se comparte con ningún otro consumidor. Si varios lectores consumen eventos desde el mismo grupo de consumidores, es probable que todos los lectores exhiban errores. Para más información, lea la [Guía para desarrolladores de IoT Hub](../iot-hub/iot-hub-devguide.md).
 
 ### <a name="add-a-consumer-group-to-your-iot-hub"></a>Adición de un grupo de consumidores a IoT Hub
 
@@ -50,7 +50,7 @@ Para agregar un nuevo grupo de consumidores a la instancia de IoT Hub:
 
 ## <a name="add-a-new-event-source"></a>Adición de un nuevo origen del evento
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. En el menú izquierdo, seleccione **Todos los recursos**. Seleccione el entorno de Time Series Insights.
 
@@ -72,7 +72,7 @@ Para agregar un nuevo grupo de consumidores a la instancia de IoT Hub:
 
        [![Panel Nuevo origen del evento: propiedades que hay que establecer en la opción Usar IoT Hub desde la opción de suscripciones disponibles](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png#lightbox)
 
-       | Propiedad | DESCRIPCIÓN |
+       | Propiedad | Descripción |
        | --- | --- |
        | Subscription | La suscripción a la que pertenece el centro de IoT deseado. |
        | Nombre de IoT Hub | El nombre del centro de IoT seleccionado. |
@@ -83,7 +83,7 @@ Para agregar un nuevo grupo de consumidores a la instancia de IoT Hub:
 
       En la siguiente tabla se explican las propiedades necesarias para la opción **Proporcionar configuración del Centro de IoT de forma manual**:
 
-       | Propiedad | DESCRIPCIÓN |
+       | Propiedad | Descripción |
        | --- | --- |
        | Id. de suscripción | La suscripción a la que pertenece el centro de IoT deseado. |
        | Resource group | El nombre del grupo de recursos en el que se creó este centro de IoT. |
@@ -93,7 +93,7 @@ Para agregar un nuevo grupo de consumidores a la instancia de IoT Hub:
 
     * Ambas opciones comparten las siguientes opciones de configuración:
 
-       | Propiedad | DESCRIPCIÓN |
+       | Propiedad | Descripción |
        | --- | --- |
        | Grupo de consumidores de IoT Hub | El grupo de consumidores que lee eventos del centro de IoT. Es muy recomendable usar un grupo de consumidores dedicado para el origen del evento. |
        | Formato de serialización de eventos | Actualmente, JSON es el único formato de serialización disponible. Los mensajes de eventos deberán estar en este formato o no se podrá leer ningún dato. |
@@ -110,6 +110,6 @@ Para agregar un nuevo grupo de consumidores a la instancia de IoT Hub:
 
 * [Defina las directivas de acceso a datos](time-series-insights-data-access.md) para proteger los datos.
 
-* [Envíe eventos](time-series-insights-send-events.md) al origen de eventos.
+* Realice el [envío de eventos](time-series-insights-send-events.md) al origen del evento.
 
 * Acceso al entorno en el [explorador de Time Series Insights](https://insights.timeseries.azure.com).

@@ -1,6 +1,6 @@
 ---
-title: Introducción al control de mapa de web en Azure Maps | Microsoft Docs
-description: Aprenda a usar la biblioteca Javascript del cliente del control de mapa de Azure Maps.
+title: Introducción al control de mapa web | Microsoft Azure Maps
+description: Obtenga información sobre cómo usar la biblioteca Javascript del lado cliente de controles de mapa de Microsoft Azure Maps para representar mapas e insertar la funcionalidad de Azure Maps en una aplicación web o para dispositivos móviles.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d70d0e1107a6ee1b53b178d8912c1b808472b142
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d50b97ad47f4b09ae4fec363e7d0a2c7f6b841df
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432911"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911356"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Uso del control de mapa de Azure Maps
 

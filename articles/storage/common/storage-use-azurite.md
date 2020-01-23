@@ -7,12 +7,12 @@ ms.date: 08/31/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 0421f49b31eba688542adc0a5b62e1cf75028836
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5e1fce0852a4e820d7ee0af626ce3fddf6773750
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74269469"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029929"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Uso del emulador de Azurite para desarrollo y pruebas locales de Azure Storage (versión preliminar)
 
@@ -282,6 +282,20 @@ azurite --debug path/debug.log
 azurite -d path/debug.log
 ```
 
+### <a name="loose-mode"></a>Modo flexible
+
+**Opcional** De forma predeterminada, Azurite aplica el modo strict para bloquear parámetros y encabezados de solicitud no compatibles. Deshabilite el modo strict mediante el modificador **--loose**.
+
+```console
+azurite --loose
+```
+
+Anote el modificador de acceso directo "L" mayúscula:
+
+```console
+azurite -L
+```
+
 ## <a name="authorization-for-tools-and-sdks"></a>Autorización para herramientas y SDK
 
 Conéctese a Azurite desde los SDK o las herramientas de Azure Storage, como el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/), mediante cualquier estrategia de autenticación. Es necesaria la autenticación. Azurite admite la autorización con claves compartidas y firmas de acceso compartido (SAS). Azurite también admite el acceso anónimo a contenedores públicos.
@@ -307,6 +321,33 @@ La manera más fácil de conectarse a Azurite desde su aplicación consiste en c
 ```
 
 Para obtener más información sobre las cadenas de conexión, consulte [Configuración de las cadenas de conexión de Azure Storage](storage-configure-connection-string.md).
+
+### <a name="custom-storage-accounts-and-keys"></a>Cuentas y claves de almacenamiento personalizadas
+
+Azurite admite las claves y los nombres de cuentas de almacenamiento personalizados estableciendo la variable de entorno `AZURITE_ACCOUNTS` en el siguiente formato: `account1:key1[:key2];account2:key1[:key2];...`.
+
+Por ejemplo, use una cuenta de almacenamiento personalizada que tenga una clave:
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1"
+```
+
+O bien, use varias cuentas de almacenamiento con dos claves cada una:
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
+```
+
+Azurite actualiza las claves y los nombres de cuentas personalizados de la variable de entorno cada minuto de forma predeterminada. Con esta característica, puede girar de forma dinámica la clave de cuenta, o bien agregar nuevas cuentas de almacenamiento sin reiniciar Azurite.
+
+> [!NOTE]
+> La cuenta de almacenamiento `devstoreaccount1` predeterminada se deshabilita cuando establece cuentas de almacenamiento personalizadas.
+
+> [!NOTE]
+> Actualice la cadena de conexión en consecuencia al usar claves y nombres de cuentas personalizados.
+
+> [!NOTE]
+> Use la palabra clave `export` para establecer variables de entorno en un entorno Linux y utilice `set` en Windows.
 
 ### <a name="storage-explorer"></a>Explorador de Storage
 

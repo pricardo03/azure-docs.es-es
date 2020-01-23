@@ -3,21 +3,20 @@ title: Implementación del inyector de Azure Log Analytics para la supervisió
 description: Guía paso a paso sobre cómo implementar el inyector de Cloud Foundry Loggregator para Azure Log Analytics. Use el inyector para supervisar las métricas de rendimiento y mantenimiento del sistema Cloud Foundry.
 services: virtual-machines-linux
 author: ningk
-manager: jeconnoc
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: azure-monitor
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: d71f1d6af0944a676e35dfe6347fafb8706f21b8
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286638"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277358"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implementar el inyector de Azure Log Analytics para la supervisión del sistema Cloud Foundry
 
@@ -29,7 +28,7 @@ En este documento, aprenderá a implementar el inyector en su entorno de CF y, d
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Los pasos siguientes son requisitos previos para implementar el inyector.
 
@@ -194,7 +193,7 @@ Puede personalizar estas vistas o crearlas a través del **Diseñador de vistas*
 
 Puede [crear las alertas](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts) y personalizar las consultas y los valores de umbral según sea necesario. Estas son las alertas recomendadas:
 
-| Consulta de búsqueda                                                                  | Generación de alerta según | DESCRIPCIÓN                                                                       |
+| Consulta de búsqueda                                                                  | Generación de alerta según | Descripción                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Número de resultados < 1   | **bbs.Domain.cf-apps** indica si el dominio cf-apps está actualizado. Significa que las solicitudes de aplicación de CF procedentes de Cloud Controller están sincronizadas con bbs.LRPsDesired (instancias de aplicación aptas para Diego) para su ejecución. Si no se obtienen datos, significa que el dominio cf-apps no está actualizado en el período de tiempo especificado. |
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Número de resultados > 0   | En las celdas Diego, 0 indica un estado correcto y 1, incorrecto. Establezca la alerta si se detectan varias celdas Diego en estado incorrecto en el período de tiempo especificado. |

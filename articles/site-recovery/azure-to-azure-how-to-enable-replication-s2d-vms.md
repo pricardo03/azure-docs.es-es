@@ -1,19 +1,16 @@
 ---
 title: Replicación de máquinas virtuales de Azure mediante la ejecución de Espacios de almacenamiento directo con Azure Site Recovery
-description: En este artículo se describe cómo replicar máquinas virtuales de Azure mediante la ejecución de Espacios de almacenamiento directo con Azure Site Recovery.
-services: site-recovery
-author: asgang
+description: Obtenga información sobre cómo replicar máquinas virtuales de Azure mediante la ejecución de Espacios de almacenamiento directo con Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/29/2019
-ms.author: asgang
-ms.openlocfilehash: 25ac7fa577aa33eda036c0f8544cc5ab03b12cd7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 9f394fa8d618c97d74a47ff6e42a002f177cf7d9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954459"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973663"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replicación de máquinas virtuales de Azure mediante la ejecución de Espacios de almacenamiento directo en otra región
 
@@ -23,17 +20,17 @@ En este artículo se describe cómo habilitar la recuperación ante desastres de
 >Solo se admiten los puntos de recuperación coherentes frente a bloqueos para los clústeres de Espacios de almacenamiento directo.
 >
 
-## <a name="introduction"></a>Introducción 
-[Espacios de almacenamiento directo (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) es un almacenamiento definido por software, que proporciona una manera de crear [clústeres invitados](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) en Azure.  Un clúster invitado en Microsoft Azure es que un clúster de conmutación por error formado por VM IaaS. Permite que las cargas de trabajo de VM hospedadas se conmuten por error a través de los clústeres invitados para lograr SLA de mayor disponibilidad para las aplicaciones en comparación con lo que puede proporcionar una sola VM de Azure. Resulta útil en escenarios donde la VM hospeda una aplicación crítica, como servidor de archivo de escalabilidad horizontal o SQL, etc.
+[Espacios de almacenamiento directo (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) es almacenamiento definido por software, que proporciona una manera de crear [clústeres invitados](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) en Azure.  Un clúster invitado en Microsoft Azure es un clúster de conmutación por error formado por máquinas virtuales IaaS. Permite que las cargas de trabajo de VM hospedadas se conmuten por error a través de clústeres invitados para lograr SLA de mayor disponibilidad para las aplicaciones, en comparación con lo que puede proporcionar una sola VM de Azure. Resulta útil en escenarios donde la máquina virtual hospeda una aplicación crítica, como un servidor de archivo de escalabilidad horizontal o SQL.
 
-## <a name="disaster-recovery-of-azure-virtual-machines-using-storage-spaces-direct"></a>Recuperación ante desastres de máquinas virtuales de Azure mediante Espacios de almacenamiento directo
+## <a name="disaster-recovery-with-storage-spaces-direct"></a>Recuperación ante desastres con espacios de almacenamiento directo
+
 En un escenario típico, puede tener el clúster de invitado de máquinas virtuales en Azure para lograr mayor resistencia de la aplicación, como servidor de archivos de escalabilidad horizontal. Si bien esto puede proporcionar mayor disponibilidad para las aplicaciones, le gustaría proteger estas aplicaciones mediante Site Recovery en caso de errores a nivel regional. Site Recovery replica los datos de una región a otra región de Azure, y trae el clúster en la región de recuperación ante desastres en caso de conmutación por error.
 
-En el diagrama siguiente se muestra la representación gráfica de dos clústeres de conmutación por error de VM de Azure con Espacios de almacenamiento directo.
+En el diagrama siguiente se muestra un clúster de conmutación por error de máquinas virtuales de Azure de dos nodos en el que se usan espacios de almacenamiento directo.
 
 ![storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacedirect.png)
 
- 
+
 - Dos máquinas virtuales de Azure en un clúster de conmutación por error de Windows, y cada máquina virtual tienen dos o más discos de datos.
 - S2D sincroniza los datos del disco de datos y presenta el almacenamiento sincronizado como grupo de almacenamiento.
 - El grupo de almacenamiento se presenta como volumen compartido de clúster (CSV) al clúster de conmutación por error.
@@ -42,7 +39,7 @@ En el diagrama siguiente se muestra la representación gráfica de dos clústere
 **Consideraciones acerca de la recuperación ante desastres**
 
 1. Cuando está configurando el [testigo de la nube](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp) para el clúster, mantenga el testigo en la región de recuperación ante desastres.
-2. Si va a conmutar por error las máquinas virtuales a la subred en una región de recuperación ante desastres que es diferente de la región de origen, la dirección IP del clúster debe cambiarse después de la conmutación por error.  Para cambiar la dirección IP del clúster, debe usar el [script del plan de recuperación](https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation) de ASR.</br>
+2. Si va a conmutar por error las máquinas virtuales a la subred en una región de recuperación ante desastres que es diferente de la región de origen, la dirección IP del clúster debe cambiarse después de la conmutación por error.  Para cambiar la dirección IP del clúster, debe usar el [script del plan de recuperación](https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation) de Site Recovery.</br>
 [Script de ejemplo](https://github.com/krnese/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts/ASR-Wordpress-ChangeMysqlConfig.ps1) para ejecutar el comando dentro de la VM mediante la extensión de script personalizado 
 
 ### <a name="enabling-site-recovery-for-s2d-cluster"></a>Habilitación de Site Recovery para el clúster de S2D:
@@ -54,7 +51,7 @@ En el diagrama siguiente se muestra la representación gráfica de dos clústere
 
    ![protección de storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
-2. Vaya a los elementos replicados y podrá ver el estado de ambas máquinas virtuales. 
+2. Vaya a los elementos replicados y podrá ver el estado de ambas máquinas virtuales.
 3. Ambas máquinas virtuales están protegidas y también se muestran como parte del grupo de coherencia de varias VM.
 
    ![protección de storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
@@ -69,11 +66,11 @@ Un plan de recuperación admite la secuenciación de distintas capas en una apli
 
 
 ### <a name="add-scripts-to-the-recovery-plan"></a>Incorporación de scripts al plan de recuperación
-Para que las aplicaciones funciones correctamente, es posible que tenga que realizar algunas operaciones en las máquinas virtuales de Azure después de la conmutación por error o durante una conmutación por error de prueba. Algunas de las operaciones posteriores a la conmutación por error se pueden automatizar. Por ejemplo, aquí adjuntamos un equilibrador de carga y cambiamos la dirección IP de clúster.
+Para que las aplicaciones funciones correctamente, es posible que tenga que realizar algunas operaciones en las máquinas virtuales de Azure después de la conmutación por error o durante una conmutación por error de prueba. Algunas de las operaciones posteriores a la conmutación por error se pueden automatizar. Por ejemplo, aquí se adjunta un equilibrador de carga y se cambia la dirección IP de clúster.
 
 
 ### <a name="failover-of-the-virtual-machines"></a>Conmutación por error de las máquinas virtuales 
-Ambos nodos de las máquinas virtuales deben conmutarse por error mediante el [plan de recuperación de ASR](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans). 
+Los dos nodos de las máquinas virtuales se deben conmutar por error mediante el [plan de recuperación](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) de Site Recovery. 
 
 ![protección de storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)
 

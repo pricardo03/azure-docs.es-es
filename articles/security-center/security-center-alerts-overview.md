@@ -10,18 +10,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 3cd3cef4d70ea3f78d7e135ad01e0e00b38c60b9
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 6fc4b40e9b65f17b0af61b601826279e99410ed1
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666285"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920752"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de seguridad en Azure Security Center
 
 En Azure Security Center, existe una amplia variedad de alertas para los numerosos y diversos tipos de recursos. Security Center genera alertas para los recursos implementados en Azure, así como para los recursos implementados en entornos locales y entornos en la nube híbrida.
 
-El nivel estándar de Azure Security Center dispone de medidas de detección avanzadas. Hay una evaluación gratuita disponible. Si desea actualizar la versión, puede seleccionar las opciones disponibles en el Plan de tarifa de la [Directiva de seguridad](security-center-pricing.md). Para más información sobre los precios, visite la [página de Security Center](https://azure.microsoft.com/pricing/details/security-center/) .
+Una serie de medidas de detección avanzadas se ocupan de desencadenar las alertas de seguridad y solo están disponibles en el nivel estándar de Azure Security Center. Hay una evaluación gratuita disponible. Si desea actualizar la versión, puede seleccionar las opciones disponibles en el Plan de tarifa de la [Directiva de seguridad](security-center-pricing.md). Para más información sobre los precios, visite la [página de Security Center](https://azure.microsoft.com/pricing/details/security-center/) .
 
 ## Respuesta a las amenazas actuales <a name="respond-threats"> </a>
 

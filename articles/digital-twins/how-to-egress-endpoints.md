@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/22/2019
-ms.openlocfilehash: 95dbed72aeca639041d259e9c92c2a3b73ef63fe
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/21/2020
+ms.openlocfilehash: 3803802a3d81655091d8be543ae9cb17221a98d8
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456914"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511576"
 ---
 # <a name="egress-and-endpoints-in-azure-digital-twins"></a>Salidas y puntos de conexión en Azure Digital Twins
 
@@ -47,11 +47,11 @@ Los eventos se envían a través de objetos de IoT (como dispositivos y sensores
 }
 ```
 
-| Atributo | type | DESCRIPCIÓN |
+| Atributo | Tipo | Descripción |
 | --- | --- | --- |
 | id | string | Identificador único para el evento |
 | subject | string | Ruta al asunto del evento definida por el anunciante. |
-| data | object | Los datos del evento específicos del proveedor de recursos. |
+| datos | object | Los datos del evento específicos del proveedor de recursos. |
 | eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. |
 | eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
 | dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
@@ -90,7 +90,7 @@ Los formatos de eventos para cada uno de los tipos de evento se describen con m�
 - Sensor
 - SensorBlobMetadata
 - SensorExtendedProperty
-- Espacio
+- Space
 - SpaceBlobMetadata
 - SpaceExtendedProperty
 - SpaceResource
@@ -122,7 +122,7 @@ Los formatos de eventos para cada uno de los tipos de evento se describen con m�
 }
 ```
 
-| Valor | Reemplazar por |
+| Value | Reemplazar por |
 | --- | --- |
 | YOUR_TOPIC_NAME | El nombre del tema personalizado |
 
@@ -153,7 +153,7 @@ Los formatos de eventos para cada uno de los tipos de evento se describen con m�
 }
 ```
 
-| Valor | Reemplazar por |
+| Value | Reemplazar por |
 | --- | --- |
 | YOUR_TOPIC_NAME | El nombre del tema personalizado |
 
@@ -188,7 +188,7 @@ Los formatos de eventos para cada uno de los tipos de evento se describen con m�
 }
 ```
 
-| Valor | Reemplazar por |
+| Value | Reemplazar por |
 | --- | --- |
 | YOUR_TOPIC_NAME | El nombre del tema personalizado |
 
@@ -223,7 +223,7 @@ Los formatos de eventos para cada uno de los tipos de evento se describen con m�
 }
 ```
 
-| Valor | Reemplazar por |
+| Value | Reemplazar por |
 | --- | --- |
 | YOUR_TOPIC_NAME | El nombre del tema personalizado |
 
@@ -248,7 +248,7 @@ Los ejemplos siguientes muestran cómo configurar los puntos de conexión compat
 
 Una solicitud HTTP POST autenticada en:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/endpoints
 ```
 
@@ -268,7 +268,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valor | Reemplazar por |
+    | Value | Reemplazar por |
     | --- | --- |
     | YOUR_NAMESPACE | El espacio de nombres del punto de conexión |
     | YOUR_PRIMARY_KEY | La cadena de conexión principal utilizada para autenticar |
@@ -291,7 +291,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valor | Reemplazar por |
+    | Value | Reemplazar por |
     | --- | --- |
     | YOUR_PRIMARY_KEY | La cadena de conexión principal utilizada para autenticar|
     | YOUR_SECONDARY_KEY | La cadena de conexión principal utilizada para autenticar |
@@ -313,7 +313,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valor | Reemplazar por |
+    | Value | Reemplazar por |
     | --- | --- |
     | YOUR_NAMESPACE | El espacio de nombres del punto de conexión |
     | YOUR_PRIMARY_KEY | La cadena de conexión principal utilizada para autenticar |
@@ -334,7 +334,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valor | Reemplazar por |
+    | Value | Reemplazar por |
     | --- | --- |
     | YOUR_NAMESPACE | El espacio de nombres del punto de conexión |
     | YOUR_PRIMARY_KEY | La cadena de conexión principal utilizada para autenticar |

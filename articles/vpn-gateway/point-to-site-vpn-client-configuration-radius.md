@@ -1,18 +1,18 @@
 ---
-title: 'Creación e instalación de archivos de configuración de cliente VPN para conexiones RADIUS de punto a sitio: PowerShell: Azure | Microsoft Docs'
+title: 'Azure VPN Gateway: Creación e instalación de archivos de configuración de cliente VPN: conexiones RADIUS P2S'
 description: Cree archivos de configuración de cliente VPN en Windows, Mac OS X y Linux para conexiones que usan autenticación RADIUS.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 34d8eb976a2a1e173f234be214799832dae7e9ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16689982156743f5dc4e2ed09a0f9bc097a51b9b
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115387"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903031"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Creación e instalación de archivos de configuración de cliente VPN para la autenticación P2S RADIUS
 
@@ -249,7 +249,7 @@ Siga los pasos a continuación para configurar el cliente VPN nativo en equipos 
    ![Información del nombre de servicio y de la interfaz](./media/point-to-site-vpn-client-configuration-radius/network.png)
 4. En la carpeta **Genérico**, en el archivo **VpnSettings.xml**, copie el valor de la etiqueta **VpnServer**. Pegue este valor en los cuadros **Dirección del servidor** e **Id. remoto** del perfil. Deje en blanco el cuadro **Id. local**.
 
-   ![Información del servidor](./media/point-to-site-vpn-client-configuration-radius/servertag.png)
+   ![Información de servidor](./media/point-to-site-vpn-client-configuration-radius/servertag.png)
 5. Seleccione **Configuración de autenticación** y **Certificado**. 
 
    ![Configuración de autenticación](./media/point-to-site-vpn-client-configuration-radius/certoption.png)

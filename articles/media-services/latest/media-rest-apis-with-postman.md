@@ -1,5 +1,5 @@
 ---
-title: Configuración de Postman para llamadas API de REST de Azure Media Services
+title: Configuración de Postman para llamadas API REST de Azure Media Services v3
 description: En este artículo se muestra cómo configurar Postman para que se pueda usar para llamar a las API de REST de Azure Media Services (AMS).
 services: media-services
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: eee46bd8642f5ad4a8d036b9f6bf9a464c0d09f3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888111"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779644"
 ---
-# <a name="configure-postman-for-media-services-rest-api-calls"></a>Configuración de Postman para llamadas API de REST de Azure Media Services
+# <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configuración de Postman para llamadas API REST de Media Services v3
 
 En este artículo se muestra cómo configurar **Postman** para que se pueda usar para llamar a las API REST de Azure Media Services (AMS). El artículo muestra cómo importar archivos de entorno y colección a **Postman**. La colección contiene definiciones agrupadas de solicitudes HTTP que llaman a API de REST de Azure Media Services. El archivo de entorno contiene variables que la colección usa.
 
 Antes de comenzar a desarrollar, revise [Desarrollo con las API de Media Services v3](media-services-apis-overview.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Cree una cuenta de Media Services](create-account-cli-how-to.md). Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services. 
 - Obtenga la información que necesita para [acceder a las API](access-api-cli-how-to.md)
@@ -92,7 +92,7 @@ Antes de empezar a manipular recursos de AMS v3, debe obtener y establecer el to
 
     ![Obtención del token de AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
-## <a name="troubleshooting"></a>solución de problemas 
+## <a name="troubleshooting"></a>Solución de problemas 
 
 * Si en la aplicación se produce el error "HTTP 504: Tiempo de espera de puerta de enlace ", asegúrese de que la variable de ubicación no se haya establecido explícitamente en un valor distinto de la ubicación esperada de la cuenta de Media Services. 
 * Si aparece el error "no se encuentra la cuenta", asegúrese también de que la propiedad ubicación en el mensaje JSON del cuerpo se haya establecido en la ubicación en la que se encuentra la cuenta de Media Services. 

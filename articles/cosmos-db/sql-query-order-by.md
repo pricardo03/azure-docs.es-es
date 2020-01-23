@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 5cae2bdd7d1f2f26e626c81ea95d2cee3cc8ae13
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc5c875f4ae54ed334318efc5a1d5610b89bdda5
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444785"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929583"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Cláusula ORDER BY en Azure Cosmos DB
 
@@ -52,7 +52,7 @@ ORDER BY <sort_specification>
    La cláusula ORDER BY requiere que la directiva de indexación incluya un índice para los campos que se ordenan. El tiempo de ejecución de consulta de Azure Cosmos DB admite la ordenación con un nombre de propiedad y no con las propiedades calculadas. Azure Cosmos DB admite varias propiedades de ORDER BY. Para ejecutar una consulta con varias propiedades ORDER BY, debe definir un [índice compuesto](index-policy.md#composite-indexes) en los campos que se ordenan.
    
 > [!Note] 
-> Al usar el SDK de .NET 3.4.0 o una versión posterior, si es posible que las propiedades que se van a usar para ordenar no estén definidas en algunos documentos, debe crear explícitamente un índice en esas propiedades. La directiva de indexación predeterminada no permite la recuperación de los documentos en los que la propiedad de ordenación no está definida.
+> Si es posible que las propiedades que se van a usar para ordenar no estén definidas en algunos documentos y desea recuperarlos en una consulta ORDER BY, debe crear un índice explícitamente en esas propiedades. La directiva de indexación predeterminada no permite la recuperación de los documentos en los que la propiedad de ordenación no está definida.
 
 ## <a name="examples"></a>Ejemplos
 

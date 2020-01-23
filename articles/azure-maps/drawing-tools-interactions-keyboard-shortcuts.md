@@ -1,6 +1,6 @@
 ---
-title: Tipos de interacción y métodos abreviados de teclado de las herramientas de dibujo en Azure Maps | Microsoft Docs
-description: Cómo dibujar y editar formas con un mouse, una pantalla táctil o un teclado en el SDK web de Azure Maps
+title: Tipos de interacción y métodos abreviados de teclado de las herramientas de dibujo en el mapa | Microsoft Azure Maps
+description: Cómo dibujar y editar formas con un mouse, una pantalla táctil o un teclado en el SDK web de Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/05/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 8385f294426f6d793f7b539006eafd0b2cb940ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 267579f7b4bbfe026f3aa01b00f01f3b872cf4a6
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475590"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911655"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Tipos de interacción y métodos abreviados de teclado en el módulo de herramientas de dibujo
 

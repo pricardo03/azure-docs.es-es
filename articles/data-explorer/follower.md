@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 495f53bc97835c4940f7b36d23349b768a7a637f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b4e09bf84d78c88d3625b0f6b478746db09cc2d8
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440965"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030068"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Uso de la base de datos del seguidor para adjuntar bases de datos en Azure Data Explorer
 
@@ -127,7 +127,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Adjunción de una base de datos mediante una plantilla de Azure Resource Manager
 
-En esta sección, aprenderá a adjuntar una base de datos mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/management/overview.md). 
+En esta sección, obtendrá información sobre cómo crear un clúster del seguidor y asociarle una base de datos mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/management/overview.md). Si ya tiene un clúster, quite el recurso `Microsoft.Kusto/clusters` de la lista de recursos siguiente.
 
 ```json
 {
@@ -159,7 +159,7 @@ En esta sección, aprenderá a adjuntar una base de datos mediante una [plantill
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Name of the leader cluster to create."
+                "description": "The resource ID of the leader cluster."
             }
         },
         "defaultPrincipalsModificationKind": {
@@ -217,7 +217,7 @@ Puede implementar la plantilla de Azure Resource Manager [mediante Azure Portal]
 
 |**Configuración**  |**Descripción**  |
 |---------|---------|
-|Nombre del clúster del seguidor     |  Nombre del clúster del seguidor.       |
+|Nombre del clúster del seguidor     |  Nombre del clúster del seguidor. Si el nombre del clúster existe, quite el recurso `Microsoft.Kusto/clusters` de la lista de recursos de la plantilla de ARM. De lo contrario, se creará un nuevo clúster.     |
 |Nombre de las opciones de configuración de la base de datos adjunta    |    Nombre del objeto de opciones de configuración de la base de datos adjunta. El nombre debe ser único en el nivel del clúster.     |
 |Nombre de la base de datos     |      Nombre de la base de datos que se va a seguir. Si quiere seguir todas las bases de datos del responsable, use "*".   |
 |Id. del recurso de clúster del responsable    |   Identificador del recurso de clúster del responsable.      |

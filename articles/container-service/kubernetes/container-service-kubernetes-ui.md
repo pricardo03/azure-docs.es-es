@@ -1,20 +1,18 @@
 ---
 title: (EN DESUSO) Administración de un clúster de Azure Kubernetes con una interfaz de usuario web
 description: Uso de la interfaz de usuario web de Kubernetes en Azure Container Service
-services: container-service
 author: bburns
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: c3a79b2e4fab807613a54d2792f5f5b97570293b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6ce78ca19458b497980cf2cfc374f787d3a5d9f5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60309773"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276978"
 ---
 # <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(EN DESUSO) Uso de la interfaz de usuario web de Kubernetes con Azure Container Service
 
@@ -23,7 +21,7 @@ ms.locfileid: "60309773"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 En este tutorial se da por supuesto que ha [creado un clúster de Kubernetes con Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 
@@ -67,7 +65,7 @@ Debería abrirse un explorador web configurado para comunicarse con un proxy seg
 
     Se debería abrir un cuadro de diálogo en el que puede comenzar a crear la aplicación.
 
-2. Utilice el nombre `hello-nginx`. Use el contenedor [ `nginx` de Docker](https://hub.docker.com/_/nginx/) e implemente las tres réplicas de este servicio web.
+2. Utilice el nombre `hello-nginx`. Use el contenedor [`nginx` de Docker](https://hub.docker.com/_/nginx/) e implemente las tres réplicas de este servicio web.
 
     ![Cuadro de diálogo de creación de pod de Kubernetes](./media/container-service-kubernetes-ui/nginx.png)
 

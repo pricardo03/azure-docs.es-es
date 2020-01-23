@@ -8,13 +8,18 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 31fdd85fdcc40b38738d33e2c0c13797db7b1d42
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 207f5180db8a589ed4a68741ac18180370d21788
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390542"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833891"
 ---
+## <a name="limitations"></a>Limitaciones
+
+- Actualmente, los conjuntos de escalado de máquinas virtuales no se admiten en los hosts dedicados.
+- Se admiten las siguientes series de máquinas virtuales: DSv3 y ESv3. 
+
 ## <a name="benefits"></a>Ventajas 
 
 La reserva de todo el host proporciona las siguientes ventajas:
@@ -22,7 +27,6 @@ La reserva de todo el host proporciona las siguientes ventajas:
 -   Aislamiento del hardware a nivel de servidor físico. No se colocarán otras máquinas virtuales en los hosts. Los hosts dedicados se implementan en los mismos centros de datos y comparten la misma red y la misma infraestructura de almacenamiento subyacente que otros hosts no aislados.
 -   Control sobre los eventos de mantenimiento iniciados por la plataforma Azure. Aunque la mayoría de los eventos de mantenimiento tienen poco o ningún impacto en las máquinas virtuales, hay algunas cargas de trabajo confidenciales en las que cada segundo de pausa puede tener un impacto. Con los hosts dedicados, puede participar en una ventana de mantenimiento para reducir el impacto en el servicio.
 -   Con la ventaja híbrida de Azure, puede traer sus propias licencias para Windows y SQL a Azure. El uso de las ventajas híbridas proporciona ventajas adicionales. Para más información, consulte [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
 
 
 ## <a name="groups-hosts-and-vms"></a>Grupos, hosts y máquinas virtuales  
@@ -103,7 +107,7 @@ Los distintos `types` de la misma serie de máquinas virtuales serán de distint
 
 Para más información, consulte la [página de precios](https://aka.ms/ADHPricing) de hosts.
 
-Durante la versión preliminar, se admitirán los siguientes tipos/SKU de host:  DSv3_Type1 y ESv3_Type1
+Los hosts dedicados admiten estos tipos o SKU de host:  DSv3_Type1 y ESv3_Type1
 
  
 ## <a name="host-life-cycle"></a>Ciclo de vida del host
@@ -111,7 +115,7 @@ Durante la versión preliminar, se admitirán los siguientes tipos/SKU de host: 
 
 Azure supervisa y administra el estado de mantenimiento de los hosts. Al consultar el host se devolverán los siguientes estados:
 
-| Estado de mantenimiento   | DESCRIPCIÓN       |
+| Estado de mantenimiento   | Descripción       |
 |----------|----------------|
 | Host disponible     | No hay ningún problema conocido en el host.   |
 | Host bajo investigación  | Hay algunos problemas en el host y se están examinando. Se trata de un estado transitorio necesario para que Azure intente identificar el ámbito y la causa principal del problema identificado. Es posible que se vean afectadas las máquinas virtuales que se ejecutan en el host. |

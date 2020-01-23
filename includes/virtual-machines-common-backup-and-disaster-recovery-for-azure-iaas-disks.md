@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9332079cd77c4dcc972059071165ba0631135b5c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: cd10bd2a04bfb2a3e3316d86e64a98c75c12e36d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012523"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76530916"
 ---
 En este artículo se explica cómo planear la copia de seguridad y recuperación ante desastres (DR) de discos y máquinas virtuales (VM) IaaS en Azure. En este documento se tratan los discos administrados y los no administrados.
 
@@ -151,8 +151,6 @@ Use los pasos siguientes para habilitar las copias de seguridad de las máquinas
 1.  Configure la directiva de copia de seguridad y seleccione la máquina virtual en la misma interfaz de usuario.
 
 1.  Asegúrese de que Backup Agent está instalado en la máquina virtual. Si la máquina virtual se crea con una imagen de la galería de Azure, ya tiene instalado el agente de copia de seguridad. En caso contrario (es decir, si usa una imagen personalizada), siga las instrucciones para [instalar el agente de VM en una máquina virtual](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-
-1.  Asegúrese de que la máquina virtual permite la conectividad de red para que funcione el servicio Backup. Siga las instrucciones para la [conectividad de red](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 1.  Una vez completados los pasos anteriores, la copia de seguridad se ejecuta a intervalos regulares, tal y como se especifica en la directiva de copia de seguridad. Si es necesario, puede desencadenar la primera copia de seguridad manualmente desde el panel de almacén en Azure Portal.
 

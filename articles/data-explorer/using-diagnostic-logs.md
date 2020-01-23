@@ -7,25 +7,25 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 13f86f0156299619d8bf8d92eb92bbcf8b4cb76c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 3e10979e26cacdc0c2071a6030c945adad21a51c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173810"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277426"
 ---
 # <a name="monitor-azure-data-explorer-ingestion-operations-using-diagnostic-logs-preview"></a>Supervisión de las operaciones de ingesta de Azure Data Explorer mediante registros de diagnóstico (versión preliminar)
 
 Azure Data Explorer es un servicio de análisis de datos rápido y totalmente administrado para analizar en tiempo real grandes volúmenes de datos de que se transmiten desde aplicaciones, sitios web, dispositivos IoT, etc. Para usar Azure Data Explorer, cree primero un clúster y una o varias bases de datos en ese clúster. A continuación, ingerirá (cargará) los datos en una tabla de una base de datos para que pueda ejecutar consultas en ella. Los [registros de diagnóstico de Azure Monitor](/azure/azure-monitor/platform/diagnostic-logs-overview) proporcionan datos sobre el funcionamiento de los recursos de Azure. Azure Data Explorer usa registros de diagnóstico para extraer conclusiones sobre los errores y aciertos de la ingesta. Puede exportar los registros de operaciones a Azure Storage, Event Hub o Log Analytics para supervisar el estado de ingesta. Los registros de Azure Storage y Azure Event Hub se pueden enrutar a una tabla del clúster de Azure Data Explorer para analizarlos mejor.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Si no tiene una suscripción a Azure, cree una [cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 * Creación de un [clúster y una base de datos](create-cluster-database-portal.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="set-up-diagnostic-logs-for-an-azure-data-explorer-cluster"></a>Configuración de registros de diagnóstico en un clúster de Azure Data Explorer
 
@@ -52,7 +52,7 @@ Los registros de diagnóstico están inhabilitados de forma predeterminada. Para
     1. Seleccione el **nombre** de su configuración de diagnóstico.
     1. Seleccione uno o varios destinos: una cuenta de almacenamiento, Event Hub o Log Analytics.
     1. Seleccione los registros que se van a recopilar: `SucceededIngestion` o `FailedIngestion`.
-    1. Seleccione las [métricas](using-metrics.md) que se van a recopilar (opcional).   
+    1. Seleccione las [métricas](using-metrics.md#supported-azure-data-explorer-metrics) que se van a recopilar (opcional).  
     1. Seleccione **Guardar** para guardar la nueva configuración y las métricas de los registros de diagnóstico.
     1. Para solicitar la activación de los registros de diagnóstico, cree una **solicitud de soporte técnico** en Azure Portal.
 
@@ -66,7 +66,7 @@ Todos los [registros de diagnóstico de Azure Monitor comparten un esquema de ni
 
 Las cadenas JSON de registro incluyen elementos enumerados en la tabla siguiente:
 
-|NOMBRE               |DESCRIPCIÓN
+|Nombre               |Descripción
 |---                |---
 |time               |Hora del informe.
 |resourceId         |El identificador de recursos de Azure Resource Manager
@@ -77,7 +77,7 @@ Las cadenas JSON de registro incluyen elementos enumerados en la tabla siguiente
 
 #### <a name="successful-ingestion-operation-log"></a>Registro de operaciones de ingesta correctas
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -100,7 +100,7 @@ Las cadenas JSON de registro incluyen elementos enumerados en la tabla siguiente
 ```
 **Propiedades del registro de diagnóstico de una operación correcta**
 
-|NOMBRE               |DESCRIPCIÓN
+|Nombre               |Descripción
 |---                |---
 |succeededOn        |Hora de finalización de la ingesta
 |operationId        |Identificador de operación de ingesta de Azure Data Explorer
@@ -112,7 +112,7 @@ Las cadenas JSON de registro incluyen elementos enumerados en la tabla siguiente
 
 #### <a name="failed-ingestion-operation-log"></a>Registro de operaciones de ingesta con error
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -141,7 +141,7 @@ Las cadenas JSON de registro incluyen elementos enumerados en la tabla siguiente
 
 **Propiedades del registro de diagnóstico de una operación con error**
 
-|NOMBRE               |DESCRIPCIÓN
+|Nombre               |Descripción
 |---                |---
 |failedOn           |Hora de finalización de la ingesta
 |operationId        |Identificador de operación de ingesta de Azure Data Explorer
@@ -150,7 +150,7 @@ Las cadenas JSON de registro incluyen elementos enumerados en la tabla siguiente
 |ingestionSourceId  |Identificador del origen de datos de ingesta
 |ingestionSourcePath|Ruta de acceso del URI del blob o del origen de datos de ingesta
 |rootActivityId     |Identificador de actividad
-|details            |Descripción detallada del error y el mensaje de error
+|detalles            |Descripción detallada del error y el mensaje de error
 |errorCode          |Código de error 
 |failureStatus      |`Permanent` o `Transient`. El reintento de un error transitorio puede conseguirse.
 |originatesFromUpdatePolicy|True si el error se origina desde una directiva de actualización

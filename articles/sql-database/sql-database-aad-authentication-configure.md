@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 11/06/2019
-ms.openlocfilehash: 76ca8a5d781c22279ccad633cc7c5bc98d645df8
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.date: 01/07/2020
+ms.openlocfilehash: dc2661bbc443201d6a2da4b5efb7ecdc2caad444
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901354"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732576"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configuración y administración de la autenticación de Azure Active Directory con SQL
 
@@ -181,7 +181,7 @@ Como procedimiento recomendado para los administradores de Azure AD para MI exis
 Para ejecutar los cmdlets de PowerShell, necesitará tener Azure PowerShell instalado y en marcha. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager (RM) para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para más información sobre la compatibilidad, consulte [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
+> El módulo de Azure Resource Manager (RM) para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para obtener más información sobre la compatibilidad, vea [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 Para aprovisionar un administrador de Azure AD, debe ejecutar los siguientes comandos de Azure PowerShell:
 
@@ -190,7 +190,7 @@ Para aprovisionar un administrador de Azure AD, debe ejecutar los siguientes com
 
 Cmdlets que se usan para aprovisionar y administrar administradores de Azure AD para una instancia administrada de SQL:
 
-| Nombre del cmdlet | DESCRIPCIÓN |
+| Nombre del cmdlet | Descripción |
 | --- | --- |
 | [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |Aprovisiona un administrador de Azure AD para una instancia administrada de SQL de la suscripción actual. (Debe ser de la suscripción actual).|
 | [Remove-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |Elimina un administrador de Azure AD para una instancia administrada de SQL de la suscripción actual. |
@@ -218,7 +218,7 @@ Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGro
 
 También puede aprovisionar un administrador de Azure AD para una instancia administrada de SQL mediante una llamada a los siguientes comandos de la CLI:
 
-| Get-Help | DESCRIPCIÓN |
+| Get-Help | Descripción |
 | --- | --- |
 |[az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) | Aprovisiona un administrador de Azure Active Directory para una instancia administrada de SQL. (Debe ser de la suscripción actual). |
 |[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-delete) | Elimina un administrador de Azure Active Directory para una instancia administrada de SQL. |
@@ -281,7 +281,7 @@ Para ejecutar los cmdlets de PowerShell, necesitará tener Azure PowerShell inst
 
 Cmdlets que se usan para aprovisionar y administrar administradores de Azure AD para Azure SQL Database y Azure SQL Data Warehouse:
 
-| Nombre del cmdlet | DESCRIPCIÓN |
+| Nombre del cmdlet | Descripción |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Aprovisiona un administrador de Azure Active Directory para Azure SQL Server o para Azure SQL Data Warehouse. (Debe ser de la suscripción actual). |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Quita un administrador de Azure Active Directory para Azure SQL Server o para Azure SQL Data Warehouse. |
@@ -326,7 +326,7 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 
 Puede aprovisionar un administrador de Azure AD mediante una llamada a los siguientes comandos de la CLI:
 
-| Get-Help | DESCRIPCIÓN |
+| Get-Help | Descripción |
 | --- | --- |
 |[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | Aprovisiona un administrador de Azure Active Directory para Azure SQL Server o para Azure SQL Data Warehouse. (Debe ser de la suscripción actual). |
 |[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | Quita un administrador de Azure Active Directory para Azure SQL Server o para Azure SQL Data Warehouse. |
@@ -345,14 +345,17 @@ Para más información sobre los comandos de la CLI, consulte [az sql server](/c
 En todos los equipos cliente, desde el que las aplicaciones o los usuarios se conectan a Azure SQL Database o a SQL Data Warehouse mediante identidades de Azure AD, debe instalar el software siguiente:
 
 - .NET Framework 4.6 o posterior desde [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
-- La Biblioteca de autenticación de Azure Active Directory para SQL Server (*ADALSQL.DLL*) está disponible en varios idiomas (x86 y amd64) en el centro de descarga en la sección [Biblioteca de autenticación de Microsoft Active Directory para Microsoft SQL Server](https://www.microsoft.com/download/details.aspx?id=48742).
+- Biblioteca de autenticación de Azure Active Directory para SQL Server (*ADAL.DLL*). A continuación se muestran los vínculos de descarga para instalar la versión más reciente del controlador SSMS, ODBC y OLE DB que contiene la biblioteca *ADAL.DLL*.
+    1. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
+    1. [Controlador ODBC 17 para SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
+    1. [Controlador OLE DB 18 para SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
 
 Puede cumplir estos requisitos mediante:
 
-- La instalación de [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) o de [SQL Server Data Tools para Visual Studio 2015](https://msdn.microsoft.com/library/mt204009.aspx) cumple los requisitos de .NET Framework 4.6.
-- SSMS instala la versión x86 de *ADALSQL.DLL*.
-- SSMS instala la versión amd64 de *ADALSQL.DLL*.
-- La versión más reciente de Visual Studio de la sección [Descargas de Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) cumple con los requisitos de .NET Framework 4.6, pero no instala la versión amd64 necesaria de *ADALSQL.DLL*.
+- La instalación de la versión más reciente de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) o de [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt) cumple los requisitos de .NET Framework 4.6.
+    - SSMS instala la versión x86 de *ADAL.DLL*.
+    - SSDT instala la versión amd64 de *ADAL.DLL*.
+    - La versión más reciente de Visual Studio de la sección [Descargas de Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) cumple con los requisitos de .NET Framework 4.6, pero no instala la versión amd64 necesaria de *ADAL.DLL*.
 
 ## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Crear usuarios de base de datos independiente  en la base de datos y asignados a identidades de Azure AD.
 
@@ -513,9 +516,13 @@ Las instrucciones siguientes permiten conectar con la versión 13.1 de sqlcmd, q
 > `sqlcmd` con el comando `-G` no funciona con identidades del sistema y requiere un inicio de sesión de entidad de seguridad de usuario.
 
 ```cmd
-sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  
+sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -G  
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
 ```
+
+## <a name="troubleshooting-azure-ad-authentication"></a>Solución de problemas de la autenticación de Azure AD
+
+Puede encontrar instrucciones para la solución de problemas con la autenticación de Azure AD en el siguiente blog: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
 ## <a name="next-steps"></a>Pasos siguientes
 

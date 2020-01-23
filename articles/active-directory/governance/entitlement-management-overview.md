@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/24/2019
+ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a99b9089e568351cf736310e778ba477441407
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1d1faf501aff8960a4b1961b34164be07b1d685d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422569"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932475"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>¿Qué es la administración de derechos de Azure AD?
 
@@ -134,17 +134,32 @@ Para comprender mejor la administración de derechos y su documentación, puede 
 
 Las nubes especializadas, como Azure Government, Azure Alemania y Azure China 21Vianet, no están actualmente disponibles para su uso.
 
-### <a name="which-users-must-have-licenses"></a>¿Qué usuarios deben tener licencias?
+### <a name="how-many-licenses-must-you-have"></a>¿Cuántas licencias debe tener?
 
-El inquilino debe tener al menos tantas licencias de Azure AD Premium P2 como usuarios miembros activos en la administración de derechos. Los usuarios miembros activos de la administración de derechos incluyen:
+Asegúrese de que el directorio tiene al menos tantas licencias de Azure AD Premium P2 como usted empleados que van a realizar las tareas siguientes:
 
-- Un usuario que inicia o aprueba una solicitud de un paquete de acceso.
-- Un usuario al que se le ha asignado un paquete de acceso.
-- Un usuario que administra los paquetes de acceso.
+- Usuarios miembros que **pueden** solicitar un paquete de acceso.
+- Usuarios miembros e invitados que solicitan un paquete de acceso.
+- Usuarios miembros e invitados que aprueban solicitudes para un paquete de acceso.
 
-Como parte de las licencias de los usuarios miembros, también puede permitir que varios usuarios invitados interactúen con la administración de derechos. Para obtener información sobre cómo calcular el número de usuarios invitados que puede incluir, consulte [Guía de concesión de licencias de colaboración B2B de Azure Active Directory](../b2b/licensing-guidance.md).
+Las licencias de Azure AD Premium P2 **no** son necesarias para las tareas siguientes:
 
-Para obtener información sobre cómo asignar licencias a los usuarios, consulte [Asignación o eliminación de licencias mediante el portal de Azure Active Directory](../fundamentals/license-users-groups.md). Tenga en cuenta que la administración de derechos no exige actualmente la asignación de licencias para los usuarios.
+- No se requiere ninguna licencia para usuarios con el rol de administrador global que configuran los catálogos iniciales, paquetes de acceso y directivas, y delegan tareas administrativas en otros usuarios.
+- No se requiere ninguna licencia para usuarios en los que se han delegado tareas administrativas, como el creador de catálogos, el propietario de catálogos y el administrador de paquetes de acceso.
+- No se requiere ninguna licencia para invitados que **pueden** solicitar paquetes de acceso, pero **no** solicitan un paquete de acceso.
+
+Para cada una de las licencias Azure AD Premium P2 de pago que compre para sus usuarios miembros, puede usar Azure AD B2B para invitar a un máximo de cinco usuarios invitados. Los usuarios invitados también pueden usar las características de Azure AD Premium P2. Para más información, consulte [Guía de concesión de licencias de colaboración B2B de Azure Active Directory](../b2b/licensing-guidance.md).
+
+Para más información sobre las licencias, consulte [Asignación o eliminación de licencias mediante el portal de Azure Active Directory](../fundamentals/license-users-groups.md).
+
+### <a name="example-license-scenarios"></a>Escenarios de licencia de ejemplo
+
+Estos son algunos escenarios de licencia de ejemplo que le ayudarán a determinar el número de licencias que debe tener.
+
+| Escenario | Cálculo | Número de licencias |
+| --- | --- | --- |
+| Un administrador global de Woodgrove Bank crea catálogos iniciales y delega tareas administrativas en otros seis usuarios. Una de las directivas especifica que **todos los empleados** (2000 empleados) pueden solicitar un conjunto específico de paquetes de acceso. 150 empleados solicitan los paquetes de acceso. | 2000 empleados que **pueden** solicitar los paquetes de acceso | 2\.000 |
+| Un administrador global de Woodgrove Bank crea catálogos iniciales y delega tareas administrativas en otros seis usuarios. Una de las directivas especifica que **todos los empleados** (2000 empleados) pueden solicitar un conjunto específico de paquetes de acceso. Otra directiva especifica que algunos **usuarios del asociado Contoso** (invitados) pueden solicitar los mismos paquetes de acceso sujetos a aprobación. Contoso tiene 30 000 usuarios. 150 empleados solicitan los paquetes de acceso y 10 500 usuarios de Contoso solicitan acceso. | 2000 empleados + 500 usuarios invitados de Contoso que superan la relación 1:5 (10 500 - (2000 * 5)) | 2500 |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 13bff4abcb308e4d5ea55f360d979e3e67d313c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ab8baa810c36c794bbefd264c5588f8b28cbd62a
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452863"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046191"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planificación del entorno de Azure Time Series Insights de disponibilidad general
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo planear el entorno de disponibilidad general
 
 ## <a name="video"></a>Vídeo
 
-**Vea este vídeo para obtener más información sobre la retención de datos en Azure Time Series Insights y cómo planearla**:<br /><br />
+**Vea este vídeo para obtener más información sobre la retención de datos en Azure Time Series Insights y cómo planearla**:<br />
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
@@ -53,7 +53,7 @@ Puede cambiar el valor de **Data retention time** (Tiempo de retención de datos
 Azure Time Series Insights tiene dos modos:
 
 * Un modo se optimiza para los datos más actualizados. Aplica una directiva **Purgar datos antiguos** y mantiene los datos recientes disponibles con la instancia. Este modo está activado, de forma predeterminada. 
-* El otro optimiza los datos para que permanezcan por debajo de los límites de retención configurados. **Pausar entrada** impide que los nuevos datos entren cuando está seleccionado como **Comportamiento correspondiente a un exceso del límite de almacenamiento** . 
+* El otro optimiza los datos para que permanezcan por debajo de los límites de retención configurados. **Pausar entrada** impide que los nuevos datos entren cuando está seleccionado como **Comportamiento correspondiente a un exceso del límite de almacenamiento** .
 
 Puede ajustar la retención y alternar entre ambos modos en la página de configuración del entorno en Azure Portal.
 
@@ -71,7 +71,7 @@ Puede ajustar la retención y alternar entre ambos modos en la página de config
    [![Configuración de la retención](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
 > [!TIP]
-> Para obtener más información sobre cómo implementar una directiva de retención de datos adecuada, vea [Cómo configurar la retención](./time-series-insights-how-to-configure-retention.md).
+> Para obtener más información sobre cómo implementar una directiva de retención de datos adecuada, consulte [Cómo configurar la retención](./time-series-insights-how-to-configure-retention.md).
 
 ## <a name="ingress-capacity"></a>Capacidad de entrada
 
@@ -119,7 +119,7 @@ Un *conjunto de datos de referencia* es una colección de elementos que aumentan
 > [!NOTE]
 > Los datos de referencia no se combinan de manera retroactiva. Solo los datos de entrada actuales y futuros se combinan y unen con el conjunto de datos de referencia una vez que se han configurado y cargado. Si va a enviar una gran cantidad de datos históricos a Time Series Insights y primero no carga o crea datos de referencia en Time Series Insights, deberá rehacer el trabajo (lo que no resulta nada agradable).  
 
-Para más información sobre cómo crear, cargar y administrar los datos de referencia en Time Series Insights, vea nuestra [documentación sobre el conjunto de datos de referencia](time-series-insights-add-reference-data-set.md).
+Para más información sobre cómo crear, cargar y administrar los datos de referencia en Time Series Insights, consulte nuestra [documentación sobre el conjunto de datos de referencia](time-series-insights-add-reference-data-set.md).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

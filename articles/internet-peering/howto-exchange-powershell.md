@@ -1,0 +1,64 @@
+---
+title: Creación o modificación de un emparejamiento de Exchange mediante PowerShell
+titleSuffix: Azure
+description: Creación o modificación de un emparejamiento de Exchange mediante PowerShell
+services: internet-peering
+author: prmitiki
+ms.service: internet-peering
+ms.topic: article
+ms.date: 11/27/2019
+ms.author: prmitiki
+ms.openlocfilehash: 4fd7d345e5efbe6e4e86e5bb410e2df4dd917047
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75773699"
+---
+# <a name="create-or-modify-an-exchange-peering-using-powershell"></a>Creación o modificación de un emparejamiento de Exchange mediante PowerShell
+
+En este artículo se describe cómo crear un emparejamiento de Microsoft Exchange con cmdlets de PowerShell y el modelo de implementación de Resource Manager. También se muestra cómo comprobar el estado del recurso, así como la forma de actualizarlo o eliminarlo y desaprovisionarlo.
+
+Si lo prefiere, puede completar esta guía mediante el [portal](howto-exchange-portal.md).
+
+## <a name="before-you-begin"></a>Antes de empezar
+* Revise la sección [Requisitos previos](prerequisites.md) y el [Tutorial del emparejamiento de Exchange](walkthrough-exchange-all.md) antes de comenzar la configuración.
+* Si ya dispone de un emparejamiento de Exchange con Microsoft, que no se convierte en un recurso de Azure, consulte el artículo [Conversión de un emparejamiento de Exchange heredado en un recurso de Azure mediante PowerShell](howto-legacy-exchange-powershell.md).
+
+### <a name="working-with-azure-powershell"></a>Trabajo con Azure PowerShell
+[!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
+
+## <a name="create-and-provision-an-exchange-peering"></a>Creación y aprovisionamiento de un emparejamiento de Exchange
+
+### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Iniciar sesión en la cuenta de Azure y seleccione la suscripción
+[!INCLUDE [Account](./includes/account-powershell.md)]
+
+### <a name=exchange-location></a>Obtención de la lista de ubicaciones de emparejamiento compatibles para el emparejamiento de Exchange
+[!INCLUDE [exchange-location](./includes/exchange-powershell-create-location.md)]
+
+### <a name=create></a>Creación de un emparejamiento de Exchange
+[!INCLUDE [exchange-peering](./includes/exchange-powershell-create-connection.md)]
+
+### <a name=get></a>Obtención de un emparejamiento de Exchange
+[!INCLUDE [peering-exchange-get](./includes/exchange-powershell-get.md)]
+
+## <a name="modify"></a>Modificación de un emparejamiento de Exchange
+[!INCLUDE [peering-exchange-modify](./includes/exchange-powershell-modify.md)]
+
+## <a name=delete></a>Desaprovisionamiento de un emparejamiento de Exchange
+
+[!INCLUDE [peering-exchange-delete](./includes/delete.md)]
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Creación o modificación de un emparejamiento directo mediante PowerShell](howto-direct-powershell.md)
+* [Conversión de un emparejamiento directo heredado en un recurso de Azure mediante PowerShell](howto-legacy-direct-powershell.md)
+
+## <a name="additional-resources"></a>Recursos adicionales
+Puede obtener una descripción detallada de todos los parámetros ejecutando el siguiente comando:
+
+```powershell
+Get-Help Get-AzPeering -detailed
+```
+
+Para obtener más información, consulte las [preguntas más frecuentes sobre el emparejamiento de Internet](faqs.md).

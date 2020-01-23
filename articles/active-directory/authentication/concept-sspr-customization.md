@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 039b514fe70da0e300e74bbc98a3a0f4e9ea342c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c6f7f59f7bcc93edafa3cbb47bd432b52bde985c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848602"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979454"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar la funcionalidad del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -43,9 +43,9 @@ Los usuarios de autoservicio de restablecimiento de contraseña tienen disponibl
 
 Este correo electrónico se envía a los siguientes destinatarios en el orden siguiente:
 
-1. Si el rol de **administrador de contraseñas** está asignado, se notificará a todos aquellos que lo tengan.
-2. Si no hay asignado ningún administrador de contraseñas, entonces se notificará a quienes tengan el rol de **administrador de usuarios**.
-3. Si no se ha asignado ninguno de los roles anteriores, se notificará a los **administradores globales**.
+1. Si el rol **Administrador del departamento de soporte técnico** o **Administrador de contraseñas** está asignado, se notificará a todos administradores que los tengan.
+1. Si no hay asignado ningún administrador del departamento de soporte técnico o de contraseñas, entonces se notificará a los que tengan el rol de **administrador de usuarios**.
+1. Si no se ha asignado ninguno de los roles anteriores, se notificará a los **administradores globales**.
 
 En todos los casos, se notificará a un máximo de 100 destinatarios en total.
 

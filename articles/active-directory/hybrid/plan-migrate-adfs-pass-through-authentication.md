@@ -12,18 +12,19 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6646217149cec48ca5fcee59b3dd9d850965c602
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 21ceacf27f92781b40a856b0c0a4d627d41a0738
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779922"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028568"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migración de la federación a la autenticación de paso a través en Azure Active Directory
 
 En este artículo se describe cómo mover los dominios de la organización de Servicios de federación de Active Directory (AD FS) a la autenticación de paso a través.
 
-Puede [descargarlo](https://aka.ms/ADFSTOPTADPDownload) si así lo desea.
+> [!NOTE]
+> El cambio del método de autenticación necesita planeación, pruebas y un posible tiempo de inactividad. El [lanzamiento preconfigurado](how-to-connect-staged-rollout.md) proporciona una forma alternativa de probar y migrar gradualmente la autenticación de la federación a la nube mediante la autenticación de paso a través.
 
 ## <a name="prerequisites-for-migrating-to-pass-through-authentication"></a>Requisitos previos para la migración a la autenticación de paso a través
 
@@ -31,7 +32,7 @@ Los siguientes requisitos previos son necesarios para migrar del uso de AD FS al
 
 ### <a name="update-azure-ad-connect"></a>Actualización de Azure AD Connect
 
-Para completar correctamente los pasos necesarios para migrar a la autenticación de paso a través, debe tener [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) 1.1.819.0 o una versión posterior. En Azure AD Connect 1.1.819.0, el modo en que se realiza la conversión de inicio de sesión cambia significativamente. El tiempo total para migrar de AD FS a la autenticación en la nube en esta versión se ha reducido de posiblemente horas a minutos.
+Para completar correctamente los pasos necesarios para migrar a la autenticación de paso a través, debe tener [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) 1.1.819.0 o una versión posterior. En Azure AD Connect 1.1.819.0, el modo en que se realiza la conversión del inicio de sesión cambia significativamente. El tiempo total para migrar de AD FS a la autenticación en la nube en esta versión se ha reducido de posiblemente horas a minutos.
 
 > [!IMPORTANT]
 > Es posible que lea en documentación, herramientas y blogs obsoletos que se requiere la conversión de los usuarios al convertir dominios de identidad federada a identidad administrada. Pues bien, la *conversión de los usuarios* ya no es necesaria. Microsoft está trabajando para actualizar la documentación y las herramientas de forma que reflejen este cambio.
@@ -46,7 +47,7 @@ La mayoría de los clientes solo necesitarán dos o tres agentes de autenticaci�
 
 ### <a name="plan-the-migration-method"></a>Planeamiento del método de migración
 
-Puede elegir entre dos métodos para migrar de la administración de identidades federadas a la autenticación de paso a través y el inicio de sesión único (SSO) de conexión directa. El método que use depende de la forma en que la instancia de AD FS se configurara originalmente.
+Puede elegir entre dos métodos para migrar de la administración de identidades federadas a la autenticación de paso a través y el inicio de sesión único (SSO) de conexión directa. El método que utilice dependerá de la forma en que la instancia de AD FS se haya configurado originalmente.
 
 * **Azure AD Connect**. Si originalmente configuró AD FS con Azure AD Connect, *debe* cambiar a la autenticación de paso a través mediante el asistente de Azure AD Connect.
 

@@ -1,5 +1,5 @@
 ---
-title: Uso de DevTest Labs en canalizaciones de versiones y compilaciones de Azure Pipelines | Microsoft Docs
+title: Uso de DevTest Labs en canalizaciones de compilaciones y versiones de Azure Pipelines
 description: Obtenga información sobre cómo usar Azure DevTest Labs en canalizaciones de versiones y compilaciones de Azure Pipelines.
 services: devtest-lab, lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 032f598fed765b281d4a6a124f8855abc201ee94
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: e16f3c5a0c0b2b86d6a893f541cefb275a8e7d07
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774481"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169239"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Uso de DevTest Labs en canalizaciones de compilaciones y versiones de Azure Pipelines
 En este artículo se proporciona información sobre cómo se puede usar DevTest Labs en canalizaciones de versiones y compilaciones de Azure Pipelines. 
@@ -67,7 +67,7 @@ En la tarea de creación del entorno (tarea **Creación de entorno de Azure DevT
 
 Se recomienda usar listas desplegables en la página, en lugar de escribir la información manualmente. Si escribe manualmente la información, escriba los identificadores completos de los recursos de Azure. En la tarea se muestran los nombres descriptivos, en lugar de los identificadores de los recursos. 
 
-El nombre del entorno es el nombre que se muestra en DevTest Labs. Debe ser un nombre único para cada compilación. Por ejemplo:  **TestEnv$(Build.BuildId)** . 
+El nombre del entorno es el nombre que se muestra en DevTest Labs. Debe ser un nombre único para cada compilación. Por ejemplo: **TestEnv$(Build.BuildId)** . 
 
 Puede especificar un archivo de parámetros o los parámetros para pasar información a la plantilla de Resource Manager. 
 
@@ -96,7 +96,7 @@ Para la segunda tarea, **Implementación de Azure App Service**, especifique la 
 Ahora que ambas canalizaciones están configuradas, ponga en cola manualmente una compilación y vea si funciona. El siguiente paso consiste en establecer el desencadenador adecuado para la compilación y conectar la compilación a la canalización de versión.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes:
+Vea los artículos siguientes:
 
 - [Integración de Azure DevTest Labs en la canalización de entrega e integración continuas de Azure Pipelines](devtest-lab-integrate-ci-cd-vsts.md)
 - [Integración de entornos en las canalizaciones de integración y entrega continuas de Azure Pipelines](integrate-environments-devops-pipeline.md)

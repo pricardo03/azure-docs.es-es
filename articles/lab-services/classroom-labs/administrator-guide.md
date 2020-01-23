@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 1c26e5c6b4bd484b643182e9e4ade3d71929fdba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 638a90615d248b3c2829770432dd6a08eb4bb2fb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476902"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771741"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services: guía del administrador
 Los administradores de tecnología de la información (TI) que administran los recursos en la nube de una organización suelen ser también responsables de configurar la cuenta de laboratorio en su organización. Los administradores o educadores crean laboratorios educativos en la cuenta de laboratorio. En este artículo se proporciona información general de alto nivel sobre los recursos de Azure relacionados e instrucciones para crearlos.
@@ -68,7 +68,7 @@ En la lista siguiente se resaltan escenarios en los que puede ser beneficioso te
 - **Separación de presupuestos por cuenta de laboratorio**
 
     En lugar de presentar todos los costos de laboratorios educativos en una sola cuenta de laboratorio, puede que deba tener un presupuesto separado más claramente. Siguiendo con el ejemplo de la viñeta anterior, podría crear una cuenta de laboratorio para cada departamento de la universidad a fin de separar el presupuesto en consecuencia. Con Azure Cost Management, puede ver luego el costo de cada cuenta de laboratorio.
-• **Aislamiento de los laboratorios piloto de los laboratorios activos**
+- **Aislamiento de los laboratorios piloto de los laboratorios activos**
 
     Puede que haya casos en los que quiera realizar cambios en la directiva piloto de una cuenta de laboratorio sin que estos cambios afecten a los laboratorios activos. En este tipo de escenario, la creación de una cuenta de laboratorio independiente con fines piloto permite aislar los cambios. 
 
@@ -129,7 +129,7 @@ Al configurar los recursos de Azure Lab Services, se le pedirá que proporcione 
     La ubicación de la cuenta de laboratorio indica la región de este recurso. Los laboratorios educativos creados en la cuenta de laboratorio se pueden implementar en cualquier región de la misma geografía. La región específica en la que se implementan las máquinas virtuales del laboratorio se selecciona automáticamente en función de la capacidad disponible en la región en ese momento.  
     Si un administrador permite que los creadores de un laboratorio elijan la ubicación de su laboratorio educativo, las ubicaciones que estén disponibles para la selección se basarán en la capacidad regional disponible al crear el laboratorio.
 
-    La ubicación del laboratorio educativo también determina los tamaños de proceso de la máquina virtual que están disponibles para la selección. Algunos tamaños de proceso solo están disponibles en ubicaciones concretas.
+    La ubicación del laboratorio educativo también determina qué tamaños de proceso de la máquina virtual están disponibles para la selección. Algunos tamaños de proceso solo están disponibles en ubicaciones concretas.
 - **Galería de imágenes compartidas**
 
     La región indica la región de origen en la que se almacena la primera versión de la imagen antes de replicarse automáticamente en las regiones de destino.

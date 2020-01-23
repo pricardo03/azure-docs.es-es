@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
-ms.openlocfilehash: ec463efb1282c311757bb90fd614e1247459c80f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 7cd0935177ad4070750a9b2a0ff129af2e13959f
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457331"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772421"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian
 
@@ -108,11 +108,11 @@ Instale el demonio de seguridad. El paquete se instala en `/etc/iotedge/`.
    sudo apt-get install iotedge
    ```
 
-Una vez que IoT Edge se ha instalado correctamente, se le solicitará que actualice el archivo de configuración. Siga los pasos descritos en la sección [Configuración del demonio de seguridad de Azure IoT Edge](#configure-the-security-daemon) para terminar de aprovisionar el dispositivo. 
+Una vez que IoT Edge se ha instalado correctamente, se le solicitará que actualice el archivo de configuración. Siga los pasos descritos en la sección [Configuración del demonio de seguridad](#configure-the-security-daemon) para terminar de aprovisionar el dispositivo. 
 
 ## <a name="install-a-specific-runtime-version"></a>Instalación de una versión específica del entorno de ejecución
 
-Si quiere instalar una versión específica del entorno de ejecución de Azure IoT Edge, puede dirigirse directamente a los archivos de componentes desde el repositorio de GitHub de IoT Edge. Utilice los pasos siguientes para obtener todos los componentes de IoT Edge en el dispositivo: el motor de Moby y CLI, libiothsm y, por último, el demonio de seguridad de IoT Edge.
+Si quiere instalar una versión específica de Moby y el entorno de ejecución de Azure IoT Edge en lugar de usar las versiones más recientes, puede dirigirse directamente a los archivos de componentes desde el repositorio de GitHub de IoT Edge. Utilice los pasos siguientes para obtener todos los componentes de IoT Edge en el dispositivo: el motor de Moby y CLI, libiothsm y, por último, el demonio de seguridad de IoT Edge. Vaya a la sección siguiente [Configuración del demonio de seguridad](#configure-the-security-daemon), si no desea cambiar a una versión específica del entorno de ejecución.
 
 1. Vaya a [Versiones de Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases) y busque la versión de lanzamiento que desea tener como destino. 
 
@@ -265,7 +265,9 @@ Ejecute una comprobación automatizada para detectar los errores de configuraci�
 sudo iotedge check
 ```
 
-Y enumere los módulos en ejecución:
+Hasta que implemente el primer módulo en IoT Edge en el dispositivo, el módulo del sistema **$edgeHub** no se implementará en el dispositivo. Como resultado, la comprobación automatizada devolverá un error para la comprobación de conectividad de `Edge Hub can bind to ports on host`. Este error se puede ignorar a menos que se produzca después de implementar un módulo en el dispositivo.
+
+Por último, enumere los módulos en ejecución:
 
 ```bash
 sudo iotedge list

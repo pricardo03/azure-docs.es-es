@@ -1,20 +1,18 @@
 ---
-title: Solución de problemas con agentes de Azure Site Recovery | Microsoft Docs
-description: Proporciona información sobre los síntomas, las causas y las resoluciones de errores del agente de Azure Site Recovery.
-author: asgang
+title: Solución de problemas de la extensión de máquina virtual de Azure para la recuperación ante desastres con Azure Site Recovery
+description: Solucione problemas de la extensión de máquina virtual de Azure para la recuperación ante desastres con Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.author: asgang
-ms.openlocfilehash: 5ea701682c03370cea46f9126ecf78427a776371
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9d28a12f5f1fa32d2bc3bcf590134930503f2ac
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61280678"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970396"
 ---
-# <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Solución de problemas con el agente de Azure Site Recovery
+# <a name="troubleshoot-azure-vm-extension-issues"></a>Solución de problemas de la extensión de máquina virtual de Azure
 
 En este artículo se proporcionan pasos de solución de problemas que pueden ayudar a resolver errores de Azure Site Recovery relacionados con el agente y la extensión de máquina virtual.
 
@@ -30,7 +28,7 @@ Código de error: "151076"
 **Causa 2: [el agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Causa 3: [la extensión de Site Recovery no se actualiza ni se carga](#the-site-recovery-extension-fails-to-update-or-load)**  
 
-Mensaje de error: "la operación de extensión de Site Recovery anterior está tardando más tiempo del esperado".<br>
+Mensaje de error: "La operación de extensión de Site Recovery anterior está tardando más tiempo del esperado".<br>
 Código de error: "150066"<br>
 
 **Causa 1: [el agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
@@ -107,8 +105,6 @@ Para desinstalar la extensión, siga estos pasos:
 4. Seleccione **Extensión de Site Recovery**.
 5. Seleccione **Desinstalar**.
 
-En máquinas virtuales Linux, si la extensión VMSnapshot no aparece en Azure Portal, [actualice el Agente de Linux de Azure](../virtual-machines/linux/update-agent.md) y ejecute la protección. 
+En máquinas virtuales Linux, si la extensión VMSnapshot no aparece en Azure Portal, [actualice el Agente de Linux de Azure](../virtual-machines/linux/update-agent.md) y ejecute la protección.
 
 La realización de estos pasos hace que se vuelva a instalar la extensión durante la protección.
-
-

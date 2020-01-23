@@ -88,13 +88,13 @@ El dispositivo de Azure Migrate necesita conectividad a Internet.
 *.portal.azure.com  | Acceda a Azure Portal.
 \* .windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Inicie sesión en la suscripción de Azure.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Cree aplicaciones de Active Directory para que el dispositivo se comunique con Azure Migrate.
-management.azure.com | Crear aplicaciones de Active Directory para que el dispositivo se comunique con el servicio Azure Migrate.
-dc.services.visualstudio.com | Cargar los registros de aplicaciones que se usan para la supervisión interna.
-*.vault.azure.net | Administrar secretos en Azure Key Vault.
+management.azure.com | Cree aplicaciones de Active Directory para que el dispositivo se comunique con el servicio Azure Migrate.
+dc.services.visualstudio.com | Cargue los registros de aplicaciones que se usan para la supervisión interna.
+*.vault.azure.net | Administre secretos en Azure Key Vault.
 aka.ms/* | Permiso de acceso a vínculos aka. Se usa para las actualizaciones del dispositivo de Azure Migrate.
 download.microsoft.com/download | Permita descargas de Microsoft.
 *.servicebus.windows.net | Se usa para la migración sin agentes de VMware.<br/><br/> Comunicación entre el dispositivo y el servicio Azure Migrate.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Se usa para la migración sin agentes de VMware.<br/><br/> Conectarse a las direcciones URL del servicio Azure Migrate.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Se usa para la migración sin agentes de VMware.<br/><br/> Conéctese a las direcciones URL del servicio Azure Migrate.
 *.blob.core.windows.net |  Se usa para la migración sin agentes de VMware.<br/><br/>Cargue los datos que se deben almacenar.
 
 

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 04f4a71e6b54100e5a133958845cf732c2286b32
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d22231541a7fe29d4517985742d4bf88dc4c3fa7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301070"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980452"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Protección del acceso a un almacén de claves
 
@@ -26,7 +26,7 @@ Azure Key Vault es un servicio en la nube que protege las claves de cifrado y lo
 
 El acceso a un almacén de claves se controla mediante dos interfaces: el **plano de administración** y el **plano de datos**. El plano de administración es donde puede administrar el propio almacén de claves. Las operaciones en este plano incluyen crear y eliminar los almacenes de claves, recuperar las propiedades de un almacén de claves y actualizar las directivas de acceso. El plano de datos es donde se trabaja con los datos almacenados en un almacén de claves. Puede agregar, eliminar y modificar claves, secretos y certificados.
 
-Para obtener acceso a un almacén de claves en cualquier plano, todos los llamadores (usuarios o aplicaciones) deben tener una autorización y autenticación correctas. La autenticación establece la identidad del llamador. La autorización determina las operaciones que puede ejecutar el llamador. 
+Para obtener acceso a un almacén de claves en cualquier plano, todos los llamadores (usuarios o aplicaciones) deben tener una autorización y autenticación correctas. La autenticación establece la identidad del llamador. La autorización determina las operaciones que puede ejecutar el llamador.
 
 Ambos planos usan Azure Active Directory (Azure AD) para la autenticación. Para la autorización, el plano de administración usa el control de acceso basado en rol (RBAC) y el plano de datos utiliza la directiva de acceso de Key Vault.
 
@@ -72,7 +72,7 @@ Existen varios roles predefinidos. Si un rol predefinido no se ajusta a sus nece
 > Si un usuario tiene permisos `Contributor` en un plano de administración de Key Vault, se puede conceder a sí mismo acceso al plano de datos estableciendo una directiva de acceso de Key Vault. Debe controlar estrechamente quién tiene el rol de acceso `Contributor` a los almacenes de claves. Asegúrese de que solo las personas autorizadas pueden acceder a los almacenes de claves, las claves, los secretos y los certificados y administrarlos.
 >
 
-<a id="data-plane-access-control"></a> 
+<a id="data-plane-access-control"></a>
 ## <a name="data-plane-and-access-policies"></a>Directivas de acceso y plano de datos
 
 El acceso al plano de datos se concede mediante el establecimiento de directivas de acceso de Key Vault para un almacén de claves. Para establecer estas directivas de acceso, un usuario, grupo o aplicación deben tener permisos `Contributor` para el plano de administración de dicho almacén de claves.
@@ -89,18 +89,18 @@ Puede restringir el acceso al plano de datos mediante el uso de [puntos de conex
 
 ## <a name="example"></a>Ejemplo
 
-En este ejemplo, se desarrolla una aplicación que utiliza un certificado para SSL, Azure Storage para almacenar los datos y una clave RSA de 2048 bits para las operaciones de firma. La aplicación se ejecuta en una máquina virtual (VM) de Azure o en un conjunto de escalado de máquinas virtuales. Podemos usar un almacén de claves para almacenar los secretos de la aplicación. Podemos almacenar el certificado de arranque que usa la aplicación para autenticarse con Azure AD.
+En este ejemplo, se desarrolla una aplicación que usa un certificado para TLS/SSL, Azure Storage para almacenar los datos y una clave RSA de 2048 bits para las operaciones de firma. La aplicación se ejecuta en una máquina virtual (VM) de Azure o en un conjunto de escalado de máquinas virtuales. Podemos usar un almacén de claves para almacenar los secretos de la aplicación. Podemos almacenar el certificado de arranque que usa la aplicación para autenticarse con Azure AD.
 
 Se necesita acceso a los siguientes secretos y claves almacenados:
-- **Certificado SSL**: se usa para SSL.
+- **Certificado TLS/SSL**: Se usa para TLS/SSL.
 - **Clave de almacenamiento**: se usa para acceder a la cuenta de almacenamiento.
 - **Clave RSA de 2048 bits**: se usa para las operaciones de firma.
 - **Certificado de arranque**: se usa para la autenticación con Azure AD. Una vez que se concede acceso, se puede recuperar la clave de almacenamiento y usar la clave RSA para la firma.
 
 Es necesario definir los siguientes roles para especificar quién puede administrar, implementar y auditar la aplicación:
-- **Equipo de seguridad**: el personal de TI de la oficina del CSO (director de seguridad) o colaboradores equivalentes. El equipo de seguridad es responsable de la protección adecuada de los secretos. Los secretos pueden incluir los certificados SSL, las claves RSA utilizadas para la firma, las cadenas de conexión y las claves de la cuenta de almacenamiento.
-- **Desarrolladores y operadores**: personal que desarrolla la aplicación y la implementa en Azure. Los miembros de este equipo no forman parte del personal de seguridad. No deben tener acceso a información confidencial, como los certificados SSL y las claves RSA. Solo la aplicación que implementan debe tener acceso a información confidencial.
-- **Auditores**: este rol es para los colaboradores que no sean miembros del personal de TI general o de desarrollo. Deben revisar el uso y mantenimiento de los certificados, las claves y los secretos para garantizar el cumplimiento de los estándares de seguridad. 
+- **Equipo de seguridad**: el personal de TI de la oficina del CSO (director de seguridad) o colaboradores equivalentes. El equipo de seguridad es responsable de la protección adecuada de los secretos. Los secretos pueden incluir los certificados TLS/SSL, las claves RSA usadas para la firma, las cadenas de conexión y las claves de la cuenta de almacenamiento.
+- **Desarrolladores y operadores**: personal que desarrolla la aplicación y la implementa en Azure. Los miembros de este equipo no forman parte del personal de seguridad. No deben tener acceso a información confidencial, como los certificados TLS/SSL y las claves RSA. Solo la aplicación que implementan debe tener acceso a información confidencial.
+- **Auditores**: este rol es para los colaboradores que no sean miembros del personal de TI general o de desarrollo. Deben revisar el uso y mantenimiento de los certificados, las claves y los secretos para garantizar el cumplimiento de los estándares de seguridad.
 
 Hay otro rol que está fuera del ámbito de la aplicación: el administrador de la suscripción o del grupo de recursos. El administrador de la suscripción configura los permisos de acceso iniciales del equipo de seguridad. Conceden acceso al equipo de seguridad mediante el uso de un grupo de recursos que tiene los recursos requeridos por la aplicación.
 
@@ -115,13 +115,13 @@ Es necesario autorizar las siguientes operaciones para los roles:
 - Rotar periódicamente las claves y los secretos.
 
 **Desarrolladores y operadores**
-- Obtener referencias del equipo de seguridad para los certificados de arranque y SSL (huellas digitales), la clave de almacenamiento (identificador URI de secreto) y la clave RSA (identificador URI de clave) para la firma.
+- Obtener referencias del equipo de seguridad para los certificados de arranque y TLS/SSL (huellas digitales), la clave de almacenamiento (identificador URI de secreto) y la clave RSA (identificador URI de clave) para la firma.
 - Desarrollar e implementar una aplicación que acceda a las claves y los secretos mediante programación.
 
 **Auditores**
 - Revisar los registros de Key Vault para confirmar el uso adecuado de las claves y los secretos, así como el cumplimiento de los estándares de seguridad de datos.
 
-En la tabla siguiente se resumen los permisos de acceso para los roles y la aplicación. 
+En la tabla siguiente se resumen los permisos de acceso para los roles y la aplicación.
 
 | Role | Permisos del plano de administración | Permisos del plano de datos |
 | --- | --- | --- |
@@ -141,7 +141,7 @@ Puede conceder la mayoría de los permisos de acceso mediante Azure Portal. Para
 Los fragmentos de código de PowerShell de esta sección se crean con los siguientes supuestos:
 - El administrador de Azure AD ha creado grupos de seguridad para representar los tres roles: Contoso Security Team, Contoso App DevOps y Contoso App Auditors. El administrador ha agregado usuarios a sus respectivos grupos.
 - Todos los recursos se encuentran en el grupo de recursos **ContosoAppRG**.
-- Los registros de Key Vault se almacenan en la cuenta de almacenamiento **contosologstorage**. 
+- Los registros de Key Vault se almacenan en la cuenta de almacenamiento **contosologstorage**.
 - La instancia de Key Vault **ContosoKeyVault** y la cuenta de almacenamiento **contosologstorage** están en la misma ubicación de Azure.
 
 El administrador de la suscripción asigna los roles `key vault Contributor` y `User Access Administrator` al equipo de seguridad. Estos roles permiten al equipo de seguridad administrar el acceso a otros recursos y los almacenes de claves, y ambos se encuentran en el grupo de recursos **ContosoAppRG**.
@@ -183,9 +183,9 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -
 
 Los roles personalizados definidos solo se pueden asignar a la suscripción en la que se crea el grupo de recursos **ContosoAppRG**. Para usar un rol personalizado para otros proyectos de otras suscripciones, agregue otras suscripciones al ámbito del rol.
 
-Para el personal de DevOps, la asignación de roles personalizados para el permiso `deploy/action` del almacén de claves se realiza en el ámbito del grupo de recursos. Solo a las máquinas virtuales creadas en el grupo de recursos **ContosoAppRG** se les permite acceder a los secretos (certificados de arranque y SSL). Las máquinas virtuales creadas en otros grupos de recursos por un miembro de DevOps no pueden acceder a estos secretos, incluso si la máquina virtual tiene los identificadores URI de los secretos.
+Para el personal de DevOps, la asignación de roles personalizados para el permiso `deploy/action` del almacén de claves se realiza en el ámbito del grupo de recursos. Solo a las máquinas virtuales creadas en el grupo de recursos **ContosoAppRG** se les permite acceder a los secretos (certificados de arranque y TLS/SSL). Las máquinas virtuales creadas en otros grupos de recursos por un miembro de DevOps no pueden acceder a estos secretos, incluso si la máquina virtual tiene los identificadores URI de los secretos.
 
-En el ejemplo se describe un escenario sencillo. Los escenarios reales pueden ser más complejos. Puede ajustar los permisos para el almacén de claves según sus necesidades. Se supone que el equipo de seguridad proporciona las referencias de clave y secreto (identificadores URI y huellas digitales), que el personal de DevOps utiliza en sus aplicaciones. Los desarrolladores y operadores no requieren ningún acceso al plano de datos. Nos centramos en cómo proteger el almacén de claves. Debe darse una consideración parecida a la protección de [las máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/security/), [las cuentas de almacenamiento](../storage/common/storage-security-guide.md) y otros recursos de Azure.
+En el ejemplo se describe un escenario sencillo. Los escenarios reales pueden ser más complejos. Puede ajustar los permisos para el almacén de claves según sus necesidades. Se supone que el equipo de seguridad proporciona las referencias de clave y secreto (identificadores URI y huellas digitales), que el personal de DevOps utiliza en sus aplicaciones. Los desarrolladores y operadores no requieren ningún acceso al plano de datos. Nos centramos en cómo proteger el almacén de claves. Debe darse una consideración parecida a la protección de [las máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/security/), [las cuentas de almacenamiento](../storage/blobs/security-recommendations.md) y otros recursos de Azure.
 
 > [!NOTE]
 > En este ejemplo se muestra cómo se bloquea el acceso a Key Vault en producción. Los desarrolladores deben tener su propia suscripción o grupo de recursos con permisos completos para administrar sus almacenes, máquinas virtuales y la cuenta de almacenamiento donde desarrollan la aplicación.
@@ -198,9 +198,9 @@ Se recomienda configurar una protección de acceso adicional al almacén de clav
 
 * [RBAC: roles integrados](../role-based-access-control/built-in-roles.md)
 
-* [Descripción de la implementación de Resource Manager y la implementación clásica](../azure-resource-manager/resource-manager-deployment-model.md) 
+* [Descripción de la implementación de Resource Manager y la implementación clásica](../azure-resource-manager/management/deployment-models.md)
 
-* [Administración de RBAC con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) 
+* [Administración de RBAC con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
 
 * [Administración de RBAC con la API de REST](../role-based-access-control/role-assignments-rest.md)
 
@@ -217,11 +217,11 @@ Se recomienda configurar una protección de acceso adicional al almacén de clav
 * [API de REST de Key Vault](https://msdn.microsoft.com/library/azure/dn903609.aspx)
 
 * [Control de acceso de claves](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
-  
+
 * [Control de acceso de secretos](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
-  
+
 * [Establecer](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) y [quitar](/powershell/module/az.keyvault/Remove-azKeyVaultAccessPolicy) una directiva de acceso de Key Vault mediante PowerShell
-  
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Configure [firewalls y redes virtuales de Key Vault](key-vault-network-security.md).

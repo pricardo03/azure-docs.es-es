@@ -1,6 +1,6 @@
 ---
-title: Estado de Windows Hybrid Runbook Worker en Azure Update Management
-description: Aprenda a solucionar problemas con la característica Hybrid Runbook Worker en Windows que admite Update Management.
+title: 'Diagnóstico de Hybrid Runbook Worker de Windows: Azure Update Management'
+description: Aprenda a solucionar problemas con Azure Automation Hybrid Runbook Worker en Windows que admite Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 284376759e9e2da1f42bd04eea6e564c9690d4a9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bfc2c4a660afa4341a676fc79ab447c8cb86d5e1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850132"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769819"
 ---
-# <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>Estado de Windows Hybrid Runbook Worker en Update Management
+# <a name="understand-and-resolve-windows-hybrid-runbook-worker-health-in-update-management"></a>Entienda y solucione el estado de Windows Hybrid Runbook Worker de Windows en Update Management.
 
 Puede haber muchas razones por las que el equipo no muestre el estado **Listo** en Update Management. En Update Management, puede comprobar el estado de un agente de Hybrid Runbook Worker para determinar el problema subyacente. En este artículo se explica cómo ejecutar el solucionador de problemas para máquinas de Azure desde Azure Portal y para máquinas que no son de Azure en el [escenario sin conexión](#troubleshoot-offline).
 
@@ -31,7 +31,7 @@ La siguiente lista enumera los tres estados de preparación en los que puede est
 
 ## <a name="start-the-troubleshooter"></a>Iniciar el solucionador de problemas
 
-Para las máquinas de Azure, al hacer clic en el vínculo **Solucionar problemas** en la columna **Preparación de actualizaciones del agente** del portal, se abre la página **Solucionar problemas del Agente de actualización**. En el caso de las máquinas que no son de Azure, el vínculo le lleva a este artículo. Consulte las [instrucciones sin conexión](#troubleshoot-offline) para solucionar los problemas de una máquina que no es de Azure.
+Para las máquinas de Azure, al hacer clic en el vínculo **Solucionar problemas** en la columna **Preparación de actualizaciones del agente** del portal, se abre la página **Solucionar problemas del Agente de actualización**. Para las máquinas que no son de Azure, el vínculo le lleva a este artículo. Consulte las [instrucciones sin conexión](#troubleshoot-offline) para solucionar los problemas de una máquina que no es de Azure.
 
 ![Actualizar la lista de administración de máquinas virtuales](../media/update-agent-issues/vm-list.png)
 

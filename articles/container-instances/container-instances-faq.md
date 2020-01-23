@@ -3,13 +3,13 @@ title: Preguntas más frecuentes
 description: Respuestas a las preguntas más frecuentes relacionadas con el servicio Azure Container Instances
 author: dkkapur
 ms.topic: article
-ms.date: 4/25/2019
-ms.openlocfilehash: b5888efe210ab0f3794895d350c5647b6f685880
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 01/07/2020
+ms.openlocfilehash: 4a3fb4c1818d86f7fe2913790fd9e573c630cbfd
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484141"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888046"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Preguntas más frecuentes sobre Azure Container Instances
 
@@ -83,7 +83,7 @@ Actualmente, el escalado no está disponible para contenedores o grupos de conte
 
 ### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>¿Qué características están disponibles para las instancias que se ejecutan en una red virtual personalizada?
 
-Puede implementar grupos de contenedores en una red virtual de Azure que elija y delegar las direcciones IP privadas a los grupos de contenedores para redirigir el tráfico dentro de la red virtual a través de los recursos de Azure. La implementación de un grupo de contenedores en una red virtual actualmente se encuentra en versión preliminar y es posible que algunos aspectos de esta característica cambien antes de la disponibilidad general (GA). Consulte [Limitaciones de la versión preliminar](container-instances-vnet.md#preview-limitations) para obtener información actualizada.
+Puede [implementar grupos de contenedores en una red virtual de Azure](container-instances-vnet.md) que elija y delegar las direcciones IP privadas a los grupos de contenedores para redirigir el tráfico dentro de la red virtual a través de los recursos de Azure. La implementación de un grupo de contenedores en una red virtual está disponible actualmente para cargas de trabajo de producción en un subconjunto de regiones de Azure.
 
 ## <a name="pricing"></a>Precios
 

@@ -14,27 +14,27 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c818b7d7508555e1233d4ef954502728f65abfb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9e224218217b18ffc5c35ec45011097d93e5d797
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917206"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291591"
 ---
 # <a name="authentication-flows"></a>Flujos de autenticación
 
 En este artículo se describen los distintos flujos de autenticación que proporciona la biblioteca de autenticación de Microsoft (MSAL).  Estos flujos se pueden usar en una variedad de escenarios de aplicación diferentes.
 
-| Flujo | DESCRIPCIÓN | Se usa en|  
+| Flujo | Descripción | Se usa en|  
 | ---- | ----------- | ------- | 
 | [Interactivo](#interactive) | Obtiene el token a través de un proceso interactivo que solicita las credenciales al usuario a través de un explorador o una ventana emergente. | [Aplicaciones de escritorio](scenario-desktop-overview.md), [aplicaciones móviles](scenario-mobile-overview.md) |
 | [Concesión implícita](#implicit-grant) | Permite a la aplicación obtener tokens sin tener que realizar un intercambio de credenciales de servidor back-end. De esta forma, la aplicación puede iniciar la sesión del usuario, mantenerla y recibir tokens para otras API web, todo dentro del código de cliente de JavaScript.| [Aplicación de página única (SPA)](scenario-spa-overview.md) |
 | [Código de autorización](#authorization-code) | Se usa en aplicaciones que están instaladas en un dispositivo para obtener acceso a recursos protegidos, como las API web. Esto permite agregar acceso de inicio de sesión y API a las aplicaciones de escritorio y móviles. | [Aplicaciones de escritorio](scenario-desktop-overview.md), [aplicaciones móviles](scenario-mobile-overview.md), [aplicaciones web](scenario-web-app-call-api-overview.md) | 
 | [En nombre de](#on-behalf-of) | Una aplicación invoca un servicio o API web, que, a su vez, debe llamar a otro servicio o API web. La idea es propagar la identidad y los permisos del usuario delegado a través de la cadena de solicitud. | [API web](scenario-web-api-call-api-overview.md) |
 | [Credenciales de cliente](#client-credentials) | Permite acceder a los recursos hospedados en la Web mediante la identidad de una aplicación. Se usa principalmente para las interacciones entre servidores que se deben ejecutar en segundo plano, sin la interacción inmediata con un usuario. | [Aplicaciones de demonio](scenario-daemon-overview.md) |
-| [Código del dispositivo](#device-code) | Permite a los usuarios iniciar sesión en dispositivos con limitaciones de entrada, como un televisor inteligente, dispositivo IoT o impresora. | [Aplicaciones de escritorio o móviles](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
+| [Código del dispositivo](#device-code) | Permite a los usuarios iniciar sesión en dispositivos con limitaciones de entrada, como un televisor inteligente, dispositivo IoT o impresora. | [Aplicaciones de escritorio o móviles](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser) |
 | [Autenticación integrada de Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Permite a los equipos de aplicaciones en equipos unidos a un dominio o a Azure Active Directory (Azure AD) adquirir un token de manera silenciosa (sin ninguna interacción de la interfaz de usuario del usuario).| [Aplicaciones de escritorio o móviles](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
-| [Nombre de usuario y contraseña](scenario-desktop-acquire-token.md#username--password) | Permite a una aplicación iniciar la sesión del usuario al controlar directamente la contraseña. Este flujo no es recomendable. | [Aplicaciones de escritorio o móviles](scenario-desktop-acquire-token.md#username--password) |
+| [Nombre de usuario y contraseña](scenario-desktop-acquire-token.md#username-and-password) | Permite a una aplicación iniciar la sesión del usuario al controlar directamente la contraseña. Este flujo no es recomendable. | [Aplicaciones de escritorio o móviles](scenario-desktop-acquire-token.md#username-and-password) |
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>Cómo emite cada flujo los tokens y los códigos
  
@@ -203,7 +203,7 @@ El flujo de IWA está habilitado para el escritorio. NET, .NET Core y aplicacion
   
 Para más información sobre el consentimiento, consulte [Permiso y consentimiento de v2.0](v2-permissions-and-consent.md).
 
-## <a name="usernamepassword"></a>Nombre de usuario/contraseña
+## <a name="usernamepassword"></a>Nombre de usuario y contraseña
 
 MSAL admite la [concesión de credenciales de contraseña de propietario de recurso OAuth 2](v2-oauth-ropc.md), que permite que una aplicación inicie la sesión del usuario al controlar directamente la contraseña. En la aplicación de escritorio, puede usar el flujo de usuario y contraseña para adquirir un token de forma silenciosa. No se requiere ninguna interfaz de usuario cuando se usa la aplicación.
 

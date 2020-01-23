@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 78f8b7097060f1091bfed30722c9ea456feed384
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 39078e298093c2c2ab4835925a2ba8a70269f5f5
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007274"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945586"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Un mundo sin contraseñas con Azure Active Directory
 
@@ -311,7 +311,7 @@ La autenticación sin contraseña es el futuro y el camino a un entorno más seg
 
 * Implementar la aplicación Microsoft Authenticator para la movilidad
 
-* Implementar Windows Hello para empresas (1903: mantenerse al día)
+* Implementar Windows Hello para empresas (1909: mantenerse al día)
 
 * Implementar dispositivos FIDO2 para los usuarios que no puedan usar teléfonos
 

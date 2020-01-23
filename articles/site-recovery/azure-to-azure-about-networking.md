@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 1/8/2020
 ms.author: sutalasi
-ms.openlocfilehash: 09cd814ade25be438a17b83fb73e74b89c14e22f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 9fe3b4c0b7acc9c1e980d5885043d30503c211c4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954203"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754501"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Acerca de las redes para la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -48,25 +48,26 @@ Si usa un proxy de firewall basado en la dirección URL para controlar la conect
 
 **URL** | **Detalles**  
 --- | ---
-\* .blob.core.windows.net | Se requiere para que los datos se puedan escribir en la cuenta de almacenamiento de la caché en la región de origen de la máquina virtual. Si conoce todas las cuentas de almacenamiento en caché de las máquinas virtuales, puede permitir el acceso a las direcciones URL de las cuentas de almacenamiento específicas (por ejemplo, cache1.blob.core.windows.net y cache2.blob.core.windows.net) en lugar de *.blob.core.windows.net
+*.blob.core.windows.net | Se requiere para que los datos se puedan escribir en la cuenta de almacenamiento de la caché en la región de origen de la máquina virtual. Si conoce todas las cuentas de almacenamiento en caché de las máquinas virtuales, puede permitir el acceso a las direcciones URL de las cuentas de almacenamiento específicas (por ejemplo, cache1.blob.core.windows.net y cache2.blob.core.windows.net) en lugar de *.blob.core.windows.net
 login.microsoftonline.com | Se requiere para la autorización y la autenticación de las direcciones URL del servicio Site Recovery.
 *.hypervrecoverymanager.windowsazure.com | Se requiere para la comunicación del servicio Site Recovery desde la máquina virtual. Puede usar la "IP de recuperación del sitio" correspondiente si el proxy del firewall es compatible con las IP.
 *.servicebus.windows.net | Se requiere para que se puedan escribir datos de supervisión y diagnóstico de Site Recovery desde la máquina virtual. Puede usar la "IP de supervisión de recuperación del sitio" correspondiente si el proxy del firewall es compatible con las IP.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividad de salida para rangos de direcciones IP
 
-Si utiliza un firewall basado en IP, proxy o reglas NSG para controlar la conectividad saliente, estos intervalos IP tienen que permitirse.
+Si utiliza un firewall basado en IP, proxy o NSG para controlar la conectividad saliente, estos intervalos IP tienen que permitirse.
 
 - Todos los intervalos de direcciones IP que correspondan a las cuentas de almacenamiento en la región de origen.
     - Cree una regla de NSG basada en la [etiqueta del servicio Storage](../virtual-network/security-overview.md#service-tags) para la región de origen.
     - Permita estas direcciones para que los datos se puedan escribir en la cuenta de almacenamiento en caché, desde la máquina virtual.
 - Cree una regla de grupos de seguridad de red basada en la [etiqueta de servicio de Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) para permitir el acceso a todas las direcciones IP correspondientes a AAD.
     - Si en el futuro se agregan nuevas direcciones a Azure Active Directory (AAD), tendrá que crear nuevas reglas de grupos de seguridad de red.
-- Las direcciones IP de punto de conexión de servicio de Site Recovery ([disponibles en un archivo XML](https://aka.ms/site-recovery-public-ips)), que dependen de la ubicación de destino: 
+- Cree una regla de NSG basada en una etiqueta de servicio EventsHub para la región de destino, lo que permite el acceso a la supervisión de Site Recovery.
+- Cree una regla de NSG basada en una etiqueta de servicio AzureSiteRecovery para permitir el acceso al servicio Site Recovery en cualquier región.
 - Se recomienda crear las reglas de NSG necesarias en un grupo NSG de NSG de prueba y comprobar que no haya ningún problema antes de crear las reglas en un grupo de NSG de producción.
 
 
-Los intervalos de direcciones IP de Site Recovery son los siguientes:
+Si prefiere usar intervalos de direcciones IP de Site Recovery (no recomendado), consulte la tabla siguiente:
 
    **Destino** | **IP de Site Recovery** |  **IP de supervisión de Site Recovery**
    --- | --- | ---
@@ -77,10 +78,10 @@ Los intervalos de direcciones IP de Site Recovery son los siguientes:
    Centro-Norte de EE. UU | 23.96.195.247 | 168.62.249.226
    Europa del Norte | 40.69.212.238 | 52.169.18.8
    Europa occidental | 52.166.13.64 | 40.68.93.145
-   Este de EE. UU | 13.82.88.226 | 104.45.147.24
-   Oeste de EE. UU | 40.83.179.48 | 104.40.26.199
+   East US | 13.82.88.226 | 104.45.147.24
+   Oeste de EE. UU. | 40.83.179.48 | 104.40.26.199
    Centro-Sur de EE. UU | 13.84.148.14 | 104.210.146.250
-   Central EE. UU: | 40.69.144.231 | 52.165.34.144
+   Centro de EE. UU. | 40.69.144.231 | 52.165.34.144
    Este de EE. UU. 2 | 52.184.158.163 | 40.79.44.59
    Este de Japón | 52.185.150.140 | 138.91.1.105
    Oeste de Japón | 52.175.146.69 | 138.91.17.38
@@ -89,8 +90,8 @@ Los intervalos de direcciones IP de Site Recovery son los siguientes:
    Sudeste de Australia | 13.70.159.158 | 191.239.160.45
    Centro de Canadá | 52.228.36.192 | 40.85.226.62
    Este de Canadá | 52.229.125.98 | 40.86.225.142
-   Centro occidental de EE.UU | 52.161.20.168 | 13.78.149.209
-   Oeste de EE. UU 2 | 52.183.45.166 | 13.66.228.204
+   Centro occidental de EE.UU. | 52.161.20.168 | 13.78.149.209
+   Oeste de EE. UU. 2 | 52.183.45.166 | 13.66.228.204
    Oeste de Reino Unido | 51.141.3.203 | 51.141.14.113
    Sur de Reino Unido 2 | 51.140.43.158 | 51.140.189.52
    Sur del Reino Unido 2 | 13.87.37.4| 13.87.34.139
@@ -137,11 +138,9 @@ En este ejemplo se muestra cómo configurar reglas de NSG para la replicación d
 
       ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
 
-3. Cree reglas HTTPS (443) de salida para las direcciones IP de Site Recovery que corresponden a la ubicación de destino:
+3. De forma similar a las reglas de seguridad anteriores, cree una regla de seguridad HTTPS (443) de salida para ""EventHub.CentralUS" en el NSG que corresponda a la ubicación de destino. Esto permite el acceso a la supervisión de Site Recovery.
 
-   **Ubicación** | **Dirección IP de Site Recovery** |  **Dirección IP de supervisión de Site Recovery**
-    --- | --- | ---
-   Centro de EE. UU. | 40.69.144.231 | 52.165.34.144
+4. Cree una regla de seguridad HTTPS (443) de salida para "AzureSiteRecovery" en el NSG. Esto permite el acceso al servicio Site Recovery en cualquier región.
 
 ### <a name="nsg-rules---central-us"></a>Reglas de NSG: centro de EE. UU.
 
@@ -151,12 +150,9 @@ Estas reglas son necesarias para que la replicación se pueda habilitar de la re
 
 2. Cree una regla de seguridad HTTPS (443) de salida para "AzureActiveDirectory" en el NSG.
 
-3. Cree reglas HTTPS (443) de salida para las direcciones IP de Site Recovery que corresponden a la ubicación de origen:
+3. De forma similar a las reglas de seguridad anteriores, cree una regla de seguridad HTTPS (443) de salida para "EventHub.EastUS" en el NSG que corresponda a la ubicación de origen. Esto permite el acceso a la supervisión de Site Recovery.
 
-   **Ubicación** | **Dirección IP de Site Recovery** |  **Dirección IP de supervisión de Site Recovery**
-    --- | --- | ---
-   East US | 13.82.88.226 | 104.45.147.24
-
+4. Cree una regla de seguridad HTTPS (443) de salida para "AzureSiteRecovery" en el NSG. Esto permite el acceso al servicio Site Recovery en cualquier región.
 
 ## <a name="network-virtual-appliance-configuration"></a>Configuración de la aplicación virtual de red
 
@@ -182,4 +178,4 @@ Puede invalidar la ruta del sistema predeterminada de Azure para el prefijo de d
 ## <a name="next-steps"></a>Pasos siguientes
 - Comience a proteger las cargas de trabajo mediante la [replicación de máquinas virtuales de Azure](site-recovery-azure-to-azure.md).
 - Más información sobre la [retención de direcciones IP](site-recovery-retain-ip-azure-vm-failover.md) en la conmutación por error de máquinas virtuales de Azure.
-- Obtenga más información sobre la recuperación ante desastres de las [máquinas virtuales de Azure con ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).
+- Más información sobre la recuperación ante desastres de [máquinas virtuales de Azure con ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

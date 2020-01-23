@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: aelnably
-ms.openlocfilehash: 4ebf6ecea0b08f416bd1bd11382116dda2107ecf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f4af646569edc8a9274af752e7e4f2a36585ae4d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409648"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769105"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Supervisión de Azure Functions con registros de Azure Monitor
 
@@ -25,11 +25,11 @@ Azure Monitor utiliza una versión del [lenguaje de consulta Kusto](/azure/kusto
 
 ## <a name="setting-up"></a>Instalación
 
-En la sección de supervisión, seleccione **Configuración de diagnóstico** y haga clic en **Agregar**.
+En la sección **Supervisión**, seleccione **Configuración de diagnóstico** y haga clic en **Agregar configuración de diagnóstico**.
 
 ![Adición de una configuración de diagnóstico](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
 
-En la página de configuración, elija **Enviar a Log Analytics** y, debajo de **registro** elija **FunctionAppLogs**, esta tabla contiene los registros deseados.
+En la página **Configuración de diagnóstico**, elija **Enviar a Log Analytics** y, a continuación, seleccione el área de trabajo de Log Analytics. En **registro** seleccione **FunctionAppLogs**, esta tabla contiene los registros deseados.
 
 ![Adición de una configuración de diagnóstico](media/functions-monitor-log-analytics/choose-table.png)
 
@@ -72,7 +72,7 @@ logging.info('My app logs here.')
 
 ## <a name="querying-the-logs"></a>Consultas de registros
 
-Para consultar los registros generados, vaya al área de trabajo de Log Analytics y haga clic en **Registros**.
+Para consultar los registros generados, vaya al área de trabajo de Log Analytics que configuró para enviar los registros de la función y haga clic en **Registros**.
 
 ![Ventana de consulta en el área de trabajo de LA](media/functions-monitor-log-analytics/querying.png)
 

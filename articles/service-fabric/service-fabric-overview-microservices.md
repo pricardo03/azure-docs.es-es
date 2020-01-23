@@ -2,13 +2,14 @@
 title: Introducción a los microservicios de Azure
 description: Información general sobre por qué la creación de aplicaciones de nube con un enfoque de microservicios es importante para el desarrollo de aplicaciones modernas y cómo Azure Service Fabric proporciona una plataforma para lograrlo.
 ms.topic: conceptual
-ms.date: 06/18/2019
-ms.openlocfilehash: e23c571d2000b5565da018d6ddf70a6388cb9226
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/07/2020
+ms.custom: sfrev
+ms.openlocfilehash: af18a6cb45808c0af5ec2782a3fd2100e3b7bf99
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466324"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750621"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>¿Por qué usar un enfoque de microservicios para crear aplicaciones?
 
@@ -128,7 +129,8 @@ Aunque pueda parecer obvio, y a menudo se pase por alto, un microservicio debe i
 
 El estado es diferente de los diagnósticos. El mantenimiento hace referencia a que el microservicio notifica su estado actual para que se puedan llevar a cabo las acciones adecuadas. Un buen ejemplo es colaborar con los mecanismos de actualización e implementación para mantener la disponibilidad. Aunque un servicio puede tener un estado incorrecto debido a un bloqueo de un proceso o al reinicio de la máquina, puede seguir operativo. En este caso, lo menos recomendable es iniciar una actualización. El mejor enfoque es investigar primero, o bien dejar tiempo para que el microservicio se recupere. Los eventos de mantenimiento de un microservicio permiten tomar decisiones fundamentadas y, de hecho, ayudan a crear servicios de recuperación automática.
 
-## <a name="guidance-for-designing-microservices-on-azure"></a>Guía para el diseño de microservicios en Azure 
+## <a name="guidance-for-designing-microservices-on-azure"></a>Guía para el diseño de microservicios en Azure
+
 Visite el Centro de arquitectura de Azure para una guía sobre el [diseño y creación de microservicios en Azure](https://docs.microsoft.com/azure/architecture/microservices/).
 
 ## <a name="service-fabric-as-a-microservices-platform"></a>Service Fabric como plataforma de microservicios
@@ -185,7 +187,6 @@ En esta fase es dónde la aplicación se compone de (o divide en) microservicios
 Es posible. En Microsoft, a medida que más y más equipos empezaron a crear para la nube por razones empresariales, muchos de ellos constataron las ventajas de adoptar el enfoque de microservicios. Por ejemplo, Bing lleva años usando microservicios. Para otros equipos, el enfoque de microservicios era nuevo. Estos equipos descubrieron que se planteaban problemas difíciles de resolver fuera de sus principales campos de especialización. Por esta razón, Service Fabric ganó popularidad como la tecnología para la creación de servicios.
 
 El objetivo de Service Fabric es reducir las complejidades que conlleva crear aplicaciones de microservicios, con el fin de que no haya que realizar muchos cambios costosos de diseño. Comience poco a poco, escale cuando sea necesario, deje de usar algunos servicios, agregue otros nuevos y evolucione con el uso del cliente. También sabemos que hay muchos otros problemas que aún deben resolverse para que los microservicios sean más accesibles para la mayoría de los desarrolladores. Los contenedores y el modelo de programación de actores son ejemplos de pequeños pasos en esa dirección. Estamos seguros de que surgirán más innovaciones para facilitar un enfoque de microservicios.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

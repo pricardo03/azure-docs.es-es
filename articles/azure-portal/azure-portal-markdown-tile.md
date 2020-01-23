@@ -5,34 +5,51 @@ services: azure-portal
 keywords: ''
 author: mblythe
 ms.author: mblythe
-ms.date: 01/25/2019
+ms.date: 01/08/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 3d2e6d2d0bde76a35a18373fabf64ce36c6c320e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 17d86b7c89ea5fb24c2adea22c5047c3e1ac3b6f
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75640149"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832682"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Uso de un icono de Markdown en los paneles de Azure para mostrar contenido personalizado
 
-Puede agregar un icono de Markdown a los paneles de Azure para mostrar contenido estático y personalizado. Por ejemplo, con un icono Markdown puede mostrar instrucciones básicas, una imagen o un conjunto de hipervínculos.
+Puede agregar un icono de Markdown a los paneles de Azure para mostrar contenido estático y personalizado. Por ejemplo, puede mostrar instrucciones básicas, una imagen o un conjunto de hipervínculos en un icono de Markdown.
 
 ## <a name="add-a-markdown-tile-to-your-dashboard"></a>Incorporación de un icono de Markdown al panel
 
-1. Seleccione **Panel** en la barra lateral de Azure Portal. Si ha creado algún panel personalizado, en la vista del panel, seleccione el panel donde debe aparecer el icono de Markdown personalizado de la lista desplegable. Seleccione el icono de edición para abrir la **Galería de iconos**.
+1. Seleccione **Panel** en la barra lateral de Azure Portal.
+
+   ![Captura de pantalla que muestra la barra lateral del portal](./media/azure-portal-markdown-tile/azure-portal-nav.png)
+
+1. Si ha creado algún panel personalizado, en la vista del panel, seleccione el panel donde debe aparecer el icono de Markdown personalizado de la lista desplegable. Seleccione el icono de edición para abrir la **Galería de iconos**.
 
    ![Captura de pantalla de la vista de edición del panel](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
-2. En la **Galería de iconos**, busque el denominado **Markdown** y haga clic en **Agregar**. Este icono se agregará al panel y el panel **Editar Markdown** se abrirá.
+1. En la **Galería de iconos**, busque el denominado **Markdown** y seleccione **Agregar**. Este icono se agregará al panel y el panel **Editar Markdown** se abrirá.
 
-1. Edite los campos **Título**, **Subtítulo** y **Contenido** para personalizar el icono. En el ejemplo que se muestra a continuación, el icono de Markdown se ha editado para mostrar información personalizada del departamento de soporte técnico.
+1. Escriba los valores de **título** y **subtítulo** que se muestran en el icono después de moverse a otro campo.
 
-   ![Captura de pantalla de la vista de edición del icono de Markdown](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
+   ![Captura de pantalla que muestra los resultados de escribir el título y el subtítulo](./media/azure-portal-markdown-tile/azure-portal-dashboard-enter-title.png)
 
-4. Seleccione **Listo** para descartar el panel **Editar Markdown**. El contenido aparecerá en el icono de Markdown, cuyo tamaño puede cambiarse al arrastrar el manipulador de la esquina inferior derecha.
+1. Seleccione una de las opciones para incluir contenido Markdown: **Edición directa** o **Insertar contenido mediante URL**.
+
+   - Seleccione **Edición directa** si quiere escribir contenido Markdown directamente.
+
+      ![Captura de pantalla que muestra cuando se escribe contenido insertado](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-inline-content.png)
+
+   - Seleccione **Insertar contenido mediante URL** si quiere usar contenido Markdown existente hospedado en línea.
+
+      ![Captura de pantalla que muestra cuando se escribe a través de URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
+
+      > [!NOTE]
+      > Para mayor seguridad, puede crear un archivo Markdown y almacenarlo en un [blob de cuenta de Azure Storage con el cifrado habilitado](../storage/common/storage-service-encryption.md) y, después, apuntar al archivo mediante la opción de dirección URL. El contenido Markdown se cifra mediante las opciones de cifrado de la cuenta de almacenamiento. Solo los usuarios con permisos para el archivo pueden ver el contenido Markdown en el panel.
+
+1. Seleccione **Listo** para descartar el panel **Editar Markdown**. El contenido aparece en el icono de Markdown, cuyo tamaño puede cambiarse al arrastrar el manipulador de la esquina inferior derecha.
 
    ![Captura de pantalla del icono de Markdown personalizado](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 

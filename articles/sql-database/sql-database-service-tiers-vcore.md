@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: d57f1e87c503a86a522fdb3004b021fbcb5c6ff1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c4d6a01ccaeffb4042753dc0a904d970631383f
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351396"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045189"
 ---
 # <a name="vcore-model-overview"></a>Introducción al modelo de núcleos virtuales
 
@@ -32,8 +32,8 @@ Entre las opciones de nivel de servicio del modelo núcleo virtual se incluyen U
 ||**Uso general**|**Crítico para la empresa**|**Hiperescala**|
 |---|---|---|---|
 |Más adecuado para|La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas y escalables pensando en el presupuesto. |Ofrece a las aplicaciones empresariales la mayor resistencia a los errores mediante el uso de varias réplicas aisladas y proporciona el mayor rendimiento de E/S por réplica de base de datos.|La mayoría de las cargas de trabajo de una empresa que tengan requisitos altamente escalables de almacenamiento y escalado de lectura.  Ofrece mayor resistencia a los errores al permitir la configuración de más de una réplica de base de datos aislada. |
-|Storage|Usa el almacenamiento remoto.<br/>**Proceso aprovisionado de base de datos única y de grupo elástico**:<br/>5 GB – 4 TB<br/>**Proceso sin servidor**:<br/>5 GB - 3 TB<br/>**Instancia administrada**: 32 GB - 8 TB |Usa almacenamiento local de SSD.<br/>**Proceso aprovisionado de base de datos única y de grupo elástico**:<br/>5 GB – 4 TB<br/>**Instancia administrada**:<br/>32 GB - 4 TB |Crecimiento automático flexible de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento. Utiliza almacenamiento SSD local para la caché del grupo de búferes local y almacenamiento de datos local. Utiliza almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
-|Rendimiento de E/S (aproximado)|**Grupo elástico y base de datos única**: 500 IOPS por núcleo virtual, hasta 40000 IOPS como máximo.<br/>**Instancia administrada**: Depende del [tamaño del archivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS por núcleo virtual, hasta 320 000 IOPS como máximo|Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. Los IOPS efectivos dependen de la carga de trabajo.|
+|Storage|Usa el almacenamiento remoto.<br/>**Proceso aprovisionado de bases de datos únicas y de grupos elásticos**:<br/>5 GB – 4 TB<br/>**Proceso sin servidor**:<br/>5 GB - 3 TB<br/>**Instancia administrada**: 32 GB - 8 TB |Usa almacenamiento local de SSD.<br/>**Proceso aprovisionado de bases de datos únicas y de grupos elásticos**:<br/>5 GB – 4 TB<br/>**Instancia administrada**:<br/>32 GB - 4 TB |Crecimiento automático flexible de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento. Utiliza almacenamiento SSD local para la caché del grupo de búferes local y almacenamiento de datos local. Utiliza almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
+|IOPS y rendimiento (aproximado)|**Bases de datos únicas y grupos elásticos**: vea los límites de recursos para [bases de datos únicas](../sql-database/sql-database-vcore-resource-limits-single-databases.md) y [grupos elásticos](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).<br/>**Instancia administrada**: vea [Introducción a los límites de recursos de instancia administrada de Azure SQL Database](../sql-database/sql-database-managed-instance-resource-limits.md#service-tier-characteristics).|Vea los límites de recursos para [bases de datos únicas](../sql-database/sql-database-vcore-resource-limits-single-databases.md) y [grupos elásticos](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).|Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. IOPS y el rendimiento efectivos dependen de la carga de trabajo.|
 |Disponibilidad|1 réplica, sin réplicas de escalado de lectura|3 réplicas, 1 [réplica de escalado de lectura](sql-database-read-scale-out.md),<br/>Alta disponibilidad (HA) con redundancia de zona|1 réplica de lectura y escritura, además de 0 a 4 [réplicas de escalado de lectura](sql-database-read-scale-out.md)|
 |Copias de seguridad|[Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), de 7 a 35 días (7 días de forma predeterminada)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), de 7 a 35 días (7 días de forma predeterminada)|Copias de seguridad basadas en instantáneas en el almacenamiento remoto de Azure. Los procesos de restauración usan estas instantáneas para conseguir una recuperación rápida. Las copias de seguridad son instantáneas y no afectan al rendimiento de E/S del proceso. Las restauraciones son rápidas y no son operaciones relacionadas con el tamaño de los datos (tardan minutos en lugar de horas o días).|
 |En memoria|No compatible|Compatible|No compatible|
@@ -142,6 +142,16 @@ En la pestaña **Aspectos básicos**, seleccione el vínculo **Configurar base d
   
 **Cambio de la generación de hardware de una instancia administrada existente**
 
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
+En la página de instancia administrada, seleccione el vínculo **Plan de tarifa** situado en la sección Configuración.
+
+![cambiar el hardware de instancia administrada](media/sql-database-service-tiers-vcore/change-managed-instance-hardware.png)
+
+En la página **Plan de tarifa** podrá cambiar la generación de hardware como se describe en los pasos anteriores.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 Use el siguiente script de PowerShell:
 
 ```powershell-interactive
@@ -178,6 +188,8 @@ Set-AzResource -Properties $properties -ResourceName $instanceName -ResourceType
 
 Asegúrese de escribir el identificador de la suscripción, el nombre y el grupo de recursos de la instancia administrada.
 
+---
+
 ### <a name="hardware-availability"></a>Disponibilidad de hardware
 
 #### <a name="gen4gen5-1"></a> Gen4/Gen5
@@ -213,9 +225,9 @@ En la página **Datos básicos**, proporcione los valores siguientes:
 
 En la página **Detalles**, proporcione lo siguiente:
 
-5. En la sección **Detalles del problema**, seleccione el vínculo **Proporcionar detalles**. 
-6. En **Tipo de cuota de base de datos SQL**, seleccione **Serie M**.
-7. En **Región**, seleccione la región para habilitar la serie M.
+1. En la sección **Detalles del problema**, seleccione el vínculo **Proporcionar detalles**. 
+2. En **Tipo de cuota de base de datos SQL**, seleccione **Serie M**.
+3. En **Región**, seleccione la región para habilitar la serie M.
     Para ver las regiones en las que la serie M está disponible, consulte la [disponibilidad de la serie M](#m-series).
 
 Normalmente, las solicitudes de soporte técnico aprobadas se cumplimentan en un plazo de 5 días laborables.

@@ -9,16 +9,16 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 29aab4437b7d77b9a00b5745d68dcb5c44a4efe6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fffe1ebda0103b3ed2cd8f76642ecb2967d23069
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434218"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510301"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar y supervisar módulos de IoT Edge a escala, mediante la CLI de Azure
 
-Cree una **implementación automática de IoT Edge** mediante la interfaz de la línea de comandos de Azure para administrar las implementaciones en curso de muchos dispositivos a la vez. Las implementaciones automáticas de IoT Edge forman parte de la característica de [Administración de dispositivos automática](/azure/iot-hub/iot-hub-automatic-device-management) de IoT Hub. Las implementaciones son procesos dinámicos que permiten implementar varios módulos en múltiples dispositivos, realizar un seguimiento del estado y del mantenimiento de los módulos, y realizar cambios cuando sea necesario. 
+Cree una **implementación automática de IoT Edge** mediante la interfaz de la línea de comandos de Azure para administrar las implementaciones en curso de muchos dispositivos a la vez. Las implementaciones automáticas de IoT Edge forman parte de la característica de [Administración de dispositivos automática](/azure/iot-hub/iot-hub-automatic-device-management) de IoT Hub. Las implementaciones son procesos dinámicos que permiten implementar varios módulos en múltiples dispositivos, realizar un seguimiento del estado y del mantenimiento de los módulos, y realizar cambios cuando sea necesario.
 
 Para más información, consulte el artículo [Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala](module-deployment-monitoring.md).
 
@@ -26,16 +26,16 @@ En este artículo, configuró la CLI de Azure y la extensión de IoT. A continua
 
 ## <a name="cli-prerequisites"></a>Requisitos previos de CLI
 
-* Una instancia de [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) en la suscripción de Azure. 
+* Una instancia de [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) en la suscripción de Azure.
 * [Dispositivos de IoT Edge](how-to-register-device.md#prerequisites-for-the-azure-cli) que tengan instalado el entorno de ejecución de IoT Edge.
-* La [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en su entorno. La versión mínima de la CLI de Azure es la 2.0.24. Use `az --version` para asegurarse. Esta versión admite comandos az extension e introduce la plataforma de comandos de Knack. 
+* La [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en su entorno. La versión mínima de la CLI de Azure es la 2.0.24. Use `az --version` para asegurarse. Esta versión admite comandos az extension e introduce la plataforma de comandos de Knack.
 * La [extensión de IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configuración de un manifiesto de implementación
 
 Un manifiesto de implementación es un documento JSON que describe qué módulos se van a implementar, cómo fluyen los datos entre los módulos y las propiedades deseadas de los módulos gemelos. Para más información, consulte [Aprenda a implementar módulos y establecer rutas en IoT Edge](module-composition.md).
 
-Para implementar módulos mediante la CLI de Azure, guarde localmente el manifiesto de implementación como un archivo .txt. Use la ruta de acceso al archivo de la siguiente sección cuando ejecute el comando para aplicar la configuración al dispositivo. 
+Para implementar módulos mediante la CLI de Azure, guarde localmente el manifiesto de implementación como un archivo .txt. Use la ruta de acceso al archivo de la siguiente sección cuando ejecute el comando para aplicar la configuración al dispositivo.
 
 Este es un manifiesto de implementación básico con un módulo como ejemplo:
 
@@ -110,13 +110,13 @@ Este es un manifiesto de implementación básico con un módulo como ejemplo:
 
 ## <a name="layered-deployment"></a>Implementación superpuesta
 
-Las implementaciones superpuestas son un tipo de implementación automática que se puede apilar entre sí. Para más información sobre las implementaciones superpuestas, consulte el artículo [Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala](module-deployment-monitoring.md). 
+Las implementaciones superpuestas son un tipo de implementación automática que se puede apilar entre sí. Para más información sobre las implementaciones superpuestas, consulte el artículo [Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala](module-deployment-monitoring.md).
 
-Las implementaciones superpuestas se pueden crear y administrar con la CLI de Azure como cualquier implementación automática, con solo algunas diferencias. Una vez que se crea una implementación superpuesta, la misma CLI de Azure funciona con las implementaciones superpuestas igual que con cualquier otra implementación. Para crear una implementación superpuesta, agregue la marca `--layered` al comando CREATE. 
+Las implementaciones superpuestas se pueden crear y administrar con la CLI de Azure como cualquier implementación automática, con solo algunas diferencias. Una vez que se crea una implementación superpuesta, la misma CLI de Azure funciona con las implementaciones superpuestas igual que con cualquier otra implementación. Para crear una implementación superpuesta, agregue la marca `--layered` al comando CREATE.
 
-La segunda diferencia es la construcción del manifiesto de implementación. Aunque la implementación automática estándar debe contener los módulos del entorno de ejecución del sistema además de los módulos de usuario, las implementaciones superpuestas solo pueden contener módulos de usuario. En cambio, las implementaciones superpuestas necesitan que haya también una implementación automática estándar en un dispositivo para proporcionar los componentes necesarios de cada dispositivo IoT Edge, como los módulos del entorno de ejecución del sistema. 
+La segunda diferencia es la construcción del manifiesto de implementación. Aunque la implementación automática estándar debe contener los módulos del entorno de ejecución del sistema además de los módulos de usuario, las implementaciones superpuestas solo pueden contener módulos de usuario. En cambio, las implementaciones superpuestas necesitan que haya también una implementación automática estándar en un dispositivo para proporcionar los componentes necesarios de cada dispositivo IoT Edge, como los módulos del entorno de ejecución del sistema.
 
-Este es un manifiesto de implementación superpuesta básico con un módulo como ejemplo: 
+Este es un manifiesto de implementación superpuesta básico con un módulo como ejemplo:
 
 ```json
 {
@@ -148,7 +148,7 @@ Este es un manifiesto de implementación superpuesta básico con un módulo como
 }
 ```
 
-En el ejemplo anterior se mostraba una implementación superpuesta que establecía `properties.desired` para un módulo. Si esta implementación superpuesta se dirigiera a un dispositivo en el que ya se aplicó el mismo módulo, se sobrescribirían las propiedades deseadas existentes. Para actualizar, en lugar de sobrescribir, las propiedades deseadas, puede definir una nueva subsección. Por ejemplo: 
+En el ejemplo anterior se mostraba una implementación superpuesta que establecía `properties.desired` para un módulo. Si esta implementación superpuesta se dirigiera a un dispositivo en el que ya se aplicó el mismo módulo, se sobrescribirían las propiedades deseadas existentes. Para actualizar, en lugar de sobrescribir, las propiedades deseadas, puede definir una nueva subsección. Por ejemplo:
 
 ```json
 "SimulatedTEmperatureSensor": {
@@ -180,7 +180,7 @@ Para más información sobre dispositivos gemelos y etiquetas, consulte [Informa
 
 ## <a name="create-a-deployment"></a>de una implementación
 
-Implemente módulos en los dispositivos de destino; para ello, cree una implementación que consista en el manifiesto de implementación y otros parámetros. 
+Implemente módulos en los dispositivos de destino; para ello, cree una implementación que consista en el manifiesto de implementación y otros parámetros.
 
 Utilice el comando [az iot edge deployment create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-create) para crear una implementación:
 
@@ -190,16 +190,16 @@ az iot edge deployment create --deployment-id [deployment id] --hub-name [hub na
 
 Use el mismo comando con la marca `--layered` para crear una implementación superpuesta.
 
-El comando deployment create toma los parámetros siguientes: 
+El comando deployment create toma los parámetros siguientes:
 
 * **--layered**: una marca opcional para identificar la implementación como una implementación superpuesta.
-* **--deployment-id**: el nombre de la implementación que se creará en IoT Hub. Asigne a su implementación un nombre exclusivo de hasta 128 letras en minúscula. Evite los espacios y los siguientes caracteres no válidos: `& ^ [ ] { } \ | " < > /`. Parámetro obligatorio. 
-* **--content** -ruta del archivo del manifiesto de implementación JSON. Parámetro obligatorio. 
+* **--deployment-id**: el nombre de la implementación que se creará en IoT Hub. Asigne a su implementación un nombre exclusivo de hasta 128 letras en minúscula. Evite los espacios y los siguientes caracteres no válidos: `& ^ [ ] { } \ | " < > /`. Parámetro obligatorio.
+* **--content** -ruta del archivo del manifiesto de implementación JSON. Parámetro obligatorio.
 * **--hub-name**: nombre de la instancia de IoT Hub en la que se creará la implementación. El centro debe estar en la suscripción actual. Cambie la suscripción actual con el comando `az account set -s [subscription name]`.
 * **--labels**: agregue etiquetas para realizar un seguimiento de las implementaciones. Las etiquetas son pares de Nombre y Valor que describen la implementación. Las etiquetas adoptan el formato JSON en los nombres y valores. Por ejemplo: `{"HostPlatform":"Linux", "Version:"3.0.1"}`
-* **--target-condition**: escriba una condición de destino para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`. 
+* **--target-condition**: escriba una condición de destino para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`.
 * **--priority**: debe ser un entero positivo. En el caso de que dos o más implementaciones se destinen al mismo dispositivo, se aplicará la implementación con el valor numérico más alto para la prioridad.
-* **--metrics**: cree métricas que realicen consultas en las propiedades notificadas de edgeHub para realizar un seguimiento del estado de una implementación. Las métricas toman una entrada JSON o una ruta de archivo. Por ejemplo, `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`. 
+* **--metrics**: cree métricas que realicen consultas en las propiedades notificadas de edgeHub para realizar un seguimiento del estado de una implementación. Las métricas toman una entrada JSON o una ruta de archivo. Por ejemplo, `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`.
 
 ## <a name="monitor-a-deployment"></a>Supervisión de una implementación
 
@@ -210,7 +210,8 @@ az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name
 ```
 
 El comando deployment show toma los parámetros siguientes:
-* **--deployment-id**: el nombre de la implementación que está en IoT Hub. Parámetro obligatorio. 
+
+* **--deployment-id**: el nombre de la implementación que está en IoT Hub. Parámetro obligatorio.
 * **--hub-name**: nombre de la instancia de IoT Hub en la que está la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 
 Inspeccione la implementación en la ventana de comandos. La propiedad **metrics** enumera un recuento para cada métrica que evalúa cada centro:
@@ -223,25 +224,26 @@ Inspeccione la implementación en la ventana de comandos. La propiedad **metric
 Puede mostrar una lista de identificadores u objetos de dispositivos para cada una de las métricas mediante el comando [az iot edge deployment show-metric](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show-metric):
 
 ```cli
-az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name] 
+az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]
 ```
 
-El comando deployment show-metric toma los parámetros siguientes: 
+El comando deployment show-metric toma los parámetros siguientes:
+
 * **--deployment-id**: el nombre de la implementación que está en IoT Hub.
 * **--metric-id**: el nombre de la métrica de la cual quiere ver la lista de identificadores de dispositivos, por ejemplo `reportedFailedCount`.
 * **--hub-name**: nombre de la instancia de IoT Hub en la que está la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 
 ## <a name="modify-a-deployment"></a>Modificación de una implementación
 
-Cuando se modifica una implementación, los cambios se replican inmediatamente a todos los dispositivos seleccionados. 
+Cuando se modifica una implementación, los cambios se replican inmediatamente a todos los dispositivos seleccionados.
 
 Si actualiza la condición de destino, se producen las siguientes actualizaciones:
 
-* Si un dispositivo no cumplía la antigua condición de destino, pero cumple la nueva condición de destino y esta implementación es la prioridad más alta para ese dispositivo, esta implementación se aplica al dispositivo. 
-* Si un dispositivo que actualmente ejecuta esta implementación ya no cumple la condición de destino, desinstala esta implementación y asume la siguiente implementación de mayor prioridad. 
-* Si un dispositivo que actualmente ejecuta esta implementación ya no cumple la condición de destino y no cumple la condición de destino de cualquier otra implementación, no se produce ningún cambio en el dispositivo. El dispositivo sigue ejecutando los módulos actuales en su estado actual, pero ya no se administra como parte de esta implementación. Cuando se cumple la condición de destino de cualquier otra implementación, desinstala esta implementación y adopta una nueva. 
+* Si un dispositivo no cumplía la antigua condición de destino, pero cumple la nueva condición de destino y esta implementación es la prioridad más alta para ese dispositivo, esta implementación se aplica al dispositivo.
+* Si un dispositivo que actualmente ejecuta esta implementación ya no cumple la condición de destino, desinstala esta implementación y asume la siguiente implementación de mayor prioridad.
+* Si un dispositivo que actualmente ejecuta esta implementación ya no cumple la condición de destino y no cumple la condición de destino de cualquier otra implementación, no se produce ningún cambio en el dispositivo. El dispositivo sigue ejecutando los módulos actuales en su estado actual, pero ya no se administra como parte de esta implementación. Cuando se cumple la condición de destino de cualquier otra implementación, desinstala esta implementación y adopta una nueva.
 
-No se puede actualizar el contenido de una implementación, lo cual incluye los módulos y las rutas definidos en el manifiesto de implementación. Si desea actualizar el contenido de una implementación, debe crear una nueva implementación que tenga como destino los mismos dispositivos con una prioridad más alta. Puede modificar determinadas propiedades de un módulo existente, incluidas la condición de destino, las etiquetas, las métricas y la prioridad. 
+No se puede actualizar el contenido de una implementación, lo cual incluye los módulos y las rutas definidos en el manifiesto de implementación. Si desea actualizar el contenido de una implementación, debe crear una nueva implementación que tenga como destino los mismos dispositivos con una prioridad más alta. Puede modificar determinadas propiedades de un módulo existente, incluidas la condición de destino, las etiquetas, las métricas y la prioridad.
 
 Utilice el comando [az iot edge deployment update](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-update) para actualizar una implementación:
 
@@ -250,27 +252,28 @@ az iot edge deployment update --deployment-id [deployment id] --hub-name [hub na
 ```
 
 El comando deployment update toma los parámetros siguientes:
+
 * **--deployment-id**: el nombre de la implementación que está en IoT Hub.
 * **--hub-name**: nombre de la instancia de IoT Hub en la que está la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 * **--set**: actualizar una propiedad de la implementación. Puede actualizar las propiedades siguientes:
   * targetCondition: por ejemplo, `targetCondition=tags.location.state='Oregon'`.
-  * labels 
+  * labels
   * priority
-* **--add**: agregue una nueva propiedad a la implementación, incluidas las condiciones de destino o las etiquetas. 
-* **--remove**: quite una propiedad existente, incluidas las condiciones de destino o las etiquetas. 
-
+* **--add**: agregue una nueva propiedad a la implementación, incluidas las condiciones de destino o las etiquetas.
+* **--remove**: quite una propiedad existente, incluidas las condiciones de destino o las etiquetas.
 
 ## <a name="delete-a-deployment"></a>Eliminación de una implementación
 
-Cuando se elimina una implementación, los dispositivos adoptan la siguiente implementación de prioridad más alta. Si los dispositivos no cumplen la condición de destino de alguna implementación, los módulos no se quitan cuando se elimina la implementación. 
+Cuando se elimina una implementación, los dispositivos adoptan la siguiente implementación de prioridad más alta. Si los dispositivos no cumplen la condición de destino de alguna implementación, los módulos no se quitan cuando se elimina la implementación.
 
 Utilice el comando [az iot edge deployment delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-delete) para eliminar una implementación:
 
 ```cli
-az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name] 
+az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]
 ```
 
-El comando deployment delete toma los parámetros siguientes: 
+El comando deployment delete toma los parámetros siguientes:
+
 * **--deployment-id**: el nombre de la implementación que está en IoT Hub.
 * **--hub-name**: nombre de la instancia de IoT Hub en la que está la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 

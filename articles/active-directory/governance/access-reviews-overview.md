@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 08/05/2019
+ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d9922f1c4cbb0afca74c911d9b2bc9f0eab0714
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7e77f507f2a3bd89069f25bf984cf4059009faa6
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422771"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932641"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>¿Qué son las revisiones de acceso de Azure AD?
 
@@ -97,27 +97,34 @@ Si está listo para implementar revisiones de acceso en su organización, siga e
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-### <a name="which-users-must-have-licenses"></a>¿Qué usuarios deben tener licencias?
+### <a name="how-many-licenses-must-you-have"></a>¿Cuántas licencias debe tener?
 
-Cada usuario que interactúa con las revisiones de acceso debe tener una licencia de pago de Azure AD Premium P2. Algunos ejemplos son:
+Asegúrese de que el directorio tiene al menos tantas licencias de Azure AD Premium P2 como empleados que van a realizar las tareas siguientes:
 
-- Administradores que crean una revisión de acceso
+- Usuarios miembros e invitados asignados como revisores
+- Usuarios miembros e invitados que realizan una autorrevisión
 - Propietarios de grupos que realizan una revisión de acceso
-- Usuarios asignados como revisores
-- Usuarios que realizan una autorrevisión
+- Propietarios de aplicaciones que realizan una revisión de acceso
 
-También puede solicitar a los usuarios invitados que revisen su propio acceso. Por cada licencia de Azure AD Premium P2 de pago que asigne a uno de los usuarios de la organización, puede usar la colaboración negocio a negocio (B2B) Azure AD para invitar hasta a cinco usuarios, gracias a la concesión de usuarios externos. Los usuarios invitados también pueden usar las características de Azure AD Premium P2. Para más información, consulte [Guía de concesión de licencias de colaboración B2B de Azure Active Directory](../b2b/licensing-guidance.md).
+Las licencias de Azure AD Premium P2 **no** son necesarias para las tareas siguientes:
 
-Estos son algunos escenarios de ejemplo que le ayudarán a determinar el número de licencias que debe tener.
+- No se necesitan licencias para los usuarios con los roles Administrador global o Administrador de usuarios que configuran revisiones de acceso, configuran opciones o aplican las decisiones a partir de las revisiones.
 
-| Escenario | Cálculo | Número necesario de licencias |
+Por cada licencia de Azure AD Premium P2 de pago que asigne a uno de los usuarios de la organización, puede usar la colaboración negocio a negocio (B2B) Azure AD para invitar hasta a cinco usuarios, gracias a la concesión de usuarios externos. Los usuarios invitados también pueden usar las características de Azure AD Premium P2. Para más información, consulte [Guía de concesión de licencias de colaboración B2B de Azure Active Directory](../b2b/licensing-guidance.md).
+
+Para más información sobre las licencias, vea [Asignación o eliminación de licencias mediante el portal de Azure Active Directory](../fundamentals/license-users-groups.md).
+
+### <a name="example-license-scenarios"></a>Escenarios de licencia de ejemplo
+
+Estos son algunos escenarios de licencia de ejemplo que le ayudarán a determinar el número de licencias que debe tener.
+
+| Escenario | Cálculo | Número de licencias |
 | --- | --- | --- |
-| Un administrador crea una revisión de acceso al grupo A con 500 usuarios. Asigna a tres propietarios del grupo como revisores. | 1 licencia para el administrador + 3 licencias para cada propietario de grupo como revisores. | 4 |
-| Un administrador crea una revisión de acceso al grupo A con 500 usuarios. Realiza una autorrevisión. | 1 licencia para el administrador + 500 licencias para cada usuario como autorrevisores. | 501 |
-| Un administrador crea una revisión de acceso del grupo B con 5 usuarios y 25 usuarios invitados. Realiza una autorrevisión. | 1 licencia para el administrador + 5 licencias para cada usuario como autorrevisores.<br/>(los usuarios invitados están cubiertos en la proporción requerida de 1:5) | 6 |
-| Un administrador crea una revisión de acceso del grupo C con 5 usuarios y 108 usuarios invitados. Realiza una autorrevisión. | 1 licencia para el administrador + 5 licencias para cada usuario como autorrevisores + 16 licencias adicionales para abarcar a los 108 usuarios invitados de la proporción 1:5 requerida.<br/>1 + 5 = 6 licencias, que suponen 5 \* 6 = 30 usuarios invitados. Para el resto (108 - 5 \* 6) = 78 usuarios invitados, se necesitan 78 / 5 = 16 licencias adicionales. Por lo tanto, en total, se necesitan 6 + 16 = 22 licencias. | 22 |
-
-Para más información acerca de cómo asignar licencias a los usuarios, consulte [Asignación o eliminación de licencias mediante el portal de Azure Active Directory](../fundamentals/license-users-groups.md).
+| Un administrador crea una revisión de acceso del Grupo A con 75 usuarios y 1 propietario del grupo, y asigna el propietario del grupo como revisor. | 1 licencia para el propietario del grupo como revisor | 1 |
+| Un administrador crea una revisión de acceso del Grupo B con 500 usuarios y 3 propietarios de grupo, y asigna los 3 propietarios de grupo como revisores. | 3 licencias para cada propietario de grupo como revisores | 3 |
+| Un administrador crea una revisión de acceso del Grupo B con 500 usuarios. Realiza una autorrevisión. | 500 licencias para cada usuario como revisores | 500 |
+| Un administrador crea una revisión de acceso del Grupo C con 50 usuarios miembros y 25 usuarios invitados. Realiza una autorrevisión. | 50 licencias para cada usuario como revisores<br/>(los usuarios invitados están cubiertos en la proporción requerida de 1:5) | 50 |
+| Un administrador crea una revisión de acceso del Grupo D con 6 usuarios miembros y 108 usuarios invitados. Realiza una autorrevisión. | 6 licencias para cada usuario como autorrevisores + 16 licencias adicionales para abarcar a los 108 usuarios invitados de la proporción de 1:5 necesaria. 6 licencias, que suponen 6\*5=30 usuarios invitados. Para los (108-6\*5)=78 usuarios invitados restantes, se necesitan 78/5=16 licencias adicionales. Por lo tanto, en total, se necesitan 6 + 16 = 22 licencias. | 22 |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

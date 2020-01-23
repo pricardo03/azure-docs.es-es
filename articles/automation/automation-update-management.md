@@ -3,14 +3,14 @@ title: Solución Update Management de Azure
 description: En este artículo se describe cómo usar la solución Azure Update Management para administrar las actualizaciones de los equipos Windows y Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 12/03/2019
+ms.date: 01/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 924f5bee94544c533f3a2548d931fce292469567
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0cf47538f7db1cef629c2b58a9fbde16640a50ae
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420353"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945119"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -237,7 +237,9 @@ En Linux, Update Management puede distinguir entre actualizaciones críticas y d
 sudo yum -q --security check-update
 ```
 
-Actualmente no hay ningún método compatible para habilitar la disponibilidad de datos de clasificación nativos en CentOS. En este momento, solo se proporciona soporte técnico a clientes que puedan haberla habilitado por su cuenta.
+Actualmente no hay ningún método compatible para habilitar la disponibilidad de datos de clasificación nativos en CentOS. En este momento, solo se proporciona soporte técnico a clientes que puedan haberla habilitado por su cuenta. 
+
+Para clasificar las actualizaciones en la versión 6 de Red Hat Enterprise, debe instalar el complemento de seguridad de yum. En Red Hat Enterprise Linux 7, el complemento ya forma parte de yum, no es necesario instalar nada. Para obtener más información, consulte el siguiente [artículo de conocimientos](https://access.redhat.com/solutions/10021) de Red Hat.
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integración con System Center Configuration Manager
 
@@ -251,7 +253,7 @@ Update Management se basa en el repositorio de actualización configurado localm
 
 ## <a name="patch-linux-machines"></a>Aplicación de revisiones en máquinas Linux
 
-Las siguientes secciones explican posibles problemas con la aplicación de revisiones de Linux.
+Las siguientes secciones explican posibles problemas con la aplicación de revisiones de distribuciones de Linux.
 
 ### <a name="unexpected-os-level-upgrades"></a>Actualizaciones de nivel de sistema operativo inesperadas
 

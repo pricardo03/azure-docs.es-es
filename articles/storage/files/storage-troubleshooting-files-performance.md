@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: d4269480887dba994559271de7e68b2ba2b460b6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 00187051eec27ee7b6b2d4927510a2ab9dee442e
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227825"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708264"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de rendimiento de Azure Files
 
@@ -26,7 +26,7 @@ La cuota predeterminada en un recurso compartido Premium es de 100 GiB, que pro
 
 Para confirmar si se está limitando el recurso compartido, puede aprovechar las métricas de Azure en el portal.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Seleccione **Todos los servicios** y busque **Métricas**.
 
@@ -41,6 +41,9 @@ Para confirmar si se está limitando el recurso compartido, puede aprovechar las
 1. Agregue un filtro para **ResponseType** y compruebe si alguna solicitud tiene un código de respuesta de **SuccessWithThrottling** (para SMB) o **ClientThrottlingError** (para REST).
 
 ![Opciones de métricas para recursos compartidos de archivos Premium](media/storage-troubleshooting-premium-fileshares/metrics.png)
+
+> [!NOTE]
+> Para recibir una alerta si un recurso compartido de archivos se limita, consulte [Creación de una alerta si un recurso compartido de archivos se limita](#how-to-create-an-alert-if-a-file-share-is-throttled).
 
 ### <a name="solution"></a>Solución
 
@@ -168,3 +171,38 @@ Latencia mayor a la esperada al acceder a Azure Files para cargas de trabajo int
 ### <a name="workaround"></a>Solución alternativa
 
 - Instale la [revisión](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1) disponible.
+
+## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Creación de una alerta si un recurso compartido de archivos se limita
+
+1. En [Azure Portal](https://portal.azure.com), haga clic en **Monitor**. 
+
+2. Haga clic **Alertas** y, a continuación, haga clic en **Nueva alerta de reglas**.
+
+3. Haga clic en **Seleccionar** para seleccionar el recurso **cuenta de almacenamiento/archivo** que contiene el recurso compartido de archivos en el que desea generar una alerta y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es contoso, seleccione el recurso contoso/archivo.
+
+4. Haga clic en **Agregar** para agregar una condición.
+
+5. Verá una lista de señales admitidas para la cuenta de almacenamiento, seleccione la métrica **Transacciones**.
+
+6. En la hoja **Configuración de la lógica de señal**, vaya a la dimensión **Tipo de respuesta**, haga clic en el menú desplegable **Valores de la dimensión** y seleccione **SuccessWithThrottling** (para SMB) o **ClientThrottlingError** (para REST). 
+
+  > [!NOTE]
+  > Si el valor de la dimensión SuccessWithThrottling o ClientThrottlingError no aparece en la lista, significa que el recurso no se ha limitado.  Para agregar el valor de dimensión, haga clic en **+** junto a la lista desplegable **Valores de dimensión**, escriba **SuccessWithThrottling** o **ClientThrottlingError**, haga clic en **Aceptar** y, a continuación, repita el paso 6.
+
+7. Vaya a la dimensión **Recurso compartido de archivos**, haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas. 
+
+  > [!NOTE]
+  > Si el recurso compartido de archivos es un recurso compartido de archivos estándar, el menú desplegable de valores de dimensión estará en blanco porque las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar. Las alertas de limitación de los recursos compartidos de archivos estándar se desencadenarán si algún recurso compartido de archivos de la cuenta de almacenamiento está limitado y la alerta no identificará qué recurso compartido de archivos se ha limitado. Dado que las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar, se recomienda tener un recurso compartido de archivos por cada cuenta de almacenamiento. 
+
+8. Defina los **parámetros de alerta** (umbral, operador, granularidad de agregación y frecuencia) que se usan para evaluar la regla de alertas de métricas y haga clic en **Listo**.
+
+  > [!TIP]
+  > Si usa un umbral estático, el gráfico de métricas puede ayudar a determinar un umbral razonable si el recurso compartido de archivos se está limitando actualmente. Si usa un umbral dinámico, el gráfico de métricas mostrará los umbrales calculados según los datos recientes.
+
+9. Agregue un **grupo de acciones** (correo electrónico, SMS, etc.) a la alerta, ya sea seleccionando un grupo de acciones existente o creando uno nuevo.
+
+10. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción** y la **gravedad**.
+
+11. Haga clic en **Crear regla de alerta** para crear la alerta.
+
+Para obtener más información sobre cómo configurar alertas en Azure Monitor, consulte [Introducción sobre las alertas en Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).

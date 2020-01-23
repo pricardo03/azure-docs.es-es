@@ -3,7 +3,7 @@ title: Solución de problemas de un dispositivo StorSimple implementado | Micros
 description: Describe cómo diagnosticar y corregir los errores que se producen en un dispositivo de StorSimple que está implementado y operativo actualmente.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: carmonm
 editor: ''
 ms.assetid: ea5d89ae-e379-423f-b68b-53785941d9d0
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
-ms.author: v-sharos
-ms.openlocfilehash: 8ad3f09bf46caf426b2008b583ebd2ff78522462
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: ca79e4240c1a82e46bea44a9d018a3c681920480
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64713067"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933290"
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>Solución de problemas de un dispositivo de StorSimple operativo
 > [!NOTE]

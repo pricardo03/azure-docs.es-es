@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dfd9a8d2723136ef68d983eb99bf2391fb87879
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 159f79e61b43761db5a65c101928d4e6ac5b4d29
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894884"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861785"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos a un entorno de Time Series Insights mediante un centro de eventos
 
@@ -24,7 +24,7 @@ En este artículo se explica cómo crear y configurar un centro de eventos en Az
 
 ## <a name="configure-an-event-hub"></a>Configuración de un centro de eventos
 
-1. Para saber cómo crear un centro de eventos, consulte la [documentación de Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
+1. Para aprender a crear un centro de eventos, lea la [documentación de Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
 1. En el cuadro de búsqueda, busque **Event Hubs**. Haga clic en **Event Hubs** en la lista devuelta.
 1. Seleccione su centro de eventos.
 1. Cuando se crea un centro de eventos, se crea un espacio de nombres del centro de eventos. Si todavía no ha creado un centro de eventos en el espacio de nombres, vaya al menú y, en **Entities** (Entidades), cree un centro de eventos.  
@@ -55,13 +55,13 @@ En este artículo se explica cómo crear y configurar un centro de eventos en Az
 
 ## <a name="add-a-time-series-insights-instance"></a>Agregar una instancia de Time Series Insights
 
-La actualización de Time Series Insights usa instancias para agregar datos contextuales a los datos de telemetría entrantes. Los datos se unen en el momento de la consulta mediante un **id. de serie temporal**. El **identificador de serie temporal** del proyecto de ejemplo de los molinos de viento que se usará más adelante en este artículo es `id`. Para obtener más información sobre las instancias de Time Series Insight y el **id. de serie temporal**, consulte el artículo [Time Series Models](./time-series-insights-update-tsm.md) (Modelos de serie temporal).
+La actualización de Time Series Insights usa instancias para agregar datos contextuales a los datos de telemetría entrantes. Los datos se unen en el momento de la consulta mediante un **id. de serie temporal**. El **identificador de serie temporal** del proyecto de ejemplo de los molinos de viento que se usará más adelante en este artículo es `id`. Para más información sobre las instancias de Time Series Insight y el **id. de serie temporal**, lea [Modelos de Time Series](./time-series-insights-update-tsm.md).
 
 ### <a name="create-a-time-series-insights-event-source"></a>Crear un origen de eventos de Time Series Insights
 
 1. Complete los pasos para [crear un origen de eventos](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub) si aún no ha creado uno.
 
-1. Establezca el valor de `timeSeriesId`. Para obtener más información sobre el **id. de serie temporal**, consulte [Time Series Models](./time-series-insights-update-tsm.md) (Modelos de serie temporal).
+1. Establezca el valor de `timeSeriesId`. Para más información sobre el **id. de serie temporal**, lea [Modelos de Time Series](./time-series-insights-update-tsm.md).
 
 ### <a name="push-events-to-windmills-sample"></a>Eventos push del ejemplo de los molinos de viento
 
@@ -73,14 +73,14 @@ La actualización de Time Series Insights usa instancias para agregar datos cont
 
     [![Copiar el valor de la cadena de conexión de la clave principal](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. Vaya a https://tsiclientsample.azurewebsites.net/windFarmGen.html. La dirección URL ejecuta dispositivos simulados de molinos de viento.
+1. Ir a https://tsiclientsample.azurewebsites.net/windFarmGen.html. La dirección URL ejecuta dispositivos simulados de molinos de viento.
 1. En el cuadro **Event Hub Connection String** (Cadena de conexión del centro de eventos) de la página web, pegue la cadena de conexión que copió en el [campo de entrada de molinos de viento](#push-events-to-windmills-sample).
   
     [![Pegar la cadena de conexión de la clave principal en el cuadro de la cadena de conexión del centro de eventos](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
 1. Seleccione **Click to start** (Haga clic para iniciar). El simulador genera la instancia JSON que puede usar directamente.
 
-1. Vuelva a su centro de eventos en Azure Portal. En la página **Información general**, verá que los nuevos eventos s reciben en el centro de eventos.
+1. Vuelva a su centro de eventos en Azure Portal. En la página **Información general**, se muestran los eventos nuevos que recibe el centro de eventos.
 
     [![Una página de información general del centro de eventos que muestra las métricas del centro de eventos](media/send-events/review-windmill-telemetry.png)](media/send-events/review-windmill-telemetry.png#lightbox)
 
@@ -149,7 +149,7 @@ La actualización de Time Series Insights usa instancias para agregar datos cont
 
 * **Salida**: Dos eventos. La propiedad **location** se copia en cada uno de los eventos.
 
-    |location|events.id|events.timestamp|
+    |ubicación|events.id|events.timestamp|
     |--------|---------------|----------------------|
     |WestUs|device1|2016-01-08T01:08:00Z|
     |WestUs|device2|2016-01-08T01:17:00Z|
@@ -190,9 +190,9 @@ La actualización de Time Series Insights usa instancias para agregar datos cont
 
 * **Salida**: Dos eventos.
 
-    |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
+    |ubicación|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
     |---|---|---|---|---|---|---|---|
-    |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
+    |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|presión|psi|108.09|
     |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Pasos siguientes

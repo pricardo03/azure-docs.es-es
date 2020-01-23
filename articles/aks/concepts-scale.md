@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 5bceb6715fc3fd2f9f23738936df2f2c549d0212
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: aaa279596532d3a1d47a974b48a45bd67101fa95
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048188"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768629"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -28,6 +28,8 @@ En este artículo se presentan los conceptos básicos para ayudarle a escalar ap
 ## <a name="manually-scale-pods-or-nodes"></a>Escalado manual de pods o nodos
 
 Puede escalar manualmente las réplicas (pods) y nodos para probar cómo responde la aplicación a un cambio en los recursos disponibles y el estado. El escalado manual de recursos también le permite definir una cantidad establecida de recursos que se usarán para mantener un costo fijo como el número de nodos. Para realizar un escalado manual, defina el número de réplicas o de nodos. Luego, Kubernetes API programará la creación de pods adicionales o el drenaje de nodos en función del número de réplicas o de nodos.
+
+Al reducir verticalmente los nodos, la API de Kubernetes llama a la API de proceso de Azure correspondiente asociada al tipo de proceso que usa el clúster. Por ejemplo, para los clústeres basados en VM Scale Sets, la lógica para seleccionar los nodos que se van a quitar vienen determinada por la API de VM Scale Sets. Para obtener más información sobre cómo se seleccionan los nodos para su eliminación al reducir verticalmente, vea las [preguntas más frecuentes sobre VMSS](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed).
 
 Para empezar con el escalado manual de pods y nodos, consulte [Escalado de aplicaciones en AKS][aks-scale].
 

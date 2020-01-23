@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/03/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9615abe3a3373c0fd943fdb5c392eb095bc26a1a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8b27a97d95f224513dd03293b9bd0082c5ed6d1b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430436"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772268"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure
 
@@ -37,7 +37,7 @@ Si es un administrador global, es posible que haya momentos en los que quiera ha
 - Ver todas las suscripciones o grupos de administración de Azure de una organización
 - Permitir que una aplicación de automatización (por ejemplo, una aplicación de facturación o auditoría) tenga acceso a todas las suscripciones o grupos de administración de Azure
 
-## <a name="how-does-elevate-access-work"></a>¿Cómo funciona la elevación de los privilegios de acceso?
+## <a name="how-does-elevated-access-work"></a>¿Cómo funciona el acceso con privilegios elevados?
 
 Azure AD y los recursos de Azure están protegidos de forma independiente entre sí. Es decir, las asignaciones de roles de Azure AD no otorgan acceso a recursos de Azure, y las asignaciones de roles de Azure no conceden acceso a Azure AD. Sin embargo, si es [administrador global](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) de Azure AD, puede asignarse a sí mismo los privilegios de acceso para todas las suscripciones a Azure y los grupos de administración de su directorio. Use esta funcionalidad si no tiene acceso a recursos de suscripción a Azure, como máquinas virtuales o cuentas de almacenamiento, y quiere usar su privilegio de administrador global para obtener acceso a esos recursos.
 
@@ -129,7 +129,7 @@ CanDelegate        : False
 
 ### <a name="remove-elevated-access"></a>Eliminación de privilegios de acceso elevados
 
-Para quitarse la asignación del rol de administrador de accesos de usuario en el ámbito raíz (`/`), siga estos pasos.
+Para quitarse a usted o a otro usuario la asignación del rol de administrador de accesos de usuario en el ámbito raíz (`/`), siga estos pasos.
 
 1. Inicie sesión como un usuario que puede quitar los privilegios de acceso elevado. Puede ser el mismo usuario que se usó para elevar los privilegios de acceso u otro administrador global con privilegios de acceso elevados en el ámbito raíz.
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 0e9b382b27d0bd1e4fd3a553ca468dd562eca368
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 753977ed0516e934f661d81904b60ff9935aa423
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792912"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981172"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -45,7 +45,7 @@ Cada de punto de conexión de la solicitud de una aplicación lógica tiene una 
 
 Cada dirección URL contiene el parámetro de consulta `sp`, `sv` y `sig`, tal y como se describe en esta tabla:
 
-| Parámetro de consulta | DESCRIPCIÓN |
+| Parámetro de consulta | Descripción |
 |-----------------|-------------|
 | `sp` | Especifica los permisos para los métodos HTTP permitidos que se usarán. |
 | `sv` | Especifica la versión de SAS que se usará para generar la firma. |
@@ -106,7 +106,7 @@ Junto con la Firma de acceso compartido (SAS), es posible que quiera especificar
 
 1. En el menú de la aplicación lógica, en **Configuración**, seleccione **Configuración de flujo de trabajo**.
 
-1. En **Configuración de control de acceso** > **Direcciones IP entrantes permitidas**, seleccione **Intervalos IP específicos**.
+1. En **Configuración del control de acceso** > **Direcciones IP entrantes permitidas**, seleccione **Intervalos IP específicos**.
 
 1. En **Intervalos IP para desencadenadores**, especifique los intervalos de direcciones IP que acepta el desencadenador.
 
@@ -174,7 +174,7 @@ Puede permitir que solo determinados usuarios o grupos ejecuten tareas específi
 
 * [Operador de aplicación lógica](../role-based-access-control/built-in-roles.md#logic-app-operator): Le permite leer, habilitar y deshabilitar aplicaciones lógicas, pero no puede editarlas ni actualizarlas.
 
-Para evitar que otros usuarios cambien o elimine la aplicación lógica, puede usar el [bloqueo de recursos de Azure](../azure-resource-manager/resource-group-lock-resources.md). Esta funcionalidad evita que otros usuarios cambien o eliminen los recursos de producción.
+Para evitar que otros usuarios cambien o elimine la aplicación lógica, puede usar el [bloqueo de recursos de Azure](../azure-resource-manager/management/lock-resources.md). Esta funcionalidad evita que otros usuarios cambien o eliminen los recursos de producción.
 
 <a name="secure-run-history"></a>
 
@@ -206,7 +206,7 @@ Puede limitar el acceso a las entradas y salidas del historial de ejecución de 
 
 1. En el menú de la aplicación lógica, en **Configuración**, seleccione **Configuración de flujo de trabajo**.
 
-1. En **Configuración de control de acceso** > **Direcciones IP entrantes permitidas**, seleccione **Intervalos IP específicos**.
+1. En **Configuración del control de acceso** > **Direcciones IP entrantes permitidas**, seleccione **Intervalos IP específicos**.
 
 1. En **Intervalos IP para contenido**, especifique los intervalos de direcciones IP que pueden acceder a contenido desde las entradas y salidas. 
 
@@ -344,7 +344,7 @@ Estas son algunas [consideraciones que se deben tener en cuenta](#obfuscation-co
 
   **Opción Entradas seguras**
 
-  Al activar manualmente las **Entradas seguras** en un desencadenador o una acción, Logic Apps protege estas entradas en el historial de ejecución. Si una acción de nivel inferior usa explícitamente las salidas visibles de ese desencadenador o acción como entradas, Logic Apps oculta las entradas de esta acción de nivel inferior en el historial de ejecución, pero *no habilita* las **Entradas seguras** en esta acción y no oculta las salidas de la acción.
+  Al activar manualmente las **Entradas seguras** en un desencadenador o una acción, Logic Apps protege estas entradas en el historial de ejecución. Si en una acción de nivel inferior se usan de forma explícita las salidas visibles de ese desencadenador o acción como entradas, Logic Apps oculta las entradas de esta acción de nivel inferior en el historial de ejecución, pero *no habilita* las **Entradas seguras** en esta acción y no oculta las salidas de la acción.
 
   ![Entradas seguras y repercusión descendente en la mayoría de las acciones](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
 
@@ -356,7 +356,7 @@ Estas son algunas [consideraciones que se deben tener en cuenta](#obfuscation-co
 
 ## <a name="access-to-parameter-inputs"></a>Acceso a entradas de parámetros
 
-Si implementa en entornos diferentes, considere la posibilidad de parametrizar los valores de la definición de flujo de trabajo que varían en función de esos entornos. De este modo, puede evitar los datos incluidos en el código mediante una [plantilla de Azure Resource Manager ](../azure-resource-manager/template-deployment-overview.md) para implementar la aplicación lógica, proteger los datos confidenciales definiendo parámetros seguros y pasar dichos datos como entradas separadas mediante los [parámetros de la plantilla](../azure-resource-manager/template-parameters.md) con un [archivo de parámetros](../azure-resource-manager/resource-manager-parameter-files.md).
+Si implementa en entornos diferentes, considere la posibilidad de parametrizar los valores de la definición de flujo de trabajo que varían en función de esos entornos. De este modo, puede evitar los datos incluidos en el código mediante una [plantilla de Azure Resource Manager ](../azure-resource-manager/templates/overview.md) para implementar la aplicación lógica, proteger los datos confidenciales definiendo parámetros seguros y pasar dichos datos como entradas separadas mediante los [parámetros de la plantilla](../azure-resource-manager/templates/template-parameters.md) con un [archivo de parámetros](../azure-resource-manager/templates/parameter-files.md).
 
 Por ejemplo, si autentica acciones HTTP con [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), puede definir y proteger los parámetros que aceptan el id. de cliente y el secreto de cliente que se usan para la autenticación. Para definir estos parámetros para la aplicación lógica, use la sección `parameters` dentro de la definición de flujo de trabajo de la aplicación lógica y Resource Manager para la implementación. Para ocultar los valores de parámetros que no quiera mostrar al editar la aplicación lógica o visualizar el historial de ejecución, defina los parámetros con el tipo `securestring` o `secureobject` y use la codificación necesaria. Los parámetros de este tipo no se devuelven con la definición del recurso y no son accesibles al visualizar el recurso después de la implementación. Para tener acceso a estos valores de parámetro durante el tiempo de ejecución, use la expresión `@parameters('<parameter-name>')` dentro de la definición del flujo de trabajo. Esta expresión solo se evalúa en tiempo de ejecución y se describe con el [lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md).
 
@@ -368,11 +368,11 @@ Para más información, consulte las secciones siguientes en este tema:
 * [Parámetros protegidos en las definiciones de flujo de trabajo](#secure-parameters-workflow)
 * [Ocultamiento de los datos del historial de ejecución mediante ofuscación](#obfuscate)
 
-Si [automatiza la implementación de aplicaciones lógicas con plantillas de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede definir [parámetros de plantilla](../azure-resource-manager/template-parameters.md) protegidos, que se evalúan en la implementación, mediante los tipos `securestring` y `secureobject`. Para definir parámetros de plantilla, use la sección `parameters` de nivel superior de la plantilla, que es independiente y diferente de la sección `parameters` de la definición de flujo de trabajo. Para proporcionar valores para los parámetros de plantilla, use un [archivo de parámetros](../azure-resource-manager/resource-manager-parameter-files.md) independiente.
+Si [automatiza la implementación de aplicaciones lógicas con plantillas de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede definir [parámetros de plantilla](../azure-resource-manager/templates/template-parameters.md) protegidos, que se evalúan en la implementación, mediante los tipos `securestring` y `secureobject`. Para definir parámetros de plantilla, use la sección `parameters` de nivel superior de la plantilla, que es independiente y diferente de la sección `parameters` de la definición de flujo de trabajo. Para proporcionar valores para los parámetros de plantilla, use un [archivo de parámetros](../azure-resource-manager/templates/parameter-files.md) independiente.
 
 Por ejemplo, si usa secretos, puede definir y usar parámetros de plantilla protegidos que recuperen dichos secretos de [Azure Key Vault](../key-vault/key-vault-overview.md) en la implementación. A continuación, puede hacer referencia a Key Vault y al secreto en el archivo de parámetros. Para más información, consulte los temas siguientes:
 
-* [Uso de Azure Key Vault para pasar valores confidenciales durante la implementación](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+* [Uso de Azure Key Vault para pasar valores confidenciales durante la implementación](../azure-resource-manager/templates/key-vault-parameter.md)
 * [Parámetros seguros en plantillas de Azure Resource Manager](#secure-parameters-deployment-template) más adelante en este tema
 
 <a name="secure-parameters-workflow"></a>
@@ -425,11 +425,11 @@ Para proteger la información confidencial en la definición del flujo de trabaj
 
 ### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Parámetros seguros en plantillas de Azure Resource Manager
 
-Una [plantilla de Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) para una aplicación lógica tiene varias secciones `parameters`. Para proteger las contraseñas, las claves, los secretos y otros datos confidenciales, defina parámetros seguros en el nivel de plantilla y de definición de flujo de trabajo mediante el tipo `securestring` o `secureobject`. Después, puede almacenar estos valores en [Azure Key Vault](../key-vault/key-vault-overview.md) y usar el [archivo de parámetros](../azure-resource-manager/resource-manager-parameter-files.md) para hacer referencia al almacén de claves y al secreto. A continuación, la plantilla recupera esa información en la implementación. Para obtener más información, consulte [Uso de Azure Key Vault para pasar valores confidenciales durante la implementación](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+Una [plantilla de Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) para una aplicación lógica tiene varias secciones `parameters`. Para proteger las contraseñas, las claves, los secretos y otros datos confidenciales, defina parámetros seguros en el nivel de plantilla y de definición de flujo de trabajo mediante el tipo `securestring` o `secureobject`. Después, puede almacenar estos valores en [Azure Key Vault](../key-vault/key-vault-overview.md) y usar el [archivo de parámetros](../azure-resource-manager/templates/parameter-files.md) para hacer referencia al almacén de claves y al secreto. A continuación, la plantilla recupera esa información en la implementación. Para obtener más información, consulte [Uso de Azure Key Vault para pasar valores confidenciales durante la implementación](../azure-resource-manager/templates/key-vault-parameter.md).
 
 Aquí tiene más información sobre estas secciones `parameters`:
 
-* En el nivel superior de la plantilla, una sección `parameters` define los parámetros de los valores que utiliza la plantilla durante la *implementación*. Por ejemplo, estos valores pueden incluir cadenas de conexión para un entorno de implementación concreto. Después, puede almacenar estos valores en un [archivo de parámetros](../azure-resource-manager/resource-manager-parameter-files.md), lo que facilita la modificación de estos valores.
+* En el nivel superior de la plantilla, una sección `parameters` define los parámetros de los valores que utiliza la plantilla durante la *implementación*. Por ejemplo, estos valores pueden incluir cadenas de conexión para un entorno de implementación concreto. Después, puede almacenar estos valores en un [archivo de parámetros](../azure-resource-manager/templates/parameter-files.md), lo que facilita la modificación de estos valores.
 
 * Dentro de la definición de recursos de la aplicación lógica, pero fuera de la definición del flujo de trabajo, una sección `parameters` especifica los valores de los parámetros de la definición del flujo de trabajo. En esta sección, puede asignar estos valores mediante expresiones de plantilla que hagan referencia a los parámetros de la plantilla. Estas expresiones se evalúan en la implementación.
 
@@ -437,7 +437,7 @@ Aquí tiene más información sobre estas secciones `parameters`:
 
 Esta plantilla de ejemplo tiene varias definiciones de parámetros seguros que usan el tipo `securestring`:
 
-| Nombre de parámetro | DESCRIPCIÓN |
+| Nombre de parámetro | Descripción |
 |----------------|-------------|
 | `TemplatePasswordParam` | Parámetro de plantilla que acepta una contraseña que se pasa, a continuación, al parámetro `basicAuthPasswordParam` de la definición del flujo de trabajo. |
 | `TemplateUsernameParam` | Parámetro de plantilla que acepta un nombre de usuario que se pasa a continuación al parámetro `basicAuthUserNameParam` de la definición del flujo de trabajo |
@@ -606,7 +606,7 @@ Los extremos HTTP y HTTPS admiten varios tipos de autenticación. Según el dese
 
 | Tipo de autenticación | Compatible con |
 |---------------------|--------------|
-| [Básico](#basic-authentication) | Azure API Management, Azure App Services, HTTP, HTTP y Swagger, webhook HTTP |
+| [Basic](#basic-authentication) | Azure API Management, Azure App Services, HTTP, HTTP y Swagger, webhook HTTP |
 | [Certificado de cliente](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP y Swagger, webhook HTTP |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, webhook HTTP |
 | [Sin formato](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, webhook HTTP |
@@ -622,7 +622,7 @@ Los extremos HTTP y HTTPS admiten varios tipos de autenticación. Según el dese
 
 Si la opción [Básica](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) está disponible, especifique estos valores de propiedad:
 
-| Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | DESCRIPCIÓN |
+| Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticación** | `type` | Sí | Básica | Tipo de autenticación que se debe usar. |
 | **Nombre de usuario** | `username` | Sí | <*nombre-de-usuario*>| Nombre de usuario para autenticar el acceso al extremo del servicio de destino. |
@@ -653,9 +653,9 @@ Al usar [parámetros protegidos](#secure-action-parameters) para controlar y pro
 
 Si la opción [Certificado de cliente](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) está disponible, especifique estos valores de propiedad:
 
-| Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | DESCRIPCIÓN |
+| Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticación** | `type` | Sí | **Certificado de cliente** <br>o <br>`ClientCertificate` | Tipo de autenticación que se usará para los certificados de cliente de Capa de sockets seguros (SSL). Aunque se admiten los certificados autofirmados, no se admiten los certificados autofirmados para SSL. |
+| **Autenticación** | `type` | Sí | **Certificado de cliente** <br>or <br>`ClientCertificate` | Tipo de autenticación que se usará para los certificados de cliente de Capa de sockets seguros (SSL). Aunque se admiten los certificados autofirmados, no se admiten los certificados autofirmados para SSL. |
 | **Pfx** | `pfx` | Sí | <*contenido-archivo-pfx-codificado*> | El contenido codificado en base 64 del archivo de intercambio de información personal (PFX) <p><p>Para convertir el archivo PFX en formato codificado en Base64, puede usar PowerShell siguiendo estos pasos: <p>1. Guarde el contenido del certificado en una variable: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Convierta el contenido del certificado mediante la función `ToBase64String()` y guarde el contenido en un archivo de texto: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Contraseña** | `password`| Consulte la descripción | <*contraseña-archivo-pfx*> | La contraseña para acceder al archivo PFX. <p><p>**Nota**: Este valor de propiedad es necesario cuando se trabaja en el Diseñador de aplicaciones lógicas y *no* es necesario cuando se trabaja en la vista de código. |
 |||||
@@ -692,17 +692,17 @@ Para obtener más información acerca de cómo proteger los servicios mediante l
 
 Si la opción [Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) está disponible, especifique estos valores de propiedad:
 
-| Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | DESCRIPCIÓN |
+| Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticación** | `type` | Sí | **Active Directory OAuth** <br>o <br>`ActiveDirectoryOAuth` | Tipo de autenticación que se debe usar. Actualmente, Logic Apps sigue el [protocolo OAuth 2.0](../active-directory/develop/v2-overview.md). |
+| **Autenticación** | `type` | Sí | **Active Directory OAuth** <br>or <br>`ActiveDirectoryOAuth` | Tipo de autenticación que se debe usar. Actualmente, Logic Apps sigue el [protocolo OAuth 2.0](../active-directory/develop/v2-overview.md). |
 | **Inquilino** | `tenant` | Sí | <*tenant-ID*> | El identificador del inquilino de Azure AD |
 | **Audiencia** | `audience` | Sí | <*resource-to-authorize*> | Recurso que quiere usar para la autorización; por ejemplo, `https://management.core.windows.net/` |
 | **Id. de cliente** | `clientId` | Sí | <*client-ID*> | El identificador de cliente para la aplicación que solicita autorización |
-| **Tipo de credencial** | `credentialType` | Sí | Certificate <br>o <br>Secret | El tipo de credencial que el cliente usa para solicitar autorización. Esta propiedad y el valor no aparecen en la definición subyacente de la aplicación lógica, pero determina las propiedades que se muestran para el tipo de credencial seleccionado. |
+| **Tipo de credencial** | `credentialType` | Sí | Certificado <br>or <br>Secreto | El tipo de credencial que el cliente usa para solicitar autorización. Esta propiedad y el valor no aparecen en la definición subyacente de la aplicación lógica, pero determina las propiedades que se muestran para el tipo de credencial seleccionado. |
 | **Secreto** | `secret` | Sí, pero solo para el tipo de credencial de "Secreto". | <*secreto-de-cliente*> | Secreto de cliente para solicitar la autorización |
 | **Pfx** | `pfx` | Sí, pero solo para el tipo de credencial de "Certificado". | <*contenido-archivo-pfx-codificado*> | El contenido codificado en base 64 del archivo de intercambio de información personal (PFX) |
 | **Contraseña** | `password` | Sí, pero solo para el tipo de credencial de "Certificado". | <*contraseña-archivo-pfx*> | La contraseña para acceder al archivo PFX |
-| **Autoridad** | `authority` | Sin | <*URL-for-authority-token-issuer*> | La dirección URL de la autoridad que proporciona el token de autenticación. De manera predeterminada, este valor es `https://login.windows.net`. <p>**Nota**: Para que la propiedad sea visible en el diseñador, en el desencadenador o la acción, abra la lista **Agregar nuevo parámetro** y seleccione **Autoridad**. |
+| **Autoridad** | `authority` | No | <*URL-for-authority-token-issuer*> | La dirección URL de la autoridad que proporciona el token de autenticación. De manera predeterminada, este valor es `https://login.windows.net`. <p>**Nota**: Para que la propiedad sea visible en el diseñador, en el desencadenador o la acción, abra la lista **Agregar nuevo parámetro** y seleccione **Autoridad**. |
 |||||
 
 Al usar [parámetros protegidos](#secure-action-parameters) para controlar y proteger la información confidencial, por ejemplo, en una [plantilla de Azure Resource Manager para automatizar la implementación](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede usar expresiones para tener acceso a estos valores de parámetro en tiempo de ejecución. Esta definición de acción HTTP de ejemplo especifica el `type` de autenticación como `ActiveDirectoryOAuth`, el tipo de credencial `Secret` y usa la [función parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obtener los valores de parámetro:
@@ -746,7 +746,7 @@ Authorization: OAuth realm="Photos",
 
 En el desencadenador o la acción que admite la autenticación sin formato, especifique estos valores de propiedad:
 
-| Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | DESCRIPCIÓN |
+| Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticación** | `type` | Sí | Raw | Tipo de autenticación que se debe usar. |
 | **Valor** | `value` | Sí | <*valor de encabezado de autorización*> | Valor del encabezado de autorización que se va a usar para la autenticación. |
@@ -781,9 +781,9 @@ Si la opción [identidad administrada](../active-directory/managed-identities-az
 
 3. En el desencadenador o la acción donde quiere usar la identidad administrada, especifique estos valores de propiedad:
 
-   | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
    |---------------------|-----------------|----------|-------|-------------|
-   | **Autenticación** | `type` | Sí | **Identidad administrada** <br>o <br>`ManagedServiceIdentity` | Tipo de autenticación que se debe usar. |
+   | **Autenticación** | `type` | Sí | **Identidad administrada** <br>or <br>`ManagedServiceIdentity` | Tipo de autenticación que se debe usar. |
    | **Audiencia** | `audience` | Sí | <*Id-recurso-destino*> | El Id. de recurso para el recurso de destino al que quiere obtener acceso. <p>Por ejemplo, `https://storage.azure.com/` hace que los tokens de acceso para la autenticación sean válidos para todas las cuentas de almacenamiento. Sin embargo, también puede especificar una dirección URL de servicio raíz, como `https://fabrikamstorageaccount.blob.core.windows.net` para una cuenta de almacenamiento específica. <p>**Nota**: Esta propiedad puede estar oculta en algunos desencadenadores o acciones. Para que la propiedad sea visible, en el desencadenador o la acción, abra la lista **Agregar nuevo parámetro** y seleccione **Público**. <p><p>**Importante**: Asegúrese de que el Id. de este recurso de destino coincide exactamente con el valor esperado en Azure AD, incluida toda barra diagonal necesaria al final. Por lo tanto, el Id. de recurso de `https://storage.azure.com/` para todas las cuentas de Azure Blob Storage requiere una barra diagonal final. Sin embargo, el Id. de recurso de una cuenta de almacenamiento específica no requiere una barra diagonal final. Para buscar estos Id. de recursos, consulte [Servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 

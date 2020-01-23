@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: evansma
-ms.openlocfilehash: b8c1034b047e0c72db41bbbbff06feb0bdf06517
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 21bbd34520283620626aff27439e89058a534f4e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933920"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121818"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Las ventajas de Marketplace comercial
 
@@ -86,7 +86,7 @@ Además de las ventajas de las recompensas, los asociados de aplicaciones empres
 
 ### <a name="publisher-agreement"></a>Contrato del anunciante
 
-Todas las actividades descritas en esta página se incluyen en el [contrato del anunciante de Marketplace](https://docs.microsoft.com/legal/marketplace/terms) y se incluyen en el anexo del programa de ventajas comerciales.
+Todas las actividades descritas en esta página se incluyen en el [contrato del anunciante de Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) y se incluyen en el anexo del programa de ventajas comerciales.
 
 ### <a name="cancellation-policy"></a>Directiva de cancelaciones
 

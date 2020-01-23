@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/05/2018
-ms.openlocfilehash: 860694a750ae313f04aceab924429dcf08ecbb66
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f915764deaa70117b96a42c5e7310b691125d731
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887537"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979852"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Azure Cloud Services
 [Application Insights][start] puede supervisar las [aplicaciones de Azure Cloud Service](https://azure.microsoft.com/services/cloud-services/) para comprobar la disponibilidad, el rendimiento, los errores y el uso al combinar datos de los SDK de Application Insights con datos de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de los servicios en la nube. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
 
 ![Panel de información general](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Antes de comenzar, necesitará lo siguiente:
 
 * Una suscripción a [Azure](https://azure.com). Inicie sesión con una cuenta Microsoft para Windows, Xbox Live u otros servicios en la nube de Microsoft. 
@@ -52,7 +52,7 @@ En la sección a continuación, se explica cómo adaptar su propio proyecto de s
 ## <a name="plan-resources-and-resource-groups"></a>Planeamiento de recursos y grupos de recursos
 La telemetría de la aplicación se almacena, analiza y muestra en un recurso de Azure de tipo Application Insights. 
 
-Cada recurso pertenece a un grupo de recursos. Los grupos de recursos se usan para administrar los costos, para conceder acceso a los miembros del equipo y para implementar las actualizaciones en una transacción coordinada única. Por ejemplo, podría [escribir un script para implementar](../../azure-resource-manager/resource-group-template-deploy.md) un servicio en la nube de Azure y sus recursos de supervisión de Application Insights en una operación todo en uno.
+Cada recurso pertenece a un grupo de recursos. Los grupos de recursos se usan para administrar los costos, para conceder acceso a los miembros del equipo y para implementar las actualizaciones en una transacción coordinada única. Por ejemplo, podría [escribir un script para implementar](../../azure-resource-manager/templates/deploy-powershell.md) un servicio en la nube de Azure y sus recursos de supervisión de Application Insights en una operación todo en uno.
 
 ### <a name="resources-for-components"></a>Recursos para componentes
 Le recomendamos que cree un recurso independiente para cada componente de la aplicación. Es decir, crear un recurso para cada rol web y rol de trabajo. Puede analizar cada componente por separado, pero crear un [panel](../../azure-monitor/app/overview-dashboard.md) que reúna los gráficos de clave de todos los componentes, de modo que pueda compararlos y supervisarlos conjuntamente de un solo vistazo. 
@@ -221,7 +221,7 @@ Para los roles de trabajo, el seguimiento de las excepciones se puede realizar d
 * Use TrackException(ex).
 * Si ha agregado el paquete NuGet del agente de escucha de seguimiento de Application Insights, puede usar System.Diagnostics.Trace para registrar las excepciones [como se muestra en este ejemplo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L107).
 
-## <a name="performance-counters"></a>contadores de rendimiento
+## <a name="performance-counters"></a>Contadores de rendimiento
 Los siguientes contadores se recopilan de forma predeterminada:
 
 * \Process(??APP_WIN32_PROC??)\% Tiempo de procesador
@@ -237,16 +237,16 @@ Además, también se recopilan los siguientes contadores para los roles web:
 * \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
 * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
-Puede especificar otros contadores de rendimiento de Windows o personalizados editando *ApplicationInsights.config* [como se muestra en este ejemplo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
+Puede especificar otros contadores de rendimiento de Windows o personalizados si modifica *ApplicationInsights.config* [como se muestra en este ejemplo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
-  ![contadores de rendimiento](./media/cloudservices/002-servers.png)
+  ![Contadores de rendimiento](./media/cloudservices/002-servers.png)
 
 ## <a name="correlated-telemetry-for-worker-roles"></a>Telemetría correlacionada para roles de trabajo
 Para obtener una sofisticada experiencia de diagnóstico, puede ver qué provocó una solicitud de latencia alta o con errores. Con los roles web, el SDK establece automáticamente una correlación entre la telemetría relacionada. 
 
 Si desea lograr esta vista para los roles de trabajo, puede utilizar un inicializador de telemetría personalizado para establecer un atributo de contexto Operation.Id común para toda la telemetría. Ello le permite comprobar de un vistazo si el problema de latencia o de los errores se produjo debido a una dependencia o al código. 
 
-Este es el procedimiento:
+A continuación, se indica cómo puede hacerlo.
 
 * Establezca el identificador de la correlación en una CallContext [como se muestra en este ejemplo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). En este caso, usamos el identificador de solicitud como identificador de correlación.
 * Agregue una implementación personalizada de TelemetryInitializer para establecer el Operation.Id en el correlationId que se estableció antes. Para obtener un ejemplo, consulte [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13).
@@ -279,7 +279,7 @@ Si tiene una aplicación móvil cliente, utilice [App Center](../../azure-monito
 * [Configuración del envío de diagnósticos de Azure a Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Creación automática de recursos de Application Insights](../../azure-monitor/app/powershell.md)
 * [Automatización de Azure Diagnostics](../../azure-monitor/app/powershell-azure-diagnostics.md)
-* [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
+* [Funciones de Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md

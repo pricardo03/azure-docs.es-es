@@ -1,38 +1,36 @@
 ---
-title: Indexación incremental (versión preliminar)
+title: Enriquecimiento incremental (versión preliminar)
 titleSuffix: Azure Cognitive Search
-description: Configure la canalización de enriquecimiento con inteligencia artificial para que sus datos lleguen a alcanzar coherencia y puedan admitir actualizaciones de las aptitudes, los conjuntos de aptitudes, los indexadores o los orígenes de datos. Esta característica está actualmente en versión preliminar pública
+description: Almacene en caché contenido intermedio y cambios incrementales de la canalización de enriquecimiento con IA en Azure Storage para conservar las inversiones en los documentos procesados existentes. Esta característica actualmente está en su versión preliminar pública.
 manager: nitinme
 author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: c44228d7e1456bce870765935beb011cb24626d5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/09/2020
+ms.openlocfilehash: 285b3608bc57d88ca2e81ed14355923436ed9d8d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790934"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028515"
 ---
-# <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>¿Qué es la indexación incremental en Azure Cognitive Search?
+# <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Introducción al enriquecimiento incremental y al almacenamiento en caché en Azure Cognitive Search
 
 > [!IMPORTANT] 
-> La indexación incremental se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). En la [API REST, versión 2019-05-06-Preview](search-api-preview.md) se proporciona esta característica. Por el momento, no hay compatibilidad con el portal ni con .NET SDK.
+> El enriquecimiento incremental se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). En la [API REST, versión 2019-05-06-Preview](search-api-preview.md) se proporciona esta característica. Por el momento, no hay compatibilidad con el portal ni con .NET SDK.
 
-La indexación incremental es una característica nueva de Azure Cognitive Search que agrega almacenamiento en caché y estado al contenido enriquecido de un conjunto de aptitudes cognitivo, lo que le proporciona el control necesario para procesar y volver a procesar los pasos individuales de una canalización de enriquecimiento. Esto no solo le permite conservar su inversión monetaria en el procesamiento, sino que también le ofrece un sistema más eficaz. Cuando las estructuras y el contenido se almacenan en la caché, un indexador puede determinar qué aptitudes han cambiado y ejecutar solo aquellas que se han modificado, así como cualquier aptitud dependiente de bajada. 
-
-Con la indexación incremental, la versión actual de la canalización de enriquecimiento realiza la menor cantidad posible de trabajo para garantizar la coherencia de todos los documentos del índice. En aquellos casos en los que necesita tener el control total, se pueden usar controles específicos para reemplazar los comportamientos esperados. Para obtener más información acerca de la configuración, consulte [Configuración de la indexación incremental](search-howto-incremental-index.md).
+El enriquecimiento incremental agrega almacenamiento en caché y disponibilidad de estados a una canalización de enriquecimiento, para conservar la inversión en la salida existente, al mismo tiempo que solo se cambian los documentos afectados por una modificación determinada. Esto no solo permite conservar la inversión monetaria en el procesamiento (en concreto, OCR y procesamiento de imágenes) sino que también ofrece un sistema más eficaz. Cuando las estructuras y el contenido se almacenan en la caché, un indexador puede determinar qué aptitudes han cambiado y ejecutar solo aquellas que se han modificado, así como cualquier aptitud dependiente de bajada. 
 
 ## <a name="indexer-cache"></a>Caché de indexador
 
-La indexación incremental agrega una caché de indexador a la canalización de enriquecimiento. El indexador almacena en caché los resultados del descifrado de documentos y las salidas de todas las aptitudes de todos los documentos. Cuando se actualiza un conjunto de aptitudes, solo se vuelven a ejecutar las aptitudes modificadas o descendentes. Los resultados actualizados se escriben en la memoria caché y el documento se actualiza en el índice y en el almacén de conocimiento.
+El enriquecimiento incremental agrega una caché a la canalización de enriquecimiento. El indizador almacena en caché los resultados del descifrado de documentos más las salidas de todas las aptitudes de todos los documentos. Cuando se actualiza un conjunto de aptitudes, solo se vuelven a ejecutar las aptitudes modificadas o descendentes. Los resultados actualizados se escriben en la caché y el documento se actualiza en el índice de búsqueda o el almacén de conocimiento.
 
-Físicamente, la memoria caché es una cuenta de almacenamiento. Todos los índices de un servicio de búsqueda pueden compartir la misma cuenta de almacenamiento para la caché del indexador. A cada indexador se le asigna un identificador de caché único e inmutable.
+Físicamente, la caché se almacena en un contenedor de blobs en la cuenta de Azure Storage. Todos los índices de un servicio de búsqueda pueden compartir la misma cuenta de almacenamiento para la caché del indexador. A cada indizador se le asigna un identificador de caché único e inmutable al contenedor que usa.
 
-### <a name="cache-configuration"></a>Configuración de la caché
+## <a name="cache-configuration"></a>Configuración de la caché
 
-Para empezar a beneficiarse de la indexación incremental, será preciso que establezca la propiedad `cache` en el indexador. En el ejemplo siguiente se muestra un indexador con el almacenamiento en caché habilitado. En las secciones siguientes se describen partes específicas de esta configuración.
+Para empezar a beneficiarse del enriquecimiento incremental, tendrá que establecer la propiedad `cache` en el indizador. En el ejemplo siguiente se muestra un indexador con el almacenamiento en caché habilitado. En las secciones siguientes se describen partes específicas de esta configuración. Para más información, vea [Configuración del enriquecimiento incremental](search-howto-incremental-index.md).
 
 ```json
 {
@@ -42,50 +40,72 @@ Para empezar a beneficiarse de la indexación incremental, será preciso que est
     "skillsetName": "mySkillset",
     "cache" : {
         "storageConnectionString" : "Your storage account connection string",
-        "enableReprocessing": true,
-        "id" : "Auto generated Id you do not need to set"
+        "enableReprocessing": true
     },
     "fieldMappings" : [],
     "outputFieldMappings": [],
-    "parameters": {}
+    "parameters": []
 }
 ```
 
-Si se establece esta propiedad por primera vez en un indexador existente, también será necesario restablecerla, lo que hará que todos los documentos del origen de datos se vuelvan a procesar. El objetivo de la indexación incremental es que los documentos del índice sean coherentes con el origen de datos y la versión actual de su conjunto de aptitudes. Restablecer el índice es el primer paso para lograr esta coherencia, ya que elimina los documentos enriquecidos por las versiones anteriores del conjunto de aptitudes. El indexador debe restablecerse para empezar con una línea de base coherente.
+Para establecer esta propiedad en un indizador existente, tendrá que restablecer y volver a ejecutar el indizador, lo que hará que todos los documentos del origen de datos se vuelvan a procesar. Este paso es necesario para eliminar los documentos enriquecidos por versiones anteriores del conjunto de aptitudes. 
 
-### <a name="cache-lifecycle"></a>Ciclo de vida de la caché
+## <a name="cache-management"></a>Administración de la memoria caché
 
-El indexador administra el ciclo de vida de la caché. Si la propiedad `cache` del indexador está establecida en null o la cadena de conexión ha cambiado, se eliminará la caché existente. El ciclo de vida de la caché también está asociado al ciclo de vida del indexador. Si se elimina un indexador, también se elimina la caché asociada.
+El indexador administra el ciclo de vida de la caché. Si la propiedad `cache` del indizador está establecida en NULL o la cadena de conexión ha cambiado, se eliminará la caché existente en la siguiente ejecución del indizador. El ciclo de vida de la caché también está asociado al ciclo de vida del indexador. Si se elimina un indexador, también se elimina la caché asociada.
 
-### <a name="indexer-cache-mode"></a>Modo de la caché del indexador
+Aunque el enriquecimiento incremental está diseñado para detectar y responder a los cambios sin intervención por su parte, existen parámetros que puede usar para invalidar los comportamientos predeterminados:
 
-La caché del indexador se puede usar en modos en que los datos se escriben solo en la caché o en que los datos se escriben en la caché y se usan para volver a enriquecer los documentos.  Para suspender temporalmente el enriquecimiento incremental, establezca la propiedad `enableReprocessing` de la caché en `false` y, posteriormente, reanude el enriquecimiento incremental y potencie una eventual coherencia estableciéndola en `true`. Este control es especialmente útil si se desea dar prioridad a la indexación de nuevos documentos sobre garantizar la coherencia entre los corpus de documentos.
++ Priorizar nuevos documentos
++ Omitir comprobaciones de conjuntos de aptitudes
++ Omitir comprobaciones de origen de datos
++ Forzar la evaluación de conjuntos de aptitudes
 
-## <a name="change-detection-override"></a>Invalidación de la detección de cambios
+### <a name="prioritize-new-documents"></a>Priorizar nuevos documentos
 
-La indexación incremental proporciona un control exhaustivo de todos los aspectos de la canalización de enriquecimiento. Este control permite abordar situaciones en las que un cambio puede tener consecuencias imprevistas. Por ejemplo, la edición de un conjunto de aptitudes y la actualización de la dirección URL de una aptitud personalizada provocará que el indexador invalide los resultados almacenados en la caché de esa aptitud. Si solo va a mover el punto de conexión a otra máquina virtual o va a volver a implementar la aptitud con una clave de acceso nueva, en realidad no quiere que se vuelvan a procesar los documentos existentes.
+Establezca la propiedad `enableReprocessing` para controlar el procesamiento de los documentos entrantes ya representados en la caché. Cuando es `true` (valor predeterminado), los documentos que ya están en la caché se vuelven a procesar cuando se vuelve a ejecutar el indizador, siempre que la actualización de las aptitudes afecta a ese documento. 
 
-Para asegurarse de que el indexador solo realiza las mejoras que se requieren explícitamente, las actualizaciones del conjunto de aptitudes pueden establecer opcionalmente el parámetro de la cadena de consulta `disableCacheReprocessingChangeDetection` en `true`. Cuando se establezca, este parámetro garantizará que solo se confirman las actualizaciones del conjunto de aptitudes y que el cambio no se evalúa para los efectos en el corpus existente.
+Cuando es `false`, los documentos existentes no se vuelven a procesar, con lo que se prioriza de forma eficaz el contenido nuevo y entrante sobre el existente. Solo debe establecer `enableReprocessing` en `false` de forma temporal. Para garantizar la coherencia en el corpus, `enableReprocessing` debe ser `true` la mayor parte del tiempo, para asegurarse de que todos los documentos, tanto nuevos como existentes, sean válidos según la definición del conjunto de aptitudes actual.
 
-En el ejemplo siguiente se ilustra el uso de una cadena de consultas. Esto forma parte de la solicitud, que cuenta con pares clave-valor separados con &. 
+### <a name="bypass-skillset-evaluation"></a>Omitir la evaluación del conjunto de aptitudes
+
+La modificación y el reprocesamiento de un conjunto de aptitudes suelen estar relacionados. Pero algunos cambios de un conjunto de aptitudes no deben dar como resultado el reprocesamiento (por ejemplo, la implementación de una aptitud personalizada en una ubicación nueva o con una clave de acceso nueva). Lo más probable es que se trate de modificaciones periféricas, sin un impacto real en la sustancia del propio conjunto de aptitudes. 
+
+Si sabe que un cambio en el conjunto de aptitudes es superficial, debe establecer el parámetro `disableCacheReprocessingChangeDetection` en `true` para invalidar la evaluación de conjuntos de aptitudes:
+
+1. Llame a Update Skillset y modifique la definición del conjunto de aptitudes.
+1. Anexe el parámetro `disableCacheReprocessingChangeDetection=true` en la solicitud.
+1. Envíe el cambio.
+
+Al establecer este parámetro se garantiza que solo se confirman las actualizaciones de la definición del conjunto de aptitudes y que el cambio no se evalúa para los efectos en el corpus existente.
+
+En el ejemplo siguiente se muestra una solicitud Update Skillset con el parámetro:
 
 ```http
 PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2019-05-06-Preview&disableCacheReprocessingChangeDetection=true
 ```
 
-## <a name="cache-invalidation"></a>Invalidación de la caché
+### <a name="bypass-data-source-validation-checks"></a>Omitir comprobaciones de validación de origen de datos
 
-El escenario opuesto es aquél en el que se puede implementar una nueva versión de una aptitud personalizada y no cambia nada dentro de la canalización de enriquecimiento, pero se necesita tanto que se invalide una aptitud concreta como que se vuelvan a procesar todos los documentos afectados para reflejar las ventajas de un modelo actualizado. En estos casos, puede llamar a la operación de invalidación de aptitudes en el conjunto de aptitudes. La API de restablecimiento de aptitudes acepta una solicitud POST con la lista de salidas de aptitudes de la memoria caché que se deben invalidar. Para obtener más información sobre la API de restablecimiento de aptitudes, consulte [Restablecer el indexador (API de REST de búsqueda)](https://docs.microsoft.com/rest/api/searchservice/reset-indexer).
+La mayoría de los cambios en una definición de origen de datos invalidarán la caché. Pero para los escenarios en los que sabe que un cambio no debe invalidar la caché, como cambiar una cadena de conexión o rotar la clave en la cuenta de almacenamiento, anexe el parámetro `ignoreResetRequirement` en la actualización del origen de datos. Establecer este parámetro en `true` permite que se realice la confirmación, sin desencadenar una condición de restablecimiento que daría lugar a que todos los objetos se volvieran a generar y se rellenaran desde el principio.
 
-## <a name="bi-directional-change-detection"></a>Detección de cambios bidireccional
+```http
+PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-version=2019-05-06-Preview&ignoreResetRequirement=true
+```
 
-Los indexadores no solo avanzan y procesan nuevos documentos, sino que ahora retroceden y hacen que los documentos procesados previamente sean coherentes. Con esta nueva funcionalidad, es importante saber de qué forma los cambios en los componentes de la canalización de enriquecimiento generan trabajo del indexador. El indexador pondrá en cola el trabajo que se va a realizar cuando identifique un cambio que sea invalidador o incoherente y que esté relacionado con el contenido de la caché.
+### <a name="force-skillset-evaluation"></a>Forzar la evaluación de conjuntos de aptitudes
 
-### <a name="invalidating-changes"></a>Cambios invalidadores
+El propósito de la caché es evitar procesamientos innecesarios, pero imagine que realiza un cambio en una aptitud que el indizador no detecta (por ejemplo, cambiar un elemento del código externo, como una aptitud personalizada).
 
-Los cambios invalidadores son poco frecuentes, pero tienen un efecto significativo en el estado de la canalización de enriquecimiento. Un cambio invalidador es aquél en el que la caché completa deja de ser válida. Un ejemplo de cambio invalidador es en el que se actualiza el origen de datos. En escenarios en los que se sabe que el cambio no debería invalidar la caché, como la rotación de la clave en la cuenta de almacenamiento, el parámetro de cadena de consulta `ignoreResetRequirement` debe establecerse en `true` en la operación de actualización del recurso específico para asegurarse de que la operación no se rechaza.
+En este caso, puede usar [Reset Skills](preview-api-resetskills.md) para forzar el reprocesamiento de una aptitud determinada, incluidos los conocimientos de nivel inferior que tengan una dependencia en la salida de esa aptitud. Esta API acepta una solicitud POST con una lista de aptitudes que se deben invalidar y marcar para volver a procesarse. Después de Reset Skills, ejecute el indizador para invocar la canalización.
 
-Esta es la lista completa de cambios que invalidarían la memoria caché:
+## <a name="change-detection"></a>Detección de cambios
+
+Una vez que se ha habilitado la caché, el indizador evalúa los cambios en la composición de la canalización para determinar qué contenido se puede reusar y cuál se debe volver a procesar. En esta sección se enumeran los cambios que invalidan la caché directamente, seguidos de los que desencadenan el procesamiento incremental. 
+
+### <a name="changes-that-invalidate-the-cache"></a>Cambios que invalidan la caché
+
+Un cambio invalidador es aquél en el que la caché completa deja de ser válida. Un ejemplo de cambio invalidador es en el que se actualiza el origen de datos. Esta es la lista completa de cambios que invalidarían la memoria caché:
 
 * Cambiar al tipo de origen de datos
 * Cambiar al contenedor del origen de datos
@@ -103,11 +123,9 @@ Esta es la lista completa de cambios que invalidarían la memoria caché:
     * Raíz del documento
     * Acción de imagen (cambios en la forma en que se extraen las imágenes)
 
-### <a name="inconsistent-changes"></a>Cambios incoherentes
+### <a name="changes-that-trigger-incremental-processing"></a>Cambios que desencadenan el procesamiento incremental
 
-Un ejemplo de cambio incoherente es una actualización en un conjunto de aptitudes que modifica una aptitud. La modificación puede hacer que una parte de la caché sea incoherente. El indexador identificará el trabajo para que todo vuelva a ser coherente.  
-
-La lista completa de los cambios que dan lugar a una incoherencia en la caché:
+El procesamiento incremental evalúa la definición del conjunto de aptitudes y determina qué aptitudes se deben volver a ejecutar, con lo que se actualizan selectivamente las partes afectadas del árbol del documento. Esta es la lista completa de cambios que dan como resultado el enriquecimiento incremental:
 
 * La aptitud del conjunto de aptitudes tiene un tipo diferente. El tipo de oData de la aptitud está actualizado
 * Los valores predeterminados de los parámetros específicos de la aptitud actualizados, como la dirección URL, u otros parámetros
@@ -118,43 +136,39 @@ La lista completa de los cambios que dan lugar a una incoherencia en la caché:
 * Cambios en las proyecciones del almacén de información, lo que provoca que se vuelvan a proyectar los documentos
 * Las asignaciones de campos de salida cambiadas en un indexador provocan que se vuelvan a proyectos los documentos en el índice
 
-## <a name="rest-api-reference-for-incremental-indexing"></a>Referencia de la API de REST para la indexación incremental
+## <a name="api-reference-content-for-incremental-enrichment"></a>Contenido de referencia de API para el enriquecimiento incremental
 
-REST `api-version=2019-05-06-Preview` proporciona las API para la indexación incremental, con adiciones a indexadores, conjuntos de aptitudes y orígenes de datos. La documentación de referencia no incluye actualmente estas adiciones. En la sección siguiente se describen los cambios en las API.
+REST `api-version=2019-05-06-Preview` proporciona las API para el enriquecimiento incremental, con adiciones a indizadores, conjuntos de aptitudes y orígenes de datos. La [documentación de referencia oficial](https://docs.microsoft.com/rest/api/searchservice/) es para las API de disponibilidad general y no cubre las características en vista previa. En la sección siguiente se proporciona el contenido de referencia para las API afectadas.
+
+Puede encontrar información de uso y ejemplos en [Configuración del almacenamiento en caché para el enriquecimiento incremental](search-howto-incremental-index.md).
 
 ### <a name="indexers"></a>Indexadores
 
 Las opciones [Crear indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) y [Actualizar indexador](https://docs.microsoft.com/rest/api/searchservice/update-indexer) ahora exponen nuevas propiedades relacionadas con la caché:
 
-* `StorageAccountConnectionString`: la cadena de conexión a la cuenta de almacenamiento que se usará para almacenar en caché los resultados intermedios.
++ `StorageAccountConnectionString`: la cadena de conexión a la cuenta de almacenamiento que se usará para almacenar en caché los resultados intermedios.
 
-* `CacheId`: `cacheId` es el identificador del contenedor de la cuenta de almacenamiento `annotationCache` que se usará como caché para este indexador. Esta caché será única para este indexador y, si el indexador se elimina y se vuelve a crear con el mismo nombre, se volverá a generar `cacheId`. `cacheId` no se puede establecer, siempre lo genera el servicio.
++ `EnableReprocessing`: Establecido en `true` de forma predeterminada, si se establece en `false`, los documentos se seguirán escribiendo en la memoria caché, pero no se volverá a procesar ningún documento existente en función de los datos de la caché.
 
-* `EnableReprocessing`: Establecido en  de forma predeterminada, si se establece en `false`, los documentos se seguirán escribiendo en la memoria caché, pero no se volverá a procesar ningún documento existente en función de los datos de la caché.
-
-Algunos indexadores (a través de [orígenes de datos](https://docs.microsoft.com/rest/api/searchservice/create-data-source)) recuperan datos mediante consultas. En cuanto a las consultas que recuperan los datos, los indexadores también admitirán un nuevo parámetro de cadena de consulta: `ignoreResetRequirement` se tiene que establecer en `true` si la acción de actualización no debe invalidar la caché.
++ `ID` (solo lectura): `ID` es el identificador del contenedor de la cuenta de almacenamiento `annotationCache` que se usará como caché para este indexador. Esta caché será única para este indexador y, si el indexador se elimina y se vuelve a crear con el mismo nombre, se volverá a generar `ID`. `ID` no se puede establecer, siempre lo genera el servicio.
 
 ### <a name="skillsets"></a>Conjuntos de aptitudes
 
-Los conjuntos de aptitudes no admitirán operaciones nuevas, pero admitirán un nuevo parámetro QueryString: `disableCacheReprocessingChangeDetection` debe establecerse en `true` si no se desean actualizaciones de los documentos existentes en función de la acción actual.
++ [Update Skillset](https://docs.microsoft.com/rest/api/searchservice/update-skillset) admite un nuevo parámetro en la solicitud, `disableCacheReprocessingChangeDetection`, que se debe establecer en `true` cuando no se quieren actualizar los documentos existentes en función de la acción actual.
+
++ [Reset Skills](preview-api-resetskills.md) es una operación nueva que se usa para invalidar un conjunto de aptitudes.
 
 ### <a name="datasources"></a>Orígenes de datos
 
-Los orígenes de datos no admitirán operaciones nuevas, pero admitirán un parámetro QueryString nuevo: `ignoreResetRequirement` se debe establecer en `true` si la acción de actualización no debe invalidar la caché.
-
-## <a name="best-practices"></a>Procedimientos recomendados
-
-El enfoque recomendado para usar la indexación incremental es configurarla estableciendo la propiedad cache en un nuevo indexador o restablecer un indexador existente y establecer la propiedad cache.
++ Algunos indizadores recuperan datos a través de consultas. En cuanto a las consultas que recuperan datos, [Update Data Source](https://docs.microsoft.com/rest/api/searchservice/update-data-source) admite un nuevo parámetro en una consulta `ignoreResetRequirement`, que se tiene que establecer en `true` si la acción de actualización no debe invalidar la caché.
 
 Use `ignoreResetRequirement` con moderación, ya que podría dar lugar a incoherencias no intencionadas en los datos que no se detectarían fácilmente.
 
-## <a name="takeaways"></a>Puntos clave
-
-La indexación incremental es una característica eficaz que extiende el seguimiento de cambios desde el origen de datos a todos los aspectos de la canalización de enriquecimiento, incluido el origen de datos, la versión actual del conjunto de aptitudes y el indexador. Cuando las aptitudes, los conjuntos de aptitudes o los enriquecimientos evolucionan, la canalización de enriquecimiento garantiza que se realiza el menor trabajo posible mientras logra la coherencia final de los documentos.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para empezar a usar la indexación incremental, agregue una caché a un indexador existente o agregue la caché al definir un nuevo indexador.
+El enriquecimiento incremental es una característica eficaz que extiende el seguimiento de cambios en conjuntos de aptitudes y el enriquecimiento con IA. Cuando los conjuntos de aptitudes evolucionan, el enriquecimiento incremental garantiza que se realiza el menor trabajo posible mientras se logra la coherencia final de los documentos.
+
+Para empezar, agregue una caché a un indizador existente, o bien agregue la caché al definir un indizador nuevo.
 
 > [!div class="nextstepaction"]
-> [Configuración de la indexación incremental](search-howto-incremental-index.md)
+> [Configuración del almacenamiento en caché para el enriquecimiento incremental](search-howto-incremental-index.md)

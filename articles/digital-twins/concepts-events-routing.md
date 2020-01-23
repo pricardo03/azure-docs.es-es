@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 094a3a838269921339dcd6c2c3b551720f394251
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 65b760eaf28d907fab3654ed92f960be7556b0d6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660331"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862363"
 ---
 # <a name="routing-iot-events-and-messages"></a>Enrutamiento de eventos y mensajes de IoT
 
@@ -53,7 +53,7 @@ Azure Digital Twins actualmente admite los siguientes **EventTypes** que se envi
 
 > [!IMPORTANT]  
 > No todos los **EndpointTypes** admiten todos los **EventTypes**.
-> Consulte la siguiente tabla para conocer los **EventTypes** que se permiten para cada **EndpointType**.
+> Revise la tabla siguiente para conocer los **EventTypes** que se permiten para cada **EndpointType**.
 
 |             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
 | ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
@@ -62,10 +62,10 @@ Azure Digital Twins actualmente admite los siguientes **EventTypes** que se envi
 | EventGrid|               |         X         |     X       |      X       |   X       |
 
 >[!NOTE]  
->Para más información sobre cómo crear puntos de conexión y acceder a ejemplos de esquema de los eventos, consulte [Salidas y puntos de conexión](how-to-egress-endpoints.md).
+>Para más información sobre cómo crear puntos de conexión y acceder a ejemplos de esquema de los eventos, lea [Salidas y puntos de conexión](how-to-egress-endpoints.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para información acerca de los límites de la versión preliminar de Azure Digital Twins, consulte [Límites de servicio de la versión preliminar pública](concepts-service-limits.md).
+- Para información acerca de los límites de la versión preliminar de Azure Digital Twins, lea [Límites de servicio de la versión preliminar pública](concepts-service-limits.md).
 
-- Para probar un ejemplo de Azure Digital Twins, consulte la [guía de inicio rápido para buscar salas disponibles](quickstart-view-occupancy-dotnet.md).
+- Para probar un ejemplo de Azure Digital Twins, lea el [inicio rápido para buscar salas disponibles](quickstart-view-occupancy-dotnet.md).

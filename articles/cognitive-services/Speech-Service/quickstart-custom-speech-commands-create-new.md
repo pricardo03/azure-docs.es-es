@@ -3,19 +3,19 @@ title: 'Inicio rápido: Creación de un comando personalizado (versión prelimin
 titleSuffix: Azure Cognitive Services
 description: En este artículo, creará y probará una aplicación de comandos personalizados hospedada.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: d8e28b88757fa7557b04ee471ede17012094bb9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4ae8f13b4887bbc41b17defa3f9a20c07ed0cb45
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446866"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155594"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Inicio rápido: Creación de un comando personalizado (versión preliminar)
 
@@ -24,7 +24,7 @@ La aplicación reconocerá una expresión como "enciende el televisor" y respond
 
 ## <a name="prerequisites"></a>Prerequisites
 
-- Una suscripción a Voz. 
+- Una suscripción a Voz.
 
 Si no tiene una suscripción de voz, puede crear una desplazándose hasta [Speech Studio](https://speech.microsoft.com/) y seleccionando **Crear un recurso de voz**.
 
@@ -73,7 +73,7 @@ La vista ahora debe mostrar una visión general de la aplicación de comandos pe
 
 ## <a name="update-luis-resources-optional"></a>Actualización de recursos de LUIS (opcional)
 
-Puede actualizar el conjunto de recursos de creación en la ventana Nuevo proyecto y establecer un recurso de predicción que se usa para reconocer entradas durante el tiempo de ejecución. 
+Puede actualizar el conjunto de recursos de creación en la ventana Nuevo proyecto y establecer un recurso de predicción que se usa para reconocer entradas durante el tiempo de ejecución.
 
 > [!NOTE]
 > Tendrá que establecer un recurso de predicción antes de que la aplicación solicite predicciones más allá de las 1000 solicitudes proporcionadas por el recurso de creación.

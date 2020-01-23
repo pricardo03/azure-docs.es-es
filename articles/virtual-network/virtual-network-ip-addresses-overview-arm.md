@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 23db74b1cd157141454692805f9ec306ef89710a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f6f77268952f0ac7c01498ab8833bdad592bdc3f
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975183"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155611"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de direcciones IP y métodos de asignación en Azure
 
@@ -45,6 +45,7 @@ En el Administrador de recursos de Azure, una dirección [IP pública](virtual-n
 * Equilibradores de carga accesibles desde Internet
 * Puertas de enlace de VPN
 * Puertas de enlace de aplicaciones
+* Azure Firewall
 
 ### <a name="ip-address-version"></a>Versión de la dirección IP
 

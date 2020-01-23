@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 58755a0ac49b9549813ddb507dfbd986d83dfce5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: ccdeefabeedfca4959239696361ccce0bc6c1c78
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305846"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289805"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Rehospedaje del sistema central en Azure Virtual Machines
 
@@ -112,7 +112,7 @@ Para empezar, descargue [Microsoft Azure Government cloud for mainframe applicat
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Solicite a nuestros [asociados](partner-workloads.md) que le ayuden a migrar o rehospedar sus aplicaciones del sistema central. Para más información sobre cómo elegir una solución de asociado, consulte el sitio web de [Platform Modernization Alliance](https://www.platformmodernization.org/pages/mainframe.aspx).
+Solicite a nuestros [asociados](partner-workloads.md) que le ayuden a migrar o rehospedar sus aplicaciones del sistema central. 
 
 Consulte también:
 

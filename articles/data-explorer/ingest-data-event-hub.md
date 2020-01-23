@@ -3,16 +3,16 @@ title: Ingesta de datos del centro de eventos a Azure Data Explorer
 description: En este artículo obtendrá información sobre cómo ingerir (cargar) datos en Azure Data Explorer desde el centro de eventos.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/17/2019
-ms.openlocfilehash: 13c0bf8d0829debaa4ae41c724aafdaf5891ce4d
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.date: 01/08/2020
+ms.openlocfilehash: a65f0918d04f77bc3076449347bb20046f73e92a
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667434"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779965"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingesta de datos del centro de eventos a Azure Data Explorer
 
@@ -24,7 +24,7 @@ ms.locfileid: "74667434"
 
 El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. El Explorador de datos de Azure ofrece ingesta (carga de datos) de Event Hubs, una plataforma de streaming de macrodatos y un servicio de ingesta de eventos. [Event Hubs](/azure/event-hubs/event-hubs-about) puede procesar millones de eventos por segundo prácticamente en tiempo real. En este artículo creará un centro de eventos, se conectará a él desde Azure Data Explorer y verá el flujo de datos a través del sistema.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * [Una base de datos y un clúster de prueba](create-cluster-database-portal.md).
@@ -33,7 +33,7 @@ El Explorador de datos de Azure es un servicio de exploración de datos altament
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Creación de un centro de eventos
 
@@ -60,8 +60,8 @@ En este artículo generará datos de ejemplo y los enviará a un centro de event
     **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
     | Subscription | Su suscripción | Seleccione la suscripción de Azure que quiere usar para el centro de eventos.|
-    | Grupos de recursos | *test-hub-rg* | Cree un nuevo grupo de recursos. |
-    | Ubicación | *Oeste de EE. UU.* | Seleccione *Oeste de EE. UU.* para este artículo. En un sistema de producción, seleccione la región que mejor se adapte a sus necesidades. Cree el espacio de nombres del centro de eventos en la misma ubicación que el clúster de Kusto para mejorar el rendimiento (más importante para espacios de nombres de centro de eventos con alto rendimiento).
+    | Resource group | *test-hub-rg* | Cree un nuevo grupo de recursos. |
+    | Location | *Oeste de EE. UU.* | Seleccione *Oeste de EE. UU.* para este artículo. En un sistema de producción, seleccione la región que mejor se adapte a sus necesidades. Cree el espacio de nombres del centro de eventos en la misma ubicación que el clúster de Kusto para mejorar el rendimiento (más importante para espacios de nombres de centro de eventos con alto rendimiento).
     | Nombre del espacio de nombres | Nombre único del espacio de nombres | Elija un nombre único que identifique el espacio de nombres. Por ejemplo, *mytestnamespace*. El nombre de dominio *servicebus.windows.net* se anexa al nombre que proporcione. El nombre solo puede contener letras, números y guiones. El nombre debe comenzar y terminar con una letra o un número. El valor debe tener entre 6 y 50 caracteres.
     | Nombre del centro de eventos | *test-hub* | El centro de eventos se encuentra bajo el espacio de nombres, que proporciona un contenedor de ámbito único. El nombre del centro de eventos tiene que ser único dentro del espacio de nombres. |
     | Nombre del grupo de consumidores | *test-group* | Los grupos de consumidores permiten consumir varias aplicaciones y que cada una tenga una vista independiente del flujo de eventos. |
@@ -109,7 +109,7 @@ Ahora puede conectarse al centro de eventos desde Azure Data Explorer. Cuando se
 
     ![Conexión del centro de eventos](media/ingest-data-event-hub/event-hub-connection.png)
 
-    Origen de datos:
+    **Origen de datos:**
 
     **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
@@ -120,7 +120,7 @@ Ahora puede conectarse al centro de eventos desde Azure Data Explorer. Cuando se
     | Propiedades del sistema de eventos | Seleccione las propiedades pertinentes. | [Propiedades del sistema del centro de eventos](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Si hay varios registros por cada mensaje de evento, las propiedades del sistema se agregarán al primero de ellos. Cuando agregue las propiedades del sistema, [cree](/azure/kusto/management/tables#create-table) o [actualice](/azure/kusto/management/tables#alter-table-and-alter-merge-table) el esquema de tabla y la [asignación](/azure/kusto/management/mappings) para incluir las propiedades seleccionadas. |
     | | |
 
-    Tabla de destino:
+    **Table de destino:**
 
     Hay dos opciones para el enrutamiento de los datos ingeridos: *estático* y *dinámico*. 
     En este artículo, usará el enrutamiento estático, en el que se especifican el nombre de la tabla, el formato de los datos y la asignación. Por tanto, deje **My data includes routing info** (Mis datos incluyen información de enrutamiento) sin seleccionar.
@@ -137,6 +137,8 @@ Ahora puede conectarse al centro de eventos desde Azure Data Explorer. Cuando se
     > * Solamente se ingieren los eventos en cola después de crear la conexión de datos.
     > * Abra una [solicitud de soporte técnico en Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) para habilitar la compresión GZip para el enrutamiento estático. Habilite la compresión GZip para el enrutamiento dinámico tal como se muestra en la [aplicación de ejemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). 
     > * Las propiedades del sistema de eventos y el formato Avro no se admiten en la carga de compresión.
+
+[!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
 
 ## <a name="copy-the-connection-string"></a>Copiar la cadena de conexión
 

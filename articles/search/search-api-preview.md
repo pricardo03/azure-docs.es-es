@@ -1,19 +1,19 @@
 ---
 title: API REST versión 2019-05-06-Preview
 titleSuffix: Azure Cognitive Search
-description: La API REST del servicio Azure Cognitive Search, versión 2019-05-06-Preview, incluye características experimentales como almacén de conocimiento y claves de cifrado administradas por el cliente.
+description: La API REST del servicio Azure Cognitive Search, versión 2019-05-06-Preview, incluye características experimentales como almacén de conocimiento y almacenamiento en caché de indizadores para enriquecimiento incremental.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 24e16942410c72640628bd4120d05a85e68de993
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 01/04/2020
+ms.openlocfilehash: eb73d614ca94bc1fa007a14f3705e50c74ab9e4f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720030"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922478"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>API REST del servicio Azure Cognitive Search, versión 2019-05-06-Preview
 
@@ -25,21 +25,19 @@ En este artículo se describe la versión `api-version=2019-05-06-Preview` de la
 
 ## <a name="new-in-2019-05-06-preview"></a>Novedades de 2019-05-06, versión preliminar
 
-+ La [indexación incremental](cognitive-search-incremental-indexing-conceptual.md) es un nuevo modo de indexación que agrega el estado y el almacenamiento en caché a un conjunto de aptitudes, lo que le permite reutilizar la salida existente cuando no se cambian los datos de origen, el indexador y las definiciones del conjunto de aptitudes. Esta característica se aplica únicamente a los enriquecimientos que han definido un conjunto de aptitudes cognitivas.
++ [Enriquecimiento incremental (versión preliminar)](cognitive-search-incremental-indexing-conceptual.md) agrega almacenamiento en caché a una canalización de enriquecimiento, lo que le permite reusar los resultados existentes si una modificación de destino, como una actualización de conjunto de aptitudes u otro objeto, no cambia el contenido. El almacenamiento en caché solo se aplica a los documentos enriquecidos generados por un conjunto de aptitudes.
 
-+ El [indexador de Cosmos DB](search-howto-index-cosmosdb.md) admite MongoDB API, Gremlin API y Cassandra API.
++ El [indizador de Cosmos DB](search-howto-index-cosmosdb.md) admite las versiones preliminares de MongoDB API, Gremlin API y Cassandra API.
 
-+ El [indexador de Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) puede indexar el contenido y los metadatos de Data Lake Storage Gen2.
++ El [indizador de Azure Data Lake Storage Gen2 (versión preliminar)](search-howto-index-azure-data-lake-storage.md) puede indexar el contenido y los metadatos de Data Lake Storage Gen2.
 
 + La [extracción de documentos (versión preliminar)](cognitive-search-skill-document-extraction.md) es una aptitud cognitiva que se usa durante la indexación y que permite extraer el contenido de un archivo de un conjunto de aptitudes. Antes, el descifrado de documentos solo tenía lugar antes de la ejecución del conjunto de aptitudes. Con la incorporación de esta aptitud, también puede realizar esta operación dentro de la ejecución del conjunto de aptitudes.
 
 + La [traducción de texto (versión preliminar)](cognitive-search-skill-text-translation.md) es una aptitud cognitiva que se usa durante la indexación que evalúa el texto y devuelve en todos los registros el texto traducido al idioma de destino especificado.
 
-+ El [almacén de conocimiento](knowledge-store-concept-intro.md) es un nuevo destino de una canalización de enriquecimiento basada en inteligencia artificial. La estructura de datos física existe en Azure Blob Storage y Azure Table Storage, y se crea y rellena al ejecutar un indexador que tiene un conjunto de aptitudes cognitivas conectado. La definición de un almacén de conocimiento se especifica en la definición de un conjunto de aptitudes. En la definición del almacén de conocimiento, controla las estructuras físicas de los datos mediante los elementos de *proyección* que determinan cómo se forman los datos, si estos se almacenan en Table Storage o Blob Storage y si hay varias vistas.
++ El [almacén de conocimiento](knowledge-store-concept-intro.md)es un nuevo destino de una canalización de enriquecimiento basada en inteligencia artificial. La estructura de datos física existe en Azure Blob Storage y Azure Table Storage, y se crea y rellena al ejecutar un indexador que tiene un conjunto de aptitudes cognitivas conectado. La definición de un almacén de conocimiento se especifica en la definición de un conjunto de aptitudes. En la definición del almacén de conocimiento, controla las estructuras físicas de los datos a través de los elementos de *proyección* que determinan cómo se forman los datos, si estos se almacenan en Table Storage o Blob Storage, y si hay varias vistas.
 
-+ Las [claves de cifrado administradas por el cliente](search-security-manage-encryption-keys.md) para el cifrado en reposo desde el servicio son también una nueva característica en versión preliminar. Además del cifrado en reposo integrado administrado por Microsoft, puede aplicar una capa adicional de cifrado, donde será el titular exclusivo de las claves de cifrado.
-
-## <a name="earlier-preview-features"></a>Características en versiones preliminares anteriores
+## <a name="earlier-preview-features"></a>Características de las versiones preliminares anteriores
 
 Las características anunciadas en versiones preliminares anteriores aún están en versión preliminar pública. Si está llamando a una API con una versión anterior de la API en versión preliminar, puede continuar usando esa versión o cambiar a `2019-05-06-Preview` sin que se produzcan cambios en el comportamiento esperado.
 

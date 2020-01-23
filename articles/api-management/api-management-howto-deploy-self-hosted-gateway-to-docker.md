@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: fc7e0f7e4e0e80a030a437bc4f0f13360595f32e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b5acda30f7f4a01e1b7b6ac82652452c3c40e3bf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747692"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768510"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Implementación de una puerta de enlace autohospedada de Azure API Management en Docker
 
@@ -26,14 +26,14 @@ En este artículo se detallan los pasos para implementar una puerta de enlace au
 > [!NOTE]
 > La característica de puerta de enlace autohospedada se encuentra en versión preliminar. Durante la versión preliminar, la puerta de enlace autohospedada solo está disponible en los niveles Desarrollador y Premium sin cargo adicional. El nivel de Desarrollador está limitado a una única implementación de puerta de enlace autohospedada.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 - Cree un entorno de Docker. [Docker for Desktop](https://www.docker.com/products/docker-desktop) es una buena opción para fines de desarrollo y evaluación. Consulte la [documentación de Docker](https://docs.docker.com) para obtener información sobre todas las ediciones de Docker, sus características y la documentación completa de Docker.
 - [Aprovisione un recurso de puerta de enlace en la instancia de API Management](api-management-howto-provision-self-hosted-gateway.md)
 
 > [!NOTE]
-> La puerta de enlace autohospedada se empaqueta como un contenedor de Docker basado en Linux.
+> La puerta de enlace autohospedada se empaqueta como un contenedor de Docker basado en Linux x86-64.
 
 ## <a name="deploy-the-self-hosted-gateway-to-docker"></a>Implementación de la puerta de enlace autohospedada en Docker
 

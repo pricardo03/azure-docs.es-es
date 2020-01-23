@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 02655a3697139ae3a9c4c36b423b874b6e5d34f9
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 6bba4414390efa6e07be6c253fe55f1638d414dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535736"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974109"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
@@ -54,7 +54,7 @@ Las siguientes herramientas y entornos están instalados en la instancia de proc
 |Intel MPI Library||
 |Azure CLI ||
 |Ejemplos de Azure Machine Learning ||
-|Motor EDAT de Azure Machine Learning ||            
+|Motor EDAT de Azure Machine Learning ||
 |Docker||
 |Nginx||
 |NCCL 2.0 ||
@@ -76,11 +76,26 @@ Las siguientes herramientas y entornos están instalados en la instancia de proc
 |Otros paquetes de PyPI|`jupytext`</br>`jupyterlab-git`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Paquetes Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Paquetes de aprendizaje profundo|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
-|Paquetes de ONNX|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|                           
+|Paquetes de ONNX|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
 |Ejemplos del SDK de Python y R para Azure Machine Learning||
+
+Todos los paquetes de Python se instalan en el entorno de **Python 3.6: AzureML**.  
 
 Las instancias de proceso se usan normalmente como entornos de desarrollo.  También se pueden usar como destino de proceso para la formación y la inferencia para el desarrollo y las pruebas.  Para las tareas de gran tamaño, un[ clúster de proceso de Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) con las funcionalidades de escalado de varios nodos es una mejor opción de destino de proceso.
 
+### <a name="installing-packages"></a>Instalación de paquetes
+
+Puede instalar paquetes directamente en Jupyter Notebook o en Rstudio:
+
+* RStudio: use la pestaña **Paquetes**, situada en la parte inferior derecha, o la pestaña **Consola**, situada en la parte superior izquierda.  
+* Python: agregue el código de instalación y ejecútelo en una celda de Jupyter Notebook.
+
+También puede acceder a una ventana de terminal de cualquiera de estas formas:
+
+* RStudio: seleccione la pestaña **Terminal**, situada en la parte superior izquierda.
+* Jupyter Lab:  seleccione el icono **Terminal** en el encabezado **Otros** de la pestaña Iniciador.
+* Jupyter:  seleccione **Nuevo>Terminal** en la parte superior derecha de la pestaña Archivos.
+* Conéctese mediante SSH a la máquina virtual.  Después, instale los paquetes de Python en el entorno de **Python 3.6: AzureML**.  Instale los paquetes de R en el entorno de **R**.
 
 ## <a name="accessing-files"></a>Acceso a archivos
 

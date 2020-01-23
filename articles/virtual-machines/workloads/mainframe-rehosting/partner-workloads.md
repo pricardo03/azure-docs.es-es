@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 1923d6fe71a0a7c4b469dc88b61a6ab3a794c45e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf02ff7078fe5d33f220c0abc2d941d483e5c125
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61487314"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293511"
 ---
 # <a name="mainframe-workloads-supported-on-azure"></a>Cargas de trabajo del sistema central que se admiten en Azure
 
@@ -29,8 +29,8 @@ Para obtener más ayuda con la emulación y los servicios del sistema central, c
 - Compilador heredado [PL/I de Micro Focus](https://www.microfocus.com/campaign/download/pli-modernization/) para la plataforma .NET, que admite la sintaxis, los tipos de datos y el comportamiento de PL/I del sistema central.
 - Plataforma de integración del sistema central [Enterprise Server de Micro Focus](https://www.microfocus.com/products/enterprise-suite/enterprise-server/).
 - Herramientas de desarrollo e integración [NetCOBOL de Fujitsu](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/).
-- Herramientas de desarrollo e integración [COBOL para empresas de NTT Data](https://www.nttdataservices.com/en-ie/services/application-modernization-services).
-- Compilador heredado [PL/I abierto de NTT](https://www.nttdataservices.com/en-ie/services/application-modernization-services) para la plataforma .NET, que admite la sintaxis, los tipos de datos y el comportamiento de PL/I del sistema central.
+- Herramientas de desarrollo e integración [COBOL para empresas de NTT Data](https://us.nttdata.com/en/digital/application-development-and-modernization).
+- Compilador heredado [PL/I abierto de NTT](https://us.nttdata.com/en/digital/application-development-and-modernization) para la plataforma .NET, que admite la sintaxis, los tipos de datos y el comportamiento de PL/I del sistema central.
 - Herramientas de desarrollo e integración del [compilador COBOL de Raincode](https://www.raincode.com/products/cobol/).
 - El [compilador PL/I de Raincode](https://www.raincode.com/products/pli/) para la plataforma .NET admite la sintaxis, los tipos de datos y el comportamiento de PL/I del sistema central.
 - [Compilador ASM370 de Raincode](https://www.raincode.com/technical-landscape/asm370/) para la sintaxis de HLASM y Assembler 370 del sistema central.

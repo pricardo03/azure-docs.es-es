@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: df2a86dd1292f58511765e842ee97daddcff4e3e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fd8533ff310e307604e5ce25a4285cc90f3ea4ab
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102933"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933983"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Señalización de metadatos con tiempo en streaming en vivo 
 
@@ -42,23 +42,23 @@ Esta especificación describe distintos modos que admite Media Services para los
 
 ## <a name="11-terms-used"></a>1.1 Términos empleados
 
-| Término              | Definición |
-|-------------------|------------|
-| Pausa publicitaria          | Ubicación o momento dado en el que se puede programar la entrega de uno o más anuncios; es lo mismo que la disponibilidad y la oportunidad de ubicación. |
-| Servicio de decisión publicitaria| Servicio externo que decide qué anuncios y duraciones se mostrarán al usuario. Normalmente, los servicios se proporcionan a través de un asociado y están fuera del ámbito de este documento.|
-| Pila               | Indicación de tiempo y parámetros de la próxima pausa de anuncios. Tenga en cuenta que las pilas pueden indicar un cambio pendiente en una pausa publicitaria, en el siguiente anuncio de una pausa publicitaria y en una pausa publicitaria del contenido principal. |
-| Empaquetador          | El "punto de conexión de streaming" de Azure Media Services proporciona funcionalidades de empaquetado dinámico para DASH y HLS y se conoce como "empaquetador" en el sector multimedia. 
-| Tiempo de presentación | Hora en que se presenta un evento en un visor. La hora representa el momento en la escala de tiempo de los elementos multimedia en que un visor verá el evento. Por ejemplo, el tiempo de presentación de un mensaje de comando SCTE-35 splice_info() es splice_time(). |
-| Hora de llegada      | La hora a la que llega un mensaje de evento. Este tiempo normalmente es distinto del tiempo de presentación del evento, ya que los mensajes de eventos se envían antes del tiempo de presentación del evento.                                     |
-| Pista dispersa      | pista de elementos multimedia que no es continua y que está sincronizada con una pista principal o de control.                                                                                                                                    |
-| Origen            | El servicio Azure Media Streaming                                                                                                                                                                                                |
-| Receptor del canal      | El servicio Azure Media Live Streaming Service                                                                                                                                                                                           |
-| HLS               | Protocolo Apple HTTP Live Streaming                                                                                                                                                                                               |
-| DASH              | Streaming adaptable dinámico a través de HTTP                                                                                                                                                                                             |
-| Smooth            | Protocolo de Smooth Streaming                                                                                                                                                                                                        |
-| MPEG2-TS          | Secuencias de transporte MPEG-2                                                                                                                                                                                                         |
-| RTMP              | Protocolo multimedia en tiempo real                                                                                                                                                                                                    |
-| uimsbf            | Entero sin signo, el bit más significativo aparece en primer lugar.                                                                                                                                                                                    |
+| Término                | Definición                                                                                                                                                                                                                                    |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Pausa publicitaria            | Ubicación o momento dado en el que se puede programar la entrega de uno o más anuncios; es lo mismo que la disponibilidad y la oportunidad de ubicación.                                                                                                                     |
+| Servicio de decisión publicitaria | Servicio externo que decide qué anuncios y duraciones se mostrarán al usuario. Normalmente, los servicios se proporcionan a través de un asociado y están fuera del ámbito de este documento.                                                                    |
+| Pila                 | Indicación de tiempo y parámetros de la próxima pausa de anuncios. Tenga en cuenta que las pilas pueden indicar un cambio pendiente en una pausa publicitaria, en el siguiente anuncio de una pausa publicitaria y en una pausa publicitaria del contenido principal.           |
+| Empaquetador            | El "punto de conexión de streaming" de Azure Media Services proporciona funcionalidades de empaquetado dinámico para DASH y HLS y se conoce como "empaquetador" en el sector multimedia.                                                                              |
+| Tiempo de presentación   | Hora en que se presenta un evento en un visor. La hora representa el momento en la escala de tiempo de los elementos multimedia en que un visor verá el evento. Por ejemplo, el tiempo de presentación de un mensaje de comando SCTE-35 splice_info() es splice_time(). |
+| Hora de llegada        | La hora a la que llega un mensaje de evento. Este tiempo normalmente es distinto del tiempo de presentación del evento, ya que los mensajes de eventos se envían antes del tiempo de presentación del evento.                                                    |
+| Pista dispersa        | pista de elementos multimedia que no es continua y que está sincronizada con una pista principal o de control.                                                                                                                                                  |
+| Origen              | El servicio Azure Media Streaming                                                                                                                                                                                                             |
+| Receptor del canal        | El servicio Azure Media Live Streaming Service                                                                                                                                                                                                        |
+| HLS                 | Protocolo Apple HTTP Live Streaming                                                                                                                                                                                                            |
+| DASH                | Streaming adaptable dinámico a través de HTTP                                                                                                                                                                                                          |
+| Smooth              | Protocolo de Smooth Streaming                                                                                                                                                                                                                     |
+| MPEG2-TS            | Secuencias de transporte MPEG-2                                                                                                                                                                                                                      |
+| RTMP                | Protocolo multimedia en tiempo real                                                                                                                                                                                                                 |
+| uimsbf              | Entero sin signo, el bit más significativo aparece en primer lugar.                                                                                                                                                                                                 |
 
 ---
 
@@ -67,29 +67,29 @@ Esta especificación describe distintos modos que admite Media Services para los
 Los siguientes documentos contienen disposiciones, que, mediante la referencia de este texto, constituyen disposiciones de este documento. Todos los documentos están sujetos a revisión por parte de organismos de normalización, y animamos a los lectores que investiguen la posibilidad de aplicar las ediciones más recientes de los documentos que se enumeran a continuación. También queremos recordar a los lectores que las ediciones más recientes de los documentos a los que se hace referencia podrían no ser compatibles con esta versión de la especificación de metadatos con tiempo para Azure Media Services.
 
 
-|Estándar  |Definición  |
-|---------|---------|
-|[Adobe-Primetime] | [Especificación de señalización de inserción del programa digital PrimeTime 1.2](https://www.adobe.com/content/dam/acom/en/devnet/primetime/PrimetimeDigitalProgramInsertionSignalingSpecification.pdf) |
-|[Adobe-Flash-AS] | [Referencia del lenguaje ActionScript de FLASH](https://help.adobe.com/archive/en_US/as2/flashlite_2.x_3.x_aslr.pdf) |
-| [AMF0]            | ["Formato del mensaje de acción AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf) |
-| [DASH-IF-IOP]     | Guía de interoperabilidad del foro del sector de DASH versión 4.2: [https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html) |
-| [HLS-TMD]         | Metadatos con tiempo para HTTP Live Streaming: [https://developer.apple.com/streaming](https://developer.apple.com/streaming) |
-| [CMAF-ID3]         | [Metadatos con tiempo en el formato de aplicación multimedia común (CMAF)](https://aomediacodec.github.io/av1-id3/)
-| [ID3v2]           | Versión de etiqueta ID3 2.4.0: [http://id3.org/id3v2.4.0-structure](http://id3.org/id3v2.4.0-structure) |
-| [ISO-14496-12]    | ISO/IEC 14496-12; parte 12: formato de archivo multimedia base ISO, cuarta edición, 15/07/2012  |
-| [MPEGDASH]        | Tecnologías de la información; streaming adaptable dinámico a través de HTTP (DASH); parte 1: descripción de presentación de elementos multimedia y formatos de segmento. Mayo de 2014. Publicado. Dirección URL: https://www.iso.org/standard/65274.html |
+| Estándar          | Definición                                                                                                                                                                                                     |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Adobe-Primetime] | [Especificación de señalización de inserción del programa digital PrimeTime 1.2](https://www.adobe.com/content/dam/acom/en/devnet/primetime/PrimetimeDigitalProgramInsertionSignalingSpecification.pdf)                       |
+| [Adobe-Flash-AS]  | [Referencia del lenguaje ActionScript de FLASH](https://help.adobe.com/archive/en_US/as2/flashlite_2.x_3.x_aslr.pdf)                                                                                                   |
+| [AMF0]            | ["Formato del mensaje de acción AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)                                                                                                              |
+| [DASH-IF-IOP]     | Guía de interoperabilidad del foro del sector de DASH versión 4.2: [https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html)    |
+| [HLS-TMD]         | Metadatos con tiempo para HTTP Live Streaming: [https://developer.apple.com/streaming](https://developer.apple.com/streaming)                                                                                        |
+| [CMAF-ID3]        | [Metadatos con tiempo en el formato de aplicación multimedia común (CMAF)](https://aomediacodec.github.io/av1-id3/)                                                                                                        |
+| [ID3v2]           | Versión de etiqueta ID3 2.4.0: [http://id3.org/id3v2.4.0-structure](http://id3.org/id3v2.4.0-structure)                                                                                                                |
+| [ISO-14496-12]    | ISO/IEC 14496-12; parte 12: formato de archivo multimedia base ISO, cuarta edición, 15/07/2012                                                                                                                                 |
+| [MPEGDASH]        | Tecnologías de la información; streaming adaptable dinámico a través de HTTP (DASH); parte 1: descripción de presentación de elementos multimedia y formatos de segmento. Mayo de 2014. Publicado. Dirección URL: https://www.iso.org/standard/65274.html         |
 | [MPEGCMAF]        | Tecnologías de la información; formato de la aplicación multimedia (MPEG-A); parte 19: Formato de aplicación multimedia común (CMAF) para los elementos multimedia segmentados. Enero de 2018. Publicado. Dirección URL: https://www.iso.org/standard/71975.html |
-| [MPEGCENC]        | Tecnologías de la información; tecnologías de sistemas MPEG; parte 7: cifrado común en archivos del formato de archivo multimedia base ISO. Febrero de 2016. Publicado. Dirección URL: https://www.iso.org/standard/68042.html |
-| [MS-SSTR]         | ["Protocolo Microsoft Smooth Streaming", 15 de mayo de 2014](https://docs.microsoft.com/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) |
-| [MS-SSTR-Ingest]  | [Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview) |
-| [RFC8216]         | R. Pantos, Ed.; W. May. HTTP Live Streaming. Agosto de 2017. Informativo. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216) |
-| [RFC4648]         |Codificaciones de datos Base 16, base 32 y Base 64: [https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648) |
-| [RTMP]            |["Protocolo de mensajería en tiempo real de Adobe", 21 de diciembre de 2012](https://www.adobe.com/devnet/rtmp.html)  |
-| [SCTE-35-2019]    | SCTE 35: 2019; mensaje de pila de inserción del programa digital para cable: https://www.scte.org/SCTEDocs/Standards/ANSI_SCTE%2035%202019r1.pdf  |
-| [SCTE-214-1]      | SCTE 214-1 2016; MPEG-DASH para servicios de cable basados en IP, parte 1: restricciones y extensiones de MPD |
-| [SCTE-214-3]      | SCTE 214-3 2015: MPEG-DASH para servicios de cable basados en IP, parte 3: perfil DASH/FF |
-| [SCTE-224]        | SCTE 224 2018r1: interfaz de programación y notificación de eventos |
-| [SCTE-250]        | API de administración de señalización y eventos (ESAM) |
+| [MPEGCENC]        | Tecnologías de la información; tecnologías de sistemas MPEG; parte 7: cifrado común en archivos del formato de archivo multimedia base ISO. Febrero de 2016. Publicado. Dirección URL: https://www.iso.org/standard/68042.html                   |
+| [MS-SSTR]         | ["Protocolo Microsoft Smooth Streaming", 15 de mayo de 2014](https://docs.microsoft.com/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)                                                     |
+| [MS-SSTR-Ingest]  | [Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)                                                      |
+| [RFC8216]         | R. Pantos, Ed.; W. May. HTTP Live Streaming. Agosto de 2017. Informativo. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216)                                                            |
+| [RFC4648]         | Codificaciones de datos Base 16, base 32 y Base 64: [https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
+| [RTMP]            | ["Protocolo de mensajería en tiempo real de Adobe", 21 de diciembre de 2012](https://www.adobe.com/devnet/rtmp.html)                                                                                                            |
+| [SCTE-35-2019]    | SCTE 35: 2019; mensaje de pila de inserción del programa digital para cable: https://www.scte.org/SCTEDocs/Standards/ANSI_SCTE%2035%202019r1.pdf                                                                       |
+| [SCTE-214-1]      | SCTE 214-1 2016; MPEG-DASH para servicios de cable basados en IP, parte 1: restricciones y extensiones de MPD                                                                                                                 |
+| [SCTE-214-3]      | SCTE 214-3 2015: MPEG-DASH para servicios de cable basados en IP, parte 3: perfil DASH/FF                                                                                                                                  |
+| [SCTE-224]        | SCTE 224 2018r1: interfaz de programación y notificación de eventos                                                                                                                                                  |
+| [SCTE-250]        | API de administración de señalización y eventos (ESAM)                                                                                                                                                                      |
 
 ---
 
@@ -131,7 +131,7 @@ Los siguientes comandos de [AMF0] son compatibles con Azure Media Services para 
 - **onCuePoint**: compatible con determinados codificadores de hardware locales, como el codificador Elemental Live, para señalizar mensajes [SCTE35]. 
   
 
-En las tablas siguientes se describe el formato de la carga del mensaje AMF que Media Services ingerirá para los modos de mensaje "simple" y [SCTE35].
+En la tabla siguiente se describe el formato de la carga del mensaje AMF que Media Services ingerirá para los modos de mensaje "simple" y [SCTE35].
 
 El nombre del mensaje [AMF0] se puede utilizar para diferenciar varias secuencias de eventos del mismo tipo.  En el caso de los mensajes [SCTE-35] y el modo "simple", el nombre del mensaje de AMF DEBE ser "onAdCue", según sea necesario en la especificación [Adobe-Primetime].  Azure Media Services DEBE omitir los campos que no se enumeran a continuación en la ingesta.
 
@@ -208,9 +208,9 @@ El esquema de la carga XML de EventStream de [MPEG-DASH] se define como (extract
 ```
 
 ### <a name="built-in-supported-scheme-id-uris"></a>Identificadores URI admitidos e integrados de identificador de esquema
-| URI de identificador de esquema                 |  DESCRIPCIÓN                                             |
-|-------------------------------|----------------------------------------------------------|
-| https:\//aomedia.org/emsg/ID3   | Describe cómo se pueden transferir los metadatos [ID3v2] como metadatos con tiempo en un MP4 fragmentado compatible con CMAF [MPEGCMAF]. Para más información, consulte [Metadatos con tiempo en el formato de aplicación multimedia común (CMAF)](https://aomediacodec.github.io/av1-id3/). |
+| URI de identificador de esquema                 | Descripción                                                                                                                                                                                                                                          |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| https:\//aomedia.org/emsg/ID3 | Describe cómo se pueden transferir los metadatos [ID3v2] como metadatos con tiempo en un MP4 fragmentado compatible con CMAF [MPEGCMAF]. Para más información, consulte [Metadatos con tiempo en el formato de aplicación multimedia común (CMAF)](https://aomediacodec.github.io/av1-id3/). |
 
 ### <a name="event-processing-and-manifest-signaling"></a>Procesamiento de eventos y señalización del manifiesto
 
@@ -229,25 +229,35 @@ Los eventos individuales o sus cargas de datos NO se muestran directamente en la
 - Si la escala temporal no está establecida en el elemento de EventStream, se usará de forma predeterminada la escala temporal de RTMP 1 kHz.
 - La entrega de un mensaje de onUserDataEvent se limita a una vez cada 500 ms como máximo. Si envía eventos con una frecuencia mayor, esto puede afectar al ancho de banda y a la estabilidad de la fuente de contenidos en directo.
 
-## <a name="212-rtmp-ad-cue-signaling-with-oncuepoint"></a>2.1.2 Señalización de indicación de anuncios de RTMP con "onCuePoint"
+## <a name="212-rtmp-ad-cue-signaling-with-onadcue"></a>2.1.2 Señalización de indicación de anuncios de RTMP con "onAdCue"
 
 Azure Media Services puede escuchar varios tipos de mensajes [AMF0], así como responder a ellos, que se pueden usar para señalizar varios metadatos sincronizados en tiempo real en el streaming en vivo.  La especificación [Adobe-PrimeTime] define dos tipos de pilas denominados "simple" y "SCTE-35". En el modo "simple", Media Services admite un único mensaje de pila de AMF denominado "onAdCue" con una carga que coincide con la tabla siguiente definida para la señal "modo simple".  
 
 En la sección siguiente se muestra la carga del "modo simple" de RTMP, que se puede usar para establecer una señal de anuncio básica "spliceOut" que se llevará a cabo en el manifiesto de cliente para HLS, DASH y Microsoft Smooth Streaming. Esto resulta muy útil en los escenarios en los que el cliente no tiene ningún sistema de inserción o ninguna implementación de señalización de anuncio basada en SCTE-35, y usa un codificador local básico para enviar el mensaje de pila a través de una API. Normalmente, el codificador local admitirá una API basada en REST para desencadenar esta señal, que también "insertará la condición" de la secuencia de vídeo mediante la inserción de un fotograma de IDR en el vídeo y el inicio de un nuevo GOP.
 
-## <a name="213--rtmp-ad-cue-signaling-with-oncuepoint---simple-mode"></a>2.1.3 Señalización de indicación de anuncios de RTMP con "onCuePoint": modo sencillo
+## <a name="213--rtmp-ad-cue-signaling-with-onadcue---simple-mode"></a>2.1.3 Señalización de indicación de anuncios de RTMP con "onAdCue": modo sencillo
 
-| Nombre del campo | Tipo de campo | ¿Necesario? | Descripciones                                                                                                             |
-|------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| cue        | Cadena     | Obligatorio | El mensaje de evento.  Debe ser "SpliceOut" para designar una inserción de modo sencillo.                                              |
-| id         | Cadena     | Obligatorio | Un identificador único que describe la inserción o el segmento. Identifica la instancia del mensaje                            |
-| duration   | Number     | Obligatorio | Duración de la inserción. Las unidades son fracciones de segundos.                                                                |
-| elapsed    | Number     | Opcional | Cuando se repite la señal para que sea compatible con la sintonización, este campo indicará la cantidad de tiempo de la presentación que ha transcurrido desde que comenzó la inserción. Las unidades son fracciones de segundos. Cuando se usa el modo simple, este valor no debe superar la duración original de la inserción.                                                  |
-| time       | Number     | Obligatorio | Debe ser el tiempo de la inserción, en el tiempo de presentación. Las unidades son fracciones de segundos.                                     |
+| Nombre del campo | Tipo de campo | ¿Necesario? | Descripciones                                                                                                                                                                                                                                                                        |
+| ---------- | ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type       | String     | Obligatorio  | Mensaje del evento.  Debe ser "SpliceOut" para designar una inserción de modo sencillo.                                                                                                                                                                                                         |
+| id         | String     | Obligatorio  | Un identificador único que describe la inserción o el segmento. Identifica la instancia del mensaje                                                                                                                                                                                       |
+| duration   | Number     | Obligatorio  | Duración de la inserción. Las unidades son fracciones de segundos.                                                                                                                                                                                                                           |
+| elapsed    | Number     | Opcional  | Cuando se repite la señal para que sea compatible con la sintonización, este campo indicará la cantidad de tiempo de la presentación que ha transcurrido desde que comenzó la inserción. Las unidades son fracciones de segundos. Cuando se usa el modo simple, este valor no debe superar la duración original de la inserción. |
+| time       | Number     | Obligatorio  | Debe ser el tiempo de la inserción, en el tiempo de presentación. Las unidades son fracciones de segundos.                                                                                                                                                                                                |
 
 ---
  
-## <a name="214-rtmp-ad-cue-signaling-with-oncuepoint---scte-35-mode"></a>2.1.4 Señalización de indicación de anuncios de RTMP con "onCuePoint": modo SCTE-35
+#### <a name="example-mpeg-dash-manifest-output-when-using-adobe-rtmp-simple-mode"></a>Ejemplo de salida de manifiesto MPEG DASH al usar el modo simple RTMP de Adobe
+
+Vea el ejemplo [3.3.2.1 para MPEG DASH .mpd de EventStream con el modo simple de Adobe](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode)
+
+Vea el ejemplo [3.3.3.1 Manifiesto DASH con un solo punto y el modo simple de Adobe ](#3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals)
+
+#### <a name="example-hls-manifest-output-when-using-adobe-rtmp-simple-mode"></a>Ejemplo de salida de manifiesto HLS al usar el modo simple RTMP de Adobe
+
+Vea el ejemplo [3.2.2 Manifiesto HLS con el modo simple de Adobe y la etiqueta EXT-X-CUE](#322-apple-hls-with-adobe-primetime-ext-x-cue-legacy)
+
+## <a name="214-rtmp-ad-cue-signaling-with-onadcue---scte-35-mode"></a>2.1.4 Señalización de indicación de anuncios de RTMP con "onAdCue": modo SCTE-35
 
 Cuando trabaje con un flujo de trabajo de producción de difusión más avanzado que requiera que el mensaje de carga SCTE-35 completo se transmita al manifiesto HLS o DASH, lo mejor es usar el modo "SCTE-35" de la especificación [Adobe-PrimeTime].  Este modo admite señales SCTE-35 en banda que se envían directamente a un codificador en directo local, que codifica las señales en el flujo de RTMP mediante el "modo SCTE-35" determinado en la especificación [Adobe-PrimeTime]. 
 
@@ -255,16 +265,23 @@ Normalmente, los mensajes SCTE-35 solo pueden aparecer en entradas de secuencia 
 
 En este escenario, se DEBE enviar la siguiente carga desde el codificador local mediante el tipo de mensaje **"onAdCue"** [AMF0].
 
-| Nombre del campo | Tipo de campo | ¿Necesario? | Descripciones                                                                                                             |
-|------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| cue        | Cadena     | Obligatorio | El mensaje de evento.  En el caso de los mensajes [SCTE-35], DEBE ser la sección binaria splice_info_section() [RFC4648] con codificación Base 64 para que los mensajes se envíen a los clientes HLS, Smooth y Dash.                                              |
-| Tipo       | Cadena     | Obligatorio | Un URN o una dirección URL que identifiquen el esquema del mensaje. En el caso de los mensajes [SCTE-35], **DEBE** ser **"scte35"** para que los mensajes se envíen a los clientes HLS, Smooth y Dash conforme a [Adobe-Primetime]. Opcionalmente, el URN "urn:scte:scte35:2013:bin" también se puede usar para señalizar un mensaje [SCTE-35]. |
-| id         | Cadena     | Obligatorio | Un identificador único que describe la inserción o el segmento. Identifica la instancia del mensaje.  Los mensajes con una semántica equivalente deben tener el mismo valor.|
-| duration   | Number     | Obligatorio | La duración del evento o segmento de ad-splice, si se conoce. Si no se conoce, el valor **DEBERÍA** ser 0.                                                                 |
-| elapsed    | Number     | Opcional | Cuando se repite la señal de anuncio de [SCTE-35] para realizar la sintonización, este campo indicará la cantidad de tiempo de la presentación que ha transcurrido desde que comenzó la inserción. Las unidades son fracciones de segundos. En el modo [SCTE-35], este valor puede superar la duración original especificada de la inserción o segmentación.                                                  |
-| time       | Number     | Obligatorio | El tiempo de presentación del evento o inserción con ad-splice.  El tiempo de presentación y la duración se **DEBEN** alinear con los puntos de acceso de secuencias (SAP) del tipo 1 o 2, como se definió en [ISO-14496-12] en el anexo I. En el caso de la salida de HLS, el tiempo y la duración se **DEBEN** alinear con los límites de los segmentos. El tiempo de presentación y la duración de los diferentes mensajes de eventos del mismo flujo de eventos NO DEBE solaparse. Las unidades son fracciones de segundos.
+| Nombre del campo | Tipo de campo | ¿Necesario? | Descripciones                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ---------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| cue        | String     | Obligatorio  | Mensaje del evento.  En el caso de los mensajes [SCTE-35], DEBE ser la sección binaria splice_info_section() [RFC4648] con codificación Base 64 para que los mensajes se envíen a los clientes HLS, Smooth y Dash.                                                                                                                                                                                                                               |
+| type       | String     | Obligatorio  | Un URN o una dirección URL que identifiquen el esquema del mensaje. En el caso de los mensajes [SCTE-35], **DEBE** ser **"scte35"** para que los mensajes se envíen a los clientes HLS, Smooth y Dash conforme a [Adobe-Primetime]. Opcionalmente, el URN "urn:scte:scte35:2013:bin" también se puede usar para señalizar un mensaje [SCTE-35].                                                                                                        |
+| id         | String     | Obligatorio  | Un identificador único que describe la inserción o el segmento. Identifica la instancia del mensaje.  Los mensajes con una semántica equivalente deben tener el mismo valor.                                                                                                                                                                                                                                                       |
+| duration   | Number     | Obligatorio  | La duración del evento o segmento de ad-splice, si se conoce. Si no se conoce, el valor **DEBERÍA** ser 0.                                                                                                                                                                                                                                                                                                                    |
+| elapsed    | Number     | Opcional  | Cuando se repite la señal de anuncio de [SCTE-35] para realizar la sintonización, este campo indicará la cantidad de tiempo de la presentación que ha transcurrido desde que comenzó la inserción. Las unidades son fracciones de segundos. En el modo [SCTE-35], este valor puede superar la duración original especificada de la inserción o segmentación.                                                                                                                   |
+| time       | Number     | Obligatorio  | El tiempo de presentación del evento o inserción con ad-splice.  El tiempo de presentación y la duración se **DEBEN** alinear con los puntos de acceso de secuencias (SAP) del tipo 1 o 2, como se definió en [ISO-14496-12] en el anexo I. En el caso de la salida de HLS, el tiempo y la duración se **DEBEN** alinear con los límites de los segmentos. El tiempo de presentación y la duración de los diferentes mensajes de eventos del mismo flujo de eventos NO DEBE solaparse. Las unidades son fracciones de segundos. |
 
 ---
+
+#### <a name="example-mpeg-dash-mpd-manifest-with-scte-35-mode"></a>Ejemplo de manifiesto .mpd de MPEG DASH con el modo SCTE-35
+Vea la [Sección 3.3.3.2 Ejemplo de manifiesto de DASH con SCTE-35](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling)
+
+#### <a name="example-hls-manifest-m3u8-with-scte-35-mode-signal"></a>Ejemplo de manifiesto .m3u8 de HLS con la señal del modo SCTE-35
+Vea [Ejemplo 3.3.1.1 de manifiesto HLS con SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35)
+
 ## <a name="215-rtmp-ad-signaling-with-oncuepoint-for-elemental-live"></a>2.1.5 Señalización de anuncios de RTMP con "onCuePoint" para Elemental Live
 
 El codificador local de Elemental Live es compatible con los marcadores de anuncios de la señal de RTMP. Actualmente, Azure Media Services solo admite el tipo de marcador de anuncio "onCuePoint "para RTMP.  Puede habilitarse en la configuración del grupo de RTMP de Adobe en la configuración del codificador Elemental MediaLive o en la API estableciendo el valor de "**ad_markers**" en "onCuePoint".  Consulte la documentación sobre Elemental Live para ver información detallada. La habilitación de esta característica en el grupo de RTMP pasará las señales SCTE-35 a las salidas de RTMP de Adobe para que las procese Azure Media Services.
@@ -272,15 +289,115 @@ El codificador local de Elemental Live es compatible con los marcadores de anunc
 El tipo de mensaje "onCuePoint" se define en [Adobe-Flash-AS] y tiene la siguiente estructura de carga cuando se envía desde la salida de RTMP de Elemental Live.
 
 
-| Propiedad  |DESCRIPCIÓN  |
-|---------|---------|
-|  Nombre     | El nombre DEBE ser "**scte35**" y estar definido por Elemental Live. |
-|time     |  Tiempo en segundos en el que se produjo el punto de pila en el archivo de vídeo durante la escala de tiempo |
-| Tipo     | El tipo de punto de pila debe establecerse en "**evento**". |
-| parameters | Una matriz asociativa de cadenas de pares de nombre y valor que contiene la información del mensaje SCTE-35, incluidos el identificador y la duración. Estos valores se analizan mediante Azure Media Services y se incluyen en la etiqueta de decoración del manifiesto.  |
+| Propiedad   | Descripción                                                                                                                                                                                                                     |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name       | El nombre DEBE ser "**scte35**" y estar definido por Elemental Live.                                                                                                                                                                              |
+| time       | Tiempo en segundos en el que se produjo el punto de pila en el archivo de vídeo durante la escala de tiempo                                                                                                                                           |
+| type       | El tipo de punto de pila debe establecerse en "**evento**".                                                                                                                                                                             |
+| parámetros | Una matriz asociativa de cadenas de pares de nombre y valor que contiene la información del mensaje SCTE-35, incluidos el identificador y la duración. Estos valores se analizan mediante Azure Media Services y se incluyen en la etiqueta de decoración del manifiesto. |
 
 
-Cuando se utiliza este modo del marcador de anuncio, la salida del manifiesto HLS es similar al modo "simple" de Adobe. 
+Cuando se utiliza este modo del marcador de anuncio, la salida del manifiesto HLS es similar al modo "simple" de Adobe.
+
+
+#### <a name="example-mpeg-dash-mpd-single-period-adobe-simple-mode-signals"></a>Ejemplo de MPD de MPEG DASH, un solo punto, señales del modo simple de Adobe
+
+~~~ xml
+<?xml version="1.0" encoding="utf-8"?>
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="dynamic" publishTime="2020-01-07T18:58:03Z" minimumUpdatePeriod="PT0S" timeShiftBufferDepth="PT58M56S" availabilityStartTime="2020-01-07T17:44:47Z" minBufferTime="PT7S">
+    <Period start="PT0S">
+        <EventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="scte35" timescale="10000000">
+            <Event presentationTime="1583497601000000" duration="300000000" id="1085900"/>
+            <Event presentationTime="1583500901666666" duration="300000000" id="1415966"/>
+            <Event presentationTime="1583504202333333" duration="300000000" id="1746033"/>
+            <Event presentationTime="1583507502666666" duration="300000000" id="2076066"/>
+            <Event presentationTime="1583510803333333" duration="300000000" id="2406133"/>
+            <Event presentationTime="1583514104000000" duration="300000000" id="2736200"/>
+            <Event presentationTime="1583517404666666" duration="300000000" id="3066266"/>
+            <Event presentationTime="1583520705333333" duration="300000000" id="3396333"/>
+            <Event presentationTime="1583524006000000" duration="300000000" id="3726400"/>
+            <Event presentationTime="1583527306666666" duration="300000000" id="4056466"/>
+            <Event presentationTime="1583530607333333" duration="300000000" id="4386533"/>
+        </EventStream>
+        <AdaptationSet id="1" group="1" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="video" mimeType="video/mp4" codecs="avc1.4D400C" maxWidth="256" maxHeight="144" startWithSAP="1">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="scte35"/>
+            <SegmentTemplate timescale="10000000" presentationTimeOffset="1583486678426666" media="QualityLevels($Bandwidth$)/Fragments(video=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(video=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="1583495318000000" d="64000000" r="34"/>
+                    <S d="43000000"/>
+                    <S d="21000000"/>
+                    <!-- ... Truncated for brevity of sample-->
+
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="1583495318000000" type="0" wallClockTime="2020-01-07T17:59:10.957Z" presentationTime="1583495318000000"/>
+            <Representation id="1_V_video_3750956353252827751" bandwidth="149952" width="256" height="144"/>
+        </AdaptationSet>
+        <AdaptationSet id="2" group="5" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="audio" mimeType="audio/mp4" codecs="mp4a.40.2" lang="en">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="scte35"/>
+            <Label>ambient</Label>
+            <SegmentTemplate timescale="10000000" presentationTimeOffset="1583486678426666" media="QualityLevels($Bandwidth$)/Fragments(ambient=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(ambient=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="1583495254426666" d="64000000" r="35"/>
+                    <S d="43093334"/>
+                    <S d="20906666"/>
+                    <!-- ... Truncated for brevity of sample-->
+
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="1583495254426666" type="0" wallClockTime="2020-01-07T17:59:04.600Z" presentationTime="1583495254426666"/>
+            <Representation id="5_A_ambient_9125670592623055209" bandwidth="96000" audioSamplingRate="48000"/>
+        </AdaptationSet>
+    </Period>
+</MPD>
+~~~
+
+#### <a name="example-hls-playlist-adobe-simple-mode-signals-using-ext-x-cue-tag-truncated--for-brevity"></a>Ejemplo de lista de reproducción HLS, señales del modo simple de Adobe con la etiqueta EXT-X-CUE ("..." truncado por motivos de brevedad)
+
+En el ejemplo siguiente se muestra la salida del empaquetador dinámico de Media Services para una secuencia de ingesta de RTMP mediante señales del modo "simple" de Adobe y la etiqueta EXT-X-CUE [Adobe-PrimeTime] heredada.  
+
+~~~
+#EXTM3U
+#EXT-X-VERSION:8
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-TARGETDURATION:7
+#EXT-X-INDEPENDENT-SEGMENTS
+#EXT-X-PROGRAM-DATE-TIME:2020-01-07T17:44:47Z
+#EXTINF:6.400000,no-desc
+Fragments(video=1583486742000000,format=m3u8-aapl-v8)
+#EXTINF:6.400000,no-desc
+Fragments(video=1583486806000000,format=m3u8-aapl-v8)
+...
+#EXTINF:6.166667,no-desc
+Fragments(video=1583487638000000,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID=95766,TYPE="SpliceOut",DURATION=30.000000,TIME=158348769.966667
+#EXTINF:0.233333,no-desc
+Fragments(video=1583487699666666,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID=95766,TYPE="SpliceOut",DURATION=30.000000,TIME=158348769.966667,ELAPSED=0.233333
+#EXTINF:6.400000,no-desc
+Fragments(video=1583487702000000,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID=95766,TYPE="SpliceOut",DURATION=30.000000,TIME=158348769.966667,ELAPSED=6.633333
+#EXTINF:6.400000,no-desc
+Fragments(video=1583487766000000,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID=95766,TYPE="SpliceOut",DURATION=30.000000,TIME=158348769.966667,ELAPSED=13.033333
+#EXTINF:6.400000,no-desc
+Fragments(video=1583487830000000,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID=95766,TYPE="SpliceOut",DURATION=30.000000,TIME=158348769.966667,ELAPSED=19.433333
+#EXTINF:6.400000,no-desc
+Fragments(video=1583487894000000,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID=95766,TYPE="SpliceOut",DURATION=30.000000,TIME=158348769.966667,ELAPSED=25.833333
+#EXTINF:4.166667,no-desc
+Fragments(video=1583487958000000,format=m3u8-aapl-v8)
+#EXTINF:2.233333,no-desc
+Fragments(video=1583487999666666,format=m3u8-aapl-v8)
+#EXTINF:6.400000,no-desc
+Fragments(video=1583488022000000,format=m3u8-aapl-v8)
+...
+
+~~~
 
 ### <a name="216-cancellation-and-updates"></a>2.1.6 Cancelación y actualizaciones
 
@@ -298,15 +415,15 @@ Con el fin de lograr la inserción exacta de fotogramas de los anuncios, el codi
 
 La pista dispersa se **DEBE** declarar en el cuadro Live Server Manifest Box con una entrada **\<textstream\>** y **DEBE** tener el siguiente conjunto de atributos:
 
-| **Nombre del atributo** | **Tipo de campo** | **¿Necesario?** | **Descripción**                                                                                                                                                                                                                                                 |
-|--------------------|----------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| systemBitrate      | Number         | Obligatorio      | **DEBE** ser "0", lo cual indica una pista con una velocidad de bits desconocida y variable.                                                                                                                                                                                                 |
-| parentTrackName    | Cadena         | Obligatorio      | **DEBE** ser el nombre de la pista principal, con la que se alinean en la escala de tiempo los códigos de tiempo de las pistas dispersas. La pista principal no puede ser una pista dispersa.                                                                                                                    |
-| manifestOutput     | Boolean        | Obligatorio      | **DEBE** ser "true" para indicar que la pista dispersa se insertará en el manifiesto de cliente de Smooth.                                                                                                                                                               |
-| Subtype            | Cadena         | Obligatorio      | **DEBE** ser el código de cuatro caracteres "DATA".                                                                                                                                                                                                                        |
-| Esquema             | Cadena         | Obligatorio      | **DEBE** ser un URN o una dirección URL que identifiquen el esquema del mensaje. En el caso de los mensajes [SCTE-35], este **DEBE** ser "urn:scte:scte35:2013:bin", para que los mensajes se envíen a los clientes HLS, Smooth y Dash conforme a [SCTE-35]. |
-| trackName          | Cadena         | Obligatorio      | **DEBE** ser el nombre de la pista dispersa. trackName se puede utilizar para diferenciar varios flujos de eventos con el mismo esquema. Cada flujo de eventos único **DEBE** tener un nombre de pista único.                                                                           |
-| timescale          | Number         | Opcional      | **DEBE** ser la escala de tiempo de la pista principal.                                                                                                                                                                                                                      |
+| **Nombre del atributo** | **Tipo de campo** | **¿Necesario?** | **Descripción**                                                                                                                                                                                                              |
+| ------------------ | -------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| systemBitrate      | Number         | Obligatorio      | **DEBE** ser "0", lo cual indica una pista con una velocidad de bits desconocida y variable.                                                                                                                                                          |
+| parentTrackName    | String         | Obligatorio      | **DEBE** ser el nombre de la pista principal, con la que se alinean en la escala de tiempo los códigos de tiempo de las pistas dispersas. La pista principal no puede ser una pista dispersa.                                                                             |
+| manifestOutput     | Boolean        | Obligatorio      | **DEBE** ser "true" para indicar que la pista dispersa se insertará en el manifiesto de cliente de Smooth.                                                                                                                        |
+| Subtype            | String         | Obligatorio      | **DEBE** ser el código de cuatro caracteres "DATA".                                                                                                                                                                                  |
+| Scheme             | String         | Obligatorio      | **DEBE** ser un URN o una dirección URL que identifiquen el esquema del mensaje. En el caso de los mensajes [SCTE-35], este **DEBE** ser "urn:scte:scte35:2013:bin", para que los mensajes se envíen a los clientes HLS, Smooth y Dash conforme a [SCTE-35]. |
+| trackName          | String         | Obligatorio      | **DEBE** ser el nombre de la pista dispersa. trackName se puede utilizar para diferenciar varios flujos de eventos con el mismo esquema. Cada flujo de eventos único **DEBE** tener un nombre de pista único.                                |
+| timescale          | Number         | Opcional      | **DEBE** ser la escala de tiempo de la pista principal.                                                                                                                                                                               |
 
 ---
 
@@ -316,16 +433,16 @@ El cuadro Movie Box (‘moov’) sigue al cuadro Live Server Manifest Box como p
 
 El cuadro "moov" **DEBE** contener un cuadro **TrackHeaderBox ("tkhd")** tal y como se define en [ISO-14496-12] con las siguientes restricciones:
 
-| **Nombre del campo** | **Tipo de campo**          | **¿Necesario?** | **Descripción**                                                                                                |
-|----------------|-------------------------|---------------|----------------------------------------------------------------------------------------------------------------|
+| **Nombre del campo** | **Tipo de campo**          | **¿Necesario?** | **Descripción**                                                                                                    |
+| -------------- | ----------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ |
 | duration       | Entero sin signo de 64 bits | Obligatorio      | **DEBE** ser 0, ya que el cuadro de la pista tiene cero ejemplos y la duración total de los ejemplos del cuadro de la pista es 0. |
 
 ---
 
 El cuadro "moov" **DEBE** contener un cuadro **HandlerBox ("hdlr")** tal y como se define en [ISO-14496-12] con las siguientes restricciones:
 
-| **Nombre del campo** | **Tipo de campo**          | **¿Necesario?** | **Descripción**   |
-|----------------|-------------------------|---------------|-------------------|
+| **Nombre del campo** | **Tipo de campo**          | **¿Necesario?** | **Descripción**       |
+| -------------- | ----------------------- | ------------- | --------------------- |
 | handler_type   | Entero sin signo de 32 bits | Obligatorio      | **DEBE** ser "meta". |
 
 ---
@@ -342,9 +459,9 @@ Los fragmentos de pistas dispersas constan de un cuadro Movie Fragment Box (‘m
 
 El cuadro MovieFragmentBox ("moof") **DEBE** contener un cuadro **TrackFragmentExtendedHeaderBox ("uuid")** , tal y como se define en [MS-SSTR] con los siguientes campos:
 
-| **Nombre del campo**         | **Tipo de campo**          | **¿Necesario?** | **Descripción**                                                                               |
-|------------------------|-------------------------|---------------|-----------------------------------------------------------------------------------------------|
-| fragment_absolute_time | Entero sin signo de 64 bits | Obligatorio      | **DEBE** ser la hora de llegada del evento. Este valor alinea el mensaje con la pista principal.   |
+| **Nombre del campo**         | **Tipo de campo**          | **¿Necesario?** | **Descripción**                                                                                           |
+| ---------------------- | ----------------------- | ------------- | --------------------------------------------------------------------------------------------------------- |
+| fragment_absolute_time | Entero sin signo de 64 bits | Obligatorio      | **DEBE** ser la hora de llegada del evento. Este valor alinea el mensaje con la pista principal.           |
 | fragment_duration      | Entero sin signo de 64 bits | Obligatorio      | **DEBE** ser la duración del evento. La duración puede ser cero para indicar que es desconocida. |
 
 ---
@@ -352,12 +469,12 @@ El cuadro MovieFragmentBox ("moof") **DEBE** contener un cuadro **TrackFragmentE
 
 El cuadro MediaDataBox ("mdat") **DEBE** tener el formato siguiente:
 
-| **Nombre del campo**          | **Tipo de campo**                   | **¿Necesario?** | **Descripción**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|-------------------------|----------------------------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| version                 | Entero sin signo de 32 bits (uimsbf) | Obligatorio      | Determina el formato del contenido del cuadro 'mdat'. Se ignorarán las versiones no reconocidas. Actualmente, la única versión admitida es: 1.                                                                                                                                                                                                                                                                                                                                                      |
-| id                      | Entero sin signo de 32 bits (uimsbf) | Obligatorio      | Identifica la instancia del mensaje. Los mensajes con una semántica equivalente deben tener el mismo valor, es decir, será suficiente con el procesamiento de cualquier cuadro de mensaje de evento con el mismo identificador.                                                                                                                                                                                                                                                                                                            |
+| **Nombre del campo**          | **Tipo de campo**                   | **¿Necesario?** | **Descripción**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------------- | -------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| version                 | Entero sin signo de 32 bits (uimsbf) | Obligatorio      | Determina el formato del contenido del cuadro 'mdat'. Se ignorarán las versiones no reconocidas. Actualmente, la única versión admitida es: 1.                                                                                                                                                                                                                                                                                                                                                                      |
+| id                      | Entero sin signo de 32 bits (uimsbf) | Obligatorio      | Identifica la instancia del mensaje. Los mensajes con una semántica equivalente deben tener el mismo valor, es decir, será suficiente con el procesamiento de cualquier cuadro de mensaje de evento con el mismo identificador.                                                                                                                                                                                                                                                                                                                            |
 | presentation_time_delta | Entero sin signo de 32 bits (uimsbf) | Obligatorio      | La suma del valor de fragment_absolute_time, especificado en TrackFragmentExtendedHeaderBox, y el de presentation_time_delta **DEBE** ser el tiempo de presentación del evento. El tiempo de presentación y la duración se **DEBEN** alinear con los puntos de acceso de secuencias (SAP) del tipo 1 o 2, como se definió en [ISO-14496-12] en el anexo I. En el caso de la salida de HLS, el tiempo y la duración se **DEBEN** alinear con los límites de los segmentos. El tiempo de presentación y la duración de los diferentes mensajes de eventos de la misma secuencia de eventos **NO DEBE** superponerse. |
-| message                 | byte array                       | Obligatorio      | El mensaje de evento. En el caso de los mensajes [SCTE-35], el mensaje es la sección binaria splice_info_section(). En el caso de los mensajes [SCTE-35], este **DEBE** ser la sección splice_info_section() para que los mensajes se envíen a los clientes HLS, Smooth y Dash conforme a [SCTE-35]. En el caso de los mensajes [SCTE-35], la sección binaria splice_info_section() es la carga del cuadro "mdat" y **NO** está codificada en Base 64.                                                            |
+| message                 | byte array                       | Obligatorio      | Mensaje del evento. En el caso de los mensajes [SCTE-35], el mensaje es la sección binaria splice_info_section(). En el caso de los mensajes [SCTE-35], este **DEBE** ser la sección splice_info_section() para que los mensajes se envíen a los clientes HLS, Smooth y Dash conforme a [SCTE-35]. En el caso de los mensajes [SCTE-35], la sección binaria splice_info_section() es la carga del cuadro "mdat" y **NO** está codificada en Base 64.                                                                                                                     |
 
 ---
 
@@ -430,11 +547,214 @@ Azure Media Services admite las siguientes etiquetas del manifiesto HLS para se�
 
 La salida de los datos para cada etiqueta variará en función del modo de señal de ingesta que se use. Por ejemplo, la ingesta de RTMP con el modo simple de Adobe no contiene la carga con codificación Base 64 completa de SCTE-35.
 
-## <a name="321-apple-hls-with-adobe-primetime-ext-x-daterange-recommended"></a>3.2.1 Protocolo HLS de Apple con la etiqueta EXT-X-DATERANGE de Adobe PrimeTime (recomendado)
+## <a name="321-apple-hls-with-ext-x-daterange-recommended"></a>3.2.1 HLS de Apple con EXT-X-DATERANGE (recomendado)
 
 La especificación de HTTP Live Streaming de Apple [RFC8216] permite la señalización de mensajes [SCTE-35]. Los mensajes se insertan en la lista de reproducción de segmentos en una etiqueta EXT-X-DATERANGE por sección [RFC8216] titulada "Mapping SCTE-35 into EXT-X-DATERANGE".  El nivel de aplicación cliente puede analizar la lista de reproducción M3U y procesar las etiquetas M3U, o bien recibir los eventos a través del marco de reproducción de Apple.  
 
 El enfoque **RECOMENDADO** en Azure Media Services (API de la versión 3) es seguir [RFC8216] y usar la etiqueta EXT-X_DATERANGE para la decoración de disponibilidad de anuncios de [SCTE35] en el manifiesto.
+
+## <a name="3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35"></a>3.2.1.1 Ejemplo de manifiesto .m3u8 de HLS en el que se muestra la señalización EXT-X-DATERANGE de SCTE-35
+
+En el ejemplo siguiente, la salida del manifiesto HLS del empaquetador dinámico de Media Services muestra el uso de la etiqueta EXT-X-DATERANGE de [RFC8216] para señalar los eventos de SCTE-35 en la secuencia. Además, esta secuencia contiene la etiqueta EXT-X-CUE "heredada" para [Adobe-Primetime].
+
+~~~
+#EXTM3U
+#EXT-X-VERSION:8
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-TARGETDURATION:2
+#EXT-X-INDEPENDENT-SEGMENTS
+#EXT-X-PROGRAM-DATE-TIME:2020-01-07T19:40:50Z
+#EXTINF:1.501500,no-desc
+Fragments(video=22567545,format=m3u8-aapl-v8)
+#EXTINF:1.501500,no-desc
+Fragments(video=22702680,format=m3u8-aapl-v8)
+#EXTINF:1.501500,no-desc
+Fragments(video=22837815,format=m3u8-aapl-v8)
+#EXTINF:1.501500,no-desc
+Fragments(video=22972950,format=m3u8-aapl-v8)
+#EXTINF:1.501500,no-desc
+Fragments(video=23108085,format=m3u8-aapl-v8)
+#EXTINF:1.234567,no-desc
+Fragments(video=23243220,format=m3u8-aapl-v8)
+#EXTINF:0.016689,no-desc
+Fragments(video=23354331,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=0.000022
+#EXTINF:0.250244,no-desc
+Fragments(video=23355833,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=0.250267
+#EXTINF:0.850856,no-desc
+Fragments(video=23378355,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=1.101122
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:10.610Z",SCTE35-IN=0xFC30200000000005DD00FFF00F05000003EA7F4FFE0165E4D3000101010000607CE85A
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=0.000000,TIME=260.610344,CUE="/DAgAAAAAAXdAP/wDwUAAAPqf0/+AWXk0wABAQEAAGB86Fo="
+#EXTINF:0.650644,no-desc
+Fragments(video=23454932,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=1.751767
+#EXTINF:0.050044,no-desc
+Fragments(video=23513490,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=1.801811
+#EXTINF:1.451456,no-desc
+Fragments(video=23517994,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=3.253267
+#EXTINF:1.501500,no-desc
+Fragments(video=23648625,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=4.754767
+#EXTINF:1.501500,no-desc
+Fragments(video=23783760,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=6.256267
+#EXTINF:1.501500,no-desc
+Fragments(video=23918895,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=7.757767
+#EXTINF:1.501500,no-desc
+Fragments(video=24054030,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=9.259267
+#EXTINF:1.501500,no-desc
+Fragments(video=24189165,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=10.760767
+#EXTINF:1.501500,no-desc
+Fragments(video=24324300,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=12.262267
+#EXTINF:1.501500,no-desc
+Fragments(video=24459435,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=13.763767
+#EXTINF:1.501500,no-desc
+Fragments(video=24594570,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=15.265267
+#EXTINF:1.501500,no-desc
+Fragments(video=24729705,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=16.766767
+#EXTINF:1.501500,no-desc
+Fragments(video=24864840,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=18.268267
+#EXTINF:1.501500,no-desc
+Fragments(video=24999975,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=19.769767
+#EXTINF:1.501500,no-desc
+Fragments(video=25135110,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=21.271267
+#EXTINF:1.501500,no-desc
+Fragments(video=25270245,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=22.772767
+#EXTINF:1.501500,no-desc
+Fragments(video=25405380,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=24.274267
+#EXTINF:1.501500,no-desc
+Fragments(video=25540515,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=25.775767
+#EXTINF:1.501500,no-desc
+Fragments(video=25675650,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=27.277267
+#EXTINF:1.501500,no-desc
+Fragments(video=25810785,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=28.778767
+#EXTINF:1.501500,no-desc
+Fragments(video=25945920,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=30.280267
+#EXTINF:1.501500,no-desc
+Fragments(video=26081055,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=31.781767
+#EXTINF:1.501500,no-desc
+Fragments(video=26216190,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=33.283267
+#EXTINF:1.501500,no-desc
+Fragments(video=26351325,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=34.784767
+#EXTINF:1.501500,no-desc
+Fragments(video=26486460,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=36.286267
+#EXTINF:1.501500,no-desc
+Fragments(video=26621595,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=37.787767
+#EXTINF:1.501500,no-desc
+Fragments(video=26756730,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=39.289267
+#EXTINF:1.501500,no-desc
+Fragments(video=26891865,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=40.790767
+#EXTINF:1.501500,no-desc
+Fragments(video=27027000,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=42.292267
+#EXTINF:1.501500,no-desc
+Fragments(video=27162135,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=43.793767
+#EXTINF:1.501500,no-desc
+Fragments(video=27297270,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=45.295267
+#EXTINF:1.501500,no-desc
+Fragments(video=27432405,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=46.796767
+#EXTINF:1.501500,no-desc
+Fragments(video=27567540,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=48.298267
+#EXTINF:1.501500,no-desc
+Fragments(video=27702675,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=49.799767
+#EXTINF:1.501500,no-desc
+Fragments(video=27837810,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=51.301267
+#EXTINF:1.501500,no-desc
+Fragments(video=27972945,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=52.802767
+#EXTINF:1.501500,no-desc
+Fragments(video=28108080,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=54.304267
+#EXTINF:1.501500,no-desc
+Fragments(video=28243215,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=55.805767
+#EXTINF:1.501500,no-desc
+Fragments(video=28378350,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=57.307267
+#EXTINF:1.501500,no-desc
+Fragments(video=28513485,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=58.808767
+#EXTINF:1.501500,no-desc
+Fragments(video=28648620,format=m3u8-aapl-v8)
+
+~~~
+
 
 ## <a name="322-apple-hls-with-adobe-primetime-ext-x-cue-legacy"></a>3.2.2 Protocolo HLS de Apple con la etiqueta EXT-X-CUE de Adobe PrimeTime (heredado)
 
@@ -442,37 +762,81 @@ También hay una implementación "heredada" que se proporciona en Azure Media Se
 
 La etiqueta EXT-X-CUE "heredada" se define como se indica a continuación y también se le puede hacer referencia en normativas de la especificación de [Adobe-PrimeTime]. Solo se debe usar para la señalización de SCTE35 heredada cuando sea necesario; en caso contrario, la etiqueta recomendada se define en [RFC8216] como EXT-X-DATERANGE. 
 
-| **Nombre del atributo** | **Tipo**                      | **¿Necesario?**                             | **Descripción**                                                                                                                                                                                                                                                                      |
-|--------------------|-------------------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CUE                | cadena entrecomillada                 | Obligatorio                                  | Mensaje codificado como una cadena en base 64 tal y como se describe en [RFC4648]. En el caso de los mensajes [SCTE-35], es la sección splice_info_section() codificada en base 64.                                                                                                |
-| TIPO               | cadena entrecomillada                 | Obligatorio                                  | Un URN o una dirección URL que identifiquen el esquema del mensaje. En el caso de los mensajes [SCTE-35], el tipo tiene el valor especial "scte35".                                                                                                                                |
-| id                 | cadena entrecomillada                 | Obligatorio                                  | Un identificador único para el evento. Si no se especifica el identificador cuando se ingiere el mensaje, Azure Media Services generará un identificador exclusivo.                                                                                                                                          |
+| **Nombre del atributo** | **Tipo**                      | **¿Necesario?**                             | **Descripción**                                                                                                                                                                                                                                                                          |
+| ------------------ | ----------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CUE                | cadena entrecomillada                 | Obligatorio                                  | Mensaje codificado como una cadena en base 64 tal y como se describe en [RFC4648]. En el caso de los mensajes [SCTE-35], es la sección splice_info_section() codificada en base 64.                                                                                                                                      |
+| TYPE               | cadena entrecomillada                 | Obligatorio                                  | Un URN o una dirección URL que identifiquen el esquema del mensaje. En el caso de los mensajes [SCTE-35], el tipo tiene el valor especial "scte35".                                                                                                                                                                          |
+| id                 | cadena entrecomillada                 | Obligatorio                                  | Un identificador único para el evento. Si no se especifica el identificador cuando se ingiere el mensaje, Azure Media Services generará un identificador exclusivo.                                                                                                                                              |
 | DURATION           | número de punto flotante decimal | Obligatorio                                  | Duración del evento. Si no se conoce, el valor **DEBERÍA** ser 0. Las unidades son fracciones de segundos.                                                                                                                                                                                           |
 | ELAPSED            | número de punto flotante decimal | Opcional, pero obligatorio para la ventana deslizante | Cuando se repite la señal para que admita una ventana de presentación deslizante, este campo **DEBE** ser la cantidad de tiempo de la presentación que ha transcurrido desde que comenzó el evento. Las unidades son fracciones de segundos. Este valor puede superar la duración original especificada de la inserción o segmentación. |
-| TIME               | número de punto flotante decimal | Obligatorio                                  | El tiempo de presentación del evento. Las unidades son fracciones de segundos.                                                                                                                                                                                                                    |
+| TIME               | número de punto flotante decimal | Obligatorio                                  | El tiempo de presentación del evento. Las unidades son fracciones de segundos.                                                                                                                                                                                                                        |
 
 
 El nivel de aplicación del reproductor HLS usará TYPE para identificar el formato del mensaje, descodificar el mensaje, aplicar las conversiones de tiempo necesarias y procesar el evento.  Los eventos se sincronizan en la lista de reproducción de segmentos de la pista principal, según la marca de tiempo del evento.  Se insertan antes del segmento más cercano (etiqueta #EXTINF).
 
-### <a name="323-hls-segment-playlist-example-using-legacy-adobe-primetime-ext-x-cue"></a>3.2.3 Ejemplo de lista de reproducción del segmento HLS con la etiqueta EXT-X-CUE de Adobe PrimeTime "heredada"
+### <a name="323-hls-m3u8-manifest-example-using-legacy-adobe-primetime-ext-x-cue"></a>3.2.3 Ejemplo de manifiesto .m3u8 de HLS con la etiqueta EXT-X-CUE de Adobe Primetime "heredada"
 
-En el ejemplo siguiente se muestra la decoración del manifiesto HLS mediante la etiqueta EXT-X-CUE de Adobe PrimeTime.  El parámetro "CUE" contiene la carga splice_info de SCTE-35 con codificación Base 64 completa que indica que esta señal llegó usando RTMP en el modo de señal de SCTE-35 de Adobe, o llegó a través del modo de señal de SCTE-35 de Smooth Streaming. 
+En el ejemplo siguiente se muestra la decoración del manifiesto HLS mediante la etiqueta EXT-X-CUE de Adobe PrimeTime.  El parámetro "CUE" solo contiene las propiedades TYPE y Duration, lo que significa que se trata de un origen RTMP con señalización en modo "simple" de Adobe.  Si se tratara de una señal de modo SCTE-35, la etiqueta incluiría la carga SCTE-35 binaria codificada en base64, como se ha visto en el [ejemplo 3.2.1.1](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35).
 
 ~~~
 #EXTM3U
 #EXT-X-VERSION:4
+#EXT-X-PLAYLIST-TYPE:VOD
 #EXT-X-ALLOW-CACHE:NO
-#EXT-X-MEDIA-SEQUENCE:346
-#EXT-X-TARGETDURATION:6
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-PROGRAM-DATE-TIME:2018-12-13T15:54:19.462Z
-#EXTINF:4.000000,no-desc
-KeyFrames(video_track=15447164594627600,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-KeyFrames(video_track=15447164634627600,format=m3u8-aapl)
-#EXT-X-CUE:ID="1026",TYPE="scte35",DURATION=30.000000,TIME=1544716520.022760,CUE="/DAlAAAAAAAAAP/wFAUAAAQCf+//KRjAfP4AKTLgAAAAAAAAVYsh2w=="
-#EXTINF:6.000000,no-desc
-KeyFrames(video_track=15447165474627600,format=m3u8-aapl)
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-TARGETDURATION:11
+#EXT-X-PROGRAM-DATE-TIME:2019-12-10T09:18:14Z
+#EXTINF:10.010000,no-desc
+Fragments(video=4011540820,format=m3u8-aapl)
+#EXTINF:10.010000,no-desc
+Fragments(video=4011550830,format=m3u8-aapl)
+#EXTINF:10.010000,no-desc
+Fragments(video=4011560840,format=m3u8-aapl)
+#EXT-X-CUE:ID=4011578265,TYPE="SpliceOut",DURATION=119.987000,TIME=4011578.265000
+#EXTINF:8.008000,no-desc
+Fragments(video=4011570850,format=m3u8-aapl)
+#EXT-X-CUE:ID=4011578265,TYPE="SpliceOut",DURATION=119.987000,TIME=4011578.265000,ELAPSED=0.593000
+#EXTINF:4.170000,no-desc
+Fragments(video=4011578858,format=m3u8-aapl)
+#EXT-X-CUE:ID=4011578265,TYPE="SpliceOut",DURATION=119.987000,TIME=4011578.265000,ELAPSED=4.763000
+#EXTINF:9.844000,no-desc
+Fragments(video=4011583028,format=m3u8-aapl)
+#EXT-X-CUE:ID=4011578265,TYPE="SpliceOut",DURATION=119.987000,TIME=4011578.265000,ELAPSED=14.607000
+#EXTINF:10.010000,no-desc
+Fragments(video=4011592872,format=m3u8-aapl)
+#EXT-X-CUE:ID=4011578265,TYPE="SpliceOut",DURATION=119.987000,TIME=4011578.265000,ELAPSED=24.617000
+#EXTINF:10.010000,no-desc
+Fragments(video=4011602882,format=m3u8-aapl)
+#EXT-X-CUE:ID=4011578265,TYPE="SpliceOut",DURATION=119.987000,TIME=4011578.265000,ELAPSED=34.627000
+#EXTINF:10.010000,no-desc
+Fragments(video=4011612892,format=m3u8-aapl)
+#EXT-X-CUE:ID=4011578265,TYPE="SpliceOut",DURATION=119.987000,TIME=4011578.265000,ELAPSED=44.637000
+#EXTINF:10.010000,no-desc
+Fragments(video=4011622902,format=m3u8-aapl)
+#EXT-X-CUE:ID=4011578265,TYPE="SpliceOut",DURATION=119.987000,TIME=4011578.265000,ELAPSED=54.647000
+#EXTINF:10.010000,no-desc
+Fragments(video=4011632912,format=m3u8-aapl)
+#EXT-X-CUE:ID=4011578265,TYPE="SpliceOut",DURATION=119.987000,TIME=4011578.265000,ELAPSED=64.657000
+#EXTINF:10.010000,no-desc
+Fragments(video=4011642922,format=m3u8-aapl)
+#EXT-X-CUE:ID=4011578265,TYPE="SpliceOut",DURATION=119.987000,TIME=4011578.265000,ELAPSED=74.667000
+#EXTINF:10.010000,no-desc
+Fragments(video=4011652932,format=m3u8-aapl)
+#EXT-X-CUE:ID=4011578265,TYPE="SpliceOut",DURATION=119.987000,TIME=4011578.265000,ELAPSED=84.677000
+#EXTINF:10.010000,no-desc
+Fragments(video=4011662942,format=m3u8-aapl)
+#EXT-X-CUE:ID=4011578265,TYPE="SpliceOut",DURATION=119.987000,TIME=4011578.265000,ELAPSED=94.687000
+#EXTINF:10.010000,no-desc
+Fragments(video=4011672952,format=m3u8-aapl)
+#EXT-X-CUE:ID=4011578265,TYPE="SpliceOut",DURATION=119.987000,TIME=4011578.265000,ELAPSED=104.697000
+#EXTINF:10.010000,no-desc
+Fragments(video=4011682962,format=m3u8-aapl)
+#EXT-X-CUE:ID=4011578265,TYPE="SpliceOut",DURATION=119.987000,TIME=4011578.265000,ELAPSED=114.707000
+#EXTINF:10.010000,no-desc
+Fragments(video=4011692972,format=m3u8-aapl)
+#EXTINF:8.008000,no-desc
+Fragments(video=4011702982,format=m3u8-aapl)
+
 ~~~
 
 ### <a name="324-hls-message-handling-for-legacy-adobe-primetime-ext-x-cue"></a>3.2.4 Administración de mensajes de HLS para la etiqueta EXT-X-CUE de Adobe PrimeTime "heredada"
@@ -515,33 +879,55 @@ La decoración del manifiesto (MPD) de los eventos se señalizará en MPD median
 
 El elemento EventStream tiene los siguientes atributos:
 
-| **Nombre del atributo** | **Tipo**                | **¿Necesario?** | **Descripción**                                                                                                                                                                                                                                                                                   |
-|--------------------|-------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri      | string                  | Obligatorio      | Identifica el esquema del mensaje. El esquema se establece en el valor del atributo Scheme en el cuadro de Live Server Manifest box. El valor **DEBE** ser un URN o una dirección URL que identifique el esquema del mensaje. El valor de schemeId de salida compatible debe ser "urn:scte:scte35:2014:xml+bin" según la sección 6.7.4 de [SCTE-214-1] (MPD), ya que el servicio solo admite "xml+bin" en este momento por motivos de brevedad en MPD.  |
-| value              | string                  | Opcional      | Un valor de cadena adicional que usan los propietarios del esquema para personalizar la semántica del mensaje. Para diferenciar entre varias secuencias de eventos con el mismo esquema, se **DEBE** establecer el valor en el nombre de la secuencia de eventos (trackName para [MS-SSTR-Ingest] o el nombre del mensaje de AMF para la ingesta de [RTMP]). |
-| Timescale          | Entero sin signo de 32 bits | Obligatorio      | Escala de tiempo, en tics por segundo.                                                                                                                                                                                                       |
+| **Nombre del atributo** | **Tipo**                | **¿Necesario?** | **Descripción**                                                                                                                                                                                                                                                                                                                                                                         |
+| ------------------ | ----------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| scheme_id_uri      | string                  | Obligatorio      | Identifica el esquema del mensaje. El esquema se establece en el valor del atributo Scheme en el cuadro de Live Server Manifest box. El valor **DEBE** ser un URN o una dirección URL que identifique el esquema del mensaje. El valor de schemeId de salida compatible debe ser "urn:scte:scte35:2014:xml+bin" según la sección 6.7.4 de [SCTE-214-1] (MPD), ya que el servicio solo admite "xml+bin" en este momento por motivos de brevedad en MPD. |
+| value              | string                  | Opcional      | Un valor de cadena adicional que usan los propietarios del esquema para personalizar la semántica del mensaje. Para diferenciar entre varias secuencias de eventos con el mismo esquema, se **DEBE** establecer el valor en el nombre de la secuencia de eventos (trackName para [MS-SSTR-Ingest] o el nombre del mensaje de AMF para la ingesta de [RTMP]).                                                                         |
+| Timescale          | Entero sin signo de 32 bits | Obligatorio      | Escala de tiempo, en tics por segundo.                                                                                                                                                                                                                                                                                                                                                     |
 
 
-### <a name="332-example-mpeg-dash-manifest-mpd-signaling-of-scte-35-using-eventstream"></a>3.3.2 Ejemplo de señalización del manifiesto MPEG-DASH (MPD) de SCTE-35 mediante EventStream
+### <a name="332-example-event-streams-for-mpeg-dash"></a>3.3.2 Ejemplo de secuencias de eventos para MPEG DASH
+
+#### <a name="3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode"></a>3.3.2.1 Ejemplo de manifiesto .mpd de MPEG DASH con señalización de streaming RTMP mediante el modo simple de Adobe
+
+En el ejemplo siguiente se muestra un extracto de EventStream del empaquetador dinámico de Media Services para una secuencia RTMP mediante la señalización del modo "simple" de Adobe.
 
 ~~~ xml
-<!-- Example MPD using xml+bin style signaling per [SCTE-214-1] -->
-  <EventStream schemeIdUri="urn:scte:scte35:2014:xml+bin" value="scte35_track_001_000" timescale="10000000">
-        <Event presentationTime="15447165200227600" duration="300000000" id="1026">
-            <scte35:Signal>
-                <scte35:Binary>
-                    /DAlAAAAAAAAAP/wFAUAAAQDf+//KaeGwP4AKTLgAAAAAAAAn75a3g==
-                </scte35:Binary>
-            </scte35:Signal>
-        </Event>
-        <Event presentationTime="15447166250227600" duration="300000000" id="1027">
-           <scte35:Signal>
-                <scte35:Binary>
-                    /DAlAAAAAAAAAP/wFAUAAAQDf+//KaeGwP4AKTLgAAAAAAAAn75a3g==
-                </scte35:Binary>
-            </scte35:Signal>
-        </Event>
+<!-- Example EventStream element using "urn:com:adobe:dpi:simple:2015" Adobe simple signaling per [Adobe-Primetime] -->
+    <EventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="simplesignal" timescale="10000000">
+        <Event presentationTime="1583497601000000" duration="300000000" id="1085900"/>
+        <Event presentationTime="1583500901666666" duration="300000000" id="1415966"/>
+        <Event presentationTime="1583504202333333" duration="300000000" id="1746033"/>
+        <Event presentationTime="1583507502666666" duration="300000000" id="2076066"/>
+        <Event presentationTime="1583510803333333" duration="300000000" id="2406133"/>
+        <Event presentationTime="1583514104000000" duration="300000000" id="2736200"/>
+        <Event presentationTime="1583517404666666" duration="300000000" id="3066266"/>
+        <Event presentationTime="1583520705333333" duration="300000000" id="3396333"/>
+        <Event presentationTime="1583524006000000" duration="300000000" id="3726400"/>
+        <Event presentationTime="1583527306666666" duration="300000000" id="4056466"/>
+        <Event presentationTime="1583530607333333" duration="300000000" id="4386533"/>
     </EventStream>
+~~~
+
+#### <a name="3322-example-mpeg-dash-mpd-manifest-signaling-of-an-rtmp-stream-using-adobe-scte-35-mode"></a>3.3.2.2 Ejemplo de manifiesto .mpd de MPEG DASH con señalización de una secuencia RTMP mediante el modo SCTE-35 de Adobe
+
+En el ejemplo siguiente se muestra un extracto de EventStream del empaquetador dinámico de Media Services para una secuencia RTMP mediante la señalización del modo SCTE-35 de Adobe.
+
+~~~ xml
+<!-- Example EventStream element using xml+bin style signaling per [SCTE-214-1] -->
+
+      <EventStream schemeIdUri="urn:scte:scte35:2014:xml+bin" value="scte35" timescale="10000000">
+        <Event presentationTime="2595092444" duration="11011000" id="1002">
+            <Signal xmlns="http://www.scte.org/schemas/35/2016">
+                <Binary>/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==</Binary>
+            </Signal>
+        </Event>
+        <Event presentationTime="2606103444" id="1002">
+            <Signal xmlns="http://www.scte.org/schemas/35/2016">
+                <Binary>/DAgAAAAAAXdAP/wDwUAAAPqf0/+AWXk0wABAQEAAGB86Fo=</Binary>
+            </Signal>
+        </Event>
+      </EventStream>
 ~~~
 
 > [!IMPORTANT]
@@ -550,8 +936,193 @@ El elemento EventStream tiene los siguientes atributos:
 > El valor del tiempo de presentación en segundos es la división del valor de este atributo y el valor del atributo EventStream@timescale.
 > Si no existe, el valor de la hora de presentación es 0.
 
+#### <a name="3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals"></a>3.3.3.1 Ejemplo de manifiesto MPEG DASH (MPD) con un solo punto, EventStream y señales del modo simple de Adobe
 
-### <a name="333-mpeg-dash-in-band-event-message-box-signaling"></a>3.3.3 Señalización del cuadro de mensajes de evento en banda de MPEG-DASH
+En el ejemplo siguiente se muestra la salida del empaquetador dinámico de Media Services para una secuencia RTMP de origen mediante el método de señalización de anuncios del modo "simple" de Adobe. La salida es un manifiesto de un solo punto en el que se muestra un objeto EventStream con el URI de schemeId establecido en "urn:com:adobe:dpi:simple:2015" y la propiedad value establecida en "simplesignal".
+Cada señal simple se proporciona en un elemento Event con las propiedades @presentationTime, @durationy @id rellenadas en función de las señales simples entrantes.
+
+~~~ xml
+<?xml version="1.0" encoding="utf-8"?>
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="static" mediaPresentationDuration="PT28M1.680S" minBufferTime="PT3S">
+    <Period>
+        <EventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="simplesignal" timescale="1000">
+            <Event presentationTime="4011578265" duration="119987" id="4011578265"/>
+        </EventStream>
+        <AdaptationSet id="1" group="1" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="video" mimeType="video/mp4" codecs="avc1.4D4028" maxWidth="1920" maxHeight="1080" startWithSAP="1">
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="simplesignal"/>
+            <ProducerReferenceTime id="4011460740" type="0" wallClockTime="2020-01-25T19:35:54.740Z" presentationTime="4011460740"/>
+            <SegmentTemplate timescale="1000" presentationTimeOffset="4011460740" media="QualityLevels($Bandwidth$)/Fragments(video=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(video=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="4011460740" d="2002" r="57"/>
+                    <S d="1401"/>
+                    <S d="601"/>
+                    <S d="2002"/>
+
+                     <!--> ... video segments truncated for sample brevity </-->
+
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <Representation id="1_V_video_14759481473095519504" bandwidth="6000000" width="1920" height="1080"/>
+            <Representation id="1_V_video_1516803357996956148" bandwidth="4000000" codecs="avc1.4D401F" width="1280" height="720"/>
+            <Representation id="1_V_video_5430608182379669372" bandwidth="2600000" codecs="avc1.4D401F" width="960" height="540"/>
+            <Representation id="1_V_video_3780180650986497347" bandwidth="1000000" codecs="avc1.4D401E" width="640" height="360"/>
+            <Representation id="1_V_video_13759117363700265707" bandwidth="699000" codecs="avc1.4D4015" width="480" height="270"/>
+            <Representation id="1_V_video_6140004908920393176" bandwidth="400000" codecs="avc1.4D4015" width="480" height="270"/>
+            <Representation id="1_V_video_10673801877453424365" bandwidth="200000" codecs="avc1.4D400D" width="320" height="180"/>
+        </AdaptationSet>
+        <AdaptationSet id="2" group="5" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="audio" mimeType="audio/mp4" codecs="mp4a.40.2">
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="simplesignal"/>
+            <ProducerReferenceTime id="4011460761" type="0" wallClockTime="2020-01-25T19:35:54.761Z" presentationTime="4011460761"/>
+            <Label>audio</Label>
+            <SegmentTemplate timescale="1000" presentationTimeOffset="4011460740" media="QualityLevels($Bandwidth$)/Fragments(audio=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(audio=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="4011460761" d="1984"/>
+                    <S d="2005" r="1"/>
+                    <S d="2006"/>
+
+                    <!--> ... audio segments truncated for example brevity </-->
+
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <Representation id="5_A_audio_17504386117102112482" bandwidth="128000" audioSamplingRate="48000"/>
+        </AdaptationSet>
+    </Period>
+</MPD>
+
+~~~
+
+#### <a name="3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling"></a>3.3.3.2 Ejemplo de manifiesto MPEG DASH (MPD) con varios puntos, EventStream y el modo de señalización SCTE35 de Adobe
+
+En el ejemplo siguiente se muestra la salida del empaquetador dinámico de Media Services para una secuencia RTMP de origen mediante la señalización del modo SCTE-35 de Adobe.
+En este caso, el manifiesto de salida es un archivo .mpd de DASH de varios puntos con un elemento EventStream, la propiedad @schemeIdUri establecida en "urn:scte:scte35:2014:xml+bin" y una propiedad @value establecida en "scte35". Cada elemento Event de EventStream contiene la señal de SCTE35 binaria codificada en base64 completa 
+
+~~~ xml
+<?xml version="1.0" encoding="utf-8"?>
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="dynamic" publishTime="2020-01-07T19:42:44Z" minimumUpdatePeriod="PT0S" timeShiftBufferDepth="PT58M56S" availabilityStartTime="2020-01-07T19:40:50Z" minBufferTime="PT4S">
+    <Period start="PT2M48.168S" id="main-content_0">
+        <AdaptationSet id="1" group="1" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="video" mimeType="video/mp4" codecs="avc1.640020" maxWidth="1280" maxHeight="720" startWithSAP="1">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
+            <SegmentTemplate timescale="90000" presentationTimeOffset="15135120" media="QualityLevels($Bandwidth$)/Fragments(video=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(video=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="15135120" d="135135" r="59"/>
+                    <S d="111111"/>
+                    <S d="1502"/>
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="15135120" type="0" wallClockTime="2020-01-07T19:40:50Z" presentationTime="15135120"/>
+            <Representation id="1_V_video_5322324134428436312" bandwidth="3500000" width="1280" height="720"/>
+            <Representation id="1_V_video_16981495139092747609" bandwidth="2200000" width="960" height="540"/>
+            <Representation id="1_V_video_1384718563016940751" bandwidth="1350000" codecs="avc1.64001F" width="704" height="396"/>
+            <Representation id="1_V_video_4425970933904124207" bandwidth="850000" codecs="avc1.64001E" width="512" height="288"/>
+            <Representation id="1_V_video_11952982975776937431" bandwidth="550000" codecs="avc1.640016" width="384" height="216"/>
+            <Representation id="1_V_video_10673801877453424365" bandwidth="200000" codecs="avc1.640015" width="340" height="192"/>
+        </AdaptationSet>
+        <AdaptationSet id="2" group="5" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="audio" mimeType="audio/mp4" codecs="mp4a.40.5" lang="en">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
+            <Label>audio</Label>
+            <SegmentTemplate timescale="44100" presentationTimeOffset="7416208" media="QualityLevels($Bandwidth$)/Fragments(audio=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(audio=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="7417856" d="133120"/>
+                    <S d="132096" r="1"/>
+                    
+                    <!--> ... aduio segments truncated for sample brevity </-->
+
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="7417856" type="0" wallClockTime="2020-01-07T19:40:50.037Z" presentationTime="7417856"/>
+            <Representation id="5_A_audio_17504386117102112482" bandwidth="128000" audioSamplingRate="44100"/>
+        </AdaptationSet>
+    </Period>
+    <Period start="PT4M19.509S" id="scte-35_0">
+        <EventStream schemeIdUri="urn:scte:scte35:2014:xml+bin" value="scte35" timescale="10000000">
+            <Event presentationTime="2595092444" duration="11011000" id="1002">
+                <Signal xmlns="http://www.scte.org/schemas/35/2016">
+                    <Binary>/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==</Binary>
+                </Signal>
+            </Event>
+            <Event presentationTime="2606103444" id="1002">
+                <Signal xmlns="http://www.scte.org/schemas/35/2016">
+                    <Binary>/DAgAAAAAAXdAP/wDwUAAAPqf0/+AWXk0wABAQEAAGB86Fo=</Binary>
+                </Signal>
+            </Event>
+        </EventStream>
+        <AdaptationSet id="1" group="1" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="video" mimeType="video/mp4" codecs="avc1.640020" maxWidth="1280" maxHeight="720" startWithSAP="1">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
+            <SegmentTemplate timescale="90000" presentationTimeOffset="23355832" media="QualityLevels($Bandwidth$)/Fragments(video=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(video=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="23355833" d="22522"/>
+                    <S d="76577"/>
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="23355833" type="0" wallClockTime="2020-01-07T19:42:21.341Z" presentationTime="23355833"/>
+            <Representation id="1_V_video_5322324134428436312" bandwidth="3500000" width="1280" height="720"/>
+            <Representation id="1_V_video_16981495139092747609" bandwidth="2200000" width="960" height="540"/>
+            <Representation id="1_V_video_1384718563016940751" bandwidth="1350000" codecs="avc1.64001F" width="704" height="396"/>
+            <Representation id="1_V_video_4425970933904124207" bandwidth="850000" codecs="avc1.64001E" width="512" height="288"/>
+            <Representation id="1_V_video_11952982975776937431" bandwidth="550000" codecs="avc1.640016" width="384" height="216"/>
+            <Representation id="1_V_video_10673801877453424365" bandwidth="200000" codecs="avc1.640015" width="340" height="192"/>
+        </AdaptationSet>
+        <AdaptationSet id="2" group="5" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="audio" mimeType="audio/mp4" codecs="mp4a.40.5" lang="en">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
+            <Label>audio</Label>
+            <SegmentTemplate timescale="44100" presentationTimeOffset="11444358" media="QualityLevels($Bandwidth$)/Fragments(audio=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(audio=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="11446272" d="49152"/>
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="11446272" type="0" wallClockTime="2020-01-07T19:42:21.384Z" presentationTime="11446272"/>
+            <Representation id="5_A_audio_17504386117102112482" bandwidth="128000" audioSamplingRate="44100"/>
+        </AdaptationSet>
+    </Period>
+    <Period start="PT4M20.610S" id="main-content_1">
+        <AdaptationSet id="1" group="1" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="video" mimeType="video/mp4" codecs="avc1.640020" maxWidth="1280" maxHeight="720" startWithSAP="1">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
+            <SegmentTemplate timescale="90000" presentationTimeOffset="23454931" media="QualityLevels($Bandwidth$)/Fragments(video=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(video=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="23454932" d="58558"/>
+                    <S d="4504"/>
+                    <S d="130631"/>
+                    <S d="135135" r="12"/>
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="23454932" type="0" wallClockTime="2020-01-07T19:42:22.442Z" presentationTime="23454932"/>
+            <Representation id="1_V_video_5322324134428436312" bandwidth="3500000" width="1280" height="720"/>
+            <Representation id="1_V_video_16981495139092747609" bandwidth="2200000" width="960" height="540"/>
+            <Representation id="1_V_video_1384718563016940751" bandwidth="1350000" codecs="avc1.64001F" width="704" height="396"/>
+            <Representation id="1_V_video_4425970933904124207" bandwidth="850000" codecs="avc1.64001E" width="512" height="288"/>
+            <Representation id="1_V_video_11952982975776937431" bandwidth="550000" codecs="avc1.640016" width="384" height="216"/>
+            <Representation id="1_V_video_10673801877453424365" bandwidth="200000" codecs="avc1.640015" width="340" height="192"/>
+        </AdaptationSet>
+        <AdaptationSet id="2" group="5" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="audio" mimeType="audio/mp4" codecs="mp4a.40.5" lang="en">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
+            <Label>audio</Label>
+            <SegmentTemplate timescale="44100" presentationTimeOffset="11492916" media="QualityLevels($Bandwidth$)/Fragments(audio=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(audio=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="11495424" d="28672"/>
+                    <S d="1024"/>
+                    <S d="131072"/>
+                    <S d="132096"/>
+                    <S d="133120"/>
+                    <S d="132096" r="1"/>
+                    <S d="133120"/>
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="11495424" type="0" wallClockTime="2020-01-07T19:42:22.499Z" presentationTime="11495424"/>
+            <Representation id="5_A_audio_17504386117102112482" bandwidth="128000" audioSamplingRate="44100"/>
+        </AdaptationSet>
+    </Period>
+</MPD>
+
+~~~
+### <a name="334-mpeg-dash-in-band-event-message-box-signaling"></a>3.3.4 Señalización del cuadro de mensajes de evento en banda de MPEG DASH
 
 Un flujo de eventos en banda requiere que el MPD tenga el elemento InbandEventStream en el nivel del conjunto de adaptación.  Este elemento tiene un atributo schemeIdUri obligatorio y un atributo opcional de escala de tiempo que también aparecen en el cuadro de mensajes de evento ('emsg').  Los cuadros de mensajes de evento con los identificadores de esquema que no estén definidos en MPD no **DEBEN** existir.
 
@@ -560,17 +1131,24 @@ Las definiciones normativas del transporte de los mensajes en banda de [SCTE-35]
 
 En los siguientes detalles se describen los valores específicos que el cliente debe esperar en "emsg" en cumplimiento con [SCTE-214-3]:
 
-| **Nombre del campo**          | **Tipo de campo**          | **¿Necesario?** | **Descripción**                                                                                                                                                                                                                                                                                                                                                    |
-|-------------------------|-------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri           | string                  | Obligatorio      | Identifica el esquema del mensaje. El esquema se establece en el valor del atributo Scheme en el cuadro de Live Server Manifest box. El valor **DEBE** ser un URN que identifique el esquema del mensaje. En el caso de los mensajes de [SCTE-35], **DEBE** ser "urn:scte:scte35:2013:bin" conforme a [SCTE-214-3]. |
-| Valor                   | string                  | Obligatorio      | Un valor de cadena adicional que usan los propietarios del esquema para personalizar la semántica del mensaje. Para diferenciar entre varios flujos de eventos con el mismo esquema, se establecerá el valor en el nombre del flujo de eventos (trackName para la ingesta con Smooth o el nombre del mensaje de AMF para la ingesta de RTMP).                                                                  |
-| Timescale               | Entero sin signo de 32 bits | Obligatorio      | La escala de tiempo, en tics por segundo, de los campos de tiempo y duración del cuadro 'emsg'.                                                                                                                                                                                                                                                                        |
-| Presentation_time_delta | Entero sin signo de 32 bits | Obligatorio      | El diferencial de tiempo de presentación del elemento multimedia entre el tiempo de presentación del evento y el tiempo de presentación más temprano de este segmento. El tiempo de presentación y la duración se **DEBERÍAN** alinear con los puntos de acceso de secuencias (SAP) de tipo 1 o 2, tal como se define en el Anexo I de [ISO-14496-12].                                                                                            |
-| event_duration          | Entero sin signo de 32 bits | Obligatorio      | La duración del evento, o 0xFFFFFFFF para indicar una duración desconocida.                                                                                                                                                                                                                                                                                          |
-| Id                      | Entero sin signo de 32 bits | Obligatorio      | Identifica la instancia del mensaje. Los mensajes con una semántica equivalente deben tener el mismo valor. Si no se especifica el identificador cuando se ingiere el mensaje, Azure Media Services generará un identificador exclusivo.                                                                                                                                                    |
-| Message_data            | byte array              | Obligatorio      | El mensaje de evento. En el caso de los mensajes [SCTE-35], los datos del mensaje son la sección binaria splice_info_section() conforme a [SCTE-214-3]. |
+| **Nombre del campo**          | **Tipo de campo**          | **¿Necesario?** | **Descripción**                                                                                                                                                                                                                                                                                        |
+| ----------------------- | ----------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| scheme_id_uri           | string                  | Obligatorio      | Identifica el esquema del mensaje. El esquema se establece en el valor del atributo Scheme en el cuadro de Live Server Manifest box. El valor **DEBE** ser un URN que identifique el esquema del mensaje. En el caso de los mensajes de [SCTE-35], **DEBE** ser "urn:scte:scte35:2013:bin" conforme a [SCTE-214-3].          |
+| Value                   | string                  | Obligatorio      | Un valor de cadena adicional que usan los propietarios del esquema para personalizar la semántica del mensaje. Para diferenciar entre varios flujos de eventos con el mismo esquema, se establecerá el valor en el nombre del flujo de eventos (trackName para la ingesta con Smooth o el nombre del mensaje de AMF para la ingesta de RTMP). |
+| Timescale               | Entero sin signo de 32 bits | Obligatorio      | La escala de tiempo, en tics por segundo, de los campos de tiempo y duración del cuadro 'emsg'.                                                                                                                                                                                                            |
+| Presentation_time_delta | Entero sin signo de 32 bits | Obligatorio      | El diferencial de tiempo de presentación del elemento multimedia entre el tiempo de presentación del evento y el tiempo de presentación más temprano de este segmento. El tiempo de presentación y la duración se **DEBERÍAN** alinear con los puntos de acceso de secuencias (SAP) de tipo 1 o 2, tal como se define en el Anexo I de [ISO-14496-12].                                  |
+| event_duration          | Entero sin signo de 32 bits | Obligatorio      | La duración del evento, o 0xFFFFFFFF para indicar una duración desconocida.                                                                                                                                                                                                                              |
+| Identificador                      | Entero sin signo de 32 bits | Obligatorio      | Identifica la instancia del mensaje. Los mensajes con una semántica equivalente deben tener el mismo valor. Si no se especifica el identificador cuando se ingiere el mensaje, Azure Media Services generará un identificador exclusivo.                                                                                        |
+| Message_data            | byte array              | Obligatorio      | Mensaje del evento. En el caso de los mensajes [SCTE-35], los datos del mensaje son la sección binaria splice_info_section() conforme a [SCTE-214-3].                                                                                                                                                                        |
 
-### <a name="334-dash-message-handling"></a>3.3.4 Administración de mensajes DASH
+
+#### <a name="example-inbandevenstream-entity-for-adobe-simple-mode"></a>Entidad InBandEvenStream de ejemplo para el modo simple de Adobe
+~~~ xml
+
+      <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
+~~~
+
+### <a name="335-dash-message-handling"></a>3.3.5 Administración de mensajes DASH
 
 Los eventos se señalizan en banda, en el cuadro 'emsg', para pistas de audio y de vídeo.  La señalización se produce en todas las solicitudes de segmento en los que presentation_time_delta es de 15 segundos o menos. 
 
@@ -594,10 +1172,11 @@ Al probar la implementación con la plataforma de Azure Media Services, empiece 
 
 ## <a name="change-history"></a>Historial de cambios
 
-| Date     | Cambios                                                                            |
-|----------|------------------------------------------------------------------------------------|
-| 02/07/19  | Se ha revisado la ingesta de RTMP para la compatibilidad con SCTE35 y se ha agregado "onCuePoint" de RTMP para Elemental Live. | 
-| 22/08/19 | Actualización para agregar OnUserDataEvent a RTMP para metadatos personalizados.                         |
+| Date     | Cambios                                                                                                             |
+| -------- | ------------------------------------------------------------------------------------------------------------------- |
+| 02/07/19  | Se ha revisado la ingesta de RTMP para la compatibilidad con SCTE35 y se ha agregado "onCuePoint" de RTMP para Elemental Live.                                  |
+| 22/08/19 | Actualización para agregar OnUserDataEvent a RTMP para metadatos personalizados.                                                          |
+| 08/01/20  | Se ha corregido un error en el modo simple y el modo SCTE35 de RTMP. Se ha cambiado de "onCuePoint" a "onAdCue". Se ha actualizado la tabla de modo simple. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ver las rutas de aprendizaje de Media Services

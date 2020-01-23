@@ -8,12 +8,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: aadf3a18d41d8dfe878439893c9d1ed25172fa2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bc66a286bee193b377731a549129446bba431cb3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406497"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749043"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Administración de reglas de detección inteligente de Application Insights con plantillas de Azure Resource Manager
 
@@ -133,9 +133,12 @@ Asegúrese de reemplazar el nombre de recurso de Application Insights y de espec
 
 ```
 
-### <a name="failure-anomalies-v2-non-classic-alert-rule"></a>Regla de alertas Anomalías en los errores v2 (no clásicas)
+### <a name="failure-anomalies-alert-rule"></a>Regla de alertas Anomalías de errores
 
-Esta plantilla de Azure Resource Manager muestra la configuración de una regla de alertas de Anomalías en los errores v2 con una gravedad de 2. Esta versión nueva de la regla de alertas de Anomalías en los errores es parte de la nueva plataforma de alertas de Azure y reemplaza la versión clásica que se retira como parte del [proceso de retirada de alertas clásicas](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+Esta plantilla de Azure Resource Manager muestra la configuración de una regla de alertas de Anomalías en los errores con una gravedad de 2. Esta versión nueva de la regla de alertas de Anomalías en los errores es parte de la nueva plataforma de alertas de Azure y reemplaza la versión clásica que se retira como parte del [proceso de retirada de alertas clásicas](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+
+> [!NOTE]
+> Las anomalías de errores son un servicio global, por lo que la ubicación de la regla se crea en la ubicación global.
 
 ```json
 {
@@ -166,7 +169,7 @@ Esta plantilla de Azure Resource Manager muestra la configuración de una regla 
 ```
 
 > [!NOTE]
-> Esta plantilla de Azure Resource Manager es única para la regla de alertas de Anomalías en los errores v2 y es distinta de las otras reglas clásicas de detección inteligente que se describen en este artículo.   
+> Esta plantilla de Azure Resource Manager es única para la regla de alertas de Anomalías en los errores y es distinta de las otras reglas clásicas de detección inteligente que se describen en este artículo.
 
 ## <a name="smart-detection-rule-names"></a>Nombres de regla de detección inteligente
 

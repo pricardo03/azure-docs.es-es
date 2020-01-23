@@ -1,20 +1,18 @@
 ---
 title: (EN DESUSO) Entidad de servicio del clúster de Azure Kubernetes
 description: Cree y administre una entidad de servicio de Azure Active Directory para un clúster de Kubernetes en Azure Container Service
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 52ed101199126818abaddef47892e1f033eb3968
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3126339a1eb8ff9c0ef34a330333635d3d0f6433
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609132"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274366"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(EN DESUSO) Configuración de una entidad de servicio de Azure AD para un clúster de Kubernetes en Container Service
 
@@ -33,7 +31,7 @@ Este artículo muestra distintas opciones para configurar una entidad de servici
 
 Puede usar una entidad de servicio de Azure AD existente que cumpla los requisitos siguientes o crear una.
 
-* **Ámbito**: Grupos de recursos
+* **Ámbito**: Resource group
 
 * **Rol**: Colaborador
 

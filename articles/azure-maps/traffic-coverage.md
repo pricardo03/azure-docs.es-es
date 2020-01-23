@@ -1,6 +1,6 @@
 ---
-title: Cobertura de tráfico en Azure Maps | Microsoft Docs
-description: Información sobre la cobertura de tráfico en Azure Maps
+title: Cobertura de tráfico | Microsoft Azure Maps
+description: En este artículo, obtendrá información acerca de la cobertura de tráfico en Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 09/22/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cb7ebe5d9519f1a3967a29f4c883c420a892817f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 9e9a3d13eeb0c8704e2faac1037d51e5bd322dc4
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73957997"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945111"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfico en Azure Maps
 
@@ -46,6 +46,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todos 
 |RAE de Hong Kong     |✓         |✓         |
 |India   |✓         |✓         |
 |Indonesia     |✓         |✓         |
+|Kazajistán    |✓         |✓         |
 |RAE de Macao     |✓         |✓         |
 |Malasia     |✓         |✓         |
 |Nueva Zelanda     |✓         |✓         |

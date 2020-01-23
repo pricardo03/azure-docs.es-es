@@ -1,22 +1,21 @@
 ---
-title: Controlador de volumen de Azure Files en Service Fabric (GA)
+title: Controlador de volumen de Azure Files para Service Fabric
 description: Service Fabric admite el uso de Azure Files para realizar copias de seguridad de los volúmenes desde su contenedor.
 ms.topic: conceptual
 ms.date: 6/10/2018
-ms.openlocfilehash: 0bd84c8367f722c013abff5c2a6caaa991fa841f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 514a0cb12359d58e38ebc30ae12cdb277757f2b2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464794"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750043"
 ---
-# <a name="service-fabric-azure-files-volume-driver"></a>Controlador de volumen de Azure Files en Service Fabric
-El complemento de volúmenes de Azure Files es un [complemento de volúmenes de Docker](https://docs.docker.com/engine/extend/plugins_volume/) que proporciona volúmenes basados en [Azure Files](/azure/storage/files/storage-files-introduction) para los contenedores de Docker ahora se encuentra con **disponibilidad general**.
+# <a name="azure-files-volume-driver-for-service-fabric"></a>Controlador de volumen de Azure Files para Service Fabric
 
-Este complemento de volúmenes de Docker se empaqueta como aplicación de Service Fabric que se puede implementar en clústeres de Service Fabric. Su objetivo es proporcionar volúmenes basados en Azure Files a otras aplicaciones de contenedor de Service Fabric que se implementan en el clúster.
+El controlador de volúmenes de Azure Files es un [complemento de volúmenes de Docker](https://docs.docker.com/engine/extend/plugins_volume/) que proporciona volúmenes basados en [Azure Files](/azure/storage/files/storage-files-introduction) para los contenedores de Docker. Se empaqueta como una aplicación de Service Fabric que se puede implementar en un clúster de Service Fabric para proporcionar volúmenes para otras aplicaciones contenedoras de Service Fabric dentro del clúster.
 
 > [!NOTE]
-> La versión 6.5.661.9590 del complemento de volumen Azure Files es una versión de disponibilidad general (disponible con carácter general). 
+> La versión 6.5.661.9590 del complemento de volumen de Azure Files se ha publicado para la disponibilidad general.
 >
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -55,7 +54,6 @@ En la sección fabricSettings de la plantilla Azure Resource Manager (para las i
   }
 ]
 ```
-
 
 ## <a name="deploy-a-sample-application-using-service-fabric-azure-files-volume-driver"></a>Implementación de una aplicación de ejemplo mediante el controlador de volúmenes de Azure Files en Service Fabric
 

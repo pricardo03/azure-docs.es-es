@@ -1,20 +1,18 @@
 ---
 title: (EN DESUSO) CI/CD con Azure Container Service Engine y modo Swarm
 description: Uso de Azure Container Service Engine con modo Docker Swarm, Azure Container Registry y Azure DevOps para proporcionar de forma continua una aplicación .NET Core de varios contenedores
-services: container-service
 author: diegomrtnzg
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/27/2017
 ms.author: dimart
 ms.custom: mvc
-ms.openlocfilehash: fe24ab21a9a7d227d58e50c58f9aff2bd91e767f
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 1ec7ece6f5afd1bbd2613ae08af04b82e8a156b2
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598558"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277926"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(EN DESUSO) Canalización completa de CI/CD para implementar una aplicación de varios contenedores en Azure Container Service con ACS Engine y modo Docker Swarm mediante Azure DevOps
 
@@ -27,7 +25,6 @@ En la actualidad, uno de los mayores desafíos al desarrollar aplicaciones moder
 * Azure Container Registry
 * Azure DevOps
 
-Este artículo se basa en una aplicación sencilla, disponible en [GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux), desarrollada con ASP.NET Core. La aplicación se compone de cuatro servicios diferentes: tres API web y un front-end web:
 
 ![Aplicación de ejemplo MyShop](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/myshop-application.png)
 
@@ -46,7 +43,7 @@ Esta es una breve explicación de los pasos:
 7. Modo Docker Swarm en el clúster extrae la versión más reciente de las imágenes 
 8. La nueva versión de la aplicación se implementa mediante Docker Stack 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar este tutorial, debe realizar las siguientes tareas:
 

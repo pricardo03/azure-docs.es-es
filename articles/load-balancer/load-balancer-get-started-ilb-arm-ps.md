@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 547402fd2cca94f47a9ff0db3131d359bafd967a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: da564f8d49675ba0d51c5120768028e9d333e2fd
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225381"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045475"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Creación de un equilibrador de carga interno mediante el módulo de Azure PowerShell
 
@@ -48,7 +48,7 @@ Para implementar un equilibrador de carga, se deben crear los objetos siguientes
 * Configuración de sondeo: el estado de mantenimiento sondea si hay máquinas virtuales.
 * Reglas NAT de entrada: las reglas de puerto para el acceso directo a las máquinas virtuales.
 
-Para más información acerca de los componentes del equilibrador de carga, consulte [Compatibilidad de Azure Resource Manager con Azure Load Balancer](load-balancer-arm.md).
+Para más información sobre los componentes del equilibrador de carga, vea [Componentes de Azure Load Balancer](concepts-limitations.md#load-balancer-components).
 
 Los pasos siguientes explican cómo configurar un equilibrador de carga entre dos máquinas virtuales.
 

@@ -8,30 +8,37 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/28/2017
+ms.date: 01/08/2020
 ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a90d54932561ed564a23d4d2785170aa85b5c9c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 961444e15ae1c45db1fc7423a6ac3cc96cc7b3fb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422971"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768017"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Administración del acceso a recursos y aplicaciones con grupos en Azure Active Directory
-Azure Active Directory (Azure AD) le ayuda a administrar aplicaciones en la nube de su organización, aplicaciones locales y recursos locales mediante los grupos de su organización. Sus recursos pueden formar parte del directorio, como los permisos para administrar objetos a través de los roles del directorio, o puede estar fuera del directorio, como las aplicaciones SaaS (software como servicio), los servicios de Azure, los sitios de SharePoint y los recursos locales.
+Azure Active Directory (Azure AD) le permite usar grupos para administrar el acceso a las aplicaciones en la nube, las aplicaciones locales y los recursos. Sus recursos pueden formar parte de la organización de Azure AD, como los permisos para administrar objetos a través de los roles en Azure AD, o pueden estar fuera de la organización, como las aplicaciones SaaS (software como servicio), los servicios de Azure, los sitios de SharePoint y los recursos locales.
 
 >[!NOTE]
 >Para usar Azure Active Directory, necesita una cuenta de Azure. Si aún no tiene ninguna, puede [registrarse para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+>
+> En Azure Portal, puede ver algunos grupos cuyos miembros y detalles de grupo no se pueden administrar en el portal:
+>
+> - Los grupos sincronizados desde Active Directory local solo se pueden administrar en Active Directory local.
+> - Otros tipos de grupos, como las listas de distribución y los grupos de seguridad habilitados para correo, solo se administran en el centro de administración de Exchange o en el centro de administración de Microsoft 365. Debe iniciar sesión en el centro de administración de Exchange o en el centro de administración de Microsoft 365 para administrar estos grupos.
 
-## <a name="how-does-access-management-in-azure-ad-work"></a>¿Cómo funciona la administración de acceso en Azure AD?
+## <a name="how-access-management-in-azure-ad-works"></a>Funcionamiento de la administración de acceso en Azure AD
+
 Azure AD le ayuda a proporcionar acceso a los recursos de su organización, ya que proporciona derechos de acceso a un usuario individual o a todo un grupo de Azure AD. El uso de grupos permite al propietario de los recursos (o al propietario del directorio de Azure AD) asignar un conjunto de permisos de acceso a todos los miembros del grupo, en lugar de tener que proporcionar los derechos uno por uno. El propietario del recurso o del directorio también puede conceder derechos de administrador para la lista de miembros a otra persona, como por ejemplo, a un director de departamento o a un administrador del departamento de soporte técnico, y dejar que dicha persona agregue y quite miembros, según sea necesario. Para más información acerca de cómo administrar propietarios de grupos, consulte [Administración de propietarios de grupos](active-directory-accessmanagement-managing-group-owners.md)
 
 ![Diagrama de administración de acceso de Azure Active Directory](./media/active-directory-manage-groups/active-directory-access-management-works.png)
 
 ## <a name="ways-to-assign-access-rights"></a>Formas de asignar derechos de acceso
+
 Hay cuatro maneras de asignar derechos de acceso a los recursos a los usuarios:
 
 - **Asignación directa.** El propietario del recurso asigna directamente el usuario al recurso.

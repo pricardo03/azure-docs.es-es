@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: 2fc66514bdf33611f9e6266d35a2d537fe3b9261
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: d2f25774f89182004e23605bf4c37d1e1d739df7
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084901"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867034"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V en un sitio secundario con PowerShell (Resource Manager)
 
@@ -21,7 +21,7 @@ En este artículo se explica cómo automatizar los pasos necesarios para la repl
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Revise la [arquitectura del escenario y sus componentes](hyper-v-vmm-architecture.md).
 - Revise los [requisitos de compatibilidad](site-recovery-support-matrix-to-sec-site.md) de todos los componentes.
@@ -194,6 +194,14 @@ Una vez configurados correctamente los servidores, las nubes y las redes, habili
 3. Habilite la replicación de la máquina virtual.
 
           $jobResult = Set-AzSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
+
+> [!NOTE]
+> Si quiere realizar la replicación en discos administrados habilitados para CMK en Azure, siga estos pasos con Az PowerShell 3.3.0 en adelante:
+>
+> 1. Habilitar la conmutación por error a discos administrados mediante la actualización de las propiedades de máquina virtual
+> 2. Usar el cmdlet Get-AsrReplicationProtectedItem para capturar el identificador de disco para cada disco del elemento protegido
+> 3. Crear un objeto de diccionario con el cmdlet New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]" para que contenga la asignación de un identificador de disco a un conjunto de cifrado de disco. Estos conjuntos de cifrado de disco se crearán previamente de forma automática en la región de destino.
+> 4. Actualice las propiedades de la máquina virtual mediante el cmdlet Set-AsrReplicationProtectedItem y pase el objeto de diccionario en el parámetro -DiskIdToDiskEncryptionSetMap.
 
 ## <a name="run-a-test-failover"></a>Ejecución de una conmutación por error de prueba
 

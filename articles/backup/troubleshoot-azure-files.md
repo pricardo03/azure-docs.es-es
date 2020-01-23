@@ -3,12 +3,12 @@ title: Solución de problemas de las copias de seguridad de recursos compartidos
 description: Este artículo contiene información para solución de problemas que se producen al proteger recursos compartidos de archivos de Azure.
 ms.date: 08/20/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 8b88ae568b07b36d2dd80c0ef30fe86646335043
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 050df5b96c265e468346535ff011e1baf7d86ad5
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664622"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293953"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Solución de problemas en las copias de seguridad de recursos compartidos de archivos de Azure
 
@@ -69,5 +69,5 @@ La tabla siguiente es para configurar la copia de seguridad:
 
 Para más información sobre la copia de seguridad de recursos compartidos de archivos de Azure, consulte:
 
-- [Copia de seguridad de recursos compartidos de archivos de Azure](backup-azure-files.md)
+- [Copia de seguridad de recursos compartidos de archivos de Azure](backup-afs.md)
 - [Preguntas frecuentes acerca de la copia de seguridad de recursos compartidos de archivos de Azure](backup-azure-files-faq.md)

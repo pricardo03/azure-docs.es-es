@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
-ms.openlocfilehash: 6f070462dca6e835504a33014a7ed48e9949f874
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c43c142b22709d42416b2dd14dfc78812970916a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67432626"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169605"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creación de una instancia de IoT Hub mediante Azure Portal
 
@@ -59,6 +59,10 @@ Haga clic en **Add** (Agregar) para abrir la hoja **Add a shared access policy**
 Haga clic en **Crear** para agregar la directiva recién creada a la lista existente.
 
 Para más información sobre el acceso que concede cada permiso específico, consulte [Permisos de IoT Hub](./iot-hub-devguide-security.md#iot-hub-permissions).
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registro de un nuevo dispositivo en el centro de IoT
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="message-routing-for-an-iot-hub"></a>Enrutamiento de mensajes para un centro de IoT
 

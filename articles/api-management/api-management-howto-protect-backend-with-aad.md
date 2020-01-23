@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 82341f29ffda03c5f047d7566ff64884c6698b07
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 36b4b597ae70642fee8726555ea71b5164c13cca
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442509"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889378"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protección de una API mediante OAuth 2.0 con Azure Active Directory API Management
 
@@ -47,12 +47,12 @@ Aquí se muestra una introducción rápida de los pasos:
 
 Para proteger una API con Azure AD, el primer paso es registrar una aplicación en Azure AD que la represente. 
 
-1. Vaya a la página [Azure Portal: registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908). 
+1. Vaya a [Azure Portal](https://portal.azure.com) para registrar la aplicación. Busque y seleccione **Registros de API**.
 
 1. Seleccione **Nuevo registro**. 
 
 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación: 
-    - En la sección **Nombre**, escriba un nombre significativo para la aplicación, que se mostrará a los usuarios de la aplicación, por ejemplo, `backend-app`. 
+    - En la sección **Nombre**, escriba un nombre significativo para la aplicación, que se mostrará a los usuarios de la aplicación, por ejemplo, *backend-app*. 
     - En la sección **Tipos de cuenta admitidos**, seleccione una opción que se ajuste a su escenario. 
 
 1. Deje vacía la sección **URI de redireccionamiento**.
@@ -63,29 +63,29 @@ Para proteger una API con Azure AD, el primer paso es registrar una aplicación 
 
 1. Seleccione **Exponer una API** y establezca la opción **URI de id. de aplicación** con el valor predeterminado. Anote este valor para más adelante.
 
-1. En la página **Agregar un ámbito**, cree un ámbito nuevo compatible con la API, (por ejemplo, Lectura) y haga clic en *Agregar ámbito* para crear el ámbito. Repita este paso para agregar todos los ámbitos compatibles con la API.
+1. Seleccione el botón **Agregar un ámbito** para mostrar la página **Agregar un ámbito**. Después, cree un ámbito compatible con la API (por ejemplo, `Files.Read`). Por último, seleccione el botón **Agregar ámbito** para crear el ámbito. Repita este paso para agregar todos los ámbitos compatibles con la API.
 
-1. Cuando se cree el ámbito, anótelo para usarlo en un paso posterior. 
+1. Cuando se creen los ámbitos, anótelos para usarlos en un paso posterior. 
 
 ## <a name="register-another-application-in-azure-ad-to-represent-a-client-application"></a>Registro de otra aplicación en Azure AD que represente una aplicación cliente
 
 Todas las aplicaciones cliente que llamen a la API deben registrarse también como aplicación en Azure AD. En este ejemplo, la aplicación cliente es la consola del desarrollador en el portal para desarrolladores de API Management. A continuación se indica cómo registrar otra aplicación en Azure AD que represente la consola del desarrollador.
 
-1. Vaya a la página [Azure Portal: registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908). 
+1. Vaya a [Azure Portal](https://portal.azure.com) para registrar la aplicación. Busque y seleccione **Registros de API**.
 
 1. Seleccione **Nuevo registro**.
 
 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación: 
-    - En la sección **Nombre**, escriba un nombre significativo para la aplicación, que se mostrará a los usuarios de la aplicación, por ejemplo, `client-app`. 
-    - En la sección **Tipos de cuenta compatibles**, seleccione **Cuentas en cualquier directorio organizativo**. 
+    - En la sección **Nombre**, escriba un nombre significativo para la aplicación, que se mostrará a los usuarios de la aplicación, por ejemplo, *client-app*. 
+    - En la sección **Tipos de cuenta admitidos**, seleccione **Cuentas en cualquier directorio organizativo (cualquier directorio de Azure AD: multiinquilino)** . 
 
-1. En la sección **URI de redirección**, seleccione `Web` e introduzca la URL `https://contoso5.portal.azure-api.net/signin`.
+1. En la sección **URI de redirección**, seleccione `Web` e introduzca la dirección URL `https://contoso5.portal.azure-api.net/signin`.
 
 1. Seleccione **Registrar** para crear la aplicación. 
 
 1. En la página **Información general** de la aplicación, busque el valor de **Id. de aplicación (cliente)** y regístrelo para usarlo más tarde.
 
-Ahora, cree un secreto de cliente para esta aplicación que usaremos en un paso posterior.
+Ahora, cree un secreto de cliente para esta aplicación que se usará en un paso posterior.
 
 1. En la lista de páginas de la aplicación cliente, seleccione **Certificados y secretos** y **Nuevo secreto de cliente**.
 
@@ -97,17 +97,17 @@ Cuando se cree el secreto, anote el valor de clave para usarlo en un paso poster
 
 Ahora que hemos registrado dos aplicaciones que representan la API y la consola del desarrollador, es necesario conceder permisos para que la aplicación cliente pueda llamar a la aplicación back-end.  
 
-1. Vaya a **Registros de aplicaciones**. 
+1. Vaya a [Azure Portal](https://portal.azure.com) para conceder permisos a la aplicación cliente. Busque y seleccione **Registros de API**.
 
-1. Seleccione `client-app` y, en la lista de páginas de la aplicación, seleccione **Permisos de API**.
+1. Seleccione la aplicación cliente. Después, en la lista de páginas de la aplicación, seleccione **Permisos de API**.
 
 1. Seleccione **Agregar un permiso**.
 
-1. En **Seleccionar una API**, busque y seleccione `backend-app`.
+1. En **Seleccionar una API**, seleccione **Mis API** y busque y seleccione la aplicación de back-end.
 
-1. En **Permisos delegados**, seleccione los permisos adecuados para `backend-app` y, luego, haga clic en **Agregar permisos**.
+1. En **Permisos delegados**, seleccione los permisos adecuados para la aplicación de back-end y, luego, seleccione **Agregar permisos**.
 
-1. De manera opcional, en la página **Permisos de API**, haga clic en **Grant admin consent for <your-tenant-name>** (Conceder consentimiento del administrador para <nombre-de-inquilino>) en la parte inferior de la página para conceder el consentimiento en nombre de todos los usuarios de este directorio. 
+1. De manera opcional, en la página **Permisos de API**, seleccione **Conceder consentimiento del administrador para \<nombre-de-inquilino>** para conceder el consentimiento en nombre de todos los usuarios de este directorio. 
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>Habilitación de la autorización de usuario OAuth 2.0 en la consola del desarrollador
 

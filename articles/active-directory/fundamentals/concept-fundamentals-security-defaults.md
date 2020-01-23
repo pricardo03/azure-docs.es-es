@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 01/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83a839d75757bcee14d7f696d2d11d1d7d8fa4cc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 589d8219681304242585c9fed33a4e3d364909ec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422843"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978901"
 ---
 # <a name="what-are-security-defaults"></a>¿Cuáles son los valores de seguridad predeterminados?
 
@@ -28,7 +28,10 @@ Microsoft pone los valores de seguridad predeterminados a disposición de todos 
 
 ![Captura de pantalla de Azure Portal con el botón de alternancia para habilitar los valores predeterminados de seguridad](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
  
-Las siguientes configuraciones de seguridad se activarán en el inquilino. 
+> [!TIP]
+> Si el inquilino se creó a partir del 22 de octubre del 2019, es posible que esté experimentando el nuevo comportamiento seguro por defecto y que ya tenga habilitados los valores predeterminados de seguridad en el inquilino. En un esfuerzo por proteger a todos nuestros usuarios, los valores predeterminados de seguridad se están implementando en todos los nuevos inquilinos creados.
+
+Para más información sobre por qué los valores predeterminados de seguridad se están poniendo a disposición de todos, vea la entrada de blog de Alex Weinert, [Presentación de los valores predeterminados de seguridad](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414).
 
 ## <a name="unified-multi-factor-authentication-registration"></a>Registro unificado de Multi-Factor Authentication
 

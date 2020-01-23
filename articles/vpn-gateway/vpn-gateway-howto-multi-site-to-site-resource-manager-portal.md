@@ -1,19 +1,20 @@
 ---
-title: 'Adición de varias conexiones sitio a sitio de una instancia de VPN Gateway a una red virtual: Azure Portal: Resource Manager| Microsoft Docs'
+title: 'Adición de varias conexiones sitio a sitio de una instancia de VPN Gateway a una red virtual: Azure Portal'
 description: Agregar conexiones S2S de varios sitios a VPN Gateway con una conexión existente
 services: vpn-gateway
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: d2c32fd35bbc6de1f010013c40a06af69052d3f5
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 7b438f2b966dc43d41b91a138b39193d230d5546
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244621"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779695"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Agregar una conexión de sitio a sitio a una red virtual con una conexión de VPN Gateway existente
 
@@ -49,16 +50,16 @@ Compruebe los siguientes aspectos:
 2. Haga clic en **Todos los recursos**, localice su **puerta de enlace de red virtual** en la lista de recursos y haga clic en ella.
 3. En la página **Puerta de enlace de red virtual**, haga clic en **Conexiones**.
    
-    ![Página de conexiones](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Página de conexiones")<br>
+    ![Página Conexiones](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Página Conexiones")<br>
 4. En la página **Conexiones**, haga clic en **+Agregar**.
    
     ![Botón Agregar conexión](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Botón Agregar conexión")<br>
 5. En la página **Agregar conexión**, rellene los campos siguientes:
    
-   * **Nombre**: el nombre que quiere darle al sitio para el que está creando la conexión.
+   * **Nombre:** el nombre que quiere darle al sitio para el que está creando la conexión.
    * **Tipo de conexión**: seleccione **De sitio a sitio (IPsec)** .
      
-     ![Agregar página de conexión](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Add connection page")<br>
+     ![Página Agregar conexión](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Página Agregar conexión")<br>
 
 ## <a name="part2"></a>Parte 2: Agregar una puerta de enlace de red local
 1. Haga clic en **Puerta de enlace de red local** ***Elegir una puerta de enlace de red local***. Se abre la página **Elegir puerta de enlace de red local**.
@@ -66,10 +67,10 @@ Compruebe los siguientes aspectos:
     ![Elegir puerta de enlace de red local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Elegir puerta de enlace de red local")<br>
 2. Haga clic en **Crear nueva** para abrir la página **Crear puerta de enlace de red local**.
    
-    ![Página Crear puerta de enlace de red local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Create local network gateway")<br>
+    ![Página Crear puerta de enlace de red local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Crear puerta de enlace de red local")<br>
 3. En la página **Crear puerta de enlace de red local**, rellene los campos siguientes:
    
-   * **Nombre**: el nombre que quiere darle al recurso de puerta de enlace de red local.
+   * **Nombre:** el nombre que quiere darle al recurso de puerta de enlace de red local.
    * **Dirección IP**: la dirección IP pública del dispositivo VPN del sitio al que quiere conectarse.
    * **Espacio de direcciones**: el espacio de direcciones al que quiere que se enrute el nuevo sitio de red local.
 4. Haga clic en **Aceptar** en la página **Crear puerta de enlace de red local** para guardar los cambios.

@@ -1,5 +1,5 @@
 ---
-title: Carga de archivos en una cuenta de Azure Media Services mediante REST | Microsoft Docs
+title: Carga de archivos en una cuenta de Azure Media Services v3 mediante REST | Microsoft Docs
 description: Aprenda a obtener contenido multimedia en Media Services mediante la creación y carga de recursos.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 78c07330558241c889f284bcaf7302ce1327b5b8
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: a9fd38b857f513ff67ae2fbe4ccd0c6c9540967e
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389801"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779168"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carga de archivos en una cuenta de Media Services mediante API de REST
 
@@ -26,7 +26,7 @@ En Media Services, cargue los archivos digitales en un contenedor de blobs asoci
 
 En este artículo se muestra cómo cargar un archivo local con REST.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar los pasos descritos en este tema, ha de:
 

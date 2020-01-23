@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/21/2019
-ms.openlocfilehash: 49c925cfe61084d8fedfdf953d469db4bd2c10b1
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 714faa43f34de965055ceba80de08972dd4192ac
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792679"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861207"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar el acceso a los recursos de Azure mediante identidades administradas en Azure Logic Apps
 
@@ -24,7 +24,7 @@ Para más información, consulte los temas siguientes:
 * [Tipos de autenticación que se admiten en llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
 * [Límites de identidad administrada para aplicaciones lógicas](../logic-apps/logic-apps-limits-and-config.md#managed-identity)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una suscripción de Azure, si no tiene una, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). La identidad administrada y el recurso Azure de destino al que quiere tener acceso deben tener la misma suscripción a Azure.
 
@@ -42,8 +42,6 @@ A diferencia de las identidades asignadas por el usuario, no tiene que crear man
 
 * [Azure Portal](#azure-portal-system-logic-app)
 * [Plantillas del Administrador de recursos de Azure](#template-system-logic-app)
-* [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
-* [CLI de Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)
 
 <a name="azure-portal-system-logic-app"></a>
 
@@ -59,7 +57,7 @@ A diferencia de las identidades asignadas por el usuario, no tiene que crear man
 
    ![Identificador de objeto para la identidad asignada por el sistema](./media/create-managed-service-identity/object-id.png)
 
-   | Propiedad | Valor | DESCRIPCIÓN |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Id. de objeto** | <*identity-resource-ID*> | Un identificador único global (GUID) que representa la identidad asignada por el sistema para la aplicación lógica en un inquilino de Azure AD |
    ||||
@@ -105,7 +103,7 @@ Cuando Azure crea la definición de recurso de la aplicación lógica, el objeto
 }
 ```
 
-| Propiedad (JSON) | Valor | DESCRIPCIÓN |
+| Propiedad (JSON) | Value | Descripción |
 |-----------------|-------|-------------|
 | `principalId` | <*principal-ID*> | El identificador único global (GUID) del objeto de entidad de servicio para la identidad administrada que representa la aplicación lógica en el inquilino de Azure AD. Este GUID aparece a veces como "Id. de objeto" o `objectID`. |
 | `tenantId` | <*Azure-AD-tenant-ID*> | El identificador único global (GUID) que representa un inquilino de Azure AD del que la aplicación lógica es ahora miembro. En el inquilino de Azure AD, la entidad de servicio tiene el mismo nombre que la instancia de aplicación lógica. |
@@ -115,7 +113,17 @@ Cuando Azure crea la definición de recurso de la aplicación lógica, el objeto
 
 ## <a name="give-identity-access-to-resources"></a>Conceder acceso de identidad a los recursos
 
-Después de crear una identidad administrada para la aplicación lógica, puede [proporcionar a dicha identidad acceso a otros recursos de Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Después, puede usar esa identidad para la autenticación.
+Antes de poder usar la identidad administrada asignada por el sistema de la aplicación lógica para la autenticación, conceda a esa identidad acceso al recurso de Azure en el que planee usar la identidad. Para completar esta tarea, asigne el rol adecuado a esa identidad en el recurso de Azure de destino. Estas son las opciones que puede usar:
+
+* [Azure Portal](#azure-portal-assign-access)
+* [Plantilla de Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
+* Azure PowerShell ([New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)): para más información, vea [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+* CLI de Azure ([az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)): para más información, vea [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y la CLI de Azure](../role-based-access-control/role-assignments-cli.md).
+* [API de REST de Azure](../role-based-access-control/role-assignments-rest.md)
+
+<a name="azure-portal-assign-access"></a>
+
+### <a name="assign-access-in-the-azure-portal"></a>Asignación del acceso en Azure Portal
 
 1. En el [Azure Portal](https://portal.azure.com), vaya al recurso de Azure en el que quiere asignar acceso para la identidad administrada.
 
@@ -165,12 +173,12 @@ En estos pasos se muestra cómo usar la identidad administrada con un desencaden
 
    Por ejemplo, el desencadenador o la acción HTTP pueden usar la identidad asignada por el sistema que habilitó para la aplicación lógica. En general, el desencadenador o la acción HTTP utiliza estas propiedades para especificar el recurso o la entidad a los que desea obtener acceso:
 
-   | Propiedad | Obligatorio | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Método** | Sí | El método HTTP usado por la operación que desea ejecutar |
    | **URI** | Sí | La dirección URL del punto de conexión para acceder a la entidad o recurso de Azure de destino. La sintaxis del URI normalmente incluye el [Id. de recurso](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) para el recurso o servicio de Azure. |
-   | **Encabezados** | Sin | Los valores de encabezado que necesita o desea incluir en la solicitud saliente, como el tipo de contenido |
-   | **Consultas** | Sin | Los parámetros de consulta que necesita o desea incluir en la solicitud, como el parámetro para una operación específica o la versión de la API para la operación que desea ejecutar |
+   | **Encabezados** | No | Los valores de encabezado que necesita o desea incluir en la solicitud saliente, como el tipo de contenido |
+   | **Consultas** | No | Los parámetros de consulta que necesita o desea incluir en la solicitud, como el parámetro para una operación específica o la versión de la API para la operación que desea ejecutar |
    | **Autenticación** | Sí | El tipo de autenticación que se va a usar para autenticar el acceso al recurso o entidad de destino |
    ||||
 
@@ -181,7 +189,7 @@ En estos pasos se muestra cómo usar la identidad administrada con un desencaden
 
    Para ejecutar la [operación blob de instantáneas](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob), la acción HTTP especifica estas propiedades:
 
-   | Propiedad | Obligatorio | Valor de ejemplo | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Valor de ejemplo | Descripción |
    |----------|----------|---------------|-------------|
    | **Método** | Sí | `PUT`| El método HTTP que utiliza la operación blob de instantáneas |
    | **URI** | Sí | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | El identificador de recurso de un archivo Azure Blob Storage en el entorno de Azure Global (público), que usa esta sintaxis |

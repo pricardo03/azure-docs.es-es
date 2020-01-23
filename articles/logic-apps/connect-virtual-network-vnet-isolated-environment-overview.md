@@ -5,28 +5,28 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 11/08/2019
-ms.openlocfilehash: 9c4dca6dc5def1b1c458f28aa2d3ab992bd705d2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/16/2019
+ms.openlocfilehash: d8d57c15fffaa6a9d18ad3c83716f99247512c15
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792721"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860763"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)
 
 A veces, sus cuentas de integración y aplicaciones lógicas necesitan tener acceso a recursos protegidos, como máquinas virtuales y otros sistemas o servicios dentro de una red de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Para configurar este acceso, puede [crear un *Entorno del servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) en el que ejecutar las aplicaciones lógicas y crear las cuentas de integración.
 
-Cuando crea un ISE, Azure *inserta* ese ISE en la red virtual de Azure que, luego, implementa una instancia privada y aislada del servicio Logic Apps en la red virtual de Azure. La instancia privada usa recursos dedicados, como almacenamiento, y se ejecuta aparte del servicio Logic Apps público "global". El hecho de separar la instancia privada aislada y la instancia global pública también ayuda a reducir el impacto que podrían tener otros inquilinos de Azure en el rendimiento de la aplicación, también conocido como el [efecto "vecinos ruidosos"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
+Cuando crea un ISE, Azure *inserta* ese ISE en la red virtual de Azure que, luego, implementa una instancia privada y aislada del servicio Logic Apps en la red virtual de Azure. La instancia privada usa recursos dedicados, como almacenamiento, y se ejecuta aparte del servicio Logic Apps público "global" multiinquilino. El hecho de separar la instancia privada aislada y la instancia global pública también ayuda a reducir el impacto que podrían tener otros inquilinos de Azure en el rendimiento de la aplicación, también conocido como el [efecto "vecinos ruidosos"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). Un ISE también le proporciona sus propias direcciones IP estáticas. Estas direcciones IP son independientes de las direcciones IP estáticas que comparten las aplicaciones lógicas en el servicio multiinquilino público.
 
 Después de crear el ISE, cuando vaya a crear la aplicación lógica o la cuenta de integración, puede seleccionar el ISE como ubicación de la aplicación lógica o la cuenta de integración:
 
 ![Selección del entorno de servicio de integración](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
-Ahora, la aplicación lógica puede acceder directamente a los sistemas que están dentro de la red virtual o conectados a esta mediante cualquiera de estos elementos:
+Ahora, la aplicación lógica puede acceder directamente a los sistemas que están dentro de la red virtual o conectados a esta mediante cualquiera de estos elementos, que se ejecutan dentro del mismo ISE que la aplicación lógica:
 
 * Un conector con la etiqueta **ISE** para ese sistema
-* Un desencadenador o acción integrados con la etiqueta **Core**, como la acción o el desencadenador HTTP.
+* Una acción o desencadenador integrado con la etiqueta **CORE**, como la acción o el desencadenador HTTP.
 * Un conector personalizado.
 
 En esta introducción se describen más detalles sobre cómo un ISE proporciona a las aplicaciones lógicas y las cuentas de integración acceso directo a la red de Azure Virtual Network y se comparan las diferencias entre un ISE y el servicio Logic Apps global.
@@ -43,23 +43,21 @@ En esta introducción se describen más detalles sobre cómo un ISE proporciona 
 
 Al crear un Entorno del servicio integrado (ISE) en Azure, puede seleccionar la red de Azure Virtual Network donde quiera *insertar* el ISE. Después, Azure inserta (o implementa) una instancia privada del servicio Logic Apps en la red virtual. Esta acción crea un entorno aislado donde puede crear y ejecutar las aplicaciones lógicas en recursos dedicados. Cuando cree una aplicación lógica, seleccione el ISE como ubicación de la aplicación, lo que proporciona a la aplicación lógica acceso directo a la red virtual y a los recursos contenidos en ella.
 
-Las aplicaciones lógicas de una instancia de ISE proporcionan las mismas experiencias de usuario y funcionalidades similares que el servicio global de Logic Apps. No solo puede usar los mismos conectores integrados, acciones integradas y conectores del servicio Logic Apps global, sino que también puede usar conectores específicos del ISE. Por ejemplo, a continuación se muestran algunos conectores estándar que ofrecen versiones que se ejecutan en un ISE:
+Las aplicaciones lógicas de una instancia de ISE proporcionan las mismas experiencias de usuario y funcionalidades similares que el servicio público global de Logic Apps. Puede usar los mismos desencadenadores, acciones y conectores administrados integrados que están disponibles en el servicio global de Logic Apps. Algunos conectores administrados ofrecen versiones de ISE adicionales. La diferencia existe en el lugar donde se ejecutan y las etiquetas que se muestran en el diseñador de aplicación lógica cuando se trabaja en un ISE.
 
-* Azure Blob Storage, File Storage y Table Storage
-* Azure Queues, Azure Service Bus, Azure Event Hubs e IBM MQ
-* Sistema de archivos, FTP y SFTP-SSH
-* SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
-* AS2, X12 y EDIFACT
+![Conectores con y sin etiquetas en un ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-built-in-actions-triggers-managed-connectors.png)
 
-La diferencia entre los conectores de ISE y de otro tipo radica en las ubicaciones donde se ejecutan los desencadenadores y las acciones:
+* Las acciones y los desencadenadores integrados muestran la etiqueta **CORE** y se ejecutan en el mismo ISE que la aplicación lógica. Los conectores administrados en los que se muestra la etiqueta **ISE** también se ejecutan en el mismo ISE que la aplicación lógica.
 
-* En el ISE, los desencadenadores y acciones integrados, como HTTP, siempre se ejecutan en el mismo ISE que la aplicación lógica y muestran la etiqueta **Core**.
+  Por ejemplo, estos son algunos conectores que ofrecen versiones de ISE:
 
-  ![Selección de desencadenadores y acciones integrados "Core"](./media/connect-virtual-network-vnet-isolated-environment-overview/select-core-built-in-actions-triggers.png)
+  * Azure Blob Storage, File Storage y Table Storage
+  * Azure Queues, Azure Service Bus, Azure Event Hubs e IBM MQ
+  * FTP y SFTP-SSH
+  * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
+  * AS2, X12 y EDIFACT
 
-* Los conectores que se ejecutan en un ISE también tienen versiones hospedadas públicamente en el servicio Logic Apps global. En el caso de los conectores que ofrecen dos versiones, los que tienen la etiqueta **ISE** siempre se ejecutan en el mismo ISE que la aplicación lógica. Los conectores sin la etiqueta **ISE** se ejecutan en el servicio global de Logic Apps.
-
-  ![Selección de los conectores de ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
+* Los conectores administrados que no muestran etiquetas adicionales siempre se ejecutan en el servicio público global de Logic Apps, pero puede seguir usando estos conectores en una aplicación lógica basada en ISE.
 
 Un ISE también proporciona mayores límites de duración de ejecución, retención de almacenamiento, rendimiento, solicitud HTTP y tiempos de espera de respuesta, tamaños de mensaje y solicitudes del conector personalizado. Para más información, consulte el artículo de [límites y configuración para Azure Logic Apps](logic-apps-limits-and-config.md).
 
@@ -86,11 +84,13 @@ Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://az
 
 ## <a name="ise-endpoint-access"></a>Acceso al punto de conexión del ISE
 
-Al crear el ISE, puede optar por usar puntos de conexión de acceso internos o externos. Estos puntos de conexión determinan si los desencadenadores de solicitudes o de webhooks de las aplicaciones lógicas del ISE pueden recibir llamadas desde fuera de la red virtual o no. Estos puntos de conexión también afectan al acceso a las entradas y salidas del historial de ejecuciones de la aplicación lógica.
+Al crear el ISE, puede optar por usar puntos de conexión de acceso internos o externos. La selección determina si los desencadenadores de solicitudes o de webhooks de las aplicaciones lógicas del ISE pueden recibir llamadas desde fuera de la red virtual o no.
 
-* **Internas**: Puntos de conexión privados que permiten llamadas a aplicaciones lógicas del ISE y acceso a las entradas y salidas del historial de ejecuciones solo *desde dentro de la red virtual*
+Estos puntos de conexión también afectan a la manera en que puede acceder a las entradas y salidas en el historial de ejecución de las aplicaciones lógicas.
 
-* **Externas**: Puntos de conexión públicos que permiten llamadas a aplicaciones lógicas del ISE y acceso a las entradas y salidas del historial de ejecuciones *desde fuera de la red virtual*
+* **Internas**: puntos de conexión privados que permiten llamadas a aplicaciones lógicas del ISE donde puede ver las entradas y salidas de las aplicaciones lógicas del historial de ejecuciones, así como acceder a dichas entradas y salidas, *solo desde dentro de la red virtual*.
+
+* **Externas**: puntos de conexión públicos que permiten llamadas a aplicaciones lógicas del ISE donde puede ver las entradas y salidas de las aplicaciones lógicas del historial de ejecuciones, así como acceder a dichas entradas y salidas, *desde fuera de la red virtual*. Si usa grupos de seguridad de red (NSG), asegúrese de que están configurados con reglas de entrada para permitir el acceso a las entradas y salidas del historial de ejecución. Para más información, consulte [Habilitar el acceso para el ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
 
 > [!IMPORTANT]
 > La opción del punto de conexión de acceso solo está disponible durante la creación del ISE y no se puede cambiar más adelante.

@@ -10,21 +10,24 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 8fe07318d33980ad3ec9fc3d6e8749c6c9aed42e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3c2cc3c280ba0da474898bed93bb8533a42ab07f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442541"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967345"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar un nombre de dominio personalizado
 
-Cuando se crea una instancia del servicio Azure API Management (APIM), Azure le asigna el subdominio de azure-api.net (por ejemplo, `apim-service-name.azure-api.net`). Sin embargo, los puntos de conexión de APIM se pueden exponer con su propio nombre de dominio personalizado, como **contoso.com**. En este tutorial se muestra cómo asignar un nombre DNS personalizado existente a los puntos de conexión expuestos por una instancia de API Management.
+Cuando se crea una instancia del servicio Azure API Management, Azure le asigna un subdominio de `azure-api.net` (por ejemplo, `apim-service-name.azure-api.net`). Sin embargo, los puntos de conexión de APIM se pueden exponer con su propio nombre de dominio personalizado, como **contoso.com**. En este tutorial se muestra cómo asignar un nombre DNS personalizado existente a los puntos de conexión expuestos por una instancia de API Management.
+
+> [!IMPORTANT]
+> API Management solo acepta solicitudes con valores de [encabezado de host](https://tools.ietf.org/html/rfc2616#section-14.23) que coinciden con el nombre de dominio predeterminado o con cualquiera de los nombres de dominio personalizados configurados.
 
 > [!WARNING]
-> Los clientes que deseen usar la asignación de certificados para mejorar la seguridad de sus aplicaciones deben usar un nombre de dominio personalizado > y el certificado que administran, no el certificado predeterminado. Los clientes que asignen el certificado predeterminado en su lugar tendrán > una gran dependencia de las propiedades del certificado que no controlen, no siendo esto una práctica recomendada.
+> Los clientes que deseen usar la asignación de certificados para mejorar la seguridad de sus aplicaciones deben usar un nombre de dominio personalizado > y el certificado que administran, no el certificado predeterminado. Los clientes que asignen el certificado predeterminado en su lugar tendrán una gran dependencia de las propiedades del certificado que no controlen, lo que no es un procedimiento recomendado.
 
 ## <a name="prerequisites"></a>Prerequisites
 

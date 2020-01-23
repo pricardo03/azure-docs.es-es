@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 4cd4cffdb0357b1cd73b1613e52c2a6c1a60f71e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc861126cd723bbb0f7c43d5d2db4eed1503605a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457054"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911889"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Seguimiento de mensajes del dispositivo a la nube de Azure IoT con seguimiento distribuido (versión preliminar)
 
@@ -208,15 +208,15 @@ Para cambiar el porcentaje de mensajes que se van a seguir desde la nube, debe a
 
 1. (Opcional) Cambie la velocidad de muestreo a un valor diferente y observe el cambio en la frecuencia con la que los mensajes incluyen `tracestate` en las propiedades de la aplicación.
 
-### <a name="update-using-azure-iot-hub-toolkit-for-vs-code"></a>Actualización del uso de Azure IoT Hub Toolkit para VS Code
+### <a name="update-using-azure-iot-hub-for-vs-code"></a>Actualización mediante Azure IoT Hub para VS Code
 
-1. Instale VS Code y luego instale la versión más reciente del kit de herramientas de Azure IoT Hub para VS Code desde [aquí](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+1. Instale VS Code y luego instale la última versión de Azure IoT Hub para VS Code desde [aquí](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 1. Abra VS Code y [configure la cadena de conexión de IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites).
 
 1. Expanda el dispositivo y busque **Distributed Tracing Setting (Preview)** (Configuración del seguimiento distribuido [versión preliminar]). Aquí, haga clic en **Update Distributed Tracing Setting (Preview)** (Actualizar configuración del seguimiento distribuido [versión preliminar]) del nodo secundario.
 
-    ![Habilitación del seguimiento distribuido en el kit de herramientas de Azure IoT Hub](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
+    ![Habilitación del seguimiento distribuido en la extensión Azure IoT Hub](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
 1. En la ventana emergente, seleccione **Habilitar** y presione Entrar para confirmar 100 como la velocidad de muestreo.
 

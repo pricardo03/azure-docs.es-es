@@ -3,16 +3,16 @@ title: Características de seguridad para proteger cargas de trabajo en la nube
 description: Aprenda a usar las características de seguridad de Azure Backup para que las copias de seguridad sean más seguras.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 9a3c13856d3c130f2396488fed09313578dda79c
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: e4519a342e1be3244b5d4598880e9ad490f50030
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75496927"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028210"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Características de seguridad para proteger cargas de trabajo en la nube mediante Azure Backup
 
-Cada vez es mayor la preocupación que generan problemas de seguridad como malware, ransomware e intrusión. Estos problemas de seguridad pueden ser costosos, en términos de dinero y datos. Para protegerse contra dichos ataques, Azure Backup proporciona características de seguridad que protegen los datos de las copias de seguridad incluso después de su eliminación. Una de estas características es la eliminación temporal. Con la eliminación temporal, aunque un individuo malintencionado elimine la copia de seguridad de una máquina virtual (o se eliminen por accidente datos de copia de seguridad), los datos de copia de seguridad se conservan durante 14 días adicionales, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado "eliminación temporal" no acarrea costo alguno para el cliente. Azure también cifra todos los datos de copia de seguridad en reposo mediante [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) para proteger aún más los datos.
+Cada vez es mayor la preocupación que generan problemas de seguridad como malware, ransomware e intrusión. Estos problemas de seguridad pueden ser costosos, en términos de dinero y datos. Para protegerse contra dichos ataques, Azure Backup proporciona características de seguridad que protegen los datos de las copias de seguridad incluso después de su eliminación. Una de estas características es la eliminación temporal. Con la eliminación temporal, aunque un individuo malintencionado elimine la copia de seguridad de una máquina virtual (o se eliminen por accidente datos de copia de seguridad), los datos de copia de seguridad se conservan durante 14 días adicionales, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado "eliminación temporal" no acarrea costo alguno para el cliente. Azure cifra también todos los datos en reposo con copia de seguridad mediante [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) para proteger aún más los datos.
 
 > [!NOTE]
 > La eliminación temporal solo protege los datos de copia de seguridad eliminados. Si se elimina una máquina virtual sin una copia de seguridad, la característica de eliminación temporal no conservará los datos. Todos los recursos deben protegerse con Azure Backup para garantizar una resistencia total.
@@ -41,7 +41,7 @@ La eliminación temporal se admite actualmente en Centro-oeste de EE. UU., Asia
    > [!NOTE]
    > Si algún elemento de copia de seguridad eliminado temporalmente está presente en el almacén, no se podrá eliminar el almacén en ese momento. Pruebe a eliminar el almacén después de que se eliminen de forma permanente los elementos de copia de seguridad y no quede ningún elemento en estado de eliminación temporal en el almacén.
 
-4. Para restaurar la máquina virtual eliminada temporalmente, primero se debe recuperar. Para ello, seleccione la máquina virtual eliminada temporalmente y, a continuación, seleccione la opción **Recuperar**.
+4. Para restaurar la máquina virtual eliminada temporalmente, hay que eliminarla primero. Para ello, seleccione la máquina virtual eliminada temporalmente y, a continuación, seleccione la opción **Recuperar**.
 
    ![Captura de pantalla de Azure Portal, recuperación de máquina virtual](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
@@ -89,7 +89,7 @@ El elemento "DeleteState" del elemento de copia de seguridad cambiará de "NotDe
 
 #### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Deshacer la operación de eliminación mediante Azure PowerShell
 
-En primer lugar, capture el elemento de copia de seguridad pertinente que está en estado de eliminación temporal, es decir, que se va a eliminar.
+En primer lugar, capture el elemento de copia de seguridad pertinente que se encuentra en estado de eliminación temporal (es decir, que se va a eliminar).
 
 ```powershell
 
@@ -164,7 +164,7 @@ Los datos de copia de seguridad con el estado de eliminación temporal antes de 
 Siga estos pasos:
 
 1. Siga los pasos para [deshabilitar la eliminación temporal](#disabling-soft-delete).
-2. En Azure Portal, vaya al almacén, a **Elementos de copia de seguridad** y elija la máquina virtual eliminada temporalmente.
+2. En Azure Portal, vaya al almacén, a **Elementos de copia de seguridad** y elija la máquina virtual eliminada temporalmente.
 
 ![Selección de una máquina virtual eliminada temporalmente](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
@@ -232,19 +232,32 @@ Si los elementos se eliminaron antes de que se deshabilitara la eliminación tem
 2. Después, deshabilite la funcionalidad de eliminación temporal mediante la API REST siguiendo los pasos mencionados [aquí](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 3. Después, elimine las copias de seguridad mediante la API REST, como se mencionó [aquí](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
 
-## <a name="other-security-features"></a>Otras características de seguridad
+## <a name="encryption"></a>Cifrado
 
-### <a name="storage-side-encryption"></a>Cifrado del lado de almacenamiento
+### <a name="encryption-of-backup-data-using-microsoft-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas de Microsoft
 
-Azure Storage cifra automáticamente los datos al guardarlos en la nube. Mediante el cifrado, se protegen los datos y es más fácil cumplir los compromisos de cumplimiento y seguridad de la organización. Los datos de Azure Storage se cifran y descifran de forma transparente mediante el cifrado AES de 256 bits, uno de los cifrados de bloques más sólidos que hay disponibles, y son compatibles con FIPS 140-2. El cifrado de Azure Storage es similar al cifrado de BitLocker en Windows. Azure Backup cifra automáticamente los datos antes de almacenarlos. Azure Storage descifra los datos antes de recuperarlos.  
+Los datos de copia de seguridad se cifran automáticamente con cifrado de Azure Storage. Mediante el cifrado, se protegen los datos y es más fácil cumplir los compromisos de cumplimiento y seguridad de la organización. Los datos se cifran y descifran de forma transparente con cifrado AES de 256 bits, uno de los cifrados de bloques más sólidos que hay disponibles, que es compatible con FIPS 140-2. El cifrado de Azure Storage es similar al cifrado de BitLocker en Windows.
 
 Dentro de Azure, los datos en tránsito entre Azure Storage y el almacén se protegen mediante HTTPS. Estos datos permanecen en la red troncal de Azure.
 
-Para más información, consulte [Cifrado de Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).  Consulte las [preguntas más frecuentes sobre Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) para responder a cualquier pregunta que pueda tener sobre el cifrado.
+Para más información, consulte [Cifrado de Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Consulte las [preguntas más frecuentes sobre Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) para obtener respuesta a las dudas que pueda tener sobre el cifrado.
 
-### <a name="vm-encryption"></a>Cifrado de máquinas virtuales
+### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
+
+Mientras realiza una copia de seguridad de Azure Virtual Machines, también tiene la opción de cifrar los datos de copia de seguridad en el almacén de Recovery Services con las claves de cifrado almacenadas en la instancia de Azure Key Vault.
+
+>[!NOTE]
+>Esta característica no está disponible actualmente. Rellene [esta encuesta](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) si quiere cifrar los datos de copia de seguridad mediante claves administradas por el cliente. Tenga en cuenta que la posibilidad de utilizar esta característica está sujeta a la aprobación del servicio Azure Backup.
+
+### <a name="backup-of-managed-disk-vm-encrypted-using-customer-managed-keys"></a>Copia de seguridad de la máquina virtual de disco administrado cifrada con claves administradas por el cliente
+
+Azure Backup le permite realizar una copia de seguridad de Azure Virtual Machines que contiene discos cifrados con claves administradas por el cliente. Para obtener más información, consulte el artículo sobre [cifrado de discos administrados con claves administradas por el cliente](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
+
+### <a name="backup-of-encrypted-vms"></a>Copia de seguridad de máquinas virtuales cifradas
 
 Puede realizar una copia de seguridad de máquinas virtuales Windows o Linux de Azure con discos cifrados y restaurarlas mediante el servicio Azure Backup. Para obtener instrucciones, consulte [Copia de seguridad y restauración de máquinas virtuales cifradas con Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+
+## <a name="other-security-features"></a>Otras características de seguridad
 
 ### <a name="protection-of-azure-backup-recovery-points"></a>Protección de los puntos de recuperación de Azure Backup
 
@@ -286,7 +299,7 @@ No es posible eliminar el almacén de Recovery Services si contiene elementos de
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>¿Puedo eliminar los datos antes del período de eliminación temporal de 14 días posterior a la eliminación?
 
-No. No se puede forzar la eliminación de los elementos eliminados temporalmente; se eliminan automáticamente al cabo de 14 días. Esta característica de seguridad está habilitada para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas.  Debe esperar 14 días antes de realizar cualquier otra acción en la máquina virtual.  Los elementos eliminados temporalmente no se cobrarán.  Si necesita volver a proteger las máquinas virtuales marcadas para eliminación temporal en un plazo de 14 días en un nuevo almacén, póngase en contacto con Soporte técnico de Microsoft.
+No. No se puede forzar la eliminación de los elementos eliminados temporalmente; se eliminan automáticamente al cabo de 14 días. Esta característica de seguridad está habilitada para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas.  Debe esperar 14 días antes de realizar cualquier otra acción en la máquina virtual.  Los elementos eliminados temporalmente no se cobrarán.  Si tiene que volver a proteger las máquinas virtuales marcadas para eliminación temporal en un plazo de 14 días en un nuevo almacén, póngase en contacto con Soporte técnico de Microsoft.
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>¿Se pueden realizar operaciones de eliminación temporal en PowerShell o la CLI?
 

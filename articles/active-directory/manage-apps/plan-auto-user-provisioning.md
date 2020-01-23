@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdf4e5dfc48fdeee86526257d6d8c47a464ce113
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b1e8128066794932abaca4290a5c896354522544
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786425"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732457"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planeamiento de una implementación del aprovisionamiento automático de usuarios
 
@@ -27,7 +27,7 @@ El aprovisionamiento automático de usuarios de Azure Active Directory (Azure�
 
 Consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) para comprender mejor la funcionalidad.
 
-## <a name="learn"></a>Aprender
+## <a name="learn"></a>Obtener información
 
 El aprovisionamiento de usuarios crea las bases de una gobernanza continua de identidades y mejora la calidad de los procesos de negocio que se basan en datos de identidades fidedignos.
 
@@ -138,7 +138,7 @@ La comunicación es fundamental para el éxito de cualquier servicio nuevo. Comu
 
 ### <a name="plan-a-pilot"></a>Planeamiento de un piloto
 
-Se recomienda que la configuración inicial del aprovisionamiento automático de usuarios esté en un entorno de prueba con un subconjunto de usuarios pequeño antes de escalarla a todos los usuarios de producción.
+Se recomienda que la configuración inicial del aprovisionamiento automático de usuarios esté en un entorno de prueba con un subconjunto de usuarios pequeño antes de escalarla a todos los usuarios de producción. Vea los [procedimientos recomendados](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans#best-practices-for-a-pilot) para ejecutar un piloto.
 
 #### <a name="best-practices-for-a-pilot"></a>Procedimientos recomendados para un piloto  
 
@@ -289,7 +289,7 @@ Para saber cuánto tiempo tardan los ciclos de aprovisionamiento y supervisar el
 
 Azure AD puede proporcionar [información adicional](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) sobre el uso del aprovisionamiento de usuarios y el estado operativo mediante registros de auditoría e informes.
 
-Los administradores deben comprobar el informe de resumen del aprovisionamiento para supervisar el estado operativo del trabajo de aprovisionamiento. Todas las actividades realizadas por el servicio de aprovisionamiento se registran en los registros de aprovisionamiento de Azure AD. Vea [Tutorial: Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](https://docs.microsoft.com/azure/active-directory/manage-apps/check-status-user-account-provisioning).
+Los administradores deben comprobar el informe de resumen del aprovisionamiento para supervisar el estado operativo del trabajo de aprovisionamiento. Todas las actividades realizadas por el servicio de aprovisionamiento se registran en los registros de aprovisionamiento de Azure AD. Consulte [Tutorial: Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](https://docs.microsoft.com/azure/active-directory/manage-apps/check-status-user-account-provisioning).
 
 Se recomienda asumir la propiedad de estos informes y consumirlos según una cadencia que cumpla con los requisitos de la organización. Azure AD conserva la mayoría de los datos de auditoría durante 30 días.
 

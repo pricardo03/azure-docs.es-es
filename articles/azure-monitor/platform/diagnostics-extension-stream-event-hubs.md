@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 2b84f752467d630142f1920aac08bf5321b13acb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 433d53e09fce6d3f6b2010956da91c4b7cf91d49
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363734"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770176"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Event Hubs
 Diagnósticos de Azure proporciona maneras flexibles de recopilar métricas y registros de máquinas virtuales de servicios en la nube (VM) y transferir los resultados a Azure Storage. A partir de marzo de 2016 (SDK 2.9), puede enviar diagnósticos a orígenes de datos personalizados y transferir datos de rutas de acceso activas en cuestión de segundos mediante [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -21,8 +21,7 @@ Entre los tipos de datos admitidos se incluyen:
 
 * Eventos de Seguimiento de eventos para Windows (ETW)
 * Contadores de rendimiento
-* Registros de eventos de Windows
-* Registros de aplicación
+* Registros de eventos de Windows, incluidos los registros de aplicaciones en el registro de eventos de Windows
 * Registros de infraestructura de diagnóstico de Azure
 
 En este artículo se muestra cómo configurar Diagnósticos de Azure con Event Hubs de manera integral. También se proporcionan instrucciones para los siguientes escenarios comunes:

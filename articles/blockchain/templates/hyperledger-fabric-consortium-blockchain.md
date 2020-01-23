@@ -4,16 +4,19 @@ description: Implementación y configuración de la plantilla de la solución de
 ms.date: 05/09/2019
 ms.topic: article
 ms.reviewer: caleteet
-ms.openlocfilehash: be35cfa26204b36ad65da91252144b9167cb9e54
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 3e7dcd3cdcfa636c0b23ac6643bd7732e7f8ada0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325129"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029167"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Red del consorcio de Hyperledger Fabric
 
 Puede usar la plantilla de la solución del consorcio de Hyperledger Fabric para implementar y configurar una red del consorcio de Hyperledger Fabric en Azure.
+
+> [!IMPORTANT]
+> La plantilla [Hyperledger Fabric de Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-azure-blockchain.azure-blockchain-hyperledger-fabric) quedará en desuso. En su lugar, use [Hyperledger Fabric en Azure Kubernetes Service](hyperledger-fabric-consortium-azure-kubernetes-service.md).  
 
 Después de leer este artículo, habrá aprendido lo siguiente:
 
@@ -70,7 +73,7 @@ En **Aspectos básicos**, especifique los valores para los parámetros estándar
 
 ![Aspectos básicos](./media/hyperledger-fabric-consortium-blockchain/basics.png)
 
-| Nombre de parámetro | DESCRIPCIÓN | Valores permitidos |
+| Nombre de parámetro | Descripción | Valores permitidos |
 |---|---|---|
 **Prefijo de recurso** | Prefijo del nombre de los recursos aprovisionados como parte de la implementación. |6 caracteres o menos |
 **Nombre de usuario** | El nombre de usuario del administrador de cada una de las máquinas virtuales implementadas para este miembro. |Entre 1 y 64 caracteres |
@@ -89,12 +92,12 @@ En **Configuración de red**, especifique las entradas para crear una red para e
 
 ![Configuración de red del consorcio](./media/hyperledger-fabric-consortium-blockchain/network-settings.png)
 
-| Nombre de parámetro | DESCRIPCIÓN | Valores permitidos |
+| Nombre de parámetro | Descripción | Valores permitidos |
 |---|---|---|
 **Configuración de la red** |Puede elegir entre crear una red o unirse a una existente. Si elige *Unirse a existente*, debe proporcionar valores adicionales. |Nueva red <br/> Unirse a existente |
 **Contraseña de la entidad de certificación HLF** |Una contraseña utilizada para los certificados generada por las entidades de certificación que se crean como parte de la implementación. La contraseña debe contener tres de los siguientes tipos de caracteres: 1 letra mayúscula, 1 letra minúscula, 1 número y 1 carácter especial.<br /><br />Aunque todas las máquinas virtuales tienen inicialmente la misma contraseña, puede cambiarla después del aprovisionamiento.|Entre 1 y 25 caracteres |
 **Configuración de la organización** |Puede personalizar el nombre y el certificado de su organización o usar valores predeterminados.|Valor predeterminado <br/> Avanzado |
-**Configuración de red VPN** | Puede aprovisionar una puerta de enlace de un túnel de VPN para acceder a las máquinas virtuales. | Sí <br/> Sin |
+**Configuración de red VPN** | Puede aprovisionar una puerta de enlace de un túnel de VPN para acceder a las máquinas virtuales. | Sí <br/> No |
 
 Seleccione **Aceptar**.
 
@@ -104,7 +107,7 @@ En **Configuración de Fabric**, configure el tamaño y rendimiento de la red y 
 
 ![Configuración de Fabric](./media/hyperledger-fabric-consortium-blockchain/fabric-specific-settings.png)
 
-| Nombre de parámetro | DESCRIPCIÓN | Valores permitidos |
+| Nombre de parámetro | Descripción | Valores permitidos |
 |---|---|---|
 **Tipo de escala** |El tipo de implementación de una única máquina virtual con varios contenedores o de varias máquinas virtuales en un modelo de escalabilidad horizontal.|Máquina virtual única o varias máquinas virtuales |
 **Tipo de disco de máquina virtual** |El tipo de almacenamiento que respalda cada uno de los nodos implementados. <br/> Para más información acerca de los tipos de disco disponibles, visite [Selección de un tipo de disco](../../virtual-machines/windows/disks-types.md).|SSD estándar <br/> SSD Premium |
@@ -113,7 +116,7 @@ En **Configuración de Fabric**, configure el tamaño y rendimiento de la red y 
 
 ![Configuración de Fabric para implementaciones de varias máquinas virtuales](./media/hyperledger-fabric-consortium-blockchain/multiple-vm-deployment.png)
 
-| Nombre de parámetro | DESCRIPCIÓN | Valores permitidos |
+| Nombre de parámetro | Descripción | Valores permitidos |
 |---|---|---|
 **Número de nodos solicitantes** |El número de nodos que ordenan (organizan) transacciones en un bloque. <br />Para más información sobre el servicio de ordenación, consulte la [documentación](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) de Hyperledger. |1-4 |
 **Tamaño de la máquina virtual del nodo solicitante** |El tamaño de máquina virtual usado para los nodos solicitantes de la red.|Estándar BS,<br />Estándar DS,<br />Estándar FS |

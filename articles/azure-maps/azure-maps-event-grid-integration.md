@@ -1,6 +1,6 @@
 ---
-title: Reaccionar a eventos de Azure Maps mediante Event Grid | Microsoft Docs
-description: Aprenda a reaccionar a eventos de Azure Maps mediante Event Grid.
+title: Reacción a eventos de mapa mediante Event Grid | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre cómo reaccionar a eventos de Microsoft Azure Maps mediante Event Grid.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a70011b934398ac4e7f74bb67013e93bb5e86e4e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a946d189706c9c789ab884670d13b0b3e7fcb0c
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60799162"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911809"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reaccionar a eventos de Azure Maps mediante Event Grid 
 
@@ -30,7 +30,7 @@ Azure Event Grid es un servicio de enrutamiento de eventos totalmente administra
 
 Event Grid usa las [suscripciones a eventos](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) para enrutar los mensajes de eventos a los suscriptores. Una cuenta de Azure Maps emite los siguientes tipos de eventos: 
 
-| Tipo de evento | DESCRIPCIÓN |
+| Tipo de evento | Descripción |
 | ---------- | ----------- |
 | Microsoft.Maps.GeofenceEntered | Se genera cuando se mueven las coordenadas recibidas desde fuera de una determinada geovalla a dentro |
 | Microsoft.Maps.GeofenceExited | Se genera cuando se mueven las coordenadas recibidas desde dentro de una determinada geovalla a fuera |

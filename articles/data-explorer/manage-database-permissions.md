@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 36e1bb77be1e825e42f0e5d25457214a8b5f882d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4d5e56e990c0353f44209c6b19ae2d1727de27a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60758796"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030095"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Administración de permisos de base de datos del Explorador de datos de Azure
 
@@ -24,10 +24,10 @@ En este artículo se describen los roles disponibles y cómo asignar entidades d
 
 El Explorador de datos de Azure tiene los siguientes roles:
 
-|Rol                       |Permisos                                                                        |
+|Role                       |Permisos                                                                        |
 |---------------------------|-----------------------------------------------------------------------------------|
 |Administrador de base de datos             |Puede hacer cualquier cosa en el ámbito de una base de datos determinada.|
-|Usuario de base de datos              |Puede leer todos los datos y metadatos de la base de datos. Además, puede crear tablas (y convertirse en el administrador de tablas de esa tabla) y funciones en la base de datos.|
+|Usuario de la base de datos              |Puede leer todos los datos y metadatos de la base de datos. Además, puede crear tablas (y convertirse en el administrador de tablas de esa tabla) y funciones en la base de datos.|
 |Visor de base de datos            |Puede leer todos los datos y metadatos de la base de datos.|
 |Agente de ingesta de base de datos          |Puede ingerir datos de todas las tablas existentes de la base de datos, pero no consultar los datos.|
 |Supervisor de base de datos           |Puede ejecutar comandos ".show ..." en el contexto de la base de datos y sus entidades secundarias.|
@@ -36,7 +36,7 @@ El Explorador de datos de Azure tiene los siguientes roles:
 
 ## <a name="manage-permissions-in-the-azure-portal"></a>Administración de permisos en Azure Portal
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Vaya a su clúster del Explorador de datos de Azure.
 
@@ -73,6 +73,8 @@ El Explorador de datos de Azure tiene los siguientes roles:
     ```
 
     La salida del comando muestra la lista de usuarios existentes y los roles que tienen asignados en la base de datos.
+    
+    Para ver ejemplos relacionados con Azure Active Directory y el modelo de autorización de Kusto, consulte el artículo de [principios y proveedores de identidades](https://docs.microsoft.com/azure/kusto/management/access-control/principals-and-identity-providers).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

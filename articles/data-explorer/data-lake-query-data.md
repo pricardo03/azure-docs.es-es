@@ -7,14 +7,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: d572e7f3fceaf2df8ad0ec684eaa421922389e71
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1e5af0b45b8d2e2eceac1b653a5219a236c25467
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922147"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512919"
 ---
-# <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Consulta de datos en Azure Data Lake con Azure Data Explorer (versión preliminar)
+# <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>Consulta de datos en Azure Data Lake con Azure Data Explorer
 
 Azure Data Lake Storage es una solución de lago de datos rentable y muy escalable para el análisis de macrodatos. Combina el potencial de un sistema de archivos de alto rendimiento con escala masiva y economía para ayudarle a obtener conclusiones con rapidez. Data Lake Storage Gen2 amplía la funcionalidad de Azure Blob Storage y está optimizado para cargas de trabajo analíticas.
  
@@ -24,7 +24,7 @@ Azure Data Explorer se integra con Azure Blob Storage y Azure Data Lake Storage 
 > Para obtener el mejor rendimiento de consultas, se necesita la ingesta de datos en Azure Data Explorer. La funcionalidad para consultar datos en Azure Data Lake Storage Gen2 sin una ingesta previa solo debe usarse para datos históricos o para datos que se consultan con poca frecuencia. [Optimice el rendimiento de las consultas en el lago](#optimize-your-query-performance) para obtener los mejores resultados.
  
 
-## <a name="create-an-external-table"></a>Creación de una tabla externa
+## <a name="create-an-external-table"></a>Crear una tabla externa
 
  > [!NOTE]
  > Las cuentas de almacenamiento que se admiten actualmente son Azure Blob Storage o Azure Data Lake Storage Gen2, Actualmente, los formatos de datos compatibles son json, csv, tsv y txt.

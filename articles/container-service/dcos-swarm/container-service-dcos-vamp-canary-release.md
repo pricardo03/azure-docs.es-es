@@ -1,20 +1,18 @@
 ---
 title: (EN DESUSO) Lanzamiento controlado con Vamp en un clúster de DC/OS en Azure
 description: Cómo usar Vamp para lanzar servicios de forma controlada y aplicar el filtrado inteligente de tráfico en un clúster de DC/OS de Azure Container Service
-services: container-service
 author: gggina
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: f1b3c08cce2cb33feab899ea082fc6fb40225182
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60ff148e044df81e64b54fc48c1cb6f67aee14df
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61458288"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275658"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(EN DESUSO) Lanzamiento controlado de microservicios con Vamp en un clúster de DC/OS de Azure Container Service
 
@@ -145,7 +143,6 @@ Este escenario usa una aplicación monolítica de ejemplo denominada [**sava**](
     9050: sava_cluster/webport      # stable endpoint
    clusters:
     sava_cluster:               # cluster to create
-     services:
         -
           breed:
             name: sava:1.0.0        # service variant name
@@ -206,7 +203,6 @@ Para combinar el nuevo servicio sava 1.1 con la implementación en ejecución:
    name: sava:1.1.0      # blueprint name
    clusters:
     sava_cluster:       # cluster to update
-      services:
         -
           breed:
             name: sava:1.1.0    # service variant name

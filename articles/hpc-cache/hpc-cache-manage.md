@@ -4,14 +4,14 @@ description: Administración y actualización de Azure HPC Cache mediante Azure 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 1/08/2020
 ms.author: rohogue
-ms.openlocfilehash: 9cd5ad151c977838fea30f52c7d4a93b4663c8ff
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a166a904b2e63419efd5803fd54be1d1b59836fb
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166718"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867079"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Administración de la memoria caché desde Azure Portal
 
@@ -23,7 +23,7 @@ Para abrir la página de información general, seleccione el recurso de caché e
 
 Los botones que se encuentran en la parte superior de la página pueden ayudarlo a administrar la memoria caché:
 
-* [**Vaciar**](#flush-cached-data): Escribe todos los datos en caché en destinos de almacenamiento
+* [**Vaciar**](#flush-cached-data): escribe los datos modificados en destinos de almacenamiento
 * [**Actualizar**](#upgrade-cache-software): actualiza el software de caché
 * **Refrescar**: vuelve a cargar la página de información general
 * [**Eliminar**](#delete-the-cache): destruye permanentemente la memoria caché
@@ -63,9 +63,18 @@ Haga clic en el botón **Actualizar** para comenzar la actualización de softwar
 
 El botón **Eliminar** destruye la memoria caché. Cuando se elimina una memoria caché, todos sus recursos se destruyen y ya no incurren en cargos de cuenta.
 
-Los destinos de almacenamiento no se ven afectados cuando se elimina la memoria caché. Puede agregarlos a una memoria caché futura más adelante, o bien decomisarlos por separado.
+Los volúmenes de almacenamiento de back-end que se usan como destinos de almacenamiento no se ven afectados cuando se elimina la caché. Puede agregarlos a una memoria caché futura más adelante, o bien decomisarlos por separado.
 
-La memoria caché vacía automáticamente los datos no guardados en los destinos de almacenamiento como parte de su cierre final.
+> [!NOTE]
+> Azure HPC Cache no escribe automáticamente los datos modificados de la caché en los sistemas de almacenamiento de back-end antes de eliminar la caché.
+>
+> Para asegurarse de que todos los datos en la caché se han escrito en un almacenamiento a largo plazo, siga estos pasos:
+>
+> 1. [Quite](hpc-cache-edit-storage.md#remove-a-storage-target) todos los destinos de almacenamiento de Azure HPC Cache mediante el botón Eliminar de la página de destinos de almacenamiento. El sistema escribe automáticamente los datos modificados desde la caché en el sistema de almacenamiento de back-end antes de quitar el destino.
+> 1. Espere a que se quite por completo el destino de almacenamiento. El proceso puede tardar una hora o más si hay muchos datos para escribir en la caché. Cuando haya terminado, una notificación del portal indicará que la operación de eliminación se ha realizado correctamente y el destino de almacenamiento desaparecerá de la lista.
+> 1. Una vez eliminados todos los destinos de almacenamiento afectados, la caché se puede eliminar de forma segura.
+>
+> Como alternativa, puede usar la opción [flush](#flush-cached-data) para guardar los datos en caché, pero hay un pequeño riesgo de perder el trabajo si un cliente escribe un cambio en la caché una vez completado el vaciado, pero antes de que se destruya la instancia de la caché.
 
 ## <a name="cache-metrics-and-monitoring"></a>Supervisión y métricas de caché
 

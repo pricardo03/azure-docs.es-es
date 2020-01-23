@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e43eae8b7308f71886d855bbc53f341bd674e6c5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ee241c9b4d26377931e828df60db1c50a9c86b84
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433813"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940867"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Creación de un punto de conexión de SCIM y configuración del aprovisionamiento de usuarios con Azure Active Directory (Azure AD)
 
@@ -62,15 +62,16 @@ Tenga en cuenta que no es necesario que admita los usuarios ni los grupos, ni to
 | Usuario de Azure Active Directory | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
 | IsSoftDeleted |active |
+|department|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|
 | DisplayName |DisplayName |
+|employeeId|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |title |
 | mail |emails[type eq "work"].value |
 | mailNickname |externalId |
-| manager |manager |
+| manager |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
-| objectId |id |
 | postalCode |addresses[type eq "work"].postalCode |
 | proxy-Addresses |emails[type eq "other"].Value |
 | physical-Delivery-OfficeName |addresses[type eq "other"].Formatted |
@@ -79,15 +80,16 @@ Tenga en cuenta que no es necesario que admita los usuarios ni los grupos, ni to
 | telephone-Number |phoneNumbers[type eq "work"].value |
 | user-PrincipalName |userName |
 
+
 ### <a name="table-2-default-group-attribute-mapping"></a>Tabla 2: Asignación de atributos de grupo predeterminada
 
 | Grupo de Azure Active Directory | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
-| DisplayName |externalId |
+| DisplayName |DisplayName |
 | mail |emails[type eq "work"].value |
 | mailNickname |DisplayName |
 | members |members |
-| objectId |id |
+| objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
 ## <a name="step-2-understand-the-azure-ad-scim-implementation"></a>Paso 2: Información sobre la implementación de SCIM de Azure AD
@@ -151,8 +153,11 @@ Esta sección proporciona solicitudes SCIM de ejemplo emitidas por el cliente de
   - [Actualizar usuario [propiedades con varios valores]](#update-user-multi-valued-properties) ([Solicitud](#request-4) /  [Respuesta](#response-4))
   - [Actualizar usuario [propiedades con un solo valor]](#update-user-single-valued-properties) ([Solicitud](#request-5)
 / [Respuesta](#response-5)) 
+  - [Deshabilitar usuario](#disable-user) ([Solicitud](#request-14) / 
+[Respuesta](#response-14))
   - [Eliminar usuario](#delete-user) ([Solicitud](#request-6) / 
 [Respuesta](#response-6))
+
 
 [Operaciones de grupo](#group-operations)
   - [Crear grupo](#create-group) ([Solicitud](#request-7) / [Respuesta](#response-7))
@@ -433,6 +438,60 @@ Esta sección proporciona solicitudes SCIM de ejemplo emitidas por el cliente de
 }
 ```
 
+### <a name="disable-user"></a>Deshabilitar usuario
+
+##### <a name="request-14"></a>Solicitud
+
+*PATCH /Users/5171a35d82074e068ce2 HTTP/1.1*
+```json
+{
+    "Operations": [
+        {
+            "op": "Replace",
+            "path": "active",
+            "value": false
+        }
+    ],
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ]
+}
+```
+
+##### <a name="response-14"></a>Respuesta
+
+```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+    ],
+    "id": "CEC50F275D83C4530A495FCF@834d0e1e5d8235f90a495fda",
+    "userName": "deanruiz@testuser.com",
+    "name": {
+        "familyName": "Harris",
+        "givenName": "Larry"
+    },
+    "active": false,
+    "emails": [
+        {
+            "value": "gloversuzanne@testuser.com",
+            "type": "work",
+            "primary": true
+        }
+    ],
+    "addresses": [
+        {
+            "country": "ML",
+            "type": "work",
+            "primary": true
+        }
+    ],
+    "meta": {
+        "resourceType": "Users",
+        "location": "/scim/5171a35d82074e068ce2/Users/CEC50F265D83B4530B495FCF@5171a35d82074e068ce2"
+    }
+}
+```
 #### <a name="delete-user"></a>Eliminar usuario
 
 ##### <a name="request-6"></a>Solicitud

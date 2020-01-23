@@ -5,18 +5,18 @@ author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 358f26af8d990d29f226978387fdf8093d2b8644
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 40037252ddf8e505ae7fe734813d598e7de96336
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612979"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834230"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Solución de problemas de acceso a Azure Functions Runtime
 
 
 ## <a name="error-text"></a>Texto del error
-Este documento está pensado para solucionar el error siguiente que aparece en el portal de Functions.
+Este artículo está pensado para solucionar el error siguiente que aparece en el portal de Functions.
 
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
@@ -56,7 +56,7 @@ En el paso anterior, si no tenía una cadena de conexión de la cuenta de almace
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
     * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-[Más información sobre estos valores de configuración de la aplicación](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
+[Más información sobre estos valores de configuración de la aplicación](https://docs.microsoft.com/azure/azure-functions/functions-app-settings).
 
 ### <a name="guidance"></a>Guía
 
@@ -66,7 +66,7 @@ En el paso anterior, si no tenía una cadena de conexión de la cuenta de almace
 
 ## <a name="storage-account-credentials-invalid"></a>Credenciales de la cuenta de almacenamiento no válidas
 
-Al volver a generar las claves de almacenamiento deben actualizarse las cadenas de conexión de la cuenta de almacenamiento anteriores. [Más información sobre la administración de las claves de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
+Al volver a generar las claves de almacenamiento deben actualizarse las cadenas de conexión de la cuenta de almacenamiento anteriores. [Más información sobre la administración de las claves de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
 ## <a name="storage-account-inaccessible"></a>Falta de acceso a la cuenta de almacenamiento
 
@@ -79,13 +79,13 @@ La aplicación de función debe poder acceder a la cuenta de almacenamiento. Est
 
 Si tiene una cuota de ejecución diaria configurada, la instancia de Function App se deshabilitará temporalmente y muchos de los controles del portal dejarán de estar disponibles. 
 
-* Para comprobarlo, abra Características de la plataforma > Configuración de Function App en el portal. Verá el siguiente mensaje si supera la cuota
+* Para comprobarlo, abra Características de la plataforma > Configuración de Function App en el portal. Verá el mensaje siguiente si supera la cuota:
     * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
 * Elimine la cuota y reinicie la aplicación para resolver el problema.
 
 ## <a name="app-is-behind-a-firewall"></a>Aplicación detrás de un firewall
 
-El entorno de ejecución de la función no estará accesible si la aplicación de funciones está hospedada en una instancia de [App Service Environment con equilibro de carga interno](../app-service/environment/create-ilb-ase.md) y está configurada para bloquear el tráfico entrante de Internet o tiene [restricciones de IP de entrada](functions-networking-options.md#inbound-ip-restrictions) configuradas para bloquear el acceso a Internet. Azure Portal realiza llamadas directamente a la aplicación en ejecución para capturar la lista de funciones y también realiza una llamada HTTP a un punto de conexión de KUDU. La configuración de nivel de plataforma en la pestaña `Platform Features` seguirá estando disponible.
+El entorno de ejecución de la función no estará accesible si la aplicación de funciones está hospedada en una instancia de [App Service Environment con equilibro de carga interno](../app-service/environment/create-ilb-ase.md) y está configurada para bloquear el tráfico entrante de Internet o tiene [restricciones de IP de entrada](functions-networking-options.md#inbound-ip-restrictions) configuradas para bloquear el acceso a Internet. Azure Portal realiza llamadas directamente a la aplicación en ejecución para obtener la lista de funciones y también realiza llamadas HTTP a un punto de conexión de KUDU. La configuración de nivel de plataforma en la pestaña `Platform Features` seguirá estando disponible.
 
 * Para comprobar la configuración de ASE, vaya al grupo de seguridad de red de la subred donde se encuentra ASE y valide las reglas de entrada para permitir el tráfico procedente de la dirección IP pública del equipo desde el que se accede a la aplicación. También puede usar el portal desde un equipo conectado a la red virtual que ejecuta la aplicación o una máquina virtual que se ejecuta en la red virtual. [Obtenga más información sobre la configuración de reglas de entrada aquí](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups).
 

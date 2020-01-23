@@ -4,15 +4,15 @@ description: Aprenda a instalar y configurar una puerta de enlace de datos local
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 37658ea6b94d6369d282c49f79947a1f183b61c7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 019da1810851c730ea8bfe4cf5eea0cfa900bea0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572854"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029884"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalación y configuración de una puerta de enlace de datos local
 
@@ -20,18 +20,18 @@ Se requiere una puerta de enlace de datos local cuando uno o varios servidores d
 
 Para más información sobre la puerta de enlace y su uso por parte de Azure Analysis Services, consulte [Conexión a orígenes de datos locales](analysis-services-gateway.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 **Requisitos mínimos:**
 
 * .NET Framework 4.5
-* versión de 64 bits de Windows 7 o Windows Server 2008 R2 (o posterior)
+* versión de 64 bits de Windows 8 o Windows Server 2012 R2 (o posterior)
 
 **Se recomienda que use:**
 
 * CPU de 8 núcleos
 * 8 GB de memoria
-* versión de 64 bits de Windows 2012 R2 (o posterior)
+* versión de 64 bits de Windows 8 o Windows Server 2012 R2 (o posterior)
 
 **Consideraciones importantes:**
 
@@ -95,7 +95,7 @@ Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso
 
 2. En **Crear puerta de enlace de conexión**, escriba estos valores:
 
-   * **Nombre**: escriba un nombre para el recurso de puerta de enlace. 
+   * **Name**: escriba un nombre para el recurso de puerta de enlace. 
 
    * **Suscripción**: seleccione la suscripción de Azure que se asociará al recurso de puerta de enlace. 
    

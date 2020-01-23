@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: a4b0debc712504e8cb3c6d61372bd3a82c7932bb
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 58bfc35776e83df7754379a12ad4b7afca73e32c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497022"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892336"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual
 
@@ -30,10 +30,20 @@ Si usa SQL Server Integration Services (SSIS) en Azure Data Factory, debe conect
 
 - Quiere conectarse a almacenes de datos o recursos configurados con reglas de firewall de IP desde los paquetes SSIS que se ejecutan en Azure-SSIS Integration Runtime.
 
-Azure Data Factory le permite conectar Azure-SSIS IR a una red virtual creada mediante el modelo de implementación clásica o el modelo de implementación con Azure Resource Manager. 
+Azure Data Factory le permite conectar Azure-SSIS IR a una red virtual creada mediante el modelo de implementación clásica o el modelo de implementación con Azure Resource Manager.
 
 > [!IMPORTANT]
 > La red virtual clásica está en desuso, así que debe usar la red virtual de Azure Resource Manager.  Si ya usa la red virtual clásica, cambie a la red virtual de Azure Resource Manager en cuanto sea posible.
+
+En el tutorial [Configuración de un entorno de ejecución de integración (IR) de Azure SQL Server Integration Services (SSIS) para unirse a una red virtual](tutorial-deploy-ssis-virtual-network.md) se muestran los pasos mínimos a través de Azure Portal. Este artículo es una extensión del tutorial y en él se describen todas las tareas opcionales:
+
+- Si usa la red virtual (clásica).
+- Si trae direcciones IP públicas propias para la instancia de Azure-SSIS IR.
+- Si usa un servidor de sistema de nombres de dominio (DNS) propio.
+- Si usa un grupo de seguridad de red (NSG) en la subred.
+- Si usa Azure ExpressRoute o una ruta definida por el usuario (UDR).
+- Si usa una instancia de Azure-SSIS IR personalizada.
+- Si usa el aprovisionamiento de Azure PowerShell.
 
 ## <a name="access-to-on-premises-data-stores"></a>Acceso a los almacenes de datos locales
 
@@ -47,7 +57,7 @@ Al conectar Azure-SSIS Integration Runtime a una red virtual, recuerde estos pun
 
 - Si hay una red virtual clásica conectada a la red local en una ubicación diferente a la de Azure-SSIS Integration Runtime, puede crear una [red virtual de Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) para que se conecte Azure-SSIS Integration Runtime. A continuación, configure una conexión de [red virtual clásica a Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md). 
  
-- Si hay una red virtual de Azure Resource Manager conectada a la red local en una ubicación diferente a la de Azure-SSIS Integration Runtime, puede crear primero una [red virtual de Azure Resource Manager](../virtual-network/quick-create-portal.md##create-a-virtual-network) para que se conecte a Azure-SSIS Integration Runtime. Luego, configure una conexión de red virtual de Azure Resource Manager a Azure Resource Manager. 
+- Si hay una red virtual de Azure Resource Manager conectada a la red local en una ubicación diferente a la de Azure-SSIS Integration Runtime, puede crear primero una [red virtual de Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) para que se conecte a Azure-SSIS Integration Runtime. Luego, configure una conexión de red virtual de Azure Resource Manager a Azure Resource Manager. 
 
 ## <a name="hosting-the-ssis-catalog-in-sql-database"></a>Hospedaje del catálogo de SSIS en SQL Database
 
@@ -319,7 +329,7 @@ Después de configurar la red virtual de Azure Resource Manager o la red virtual
 
    ![Lista de factorías de datos](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
-1. Seleccione su factoría de datos con Azure-SSIS Integration Runtime en la lista. Verá la página principal de la factoría de datos. Seleccione el icono **Crear e implementar**. Verá la interfaz de usuario de Data Factory en una pestaña independiente. 
+1. Seleccione su factoría de datos con Azure-SSIS Integration Runtime en la lista. Verá la página principal de la factoría de datos. Seleccione el icono **Crear y supervisar**. Verá la interfaz de usuario de Data Factory en una pestaña independiente. 
 
    ![Página principal Factoría de datos](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 

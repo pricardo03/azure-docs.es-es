@@ -1,23 +1,23 @@
 ---
-title: Cobertura de geocodificación en Azure Maps | Microsoft Docs
-description: Información sobre la cobertura de geocodificación en Azure Maps
+title: Cobertura de geocodificación | Microsoft Azure Maps
+description: El proceso de conversión de la dirección de ubicación en coordenadas de latitud y longitud se conoce como geocodificación. En este artículo, obtendrá información sobre regiones con cobertura de geocodificación para Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/22/2019
+ms.date: 12/31/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 999e545d49b11eef84d1a03401eb28cde36e82af
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 38d25b7494f8b2f3e1abdac959edde8969d7d4c7
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991364"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911619"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocodificación de Azure Maps
 
-Cuando busca una ubicación con Azure Maps, el servicio de búsqueda toma los términos de su búsqueda y devuelve las coordenadas de latitud y longitud mediante un proceso denominado geocodificación. Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas las regiones y países. Use este artículo para determinar qué tipo de ubicaciones puede buscar de forma confiable en cada región. 
+Cuando busca una ubicación con Azure Maps, el servicio de búsqueda, por ejemplo [Obtener dirección de búsqueda](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress), toma los términos de la búsqueda y devuelve las coordenadas de latitud y longitud. Este proceso se denomina “geocodificación”. Pero Azure Maps no tiene el mismo nivel de información y precisión en todas las regiones y países. Use este artículo para determinar qué tipo de ubicaciones puede buscar de forma confiable en cada región. 
 
 La capacidad de obtener las coordenadas geográficas en un país o una región depende de la cobertura de los datos de las carreteras y la precisión de la codificación geográfica del servicio de geocodificación. Las siguientes clasificaciones se usan para especificar el nivel de geocodificación en cada país o región.
 * **Puntos de dirección**: Los datos de direcciones se pueden resolver en una coordenada de latitud y longitud dentro de la parcela de la dirección (límite de la propiedad). Este nivel de precisión, a veces llamada de azotea, es el mayor disponible para las direcciones. 
@@ -84,7 +84,7 @@ La capacidad de obtener las coordenadas geográficas en un país o una región d
 | Uruguay                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Islas Vírgenes Británicas                              |                 |                |              |      ✓     |          ✓         |
-| Datos de agencias y Islas Vírgenes                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| EE. UU. Vírgenes de EE. UU.                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>Asia Pacífico
 

@@ -5,12 +5,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 12/06/2019
-ms.openlocfilehash: 8d0c1edd2766d5fa46603d241c4f769fe5777cd1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: dec7f022a73c5eb47c99b2d2d38e1a3258bcf14e
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980890"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861476"
 ---
 ## <a name="business-disaster-recovery"></a>Recuperación ante desastres de la empresa
 
@@ -55,7 +55,7 @@ Por lo general, la mejor forma de duplicar un entorno de Time Series Insights es
 
 Para crear un entorno duplicado:
 
-1. Cree un entorno en una segunda región. Para obtener más información, consulte [Crear un nuevo entorno de Time Series Insights en Azure Portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+1. Cree un entorno en una segunda región. Para más información, lea [Creación de un entorno de Time Series Insights en Azure Portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
 1. Cree un segundo grupo de consumidores dedicado para el origen de eventos.
 1. Conecte ese origen de eventos al nuevo entorno. Asegúrese de designar el segundo grupo de consumidores dedicado.
 1. Revise la documentación de Time Series Insights sobre [IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) y [Event Hubs](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access).
@@ -71,5 +71,5 @@ Si se produce un evento:
 > * También puede producirse un retraso.
 > * Podría producirse un pico momentáneo en el procesamiento de los mensajes dado que las operaciones se vuelven a enrutar.
 > 
-> Para más información, consulte [Mitigación de la latencia en Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
+> Para más información, lea [Mitigación de la latencia en Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
 

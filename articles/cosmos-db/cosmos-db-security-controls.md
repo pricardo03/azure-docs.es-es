@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: sngun
-ms.openlocfilehash: 5ab4281f1ad591befda5a439906604331a1ab323
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 1ac4d12f58977497642cdb0706ab7e85e9a4db64
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872152"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913092"
 ---
 # <a name="security-controls-for-azure-cosmos-db"></a>Controles de seguridad para Azure Cosmos DB
 
@@ -24,7 +24,7 @@ En este artículo, se explican los controles de seguridad integrados en Azure Co
 
 | Control de seguridad | Sí/no | Notas |
 |---|---|--|
-| Compatibilidad con el punto de conexión de servicio| Sí |  |
+| Compatibilidad con punto de conexión de servicio| Sí |  |
 | Compatibilidad con la inserción de redes virtuales| Sí | Con el punto de conexión de servicio de red virtual, puede configurar la cuenta de Azure Cosmos DB para permitir el acceso solo desde una subred específica de una red virtual (VNet). También puede combinar el acceso de red virtual con reglas de firewall. Para más información, consulte [Acceso a Azure Cosmos DB desde redes virtuales](VNet-service-endpoint.md). |
 | Compatibilidad con el aislamiento de red y los firewalls| Sí | Gracias a la compatibilidad con el firewall, puede configurar su cuenta de Azure Cosmos para permitir el acceso solo desde un conjunto de direcciones IP aprobado, un intervalo de direcciones IP o servicios en la nube. Para más información, consulte [Configuración del firewall de IP en Azure Cosmos DB](how-to-configure-firewall.md).|
 | Compatibilidad con la tunelización forzada| Sí | Se puede configurar en el cliente en la red virtual donde se encuentran las máquinas virtuales.   |
@@ -44,21 +44,21 @@ En este artículo, se explican los controles de seguridad integrados en Azure Co
 | Authentication| Sí | Sí en el nivel de cuenta de base de datos; en el nivel del plano de datos, Cosmos DB usa tokens de recursos y acceso con clave. |
 | Authorization| Sí | Se admite en la cuenta de Azure Cosmos con las claves maestras (principal y secundaria) y tokens de recursos. Puede obtener acceso de lectura/escritura o acceso de solo lectura a los datos con las claves maestras. Los tokens de recursos permiten el acceso de tiempo limitado a los recursos, como documentos y contenedores. |
 
-## <a name="data-protection"></a>Protección de datos
+## <a name="data-protection"></a>Protección de los datos
 
 | Control de seguridad | Sí/no | Notas |
 |---|---|--|
-| Cifrado del lado servidor en reposo: Claves administradas por Microsoft | Sí | Todas las bases de datos y las copias de seguridad de Azure Cosmos se cifran de forma predeterminada; consulte [Cifrado de datos en Azure Cosmos DB](database-encryption-at-rest.md). No se admite el cifrado del servidor con claves administradas por el cliente. |
-| Cifrado del lado servidor en reposo: claves administradas por el cliente (BYOK) | Sin |  |
+| Cifrado del lado servidor en reposo: Claves administradas por Microsoft | Sí | Todas las bases de datos y las copias de seguridad de Azure Cosmos se cifran de forma predeterminada; consulte [Cifrado de datos en Azure Cosmos DB](database-encryption-at-rest.md). |
+| Cifrado del lado servidor en reposo: claves administradas por el cliente (BYOK) | Sí | Vea [Configuración de las claves administradas por el cliente para la cuenta de Azure Cosmos DB](how-to-setup-cmk.md)  |
 | Cifrado de nivel de columna (Azure Data Services)| Sí | Solo en las instancias de Table API Premium. No todas las API admiten esta característica. Consulte [Introducción a Azure Cosmos DB: Table API](table-introduction.md). |
 | Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual)| Sí | Todos los datos de Azure Cosmos DB se cifran en tránsito. |
-| Llamadas a API cifradas| Sí | Todas las conexiones a Azure Cosmos DB admiten HTTPS. Azure Cosmos DB también admite las conexiones TLS 1.2, pero esto no es obligatorio todavía. Si los clientes desactivan la conexión TLS de nivel inferior por su parte, pueden garantizar la conexión a Cosmos DB.  |
+| Llamadas a API cifradas| Sí | Todas las conexiones a Azure Cosmos DB admiten HTTPS. Azure Cosmos DB también admite TLS 1.2.<br>Es posible aplicar una versión de TLS mínima en el servidor. Para ello, póngase en contacto con [cosmosdbpm@microsoft.com](maito:cosmosdbpm@microsoft.com]). |
 
 ## <a name="configuration-management"></a>Administración de configuración
 
 | Control de seguridad | Sí/No | Notas|
 |---|---|--|
-| Compatibilidad con la administración de configuración (control de versiones de configuración, etc.)| Sin  | | 
+| Compatibilidad con la administración de configuración (control de versiones de configuración, etc.)| No  | | 
 
 ## <a name="additional-security-controls-for-cosmos-db"></a>Controles de seguridad adicionales para Cosmos DB
 

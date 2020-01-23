@@ -1,20 +1,18 @@
 ---
 title: '(EN DESUSO) Supervisión de un clúster DC/OS en Azure: administración de operaciones'
 description: Supervisión de un clúster de DC/OS de Azure Container Service con Log Analytics.
-services: container-service
 author: keikhara
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 290141136672729060f5156d645c47ac303fa0c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ab8d1cf3eb38a17f0b3d6c8137e37237498a527
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809947"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277323"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(EN DESUSO) Supervisión de un clúster de DC/OS en Azure Container Service con Log Analytics
 

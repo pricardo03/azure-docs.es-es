@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: b54034dc8828fb8a96f488197e517ef07ed55ab5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 960eb9b48a158358a076202db0d435feb918a6c8
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460429"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863485"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticación y autorización para la API de Azure Time Series Insights
 
@@ -87,7 +87,7 @@ Según el **paso 3**, distinguir entre las credenciales de la aplicación y las 
 
    1. Use el **identificador de la aplicación** y el **secreto de cliente** (clave de aplicación) de la sección de registro de la aplicación de Azure Active Directory para obtener el token en nombre de la aplicación.
 
-   1. En C#, puede emplear el siguiente código para conseguir el token en nombre de la aplicación. Para obtener un ejemplo completo, vea [Consulta de datos mediante C#](time-series-insights-query-data-csharp.md).
+   1. En C#, puede emplear el siguiente código para conseguir el token en nombre de la aplicación. Para obtener un ejemplo completo, lea [Consulta de datos mediante C#](time-series-insights-query-data-csharp.md).
 
         [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
 
@@ -107,7 +107,7 @@ En esta sección, se describen los encabezados y parámetros comunes de la solic
 Para realizar consultas autenticadas en las [API de REST de Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), se debe pasar un token de portador OAuth 2.0 válido en el [Encabezado de autorización](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) mediante un cliente de REST de su elección (Postman, JavaScript, C#). 
 
 > [!TIP]
-> Consulte la [visualización de muestra del SDK de cliente](https://tsiclientsample.azurewebsites.net/) hospedado de Azure Time Series Insights para ver cómo autenticarse con las API de Time Series Insights mediante programación, usando el [SDK de cliente de JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) junto con gráficos.
+> Lea la [visualización de muestra del SDK de cliente](https://tsiclientsample.azurewebsites.net/) hospedado de Azure Time Series Insights para aprender a autenticarse con las API de Time Series Insights mediante programación, usando el [SDK de cliente de JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) junto con gráficos.
 
 ### <a name="http-headers"></a>Encabezados HTTP
 
@@ -161,10 +161,10 @@ Los parámetros de cadena de consulta de dirección URL opcionales incluyen esta
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener código de ejemplo que llama a la API de Time Series Insights (disponibilidad general), vea [Consulta de datos mediante C#](./time-series-insights-query-data-csharp.md).
+- Para obtener código de ejemplo que llama a la API de Time Series Insights (disponibilidad general), lea [Consulta de datos mediante C#](./time-series-insights-query-data-csharp.md).
 
-- Para obtener ejemplos de código de la API de Time Series Insights (versión preliminar), vea [Consulta de datos de versión preliminar mediante C#](./time-series-insights-update-query-data-csharp.md).
+- Para obtener ejemplos de código de la API de Time Series Insights (versión preliminar), lea [Consulta de datos de versión preliminar mediante C#](./time-series-insights-update-query-data-csharp.md).
 
-- Para obtener información de referencia de la API, vea la documentación de [referencia sobre la API de consulta](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
+- Para información de referencia de la API, lea la documentación de [referencia sobre la API de consulta](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
 
 - Sepa cómo [crear una entidad de servicio](../active-directory/develop/howto-create-service-principal-portal.md).

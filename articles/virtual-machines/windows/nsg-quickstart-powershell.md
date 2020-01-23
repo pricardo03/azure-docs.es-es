@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: ecc996cc07cfbf22a04a620ca426ca97056a9a9d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 547ca9c98d77b2aaa6d3630bff4b2ec10dcc5be0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75371214"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754171"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Apertura de puertos y puntos de conexión para una máquina virtual en Azure mediante PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -97,5 +97,5 @@ En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Pu
 
 * [Información general sobre Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 * [¿Qué es un grupo de seguridad de red?](../../virtual-network/security-overview.md)
-* [Información general de Azure Resource Manager para equilibradores de carga](../../load-balancer/load-balancer-arm.md)
+* [Información general sobre Azure Load Balancer](../../load-balancer/load-balancer-overview.md)
 

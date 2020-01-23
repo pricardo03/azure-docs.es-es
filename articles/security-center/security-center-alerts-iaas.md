@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: b101fd30ddbdbf0f8fdf6e02394cb10b9af5f4b0
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: a5ed91cef6e49fcb71c35f2262479be45a018651
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666407"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754308"
 ---
 # <a name="threat-detection-for-vms-and-servers-in-azure-security-center"></a>Detección de amenazas en máquinas virtuales y servidores en Azure Security Center
 
@@ -41,7 +41,7 @@ Azure Security Center se integra con servicios de Azure para supervisar y proteg
 
     Sin embargo, mediante el análisis de la memoria, puede detectar este tipo de ataque. Mediante el análisis de la memoria del volcado de memoria, Security Center puede detectar las técnicas que está utilizando el ataque. Por ejemplo, el ataque podría estar intentando aprovechar vulnerabilidades del software, acceder a datos confidenciales y persistir clandestinamente dentro de una máquina en peligro. Security Center realiza este trabajo con un impacto mínimo en el rendimiento de los hosts.
 
-    Para obtener una lista de las alertas de análisis de volcado de memoria, consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-crashdump).
+    Para obtener detalles de las alertas de análisis de volcado de memoria, consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-windows).
 
 * **La detección de ataques con archivos** <a name="windows-fileless"></a>: ataques de archivos destinados a los puntos de conexión son habituales. Para evitar que se detecten, los ataques sin archivos insertan cargas malintencionadas en la memoria. Las cargas del atacante se conservan dentro de la memoria de los procesos en peligro y realizan una amplia variedad de actividades malintencionadas.
 
@@ -49,7 +49,7 @@ Azure Security Center se integra con servicios de Azure para supervisar y proteg
 
     Asimismo, encuentra indicios de explotación, inserción de código y ejecución de cargas malintencionadas. La detección de ataques sin archivos genera alertas de seguridad detalladas que aceleran la evaluación de prioridades, la correlación y el tiempo de respuesta de bajada de las alertas. Este enfoque complementa a las soluciones EDR basadas en eventos al proporcionar mayor cobertura de detección.
 
-    Para obtener una lista de las alertas de detección de ataques sin archivo, consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-filelessattackdetect).
+    Para obtener detalles de las alertas de detección de ataques sin archivo, consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-windows).
 
 > [!NOTE]
 > Para simular alertas de Windows, descargue [Azure Security Center Playbook: Alertas de seguridad](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046).

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e1544303ee7b792a00f7afb57fe62b7b86a300f8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ec32990513d9199c4aaccf1bcfcbf76f348f877b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891959"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867498"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Uso de Azure Portal para asignar un rol de RBAC para el acceso a datos de blobs y colas
 
@@ -45,7 +45,7 @@ En las siguientes secciones se describe cada uno de estos pasos con más detalle
 
 > [!NOTE]
 > Como propietario de la cuenta de Azure Storage, no se le asignan automáticamente permisos para tener acceso a datos. Tiene que asignarse a sí mismo de forma explícita un rol RBAC para Azure Storage. Puede asignarlo al nivel de su suscripción, grupo de recursos, cuenta de almacenamiento o un contenedor o cola.
-> 
+>
 > No se puede asignar un rol que tenga como ámbito un contenedor o una cola si la cuenta de almacenamiento tiene habilitados los espacios de nombres jerárquicos.
 
 ### <a name="assign-a-built-in-rbac-role"></a>Asignar un rol RBAC integrado
@@ -75,7 +75,6 @@ Puede realizar este mismo procedimiento para asignar un rol que tenga como ámbi
 ### <a name="assign-the-reader-role-for-portal-access"></a>Asignar el rol Lector para acceder a Portal
 
 Al asignar un rol integrado o personalizado de Azure Storage a una entidad de seguridad, está concediendo permisos a esa entidad de seguridad para realizar operaciones en los datos de su cuenta de almacenamiento. Los roles **Lector de datos** integrados proporcionan permisos de lectura en los datos de un contenedor o una cola, mientras que los roles **Colaborador de datos** integrados proporcionan permisos de lectura, escritura y eliminación en un contenedor o cola. Los permisos se limitan al ámbito del recurso especificado.  
-
 Por ejemplo, si asigna el rol **Colaborador de datos de Storage Blob** al usuario María en el nivel de un contenedor denominado **contenedor-ejemplo**, María tendrá acceso de lectura, escritura y eliminación en todos los blobs de ese contenedor.
 
 Pero si María quiere ver un blob en Azure Portal, el rol **Colaborador de datos de Storage Blob** por sí solo no le proporcionará suficientes permisos para desplazarse por Portal hasta el blob para poder verlo. Se necesitan más permisos de Azure AD para desplazarse por Portal y ver los otros recursos que estén visibles allí.
@@ -91,8 +90,10 @@ Siga estos pasos para asignar el rol **Lector** para que un usuario pueda accede
 1. Realice una búsqueda para localizar la entidad de seguridad a la que quiere asignar el rol.
 1. Guarde la asignación de roles.
 
-> [!NOTE]
-> Asignar el rol Lector solo es necesario con aquellos usuarios que necesiten tener acceso a blobs o colas mediante Azure Portal. 
+Asignar el rol **Lector** solo es necesario con aquellos usuarios que necesiten tener acceso a blobs o colas mediante Azure Portal.
+
+> [!IMPORTANT]
+> La versión preliminar de Explorador de Storage en Azure Portal no admite el uso de credenciales de Azure AD para ver y modificar datos de blobs o colas. Explorador de Storage en Azure Portal usa siempre las claves de cuenta para acceder a los datos. Para usar Explorador de Storage en Azure Portal, debe tener asignado un rol que incluya **Microsoft.Storage/storageAccounts/listkeys/action**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

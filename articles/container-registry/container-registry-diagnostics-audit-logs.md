@@ -2,17 +2,17 @@
 title: Recopilar y analizar registros de recursos
 description: Registre y analice los eventos del registro de recursos de Azure Container Registry como la autenticación, y el envío y la incorporación de cambios en imágenes.
 ms.topic: article
-ms.date: 10/30/2019
-ms.openlocfilehash: ada8502724c1779b9bdab2e8ac7e8ea61c256e44
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/03/2020
+ms.openlocfilehash: 72d03149cd24636ba2086dfaaff0dbba16d30f1e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456407"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748009"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Registros de Azure Container Registry para la evaluación y auditoría de diagnóstico
 
-En este artículo se explica cómo recopilar datos de registro de un registro de contenedor de Azure mediante las características de [Azure Monitor](../azure-monitor/overview.md). Azure Monitor recopila [registros de recursos](../azure-monitor/platform/resource-logs-overview.md) (anteriormente denominados *registros de diagnóstico*) de eventos controlados por el usuario en el registro. Recopile y consuma estos datos para satisfacer ciertas necesidades, por ejemplo:
+En este artículo se explica cómo recopilar datos de registro de un registro de contenedor de Azure mediante las características de [Azure Monitor](../azure-monitor/overview.md). Azure Monitor recopila [registros de recursos](../azure-monitor/platform/platform-logs-overview.md) (anteriormente denominados *registros de diagnóstico*) de eventos controlados por el usuario en el registro. Recopile y consuma estos datos para satisfacer ciertas necesidades, por ejemplo:
 
 * Auditar eventos de autenticación del registro para garantizar la seguridad y el cumplimiento 
 
@@ -26,9 +26,14 @@ La colección de datos de registro de recursos mediante Azure Monitor puede inc
 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
 
-El registro de eventos de nivel de repositorio no incluye eventos de eliminación ni de desetiquetación. Solo se registran los siguientes eventos de repositorio:
-* **Eventos de inserción** en imágenes y otros artefactos
-* **Eventos de incorporación de cambios** en imágenes y otros artefactos
+Actualmente se registran los siguientes eventos de nivel de repositorio para imágenes y otros artefactos:
+
+* **Eventos de inserción**
+* **Eventos de extracción**
+* **Eventos de retirada de etiqueta**
+* **Eventos de eliminación** (incluidos los eventos de eliminación de repositorios)
+
+Eventos de nivel de repositorio que no se registran actualmente: Eventos de purga.
 
 ## <a name="registry-resource-logs"></a>Registros de recursos del registro
 
@@ -42,7 +47,7 @@ En el caso de las operaciones, los datos de registro incluyen lo siguiente:
   * Estado de operación correcta o errónea
   * Marcas de hora de inicio y finalización
 
-Además de los registros de recursos, Azure proporciona un [registro de actividad](../azure-monitor/platform/activity-logs-overview.md), un único registro de nivel de suscripción de eventos de administración de Azure, como la creación o eliminación de un registro de contenedor.
+Además de los registros de recursos, Azure proporciona un [registro de actividad](../azure-monitor/platform/platform-logs-overview.md), un único registro de nivel de suscripción de eventos de administración de Azure, como la creación o eliminación de un registro de contenedor.
 
 ## <a name="enable-collection-of-resource-logs"></a>Habilitación de la recopilación de registros de recursos
 

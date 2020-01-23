@@ -1,6 +1,6 @@
 ---
-title: Niveles de zoom y cuadrícula de mosaico en Azure Maps | Microsoft Docs
-description: Obtenga información acerca de los niveles de zoom y la cuadrícula de mosaico en Azure Maps
+title: Niveles de zoom y cuadrícula de mosaico | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre los niveles de zoom y la cuadrícula de mosaico en Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 68fbb9b8cd65e24d0fea0c571e5cf01b53560ba7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 09d6e357b87b59e8010e38693806da5f26f5b679
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407584"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910767"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveles de zoom y cuadrícula de mosaico
 
@@ -26,7 +26,7 @@ Para optimizar el rendimiento de la recuperación y visualización del mapa, est
 
 <center>
 
-![Mosaico del mundo](./media/zoom-levels-and-tile-grid/world0.png)</center>
+![Mosaico de mapa del mundo](./media/zoom-levels-and-tile-grid/world0.png)</center>
 
 El nivel de zoom 1 utiliza cuatro mosaicos para representar el mundo: un cuadrado de 2 x 2
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0549427cfc99703af9f13280cf7377106423367b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303967"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982005"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proceso de ciencia de datos en equipos en acción: Uso de clústeres de Azure HDInsight Hadoop
 En este tutorial, empleamos el [proceso de ciencia de datos en equipo](overview.md) en un escenario completo. Utilizamos un [clúster de Hadoop para Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el muestreo de los datos. Para controlar las tareas predictivas de clasificación binaria y de clases múltiples, así como las de regresión, se generan modelos de datos con Azure Machine Learning. 
@@ -71,7 +71,7 @@ Determine el tipo de predicciones que quiere realizar basándose en análisis de
 
 Puede configurar un entorno de Azure para análisis avanzado que emplee un clúster de HDInsight en tres pasos:
 
-1. [Creación de una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md): esta cuenta de almacenamiento se utiliza para almacenar datos en Azure Blob Storage. Los datos utilizados en los clústeres de HDInsight también se encuentran aquí.
+1. [Creación de una cuenta de almacenamiento](../../storage/common/storage-account-create.md): esta cuenta de almacenamiento se utiliza para almacenar datos en Azure Blob Storage. Los datos utilizados en los clústeres de HDInsight también se encuentran aquí.
 2. [Personalice los clústeres de Hadoop de HDInsight de Azure para la tecnología y procesos de análisis avanzado](customize-hadoop-cluster.md). Este paso crea un clúster de Hadoop de HDInsight con Anaconda Python 2.7 de 64 bits instalado en todos los nodos. Hay dos pasos importantes que debe recordar al personalizar el clúster de HDInsight.
    
    * Recuerde vincular la cuenta de almacenamiento que creó en el paso 1 con el clúster de HDInsight en el momento de crearlo. Esta cuenta de almacenamiento tiene acceso a los datos que se procesan en el clúster.
@@ -563,7 +563,7 @@ Para ver el contenido de un archivo determinado, por ejemplo, **000000\_0**, se 
 > 
 > 
 
-Una ventaja clave de tener estos datos en un blob de Azure es que se pueden explorar dentro de Machine Learning mediante el módulo [Importar datos][import-data].
+Una ventaja clave de tener estos datos en un blob de Azure es que se pueden explorar dentro de Machine Learning mediante el módulo [Importación de datos][import-data].
 
 ## <a name="#downsample"></a>Reducción de datos y creación de modelos en Machine Learning
 > [!NOTE]
@@ -571,7 +571,7 @@ Una ventaja clave de tener estos datos en un blob de Azure es que se pueden expl
 > 
 > 
 
-Después de la fase de análisis de exploración de datos, estamos preparados para reducir los datos y crear modelos en Machine Learning. En esta sección, se muestra cómo usar una consulta de Hive para reducir la muestra de datos. A continuación, Machine Learning accede a ellos desde el módulo [Importar datos][import-data].
+Después de la fase de análisis de exploración de datos, estamos preparados para reducir los datos y crear modelos en Machine Learning. En esta sección, se muestra cómo usar una consulta de Hive para reducir la muestra de datos. Después, Machine Learning accede a ellos desde el módulo [Importar datos][import-data].
 
 ### <a name="down-sampling-the-data"></a>Reducción de tamaño de los datos
 Este procedimiento incluye dos pasos. En primer lugar, se unen las tablas **nyctaxidb.trip** y **nyctaxidb.fare** en función de tres claves incluidas en todos los registros: **medallion**, **hack\_license** y **pickup\_datetime**. Después se genera una etiqueta de clasificación binaria **tipped** y una etiqueta de clasificación de múltiples clases **tip\_class**.
@@ -714,12 +714,12 @@ Para ejecutar esta consulta, escriba en el símbolo del sistema del directorio d
 
     hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-Ahora tenemos una tabla interna, **nyctaxidb.nyctaxi_downsampled_dataset**, a la que se puede acceder mediante el módulo [Importar datos][import-data] de Machine Learning. También se puede utilizar este conjunto de datos para generar modelos de Machine Learning.  
+Ahora hay una tabla interna, **nyctaxidb.nyctaxi_downsampled_dataset**, a la que se puede acceder mediante el módulo [Importar datos][import-data] de Machine Learning. También se puede utilizar este conjunto de datos para generar modelos de Machine Learning.  
 
 ### <a name="use-the-import-data-module-in-machine-learning-to-access-the-down-sampled-data"></a>Uso del módulo Importar datos de Machine Learning para acceder a los datos muestreados
 Para la emisión de consultas de Hive en el módulo [Importar datos][import-data] de Machine Learning, se necesita acceso a un área de trabajo de Machine Learning. También se necesita acceso a las credenciales del clúster y su cuenta de almacenamiento asociada.
 
-A continuación se indican algunos detalles acerca del módulo [Importar datos][import-data] y los parámetros de entrada:
+Aquí se indican algunos detalles sobre el módulo [Importar datos][import-data] y los parámetros de entrada:
 
 **URI del servidor de HCatalog** : si el nombre el clúster es **abc123**, consiste simplemente en: https://abc123.azurehdinsight.net.
 
@@ -734,7 +734,7 @@ A continuación se indican algunos detalles acerca del módulo [Importar datos][
 **Nombre del contenedor de Azure**: se trata del nombre del contenedor predeterminado para el clúster, que suele ser el mismo nombre del clúster. En un clúster denominado **abc123**, es abc123.
 
 > [!IMPORTANT]
-> Cualquier tabla que desee consultar mediante el módulo [Importar datos][import-data] de Machine Learning debe ser una tabla interna.
+> Cualquier tabla que se quiera consultar mediante el módulo [Importar datos][import-data] de Machine Learning debe ser una tabla interna.
 > 
 > 
 
@@ -746,7 +746,7 @@ Si la tabla es una tabla interna y está rellena, su contenido se debe mostrar a
 
 Otro modo de determinar si una tabla es una tabla interna es utilizar Explorador de Azure Storage. Úselo para navegar al nombre del contenedor predeterminado del clúster y, después, filtre por el nombre de tabla. Si se muestran la tabla y su contenido, se confirma que es una tabla interna.
 
-A continuación, se muestra una captura de pantalla de la consulta de Hive y el módulo [Importar datos][import-data]:
+Aquí se muestra una captura de pantalla de la consulta de Hive y el módulo [Importar datos][import-data]:
 
 ![Captura de pantalla de la consulta de Hive para el módulo de importación de datos](./media/hive-walkthrough/1eTYf52.png)
 
@@ -761,7 +761,7 @@ Ya puede pasar a la creación del modelo y la implementación del mismo en [Mach
 
   **Mecanismo de aprendizaje utilizado:** regresión logística de dos clases
 
-  a. En este problema la etiqueta de destino (o clase) es **tipped**. El conjunto de datos con muestreo reducido original incluye algunas columnas que no contienen datos para el experimento de clasificación. Se trata, en concreto, de **tip\_class**, **tip\_amount** y **total\_amount**, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
+  a. En este problema la etiqueta de destino (o clase) es **tipped**. El conjunto de datos con muestreo reducido original incluye algunas columnas que no contienen datos para el experimento de clasificación. Se trata, en concreto, de **tip\_class**, **tip\_amount** y **total\_amount**, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Estas columnas se quitan mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
   El siguiente diagrama muestra nuestro experimento para predecir si se pagó o no una propina por una carrera determinada:
 
@@ -781,7 +781,7 @@ Ya puede pasar a la creación del modelo y la implementación del mismo en [Mach
 
   **Mecanismo de aprendizaje utilizado:** regresión logística multiclase
 
-  a. En este problema, la etiqueta de destino (o clase) es **tip\_class**, que puede adoptar uno de cinco valores (0,1,2,3,4). Como en el caso de clasificación binaria, tenemos algunas columnas que son pérdidas de destino para este experimento. Se trata, en concreto, de: **tipped**, **tip\_amount** y **total\_amount**, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
+  a. En este problema, la etiqueta de destino (o clase) es **tip\_class**, que puede adoptar uno de cinco valores (0,1,2,3,4). Como en el caso de clasificación binaria, tenemos algunas columnas que son pérdidas de destino para este experimento. Se trata, en concreto, de: **tipped**, **tip\_amount** y **total\_amount**, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Estas columnas se quitan mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
   En el siguiente diagrama se muestra el experimento para predecir en qué intervalo es probable que se sitúe una propina. Los intervalos son: Clase 0: propina = 0 USD, Clase 1: propina > 0 USD y propina <= 5 USD, Clase 2: propina > 5 USD y propina <= 10 USD, Clase 3: propina > 10 USD y propina <= 20 USD y Clase 4: propina > 20 USD.
 
@@ -801,7 +801,7 @@ Ya puede pasar a la creación del modelo y la implementación del mismo en [Mach
 
   **Mecanismo de aprendizaje utilizado:** árbol de decisión ampliado
 
-  a. En este problema, la etiqueta de destino (o clase) es **tip\_amount**. En este caso, las pérdidas de destino son: **tipped**, **tip\_class** y **total\_amount**. Todas estas variables ofrecen información sobre el importe de la propina, que no suele estar disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
+  a. En este problema, la etiqueta de destino (o clase) es **tip\_amount**. En este caso, las pérdidas de destino son: **tipped**, **tip\_class** y **total\_amount**. Todas estas variables ofrecen información sobre el importe de la propina, que no suele estar disponible en el momento de la prueba. Estas columnas se quitan mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
   El diagrama siguiente muestra nuestro experimento para predecir el importe de una propina determinada:
 

@@ -3,12 +3,12 @@ title: Referencia para desarrolladores de Python para Azure Functions
 description: Aprenda a desarrollar funciones con Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 55eb1fe53aa4256f1b7eee44547703328816cd32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cfac28c4a759cee66c932c7b8cfea053c9c4f505
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409084"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921798"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guía de Azure Functions para desarrolladores de Python
 
@@ -100,8 +100,8 @@ La carpeta de proyecto principal (\_\_app\_\_) puede contener los siguientes arc
 * *local.settings.json*: se usa para almacenar la configuración y las cadenas de conexión de la aplicación cuando se ejecuta localmente. Este archivo no se publica en Azure. Para más información, consulte [local.settings.file](functions-run-local.md#local-settings-file).
 * *requirements.txt*: contiene la lista de paquetes que se instalan al publicar en Azure.
 * *host.json*: contiene las opciones de configuración global que afectan a todas las funciones de una aplicación de funciones. Este archivo se publica en Azure. No todas las opciones se admiten cuando se ejecuta localmente. Para más información, consulte [host.json](functions-host-json.md).
-* *funcignore*: (opcional) declara los archivos que no deben publicarse en Azure.
-* *gitignore*: (opcional) declara los archivos que se excluyen de un repositorio de Git, como local.settings.json.
+* *.funcignore*: (opcional) declara los archivos que no deben publicarse en Azure.
+* *.gitignore*: (opcional) declara los archivos que se excluyen de un repositorio de Git, como local.settings.json.
 
 Cada función tiene su propio archivo de código y archivo de configuración de enlace (function.json). 
 
@@ -171,7 +171,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Cuando se invoca la función, la solicitud HTTP se pasa a la función como `req`. Se recuperará una entrada de Azure Blob Storage según el _identificador_ de la dirección URL de la ruta y estará disponible como `obj` en el cuerpo de la función.  Aquí, la cuenta de almacenamiento especificada es la cadena de conexión encontrada, que es la misma cuenta de almacenamiento que usa la aplicación de funciones.
+Cuando se invoca la función, la solicitud HTTP se pasa a la función como `req`. Se recuperará una entrada de Azure Blob Storage según el _identificador_ de la dirección URL de la ruta y estará disponible como `obj` en el cuerpo de la función.  Aquí, la cuenta de almacenamiento especificada es la cadena de conexión encontrada en la configuración de la aplicación AzureWebJobsStorage, que es la misma cuenta de almacenamiento que usa la aplicación de funciones.
 
 
 ## <a name="outputs"></a>Salidas
@@ -282,7 +282,7 @@ Del mismo modo, puede establecer `status_code` y `headers` para el mensaje de re
 
 ## <a name="scaling-and-concurrency"></a>Escalado y simultaneidad
 
-De forma predeterminada, Azure Functions supervisa automáticamente la carga en la aplicación y crea instancias de host adicionales para Python según sea necesario. Functions usa umbrales integrados (no configurables por el usuario) en diferentes tipos de desencadenadores para decidir cuándo se deben agregar instancias, como la antigüedad de los mensajes y el tamaño de la cola para QueueTrigger. Para más información, consulte [Cómo funcionan los planes de consumo y Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+De forma predeterminada, Azure Functions supervisa automáticamente la carga en la aplicación y crea instancias de host adicionales para Python según sea necesario. Functions usa umbrales integrados (no configurables por el usuario) en diferentes tipos de desencadenadores para decidir cuándo se deben agregar instancias, como la antigüedad de los mensajes y el tamaño de la cola para QueueTrigger. Para más información, vea [Cómo funcionan los planes de consumo y Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
 Este comportamiento de escalado es suficiente para muchas aplicaciones. Sin embargo, es posible que las aplicaciones con alguna de las siguientes características no se escalen de forma tan eficaz:
 
@@ -303,7 +303,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-Una función sin la palabra clave `async` se ejecuta automáticamente en un grupo de subprocesos de asyncio:
+Una función sin la palabra clave `async` se ejecuta de forma automática en un grupo de subprocesos de asyncio:
 
 ```python
 # Runs in an asyncio thread-pool
@@ -382,7 +382,7 @@ Para el desarrollo local, la configuración de la aplicación se [mantiene en el
 
 ## <a name="python-version"></a>Versión de Python 
 
-Actualmente, Azure Functions admite Python 3.6.x y 3.7.x (distribuciones oficiales de CPython). Cuando se ejecuta localmente, el entorno de ejecución usa la versión de Python disponible. Para solicitar una versión específica de Python al crear la aplicación de funciones en Azure, use la opción `--runtime-version` del comando [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create).  
+Actualmente, Azure Functions admite Python 3.6.x y 3.7.x (distribuciones oficiales de CPython). Cuando se ejecuta localmente, el entorno de ejecución usa la versión de Python disponible. Para solicitar una versión específica de Python al crear la aplicación de funciones en Azure, use la opción `--runtime-version` del comando [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create). El cambio de versión solo se permite en la creación de la aplicación de funciones.  
 
 ## <a name="package-management"></a>Administración de paquetes
 
@@ -641,7 +641,7 @@ Asegúrese de actualizar también el archivo function.json para admitir el méto
     ...
 ```
 
-El explorador Chrome usa este método para negociar la lista de orígenes permitidos. 
+Los exploradores web usan este método HTTP para negociar la lista de orígenes permitidos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

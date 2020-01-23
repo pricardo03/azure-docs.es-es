@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 01/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: b79ca1d93baf1941d5de8db0c314f9cd21e51056
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 1c8f14bb1bca082a9d887e5d6d88aec213448c3e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328264"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894803"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Concesión de acceso a datos en un entorno
 
@@ -27,7 +27,7 @@ En este artículo se tratan los dos tipos de directivas de acceso de la versión
 
 ## <a name="sign-in-to-time-series-insights"></a>Iniciar sesión en Time Series Insights
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. Busque el entorno de Time Series Insights. Especifique `Time Series` en el cuadro **Búsqueda**. Seleccione **Entorno de Time Series** en los resultados de búsqueda.
 1. Seleccione el entorno de Time Series Insights de la lista.
 
@@ -113,7 +113,7 @@ Siga estos pasos para conceder acceso de invitado a un entorno de Time Series In
 
 1. Ahora el invitado puede acceder al entorno compartido mediante la dirección URL del entorno que ha proporcionado el administrador. El invitado puede especificar esa dirección URL en su explorador web para obtener acceso inmediato.
 
-1. El usuario invitado podrá ver el inquilino del administrador seleccionando su icono de perfil en la esquina superior derecha del explorador de series temporales.
+1. El inquilino del administrador se mostrará al usuario invitado después de seleccionar su icono de perfil en la esquina superior derecha del explorador de Time Series.
 
     [![Selección del avatar en insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
 

@@ -4,15 +4,15 @@ description: Describe cómo usar la API de REST de Azure Analysis Services para 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7c6fba10264939335cdef26f288973f8217f340b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2281f9d493edf955881772ec174c82b527f1b6fa
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573390"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029881"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualización asincrónica con la API de REST
 
@@ -30,7 +30,7 @@ La dirección URL base sigue este formato:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Por ejemplo, considere la posibilidad de un modelo denominado AdventureWorks, en un servidor llamado myserver, ubicado en la región de Azure Oeste de EE. UU. El nombre del servidor es:
+Por ejemplo, considere la posibilidad de un modelo denominado AdventureWorks, en un servidor llamado `myserver`, ubicado en la región Oeste de EE. UU. de Azure. El nombre del servidor es:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -97,7 +97,7 @@ El cuerpo debe ser similar al siguiente:
 
 No es necesario especificar parámetros. Se aplica el valor predeterminado.
 
-| NOMBRE             | type  | DESCRIPCIÓN  |Valor predeterminado  |
+| Nombre             | Tipo  | Descripción  |Valor predeterminado  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | El tipo de procesamiento que desea realizar. Los tipos se alinean con los tipos de [comandos de actualización ](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) de TMSL: full, clearValues, calculate, dataOnly, automatic y defragment. El tipo add no se admite.      |   automatic      |
 | `CommitMode`     | Enum  | Determina si los objetos se confirmarán en lotes o solo cuando hayan finalizado. Los modos incluyen: default, transactional y partialBatch.  |  transactional       |
@@ -110,9 +110,20 @@ CommitMode es igual a partialBatch. Se utiliza cuando se realiza una carga inici
 > [!NOTE]
 > En el momento de escribir este artículo, el tamaño del lote es el valor de MaxParallelism, pero este valor puede cambiar.
 
+### <a name="status-values"></a>Valores de estado
+
+|Valor de estado  |Descripción  |
+|---------|---------|
+|`notStarted`    |   La operación todavía no se ha iniciado.      |
+|`inProgress`     |   Operación en curso.      |
+|`timedOut`     |    Se ha agotado el tiempo de espera de la operación según el tiempo de espera especificado por el usuario.     |
+|`cancelled`     |   Operación cancelada por el usuario o el sistema.      |
+|`failed`     |   No se pudo realizar la operación.      |
+|`succeeded`      |   Operación realizada correctamente.      |
+
 ## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId>
 
-Para comprobar el estado de una operación de actualización, use el verbo GET en el identificador de la actualización. Este es un ejemplo del cuerpo de la respuesta. Si la operación está en curso, **inProgress** se devuelve en el estado.
+Para comprobar el estado de una operación de actualización, use el verbo GET en el identificador de la actualización. Este es un ejemplo del cuerpo de la respuesta. Si la operación está en curso, `inProgress` se devuelve en el estado.
 
 ```
 {
@@ -187,7 +198,7 @@ Los valores para `syncstate`:
 
 - 0: Replicating. Los archivos de base de datos se replican en una carpeta de destino.
 - 1: Rehydrating. La base de datos se rehidrata en las instancias de servidor de solo lectura.
-- 2\. Completed. La operación de sincronización se completó correctamente.
+- 2: Completed. La operación de sincronización se completó correctamente.
 - 3: Failed. Error en la operación de sincronización.
 - 4: Finalizing. La operación de sincronización se completó, pero está realizando los pasos de limpieza.
 
@@ -211,9 +222,9 @@ Consulte [Creación de una entidad de servicio: Azure Portal](../active-director
 3.  Ejecute el ejemplo.
 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 [Ejemplos](analysis-services-samples.md)   
-[API DE REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

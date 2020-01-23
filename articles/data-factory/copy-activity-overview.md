@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 01/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 893ef88647824398ec106a964cbacf118bb14308
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0e138e954501df3cf3c3c8819d0198ad9a9288f0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440332"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754464"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
 
@@ -252,6 +252,25 @@ En algunos casos, cuando se ejecuta una actividad de copia en Data Factory, se v
 En este ejemplo, durante la ejecución de una copia, Data Factory realiza un seguimiento de la utilización de un número elevado de DTU en la instancia de Azure SQL Database del receptor. Esta condición reduce la velocidad de las operaciones de escritura. La sugerencia es aumentar el número de DTU en el nivel de Azure SQL Database.
 
 ![Supervisión de copia con sugerencias de optimización del rendimiento](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+## <a name="resume-from-last-failed-run"></a>Reanudación desde el último error de ejecución
+
+La actividad de copia admite la reanudación desde el último error de ejecución cuando copia un gran tamaño de archivos tal cual con un formato binario entre almacenes basados en archivos y elige conservar la jerarquía carpeta/archivo del origen al receptor, por ejemplo, para migrar datos de Amazon S3 a Azure Data Lake Storage Gen2. Se aplica a los conectores siguientes basados en archivos: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md) y [SFTP](connector-sftp.md).
+
+Puede aprovechar la reanudación de la actividad de copia de las dos maneras siguientes:
+
+- **Reintento de nivel de actividad:** Puede establecer el número de reintentos en la actividad de copia. Durante la ejecución de la canalización, si se produce un error en la ejecución de la actividad de copia, el siguiente reintento automático se iniciará desde el punto de error de la última prueba.
+- **Volver a ejecutar desde la actividad con errores:** Una vez finalizada la ejecución de la canalización, también puede desencadenar una nueva ejecución desde la actividad con errores en la vista de supervisión de la interfaz de usuario de ADF o mediante programación. Si la actividad con errores es una actividad de copia, la canalización no solo se volverá a ejecutar desde esta actividad, sino que también se reanudará desde el punto de error de la ejecución anterior.
+
+    ![Reanudación de copia](media/copy-activity-overview/resume-copy.png)
+
+Algunos puntos que se deben tener en cuenta:
+
+- La reanudación se produce en el nivel de archivo. Si se produce un error en la actividad de copia al copiar un archivo, este archivo específico se volverá a copiar en la siguiente ejecución.
+- Para que la reanudación funcione correctamente, no cambie la configuración de la actividad de copia entre las reactivaciones.
+- Al copiar datos desde Amazon S3, Azure Blob, Azure Data Lake Storage Gen2 y Google Cloud Storage, la actividad de copia se puede reanudar a partir de un número arbitrario de archivos copiados. Por su parte, cuando los orígenes son el resto de conectores basados en archivos, la actividad de copia actualmente admite la reanudación desde un número limitado de archivos, normalmente en el intervalo de decenas de miles y varía en función de la longitud de las rutas de acceso de archivo. Los archivos que superen este número se volverán a copiar durante la nueva ejecución.
+
+En el caso de otros escenarios de copia de archivos binarios, la ejecución de la actividad de copia comienza desde el principio.
 
 ## <a name="preserve-metadata-along-with-data"></a>Conservación de los metadatos junto con los datos
 

@@ -1,20 +1,18 @@
 ---
 title: (EN DESUSO) Supervisión de un clúster de Azure Container Service con Sysdig
 description: Supervise un clúster del servicio de contenedores de Azure con Sysdig.
-services: container-service
 author: sauryadas
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 39cd5a3fe7db0c442608e7943e7cbd6e3198edfb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a22d48554573e2517b318f6172b759864bf46612
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60509552"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277733"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-sysdig"></a>(EN DESUSO) Supervisión de un clúster de Azure Container Service con Sysdig
 
@@ -22,7 +20,7 @@ ms.locfileid: "60509552"
 
 En este artículo, implementaremos agentes Sysdig en todos los nodos de agente del clúster del servicio de contenedores de Azure. Necesita una cuenta con Sysdig para esta configuración. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 [Implemente](container-service-deployment.md) y [conecte](../container-service-connect.md) un clúster configurado por Azure Container Service. Explore la [interfaz de usuario de Marathon](container-service-mesos-marathon-ui.md). Vaya a [https://app.sysdigcloud.com](https://app.sysdigcloud.com) para configurar una cuenta de Sysdig en la nube. 
 
 ## <a name="sysdig"></a>Sysdig

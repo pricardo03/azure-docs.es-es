@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3a9300148f4ac2adf6b95ef0afb500af5bc9284
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a9136ce26f0070c8822292c741be59de537d3667
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027035"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941053"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Aplicación de una directiva de nomenclatura en los grupos de Office 365 en Azure Active Directory
 
@@ -65,7 +65,12 @@ Reglas de la lista de palabras bloqueadas:
 - No hay ninguna restricción de caracteres en las palabras bloqueadas.
 - Hay un límite de 5000 frases que se pueden configurar en la lista de palabras bloqueadas. 
 
-### <a name="administrator-override"></a>Invalidación del administrador
+### <a name="roles-and-permissions"></a>Roles y permisos
+
+Para configurar la directiva de nomenclatura, se necesita uno de los roles siguientes:
+- Administrador global
+- Administrador del grupo
+- Administrador de usuarios
 
 Algunos administradores pueden quedar excluidos de estas directivas, en todas las cargas de trabajo de grupo y puntos de conexión, de forma que pueden crear grupos mediante palabras bloqueadas y con sus propias convenciones de nomenclatura. A continuación se muestra la lista de roles de administrador excluidos de la directiva de nomenclatura de grupos.
 
@@ -77,7 +82,7 @@ Algunos administradores pueden quedar excluidos de estas directivas, en todas la
 
 ## <a name="configure-naming-policy-in-azure-portal"></a>Configuración de la directiva de nomenclatura en Azure Portal
 
-1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta de administrador global.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta de Administrador del grupo.
 1. Seleccione **Grupos**, a continuación, seleccione **Directiva de nomenclatura** para abrir la página de la directiva de nomenclatura.
 
     ![apertura de la página de la directiva de nomenclatura en el centro de administración](./media/groups-naming-policy/policy.png)

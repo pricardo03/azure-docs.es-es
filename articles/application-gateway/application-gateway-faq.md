@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 72c44f47060a745c5a5266a0ca7173276eb5cb66
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 14fe8780bb7919d942da186698275d5199f4586e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658311"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770091"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -122,7 +122,7 @@ Use Traffic Manager para distribuir el tráfico a través de varias instancias d
 
 Sí, la SKU v2 de Application Gateway admite la escalabilidad automática. Para más información, consulte [Autoscaling and Zone-redundant Application Gateway](application-gateway-autoscaling-zone-redundant.md) (Escalabilidad automática y Application Gateway con redundancia de zona).
 
-### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>¿El escalado o la reducción vertical provocan algún tiempo de inactividad?
+### <a name="does-manual-or-automatic-scale-up-or-scale-down-cause-downtime"></a>¿El escalado o la reducción vertical manual o automático provocan algún tiempo de inactividad?
 
 No. Las instancias se distribuyen entre varios dominios de actualización y dominios de error.
 

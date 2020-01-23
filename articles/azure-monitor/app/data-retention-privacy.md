@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/29/2019
-ms.openlocfilehash: aacd41debfa8810facc41896051767eb4ab6e3b6
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: b4550f55d160a77c2fb149dd509ca1cfad784f79
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052490"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513463"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recopilación, retención y almacenamiento de datos en Application Insights
 
@@ -118,7 +118,7 @@ Si comparte el código con otros proyectos, no olvide quitar la clave de instrum
 Todos los datos se cifran en reposo y al moverse entre centros de datos.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>¿Se cifran los datos en tránsito desde mi aplicación a los servidores de Application Insights?
-Sí, se usa https para enviar datos al portal desde casi todos los SDK, incluidos servidores web, dispositivos y páginas web HTTPS. La única excepción son los datos enviados desde páginas web HTTP sin formato.
+Sí, se usa https para enviar datos al portal desde casi todos los SDK, incluidos servidores web, dispositivos y páginas web HTTPS. 
 
 ## <a name="does-the-sdk-create-temporary-local-storage"></a>¿El SDK crea almacenamiento local temporal?
 
@@ -200,7 +200,7 @@ No se recomienda establecer explícitamente la aplicación para que solo use TLS
 | Windows Server 2012 a 2016 | Compatible y habilitado de manera predeterminada. | Para confirmar que aún usa la [configuración predeterminada](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 y Windows Server 2008 R2 SP1 | Compatible, pero no habilitado de manera predeterminada. | Consulte la página [Configuración del registro de TLS](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) para obtener más información sobre cómo se habilita.  |
 | Windows Server 2008 SP2 | La compatibilidad con TLS 1.2 requiere una actualización. | Consulte [Actualización para agregar compatibilidad con TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) en Windows Server 2008 SP2. |
-|Windows Vista | No se admite. | N/D
+|Windows Vista | No compatible. | N/D
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Comprobación de qué versión de OpenSSL se ejecuta para su distribución de Linux
 
@@ -237,7 +237,7 @@ Los SDK varían entre las distintas plataformas, y hay varios componentes que se
 | [Adición del SDK de Application Insights a un proyecto web de .NET][greenbrown] |ServerContext<br/>Inferidos<br/>Contadores de rendimiento<br/>Requests<br/>**Excepciones**<br/>Sesión<br/>users |
 | [Instalación del Monitor de estado en IIS][redfield] |Dependencias<br/>ServerContext<br/>Inferidos<br/>Contadores de rendimiento |
 | [Adición del SDK de Application Insights a una aplicación web de Java][java] |ServerContext<br/>Inferidos<br/>Solicitud<br/>Sesión<br/>users |
-| [Incorporación del SDK de JavaScript a una página web][client] |ClientContext <br/>Inferidos<br/>Page<br/>ClientPerf<br/>Ajax |
+| [Incorporación del SDK de JavaScript a una página web][client] |ClientContext <br/>Inferidos<br/>Página<br/>ClientPerf<br/>Ajax |
 | [Definición de propiedades predeterminadas][apiproperties] |**Propiedades** en todos los eventos estándar y personalizados |
 | [Llamar a TrackMetric][api] |Valores numéricos<br/>**Propiedades** |
 | [Llamar a Track*][api] |Nombre del evento<br/>**Propiedades** |

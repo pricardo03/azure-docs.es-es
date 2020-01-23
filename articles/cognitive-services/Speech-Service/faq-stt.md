@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: 575dda47b5e6fc0d70ef80dfd7a1baba0f63be2d
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: a96a3de7c8ad309986417e21a13d5e18f56cbd24
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814861"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934126"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre el servicio Speech to Text
 
@@ -33,7 +33,7 @@ Si no encuentra respuestas a sus preguntas en estas P+F, [consulte otras opcione
 
 **P: ¿Siempre es necesario crear un modelo de voz personalizado?**
 
-**R.** :  No. Si en la aplicación se usa un lenguaje cotidiano genérico, no es necesario personalizar un modelo. Si la aplicación se usa en un entorno con poco o ningún ruido de fondo, tampoco es necesario personalizar un modelo.
+**R.** : No. Si en la aplicación se usa un lenguaje cotidiano genérico, no es necesario personalizar un modelo. Si la aplicación se usa en un entorno con poco o ningún ruido de fondo, tampoco es necesario personalizar un modelo.
 
 Puede implementar modelos de línea de base y personalizados en el portal, y después ejecutar pruebas de precisión en ellos. Puede usar esta característica para medir la precisión de un modelo de línea de base con respecto a uno personalizado.
 
@@ -79,7 +79,7 @@ Si ha adaptado e implementado un modelo con la línea de base V1.0, esa implemen
 
 **P: ¿Cómo se cobra el audio de canal doble?**
 
-**R.** : Si envía cada canal por separado (cada canal en su propio archivo), se le cobrará según la duración de cada archivo. Si envía un solo archivo con cada canal multiplexado juntos, se le cobrará por la duración del archivo individual.
+**R.** : Si envía cada canal por separado (cada uno en un archivo propio), se le cobrará por la duración de cada archivo. Si envía un solo archivo con cada canal multiplexado juntos, se le cobrará por la duración del archivo individual. Para más información sobre los precios, vea la [página de precios de Azure Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 > [!IMPORTANT]
 > Si tiene más dudas sobre la privacidad que le impidan usar el servicio Voz personalizado, póngase en contacto con uno de los canales de soporte técnico.
@@ -119,7 +119,7 @@ or
   - muestre `Properties` de este servicio,
   - copie el `Resource ID`completo.
 
-## <a name="importing-data"></a>Importación de datos
+## <a name="importing-data"></a>Importar datos
 
 **P: ¿Cuál es el límite de tamaño de un conjunto de datos, y por qué existe?**
 
@@ -127,7 +127,7 @@ or
 
 **P: ¿Puedo comprimir mis archivos de texto para cargar un archivo de texto mayor?**
 
-**R.** :  No. Actualmente solo se permiten los archivos de texto no comprimidos.
+**R.** : No. Actualmente solo se permiten los archivos de texto no comprimidos.
 
 **P: El informe de datos indica que ha habido expresiones erróneas. ¿Cuál es el problema?**
 

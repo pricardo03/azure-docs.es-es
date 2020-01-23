@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 3cdeecd5b7698274b899832d7a66a5572a114e4b
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 139d1a470c67d5dab310c4fa2a9171f433df2061
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954513"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912377"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Conexión de IoT DevKit AZ3166 a Azure IoT Hub
 
@@ -174,7 +174,7 @@ Siga estos pasos para preparar el entorno de desarrollo para DevKit:
     > [Instalar el paquete de extensión de Azure IoT Tools](vscode:extension/vsciot-vscode.azure-iot-tools)
 
     > [!NOTE]
-    > El paquete de extensión de Azure IoT Tools contiene [Azure IoT Device Workbench](https://aka.ms/iot-workbench), que se usa para desarrollar y depurar en varios dispositivos de IoT DevKit. El [kit de herramientas de Azure IoT Hub](https://aka.ms/iot-toolkit), que también se incluye con el paquete de extensión de Azure IoT Tools, se usa para administrar centros de Azure IoT Hub e interactuar con ellos.
+    > El paquete de extensión de Azure IoT Tools contiene [Azure IoT Device Workbench](https://aka.ms/iot-workbench), que se usa para desarrollar y depurar en varios dispositivos de IoT DevKit. La [extensión de Azure IoT Hub](https://aka.ms/iot-toolkit), que también se incluye con el paquete de extensión de Azure IoT Tools, se usa para administrar centros de Azure IoT Hub e interactuar con ellos.
 
 5. Configure VS Code con la configuración de Arduino.
 
@@ -298,7 +298,7 @@ En lugar de aprovisionar Azure IoT Hub y el dispositivo desde Azure Portal, pued
 
     ![Cadena de conexión](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)
 
-1. Haga clic en `F1` de nuevo, escriba y seleccione **Azure IoT Device Workbench: Upload Device Code**  (Carga del código de dispositivo). Se inicia la compilación y la carga del código en DevKit.
+1. Haga clic en `F1` de nuevo, escriba y seleccione **Azure IoT Device Workbench: Upload Device Code** (Carga del código de dispositivo). Se inicia la compilación y la carga del código en DevKit.
 
     ![Carga de Arduino](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/arduino-upload.png)
 

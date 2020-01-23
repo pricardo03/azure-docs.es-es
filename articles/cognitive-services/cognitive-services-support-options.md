@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 2dc5bfb7459e28a4d118c5d1629133bae3a5637f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 2cdf34bb7df121665548be98f9f2098cc5cfe99b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533691"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169081"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Opciones de ayuda y de soporte técnico de Azure Cognitive Services
 
@@ -73,7 +73,7 @@ Para solicitar nuevas características, publíquelo en UserVoice. Comparta sus i
 | Content Moderator             | https://cognitive.uservoice.com/forums/559960-content-moderator |
 | Custom Vision                 | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
 | Caras                          | https://cognitive.uservoice.com/forums/430315-face |
-| Formulario                          | https://cognitive.uservoice.com/forums/921556-form-recognizer |
+| Form                          | https://cognitive.uservoice.com/forums/921556-form-recognizer |
 | Envolvente                     | https://feedback.azure.com/forums/34192--general-feedback |
 | Language Understanding (LUIS) | https://cognitive.uservoice.com/forums/551524-luis |
 | Personalizer                  | https://cognitive.uservoice.com/forums/921562-personalizer |
@@ -91,8 +91,8 @@ Para solicitar nuevas características, publíquelo en UserVoice. Comparta sus i
 
 Las notas de la versión se actualizan en cuanto están disponibles nuevas versiones. Las notas contienen información sobre las nuevas características, mejoras y correcciones de errores.
 
- - [Custom Vision Service](custom-vision-service/release-notes.md)
- - [Face API](face/releasenotes.md)
+ - [Custom Vision](custom-vision-service/release-notes.md)
+ - [Face](face/releasenotes.md)
  - [Language Understanding (LUIS)](luis/whats-new.md)
  - [Servicios de Voz](speech-service/releasenotes.md)
  - [SDK de servicios de voz](speech-service/devices-sdk-release-notes.md)
@@ -149,8 +149,8 @@ Proporcione una descripción clara y concisa de lo que es el error.
 **Pasos de reproducción**
 
 Pasos para reproducir el comportamiento:
-1. ...
-2. ...
+1. …
+2. …
 
 **Comportamiento esperado**
 

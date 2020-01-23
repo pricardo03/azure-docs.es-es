@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0e4ec63ffe715b17f55fde2a53c15d96d391cdba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1fc3aa6caa6266d2cd42e4783e8e39d5cc92c220
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452511"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861581"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnóstico y solución de problemas de un entorno de versión preliminar
 
@@ -29,7 +29,7 @@ Este problema puede producirse si no tiene los permisos necesarios para acceder 
 
 ## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problema: no se ve ningún dato en el explorador de versión preliminar
 
-Hay varias razones que pueden impedirle ver sus datos en el [explorador de la versión preliminar de Azure Time Series Insights](https://insights.timeseries.azure.com/preview).
+Hay varias razones por las cuales es posible que los datos no aparezcan en el [explorador de la versión preliminar de Azure Time Series Insights](https://insights.timeseries.azure.com/preview).
 
 - Puede que el origen del evento no esté recibiendo datos.
 
@@ -39,7 +39,7 @@ Hay varias razones que pueden impedirle ver sus datos en el [explorador de la ve
 
 - Los datos de origen del evento no tienen formato JSON.
 
-    Time Series Insights solo admite datos JSON. Para ver ejemplos de JSON, consulte [Formas de JSON admitidas](./how-to-shape-query-json.md).
+    Time Series Insights solo admite datos JSON. Para ver ejemplos de JSON, lea [Formas de JSON admitidas](./how-to-shape-query-json.md).
 
 - A la clave de origen del evento le falta un permiso necesario.
 
@@ -61,13 +61,13 @@ Hay varias razones que pueden impedirle ver sus datos en el [explorador de la ve
 
 - La propiedad Time Series ID especificada en el momento del aprovisionamiento es incorrecta, falta o es nula.
 
-    Este problema puede producirse si la propiedad Time Series ID se configura incorrectamente en el momento de aprovisionamiento del entorno. Para más información, consulte [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) (Procedimientos recomendados para elegir un identificador de Time Series). En la actualidad, no se puede actualizar un entorno de Time Series Insights existente para usar un identificador de Time Series distinto.
+    Este problema puede producirse si la propiedad Time Series ID se configura incorrectamente en el momento de aprovisionamiento del entorno. Para más información, lea [Procedimientos recomendados para elegir un identificador de Time Series](./time-series-insights-update-how-to-id.md). En la actualidad, no se puede actualizar un entorno de Time Series Insights existente para usar un identificador de Time Series distinto.
 
 ## <a name="problem-some-data-shows-but-some-is-missing"></a>Problema: Se muestran algunos datos, pero faltan otros
 
 Podría estar enviando datos sin el identificador de Time Series.
 
-- Este problema puede producirse cuando se envían los eventos sin el campo de identificador de Time Series en la carga útil. Para más información, consulte el artículo sobre las [formas compatibles de JSON](./how-to-shape-query-json.md).
+- Este problema puede producirse cuando se envían los eventos sin el campo de identificador de Time Series en la carga útil. Para más información, lea el artículo sobre las [formas compatibles de JSON](./how-to-shape-query-json.md).
 - Este problema puede producirse porque se está limitando su entorno.
 
     > [!NOTE]
@@ -97,7 +97,7 @@ Si no se especifica explícitamente la propiedad Timestamp, se utiliza como marc
 
 - Puede que esté accediendo a un entorno Time Series Insights S1 o S2.
 
-   Los modelos de Time Series solo se admiten en entornos de pago por uso. Para más información sobre cómo acceder a su entorno S1 o S2 desde el explorador de versión preliminar de Time Series Insights, consulte [Visualización de datos en el explorador](./time-series-insights-update-explorer.md).
+   Los modelos de Time Series solo se admiten en entornos de pago por uso. Para más información sobre cómo acceder a su entorno S1 o S2 desde el explorador de versión preliminar de Time Series Insights, lea [Visualización de datos en el explorador](./time-series-insights-update-explorer.md).
 
    [![No hay eventos en el entorno.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 

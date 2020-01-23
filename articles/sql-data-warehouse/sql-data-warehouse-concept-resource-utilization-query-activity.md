@@ -7,16 +7,16 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 08/09/2019
+ms.date: 01/14/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1a210e2622212ed59dfa12f9f9a108c6ffe08714
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 366d170a4caf9ee7428b68d71f910c65356038ff
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692901"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024542"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Supervisión del uso de recursos y la actividad consultas en Azure SQL Data Warehouse
 Azure SQL Data Warehouse ofrece una experiencia de supervisión enriquecida en Azure Portal que expone la información de la carga de trabajo del almacenamiento de datos. Azure Portal es la herramienta recomendada al supervisar el almacenamiento de datos, ya que proporciona períodos de retención configurables, alertas, recomendaciones, y gráficos y paneles personalizables para métricas y registros. El portal también le permite integrarse con otros servicios de supervisión de Azure tales como Operations Management Suite (OMS) y Azure Monitor (registros) para ofrecer una experiencia de supervisión holística no solo para el almacenamiento de datos sino también para toda la plataforma Azure Analytics como experiencia de supervisión integrada. Esta documentación describe las funcionalidades de supervisión disponibles para optimizar y administrar la plataforma Analytics con SQL Data Warehouse. 
@@ -25,25 +25,27 @@ Azure SQL Data Warehouse ofrece una experiencia de supervisión enriquecida en A
 Las métricas siguientes están disponibles en Azure Portal para SQL Data Warehouse. Estas métricas se exponen a través de [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
 
 
-| Nombre de métrica             | DESCRIPCIÓN                                                  | Tipo de agregación |
+| Nombre de la métrica             | Descripción                                                  | Tipo de agregación |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
-| Porcentaje de CPU          | Uso de CPU en todos los nodos del almacenamiento de datos      | Máxima          |
-| Porcentaje de E/S de datos      | Uso de E/S en todos los nodos del almacenamiento de datos       | Máxima          |
-| Porcentaje de memoria       | Uso de la memoria (SQL Server) en todos los nodos del almacenamiento de datos | Máxima          |
-| Conexiones correctas  | Número de conexiones correctas con los datos                 | Total            |
-| Conexiones con errores      | Número de conexiones erróneas con el servidor           | Total            |
-| Bloqueado por el firewall     | Número de inicios de sesión en el almacenamiento de datos que se ha bloqueado     | Total            |
-| Límite de DWU               | Objetivo de nivel de servicio del almacenamiento de datos                | Máxima          |
-| Porcentaje de DWU          | Máximo entre el porcentaje de CPU y porcentaje de E/S de datos        | Máxima          |
-| DWU utilizada                | Límite de DWU * Porcentaje de DWU                                   | Máxima          |
-| Porcentaje de aciertos de caché    | (aciertos de caché/error de caché) * 100 donde aciertos de caché corresponde al total de todos los aciertos de segmentos del almacén de columnas en la caché de SSD local y error de caché corresponde a la suma de los errores de segmentos del almacén de columnas en la caché SSD local de todos los nodos | Máxima          |
-| Porcentaje de caché usada   | (caché usada/capacidad de la memoria caché) * 100 donde la memoria caché usada corresponde al total de todos los bytes en la caché SSD local en todos los nodos y capacidad de la memoria caché corresponde al total de la capacidad de almacenamiento de la caché SSD local en todos los nodos | Máxima          |
-| Porcentaje de tempdb local | El uso de tempdb local en todos los nodos de ejecución. Los valores se emiten cada cinco minutos | Máxima          |
+| Porcentaje de CPU          | Uso de CPU en todos los nodos del almacenamiento de datos      | Prom., Mín., Máx.    |
+| Porcentaje de E/S de datos      | Uso de E/S en todos los nodos del almacenamiento de datos       | Prom., Mín., Máx.    |
+| Porcentaje de memoria       | Uso de la memoria (SQL Server) en todos los nodos del almacenamiento de datos | Prom., Mín., Máx.   |
+| Consultas activas          | Número de consultas activas que se ejecutan en el sistema             | Sum              |
+| Consultas en cola          | Número de consultas en cola en espera para iniciar la ejecución          | Sum              |
+| Conexiones correctas  | Número de conexiones correctas con los datos                 | Suma, Recuento       |
+| Conexiones con errores      | Número de conexiones erróneas con el servidor           | Suma, Recuento       |
+| Bloqueado por el firewall     | Número de inicios de sesión en el almacenamiento de datos que se ha bloqueado     | Suma, Recuento       |
+| Límite de DWU               | Objetivo de nivel de servicio del almacenamiento de datos                | Prom., Mín., Máx.    |
+| Porcentaje de DWU          | Máximo entre el porcentaje de CPU y porcentaje de E/S de datos        | Prom., Mín., Máx.    |
+| DWU utilizada                | Límite de DWU * Porcentaje de DWU                                   | Prom., Mín., Máx.    |
+| Porcentaje de aciertos de caché    | (aciertos de caché/error de caché) * 100 donde aciertos de caché corresponde al total de todos los aciertos de segmentos del almacén de columnas en la caché de SSD local y error de caché corresponde a la suma de los errores de segmentos del almacén de columnas en la caché SSD local de todos los nodos | Prom., Mín., Máx.    |
+| Porcentaje de caché usada   | (caché usada/capacidad de la memoria caché) * 100 donde la memoria caché usada corresponde al total de todos los bytes en la caché SSD local en todos los nodos y capacidad de la memoria caché corresponde al total de la capacidad de almacenamiento de la caché SSD local en todos los nodos | Prom., Mín., Máx.    |
+| Porcentaje de tempdb local | El uso de tempdb local en todos los nodos de ejecución. Los valores se emiten cada cinco minutos | Prom., Mín., Máx.    |
 
-> Aspectos que se deben tener en cuenta al visualizar métricas y establecer alertas:
->
-> - Las conexiones erróneas y correctas se indican para un almacenamiento de datos determinado, no para el servidor lógico.
-> - El porcentaje de memoria refleja el uso incluso si el almacenamiento de datos se encuentra en estado de inactividad (no refleja el consumo de memoria de carga de trabajo activa). Use y realice un seguimiento de esta métrica junto con otras (tempdb, memoria caché de Gen2) para tomar una decisión holística sobre si el escalado para conseguir capacidad de la memoria caché adicional aumentará el rendimiento de la carga de trabajo para cumplir sus requisitos.
+Aspectos que se deben tener en cuenta al visualizar métricas y establecer alertas:
+
+- Las conexiones erróneas y correctas se indican para un almacenamiento de datos determinado, no para el servidor lógico.
+- El porcentaje de memoria refleja el uso incluso si el almacenamiento de datos se encuentra en estado de inactividad (no refleja el consumo de memoria de carga de trabajo activa). Use y realice un seguimiento de esta métrica junto con otras (tempdb, memoria caché de Gen2) para tomar una decisión holística sobre si el escalado para conseguir capacidad de la memoria caché adicional aumentará el rendimiento de la carga de trabajo para cumplir sus requisitos.
 
 
 ## <a name="query-activity"></a>Actividad de consultas

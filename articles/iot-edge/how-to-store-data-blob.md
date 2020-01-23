@@ -1,26 +1,26 @@
 ---
 title: 'Almacenamiento de blob en bloques en los dispositivos: Azure IoT Edge | Microsoft Docs'
 description: Comprenda las características de niveles y período de vida, consulte las operaciones de Blob Storage compatibles y conéctese a su cuenta de Blob Storage.
-author: arduppal
-manager: brymat
-ms.author: arduppal
+author: kgremban
+ms.author: kgremban
 ms.reviewer: arduppal
 ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bfd47848bc07915b0d7be3620d950c11c0e4b6e7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 12c5bf66de966faf8dc31c7265fdfb0180a95323
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457311"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970845"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Almacenamiento de datos en el perímetro con Azure Blob Storage en IoT Edge
 
 Azure Blob Storage en IoT Edge proporciona una solución de almacenamiento de [blobs en bloques](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) y [blobs en anexos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) en el perímetro. En los dispositivos IoT Edge, los módulos de almacenamiento de blobs se comportan como un servicio de blobs de Azure, excepto los blobs que se almacenan localmente en el dispositivo IoT Edge. Para acceder a los blobs puede usar los mismos métodos del SDK de Azure Storage o las llamadas a la API de blobs a las que está acostumbrado. En este artículo se explican los conceptos relacionados con Azure Blob Storage en el contenedor de IoT Edge que ejecuta un servicio de blob en su dispositivo de IoT Edge.
 
 Este módulo es útil en los siguientes escenarios:
+
 * Cuando es necesario almacenar los datos localmente hasta que se puedan procesar o transferir a la nube. Estos datos pueden ser vídeos, imágenes, datos económicos, información médica o cualquier otro dato no estructurado.
 * Cuando los dispositivos están en un lugar con conectividad limitada.
 * Cuando se quiere procesar los datos de un modo eficiente en el entorno local para poder acceder a ellos con una latencia baja y actuar ante una emergencia lo antes posible.
@@ -33,38 +33,37 @@ En este módulo se proporcionan los elementos **deviceToCloudUpload** y **device
 
 **deviceToCloudUpload** es una funcionalidad configurable. Esta función le permite cargar automáticamente los datos de la instancia local de Blob Storage a Azure con compatibilidad para una conectividad de Internet intermitente. Eso le permite lo siguiente:
 
-- Activar y desactivar la característica deviceToCloudUpload.
-- Elegir el orden en el que los datos se copian en Azure como NewestFirst o OldestFirst.
-- Especificar la cuenta de Azure Storage en la que quiere que se carguen los datos.
-- Especificar los contenedores que quiera cargar en Azure. Este módulo le permite especificar los nombres de los contenedores de origen y destino.
-- Elegir la capacidad de eliminar los blobs inmediatamente, una vez finalizada la carga de almacenamiento en la nube.
-- Realizar la carga completa del blob (mediante la operación `Put Blob`) y la carga en el nivel de bloque (mediante las operaciones `Put Block`, `Put Block List` y `Append Block`).
+* Activar y desactivar la característica deviceToCloudUpload.
+* Elegir el orden en el que los datos se copian en Azure como NewestFirst o OldestFirst.
+* Especificar la cuenta de Azure Storage en la que quiere que se carguen los datos.
+* Especificar los contenedores que quiera cargar en Azure. Este módulo le permite especificar los nombres de los contenedores de origen y destino.
+* Elegir la capacidad de eliminar los blobs inmediatamente, una vez finalizada la carga de almacenamiento en la nube.
+* Realizar la carga completa del blob (mediante la operación `Put Blob`) y la carga en el nivel de bloque (mediante las operaciones `Put Block`, `Put Block List` y `Append Block`).
 
 Este módulo usa la carga a nivel de bloque cuando su blob consiste en bloques. Éstos son algunos de los escenarios comunes:
 
-- La aplicación actualiza algunos bloques de un blob en bloques cargado previamente o anexa nuevos bloques a un blob en anexos, ya que este módulo carga solo los bloques actualizados y no el blob completo.
-- El módulo está cargando el blob y la conexión a Internet desaparece, así que cuando la conectividad vuelve a funcionar, solo carga los bloques restantes y no todo el blob.
- 
+* La aplicación actualiza algunos bloques de un blob en bloques cargado previamente o anexa nuevos bloques a un blob en anexos, ya que este módulo carga solo los bloques actualizados y no el blob completo.
+* El módulo está cargando el blob y la conexión a Internet desaparece, así que cuando la conectividad vuelve a funcionar, solo carga los bloques restantes y no todo el blob.
+
 Si el proceso finaliza de forma inesperada (por ejemplo, debido a un error eléctrico) durante la carga de un blob, todos los bloques de la carga se volverán a cargar, cuando el módulo vuelva a estar en línea.
 
 **deviceAutoDelete** es una funcionalidad configurable. Esta función elimina automáticamente sus blobs del almacenamiento local cuando caduca la duración especificada (medida en minutos). Eso le permite lo siguiente:
 
-- Activar y desactivar la función deviceAutoDelete.
-- Especificar el tiempo en minutos (deleteAfterMinutes) después del cual los blobs se eliminarán automáticamente.
-- Elija la capacidad de retener el blob mientras se está cargando, si el valor de deleteAfterMinutes expira.
-
+* Activar y desactivar la función deviceAutoDelete.
+* Especificar el tiempo en minutos (deleteAfterMinutes) después del cual los blobs se eliminarán automáticamente.
+* Elija la capacidad de retener el blob mientras se está cargando, si el valor de deleteAfterMinutes expira.
 
 ## <a name="prerequisites"></a>Prerequisites
 
 Un dispositivo de Azure IoT Edge:
 
-- Puede usar la máquina de desarrollo o una máquina virtual como el dispositivo de IoT Edge siguiendo los pasos que se indican en la guía de inicio rápido para dispositivos de [Linux](quickstart-linux.md) o de [Windows](quickstart.md).
+* Puede usar la máquina de desarrollo o una máquina virtual como el dispositivo de IoT Edge siguiendo los pasos que se indican en la guía de inicio rápido para dispositivos de [Linux](quickstart-linux.md) o de [Windows](quickstart.md).
 
-- Para obtener una lista de las arquitecturas y sistemas operativos compatibles, consulte [Sistemas compatibles con Azure IoT Edge](support.md#operating-systems). El módulo de Azure Blob Storage en IoT Edge admite las siguientes arquitecturas:
-    - Windows AMD64
-    - Linux AMD64
-    - Linux ARM32
-    - Linux ARM64 (versión preliminar)
+* Para obtener una lista de las arquitecturas y sistemas operativos compatibles, consulte [Sistemas compatibles con Azure IoT Edge](support.md#operating-systems). El módulo de Azure Blob Storage en IoT Edge admite las siguientes arquitecturas:
+  * Windows AMD64
+  * Linux AMD64
+  * Linux ARM32
+  * Linux ARM64 (versión preliminar)
 
 Recursos en la nube:
 
@@ -171,15 +170,15 @@ La documentación de Azure Blob Storage incluye guías de inicio rápido que pro
 
 En las siguientes guías de inicio rápido se usan lenguajes que también son compatibles con IoT Edge, por lo que se pueden implementar como módulos de IoT Edge, junto con el módulo de Blob Storage:
 
-- [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-    - Tenemos un problema conocido al usar este SDK porque esta versión del módulo no devuelve el momento de creación del blob. Por lo tanto, algunos métodos, como la enumeración de blobs, no funcionan. Como solución alternativa, establezca explícitamente la versión de la API en el cliente de blob en "2017-04-17". <br>Ejemplo: `block_blob_service._X_MS_VERSION = '2017-04-17'`
-    - [Ejemplo de blob en anexos](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
-- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)
-- [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-v10.md)
-- [Ruby](../storage/blobs/storage-quickstart-blobs-ruby.md)
-- [Go](../storage/blobs/storage-quickstart-blobs-go.md)
-- [PHP](../storage/blobs/storage-quickstart-blobs-php.md)
+* [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+* [Python](../storage/blobs/storage-quickstart-blobs-python.md)
+  * Las versiones anteriores a la versión 2.1 del SDK de Python tienen un problema conocido que hace que el modulo no devuelva la hora de creación del blob. Debido a ese problema, algunos métodos como la enumeración de blobs no funcionan. Como solución alternativa, establezca explícitamente la versión de la API en el cliente de blob en "2017-04-17". Ejemplo: `block_blob_service._X_MS_VERSION = '2017-04-17'`
+  * [Ejemplo de blob en anexos](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
+* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
+* [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md)
+* [Ruby](../storage/blobs/storage-quickstart-blobs-ruby.md)
+* [Go](../storage/blobs/storage-quickstart-blobs-go.md)
+* [PHP](../storage/blobs/storage-quickstart-blobs-php.md)
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Conectarse al almacenamiento local con el Explorador de Azure Storage
 
@@ -211,65 +210,65 @@ No todas las operaciones de Azure Blob Storage son compatibles con Azure Blob St
 
 Compatible:
 
-- Enumerar contenedores
+* Enumerar contenedores
 
 No compatible:
 
-- Obtener y definir las propiedades del servicio Blob
-- Preparar solicitud de blob
-- Obtener estadísticas del servicio Blob
-- Obtención de información de la cuenta
+* Obtener y definir las propiedades del servicio Blob
+* Preparar solicitud de blob
+* Obtener estadísticas del servicio Blob
+* Obtención de información de la cuenta
 
 ### <a name="containers"></a>Contenedores
 
 Compatible:
 
-- Crear y eliminar contenedor
-- Obtener de propiedades y metadatos del contenedor
-- Enumeración de blobs
-- Obtener y definir lista de control de acceso de contenedor
-- Establecer metadatos de contenedor
+* Crear y eliminar contenedor
+* Obtener de propiedades y metadatos del contenedor
+* Enumeración de blobs
+* Obtener y definir lista de control de acceso de contenedor
+* Establecer metadatos de contenedor
 
 No compatible:
 
-- Conceder contenedor
+* Conceder contenedor
 
 ### <a name="blobs"></a>Datos BLOB
 
 Compatible:
 
-- Poner, obtener y eliminar blob
-- Obtener y definir propiedades de blob
-- Obtener y definir metadatos de blob
+* Poner, obtener y eliminar blob
+* Obtener y definir propiedades de blob
+* Obtener y definir metadatos de blob
 
 No compatible:
 
-- Conceder blob
-- Instantánea de blob
-- Copiar y anular blob de copia
-- Recuperar blob
-- Establecer nivel de blob
+* Conceder blob
+* Instantánea de blob
+* Copiar y anular blob de copia
+* Recuperar blob
+* Establecer nivel de blob
 
 ### <a name="block-blobs"></a>Blobs en bloques
 
 Compatible:
 
-- Colocar bloque
-- Colocar y obtener lista de bloques
+* Colocar bloque
+* Colocar y obtener lista de bloques
 
 No compatible:
 
-- Colocar bloque desde dirección URL
+* Colocar bloque desde dirección URL
 
 ### <a name="append-blobs"></a>Blobs en anexos
 
 Compatible:
 
-- Anexar bloque
+* Anexar bloque
 
 No compatible:
 
-- Anexar bloque desde dirección URL
+* Anexar bloque desde dirección URL
 
 ## <a name="event-grid-on-iot-edge-integration"></a>Integración de Event Grid en IoT Edge
 > [!CAUTION]

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 10/11/2019
-ms.openlocfilehash: c8b2407b18f0d7115ce51fc28b956e7fd764c71e
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b83eb1556ed3f4a41409faf70f6ba9d8cd28322d
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535480"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732185"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integración de Git con Azure Machine Learning
 
@@ -39,6 +39,15 @@ Cuando se envía una ejecución de entrenamiento desde el SDK de Python o la CLI
 Esta información se envía para las ejecuciones que usan un estimador, una canalización de aprendizaje automático o una ejecución de scripts.
 
 Si los archivos de entrenamiento no se encuentran en un repositorio de Git en el entorno de desarrollo, o el comando `git` no está disponible, no se realiza el seguimiento de ninguna información relacionada con Git.
+
+> [!TIP]
+> Para comprobar si el comando GIT está disponible en el entorno de desarrollo, abra una sesión del shell, un símbolo del sistema, PowerShell u otra interfaz de la línea de comandos y escriba el siguiente comando:
+>
+> ```
+> git --version
+> ```
+>
+> Si está instalado y, en la ruta de acceso, recibirá una respuesta similar a `git version 2.4.1`. Para obtener más información sobre la instalación de GIT en el entorno de desarrollo, consulte el [sitio web de GIT](https://git-scm.com/).
 
 ## <a name="view-the-logged-information"></a>Visualización de la información registrada
 

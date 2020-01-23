@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 099dc723db44ba71fc4672c382d24ac93ffe742f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 951d707c898ad0efa1f21480c12f0c733f5218ee
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689138"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834946"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -66,7 +66,7 @@ En la siguiente tabla se enumeran las demás características y herramientas que
 |--------|-----------|
 | **Conmutación por error de cuenta** |Todavía no se admite|
 | **AzCopy** | Compatibilidad con versiones específicas <br><br>Use solo la versión más reciente de AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). No se admiten versiones anteriores de AzCopy, como AzCopy v8.1.|
-| **Directivas de administración del ciclo de vida de Azure Blob Storage** | Se admiten las directivas de administración del ciclo de vida (versión preliminar).  Se admiten todos los niveles de acceso. El nivel de acceso de archivo se encuentra actualmente en versión preliminar. Todavía no se admite la eliminación de instantáneas de blob. <br><br> Actualmente, hay algunos errores que afectan a las directivas de administración del ciclo de vida y al nivel de acceso de archivo.  Regístrese [aquí](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) para obtener la versión preliminar de las directivas de administración del ciclo de vida y el nivel de acceso de archivo.   |
+| **Directivas de administración del ciclo de vida de Azure Blob Storage** | Se admiten las directivas de administración del ciclo de vida (versión preliminar).  Regístrese [aquí](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) para obtener la versión preliminar de las directivas de administración del ciclo de vida y el nivel de acceso de archivo.   <br><br>Se admiten todos los niveles de acceso. El nivel de acceso de archivo se encuentra actualmente en versión preliminar. Todavía no se admite la eliminación de instantáneas de blob.  Actualmente, hay algunos errores que afectan a las directivas de administración del ciclo de vida y al nivel de acceso de archivo.  |
 | **Azure Content Delivery Network** | Todavía no se admite|
 | **Azure Search** |Compatible (versión preliminar)|
 | **Explorador de Azure Storage** | Compatibilidad con versiones específicas. <br><br>Use solo las versiones `1.6.0` o superiores. <br> Actualmente hay un error de almacenamiento que afecta a la versión `1.11.0` que puede dar lugar a errores de autenticación en ciertos escenarios. Se está implementando una corrección para el error de almacenamiento, pero, como solución alternativa, se recomienda usar la versión `1.10.x`, que está disponible como [descarga gratuita](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). El error de almacenamiento no afecta a la versión `1.10.x`.|
@@ -74,7 +74,7 @@ En la siguiente tabla se enumeran las demás características y herramientas que
 | **Blobfuse** |Todavía no se admite|
 | **Dominios personalizados** |Todavía no se admite|
 | **Explorador de Storage en Azure Portal** | Compatibilidad limitada. Las ACL aún no se admiten. |
-| **Registro de diagnóstico** |Se admiten los registros de diagnóstico (versión preliminar).<br><br>Actualmente no se admite la habilitación de registros en Azure Portal. Este es un ejemplo de cómo habilitar los registros mediante PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Asegúrese de especificar `Blob` como valor del parámetro `-ServiceType` como se muestra en este ejemplo. <br><br>Actualmente, Explorador de Azure Storage no se puede usar para ver registros de diagnóstico. Para ver los registros, use AzCopy o SDK.
+| **Registro de diagnóstico** |Se admiten los registros de diagnóstico (versión preliminar). <br><br>El Explorador de Azure Storage 1.10.x no se puede usar para ver registros de diagnóstico. Para ver los registros, use AzCopy o SDK.
 | **Almacenamiento inmutable** |Todavía no se admite <br><br>El almacenamiento inmutable ofrece la capacidad de almacenar datos en estado [WORM](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage).|
 | **Niveles de objeto** |Se admiten las capas de almacenamiento en frío y en archivos. El nivel de archivo está en versión preliminar. Todavía no se admiten los demás niveles de acceso. <br><br> Actualmente, hay algunos errores que afectan al nivel de acceso de archivo.  Regístrese [aquí](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) para obtener la versión preliminar del nivel de acceso de archivo.|
 | **Sitios web estáticos** |Todavía no se admite <br><br>En concreto, la capacidad de incluir los archivos en [los sitios web estáticos](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|

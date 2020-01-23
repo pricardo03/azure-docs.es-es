@@ -3,12 +3,12 @@ title: Funciones definidas por el usuario en plantillas
 description: Se describe cómo definir y usar funciones definidas por el usuario en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.openlocfilehash: e2e68c6f6b9fc9eb40d282d87572ce1e805a11a8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 58b9ba7b162736329cf775e2be5a47bfcae0a4ca
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476162"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122481"
 ---
 # <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funciones definidas por el usuario de la plantilla de Azure Resource Manager
 
@@ -50,14 +50,14 @@ En el ejemplo siguiente se muestra cómo llamar a su función.
 "resources": [
   {
     "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
-    "type": "Microsoft.Storage/storageAccounts",
     "apiVersion": "2016-01-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "location": "South Central US",
+    "tags": {},
     "sku": {
       "name": "Standard_LRS"
     },
     "kind": "Storage",
-    "location": "South Central US",
-    "tags": {},
     "properties": {}
   }
 ]

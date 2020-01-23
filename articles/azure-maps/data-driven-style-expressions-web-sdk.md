@@ -1,6 +1,6 @@
 ---
-title: Expresiones de estilo basadas en datos en el SDK web de Azure Maps | Microsoft Docs
-description: Cómo usar expresiones de estilo basadas en datos en el SDK web de Azure Maps.
+title: Expresiones de estilo basadas en datos en el SDK web de Azure Maps | Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre cómo usar expresiones de estilo basadas en datos en el SDK web de Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 4/4/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 6cd69ba8abe243daadf5d517ab7c5a224953cc99
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 8372012734d937da99c32d2d18fed91ae52c7444
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480647"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911776"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expresiones de estilo basadas en datos (SDK web)
 
@@ -41,7 +41,7 @@ Las expresiones se representan como matrices JSON. El primer elemento de una exp
 
 El SDK web de Azure Maps admite muchos tipos de expresiones que pueden usarse solas o en combinación con otras expresiones.
 
-| Tipo de expresiones | DESCRIPCIÓN |
+| Tipo de expresiones | Descripción |
 |---------------------|-------------|
 | [Expresión de agregado](#aggregate-expression) | Expresión que define un cálculo que se procesa en un conjunto de datos y que se puede utilizar con la opción `clusterProperties` de `DataSource`. |
 | [Expresiones booleanas](#boolean-expressions) | Las expresiones booleanas proporcionan un conjunto de expresiones de operadores booleanos para evaluar las comparaciones booleanas. |
@@ -81,7 +81,7 @@ En todos los ejemplos de este documento se usará la siguiente función para mos
 
 Las expresiones de datos proporcionan acceso a los datos de propiedad de una característica. 
 
-| Expression | Tipo de valor devuelto | DESCRIPCIÓN |
+| Expression | Tipo de valor devuelto | Descripción |
 |------------|-------------|-------------|
 | `['at', number, array]` | object | Recupera un elemento de una matriz. |
 | `['geometry-type']` | string | Obtiene el tipo de geometría de la característica: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
@@ -90,7 +90,7 @@ Las expresiones de datos proporcionan acceso a los datos de propiedad de una car
 | `['has', string]` | boolean | Determina si las propiedades de una característica tienen la propiedad especificada. |
 | `['has', string, object]` | boolean | Determina si las propiedades del objeto tienen la propiedad especificada. |
 | `['id']` | value | Obtiene el identificador de la característica si lo tiene. |
-| `['length', string | array]` | número | Obtiene la longitud de una cadena o matriz. |
+| `['length', string | array]` | number | Obtiene la longitud de una cadena o matriz. |
 
 **Ejemplos**
 
@@ -139,34 +139,34 @@ Igualmente, el contorno de los polígonos se representará en capas de línea. P
 
 Las expresiones matemáticas proporcionan operadores matemáticos para llevar a cabo cálculos basados en datos dentro del marco de la expresión.
 
-| Expression | Tipo de valor devuelto | DESCRIPCIÓN |
+| Expression | Tipo de valor devuelto | Descripción |
 |------------|-------------|-------------|
-| `['+', number, number, …]` | número | Calcula la suma de los números especificados. |
-| `['-', number]` | número | Resta 0 al número especificado. |
-| `['-', number, number]` | número | Resta las primeras cifras al segundo número. |
-| `['*', number, number, …]` | número | Multiplica los números especificados juntos. |
-| `['/', number, number]` | número | Divide el primer número entre el segundo. |
-| `['%', number, number]` | número | Calcula el resto al dividir el primer número entre el segundo. |
-| `['^', number, number]` | número | Calcula el valor del primer valor elevado a la potencia del segundo número. |
-| `['abs', number]` | número | Calcula el valor absoluto del número especificado. |
-| `['acos', number]` | número | Calcula el arcocoseno del número especificado. |
-| `['asin', number]` | número | Calcula el arcoseno del número especificado. |
-| `['atan', number]` | número | Calcula el arcotangente del número especificado. |
-| `['ceil', number]` | número | Redondea el número al siguiente número entero. |
-| `['cos', number]` | número | Calcula el coseno del número especificado. |
-| `['e']` | número | Devuelve la constante matemática `e`. |
-| `['floor', number]` | número | Redondea el número hacia abajo al número entero anterior. |
-| `['ln', number]` | número | Calcula el logaritmo natural del número especificado. |
-| `['ln2']` | número | Devuelve la constante matemática `ln(2)`. |
-| `['log10', number]` | número | Calcula el logaritmo en base 10 del número especificado. |
-| `['log2', number]` | número | Calcula el logaritmo en base dos del número especificado. |
-| `['max', number, number, …]` | número | Calcula el número máximo en el conjunto especificado de números. |
-| `['min', number, number, …]` | número | Calcula el número mínimo en el conjunto especificado de números. |
-| `['pi']` | número | Devuelve la constante matemática `PI`. |
-| `['round', number]` | número | Redondea el número al entero más cercano. Los valores a medio camino se redondean al valor más alejado de cero. Por ejemplo, `['round', -1.5]` se evalúa como -2. |
-| `['sin', number]` | número | Calcula el seno del número especificado. |
-| `['sqrt', number]` | número | Calcula la raíz cuadrada del número especificado. |
-| `['tan', number]` | número | Calcula la tangente del número especificado. |
+| `['+', number, number, …]` | number | Calcula la suma de los números especificados. |
+| `['-', number]` | number | Resta 0 al número especificado. |
+| `['-', number, number]` | number | Resta las primeras cifras al segundo número. |
+| `['*', number, number, …]` | number | Multiplica los números especificados juntos. |
+| `['/', number, number]` | number | Divide el primer número entre el segundo. |
+| `['%', number, number]` | number | Calcula el resto al dividir el primer número entre el segundo. |
+| `['^', number, number]` | number | Calcula el valor del primer valor elevado a la potencia del segundo número. |
+| `['abs', number]` | number | Calcula el valor absoluto del número especificado. |
+| `['acos', number]` | number | Calcula el arcocoseno del número especificado. |
+| `['asin', number]` | number | Calcula el arcoseno del número especificado. |
+| `['atan', number]` | number | Calcula el arcotangente del número especificado. |
+| `['ceil', number]` | number | Redondea el número al siguiente número entero. |
+| `['cos', number]` | number | Calcula el coseno del número especificado. |
+| `['e']` | number | Devuelve la constante matemática `e`. |
+| `['floor', number]` | number | Redondea el número hacia abajo al número entero anterior. |
+| `['ln', number]` | number | Calcula el logaritmo natural del número especificado. |
+| `['ln2']` | number | Devuelve la constante matemática `ln(2)`. |
+| `['log10', number]` | number | Calcula el logaritmo en base 10 del número especificado. |
+| `['log2', number]` | number | Calcula el logaritmo en base dos del número especificado. |
+| `['max', number, number, …]` | number | Calcula el número máximo en el conjunto especificado de números. |
+| `['min', number, number, …]` | number | Calcula el número mínimo en el conjunto especificado de números. |
+| `['pi']` | number | Devuelve la constante matemática `PI`. |
+| `['round', number]` | number | Redondea el número al entero más cercano. Los valores a medio camino se redondean al valor más alejado de cero. Por ejemplo, `['round', -1.5]` se evalúa como -2. |
+| `['sin', number]` | number | Calcula el seno del número especificado. |
+| `['sqrt', number]` | number | Calcula la raíz cuadrada del número especificado. |
+| `['tan', number]` | number | Calcula la tangente del número especificado. |
 
 ## <a name="aggregate-expression"></a>Expresión de agregado
 
@@ -194,7 +194,7 @@ Las expresiones booleanas proporcionan un conjunto de expresiones de operadores 
 
 Cuando se comparan valores, la comparación debe estar estrictamente tipada. Los valores de distintos tipos siempre se consideran desiguales. Los casos en los que se sabe que los tipos son diferentes en tiempo de análisis se consideran no válidos y producirán un error de análisis. 
 
-| Expression | Tipo de valor devuelto | DESCRIPCIÓN |
+| Expression | Tipo de valor devuelto | Descripción |
 |------------|-------------|-------------|
 | `['! ', boolean]` | boolean | Negación lógica. Devuelve `true` si la entrada es `false`, y `false` si la entrada es `true`. |
 | `['!= ', value, value]` | boolean | Devuelve `true` si los valores de entrada no son iguales; de lo contrario, `false`. |
@@ -397,13 +397,13 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 Las expresiones de tipo proporcionan herramientas para probar y convertir distintos tipos de datos, como cadenas, números y valores booleanos.
 
-| Expression | Tipo de valor devuelto | DESCRIPCIÓN |
+| Expression | Tipo de valor devuelto | Descripción |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | matriz \| objeto | Devuelve una matriz literal o un valor de objeto. Use esta expresión para impedir que una matriz o un objeto se evalúen como una expresión. Esto es necesario cuando una matriz o un objeto se deben devolver mediante una expresión. |
 | `['image', string]` | string | Comprueba si un identificador de imagen especificado se carga en el sprite de imagen de los mapas. Si es así, se devuelve el identificador. De lo contrario, se devuelve NULL. |
-| `['to-boolean', value]` | boolean | Convierte el valor de entrada en un valor booleano. El resultado es `false` cuando la entrada es una cadena vacía, `0`, `false` `null` o `NaN`; de lo contrario, es `true`. |
+| `['to-boolean', value]` | boolean | Convierte el valor de entrada en un valor booleano. El resultado es `false` cuando la entrada es una cadena vacía, `0`, `false``null` o `NaN`; de lo contrario, es `true`. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Convierte el valor de entrada en un color. Si se proporcionan varios valores, cada uno de ellos se evalúa en orden hasta que se obtiene la primera conversión correcta. Si ninguna de las entradas se puede convertir, la expresión es un error. |
-| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | número | Convierte el valor de entrada en un número, si es posible. Si la entrada es `null` o `false`, el resultado es 0. Si la entrada es `true`, el resultado es 1. Si la entrada es una cadena, se convierte en un número mediante la función de cadena [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) de la especificación del lenguaje ECMAScript. Si se proporcionan varios valores, cada uno de ellos se evalúa en orden hasta que se obtiene la primera conversión correcta. Si ninguna de las entradas se puede convertir, la expresión es un error. |
+| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | Convierte el valor de entrada en un número, si es posible. Si la entrada es `null` o `false`, el resultado es 0. Si la entrada es `true`, el resultado es 1. Si la entrada es una cadena, se convierte en un número mediante la función de cadena [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) de la especificación del lenguaje ECMAScript. Si se proporcionan varios valores, cada uno de ellos se evalúa en orden hasta que se obtiene la primera conversión correcta. Si ninguna de las entradas se puede convertir, la expresión es un error. |
 | `['to-string', value]` | string | Convierte el valor de entrada en una cadena. Si la entrada es `null`, el resultado es `""`. Si la entrada es un valor booleano, el resultado es `"true"` o `"false"`. Si la entrada es un número, se convierte en una cadena mediante la función numérica [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) de la especificación del lenguaje ECMAScript. Si la entrada es un color, se convierte en la cadena de color `"rgba(r,g,b,a)"` de CSS RGBA. De lo contrario, la entrada se convierte en una cadena mediante la función [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) de la especificación del lenguaje ECMAScript. |
 | `['typeof', value]` | string | Devuelve una cadena que describe el tipo del valor especificado. |
 
@@ -433,7 +433,7 @@ Las expresiones de tipo proporcionan herramientas para probar y convertir distin
 
 Las expresiones de color facilitan la creación y la manipulación de valores de color.
 
-| Expression | Tipo de valor devuelto | DESCRIPCIÓN |
+| Expression | Tipo de valor devuelto | Descripción |
 |------------|-------------|-------------|
 | `['rgb', number, number, number]` | color | Crea un valor de color a partir de los componentes *red*, *green* y *blue* que deben oscilar entre`0` y `255`, y un componente alfa de `1`. Si alguno de los componentes está fuera del intervalo, la expresión es un error. |
 | `['rgba', number, number, number, number]` | color | Crea un valor de color a partir de los componentes *red*, *green* y *blue* que deben oscilar entre `0` y `255`, y un componente alfa dentro de un intervalo de `0` y `1`. Si alguno de los componentes está fuera del intervalo, la expresión es un error. |
@@ -461,7 +461,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Las expresiones de operador de cadena realizan operaciones de conversión sobre cadenas, como concatenación y conversión de las mayúsculas y minúsculas. 
 
-| Expression | Tipo de valor devuelto | DESCRIPCIÓN |
+| Expression | Tipo de valor devuelto | Descripción |
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | string | Concatena varias cadenas juntas. Cada valor debe ser una cadena. Use la expresión de tipo `to-string` para convertir otros tipos de valor en cadena, si es necesario. |
 | `['downcase', string]` | string | Convierte la cadena especificada a minúsculas. |
@@ -821,7 +821,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 Las expresiones de enlace de variable almacenan los resultados de un cálculo en una variable de forma que se puede hacer referencia a ellos en otra parte de una expresión varias veces sin tener que volver a calcularlo. Esta es una optimización útil para expresiones en las que intervienen muchos cálculos.
 
-| Expression | Tipo de valor devuelto | DESCRIPCIÓN |
+| Expression | Tipo de valor devuelto | Descripción |
 |--------------|---------------|--------------|
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'let',<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: string,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: string,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Almacena uno o más valores como variables para su uso por la expresión `var` en la expresión secundaria que devuelve el resultado. |
 | `['var', name: string]` | cualquiera | Hace referencia a una variable que se creó con la expresión `let`. |

@@ -9,12 +9,12 @@ ms.date: 12/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1e15f237bddd586f81c3b04483111f7e211bfb10
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 0a20ea4236683e26c51bc75309435c65e24271d7
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563418"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510267"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal
 
@@ -24,7 +24,7 @@ Para más información, consulte el artículo [Descripción de las implementacio
 
 ## <a name="identify-devices-using-tags"></a>Identificación de dispositivos mediante etiquetas
 
-Antes de crear una implementación, tendrá que especificar los dispositivos que desea afectar. Azure IoT Edge identifica los dispositivos mediante **etiquetas** en el dispositivo gemelo. Cada dispositivo puede tener varias etiquetas que puede definir de cualquier manera que tenga sentido para su solución. 
+Antes de crear una implementación, tendrá que especificar los dispositivos que desea afectar. Azure IoT Edge identifica los dispositivos mediante **etiquetas** en el dispositivo gemelo. Cada dispositivo puede tener varias etiquetas que puede definir de cualquier manera que tenga sentido para su solución.
 
 Por ejemplo, si administra un recinto de edificios inteligentes, puede agregar etiquetas de ubicación, tipo de sala y entorno a un dispositivo:
 
@@ -63,7 +63,7 @@ Hay cinco pasos para crear una implementación. En las siguientes secciones se a
 
 Puede agregar hasta 20 módulos a una implementación. Si crea una implementación sin módulos, se quitan todos los módulos actuales de los dispositivos de destino.
 
-En las implementaciones, puede administrar la configuración de los módulos de agente y centro de IoT Edge. Seleccione **Configuración del entorno de ejecución** para configurar los dos módulos del entorno de ejecución. En la implementación superpuesta, los módulos del entorno de ejecución no se incluyen, por lo que no se pueden configurar. 
+En las implementaciones, puede administrar la configuración de los módulos de agente y centro de IoT Edge. Seleccione **Configuración del entorno de ejecución** para configurar los dos módulos del entorno de ejecución. En la implementación superpuesta, los módulos del entorno de ejecución no se incluyen, por lo que no se pueden configurar.
 
 Puede agregar tres tipos de módulos:
 
@@ -83,8 +83,8 @@ Para agregar código personalizado como un módulo, o para agregar manualmente u
 1. Use el menú desplegable para seleccionar una **directiva de reinicio**. Elija entre las siguientes opciones:
    * **Siempre**: el módulo siempre se reinicia si se cierra por cualquier razón.
    * **Nunca**: el módulo nunca se reinicia si se cierra por cualquier razón.
-   * **En caso de error**: el módulo se reinicia si se bloquea, pero no si se cierra sin problemas. 
-   * **En estado incorrecto**: el módulo se reinicia si se bloquea o devuelve un estado incorrecto. Depende de cada módulo la implementación de la función de estado de mantenimiento. 
+   * **En caso de error**: el módulo se reinicia si se bloquea, pero no si se cierra sin problemas.
+   * **En estado incorrecto**: el módulo se reinicia si se bloquea o devuelve un estado incorrecto. Depende de cada módulo la implementación de la función de estado de mantenimiento.
 1. Use el menú desplegable para seleccionar el **estado deseado** para el módulo. Elija entre las siguientes opciones:
    * **En ejecución**: esta es la opción predeterminada. El módulo volverá a ejecutarse inmediatamente después de la implementación.
    * **Detenido**: tras la implementación, el módulo permanecerá inactivo hasta que el usuario u otro módulo lo llamen después del inicio.
@@ -113,9 +113,9 @@ Para agregar un módulo desde Azure Stream Analytics, siga estos pasos:
 
 #### <a name="configure-module-settings"></a>Configuración del módulo
 
-Después de agregar un módulo a una implementación, puede seleccionar su nombre para abrir la página **Actualizar módulo IoT Edge**. En esta página, puede editar la configuración del módulo, las variables de entorno, las opciones de creación y el módulo gemelo. Si agregó un módulo desde Marketplace, puede que ya tenga rellenados algunos de estos parámetros. 
+Después de agregar un módulo a una implementación, puede seleccionar su nombre para abrir la página **Actualizar módulo IoT Edge**. En esta página, puede editar la configuración del módulo, las variables de entorno, las opciones de creación y el módulo gemelo. Si agregó un módulo desde Marketplace, puede que ya tenga rellenados algunos de estos parámetros.
 
-Si va a crear una implementación superpuesta, puede que esté configurando un módulo que existe en otras implementaciones que se dirigen a los mismos dispositivos. Para actualizar el módulo gemelo sin sobrescribir otras versiones, abra la pestaña **Configuración de módulos gemelos**. Cree un valor de **Propiedad del módulo gemelo** con un nombre único para la subsección de las propiedades deseadas del módulo gemelo, por ejemplo `properties.desired.settings`. Si define propiedades solo en el campo `properties.desired`, se sobrescribirán las propiedades deseadas del módulo definidas en las implementaciones de prioridad más baja. 
+Si va a crear una implementación superpuesta, puede que esté configurando un módulo que existe en otras implementaciones que se dirigen a los mismos dispositivos. Para actualizar el módulo gemelo sin sobrescribir otras versiones, abra la pestaña **Configuración de módulos gemelos**. Cree un valor de **Propiedad del módulo gemelo** con un nombre único para la subsección de las propiedades deseadas del módulo gemelo, por ejemplo `properties.desired.settings`. Si define propiedades solo en el campo `properties.desired`, se sobrescribirán las propiedades deseadas del módulo definidas en las implementaciones de prioridad más baja.
 
 ![Establecimiento de la propiedad del módulo gemelo para la implementación superpuesta](./media/how-to-deploy-monitor/module-twin-property.png)
 
@@ -154,9 +154,9 @@ Use la propiedad de etiquetas en los dispositivos para dirigirse a los dispositi
 
 Como varias implementaciones pueden tener como destino el mismo dispositivo, debe dar a cada implementación un número de prioridad. En caso de conflicto, gana la implementación con la prioridad más alta (los valores más altos indican prioridad más alta). Si dos implementaciones tienen el mismo número de prioridad, gana la que se creó más recientemente.
 
-Si varias implementaciones tienen como destino el mismo dispositivo, solo se aplicará la que tenga la prioridad más alta. Si varias implementaciones superpuestas tienen como destino el mismo dispositivo, se aplican todas. Sin embargo, si alguna de las propiedades está duplicada (por ejemplo, hay dos rutas con el mismo nombre), la de la implementación superpuesta de prioridad más alta sobrescribe el resto. 
+Si varias implementaciones tienen como destino el mismo dispositivo, solo se aplicará la que tenga la prioridad más alta. Si varias implementaciones superpuestas tienen como destino el mismo dispositivo, se aplican todas. Sin embargo, si alguna de las propiedades está duplicada (por ejemplo, hay dos rutas con el mismo nombre), la de la implementación superpuesta de prioridad más alta sobrescribe el resto.
 
-Cualquier implementación superpuesta que tenga como destino un dispositivo debe tener una prioridad más alta que la implementación base para que se aplique. 
+Cualquier implementación superpuesta que tenga como destino un dispositivo debe tener una prioridad más alta que la implementación base para que se aplique.
 
 1. Especifique un número entero positivo en el valor de **Prioridad** de la implementación.
 1. Escriba una **condición de destino** para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`.
@@ -179,7 +179,7 @@ Para ver los detalles de una implementación y supervisar los dispositivos que l
 
 1. Examine la lista de implementaciones. Para cada implementación, puede ver los detalles siguientes:
    * **ID**: nombre de la implementación.
-   * **Tipo**: el tipo de implementación, ya sea **Implementación** o **Implementación superpuesta**. 
+   * **Tipo**: el tipo de implementación, ya sea **Implementación** o **Implementación superpuesta**.
    * **Condición de destino**: la etiqueta que se utiliza para definir los dispositivos de destino.
    * **Priority** (Prioridad): el número de prioridad asignado a la implementación.
    * **Métricas del sistema** - **Dirigidas** especifica el número de dispositivos gemelos en IoT Hub que coinciden con la condición de destino, y **Aplicadas** especifica el número de dispositivos que ha tenido el contenido de implementación aplicado a sus módulos gemelos en IoT Hub.

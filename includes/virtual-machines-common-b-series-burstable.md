@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: 6a3e2034792fdc0a4a8fed7885c7d5ad78ea24d9
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 17c9ea33f4706053ccde5e99686887aab7a823b6
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67501277"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942660"
 ---
 La familia de máquinas virtuales de la serie B le permite elegir qué tamaño de máquina virtual proporciona el rendimiento base necesario para su carga de trabajo, con la posibilidad de ampliar el rendimiento de la CPU hasta el 100 % de una vCPU con procesador Intel® Broadwell E5-2673 v4 a 2.3 GHz o Intel® Haswell 2.4 GHz E5-2673 v3.
 
@@ -21,10 +21,10 @@ Las máquinas virtuales de la serie B son idóneas para cargas de trabajo que no
 
 La serie B incluye los siguientes tamaños de máquina virtual:
 
-| Size             | vCPU  | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento base de CPU de la máquina virtual | Rendimiento máximo de CPU de la máquina virtual | Créditos iniciales | Créditos ingresados / hora | Créditos máximos ingresados | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. NIC |          
+| Size             | vCPU  | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento base de CPU de la máquina virtual | Rendimiento máximo de CPU de la máquina virtual | Créditos iniciales | Créditos obtenidos / hora | Número máximo de créditos obtenidos | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. NIC |          
 |---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
-| Standard_B1ls<sup>1</sup>  | 1           | 0,5              | 4                          | 5 %                   | 100%                   | 30                   | 3                  | 72            | 2                                      | 200/10                                  | 160/10                                  | 2  |
-| Standard_B1s  | 1           | 1              | 4                          | 10%                   | 100%                   | 30                   | 6                  | 144            | 2                        | 400 / 10                                  | 320 / 10                                  | 2  |
+| Standard_B1ls<sup>1</sup>  | 1           | 0.5              | 4                          | 5 %                   | 100%                   | 30                   | 3                  | 72            | 2                                      | 200/10                                  | 160/10                                  | 2  |
+| Standard_B1s  | 1           | 1              | 4                          | 10 %                   | 100%                   | 30                   | 6                  | 144            | 2                        | 400 / 10                                  | 320 / 10                                  | 2  |
 | Standard_B1ms | 1           | 2              | 4                          | 20%                   | 100%                   | 30                   | 12                 | 288           | 2                         | 800 / 10                                  | 640 / 10                                  | 2  |
 | Standard_B2s  | 2           | 4              | 8                          | 40%                   | 200%                   | 60                   | 24                 | 576            | 4                                      | 1600 / 15                                 | 1280 / 15                                 | 3  |
 | Standard_B2ms | 2           | 8              | 16                         | 60%                   | 200%                   | 60                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
@@ -50,7 +50,7 @@ Línea de base: 270 %
 
 ![Gráfico de los datos de tráfico por hora](./media/virtual-machines-common-b-series-burstable/office-workload.png)
 
-| Escenario | Hora | Uso de CPU (%) | Créditos acumulados<sup>1</sup> | Créditos disponibles |
+| Escenario | Time | Uso de CPU (%) | Créditos acumulados<sup>1</sup> | Créditos disponibles |
 | --- | --- | --- | --- | --- |
 | Implementación de B16ms | Implementación | Implementación  | 480 (créditos iniciales) | 480 |
 | Sin tráfico | 0:00 | 0 | 162 | 642 |
@@ -89,7 +89,7 @@ Para un D16s_v3 que tiene 16 vCPU y 64 GiB de memoria, la tarifa por hora es de 
 
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>P: ¿Cómo puedo supervisar mi saldo de crédito y consumo?
-**R.** : Presentaremos 2 nuevas métricas en las próximas semanas, la métrica **Credit** le permitirá ver cuántos créditos ha acumulado su máquina virtual y la métrica **ConsumedCredit** le mostrará cuántos créditos de la CPU ha consumido la máquina virtual desde el banco.    Podrá ver estas métricas desde el panel de métricas del portal o mediante programación a través de las API de Azure Monitor.
+**R.** : Presentaremos dos métricas nuevas en las próximas semanas, la métrica **Credit** le permitirá ver cuántos créditos ha obtenido la máquina virtual y la métrica **ConsumedCredit** cuántos créditos de la CPU ha consumido la máquina virtual desde el banco.    Podrá ver estas métricas desde el panel de métricas del portal o mediante programación a través de las API de Azure Monitor.
 
 Para más información acerca de cómo acceder a los datos de las métricas de Azure, consulte [Información general sobre las métricas en Microsoft Azure](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
@@ -119,3 +119,6 @@ Por ejemplo, en la instancia anterior, su línea de base es del 20 % y si usa el
     
 ### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>P: ¿Qué sucede si implemento una imagen de sistema operativo no admitida en B1ls?
 **R** : B1ls solo admite imágenes de Linux y si implementa cualquier otra imagen de sistema operativo, podría no obtener la mejor experiencia de cliente.
+
+### <a name="q-what-happens-if-i-run-out-of-credits"></a>P: ¿Qué ocurre si me quedo sin créditos?
+**R** : Si la máquina virtual gasta todos los créditos disponibles, solo tendrá permiso para usar la CPU de línea de base y no podrá superarla. 

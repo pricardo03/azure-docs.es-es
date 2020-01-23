@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1e11c5a570f899a5ac18673a71fe79db95de0f80
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0738e56cf6760a356b6e2b6db76f2dc3f6f157ee
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461078"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763171"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solución de errores y advertencias comunes con el indexador en Azure Cognitive Search
 
@@ -144,7 +144,7 @@ El documento se leyó y se procesó, pero el indexador no pudo agregarlo al índ
 | --- | --- | --- |
 | Un campo contiene un término demasiado grande | Un término del documento es mayor que el [límite de 32 KB](search-limits-quotas-capacity.md#api-request-limits) | Para evitar esta restricción, asegúrese de que el campo no está configurado como filtrable, con facetas o que se puede ordenar.
 | El documento es demasiado grande para indexarlo | Un documento es mayor que el [tamaño de solicitud de API máximo](search-limits-quotas-capacity.md#api-request-limits) | [Indexación de grandes conjuntos de datos](search-howto-large-index.md)
-| El documento contiene demasiados objetos en la colección | Una colección del documento supera el [número máximo de elementos en el límite de todas las colecciones complejas](search-limits-quotas-capacity.md#index-limits) | Se recomienda reducir el tamaño de la colección compleja en el documento para bajar el límite y evitar un uso elevado del almacenamiento.
+| El documento contiene demasiados objetos en la colección | Una colección del documento supera el [número máximo de elementos en el límite de todas las colecciones complejas](search-limits-quotas-capacity.md#index-limits) "El documento con la clave `'1000052'` tiene `'4303'` objetos en colecciones (matrices de JSON). Se permiten como máximo `'3000'` objetos en las colecciones de todo el documento. Quite los objetos de las colecciones e intente indexar el documento de nuevo". | Se recomienda reducir el tamaño de la colección compleja en el documento para bajar el límite y evitar un uso elevado del almacenamiento.
 | Problemas de conexión con el índice de destino (que persiste después de varios reintentos) porque el servicio está bajo otra carga, como consulta o indexación. | No se puede establecer la conexión para actualizar el índice. El servicio de búsqueda está sometido a mucha carga. | [Escalar verticalmente el servicio de búsqueda](search-capacity-planning.md)
 | El servicio de búsqueda se está revisando para la actualización del servicio o está en medio de una reconfiguración de la topología. | No se puede establecer la conexión para actualizar el índice. El servicio de búsqueda está inactivo o está experimentando una transición. | Configure el servicio con al menos 3 réplicas para una disponibilidad del 99,9 % según se indica en la [documentación del Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 | Error en el recurso de proceso o de red subyacente (poco frecuente) | No se puede establecer la conexión para actualizar el índice. Se produjo un error desconocido. | Establezca los indexadores en [Ejecutar según una programación](search-howto-schedule-indexers.md) para que se recuperen de un estado de error.

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/17/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 51d5afc365c33fe6d4cb719263bad19341170415
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 48ecaea82e8874ff521abafaa075b41367f8fbf1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689305"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754008"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementación de modelos con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -164,6 +164,13 @@ Para más información sobre cómo trabajar con modelos entrenados al margen de 
 Puede usar los siguientes destinos o recursos de proceso para hospedar la implementación del servicio web:
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+## <a name="single-versus-multi-model-endpoints"></a>Puntos de conexión de modelos únicos o múltiples
+Azure ML admite la implementación de modelos únicos o múltiples tras un único punto de conexión.
+
+Los puntos de conexión de modelos múltiples usan un contenedor compartido para hospedar varios modelos. Esto ayuda a reducir los costos de sobrecarga, mejora la utilización y permite encadenar módulos en conjunto. Los modelos que se especifican en el script de implementación se montan y se ponen a disposición en el disco del contenedor de servicio: se pueden cargar en memoria a petición y puntuar en función del modelo específico que se solicita en el momento de la puntuación.
+
+Para ver un ejemplo de E2E que muestra cómo usar varios modelos detrás de un solo punto de conexión en contenedor, consulte [aquí](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model).
 
 ## <a name="prepare-to-deploy"></a>Preparación de la actualización
 
@@ -618,6 +625,9 @@ Consulte [Implementación en Azure Container Instances](how-to-deploy-azure-cont
 ### <a id="aks"></a>Azure Kubernetes Service (desarrollo/pruebas y producción)
 
 Consulte [Implementación en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+
+### <a name="ab-testing-controlled-rollout"></a>Pruebas A/B (implementación controlada)
+Consulte [Implementación de modelos de aprendizaje automático mediante el lanzamiento controlado ](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) para obtener más información.
 
 ## <a name="consume-web-services"></a>Consumo de servicios web
 

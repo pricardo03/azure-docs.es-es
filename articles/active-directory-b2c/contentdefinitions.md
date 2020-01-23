@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f8acf499d4d82c49096e4e5beff8209d0970b421
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1ce564767fe9664604687d8cbaced58507e6b8b3
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064335"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119659"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -25,7 +25,7 @@ Puede personalizar la apariencia de cualquier [perfil técnico autodeclarado](se
 
 Para personalizar la interfaz de usuario, especifique una URL en el elemento **ContentDefinition** con el contenido HTML personalizado. En el perfil técnico autodeclarado o **OrchestrationStep**, apunte a ese identificador de definición de contenido. La definición de contenido puede contener un elemento **LocalizedResourcesReferences** que especifique una lista de los recursos localizados que se cargarán. Azure AD B2C combina elementos de la interfaz de usuario con el contenido HTML cargado desde la URL y, después, muestra la página al usuario.
 
-El elemento **ContentDefinitions** contiene direcciones URL a plantillas HTML5 que pueden usarse en un recorrido del usuario. El URI de la página HTML5 se usa para un paso especificado de la interfaz de usuario. Por ejemplo, páginas de error, registro o inicio de sesión, o restablecimiento de contraseña. Para modificar la apariencia, invalide el elemento LoadUri del archivo HTML5. Puede crear nuevas definiciones de contenido según sus necesidades. Este elemento puede contener una referencia a recursos localizados, al identificador de localización especificado en el elemento [Localization](localization.md).
+El elemento **ContentDefinitions** contiene direcciones URL a plantillas HTML5 que pueden usarse en un recorrido del usuario. El URI de la página HTML5 se usa para un paso especificado de la interfaz de usuario. Por ejemplo, páginas de error, de registro o inicio de sesión, o de restablecimiento de contraseña. Para modificar la apariencia, invalide el elemento LoadUri del archivo HTML5. Puede crear nuevas definiciones de contenido según sus necesidades. Este elemento puede contener una referencia a recursos localizados, al identificador de localización especificado en el elemento [Localization](localization.md).
 
 En el ejemplo siguiente, se muestra el identificador de definición de contenido y la definición de los recursos localizados:
 
@@ -37,7 +37,7 @@ En el ejemplo siguiente, se muestra el identificador de definición de contenido
   <Metadata>
     <Item Key="DisplayName">Local account sign up page</Item>
   </Metadata>
-  <LoalizedResourcesReferences MergeBehavior="Prepend">
+  <LocalizedResourcesReferences MergeBehavior="Prepend">
     <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
     <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
     ...
@@ -61,13 +61,13 @@ Los metadatos del perfil técnico autodeclarado **LocalAccountSignUpWithLogonEma
 
 El elemento **ContentDefinition** contiene el atributo siguiente:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| Id | Sí | Un identificador de una definición de contenido. El valor se especifica en la sección **Id. de definición de contenido** más adelante en esta página. |
+| Identificador | Sí | Un identificador de una definición de contenido. El valor se especifica en la sección **Id. de definición de contenido** más adelante en esta página. |
 
 El elemento **ContentDefinition** contiene los elementos siguientes:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Cadena que contiene la URL de la página HTML5 de la definición de contenido. |
 | RecoveryUri | 0:1 | Cadena que contiene la URL de la página HTML para mostrar un error relacionado con la definición de contenido. |
@@ -79,7 +79,7 @@ El elemento **ContentDefinition** contiene los elementos siguientes:
 
 El elemento **DataUri** se usa para especificar el identificador de página. Azure AD B2C usa el identificador de página para cargar e iniciar elementos de la interfaz de usuario y código JavaScript del lado cliente. El formato del valor es `urn:com:microsoft:aad:b2c:elements:page-name:version`.  En la tabla siguiente, se muestra una lista de los identificadores de página que puede usar.
 
-| Valor |   DESCRIPCIÓN |
+| Value |   Descripción |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Muestra una página de error cuando se produce una excepción o un error. |
 | `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Muestra una lista de los proveedores de identidades que los usuarios pueden elegir durante el inicio de sesión. |
@@ -93,13 +93,13 @@ El elemento **DataUri** se usa para especificar el identificador de página. Azu
 
 El elemento **LocalizedResourcesReferences** contiene los elementos siguientes:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | LocalizedResourcesReference | 1:n | Una lista de referencias de recursos localizados para la definición de contenido. |
 
 El elemento **LocalizedResourcesReferences** contiene los atributos siguientes:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | Idioma | Sí | Una cadena que contiene un idioma admitido para la directiva según RFC 5646 (etiquetas para identificar idiomas). |
 | LocalizedResourcesReferenceId | Sí | El identificador del elemento **LocalizedResources**. |
@@ -141,7 +141,7 @@ Para obtener información sobre cómo agregar la compatibilidad de localización
 
 El id. de atributo del elemento **ContentDefinition** especifica el tipo de página relacionado con la definición de contenido. El elemento define el contexto que se aplicará en una plantilla personalizada de HTML5/CSS. En la tabla siguiente, se describe el conjunto de id. de definición de contenido reconocido por el Marco de experiencia de identidad y los tipos de página relacionados. Puede crear sus propias definiciones de contenido con un id. arbitrario.
 
-| id | Plantilla predeterminada | DESCRIPCIÓN |
+| id | Plantilla predeterminada | Descripción |
 | -- | ---------------- | ----------- |
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de error**: muestra una página de error cuando se produce una excepción o un error. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Página de selección de proveedor de identidades**: muestra una lista de los proveedores de identidades que los usuarios pueden elegir durante el inicio de sesión. Las opciones normalmente son proveedores de identidades de empresa, proveedores de identidades sociales como Facebook y Google+ o cuentas locales. |

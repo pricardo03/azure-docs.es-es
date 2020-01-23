@@ -10,16 +10,16 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5fe1e45f2ff80c1a212009291ab880a57f347fdf
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ce7f6320ffa4d3e8c258c9d05542f12079ee355d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978390"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509009"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Transferencia de datos con la biblioteca de movimiento de datos
 
-La biblioteca de movimiento de datos de Azure Storage es una biblioteca multiplataforma de código abierto que se ha diseñado para carga, descarga y copia de alto rendimiento de blobs y archivos. Esta biblioteca es el marco de movimiento de datos principal que alimenta a [AzCopy](../storage-use-azcopy.md). La biblioteca de movimiento de datos proporciona métodos útiles que no están disponibles en la biblioteca de cliente de Azure Storage para .NET. Estos métodos proporcionan la capacidad de establecer el número de operaciones paralelas, seguir el progreso de la transferencia, reanudar con facilidad una transferencia cancelada, etc.
+La biblioteca de movimiento de datos de Azure Storage es una biblioteca multiplataforma de código abierto que se ha diseñado para carga, descarga y copia de alto rendimiento de blobs y archivos. La biblioteca de movimiento de datos proporciona métodos útiles que no están disponibles en la biblioteca de cliente de Azure Storage para .NET. Estos métodos proporcionan la capacidad de establecer el número de operaciones paralelas, seguir el progreso de la transferencia, reanudar con facilidad una transferencia cancelada, etc.
 
 Esta biblioteca también utiliza .NET Core, lo que significa que puede usarla para crear aplicaciones .NET para Windows, Linux y MacOS. Para más información sobre .NET Core, consulte la [documentación de .NET Core](https://dotnet.github.io/). Esta biblioteca también funciona para las aplicaciones de .NET Framework tradicionales para Windows.
 

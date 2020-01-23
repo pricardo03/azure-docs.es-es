@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 01/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: ad6e912f976095ae7d8fd5276b0f1365566c181a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 9342a70e539c4a2717fe45426c26595285172681
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74143785"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045778"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creación e instalación de archivos de configuración de cliente VPN para configuraciones de punto a sitio con autenticación con certificados nativos de Azure
 
@@ -99,9 +99,14 @@ Siga los pasos siguientes para configurar el cliente de VPN nativo en equipos Ma
 4. En la carpeta **Genérico**, en el archivo **VpnSettings.xml**, copie el valor de la etiqueta **VpnServer**. Pegue este valor en los campos **Dirección del servidor** e **Id. remoto** del perfil.
 
    ![información del servidor](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
-5. Haga clic en **Configuración de autenticación** y seleccione **Certificado**. 
+5. Haga clic en **Configuración de autenticación** y seleccione **Certificado**. Para **Catalina**, haga clic en **Ninguno** y luego **Certificado**.
 
    ![configuración de autenticación](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
+
+   * Para Catalina, seleccione **Ninguno** y luego **Certificado**. **Seleccione** el certificado correcto:
+   
+   ![catalina](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
+
 6. Haga clic en **Seleccionar...** para elegir el certificado de cliente que quiere usar en la autenticación. Este es el certificado que instaló en el paso 2.
 
    ![certificado](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
@@ -164,7 +169,7 @@ Si aún no ha generado certificados, siga estos pasos:
 
 [!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
-### <a name="install-and-configure"></a>Instalación y configuración
+### <a name="install-and-configure"></a>Instalar y configurar
 
 1. Descargue el paquete de VPNClient desde Azure Portal.
 2. Extraiga el archivo.

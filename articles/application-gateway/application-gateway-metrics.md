@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: 12ecacf1266c0d8211f5928a933cfd4acf8c49f0
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 8d75dbe5d4ab819e5bbe64e20ad84eb1c26a87a3
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551393"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777825"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Application Gateway
 
@@ -36,7 +36,7 @@ Están disponibles las siguientes métricas relacionadas con el momento de la so
 
   Promedio de tiempo que se tarda en procesar una solicitud y en enviar la respuesta. Esto se calcula como promedio del intervalo desde el momento en que Application Gateway recibe el primer byte de una solicitud HTTP hasta el momento en que termina la operación de envío de la respuesta. Es importante tener en cuenta que esto normalmente incluye el tiempo de procesamiento de Application Gateway, el tiempo que los paquetes de solicitud y respuesta viajan por la red y el tiempo que el servidor back-end tardó en responder.
   
-Si el *RTT cliente* es mucho más que el *tiempo total de Application Gateway*, se puede deducir que la latencia observada por el cliente se debe a la conectividad de red entre el cliente y Application Gateway. Si ambas latencias son comparables, la latencia alta podría deberse a alguna de las siguientes causas: Application Gateway, la red entre Application Gateway y la aplicación de back-end, o el rendimiento de la aplicación de back-end.
+Después de filtrar por cliente de escucha, si el *RTT cliente* es mucho más que el *tiempo total de Application Gateway*, se puede deducir que la latencia observada por el cliente se debe a la conectividad de red entre el cliente y Application Gateway. Si ambas latencias son comparables, la latencia alta podría deberse a alguna de las siguientes causas: Application Gateway, la red entre Application Gateway y la aplicación de back-end, o el rendimiento de la aplicación de back-end.
 
 - **Tiempo de respuesta del primer byte de back-end**
 

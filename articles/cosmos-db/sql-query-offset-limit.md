@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 68515c51862ada0b1aa794c09b3a6730504a57ee
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: a8df220be211c3c8d8cdeab8a8aebfd35e77ebf8
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873257"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732593"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Cláusula OFFSET LIMIT en Azure Cosmos DB
 
 La cláusula OFFSET LIMIT es una cláusula opcional para omitir y luego tomar cierto número de valores de la consulta. El recuento de OFFSET y el recuento de LIMIT son necesarios en la cláusula OFFSET LIMIT.
 
-Cuando OFFSET LIMIT se usa junto con una cláusula ORDER BY, el conjunto de resultados se genera mediante una operación Skip y Take en los valores ordenados. Si no se usa ninguna cláusula ORDER BY, se producirá un error en un orden determinista de valores.
+Cuando OFFSET LIMIT se usa junto con una cláusula ORDER BY, el conjunto de resultados se genera mediante una operación Skip y Take en los valores ordenados. Si no se usa ninguna cláusula ORDER BY, se producirá un error en un orden determinista de valores.
 
 ## <a name="syntax"></a>Sintaxis
   
@@ -35,13 +35,13 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
    Especifica el número entero de elementos que los resultados de la consulta deben incluir.
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
   
-  Tanto el recuento de OFFSET como el recuento de LIMIT son necesarios en la cláusula OFFSET LIMIT. Si se usa una cláusula `ORDER BY` opcional, se genera el conjunto de resultados mediante la omisión de los valores ordenados. En caso contrario, la consulta devolverá un orden fijo de valores. Actualmente esta cláusula es compatible con consultas dentro de una única partición, las consultas entre particiones aún no se admiten.
+  Tanto el recuento de OFFSET como el recuento de LIMIT son necesarios en la cláusula OFFSET LIMIT. Si se usa una cláusula `ORDER BY` opcional, se genera el conjunto de resultados mediante la omisión de los valores ordenados. En caso contrario, la consulta devolverá un orden fijo de valores. Esta cláusula es ahora compatible con consultas dentro de una única partición, así como las consultas entre particiones.
 
 ## <a name="examples"></a>Ejemplos
 
-Por ejemplo, he aquí una consulta que omite el primer valor y devuelve el segundo valor (en el orden del nombre de la ciudad de residencia):
+Por ejemplo, he aquí una consulta que omite el primer valor y devuelve el segundo (en el orden del nombre de la ciudad de residencia):
 
 ```sql
     SELECT f.id, f.address.city

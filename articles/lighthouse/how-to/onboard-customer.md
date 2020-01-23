@@ -1,14 +1,14 @@
 ---
 title: Incorporación de un cliente a la administración de recursos delegados de Azure
 description: Obtenga información sobre cómo incorporar un cliente a la administración de recursos delegados de Azure, lo que permite administrar sus recursos y acceder a ellos desde su propio inquilino.
-ms.date: 12/17/2019
+ms.date: 01/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 16d1b4d9d51c377c4aa09b5e35b02790d8a1b8dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 09e42a65891494370250fbab9b22cdf37a6fd318
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453551"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834126"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Incorporación de un cliente a la administración de recursos delegados de Azure
 
@@ -32,9 +32,12 @@ Para incorporar el inquilino de un cliente, este debe tener una suscripción act
 
 - El identificador del inquilino del proveedor de servicios (donde va a administrar los recursos del cliente)
 - El identificador del inquilino del cliente (cuyos recursos administrará el proveedor de servicios)
-- Los identificadores de suscripción de cada suscripción específica del inquilino del cliente que administrará el proveedor de servicios (o que contenga los grupos de recursos que administrará el proveedor de servicios)
+- Los identificadores de suscripción de cada suscripción específica del inquilino del cliente que administrará el proveedor de servicios (o que contenga los grupos de recursos que administrará el proveedor de servicios).
 
-Si aún no tiene esta información, puede recuperarla de una de las siguientes maneras. Asegúrese y use estos valores exactos en su implementación.
+> [!NOTE]
+> Incluso si solo quiere incorporar uno o varios grupos de recursos dentro de una suscripción, la implementación debe realizarse en el nivel de suscripción, por lo que necesitará el identificador de la suscripción.
+
+Si aún no tiene estos valores de identificador, puede recuperarlos de una de las siguientes maneras. Asegúrese y use estos valores exactos en su implementación.
 
 ### <a name="azure-portal"></a>Portal de Azure
 
@@ -113,9 +116,9 @@ Para incorporar el cliente, deberá crear una plantilla de [Azure Resource Manag
 |Campo  |Definición  |
 |---------|---------|
 |**mspOfferName**     |Nombre que describe esta definición. Este valor se muestra al cliente como el título de la oferta.         |
-|**mspOfferDescription**     |Breve descripción de la oferta (por ejemplo, "oferta de administración de VM de Contoso"),      |
+|**mspOfferDescription**     |Breve descripción de la oferta (por ejemplo, "oferta de administración de VM de Contoso").      |
 |**managedByTenantId**     |El identificador de inquilino.          |
-|**authorizations**     |Los valores de **principalId** para los usuarios/grupos/SPN del inquilino, cada uno de ellos con un valor de **principalIdDisplayName** para ayudar a su cliente a entender el propósito de la autorización y asignarla a un valor de **roleDefinitionId** integrado para especificar el nivel de acceso,         |
+|**authorizations**     |Los valores de **principalId** para los usuarios/grupos/SPN del inquilino, cada uno de ellos con un valor de **principalIdDisplayName** para ayudar a su cliente a entender el propósito de la autorización y asignarla a un valor de **roleDefinitionId** integrado para especificar el nivel de acceso.      |
 
 > [!TIP]
 > Asegúrese de que sus entradas **managedByTenantID**, **principalIdDisplayName** y **roleDefinitionId** son idénticas a los valores usados por Azure. No use mayúsculas en estos valores.
@@ -132,7 +135,7 @@ La plantilla que elija dependerá de si se incorpora una suscripción completa, 
 |Suscripción (al usar una oferta publicada en Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> El proceso que se describe aquí requiere una implementación independiente para cada suscripción que se incorpore, incluso si están en el mismo inquilino del cliente. También se necesitan implementaciones independientes si se incorporan varios grupos de recursos en distintas suscripciones del mismo inquilino del cliente. Sin embargo, la incorporación de varios grupos de recursos dentro de una sola suscripción puede realizarse en una implementación.
+> El proceso que se describe aquí requiere una implementación en el nivel de suscripción independiente para cada suscripción que se está incorporando, incluso si va a incorporar suscripciones en el mismo inquilino de cliente. También se necesitan implementaciones independientes si se incorporan varios grupos de recursos en distintas suscripciones del mismo inquilino del cliente. Sin embargo, la incorporación de varios grupos de recursos dentro de una sola suscripción puede realizarse en una implementación en el nivel de suscripción.
 >
 > También se necesitan implementaciones independientes para varias ofertas que se aplican a la misma suscripción (o grupos de recursos dentro de una suscripción). Cada oferta aplicada debe usar un valor de **mspOfferName** diferente.
 
@@ -198,7 +201,7 @@ Una vez actualizado el archivo de parámetros, un usuario del inquilino del clie
 Dado que se trata de una implementación de nivel de suscripción, no se puede iniciar en Azure Portal. La implementación puede realizarse mediante PowerShell o la CLI de Azure, como se muestra a continuación.
 
 > [!IMPORTANT]
-> Esta implementación debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente que tenga el [rol Propietario integrado](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para la suscripción que se va a incorporar (o que contiene los grupos de recursos que se están incorporando). Para ver todos los usuarios que puedan delegar la suscripción, cualquiera de los usuarios del inquilino del cliente puede seleccionar la suscripción en Azure Portal, abrir **Control de acceso (IAM)** , [mostrar todos los roles](../../role-based-access-control/role-definitions-list.md#list-all-roles) y, a continuación, seleccionar **Propietario** para ver todos los usuarios con ese rol.
+> Esta implementación en el nivel de suscripción debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente que tenga el [rol Propietario integrado](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para la suscripción que se va a incorporar (o que contiene los grupos de recursos que se están incorporando). Para ver todos los usuarios que puedan delegar la suscripción, cualquiera de los usuarios del inquilino del cliente puede seleccionar la suscripción en Azure Portal, abrir **Control de acceso (IAM)** y [ver todos los usuarios con el rol Propietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 ### <a name="powershell"></a>PowerShell
 

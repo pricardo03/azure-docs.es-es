@@ -11,19 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c265e03cfea2ebe8bbe55a63ade04bffd06360e0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6117f22b24887e913ed2f8d3a43e80335121636d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462273"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934479"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lista de asignaciones de roles con RBAC de Azure y Azure Portal
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] En este artículo se describe cómo enumerar las asignaciones de roles mediante Azure Portal.
+
+> [!NOTE]
+> Si su organización ha externalizado las funciones de administración a un proveedor de servicios que usa la [administración de recursos delegados de Azure](../lighthouse/concepts/azure-delegated-resource-management.md), las asignaciones de roles autorizadas por ese proveedor de servicios no se mostrarán aquí.
 
 ## <a name="list-role-assignments-for-a-user-or-group"></a>Lista de las asignaciones de rol de un usuario o grupo
 
@@ -40,6 +43,22 @@ La forma más fácil de ver los roles asignados a un usuario o grupo de una susc
     ![Asignaciones de roles de un usuario](./media/role-assignments-list-portal/azure-resources-user.png)    
 
 1. Para cambiar la suscripción, haga clic en la lista **Suscripciones**.
+
+## <a name="list-owners-of-a-subscription"></a>Enumeración de los propietarios de una suscripción
+
+Los usuarios que se han asignado al rol de [propietario](built-in-roles.md#owner) para una suscripción pueden administrar todo en esta. Siga estos pasos para mostrar los propietarios de una suscripción.
+
+1. En Azure Portal, haga clic en **Todos los servicios** y luego en **Suscripciones**.
+
+1. Haga clic en la suscripción de la que quiera mostrar los propietarios.
+
+1. Haga clic en **Control de acceso (IAM)** .
+
+1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles para esta suscripción.
+
+1. Desplácese hasta la sección **Propietarios** para ver todos los usuarios a los que se ha asignado el rol de propietario para esta suscripción.
+
+   ![Control de acceso a la suscripción: pestaña Asignaciones de roles](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
 
 ## <a name="list-role-assignments-at-a-scope"></a>Lista de las asignaciones de roles en un ámbito
 

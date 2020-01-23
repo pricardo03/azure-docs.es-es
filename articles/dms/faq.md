@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 07/10/2019
-ms.openlocfilehash: 11aec9c62c388155f8d90b7a89171937f22dd9d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2020
+ms.openlocfilehash: fc0bac99aa70d7028412c68563a3024720fa49d9
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438013"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745402"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Preguntas más frecuentes sobre el uso de Azure Database Migration Service
 
@@ -37,7 +37,7 @@ Actualmente, el servicio admite una variedad de pares origen/destino o escenario
 Otros escenarios de migración están en versión preliminar y requieren que envíe una nominación a través del sitio de versión preliminar de DMS. Para obtener una lista completa de los escenarios de la versión preliminar y registrarse para participar en una de estas ofertas, consulte el [sitio de la versión preliminar de DMS](https://aka.ms/dms-preview/).
 
 **P. ¿Qué versiones de SQL Server admite Azure Database Migration Service como origen?**
-Al realizar la migración desde SQL Server, los orígenes admitidos de Azure Database Migration Service son las versiones desde SQL Server 2005 hasta SQL Server 2017.
+Al realizar la migración desde SQL Server, los orígenes admitidos de Azure Database Migration Service son las versiones desde SQL Server 2005 hasta SQL Server 2019.
 
 **P: Al usar Azure Database Migration Service, ¿cuál es la diferencia entre una migración sin conexión y en línea?**
 Puede usar Azure Database Migration Service para realizar migraciones sin conexión o en línea. Con una migración *sin conexión*, el tiempo de inactividad de la aplicación se inicia cuando comienza la migración. Con una migración *en línea*, el tiempo de inactividad se limita al momento de la migración al final del proceso. Se recomienda que pruebe una migración sin conexión para determinar si el tiempo de inactividad es aceptable; si no es así, realice una migración en línea.
@@ -58,8 +58,8 @@ Hay varios requisitos previos necesarios para garantizar que Azure Database Migr
 
 Los requisitos de Azure Database Migration Service que son comunes en todos los escenarios de migración compatibles incluyen la necesidad de:
 
-* Crear una red virtual para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local utilizando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* Asegúrese de que las reglas del grupo de seguridad de red de Azure Virtual Network (VNet) no bloquean estos puertos de comunicación: 443, 53, 9354, 445, 12000. Para más información sobre el filtrado del tráfico con grupos de seguridad de red para redes virtuales de Azure, consulte el artículo [Planeamiento de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Cree una instancia de Azure Virtual Network para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local mediante [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Asegúrese de que las reglas del grupo de seguridad de red de la red virtual no bloquean los puertos de comunicación 443, 53, 9354, 445 y 12000. Para más información sobre el filtrado del tráfico con grupos de seguridad de red para redes virtuales, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Cuando se usa un dispositivo de firewall frente a las bases de datos de origen, puede que sea necesario agregar reglas de firewall para permitir que Azure Database Migration Service acceda a las bases de datos de origen para realizar la migración.
 
 Para obtener una lista de todos los requisitos previos que se necesitan para completar los escenarios de migración específicos mediante Azure Database Migration Service, consulte los tutoriales relacionados en la [documentación](https://docs.microsoft.com/azure/dms/dms-overview) de Azure Database Migration Service que se encuentra en docs.microsoft.com.
@@ -85,8 +85,8 @@ También puede determinar el puerto en que SQL Server escucha mediante una consu
     GO
 ```
 
-**P. ¿Cómo se configura una instancia de Azure Virtual Network?**
-Si bien existen varios tutoriales de Microsoft que pueden guiarlo en el proceso de configurar una red virtual de Azure, la documentación oficial aparece en el artículo [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+**P. ¿Cómo se configura una instancia de Microsoft Azure Virtual Network?**
+Si bien existen varios tutoriales de Microsoft que pueden guiarlo en el proceso de configurar una red virtual, la documentación oficial aparece en el artículo [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 ## <a name="usage"></a>Uso
 

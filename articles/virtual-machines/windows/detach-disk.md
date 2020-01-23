@@ -2,25 +2,20 @@
 title: 'Desconexión de un disco de datos de una máquina virtual de Windows: Azure'
 description: Desconecte un disco de datos de una máquina virtual de Azure creada mediante el modelo de implementación de Resource Manager.
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: ''
-tags: azure-service-management
-ms.assetid: 13180343-ac49-4a3a-85d8-0ead95e2028c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 01/08/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 93db2935fdc41787bb1820d1f8ce85ac05ef0863
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 301f3abd26f702f3f29c8833c835ba7d0e41bcaf
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033340"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834601"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Desacoplamiento de un disco de datos de una máquina virtual de Windows
 
@@ -40,22 +35,29 @@ También puede quitar un disco de datos *en caliente* con PowerShell, pero aseg�
 En este ejemplo, se quita el disco denominado **myDisk** de la máquina virtual **myVM** del grupo de recursos **myResourceGroup**. Quite primero el disco con el cmdlet [Remove-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdatadisk). Luego, actualice el estado de la máquina virtual con el cmdlet [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) para completar el proceso de eliminación del disco de datos.
 
 ```azurepowershell-interactive
-$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
-Remove-AzVMDataDisk -VM $VirtualMachine -Name "myDisk"
-Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
+$VirtualMachine = Get-AzVM `
+   -ResourceGroupName "myResourceGroup" `
+   -Name "myVM"
+Remove-AzVMDataDisk `
+   -VM $VirtualMachine `
+   -Name "myDisk"
+Update-AzVM `
+   -ResourceGroupName "myResourceGroup" `
+   -VM $VirtualMachine
 ```
 
 El disco permanece en el almacenamiento pero ya no está acoplado a una máquina virtual.
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Desconexión de un disco de datos mediante el portal
 
+También puede quitar un disco de datos *en caliente*, pero asegúrese de que no haya nada que use activamente el disco antes de desconectarlo de la máquina virtual.
+
 1. En el menú de la izquierda, seleccione **Máquinas virtuales**.
-2. Seleccione la máquina virtual que tiene el disco de datos que quiere desconectar y haga clic en **Detener** para desasignar la máquina virtual.
-3. En el panel de la máquina virtual, seleccione **Discos**.
-4. En la parte superior del panel **Discos**, seleccione **Editar**.
-5. En el panel **Discos**, en el extremo derecho del disco de datos que quiere desasociar, haga clic en el ![imagen del botón Desasociar](./media/detach-disk/detach.png) botón de desasociación.
-5. Una vez que haya quitado el disco, haga clic en **Guardar**, en la parte superior del panel.
-6. En el panel de la máquina virtual, haga clic en **Información general** y, luego, en el botón **Iniciar** de la parte superior del panel para reiniciar la máquina virtual.
+1. Seleccione la máquina virtual que tiene el disco de datos que quiere desasociar.
+1. En **Configuración**, seleccione **Discos**.
+1. En la parte superior del panel **Discos**, seleccione **Editar**.
+1. En el panel **Discos**, en el extremo derecho del disco de datos que quiere desasociar, seleccione **Desasociar**.
+1. Seleccione **Guardar** en la parte superior de la página para guardar los cambios.
 
 El disco permanece en el almacenamiento pero ya no está acoplado a una máquina virtual.
 

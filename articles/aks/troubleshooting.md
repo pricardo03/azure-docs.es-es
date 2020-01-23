@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: de3a3d9e5523341c2f549ff2a90c9c40a4e3cb50
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: df3ca877570b6b3e3a34dd20d617ce3896f1dd99
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889446"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120968"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -45,7 +45,7 @@ Para más información, consulte [Planeamiento de direccionamiento IP del clúst
 Puede haber varios motivos para que el pod se quede atascado en ese modo. Algunas soluciones posibles son:
 
 * El propio pod, mediante el comando `kubectl describe pod <pod-name>`.
-* Los registros, mediante el uso de `kubectl log <pod-name>`.
+* Los registros, mediante el uso de `kubectl logs <pod-name>`.
 
 Para obtener más información sobre cómo solucionar problemas de los pods, consulte cómo [depurar aplicaciones](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 

@@ -11,16 +11,16 @@ ms.topic: conceptual
 author: dalechen
 manager: dcscontentpm
 ms.author: ninarn
-ms.reviewer: carlrab
-ms.date: 11/14/2019
-ms.openlocfilehash: c25fa3f378c1e5a0f8bc26e4fb8c6f4ec752b43c
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.reviewer: carlrab, vanto
+ms.date: 01/14/2020
+ms.openlocfilehash: d2b56e259f551f7655936c975a7a864a27a1df79
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082488"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027798"
 ---
-# <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Trabajo con problemas de conexión de SQL Database y errores transitorios
+# <a name="troubleshooting-transient-connection-errors-to-sql-database"></a>Solución de problemas de errores de conexión transitorios en SQL Database
 
 En este artículo se describe cómo evitar, solucionar, diagnosticar y mitigar los errores de conexión y los errores transitorios que la aplicación cliente encuentra cuando interactúa con Azure SQL Database. Aprenda a configurar la lógica de reintento, generar la cadena de conexión y ajustar otros valores de conexión.
 
@@ -77,8 +77,8 @@ También puede establecer un número máximo de reintentos antes de que el progr
 
 Algunos ejemplos de código con la lógica de reintento se encuentran disponibles en:
 
-- [Connect resiliently to SQL with ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-- [Connect resiliently to SQL with PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+- [Conectar de forma resistente a SQL con ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Paso 4: Conectar de forma resistente a SQL con PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
@@ -275,7 +275,7 @@ Enterprise Library 6 (EntLib60) ofrece clases administradas de .NET para ayudar 
 
 Presentamos algunas instrucciones SELECT de Transact-SQL que consultan los registros de error y otra información.
 
-| Consulta de un registro | DESCRIPCIÓN |
+| Consulta de un registro | Descripción |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |La vista [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) proporciona información acerca de eventos individuales, que incluye algunos que pueden causar errores transitorios o errores de conectividad.<br/><br/>Idealmente, puede poner en correlación los valores **start_time** o **end_time** con información acerca de cuándo ha tenido problemas su programa cliente.<br/><br/>Tiene que conectarse a la base de datos *maestra* para ejecutar esta consulta. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |La vista [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) ofrece recuentos agregados de los tipos de eventos para realizar diagnósticos adicionales.<br/><br/>Tiene que conectarse a la base de datos *maestra* para ejecutar esta consulta. |
@@ -444,7 +444,6 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información para solucionar otros problemas comunes de la conexión de SQL Database, vea [Solución de problemas de conexión de Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
 - [Bibliotecas de conexiones para SQL Database y SQL Server](sql-database-libraries.md)
 - [SQL Server connection pooling (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling) [Agrupación de conexiones de SQL Server (ADO.NET)]
 - [*Retrying* es una biblioteca de reintentos de uso general con licencia de Apache 2.0, escrita en Python,](https://pypi.python.org/pypi/retrying) para simplificar la tarea de agregar comportamiento de reintento a prácticamente todo.
