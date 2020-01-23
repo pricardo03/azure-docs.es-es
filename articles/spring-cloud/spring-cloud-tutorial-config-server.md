@@ -3,15 +3,15 @@ title: 'Tutorial: Configuración de una instancia de Config Server en Azure Spri
 description: En este tutorial aprenderá a configurar una instancia de Config Server para Azure Spring Cloud en Azure Portal
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.author: jeconnoc
-author: jpconnock
+ms.author: brendm
+author: bmitchell287
 ms.date: 10/18/2019
-ms.openlocfilehash: 186ba771d2df3b08244a05e349beea8dad2af93b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 5e0b5633a153583117cfe0d90ec5c0e7c5f2a147
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708794"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277529"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Tutorial: Configuración de una instancia de Config Server en Spring Cloud para su servicio
 
@@ -19,8 +19,8 @@ En este tutorial se muestra cómo conectar una instancia de Config Server en Spr
 
 Spring Cloud Config ofrece soporte técnico para servidor y cliente para las configuraciones externalizadas de un sistema distribuido. La instancia de Config Server es un lugar centralizado donde puede administrar las propiedades externas de las aplicaciones de todos los entornos. Para más información al respecto, consulte la [Guía de referencia de Config Server en Spring Cloud](https://spring.io/projects/spring-cloud-config).
 
-## <a name="prerequisites"></a>Requisitos previos
-* Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
+## <a name="prerequisites"></a>Prerequisites
+* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 * Un servicio de Azure Spring Cloud aprovisionado y en ejecución. Para configurar e iniciar el servicio Azure Spring Cloud, consulte [Inicio rápido: Inicio de una aplicación Java Spring mediante la CLI de Azure](spring-cloud-quickstart-launch-app-cli.md).
 
 ## <a name="restriction"></a>Restricción
@@ -56,8 +56,8 @@ En la siguiente tabla se enumeran todas las propiedades configurables que se usa
 | Propiedad        | Obligatorio | Característica                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | Sí    | El identificador URI del repositorio de Git que se usa como back-end de Config Server comienza por *http://* , *https://* , *git@* o *ssh://* . |
-| `default-label` | Sin     | La etiqueta predeterminada del repositorio de Git debe ser el *nombre de rama*, el *nombre de etiqueta* o el  *identificador de confirmación* del repositorio. |
-| `search-paths`  | Sin     | Matriz de cadenas que se usan para buscar en subdirectorios del repositorio de Git. |
+| `default-label` | No     | La etiqueta predeterminada del repositorio de Git debe ser el *nombre de rama*, el *nombre de etiqueta* o el  *identificador de confirmación* del repositorio. |
+| `search-paths`  | No     | Matriz de cadenas que se usan para buscar en subdirectorios del repositorio de Git. |
 
 ------
 
@@ -71,12 +71,12 @@ En la siguiente tabla se enumeran todas las propiedades configurables que se usa
 | Propiedad                   | Obligatorio | Característica                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
 | `uri`                      | Sí    | El identificador URI del repositorio de Git que se usa como back-end de Config Server debe empezar por *http://* , *https://* , *git@* o *ssh://* . |
-| `default-label`            | Sin     | La etiqueta predeterminada del repositorio de Git debe ser el *nombre de rama*, el *nombre de etiqueta* o el  *identificador de confirmación* del repositorio. |
-| `search-paths`             | Sin     | Matriz de cadenas que se usa para buscar en subdirectorios del repositorio de Git. |
-| `private-key`              | Sin     | La clave privada de SSH para acceder al repositorio de Git; se _requiere_ cuando el identificador URI comienza por *git@* o *ssh://* . |
-| `host-key`                 | Sin     | La clave de host del servidor de repositorio de Git no debe incluir el prefijo del algoritmo, tal y como se describe en `host-key-algorithm`. |
-| `host-key-algorithm`       | Sin     | El algoritmo de la clave de host debe ser *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384* o *ecdsa-sha2-nistp521*. *Se requiere* solo si `host-key` existe. |
-| `strict-host-key-checking` | Sin     | Indica si la instancia de Config Server no se inicia al utilizar el valor de `host-key` de tipo privado. Debería ser *true* (valor predeterminado) o *false*. |
+| `default-label`            | No     | La etiqueta predeterminada del repositorio de Git debe ser el *nombre de rama*, el *nombre de etiqueta* o el  *identificador de confirmación* del repositorio. |
+| `search-paths`             | No     | Matriz de cadenas que se usa para buscar en subdirectorios del repositorio de Git. |
+| `private-key`              | No     | La clave privada de SSH para acceder al repositorio de Git; se _requiere_ cuando el identificador URI comienza por *git@* o *ssh://* . |
+| `host-key`                 | No     | La clave de host del servidor de repositorio de Git no debe incluir el prefijo del algoritmo, tal y como se describe en `host-key-algorithm`. |
+| `host-key-algorithm`       | No     | El algoritmo de la clave de host debe ser *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384* o *ecdsa-sha2-nistp521*. *Se requiere* solo si `host-key` existe. |
+| `strict-host-key-checking` | No     | Indica si la instancia de Config Server no se inicia al utilizar el valor de `host-key` de tipo privado. Debería ser *true* (valor predeterminado) o *false*. |
 
 -----
 
@@ -90,10 +90,10 @@ A continuación se enumeran todas las propiedades configurables que se usan para
 | Propiedad        | Obligatorio | Característica                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | Sí    | El identificador URI del repositorio de Git que se usa como back-end de Config Server debe empezar por *http://* , *https://* , *git@* o *ssh://* . |
-| `default-label` | Sin     | La etiqueta predeterminada del repositorio de Git debe ser el *nombre de rama*, el *nombre de etiqueta* o el  *identificador de confirmación* del repositorio. |
-| `search-paths`  | Sin     | Matriz de cadenas que se usa para buscar en subdirectorios del repositorio de Git. |
-| `username`      | Sin     | El nombre de usuario que se utiliza para acceder al servidor del repositorio de Git; _se requiere_ cuando el servidor del repositorio de GIT admite `Http Basic Authentication`. |
-| `password`      | Sin     | La contraseña que se utiliza para acceder al servidor del repositorio de Git; _se requiere_ cuando el servidor del repositorio de GIT admite `Http Basic Authentication`. |
+| `default-label` | No     | La etiqueta predeterminada del repositorio de Git debe ser el *nombre de rama*, el *nombre de etiqueta* o el  *identificador de confirmación* del repositorio. |
+| `search-paths`  | No     | Matriz de cadenas que se usa para buscar en subdirectorios del repositorio de Git. |
+| `username`      | No     | El nombre de usuario que se utiliza para acceder al servidor del repositorio de Git; _se requiere_ cuando el servidor del repositorio de GIT admite `Http Basic Authentication`. |
+| `password`      | No     | La contraseña que se utiliza para acceder al servidor del repositorio de Git; _se requiere_ cuando el servidor del repositorio de GIT admite `Http Basic Authentication`. |
 
 > [!NOTE]
 > Muchos servidores de repositorio de `Git` admiten el uso de tokens, en lugar de contraseñas, para la autenticación HTTP básica. En algunos repositorios, como GitHub, se permite que los tokens se conserven indefinidamente. Sin embargo, algunos servidores de repositorio de Git, incluido Azure DevOps, obligan a que los tokens expiren en unas horas. Los repositorios que hacen que los tokens expiren no deben usar la autenticación basada en tokens con Azure Spring Cloud.
@@ -107,24 +107,24 @@ A continuación se enumeran todas las propiedades configurables que se usan para
 
 | Propiedad                           | Obligatorio         | Característica                                                      |
 | :--------------------------------- | ---------------- | ------------------------------------------------------------ |
-| `repos`                            | Sin             | Mapa que consta de los valores de un repositorio de Git con un nombre determinado. |
+| `repos`                            | No             | Mapa que consta de los valores de un repositorio de Git con un nombre determinado. |
 | `repos."uri"`                      | Sí en `repos` | El identificador URI del repositorio de Git que se usa como back-end de Config Server debe empezar por *http://* , *https://* , *git@* o *ssh://* . |
 | `repos."name"`                     | Sí en `repos` | Nombre que se identifica en el repositorio de Git; _se requiere_ solo si `repos` existe. Por ejemplo, *equipo-A* o *equipo-B*. |
-| `repos."pattern"`                  | Sin             | Matriz de cadenas que se utiliza para coincidir con un nombre de aplicación. Para cada patrón, use el formato `{application}/{profile}` con caracteres comodín. |
-| `repos."default-label"`            | Sin             | La etiqueta predeterminada del repositorio de Git debe ser el *nombre de rama*, el *nombre de etiqueta* o el  *identificador de confirmación* del repositorio. |
-| `repos."search-paths`"             | Sin             | Matriz de cadenas que se usa para buscar en subdirectorios del repositorio de Git. |
-| `repos."username"`                 | Sin             | El nombre de usuario que se utiliza para acceder al servidor del repositorio de Git; _se requiere_ cuando el servidor del repositorio de GIT admite `Http Basic Authentication`. |
-| `repos."password"`                 | Sin             | La contraseña que se utiliza para acceder al servidor del repositorio de Git; _se requiere_ cuando el servidor del repositorio de GIT admite `Http Basic Authentication`. |
-| `repos."private-key"`              | Sin             | La clave privada de SSH para acceder al repositorio de Git, _se requiere_ cuando el identificador URI comienza por *git@* o *ssh://* . |
-| `repos."host-key"`                 | Sin             | La clave de host del servidor de repositorio de Git no debe incluir el prefijo del algoritmo, tal y como se describe en `host-key-algorithm`. |
-| `repos."host-key-algorithm"`       | Sin             | El algoritmo de la clave de host debe ser *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384* o *ecdsa-sha2-nistp521*. *Se requiere* solo si `host-key` existe. |
-| `repos."strict-host-key-checking"` | Sin             | Indica si la instancia de Config Server no se inicia al utilizar el valor de `host-key` de tipo privado. Debería ser *true* (valor predeterminado) o *false*. |
+| `repos."pattern"`                  | No             | Matriz de cadenas que se utiliza para coincidir con un nombre de aplicación. Para cada patrón, use el formato `{application}/{profile}` con caracteres comodín. |
+| `repos."default-label"`            | No             | La etiqueta predeterminada del repositorio de Git debe ser el *nombre de rama*, el *nombre de etiqueta* o el  *identificador de confirmación* del repositorio. |
+| `repos."search-paths`"             | No             | Matriz de cadenas que se usa para buscar en subdirectorios del repositorio de Git. |
+| `repos."username"`                 | No             | El nombre de usuario que se utiliza para acceder al servidor del repositorio de Git; _se requiere_ cuando el servidor del repositorio de GIT admite `Http Basic Authentication`. |
+| `repos."password"`                 | No             | La contraseña que se utiliza para acceder al servidor del repositorio de Git; _se requiere_ cuando el servidor del repositorio de GIT admite `Http Basic Authentication`. |
+| `repos."private-key"`              | No             | La clave privada de SSH para acceder al repositorio de Git, _se requiere_ cuando el identificador URI comienza por *git@* o *ssh://* . |
+| `repos."host-key"`                 | No             | La clave de host del servidor de repositorio de Git no debe incluir el prefijo del algoritmo, tal y como se describe en `host-key-algorithm`. |
+| `repos."host-key-algorithm"`       | No             | El algoritmo de la clave de host debe ser *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384* o *ecdsa-sha2-nistp521*. *Se requiere* solo si `host-key` existe. |
+| `repos."strict-host-key-checking"` | No             | Indica si la instancia de Config Server no se inicia al utilizar el valor de `host-key` de tipo privado. Debería ser *true* (valor predeterminado) o *false*. |
 
 ## <a name="attach-your-config-server-repository-to-azure-spring-cloud"></a>Conexión de un repositorio de Config Server a Azure Spring Cloud
 
 Una vez que los archivos de configuración se han guardado en un repositorio, es preciso conectarlo a Azure Spring Cloud.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Vaya a la página **Información general** de Azure Spring Cloud.
 

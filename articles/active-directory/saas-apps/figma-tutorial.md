@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb2da2214cd5fab378368a363e6f18e02626b9d8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: dfa07b3df7071ed99a02b854ff41ad6a5137c8dc
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373110"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292848"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-figma"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Figma
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a integrar Figma con Azure Active Directory (Azure�
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para empezar, necesita los siguientes elementos:
 
@@ -92,7 +92,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.figma.com/saml/<TENANT ID>/start`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Obtendrá el `TENANT ID` del paso 11 del artículo de Figma [Configuración del proceso de Azure Active Directory SAML SSO](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
+    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Obtendrá el `TENANT ID` del paso 11 del artículo de Figma [Configuración del proceso de Azure Active Directory SAML SSO](https://help.figma.com/hc/en-us/articles/360040532413-Configure-and-Provision-SAML-SSO-with-Azure-Active-Directory).
 
 1. La aplicación espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
@@ -100,7 +100,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Además de lo anterior, la aplicación Figma espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
-    | NOMBRE | Atributo de origen|
+    | Nombre | Atributo de origen|
     | ---------------| --------- |
     | `externalId` | `user.mailnickname` |
     | `displayName` | `user.displayname` |
@@ -124,7 +124,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -146,7 +146,7 @@ En esta sección, va a permitir que B.Simon acceda a Figma mediante el inicio de
 
 ## <a name="configure-figma-sso"></a>Configuración del inicio de sesión único de Figma
 
-Para configurar el inicio de sesión único en Figma, deberá seguir el artículo de Figma [Configure Azure Active Directory SAML SSO process](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso) (Proceso de configuración de Azure Active Directory SAM SSO).
+Para configurar el inicio de sesión único en Figma, deberá seguir el artículo de Figma [Configure Azure Active Directory SAML SSO process](https://help.figma.com/hc/en-us/articles/360040532413-Configure-and-Provision-SAML-SSO-with-Azure-Active-Directory) (Proceso de configuración de Azure Active Directory SAM SSO).
 
 ### <a name="create-figma-test-user"></a>Creación del usuario de prueba de Figma
 

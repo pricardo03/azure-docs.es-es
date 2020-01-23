@@ -1,20 +1,18 @@
 ---
 title: '(EN DESUSO) Tutorial de Azure Container Service: escalado de una aplicación'
 description: 'Tutorial de Azure Container Service: escalado de una aplicación'
-services: container-service
 author: dlepow
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b16682535e7311648e832286e1e876ee0e694712
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b0aa78a519567a8e1ffd76e26f1d9ea3ca701fca
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993069"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274171"
 ---
 # <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(EN DESUSO) Escalado de pods de Kubernetes e infraestructura de Kubernetes
 
@@ -145,7 +143,7 @@ La salida del comando muestra el número de nodos de agente en el valor de `agen
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, se han usado distintas características de escalado en el clúster de Kubernetes. Las tareas tratadas incluyen:
+En este tutorial, se han usado distintas características de escalado en el clúster de Kubernetes. Estas son las tareas que se han tratado:
 
 > [!div class="checklist"]
 > * Escalado manual de pods de Kubernetes

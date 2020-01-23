@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: hamusa
-ms.openlocfilehash: 58e6e7b3cdf749909165d7ff071a2f3885d7e8b9
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 7f161afe13bad8c548806d4b4ceb9372dc511cc3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028729"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289448"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Evaluación de máquinas virtuales de VMware mediante Server Assessment de Azure Migrate
 
@@ -176,7 +176,7 @@ El dispositivo necesita conectarse a vCenter Server para detectar los datos de c
 1. Seleccione **Validar conexión** para asegurarse de que el dispositivo puede conectarse a vCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Especificación de las credenciales de máquina virtual
-Para la detección de aplicaciones, roles y características y la visualización de las dependencias de las máquinas virtuales, puede proporcionar credenciales de máquina virtual que tengan acceso a las máquinas virtuales de VMware. Puede agregar una credencial para máquinas virtuales Windows y otra para máquinas virtuales Linux. [Más información](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sobre los permisos de acceso necesarios.
+Para la detección de aplicaciones, roles y características y la visualización de las dependencias de las máquinas virtuales, puede proporcionar credenciales de máquina virtual que tengan acceso a las máquinas virtuales de VMware. Puede agregar una credencial para máquinas virtuales Windows y otra para máquinas virtuales Linux. [Más información](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) sobre los permisos de acceso necesarios.
 
 > [!NOTE]
 > Esta entrada es opcional, pero es necesaria si quiere permitir la detección de aplicaciones y la visualización de dependencias sin agente.
@@ -210,7 +210,7 @@ Este procedimiento es necesario para la migración de un servidor sin agente.
 1.  Seleccione la instancia de vCenter Server en el menú desplegable.
 1.  Seleccione **Create Role** (Crear rol).
 1.  Escriba un nombre para el nuevo rol (por ejemplo, <em>Azure_Migrate</em>).
-1.  Asigne [permisos](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) al rol recién definido.
+1.  Asigne [permisos](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) al rol recién definido.
 1.  Seleccione **Aceptar**.
 
 #### <a name="3-assign-permissions-on-vcenter-objects"></a>3. Asignación de permisos de los objetos de vCenter
@@ -219,7 +219,7 @@ Hay dos formas de asignar permisos de los objetos de inventario de vCenter a la 
 
 En Server Assessment, se debe aplicar el rol de **solo lectura** a la cuenta de usuario de vCenter para todos los objetos primarios en los que se hospedan las máquinas virtuales que se van a detectar. Se incluyen todos los objetos primarios (host, carpeta de hosts, clúster, carpeta de clústeres) de la jerarquía hasta el centro de datos. Estos permisos se propagan a los objetos secundarios de la jerarquía.
 
-De forma similar a la migración del servidor, debe aplicar un rol definido por el usuario con [permisos](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) a la cuenta de usuario de vCenter para todos los objetos primarios en los que se hospedan las máquinas virtuales que se van a migrar. Este rol se puede denominar <em>Azure_Migrate</em>.
+De forma similar a la migración del servidor, debe aplicar un rol definido por el usuario con [permisos](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) a la cuenta de usuario de vCenter para todos los objetos primarios en los que se hospedan las máquinas virtuales que se van a migrar. Este rol se puede denominar <em>Azure_Migrate</em>.
 
 ![Asignación de permisos](./media/tutorial-assess-vmware/assign-perms.png)
 

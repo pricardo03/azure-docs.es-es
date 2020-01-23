@@ -1,26 +1,20 @@
 ---
 title: 'Equilibrio de carga entre varios sitios web con Azure PowerShell: Azure Load Balancer'
 description: En este ejemplo de script de Azure PowerShell se muestra cómo equilibrar la carga entre varios sitios web con la misma máquina virtual
-services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
-manager: jeconnoc
-editor: tysonn
-tags: ''
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
-ms.openlocfilehash: 82bd8a82418bad44786f009c75d742fcc0fc66e7
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: b7beb5186bd039d7098883915663e8a3286fb99d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048903"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274599"
 ---
 # <a name="azure-powershell-script-example-load-balance-multiple-websites"></a>Ejemplo de script de Azure PowerShell: Equilibrio de carga entre varios sitios web
 

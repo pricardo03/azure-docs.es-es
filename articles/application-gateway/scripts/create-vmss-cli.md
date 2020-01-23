@@ -4,7 +4,6 @@ description: 'Ejemplo de script de la CLI de Azure: administrar el tráfico de w
 services: application-gateway
 documentationcenter: networking
 author: vhorne
-manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
@@ -14,16 +13,16 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 99d0939b30d04fbd5c0eb7a287105bb4cf27e9f4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f1815d3dbf70e5599aa53633b43029b16cf94037
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116770"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273853"
 ---
 # <a name="manage-web-traffic-using-the-azure-cli"></a>Administrar el tráfico web mediante la CLI de Azure
 
-En este script se crea una puerta de enlace de aplicaciones que usa un conjunto de escalado de máquinas virtuales para los servidores back-end. La puerta de enlace de aplicaciones se puede configurar para administrar el tráfico web. Después de ejecutar el script, se puede probar la puerta de enlace de aplicaciones mediante la dirección IP pública.
+Este script crea una puerta de enlace de aplicaciones que usa un conjunto de escalado de máquinas virtuales para los servidores back-end. La puerta de enlace de aplicaciones se puede configurar para administrar el tráfico web. Después de ejecutar el script, se puede probar la puerta de enlace de aplicaciones mediante la dirección IP pública.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
